@@ -1233,7 +1233,15 @@ const gameEls = {
   weight: document.getElementById('round-weight'),
   clue: document.getElementById('clue'),
   hint: document.getElementById('guess-hint'),
+  header: document.querySelector('.round-header'),
+  revealName: document.getElementById('reveal-name'),
+  revealPill: document.getElementById('reveal-pill'),
   reveal: document.getElementById('reveal-card'),
+  peekBar: document.getElementById('peek-bar'),
+  peekName: document.getElementById('peek-name'),
+  peekThumb: document.getElementById('peek-thumb'),
+  sheetContent: document.getElementById('sheet-content'),
+  lineDistance: document.getElementById('line-distance'),
   distance: document.getElementById('distance'),
   baseScore: document.getElementById('base-score'),
   mult: document.getElementById('score-mult'),
@@ -1676,7 +1684,8 @@ flyoverStyle.textContent = `
 .postcard img { display: block; width: 100%; height: 124px; object-fit: cover; object-position: center 20%; background: #d9d4c8; }
 .thumb-slot { position: relative; }
 .thumb-slot.waiting::before { content: ""; position: absolute; inset: 2px 0; box-sizing: border-box; border: 1.5px dashed rgba(193,224,250,.42); border-radius: 10px; background: rgba(193,224,250,.05); }
-.thumb-slot.waiting #place-thumb { opacity: 0; }
+.thumb-slot.waiting img { opacity: 0; }
+.peek-slot.waiting::before { inset: 0; }
 .postcard p { margin: 0; height: 34px; overflow: hidden; color: #1d2633; font: 600 15px/34px "Marker Felt", "Bradley Hand", "Segoe Print", cursive; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 body.bullseye #reveal-card { border-color: rgba(255,212,94,.5); }`;
 document.head.appendChild(flyoverStyle);
@@ -1728,13 +1737,25 @@ const POSTCARD_SETTLE_MS = 640;
 
 // The thumb sits in a slot that shows a dashed outline while the postcard is
 // out, so the card never shows an unexplained gap where the photo will land.
+// The sheet has two: the peek bar's square (where the postcard lands while
+// the sheet is collapsed) and the expanded content's wide thumb.
 const thumbSlot = document.createElement('div');
 thumbSlot.className = 'thumb-slot';
 gameEls.thumb.before(thumbSlot);
 thumbSlot.append(gameEls.thumb);
-// The reveal card is visibility:hidden during the flight, so a lazy thumb would
-// only start fetching once the card appears, after the postcard needs it.
+const peekSlot = gameEls.peekThumb.parentElement;
+const thumbSlots = [thumbSlot, peekSlot];
+// The reveal sheet is hidden during the flight, so a lazy thumb would only
+// start fetching once the sheet appears, after the postcard needs it.
 gameEls.thumb.loading = 'eager';
+
+// Whichever thumb the postcard can settle into right now, or null.
+function postcardTarget() {
+  if (gameEls.reveal.hidden) return null;
+  const expanded = gameEls.reveal.classList.contains('expanded');
+  const thumb = expanded ? gameEls.thumb : gameEls.peekThumb;
+  return thumb.hidden || (thumb === gameEls.peekThumb && peekSlot.hidden) ? null : thumb;
+}
 
 // Load the photo at full priority as the flight starts. The preload is a
 // detached Image: a failed load on an in-document <img> reaches the window
@@ -1769,11 +1790,11 @@ function clearPostcard() {
   postcardImg.getAnimations().forEach((a) => a.cancel());
   postcardCaption.getAnimations().forEach((a) => a.cancel());
   postcard.hidden = true;
-  thumbSlot.classList.remove('waiting');
+  thumbSlots.forEach((slot) => slot.classList.remove('waiting'));
 }
 
-// Earliest settle: the hold from touchdown, and never before the card is there
-// to land in (unknown until the pullback starts).
+// Earliest settle: the hold from touchdown, and never before the sheet is
+// there to land in (unknown until the pullback starts).
 function postcardSettleAt(run) {
   let at = Math.max(run.landedAt + POSTCARD_HOLD_MS, revealCardAt ?? Infinity);
   if (run.popAt != null) at = Math.max(at, run.popAt + POSTCARD_POP_MS + POSTCARD_MIN_SHOW_MS);
@@ -1786,7 +1807,7 @@ function postcardLanded(b) {
   if (!postcardPhoto || postcardPhoto.failed) return;
   const run = { b, landedAt: performance.now(), popAt: null, phase: 'pending' };
   postcardRun = run;
-  thumbSlot.classList.add('waiting');
+  thumbSlots.forEach((slot) => slot.classList.add('waiting'));
   if (postcardPhoto.ok) popPostcard();
   const tick = () => {
     if (postcardRun !== run || run.phase === 'settling') return;
@@ -1809,10 +1830,11 @@ function postcardCardShown(fadeMs) {
 // fade in whenever it loads.
 function abandonPostcard() {
   postcardRun = null;
-  thumbSlot.classList.remove('waiting');
-  const thumb = gameEls.thumb;
-  const fadeIn = () => thumb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
-  if (!thumb.complete) thumb.addEventListener('load', fadeIn, { once: true });
+  thumbSlots.forEach((slot) => slot.classList.remove('waiting'));
+  for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
+    const fadeIn = () => thumb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
+    if (!thumb.complete) thumb.addEventListener('load', fadeIn, { once: true });
+  }
 }
 
 function popPostcard() {
@@ -1823,9 +1845,11 @@ function popPostcard() {
   const v = run.b.clone().multiplyScalar(1.02).applyQuaternion(globe.quaternion).project(camera);
   const fromX = ((v.x + 1) / 2) * viewW;
   const fromY = ((1 - v.y) / 2) * viewH;
-  const header = gameEls.round.querySelector('.round-header').getBoundingClientRect();
+  // Hold it in the band below the reveal framing (where the sheet will rise),
+  // so it never covers the pins while the map has the stage, and clear of the
+  // distance pill at the very bottom.
   const x = viewW / 2;
-  const y = Math.max(header.bottom + POSTCARD_H / 2 + 14, viewH * 0.3);
+  const y = Math.min(viewH - 96 - POSTCARD_H / 2, Math.max(revealStrip().safeBottom + POSTCARD_H / 2 + 10, viewH * 0.72));
   run.x = x - POSTCARD_W / 2;
   run.y = y - POSTCARD_H / 2;
   postcard.hidden = false;
@@ -1842,8 +1866,9 @@ function popPostcard() {
 function settlePostcard() {
   const run = postcardRun;
   run.phase = 'settling';
-  const thumb = gameEls.thumb;
-  if (thumb.hidden) {
+  const thumb = postcardTarget();
+  run.thumb = thumb;
+  if (!thumb) {
     postcard.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: 'forwards' }).onfinish = () => {
       if (postcardRun === run) clearPostcard();
     };
@@ -1882,7 +1907,7 @@ function swapPostcard(run) {
   clearPostcard();
   audio.tick();
   // The slot takes the weight: a small press and rebound.
-  gameEls.thumb.animate([
+  run.thumb.animate([
     { transform: 'scale(1)' },
     { transform: 'scale(.975)', offset: 0.35 },
     { transform: 'scale(1.008)', offset: 0.7 },
@@ -2019,7 +2044,9 @@ function distanceKm(a, b) {
 }
 
 function scoreGuess(km, round) {
-  return Math.round(100 * Math.exp(-km / 4650)) * WEIGHTS[round];
+  // Bullseye (<25km) always scores 100
+  const base = km < BULLSEYE_KM ? 100 : Math.round(100 * Math.exp(-km / 4650));
+  return base * WEIGHTS[round];
 }
 
 function streakText() {
@@ -2056,9 +2083,8 @@ function clearReveal() {
   travelHead.visible = false;
   setCameraNear(0.05);
   gameEls.travelDistance.getAnimations().forEach((a) => a.cancel());
-  gameEls.reveal.getAnimations().forEach((a) => a.cancel());
   gameEls.travelDistance.hidden = true;
-  gameEls.reveal.classList.remove('travel-pending');
+  hideRevealSheet();
   resetFlyoverExtras();
   correctPin.release();
   answerLine.visible = false;
@@ -2094,7 +2120,6 @@ function showRound() {
   }
   gameEls.clue.textContent = item.clue;
   gameEls.hint.textContent = 'Tap the globe to lock in your guess';
-  gameEls.reveal.hidden = true;
 }
 
 // Rotation axis of the shortest great circle from a to b. Coincident or exactly
@@ -2145,6 +2170,7 @@ function placeRevealVisual(guess, answer) {
   correctPin.drop(b);
   answerLine.visible = true;
   frameRevealPoints(a, b);
+  return { a, b };
 }
 
 function beginTravelReveal(guess, answer, km) {
@@ -2158,8 +2184,6 @@ function beginTravelReveal(guess, answer, km) {
   gameEls.distance.textContent = `${km.toLocaleString()} km`;
   gameEls.travelDistance.querySelector('span').textContent = '0 km';
   gameEls.travelDistance.hidden = true;
-  gameEls.reveal.hidden = false;
-  gameEls.reveal.classList.add('travel-pending');
   preparePostcard(answer);
   travelAnimation = {
     ...path,
@@ -2199,8 +2223,6 @@ function beginBullseyeReveal(guess, answer, km) {
   correctPin.state = 'idle';
   correctPin.setColor(GOLD_COLOR, '#fff6d8');
   gameEls.distance.textContent = `${km.toLocaleString()} km`;
-  gameEls.reveal.hidden = false;
-  gameEls.reveal.classList.add('travel-pending');
   preparePostcard(answer);
   travelAnimation = {
     ...path,
@@ -2237,6 +2259,184 @@ function fadeElement(el, show, duration, delay = 0) {
   );
   if (!show) fade.onfinish = () => { el.hidden = true; };
 }
+
+// ---------------------------------------------------------------------------
+// Two-beat reveal: the map plays alone (route, framing, score pill, distance
+// riding the line) for REVEAL_BEAT_MS, then the bottom sheet peeks up. The
+// peek bar carries name, score, distance and Next; a tap (or swipe up) opens
+// the photo and fact underneath.
+// ---------------------------------------------------------------------------
+const REVEAL_BEAT_MS = 1500;
+const SHEET_SLIDE_MS = 380;
+const SHEET_PEEK_H = 80;
+const REVEAL_HEADER_H = 46; // the collapsed one-line header, see style.css
+let sheetTimer = 0;
+let lineLabel = null; // { mid, a, b } globe-local, while the label is on
+
+// Beat one. Called as the camera starts settling on the final framing.
+function startRevealBeat(a, b, showLabel = true) {
+  gameEls.revealPill.hidden = !gameEls.revealPill.textContent;
+  if (!gameEls.revealPill.hidden) {
+    gameEls.revealPill.animate([
+      { opacity: 0, transform: 'translateX(-50%) translateY(-6px) scale(.92)' },
+      { opacity: 1, transform: 'translateX(-50%) translateY(0) scale(1)' },
+    ], { duration: 320, delay: 360, easing: 'cubic-bezier(.2,.9,.3,1.2)', fill: 'backwards' }); // after the header collapse
+  }
+  if (showLabel) showLineLabel(a, b);
+  clearTimeout(sheetTimer);
+  sheetTimer = setTimeout(() => showRevealSheet(true), REVEAL_BEAT_MS);
+  postcardCardShown(REVEAL_BEAT_MS + SHEET_SLIDE_MS);
+}
+
+function showRevealSheet(animate) {
+  clearTimeout(sheetTimer);
+  sheetTimer = 0;
+  if (gameMode !== 'reveal') return;
+  const sheet = gameEls.reveal;
+  sheet.getAnimations().forEach((a) => a.cancel());
+  sheet.hidden = false;
+  if (animate) {
+    sheet.animate([{ transform: 'translateY(100%)' }, { transform: 'translateY(0)' }],
+      { duration: SHEET_SLIDE_MS, easing: 'cubic-bezier(.2,.9,.25,1)', fill: 'backwards' });
+  }
+  // The score moves into the peek bar; the floating pill bows out.
+  if (!gameEls.revealPill.hidden) fadeElement(gameEls.revealPill, false, 220);
+}
+
+function hideRevealSheet() {
+  clearTimeout(sheetTimer);
+  sheetTimer = 0;
+  gameEls.reveal.getAnimations().forEach((a) => a.cancel());
+  gameEls.reveal.hidden = true;
+  setSheetExpanded(false);
+  gameEls.revealPill.getAnimations().forEach((a) => a.cancel());
+  gameEls.revealPill.hidden = true;
+  gameEls.header.getAnimations().forEach((a) => a.cancel());
+  hideLineLabel();
+}
+
+function setSheetExpanded(expanded) {
+  gameEls.reveal.classList.toggle('expanded', expanded);
+  gameEls.peekBar.setAttribute('aria-expanded', String(expanded));
+  gameEls.sheetContent.setAttribute('aria-hidden', String(!expanded));
+}
+
+// The clue header snaps to its one-line height (so the framing below can
+// rely on it) and the change is played back as a FLIP height animation.
+function collapseRoundHeader(fromHeight) {
+  const header = gameEls.header;
+  header.getAnimations().forEach((a) => a.cancel());
+  header.animate([{ height: `${fromHeight}px` }, { height: `${REVEAL_HEADER_H}px` }],
+    { duration: 340, easing: 'cubic-bezier(.3,.8,.2,1)' });
+  gameEls.revealName.animate([
+    { opacity: 0, transform: 'translateY(6px)' },
+    { opacity: 1, transform: 'translateY(0)' },
+  ], { duration: 300, delay: 140, easing: 'ease-out', fill: 'backwards' });
+}
+
+// The unobscured strip the reveal frames its pins into: below the collapsed
+// header and score pill, and inside the top 60% of the screen so the peek bar
+// (and most of the expanded sheet) never sits on a pin.
+function revealStrip() {
+  const top = gameEls.header.getBoundingClientRect().top || 14;
+  const safeTop = Math.min(viewH * 0.36, top + REVEAL_HEADER_H + 40);
+  const safeBottom = Math.max(safeTop + 120, Math.min(viewH * 0.6, viewH - SHEET_PEEK_H - 24));
+  return { safeTop, safeBottom };
+}
+
+function showLineLabel(a, b) {
+  const mid = a.clone().add(b);
+  if (mid.lengthSq() < 1e-8) mid.copy(a).cross(_UP);
+  lineLabel = { mid: mid.normalize().multiplyScalar(1 + ROUTE_LIFT), a: a.clone(), b: b.clone() };
+  const el = gameEls.lineDistance;
+  el.textContent = gameEls.distance.textContent;
+  el.hidden = true; // updateLineLabel() shows it once it has a position
+  el.dataset.fresh = '1';
+}
+
+function hideLineLabel() {
+  lineLabel = null;
+  gameEls.lineDistance.getAnimations().forEach((a) => a.cancel());
+  gameEls.lineDistance.hidden = true;
+}
+
+const _labelW = new THREE.Vector3();
+const _labelS = new THREE.Vector3();
+function projectToScreen(local, out) {
+  _labelW.copy(local).applyQuaternion(globe.quaternion);
+  const facing = _labelW.dot(camera.position) > _labelW.lengthSq() + 0.02; // in front of the limb
+  out.copy(_labelW).project(camera);
+  return { x: ((out.x + 1) / 2) * viewW, y: ((1 - out.y) / 2) * viewH, facing };
+}
+
+// Pin the distance to the route midpoint every frame. When the pins are close
+// on screen the label lifts above them instead of sitting on the markers.
+function updateLineLabel() {
+  if (!lineLabel) return;
+  const el = gameEls.lineDistance;
+  const m = projectToScreen(lineLabel.mid, _labelS);
+  const onScreen = m.facing && m.x > 0 && m.x < viewW && m.y > 0 && m.y < viewH;
+  if (!onScreen) {
+    el.hidden = true;
+    return;
+  }
+  const { a, b } = lineLabel;
+  const pa = projectToScreen(a, _labelS);
+  const pb = projectToScreen(b, _labelS);
+  // Long routes: the label sits on the line like a map label. Short ones:
+  // it steps off the line along its upward normal, clear of both pins; when
+  // the pins all but coincide it rises above their heads.
+  const dx = pb.x - pa.x, dy = pb.y - pa.y;
+  const len = Math.hypot(dx, dy);
+  let ox = 0, oy = 0;
+  if (len < 56) oy = -52;
+  else if (len < 170) {
+    const sign = dx >= 0 ? 1 : -1; // pick the normal that points up the screen
+    ox = (dy / len) * 30 * sign;
+    oy = (-dx / len) * 30 * sign;
+  }
+  const w = el.offsetWidth || 80;
+  const x = clamp(m.x + ox - w / 2, 8, viewW - w - 8);
+  el.style.transform = `translate(${x.toFixed(1)}px, ${(m.y + oy - 14).toFixed(1)}px)`;
+  if (el.hidden) {
+    el.hidden = false;
+    if (el.dataset.fresh) {
+      delete el.dataset.fresh;
+      el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay: 200, easing: 'ease-out', fill: 'backwards' });
+    }
+  }
+}
+
+gameEls.peekBar.addEventListener('click', (e) => {
+  if (sheetSwiped) {
+    sheetSwiped = false;
+    return;
+  }
+  if (e.target.closest('#next-button')) return;
+  setSheetExpanded(!gameEls.reveal.classList.contains('expanded'));
+});
+gameEls.peekBar.addEventListener('keydown', (e) => {
+  if (e.target !== gameEls.peekBar || (e.key !== 'Enter' && e.key !== ' ')) return;
+  e.preventDefault();
+  setSheetExpanded(!gameEls.reveal.classList.contains('expanded'));
+});
+// A vertical flick on the sheet opens or closes it; the click that follows
+// the pointerup is swallowed so it does not toggle straight back.
+let sheetSwipeY = null;
+let sheetSwiped = false;
+gameEls.reveal.addEventListener('pointerdown', (e) => {
+  sheetSwipeY = e.clientY;
+  sheetSwiped = false;
+});
+gameEls.reveal.addEventListener('pointerup', (e) => {
+  if (sheetSwipeY == null) return;
+  const dy = e.clientY - sheetSwipeY;
+  sheetSwipeY = null;
+  if (Math.abs(dy) < 24 || e.target.closest('#next-button')) return;
+  sheetSwiped = true;
+  setSheetExpanded(dy < 0);
+});
+gameEls.reveal.addEventListener('pointercancel', () => { sheetSwipeY = null; });
 
 function travelView(point) {
   const direction = point.clone().normalize();
@@ -2463,13 +2663,11 @@ function startPullback(anim) {
   anim.pullbackTo = homeRevealView(anim.a, anim.b, revealView);
   targetDist = anim.pullbackTo.dist;
   anim.finalDist = targetDist;
-  // Hand the distance over to the card: fade the pill out and the card in
-  // while the camera pulls back, instead of a blank beat then a hard pop.
+  // Hand the distance over from the flight pill to the label riding the
+  // route; the sheet follows once the map has had its beat.
   if (!gameEls.travelDistance.hidden) fadeElement(gameEls.travelDistance, false, 200);
   if (!bullseyeStamp.hidden) fadeElement(bullseyeStamp, false, 260);
-  gameEls.reveal.classList.remove('travel-pending');
-  fadeElement(gameEls.reveal, true, 420, 180);
-  postcardCardShown(180 + 420);
+  startRevealBeat(anim.a, anim.b, anim.tier !== 'bullseye');
 }
 
 function updatePullback(anim, pullbackDuration = 1.0) {
@@ -2679,7 +2877,7 @@ function safeStrip(headerEl, cardEl) {
   return { safeTop, safeBottom: Math.max(safeTop + 80, card.top - 18) };
 }
 
-function frameRevealPoints(a, b, strip = safeStrip(gameEls.round.querySelector('.round-header'), gameEls.reveal)) {
+function frameRevealPoints(a, b, strip = revealStrip()) {
   const { safeTop, safeBottom } = strip;
   const safeY = (safeTop + safeBottom) / 2;
   const safeRadius = Math.max(40, Math.min(viewW / 2 - 28, safeY - safeTop, safeBottom - safeY));
@@ -2720,10 +2918,7 @@ function frameRevealPoints(a, b, strip = safeStrip(gameEls.round.querySelector('
 // both pins sit in the safe strip, clear of the horizon. Routes too far from
 // the equator to fit that way step the pitch toward the solved one.
 function homeRevealView(a, b, solved) {
-  const header = gameEls.round.querySelector('.round-header').getBoundingClientRect();
-  const card = gameEls.reveal.getBoundingClientRect();
-  const safeTop = Math.min(viewH * 0.42, header.bottom + 18);
-  const safeBottom = Math.max(safeTop + 80, card.top - 18);
+  const { safeTop, safeBottom } = revealStrip();
   const tanV = Math.tan((FOV / 2) * DEG);
   const aspect = viewW / viewH;
   const midpoint = a.clone().add(b);
@@ -2800,29 +2995,42 @@ function revealGuess(guess, restoring = false) {
   }
   gameMode = 'reveal';
   window.__canGuess = false;
+  const headerFrom = gameEls.header.offsetHeight;
   document.body.className = survival.active
     ? `game-reveal survival${survival.missed ? ' survival-miss' : ''}`
     : endless.active ? 'game-reveal endless' : 'game-reveal';
   gameEls.hint.textContent = '';
-  gameEls.hint.style.display = 'none';
   gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : `${km.toLocaleString()} km`;
-  const base = Math.round(100 * Math.exp(-kmExact / 4650));
+  const base = kmExact < BULLSEYE_KM ? 100 : Math.round(100 * Math.exp(-kmExact / 4650));
   const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact) : 0; // exact, so earning matches the flyover tier
   const weight = oneOff ? 1 : WEIGHTS[daily.round];
   gameEls.baseScore.textContent = base;
   gameEls.mult.textContent = `×${weight}`;
   gameEls.mult.style.display = weight > 1 ? '' : 'none';
-  gameEls.score.textContent = `+${score}`;
+  const placeName = answer.short || answer.clue;
+  gameEls.revealName.textContent = placeName;
+  gameEls.peekName.textContent = placeName;
   gameEls.fact.textContent = answer.fact;
   setThumb(gameEls.thumb, answer.image);
+  setThumb(gameEls.peekThumb, answer.image);
+  peekSlot.hidden = !answer.image;
+  const pill = gameEls.revealPill;
+  pill.classList.remove('safe', 'miss');
   if (survival.active) {
     gameEls.survivalStreak.textContent = survival.missed
       ? `Run ended · ${survival.survived} survived`
       : `🔥 ${survival.survived} survived`;
+    gameEls.score.textContent = survival.missed ? '✗ Run over' : `🔥 ${survival.survived}`;
+    pill.textContent = survival.missed ? '✗ Over 150 km' : '✓ Survived';
+    pill.classList.add(survival.missed ? 'miss' : 'safe');
     gameEls.next.textContent = survival.missed ? 'See run' : 'Keep going';
   } else {
-    gameEls.next.textContent = endless.active ? 'Next location' : daily.round === 4 ? 'See results' : 'Next round';
+    // Endless is unscored: no pill, and the peek bar shows just the distance.
+    gameEls.score.textContent = endless.active ? '' : `+${score}`;
+    pill.textContent = endless.active ? '' : `+${score}`;
+    gameEls.next.textContent = endless.active ? 'Next' : daily.round === 4 ? 'Results' : 'Next';
   }
+  if (!restoring && headerFrom > REVEAL_HEADER_H) collapseRoundHeader(headerFrom);
   const tier = flyoverTier(kmExact);
   const animate = window.__travelAnim !== false && !restoring;
   // Queue the earn celebration for after the flyover completes.
@@ -2836,8 +3044,13 @@ function revealGuess(guess, restoring = false) {
     beginBullseyeReveal(guess, answer, km);
   } else if (animate) beginTravelReveal(guess, answer, km);
   else {
-    gameEls.reveal.hidden = false;
-    placeRevealVisual(guess, answer);
+    const { a, b } = placeRevealVisual(guess, answer);
+    gameEls.distance.textContent = `${km.toLocaleString()} km`;
+    if (restoring) {
+      // Coming back to a finished round: no beat to replay.
+      showLineLabel(a, b);
+      showRevealSheet(false);
+    } else startRevealBeat(a, b, tier !== 'bullseye');
   }
 }
 
@@ -3038,7 +3251,6 @@ body.endless .endless-tools { display: flex; justify-content: space-between; gap
 body.endless .round-header, body.endless #reveal-card { border-color: rgba(196,168,255,.5); background: rgba(22,10,42,.86); }
 body.endless .round-meta span:first-child { color: #cdb6ff; }
 body.endless #reveal-card .score-math { display: none; }
-body.endless #next-button { display: none; }
 body.endless:not(.game-reveal) [data-endless="next"] { visibility: hidden; }
 .endless-pill[data-endless="next"] { border-color: rgba(196,168,255,.7); background: rgba(150,110,255,.32); color: #fff; }
 .endless-pill { min-height: 36px; padding: 0 14px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12); color: #ece4ff; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; touch-action: manipulation; }`;
@@ -5028,6 +5240,7 @@ function frame() {
   pins.forEach((p) => p.update(pinDt, elapsed, travelPinScale(p, pinScale)));
   correctPin.update(pinDt, elapsed, travelPinScale(correctPin, pinScale));
   updateReview(dt, pinScale);
+  updateLineLabel();
   passportDots.visible = false; // disabled: no dots on landing page
 
   renderer.render(scene, camera);
