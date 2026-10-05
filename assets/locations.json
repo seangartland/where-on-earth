@@ -897,7 +897,7 @@
     "lat": 6.9248,
     "lng": 158.1611,
     "fact": "This capital of the Federated States of Micronesia sits on Pohnpei island and is home to only a few thousand people.",
-    "difficulty": 3,
+    "difficulty": 8,
     "short": "Palikir",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Palikir_2025-Presidential2.jpg/500px-Palikir_2025-Presidential2.jpg"
   },
@@ -963,7 +963,7 @@
     "lat": -0.5477,
     "lng": 166.9209,
     "fact": "This is the de facto capital of Nauru, the world's third-smallest country, an island once stripped bare by phosphate mining.",
-    "difficulty": 3,
+    "difficulty": 8,
     "short": "Yaren",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Parliament_%2815403802091%29.jpg/500px-Parliament_%2815403802091%29.jpg"
   },
@@ -985,7 +985,7 @@
     "lat": 7.5006,
     "lng": 134.6242,
     "fact": "One of the least populated national capitals on Earth, it was purpose-built in the 2000s and has only a few hundred residents.",
-    "difficulty": 3,
+    "difficulty": 8,
     "short": "Ngerulmud",
     "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8f/Capitol%2C_Melekeok%2C_Palau.jpg/500px-Capitol%2C_Melekeok%2C_Palau.jpg"
   },
@@ -9442,7 +9442,7 @@
     "fact": "Yantai is a Shandong port on the Bohai Strait and one of China's oldest wine regions, home to the Changyu winery founded in 1892.",
     "lat": 37.47649,
     "lng": 121.44081,
-    "difficulty": 5,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg"
   },
   {
@@ -9542,7 +9542,7 @@
     "fact": "Zibo was the capital of the ancient state of Qi and became a viral food destination in 2023 for its DIY barbecue.",
     "lat": 36.79056,
     "lng": 118.06333,
-    "difficulty": 7,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Temple_of_Heaven_20160323_01.jpg/500px-Temple_of_Heaven_20160323_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9602,7 +9602,7 @@
     "fact": "Huai'an is a Grand Canal city in Jiangsu and the hometown of Zhou Enlai, China's first premier.",
     "lat": 33.58861,
     "lng": 119.01917,
-    "difficulty": 6,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -9712,7 +9712,7 @@
     "fact": "Shantou was one of China's first Special Economic Zones and is a center of Teochew culture, known for kung fu tea and beef hotpot.",
     "lat": 23.35489,
     "lng": 116.67876,
-    "difficulty": 5,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -9762,7 +9762,7 @@
     "fact": "Puyang is an oil city in northern Henan, where a 6,000-year-old dragon figure made of clamshells was excavated.",
     "lat": 29.45679,
     "lng": 119.88872,
-    "difficulty": 2,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9822,7 +9822,7 @@
     "fact": "L\u00fcliang is a mountainous Shanxi city along the Yellow River and the home of Fenjiu, one of China's oldest baijiu liquors.",
     "lat": 37.5192,
     "lng": 111.14436,
-    "difficulty": 2,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Pingyao_Shilou_2013.08.25_07-01-33.jpg/500px-Pingyao_Shilou_2013.08.25_07-01-33.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10052,7 +10052,7 @@
     "fact": "Bazhong is a hilly Sichuan city known for its Tang-dynasty cliff carvings of Buddhist figures.",
     "lat": 31.8694,
     "lng": 106.74432,
-    "difficulty": 2,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/500px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10802,7 +10802,7 @@
     "fact": "Chengtangcun is a densely built locality in Guangdong's Pearl River Delta manufacturing belt.",
     "lat": 35.08357,
     "lng": 117.19071,
-    "difficulty": 3,
+    "difficulty": 9,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10902,7 +10902,7 @@
     "fact": "Kallakurichi is a Tamil Nadu town surrounded by sugarcane farms, near the forested Kalvarayan Hills.",
     "lat": 11.73379,
     "lng": 78.95925,
-    "difficulty": 3,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Adams_Bridge_aerial.jpg/500px-Adams_Bridge_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11402,7 +11402,7 @@
     "fact": "Guankou is a small town in China's hill country, at the foot of local mountain ranges.",
     "lat": 28.15861,
     "lng": 113.62709,
-    "difficulty": 4,
+    "difficulty": 9,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg/500px-1_tianzishan_wulingyuan_zhangjiajie_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11612,7 +11612,7 @@
     "fact": "Budta is a settlement in the marshy interior of Mindanao in the southern Philippines.",
     "lat": 7.20417,
     "lng": 124.43972,
-    "difficulty": 4,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Chocolate_Hills_Bohol.JPG/500px-Chocolate_Hills_Bohol.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13292,7 +13292,7 @@
     "fact": "Birmingham was a powerhouse of the Industrial Revolution and claims to have more canals than Venice.",
     "lat": 52.48142,
     "lng": -1.89983,
-    "difficulty": 7,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Museum_of_Oxford_%285652685943%29.jpg/500px-Museum_of_Oxford_%285652685943%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13422,7 +13422,7 @@
     "fact": "Valencia is the birthplace of paella and hosts Las Fallas, a festival where giant papier-m\u00e2ch\u00e9 figures are burned.",
     "lat": 39.47391,
     "lng": -0.37966,
-    "difficulty": 7,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Abbey_of_Montserrat_02.jpg/500px-Abbey_of_Montserrat_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13592,7 +13592,7 @@
     "fact": "Stuttgart is the birthplace of the car and home to both Mercedes-Benz and Porsche.",
     "lat": 48.78232,
     "lng": 9.17702,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Burg_Hohenzollern_10-2016.jpg/500px-Burg_Hohenzollern_10-2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13912,7 +13912,7 @@
     "fact": "Acapulco is a Pacific resort city famous for its La Quebrada cliff divers.",
     "lat": 16.84942,
     "lng": -99.90891,
-    "difficulty": 3,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/500px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14082,7 +14082,7 @@
     "fact": "Xochimilco is famous for its ancient canals and chinampas, where colorful trajinera boats carry mariachis and partygoers.",
     "lat": 19.25465,
     "lng": -99.10356,
-    "difficulty": 3,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/500px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14102,7 +14102,7 @@
     "fact": "Veracruz was Mexico's first Spanish port, founded by Hern\u00e1n Cort\u00e9s in 1519, and is known for its lively carnival.",
     "lat": 19.18095,
     "lng": -96.1429,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Mexico-Popocatepetl.jpg/500px-Mexico-Popocatepetl.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14132,7 +14132,7 @@
     "fact": "Azcapotzalco was the capital of the Tepanec kingdom before the Aztecs rose to power and is now a Mexico City borough.",
     "lat": 19.48698,
     "lng": -99.18594,
-    "difficulty": 10,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -14192,7 +14192,7 @@
     "fact": "Miguel Hidalgo is a Mexico City borough that holds Chapultepec Park and Castle, as well as the wealthy Polanco neighborhood.",
     "lat": 19.43411,
     "lng": -99.20024,
-    "difficulty": 10,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -14233,7 +14233,7 @@
     "lng": 116.459767,
     "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/KAGAGAHAN_RIJANI.jpg",
     "clue": "Mount Rinjani, Indonesia \ud83c\uddee\ud83c\udde9",
-    "difficulty": 5
+    "difficulty": 6
   },
   {
     "id": "macau",
@@ -14663,7 +14663,7 @@
     "lng": 25.912222,
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/View_from_I-Tower_SE_20200712.jpg",
     "clue": "Where is Gaborone, the capital of Botswana?",
-    "difficulty": 4
+    "difficulty": 5
   },
   {
     "id": "mount-etna",
@@ -14783,7 +14783,7 @@
     "lng": 20.72,
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Lake_Ohrid%2C_Macedonia-Albania_viewed_from_a_NASA_satellite.jpg",
     "clue": "Lake Ohrid, North Macedonia \ud83c\uddf2\ud83c\uddf0",
-    "difficulty": 5
+    "difficulty": 6
   },
   {
     "id": "mount-ararat",
@@ -14863,7 +14863,7 @@
     "lng": 52.109,
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/981012-Damavand-South-IMG_9861-2.jpg",
     "clue": "Mount Damavand, Iran \ud83c\uddee\ud83c\uddf7",
-    "difficulty": 2
+    "difficulty": 6
   },
   {
     "id": "aral-sea",
@@ -16892,7 +16892,7 @@
     "fact": "Kampung Baru Subang is a village in Selangor, Malaysia, beside the old Subang airport.",
     "lat": 3.15,
     "lng": 101.53333,
-    "difficulty": 4,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/LakeTekapoNov242024_05.jpg/500px-LakeTekapoNov242024_05.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17582,7 +17582,7 @@
     "fact": "Hollywood, Florida, is a beach city between Miami and Fort Lauderdale, with a long boardwalk called the Broadwalk.",
     "lat": 26.0112,
     "lng": -80.14949,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Panorama_Belgrad.jpg/500px-Panorama_Belgrad.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
