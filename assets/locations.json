@@ -2911,7 +2911,7 @@
   },
   {
     "id": "giants-causeway",
-    "clue": "Giant's Causeway, Northern Ireland \ud83c\uddec\ud83c\udde7",
+    "clue": "Giant's Causeway, Northern Ireland",
     "fact": "The Giant's Causeway's columns are lava joints formed as molten rock cooled some 50 million years ago, and Irish legend says a giant built the road across them to Scotland.",
     "lat": 55.2389,
     "lng": -6.5111,
@@ -14392,7 +14392,7 @@
     "lat": 54.5967,
     "lng": -5.93,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Custom_House%2C_River_Lagan%2C_Belfast.jpg/3840px-Custom_House%2C_River_Lagan%2C_Belfast.jpg",
-    "clue": "Belfast, Northern Ireland \ud83c\uddec\ud83c\udde7",
+    "clue": "Belfast, Northern Ireland",
     "difficulty": 1
   },
   {
