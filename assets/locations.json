@@ -2700,7 +2700,7 @@
   },
   {
     "id": "persepolis",
-    "clue": "Where does a stone relief of 23 subject nations still watch an empty Persian terrace?",
+    "clue": "Where does a stone relief of 23 subject nations still watch an empty royal terrace?",
     "fact": "This ceremonial capital of the Achaemenid empire was burned by Alexander in 330 BC, yet its gate, treasury columns and audience-hall stairs survive almost intact.",
     "lat": 29.9356,
     "lng": 52.8916,
@@ -3190,7 +3190,7 @@
   },
   {
     "id": "versailles-palace",
-    "clue": "Where does the Hall of Mirrors gleam in the French palace that Louis XIV used to dominate Europe from?",
+    "clue": "Where does the Hall of Mirrors gleam in the palace that Louis XIV used to dominate Europe from?",
     "fact": "Versailles' Hall of Mirrors has 357 mirrors, and the Seine's water was pumped 13 kilometres by the Machine de Marly so the fountains could run every day.",
     "lat": 48.8049,
     "lng": 2.1204,
@@ -3200,7 +3200,7 @@
   },
   {
     "id": "pantheon-rome",
-    "clue": "Where does the ancient Roman rotunda with a single oculus open onto the sky?",
+    "clue": "Where does an ancient domed rotunda with a single oculus open onto the sky?",
     "fact": "The Panthe's oculus is one 43-metre hole cut in the dome and the only light the interior gets, so rain falls straight onto the marble floor.",
     "lat": 41.8986,
     "lng": 12.4769,
@@ -3380,7 +3380,7 @@
   },
   {
     "id": "hohensalzburg-fortress",
-    "clue": "Where does a hill fortress of 50 rooms watch over the rooftops of an Austrian music city?",
+    "clue": "Where does a hill fortress of 50 rooms watch over the rooftops of Mozart's birthplace?",
     "fact": "Hohensalzburg was finished in 1077 and never taken by assault; a legend says Salzburg's archbishop ordered all but one of its bells silenced as raving mad.",
     "lat": 47.7955,
     "lng": 13.0473,
@@ -3490,7 +3490,7 @@
   },
   {
     "id": "preikestolen-pulpit-rock",
-    "clue": "Where does a square cliff of rock hang 600 metres above a Norwegian fjord?",
+    "clue": "Where does a square cliff of rock hang 600 metres above a fjord?",
     "fact": "Pulpit Rock is a flat square of bare rock planed smooth by a glacier and abandoned unfinished when the brothers who quarried it realised the stone was worthless.",
     "lat": 58.9861,
     "lng": 6.2,
@@ -3570,7 +3570,7 @@
   },
   {
     "id": "stone-of-destiny",
-    "clue": "Where was the coronation stone of Scottish kings stolen in 1950 and returned in 1996?",
+    "clue": "Where were medieval kings crowned on the stone that Edward I carried off to Westminster Abbey in 1296?",
     "fact": "English undergraduates carried the Stone of Destiny off from Scone Abbey on Christmas Day 1950, and it now sits in Edinburgh Castle.",
     "lat": 56.4195,
     "lng": -3.219,
@@ -6731,7 +6731,7 @@
   {
     "id": "greek-theatre-of-taormina-d34-60",
     "short": "Greek Theatre of Taormina",
-    "clue": "Where is Greek Theatre of Taormina located in Italy?",
+    "clue": "Where does an ancient Greek theatre frame views of Mount Etna and the sea from a clifftop town?",
     "fact": "Ancient theatre with Etna views.",
     "lat": 37.8524,
     "lng": 15.2928,
@@ -6911,7 +6911,7 @@
   {
     "id": "hohenzollern-castle",
     "short": "Hohenzollern Castle",
-    "clue": "Where is the mountaintop castle above Hechingen, seat of the German imperial dynasty?",
+    "clue": "Where is the mountaintop castle above Hechingen, ancestral seat of an imperial dynasty?",
     "fact": "Around 700 years old, it survived WWII largely because its people were evacuees from Berlin, then served as the residence of the last emperor of Germany.",
     "lat": 48.3236,
     "lng": 8.9674,
@@ -6941,7 +6941,7 @@
   {
     "id": "hallstatt",
     "short": "Hallstatt Village",
-    "clue": "Where is the lakeside Austrian village famous for its salt mine and Iron Age cemetery?",
+    "clue": "Where is the lakeside Alpine village famous for its salt mine and Iron Age cemetery?",
     "fact": "Salt mined here since the Bronze Age funded the Hallstatt culture, and in 1847 an ossuary containing 6,000 skulls was uncovered beneath the chapel.",
     "lat": 47.5622,
     "lng": 13.6493,
@@ -6961,7 +6961,7 @@
   {
     "id": "alcazar-of-segovia",
     "short": "Alcazar of Segovia",
-    "clue": "Where is the Spanish castle whose turrets are modelled on an inverted ship's hull?",
+    "clue": "Where is the castle whose turrets are modelled on an inverted ship's hull?",
     "fact": "Begun in the 12th century and never finished, its slate spires were reputedly shaped to resemble the hulls of Castilian galleons.",
     "lat": 40.9526,
     "lng": -4.1281,
@@ -6971,7 +6971,7 @@
   {
     "id": "plaza-de-espana-seville",
     "short": "Plaza de Espana, Seville",
-    "clue": "Where is the semicircular Spanish plaza decorated with tiled alcoves for each Spanish province?",
+    "clue": "Where is the semicircular plaza decorated with tiled alcoves for each of the country's provinces?",
     "fact": "Built for the 1929 Ibero-American Exposition, its alcoves were nicknamed seating alcoves because young men used them to talk to their girlfriends.",
     "lat": 37.3921,
     "lng": -5.9818,
@@ -7041,7 +7041,7 @@
   {
     "id": "trolltunga",
     "short": "Trolltunga",
-    "clue": "Where is the rock tongue jutting out over a Norwegian lake?",
+    "clue": "Where is the rock tongue jutting out over a mountain lake?",
     "fact": "A cliff formed when a glacier's rockfall hit the valley wall, the tongue's name comes from trolls supposedly using it as a lookout.",
     "lat": 60.1242,
     "lng": 6.74,
@@ -7061,7 +7061,7 @@
   {
     "id": "boulders-beach",
     "short": "Boulders Beach",
-    "clue": "Where is the South African beach where African penguins nest among granite boulders?",
+    "clue": "Where is the beach where African penguins nest among granite boulders?",
     "fact": "A protected colony of around 2,000 penguins lives here, having spread from a nearby beach after predators arrived.",
     "lat": 34.1985,
     "lng": 18.4514,
@@ -7111,7 +7111,7 @@
   {
     "id": "hell-gate-national-park",
     "short": "Hell's Gate National Park",
-    "clue": "Where is the Kenyan wildlife park named after a gorge with fierce hot springs?",
+    "clue": "Where is the wildlife park near Lake Naivasha named after a gorge with fierce hot springs?",
     "fact": "Geologists came here in 1840 expecting to find traces of hell, and the park is one of the few places where visitors walk among giraffes on foot.",
     "lat": -0.6033,
     "lng": 36.3167,
@@ -7141,7 +7141,7 @@
   {
     "id": "cape-coast-castle",
     "short": "Cape Coast Castle",
-    "clue": "Where is the British slaving fort on the Ghanaian coast?",
+    "clue": "Where is the British slaving fort on the old Gold Coast?",
     "fact": "It held thousands of captives awaiting ships in the Atlantic trade, and one gate bears the inscription 'I hope you will remember my suffering.'",
     "lat": 5.105,
     "lng": -1.2461,
@@ -7151,7 +7151,7 @@
   {
     "id": "piton-de-la-fournaise",
     "short": "Piton de la Fournaise",
-    "clue": "Where is the active volcano on the French island in the Indian Ocean?",
+    "clue": "Where is the active volcano on an island in the Indian Ocean?",
     "fact": "One of the most active volcanoes on Earth, it has produced more than 150 recorded eruptions, most recently adding hectares of new land.",
     "lat": -21.2297,
     "lng": 55.7072,
@@ -7191,7 +7191,7 @@
   {
     "id": "himeji-castle",
     "short": "Himeji Castle",
-    "clue": "Where is the white 'egret' castle rising over a Japanese city, with complex fireproof roofs?",
+    "clue": "Where is the white 'egret' castle rising over a city, with complex fireproof roofs?",
     "fact": "Its stepped gables hide the rooms from outside, and its curved walls of white plaster earned it the name White Heron Castle.",
     "lat": 34.8394,
     "lng": 134.6939,
@@ -7301,7 +7301,7 @@
   {
     "id": "phong-nha-ke-bang",
     "short": "Phong Nha-Ke Bang",
-    "clue": "Where is the Vietnamese cave system holding the world's longest river cave?",
+    "clue": "Where is the cave system holding the world's longest river cave?",
     "fact": "Son Doong, the largest cave passage in the world, lies within the reserve, and S\u01a1n \u0110o\u00f2ng has its own jungle and weather system.",
     "lat": 17.5533,
     "lng": 106.2417,
@@ -7311,7 +7311,7 @@
   {
     "id": "hoi-an",
     "short": "Hoi An",
-    "clue": "Where is the Vietnamese trading port with hundreds of yellow merchant houses?",
+    "clue": "Where is the old trading port with hundreds of yellow merchant houses?",
     "fact": "It was a major port from the 1500s to the 1800s and its Japanese Covered Bridge dates to the 16th century.",
     "lat": 15.8801,
     "lng": 108.338,
@@ -7321,7 +7321,7 @@
   {
     "id": "tigers-nest",
     "short": "Paro Taktsang (Tiger's Nest)",
-    "clue": "Where is the Bhutanese monastery clinging to a cliff 900 m above the Paro valley?",
+    "clue": "Where is the monastery clinging to a cliff 900 m above the Paro valley?",
     "fact": "The building appears to be on the cliff face with no visible support, and the walls inside are decorated with painted tiger claws.",
     "lat": 27.433,
     "lng": 89.414,
@@ -7331,7 +7331,7 @@
   {
     "id": "konark-sun-temple",
     "short": "Konark Sun Temple",
-    "clue": "Where is the Indian temple built as a giant stone chariot for the sun god?",
+    "clue": "Where is the temple built as a giant stone chariot for the sun god?",
     "fact": "Its 24 giant wheels are carved with scenes, and the tower stands where the roof once served as a sundial.",
     "lat": 19.8876,
     "lng": 86.0945,
@@ -7441,7 +7441,7 @@
   {
     "id": "teotihuacan",
     "short": "Teotihuacan",
-    "clue": "Where is the Mexican city of pyramids whose name means the place where the gods were made?",
+    "clue": "Where is the city of pyramids whose name means the place where the gods were made?",
     "fact": "It was the largest city in the Americas for centuries, then was burned and abandoned, and no records of its builders survive.",
     "lat": 19.6925,
     "lng": -98.8438,
@@ -7461,7 +7461,7 @@
   {
     "id": "tikal",
     "short": "Tikal",
-    "clue": "Where is the Maya temple complex rising above the Guatemalan rainforest?",
+    "clue": "Where is the Maya temple complex rising above the Pet\u00e9n rainforest?",
     "fact": "Its Temple IV is 65 m tall, the tallest Maya structure ever built, and its lost twin pyramid was found by archaeologists in 2015 using ground-penetrating radar.",
     "lat": 17.222,
     "lng": -89.6237,
@@ -7481,7 +7481,7 @@
   {
     "id": "jericoacoara",
     "short": "Jericoacoara Dunes",
-    "clue": "Where are the shifting white dunes and freshwater lagoons on the Brazilian coast?",
+    "clue": "Where are the shifting white dunes and freshwater lagoons near the equatorial Atlantic coast?",
     "fact": "Local fishermen say the town is blessed by Saint Jericho, and the dunes migrate westward with the trade winds.",
     "lat": -2.8,
     "lng": -40.5,
@@ -7501,7 +7501,7 @@
   {
     "id": "ciudad-perdida",
     "short": "Ciudad Perdida",
-    "clue": "Where is the Colombian archaeological site reached by a four-day trek through the Sierra Nevada?",
+    "clue": "Where is the archaeological site reached by a four-day trek through the Sierra Nevada de Santa Marta?",
     "fact": "The Tairona built it on a ridge in the 12th-16th centuries, and it was lost to outsiders for four centuries before being rediscovered in 1972.",
     "lat": 11.49,
     "lng": -72.2833,
@@ -7521,7 +7521,7 @@
   {
     "id": "kakadu",
     "short": "Kakadu",
-    "clue": "Where is the Australian wetland with escarpments, escarpment-edge rock art and monsoon wetlands?",
+    "clue": "Where is the tropical park with sandstone escarpments, ancient rock art and monsoon wetlands?",
     "fact": "Its name is a mis-spelling of the region's Aboriginal name, and it holds more than 1,400 documented archaeological sites.",
     "lat": -12.9167,
     "lng": 132.4833,
@@ -9261,7 +9261,7 @@
   {
     "id": "tunguska-event-epicenter",
     "short": "Tunguska Event Epicenter",
-    "clue": "Where did an exploding space rock flatten about 2,000 square kilometers of Siberian forest in 1908?",
+    "clue": "Where did an exploding space rock flatten about 2,000 square kilometers of taiga forest in 1908?",
     "fact": "The Tunguska object burst in the atmosphere without leaving a conventional impact crater. The remote site was not scientifically surveyed until nearly two decades later.",
     "lat": 60.886,
     "lng": 101.894,
@@ -9361,7 +9361,7 @@
   {
     "id": "hinterkaifeck-murders",
     "short": "Hinterkaifeck Farm Site",
-    "clue": "Where were six residents of an isolated farm murdered in an enduring 1922 German mystery?",
+    "clue": "Where were six residents of an isolated farm murdered in an enduring 1922 mystery?",
     "fact": "The killer apparently remained at Hinterkaifeck for days, feeding livestock and using the kitchen. The farm was demolished the following year and the crime remains unsolved.",
     "lat": 48.5947,
     "lng": 11.3233,
@@ -9611,7 +9611,7 @@
   {
     "id": "fall-of-berlin-wall-bornholmer",
     "short": "Bornholmer Stra\u00dfe Crossing",
-    "clue": "Where did East German guards first open a border checkpoint to crowds on November 9, 1989?",
+    "clue": "Where did border guards first open a checkpoint to crowds on November 9, 1989?",
     "fact": "Under mounting pressure and without clear orders, the Bornholmer Stra\u00dfe guards raised the barrier. It became the first border crossing breached that night.",
     "lat": 52.5549,
     "lng": 13.3984,
@@ -9712,7 +9712,7 @@
   {
     "id": "ait-benhaddou-ksar",
     "short": "A\u00eft Benhaddou",
-    "clue": "Which Moroccan fortified village of earthen towers stands beside the Ounila River on the old caravan route to Marrakesh?",
+    "clue": "Which fortified village of earthen towers stands beside the Ounila River on the old caravan route to Marrakesh?",
     "fact": "This UNESCO-listed ksar is a compact group of earthen buildings enclosed by defensive walls and corner towers.",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Ait_Benhaddou_Pano.jpg/500px-Ait_Benhaddou_Pano.jpg",
     "lat": 31.0472,
@@ -9745,7 +9745,7 @@
   {
     "id": "hegra-qasr-al-farid",
     "short": "Hegra",
-    "clue": "Which Nabataean archaeological site in Saudi Arabia contains monumental tombs carved into isolated sandstone outcrops?",
+    "clue": "Which Nabataean archaeological site contains monumental tombs carved into isolated sandstone outcrops?",
     "fact": "Hegra was the Nabataeans' major southern city and became Saudi Arabia's first UNESCO World Heritage Site in 2008.",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg/500px-Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg",
     "lat": 26.7914,
@@ -9767,7 +9767,7 @@
   {
     "id": "gjirokaster-fortress-albania",
     "short": "Gjirokast\u00ebr Fortress",
-    "clue": "Which Albanian citadel overlooks a UNESCO-listed city nicknamed the City of Stone for its slate-roofed Ottoman houses?",
+    "clue": "Which citadel overlooks a UNESCO-listed city nicknamed the City of Stone for its slate-roofed Ottoman houses?",
     "fact": "The fortress dominates the Drino valley and today contains a military museum and the stage for Gjirokast\u00ebr's folk festival.",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Gjirokaster%2C_panorama.jpg/500px-Gjirokaster%2C_panorama.jpg",
     "lat": 40.0731,
@@ -9811,7 +9811,7 @@
   {
     "id": "predjama-castle-slovenia",
     "short": "Predjama Castle",
-    "clue": "Which Slovenian Renaissance castle is built directly into the mouth of a cave beneath a towering limestone cliff?",
+    "clue": "Which Renaissance castle is built directly into the mouth of a cave beneath a towering limestone cliff?",
     "fact": "A network of passages behind Predjama Castle links it to the cave system and once provided a concealed supply route.",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Predjama_Castle%2C_Slovenia%2C_20240502_0831_7409.jpg/500px-Predjama_Castle%2C_Slovenia%2C_20240502_0831_7409.jpg",
     "lat": 45.8158,
@@ -11948,7 +11948,7 @@
   {
     "id": "quetta-pk",
     "short": "Quetta",
-    "clue": "Which high-altitude Pakistani city lies in a fruit-growing valley ringed by arid mountains near the Afghan border?",
+    "clue": "Which high-altitude city lies in a fruit-growing valley ringed by arid mountains near the Afghan border?",
     "fact": "Quetta is an administrative capital, recorded by GeoNames at roughly 1683 meters above sea level with about 1,565,546 residents.",
     "lat": 30.18414,
     "lng": 67.00141,
@@ -12008,7 +12008,7 @@
   {
     "id": "kawasaki-jp",
     "short": "Kawasaki",
-    "clue": "Which industrial Japanese city fills the strip between Tokyo and Yokohama and hosts the vast Kawasaki Daishi temple?",
+    "clue": "Which industrial city fills the strip between Tokyo and Yokohama and hosts a vast temple to Kobo Daishi?",
     "fact": "Kawasaki is an administrative capital, recorded by GeoNames at roughly 1 meters above sea level with about 1,538,262 residents.",
     "lat": 35.52056,
     "lng": 139.71722,
@@ -12048,7 +12048,7 @@
   {
     "id": "nashik-in",
     "short": "Nashik",
-    "clue": "Which sacred Indian city beside the Godavari hosts the Kumbh Mela and is surrounded by vineyards?",
+    "clue": "Which sacred city beside the Godavari hosts the Kumbh Mela and is surrounded by vineyards?",
     "fact": "Nashik is an administrative capital, recorded by GeoNames at roughly 584 meters above sea level with about 1,486,053 residents.",
     "lat": 19.99727,
     "lng": 73.79096,
@@ -12128,7 +12128,7 @@
   {
     "id": "karaj-ir",
     "short": "Karaj",
-    "clue": "Which fast-growing Iranian city lies below the Alborz Mountains just west of Tehran?",
+    "clue": "Which fast-growing city lies below the Alborz Mountains just west of Tehran?",
     "fact": "Karaj is an administrative capital, recorded by GeoNames at roughly 1341 meters above sea level with about 1,448,075 residents.",
     "lat": 35.83266,
     "lng": 50.99155,
@@ -12178,7 +12178,7 @@
   {
     "id": "tirunelveli-in",
     "short": "Tirunelveli",
-    "clue": "Which Tamil city near India\u2019s southern tip is famous for the Nellaiappar Temple and wheat halwa?",
+    "clue": "Which city near the subcontinent's southern tip is famous for the Nellaiappar Temple and wheat halwa?",
     "fact": "Tirunelveli is an administrative capital, recorded by GeoNames at roughly 49 meters above sea level with about 1,435,844 residents.",
     "lat": 8.72742,
     "lng": 77.6838,
@@ -12328,7 +12328,7 @@
   {
     "id": "hue-vn",
     "short": "Hu\u1ebf",
-    "clue": "Which Vietnamese former imperial capital is enclosed by a moated citadel and royal tombs along the Perfume River?",
+    "clue": "Which former imperial capital is enclosed by a moated citadel and royal tombs along the Perfume River?",
     "fact": "Hu\u1ebf is an administrative capital, recorded by GeoNames at roughly 8 meters above sea level with about 1,380,000 residents.",
     "lat": 16.4619,
     "lng": 107.59546,
@@ -12398,7 +12398,7 @@
   {
     "id": "jamshedpur-in",
     "short": "Jamshedpur",
-    "clue": "Which planned Indian steel city was founded by the Tata group beside the Subarnarekha and Kharkai rivers?",
+    "clue": "Which planned steel city was founded by the Tata group beside the Subarnarekha and Kharkai rivers?",
     "fact": "GeoNames records Jamshedpur at roughly 171 meters above sea level and a population of about 1,339,438.",
     "lat": 22.80278,
     "lng": 86.18545,
@@ -12408,7 +12408,7 @@
   {
     "id": "basrah-iq",
     "short": "Basrah",
-    "clue": "Which Iraqi port near the Shatt al-Arab is associated with date palms, oil terminals, and Sinbad the Sailor?",
+    "clue": "Which port near the Shatt al-Arab is associated with date palms, oil terminals, and Sinbad the Sailor?",
     "fact": "Basrah is an administrative capital, recorded by GeoNames at roughly 4 meters above sea level with about 1,326,564 residents.",
     "lat": 30.50852,
     "lng": 47.7804,
@@ -12528,7 +12528,7 @@
   {
     "id": "da-nang-vn",
     "short": "Da Nang",
-    "clue": "Which central Vietnamese city combines the Dragon Bridge and Cham Sculpture Museum with long beaches beneath the Marble Mountains?",
+    "clue": "Which central coastal city combines the Dragon Bridge and Cham Sculpture Museum with long beaches beneath the Marble Mountains?",
     "fact": "Da Nang is an administrative capital, recorded by GeoNames at roughly 11 meters above sea level with about 1,276,000 residents.",
     "lat": 16.06778,
     "lng": 108.22083,
@@ -12598,7 +12598,7 @@
   {
     "id": "jepara-id",
     "short": "Jepara",
-    "clue": "Which Javanese coastal town is renowned for intricately carved teak furniture and the nearby Karimunjawa islands?",
+    "clue": "Which coastal town is renowned for intricately carved teak furniture and the nearby Karimunjawa islands?",
     "fact": "Jepara is an administrative capital, recorded by GeoNames at roughly 5 meters above sea level with about 1,257,912 residents.",
     "lat": -6.5924,
     "lng": 110.671,
@@ -12648,7 +12648,7 @@
   {
     "id": "valencia-ve",
     "short": "Valencia",
-    "clue": "Which Venezuelan industrial city lies beside Lake Valencia and hosts one of the country\u2019s largest baseball stadiums?",
+    "clue": "Which industrial city lies beside Lake Valencia and hosts one of the country's largest baseball stadiums?",
     "fact": "Valencia is an administrative capital, recorded by GeoNames at roughly 547 meters above sea level with about 1,619,470 residents.",
     "lat": 10.16153,
     "lng": -68.00044,
@@ -12658,7 +12658,7 @@
   {
     "id": "goiania-br",
     "short": "Goi\u00e2nia",
-    "clue": "Which planned Brazilian city\u2019s broad avenues contain an Art Deco civic center and a monument honoring the bandeirantes?",
+    "clue": "Which planned city's broad avenues contain an Art Deco civic center and a monument honoring the bandeirantes?",
     "fact": "Goi\u00e2nia is an administrative capital, recorded by GeoNames at roughly 766 meters above sea level with about 1,536,097 residents.",
     "lat": -16.67861,
     "lng": -49.25389,
@@ -12678,7 +12678,7 @@
   {
     "id": "porto-alegre-br",
     "short": "Porto Alegre",
-    "clue": "Which southern Brazilian capital is known for gaucho culture, churrasco, and sunsets over the Gua\u00edba waterfront?",
+    "clue": "Which southern state capital is known for gaucho culture, churrasco, and sunsets over the Gua\u00edba waterfront?",
     "fact": "Porto Alegre is an administrative capital, recorded by GeoNames at roughly 46 meters above sea level with about 1,488,252 residents.",
     "lat": -30.03283,
     "lng": -51.23019,
@@ -12708,7 +12708,7 @@
   {
     "id": "barquisimeto-ve",
     "short": "Barquisimeto",
-    "clue": "Which Venezuelan city is famed for the cuatro, harp music, and the towering Obelisk of Barquisimeto?",
+    "clue": "Which city is famed for the cuatro, harp music, and a towering obelisk at its heart?",
     "fact": "Barquisimeto is an administrative capital, recorded by GeoNames at roughly 606 meters above sea level with about 1,240,714 residents.",
     "lat": 10.0647,
     "lng": -69.35703,
@@ -12728,7 +12728,7 @@
   {
     "id": "barranquilla-co",
     "short": "Barranquilla",
-    "clue": "Which Caribbean Colombian port hosts a riotous carnival and sits where the Magdalena River meets the sea?",
+    "clue": "Which Caribbean port hosts a riotous carnival and sits where the Magdalena River meets the sea?",
     "fact": "Barranquilla is an administrative capital, recorded by GeoNames at roughly 24 meters above sea level with about 1,206,319 residents.",
     "lat": 10.96854,
     "lng": -74.78132,
@@ -12748,7 +12748,7 @@
   {
     "id": "trujillo-pe",
     "short": "Trujillo",
-    "clue": "Which Peruvian coastal city preserves the adobe temples of Chan Chan and colorful colonial balconies?",
+    "clue": "Which coastal desert city preserves the adobe temples of Chan Chan and colorful colonial balconies?",
     "fact": "Trujillo is an administrative capital, recorded by GeoNames at roughly 31 meters above sea level with about 1,067,700 residents.",
     "lat": -8.11599,
     "lng": -79.02998,
@@ -12758,7 +12758,7 @@
   {
     "id": "maceio-br",
     "short": "Macei\u00f3",
-    "clue": "Which Brazilian coastal capital is known for jangada fishing rafts, bright lagoons, and the beachfront Paju\u00e7ara pools?",
+    "clue": "Which coastal state capital is known for jangada fishing rafts, bright lagoons, and the beachfront Paju\u00e7ara pools?",
     "fact": "Macei\u00f3 is an administrative capital, recorded by GeoNames at roughly 11 meters above sea level with about 1,031,597 residents.",
     "lat": -9.66583,
     "lng": -35.73528,
@@ -12808,7 +12808,7 @@
   {
     "id": "rosario-ar",
     "short": "Rosario",
-    "clue": "Which Argentine river port is the birthplace of the national flag and football star Lionel Messi?",
+    "clue": "Which river port is the birthplace of its country's national flag and football star Lionel Messi?",
     "fact": "Rosario is an administrative capital, recorded by GeoNames at roughly 38 meters above sea level with about 948,312 residents.",
     "lat": -32.94682,
     "lng": -60.63932,
@@ -12828,7 +12828,7 @@
   {
     "id": "campo-grande-br",
     "short": "Campo Grande",
-    "clue": "Which Brazilian inland capital is marked by broad avenues, a vast Indigenous Nations Park, and red Cerrado soil?",
+    "clue": "Which inland state capital is marked by broad avenues, a vast Indigenous Nations Park, and red Cerrado soil?",
     "fact": "Campo Grande is an administrative capital, recorded by GeoNames at roughly 592 meters above sea level with about 906,092 residents.",
     "lat": -20.44278,
     "lng": -54.64639,
@@ -12848,7 +12848,7 @@
   {
     "id": "teresina-br",
     "short": "Teresina",
-    "clue": "Which northeastern Brazilian capital stands at the meeting of the Parna\u00edba and Poti rivers and is famed for extreme heat?",
+    "clue": "Which northeastern state capital stands at the meeting of the Parna\u00edba and Poti rivers and is famed for extreme heat?",
     "fact": "Teresina is an administrative capital, recorded by GeoNames at roughly 87 meters above sea level with about 871,126 residents.",
     "lat": -5.08917,
     "lng": -42.80194,
@@ -12908,7 +12908,7 @@
   {
     "id": "joao-pessoa-br",
     "short": "Jo\u00e3o Pessoa",
-    "clue": "Which northeastern Brazilian capital occupies the continent\u2019s easternmost point and is famed for Cabo Branco\u2019s cliffs?",
+    "clue": "Which state capital occupies the continent's easternmost point and is famed for Cabo Branco's cliffs?",
     "fact": "Jo\u00e3o Pessoa is an administrative capital, recorded by GeoNames at roughly 45 meters above sea level with about 817,511 residents.",
     "lat": -7.115,
     "lng": -34.86306,
@@ -12928,7 +12928,7 @@
   {
     "id": "cucuta-co",
     "short": "C\u00facuta",
-    "clue": "Which Colombian border city is linked to Venezuela by the Sim\u00f3n Bol\u00edvar Bridge and endured the 1875 earthquake?",
+    "clue": "Which border city is linked to Venezuela by the Sim\u00f3n Bol\u00edvar Bridge and endured the 1875 earthquake?",
     "fact": "C\u00facuta is an administrative capital, recorded by GeoNames at roughly 298 meters above sea level with about 777,106 residents.",
     "lat": 7.90745,
     "lng": -72.5049,
@@ -12948,7 +12948,7 @@
   {
     "id": "uberlandia-br",
     "short": "Uberl\u00e2ndia",
-    "clue": "Which prosperous Brazilian city amid the Cerrado is a major center for agribusiness, universities, and the Uberl\u00e2ndia railway legacy?",
+    "clue": "Which prosperous city amid the Cerrado is a major center for agribusiness, universities, and railway history?",
     "fact": "GeoNames records Uberl\u00e2ndia at roughly 867 meters above sea level and a population of about 754,954.",
     "lat": -18.91861,
     "lng": -48.27722,
@@ -12978,7 +12978,7 @@
   {
     "id": "santo-domingo-oeste-do",
     "short": "Santo Domingo Oeste",
-    "clue": "Which municipality west of the Dominican capital contains the Monument to the Flag and large working-class barrios?",
+    "clue": "Which municipality west of a Caribbean capital contains the Monument to the Flag and large working-class barrios?",
     "fact": "GeoNames records Santo Domingo Oeste at roughly 58 meters above sea level and a population of about 701,269.",
     "lat": 18.5,
     "lng": -70.0,
@@ -13008,7 +13008,7 @@
   {
     "id": "aracaju-br",
     "short": "Aracaju",
-    "clue": "Which small Brazilian capital lies on the Sergipe River and is known for the long Atalaia beachfront promenade?",
+    "clue": "Which small state capital lies on the Sergipe River and is known for the long Atalaia beachfront promenade?",
     "fact": "Aracaju is an administrative capital, recorded by GeoNames at roughly 11 meters above sea level with about 664,908 residents.",
     "lat": -10.91111,
     "lng": -37.07167,
@@ -13048,7 +13048,7 @@
   {
     "id": "maturin-ve",
     "short": "Matur\u00edn",
-    "clue": "Which eastern Venezuelan city grew with nearby oil fields and is identified by its tall Juana la Avanzadora monument?",
+    "clue": "Which eastern city grew with nearby oil fields and is identified by its tall Juana la Avanzadora monument?",
     "fact": "Matur\u00edn is an administrative capital, recorded by GeoNames at roughly 71 meters above sea level with about 647,459 residents.",
     "lat": 9.74569,
     "lng": -63.18323,
@@ -13098,7 +13098,7 @@
   {
     "id": "cuiaba-br",
     "short": "Cuiab\u00e1",
-    "clue": "Which Brazilian capital near the geographic center of South America is gateway to the Pantanal and home of stuffed fish cuisine?",
+    "clue": "Which state capital near the geographic center of South America is gateway to the Pantanal and home of stuffed fish cuisine?",
     "fact": "Cuiab\u00e1 is an administrative capital, recorded by GeoNames at roughly 193 meters above sea level with about 618,124 residents.",
     "lat": -15.59611,
     "lng": -56.09667,
@@ -13128,7 +13128,7 @@
   {
     "id": "mar-del-plata-ar",
     "short": "Mar del Plata",
-    "clue": "Which Argentine Atlantic resort is known for broad beaches, sea-lion colonies, and alfajores?",
+    "clue": "Which South Atlantic resort is known for broad beaches, sea-lion colonies, and alfajores?",
     "fact": "Mar del Plata is an administrative capital, recorded by GeoNames at roughly 14 meters above sea level with about 593,337 residents.",
     "lat": -38.00042,
     "lng": -57.5562,
@@ -13148,7 +13148,7 @@
   {
     "id": "bucaramanga-co",
     "short": "Bucaramanga",
-    "clue": "Which Colombian city in a green Andean plateau is famous for parks, paragliding, and the nearby Chicamocha Canyon?",
+    "clue": "Which city on a green Andean plateau is famous for parks, paragliding, and the nearby Chicamocha Canyon?",
     "fact": "Bucaramanga is an administrative capital, recorded by GeoNames at roughly 1010 meters above sea level with about 581,130 residents.",
     "lat": 7.125,
     "lng": -73.11895,
@@ -13178,7 +13178,7 @@
   {
     "id": "porto-velho-br",
     "short": "Porto Velho",
-    "clue": "Which Brazilian Amazon capital arose around the Madeira\u2013Mamor\u00e9 Railway and sits on a great bend of the Madeira River?",
+    "clue": "Which Amazon state capital arose around the Madeira\u2013Mamor\u00e9 Railway and sits on a great bend of the Madeira River?",
     "fact": "Porto Velho is an administrative capital, recorded by GeoNames at roughly 90 meters above sea level with about 548,952 residents.",
     "lat": -8.76194,
     "lng": -63.90389,
@@ -13248,7 +13248,7 @@
   {
     "id": "salta-ar",
     "short": "Salta",
-    "clue": "Which colonial Argentine city is framed by multicolored mountains and known for empanadas and the Train to the Clouds?",
+    "clue": "Which colonial city is framed by multicolored mountains and known for empanadas and the Train to the Clouds?",
     "fact": "Salta is an administrative capital, recorded by GeoNames at roughly 1054 meters above sea level with about 520,683 residents.",
     "lat": -24.80645,
     "lng": -65.41999,
@@ -13298,7 +13298,7 @@
   {
     "id": "carrefour-ht",
     "short": "Carrefour",
-    "clue": "Which Haitian city west of Port-au-Prince spreads between the sea and mountains and contains the port of Thor?",
+    "clue": "Which city west of Port-au-Prince spreads between the sea and mountains and contains the port of Thor?",
     "fact": "GeoNames records Carrefour at roughly 57 meters above sea level and a population of about 511,345.",
     "lat": 18.53333,
     "lng": -72.4,
@@ -13328,7 +13328,7 @@
   {
     "id": "santa-marta-co",
     "short": "Santa Marta",
-    "clue": "Which Colombian Caribbean city stands between the Sierra Nevada and the sea near Tayrona National Park?",
+    "clue": "Which Caribbean city stands between the Sierra Nevada and the sea near Tayrona National Park?",
     "fact": "Santa Marta is an administrative capital, recorded by GeoNames at roughly 14 meters above sea level with about 499,192 residents.",
     "lat": 11.23855,
     "lng": -74.19427,
@@ -13348,7 +13348,7 @@
   {
     "id": "valledupar-co",
     "short": "Valledupar",
-    "clue": "Which Colombian city celebrates vallenato music beneath the snowcapped Sierra Nevada de Santa Marta?",
+    "clue": "Which city celebrates vallenato music beneath the snowcapped Sierra Nevada de Santa Marta?",
     "fact": "Valledupar is an administrative capital, recorded by GeoNames at roughly 160 meters above sea level with about 490,075 residents.",
     "lat": 10.46538,
     "lng": -73.2531,
@@ -13358,7 +13358,7 @@
   {
     "id": "campos-dos-goytacazes-br",
     "short": "Campos dos Goytacazes",
-    "clue": "Which Brazilian city on the Para\u00edba do Sul River grew rich from sugarcane and offshore petroleum services?",
+    "clue": "Which city on the Para\u00edba do Sul River grew rich from sugarcane and offshore petroleum services?",
     "fact": "Campos dos Goytacazes is an administrative capital, recorded by GeoNames at roughly 13 meters above sea level with about 483,540 residents.",
     "lat": -21.75227,
     "lng": -41.33044,
@@ -13378,7 +13378,7 @@
   {
     "id": "caxias-do-sul-br",
     "short": "Caxias do Sul",
-    "clue": "Which southern Brazilian city is a center of Italian heritage, wine, and the Festa da Uva?",
+    "clue": "Which southern highland city is a center of Italian heritage, wine, and the Festa da Uva?",
     "fact": "GeoNames records Caxias do Sul at roughly 787 meters above sea level and a population of about 479,599.",
     "lat": -29.16806,
     "lng": -51.17944,
@@ -13408,7 +13408,7 @@
   {
     "id": "mixco-gt",
     "short": "Mixco",
-    "clue": "Which Guatemalan municipality west of the capital contains Kaminaljuyu-era sites and spreads up rugged ravines?",
+    "clue": "Which municipality west of the capital contains Kaminaljuyu-era sites and spreads up rugged ravines?",
     "fact": "Mixco is an administrative capital, recorded by GeoNames at roughly 1726 meters above sea level with about 465,773 residents.",
     "lat": 14.63077,
     "lng": -90.60711,
@@ -13428,7 +13428,7 @@
   {
     "id": "santo-domingo-de-los-colorados-ec",
     "short": "Santo Domingo de los Colorados",
-    "clue": "Which Ecuadorian city is nicknamed for the Ts\u00e1chila people, known for men\u2019s traditional achiote-red hair?",
+    "clue": "Which city is nicknamed for the Ts\u00e1chila people, known for men's traditional achiote-red hair?",
     "fact": "Santo Domingo de los Colorados is an administrative capital, recorded by GeoNames at roughly 555 meters above sea level with about 458,580 residents.",
     "lat": -0.25368,
     "lng": -79.17628,
@@ -13478,7 +13478,7 @@
   {
     "id": "monrovia-lr",
     "short": "Monrovia",
-    "clue": "Which Liberian capital faces the Atlantic beside Providence Island and the enormous, unfinished Ducor Hotel?",
+    "clue": "Which capital faces the Atlantic beside Providence Island and the enormous, unfinished Ducor Hotel?",
     "fact": "Monrovia is a national capital; GeoNames records its urban population at about 1,542,549 and its elevation near 32 meters.",
     "lat": 6.30054,
     "lng": -10.7969,
@@ -13508,7 +13508,7 @@
   {
     "id": "douala-cm",
     "short": "Douala",
-    "clue": "Which Cameroonian port below Mount Cameroon handles much of Central Africa\u2019s trade and is famed for grilled fish?",
+    "clue": "Which port below a towering coastal volcano handles much of Central Africa's trade and is famed for grilled fish?",
     "fact": "Douala is an administrative capital, recorded by GeoNames at roughly 19 meters above sea level with about 1,338,082 residents.",
     "lat": 4.04827,
     "lng": 9.70428,
@@ -13558,7 +13558,7 @@
   {
     "id": "matola-mz",
     "short": "Matola",
-    "clue": "Which Mozambican city beside Maputo is home to a major aluminum smelter and the vast Machava stadium?",
+    "clue": "Which city beside Maputo is home to a major aluminum smelter and the vast Machava stadium?",
     "fact": "Matola is an administrative capital, recorded by GeoNames at roughly 42 meters above sea level with about 1,198,988 residents.",
     "lat": -25.96222,
     "lng": 32.45889,
@@ -13598,7 +13598,7 @@
   {
     "id": "touba-sn",
     "short": "Touba",
-    "clue": "Which Senegalese holy city centers on the Great Mosque and the annual Grand Magal pilgrimage of the Mouride brotherhood?",
+    "clue": "Which holy city centers on the Great Mosque and the annual Grand Magal pilgrimage of the Mouride brotherhood?",
     "fact": "GeoNames records Touba at roughly 47 meters above sea level and a population of about 1,120,824.",
     "lat": 14.86229,
     "lng": -15.87532,
@@ -13608,7 +13608,7 @@
   {
     "id": "lilongwe-mw",
     "short": "Lilongwe",
-    "clue": "Which planned Malawian capital is recognized by its divided \u201cOld Town\u201d and leafy administrative Capital City district?",
+    "clue": "Which planned capital is recognized by its divided \u201cOld Town\u201d and leafy administrative Capital City district?",
     "fact": "Lilongwe is a national capital; GeoNames records its urban population at about 1,115,815 and its elevation near 1056 meters.",
     "lat": -13.96692,
     "lng": 33.78725,
@@ -13628,7 +13628,7 @@
   {
     "id": "mwanza-tz",
     "short": "Mwanza",
-    "clue": "Which Tanzanian city on Lake Victoria is called Rock City for the huge granite boulders scattered through its neighborhoods?",
+    "clue": "Which city on Lake Victoria is called Rock City for the huge granite boulders scattered through its neighborhoods?",
     "fact": "Mwanza is an administrative capital, recorded by GeoNames at roughly 1144 meters above sea level with about 1,104,521 residents.",
     "lat": -2.51667,
     "lng": 32.9,
@@ -13648,7 +13648,7 @@
   {
     "id": "gqeberha-za",
     "short": "Gqeberha",
-    "clue": "Which South African port, formerly Port Elizabeth, is known for Algoa Bay beaches and the giant Volkswagen plant at Uitenhage nearby?",
+    "clue": "Which port is known for Algoa Bay beaches and the giant Volkswagen plant at nearby Uitenhage?",
     "fact": "Gqeberha is an administrative capital, recorded by GeoNames at roughly 61 meters above sea level with about 1,050,078 residents.",
     "lat": -33.96109,
     "lng": 25.61494,
@@ -13658,7 +13658,7 @@
   {
     "id": "jos-ng",
     "short": "Jos",
-    "clue": "Which Nigerian city on a cool plateau is known for tin mining, distinctive rock formations, and a temperate climate?",
+    "clue": "Which city on a cool plateau is known for tin mining, distinctive rock formations, and a temperate climate?",
     "fact": "Jos is an administrative capital, recorded by GeoNames at roughly 1186 meters above sea level with about 1,040,000 residents.",
     "lat": 9.92849,
     "lng": 8.89212,
@@ -13678,7 +13678,7 @@
   {
     "id": "tangier-ma",
     "short": "Tangier",
-    "clue": "Which Moroccan city guards the Strait of Gibraltar with a whitewashed kasbah and views toward Spain?",
+    "clue": "Which city guards the Strait of Gibraltar with a whitewashed kasbah and views toward Spain?",
     "fact": "Tangier is an administrative capital, recorded by GeoNames at roughly 20 meters above sea level with about 1,035,141 residents.",
     "lat": 35.76727,
     "lng": -5.79975,
@@ -13698,7 +13698,7 @@
   {
     "id": "khartoum-north-sd",
     "short": "Khartoum North",
-    "clue": "Which industrial Sudanese city lies across the Blue Nile and contains the major Bahri rail yards?",
+    "clue": "Which industrial city lies across the Blue Nile from a capital and contains the major Bahri rail yards?",
     "fact": "GeoNames records Khartoum North at roughly 381 meters above sea level and a population of about 1,012,211.",
     "lat": 15.64925,
     "lng": 32.53458,
@@ -13728,7 +13728,7 @@
   {
     "id": "enugu-ng",
     "short": "Enugu",
-    "clue": "Which southeastern Nigerian city is nicknamed the Coal City and known for its red-earth hills and railway heritage?",
+    "clue": "Which southeastern city is nicknamed the Coal City and known for its red-earth hills and railway heritage?",
     "fact": "Enugu is an administrative capital, recorded by GeoNames at roughly 192 meters above sea level with about 950,000 residents.",
     "lat": 6.44132,
     "lng": 7.49883,
@@ -13758,7 +13758,7 @@
   {
     "id": "blantyre-mw",
     "short": "Blantyre",
-    "clue": "Which Malawian commercial hub sits beneath Mount Soche and is named for a Scottish birthplace of David Livingstone?",
+    "clue": "Which commercial hub sits beneath Mount Soche and is named for the Scottish birthplace of David Livingstone?",
     "fact": "Blantyre is an administrative capital, recorded by GeoNames at roughly 1041 meters above sea level with about 902,588 residents.",
     "lat": -15.78499,
     "lng": 35.00854,
@@ -13828,7 +13828,7 @@
   {
     "id": "bukavu-cd",
     "short": "Bukavu",
-    "clue": "Which Congolese city clings to steep green hills above Lake Kivu opposite Rwanda\u2019s Cyangugu?",
+    "clue": "Which city clings to steep green hills above Lake Kivu opposite Rwanda's Cyangugu?",
     "fact": "Bukavu is an administrative capital, recorded by GeoNames at roughly 1631 meters above sea level with about 816,811 residents.",
     "lat": -2.49077,
     "lng": 28.84281,
@@ -13848,7 +13848,7 @@
   {
     "id": "oran-dz",
     "short": "Oran",
-    "clue": "Which Algerian Mediterranean city inspired Albert Camus and is associated with rai music and the Fort of Santa Cruz?",
+    "clue": "Which Mediterranean city inspired Albert Camus and is associated with rai music and the Fort of Santa Cruz?",
     "fact": "Oran is an administrative capital, recorded by GeoNames at roughly 118 meters above sea level with about 803,329 residents.",
     "lat": 35.69906,
     "lng": -0.63588,
@@ -13878,7 +13878,7 @@
   {
     "id": "port-said-eg",
     "short": "Port Said",
-    "clue": "Which Egyptian city at the Mediterranean entrance to the Suez Canal is known for its lighthouse and colorful fishing boats?",
+    "clue": "Which city at the Mediterranean entrance to the Suez Canal is known for its lighthouse and colorful fishing boats?",
     "fact": "Port Said is an administrative capital, recorded by GeoNames at roughly 16 meters above sea level with about 780,515 residents.",
     "lat": 31.26531,
     "lng": 32.3019,
@@ -13908,7 +13908,7 @@
   {
     "id": "dodoma-tz",
     "short": "Dodoma",
-    "clue": "Which purpose-built Tanzanian capital is symbolized by Nyerere Square and surrounded by dry central highlands and vineyards?",
+    "clue": "Which purpose-built capital is symbolized by Nyerere Square and surrounded by dry central highlands and vineyards?",
     "fact": "Dodoma is a national capital; GeoNames records its urban population at about 765,179 and its elevation near 1125 meters.",
     "lat": -6.17221,
     "lng": 35.73947,
@@ -13948,7 +13948,7 @@
   {
     "id": "akure-ng",
     "short": "Akure",
-    "clue": "Which Nigerian city beneath Idanre Hills is known for cocoa farming and the rocky Olukayode park?",
+    "clue": "Which city beneath Idanre Hills is known for cocoa farming and the rocky Olukayode park?",
     "fact": "Akure is an administrative capital, recorded by GeoNames at roughly 353 meters above sea level with about 730,000 residents.",
     "lat": 7.25256,
     "lng": 5.19312,
@@ -13998,7 +13998,7 @@
   {
     "id": "agadir-ma",
     "short": "Agadir",
-    "clue": "Which Moroccan Atlantic resort is renowned for its crescent beach, hilltop kasbah ruins, and argan-oil countryside?",
+    "clue": "Which Atlantic resort is renowned for its crescent beach, hilltop kasbah ruins, and argan-oil countryside?",
     "fact": "Agadir is an administrative capital, recorded by GeoNames at roughly 31 meters above sea level with about 698,310 residents.",
     "lat": 30.42018,
     "lng": -9.59815,
@@ -14008,7 +14008,7 @@
   {
     "id": "bauchi-ng",
     "short": "Bauchi",
-    "clue": "Which northern Nigerian state capital is known for the Yankari Game Reserve nearby and the Emir\u2019s Palace?",
+    "clue": "Which northern state capital is known for the Yankari Game Reserve nearby and the Emir's Palace?",
     "fact": "Bauchi is an administrative capital, recorded by GeoNames at roughly 623 meters above sea level with about 693,700 residents.",
     "lat": 10.31032,
     "lng": 9.84388,
@@ -14078,7 +14078,7 @@
   {
     "id": "bulawayo-zw",
     "short": "Bulawayo",
-    "clue": "Which Zimbabwean city is known for wide jacaranda-lined streets, the Natural History Museum, and nearby Matobo Hills?",
+    "clue": "Which city is known for wide jacaranda-lined streets, the Natural History Museum, and nearby Matobo Hills?",
     "fact": "Bulawayo is an administrative capital, recorded by GeoNames at roughly 1348 meters above sea level with about 665,952 residents.",
     "lat": -20.15,
     "lng": 28.58333,
@@ -14148,7 +14148,7 @@
   {
     "id": "novosibirsk-ru",
     "short": "Novosibirsk",
-    "clue": "Which Siberian metropolis contains a vast opera house and spans the Ob River on the route of the Trans-Siberian Railway?",
+    "clue": "Which metropolis contains a vast opera house and spans the Ob River on the route of the Trans-Siberian Railway?",
     "fact": "Novosibirsk is an administrative capital, recorded by GeoNames at roughly 113 meters above sea level with about 1,612,833 residents.",
     "lat": 55.02259,
     "lng": 82.93175,
@@ -14208,7 +14208,7 @@
   {
     "id": "omsk-ru",
     "short": "Omsk",
-    "clue": "Which Siberian city sits where the Om meets the Irtysh and preserves an ornate Assumption Cathedral?",
+    "clue": "Which city sits where the Om meets the Irtysh and preserves an ornate Assumption Cathedral?",
     "fact": "Omsk is an administrative capital, recorded by GeoNames at roughly 90 meters above sea level with about 1,172,070 residents.",
     "lat": 54.99244,
     "lng": 73.36859,
@@ -14228,7 +14228,7 @@
   {
     "id": "birmingham-gb",
     "short": "Birmingham",
-    "clue": "Which English city gave rise to heavy-metal bands, Cadbury chocolate, and more miles of canals than Venice?",
+    "clue": "Which city gave rise to heavy-metal bands, Cadbury chocolate, and more miles of canals than Venice?",
     "fact": "Birmingham is an administrative capital, recorded by GeoNames at roughly 149 meters above sea level with about 1,157,603 residents.",
     "lat": 52.48142,
     "lng": -1.89983,
@@ -14258,7 +14258,7 @@
   {
     "id": "krasnoyarsk-ru",
     "short": "Krasnoyarsk",
-    "clue": "Which Siberian city beside the Yenisei is known for nearby Stolby\u2019s dramatic rock pillars?",
+    "clue": "Which city beside the Yenisei is known for nearby Stolby's dramatic rock pillars?",
     "fact": "Krasnoyarsk is an administrative capital, recorded by GeoNames at roughly 182 meters above sea level with about 1,090,811 residents.",
     "lat": 56.03742,
     "lng": 92.93136,
@@ -14308,7 +14308,7 @@
   {
     "id": "dnipro-ua",
     "short": "Dnipro",
-    "clue": "Which Ukrainian city on the Dnipro is an aerospace and rocket-building center with one of Europe\u2019s longest riverfronts?",
+    "clue": "Which city on a broad river is an aerospace and rocket-building center with one of Europe's longest riverfronts?",
     "fact": "Dnipro is an administrative capital, recorded by GeoNames at roughly 120 meters above sea level with about 968,502 residents.",
     "lat": 48.46664,
     "lng": 35.04066,
@@ -14328,7 +14328,7 @@
   {
     "id": "krasnodar-ru",
     "short": "Krasnodar",
-    "clue": "Which southern Russian city is known for broad tree-lined streets and as the gateway to Black Sea resorts and the Kuban plains?",
+    "clue": "Which southern city is known for broad tree-lined streets and as the gateway to Black Sea resorts and the Kuban plains?",
     "fact": "Krasnodar is an administrative capital, recorded by GeoNames at roughly 36 meters above sea level with about 899,541 residents.",
     "lat": 45.04534,
     "lng": 38.98178,
@@ -14358,7 +14358,7 @@
   {
     "id": "valencia-es",
     "short": "Valencia",
-    "clue": "Which Spanish Mediterranean city blends futuristic City of Arts and Sciences with paella\u2019s rice fields in Albufera?",
+    "clue": "Which Mediterranean city blends the futuristic City of Arts and Sciences with paella's rice fields in Albufera?",
     "fact": "Valencia is an administrative capital, recorded by GeoNames at roughly 15 meters above sea level with about 824,340 residents.",
     "lat": 39.47391,
     "lng": -0.37966,
@@ -14368,7 +14368,7 @@
   {
     "id": "tyumen-ru",
     "short": "Tyumen",
-    "clue": "Which Siberian city grew wealthy as the administrative center of vast oil and gas fields and spans the Tura River with a four-level embankment?",
+    "clue": "Which city grew wealthy as the administrative center of vast oil and gas fields and spans the Tura River with a four-level embankment?",
     "fact": "Tyumen is an administrative capital, recorded by GeoNames at roughly 81 meters above sea level with about 768,358 residents.",
     "lat": 57.15222,
     "lng": 65.52722,
@@ -14378,7 +14378,7 @@
   {
     "id": "lviv-ua",
     "short": "Lviv",
-    "clue": "Which western Ukrainian city centers on a cobbled market square and an opera house reflecting Polish, Habsburg, and Armenian heritage?",
+    "clue": "Which city centers on a cobbled market square and an opera house reflecting Polish, Habsburg, and Armenian heritage?",
     "fact": "Lviv is an administrative capital, recorded by GeoNames at roughly 284 meters above sea level with about 717,273 residents.",
     "lat": 49.83826,
     "lng": 24.02324,
@@ -14428,7 +14428,7 @@
   {
     "id": "wrocaw-pl",
     "short": "Wroc\u0142aw",
-    "clue": "Which Polish city of a hundred bridges is known for its Gothic town hall and dozens of tiny bronze dwarf statues?",
+    "clue": "Which city of a hundred bridges is known for its Gothic town hall and dozens of tiny bronze dwarf statues?",
     "fact": "Wroc\u0142aw is an administrative capital, recorded by GeoNames at roughly 115 meters above sea level with about 672,545 residents.",
     "lat": 51.10286,
     "lng": 17.03006,
@@ -14458,7 +14458,7 @@
   {
     "id": "odz-pl",
     "short": "\u0141\u00f3d\u017a",
-    "clue": "Which Polish textile metropolis is recognized by Piotrkowska Street and former red-brick factories converted into arts spaces?",
+    "clue": "Which textile metropolis is recognized by Piotrkowska Street and former red-brick factories converted into arts spaces?",
     "fact": "\u0141\u00f3d\u017a is an administrative capital, recorded by GeoNames at roughly 214 meters above sea level with about 639,890 residents.",
     "lat": 51.77058,
     "lng": 19.47395,
@@ -14498,7 +14498,7 @@
   {
     "id": "irkutsk-ru",
     "short": "Irkutsk",
-    "clue": "Which Siberian city near Lake Baikal preserves ornate wooden houses and was a place of exile for Decembrists?",
+    "clue": "Which city near Lake Baikal preserves ornate wooden houses and was a place of exile for Decembrists?",
     "fact": "Irkutsk is an administrative capital, recorded by GeoNames at roughly 415 meters above sea level with about 623,869 residents.",
     "lat": 52.29566,
     "lng": 104.29076,
@@ -14528,7 +14528,7 @@
   {
     "id": "stuttgart-de",
     "short": "Stuttgart",
-    "clue": "Which German auto city is home to Mercedes-Benz and Porsche, with vineyards climbing hills around its center?",
+    "clue": "Which auto city is home to Mercedes-Benz and Porsche, with vineyards climbing hills around its center?",
     "fact": "Stuttgart is an administrative capital, recorded by GeoNames at roughly 252 meters above sea level with about 612,663 residents.",
     "lat": 48.78232,
     "lng": 9.17702,
@@ -14548,7 +14548,7 @@
   {
     "id": "kryvyy-rih-ua",
     "short": "Kryvyy Rih",
-    "clue": "Which Ukrainian iron-mining city stretches unusually far along a narrow band of red-ore quarries?",
+    "clue": "Which iron-mining city stretches unusually far along a narrow band of red-ore quarries?",
     "fact": "Kryvyy Rih is an administrative capital, recorded by GeoNames at roughly 84 meters above sea level with about 603,904 residents.",
     "lat": 47.90572,
     "lng": 33.39404,
@@ -14588,7 +14588,7 @@
   {
     "id": "tomsk-ru",
     "short": "Tomsk",
-    "clue": "Which Siberian university city is renowned for lace-like carved wooden houses, including one topped with firebird ornament?",
+    "clue": "Which university city is renowned for lace-like carved wooden houses, including one topped with firebird ornament?",
     "fact": "Tomsk is an administrative capital, recorded by GeoNames at roughly 122 meters above sea level with about 574,002 residents.",
     "lat": 56.50049,
     "lng": 84.98216,
@@ -14608,7 +14608,7 @@
   {
     "id": "kemerovo-ru",
     "short": "Kemerovo",
-    "clue": "Which Siberian coal city contains monuments to miners and serves the great Kuzbass coalfield?",
+    "clue": "Which coal city contains monuments to miners and serves the great Kuzbass coalfield?",
     "fact": "Kemerovo is an administrative capital, recorded by GeoNames at roughly 114 meters above sea level with about 558,973 residents.",
     "lat": 55.35417,
     "lng": 86.10435,
@@ -14628,7 +14628,7 @@
   {
     "id": "pristina-xk",
     "short": "Pristina",
-    "clue": "Which young Balkan capital contains the Newborn monument and the gold-domed National Library?",
+    "clue": "Which young capital contains the Newborn monument and the gold-domed National Library?",
     "fact": "Pristina is a national capital; GeoNames records its urban population at about 550,000 and its elevation near 597 meters.",
     "lat": 42.67272,
     "lng": 21.16688,
@@ -14648,7 +14648,7 @@
   {
     "id": "santiago-de-queretaro-mx",
     "short": "Santiago de Quer\u00e9taro",
-    "clue": "Which Mexican colonial city is famous for pink-stone aqueduct arches and thriving aerospace factories?",
+    "clue": "Which colonial city is famous for pink-stone aqueduct arches and thriving aerospace factories?",
     "fact": "Santiago de Quer\u00e9taro is an administrative capital, recorded by GeoNames at roughly 1826 meters above sea level with about 1,594,212 residents.",
     "lat": 20.58806,
     "lng": -100.38806,
@@ -14728,7 +14728,7 @@
   {
     "id": "chihuahua-mx",
     "short": "Chihuahua",
-    "clue": "Which northern Mexican city features the grand Quinta Gameros mansion and serves as gateway to Copper Canyon country?",
+    "clue": "Which northern desert city features the grand Quinta Gameros mansion and serves as gateway to Copper Canyon country?",
     "fact": "Chihuahua is an administrative capital, recorded by GeoNames at roughly 1437 meters above sea level with about 925,762 residents.",
     "lat": 28.63528,
     "lng": -106.08889,
@@ -14798,7 +14798,7 @@
   {
     "id": "san-luis-potosi-mx",
     "short": "San Luis Potos\u00ed",
-    "clue": "Which silver-mining city gave its name to the Mexican state and contains the baroque Templo del Carmen?",
+    "clue": "Which silver-mining city shares its name with its state and contains the baroque Templo del Carmen?",
     "fact": "San Luis Potos\u00ed is an administrative capital, recorded by GeoNames at roughly 1886 meters above sea level with about 722,772 residents.",
     "lat": 22.15234,
     "lng": -100.97135,
@@ -14808,7 +14808,7 @@
   {
     "id": "aguascalientes-mx",
     "short": "Aguascalientes",
-    "clue": "Which meticulously planned Mexican city is famous for the Feria de San Marcos and its long railway heritage?",
+    "clue": "Which meticulously planned city is famous for the Feria de San Marcos and its long railway heritage?",
     "fact": "Aguascalientes is an administrative capital, recorded by GeoNames at roughly 1885 meters above sea level with about 722,250 residents.",
     "lat": 21.88262,
     "lng": -102.2843,
@@ -14858,7 +14858,7 @@
   {
     "id": "brampton-ca",
     "short": "Brampton",
-    "clue": "Which Canadian city northwest of Toronto is known for its extraordinary South Asian community and large Sikh gurdwaras?",
+    "clue": "Which city northwest of Toronto is known for its extraordinary South Asian community and large Sikh gurdwaras?",
     "fact": "GeoNames records Brampton at roughly 221 meters above sea level and a population of about 656,480.",
     "lat": 43.68341,
     "lng": -79.76633,
@@ -14908,7 +14908,7 @@
   {
     "id": "reynosa-mx",
     "short": "Reynosa",
-    "clue": "Which Mexican border city\u2019s maquiladoras and international bridges face McAllen across the Rio Grande?",
+    "clue": "Which border city's maquiladoras and international bridges face McAllen across the Rio Grande?",
     "fact": "Reynosa is an administrative capital, recorded by GeoNames at roughly 38 meters above sea level with about 589,466 residents.",
     "lat": 26.08005,
     "lng": -98.28456,
@@ -14928,7 +14928,7 @@
   {
     "id": "surrey-ca",
     "short": "Surrey",
-    "clue": "Which Canadian city includes both dense Punjabi neighborhoods and broad Pacific-coast parks south of the Fraser River?",
+    "clue": "Which city includes both dense Punjabi neighborhoods and broad Pacific-coast parks south of the Fraser River?",
     "fact": "GeoNames records Surrey at roughly 82 meters above sea level and a population of about 568,322.",
     "lat": 49.10635,
     "lng": -122.82509,
@@ -14948,7 +14948,7 @@
   {
     "id": "victoria-de-durango-mx",
     "short": "Victoria de Durango",
-    "clue": "Which northern Mexican colonial city is centered on a pink quarry cathedral and serves as gateway to the Sierra Madre Occidental?",
+    "clue": "Which northern colonial city is centered on a pink quarry cathedral and serves as gateway to the Sierra Madre Occidental?",
     "fact": "GeoNames records Victoria de Durango at roughly 1884 meters above sea level and a population of about 518,709.",
     "lat": 24.02032,
     "lng": -104.65756,
@@ -14958,7 +14958,7 @@
   {
     "id": "heroica-matamoros-mx",
     "short": "Heroica Matamoros",
-    "clue": "Which Mexican border city grew beside the Rio Grande opposite Brownsville and is known for its bagpipe-playing namesake hero?",
+    "clue": "Which border city grew beside the Rio Grande opposite Brownsville and is known for its bagpipe-playing namesake hero?",
     "fact": "GeoNames records Heroica Matamoros at roughly 16 meters above sea level and a population of about 510,739.",
     "lat": 25.87972,
     "lng": -97.50417,
@@ -15058,7 +15058,7 @@
   {
     "id": "nuevo-laredo-mx",
     "short": "Nuevo Laredo",
-    "clue": "Which border city faces Laredo across the Rio Grande and marks the Mexican end of a major Pan-American trade corridor?",
+    "clue": "Which border city faces Laredo across the Rio Grande and marks the southern end of a major Pan-American trade corridor?",
     "fact": "GeoNames records Nuevo Laredo at roughly 130 meters above sea level and a population of about 416,055.",
     "lat": 27.47629,
     "lng": -99.51639,
@@ -18788,7 +18788,7 @@
   {
     "id": "cagliari",
     "short": "Cagliari",
-    "clue": "Which Sardinian capital overlooks a lagoon full of pink flamingos?",
+    "clue": "Which Mediterranean island capital overlooks a lagoon full of pink flamingos?",
     "fact": "GeoNames records Cagliari at 39.23054, 9.11917, about 41 meters above sea level, with a population of approximately 149,257.",
     "lat": 39.23054,
     "lng": 9.11917,
@@ -19528,7 +19528,7 @@
   {
     "id": "zajecar",
     "short": "Zaje\u010dar",
-    "clue": "Which eastern Serbian town is near Felix Romuliana, Emperor Galerius's palace?",
+    "clue": "Which Balkan town is near Felix Romuliana, Emperor Galerius's palace?",
     "fact": "GeoNames records Zaje\u010dar at 43.90358, 22.26405, about 130 meters above sea level, with a population of approximately 49,800.",
     "lat": 43.90358,
     "lng": 22.26405,
@@ -19868,7 +19868,7 @@
   {
     "id": "rakvere",
     "short": "Rakvere",
-    "clue": "Which Estonian town has a giant aurochs statue below its castle ruins?",
+    "clue": "Which Baltic town has a giant aurochs statue below its castle ruins?",
     "fact": "GeoNames records Rakvere at 59.34808, 26.35784, about 83 meters above sea level, with a population of approximately 14,984.",
     "lat": 59.34808,
     "lng": 26.35784,
@@ -19908,7 +19908,7 @@
   {
     "id": "ceska-trebova",
     "short": "\u010cesk\u00e1 T\u0159ebov\u00e1",
-    "clue": "Which East Bohemian railway junction town lies on the T\u0159ebovka River?",
+    "clue": "Which railway junction town in Central Europe lies on the T\u0159ebovka River?",
     "fact": "GeoNames records \u010cesk\u00e1 T\u0159ebov\u00e1 at 49.90436, 16.44413, about 370 meters above sea level, with a population of approximately 14,982.",
     "lat": 49.90436,
     "lng": 16.44413,
