@@ -57,7 +57,16 @@ function clearPendingGuess() {
   document.body.classList.remove('has-guess');
 }
 
-lockButton.addEventListener('click', () => {
+lockButton.addEventListener('pointerdown', (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+});
+lockButton.addEventListener('pointerup', (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+});
+lockButton.addEventListener('click', (e) => {
+  e.stopPropagation();
   if (!pendingGuess || !window.__canGuess || gameMode !== 'guess') return;
   if (performance.now() < lockArmedAt) return; // the tail of a double tap on the globe
   const guess = pendingGuess;
