@@ -22,17 +22,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/500px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg"
   },
   {
-    "id": "cairo-egypt",
-    "clue": "Cairo, Egypt \ud83c\uddea\ud83c\uddec",
-    "category": "city",
-    "lat": 30.0444,
-    "lng": 31.2357,
-    "fact": "Egypt's capital and the largest city in the Arab world, sitting on the banks of the Nile.",
-    "difficulty": 2,
-    "short": "Cairo",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg/500px-Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg"
-  },
-  {
     "id": "sydney-australia",
     "clue": "Sydney, Australia \ud83c\udde6\ud83c\uddfa",
     "category": "city",
@@ -275,17 +264,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Hollywood_sign_%288485145044%29.jpg/500px-Hollywood_sign_%288485145044%29.jpg"
   },
   {
-    "id": "dubai-uae",
-    "clue": "Dubai, United Arab Emirates \ud83c\udde6\ud83c\uddea",
-    "category": "city",
-    "lat": 25.2048,
-    "lng": 55.2708,
-    "fact": "Once a small pearling and fishing town, it now holds the world's tallest building, the Burj Khalifa.",
-    "difficulty": 1,
-    "short": "Dubai",
-    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/c7/Burj_Khalifa_2021.jpg/500px-Burj_Khalifa_2021.jpg"
-  },
-  {
     "id": "hong-kong",
     "clue": "Hong Kong \ud83c\udded\ud83c\uddf0",
     "category": "city",
@@ -306,17 +284,6 @@
     "difficulty": 1,
     "short": "Singapore",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Singapore_Financial_District_skyline_from_across_Marina_Bay.jpg/1280px-Singapore_Financial_District_skyline_from_across_Marina_Bay.jpg"
-  },
-  {
-    "id": "barcelona-spain",
-    "clue": "Barcelona, Spain \ud83c\uddea\ud83c\uddf8",
-    "category": "city",
-    "lat": 41.3851,
-    "lng": 2.1734,
-    "fact": "Catalonia's capital is famous for Gaud\u00ed's still-unfinished Sagrada Fam\u00edlia basilica.",
-    "difficulty": 1,
-    "short": "Barcelona",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Evening_light_over_Barcelona.jpg/500px-Evening_light_over_Barcelona.jpg"
   },
   {
     "id": "big-ben",
@@ -372,17 +339,6 @@
     "difficulty": 2,
     "short": "Taj Mahal",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/500px-Taj_Mahal_%28Edited%29.jpeg"
-  },
-  {
-    "id": "istanbul-turkey",
-    "clue": "Istanbul, Turkey \ud83c\uddf9\ud83c\uddf7",
-    "category": "city",
-    "lat": 41.0082,
-    "lng": 28.9784,
-    "fact": "The only major city spanning two continents, it was called Constantinople for over a thousand years.",
-    "difficulty": 1,
-    "short": "Istanbul",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Historical_peninsula_and_modern_skyline_of_Istanbul.jpg/500px-Historical_peninsula_and_modern_skyline_of_Istanbul.jpg"
   },
   {
     "id": "bangkok-thailand",
@@ -449,17 +405,6 @@
     "difficulty": 1,
     "short": "Seoul",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg/500px-%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg"
-  },
-  {
-    "id": "toronto-canada",
-    "clue": "Toronto, Canada \ud83c\udde8\ud83c\udde6",
-    "category": "city",
-    "lat": 43.6532,
-    "lng": -79.3832,
-    "fact": "Canada's largest city rises beside Lake Ontario and is marked by the CN Tower, once the world's tallest freestanding structure.",
-    "difficulty": 1,
-    "short": "Toronto",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Toronto_Skyline_from_Snake_Island%2C_September_11_2026_%2801%29.jpg/500px-Toronto_Skyline_from_Snake_Island%2C_September_11_2026_%2801%29.jpg"
   },
   {
     "id": "las-vegas-usa",
@@ -605,28 +550,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
-    "id": "delhi-india",
-    "clue": "Delhi, India \ud83c\uddee\ud83c\uddf3",
-    "category": "city",
-    "lat": 28.7041,
-    "lng": 77.1025,
-    "fact": "India's capital territory layers over a thousand years of history, from the ancient Qutb Minar to British colonial New Delhi.",
-    "difficulty": 1,
-    "short": "Delhi",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Jama_Masjid_2011.jpg/500px-Jama_Masjid_2011.jpg"
-  },
-  {
-    "id": "lagos-nigeria",
-    "clue": "Lagos, Nigeria \ud83c\uddf3\ud83c\uddec",
-    "category": "city",
-    "lat": 6.5244,
-    "lng": 3.3792,
-    "fact": "Nigeria's largest city grew up on a lagoon and is now one of the fastest-growing megacities in Africa.",
-    "difficulty": 3,
-    "short": "Lagos",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Lagos-centre-from-executive-lounge-Continental-hotel-2026-IMG_7970.jpg/500px-Lagos-centre-from-executive-lounge-Continental-hotel-2026-IMG_7970.jpg"
-  },
-  {
     "id": "jakarta-indonesia",
     "clue": "Jakarta, Indonesia \ud83c\uddee\ud83c\udde9",
     "category": "city",
@@ -715,17 +638,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Pavillon_Menarag%C3%A4rten.jpg/500px-Pavillon_Menarag%C3%A4rten.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "havana-cuba",
-    "clue": "Havana, Cuba \ud83c\udde8\ud83c\uddfa",
-    "category": "city",
-    "lat": 23.1136,
-    "lng": -82.3666,
-    "fact": "Cuba's capital is famous for its 1950s American cars, kept running for decades under a US trade embargo.",
-    "difficulty": 3,
-    "short": "Havana",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/DJI_0197_crp_wiki.jpg/500px-DJI_0197_crp_wiki.jpg"
-  },
-  {
     "id": "kyoto-japan",
     "clue": "Kyoto, Japan \ud83c\uddef\ud83c\uddf5",
     "category": "city",
@@ -768,28 +680,6 @@
     "difficulty": 2,
     "short": "Helsinki",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Suomenlinna_%28cropped%29.jpg/500px-Suomenlinna_%28cropped%29.jpg"
-  },
-  {
-    "id": "santiago-chile",
-    "clue": "Santiago, Chile \ud83c\udde8\ud83c\uddf1",
-    "category": "city",
-    "lat": -33.4489,
-    "lng": -70.6693,
-    "fact": "Chile's capital sits in a valley ringed by the Andes, close enough that snow-capped peaks loom over the skyline.",
-    "difficulty": 2,
-    "short": "Santiago",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Palacio_de_La_Moneda_-_miguelreflex.jpg/500px-Palacio_de_La_Moneda_-_miguelreflex.jpg"
-  },
-  {
-    "id": "casablanca-morocco",
-    "clue": "Casablanca, Morocco \ud83c\uddf2\ud83c\udde6",
-    "category": "city",
-    "lat": 33.5731,
-    "lng": -7.5898,
-    "fact": "Morocco's largest city is home to the Hassan II Mosque, whose minaret is one of the tallest religious structures in the world.",
-    "difficulty": 2,
-    "short": "Casablanca",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Casa_finance_city_6_%28cropped%29.jpg/500px-Casa_finance_city_6_%28cropped%29.jpg"
   },
   {
     "id": "serengeti-tanzania",
@@ -891,28 +781,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/UB_downtown.jpg/500px-UB_downtown.jpg"
   },
   {
-    "id": "quito-ecuador",
-    "clue": "Quito, Ecuador \ud83c\uddea\ud83c\udde8",
-    "category": "city",
-    "lat": -0.1807,
-    "lng": -78.4678,
-    "fact": "Ecuador's capital sits in an Andean valley almost exactly on the equator, at an elevation of nearly 2,850 meters.",
-    "difficulty": 3,
-    "short": "Quito",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/FACHADA_ASAMBLEA_NACIONAL._QUITO%2C_20_DE_FEBRERO_2020._01.jpg/500px-FACHADA_ASAMBLEA_NACIONAL._QUITO%2C_20_DE_FEBRERO_2020._01.jpg"
-  },
-  {
-    "id": "tbilisi-georgia",
-    "clue": "Tbilisi, Georgia \ud83c\uddec\ud83c\uddea",
-    "category": "city",
-    "lat": 41.7151,
-    "lng": 44.8271,
-    "fact": "Georgia's capital grew around natural sulfur hot springs that still feed its old bathhouse district.",
-    "difficulty": 3,
-    "short": "Tbilisi",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/View_of_Tbilisi_from_Tabori_Church_2023-10-08-2.jpg/500px-View_of_Tbilisi_from_Tabori_Church_2023-10-08-2.jpg"
-  },
-  {
     "id": "salar-de-uyuni",
     "clue": "Where does the world's largest salt flat turn into a giant mirror after rain?",
     "category": "moment",
@@ -966,17 +834,6 @@
     "difficulty": 3,
     "short": "Bishkek",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Bishkek_City%27s_business_center.jpg/500px-Bishkek_City%27s_business_center.jpg"
-  },
-  {
-    "id": "vientiane-laos",
-    "clue": "Vientiane, Laos \ud83c\uddf1\ud83c\udde6",
-    "category": "city",
-    "lat": 17.9757,
-    "lng": 102.6331,
-    "fact": "Laos's capital on the Mekong River is one of the least densely populated capital cities in Asia.",
-    "difficulty": 3,
-    "short": "Vientiane",
-    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/28/Vientiane_-_Patuxai_-_0003.jpg/500px-Vientiane_-_Patuxai_-_0003.jpg"
   },
   {
     "id": "asmara-eritrea",
@@ -1329,16 +1186,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Durban_from_the_Balcony_%28Dennis_Sylvester_Hurd%29_1.jpg/500px-Durban_from_the_Balcony_%28Dennis_Sylvester_Hurd%29_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "pretoria-south-africa",
-    "clue": "Pretoria, South Africa \ud83c\uddff\ud83c\udde6",
-    "fact": "South Africa's administrative capital, known for its jacaranda-lined streets.",
-    "lat": -25.7479,
-    "lng": 28.2293,
-    "difficulty": 3,
-    "short": "Pretoria",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Uniegebou.jpg/500px-Uniegebou.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "alexandria-egypt",
     "clue": "Alexandria, Egypt \ud83c\uddea\ud83c\uddec",
     "fact": "Founded by Alexander the Great in 331 BCE, this Mediterranean port was once home to the Great Library of Alexandria.",
@@ -1379,16 +1226,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Minaret_et_patio_de_la_mosqu%C3%A9e_Zitouna_au_centre_de_la_M%C3%A9dina_de_Tunis.jpg/500px-Minaret_et_patio_de_la_mosqu%C3%A9e_Zitouna_au_centre_de_la_M%C3%A9dina_de_Tunis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "algiers-algeria",
-    "clue": "Algiers, Algeria \ud83c\udde9\ud83c\uddff",
-    "fact": "Algeria's capital, known as 'Algiers the White', is built on a hill overlooking the Mediterranean.",
-    "lat": 36.7538,
-    "lng": 3.0588,
-    "difficulty": 3,
-    "short": "Algiers",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/La_baie_d%27Alger_%28cropped%29.jpg/500px-La_baie_d%27Alger_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "rabat-morocco",
     "clue": "Rabat, Morocco \ud83c\uddf2\ud83c\udde6",
     "fact": "Morocco's capital, a coastal city with a well-preserved historic medina and Kasbah of the Udayas.",
@@ -1407,26 +1244,6 @@
     "difficulty": 3,
     "short": "Fez",
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Fes%20Medina%20Panoramic%20view.jpg?width=500"
-  },
-  {
-    "id": "dakar-senegal",
-    "clue": "Dakar, Senegal \ud83c\uddf8\ud83c\uddf3",
-    "fact": "Senegal's capital, located on the Cap-Vert peninsula, the westernmost point of mainland Africa.",
-    "lat": 14.7167,
-    "lng": -17.4677,
-    "difficulty": 3,
-    "short": "Dakar",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Dakar-Ind%C3%A9pendance.jpg/500px-Dakar-Ind%C3%A9pendance.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "accra-ghana",
-    "clue": "Accra, Ghana \ud83c\uddec\ud83c\udded",
-    "fact": "Ghana's capital and largest city, a major port on the Gulf of Guinea.",
-    "lat": 5.6037,
-    "lng": -0.187,
-    "difficulty": 3,
-    "short": "Accra",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Acca.jpg/500px-Acca.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "kinshasa-dr-congo",
@@ -1449,36 +1266,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg/500px-High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "kampala-uganda",
-    "clue": "Kampala, Uganda \ud83c\uddfa\ud83c\uddec",
-    "fact": "Uganda's capital, built on several hills and near Lake Victoria.",
-    "lat": 0.3476,
-    "lng": 32.5825,
-    "difficulty": 2,
-    "short": "Kampala",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Urban_Rising%2C_KAMPALA%2C_Uganda.jpg/500px-Urban_Rising%2C_KAMPALA%2C_Uganda.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "dar-es-salaam-tanzania",
-    "clue": "Dar es Salaam, Tanzania \ud83c\uddf9\ud83c\uddff",
-    "fact": "Tanzania's largest city and former capital, an important commercial port on the Indian Ocean.",
-    "lat": -6.7924,
-    "lng": 39.2083,
-    "difficulty": 2,
-    "short": "Dar es Salaam",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/St_Joseph%27s_Catholic_Cathedral_%2834895613805%29.jpg/500px-St_Joseph%27s_Catholic_Cathedral_%2834895613805%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "antananarivo-madagascar",
-    "clue": "Antananarivo, Madagascar \ud83c\uddf2\ud83c\uddec",
-    "fact": "Madagascar's capital, built on hills and known for its colorful historic buildings.",
-    "lat": -18.8792,
-    "lng": 47.5079,
-    "difficulty": 2,
-    "short": "Antananarivo",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Lake_Anosy%2C_Central_Antananarivo%2C_Capital_of_Madagascar%2C_Photo_by_Sascha_Grabow.jpg/500px-Lake_Anosy%2C_Central_Antananarivo%2C_Capital_of_Madagascar%2C_Photo_by_Sascha_Grabow.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "maputo-mozambique",
     "clue": "Maputo, Mozambique \ud83c\uddf2\ud83c\uddff",
     "fact": "Mozambique's capital, known for its Portuguese colonial architecture and vibrant culture.",
@@ -1499,16 +1286,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Crowne_Plaza%2C_Harare.png/500px-Crowne_Plaza%2C_Harare.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "lusaka-zambia",
-    "clue": "Lusaka, Zambia \ud83c\uddff\ud83c\uddf2",
-    "fact": "Zambia's capital, located in the country's central plateau region.",
-    "lat": -15.3875,
-    "lng": 28.3228,
-    "difficulty": 3,
-    "short": "Lusaka",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Downtown_Lusaka.JPG/500px-Downtown_Lusaka.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "luanda-angola",
     "clue": "Luanda, Angola \ud83c\udde6\ud83c\uddf4",
     "fact": "Angola's capital and one of Africa's most expensive cities, located on the Atlantic coast.",
@@ -1519,16 +1296,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Luanda_2025_focused_%28cropped%29.jpg/500px-Luanda_2025_focused_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "bamako-mali",
-    "clue": "Bamako, Mali \ud83c\uddf2\ud83c\uddf1",
-    "fact": "Mali's capital, located on the Niger River in the country's southwestern region.",
-    "lat": 12.6392,
-    "lng": -8.0029,
-    "difficulty": 3,
-    "short": "Bamako",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Place_de_la_libert%C3%A9_-_Bamako.jpg/500px-Place_de_la_libert%C3%A9_-_Bamako.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "tripoli-libya",
     "clue": "Tripoli, Libya \ud83c\uddf1\ud83c\uddfe",
     "fact": "Libya's capital and largest city, founded by the Phoenicians in the 7th century BCE as Oea.",
@@ -1537,16 +1304,6 @@
     "difficulty": 2,
     "short": "Tripoli",
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tripoli_Skyline_edit.jpg"
-  },
-  {
-    "id": "khartoum-sudan",
-    "clue": "Khartoum, Sudan \ud83c\uddf8\ud83c\udde9",
-    "fact": "Sudan's capital, located at the confluence of the Blue Nile and White Nile rivers.",
-    "lat": 15.5007,
-    "lng": 32.5599,
-    "difficulty": 2,
-    "short": "Khartoum",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/%C2%A9Nile-Project_-Sari_Omer_0025.jpg/500px-%C2%A9Nile-Project_-Sari_Omer_0025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "kumasi-ghana",
@@ -1567,16 +1324,6 @@
     "difficulty": 3,
     "short": "Abidjan",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Visite_du_mus%C3%A9e_de_civilisation_de_C%C3%B4te_d%27Ivoire_08.jpg/500px-Visite_du_mus%C3%A9e_de_civilisation_de_C%C3%B4te_d%27Ivoire_08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "kano-nigeria",
-    "clue": "Where is the ancient walled city of Kano, long a center of trans-Saharan trade?",
-    "fact": "One of West Africa's oldest cities, a major center for trade and Islamic scholarship.",
-    "lat": 12.0022,
-    "lng": 8.5919,
-    "difficulty": 5,
-    "short": "Kano",
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kofar_Gadan_Kaya_-_Kano_City_Gate.jpg"
   },
   {
     "id": "mombasa-kenya",
@@ -2059,46 +1806,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/500px-Osaka_Castle_03bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "tehran-iran",
-    "clue": "Tehran, Iran \ud83c\uddee\ud83c\uddf7",
-    "fact": "The capital sinks by as much as 3 cm a year as the alluvial fan it was built on compacts, cracking metro tunnels and pulling old aqueducts out of line.",
-    "lat": 35.6892,
-    "lng": 51.389,
-    "difficulty": 2,
-    "short": "Tehran",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/North_of_Tehran_Skyline_view.jpg/500px-North_of_Tehran_Skyline_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "riyadh-saudi-arabia",
-    "clue": "Riyadh, Saudi Arabia \ud83c\uddf8\ud83c\udde6",
-    "fact": "Saudi Arabia's royal palaces only appeared after 1970, when King Faisal abandoned the mudbrick walled oasis town and drew a modern capital along the Wadi Hanifa.",
-    "lat": 24.7136,
-    "lng": 46.6753,
-    "difficulty": 2,
-    "short": "Riyadh",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Riyadh_Skyline.jpg/500px-Riyadh_Skyline.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "dhaka-bangladesh",
-    "clue": "Dhaka, Bangladesh \ud83c\udde7\ud83c\udde9",
-    "fact": "Millions still cross the Buriganga to reach work by launch, and the city employs well over a million garment workers sewing clothes exported under other countries' labels.",
-    "lat": 23.8103,
-    "lng": 90.4125,
-    "difficulty": 2,
-    "short": "Dhaka",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Tejgaon_Commercial_Area.jpg/500px-Tejgaon_Commercial_Area.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "taipei-taiwan",
-    "clue": "Taipei, Taiwan \ud83c\uddf9\ud83c\uddfc",
-    "fact": "The capital's skyscraper Taipei 101 is planted with roughly 660,000 native Taiwanese plants, more greenery than any other tower in the world.",
-    "lat": 25.033,
-    "lng": 121.5654,
-    "difficulty": 1,
-    "short": "Taipei",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Taipei_Skyline_2022.06.29.jpg/500px-Taipei_Skyline_2022.06.29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "hanoi-vietnam",
     "clue": "Hanoi, Vietnam \ud83c\uddfb\ud83c\uddf3",
     "fact": "Vietnam's capital marked its 1,000th anniversary in 2010, and its Old Quarter still folds away 27 km of alleyways narrow enough for two motorbikes to pass.",
@@ -2149,16 +1856,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/500px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "hangzhou-china",
-    "clue": "Hangzhou, China \ud83c\udde8\ud83c\uddf3",
-    "fact": "The famous West Lake was named for sitting west of the city, was largely dug and embanked by hand, and has been rebuilt so often no original shoreline survives.",
-    "lat": 30.2741,
-    "lng": 120.1551,
-    "difficulty": 3,
-    "short": "Hangzhou",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "kolkata-india",
     "clue": "Kolkata, India \ud83c\uddee\ud83c\uddf3",
     "fact": "Kolkata is the only Indian city where trams still run along main streets, and its humid heat plus grand colonial houses earned it the nickname 'City of Palaces'.",
@@ -2169,16 +1866,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Kolkata_maidan.jpg/500px-Kolkata_maidan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "varanasi-india",
-    "clue": "Varanasi, India \ud83c\uddee\ud83c\uddf3",
-    "fact": "More than 80 ghats step down to the Ganges here, and the Manikarnika cremation ground is so ancient that Hindu myth says Shiva himself chose it for burning.",
-    "lat": 25.3176,
-    "lng": 82.9739,
-    "difficulty": 2,
-    "short": "Varanasi",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Varanasi%2C_India%2C_Ghats%2C_Cremation_ceremony_in_progress.jpg/500px-Varanasi%2C_India%2C_Ghats%2C_Cremation_ceremony_in_progress.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "jaipur-india",
     "clue": "Jaipur, India \ud83c\uddee\ud83c\uddf3",
     "fact": "Laid out in 1727, Jaipur was India's first planned city, built in a strict nine-square grid of pink sandstone blocks.",
@@ -2187,16 +1874,6 @@
     "difficulty": 2,
     "short": "Jaipur",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/500px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "lahore-pakistan",
-    "clue": "Lahore, Pakistan \ud83c\uddf5\ud83c\uddf0",
-    "fact": "The Badshahi Mosque and Lahore Fort were built to rival the Ottoman mosques of Istanbul, and the fort's Sheesh Mahal mirrors candle flames through thousands of cut-glass tiles.",
-    "lat": 31.5204,
-    "lng": 74.3587,
-    "difficulty": 2,
-    "short": "Lahore",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Lahore_Fort_view_from_Baradari.jpg/500px-Lahore_Fort_view_from_Baradari.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "karachi-pakistan",
@@ -2239,16 +1916,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/The_Pearl_Marina_in_Nov_2013.jpg/500px-The_Pearl_Marina_in_Nov_2013.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "baghdad-iraq",
-    "clue": "Baghdad, Iraq \ud83c\uddee\ud83c\uddf6",
-    "fact": "Founded in 762 by the Abbasids, the city ran the world's first paper mill, turning Chinese papermaking into the writing medium of the Islamic world.",
-    "lat": 33.3152,
-    "lng": 44.3661,
-    "difficulty": 2,
-    "short": "Baghdad",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/5628442718_b10fc2c47f_o.jpg/500px-5628442718_b10fc2c47f_o.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "kathmandu-nepal",
     "clue": "Kathmandu, Nepal \ud83c\uddf3\ud83c\uddf5",
     "fact": "The Kumari Ghar still houses the living goddess Kumari, who in modern times has never once left the palace during her lifetime.",
@@ -2259,16 +1926,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Kathmandu-Durbar_Square-06-Mahavishnu-Kuh-Vishnu-Pratapamalla-Jagannath-2007-gje.jpg/500px-Kathmandu-Durbar_Square-06-Mahavishnu-Kuh-Vishnu-Pratapamalla-Jagannath-2007-gje.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "yangon-myanmar",
-    "clue": "Yangon, Myanmar \ud83c\uddf2\ud83c\uddf2",
-    "fact": "Myanmar's largest city grew up around Shwedagon Pagoda, whose 99 m stupa has been re-plated with pilgrims' donated gold leaf so often it gleams from the air.",
-    "lat": 16.8661,
-    "lng": 96.1951,
-    "difficulty": 2,
-    "short": "Yangon",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/ShwedagonPagoda.jpg/500px-ShwedagonPagoda.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "sapporo-japan",
     "clue": "Sapporo, Japan \ud83c\uddef\ud83c\uddf5",
     "fact": "Every February the city hosts the Snow Festival, where crews race to set snow-sculpture records, and it hosted the 1972 Winter Olympics.",
@@ -2277,16 +1934,6 @@
     "difficulty": 2,
     "short": "Sapporo",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/SapporoCity_Skylines2020.jpg/500px-SapporoCity_Skylines2020.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "busan-south-korea",
-    "clue": "Busan, South Korea \ud83c\uddf0\ud83c\uddf7",
-    "fact": "Gamcheon Culture Village was built as a hillside refuge for Korean War refugees and is now stacked with pastel houses linked by hundreds of alley stairways.",
-    "lat": 35.1796,
-    "lng": 129.0756,
-    "difficulty": 2,
-    "short": "Busan",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Busan_City_Haeundae_District_%2801%29.jpg/500px-Busan_City_Haeundae_District_%2801%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "amritsar-india",
@@ -2337,36 +1984,6 @@
     "difficulty": 2,
     "short": "Isfahan",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Naghshe_jahan_01.jpg/500px-Naghshe_jahan_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "tashkent-uzbekistan",
-    "clue": "Tashkent, Uzbekistan \ud83c\uddfa\ud83c\uddff",
-    "fact": "The 1966 earthquake flattened most of this Central Asian city's historic core, which planners then rebuilt from scratch in wide Soviet-era boulevards.",
-    "lat": 41.2995,
-    "lng": 69.2401,
-    "difficulty": 3,
-    "short": "Tashkent",
-    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f6/Nest_One_Tashkent.jpg/500px-Nest_One_Tashkent.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "almaty-kazakhstan",
-    "clue": "Almaty, Kazakhstan \ud83c\uddf0\ud83c\uddff",
-    "fact": "Kazakhstan's former capital still supplies most of the world's apple crop, and Medeu, just above the city, holds Olympic ice at 1,691 m, the highest in the world.",
-    "lat": 43.222,
-    "lng": 76.8512,
-    "difficulty": 3,
-    "short": "Almaty",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Almaty_K%C3%B6k_T%C3%B6be.jpg/500px-Almaty_K%C3%B6k_T%C3%B6be.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "baku-azerbaijan",
-    "clue": "Baku, Azerbaijan \ud83c\udde6\ud83c\uddff",
-    "fact": "Baku's Old City is ringed by the thickest surviving fortress walls in Iran and contains the Qiz Qala Maiden Tower, while glass skyscrapers rise directly behind it.",
-    "lat": 40.4093,
-    "lng": 49.8671,
-    "difficulty": 3,
-    "short": "Baku",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Baku_Montage.jpg/500px-Baku_Montage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "amman-jordan",
@@ -2607,16 +2224,6 @@
     "difficulty": 7,
     "short": "Potala Palace",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/500px-Potala_Palace_HQ.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "zhangjiajie-sandstone-pillars",
-    "clue": "Where do forested sandstone pillars inspired the floating mountains of a blockbuster?",
-    "fact": "More than 3,000 quartz pillars rise here on narrow pillars of their own, and a glass bridge opened across the deepest canyon between two of them in 2016.",
-    "lat": 29.3158,
-    "lng": 110.4344,
-    "difficulty": 7,
-    "short": "Zhangjiajie",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg/500px-1_tianzishan_wulingyuan_zhangjiajie_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "mount-kinabalu",
@@ -3077,16 +2684,6 @@
     "difficulty": 3,
     "short": "Liverpool",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Pier_Head%2C_Liverpool_-_geograph.org.uk_-_3059094.jpg/500px-Pier_Head%2C_Liverpool_-_geograph.org.uk_-_3059094.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "belgrade-serbia",
-    "clue": "Belgrade, Serbia \ud83c\uddf7\ud83c\uddf8",
-    "fact": "Belgrade stands where the Sava meets the Danube and has been besieged, sacked and burnt so often over the centuries that it holds the European record.",
-    "lat": 44.7866,
-    "lng": 20.4489,
-    "difficulty": 3,
-    "short": "Belgrade",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Panorama_Belgrad.jpg/500px-Panorama_Belgrad.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "sofia-bulgaria",
@@ -3647,16 +3244,6 @@
     "difficulty": 3,
     "short": "Empire State Building",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/500px-Empire_State_Building_%28aerial_view%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "chicago-usa",
-    "clue": "Chicago, United States \ud83c\uddfa\ud83c\uddf8",
-    "fact": "Chicago is known as the Windy City and is home to the world's first skyscraper, the Home Insurance Building.",
-    "lat": 41.8781,
-    "lng": -87.6298,
-    "difficulty": 1,
-    "short": "Chicago",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Chicago_River_ferry_b.jpg/500px-Chicago_River_ferry_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "sears-tower-chicago",
@@ -4327,16 +3914,6 @@
     "difficulty": 5,
     "short": "Yellowknife",
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/95/Northwest_Territories_Legislative_Building.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": "tijuana-mexico",
-    "clue": "Tijuana, Mexico \ud83c\uddf2\ud83c\uddfd",
-    "fact": "Tijuana is Mexico's westernmost city and one of the busiest land border crossings with the United States.",
-    "lat": 32.5149,
-    "lng": -117.0382,
-    "difficulty": 3,
-    "short": "Tijuana",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Templo_Tijuana_Mexico_%28cropped%29.jpg/500px-Templo_Tijuana_Mexico_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "sacramento-usa",
@@ -5157,16 +4734,6 @@
     "lng": -73.0325,
     "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Perito_Moreno_Glacier_2023.jpg/500px-Perito_Moreno_Glacier_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "cartagena-clock-tower",
-    "short": "Cartagena",
-    "clue": "Where is Cartagena's Clock Tower?",
-    "fact": "The bright clock tower forms the principal gateway into Cartagena's walled old city. Its arches once crossed a moat.",
-    "lat": 10.4232,
-    "lng": -75.5502,
-    "difficulty": 2,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Museo_Naval_del_Caribe.JPG/500px-Museo_Naval_del_Caribe.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "lima-plaza-mayor",
@@ -8109,16 +7676,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Raoul_Island%2C_New_Zealand_%28STS008-36-1403%2C_cropped_rotated%29.jpg/500px-Raoul_Island%2C_New_Zealand_%28STS008-36-1403%2C_cropped_rotated%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "norfolk-island",
-    "short": "Kingston",
-    "clue": "Where is Norfolk Island?",
-    "fact": "Kingston is the historic capital of Norfolk Island, a remote Australian territory in the Pacific Ocean.",
-    "lat": -29.0561,
-    "lng": 167.9605,
-    "difficulty": 7,
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kingston%2C_Norfolk_Island_(9014731556).jpg"
-  },
-  {
     "id": "tepui-auyan",
     "short": "Auyan-tepui",
     "clue": "Where is Auyan-tepui?",
@@ -10354,16 +9911,6 @@
     "lng": 121.44081,
     "difficulty": 1,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg"
-  },
-  {
-    "id": "hyderabad-in",
-    "short": "Hyderabad",
-    "clue": "Which city of the Charminar and Golconda Fort became a global center for software and biryani?",
-    "fact": "Hyderabad is an administrative capital, recorded by GeoNames at roughly 515 meters above sea level with about 6,993,262 residents.",
-    "lat": 17.38405,
-    "lng": 78.45636,
-    "difficulty": 1,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Kailasha_Temple%2C_Ellora.jpg/500px-Kailasha_Temple%2C_Ellora.jpg"
   },
   {
     "id": "zhengzhou-cn",
@@ -12642,16 +12189,6 @@
     "fact": "Maracaibo is an administrative capital, recorded by GeoNames at roughly -9999 meters above sea level with about 1,752,602 residents.",
     "lat": 10.64232,
     "lng": -71.61089,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/CIUDAD_PERDIDA_2.jpg/500px-CIUDAD_PERDIDA_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "valencia-ve",
-    "short": "Valencia",
-    "clue": "Which industrial city lies beside Lake Valencia and hosts one of the country's largest baseball stadiums?",
-    "fact": "Valencia is an administrative capital, recorded by GeoNames at roughly 547 meters above sea level with about 1,619,470 residents.",
-    "lat": 10.16153,
-    "lng": -68.00044,
     "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/CIUDAD_PERDIDA_2.jpg/500px-CIUDAD_PERDIDA_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -15156,16 +14693,6 @@
     "difficulty": 1
   },
   {
-    "id": "abu-dhabi",
-    "short": "Abu Dhabi",
-    "fact": "The capital occupies an island just off the mainland and holds most of its federation\u2019s oil wealth.",
-    "lat": 24.466667,
-    "lng": 54.366667,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Abu_dhabi_skylines_2014.jpg/3840px-Abu_dhabi_skylines_2014.jpg",
-    "clue": "Where is Abu Dhabi, the island capital of the United Arab Emirates?",
-    "difficulty": 1
-  },
-  {
     "id": "muscat",
     "short": "Muscat",
     "fact": "This port between rugged mountains and the sea has been a trading crossroads for more than two millennia.",
@@ -15276,16 +14803,6 @@
     "difficulty": 1
   },
   {
-    "id": "hyderabad",
-    "short": "Hyderabad",
-    "fact": "The Charminar and a celebrated biryani symbolize a city that later became a major technology hub.",
-    "lat": 17.3617,
-    "lng": 78.4747,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Aerial_view_of_Durgam_cheruvu_and_Hitech_CIty.jpg/3840px-Aerial_view_of_Durgam_cheruvu_and_Hitech_CIty.jpg",
-    "clue": "Which Indian city is known for the Charminar, biryani, and a tech district nicknamed Cyberabad?",
-    "difficulty": 1
-  },
-  {
     "id": "victoria-peak",
     "short": "Victoria Peak",
     "fact": "A historic funicular climbs to this summit, where one of Asia\u2019s most photographed harbor panoramas unfolds.",
@@ -15323,16 +14840,6 @@
     "lng": 14.5125,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/St_Sebastian_Curtain_%28cropped%29.jpg/3840px-St_Sebastian_Curtain_%28cropped%29.jpg",
     "clue": "Which fortified capital of Malta was built by the Knights of St John after the Great Siege of 1565?",
-    "difficulty": 1
-  },
-  {
-    "id": "jeddah",
-    "short": "Jeddah",
-    "fact": "For centuries this Red Sea port has served as the principal gateway for pilgrims traveling to Islam\u2019s holiest city.",
-    "lat": 21.543333,
-    "lng": 39.172778,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/%D8%A7%D9%84%D9%88%D8%A7%D8%AC%D9%87%D8%A9_%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D8%A9_%D9%81%D9%8A_%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%AC%D8%AF%D8%A9_%D8%BA%D8%B1%D8%A8_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9_%282025%29_%28cropped%29.jpg/3840px-%D8%A7%D9%84%D9%88%D8%A7%D8%AC%D9%87%D8%A9_%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D8%A9_%D9%81%D9%8A_%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%AC%D8%AF%D8%A9_%D8%BA%D8%B1%D8%A8_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9_%282025%29_%28cropped%29.jpg",
-    "clue": "Which Saudi Red Sea port is the traditional gateway for pilgrims bound for Mecca?",
     "difficulty": 1
   },
   {
@@ -15406,16 +14913,6 @@
     "difficulty": 1
   },
   {
-    "id": "caracas",
-    "short": "Caracas",
-    "fact": "Venezuela\u2019s capital fills a narrow mountain valley only a short distance from the Caribbean coast.",
-    "lat": 10.506111,
-    "lng": -66.914444,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Caracas_desde_el_%C3%A1vila.jpg",
-    "clue": "Where is Caracas, Venezuela's capital, set in a valley just over the mountains from the Caribbean?",
-    "difficulty": 1
-  },
-  {
     "id": "panama-city",
     "short": "Panama City",
     "fact": "Its skyline stands beside the Pacific entrance to the canal that transformed global shipping.",
@@ -15433,16 +14930,6 @@
     "lng": -168.976944,
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bering_Strait.jpeg",
     "clue": "Which narrow strait separates Russia from Alaska?",
-    "difficulty": 1
-  },
-  {
-    "id": "santo-domingo",
-    "short": "Santo Domingo",
-    "fact": "Founded in 1496, it contains the oldest surviving European-built cathedral in the Americas.",
-    "lat": 18.4625,
-    "lng": -69.9361,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/SantoDomingoedit.JPG",
-    "clue": "Which Dominican capital, founded in 1496, has the oldest European-built cathedral in the Americas?",
     "difficulty": 1
   },
   {
@@ -16736,16 +16223,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/El_Chalt%C3%A9n.jpg/500px-El_Chalt%C3%A9n.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "suzhou",
-    "short": "Suzhou",
-    "clue": "Which canal city in the Yangtze delta is famed for its classical scholars' gardens?",
-    "fact": "GeoNames records Suzhou at 31.30408, 120.59538, about 10 meters above sea level, with a population of approximately 6,715,559.",
-    "lat": 31.30408,
-    "lng": 120.59538,
-    "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Sistina-interno.jpg/500px-Sistina-interno.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "dar-es-salaam",
     "short": "Dar es Salaam",
     "clue": "Which Swahili Coast port, the biggest city in its country, runs ferries to Zanzibar?",
@@ -17404,16 +16881,6 @@
     "lng": 121.14167,
     "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Museumsinsel_Berlin_Juli_2021_1_%28cropped%29_b.jpg/500px-Museumsinsel_Berlin_Juli_2021_1_%28cropped%29_b.jpg"
-  },
-  {
-    "id": "taizhou",
-    "short": "Taizhou",
-    "clue": "Which Zhejiang coastal city, where carmaker Geely was founded, governs the Buddhist Tiantai Mountains?",
-    "fact": "GeoNames records Taizhou at 28.66266, 121.43312, about 15 meters above sea level, with a population of approximately 1,485,502.",
-    "lat": 28.66266,
-    "lng": 121.43312,
-    "difficulty": 4,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Sphinx_with_the_third_pyramid.jpg/500px-Sphinx_with_the_third_pyramid.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "jinhua",
@@ -19026,16 +18493,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Skyline_of_Beijing_CBD_with_B-5906_approaching_%2820211016171955%29_%281%29.jpg/500px-Skyline_of_Beijing_CBD_with_B-5906_approaching_%2820211016171955%29_%281%29.jpg"
   },
   {
-    "id": "valencia",
-    "short": "Valencia",
-    "clue": "Which Santa Clarita community is home to Six Flags Magic Mountain?",
-    "fact": "GeoNames records Valencia at 34.44361, -118.60953, about 312 meters above sea level, with a population of approximately 148,456.",
-    "lat": 34.44361,
-    "lng": -118.60953,
-    "difficulty": 8,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
-  },
-  {
     "id": "moreno",
     "short": "Moreno",
     "clue": "Which partido in the western Conurbano grew around a station on the Sarmiento railway line?",
@@ -20134,5 +19591,577 @@
     "lng": -51.85972,
     "difficulty": 10,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
+  },
+  {
+    "id": "canberra-australia",
+    "short": "Canberra",
+    "clue": "Canberra, Australia \ud83c\udde6\ud83c\uddfa",
+    "fact": "Purpose-built as a compromise between rivals Sydney and Melbourne, it was designed by American architects Walter Burley Griffin and Marion Mahony Griffin.",
+    "lat": -35.2809,
+    "lng": 149.13,
+    "difficulty": 2,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Canberra_panorama_from_Mount_Ainslie.jpg/500px-Canberra_panorama_from_Mount_Ainslie.jpg"
+  },
+  {
+    "id": "phuket-thailand",
+    "short": "Phuket",
+    "clue": "Phuket, Thailand \ud83c\uddf9\ud83c\udded",
+    "fact": "Thailand's largest island sits in the Andaman Sea and was badly hit by the 2004 Indian Ocean tsunami.",
+    "lat": 7.8804,
+    "lng": 98.3923,
+    "difficulty": 2,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Phuket_Aerial.jpg/500px-Phuket_Aerial.jpg"
+  },
+  {
+    "id": "bordeaux-france",
+    "short": "Bordeaux",
+    "clue": "Bordeaux, France \ud83c\uddeb\ud83c\uddf7",
+    "fact": "Its 18th-century riverfront Port of the Moon on the Garonne is a UNESCO World Heritage Site, and its name is shorthand for the wine grown around it.",
+    "lat": 44.8378,
+    "lng": -0.5792,
+    "difficulty": 2,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Bordeaux_Place_de_la_Bourse_de_nuit.jpg/500px-Bordeaux_Place_de_la_Bourse_de_nuit.jpg"
+  },
+  {
+    "id": "lyon-france",
+    "short": "Lyon",
+    "clue": "Lyon, France \ud83c\uddeb\ud83c\uddf7",
+    "fact": "Founded by the Romans as Lugdunum where the Rh\u00f4ne meets the Sa\u00f4ne, it later became Europe's silk-weaving capital.",
+    "lat": 45.764,
+    "lng": 4.8357,
+    "difficulty": 2,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Lyon-part-dieu-2023.jpg/500px-Lyon-part-dieu-2023.jpg"
+  },
+  {
+    "id": "cardiff-wales",
+    "short": "Cardiff",
+    "clue": "Cardiff, Wales \ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc77\udb40\udc6c\udb40\udc73\udb40\udc7f",
+    "fact": "Wales's capital was a small town until the 19th century, when it became one of the world's busiest coal-exporting ports.",
+    "lat": 51.4816,
+    "lng": -3.1791,
+    "difficulty": 2,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Cardiff_Bay_121020_2469_%2850599762103%29_-_Flickr_-_Richard_Szwejkowski.jpg/500px-Cardiff_Bay_121020_2469_%2850599762103%29_-_Flickr_-_Richard_Szwejkowski.jpg"
+  },
+  {
+    "id": "dunkirk-evacuation",
+    "short": "Dunkirk",
+    "clue": "Where were over 300,000 Allied soldiers evacuated from the beaches in 1940?",
+    "fact": "Operation Dynamo used hundreds of civilian 'little ships' alongside the navy to ferry troops across the Channel.",
+    "lat": 51.05,
+    "lng": 2.377,
+    "difficulty": 2,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Dunkirk_26-29_May_1940_NYP68075.jpg/500px-Dunkirk_26-29_May_1940_NYP68075.jpg"
+  },
+  {
+    "id": "nagasaki-atomic-bombing",
+    "short": "Nagasaki",
+    "clue": "Where was the second atomic bomb dropped, three days after Hiroshima?",
+    "fact": "The 'Fat Man' bomb exploded over the Urakami valley on 9 August 1945; Japan announced its surrender six days later.",
+    "lat": 32.7738,
+    "lng": 129.8634,
+    "difficulty": 2,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Atomic_bombing_of_Japan.jpg/500px-Atomic_bombing_of_Japan.jpg"
+  },
+  {
+    "id": "wimbledon-all-england-club",
+    "short": "Wimbledon",
+    "clue": "Where is the oldest tennis tournament in the world played on grass every summer?",
+    "fact": "The All England Club first held the championships in 1877, and players must still wear almost entirely white.",
+    "lat": 51.434,
+    "lng": -0.2141,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/London_Centre_Court_Wimbledon_%2853284151591%29.jpg/500px-London_Centre_Court_Wimbledon_%2853284151591%29.jpg"
+  },
+  {
+    "id": "toulouse-france",
+    "short": "Toulouse",
+    "clue": "Toulouse, France \ud83c\uddeb\ud83c\uddf7",
+    "fact": "Nicknamed 'la Ville Rose' for its pink brick, it is the home of Airbus and Europe's aerospace industry.",
+    "lat": 43.6047,
+    "lng": 1.4442,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Toulouse_-_vue_du_Vieux_Toulouse_depuis_St_Sernin_06.jpg/500px-Toulouse_-_vue_du_Vieux_Toulouse_depuis_St_Sernin_06.jpg"
+  },
+  {
+    "id": "strasbourg-france",
+    "short": "Strasbourg",
+    "clue": "Strasbourg, France \ud83c\uddeb\ud83c\uddf7",
+    "fact": "This Rhine city on the German border hosts the European Parliament and the European Court of Human Rights.",
+    "lat": 48.5734,
+    "lng": 7.7521,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Strasbourg_Cathedral.jpg/500px-Strasbourg_Cathedral.jpg"
+  },
+  {
+    "id": "chiang-mai-thailand",
+    "short": "Chiang Mai",
+    "clue": "Chiang Mai, Thailand \ud83c\uddf9\ud83c\udded",
+    "fact": "Founded in 1296 as capital of the Lanna kingdom, its old city is still ringed by a square moat and has over 100 temples.",
+    "lat": 18.7883,
+    "lng": 98.9853,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/0020-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg/500px-0020-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg"
+  },
+  {
+    "id": "anchorage-usa",
+    "short": "Anchorage",
+    "clue": "Anchorage, Alaska \ud83c\uddfa\ud83c\uddf8",
+    "fact": "Alaska's largest city is home to about 40% of the state's population and is a major cargo stop on flights between Asia and North America.",
+    "lat": 61.2181,
+    "lng": -149.9003,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Anchorage%2C_Alaska_skyline.jpg/500px-Anchorage%2C_Alaska_skyline.jpg"
+  },
+  {
+    "id": "tampa-usa",
+    "short": "Tampa",
+    "clue": "Tampa, Florida \ud83c\uddfa\ud83c\uddf8",
+    "fact": "Its Ybor City district was built by Cuban and Spanish immigrants and once rolled hundreds of millions of cigars a year.",
+    "lat": 27.9506,
+    "lng": -82.4572,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Downtown_Tampa%2C_Florida.jpg/500px-Downtown_Tampa%2C_Florida.jpg"
+  },
+  {
+    "id": "albuquerque-usa",
+    "short": "Albuquerque",
+    "clue": "Albuquerque, New Mexico \ud83c\uddfa\ud83c\uddf8",
+    "fact": "It hosts the world's largest hot-air balloon festival each October and was the setting for Breaking Bad.",
+    "lat": 35.0844,
+    "lng": -106.6504,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Albuquerque%2C_New_Mexico_skyline.jpg/500px-Albuquerque%2C_New_Mexico_skyline.jpg"
+  },
+  {
+    "id": "siem-reap-cambodia",
+    "short": "Siem Reap",
+    "clue": "Siem Reap, Cambodia \ud83c\uddf0\ud83c\udded",
+    "fact": "The town is the base for visiting Angkor, just a few kilometres to the north.",
+    "lat": 13.3671,
+    "lng": 103.8448,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Front_porch_of_Wat_Damnak.jpg/500px-Front_porch_of_Wat_Damnak.jpg"
+  },
+  {
+    "id": "bratislava-slovakia",
+    "short": "Bratislava",
+    "clue": "Bratislava, Slovakia \ud83c\uddf8\ud83c\uddf0",
+    "fact": "It is the only capital that borders two other countries, Austria and Hungary, and was once where Hungarian kings were crowned.",
+    "lat": 48.1486,
+    "lng": 17.1077,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Slovakia_bratislava.jpg/500px-Slovakia_bratislava.jpg"
+  },
+  {
+    "id": "basel-switzerland",
+    "short": "Basel",
+    "clue": "Basel, Switzerland \ud83c\udde8\ud83c\udded",
+    "fact": "The city sits where Switzerland, France and Germany meet, and its airport actually sits on French soil.",
+    "lat": 47.5596,
+    "lng": 7.5886,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Basel_-_M%C3%BCnsterpfalz1.jpg/500px-Basel_-_M%C3%BCnsterpfalz1.jpg"
+  },
+  {
+    "id": "innsbruck-austria",
+    "short": "Innsbruck",
+    "clue": "Innsbruck, Austria \ud83c\udde6\ud83c\uddf9",
+    "fact": "This Alpine city in Tyrol hosted the Winter Olympics twice, in 1964 and 1976.",
+    "lat": 47.2692,
+    "lng": 11.4041,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/B%C3%BCrgerstra%C3%9Fe_26%2B24_%28BT0A2830%29.jpg/500px-B%C3%BCrgerstra%C3%9Fe_26%2B24_%28BT0A2830%29.jpg"
+  },
+  {
+    "id": "cork-ireland",
+    "short": "Cork",
+    "clue": "Cork, Ireland \ud83c\uddee\ud83c\uddea",
+    "fact": "Ireland's second city is built on islands in the River Lee, and its nearby harbour at Cobh was the Titanic's last port of call.",
+    "lat": 51.8985,
+    "lng": -8.4756,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/University_College_Cork_-_Quad_during_Eclipse_2015_%2816684104050%29.jpg/500px-University_College_Cork_-_Quad_during_Eclipse_2015_%2816684104050%29.jpg"
+  },
+  {
+    "id": "colombo-sri-lanka",
+    "short": "Colombo",
+    "clue": "Colombo, Sri Lanka \ud83c\uddf1\ud83c\uddf0",
+    "fact": "Sri Lanka's commercial capital was a trading port for Portuguese, Dutch and British colonists, though the official capital is next-door Sri Jayawardenepura Kotte.",
+    "lat": 6.9271,
+    "lng": 79.8612,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Colombo_city_skyline_at_night.png/500px-Colombo_city_skyline_at_night.png"
+  },
+  {
+    "id": "leipzig-germany",
+    "short": "Leipzig",
+    "clue": "Leipzig, Germany \ud83c\udde9\ud83c\uddea",
+    "fact": "Bach was cantor at its St Thomas Church for 27 years, and its 1989 Monday demonstrations helped bring down East Germany.",
+    "lat": 51.3397,
+    "lng": 12.3731,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Blick_vom_City-Hochhaus_Leipzig_05.jpg/500px-Blick_vom_City-Hochhaus_Leipzig_05.jpg"
+  },
+  {
+    "id": "aberdeen-scotland",
+    "short": "Aberdeen",
+    "clue": "Aberdeen, Scotland \ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc73\udb40\udc63\udb40\udc74\udb40\udc7f",
+    "fact": "Called the Granite City for its grey stone buildings, it became Europe's oil capital after North Sea oil was found in the 1970s.",
+    "lat": 57.1497,
+    "lng": -2.0943,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/%2B_%22Silver_City%22_wird_Aberdeen_wegen_seiner_vielen_Granitgeb%C3%A4ude_genannt._07.jpg/500px-%2B_%22Silver_City%22_wird_Aberdeen_wegen_seiner_vielen_Granitgeb%C3%A4ude_genannt._07.jpg"
+  },
+  {
+    "id": "robben-island",
+    "short": "Robben Island",
+    "clue": "Where was Nelson Mandela imprisoned for 18 of his 27 years behind bars?",
+    "fact": "The island in Table Bay held political prisoners until 1991 and is now a museum guided by former inmates.",
+    "lat": -33.8067,
+    "lng": 18.3664,
+    "difficulty": 3,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Robben_Island_-_Cape_Town%2C_South_Africa_%283883849594%29.jpg/500px-Robben_Island_-_Cape_Town%2C_South_Africa_%283883849594%29.jpg"
+  },
+  {
+    "id": "battle-of-hastings",
+    "short": "Battle of Hastings",
+    "clue": "Where did William the Conqueror defeat King Harold in 1066?",
+    "fact": "The fight took place about 10 km from Hastings, at a site now named simply Battle, where William built an abbey to atone.",
+    "lat": 50.9149,
+    "lng": 0.487,
+    "difficulty": 3,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Battleabbey-wyrdlight-0170.jpg/500px-Battleabbey-wyrdlight-0170.jpg"
+  },
+  {
+    "id": "roswell-ufo-incident",
+    "short": "Roswell",
+    "clue": "Which town gave its name to the 1947 'flying saucer' crash that the military said was a weather balloon?",
+    "fact": "The debris was later revealed to come from Project Mogul, a secret balloon program to detect Soviet nuclear tests.",
+    "lat": 33.3943,
+    "lng": -104.523,
+    "difficulty": 3,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/RoswellNM.jpg/500px-RoswellNM.jpg"
+  },
+  {
+    "id": "fukushima-daiichi",
+    "short": "Fukushima Daiichi",
+    "clue": "Where did a tsunami cause three nuclear meltdowns in 2011?",
+    "fact": "It was the worst nuclear accident since Chernobyl and the only other one rated at the maximum level 7.",
+    "lat": 37.4211,
+    "lng": 141.0328,
+    "difficulty": 3,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Fukushima_Daiichi_04780015_%288388174045%29.jpg/500px-Fukushima_Daiichi_04780015_%288388174045%29.jpg"
+  },
+  {
+    "id": "camp-nou",
+    "short": "Camp Nou",
+    "clue": "Where does FC Barcelona play its home games?",
+    "fact": "It is Europe's largest football stadium, built in 1957 and expanded to over 100,000 seats in its recent rebuild.",
+    "lat": 41.3809,
+    "lng": 2.1228,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Camp_Nou_aerial.jpg/500px-Camp_Nou_aerial.jpg"
+  },
+  {
+    "id": "old-trafford",
+    "short": "Old Trafford",
+    "clue": "Where does Manchester United play its home games?",
+    "fact": "Bobby Charlton nicknamed it the 'Theatre of Dreams'. It was bombed in 1941 and not reopened until 1949.",
+    "lat": 53.4631,
+    "lng": -2.2913,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/2023_07_31_arne_mueseler_00060-Verbessert-RR_%2853106651455%29.jpg/500px-2023_07_31_arne_mueseler_00060-Verbessert-RR_%2853106651455%29.jpg"
+  },
+  {
+    "id": "birds-nest-beijing",
+    "short": "Bird's Nest",
+    "clue": "Where was the opening ceremony of the 2008 Summer Olympics held?",
+    "fact": "Beijing National Stadium's tangled steel lattice earned the nickname. It hosted the Winter Olympics ceremonies again in 2022.",
+    "lat": 39.9929,
+    "lng": 116.3965,
+    "difficulty": 3,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Beijing_China_Beijing-National-Stadium-01.jpg/500px-Beijing_China_Beijing-National-Stadium-01.jpg"
+  },
+  {
+    "id": "galway-ireland",
+    "short": "Galway",
+    "clue": "Galway, Ireland \ud83c\uddee\ud83c\uddea",
+    "fact": "This west-coast city on Galway Bay is the gateway to Connemara and the Aran Islands and a stronghold of the Irish language.",
+    "lat": 53.2707,
+    "lng": -9.0568,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Galway_cathedral.jpg/500px-Galway_cathedral.jpg"
+  },
+  {
+    "id": "tucson-usa",
+    "short": "Tucson",
+    "clue": "Tucson, Arizona \ud83c\uddfa\ud83c\uddf8",
+    "fact": "Ringed by the giant saguaro cacti of the Sonoran Desert, it also has an aircraft boneyard holding thousands of retired military planes.",
+    "lat": 32.2226,
+    "lng": -110.9747,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/View_of_Tucson_from_Sentinel_Peak_2.jpg/500px-View_of_Tucson_from_Sentinel_Peak_2.jpg"
+  },
+  {
+    "id": "oaxaca-mexico",
+    "short": "Oaxaca",
+    "clue": "Oaxaca, Mexico \ud83c\uddf2\ud83c\uddfd",
+    "fact": "Known for its seven moles and mezcal, the colonial city lies below the Zapotec mountaintop ruins of Monte Alb\u00e1n.",
+    "lat": 17.0732,
+    "lng": -96.7266,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/MonteAlbanWest.jpg/500px-MonteAlbanWest.jpg"
+  },
+  {
+    "id": "mendoza-argentina",
+    "short": "Mendoza",
+    "clue": "Mendoza, Argentina \ud83c\udde6\ud83c\uddf7",
+    "fact": "At the foot of the Andes near Aconcagua, it produces most of Argentina's wine, especially Malbec.",
+    "lat": -32.8895,
+    "lng": -68.8458,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Aerial_view_of_Mendoza.png/500px-Aerial_view_of_Mendoza.png"
+  },
+  {
+    "id": "kochi-india",
+    "short": "Kochi",
+    "clue": "Kochi, Kerala \ud83c\uddee\ud83c\uddf3",
+    "fact": "Its Chinese fishing nets and colonial Fort Kochi recall centuries as a hub of the Malabar spice trade.",
+    "lat": 9.9312,
+    "lng": 76.2673,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Kochi_Skyline.jpg/500px-Kochi_Skyline.jpg"
+  },
+  {
+    "id": "denpasar-indonesia",
+    "short": "Denpasar",
+    "clue": "Denpasar, Bali \ud83c\uddee\ud83c\udde9",
+    "fact": "Bali's capital is a few kilometres from the island's airport and its tourist beaches at Kuta and Sanur.",
+    "lat": -8.6705,
+    "lng": 115.2126,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Aerial_view_of_Bajra_Sandhi_Monument_Denpasar_Bali_Indonesia.jpg/500px-Aerial_view_of_Bajra_Sandhi_Monument_Denpasar_Bali_Indonesia.jpg"
+  },
+  {
+    "id": "st-johns-canada",
+    "short": "St. John's",
+    "clue": "St. John's, Newfoundland \ud83c\udde8\ud83c\udde6",
+    "fact": "One of North America's oldest European-founded cities, its Signal Hill received Marconi's first transatlantic radio signal in 1901.",
+    "lat": 47.5615,
+    "lng": -52.7126,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/St._John%27s%2C_Newfoundland_and_Labrador_aerial_view_of_downtown_%28cropped%29.jpg/500px-St._John%27s%2C_Newfoundland_and_Labrador_aerial_view_of_downtown_%28cropped%29.jpg"
+  },
+  {
+    "id": "urquhart-castle",
+    "short": "Urquhart Castle",
+    "clue": "Which ruined castle overlooks Loch Ness, a favourite spot for monster hunters?",
+    "fact": "The castle was blown up in 1692 to keep it out of Jacobite hands and has been a ruin ever since.",
+    "lat": 57.3242,
+    "lng": -4.4419,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Urquhart_Castle_Tower_House_2.jpg/500px-Urquhart_Castle_Tower_House_2.jpg"
+  },
+  {
+    "id": "miraflores-locks",
+    "short": "Miraflores Locks",
+    "clue": "Where do ships climb or descend the final steps at the Pacific end of the Panama Canal?",
+    "fact": "Its two lock chambers lift ships about 16 metres, and the visitor centre is the most popular spot to watch transits.",
+    "lat": 8.9967,
+    "lng": -79.5917,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/08-130_Esclusas_de_Miraflores_%2823%29.jpg/500px-08-130_Esclusas_de_Miraflores_%2823%29.jpg"
+  },
+  {
+    "id": "anzac-cove",
+    "short": "Anzac Cove",
+    "clue": "Where did Australian and New Zealand troops land on 25 April 1915 at Gallipoli?",
+    "fact": "The landing date is now marked every year as Anzac Day in both countries.",
+    "lat": 40.2463,
+    "lng": 26.278,
+    "difficulty": 4,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/ANZAC_Cove.jpg/500px-ANZAC_Cove.jpg"
+  },
+  {
+    "id": "carcassonne-cite",
+    "short": "Carcassonne",
+    "clue": "Which walled medieval citadel in southern France has 52 towers and inspired a popular board game?",
+    "fact": "Its double ring of walls was heavily restored in the 19th century by Viollet-le-Duc, who added its slate-pointed roofs.",
+    "lat": 43.2063,
+    "lng": 2.3637,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/1_carcassonne_aerial_2016.jpg/500px-1_carcassonne_aerial_2016.jpg"
+  },
+  {
+    "id": "blarney-castle",
+    "short": "Blarney Castle",
+    "clue": "Where would you hang upside down to kiss a stone said to give you the gift of the gab?",
+    "fact": "The Blarney Stone is set in the castle's battlements, near Cork, and visitors lean backwards over a drop to reach it.",
+    "lat": 51.9291,
+    "lng": -8.5709,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Blarney_Castle_Ireland.jpg/500px-Blarney_Castle_Ireland.jpg"
+  },
+  {
+    "id": "le-mans-circuit",
+    "short": "Le Mans",
+    "clue": "Where is the world's oldest active 24-hour endurance car race held?",
+    "fact": "The 24 Hours has run since 1923, partly on public roads that close for race week.",
+    "lat": 47.956,
+    "lng": 0.224,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Le_Mans_2008_Rolling_start.jpg/500px-Le_Mans_2008_Rolling_start.jpg"
+  },
+  {
+    "id": "bukhara-uzbekistan",
+    "short": "Bukhara",
+    "clue": "Which Silk Road city is known for the 47-metre Kalyan Minaret, said to have so impressed Genghis Khan that he spared it?",
+    "fact": "For centuries it was a great center of Islamic learning, with hundreds of mosques and madrasas.",
+    "lat": 39.7681,
+    "lng": 64.4556,
+    "difficulty": 5,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Kalon-Ensemble_Buchara.jpg/500px-Kalon-Ensemble_Buchara.jpg"
+  },
+  {
+    "id": "papeete-tahiti",
+    "short": "Papeete",
+    "clue": "Papeete, French Polynesia \ud83c\uddf5\ud83c\uddeb",
+    "fact": "This port on Tahiti is the capital of French Polynesia and the main gateway to the islands where Gauguin painted.",
+    "lat": -17.5516,
+    "lng": -149.5585,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Papeete_-_Marina_Taina.JPG/500px-Papeete_-_Marina_Taina.JPG"
+  },
+  {
+    "id": "windhoek-namibia",
+    "short": "Windhoek",
+    "clue": "Which highland capital between the Namib and Kalahari deserts still has German colonial buildings and holds an annual Oktoberfest?",
+    "fact": "Germany ruled the territory until 1915, and the city's Lutheran Christuskirche dates from 1910.",
+    "lat": -22.5609,
+    "lng": 17.0658,
+    "difficulty": 5,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Christ_Church_in_Windhoek%2C_Namibia.jpg/500px-Christ_Church_in_Windhoek%2C_Namibia.jpg"
+  },
+  {
+    "id": "stari-most",
+    "short": "Stari Most",
+    "clue": "Which 16th-century Ottoman bridge was destroyed by shellfire in 1993 and rebuilt stone by stone?",
+    "fact": "Divers still leap from the Mostar bridge's 21-metre arch into the Neretva River in an annual competition.",
+    "lat": 43.3373,
+    "lng": 17.815,
+    "difficulty": 5,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/500px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  {
+    "id": "lumbini-nepal",
+    "short": "Lumbini",
+    "clue": "Where was Siddhartha Gautama, the Buddha, born?",
+    "fact": "An inscribed pillar left by Emperor Ashoka in 249 BCE marks the spot, near the Maya Devi Temple.",
+    "lat": 27.4696,
+    "lng": 83.2757,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/BRP_Lumbini_Mayadevi_temple.jpg/500px-BRP_Lumbini_Mayadevi_temple.jpg"
+  },
+  {
+    "id": "bodh-gaya-india",
+    "short": "Bodh Gaya",
+    "clue": "Where did the Buddha attain enlightenment under the Bodhi tree?",
+    "fact": "The Mahabodhi Temple stands beside a descendant of the original tree and is Buddhism's holiest site.",
+    "lat": 24.6959,
+    "lng": 84.9913,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Mahabodhitemple.jpg/500px-Mahabodhitemple.jpg"
+  },
+  {
+    "id": "wittenberg-castle-church",
+    "short": "Wittenberg",
+    "clue": "Where did Martin Luther post his Ninety-five Theses in 1517, starting the Reformation?",
+    "fact": "The Castle Church's original wooden doors burned in 1760 and were replaced with bronze doors bearing the theses.",
+    "lat": 51.8662,
+    "lng": 12.643,
+    "difficulty": 5,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Schlosskirche_Wittenberg_I.jpg/500px-Schlosskirche_Wittenberg_I.jpg"
+  },
+  {
+    "id": "dushanbe-tajikistan",
+    "short": "Dushanbe",
+    "clue": "Which Central Asian capital takes its name from the Monday market that once stood there and has one of the world's tallest flagpoles?",
+    "fact": "It was a small village until the Soviets made it a capital in the 1920s, briefly naming it Stalinabad.",
+    "lat": 38.5598,
+    "lng": 68.787,
+    "difficulty": 6,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Panorama_with_buildings%2C_Dushanbe.jpg/500px-Panorama_with_buildings%2C_Dushanbe.jpg"
+  },
+  {
+    "id": "noumea-new-caledonia",
+    "short": "Noum\u00e9a",
+    "clue": "Which French-speaking Pacific capital is the main city of an island with one of the world's largest lagoons?",
+    "fact": "It sits on Grande Terre in New Caledonia, whose islands hold roughly a tenth of the world's known nickel reserves.",
+    "lat": -22.2758,
+    "lng": 166.458,
+    "difficulty": 6,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/View_over_Noumea.jpg/500px-View_over_Noumea.jpg"
+  },
+  {
+    "id": "thermopylae",
+    "short": "Thermopylae",
+    "clue": "Where did King Leonidas and his 300 Spartans hold a narrow pass against the Persian army in 480 BC?",
+    "fact": "Silt from the Spercheios River has pushed the coast kilometres away, so the 'hot gates' pass is no longer narrow.",
+    "lat": 38.7964,
+    "lng": 22.5364,
+    "difficulty": 6,
+    "category": "moment",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Leonidas_Statue_01.jpg/500px-Leonidas_Statue_01.jpg"
+  },
+  {
+    "id": "gullfoss",
+    "short": "Gullfoss",
+    "clue": "Which two-tiered 'Golden Falls' on the Hv\u00edt\u00e1 river is a highlight of the Golden Circle tourist route?",
+    "fact": "A local farmer's daughter, Sigr\u00ed\u00f0ur T\u00f3masd\u00f3ttir, is credited with fighting plans to dam it for hydroelectric power.",
+    "lat": 64.3271,
+    "lng": -20.1199,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Gullfoss_from_the_Air_%28cropped%29.jpg/500px-Gullfoss_from_the_Air_%28cropped%29.jpg"
   }
 ]
