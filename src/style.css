@@ -205,3 +205,21 @@ body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0
 #err[hidden] {
   display: none;
 }
+
+/* Hold-to-confirm: target ticks at the press point, loupe floating above the thumb */
+#hold-confirm { position: fixed; inset: 0; z-index: 1000; pointer-events: none; }
+#hold-confirm[hidden] { display: none; }
+.hold-target, .hold-loupe { position: absolute; left: 0; top: 0; }
+.hold-target i { position: absolute; left: -1.5px; top: -40px; width: 3px; height: 12px; border-radius: 2px; background: #ffc76a; box-shadow: 0 0 4px rgba(0,0,0,.8); transform-origin: 1.5px 40px; }
+.hold-target i:nth-child(2) { transform: rotate(90deg); }
+.hold-target i:nth-child(3) { transform: rotate(180deg); }
+.hold-target i:nth-child(4) { transform: rotate(270deg); }
+.hold-loupe canvas { position: absolute; left: -48px; top: -48px; width: 96px; height: 96px; border-radius: 50%; box-shadow: 0 6px 20px rgba(0,0,0,.6); }
+.hold-loupe svg { position: absolute; left: -58px; top: -58px; width: 116px; height: 116px; overflow: visible; }
+.hold-track, .hold-progress { fill: none; stroke-width: 6; }
+.hold-track { stroke: rgba(2,4,9,.72); }
+.hold-progress { stroke: #ffc76a; stroke-linecap: round; }
+.hold-cross { position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; }
+.hold-cross::before, .hold-cross::after { content: ''; position: absolute; background: #fff; box-shadow: 0 0 0 1px rgba(2,4,9,.75); }
+.hold-cross::before { left: 8px; top: 0; width: 2px; height: 18px; }
+.hold-cross::after { left: 0; top: 8px; width: 18px; height: 2px; }

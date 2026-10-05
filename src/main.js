@@ -31,34 +31,36 @@ const TAP_MAX_MS = 350;
 const HOLD_MS = 600; // hold duration to lock in a guess
 const HOLD_MAX_MOVE = 12; // px movement allowed during hold
 
-// Hold-to-confirm overlay: progress ring shown while holding to lock in a guess
+// Hold-to-confirm overlay. The thumb hides both the exact press point and
+// anything drawn under it, so (like the iOS text magnifier) a loupe floats
+// above the finger: a magnified view of the globe under the thumb with a
+// crosshair on the exact spot, ringed by the hold progress. Ticks around the
+// press point itself peek out past the thumb's edges.
+const LOUPE_SIZE = 96; // css px, magnified view diameter
+const LOUPE_ZOOM = 2;
+const LOUPE_LIFT = 112; // css px from the finger to the loupe centre
+const LOUPE_RING_C = 2 * Math.PI * 54; // progress circle circumference
 const holdOverlay = document.createElement('div');
 holdOverlay.id = 'hold-confirm';
+holdOverlay.hidden = true;
 holdOverlay.innerHTML = `
-  <svg viewBox="0 0 100 100" width="80" height="80">
-    <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="8"/>
-    <circle id="hold-progress" cx="50" cy="50" r="42" fill="none" stroke="#ffc76a" stroke-width="8"
-      stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264"
-      transform="rotate(-90 50 50)"/>
-  </svg>
-  <div class="hold-label">Keep holding</div>
+  <div class="hold-target"><i></i><i></i><i></i><i></i></div>
+  <div class="hold-loupe">
+    <canvas width="${LOUPE_SIZE * 2}" height="${LOUPE_SIZE * 2}"></canvas>
+    <span class="hold-cross"></span>
+    <svg viewBox="0 0 116 116">
+      <circle cx="58" cy="58" r="54" class="hold-track"/>
+      <circle cx="58" cy="58" r="54" class="hold-progress" stroke-dasharray="${LOUPE_RING_C}"
+        stroke-dashoffset="${LOUPE_RING_C}" transform="rotate(-90 58 58)"/>
+    </svg>
+  </div>
 `;
-holdOverlay.style.cssText = `
-  position: fixed; z-index: 1000; pointer-events: none;
-  display: none; transform: translate(-50%, -50%);
-  text-align: center;
-`;
-const holdStyle = document.createElement('style');
-holdStyle.textContent = `
-  #hold-confirm .hold-label {
-    color: #ffc76a; font-size: 12px; font-weight: 700;
-    margin-top: 4px; text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-    white-space: nowrap;
-  }
-`;
-document.head.appendChild(holdStyle);
 document.body.appendChild(holdOverlay);
-const holdProgress = holdOverlay.querySelector('#hold-progress');
+const holdTarget = holdOverlay.querySelector('.hold-target');
+const holdLoupe = holdOverlay.querySelector('.hold-loupe');
+const loupeCanvas = holdOverlay.querySelector('canvas');
+const loupeCtx = loupeCanvas.getContext('2d');
+const holdProgress = holdOverlay.querySelector('.hold-progress');
 
 // One gesture guesses: press the globe and the ring starts filling at once, the
 // pin drops under the finger after HOLD_PIN_MS, and a full HOLD_MS locks it in.
@@ -67,20 +69,60 @@ const holdProgress = holdOverlay.querySelector('#hold-progress');
 const HOLD_PIN_MS = 150;
 let hold = null; // { id, x, y, t, normal, pinned, raf }
 
+function placeHoldRing(x, y) {
+  holdTarget.style.transform = `translate(${x}px, ${y}px)`;
+  // Loupe above the finger; with no room above (finger near the top), beside
+  // it on the side away from the nearer screen edge.
+  const r = LOUPE_SIZE / 2 + 10;
+  const w = window.innerWidth;
+  let lx = x;
+  let ly = y - LOUPE_LIFT;
+  if (ly - r < 4) {
+    lx = x + (x > w / 2 ? -LOUPE_LIFT : LOUPE_LIFT);
+    ly = Math.max(y, r + 4);
+  }
+  lx = clamp(lx, r + 4, w - r - 4);
+  holdLoupe.style.transform = `translate(${lx}px, ${ly}px)`;
+}
+
 function showHoldRing(x, y) {
-  holdOverlay.style.display = 'block';
-  holdOverlay.style.left = x + 'px';
-  holdOverlay.style.top = y + 'px';
-  holdProgress.style.strokeDashoffset = '264';
+  holdOverlay.hidden = false;
+  placeHoldRing(x, y);
+  holdProgress.style.strokeDashoffset = String(LOUPE_RING_C);
 }
 
 function updateHoldRing(progress) {
-  // progress 0-1, 264 = circumference
-  holdProgress.style.strokeDashoffset = String(264 * (1 - progress));
+  holdProgress.style.strokeDashoffset = String(LOUPE_RING_C * (1 - progress));
 }
 
 function hideHoldRing() {
-  holdOverlay.style.display = 'none';
+  holdOverlay.hidden = true;
+}
+
+// Copies the patch of globe under the finger into the loupe. Runs straight
+// after renderer.render in the same frame, while the WebGL drawing buffer is
+// still readable (no preserveDrawingBuffer needed).
+function drawHoldLoupe() {
+  const p = pointers.get(hold.id);
+  if (!p) return;
+  placeHoldRing(p.x, p.y);
+  const rect = canvas.getBoundingClientRect();
+  const sx = canvas.width / rect.width;
+  const sy = canvas.height / rect.height;
+  const span = LOUPE_SIZE / LOUPE_ZOOM;
+  loupeCtx.fillStyle = '#020409';
+  loupeCtx.fillRect(0, 0, loupeCanvas.width, loupeCanvas.height);
+  loupeCtx.drawImage(
+    canvas,
+    (p.x - rect.left - span / 2) * sx,
+    (p.y - rect.top - span / 2) * sy,
+    span * sx,
+    span * sy,
+    0,
+    0,
+    loupeCanvas.width,
+    loupeCanvas.height,
+  );
 }
 
 function setGuessHint(text, nudge = false) {
@@ -95,7 +137,7 @@ function startHold(e) {
   if (!normal) return; // pressed on space, not the globe
   // Timers own the pin drop and the lock-in so a janky frame can't stretch the
   // hold; rAF only paints the ring.
-  hold = { x: e.clientX, y: e.clientY, t: performance.now(), normal, pinned: false, raf: 0, timers: [] };
+  hold = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now(), normal, pinned: false, raf: 0, timers: [] };
   showHoldRing(e.clientX, e.clientY);
   const tick = () => {
     if (!hold) return;
@@ -1156,7 +1198,7 @@ function endPointer(e) {
   if (pointers.size === 0) {
     canvas.classList.remove('dragging');
     if (heldShort && e.type === 'pointerup') {
-      setGuessHint('Keep holding until the ring fills', true);
+      setGuessHint('Hold longer, until the ring fills', true);
     } else if (tap && e.type === 'pointerup' && now - tap.t < TAP_MAX_MS) {
       if (gameMode === 'review') pickReviewRound(e.clientX, e.clientY);
     } else if (samples.length >= 2) {
@@ -2103,7 +2145,7 @@ function showRound() {
     gameEls.weight.style.display = WEIGHTS[daily.round] > 1 ? '' : 'none';
   }
   gameEls.clue.textContent = item.clue;
-  setGuessHint('Press and hold the globe to guess');
+  setGuessHint('Hold on your guess until the ring fills');
 }
 
 // Rotation axis of the shortest great circle from a to b. Coincident or exactly
@@ -5235,6 +5277,7 @@ function frame() {
   passportDots.visible = false; // disabled: no dots on landing page
 
   renderer.render(scene, camera);
+  if (hold) drawHoldLoupe();
   requestAnimationFrame(frame);
 }
 
