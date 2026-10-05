@@ -8356,7 +8356,7 @@
     "fact": "A UCLA team tried to send LOGIN to Stanford on October 29, 1969. The network failed after two letters, making 'LO' the internet ancestor's first message.",
     "lat": 34.0689,
     "lng": -118.4432,
-    "difficulty": 8,
+    "difficulty": 3,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Boelter_Hall%2C_UCLA.jpg"
   },
   {
@@ -8426,7 +8426,7 @@
     "fact": "The Pulitzer-winning image captured the second flag raising on Mount Suribachi on February 23, 1945, during the Battle of Iwo Jima.",
     "lat": 24.7504,
     "lng": 141.2895,
-    "difficulty": 5,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Iwo_Jima_Suribachi_DN-SD-03-11845.JPEG/500px-Iwo_Jima_Suribachi_DN-SD-03-11845.JPEG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -8476,7 +8476,7 @@
     "fact": "Hendrix's dramatic finale helped turn his U.S. festival debut into rock history. The same festival also introduced major audiences to Janis Joplin and the Who.",
     "lat": 36.5948,
     "lng": -121.8627,
-    "difficulty": 7,
+    "difficulty": 5,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Monterey_International_Pop_Festival_publicity_1967.jpg"
   },
   {
@@ -8486,7 +8486,7 @@
     "fact": "Larry Harvey and friends burned an eight-foot wooden man on Baker Beach in 1986. The event later moved to Nevada's Black Rock Desert.",
     "lat": 37.7936,
     "lng": -122.4836,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/BakeBeachAtMidday.jpg/500px-BakeBeachAtMidday.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -8776,7 +8776,7 @@
     "fact": "Security police raided the secret African National Congress meeting place in Rivonia in 1963. Documents seized there became key evidence in the Rivonia Trial.",
     "lat": -26.0436,
     "lng": 28.0537,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Liliesleaf_hut1.jpg/500px-Liliesleaf_hut1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -8796,7 +8796,7 @@
     "fact": "On December 5, 1955, an overflowing mass meeting voted to continue the one-day boycott. The protest lasted more than a year and ended segregated city buses.",
     "lat": 32.3761,
     "lng": -86.324,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Holt_St_Baptist_Church_June09_02.jpg/500px-Holt_St_Baptist_Church_June09_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9002,7 +9002,7 @@
     "fact": "The medieval stronghold was destroyed in 1719 and reconstructed in the early twentieth century.",
     "lat": 57.274028,
     "lng": -5.516111,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eilean_Donan_Castle%2C_Scotland_-_Jan_2011.jpg"
   },
   {
@@ -9032,7 +9032,7 @@
     "fact": "Its secluded position helped safeguard the Scottish crown jewels from invading forces in the seventeenth century.",
     "lat": 56.946,
     "lng": -2.197,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dunnottar_Castle_-_geograph.org.uk_-_8057610.jpg"
   },
   {
@@ -9222,7 +9222,7 @@
     "fact": "Built from 1871 for a merchant and politician, the house combines Gothic Revival details with locally sourced stone and timber.",
     "lat": -45.861659,
     "lng": 170.627214,
-    "difficulty": 10,
+    "difficulty": 7,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Larnach_Castle.jpg"
   },
   {
@@ -9232,7 +9232,7 @@
     "fact": "The stronghold briefly served as a royal capital in the thirteenth century and once guarded a sacred tooth relic.",
     "lat": 7.816784,
     "lng": 80.310746,
-    "difficulty": 10,
+    "difficulty": 7,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yapahuwa_Rock_Fortress.jpg"
   },
   {
@@ -9292,7 +9292,7 @@
     "fact": "Tianjin is the port gateway to Beijing and keeps a waterfront of old foreign concession buildings from its days as a treaty port.",
     "lat": 39.14222,
     "lng": 117.17667,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Temple_of_Heaven_20160323_01.jpg/500px-Temple_of_Heaven_20160323_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9412,7 +9412,7 @@
     "fact": "Dalian is a breezy Liaodong Peninsula port known for its seaside boulevards, seafood, and a long history of Russian and Japanese occupation.",
     "lat": 38.91222,
     "lng": 121.60222,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg"
   },
   {
@@ -9462,7 +9462,7 @@
     "fact": "Ahmedabad was India's first UNESCO World Heritage City and was the base for Gandhi's Sabarmati Ashram during the independence movement.",
     "lat": 23.02579,
     "lng": 72.58727,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/The_drainage_system_at_Lothal_2.JPG/500px-The_drainage_system_at_Lothal_2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9552,7 +9552,7 @@
     "fact": "Jeddah is the Red Sea gateway for pilgrims heading to Mecca, and its old Al-Balad quarter has coral-stone houses with wooden balconies.",
     "lat": 21.49012,
     "lng": 39.18624,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/The_Ka%27ba%2C_Great_Mosque_of_Mecca%2C_Saudi_Arabia_%284%29.jpg/500px-The_Ka%27ba%2C_Great_Mosque_of_Mecca%2C_Saudi_Arabia_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9682,7 +9682,7 @@
     "fact": "New Taipei City wraps around Taipei and is Taiwan's most populous city, including the old mining town of Jiufen and the Tamsui waterfront.",
     "lat": 25.06199,
     "lng": 121.45703,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Taipei_Skyline_2022.06.29.jpg/500px-Taipei_Skyline_2022.06.29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9692,7 +9692,7 @@
     "fact": "Chattogram is Bangladesh's main seaport and second-largest city, and its beaches are known for ship-breaking yards.",
     "lat": 22.3384,
     "lng": 91.83168,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/%E0%A6%B2%E0%A6%BE%E0%A6%B2_%E0%A6%95%E0%A7%87%E0%A6%B2%E0%A7%8D%E0%A6%B2%E0%A6%BE%E0%A6%B0_%E0%A6%AE%E0%A6%BE%E0%A6%AF%E0%A6%BC%E0%A6%BE.jpg/500px-%E0%A6%B2%E0%A6%BE%E0%A6%B2_%E0%A6%95%E0%A7%87%E0%A6%B2%E0%A7%8D%E0%A6%B2%E0%A6%BE%E0%A6%B0_%E0%A6%AE%E0%A6%BE%E0%A6%AF%E0%A6%BC%E0%A6%BE.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9722,7 +9722,7 @@
     "fact": "Faisalabad is Pakistan's textile capital, built around a British-era clock tower with eight bazaars radiating out like a Union Jack.",
     "lat": 31.41554,
     "lng": 73.08969,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Badshahi_Mosque_front_picture.jpg/500px-Badshahi_Mosque_front_picture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9742,7 +9742,7 @@
     "fact": "Ningbo's port, combined with Zhoushan, handles more cargo than any other port in the world, and the city is home to Tianyi Pavilion, China's oldest surviving private library.",
     "lat": 29.87819,
     "lng": 121.54945,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9752,7 +9752,7 @@
     "fact": "Ibadan is a sprawling Yoruba city in southwest Nigeria and home to the country's oldest university, founded in 1948.",
     "lat": 7.37756,
     "lng": 3.90591,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Osun_groove_Osogbo.jpg/500px-Osun_groove_Osogbo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9782,7 +9782,7 @@
     "fact": "Shiyan is a Hubei industrial city that serves as the gateway to the Taoist temples of the Wudang Mountains.",
     "lat": 32.6475,
     "lng": 110.77806,
-    "difficulty": 2,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/51714-Terracota-Army.jpg/500px-51714-Terracota-Army.jpg"
   },
   {
@@ -9792,7 +9792,7 @@
     "fact": "Hohhot is the capital of Inner Mongolia and a dairy hub, home to two of China's biggest milk companies.",
     "lat": 40.81056,
     "lng": 111.65222,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/500px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg"
   },
   {
@@ -9802,7 +9802,7 @@
     "fact": "Tangshan is a heavy-industry city in Hebei that was rebuilt after the devastating 1976 earthquake, one of the deadliest of the 20th century.",
     "lat": 39.64381,
     "lng": 118.18319,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Temple_of_Heaven_20160323_01.jpg/500px-Temple_of_Heaven_20160323_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9832,7 +9832,7 @@
     "fact": "Anshan is the steel capital of Liaoning and is home to a massive jade Buddha carved from a single boulder.",
     "lat": 41.12361,
     "lng": 122.99,
-    "difficulty": 2,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg"
   },
   {
@@ -9842,7 +9842,7 @@
     "fact": "Changzhou is a Jiangsu city on the Grand Canal, known for the Tianning Temple and its towering wooden-roofed pagoda.",
     "lat": 31.77359,
     "lng": 119.95401,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -9882,7 +9882,7 @@
     "fact": "Huainan is an Anhui coal city on the Huai River, traditionally credited as the place where tofu was invented.",
     "lat": 32.62639,
     "lng": 116.99694,
-    "difficulty": 2,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9932,7 +9932,7 @@
     "fact": "Huizhou is a Guangdong city beside Shenzhen, known for its West Lake and as a base for electronics manufacturing.",
     "lat": 23.11147,
     "lng": 114.41523,
-    "difficulty": 2,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -9942,7 +9942,7 @@
     "fact": "Yinchuan is Ningxia's capital, where the royal tombs of the Western Xia kingdom rise from the desert outside the city.",
     "lat": 38.46806,
     "lng": 106.27306,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/500px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9952,7 +9952,7 @@
     "fact": "Taichung is Taiwan's second-largest city, where bubble tea is said to have been invented in the 1980s.",
     "lat": 24.1469,
     "lng": 120.6839,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Taipei_Skyline_2022.06.29.jpg/500px-Taipei_Skyline_2022.06.29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9972,7 +9972,7 @@
     "fact": "Baotou is Inner Mongolia's steel city and the world's leading center for rare-earth mining and processing.",
     "lat": 40.6516,
     "lng": 109.84389,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Pingyao_Shilou_2013.08.25_07-01-33.jpg/500px-Pingyao_Shilou_2013.08.25_07-01-33.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9982,7 +9982,7 @@
     "fact": "Linyi is a Shandong logistics hub with one of China's largest wholesale markets, and it is the birthplace of the strategist Zhuge Liang.",
     "lat": 35.06306,
     "lng": 118.34278,
-    "difficulty": 2,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9992,7 +9992,7 @@
     "fact": "Baoding is a Hebei city famous for its donkey-meat burgers and once served as the provincial capital.",
     "lat": 38.87288,
     "lng": 115.46246,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Lugouqiao-2014.jpg/500px-Lugouqiao-2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10042,7 +10042,7 @@
     "fact": "Minhang is a large Shanghai district that includes the Qibao ancient water town and Shanghai Jiao Tong University's main campus.",
     "lat": 31.10881,
     "lng": 121.37471,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10082,7 +10082,7 @@
     "fact": "Gazipur sits just north of Dhaka and is one of Bangladesh's biggest garment-manufacturing hubs.",
     "lat": 23.99844,
     "lng": 90.42234,
-    "difficulty": 2,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Tejgaon_Commercial_Area.jpg/500px-Tejgaon_Commercial_Area.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10092,7 +10092,7 @@
     "fact": "Wenzhou is famous for its entrepreneurs, whose family businesses spread across China and Europe making shoes, lighters, and eyeglasses.",
     "lat": 27.99942,
     "lng": 120.66682,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10102,7 +10102,7 @@
     "fact": "Bekasi is a large satellite city east of Jakarta, packed with industrial estates and commuter housing.",
     "lat": -6.2349,
     "lng": 106.9896,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg/500px-Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg"
   },
   {
@@ -10112,7 +10112,7 @@
     "fact": "Haiphong is northern Vietnam's main seaport and is known as the 'City of Red Flamboyant Flowers'.",
     "lat": 20.86481,
     "lng": 106.68345,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10122,7 +10122,7 @@
     "fact": "Yunfu is a western Guangdong city known as China's 'stone capital' for its marble and granite processing industry.",
     "lat": 22.92787,
     "lng": 112.03809,
-    "difficulty": 2,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -10152,7 +10152,7 @@
     "fact": "Gujranwala is a Punjab city known for its wrestlers and its love of food, and it was the birthplace of Sikh ruler Maharaja Ranjit Singh.",
     "lat": 32.15567,
     "lng": 74.18705,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Badshahi_Mosque_front_picture.jpg/500px-Badshahi_Mosque_front_picture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10162,7 +10162,7 @@
     "fact": "Medan is Sumatra's largest city and a gateway to Lake Toba and the orangutans of Bukit Lawang.",
     "lat": 3.58333,
     "lng": 98.66667,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Skyline_of_George_Town%2C_Penang_at_night_Nov2024-29-17.jpg/500px-Skyline_of_George_Town%2C_Penang_at_night_Nov2024-29-17.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10172,7 +10172,7 @@
     "fact": "Lucknow is the capital of Uttar Pradesh, famous for Awadhi cuisine, its kebabs, and the grand Bara Imambara.",
     "lat": 26.83928,
     "lng": 80.92313,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/1_Khajuraho.jpg/500px-1_Khajuraho.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10182,7 +10182,7 @@
     "fact": "Xining sits on the edge of the Tibetan Plateau at about 2,200 meters and is the gateway to Qinghai Lake and the Kumbum Monastery.",
     "lat": 36.62554,
     "lng": 101.75739,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/500px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10192,7 +10192,7 @@
     "fact": "Nagpur is known as India's 'Orange City' and lies close to the geographic center of the country.",
     "lat": 21.14631,
     "lng": 79.08491,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Taj-ul-Masjid%2C_Bhopal%2C_India.jpg/500px-Taj-ul-Masjid%2C_Bhopal%2C_India.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10202,7 +10202,7 @@
     "fact": "Fortaleza is a beach city in northeastern Brazil famous for its jangada sailboats and lively forr\u00f3 music scene.",
     "lat": -3.71722,
     "lng": -38.54306,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/2010._Jijoca_de_Jericoacoara_%28CE%29_%283%29.JPG/500px-2010._Jijoca_de_Jericoacoara_%28CE%29_%283%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10232,7 +10232,7 @@
     "fact": "Nanchang is Jiangxi's capital and the site of the 1927 uprising regarded as the birth of China's People's Liberation Army.",
     "lat": 28.68396,
     "lng": 115.85306,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10272,7 +10272,7 @@
     "fact": "Shaoxing is a canal town famous for its amber rice wine and as the hometown of writer Lu Xun.",
     "lat": 30.00237,
     "lng": 120.57864,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10282,7 +10282,7 @@
     "fact": "Nantong is a Jiangsu city on the north bank of the Yangtze estuary, linked to Shanghai by long river bridges.",
     "lat": 32.03028,
     "lng": 120.87472,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10302,7 +10302,7 @@
     "fact": "Lubumbashi is the copper-mining capital of the DR Congo's Katanga region, founded by Belgian colonists as \u00c9lisabethville.",
     "lat": -11.66089,
     "lng": 27.47938,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Downtown_Lusaka.JPG/500px-Downtown_Lusaka.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10332,7 +10332,7 @@
     "fact": "Zhuhai borders Macau and is linked to Hong Kong by one of the world's longest sea bridges.",
     "lat": 22.27694,
     "lng": 113.56778,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -10362,7 +10362,7 @@
     "fact": "Multan is known as the 'City of Saints' for its many Sufi shrines with blue-tiled domes.",
     "lat": 30.19679,
     "lng": 71.47824,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Derawar_fort_Panorama.jpg/500px-Derawar_fort_Panorama.jpg"
   },
   {
@@ -10372,7 +10372,7 @@
     "fact": "Ordos is a coal-rich Inner Mongolian city whose futuristic Kangbashi district became known as a 'ghost city' before it filled up.",
     "lat": 39.6086,
     "lng": 109.78157,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Pingyao_Shilou_2013.08.25_07-01-33.jpg/500px-Pingyao_Shilou_2013.08.25_07-01-33.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10382,7 +10382,7 @@
     "fact": "Coimbatore is a Tamil Nadu textile hub nicknamed the 'Manchester of South India'.",
     "lat": 11.00555,
     "lng": 76.96612,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Adams_Bridge_aerial.jpg/500px-Adams_Bridge_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10412,7 +10412,7 @@
     "fact": "Mbuji-Mayi is a city in the DR Congo built around diamond mining, one of the world's major sources of industrial diamonds.",
     "lat": -6.13603,
     "lng": 23.58979,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg/500px-High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10432,7 +10432,7 @@
     "fact": "Kunshan is a Jiangsu city between Shanghai and Suzhou, the birthplace of Kunqu opera and the water town of Zhouzhuang.",
     "lat": 31.37762,
     "lng": 120.95431,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10442,7 +10442,7 @@
     "fact": "Zunyi is a Guizhou city where the 1935 Zunyi Conference made Mao Zedong leader of the Communist Party during the Long March.",
     "lat": 27.68667,
     "lng": 106.90722,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10452,7 +10452,7 @@
     "fact": "Lianyungang is a Jiangsu port whose Huaguo Mountain is said to be the home of the Monkey King from Journey to the West.",
     "lat": 34.59845,
     "lng": 119.21556,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10462,7 +10462,7 @@
     "fact": "Puning is a Chaoshan city in Guangdong that has grown into one of China's biggest garment-making centers.",
     "lat": 23.31072,
     "lng": 116.16869,
-    "difficulty": 3,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -10472,7 +10472,7 @@
     "fact": "Indore is a Madhya Pradesh city famous for its street food and has been ranked India's cleanest city for several years running.",
     "lat": 22.71792,
     "lng": 75.8333,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Taj-ul-Masjid%2C_Bhopal%2C_India.jpg/500px-Taj-ul-Masjid%2C_Bhopal%2C_India.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10492,7 +10492,7 @@
     "fact": "Ganzhou is a Jiangxi city with one of the best-preserved Song-dynasty city walls and an ancient drainage system still in use.",
     "lat": 25.84664,
     "lng": 114.9326,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -10502,7 +10502,7 @@
     "fact": "Songjiang is a Shanghai district, older than Shanghai itself, known for its Square Pagoda and the English-style Thames Town.",
     "lat": 31.03443,
     "lng": 121.22326,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10542,7 +10542,7 @@
     "fact": "Tangerang is a city west of Jakarta that hosts Soekarno-Hatta International Airport.",
     "lat": -6.17806,
     "lng": 106.63,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg/500px-Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg"
   },
   {
@@ -10552,7 +10552,7 @@
     "fact": "Hyderabad is the second city of Sindh, on the Indus River, known for its glass bangles and old wind catchers on rooftops.",
     "lat": 25.39689,
     "lng": 68.37718,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Clifton_Karachi_View.jpg/500px-Clifton_Karachi_View.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10562,7 +10562,7 @@
     "fact": "Jieyang is a Chaoshan city in eastern Guangdong known for its jade-carving market.",
     "lat": 23.5418,
     "lng": 116.36581,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -10572,7 +10572,7 @@
     "fact": "Jilin City is famous for its winter rime, when frost coats the trees along the Songhua River in white crystals.",
     "lat": 43.84652,
     "lng": 126.5608,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Vladivostok._GUM_Department_Store_P8070703_2200.jpg/500px-Vladivostok._GUM_Department_Store_P8070703_2200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10582,7 +10582,7 @@
     "fact": "Jiading is a Shanghai district that hosts the Shanghai International Circuit, where the Chinese Formula One Grand Prix is held.",
     "lat": 31.38575,
     "lng": 121.24465,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10602,7 +10602,7 @@
     "fact": "Shangqiu is a Henan city regarded as the birthplace of the Shang dynasty, with a well-preserved Ming-era walled old town.",
     "lat": 34.4143,
     "lng": 115.65613,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10612,7 +10612,7 @@
     "fact": "Nanchong is a Sichuan city on the Jialing River, known historically for silk production.",
     "lat": 30.79508,
     "lng": 106.08473,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10662,7 +10662,7 @@
     "fact": "Thane is a lake-studded city next to Mumbai, and the first passenger train in India ran from Bombay to Thane in 1853.",
     "lat": 19.19704,
     "lng": 72.96355,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Mumbai_Bandra-Worli_Sea_Link.jpg/500px-Mumbai_Bandra-Worli_Sea_Link.jpg"
   },
   {
@@ -10672,7 +10672,7 @@
     "fact": "Iztapalapa is Mexico City's most populous borough, famous for its huge Holy Week Passion play reenactment.",
     "lat": 19.35529,
     "lng": -99.06224,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/500px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10682,7 +10682,7 @@
     "fact": "Diyarbak\u0131r is ringed by massive black basalt walls, among the longest and best-preserved in the world.",
     "lat": 37.91363,
     "lng": 40.21721,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg/500px-G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10702,7 +10702,7 @@
     "fact": "Vadodara is a Gujarat city famous for the Laxmi Vilas Palace, said to be four times the size of Buckingham Palace.",
     "lat": 22.29941,
     "lng": 73.20812,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/The_drainage_system_at_Lothal_2.JPG/500px-The_drainage_system_at_Lothal_2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10722,7 +10722,7 @@
     "fact": "Nanyang is a Henan city known as the hometown of the ancient physician Zhang Zhongjing and of the inventor Zhang Heng.",
     "lat": 33.00524,
     "lng": 112.54659,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10742,7 +10742,7 @@
     "fact": "Palembang was the seat of the Srivijaya maritime empire and is known for its Ampera Bridge across the Musi River.",
     "lat": -2.91673,
     "lng": 104.7458,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Anak_krakatau_sebelum_tsunami.jpg/500px-Anak_krakatau_sebelum_tsunami.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10762,7 +10762,7 @@
     "fact": "Jiangmen is a Guangdong city known for the Kaiping Diaolou, fortified watchtowers built by returning overseas Chinese.",
     "lat": 22.58333,
     "lng": 113.08333,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -10772,7 +10772,7 @@
     "fact": "Jiangyin is a wealthy Jiangsu county-level city on the Yangtze, home to the nearby Huaxi village, once dubbed China's richest village.",
     "lat": 31.91102,
     "lng": 120.26302,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10782,7 +10782,7 @@
     "fact": "Fuyang is a northern Anhui city on the plains of the Huai River basin and a major regional transport hub.",
     "lat": 32.9,
     "lng": 115.81667,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10792,7 +10792,7 @@
     "fact": "Bayan Nur is an Inner Mongolian city on the Hetao Plain, where Yellow River irrigation turns desert into sunflower farmland.",
     "lat": 40.74143,
     "lng": 107.38599,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Yoliinam.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
   },
   {
@@ -10812,7 +10812,7 @@
     "fact": "Chaozhou is the cultural heart of the Teochew people, known for Guangji Bridge, gongfu tea, and intricate wood carving.",
     "lat": 23.65396,
     "lng": 116.62262,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -10822,7 +10822,7 @@
     "fact": "Qingyuan is a Guangdong city on the Bei River, famous for its free-range chicken and rafting in nearby gorges.",
     "lat": 23.7,
     "lng": 113.03333,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -10832,7 +10832,7 @@
     "fact": "Tai'an sits at the foot of Mount Tai, the most sacred of China's Five Great Mountains, climbed by emperors for over 2,000 years.",
     "lat": 36.18528,
     "lng": 117.12,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Lugouqiao-2014.jpg/500px-Lugouqiao-2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10842,7 +10842,7 @@
     "fact": "Rasapudipalem is a neighborhood within Visakhapatnam, the port city on India's Bay of Bengal coast.",
     "lat": 17.73308,
     "lng": 83.31622,
-    "difficulty": 7,
+    "difficulty": 9,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/500px-Konarka_Temple.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10852,7 +10852,7 @@
     "fact": "Pimpri-Chinchwad is Pune's industrial twin city and a center of India's automobile industry.",
     "lat": 18.61867,
     "lng": 73.80375,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Mumbai_Bandra-Worli_Sea_Link.jpg/500px-Mumbai_Bandra-Worli_Sea_Link.jpg"
   },
   {
@@ -10862,7 +10862,7 @@
     "fact": "Caloocan is a Metro Manila city where the Katipunan revolutionary society launched its revolt against Spain in 1896.",
     "lat": 14.64953,
     "lng": 120.96788,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Cityscape_of_Manila%2C_2025_%2801%29.jpg/500px-Cityscape_of_Manila%2C_2025_%2801%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10872,7 +10872,7 @@
     "fact": "Semarang is Central Java's capital, known for its Dutch colonial Old Town and the Lawang Sewu building of a 'thousand doors'.",
     "lat": -6.99306,
     "lng": 110.42083,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Pradaksina.jpg/500px-Pradaksina.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10912,7 +10912,7 @@
     "fact": "Changshu is a Jiangsu county-level city near Shanghai known for its Yushan hill and its clothing wholesale market.",
     "lat": 31.64615,
     "lng": 120.74221,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10932,7 +10932,7 @@
     "fact": "Lu'an is an Anhui city famous for Lu'an Guapian, a premium green tea.",
     "lat": 31.73561,
     "lng": 116.51688,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10942,7 +10942,7 @@
     "fact": "Ludhiana is Punjab's largest city and India's hosiery and bicycle-making capital.",
     "lat": 30.91204,
     "lng": 75.85379,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Golden_Temple_Amritsar_Gurudwara_%28cropped%29.jpg/500px-Golden_Temple_Amritsar_Gurudwara_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10952,7 +10952,7 @@
     "fact": "Yancheng is a coastal Jiangsu city whose wetlands are a key reserve for wild P\u00e8re David's deer and red-crowned cranes.",
     "lat": 33.3575,
     "lng": 120.1573,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10982,7 +10982,7 @@
     "fact": "Taizhou is a coastal Zhejiang city known for the Buddhist Guoqing Temple on Mount Tiantai and a strong manufacturing base.",
     "lat": 32.49069,
     "lng": 119.90812,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -10992,7 +10992,7 @@
     "fact": "Daqing grew up around China's largest oil field, discovered in 1959.",
     "lat": 46.58333,
     "lng": 125.0,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Vladivostok._GUM_Department_Store_P8070703_2200.jpg/500px-Vladivostok._GUM_Department_Store_P8070703_2200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11002,7 +11002,7 @@
     "fact": "Wuhu is an Anhui port on the Yangtze and home to Chery, one of China's biggest carmakers.",
     "lat": 31.35259,
     "lng": 118.42947,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11012,7 +11012,7 @@
     "fact": "Dazhou is a northeastern Sichuan city on the Zhou River and a hub for natural gas production.",
     "lat": 31.2106,
     "lng": 107.46308,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Zhangjiajie_National_Forest_Park.jpg/1280px-Zhangjiajie_National_Forest_Park.jpg"
   },
   {
@@ -11042,7 +11042,7 @@
     "fact": "Zhaoqing is a Guangdong city known for its Seven Star Crags and for Duan inkstones prized by calligraphers.",
     "lat": 23.04893,
     "lng": 112.46091,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -11052,7 +11052,7 @@
     "fact": "Mianyang is a Sichuan city known as China's 'Science City' and the hometown of the poet Li Bai.",
     "lat": 31.46784,
     "lng": 104.68168,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11062,7 +11062,7 @@
     "fact": "Wanzhou is a district of Chongqing on the Yangtze, a major port in the Three Gorges reservoir area.",
     "lat": 30.76451,
     "lng": 108.39586,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Zhangjiajie_National_Forest_Park.jpg/1280px-Zhangjiajie_National_Forest_Park.jpg"
   },
   {
@@ -11082,7 +11082,7 @@
     "fact": "Putian is a Fujian city considered the home of the sea goddess Mazu, whose temple on Meizhou Island draws pilgrims.",
     "lat": 25.43944,
     "lng": 119.01028,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Taipei_Skyline_2022.06.29.jpg/500px-Taipei_Skyline_2022.06.29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11142,7 +11142,7 @@
     "fact": "Yiwu hosts the world's largest small-commodity wholesale market, where vast halls sell everything from toys to Christmas decorations.",
     "lat": 29.31506,
     "lng": 120.07676,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11162,7 +11162,7 @@
     "fact": "Quanzhou was one of the world's busiest ports in the Song and Yuan eras and is the Zayton described by Marco Polo.",
     "lat": 24.91389,
     "lng": 118.58583,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Taipei_Skyline_2022.06.29.jpg/500px-Taipei_Skyline_2022.06.29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11182,7 +11182,7 @@
     "fact": "Cixi is a Zhejiang county-level city near Ningbo known for making household appliances.",
     "lat": 30.1764,
     "lng": 121.2457,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11232,7 +11232,7 @@
     "fact": "Baoji is a Shaanxi city where many ancient Zhou-dynasty bronzes were found, and it sits near the sacred Famen Temple.",
     "lat": 34.36775,
     "lng": 107.23705,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/500px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11242,7 +11242,7 @@
     "fact": "Suqian is a northern Jiangsu city regarded as the hometown of Xiang Yu, the warlord who fought for China after the Qin dynasty.",
     "lat": 33.94917,
     "lng": 118.29583,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -11252,7 +11252,7 @@
     "fact": "Liuzhou is a Guangxi industrial city famous for luosifen, its pungent river-snail rice noodles.",
     "lat": 24.32405,
     "lng": 109.40698,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11262,7 +11262,7 @@
     "fact": "Tirunelveli is a Tamil Nadu city on the Thamirabarani River, known for its sticky wheat halwa.",
     "lat": 8.72742,
     "lng": 77.6838,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Vivekananda_Rock_Memorial%2C_Kanyakumari.jpg/500px-Vivekananda_Rock_Memorial%2C_Kanyakumari.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11272,7 +11272,7 @@
     "fact": "Zhangjiagang is a Jiangsu port city on the south bank of the Yangtze known for its steel industry.",
     "lat": 31.865,
     "lng": 120.53889,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -11282,7 +11282,7 @@
     "fact": "Agra is home to the Taj Mahal, built by Mughal emperor Shah Jahan as a tomb for his wife Mumtaz Mahal.",
     "lat": 27.18333,
     "lng": 78.01667,
-    "difficulty": 4,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/500px-Taj_Mahal_%28Edited%29.jpeg"
   },
   {
@@ -11292,7 +11292,7 @@
     "fact": "South Tangerang is a suburban city southwest of Jakarta, filled with planned townships such as BSD City.",
     "lat": -6.28862,
     "lng": 106.71789,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg/500px-Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg"
   },
   {
@@ -11312,7 +11312,7 @@
     "fact": "Xinyang is a southern Henan city famous for Xinyang Maojian green tea.",
     "lat": 32.12278,
     "lng": 114.06556,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11322,7 +11322,7 @@
     "fact": "Jinjiang is a Fujian city where Anta, Xtep, and many other sportswear brands began.",
     "lat": 24.81978,
     "lng": 118.57415,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Taipei_Skyline_2022.06.29.jpg/500px-Taipei_Skyline_2022.06.29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11342,7 +11342,7 @@
     "fact": "Bozhou is home to one of China's largest traditional medicine markets and is the hometown of the warlord Cao Cao.",
     "lat": 33.87722,
     "lng": 115.77028,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11352,7 +11352,7 @@
     "fact": "Qujing is an eastern Yunnan city regarded as the source of the Pearl River.",
     "lat": 25.48333,
     "lng": 103.78333,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11362,7 +11362,7 @@
     "fact": "Zhanjiang is a port on the Leizhou Peninsula at China's southern tip, known for its seafood and oyster dishes.",
     "lat": 21.23391,
     "lng": 110.38749,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11372,7 +11372,7 @@
     "fact": "Fushun is a Liaoning coal city with one of the world's largest open-pit coal mines.",
     "lat": 41.88669,
     "lng": 123.94363,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg"
   },
   {
@@ -11382,7 +11382,7 @@
     "fact": "Rajkot is a Gujarat city where Mahatma Gandhi spent his childhood and went to school.",
     "lat": 22.29161,
     "lng": 70.79322,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/The_drainage_system_at_Lothal_2.JPG/500px-The_drainage_system_at_Lothal_2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11422,7 +11422,7 @@
     "fact": "Najafgarh is a large town in southwest Delhi, built around an old grain market and the Najafgarh drain.",
     "lat": 28.60922,
     "lng": 76.97982,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Jama_Masjid_2011.jpg/500px-Jama_Masjid_2011.jpg"
   },
   {
@@ -11432,7 +11432,7 @@
     "fact": "Lianjiang is a Guangdong county-level city known for its orange and longan orchards.",
     "lat": 21.64673,
     "lng": 110.28172,
-    "difficulty": 4,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11442,7 +11442,7 @@
     "fact": "Handan is a Hebei city that has kept its name for nearly 3,000 years, the former capital of the Warring States kingdom of Zhao.",
     "lat": 36.60999,
     "lng": 114.48764,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Pingyao_Shilou_2013.08.25_07-01-33.jpg/500px-Pingyao_Shilou_2013.08.25_07-01-33.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11452,7 +11452,7 @@
     "fact": "Bannu is an old walled frontier city in Khyber Pakhtunkhwa, set in a fertile basin irrigated by the Kurram River.",
     "lat": 32.98527,
     "lng": 70.60403,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Badshahi_Mosque_front_picture.jpg/500px-Badshahi_Mosque_front_picture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11462,7 +11462,7 @@
     "fact": "Yichang is a Hubei city on the Yangtze next to the Three Gorges Dam, the world's largest hydroelectric power station.",
     "lat": 30.71444,
     "lng": 111.28472,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Zhangjiajie_National_Forest_Park.jpg/1280px-Zhangjiajie_National_Forest_Park.jpg"
   },
   {
@@ -11472,7 +11472,7 @@
     "fact": "Heze is a Shandong city known as China's 'peony capital', with vast peony gardens that bloom every April.",
     "lat": 35.23929,
     "lng": 115.47358,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11512,7 +11512,7 @@
     "fact": "Liupanshui is a Guizhou mountain city nicknamed 'China's Cool City' for its mild summers.",
     "lat": 26.59444,
     "lng": 104.83333,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11532,7 +11532,7 @@
     "fact": "Maoming is a Guangdong city with a large petrochemical industry and is famous for its lychees.",
     "lat": 21.66625,
     "lng": 110.91364,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -11552,7 +11552,7 @@
     "fact": "Qinzhou is a Guangxi port on the Gulf of Tonkin, known for its Nixing pottery and white dolphins in nearby Sanniang Bay.",
     "lat": 21.98247,
     "lng": 108.65061,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11562,7 +11562,7 @@
     "fact": "Luohe is a Henan city that is a major food-processing center, home to the Shuanghui meat company.",
     "lat": 33.57424,
     "lng": 114.03261,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11572,7 +11572,7 @@
     "fact": "Xiangyang is a Hubei city with an ancient moat and walls that has been a strategic military stronghold for centuries.",
     "lat": 32.0422,
     "lng": 112.14479,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11582,7 +11582,7 @@
     "fact": "Yangjiang is a Guangdong city famous for knife making and for Hailing Island's beaches.",
     "lat": 21.85563,
     "lng": 111.96272,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -11592,7 +11592,7 @@
     "fact": "Yixing is famous for its unglazed purple-clay teapots, prized by tea lovers for centuries.",
     "lat": 31.36059,
     "lng": 119.82016,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11622,7 +11622,7 @@
     "fact": "Bi\u00ean H\u00f2a is an industrial city just northeast of Ho Chi Minh City on the \u0110\u1ed3ng Nai River.",
     "lat": 10.94469,
     "lng": 106.82432,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Phnom_Penh_skyline_from_TK_district_Dec_2024.jpg/500px-Phnom_Penh_skyline_from_TK_district_Dec_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11632,7 +11632,7 @@
     "fact": "Qingpu is a Shanghai district that includes the canal town of Zhujiajiao and the huge National Exhibition and Convention Center.",
     "lat": 31.15394,
     "lng": 121.11408,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -11642,7 +11642,7 @@
     "fact": "Xuchang is a Henan city that was briefly the Han dynasty capital under Cao Cao and is now the world's largest hub for wigs and hair products.",
     "lat": 34.03189,
     "lng": 113.86299,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11652,7 +11652,7 @@
     "fact": "Kalyan is an old port town near Mumbai, a key junction on Mumbai's suburban rail network.",
     "lat": 19.2437,
     "lng": 73.13554,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Mumbai_Bandra-Worli_Sea_Link.jpg/500px-Mumbai_Bandra-Worli_Sea_Link.jpg"
   },
   {
@@ -11662,7 +11662,7 @@
     "fact": "Zigong is a Sichuan city famous for its 2,000-year-old salt wells, dinosaur fossils, and lantern festival.",
     "lat": 29.34162,
     "lng": 104.77689,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11672,7 +11672,7 @@
     "fact": "Jepara is a Central Java town renowned for its carved teak furniture and as the birthplace of national heroine Kartini.",
     "lat": -6.5924,
     "lng": 110.671,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Pradaksina.jpg/500px-Pradaksina.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11702,7 +11702,7 @@
     "fact": "Neijiang is a Sichuan city known as the 'Sweet City' for its sugarcane industry.",
     "lat": 29.58354,
     "lng": 105.06216,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11752,7 +11752,7 @@
     "fact": "Asunci\u00f3n is one of South America's oldest cities, founded in 1537 on the Paraguay River.",
     "lat": -25.28646,
     "lng": -57.647,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/San_Ignacio_Min%C3%AD.jpg"
   },
   {
@@ -11782,7 +11782,7 @@
     "fact": "Port-au-Prince is Haiti's capital, set on a bay at the foot of steep mountains and known for its Iron Market.",
     "lat": 18.54349,
     "lng": -72.33881,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Citadelle_Laferri%C3%A8re.jpg"
   },
   {
@@ -11842,7 +11842,7 @@
     "fact": "Guatemala City is Central America's largest city and sits in a highland valley ringed by volcanoes.",
     "lat": 14.64072,
     "lng": -90.51327,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Tikal_3.jpg/500px-Tikal_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -11862,7 +11862,7 @@
     "fact": "Managua is Nicaragua's capital on the shore of Lake Xolotl\u00e1n, rebuilt after a devastating 1972 earthquake.",
     "lat": 12.13282,
     "lng": -86.2504,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cape_Gracias_a_Dios.jpg"
   },
   {
@@ -16132,7 +16132,7 @@
     "fact": "Nabarangpur is a town in southern Odisha, set amid forests and tribal villages on a high plateau.",
     "lat": 19.23114,
     "lng": 82.54826,
-    "difficulty": 6,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Vestmannaeyjar018.JPG/500px-Vestmannaeyjar018.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -16312,7 +16312,7 @@
     "fact": "Qingyang is a city in eastern Gansu on the Loess Plateau, where some people still live in yaodong cave homes.",
     "lat": 35.70976,
     "lng": 107.64455,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -16342,7 +16342,7 @@
     "fact": "Heshan is a district of Yiyang in Hunan, on the Zi River near Dongting Lake, one of China's largest freshwater lakes.",
     "lat": 28.56938,
     "lng": 112.34733,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/St_Joseph%27s_Catholic_Cathedral_%2834895613805%29.jpg/500px-St_Joseph%27s_Catholic_Cathedral_%2834895613805%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -16542,7 +16542,7 @@
     "fact": "Kennedy is a locality in Bogot\u00e1 named after US President John F. Kennedy and home to the huge Corabastos food market.",
     "lat": 4.6165,
     "lng": -74.14597,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Anak_krakatau_sebelum_tsunami.jpg/500px-Anak_krakatau_sebelum_tsunami.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -16582,7 +16582,7 @@
     "fact": "Sultanah is a residential district in Medina, Saudi Arabia, near the city's historic center.",
     "lat": 24.49258,
     "lng": 39.58572,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Badshahi_Mosque_front_picture.jpg/500px-Badshahi_Mosque_front_picture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -16802,7 +16802,7 @@
     "fact": "Arifwala is a market town in Punjab, Pakistan, in an area known for growing cotton.",
     "lat": 30.29058,
     "lng": 73.06574,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Dallas_Texas_skyline_from_Reunion_Tower_September_2025_%28cropped%29.png/500px-Dallas_Texas_skyline_from_Reunion_Tower_September_2025_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17112,7 +17112,7 @@
     "fact": "Sha Tin is a Hong Kong new town with a big horse racecourse and the hillside Ten Thousand Buddhas Monastery.",
     "lat": 22.38333,
     "lng": 114.18333,
-    "difficulty": 7,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg/500px-Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg"
   },
   {
@@ -17142,7 +17142,7 @@
     "fact": "Higashiosaka is a city of small factories next to Osaka, and its Hanazono Stadium is the home of Japanese high-school rugby.",
     "lat": 34.66667,
     "lng": 135.58333,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/2007_Sankore_Mosque_Timbuktu_02.jpg/500px-2007_Sankore_Mosque_Timbuktu_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17212,7 +17212,7 @@
     "fact": "Ajman is the smallest of the seven emirates of the UAE, known for its beaches and traditional dhow-building yards.",
     "lat": 25.40177,
     "lng": 55.47878,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nashville%2C_Tennessee_%28cropped%29.jpg/500px-Nashville%2C_Tennessee_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17242,7 +17242,7 @@
     "fact": "Port Sudan is Sudan's main seaport on the Red Sea, near some of the world's best coral-reef diving.",
     "lat": 19.61745,
     "lng": 37.21644,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Antonio_Vaz_island_-_Recife%2C_Pernambuco%2C_Brazil_%28cropped%29.jpg/500px-Antonio_Vaz_island_-_Recife%2C_Pernambuco%2C_Brazil_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17262,7 +17262,7 @@
     "fact": "Jeju City is the capital of South Korea's Jeju Island, known for its volcanic landscapes and stone grandfather statues.",
     "lat": 33.50972,
     "lng": 126.52194,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Edinburgh_Castle_2000-1.jpg/500px-Edinburgh_Castle_2000-1.jpg"
   },
   {
@@ -17272,7 +17272,7 @@
     "fact": "Omaha is a Nebraska city on the Missouri River, home to Warren Buffett's Berkshire Hathaway and the College World Series.",
     "lat": 41.25626,
     "lng": -95.94043,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Aerial_view_-_Harbour_of_Genoa%2C_Italy_-_DSC01156.JPG/500px-Aerial_view_-_Harbour_of_Genoa%2C_Italy_-_DSC01156.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17382,7 +17382,7 @@
     "fact": "Najaf is home to the Imam Ali Shrine and to Wadi al-Salam, one of the largest cemeteries in the world.",
     "lat": 32.02594,
     "lng": 44.34625,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/51714-Terracota-Army.jpg/500px-51714-Terracota-Army.jpg"
   },
   {
@@ -17462,7 +17462,7 @@
     "fact": "Bristol is an English port city known for the Clifton Suspension Bridge and as the hometown of the street artist Banksy.",
     "lat": 51.45523,
     "lng": -2.59665,
-    "difficulty": 7,
+    "difficulty": 3,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kofar_Gadan_Kaya_-_Kano_City_Gate.jpg"
   },
   {
@@ -17522,7 +17522,7 @@
     "fact": "Taoyuan is a city in northern Taiwan that is home to Taoyuan International Airport, the island's main gateway.",
     "lat": 24.99368,
     "lng": 121.29696,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Dead_Sea_beach_00.JPG/500px-Dead_Sea_beach_00.JPG"
   },
   {
@@ -17552,7 +17552,7 @@
     "fact": "Playa del Carmen is a resort town on Mexico's Riviera Maya, famous for its pedestrian Fifth Avenue and diving in nearby cenotes.",
     "lat": 20.6274,
     "lng": -87.07987,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Marokko0112_%28retouched%29.jpg/500px-Marokko0112_%28retouched%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17632,7 +17632,7 @@
     "fact": "Burnley is a former cotton-weaving town in Lancashire and home to Burnley FC, one of the founding members of the Football League.",
     "lat": 53.8,
     "lng": -2.23333,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/AST-01-039_Aituctaki_Atoll.jpg/500px-AST-01-039_Aituctaki_Atoll.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17642,7 +17642,7 @@
     "fact": "Rehovot is an Israeli city known for science and farming, home to the Weizmann Institute and the Hebrew University's agriculture faculty.",
     "lat": 31.89421,
     "lng": 34.81199,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Paramaribo_city_collage.png/500px-Paramaribo_city_collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17682,7 +17682,7 @@
     "fact": "Cagliari is Sardinia's capital, known for its hilltop Castello quarter and its long Poetto beach.",
     "lat": 39.23054,
     "lng": 9.11917,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Punte_Nuevo_Bridge%2C_Ronda_-_Spain.jpg/500px-Punte_Nuevo_Bridge%2C_Ronda_-_Spain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17702,7 +17702,7 @@
     "fact": "Harrow is a London borough known for Harrow School, where Winston Churchill was a student.",
     "lat": 51.57835,
     "lng": -0.33208,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nourlangie_Rock_03.jpg"
   },
   {
@@ -17742,7 +17742,7 @@
     "fact": "Huddersfield is a Yorkshire town known as the birthplace of rugby league, which split off from rugby union there in 1895.",
     "lat": 53.64904,
     "lng": -1.78416,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Groote_Schuur_Hospital%2C_Observatory%2C_Cape_Town%2C_Western_Cape._05.JPG/500px-Groote_Schuur_Hospital%2C_Observatory%2C_Cape_Town%2C_Western_Cape._05.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17762,7 +17762,7 @@
     "fact": "Kerch is a Crimean port city founded by ancient Greeks as Panticapaeum, the capital of the Bosporan Kingdom.",
     "lat": 45.35675,
     "lng": 36.47542,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg/500px-Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg"
   },
   {
@@ -17782,7 +17782,7 @@
     "fact": "Prenzlauer Berg is a Berlin neighborhood with restored 19th-century apartment buildings and a big Sunday flea market at Mauerpark.",
     "lat": 52.53878,
     "lng": 13.42443,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/The_drainage_system_at_Lothal_2.JPG/500px-The_drainage_system_at_Lothal_2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17882,7 +17882,7 @@
     "fact": "Rimini is an Italian beach resort on the Adriatic and the hometown of film director Federico Fellini.",
     "lat": 44.05755,
     "lng": 12.56528,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/82/Meteorite_explosion_over_Chelyabinsk_on_February_15%2C_2013.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
   },
   {
@@ -17972,7 +17972,7 @@
     "fact": "N\u00eemes is a French city with some of the best-preserved Roman monuments anywhere, including its amphitheater and the Maison Carr\u00e9e.",
     "lat": 43.83665,
     "lng": 4.35788,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Aleja_Niepdleglosci_Warsaw_2022_aerial_%28cropped%29.jpg/500px-Aleja_Niepdleglosci_Warsaw_2022_aerial_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -17982,7 +17982,7 @@
     "fact": "Dundee is a Scottish city on the Firth of Tay, famous for its jute industry, marmalade, and comics like The Beano.",
     "lat": 56.46913,
     "lng": -2.97489,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Saint_Basil%27s_Cathedral_in_Moscow.jpg/500px-Saint_Basil%27s_Cathedral_in_Moscow.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -18152,7 +18152,7 @@
     "fact": "Marano di Napoli is a town in the hills just north of Naples, Italy.",
     "lat": 40.8971,
     "lng": 14.18824,
-    "difficulty": 9,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Birla_HouseGandhi_Smriti%2C_New_Delhi.jpg/500px-Birla_HouseGandhi_Smriti%2C_New_Delhi.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -18182,7 +18182,7 @@
     "fact": "East Honolulu is a suburb on O'ahu stretching from Koko Head to Hanauma Bay, a popular snorkeling spot.",
     "lat": 21.28906,
     "lng": -157.71734,
-    "difficulty": 9,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Osun_groove_Osogbo.jpg/500px-Osun_groove_Osogbo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -18192,7 +18192,7 @@
     "fact": "Doetinchem is a town in the Achterhoek region of the Netherlands, on the Oude IJssel river.",
     "lat": 51.965,
     "lng": 6.28889,
-    "difficulty": 9,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -18422,7 +18422,7 @@
     "fact": "Kerkrade is a Dutch town that shares a border street with the German town of Herzogenrath.",
     "lat": 50.86583,
     "lng": 6.0625,
-    "difficulty": 9,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Royal_Palace%2C_Nuku%27alofa%2C_Nov_18.jpg/500px-Royal_Palace%2C_Nuku%27alofa%2C_Nov_18.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -18562,7 +18562,7 @@
     "fact": "Armenia is a town in El Salvador's Sonsonate department that shares its name with the country in the Caucasus.",
     "lat": 13.74361,
     "lng": -89.49889,
-    "difficulty": 10,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Ait_Benhaddou_Pano.jpg/500px-Ait_Benhaddou_Pano.jpg"
   },
   {
@@ -18742,7 +18742,7 @@
     "fact": "Cim is an outer neighborhood of Bissau, Guinea-Bissau's capital, near the Geba River estuary.",
     "lat": 11.86068,
     "lng": -15.57808,
-    "difficulty": 10,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Minaret_et_patio_de_la_mosqu%C3%A9e_Zitouna_au_centre_de_la_M%C3%A9dina_de_Tunis.jpg/500px-Minaret_et_patio_de_la_mosqu%C3%A9e_Zitouna_au_centre_de_la_M%C3%A9dina_de_Tunis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -18752,7 +18752,7 @@
     "fact": "Rakvere is an Estonian town with a medieval castle on a hill and a giant bronze aurochs statue.",
     "lat": 59.34808,
     "lng": 26.35784,
-    "difficulty": 10,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Ile-de-goree.jpg/500px-Ile-de-goree.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -18962,7 +18962,7 @@
     "fact": "Dongshi is a fishing township on Taiwan's west coast in Chiayi County, famous for its oysters.",
     "lat": 23.45689,
     "lng": 120.15003,
-    "difficulty": 10,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Ford%27s_Theatre_-_2026_%2855266858418%29.jpg/500px-Ford%27s_Theatre_-_2026_%2855266858418%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -19584,7 +19584,7 @@
     "fact": "A local farmer's daughter, Sigr\u00ed\u00f0ur T\u00f3masd\u00f3ttir, is credited with fighting plans to dam it for hydroelectric power.",
     "lat": 64.3271,
     "lng": -20.1199,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Gullfoss_from_the_Air_%28cropped%29.jpg/500px-Gullfoss_from_the_Air_%28cropped%29.jpg"
   },
   {
