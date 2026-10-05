@@ -204,7 +204,7 @@
     "lat": 40.3598,
     "lng": 116.02,
     "fact": "Built and rebuilt over two thousand years by successive dynasties, the wall's total length across all branches exceeds 21,000 kilometers.",
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Badaling",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/500px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg"
   },
@@ -655,7 +655,7 @@
     "lat": -2.3333,
     "lng": 34.8333,
     "fact": "This Tanzanian ecosystem hosts the largest terrestrial mammal migration on Earth, a circuit covering roughly 1,000 kilometers.",
-    "difficulty": 6,
+    "difficulty": 4,
     "short": "Serengeti",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Wildebeest_Migration_in_Serengeti_National_Park%2C_Tanzania.jpg/1280px-Wildebeest_Migration_in_Serengeti_National_Park%2C_Tanzania.jpg"
   },
@@ -666,7 +666,7 @@
     "lat": -0.7893,
     "lng": -91.1407,
     "fact": "Charles Darwin visited this volcanic archipelago in 1835, and its isolated wildlife shaped his thinking on natural selection.",
-    "difficulty": 6,
+    "difficulty": 3,
     "short": "Galapagos Islands",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Lobo_marino_%28Zalophus_californianus_wollebaeki%29%2C_Punta_Pitt%2C_isla_de_San_Crist%C3%B3bal%2C_islas_Gal%C3%A1pagos%2C_Ecuador%2C_2015-07-24%2C_DD_11.JPG/500px-Lobo_marino_%28Zalophus_californianus_wollebaeki%29%2C_Punta_Pitt%2C_isla_de_San_Crist%C3%B3bal%2C_islas_Gal%C3%A1pagos%2C_Ecuador%2C_2015-07-24%2C_DD_11.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -699,7 +699,7 @@
     "lat": 37.176,
     "lng": -3.5881,
     "fact": "This Nasrid dynasty palace in Granada is famed for intricate tile and stucco work that inspired M.C. Escher's tessellation art.",
-    "difficulty": 6,
+    "difficulty": 4,
     "short": "Alhambra",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg/500px-Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg"
   },
@@ -787,7 +787,7 @@
     "lat": 44.8654,
     "lng": 15.582,
     "fact": "This Croatian national park's 16 terraced lakes are colored by minerals and shift shade with the light and season.",
-    "difficulty": 7,
+    "difficulty": 5,
     "short": "Plitvice Lakes",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/View_in_Plitvice_Lakes_National_Park.jpg/500px-View_in_Plitvice_Lakes_National_Park.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -809,7 +809,7 @@
     "lat": 15.3229,
     "lng": 38.9251,
     "fact": "Eritrea's capital is a UNESCO-listed showcase of 1930s Italian Art Deco architecture, nicknamed 'Piccola Roma.'",
-    "difficulty": 3,
+    "difficulty": 5,
     "short": "Asmara",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Asmara_Montage.png/500px-Asmara_Montage.png"
   },
@@ -820,7 +820,7 @@
     "lat": -18.1416,
     "lng": 178.4419,
     "fact": "Fiji's capital sits on a peninsula on the island of Viti Levu and is one of the wettest capitals on Earth.",
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Suva",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Suva%2C_Fiji_77.jpg/500px-Suva%2C_Fiji_77.jpg"
   },
@@ -908,7 +908,7 @@
     "lat": 47.141,
     "lng": 9.5209,
     "fact": "The capital of this tiny Alpine microstate is overlooked by a castle still owned by the ruling prince's family.",
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Vaduz",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/View_of_Vaduz.jpg/500px-View_of_Vaduz.jpg"
   },
@@ -941,7 +941,7 @@
     "lat": 29.5765,
     "lng": 35.4206,
     "fact": "Nicknamed the 'Valley of the Moon,' this desert has stood in for Mars in several Hollywood films.",
-    "difficulty": 7,
+    "difficulty": 5,
     "short": "Wadi Rum",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Mountain_in_Wadi_Rum%2C_Jordan.jpg/500px-Mountain_in_Wadi_Rum%2C_Jordan.jpg"
   },
@@ -974,7 +974,7 @@
     "lat": -8.5211,
     "lng": 179.1983,
     "fact": "Tuvalu's capital atoll averages only about 2 meters above sea level, making it one of the first places threatened by rising seas.",
-    "difficulty": 3,
+    "difficulty": 7,
     "short": "Funafuti",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Funafuti_airport_-_Fiji_Airways.jpg/500px-Funafuti_airport_-_Fiji_Airways.jpg"
   },
@@ -996,7 +996,7 @@
     "lat": -21.2078,
     "lng": -159.775,
     "fact": "This capital of a self-governing Pacific nation in free association with New Zealand sits on the island of Rarotonga.",
-    "difficulty": 3,
+    "difficulty": 6,
     "short": "Avarua",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Para_O_Tane_Palace%2C_Rarotonga%2C_Cook_Islands.jpg/500px-Para_O_Tane_Palace%2C_Rarotonga%2C_Cook_Islands.jpg"
   },
@@ -1145,7 +1145,7 @@
     "fact": "An important ancient trading city on the Nile, known for its granite quarries and the Aswan High Dam.",
     "lat": 24.0889,
     "lng": 32.8998,
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Aswan",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Panoramic_view_of_Aswan%2C_Egypt.jpg/500px-Panoramic_view_of_Aswan%2C_Egypt.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1195,7 +1195,7 @@
     "fact": "Rwanda's capital, known for its cleanliness and well-organized urban layout.",
     "lat": -1.9441,
     "lng": 30.0619,
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Kigali",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg/500px-High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1245,7 +1245,7 @@
     "fact": "The capital of the Ashanti Region, known for its rich cultural heritage and vibrant markets.",
     "lat": 6.6885,
     "lng": -1.6244,
-    "difficulty": 3,
+    "difficulty": 5,
     "short": "Kumasi",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Kronum_Kumasi_2018-11-08_%28130246%29.jpg/500px-Kronum_Kumasi_2018-11-08_%28130246%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1265,7 +1265,7 @@
     "fact": "Kenya's oldest and second-largest city, an important port on the Indian Ocean.",
     "lat": -4.0435,
     "lng": 39.6682,
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Mombasa",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Mombasa_Island.jpg/500px-Mombasa_Island.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1285,7 +1285,7 @@
     "fact": "One of the largest religious building complexes ever constructed, built over 2,000 years.",
     "lat": 25.7188,
     "lng": 32.6573,
-    "difficulty": 6,
+    "difficulty": 4,
     "short": "Karnak Temple",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Temple_de_Louxor_68.jpg/500px-Temple_de_Louxor_68.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1305,7 +1305,7 @@
     "fact": "A royal burial ground for pharaohs and nobles of the New Kingdom period on the west bank of the Nile.",
     "lat": 25.7408,
     "lng": 32.6017,
-    "difficulty": 6,
+    "difficulty": 3,
     "short": "Valley of Kings",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Luxor%2C_Tal_der_K%C3%B6nige_%281995%2C_860x605%29.jpg/500px-Luxor%2C_Tal_der_K%C3%B6nige_%281995%2C_860x605%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1315,7 +1315,7 @@
     "fact": "Located in Casablanca, this modern mosque features the world's tallest minaret at 210 meters.",
     "lat": 33.6086,
     "lng": -7.6329,
-    "difficulty": 7,
+    "difficulty": 5,
     "short": "Hassan II Mosque",
     "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/ce/Hassan_II_mosque%2C_Casablanca_2.jpg/500px-Hassan_II_mosque%2C_Casablanca_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1395,7 +1395,7 @@
     "fact": "The most southwestern point of the African continent, located near Cape Town.",
     "lat": -34.359,
     "lng": 18.4717,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Cape of Good Hope",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Playa_Dias%2C_Cape_Point%2C_Sud%C3%A1frica%2C_2018-07-23%2C_DD_103.jpg/500px-Playa_Dias%2C_Cape_Point%2C_Sud%C3%A1frica%2C_2018-07-23%2C_DD_103.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1425,7 +1425,7 @@
     "fact": "A memorial to the Atlantic slave trade, located off the coast of Dakar, Senegal.",
     "lat": 14.667,
     "lng": -17.3974,
-    "difficulty": 8,
+    "difficulty": 6,
     "short": "Gor\u00e9e Island",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Ile-de-goree.jpg/500px-Ile-de-goree.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1435,7 +1435,7 @@
     "fact": "A historic landmark in Zanzibar's Stone Town, a UNESCO World Heritage site.",
     "lat": -6.1628,
     "lng": 39.1917,
-    "difficulty": 8,
+    "difficulty": 5,
     "short": "House of Wonders",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/House_of_wonders.jpg/500px-House_of_wonders.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1465,7 +1465,7 @@
     "fact": "The highest point in Southern Africa at 3,482 meters, located in Lesotho.",
     "lat": -29.4667,
     "lng": 29.2667,
-    "difficulty": 9,
+    "difficulty": 7,
     "short": "Thabana Ntlenyana",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Thabana_Ntlenyana.jpeg/500px-Thabana_Ntlenyana.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1485,7 +1485,7 @@
     "fact": "Part of the ancient University of Sankore, a center of Islamic learning in medieval Mali.",
     "lat": 16.7742,
     "lng": -3.0044,
-    "difficulty": 8,
+    "difficulty": 6,
     "short": "Sankore Mosque",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/2007_Sankore_Mosque_Timbuktu_02.jpg/500px-2007_Sankore_Mosque_Timbuktu_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1505,7 +1505,7 @@
     "fact": "A 16th-century Portuguese fort built to control access to Mombasa harbor.",
     "lat": -4.0622,
     "lng": 39.6798,
-    "difficulty": 8,
+    "difficulty": 4,
     "short": "Fort Jesus",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Fort_Jesus_at_the_Mombasa_Island.jpg/500px-Fort_Jesus_at_the_Mombasa_Island.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1695,7 +1695,7 @@
     "fact": "An active shield volcano and the highest point in the Comoros archipelago.",
     "lat": -11.7575,
     "lng": 43.3589,
-    "difficulty": 9,
+    "difficulty": 7,
     "short": "Mount Karthala",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Mount_Karthala_%2811000398163%29.jpg/500px-Mount_Karthala_%2811000398163%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1775,7 +1775,7 @@
     "fact": "The city's Peace Memorial Park sits on the hypocenter of the 1945 atomic bombing, which killed an estimated 140,000 people by the end of that year.",
     "lat": 34.3853,
     "lng": 132.4553,
-    "difficulty": 1,
+    "difficulty": 3,
     "short": "Hiroshima",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/500px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1915,7 +1915,7 @@
     "fact": "Its Imam Square once covered more ground than Rome's Piazza San Marco, and the Safavid capital's blue-tiled mausoleums still run with water from fountains that worked for centuries.",
     "lat": 32.6546,
     "lng": 51.668,
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Isfahan",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Naghshe_jahan_01.jpg/500px-Naghshe_jahan_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1931,7 +1931,7 @@
   },
   {
     "id": "phnom-penh-cambodia",
-    "clue": "Phnom Penh, Cambodia \ud83c\uddf0\ud83c\uddec",
+    "clue": "Phnom Penh, Cambodia \ud83c\uddf0\ud83c\udded",
     "fact": "The Royal Palace stands where a bridge was thrown across the Mekong in the 1440s by pre-Angkorian kings, and the Killing Fields nearby hold the graves of over 17,000 people killed from 1975 to 1979.",
     "lat": 11.5564,
     "lng": 104.9282,
@@ -1945,7 +1945,7 @@
     "fact": "The world's most densely populated capital is squeezed onto a coral strip under 2 km long, and every seawall it builds pushes the atoll's edge further into the Indian Ocean.",
     "lat": 4.1755,
     "lng": 73.5093,
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Mal\u00e9",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Mal%C3%A9.jpg/500px-Mal%C3%A9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1955,17 +1955,17 @@
     "fact": "Penang's clan jetties have stood on stilts above the water for more than two centuries, and the UNESCO zone of 18th-century timber shophouses is one of Southeast Asia's largest.",
     "lat": 5.4141,
     "lng": 100.3288,
-    "difficulty": 3,
+    "difficulty": 5,
     "short": "George Town",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Skyline_of_George_Town%2C_Penang_at_night_Nov2024-29-17.jpg/500px-Skyline_of_George_Town%2C_Penang_at_night_Nov2024-29-17.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "dili-timor-leste",
-    "clue": "Dili, Timor-Leste \ud83c\uddf1\ud83c\uddf9",
+    "clue": "Dili, Timor-Leste \ud83c\uddf9\ud83c\uddf1",
     "fact": "Portuguese tile roofs, pastel houses and Catholic plazas line this crescent bay, and a dozen mass graves found after 1998 hold more than 10,000 bodies.",
     "lat": -8.5569,
     "lng": 125.5603,
-    "difficulty": 3,
+    "difficulty": 5,
     "short": "Dili",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Government_Palace%2C_Dili%2C_2023_%2802%29.jpg/500px-Government_Palace%2C_Dili%2C_2023_%2802%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -1995,7 +1995,7 @@
     "fact": "Founded by Alexander's veterans as a market town, Kandahar's walls still carry two talisman-studded gate bosses driven into them after Nadir Shah's 1737 sack.",
     "lat": 31.6289,
     "lng": 65.7372,
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Kandahar",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Aerial_view_of_a_section_of_Kandahar_in_2013.jpg/500px-Aerial_view_of_a_section_of_Kandahar_in_2013.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2035,7 +2035,7 @@
     "fact": "Ming and Qing emperors lived inside these walls from 1420 to 1924, and the surviving complex still covers 72 hectares across some 980 buildings.",
     "lat": 39.9163,
     "lng": 116.3972,
-    "difficulty": 4,
+    "difficulty": 2,
     "short": "Forbidden City",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Forbidden_City_-_View_from_Coal_Hill.jpg/500px-The_Forbidden_City_-_View_from_Coal_Hill.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2055,7 +2055,7 @@
     "fact": "From these ramparts the Janissaries' bodies were flung onto the city below, and the palace harem keeps relics said to have belonged to the Prophet Muhammad.",
     "lat": 41.0138,
     "lng": 28.9833,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Topkapi Palace",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Topkap%C4%B1_-_01.jpg/500px-Topkap%C4%B1_-_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2065,7 +2065,7 @@
     "fact": "Rebuilt in 1865 after the first palace burned down, its changing of the guard ceremony still recreates the 15th-century ritual of the Joseon kings.",
     "lat": 37.5796,
     "lng": 126.977,
-    "difficulty": 6,
+    "difficulty": 4,
     "short": "Gyeongbokgung",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg/500px-%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2095,7 +2095,7 @@
     "fact": "Marine paleontologists once proposed pouring fossil fuel into these caves to date the world's oldest tropical limestone, and no one has found a better explanation for the karsts' odd chemistry.",
     "lat": 20.9101,
     "lng": 107.1839,
-    "difficulty": 6,
+    "difficulty": 4,
     "short": "Ha Long Bay",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2105,7 +2105,7 @@
     "fact": "Amber Fort was built with one of the world's earliest formal gardens, laid out in the same nine-square pattern as the planned city that grew below it.",
     "lat": 26.9855,
     "lng": 75.8513,
-    "difficulty": 7,
+    "difficulty": 5,
     "short": "Amber Fort",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg/500px-20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2145,7 +2145,7 @@
     "fact": "The palace was fired in 1959 and rebuilt from the walls that survived, while thousands of monks and nuns had already been expelled from the city.",
     "lat": 29.6579,
     "lng": 91.117,
-    "difficulty": 7,
+    "difficulty": 5,
     "short": "Potala Palace",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Potala_Palace_HQ.jpg/500px-Potala_Palace_HQ.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2165,7 +2165,7 @@
     "fact": "The Lion Rock's terraces hold a fresco of a 'cloud woman' nearly identical to one painted at an Indian temple, and the two designs are thought to share a single source.",
     "lat": 7.957,
     "lng": 80.7603,
-    "difficulty": 7,
+    "difficulty": 5,
     "short": "Sigiriya",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/500px-Sigiriya_%28141688197%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2235,7 +2235,7 @@
     "fact": "This monastery complex in Bihar ran for 700 years, and Chinese pilgrims who studied here carried its ideas home long before the Arabic al-khwarizmi made 'zero' a term Europe would adopt.",
     "lat": 25.1367,
     "lng": 85.4433,
-    "difficulty": 9,
+    "difficulty": 7,
     "short": "Nalanda",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg/500px-Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2245,7 +2245,7 @@
     "fact": "The Mughal emperor left this ghost city when the water ran out, and its Buland Darwaza triumphal gate is still the tallest gateway in the world.",
     "lat": 27.1909,
     "lng": 77.67,
-    "difficulty": 8,
+    "difficulty": 6,
     "short": "Fatehpur Sikri",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg/500px-Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2255,7 +2255,7 @@
     "fact": "Sri Lanka's second ancient capital has the Gal Potha, an 8 m stone 'book' that was struck by lightning and toppled in the 1600s, and its elephants still step out of their own shadows.",
     "lat": 7.7409,
     "lng": 81.0184,
-    "difficulty": 9,
+    "difficulty": 6,
     "short": "Polonnaruwa",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Polonnaruwa_01.jpg/500px-Polonnaruwa_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2275,7 +2275,7 @@
     "fact": "The largest known cave passage system on Earth lay unexplored until 1991, when a climber squeezed through the entrance hole that a sinkhole in Laos had opened into its roof.",
     "lat": 17.5313,
     "lng": 106.0967,
-    "difficulty": 9,
+    "difficulty": 7,
     "short": "Son Doong",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Son_Doong_Cave_5.jpg/500px-Son_Doong_Cave_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2335,7 +2335,7 @@
     "fact": "This Indus town on Gujarat's coast was among the world's earliest planned cities, and its tidal dockyard is built from bricks stamped with the year they were fired.",
     "lat": 22.5227,
     "lng": 72.2493,
-    "difficulty": 10,
+    "difficulty": 8,
     "short": "Lothal",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/The_drainage_system_at_Lothal_2.JPG/500px-The_drainage_system_at_Lothal_2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2345,7 +2345,7 @@
     "fact": "The 80 km chain of shoals between India and Sri Lanka is described as a natural bridge in the Ramayana, but sonar surveys found no channel deep enough for stone piers.",
     "lat": 9.14,
     "lng": 79.2,
-    "difficulty": 9,
+    "difficulty": 6,
     "short": "Adam's Bridge",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Adams_Bridge_aerial.jpg/500px-Adams_Bridge_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2675,7 +2675,7 @@
     "fact": "Frank Gehry's Guggenheim Bilbao opened in 1997 and put the industrial Basque city on the world's tourist map within a decade.",
     "lat": 43.263,
     "lng": -2.935,
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Bilbao",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Collage_de_Bilbao%2C_Pa%C3%ADs_Vasco%2C_Espa%C3%B1a.png/500px-Collage_de_Bilbao%2C_Pa%C3%ADs_Vasco%2C_Espa%C3%B1a.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2685,7 +2685,7 @@
     "fact": "Ghent's Graslei and Korenlei quays still front the guild houses of the medieval wool merchants who made it one of Europe's richest cities.",
     "lat": 51.0543,
     "lng": 3.7174,
-    "difficulty": 2,
+    "difficulty": 4,
     "short": "Ghent",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Gent%2C_de_Graslei_vanaf_de_Korenlei_met_oeg24758tm61%2B25159_IMG_0447_2021-08-13_18.37.jpg/500px-Gent%2C_de_Graslei_vanaf_de_Korenlei_met_oeg24758tm61%2B25159_IMG_0447_2021-08-13_18.37.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2705,7 +2705,7 @@
     "fact": "The Panthe's oculus is one 43-metre hole cut in the dome and the only light the interior gets, so rain falls straight onto the marble floor.",
     "lat": 41.8986,
     "lng": 12.4769,
-    "difficulty": 4,
+    "difficulty": 2,
     "short": "Pantheon",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Pantheon_of_Paris_007.JPG/500px-Pantheon_of_Paris_007.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2725,7 +2725,7 @@
     "fact": "Cologne Cathedral took 632 years to finish, and during the Second World War Allied bombs failed to bring down its twin spires.",
     "lat": 50.9413,
     "lng": 6.9583,
-    "difficulty": 5,
+    "difficulty": 2,
     "short": "Cologne Cathedral",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/500px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2745,7 +2745,7 @@
     "fact": "The Tower of London was a royal palace for four centuries before becoming a prison and armoury, and its ravens are the last of a flock kept since the Wild Men.",
     "lat": 51.5081,
     "lng": -0.0759,
-    "difficulty": 4,
+    "difficulty": 2,
     "short": "Tower of London",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Tower_of_London_from_the_Shard_%288515883950%29.jpg/500px-Tower_of_London_from_the_Shard_%288515883950%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2775,7 +2775,7 @@
     "fact": "Anne Frank's diary survived because Fritz Frank and Gies Huber abandoned papers before they were deported in 1942, and it was not published until 1947.",
     "lat": 52.3752,
     "lng": 4.8839,
-    "difficulty": 5,
+    "difficulty": 2,
     "short": "Anne Frank House",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Amsterdam_%28NL%29%2C_Anne-Frank-Huis_--_2015_--_7185.jpg/500px-Amsterdam_%28NL%29%2C_Anne-Frank-Huis_--_2015_--_7185.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2785,7 +2785,7 @@
     "fact": "Budapest's Parliament was sited deliberately across the river from Habsburg Buda so the Hungarian nation would stare back at the emperor's own palace.",
     "lat": 47.5,
     "lng": 19.0406,
-    "difficulty": 6,
+    "difficulty": 2,
     "short": "Hungarian Parliament",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Hungarian_Parliament_Building_from_across_the_Danube%2C_2025-01-11.jpg/500px-Hungarian_Parliament_Building_from_across_the_Danube%2C_2025-01-11.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2795,7 +2795,7 @@
     "fact": "The Hermitage grew from the 317 paintings Catherine the Great bought in Dutch auctions, and for decades it had no public entrance at all.",
     "lat": 59.9398,
     "lng": 30.3146,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Hermitage Museum",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/5174-3._St._Petersburg._Greater_Hermitage.jpg/500px-5174-3._St._Petersburg._Greater_Hermitage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2805,7 +2805,7 @@
     "fact": "Wawel Castle was the seat of Poland's kings for five centuries, and its dragon on the riverbank breathes real flame at visitors twice a day.",
     "lat": 50.0541,
     "lng": 19.9355,
-    "difficulty": 7,
+    "difficulty": 5,
     "short": "Wawel Castle",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Wawel_%284%29.jpg/500px-Wawel_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2815,7 +2815,7 @@
     "fact": "The Palace of Culture was sent by Stalin to Poland in 1955 as a gift, its construction materials shipped in from 168 Soviet locations.",
     "lat": 52.2317,
     "lng": 21.0058,
-    "difficulty": 7,
+    "difficulty": 4,
     "short": "Palace of Culture",
     "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/fd/Gorbunov_Palace_of_Culture.jpg/500px-Gorbunov_Palace_of_Culture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2845,7 +2845,7 @@
     "fact": "Pompeii's plaster casts were poured into the cavities left by bodies decomposed in the ash, so figures still frozen mid-stride stand in their shops.",
     "lat": 40.7497,
     "lng": 14.4869,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Pompeii",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Aerial_image_of_Pompeii_and_Mount_Vesuvius_%28view_from_the_southeast%29.jpg/500px-Aerial_image_of_Pompeii_and_Mount_Vesuvius_%28view_from_the_southeast%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2855,7 +2855,7 @@
     "fact": "Hohensalzburg was finished in 1077 and never taken by assault; a legend says Salzburg's archbishop ordered all but one of its bells silenced as raving mad.",
     "lat": 47.7955,
     "lng": 13.0473,
-    "difficulty": 7,
+    "difficulty": 4,
     "short": "Hohensalzburg",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Salzburg_-_Festung_Hohensalzburg.JPG/500px-Salzburg_-_Festung_Hohensalzburg.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2905,7 +2905,7 @@
     "fact": "The Giant's Causeway's columns are lava joints formed as molten rock cooled some 50 million years ago, and Irish legend says a giant built the road across them to Scotland.",
     "lat": 55.2389,
     "lng": -6.5111,
-    "difficulty": 6,
+    "difficulty": 4,
     "short": "Giant's Causeway",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Causeway-code_poet-4.jpg/500px-Causeway-code_poet-4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2925,7 +2925,7 @@
     "fact": "The Blue Lagoon is not a natural spring at all: it is the superheated brine runoff of a geothermal power station, kept hot so the plant's pipes never freeze.",
     "lat": 63.8804,
     "lng": -22.4495,
-    "difficulty": 6,
+    "difficulty": 4,
     "short": "Blue Lagoon",
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Islanda_-_blue_lagoon.jpg"
   },
@@ -2945,7 +2945,7 @@
     "fact": "Kirkjufell means misty mountain, and the dark stripes on its flank are stacked layers of basalt lavafalls, frozen like the pages of a book.",
     "lat": 64.9416,
     "lng": -23.3066,
-    "difficulty": 8,
+    "difficulty": 6,
     "short": "Kirkjufell",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Kirkjufell_in_Iceland.jpg/500px-Kirkjufell_in_Iceland.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2965,7 +2965,7 @@
     "fact": "Lake Bled has Slovenia's only natural island, and to ring its church bell you must wade across from the shore, which men have done since 1788.",
     "lat": 46.3634,
     "lng": 14.0936,
-    "difficulty": 6,
+    "difficulty": 4,
     "short": "Lake Bled",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Lake_Bled_from_the_Mountain.jpg/500px-Lake_Bled_from_the_Mountain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2985,7 +2985,7 @@
     "fact": "Dettifoss plunges 11 metres in two steps on the J\u00f6kuls\u00e1 river, and in summer the canyon fills with a permanent grey drizzle of mist.",
     "lat": 65.8145,
     "lng": -16.3853,
-    "difficulty": 8,
+    "difficulty": 6,
     "short": "Dettifoss",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Dettifoss_TimBekaert.JPG/500px-Dettifoss_TimBekaert.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -2995,7 +2995,7 @@
     "fact": "Loch Ness reaches 227 metres in depth, and the 1934 photograph of a flipper that started the modern monster legend is now widely thought to be a duck.",
     "lat": 57.324,
     "lng": -4.607,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Loch Ness",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/LochNessUrquhart.jpg/500px-LochNessUrquhart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3065,7 +3065,7 @@
     "fact": "Legend says St Patrick trapped the devil on the Rock of Cashel and tricked him into exempting the town from hell by cracking its roof.",
     "lat": 52.52,
     "lng": -7.89,
-    "difficulty": 8,
+    "difficulty": 6,
     "short": "Rock of Cashel",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Rock_of_Cashel_%2849163525453%29.jpg/500px-Rock_of_Cashel_%2849163525453%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3085,7 +3085,7 @@
     "fact": "Housesteads was garrisoned from about AD 122, and its turf-covered rampart still holds the silhouette of the empire's northern frontier ditch.",
     "lat": 54.9928,
     "lng": -2.4792,
-    "difficulty": 9,
+    "difficulty": 6,
     "short": "Housesteads",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Housesteads_Roman_Fort_aerial.jpg/500px-Housesteads_Roman_Fort_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3105,7 +3105,7 @@
     "fact": "The Empire State Building was the world's tallest skyscraper for nearly 40 years after its completion in 1931.",
     "lat": 40.7484,
     "lng": -73.9857,
-    "difficulty": 3,
+    "difficulty": 1,
     "short": "Empire State Building",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/500px-Empire_State_Building_%28aerial_view%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3215,7 +3215,7 @@
     "fact": "Independence Hall is where both the Declaration of Independence and the U.S. Constitution were debated and adopted.",
     "lat": 39.9489,
     "lng": -75.15,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Independence Hall",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Independence_Hall.jpg/500px-Independence_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3225,7 +3225,7 @@
     "fact": "The Liberty Bell, an iconic symbol of American independence, is housed near Independence Hall in Philadelphia.",
     "lat": 39.9496,
     "lng": -75.1503,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Liberty Bell",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Liberty_Bell_2017a.jpg/500px-Liberty_Bell_2017a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3265,7 +3265,7 @@
     "fact": "The Space Needle was built for the 1962 World's Fair and has become Seattle's most iconic landmark.",
     "lat": 47.6205,
     "lng": -122.3493,
-    "difficulty": 4,
+    "difficulty": 2,
     "short": "Space Needle",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Space_Needle_2011-07-04.jpg/500px-Space_Needle_2011-07-04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3545,7 +3545,7 @@
     "fact": "The Alamo is a historic mission in San Antonio, Texas, famous for the 1836 battle during the Texas Revolution.",
     "lat": 29.4258,
     "lng": -98.4861,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "The Alamo",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/1854_Alamo.jpg/500px-1854_Alamo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3675,7 +3675,7 @@
     "fact": "The Little Bighorn Battlefield marks where Lieutenant Colonel George Custer and his troops were defeated by Lakota and Cheyenne forces in 1876.",
     "lat": 45.5708,
     "lng": -107.4275,
-    "difficulty": 8,
+    "difficulty": 6,
     "short": "Little Bighorn",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Charles_Marion_Russell_-_The_Custer_Fight_%281903%29.jpg/500px-Charles_Marion_Russell_-_The_Custer_Fight_%281903%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3685,7 +3685,7 @@
     "fact": "Wounded Knee Creek in South Dakota was the site of the 1890 massacre of Lakota Sioux by the U.S. 7th Cavalry.",
     "lat": 43.1403,
     "lng": -102.3635,
-    "difficulty": 9,
+    "difficulty": 7,
     "short": "Wounded Knee",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Soldiers_at_a_burial_for_the_dead_at_Wounded_Knee%2C_South_Dakota%2C_c._1891.jpg/500px-Soldiers_at_a_burial_for_the_dead_at_Wounded_Knee%2C_South_Dakota%2C_c._1891.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3705,7 +3705,7 @@
     "fact": "The Gateway Arch in St. Louis is the tallest man-made monument in the United States, standing 630 feet.",
     "lat": 38.6247,
     "lng": -90.1848,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "Gateway Arch",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/St_Louis_night_expblend_cropped.jpg/500px-St_Louis_night_expblend_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3725,7 +3725,7 @@
     "fact": "Ahu Tongariki is the largest ahu (platform) on Rapa Nui, featuring 15 moai statues restored in the 1990s.",
     "lat": -27.1257,
     "lng": -109.2765,
-    "difficulty": 8,
+    "difficulty": 4,
     "short": "Ahu Tongariki",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Ahu-Tongariki-from-south-west-2013.jpg/500px-Ahu-Tongariki-from-south-west-2013.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3955,7 +3955,7 @@
     "fact": "Honiara is the capital of the Solomon Islands and was the site of fierce fighting during WWII's Battle of Guadalcanal.",
     "lat": -9.4456,
     "lng": 159.9729,
-    "difficulty": 3,
+    "difficulty": 5,
     "short": "Honiara",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Honiara_View.jpg/500px-Honiara_View.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3965,7 +3965,7 @@
     "fact": "Nuku'alofa is the capital of Tonga and sits on the northern edge of Tongatapu, the country's main island.",
     "lat": -21.1394,
     "lng": -175.2032,
-    "difficulty": 3,
+    "difficulty": 6,
     "short": "Nuku'alofa",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Royal_Palace%2C_Nuku%27alofa%2C_Nov_18.jpg/500px-Royal_Palace%2C_Nuku%27alofa%2C_Nov_18.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3975,7 +3975,7 @@
     "fact": "Apia is Samoa's capital and was devastated by a tsunami in 2009 that killed 189 people.",
     "lat": -13.8507,
     "lng": -171.7514,
-    "difficulty": 3,
+    "difficulty": 5,
     "short": "Apia",
     "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a8/WS-apia-regierg.jpg/500px-WS-apia-regierg.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3985,7 +3985,7 @@
     "fact": "Majuro is the capital of the Marshall Islands, built on a narrow coral atoll averaging just 2 meters above sea level.",
     "lat": 7.0667,
     "lng": 171.2667,
-    "difficulty": 3,
+    "difficulty": 7,
     "short": "Majuro",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Eneko_Islet_02.JPG/500px-Eneko_Islet_02.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3995,7 +3995,7 @@
     "fact": "South Tarawa is Kiribati's capital and is one of the most densely populated places in the Pacific.",
     "lat": 1.3278,
     "lng": 172.9764,
-    "difficulty": 3,
+    "difficulty": 7,
     "short": "Tarawa",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/South_Tarawa_from_the_air.jpg/1280px-South_Tarawa_from_the_air.jpg"
   },
@@ -4005,7 +4005,7 @@
     "fact": "Port Vila is Vanuatu's capital, built around a natural harbour that was a popular port for whaling ships.",
     "lat": -17.7333,
     "lng": 168.3167,
-    "difficulty": 3,
+    "difficulty": 5,
     "short": "Port Vila",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Port_Vila_aerial.jpg/500px-Port_Vila_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -4055,7 +4055,7 @@
     "fact": "Bondi Beach is Australia's most famous surf beach and a hub of beach culture since the early 20th century.",
     "lat": -33.8915,
     "lng": 151.2767,
-    "difficulty": 4,
+    "difficulty": 2,
     "short": "Bondi Beach",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Bondi_from_above.jpg/500px-Bondi_from_above.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
