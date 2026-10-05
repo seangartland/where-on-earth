@@ -710,7 +710,7 @@
     "lat": 34.3841,
     "lng": 109.2785,
     "fact": "Farmers digging a well in 1974 stumbled on this army of over 8,000 unique terracotta warriors near Xi'an, China.",
-    "difficulty": 6,
+    "difficulty": 3,
     "short": "Terracotta Army",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/51714-Terracota-Army.jpg/500px-51714-Terracota-Army.jpg"
   },
@@ -754,7 +754,7 @@
     "lat": -20.1338,
     "lng": -67.4891,
     "fact": "This Bolivian flat covers over 10,000 square kilometers and holds roughly half the world's known lithium reserves.",
-    "difficulty": 7,
+    "difficulty": 3,
     "short": "Salar de Uyuni",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Salar_Uyuni_au01.jpg/500px-Salar_Uyuni_au01.jpg"
   },
@@ -1385,7 +1385,7 @@
     "fact": "A flat-topped mountain overlooking Cape Town, South Africa, a UNESCO World Heritage site.",
     "lat": -33.9628,
     "lng": 18.4098,
-    "difficulty": 6,
+    "difficulty": 2,
     "short": "Table Mountain",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Table_Mountain_DanieVDM.jpg/500px-Table_Mountain_DanieVDM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -3518,16 +3518,6 @@
     "difficulty": 6,
     "short": "Lower Antelope Canyon",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/USA_Antelope-Canyon.jpg/500px-USA_Antelope-Canyon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": "horseshoe-bend-arizona",
-    "clue": "Where is Horseshoe Bend?",
-    "fact": "Horseshoe Bend is a dramatic 270-degree meander of the Colorado River just south of Page, Arizona.",
-    "lat": 36.8798,
-    "lng": -111.5101,
-    "difficulty": 6,
-    "short": "Horseshoe Bend",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Grand_Canyon_Horseshoe_Bend.jpg/500px-Grand_Canyon_Horseshoe_Bend.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": "hoover-dam",
@@ -9002,7 +8992,7 @@
     "fact": "Built in 1637\u201338, this dzong remains both a monastic center and an administrative seat.",
     "lat": 27.581944,
     "lng": 89.863056,
-    "difficulty": 2,
+    "difficulty": 6,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Punakha_Dzong%2C_Bhutan_02.jpg"
   },
   {
@@ -9032,7 +9022,7 @@
     "fact": "Its principal construction dates to the twelfth century, and the complex once extended across as many as nineteen tiers.",
     "lat": 41.380917,
     "lng": 43.283761,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2025-05-25_Vardzia_9.jpg"
   },
   {
@@ -9432,7 +9422,7 @@
     "fact": "Wuzhong is a Ningxia city on the Yellow River whose irrigated farmland produces some of China's best-known goji berries.",
     "lat": 37.9867,
     "lng": 106.201,
-    "difficulty": 1,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/500px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9712,7 +9702,7 @@
     "fact": "Zaozhuang is a Shandong city that preserves Taierzhuang, a canal town rebuilt after a famous 1938 battle against Japan.",
     "lat": 34.86472,
     "lng": 117.55417,
-    "difficulty": 1,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10602,7 +10592,7 @@
     "fact": "Kakamega is a western Kenyan town next to Kakamega Forest, the country's last patch of Guineo-Congolian rainforest.",
     "lat": 0.28422,
     "lng": 34.75229,
-    "difficulty": 3,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Hell%27s_Gate%2C_Kenya.jpg/500px-Hell%27s_Gate%2C_Kenya.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -10852,7 +10842,7 @@
     "fact": "Rasapudipalem is a neighborhood within Visakhapatnam, the port city on India's Bay of Bengal coast.",
     "lat": 17.73308,
     "lng": 83.31622,
-    "difficulty": 3,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/500px-Konarka_Temple.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13412,7 +13402,7 @@
     "fact": "Marseille is France's oldest city, founded by Greek sailors around 600 BC, and is the home of bouillabaisse.",
     "lat": 43.29695,
     "lng": 5.38107,
-    "difficulty": 7,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Pont_du_Gard_panorama.jpg/500px-Pont_du_Gard_panorama.jpg"
   },
   {
@@ -13512,7 +13502,7 @@
     "fact": "Frankfurt is the home of the European Central Bank and the birthplace of Goethe, with a skyline nicknamed 'Mainhattan'.",
     "lat": 50.11552,
     "lng": 8.68417,
-    "difficulty": 7,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg/500px-Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13842,7 +13832,7 @@
     "fact": "Winnipeg is at the meeting of the Red and Assiniboine rivers and gave its name to the bear that inspired Winnie-the-Pooh.",
     "lat": 49.8844,
     "lng": -97.14704,
-    "difficulty": 8,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/SarahLake.jpg/500px-SarahLake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14102,7 +14092,7 @@
     "fact": "Laval is a city on \u00cele J\u00e9sus, just north of Montreal, and is Quebec's third-largest city.",
     "lat": 45.56995,
     "lng": -73.692,
-    "difficulty": 10,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Montreal%2C_Quebec_skyline.jpg/500px-Montreal%2C_Quebec_skyline.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14182,7 +14172,7 @@
     "fact": "Mazatl\u00e1n is a Pacific resort known for its long Malec\u00f3n boardwalk and a lively carnival.",
     "lat": 23.22163,
     "lng": -106.41885,
-    "difficulty": 10,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg/500px-Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14323,7 +14313,7 @@
     "lng": 167.153333,
     "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mt_erebus.jpg",
     "clue": "Mount Erebus, Antarctica \ud83c\udde6\ud83c\uddf6",
-    "difficulty": 1
+    "difficulty": 7
   },
   {
     "id": "victoria-peak",
@@ -14643,7 +14633,7 @@
     "lng": -111.5107,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Horseshoe_Bend_13_February_2023.jpg/3840px-Horseshoe_Bend_13_February_2023.jpg",
     "clue": "Horseshoe Bend, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "rocky-mountains",
@@ -14833,7 +14823,7 @@
     "lng": 38.740833,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Mount_Nemrut_-_East_Terrace_%284961323529%29.jpg/3840px-Mount_Nemrut_-_East_Terrace_%284961323529%29.jpg",
     "clue": "Mount Nemrut, Turkey \ud83c\uddf9\ud83c\uddf7",
-    "difficulty": 1
+    "difficulty": 6
   },
   {
     "id": "mount-aso",
@@ -14863,7 +14853,7 @@
     "lng": 81.3125,
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Kailash_north.JPG",
     "clue": "Mount Kailash, China \ud83c\udde8\ud83c\uddf3",
-    "difficulty": 2
+    "difficulty": 5
   },
   {
     "id": "mount-damavand",
@@ -16242,7 +16232,7 @@
     "fact": "Malingao is a farming community in the rice-growing plains of central Mindanao in the Philippines.",
     "lat": 7.16083,
     "lng": 124.475,
-    "difficulty": 3,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Kolkata_maidan.jpg/500px-Kolkata_maidan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -18992,7 +18982,7 @@
     "fact": "Cheung Sha Wan is a Kowloon neighborhood in Hong Kong known for its fabric and clothing wholesale shops.",
     "lat": 22.33447,
     "lng": 114.1558,
-    "difficulty": 10,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
