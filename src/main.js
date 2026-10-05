@@ -2206,7 +2206,6 @@ function showRevealSheet(animate) {
   clearTimeout(sheetTimer);
   sheetTimer = 0;
   if (gameMode !== 'reveal') return;
-  hideLineLabel(); // the distance moves into the peek bar; avoid overlap
   const sheet = gameEls.reveal;
   sheet.getAnimations().forEach((a) => a.cancel());
   sheet.hidden = false;
