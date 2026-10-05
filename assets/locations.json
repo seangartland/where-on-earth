@@ -133,7 +133,7 @@
   },
   {
     "id": "london-uk",
-    "clue": "London, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "London, England \ud83c\uddec\ud83c\udde7",
     "category": "city",
     "lat": 51.5074,
     "lng": -0.1278,
@@ -628,7 +628,7 @@
   },
   {
     "id": "edinburgh-scotland",
-    "clue": "Edinburgh, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Edinburgh, Scotland \ud83c\uddec\ud83c\udde7",
     "category": "city",
     "lat": 55.9533,
     "lng": -3.1883,
@@ -2541,7 +2541,7 @@
   },
   {
     "id": "manchester-england",
-    "clue": "Manchester, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Manchester, England \ud83c\uddec\ud83c\udde7",
     "fact": "Britain's first inter-city passenger train arrived at Manchester's Hunts Bank in 1830, and Ancoats was the world's first great factory district.",
     "lat": 53.4808,
     "lng": -2.2426,
@@ -2551,7 +2551,7 @@
   },
   {
     "id": "oxford-england",
-    "clue": "Oxford, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Oxford, England \ud83c\uddec\ud83c\udde7",
     "fact": "Oxford's Ashmolean, opened in 1683, is Britain's first public museum, and the university's teaching tradition predates the Aztec empire.",
     "lat": 51.752,
     "lng": -1.2577,
@@ -2581,7 +2581,7 @@
   },
   {
     "id": "glasgow-scotland",
-    "clue": "Glasgow, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Glasgow, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "Glasgow shipped the cigars of the British Empire from the Clyde, earning the titles Cigarette City and Second City of the Empire.",
     "lat": 55.8642,
     "lng": -4.2518,
@@ -2591,7 +2591,7 @@
   },
   {
     "id": "liverpool-england",
-    "clue": "Liverpool, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Liverpool, England \ud83c\uddec\ud83c\udde7",
     "fact": "Liverpool's docks handled more world trade than any other port for most of the nineteenth century, and its band scene gave the world four of the Beatles.",
     "lat": 53.4084,
     "lng": -2.9916,
@@ -2751,7 +2751,7 @@
   },
   {
     "id": "tower-of-london",
-    "clue": "Tower of London, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Tower of London, England \ud83c\uddec\ud83c\udde7",
     "fact": "The Tower of London was a royal palace for four centuries before becoming a prison and armoury, and its ravens are the last of a flock kept since the Wild Men.",
     "lat": 51.5081,
     "lng": -0.0759,
@@ -2891,7 +2891,7 @@
   },
   {
     "id": "ness-of-brodgar",
-    "clue": "Ness of Brodgar, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Ness of Brodgar, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "The Ness of Brodgar was dug in the 3100s BC, then walled up and left to rot in the rain, which is why five thousand years of it survive.",
     "lat": 58.8696,
     "lng": -3.4086,
@@ -3001,7 +3001,7 @@
   },
   {
     "id": "loch-ness",
-    "clue": "Loch Ness, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Loch Ness, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "Loch Ness reaches 227 metres in depth, and the 1934 photograph of a flipper that started the modern monster legend is now widely thought to be a duck.",
     "lat": 57.324,
     "lng": -4.607,
@@ -3041,7 +3041,7 @@
   },
   {
     "id": "stone-of-destiny",
-    "clue": "Stone of Destiny, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Stone of Destiny, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "English undergraduates carried the Stone of Destiny off from Scone Abbey on Christmas Day 1950, and it now sits in Edinburgh Castle.",
     "lat": 56.4195,
     "lng": -3.219,
@@ -3091,7 +3091,7 @@
   },
   {
     "id": "housesteads-hadrians-wall",
-    "clue": "Housesteads, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Housesteads, England \ud83c\uddec\ud83c\udde7",
     "fact": "Housesteads was garrisoned from about AD 122, and its turf-covered rampart still holds the silhouette of the empire's northern frontier ditch.",
     "lat": 54.9928,
     "lng": -2.4792,
@@ -5682,7 +5682,7 @@
   {
     "id": "edinburgh-castle-d34-2",
     "short": "Edinburgh Castle",
-    "clue": "Edinburgh Castle, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Edinburgh Castle, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "Historic fortress on Castle Rock.",
     "lat": 55.9486,
     "lng": -3.1999,
@@ -6422,7 +6422,7 @@
   {
     "id": "roman-baths-bath",
     "short": "Roman Baths, Bath",
-    "clue": "Roman Baths, Bath, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Roman Baths, Bath, England \ud83c\uddec\ud83c\udde7",
     "fact": "Hot water from the same spring still fills the Great Bath, and the site lends the English city of Bath its name.",
     "lat": 51.3811,
     "lng": -2.359,
@@ -8302,7 +8302,7 @@
   {
     "id": "dna-cavendish-cambridge",
     "short": "Old Cavendish Laboratory",
-    "clue": "Old Cavendish Laboratory, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Old Cavendish Laboratory, England \ud83c\uddec\ud83c\udde7",
     "fact": "The breakthrough was made at Cambridge University's old Cavendish Laboratory, aided by crucial X-ray evidence produced by Rosalind Franklin and Maurice Wilkins.",
     "lat": 52.2028,
     "lng": 0.1197,
@@ -8342,7 +8342,7 @@
   {
     "id": "dolly-cloning-roslin",
     "short": "Roslin Institute",
-    "clue": "Roslin Institute, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Roslin Institute, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "Dolly was born at the Roslin Institute in 1996 after scientists transferred a nucleus from an adult sheep cell into an egg cell.",
     "lat": 55.8664,
     "lng": -3.2006,
@@ -8392,7 +8392,7 @@
   {
     "id": "first-atm-enfield",
     "short": "Barclays Enfield",
-    "clue": "Barclays Enfield, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Barclays Enfield, England \ud83c\uddec\ud83c\udde7",
     "fact": "Actor Reg Varney withdrew the first cash from the Barclays branch in Enfield. The early machine used special vouchers rather than plastic bank cards.",
     "lat": 51.6515,
     "lng": -0.0818,
@@ -8622,7 +8622,7 @@
   {
     "id": "flannan-isles-lighthouse-mystery",
     "short": "Flannan Isles Lighthouse",
-    "clue": "Flannan Isles Lighthouse, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Flannan Isles Lighthouse, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "A relief crew reached Eilean M\u00f2r to find the lighthouse deserted. Investigators suspected a huge wave swept the keepers away, but no bodies were recovered.",
     "lat": 58.288,
     "lng": -7.5882,
@@ -8722,7 +8722,7 @@
   {
     "id": "magna-carta-runnymede",
     "short": "Runnymede",
-    "clue": "Runnymede, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Runnymede, England \ud83c\uddec\ud83c\udde7",
     "fact": "King John met rebel barons in the meadow beside the Thames at Runnymede. The charter became a lasting symbol of limits on arbitrary power.",
     "lat": 51.4441,
     "lng": -0.5654,
@@ -9018,7 +9018,7 @@
   {
     "id": "eilean-donan-tidal-castle",
     "short": "Eilean Donan",
-    "clue": "Eilean Donan, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Eilean Donan, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "The medieval stronghold was destroyed in 1719 and reconstructed in the early twentieth century.",
     "lat": 57.274028,
     "lng": -5.516111,
@@ -9048,7 +9048,7 @@
   {
     "id": "dunnottar-headland-fortress",
     "short": "Dunnottar Castle",
-    "clue": "Dunnottar Castle, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Dunnottar Castle, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "Its secluded position helped safeguard the Scottish crown jewels from invading forces in the seventeenth century.",
     "lat": 56.946,
     "lng": -2.197,
@@ -13308,7 +13308,7 @@
   {
     "id": "birmingham-gb",
     "short": "Birmingham",
-    "clue": "Birmingham, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Birmingham, England \ud83c\uddec\ud83c\udde7",
     "fact": "Birmingham was a powerhouse of the Industrial Revolution and claims to have more canals than Venice.",
     "lat": 52.48142,
     "lng": -1.89983,
@@ -13698,7 +13698,7 @@
   {
     "id": "sheffield-gb",
     "short": "Sheffield",
-    "clue": "Sheffield, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Sheffield, England \ud83c\uddec\ud83c\udde7",
     "fact": "Sheffield is known as the 'Steel City' and was where stainless steel was invented in 1913.",
     "lat": 53.38297,
     "lng": -1.4659,
@@ -14772,7 +14772,7 @@
     "lat": 53.068497,
     "lng": -4.076231,
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Snowdon_massif.jpg",
-    "clue": "Snowdon, Wales \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc77\udb00\udc6c\udb00\udc73\udb00\udc7f",
+    "clue": "Snowdon, Wales \ud83c\uddec\ud83c\udde7",
     "difficulty": 1
   },
   {
@@ -14782,7 +14782,7 @@
     "lat": 56.79685,
     "lng": -5.003508,
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/BenNevis2005.jpg",
-    "clue": "Ben Nevis, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Ben Nevis, Scotland \ud83c\uddec\ud83c\udde7",
     "difficulty": 1
   },
   {
@@ -15242,7 +15242,7 @@
     "lat": 51.5556,
     "lng": -0.2794,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/London_Wembley.jpg/3840px-London_Wembley.jpg",
-    "clue": "Wembley Stadium, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Wembley Stadium, England \ud83c\uddec\ud83c\udde7",
     "difficulty": 2
   },
   {
@@ -15592,7 +15592,7 @@
     "lat": 51.107778,
     "lng": 1.278611,
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/White_Cliffs_of_Dover_02.JPG",
-    "clue": "White Cliffs of Dover, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "White Cliffs of Dover, England \ud83c\uddec\ud83c\udde7",
     "difficulty": 2
   },
   {
@@ -15602,7 +15602,7 @@
     "lat": 52.279444,
     "lng": -1.584722,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Warwick_Castle_May_2016.jpg/3840px-Warwick_Castle_May_2016.jpg",
-    "clue": "Warwick Castle, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Warwick Castle, England \ud83c\uddec\ud83c\udde7",
     "difficulty": 2
   },
   {
@@ -15612,7 +15612,7 @@
     "lat": 50.667974,
     "lng": -4.759928,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Tintagel_Castle_-_May_2026.jpg/3840px-Tintagel_Castle_-_May_2026.jpg",
-    "clue": "Tintagel Castle, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Tintagel Castle, England \ud83c\uddec\ud83c\udde7",
     "difficulty": 2
   },
   {
@@ -17548,7 +17548,7 @@
   {
     "id": "bristol",
     "short": "Bristol",
-    "clue": "Bristol, Wales \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc77\udb00\udc6c\udb00\udc73\udb00\udc7f",
+    "clue": "Bristol, Wales \ud83c\uddec\ud83c\udde7",
     "fact": "Bristol is an English port city known for the Clifton Suspension Bridge and as the hometown of the street artist Banksy.",
     "lat": 51.45523,
     "lng": -2.59665,
@@ -17718,7 +17718,7 @@
   {
     "id": "burnley",
     "short": "Burnley",
-    "clue": "Burnley, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Burnley, England \ud83c\uddec\ud83c\udde7",
     "fact": "Burnley is a former cotton-weaving town in Lancashire and home to Burnley FC, one of the founding members of the Football League.",
     "lat": 53.8,
     "lng": -2.23333,
@@ -17788,7 +17788,7 @@
   {
     "id": "harrow",
     "short": "Harrow",
-    "clue": "Harrow, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Harrow, England \ud83c\uddec\ud83c\udde7",
     "fact": "Harrow is a London borough known for Harrow School, where Winston Churchill was a student.",
     "lat": 51.57835,
     "lng": -0.33208,
@@ -17828,7 +17828,7 @@
   {
     "id": "huddersfield",
     "short": "Huddersfield",
-    "clue": "Huddersfield, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Huddersfield, England \ud83c\uddec\ud83c\udde7",
     "fact": "Huddersfield is a Yorkshire town known as the birthplace of rugby league, which split off from rugby union there in 1895.",
     "lat": 53.64904,
     "lng": -1.78416,
@@ -18068,7 +18068,7 @@
   {
     "id": "dundee",
     "short": "Dundee",
-    "clue": "Dundee, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Dundee, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "Dundee is a Scottish city on the Firth of Tay, famous for its jute industry, marmalade, and comics like The Beano.",
     "lat": 56.46913,
     "lng": -2.97489,
@@ -18708,7 +18708,7 @@
   {
     "id": "dursley",
     "short": "Dursley",
-    "clue": "Dursley, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Dursley, England \ud83c\uddec\ud83c\udde7",
     "fact": "Dursley is a Gloucestershire town below the Cotswolds, known for the Lister engine factory, and is said to have inspired the name of Harry Potter's Dursley family.",
     "lat": 51.68139,
     "lng": -2.35333,
@@ -18928,7 +18928,7 @@
   {
     "id": "addlestone",
     "short": "Addlestone",
-    "clue": "Addlestone, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Addlestone, England \ud83c\uddec\ud83c\udde7",
     "fact": "Addlestone is a Surrey town near the River Wey, about 30 km southwest of central London.",
     "lat": 51.37135,
     "lng": -0.49353,
@@ -18958,7 +18958,7 @@
   {
     "id": "petersfield",
     "short": "Petersfield",
-    "clue": "Petersfield, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Petersfield, England \ud83c\uddec\ud83c\udde7",
     "fact": "Petersfield is a Hampshire market town in the South Downs, with a heath and a large pond on its edge.",
     "lat": 51.00495,
     "lng": -0.93375,
@@ -19058,7 +19058,7 @@
   {
     "id": "kenley",
     "short": "Kenley",
-    "clue": "Kenley, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Kenley, England \ud83c\uddec\ud83c\udde7",
     "fact": "Kenley is a south London suburb whose airfield was a key RAF fighter station during the Battle of Britain.",
     "lat": 51.32643,
     "lng": -0.10111,
@@ -19152,7 +19152,7 @@
   {
     "id": "cardiff-wales",
     "short": "Cardiff",
-    "clue": "Cardiff, Wales \ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc77\udb40\udc6c\udb40\udc73\udb40\udc7f",
+    "clue": "Cardiff, Wales \ud83c\uddec\ud83c\udde7",
     "fact": "Wales's capital was a small town until the 19th century, when it became one of the world's busiest coal-exporting ports.",
     "lat": 51.4816,
     "lng": -3.1791,
@@ -19185,7 +19185,7 @@
   {
     "id": "wimbledon-all-england-club",
     "short": "Wimbledon",
-    "clue": "Wimbledon, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Wimbledon, England \ud83c\uddec\ud83c\udde7",
     "fact": "The All England Club first held the championships in 1877, and players must still wear almost entirely white.",
     "lat": 51.434,
     "lng": -0.2141,
@@ -19338,7 +19338,7 @@
   {
     "id": "aberdeen-scotland",
     "short": "Aberdeen",
-    "clue": "Aberdeen, Scotland \ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc73\udb40\udc63\udb40\udc74\udb40\udc7f",
+    "clue": "Aberdeen, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "Called the Granite City for its grey stone buildings, it became Europe's oil capital after North Sea oil was found in the 1970s.",
     "lat": 57.1497,
     "lng": -2.0943,
@@ -19360,7 +19360,7 @@
   {
     "id": "battle-of-hastings",
     "short": "Battle of Hastings",
-    "clue": "Battle of Hastings, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Battle of Hastings, England \ud83c\uddec\ud83c\udde7",
     "fact": "The fight took place about 10 km from Hastings, at a site now named simply Battle, where William built an abbey to atone.",
     "lat": 50.9149,
     "lng": 0.487,
@@ -19403,7 +19403,7 @@
   {
     "id": "old-trafford",
     "short": "Old Trafford",
-    "clue": "Old Trafford, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Old Trafford, England \ud83c\uddec\ud83c\udde7",
     "fact": "Bobby Charlton nicknamed it the 'Theatre of Dreams'. It was bombed in 1941 and not reopened until 1949.",
     "lat": 53.4631,
     "lng": -2.2913,
@@ -19501,7 +19501,7 @@
   {
     "id": "urquhart-castle",
     "short": "Urquhart Castle",
-    "clue": "Urquhart Castle, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Urquhart Castle, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "The castle was blown up in 1692 to keep it out of Jacobite hands and has been a ruin ever since.",
     "lat": 57.3242,
     "lng": -4.4419,
@@ -19711,7 +19711,7 @@
   {
     "id": "westminster-abbey-gb",
     "short": "Westminster Abbey",
-    "clue": "Westminster Abbey, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "Westminster Abbey, England \ud83c\uddec\ud83c\udde7",
     "fact": "Every English and British monarch since William the Conqueror in 1066 has been crowned here.",
     "lat": 51.4993,
     "lng": -0.1273,
@@ -19721,7 +19721,7 @@
   {
     "id": "london-eye-gb",
     "short": "London Eye",
-    "clue": "London Eye, England \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc65\udb00\udc6e\udb00\udc67\udb00\udc7f",
+    "clue": "London Eye, England \ud83c\uddec\ud83c\udde7",
     "fact": "Built as a temporary attraction for the millennium, the giant wheel on the South Bank proved so popular it never came down.",
     "lat": 51.5033,
     "lng": -0.1196,
@@ -20168,7 +20168,7 @@
   {
     "id": "isle-of-skye-gb",
     "short": "Isle of Skye",
-    "clue": "Isle of Skye, Scotland \ud83c\udff4\udb00\udc67\udb00\udc62\udb00\udc73\udb00\udc63\udb00\udc74\udb00\udc7f",
+    "clue": "Isle of Skye, Scotland \ud83c\uddec\ud83c\udde7",
     "fact": "The largest island of Scotland's Inner Hebrides is known for the Old Man of Storr, a basalt pinnacle left behind by an ancient landslip on the Trotternish Ridge.",
     "lat": 57.3,
     "lng": -6.35,
