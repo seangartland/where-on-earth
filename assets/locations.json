@@ -2200,16 +2200,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Flaming_cliffs_5.jpg/500px-Flaming_cliffs_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "lake-issyk-kul",
-    "clue": "Lake Issyk-Kul, Kyrgyzstan \ud83c\uddf0\ud83c\uddec",
-    "fact": "At 6,248 m in the Kyrgyz Tien Shan, it holds more water by volume than Lake Baikal and was drained by a pre-Catalan-era king who was afraid of the water spirits.",
-    "lat": 42.4167,
-    "lng": 77.7833,
-    "difficulty": 8,
-    "short": "Lake Issyk-Kul",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Issykkul_plyag.jpg/500px-Issykkul_plyag.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": "gobekli-tepe",
     "clue": "G\u00f6bekli Tepe, Turkey \ud83c\uddf9\ud83c\uddf7",
     "fact": "Hunter-gatherers, not farmers, raised this hilltop of enclosures around 9600 BC, which upset the idea that settled agriculture had to come first, and the site was deliberately buried by hand.",
@@ -14316,13 +14306,13 @@
     "difficulty": 1
   },
   {
-    "id": "mississippi-river",
-    "short": "Mississippi River",
+    "id": "mississippi-river-delta",
+    "short": "Mississippi River Delta",
     "fact": "This great river drains much of the central United States and has shaped trade, music, literature, and settlement.",
     "lat": 29.151111,
     "lng": -89.253333,
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Efmo_View_from_Fire_Point.jpg",
-    "clue": "Mississippi River, United States \ud83c\uddfa\ud83c\uddf8",
+    "clue": "Mississippi River Delta, United States \ud83c\uddfa\ud83c\uddf8",
     "difficulty": 1
   },
   {
@@ -14333,16 +14323,6 @@
     "lng": 167.153333,
     "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mt_erebus.jpg",
     "clue": "Mount Erebus, Antarctica \ud83c\udde6\ud83c\uddf6",
-    "difficulty": 1
-  },
-  {
-    "id": "lake-titicaca",
-    "short": "Lake Titicaca",
-    "fact": "At about 3,812 meters above sea level, it is the world\u2019s highest navigable lake used by large commercial vessels.",
-    "lat": -15.825,
-    "lng": -69.325,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lake_Titicaca_ESA22522896.jpeg",
-    "clue": "Lake Titicaca, Peru \ud83c\uddf5\ud83c\uddea",
     "difficulty": 1
   },
   {
@@ -14616,16 +14596,6 @@
     "difficulty": 1
   },
   {
-    "id": "missouri-river",
-    "short": "Missouri River",
-    "fact": "The longest river in the United States joins another immense river just north of a major Midwestern city.",
-    "lat": 38.813611,
-    "lng": -90.119722,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Missouri_River_in_2021_01.jpg",
-    "clue": "Missouri River, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
-  },
-  {
     "id": "banff",
     "short": "Banff",
     "fact": "Canada\u2019s highest townsite sits inside the country\u2019s oldest national park amid turquoise lakes and Rocky Mountain peaks.",
@@ -14666,13 +14636,13 @@
     "difficulty": 1
   },
   {
-    "id": "colorado-river",
-    "short": "Colorado River",
+    "id": "horseshoe-bend",
+    "short": "Horseshoe Bend",
     "fact": "Its water carved immense canyons and now supports tens of millions of people across an arid region.",
     "lat": 36.8792,
     "lng": -111.5107,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Horseshoe_Bend_13_February_2023.jpg/3840px-Horseshoe_Bend_13_February_2023.jpg",
-    "clue": "Colorado River, United States \ud83c\uddfa\ud83c\uddf8",
+    "clue": "Horseshoe Bend, United States \ud83c\uddfa\ud83c\uddf8",
     "difficulty": 1
   },
   {
@@ -14846,36 +14816,6 @@
     "difficulty": 1
   },
   {
-    "id": "amazon-river",
-    "short": "Amazon River",
-    "fact": "The Amazon River in South America is the largest river in the world by discharge volume of water, and the second-longest or longest river system in the world, a title which is disputed with the Nile.",
-    "lat": -15.517778,
-    "lng": -71.693611,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Amazon_River_ESA387332.jpg",
-    "clue": "Amazon River, Peru \ud83c\uddf5\ud83c\uddea",
-    "difficulty": 1
-  },
-  {
-    "id": "congo-river",
-    "short": "Congo River",
-    "fact": "Congo River is a river in Central Africa.",
-    "lat": -6.075,
-    "lng": 12.45,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Aerial_view_of_the_Congo_River_near_Kisangani.jpg/3840px-Aerial_view_of_the_Congo_River_near_Kisangani.jpg",
-    "clue": "Congo River",
-    "difficulty": 1
-  },
-  {
-    "id": "lake-tanganyika",
-    "short": "Lake Tanganyika",
-    "fact": "Lake Tanganyika is rift lake in East-Central Africa.",
-    "lat": -6.1,
-    "lng": 29.5,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/STS51G-034-0012_Lake_Tanganyika_June1985.jpg/3840px-STS51G-034-0012_Lake_Tanganyika_June1985.jpg",
-    "clue": "Lake Tanganyika, Tanzania \ud83c\uddf9\ud83c\uddff",
-    "difficulty": 1
-  },
-  {
     "id": "okavango-delta",
     "short": "Okavango Delta",
     "fact": "The Okavango Delta or Okavango Grassland is a vast inland delta in Botswana formed where the Okavango River reaches a tectonic trough at an elevation of 930\u20131,000 m (3,050\u20133,280 ft) in the central part of the endorheic basin of the Kalahari Desert.",
@@ -14896,16 +14836,6 @@
     "difficulty": 1
   },
   {
-    "id": "lake-baikal",
-    "short": "Lake Baikal",
-    "fact": "Lake Baikal is a freshwater rift lake in Russia.",
-    "lat": 53.5,
-    "lng": 108,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Baikal.A2001296.0420.250m-NASA.jpg",
-    "clue": "Lake Baikal, Russia \ud83c\uddf7\ud83c\uddfa",
-    "difficulty": 1
-  },
-  {
     "id": "mount-aso",
     "short": "Mount Aso",
     "fact": "Mount Aso is a volcano in Kumamoto Prefecture, Japan.",
@@ -14923,16 +14853,6 @@
     "lng": 126.53,
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Jeju_Island.jpg",
     "clue": "Jeju Island, South Korea \ud83c\uddf0\ud83c\uddf7",
-    "difficulty": 2
-  },
-  {
-    "id": "gobi-desert",
-    "short": "Gobi Desert",
-    "fact": "Gobi Desert is a desert in East Asia.",
-    "lat": 42.59,
-    "lng": 103.43,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Gobi_Desert.jpg",
-    "clue": "Gobi Desert, Mongolia \ud83c\uddf2\ud83c\uddf3",
     "difficulty": 2
   },
   {
