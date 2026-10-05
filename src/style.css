@@ -109,6 +109,8 @@ body.game-reveal .reveal-name { display: block; }
 .peek-slot { flex: none; width: 52px; height: 52px; }
 .peek-slot[hidden] { display: none; }
 #peek-thumb { display: block; width: 52px; height: 52px; border-radius: 10px; object-fit: cover; object-position: center 20%; }
+#peek-thumb.no-postcard { filter: grayscale(1); opacity: 0.7; }
+#peek-thumb.bullseye-glow { box-shadow: 0 0 12px 2px rgba(255, 212, 94, 0.8); border: 2px solid #ffd45e; }
 .peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .peek-name { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .peek-stats { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
