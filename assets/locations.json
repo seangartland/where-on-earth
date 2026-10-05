@@ -8572,16 +8572,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Tunguska_Ereignis-1.jpg/500px-Tunguska_Ereignis-1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": "chelyabinsk-meteor-airburst",
-    "short": "Chelyabinsk Meteor Airburst",
-    "clue": "Chelyabinsk, Russia \ud83c\uddf7\ud83c\uddfa",
-    "fact": "The asteroid exploded high over Chelyabinsk Oblast, releasing far more energy than the Hiroshima bomb. Most injuries came from flying glass after the shock wave arrived.",
-    "lat": 54.8,
-    "lng": 61.1,
-    "difficulty": 6,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/82/Meteorite_explosion_over_Chelyabinsk_on_February_15%2C_2013.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
     "id": "lituya-bay-megatsunami",
     "short": "Lituya Bay",
     "clue": "Lituya Bay, United States \ud83c\uddfa\ud83c\uddf8",
@@ -19708,5 +19698,483 @@
     "lng": -20.1199,
     "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Gullfoss_from_the_Air_%28cropped%29.jpg/500px-Gullfoss_from_the_Air_%28cropped%29.jpg"
+  },
+  {
+    "id": "mount-everest-summit",
+    "short": "Mount Everest",
+    "clue": "Where is the summit of Mount Everest?",
+    "fact": "The world's highest summit sits right on the border between Nepal and Tibet, and climbers can stand with one foot in each.",
+    "lat": 27.9881,
+    "lng": 86.925,
+    "difficulty": 1,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg/500px-Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg"
+  },
+  {
+    "id": "acropolis-athens-gr",
+    "short": "Acropolis of Athens",
+    "clue": "Acropolis, Greece \ud83c\uddec\ud83c\uddf7",
+    "fact": "The Parthenon on its summit served as a temple, a church, a mosque and an Ottoman gunpowder store before a Venetian shell blew it apart in 1687.",
+    "lat": 37.9715,
+    "lng": 23.7257,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg/500px-1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "id": "milan-it",
+    "short": "Milan",
+    "clue": "Milan, Italy \ud83c\uddee\ud83c\uddf9",
+    "fact": "Italy's fashion and finance capital is home to Leonardo da Vinci's The Last Supper, painted on a convent refectory wall.",
+    "lat": 45.4642,
+    "lng": 9.19,
+    "difficulty": 1,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Milan_Cathedral_from_Piazza_del_Duomo.jpg/500px-Milan_Cathedral_from_Piazza_del_Duomo.jpg"
+  },
+  {
+    "id": "westminster-abbey-gb",
+    "short": "Westminster Abbey",
+    "clue": "Westminster Abbey, United Kingdom \ud83c\uddec\ud83c\udde7",
+    "fact": "Every English and British monarch since William the Conqueror in 1066 has been crowned here.",
+    "lat": 51.4993,
+    "lng": -0.1273,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Westminster_Abbey%2C_Westminster.jpg/500px-Westminster_Abbey%2C_Westminster.jpg"
+  },
+  {
+    "id": "london-eye-gb",
+    "short": "London Eye",
+    "clue": "London Eye, United Kingdom \ud83c\uddec\ud83c\udde7",
+    "fact": "Built as a temporary attraction for the millennium, the giant wheel on the South Bank proved so popular it never came down.",
+    "lat": 51.5033,
+    "lng": -0.1196,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/London-Eye-2009.JPG/500px-London-Eye-2009.JPG"
+  },
+  {
+    "id": "wall-street-us",
+    "short": "Wall Street",
+    "clue": "Wall Street, United States \ud83c\uddfa\ud83c\uddf8",
+    "fact": "The street takes its name from a wooden wall the Dutch built across lower Manhattan in the 1650s to keep out attackers.",
+    "lat": 40.7069,
+    "lng": -74.0113,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Wall_Street_%2855314253740%29.jpg/500px-Wall_Street_%2855314253740%29.jpg"
+  },
+  {
+    "id": "one-world-trade-center-us",
+    "short": "One World Trade Center",
+    "clue": "One World Trade Center, United States \ud83c\uddfa\ud83c\uddf8",
+    "fact": "Its spire tops out at 1,776 feet, a deliberate nod to the year of American independence.",
+    "lat": 40.7127,
+    "lng": -74.0134,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Lower_Manhattan_from_Jersey_City_September_2020_panorama.jpg/500px-Lower_Manhattan_from_Jersey_City_September_2020_panorama.jpg"
+  },
+  {
+    "id": "pentagon-us",
+    "short": "The Pentagon",
+    "clue": "The Pentagon, United States \ud83c\uddfa\ud83c\uddf8",
+    "fact": "The US Department of Defense headquarters was built in just 16 months during World War II and is still one of the largest office buildings in the world.",
+    "lat": 38.8719,
+    "lng": -77.0563,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/The_Pentagon%2C_Headquarters_of_the_US_Department_of_Defense_%28cropped2%29.jpg/500px-The_Pentagon%2C_Headquarters_of_the_US_Department_of_Defense_%28cropped2%29.jpg"
+  },
+  {
+    "id": "sacre-coeur-fr",
+    "short": "Sacr\u00e9-C\u0153ur",
+    "clue": "Sacr\u00e9-C\u0153ur, France \ud83c\uddeb\ud83c\uddf7",
+    "fact": "The white basilica crowns Montmartre, and its travertine stone releases calcite when it rains, so it stays bright white.",
+    "lat": 48.8867,
+    "lng": 2.3431,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Le_sacre_coeur.jpg/500px-Le_sacre_coeur.jpg"
+  },
+  {
+    "id": "santorini-gr",
+    "short": "Santorini",
+    "clue": "Santorini, Greece \ud83c\uddec\ud83c\uddf7",
+    "fact": "The island's crescent shape is the rim of a volcano that erupted catastrophically around 1600 BC, possibly inspiring the Atlantis legend.",
+    "lat": 36.4166,
+    "lng": 25.4318,
+    "difficulty": 2,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Santorini_Fira3_tango7174.jpg/500px-Santorini_Fira3_tango7174.jpg"
+  },
+  {
+    "id": "marina-bay-sands-sg",
+    "short": "Marina Bay Sands",
+    "clue": "Marina Bay Sands, Singapore \ud83c\uddf8\ud83c\uddec",
+    "fact": "Three hotel towers carry a 340-metre SkyPark on their roofs, with an infinity pool that seems to spill over the city skyline.",
+    "lat": 1.2834,
+    "lng": 103.8607,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Marina_Bay_Sands_%28I%29.jpg/500px-Marina_Bay_Sands_%28I%29.jpg"
+  },
+  {
+    "id": "dome-of-the-rock",
+    "short": "Dome of the Rock",
+    "clue": "Where is the Dome of the Rock?",
+    "fact": "Completed in 691, its golden dome is one of the oldest surviving works of Islamic architecture.",
+    "lat": 31.778,
+    "lng": 35.2354,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Jerusalem_DomeoftheRock_J65_%28cropped%29.JPG/500px-Jerusalem_DomeoftheRock_J65_%28cropped%29.JPG"
+  },
+  {
+    "id": "cinderella-castle-us",
+    "short": "Walt Disney World",
+    "clue": "Walt Disney World, United States \ud83c\uddfa\ud83c\uddf8",
+    "fact": "Cinderella Castle uses forced perspective: the upper stones are smaller than the lower ones, making it look much taller than its 57 metres.",
+    "lat": 28.4195,
+    "lng": -81.5812,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Cinderella_Castle%2C_Magic_Kingdom_%282026%29.jpg/500px-Cinderella_Castle%2C_Magic_Kingdom_%282026%29.jpg"
+  },
+  {
+    "id": "mykonos-gr",
+    "short": "Mykonos",
+    "clue": "Mykonos, Greece \ud83c\uddec\ud83c\uddf7",
+    "fact": "The island's row of thatched windmills once ground grain for passing ships, and a pelican named Petros has been its mascot since the 1950s.",
+    "lat": 37.4467,
+    "lng": 25.3289,
+    "difficulty": 2,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Windmills_of_Mykonos.jpg/500px-Windmills_of_Mykonos.jpg"
+  },
+  {
+    "id": "ibiza-es",
+    "short": "Ibiza",
+    "clue": "Ibiza, Spain \ud83c\uddea\ud83c\uddf8",
+    "fact": "Beyond the superclubs, Ibiza's fortified old town of Dalt Vila is a UNESCO World Heritage Site.",
+    "lat": 38.9067,
+    "lng": 1.4206,
+    "difficulty": 2,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/ForbysIbizaTown_03.jpg/500px-ForbysIbizaTown_03.jpg"
+  },
+  {
+    "id": "red-fort-in",
+    "short": "Red Fort",
+    "clue": "Red Fort, India \ud83c\uddee\ud83c\uddf3",
+    "fact": "Built by Shah Jahan, who also commissioned the Taj Mahal, it's where India's prime minister raises the flag every Independence Day.",
+    "lat": 28.6562,
+    "lng": 77.241,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Delhi_fort.jpg/500px-Delhi_fort.jpg"
+  },
+  {
+    "id": "golden-temple-in",
+    "short": "Golden Temple",
+    "clue": "Golden Temple, India \ud83c\uddee\ud83c\uddf3",
+    "fact": "Sikhism's holiest shrine runs a free community kitchen that feeds tens of thousands of people every day, whatever their faith.",
+    "lat": 31.62,
+    "lng": 74.8765,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/500px-The_Golden_Temple_of_Amrithsar_7.jpg"
+  },
+  {
+    "id": "wat-arun-th",
+    "short": "Wat Arun",
+    "clue": "Wat Arun, Thailand \ud83c\uddf9\ud83c\udded",
+    "fact": "The Temple of Dawn's spire is studded with broken Chinese porcelain that glitters from across the Chao Phraya River.",
+    "lat": 13.7437,
+    "lng": 100.4889,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%932.jpg/500px-%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%932.jpg"
+  },
+  {
+    "id": "manneken-pis-be",
+    "short": "Manneken Pis",
+    "clue": "Manneken Pis, Belgium \ud83c\udde7\ud83c\uddea",
+    "fact": "The tiny bronze boy owns a wardrobe of over 1,000 costumes, changed several times a week.",
+    "lat": 50.845,
+    "lng": 4.35,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Bruxelles_Manneken_Pis_cropped.jpg/500px-Bruxelles_Manneken_Pis_cropped.jpg"
+  },
+  {
+    "id": "little-mermaid-dk",
+    "short": "The Little Mermaid",
+    "clue": "The Little Mermaid, Denmark \ud83c\udde9\ud83c\uddf0",
+    "fact": "The small bronze honoring Hans Christian Andersen's tale has been beheaded twice by vandals since 1913.",
+    "lat": 55.6929,
+    "lng": 12.5993,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/7a/Copenhagen_-_the_little_mermaid_statue_-_2013.jpg/500px-Copenhagen_-_the_little_mermaid_statue_-_2013.jpg"
+  },
+  {
+    "id": "reichstag-de",
+    "short": "Reichstag Building",
+    "clue": "Reichstag Building, Germany \ud83c\udde9\ud83c\uddea",
+    "fact": "Its glass dome, added in 1999, lets visitors walk above the parliament chamber, symbolizing government transparency.",
+    "lat": 52.5186,
+    "lng": 13.3762,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Berlin_reichstag_west_panorama_2.jpg/500px-Berlin_reichstag_west_panorama_2.jpg"
+  },
+  {
+    "id": "summer-palace-cn",
+    "short": "Summer Palace",
+    "clue": "Summer Palace, China \ud83c\udde8\ud83c\uddf3",
+    "fact": "Empress Dowager Cixi famously diverted navy funds to restore it, including a marble boat that can never sail.",
+    "lat": 39.9999,
+    "lng": 116.2755,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Longevity_Hill_of_the_Summer_Palace.jpg/500px-Longevity_Hill_of_the_Summer_Palace.jpg"
+  },
+  {
+    "id": "capri-it",
+    "short": "Capri",
+    "clue": "Capri, Italy \ud83c\uddee\ud83c\uddf9",
+    "fact": "Emperor Tiberius ruled Rome from his cliff-top villa here for his final decade, and the Blue Grotto glows from sunlight entering underwater.",
+    "lat": 40.5508,
+    "lng": 14.2425,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Capri_in_Cartolina_-_Vista_da_Termini_%28Massa_Lubrense%29.jpg/500px-Capri_in_Cartolina_-_Vista_da_Termini_%28Massa_Lubrense%29.jpg"
+  },
+  {
+    "id": "shwedagon-pagoda-mm",
+    "short": "Shwedagon Pagoda",
+    "clue": "Shwedagon Pagoda, Myanmar \ud83c\uddf2\ud83c\uddf2",
+    "fact": "The gilded stupa's tip is set with thousands of diamonds and rubies, crowned by a single 76-carat diamond.",
+    "lat": 16.7983,
+    "lng": 96.1497,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Shwedagon_Pagoda_2017.jpg/500px-Shwedagon_Pagoda_2017.jpg"
+  },
+  {
+    "id": "galata-tower-tr",
+    "short": "Galata Tower",
+    "clue": "Galata Tower, T\u00fcrkiye \ud83c\uddf9\ud83c\uddf7",
+    "fact": "Built by Genoese traders in 1348, legend says a 17th-century aviator flew from its top across the Bosphorus on artificial wings.",
+    "lat": 41.0256,
+    "lng": 28.9741,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Galata_tower_01_23.jpg/500px-Galata_tower_01_23.jpg"
+  },
+  {
+    "id": "cannes-fr",
+    "short": "Cannes",
+    "clue": "Cannes, France \ud83c\uddeb\ud83c\uddf7",
+    "fact": "Its film festival's red carpet climbs the steps of the Palais des Festivals on the Riviera seafront.",
+    "lat": 43.5528,
+    "lng": 7.0174,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Cannes_from_Suquet_Tower_03.jpg/500px-Cannes_from_Suquet_Tower_03.jpg"
+  },
+  {
+    "id": "the-hague-nl",
+    "short": "The Hague",
+    "clue": "The Hague, Netherlands \ud83c\uddf3\ud83c\uddf1",
+    "fact": "The Netherlands' seat of government isn't its capital, and it hosts the International Court of Justice in the Peace Palace.",
+    "lat": 52.0705,
+    "lng": 4.3007,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Den_Haag_Skyline_1.jpg/500px-Den_Haag_Skyline_1.jpg"
+  },
+  {
+    "id": "lucerne-ch",
+    "short": "Lucerne",
+    "clue": "Lucerne, Switzerland \ud83c\udde8\ud83c\udded",
+    "fact": "The Chapel Bridge, a covered wooden footbridge from the 1300s, zigzags across the river beside a medieval water tower.",
+    "lat": 47.0502,
+    "lng": 8.3093,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/L%C3%B6wendenkmal_-_panoramio.jpg/500px-L%C3%B6wendenkmal_-_panoramio.jpg"
+  },
+  {
+    "id": "zermatt-ch",
+    "short": "Zermatt",
+    "clue": "Zermatt, Switzerland \ud83c\udde8\ud83c\udded",
+    "fact": "This car-free Alpine village sits at the foot of the Matterhorn, reachable only by train.",
+    "lat": 46.0207,
+    "lng": 7.7491,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/1_zermatt_evening_2022.jpg/500px-1_zermatt_evening_2022.jpg"
+  },
+  {
+    "id": "granada-es",
+    "short": "Granada",
+    "clue": "Granada, Spain \ud83c\uddea\ud83c\uddf8",
+    "fact": "The last Moorish kingdom in Spain fell here in 1492, and many tapas bars still serve a free tapa with every drink.",
+    "lat": 37.1773,
+    "lng": -3.5986,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Granada_%2825987961022%29.jpg/500px-Granada_%2825987961022%29.jpg"
+  },
+  {
+    "id": "schonbrunn-palace-at",
+    "short": "Sch\u00f6nbrunn Palace",
+    "clue": "Sch\u00f6nbrunn Palace, Austria \ud83c\udde6\ud83c\uddf9",
+    "fact": "The Habsburgs' summer residence has 1,441 rooms, and its grounds hold the world's oldest operating zoo, founded in 1752.",
+    "lat": 48.1845,
+    "lng": 16.3122,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Wien_-_Schloss_Sch%C3%B6nbrunn.JPG/500px-Wien_-_Schloss_Sch%C3%B6nbrunn.JPG"
+  },
+  {
+    "id": "antwerp-be",
+    "short": "Antwerp",
+    "clue": "Antwerp, Belgium \ud83c\udde7\ud83c\uddea",
+    "fact": "Most of the world's rough diamonds pass through Antwerp's diamond district, a few streets from the main station.",
+    "lat": 51.2194,
+    "lng": 4.4025,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Amberes%3B_vistas_MAS_2.jpg/500px-Amberes%3B_vistas_MAS_2.jpg"
+  },
+  {
+    "id": "islamabad-pk",
+    "short": "Islamabad",
+    "clue": "Islamabad, Pakistan \ud83c\uddf5\ud83c\uddf0",
+    "fact": "A planned capital built in the 1960s at the foot of the Margalla Hills, it's home to the vast tent-shaped Faisal Mosque.",
+    "lat": 33.6844,
+    "lng": 73.0479,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Faisal_Mosque%2C_Islamabad_III.jpg/500px-Faisal_Mosque%2C_Islamabad_III.jpg"
+  },
+  {
+    "id": "memphis-us",
+    "short": "Memphis",
+    "clue": "Memphis, United States \ud83c\uddfa\ud83c\uddf8",
+    "fact": "The Mississippi River city gave the world Graceland, Sun Studio and the blues of Beale Street.",
+    "lat": 35.1495,
+    "lng": -90.049,
+    "difficulty": 3,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Skyline_of_Memphis%2C_TN.jpg/500px-Skyline_of_Memphis%2C_TN.jpg"
+  },
+  {
+    "id": "koh-phi-phi-th",
+    "short": "Ko Phi Phi",
+    "clue": "Ko Phi Phi, Thailand \ud83c\uddf9\ud83c\udded",
+    "fact": "Its sister island's Maya Bay became so overrun after starring in the film The Beach that Thailand closed it for years to let the coral recover.",
+    "lat": 7.7407,
+    "lng": 98.7784,
+    "difficulty": 4,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/KohPhiPhi.JPG/500px-KohPhiPhi.JPG"
+  },
+  {
+    "id": "samarkand-uz",
+    "short": "Samarkand",
+    "clue": "Samarkand, Uzbekistan \ud83c\uddfa\ud83c\uddff",
+    "fact": "Timur made this Silk Road city his capital, and its Registan square is framed by three tiled madrasas.",
+    "lat": 39.6542,
+    "lng": 66.9597,
+    "difficulty": 5,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/RegistanSquare_Samarkand.jpg/500px-RegistanSquare_Samarkand.jpg"
+  },
+  {
+    "id": "darjeeling-in",
+    "short": "Darjeeling",
+    "clue": "Darjeeling, India \ud83c\uddee\ud83c\uddf3",
+    "fact": "This Himalayan hill town gives its name to a famous tea, and a narrow-gauge \"toy train\" still zigzags up to it.",
+    "lat": 27.041,
+    "lng": 88.2663,
+    "difficulty": 5,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/DarjeelingTrainFruitshop_%282%29.jpg/500px-DarjeelingTrainFruitshop_%282%29.jpg"
+  },
+  {
+    "id": "thessaloniki-gr",
+    "short": "Thessaloniki",
+    "clue": "Thessaloniki, Greece \ud83c\uddec\ud83c\uddf7",
+    "fact": "Greece's second city is named after Alexander the Great's half-sister, and its seafront is marked by the White Tower.",
+    "lat": 40.6401,
+    "lng": 22.9444,
+    "difficulty": 5,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tessaloniki_BW_2017-10-05_18-22-47.jpg/500px-Tessaloniki_BW_2017-10-05_18-22-47.jpg"
+  },
+  {
+    "id": "heidelberg-de",
+    "short": "Heidelberg",
+    "clue": "Heidelberg, Germany \ud83c\udde9\ud83c\uddea",
+    "fact": "Germany's oldest university town sits beneath a ruined red-sandstone castle whose cellar holds a wine barrel the size of a house.",
+    "lat": 49.3988,
+    "lng": 8.6724,
+    "difficulty": 6,
+    "category": "city",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg/500px-K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg"
+  },
+  {
+    "id": "tigers-nest-bt",
+    "short": "Tiger's Nest Monastery",
+    "clue": "Where is Tiger's Nest Monastery?",
+    "fact": "The monastery clings to a cliff 900 metres above the valley floor, where Guru Rinpoche is said to have arrived on the back of a tigress.",
+    "lat": 27.4919,
+    "lng": 89.3632,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Paro_Taktsang%2C_Bhutan_%28edited%29.jpg/500px-Paro_Taktsang%2C_Bhutan_%28edited%29.jpg"
+  },
+  {
+    "id": "kamakura-daibutsu-jp",
+    "short": "Great Buddha of Kamakura",
+    "clue": "Where is the Great Buddha of Kamakura?",
+    "fact": "The bronze Buddha has sat in the open air since a tsunami swept away its temple hall in 1498.",
+    "lat": 35.3167,
+    "lng": 139.5358,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/230128_Kamakura_Daibutsu_Japan04s3.jpg/500px-230128_Kamakura_Daibutsu_Japan04s3.jpg"
+  },
+  {
+    "id": "tian-tan-buddha-hk",
+    "short": "Tian Tan Buddha",
+    "clue": "Where is the Tian Tan Buddha?",
+    "fact": "The giant bronze Buddha on Lantau Island is reached by 268 steps or a long cable-car ride over the mountains.",
+    "lat": 22.254,
+    "lng": 113.905,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Tian_Tan_Buddha_2023081302.jpg/500px-Tian_Tan_Buddha_2023081302.jpg"
+  },
+  {
+    "id": "half-dome-us",
+    "short": "Half Dome",
+    "clue": "Where is Half Dome?",
+    "fact": "The final climb to its granite summit follows steel cables bolted into the rock face, and hikers need a permit.",
+    "lat": 37.7459,
+    "lng": -119.5332,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Half_Dome_with_Eastern_Yosemite_Valley_%28Zuschnitt%29.jpg/500px-Half_Dome_with_Eastern_Yosemite_Valley_%28Zuschnitt%29.jpg"
+  },
+  {
+    "id": "peterhof-palace-ru",
+    "short": "Peterhof Palace",
+    "clue": "Where is Peterhof Palace?",
+    "fact": "Peter the Great's seaside palace on the Gulf of Finland feeds over 150 fountains by gravity alone, with no pumps.",
+    "lat": 59.8846,
+    "lng": 29.909,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Peterhof_Palace%2C_Saint_Petersburg%2C_Russia_%2844408938295%29.jpg/500px-Peterhof_Palace%2C_Saint_Petersburg%2C_Russia_%2844408938295%29.jpg"
+  },
+  {
+    "id": "mount-sinai-eg",
+    "short": "Mount Sinai",
+    "clue": "Where is Mount Sinai?",
+    "fact": "Pilgrims climb through the night to watch sunrise from the peak where tradition says Moses received the Ten Commandments.",
+    "lat": 28.5394,
+    "lng": 33.9751,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Mount_Sinai_from_the_southwest.jpg/500px-Mount_Sinai_from_the_southwest.jpg"
+  },
+  {
+    "id": "statue-of-unity-in",
+    "short": "Statue of Unity",
+    "clue": "Where is the Statue of Unity?",
+    "fact": "At 182 metres, the statue of independence leader Sardar Patel is the tallest in the world, about twice the height of the Statue of Liberty.",
+    "lat": 21.838,
+    "lng": 73.7191,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Statue_of_Unity.jpg/500px-Statue_of_Unity.jpg"
   }
 ]
