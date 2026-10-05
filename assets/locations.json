@@ -20172,5 +20172,15 @@
     "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Plaza_de_Espa%C3%B1a_%28Sevilla%29_-_01.jpg/500px-Plaza_de_Espa%C3%B1a_%28Sevilla%29_-_01.jpg",
     "category": "landmark"
+  },
+  {
+    "id": "chefchaouen-morocco",
+    "short": "Chefchaouen",
+    "clue": "Chefchaouen, Morocco \ud83c\uddf2\ud83c\udde6",
+    "fact": "Tucked into the Rif Mountains, this town is famous for its medina's blue-washed walls and lanes, a tradition often credited to Jewish refugees who settled here in the 1930s.",
+    "lat": 35.1714,
+    "lng": -5.2697,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Chefchaouen-the-blue-city-of-morocco-with-palm-trees-and-the-mountain-view-in-the-backrgound.jpg/500px-Chefchaouen-the-blue-city-of-morocco-with-palm-trees-and-the-mountain-view-in-the-backrgound.jpg"
   }
 ]
