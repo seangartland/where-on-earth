@@ -99,28 +99,6 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Mumbai_Bandra-Worli_Sea_Link.jpg/500px-Mumbai_Bandra-Worli_Sea_Link.jpg"
   },
   {
-    "id": "titanic-sinking",
-    "clue": "Where did the Titanic sink in 1912?",
-    "category": "moment",
-    "lat": 41.7325,
-    "lng": -49.9469,
-    "fact": "The liner struck an iceberg at 2:40 a.m. and came to rest about 3,800 m down, roughly 600 km southeast of Newfoundland.",
-    "difficulty": 7,
-    "short": "Titanic",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/RMS_Titanic_3_%28cropped_to_ship%29.jpg/500px-RMS_Titanic_3_%28cropped_to_ship%29.jpg"
-  },
-  {
-    "id": "battle-of-waterloo",
-    "clue": "Where was the Battle of Waterloo fought in 1815?",
-    "category": "moment",
-    "lat": 50.6808,
-    "lng": 4.4074,
-    "fact": "Napoleon's last battle ended the French advance; the Lion's Mound on the battlefield marks the spot where the Prince of Orange was found wounded.",
-    "difficulty": 6,
-    "short": "Battle of Waterloo",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Battle_of_Waterloo_1815.PNG/500px-Battle_of_Waterloo_1815.PNG"
-  },
-  {
     "id": "machu-picchu",
     "clue": "Where is the Inca citadel of Machu Picchu?",
     "category": "moment",
