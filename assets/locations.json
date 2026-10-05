@@ -9242,7 +9242,7 @@
     "fact": "Chongqing is a sprawling mountain metropolis on the Yangtze, famous for numbing-spicy hotpot and served as China's wartime capital during WWII.",
     "lat": 29.56026,
     "lng": 106.55771,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9252,7 +9252,7 @@
     "fact": "Chengdu is Sichuan's capital and home to the Giant Panda Breeding Research Base, as well as a laid-back teahouse culture that has lasted centuries.",
     "lat": 30.66667,
     "lng": 104.06667,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9262,7 +9262,7 @@
     "fact": "Guangzhou, historically known as Canton, gave the world Cantonese cuisine and dim sum and has been a major trading port for over 2,000 years.",
     "lat": 23.11667,
     "lng": 113.25,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -9272,7 +9272,7 @@
     "fact": "Shenzhen was a cluster of fishing villages until 1980, when it became China's first Special Economic Zone; it is now home to Huawei and Tencent.",
     "lat": 22.54554,
     "lng": 114.0683,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -9302,7 +9302,7 @@
     "fact": "Wuhan sits where the Han River joins the Yangtze, and its Yellow Crane Tower is one of China's most celebrated historic towers.",
     "lat": 30.58333,
     "lng": 114.26667,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg/500px-1_tianzishan_wulingyuan_zhangjiajie_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9322,7 +9322,7 @@
     "fact": "Harbin, China's 'Ice City,' hosts a world-famous winter festival with full-size buildings carved from blocks of river ice.",
     "lat": 45.75,
     "lng": 126.65,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Vladivostok._GUM_Department_Store_P8070703_2200.jpg/500px-Vladivostok._GUM_Department_Store_P8070703_2200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9332,7 +9332,7 @@
     "fact": "Dongguan grew into one of the 'factories of the world', turning out a huge share of the globe's electronics, shoes, and toys.",
     "lat": 23.01797,
     "lng": 113.74866,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -9342,7 +9342,7 @@
     "fact": "Hefei is Anhui's capital and has become a hub for science and electric-vehicle manufacturing, home to the University of Science and Technology of China.",
     "lat": 31.86389,
     "lng": 117.28083,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9362,7 +9362,7 @@
     "fact": "Nanjing served as China's capital under several dynasties and is ringed by one of the longest surviving city walls in the world.",
     "lat": 32.06167,
     "lng": 118.77778,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9372,7 +9372,7 @@
     "fact": "Shenyang holds the Mukden Palace, built by the Manchu rulers before they conquered Beijing and founded the Qing dynasty.",
     "lat": 41.79222,
     "lng": 123.43278,
-    "difficulty": 1,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg"
   },
   {
@@ -9382,7 +9382,7 @@
     "fact": "Foshan is known as the birthplace of kung fu legends Wong Fei-hung and Ip Man and is a powerhouse of furniture and ceramics manufacturing.",
     "lat": 23.02677,
     "lng": 113.13148,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -9402,7 +9402,7 @@
     "fact": "Jinan is the 'City of Springs,' with dozens of natural artesian springs bubbling up across the old city, including Baotu Spring.",
     "lat": 36.66833,
     "lng": 116.99722,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Lugouqiao-2014.jpg/500px-Lugouqiao-2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9432,7 +9432,7 @@
     "fact": "Qingdao was a German concession until 1914, which left behind red-roofed villas and the brewery behind Tsingtao beer.",
     "lat": 36.06488,
     "lng": 120.38042,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -9452,7 +9452,7 @@
     "fact": "Zhengzhou is Henan's capital and a key rail crossroads, located near the Shaolin Temple on Mount Song.",
     "lat": 34.75778,
     "lng": 113.64861,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9472,7 +9472,7 @@
     "fact": "Nanning is the leafy capital of Guangxi, known as China's 'Green City' and a gateway for trade with Vietnam and Southeast Asia.",
     "lat": 22.81667,
     "lng": 108.31667,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9482,7 +9482,7 @@
     "fact": "Kunming is called the 'City of Eternal Spring' for its mild year-round climate, and it sits beside the large Dian Lake.",
     "lat": 25.03889,
     "lng": 102.71833,
-    "difficulty": 1,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9492,7 +9492,7 @@
     "fact": "Shijiazhuang grew from a small village into Hebei's capital thanks to the railways, and it is now a major pharmaceutical center.",
     "lat": 38.04139,
     "lng": 114.47861,
-    "difficulty": 1,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Pingyao_Shilou_2013.08.25_07-01-33.jpg/500px-Pingyao_Shilou_2013.08.25_07-01-33.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9502,7 +9502,7 @@
     "fact": "Changchun was the capital of the Japanese puppet state of Manchukuo and is now the heart of China's automotive industry.",
     "lat": 43.88,
     "lng": 125.32278,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Vladivostok._GUM_Department_Store_P8070703_2200.jpg/500px-Vladivostok._GUM_Department_Store_P8070703_2200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9512,7 +9512,7 @@
     "fact": "Pudong was farmland until 1990 and now holds Shanghai's famous skyline, including the Oriental Pearl Tower and the Shanghai Tower.",
     "lat": 31.23995,
     "lng": 121.50094,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -9572,7 +9572,7 @@
     "fact": "Xiamen is a Fujian port city whose car-free Gulangyu islet is known for colonial villas and a strong piano culture.",
     "lat": 24.47979,
     "lng": 118.08187,
-    "difficulty": 1,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Taipei_Skyline_2022.06.29.jpg/500px-Taipei_Skyline_2022.06.29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9592,7 +9592,7 @@
     "fact": "Yangzhou grew rich on the Grand Canal salt trade and is known for its classical gardens, Slender West Lake, and Yangzhou fried rice.",
     "lat": 32.39722,
     "lng": 119.43583,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -9642,7 +9642,7 @@
     "fact": "Wuxi sits on the shores of Lake Tai and is known for its giant bronze Lingshan Buddha and sweet pork ribs.",
     "lat": 31.56887,
     "lng": 120.28857,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -9662,7 +9662,7 @@
     "fact": "Lanzhou is the only provincial capital the Yellow River runs through, and it is famous for its hand-pulled beef noodles.",
     "lat": 36.05701,
     "lng": 103.83987,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/500px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9672,7 +9672,7 @@
     "fact": "\u00dcr\u00fcmqi is Xinjiang's capital and is often cited as the city farthest from any ocean on Earth.",
     "lat": 43.80096,
     "lng": 87.60046,
-    "difficulty": 1,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Mogao_Caves_%2854376969262%29.jpg/500px-Mogao_Caves_%2854376969262%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
