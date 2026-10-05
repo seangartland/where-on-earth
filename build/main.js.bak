@@ -1,0 +1,868 @@
+import * as THREE from 'three';
+import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
+import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
+import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
+
+// ---------------------------------------------------------------------------
+// Config
+// ---------------------------------------------------------------------------
+const DEG = Math.PI / 180;
+const FOV = 36;
+const ATMO_RADIUS = 1.17;
+const MIN_DIST = 1.32;
+const PITCH_LIMIT = 85 * DEG; // look down at the poles, never flip north-down
+const FRICTION = 2.1; // velocity decay per second (exponential)
+const MAX_SPIN = 7; // rad/s
+const TAP_MAX_MS = 350;
+const TAP_MAX_MOVE = 8; // css px
+const AUTO_SPIN = 0.045; // rad/s idle drift
+const LIGHT_DIR = new THREE.Vector3(-0.55, 0.5, 0.68).normalize();
+const PIN_COLOR = new THREE.Color('#ffb54a');
+
+// lat/lng <-> unit vector, matching THREE.SphereGeometry's UV layout
+// (u = 0 at lng -180, v = 1 at the north pole).
+function latLngToVec3(lat, lng, r = 1, out = new THREE.Vector3()) {
+  const phi = (lng + 180) * DEG;
+  const la = lat * DEG;
+  return out.set(-Math.cos(phi) * Math.cos(la) * r, Math.sin(la) * r, Math.sin(phi) * Math.cos(la) * r);
+}
+
+function vec3ToLatLng(v) {
+  const n = v.clone().normalize();
+  let lng = Math.atan2(n.z, -n.x) / DEG - 180;
+  if (lng < -180) lng += 360;
+  return { lat: Math.asin(n.y) / DEG, lng };
+}
+
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const damp = (current, target, lambda, dt) => current + (target - current) * (1 - Math.exp(-lambda * dt));
+
+// ---------------------------------------------------------------------------
+// Renderer / scene
+// ---------------------------------------------------------------------------
+const canvas = document.getElementById('globe');
+const hud = document.getElementById('hud');
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+renderer.setClearColor(0x020409, 1);
+const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+renderer.setPixelRatio(pixelRatio);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(FOV, 1, 0.05, 200);
+
+const globe = new THREE.Group();
+scene.add(globe);
+
+// ---------------------------------------------------------------------------
+// Deep-space backdrop (matches the CSS fallback gradient), drawn behind everything
+// ---------------------------------------------------------------------------
+const backdropMat = new THREE.ShaderMaterial({
+  vertexShader: /* glsl */ `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = vec4(position.xy, 0.9999, 1.0);
+    }`,
+  fragmentShader: /* glsl */ `
+    varying vec2 vUv;
+    float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+    float blob(vec2 c, vec2 r) { return 1.0 - smoothstep(0.0, 1.0, length((vUv - c) / r)); }
+    void main() {
+      float d = length((vUv - vec2(0.5, 0.55)) / vec2(1.2, 0.8));
+      vec3 col = mix(vec3(0.039, 0.082, 0.192), vec3(0.020, 0.039, 0.098), smoothstep(0.0, 0.48, d));
+      col = mix(col, vec3(0.008, 0.016, 0.035), smoothstep(0.48, 1.0, d));
+      col += vec3(0.282, 0.204, 0.549) * 0.16 * blob(vec2(0.82, 0.88), vec2(0.6, 0.4));
+      col += vec3(0.071, 0.337, 0.502) * 0.14 * blob(vec2(0.12, 0.12), vec2(0.55, 0.35));
+      col += (hash(gl_FragCoord.xy) - 0.5) / 255.0;
+      gl_FragColor = vec4(col, 1.0);
+    }`,
+  depthTest: false,
+  depthWrite: false,
+});
+const backdrop = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), backdropMat);
+backdrop.frustumCulled = false;
+backdrop.renderOrder = -20;
+scene.add(backdrop);
+
+// ---------------------------------------------------------------------------
+// Starfield
+// ---------------------------------------------------------------------------
+function makeStars(count) {
+  const pos = new Float32Array(count * 3);
+  const col = new Float32Array(count * 3);
+  const size = new Float32Array(count);
+  const phase = new Float32Array(count);
+  const v = new THREE.Vector3();
+  const cool = new THREE.Color('#bcd4ff');
+  const warm = new THREE.Color('#ffe2c4');
+  const c = new THREE.Color();
+  for (let i = 0; i < count; i++) {
+    v.randomDirection().multiplyScalar(60);
+    pos.set([v.x, v.y, v.z], i * 3);
+    c.copy(cool).lerp(warm, Math.random() ** 2);
+    col.set([c.r, c.g, c.b], i * 3);
+    size[i] = 0.6 + Math.random() ** 7 * 3.2;
+    phase[i] = Math.random() * Math.PI * 2;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
+  geo.setAttribute('aPhase', new THREE.BufferAttribute(phase, 1));
+  const mat = new THREE.ShaderMaterial({
+    uniforms: { uTime: { value: 0 }, uPixelRatio: { value: pixelRatio } },
+    vertexShader: /* glsl */ `
+      attribute float aSize;
+      attribute float aPhase;
+      attribute vec3 color;
+      uniform float uTime;
+      uniform float uPixelRatio;
+      varying vec3 vColor;
+      varying float vAlpha;
+      void main() {
+        vec4 mv = modelViewMatrix * vec4(position, 1.0);
+        gl_Position = projectionMatrix * mv;
+        float tw = 0.72 + 0.28 * sin(uTime * (0.6 + fract(aPhase * 7.13) * 1.6) + aPhase);
+        vAlpha = tw * clamp(aSize / 2.2, 0.35, 1.0);
+        vColor = color;
+        gl_PointSize = aSize * uPixelRatio * (0.85 + 0.15 * tw) * 1.6;
+      }`,
+    fragmentShader: /* glsl */ `
+      varying vec3 vColor;
+      varying float vAlpha;
+      void main() {
+        float d = length(gl_PointCoord - 0.5);
+        float a = smoothstep(0.5, 0.0, d);
+        a = a * a * vAlpha;
+        gl_FragColor = vec4(vColor * a, 1.0);
+      }`,
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+  const pts = new THREE.Points(geo, mat);
+  pts.renderOrder = -10;
+  return pts;
+}
+const stars = makeStars(2400);
+scene.add(stars);
+
+// ---------------------------------------------------------------------------
+// Globe surface
+// ---------------------------------------------------------------------------
+const blankTex = new THREE.DataTexture(new Uint8Array([0, 0, 0, 255]), 1, 1);
+blankTex.needsUpdate = true;
+
+const globeMat = new THREE.ShaderMaterial({
+  uniforms: {
+    uMap: { value: blankTex },
+    uLand: { value: 0 },
+    uLight: { value: LIGHT_DIR },
+  },
+  vertexShader: /* glsl */ `
+    varying vec2 vUv;
+    varying vec3 vNormalW;
+    varying vec3 vPosW;
+    void main() {
+      vUv = uv;
+      vec4 wp = modelMatrix * vec4(position, 1.0);
+      vPosW = wp.xyz;
+      vNormalW = normalize(mat3(modelMatrix) * normal);
+      gl_Position = projectionMatrix * viewMatrix * wp;
+    }`,
+  fragmentShader: /* glsl */ `
+    uniform sampler2D uMap;
+    uniform float uLand;
+    uniform vec3 uLight;
+    varying vec2 vUv;
+    varying vec3 vNormalW;
+    varying vec3 vPosW;
+
+    float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+
+    void main() {
+      vec4 m = texture2D(uMap, vUv) * uLand;
+      float land = m.r;
+      float glow = m.g;
+      float shelf = m.b;
+
+      vec3 N = normalize(vNormalW);
+      vec3 V = normalize(cameraPosition - vPosW);
+      float ndv = clamp(dot(N, V), 0.0, 1.0);
+      float lit = smoothstep(-0.45, 1.0, dot(N, uLight));
+
+      // ocean
+      vec3 col = mix(vec3(0.010, 0.026, 0.068), vec3(0.030, 0.085, 0.185), lit);
+      col += vec3(0.020, 0.085, 0.160) * shelf * (0.35 + 0.65 * lit);
+
+      // graticule, 15 degree spacing, fading near poles
+      vec2 g = vec2(vUv.x * 24.0, vUv.y * 12.0);
+      vec2 gd = abs(fract(g - 0.5) - 0.5) / fwidth(g);
+      float grid = 1.0 - min(min(gd.x, gd.y), 1.0);
+      float poleFade = smoothstep(0.02, 0.14, min(vUv.y, 1.0 - vUv.y));
+      col += vec3(0.10, 0.24, 0.42) * grid * 0.16 * poleFade * (1.0 - land * 0.7);
+
+      // land
+      vec3 landCol = mix(vec3(0.038, 0.098, 0.170), vec3(0.105, 0.230, 0.340), lit);
+      col = mix(col, landCol, land * 0.94);
+
+      // coastal glow
+      col += vec3(0.22, 0.70, 1.00) * glow * (0.30 + 0.40 * lit);
+
+      // soft ocean sheen
+      vec3 H = normalize(uLight + V);
+      col += vec3(0.30, 0.52, 0.85) * pow(max(dot(N, H), 0.0), 24.0) * 0.16 * (1.0 - land);
+
+      // atmospheric rim haze
+      float fres = pow(1.0 - ndv, 2.6);
+      col += vec3(0.18, 0.48, 1.00) * fres * (0.45 + 0.35 * lit);
+
+      col += (hash(gl_FragCoord.xy) - 0.5) / 255.0; // dither against banding
+      gl_FragColor = vec4(col, 1.0);
+    }`,
+});
+const globeMesh = new THREE.Mesh(new THREE.SphereGeometry(1, 160, 100), globeMat);
+globe.add(globeMesh);
+
+// ---------------------------------------------------------------------------
+// Atmosphere: back-face shell, intensity from the ray's closest approach to the core
+// ---------------------------------------------------------------------------
+const atmoMat = new THREE.ShaderMaterial({
+  uniforms: { uLight: { value: LIGHT_DIR }, uRadius: { value: ATMO_RADIUS } },
+  vertexShader: /* glsl */ `
+    varying vec3 vPosW;
+    void main() {
+      vec4 wp = modelMatrix * vec4(position, 1.0);
+      vPosW = wp.xyz;
+      gl_Position = projectionMatrix * viewMatrix * wp;
+    }`,
+  fragmentShader: /* glsl */ `
+    uniform vec3 uLight;
+    uniform float uRadius;
+    varying vec3 vPosW;
+    void main() {
+      vec3 dir = normalize(vPosW - cameraPosition);
+      float b = length(cross(cameraPosition, dir));       // ray distance from globe center
+      float t = clamp((b - 1.0) / (uRadius - 1.0), 0.0, 1.0);
+      float i = exp(-t * 4.2) * (1.0 - t) * (1.0 - t);
+      float side = 0.75 + 0.45 * max(dot(normalize(vPosW), uLight), 0.0);
+      vec3 col = mix(vec3(0.42, 0.78, 1.00), vec3(0.16, 0.34, 1.00), smoothstep(0.0, 0.6, t));
+      gl_FragColor = vec4(col * i * side * 0.95, 1.0);
+    }`,
+  side: THREE.BackSide,
+  transparent: true,
+  depthWrite: false,
+  blending: THREE.AdditiveBlending,
+});
+const atmosphere = new THREE.Mesh(new THREE.SphereGeometry(ATMO_RADIUS, 96, 64), atmoMat);
+scene.add(atmosphere);
+
+// ---------------------------------------------------------------------------
+// Land data -> texture (fill / coastal glow / shelf haze) + crisp outlines
+// ---------------------------------------------------------------------------
+function unwrap(points) {
+  const out = [];
+  let off = 0;
+  let prev = null;
+  for (const [lon, lat] of points) {
+    let L = lon + off;
+    if (prev !== null) {
+      if (L - prev > 180) { off -= 360; L -= 360; }
+      else if (L - prev < -180) { off += 360; L += 360; }
+    }
+    out.push([L, lat]);
+    prev = L;
+  }
+  return out;
+}
+
+function addToPath(path, pts, W, H, close) {
+  let min = Infinity;
+  let max = -Infinity;
+  for (const p of pts) { min = Math.min(min, p[0]); max = Math.max(max, p[0]); }
+  for (const shift of [-360, 0, 360]) {
+    if (max + shift < -180 || min + shift > 180) continue;
+    pts.forEach(([L, lat], i) => {
+      const x = ((L + shift + 180) / 360) * W;
+      const y = ((90 - lat) / 180) * H;
+      i ? path.lineTo(x, y) : path.moveTo(x, y);
+    });
+    if (close) path.closePath();
+  }
+}
+
+function buildLandTexture(geo) {
+  const maxTex = renderer.capabilities.maxTextureSize;
+  const W = maxTex >= 4096 ? 4096 : 2048;
+  const H = W / 2;
+  const cv = document.createElement('canvas');
+  cv.width = W;
+  cv.height = H;
+  const ctx = cv.getContext('2d');
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, W, H);
+
+  const land = new Path2D();
+  const coast = new Path2D();
+  const border = new Path2D();
+  for (const f of geo.features) {
+    const { kind } = f.properties;
+    if (kind === 'land') {
+      for (const poly of f.geometry.coordinates) {
+        for (const ring of poly) {
+          const pts = unwrap(ring);
+          const span = pts[pts.length - 1][0] - pts[0][0];
+          if (Math.abs(span) > 180) {
+            // ring encircles a pole (Antarctica): close it along the pole edge
+            const poleLat = pts.reduce((s, p) => s + p[1], 0) / pts.length < 0 ? -90 : 90;
+            pts.push([pts[pts.length - 1][0], poleLat], [pts[0][0], poleLat]);
+          }
+          addToPath(land, pts, W, H, true);
+        }
+      }
+    } else {
+      const target = kind === 'coast' ? coast : border;
+      for (const line of f.geometry.coordinates) addToPath(target, unwrap(line), W, H, false);
+    }
+  }
+
+  const s = W / 4096;
+  ctx.globalCompositeOperation = 'lighter';
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+
+  // B: broad shelf haze around landmasses
+  ctx.fillStyle = 'rgb(0,0,140)';
+  ctx.shadowColor = 'rgb(0,0,255)';
+  ctx.shadowBlur = 46 * s;
+  ctx.fill(land, 'evenodd');
+  ctx.shadowBlur = 16 * s;
+  ctx.fill(land, 'evenodd');
+
+  // R: land fill
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = 'rgb(255,0,0)';
+  ctx.strokeStyle = 'rgb(255,0,0)';
+  ctx.lineWidth = 1 * s;
+  ctx.fill(land, 'evenodd');
+  ctx.stroke(land);
+
+  // G: coastal glow, faint glow on borders
+  ctx.strokeStyle = 'rgb(0,150,0)';
+  ctx.shadowColor = 'rgb(0,255,0)';
+  ctx.lineWidth = 2 * s;
+  ctx.shadowBlur = 14 * s;
+  ctx.stroke(coast);
+  ctx.shadowBlur = 5 * s;
+  ctx.stroke(coast);
+  // Internal country borders intentionally not drawn into the texture:
+  // coastlines only. (Border paths are still built above for potential reuse.)
+
+  const tex = new THREE.CanvasTexture(cv);
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  tex.minFilter = THREE.LinearMipmapLinearFilter;
+  tex.generateMipmaps = true;
+  return tex;
+}
+
+const outlineMaterials = [];
+function buildOutline(lines, radius, opts) {
+  const pos = [];
+  const a = new THREE.Vector3();
+  const b = new THREE.Vector3();
+  const p = new THREE.Vector3();
+  const q = new THREE.Vector3();
+  for (const line of lines) {
+    for (let i = 1; i < line.length; i++) {
+      latLngToVec3(line[i - 1][1], line[i - 1][0], 1, a);
+      latLngToVec3(line[i][1], line[i][0], 1, b);
+      const steps = Math.max(1, Math.ceil(a.angleTo(b) / (1.2 * DEG)));
+      p.copy(a).multiplyScalar(radius);
+      for (let k = 1; k <= steps; k++) {
+        q.copy(a).lerp(b, k / steps).normalize().multiplyScalar(radius);
+        pos.push(p.x, p.y, p.z, q.x, q.y, q.z);
+        p.copy(q);
+      }
+    }
+  }
+  const geo = new LineSegmentsGeometry();
+  geo.setPositions(pos);
+  const mat = new LineMaterial({
+    color: opts.color,
+    linewidth: opts.width,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false,
+  });
+  mat.userData.targetOpacity = opts.opacity;
+  outlineMaterials.push(mat);
+  const mesh = new LineSegments2(geo, mat);
+  mesh.renderOrder = 2;
+  return mesh;
+}
+
+let landReveal = 0;
+let landLoaded = false;
+
+fetch('assets/world.geo.json')
+  .then((r) => r.json())
+  .then((geo) => {
+    globeMat.uniforms.uMap.value = buildLandTexture(geo);
+    const lines = (kind) => geo.features.find((f) => f.properties.kind === kind).geometry.coordinates;
+    // Internal country borders hidden: coastlines only, keeps the challenge in
+    // your geography, not in reading lines. (Border data stays in the GeoJSON
+    // for a future practice mode.)
+    globe.add(buildOutline(lines('coast'), 1.002, { color: '#8fe0ff', width: 1.05, opacity: 0.85 }));
+    landLoaded = true;
+  })
+  .catch((err) => {
+    console.error('failed to load land data', err);
+    if (window.__showErr) window.__showErr('MAPDATA: ' + (err && err.message ? err.message : err));
+  });
+
+// ---------------------------------------------------------------------------
+// Pin
+// ---------------------------------------------------------------------------
+function makeGlowTexture() {
+  const c = document.createElement('canvas');
+  c.width = c.height = 128;
+  const g = c.getContext('2d');
+  const grd = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+  grd.addColorStop(0, 'rgba(255,255,255,1)');
+  grd.addColorStop(0.12, 'rgba(255,255,255,0.9)');
+  grd.addColorStop(0.3, 'rgba(255,255,255,0.32)');
+  grd.addColorStop(0.6, 'rgba(255,255,255,0.08)');
+  grd.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = grd;
+  g.fillRect(0, 0, 128, 128);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+const glowTex = makeGlowTexture();
+
+const CAP_RADIUS = 0.075; // angular radius of the pulse rings at zoom scale 1
+const capGeometry = new THREE.SphereGeometry(1.0025, 72, 18, 0, Math.PI * 2, 0, 0.25);
+const stemGeometry = new THREE.CylinderGeometry(0.0026, 0.0026, 1, 8, 1, true).translate(0, 0.5, 0);
+
+const REST_H = 0.072;
+const DROP_H = 0.34;
+const LAND_T = 0.36;
+
+class Pin {
+  constructor() {
+    this.root = new THREE.Group();
+    this.root.visible = false;
+    this.tip = new THREE.Group();
+    this.tip.position.set(0, 1, 0);
+    this.root.add(this.tip);
+
+    this.capMat = new THREE.ShaderMaterial({
+      uniforms: {
+        uT: { value: 0 },
+        uRadius: { value: CAP_RADIUS },
+        uOpacity: { value: 1 },
+        uColor: { value: PIN_COLOR },
+      },
+      vertexShader: /* glsl */ `
+        varying vec3 vPos;
+        void main() {
+          vPos = position;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }`,
+      fragmentShader: /* glsl */ `
+        uniform float uT;
+        uniform float uRadius;
+        uniform float uOpacity;
+        uniform vec3 uColor;
+        varying vec3 vPos;
+        void main() {
+          float r = acos(clamp(normalize(vPos).y, -1.0, 1.0)) / uRadius;
+          if (r > 1.0) discard;
+          float since = uT - ${LAND_T.toFixed(3)};
+          float landed = step(0.0, since);
+          since = max(since, 0.0);
+          float a = 0.0;
+          a += exp(-r * r * 140.0) * 0.9 * landed;           // contact point
+          a += exp(-r * r * 14.0) * 0.16 * landed;           // soft pool
+          float on = smoothstep(0.15, 0.7, since);
+          for (int i = 0; i < 2; i++) {                      // repeating pulse rings
+            float p = fract(since * 0.48 + float(i) * 0.5);
+            float rr = 0.06 + p * 0.9;
+            float w = 0.022 + p * 0.05;
+            a += pow(1.0 - p, 2.0) * smoothstep(w, 0.0, abs(r - rr)) * 0.7 * on;
+          }
+          float s = clamp(since / 0.85, 0.0, 1.0);           // landing shockwave
+          float sr = 1.0 - pow(1.0 - s, 3.0);
+          a += pow(1.0 - s, 2.0) * smoothstep(0.06, 0.0, abs(r - sr * 0.97)) * 1.3 * landed;
+          a *= smoothstep(1.0, 0.82, r) * uOpacity;
+          vec3 col = mix(uColor, vec3(1.0, 0.97, 0.9), exp(-r * r * 160.0));
+          gl_FragColor = vec4(col * a, 1.0);
+        }`,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    this.cap = new THREE.Mesh(capGeometry, this.capMat);
+    this.cap.renderOrder = 3;
+    this.root.add(this.cap);
+
+    this.stemMat = new THREE.ShaderMaterial({
+      uniforms: { uColor: { value: PIN_COLOR }, uOpacity: { value: 1 } },
+      vertexShader: /* glsl */ `
+        varying float vY;
+        void main() {
+          vY = uv.y;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }`,
+      fragmentShader: /* glsl */ `
+        uniform vec3 uColor;
+        uniform float uOpacity;
+        varying float vY;
+        void main() {
+          float a = mix(0.25, 0.95, vY) * uOpacity;
+          gl_FragColor = vec4(mix(uColor, vec3(1.0, 0.95, 0.85), vY * 0.5) * a, 1.0);
+        }`,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    this.stem = new THREE.Mesh(stemGeometry, this.stemMat);
+    this.stem.renderOrder = 4;
+    this.tip.add(this.stem);
+
+    const spriteMat = (color, opacity) =>
+      new THREE.SpriteMaterial({
+        map: glowTex,
+        color,
+        opacity,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      });
+    this.halo = new THREE.Sprite(spriteMat(PIN_COLOR, 0.95));
+    this.core = new THREE.Sprite(spriteMat(new THREE.Color('#fff6e4'), 1));
+    this.halo.renderOrder = this.core.renderOrder = 5;
+    this.tip.add(this.halo, this.core);
+
+    this.t = 0;
+    this.state = 'idle'; // idle | live | out
+    this.outT = 0;
+  }
+
+  drop(normal) {
+    this.root.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), normal);
+    this.root.visible = true;
+    this.state = 'live';
+    this.t = 0;
+  }
+
+  release() {
+    if (this.state !== 'live') return;
+    this.state = 'out';
+    this.outT = 0;
+  }
+
+  update(dt, time, scale) {
+    if (this.state === 'idle') return;
+    this.t += dt;
+    let fade = 1;
+    let shrink = 1;
+    if (this.state === 'out') {
+      this.outT += dt;
+      const u = clamp(this.outT / 0.28, 0, 1);
+      fade = 1 - u * u;
+      shrink = 1 - 0.5 * u;
+      if (u >= 1) {
+        this.state = 'idle';
+        this.root.visible = false;
+        return;
+      }
+    }
+
+    const t = this.t;
+    let h;
+    let flash = 0;
+    if (t < LAND_T) {
+      const u = t / LAND_T;
+      h = DROP_H - (DROP_H - REST_H) * u * u; // gravity fall
+    } else {
+      const s = t - LAND_T;
+      h = REST_H + 0.014 * Math.sin(s * 21) * Math.exp(-s * 8); // springy settle
+      flash = Math.exp(-s * 7);
+    }
+    const appear = clamp(t / 0.14, 0, 1);
+    const breathe = 1 + 0.07 * Math.sin(time * 3.1);
+
+    this.tip.scale.setScalar(scale * shrink);
+    this.capMat.uniforms.uT.value = t;
+    this.capMat.uniforms.uRadius.value = CAP_RADIUS * scale;
+    this.capMat.uniforms.uOpacity.value = fade;
+
+    this.stem.scale.set(1, h, 1);
+    this.stemMat.uniforms.uOpacity.value = appear * fade;
+
+    this.halo.position.y = this.core.position.y = h;
+    const haloSize = 0.11 * breathe * (1 + flash * 0.9);
+    this.halo.scale.set(haloSize, haloSize, 1);
+    this.halo.material.opacity = 0.95 * appear * fade;
+    const coreSize = 0.03 * (1 + flash * 0.5);
+    this.core.scale.set(coreSize, coreSize, 1);
+    this.core.material.opacity = appear * fade;
+  }
+}
+
+const pins = [new Pin(), new Pin()];
+pins.forEach((p) => globe.add(p.root));
+let activePin = -1;
+
+function dropPinAt(clientX, clientY) {
+  const ndc = new THREE.Vector2((clientX / viewW) * 2 - 1, -(clientY / viewH) * 2 + 1);
+  const ray = new THREE.Raycaster();
+  ray.setFromCamera(ndc, camera);
+  globe.updateMatrixWorld();
+  const local = ray.ray.clone().applyMatrix4(globe.matrixWorld.clone().invert());
+  const hit = local.intersectSphere(new THREE.Sphere(new THREE.Vector3(), 1), new THREE.Vector3());
+  if (!hit) return;
+  const normal = hit.normalize();
+  if (activePin >= 0) pins[activePin].release();
+  activePin = (activePin + 1) % pins.length;
+  pins[activePin].drop(normal);
+  if (navigator.vibrate) navigator.vibrate(8);
+  const { lat, lng } = vec3ToLatLng(normal);
+  window.dispatchEvent(new CustomEvent('pin', { detail: { lat, lng } }));
+}
+
+// ---------------------------------------------------------------------------
+// View state and interaction
+// ---------------------------------------------------------------------------
+let viewW = 1;
+let viewH = 1;
+let fitDist = 3;
+let maxDist = 4.5;
+
+// start centred on lat 20, lng 10, drifting in from a wider view
+// Familiar globe orientation: north always stays up, like a physical globe.
+// The tilt is fixed in world space and the globe spins around its own axis,
+// so the axis never wobbles as you spin. Yaw is unlimited; pitch is clamped
+// so you can look down at the poles but never flip the world upside-down.
+// Composed as RX(pitch) * RY(yaw): drags rotate about the screen axes so the
+// surface always tracks the finger.
+const _home = latLngToVec3(20, 10);
+let yaw = Math.atan2(-_home.x, _home.z); // yaw facing lat 20, lng 10
+let pitch = 20 * DEG;
+let vYaw = 0.75;
+let vPitch = 0;
+const _UP = new THREE.Vector3(0, 1, 0);
+const _RIGHT = new THREE.Vector3(1, 0, 0);
+const _qy = new THREE.Quaternion();
+const _qx = new THREE.Quaternion();
+const _IDENTITY = new THREE.Quaternion();
+let dist = 6;
+let targetDist = 3;
+
+function computeFit() {
+  const aspect = viewW / viewH;
+  const vHalf = (FOV / 2) * DEG;
+  const hHalf = Math.atan(Math.tan(vHalf) * aspect);
+  const half = Math.min(vHalf, hHalf);
+  const fill = aspect < 1 ? 1.85 : 0.66; // globe radius as a fraction of the shorter half-extent; portrait fills past the screen edges like MapTap
+  return 1 / Math.sin(Math.atan(fill * Math.tan(half)));
+}
+
+function resize() {
+  viewW = window.innerWidth;
+  viewH = window.innerHeight;
+  renderer.setSize(viewW, viewH, false);
+  camera.aspect = viewW / viewH;
+  camera.updateProjectionMatrix();
+  const firstRun = fitDist === 3 && dist === 6;
+  fitDist = computeFit();
+  maxDist = fitDist * 1.55;
+  if (firstRun) {
+    targetDist = fitDist;
+    dist = fitDist * 1.45;
+  }
+  targetDist = clamp(targetDist, MIN_DIST, maxDist);
+  outlineMaterials.forEach((m) => m.resolution.set(viewW, viewH));
+}
+window.addEventListener('resize', resize);
+resize();
+
+// radians of rotation per css pixel so the surface tracks the finger
+const radPerPx = () => (2 * (dist - 1) * Math.tan((FOV / 2) * DEG)) / viewH;
+
+const pointers = new Map();
+let samples = [];
+let tap = null;
+let pinch = null;
+let lastInteraction = -1;
+let interacted = false;
+
+function markInteraction() {
+  lastInteraction = performance.now();
+  if (!interacted) {
+    interacted = true;
+    hud.classList.add('dim');
+  }
+}
+
+function centroid() {
+  let x = 0;
+  let y = 0;
+  for (const p of pointers.values()) { x += p.x; y += p.y; }
+  return { x: x / pointers.size, y: y / pointers.size };
+}
+
+function pinchSpan() {
+  const [a, b] = [...pointers.values()];
+  return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
+function resetAnchor() {
+  const c = centroid();
+  samples = [{ t: performance.now(), x: c.x, y: c.y }];
+  pinch = pointers.size >= 2 ? { span: pinchSpan(), dist: targetDist } : null;
+}
+
+canvas.addEventListener('pointerdown', (e) => {
+  if (e.pointerType === 'mouse' && e.button !== 0) return;
+  canvas.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  vYaw = vPitch = 0; // grab stops the spin
+  tap = pointers.size === 1 ? { x: e.clientX, y: e.clientY, t: performance.now() } : null;
+  resetAnchor();
+  canvas.classList.add('dragging');
+  markInteraction();
+});
+
+canvas.addEventListener('pointermove', (e) => {
+  const p = pointers.get(e.pointerId);
+  if (!p) return;
+  const prev = centroid();
+  p.x = e.clientX;
+  p.y = e.clientY;
+  const c = centroid();
+
+  if (tap && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > TAP_MAX_MOVE) tap = null;
+
+  const k = radPerPx();
+  yaw += (c.x - prev.x) * k;
+  pitch = clamp(pitch + (c.y - prev.y) * k, -PITCH_LIMIT, PITCH_LIMIT);
+
+  if (pinch && pointers.size >= 2) {
+    targetDist = clamp(pinch.dist * (pinch.span / Math.max(pinchSpan(), 1)), MIN_DIST, maxDist);
+  }
+
+  const now = performance.now();
+  samples.push({ t: now, x: c.x, y: c.y });
+  while (samples.length > 2 && now - samples[0].t > 100) samples.shift();
+  markInteraction();
+});
+
+function endPointer(e) {
+  if (!pointers.has(e.pointerId)) return;
+  pointers.delete(e.pointerId);
+  const now = performance.now();
+
+  if (pointers.size === 0) {
+    canvas.classList.remove('dragging');
+    if (tap && e.type === 'pointerup' && now - tap.t < TAP_MAX_MS) {
+      dropPinAt(e.clientX, e.clientY);
+    } else if (samples.length >= 2) {
+      const last = samples[samples.length - 1];
+      const first = samples[0];
+      const dt = last.t - first.t;
+      if (now - last.t < 60 && dt > 8) {
+        const k = radPerPx() * 1000;
+        vYaw = clamp(((last.x - first.x) / dt) * k, -MAX_SPIN, MAX_SPIN);
+        vPitch = clamp(((last.y - first.y) / dt) * k, -MAX_SPIN, MAX_SPIN);
+      }
+    }
+    tap = null;
+    samples = [];
+    pinch = null;
+  } else {
+    tap = null;
+    resetAnchor(); // re-anchor on the remaining finger so nothing jumps
+  }
+  markInteraction();
+}
+canvas.addEventListener('pointerup', endPointer);
+canvas.addEventListener('pointercancel', endPointer);
+canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+
+canvas.addEventListener(
+  'wheel',
+  (e) => {
+    e.preventDefault();
+    const unit = e.deltaMode === 1 ? 0.05 : e.ctrlKey ? 0.012 : 0.0015;
+    targetDist = clamp(targetDist * Math.exp(e.deltaY * unit), MIN_DIST, maxDist);
+    markInteraction();
+  },
+  { passive: false }
+);
+// iOS Safari page-zoom gestures
+['gesturestart', 'gesturechange', 'gestureend'].forEach((t) =>
+  document.addEventListener(t, (e) => e.preventDefault(), { passive: false })
+);
+
+// ---------------------------------------------------------------------------
+// Loop
+// ---------------------------------------------------------------------------
+const clock = new THREE.Clock();
+let elapsed = 0;
+let autoSpin = AUTO_SPIN;
+
+function frame() {
+  const dt = Math.min(clock.getDelta(), 1 / 20);
+  elapsed += dt;
+
+  if (pointers.size === 0) {
+    yaw += vYaw * dt;
+    pitch += vPitch * dt;
+    if (Math.abs(pitch) > PITCH_LIMIT) {
+      pitch = clamp(pitch, -PITCH_LIMIT, PITCH_LIMIT);
+      vPitch = 0;
+    }
+    const decay = Math.exp(-FRICTION * dt);
+    vYaw *= decay;
+    vPitch *= decay;
+
+    // gentle idle drift until a pin is placed; eases back in after a pause
+    const idle = lastInteraction < 0 || performance.now() - lastInteraction > 7000;
+    autoSpin = damp(autoSpin, idle && activePin < 0 ? AUTO_SPIN : 0, 0.8, dt);
+    yaw += autoSpin * dt;
+  }
+
+  dist = damp(dist, targetDist, 9, dt);
+  camera.position.set(0, 0, dist);
+  camera.lookAt(0, 0, 0);
+
+  _qy.setFromAxisAngle(_UP, yaw);
+  _qx.setFromAxisAngle(_RIGHT, pitch);
+  globe.quaternion.multiplyQuaternions(_qx, _qy); // RX(pitch) * RY(yaw): fixed tilt, spin about the globe's own axis
+  stars.quaternion.slerpQuaternions(_IDENTITY, globe.quaternion, 0.12);
+  stars.material.uniforms.uTime.value = elapsed;
+
+  if (landLoaded && landReveal < 1) {
+    landReveal = Math.min(1, landReveal + dt / 1.1);
+    const e = 1 - Math.pow(1 - landReveal, 3);
+    globeMat.uniforms.uLand.value = e;
+    outlineMaterials.forEach((m) => (m.opacity = m.userData.targetOpacity * e));
+  }
+
+  const pinScale = clamp((dist - 1) / (fitDist - 1), 0.22, 1.3);
+  pins.forEach((p) => p.update(dt, elapsed, pinScale));
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+
+window.__booted = true;
+requestAnimationFrame(() => {
+  canvas.classList.add('ready');
+  hud.classList.add('ready');
+  frame();
+});

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#03060f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="A daily geography game. 5 rounds, tap the globe, beat your friends." />
+  <meta property="og:title" content="Where on Earth?" />
+  <meta property="og:description" content="A daily geography game. 5 rounds, tap the globe, beat your friends." />
+  <meta property="og:image" content="https://where-on-earth-game.vercel.app/assets/og-v3.png" />
+  <meta property="og:url" content="https://where-on-earth-game.vercel.app" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Where on Earth?" />
+  <meta name="twitter:description" content="A daily geography game. 5 rounds, tap the globe, beat your friends." />
+  <meta name="twitter:image" content="https://where-on-earth-game.vercel.app/assets/og-v3.png" />
+  <title>Where on Earth? - Daily Geography Game</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/build/three.module.js",
+        "three/addons/": "./vendor/three/examples/jsm/",
+        "topojson-client": "./vendor/topojson-client/src/index.js"
+      }
+    }
+  </script>
+  <style>
+    html, body { margin: 0; height: 100%; background: #050a19; }
+    #boot {
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #050a19; color: #cfe6ff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      text-align: center; padding: 24px;
+    }
+    #boot .boot-title { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; color: #f1f8ff; margin: 0 0 12px; }
+    #boot .boot-spin {
+      width: 34px; height: 34px; margin: 0 0 16px; border-radius: 50%;
+      border: 3px solid rgba(127, 210, 244, 0.25); border-top-color: #7fd2f4;
+      animation: bootspin 0.9s linear infinite;
+    }
+    @keyframes bootspin { to { transform: rotate(360deg); } }
+    #boot-status { font-size: 13px; color: rgba(193, 224, 250, 0.65); margin: 0; min-height: 18px; }
+    #err {
+      position: fixed; top: 8px; left: 8px; right: 8px; z-index: 200;
+      background: rgba(90, 12, 12, 0.94); color: #ffd9d9;
+      font: 12px/1.5 -apple-system, system-ui, sans-serif;
+      padding: 10px 12px; border-radius: 10px; white-space: pre-wrap;
+    }
+    #err[hidden] { display: none; }
+  </style>
+  <style>
+    .mode-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      width: min(100%, 354px);
+      max-width: calc(100vw - 32px);
+      box-sizing: border-box;
+      margin: 20px auto 0;
+    }
+    .mode-buttons > button {
+      width: 100%;
+      min-width: 0;
+      min-height: 46px;
+      margin: 0;
+      padding: 0 10px;
+      border: 1px solid rgba(196,168,255,.45);
+      border-radius: 999px;
+      background: rgba(150,110,255,.14);
+      color: #e9e0ff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+      touch-action: manipulation;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .mode-buttons > button:active { transform: scale(.98); }
+    #play-button { background: linear-gradient(135deg, #ffd166, #ff9f6a); border: 0; color: #21152f; font-weight: 800; }
+
+    .survival-streak {
+      display: none;
+      margin: 10px 0 0;
+      color: #f6edff;
+      font-size: 17px;
+      font-weight: 850;
+      letter-spacing: .01em;
+      text-shadow: 0 0 20px rgba(170, 120, 255, .48);
+    }
+    body.survival .survival-streak { display: block; }
+    body.survival .round-header,
+    body.survival #reveal-card {
+      border-color: rgba(196, 168, 255, .52);
+      background: rgba(22, 10, 42, .88);
+    }
+    body.survival .round-meta span:first-child { color: #d7c4ff; }
+    body.survival #reveal-card .score-math { display: none; }
+    body.survival #next-button {
+      background: linear-gradient(135deg, #8057e8, #a06cff);
+    }
+    body.survival.survival-miss #next-button {
+      background: linear-gradient(135deg, #bd496d, #8b3158);
+    }
+
+    .survival-results-card {
+      width: min(100%, 354px);
+      max-width: calc(100vw - 32px);
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 26px 22px 22px;
+      text-align: center;
+    }
+    .survival-results-card .eyebrow { margin: 0 0 8px; color: #cdb6ff; }
+    .survival-results-card h2 { margin: 0; color: #fff; font-size: 36px; line-height: 1.08; }
+    .survival-results-card .survival-summary { margin: 9px 0 22px; color: rgba(226, 218, 246, .76); }
+    .survival-best-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0 0 22px;
+    }
+    .survival-best-card div {
+      padding: 14px 8px;
+      border: 1px solid rgba(196, 168, 255, .22);
+      border-radius: 15px;
+      background: rgba(151, 105, 255, .09);
+    }
+    .survival-best-card strong { display: block; color: #fff; font-size: 28px; line-height: 1; }
+    .survival-best-card span { display: block; margin-top: 5px; color: rgba(218, 205, 245, .65); font-size: 11px; font-weight: 750; text-transform: uppercase; letter-spacing: .08em; }
+    .survival-result-actions { display: grid; gap: 10px; }
+    .survival-result-actions button { width: 100%; margin: 0; min-height: 52px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+    .survival-result-actions .primary { border: 0; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #21152f; }
+    .survival-result-actions .secondary { border: 1px solid rgba(196,168,255,.4); background: transparent; color: #d9ccff; }
+
+    @media (max-width: 360px) {
+      .mode-buttons { gap: 6px; }
+      .mode-buttons > button { padding-inline: 7px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="boot">
+    <p class="boot-title">Where on Earth</p>
+    <div class="boot-spin"></div>
+    <p id="boot-status">Loading...</p>
+  </div>
+  <canvas id="globe"></canvas>
+  <main id="game" aria-live="polite">
+    <section id="start-screen" class="screen start-screen">
+      <p class="eyebrow">A daily globe game</p>
+      <h1>Where on Earth?</h1>
+      <p class="how-to">Find five places. Spin the globe, zoom in, then tap once to guess.</p>
+      <div class="mode-buttons" aria-label="Game modes">
+        <button id="play-button" type="button">Daily</button>
+        <button id="endless-button" type="button">Endless</button>
+        <button id="survival-button" type="button">Survival</button>
+      </div>
+      <p id="start-streak" class="streak"></p>
+    </section>
+
+    <section id="round-screen" class="screen round-screen" hidden>
+      <header class="round-header glass">
+        <div class="round-meta"><span id="round-number">Round 1 of 5</span><span id="round-weight">1×</span></div>
+        <p id="survival-streak" class="survival-streak" aria-live="polite">🔥 0 survived</p>
+        <h2 id="clue"></h2>
+        <p id="guess-hint">Tap the globe to lock in your guess</p>
+      </header>
+      <article id="reveal-card" class="reveal-card glass" hidden>
+        <div class="score-line"><div><span id="distance">0 km</span><small>away</small></div><div class="score-math"><span class="base"><b id="base-score">100</b>/100</span><span id="score-mult" class="mult">×1</span><strong id="round-score">+100</strong></div></div>
+        <img id="place-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
+        <p id="fact"></p>
+        <button id="next-button" class="primary">Next round</button>
+      </article>
+    </section>
+
+    <section id="results-screen" class="screen results-screen" hidden>
+      <div class="results-card glass">
+        <p class="eyebrow">Today’s result</p>
+        <h2><span id="total-score">0</span><small> /1000</small></h2>
+        <p id="result-streak" class="streak"></p>
+        <ol id="breakdown"></ol>
+<div class="results-actions">
+<button id="share-button" class="primary">Share</button>
+<button id="results-home" class="secondary">← Home</button>
+</div>
+        <p id="share-status" role="status"></p>
+      </div>
+    </section>
+
+    <section id="survival-results-screen" class="screen results-screen" hidden>
+      <div class="survival-results-card glass">
+        <p class="eyebrow">Survival run over</p>
+        <h2 id="survival-result-title">0 rounds survived</h2>
+        <p class="survival-summary">One miss over 150 km ends the run.</p>
+        <div class="survival-best-card">
+          <div><strong id="survival-final-streak">0</strong><span>Survived</span></div>
+          <div><strong id="survival-best-streak">0</strong><span>Best streak</span></div>
+        </div>
+        <div class="survival-result-actions">
+          <button id="survival-again" class="primary" type="button">Play again</button>
+          <button id="survival-home" class="secondary" type="button">← Home</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="hud">Drag to spin · Pinch to zoom</div>
+  <div id="travel-distance" aria-live="polite" hidden><span>0 km</span><small>away</small></div>
+  <div id="err" hidden></div>
+  <script>
+    window.__bootStage = 'page parsed';
+    window.__boot = function (stage) {
+      window.__bootStage = stage;
+      var d = document.getElementById('boot-status');
+      if (d) d.textContent = stage + '...';
+    };
+    window.__boot('starting');
+    window.__showErr = function (m) {
+      var d = document.getElementById('err');
+      if (d) { d.hidden = false; d.textContent += m + '\n'; }
+    };
+    window.addEventListener('error', function (e) {
+      window.__showErr('ERR: ' + (e.message || 'unknown') + ' @ ' + String(e.filename || '').split('/').pop());
+    }, true);
+    window.addEventListener('unhandledrejection', function (e) {
+      var r = e.reason;
+      window.__showErr('REJ: ' + (r && r.message ? r.message : String(r)));
+    });
+    setTimeout(function () {
+      if (!window.__booted) window.__showErr('not booted after 8s at stage: ' + window.__bootStage + ' (module or CDN import failed)');
+    }, 8000);
+  </script>
+  <script type="module" src="src/main.js?v=20261004c"></script>
+</body>
+</html>
