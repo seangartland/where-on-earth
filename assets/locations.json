@@ -2265,7 +2265,7 @@
     "fact": "A patrol of Japanese troops was refused entry to this Beijing bridge and a firefight began, and the Chinese still keep the old guardhouse as a memorial to the dead.",
     "lat": 39.8497,
     "lng": 116.2136,
-    "difficulty": 9,
+    "difficulty": 5,
     "short": "Marco Polo Bridge",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Lugouqiao-2014.jpg/500px-Lugouqiao-2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -5196,7 +5196,7 @@
     "fact": "Nearly all Easter Island moai were carved from volcanic tuff at this crater. Hundreds remain standing, lying, or partly cut from bedrock.",
     "lat": -27.1231,
     "lng": -109.2892,
-    "difficulty": 9,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Rano-Raraku-Panorama-2013.jpg/500px-Rano-Raraku-Panorama-2013.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -8296,7 +8296,7 @@
     "fact": "John Bardeen, Walter Brattain, and William Shockley's group developed the device at Bell Telephone Laboratories, launching the solid-state electronics era.",
     "lat": 40.6842,
     "lng": -74.4003,
-    "difficulty": 9,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Lucent_HQ.gif/500px-Lucent_HQ.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -8616,7 +8616,7 @@
     "fact": "The September 1969 attack occurred at a secluded shoreline spot on Lake Berryessa. A message on the victims' car door linked it to earlier shootings.",
     "lat": 38.5632,
     "lng": -122.2317,
-    "difficulty": 9,
+    "difficulty": 5,
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Zodiac-Killer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
   },
   {
@@ -8806,7 +8806,7 @@
     "fact": "Webb swam from Dover to the Calais coast in nearly 22 hours in 1875, battling currents and jellyfish without a wetsuit.",
     "lat": 50.9643,
     "lng": 1.8431,
-    "difficulty": 9,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Captain_Matthew_Webb.jpg/500px-Captain_Matthew_Webb.jpg"
   },
   {
@@ -9352,7 +9352,7 @@
     "fact": "Weifang calls itself the 'Kite Capital of the World' and hosts an international kite festival every April.",
     "lat": 36.71,
     "lng": 119.10194,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Temple_of_Heaven_20160323_01.jpg/500px-Temple_of_Heaven_20160323_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9442,7 +9442,7 @@
     "fact": "Yantai is a Shandong port on the Bohai Strait and one of China's oldest wine regions, home to the Changyu winery founded in 1892.",
     "lat": 37.47649,
     "lng": 121.44081,
-    "difficulty": 1,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg"
   },
   {
@@ -9522,7 +9522,7 @@
     "fact": "Taiyuan is Shanxi's capital and lies near the Jinci Temple complex, whose Song-dynasty halls are among China's oldest.",
     "lat": 37.86944,
     "lng": 112.56028,
-    "difficulty": 1,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Pingyao_Shilou_2013.08.25_07-01-33.jpg/500px-Pingyao_Shilou_2013.08.25_07-01-33.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9532,7 +9532,7 @@
     "fact": "Peshawar is one of South Asia's oldest cities and guards the approach to the Khyber Pass, with the Qissa Khwani 'Storytellers' Bazaar' at its heart.",
     "lat": 34.008,
     "lng": 71.57849,
-    "difficulty": 1,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Badshahi_Mosque_front_picture.jpg/500px-Badshahi_Mosque_front_picture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9542,7 +9542,7 @@
     "fact": "Zibo was the capital of the ancient state of Qi and became a viral food destination in 2023 for its DIY barbecue.",
     "lat": 36.79056,
     "lng": 118.06333,
-    "difficulty": 1,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Temple_of_Heaven_20160323_01.jpg/500px-Temple_of_Heaven_20160323_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9582,7 +9582,7 @@
     "fact": "Surat is the world's diamond-cutting capital, where most of the world's rough diamonds are cut and polished.",
     "lat": 21.19594,
     "lng": 72.83023,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/The_drainage_system_at_Lothal_2.JPG/500px-The_drainage_system_at_Lothal_2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9602,7 +9602,7 @@
     "fact": "Huai'an is a Grand Canal city in Jiangsu and the hometown of Zhou Enlai, China's first premier.",
     "lat": 33.58861,
     "lng": 119.01917,
-    "difficulty": 1,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -9612,7 +9612,7 @@
     "fact": "Guiyang is Guizhou's capital and has become one of China's big-data hubs, hosting data centers for Apple and other tech firms.",
     "lat": 26.58333,
     "lng": 106.71667,
-    "difficulty": 1,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -9622,7 +9622,7 @@
     "fact": "Bao'an is a large district of Shenzhen that holds Shenzhen Bao'an International Airport.",
     "lat": 22.55213,
     "lng": 113.88288,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -9712,7 +9712,7 @@
     "fact": "Shantou was one of China's first Special Economic Zones and is a center of Teochew culture, known for kung fu tea and beef hotpot.",
     "lat": 23.35489,
     "lng": 116.67876,
-    "difficulty": 1,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg"
   },
   {
@@ -13912,7 +13912,7 @@
     "fact": "Acapulco is a Pacific resort city famous for its La Quebrada cliff divers.",
     "lat": 16.84942,
     "lng": -99.90891,
-    "difficulty": 9,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/500px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13922,7 +13922,7 @@
     "fact": "Brampton is a fast-growing city near Toronto with one of Canada's largest South Asian communities.",
     "lat": 43.68341,
     "lng": -79.76633,
-    "difficulty": 9,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/CN_Tower_logo.png/500px-CN_Tower_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13952,7 +13952,7 @@
     "fact": "Coyoac\u00e1n is a leafy Mexico City borough where Frida Kahlo's Blue House stands.",
     "lat": 19.3467,
     "lng": -99.16174,
-    "difficulty": 9,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Estadio_Ol%C3%ADmpico_Universitario_-_2026_-_04.jpg/500px-Estadio_Ol%C3%ADmpico_Universitario_-_2026_-_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13982,7 +13982,7 @@
     "fact": "Hamilton is known as Canada's 'Steel City' and the 'Waterfall Capital of the World', with over 100 waterfalls.",
     "lat": 43.25011,
     "lng": -79.84963,
-    "difficulty": 9,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/CN_Tower_logo.png/500px-CN_Tower_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14072,7 +14072,7 @@
     "fact": "Ensenada is a Baja California port famous for fish tacos and the nearby Valle de Guadalupe wine country.",
     "lat": 31.87149,
     "lng": -116.60071,
-    "difficulty": 10,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Templo_Tijuana_Mexico_%28cropped%29.jpg/500px-Templo_Tijuana_Mexico_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14082,7 +14082,7 @@
     "fact": "Xochimilco is famous for its ancient canals and chinampas, where colorful trajinera boats carry mariachis and partygoers.",
     "lat": 19.25465,
     "lng": -99.10356,
-    "difficulty": 10,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/500px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14102,7 +14102,7 @@
     "fact": "Veracruz was Mexico's first Spanish port, founded by Hern\u00e1n Cort\u00e9s in 1519, and is known for its lively carnival.",
     "lat": 19.18095,
     "lng": -96.1429,
-    "difficulty": 10,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Mexico-Popocatepetl.jpg/500px-Mexico-Popocatepetl.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14122,7 +14122,7 @@
     "fact": "Nuevo Laredo is across the Rio Grande from Laredo, Texas, and is the busiest land port for US-Mexico trade.",
     "lat": 27.47629,
     "lng": -99.51639,
-    "difficulty": 10,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14212,7 +14212,7 @@
     "lat": 46.201667,
     "lng": 6.146944,
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Geneve_2005_001_Ork.ch.jpg",
-    "clue": "Geneva, France \ud83c\uddeb\ud83c\uddf7",
+    "clue": "Geneva, Switzerland \ud83c\udde8\ud83c\udded",
     "difficulty": 1
   },
   {
@@ -14233,7 +14233,7 @@
     "lng": 116.459767,
     "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/KAGAGAHAN_RIJANI.jpg",
     "clue": "Mount Rinjani, Indonesia \ud83c\uddee\ud83c\udde9",
-    "difficulty": 1
+    "difficulty": 5
   },
   {
     "id": "macau",
@@ -14402,7 +14402,7 @@
     "lat": 43.731111,
     "lng": 7.42,
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Panorama_von_Monaco-La_Turbie.jpg",
-    "clue": "Monaco, France \ud83c\uddeb\ud83c\uddf7",
+    "clue": "Monaco \ud83c\uddf2\ud83c\udde8",
     "difficulty": 1
   },
   {
@@ -14543,7 +14543,7 @@
     "lng": -105.964444,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Palace_of_the_Governors.jpg/3840px-Palace_of_the_Governors.jpg",
     "clue": "Santa Fe, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "savannah",
@@ -14663,7 +14663,7 @@
     "lng": 25.912222,
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/View_from_I-Tower_SE_20200712.jpg",
     "clue": "Where is Gaborone, the capital of Botswana?",
-    "difficulty": 1
+    "difficulty": 4
   },
   {
     "id": "mount-etna",
@@ -14773,7 +14773,7 @@
     "lng": 29.5,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Danube_Delta_ESA23450088.jpeg/3840px-Danube_Delta_ESA23450088.jpeg",
     "clue": "Danube Delta, Romania \ud83c\uddf7\ud83c\uddf4",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "lake-ohrid",
@@ -14783,7 +14783,7 @@
     "lng": 20.72,
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Lake_Ohrid%2C_Macedonia-Albania_viewed_from_a_NASA_satellite.jpg",
     "clue": "Lake Ohrid, North Macedonia \ud83c\uddf2\ud83c\uddf0",
-    "difficulty": 1
+    "difficulty": 5
   },
   {
     "id": "mount-ararat",
@@ -14813,7 +14813,7 @@
     "lng": 22.9,
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Okavango_Delta%2C_Botswana1.jpg",
     "clue": "Okavango Delta, Botswana \ud83c\udde7\ud83c\uddfc",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "mount-nemrut",
@@ -18772,7 +18772,7 @@
     "fact": "Bull Run is a creek in northern Virginia, the site of the first major battle of the US Civil War in 1861.",
     "lat": 38.78373,
     "lng": -77.52055,
-    "difficulty": 10,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Forbidden_City_-_View_from_Coal_Hill.jpg/500px-The_Forbidden_City_-_View_from_Coal_Hill.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
