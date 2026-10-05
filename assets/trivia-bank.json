@@ -1,0 +1,457 @@
+[
+  {
+    "id": "mount-kilimanjaro",
+    "clue": "Where is Africa's tallest mountain?",
+    "category": "moment",
+    "lat": -3.0674,
+    "lng": 37.3556,
+    "fact": "This free-standing volcanic massif in Tanzania rises straight from savanna plains to a snow-capped summit at 5,895 meters.",
+    "difficulty": 3,
+    "short": "Mount Kilimanjaro",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Kilimanjaro_from_Amboseli.jpg/500px-Kilimanjaro_from_Amboseli.jpg"
+  },
+  {
+    "id": "point-nemo",
+    "clue": "Where is the point in the ocean farthest from any land?",
+    "category": "moment",
+    "lat": -48.8767,
+    "lng": -123.3933,
+    "fact": "Named after Jules Verne's submarine captain, this spot in the South Pacific is so remote that astronauts in orbit are sometimes the closest humans to it.",
+    "difficulty": 9,
+    "short": "Point Nemo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Distancia_a_la_costa.png/500px-Distancia_a_la_costa.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "mcmurdo-station",
+    "clue": "Where is the largest research station on the coldest continent?",
+    "category": "moment",
+    "lat": -77.8419,
+    "lng": 166.6863,
+    "fact": "This US Antarctic base sits on volcanic rock and can swell to over 1,000 people in the austral summer.",
+    "difficulty": 9,
+    "short": "McMurdo Station",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/McMurdo_Station_From_The_Top_Of_Observation_Hill.jpg/500px-McMurdo_Station_From_The_Top_Of_Observation_Hill.jpg"
+  },
+  {
+    "id": "pitcairn-island",
+    "clue": "Where did the mutineers of HMS Bounty hide from the Royal Navy?",
+    "category": "moment",
+    "lat": -25.066,
+    "lng": -130.1015,
+    "fact": "This tiny Pacific island's roughly 40 residents are mostly descended from the 1789 Bounty mutineers and their Tahitian companions.",
+    "difficulty": 10,
+    "short": "Pitcairn Island",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Pitcairnsatellite.png/500px-Pitcairnsatellite.png"
+  },
+  {
+    "id": "mount-everest-summit",
+    "clue": "Where does the world's highest mountain pierce the sky?",
+    "fact": "At 8,849 m Everest is the Nepal-China border peak, and because of the border dispute Nepal's own maps show it as 8,586 m, which makes the country's highest peak the world's 14th.",
+    "lat": 27.9881,
+    "lng": 86.925,
+    "difficulty": 5,
+    "short": "Mount Everest",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg/500px-Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "gurudongmar-lake",
+    "clue": "Where is a glacial lake so high that legends say the goddess Nanda Devi appeared in it?",
+    "fact": "In Ladakh's upper Bhagirathi valley the lake sits in a basin around 5,050 m, where pilgrims once walked up to see the reflection of the goddess and the surrounding peaks.",
+    "lat": 32.2417,
+    "lng": 78.8067,
+    "difficulty": 9,
+    "short": "Gurudongmar Lake",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Gurudongmar_Lake_Sikkim%2C_India_%28edit%29.jpg/500px-Gurudongmar_Lake_Sikkim%2C_India_%28edit%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "acropolis-athens",
+    "clue": "Where does the Parthenon still guard the marble hill above the ancient city?",
+    "fact": "The Parthenon's corner columns are 2.4% thicker than the middle ones and lean inward, an optical correction that has kept them looking upright for 2,400 years.",
+    "lat": 37.9715,
+    "lng": 23.7257,
+    "difficulty": 2,
+    "short": "Acropolis of Athens",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg/500px-1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "prague-astronomical-clock",
+    "clue": "Where does the 600-year-old clock show where the sun and the moon should be?",
+    "fact": "Prague's astronomical clock has run since 1410, and its slow zodiac disc turns once for the 365 days of the year it keeps.",
+    "lat": 50.0871,
+    "lng": 14.4207,
+    "difficulty": 6,
+    "short": "Prague Astronomical Clock",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Astronomical_Clock_%288341899828%29.jpg/500px-Astronomical_Clock_%288341899828%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "dubrovnik-city-walls",
+    "clue": "Where do you climb the fortified circuit of stone walls around a walled Adriatic republic?",
+    "fact": "UNESCO's inscription for Dubrovnik calls it a city built and defended over three centuries, and the walls enclose an old town barely 300 metres across.",
+    "lat": 42.6412,
+    "lng": 18.1077,
+    "difficulty": 6,
+    "short": "Dubrovnik Walls",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Dubrovnik_s_24.jpg/500px-Dubrovnik_s_24.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "strokkur-geyser",
+    "clue": "Where does a geyser throw boiling water twenty metres up every few minutes?",
+    "fact": "Strokkur erupts every five to ten minutes, and beside it the Great Geysir, once the most famous on earth, erupted just once in modern times, for four days in 2018.",
+    "lat": 64.3107,
+    "lng": -20.3024,
+    "difficulty": 7,
+    "short": "Strokkur",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Strokkur_Geysir_%2814135319580%29_%28cropped%29.jpg/500px-Strokkur_Geysir_%2814135319580%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "alcazar-of-segovia",
+    "short": "Alcazar of Segovia",
+    "clue": "Where is the castle whose turrets are modelled on an inverted ship's hull?",
+    "fact": "Begun in the 12th century and never finished, its slate spires were reputedly shaped to resemble the hulls of Castilian galleons.",
+    "lat": 40.9526,
+    "lng": -4.1281,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Panor%C3%A1mica_Oto%C3%B1o_Alc%C3%A1zar_de_Segovia.jpg/500px-Panor%C3%A1mica_Oto%C3%B1o_Alc%C3%A1zar_de_Segovia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "plaza-de-espana-seville",
+    "short": "Plaza de Espana, Seville",
+    "clue": "Where is the semicircular plaza decorated with tiled alcoves for each of the country's provinces?",
+    "fact": "Built for the 1929 Ibero-American Exposition, its alcoves were nicknamed seating alcoves because young men used them to talk to their girlfriends.",
+    "lat": 37.3921,
+    "lng": -5.9818,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Plaza_de_Espa%C3%B1a_%28Sevilla%29_-_01.jpg/500px-Plaza_de_Espa%C3%B1a_%28Sevilla%29_-_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "cesky-krumlov-castle",
+    "short": "Cesky Krumlov Castle",
+    "clue": "Where is the castle whose interiors feature trompe-l\u2019oeil landscapes above a bend in the Vltava?",
+    "fact": "Its Baroque theatre is one of the few still working today, and the town is a UNESCO World Heritage Site.",
+    "lat": 48.8127,
+    "lng": 14.3149,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Blick_auf_das_Stadtzentrum_von_Krumau_%282026%29.jpg/500px-Blick_auf_das_Stadtzentrum_von_Krumau_%282026%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "anakena-beach",
+    "short": "Anakena, Rapa Nui",
+    "clue": "Where is the white-sand beach with palm groves and moai on Easter Island?",
+    "fact": "Anakena was the island's only sandy beach, and the moai facing inland are thought to mark the burial site of the first arriving king.",
+    "lat": -27.15,
+    "lng": -109.4333,
+    "difficulty": 7,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Easter_island_and_south_america.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": "penicillin-st-marys-london",
+    "short": "St Mary's Hospital, London",
+    "clue": "Where did Alexander Fleming discover penicillin after noticing bacteria would not grow near a mold?",
+    "fact": "Fleming made the observation in 1928 in his laboratory at St Mary's Hospital. The room has since been reconstructed as the Alexander Fleming Laboratory Museum.",
+    "lat": 51.5172,
+    "lng": -0.1738,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/St_Mary%27s_Hospital.jpg/500px-St_Mary%27s_Hospital.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "chicago-pile-one-stagg-field",
+    "short": "Henry Moore's Nuclear Energy",
+    "clue": "Where did Enrico Fermi's team produce the first controlled, self-sustaining nuclear chain reaction?",
+    "fact": "Chicago Pile-1 went critical beneath the stands of the University of Chicago's Stagg Field on December 2, 1942. Henry Moore's sculpture now marks the site.",
+    "lat": 41.7921,
+    "lng": -87.6016,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Henry_Moore_Nuclear_Energy_%21.JPG/500px-Henry_Moore_Nuclear_Energy_%21.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "first-atom-split-manchester",
+    "short": "Rutherford Building, Manchester",
+    "clue": "Where did Ernest Rutherford's team first split the atomic nucleus in 1917?",
+    "fact": "At the University of Manchester, Rutherford bombarded nitrogen with alpha particles and identified emitted hydrogen nuclei, the first artificial transmutation of an element.",
+    "lat": 53.467,
+    "lng": -2.2339,
+    "difficulty": 8,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Sir_Ernest_Rutherford_LCCN2014716719_-_restoration1.jpg/500px-Sir_Ernest_Rutherford_LCCN2014716719_-_restoration1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "pulsar-discovery-mullard",
+    "short": "Mullard Radio Astronomy Observatory",
+    "clue": "Where did Jocelyn Bell Burnell first detect the repeating radio signals of a pulsar?",
+    "fact": "In 1967 Bell Burnell spotted the signal in chart-recorder data from Cambridge's Interplanetary Scintillation Array. The source was briefly nicknamed LGM-1 before being recognized as a neutron star.",
+    "lat": 52.1674,
+    "lng": 0.037,
+    "difficulty": 9,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/One-Mile_Telescope.jpg/500px-One-Mile_Telescope.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "first-heart-transplant-groote-schuur",
+    "short": "Groote Schuur Hospital",
+    "clue": "Where did Christiaan Barnard perform the first human-to-human heart transplant?",
+    "fact": "The operation took place on December 3, 1967, at Cape Town's Groote Schuur Hospital. Its original operating theatres are preserved as the Heart of Cape Town Museum.",
+    "lat": -33.9415,
+    "lng": 18.4608,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Groote_Schuur_Hospital%2C_Observatory%2C_Cape_Town%2C_Western_Cape._05.JPG/500px-Groote_Schuur_Hospital%2C_Observatory%2C_Cape_Town%2C_Western_Cape._05.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "first-telephone-call-boston",
+    "short": "109 Court Street, Boston",
+    "clue": "Where did Alexander Graham Bell make the first intelligible telephone call, asking Watson to come to him?",
+    "fact": "Bell spoke the famous request in his Boston laboratory on March 10, 1876. The original building is gone, but a plaque near the site records the call.",
+    "lat": 42.3611,
+    "lng": -71.0606,
+    "difficulty": 7,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Alexander_Graham_Bell.jpg/500px-Alexander_Graham_Bell.jpg"
+  },
+  {
+    "id": "first-film-screening-grand-cafe",
+    "short": "Salon Indien du Grand Caf\u00e9",
+    "clue": "Where did the Lumi\u00e8re brothers stage the first commercial public film screening in 1895?",
+    "fact": "Paying spectators watched ten short films in the basement Salon Indien on Boulevard des Capucines. The site is now occupied by H\u00f4tel Scribe Paris Op\u00e9ra.",
+    "lat": 48.87,
+    "lng": 2.3298,
+    "difficulty": 7,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Cin%C3%A9matographe_Lumi%C3%A8re.jpg/500px-Cin%C3%A9matographe_Lumi%C3%A8re.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "first-traffic-signal-london",
+    "short": "Parliament Square Traffic Signal Site",
+    "clue": "Where was the world's first traffic signal installed in 1868?",
+    "fact": "The gas-lit semaphore stood outside the Houses of Parliament. It operated for only weeks before a gas leak caused an explosion that injured its police operator.",
+    "lat": 51.5008,
+    "lng": -0.1255,
+    "difficulty": 9,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/White_Horse_Tavern_NYWTS.jpg/500px-White_Horse_Tavern_NYWTS.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "beatles-rooftop-concert",
+    "short": "3 Savile Row",
+    "clue": "Where did the Beatles play their final public performance on a rooftop?",
+    "fact": "The unannounced January 1969 concert atop Apple Corps headquarters drew crowds into the street before police brought it to an end.",
+    "lat": 51.5104,
+    "lng": -0.1401,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/The_Beatles_plaque_on_3_Savile_Row.jpg/500px-The_Beatles_plaque_on_3_Savile_Row.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "tank-man-changan-avenue",
+    "short": "Chang'an Avenue Tank Man Site",
+    "clue": "Where did an unidentified man stand in front of a column of tanks after the 1989 Tiananmen crackdown?",
+    "fact": "The confrontation occurred on Chang'an Avenue near the Beijing Hotel, just east of Tiananmen Square. Photographers in the hotel recorded the scene from above.",
+    "lat": 39.9067,
+    "lng": 116.4041,
+    "difficulty": 5,
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chang'an_avenue_in_Beijing.jpg"
+  },
+  {
+    "id": "valdivia-earthquake-epicenter",
+    "short": "1960 Valdivia Earthquake Epicenter",
+    "clue": "Where was the epicenter of the most powerful earthquake ever instrumentally recorded?",
+    "fact": "The magnitude 9.5 Great Chilean earthquake struck offshore near Valdivia on May 22, 1960. Its tsunami crossed the Pacific and caused deaths as far away as Hawaii and Japan.",
+    "lat": -38.143,
+    "lng": -73.407,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Valdivia_after_earthquake%2C_1960.jpg/500px-Valdivia_after_earthquake%2C_1960.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "hinterkaifeck-murders",
+    "short": "Hinterkaifeck Farm Site",
+    "clue": "Where were six residents of an isolated farm murdered in an enduring 1922 mystery?",
+    "fact": "The killer apparently remained at Hinterkaifeck for days, feeding livestock and using the kitchen. The farm was demolished the following year and the crime remains unsolved.",
+    "lat": 48.5947,
+    "lng": 11.3233,
+    "difficulty": 10,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Hinterkaifeck-Hof_%28cropped%29.jpg/500px-Hinterkaifeck-Hof_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "isdal-woman-discovery",
+    "short": "Isdalen Death Valley",
+    "clue": "Where was the unidentified 'Isdal Woman' found dead in 1970 with labels removed from her belongings?",
+    "fact": "Hikers found the burned body in a remote valley near Bergen. False identities, coded notes, and unexplained travels have fueled decades of speculation.",
+    "lat": 60.3607,
+    "lng": 5.359,
+    "difficulty": 10,
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Isdalen.JPG"
+  },
+  {
+    "id": "rumble-in-the-jungle",
+    "short": "Stade Tata Rapha\u00ebl",
+    "clue": "Where did Muhammad Ali use the rope-a-dope to defeat George Foreman in the 'Rumble in the Jungle'?",
+    "fact": "Ali knocked out the previously unbeaten champion in Kinshasa in 1974. The bout began before dawn so it could air during U.S. prime time.",
+    "lat": -4.3372,
+    "lng": 15.3075,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Stade_Tata_Rapha%C3%ABl_lors_d%27un_de_l%27AS_V.CLUB.jpg/500px-Stade_Tata_Rapha%C3%ABl_lors_d%27un_de_l%27AS_V.CLUB.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "first-four-minute-mile-iffley",
+    "short": "Iffley Road Track",
+    "clue": "Where did Roger Bannister run the first sub-four-minute mile?",
+    "fact": "Bannister ran 3:59.4 on May 6, 1954, paced by Chris Brasher and Chris Chataway at Oxford University's track.",
+    "lat": 51.7407,
+    "lng": -1.239,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/The_Grandstand_at_the_Sir_Roger_Bannister_running_track.jpg/500px-The_Grandstand_at_the_Sir_Roger_Bannister_running_track.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "beamon-long-jump-1968",
+    "short": "Estadio Ol\u00edmpico Universitario",
+    "clue": "Where did Bob Beamon make his astonishing 8.90-meter long jump at the 1968 Olympics?",
+    "fact": "Beamon exceeded the existing world record by 55 centimeters, forcing officials to use a steel tape because the optical measuring device could not reach the mark.",
+    "lat": 19.3319,
+    "lng": -99.1922,
+    "difficulty": 7,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Estadio_Ol%C3%ADmpico_Universitario_-_2026_-_04.jpg/500px-Estadio_Ol%C3%ADmpico_Universitario_-_2026_-_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "archduke-assassination-sarajevo",
+    "short": "Latin Bridge Corner",
+    "clue": "Where was Archduke Franz Ferdinand assassinated in the event that helped trigger World War I?",
+    "fact": "Gavrilo Princip shot the archduke and Sophie beside Sarajevo's Latin Bridge on June 28, 1914, after an earlier bomb attempt failed.",
+    "lat": 43.8577,
+    "lng": 18.4288,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Bergama_-_AKRAPOL_-_panoramio_%284%29.jpg/500px-Bergama_-_AKRAPOL_-_panoramio_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "triangle-shirtwaist-fire",
+    "short": "Brown Building",
+    "clue": "Where did the 1911 Triangle Shirtwaist Factory fire kill 146 garment workers?",
+    "fact": "Many workers could not escape the upper floors of the Manhattan factory because an exit door was locked. The disaster accelerated workplace safety reforms.",
+    "lat": 40.73,
+    "lng": -73.9955,
+    "difficulty": 6,
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Asch-brown-triangle-shirtwaist-fire-building.JPG"
+  },
+  {
+    "id": "bhopal-gas-disaster-plant",
+    "short": "Union Carbide Bhopal Plant",
+    "clue": "Where did a toxic gas leak cause one of history's deadliest industrial disasters in 1984?",
+    "fact": "Methyl isocyanate escaped from a Union Carbide pesticide plant and drifted over nearby neighborhoods. Thousands died and survivors continue to suffer health effects.",
+    "lat": 23.2819,
+    "lng": 77.4102,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Union_Carbide_pesticide_factory%2C_Bhopal%2C_India%2C_1985.jpg/500px-Union_Carbide_pesticide_factory%2C_Bhopal%2C_India%2C_1985.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "halifax-explosion-narrows",
+    "short": "Halifax Narrows",
+    "clue": "Where did two ships collide in 1917, causing the largest human-made explosion before the atomic age?",
+    "fact": "The munitions ship Mont-Blanc exploded after colliding with Imo in Halifax Harbour. The blast devastated Richmond and killed nearly 2,000 people.",
+    "lat": 44.673,
+    "lng": -63.603,
+    "difficulty": 7,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Halifax_Explosion_blast_cloud_restored.jpg/500px-Halifax_Explosion_blast_cloud_restored.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "fall-of-berlin-wall-bornholmer",
+    "short": "Bornholmer Stra\u00dfe Crossing",
+    "clue": "Where did border guards first open a checkpoint to crowds on November 9, 1989?",
+    "fact": "Under mounting pressure and without clear orders, the Bornholmer Stra\u00dfe guards raised the barrier. It became the first border crossing breached that night.",
+    "lat": 52.5549,
+    "lng": 13.3984,
+    "difficulty": 7,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Bundesarchiv_Bild_183-1989-1118-018%2C_Berlin%2C_Grenz%C3%BCbergang_Bornholmer_Stra%C3%9Fe.jpg/500px-Bundesarchiv_Bild_183-1989-1118-018%2C_Berlin%2C_Grenz%C3%BCbergang_Bornholmer_Stra%C3%9Fe.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "munich-olympic-hostage-site",
+    "short": "Connollystra\u00dfe 31",
+    "clue": "Where were members of Israel's Olympic team taken hostage during the 1972 Summer Games?",
+    "fact": "Black September gunmen entered the Israeli team's residence in the Olympic Village. The crisis ultimately left eleven Israeli team members and a West German police officer dead.",
+    "lat": 48.1793,
+    "lng": 11.5492,
+    "difficulty": 7,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Connollystra%C3%9Fe_GO-2.jpg/500px-Connollystra%C3%9Fe_GO-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "ali-olympic-cauldron-atlanta",
+    "short": "Centennial Olympic Stadium Cauldron",
+    "clue": "Where did Muhammad Ali light the Olympic cauldron in a surprise appearance at the 1996 opening ceremony?",
+    "fact": "Ali's visibly trembling hands made the moment especially powerful. The cauldron structure survives near the site of the former Centennial Olympic Stadium.",
+    "lat": 33.7354,
+    "lng": -84.3899,
+    "difficulty": 8,
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1996_Atlanta_Summer_Olympics_cauldron_0463.jpg"
+  },
+  {
+    "id": "freedom-speech-lincoln-memorial",
+    "short": "Lincoln Memorial Steps",
+    "clue": "Where did Martin Luther King Jr. deliver his 'I Have a Dream' speech in 1963?",
+    "fact": "King addressed the March on Washington from the Lincoln Memorial steps before an estimated 250,000 people. An inscription marks where he stood.",
+    "lat": 38.8893,
+    "lng": -77.0502,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Lincoln_Memorial_east_side.JPG/500px-Lincoln_Memorial_east_side.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "first-oscar-ceremony-roosevelt",
+    "short": "Hollywood Roosevelt Hotel",
+    "clue": "Where was the first Academy Awards ceremony held in 1929?",
+    "fact": "The inaugural Oscars were presented during a private dinner in the hotel's Blossom Room. The ceremony lasted only about fifteen minutes.",
+    "lat": 34.1012,
+    "lng": -118.3418,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Hollywood_Roosevelt_Hotel_2015.jpg/500px-Hollywood_Roosevelt_Hotel_2015.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "dallol-hydrothermal-field",
+    "short": "Dallol",
+    "clue": "Where is this otherworldly hydrothermal field of sulphur, salt and vivid mineral pools in the Danakil Depression?",
+    "fact": "Dallol lies below sea level, where geothermal brines create intensely coloured salt formations in one of Earth's hottest regions.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/ET_Afar_asv2018-01_img55_Dallol.jpg/500px-ET_Afar_asv2018-01_img55_Dallol.jpg",
+    "lat": 14.2417,
+    "lng": 40.3,
+    "difficulty": 7,
+    "continent": "Africa"
+  },
+  {
+    "id": "xian-cn",
+    "short": "Xi\u2019an",
+    "clue": "Which ancient Silk Road capital preserves a vast city wall and guards the terracotta army of China\u2019s first emperor?",
+    "fact": "Xi'an was the eastern starting point of the Silk Road, and the Terracotta Army of China's first emperor lies just outside the city.",
+    "lat": 34.25833,
+    "lng": 108.92861,
+    "difficulty": 1,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/500px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "madinah-sa",
+    "short": "Madinah",
+    "clue": "Which holy city contains the Prophet\u2019s Mosque and the green dome marking Muhammad\u2019s burial place?",
+    "fact": "Medina is Islam's second-holiest city, home to the Prophet's Mosque, where Muhammad is buried.",
+    "lat": 24.46861,
+    "lng": 39.61417,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Al-Masjid_An-Nabawi_%28Bird%27s_Eye_View%29.jpg/500px-Al-Masjid_An-Nabawi_%28Bird%27s_Eye_View%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "hong-kong-island",
+    "short": "Hong Kong Island",
+    "clue": "Which island holds the Central skyscrapers, Victoria Peak, and the original British settlement of the territory?",
+    "fact": "Hong Kong Island is where the British first settled in 1841, and it holds Victoria Peak and the famous skyline of Central.",
+    "lat": 22.26302,
+    "lng": 114.18419,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
+  },
+  {
+    "id": "pest",
+    "short": "Pest",
+    "clue": "Which flat eastern half of a Danube capital holds the Parliament building, facing Buda across the river?",
+    "fact": "Pest is the eastern half of Budapest, home to the Hungarian Parliament Building and the grand thermal Sz\u00e9chenyi Baths.",
+    "lat": 47.5,
+    "lng": 19.08333,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Auyan_Tepui_01.JPG/500px-Auyan_Tepui_01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": "ulan-bator",
+    "short": "Ulan Bator",
+    "clue": "Which capital, the world's coldest, has a statue of Genghis Khan on its main square?",
+    "fact": "Ulaanbaatar is Mongolia's capital and the coldest national capital in the world, home to nearly half the country's population.",
+    "lat": 47.90771,
+    "lng": 106.88324,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Moscow_Kremlin_%288281675670%29.jpg/500px-Moscow_Kremlin_%288281675670%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  }
+]
