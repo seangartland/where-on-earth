@@ -157,7 +157,7 @@
     <section id="start-screen" class="screen start-screen">
       <p class="eyebrow">A daily globe game</p>
       <h1>Where on Earth?</h1>
-      <p class="how-to">Find five places. Spin the globe, zoom in, then tap once to guess.</p>
+      <p class="how-to">Find five places. Spin the globe, zoom in, tap to place your pin, then lock it in.</p>
       <div class="mode-buttons" aria-label="Game modes">
         <button id="play-button" type="button">Daily</button>
         <button id="endless-button" type="button">Endless</button>
@@ -171,9 +171,10 @@
         <div class="round-meta"><span id="round-number">Round 1 of 5</span><span id="round-weight">1×</span></div>
         <p id="survival-streak" class="survival-streak" aria-live="polite">🔥 0 survived</p>
         <h2 id="clue"></h2>
-        <p id="guess-hint">Hold on your guess until the ring fills</p>
+        <p id="guess-hint">Tap the globe to place your pin</p>
         <p id="reveal-name" class="reveal-name"></p>
       </header>
+      <button id="lock-button" class="primary lock-button" type="button" hidden>Lock in guess</button>
       <p id="reveal-pill" class="reveal-pill" hidden></p>
       <article id="reveal-card" class="reveal-sheet glass" hidden>
         <div id="peek-bar" class="peek-bar" role="button" tabindex="0" aria-expanded="false" aria-controls="sheet-content">

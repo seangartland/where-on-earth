@@ -28,102 +28,15 @@ const PITCH_LIMIT = 85 * DEG; // look down at the poles, never flip north-down
 const FRICTION = 2.1; // velocity decay per second (exponential)
 const MAX_SPIN = 7; // rad/s
 const TAP_MAX_MS = 350;
-const HOLD_MS = 600; // hold duration to lock in a guess
-const HOLD_MAX_MOVE = 12; // px movement allowed during hold
+const GUESS_TAP_MAX_MS = 700; // a careful placement tap may linger longer than a review tap
+const LOCK_ARM_MS = 350; // the Lock in button ignores taps this soon after it appears
 
-// Hold-to-confirm overlay. The thumb hides both the exact press point and
-// anything drawn under it, so (like the iOS text magnifier) a loupe floats
-// above the finger: a magnified view of the globe under the thumb with a
-// crosshair on the exact spot, ringed by the hold progress. Ticks around the
-// press point itself peek out past the thumb's edges.
-const LOUPE_SIZE = 96; // css px, magnified view diameter
-const LOUPE_ZOOM = 2;
-const LOUPE_LIFT = 112; // css px from the finger to the loupe centre
-const LOUPE_RING_C = 2 * Math.PI * 54; // progress circle circumference
-const holdOverlay = document.createElement('div');
-holdOverlay.id = 'hold-confirm';
-holdOverlay.hidden = true;
-holdOverlay.innerHTML = `
-  <div class="hold-target"><i></i><i></i><i></i><i></i></div>
-  <div class="hold-loupe">
-    <canvas width="${LOUPE_SIZE * 2}" height="${LOUPE_SIZE * 2}"></canvas>
-    <span class="hold-cross"></span>
-    <svg viewBox="0 0 116 116">
-      <circle cx="58" cy="58" r="54" class="hold-track"/>
-      <circle cx="58" cy="58" r="54" class="hold-progress" stroke-dasharray="${LOUPE_RING_C}"
-        stroke-dashoffset="${LOUPE_RING_C}" transform="rotate(-90 58 58)"/>
-    </svg>
-  </div>
-`;
-document.body.appendChild(holdOverlay);
-const holdTarget = holdOverlay.querySelector('.hold-target');
-const holdLoupe = holdOverlay.querySelector('.hold-loupe');
-const loupeCanvas = holdOverlay.querySelector('canvas');
-const loupeCtx = loupeCanvas.getContext('2d');
-const holdProgress = holdOverlay.querySelector('.hold-progress');
-
-// One gesture guesses: press the globe and the ring starts filling at once, the
-// pin drops under the finger after HOLD_PIN_MS, and a full HOLD_MS locks it in.
-// Moving past HOLD_MAX_MOVE (a drag), a second finger (a pinch) or letting go
-// early cancels it and takes the pin back.
-const HOLD_PIN_MS = 150;
-let hold = null; // { id, x, y, t, normal, pinned, raf }
-
-function placeHoldRing(x, y) {
-  holdTarget.style.transform = `translate(${x}px, ${y}px)`;
-  // Loupe above the finger; with no room above (finger near the top), beside
-  // it on the side away from the nearer screen edge.
-  const r = LOUPE_SIZE / 2 + 10;
-  const w = window.innerWidth;
-  let lx = x;
-  let ly = y - LOUPE_LIFT;
-  if (ly - r < 4) {
-    lx = x + (x > w / 2 ? -LOUPE_LIFT : LOUPE_LIFT);
-    ly = Math.max(y, r + 4);
-  }
-  lx = clamp(lx, r + 4, w - r - 4);
-  holdLoupe.style.transform = `translate(${lx}px, ${ly}px)`;
-}
-
-function showHoldRing(x, y) {
-  holdOverlay.hidden = false;
-  placeHoldRing(x, y);
-  holdProgress.style.strokeDashoffset = String(LOUPE_RING_C);
-}
-
-function updateHoldRing(progress) {
-  holdProgress.style.strokeDashoffset = String(LOUPE_RING_C * (1 - progress));
-}
-
-function hideHoldRing() {
-  holdOverlay.hidden = true;
-}
-
-// Copies the patch of globe under the finger into the loupe. Runs straight
-// after renderer.render in the same frame, while the WebGL drawing buffer is
-// still readable (no preserveDrawingBuffer needed).
-function drawHoldLoupe() {
-  const p = pointers.get(hold.id);
-  if (!p) return;
-  placeHoldRing(p.x, p.y);
-  const rect = canvas.getBoundingClientRect();
-  const sx = canvas.width / rect.width;
-  const sy = canvas.height / rect.height;
-  const span = LOUPE_SIZE / LOUPE_ZOOM;
-  loupeCtx.fillStyle = '#020409';
-  loupeCtx.fillRect(0, 0, loupeCanvas.width, loupeCanvas.height);
-  loupeCtx.drawImage(
-    canvas,
-    (p.x - rect.left - span / 2) * sx,
-    (p.y - rect.top - span / 2) * sy,
-    span * sx,
-    span * sy,
-    0,
-    0,
-    loupeCanvas.width,
-    loupeCanvas.height,
-  );
-}
+// Guessing is two steps: tap the globe to place (or move) the pin, then press
+// Lock in. The button sits in a fixed spot in the thumb zone, away from the
+// pin, so the finger never hides the placement and a stray tap can't confirm.
+const lockButton = document.getElementById('lock-button');
+let pendingGuess = null; // { lat, lng } of the placed, unconfirmed pin
+let lockArmedAt = 0;
 
 function setGuessHint(text, nudge = false) {
   const hint = document.getElementById('guess-hint');
@@ -132,48 +45,26 @@ function setGuessHint(text, nudge = false) {
   hint.style.color = nudge ? '#ffc76a' : '';
 }
 
-function startHold(e) {
-  const normal = globeNormalAt(e.clientX, e.clientY);
-  if (!normal) return; // pressed on space, not the globe
-  // Timers own the pin drop and the lock-in so a janky frame can't stretch the
-  // hold; rAF only paints the ring.
-  hold = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now(), normal, pinned: false, raf: 0, timers: [] };
-  showHoldRing(e.clientX, e.clientY);
-  const tick = () => {
-    if (!hold) return;
-    updateHoldRing(Math.min((performance.now() - hold.t) / HOLD_MS, 1));
-    hold.raf = requestAnimationFrame(tick);
-  };
-  hold.raf = requestAnimationFrame(tick);
-  hold.timers.push(setTimeout(() => {
-    hold.pinned = true;
-    if (activePin >= 0) pins[activePin].release();
-    activePin = (activePin + 1) % pins.length;
-    pins[activePin].drop(hold.normal);
-    if (navigator.vibrate) navigator.vibrate(8);
-  }, HOLD_PIN_MS));
-  hold.timers.push(setTimeout(() => {
-    const { lat, lng } = vec3ToLatLng(hold.normal);
-    stopHold();
-    tap = null; // the release that follows is not a tap
-    samples = []; // nor a fling
-    if (navigator.vibrate) navigator.vibrate(20);
-    window.dispatchEvent(new CustomEvent('pin', { detail: { lat, lng, confirmed: true } }));
-  }, HOLD_MS));
+function showLockButton() {
+  if (lockButton.hidden) lockArmedAt = performance.now() + LOCK_ARM_MS;
+  lockButton.hidden = false;
+  document.body.classList.add('has-guess');
 }
 
-function stopHold() {
-  cancelAnimationFrame(hold.raf);
-  hold.timers.forEach(clearTimeout);
-  hold = null;
-  hideHoldRing();
+function clearPendingGuess() {
+  pendingGuess = null;
+  lockButton.hidden = true;
+  document.body.classList.remove('has-guess');
 }
 
-function cancelHold() {
-  if (!hold) return;
-  if (hold.pinned && activePin >= 0) pins[activePin].release();
-  stopHold();
-}
+lockButton.addEventListener('click', () => {
+  if (!pendingGuess || !window.__canGuess || gameMode !== 'guess') return;
+  if (performance.now() < lockArmedAt) return; // the tail of a double tap on the globe
+  const guess = pendingGuess;
+  clearPendingGuess();
+  if (navigator.vibrate) navigator.vibrate(20);
+  window.dispatchEvent(new CustomEvent('pin', { detail: { ...guess, confirmed: true } }));
+});
 const TAP_MAX_MOVE = 8; // css px
 const AUTO_SPIN = 0.045; // rad/s idle drift
 const PIN_COLOR = new THREE.Color('#ffb54a');
@@ -964,22 +855,18 @@ function globeNormalAt(clientX, clientY) {
   return hit ? hit.normalize() : null;
 }
 
-function dropPinAt(clientX, clientY) {
+// Place (or move) the unconfirmed guess pin under a screen point.
+function placeGuessPin(clientX, clientY) {
   if (!window.__canGuess) return;
-  const ndc = new THREE.Vector2((clientX / viewW) * 2 - 1, -(clientY / viewH) * 2 + 1);
-  const ray = new THREE.Raycaster();
-  ray.setFromCamera(ndc, camera);
-  globe.updateMatrixWorld();
-  const local = ray.ray.clone().applyMatrix4(globe.matrixWorld.clone().invert());
-  const hit = local.intersectSphere(new THREE.Sphere(new THREE.Vector3(), 1), new THREE.Vector3());
-  if (!hit) return;
-  const normal = hit.normalize();
+  const normal = globeNormalAt(clientX, clientY);
+  if (!normal) return; // tapped space, not the globe
   if (activePin >= 0) pins[activePin].release();
   activePin = (activePin + 1) % pins.length;
   pins[activePin].drop(normal);
   if (navigator.vibrate) navigator.vibrate(8);
-  const { lat, lng } = vec3ToLatLng(normal);
-  window.dispatchEvent(new CustomEvent('pin', { detail: { lat, lng } }));
+  pendingGuess = vec3ToLatLng(normal);
+  showLockButton();
+  setGuessHint('Tap elsewhere to move it, or lock it in');
 }
 
 // ---------------------------------------------------------------------------
@@ -1160,8 +1047,6 @@ canvas.addEventListener('pointerdown', (e) => {
   vYaw = vPitch = 0; // grab stops the spin, and the idle drift with it
   autoSpin = 0;
   tap = pointers.size === 1 ? { x: e.clientX, y: e.clientY, t: performance.now() } : null;
-  if (pointers.size === 1 && window.__canGuess && gameMode === 'guess') startHold(e);
-  else cancelHold(); // a second finger means pinch, not a guess
   resetAnchor();
   canvas.classList.add('dragging');
   markInteraction();
@@ -1174,8 +1059,6 @@ canvas.addEventListener('pointermove', (e) => {
   p.y = e.clientY;
 
   if (tap && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > TAP_MAX_MOVE) tap = null;
-
-  if (hold && Math.hypot(e.clientX - hold.x, e.clientY - hold.y) > HOLD_MAX_MOVE) cancelHold();
 
   if (pinch && pointers.size >= 2) {
     targetDist = clamp(pinch.dist * (pinch.span / Math.max(pinchSpan(), 1)), MIN_DIST, maxDist);
@@ -1191,14 +1074,10 @@ function endPointer(e) {
   pointers.delete(e.pointerId);
   const now = performance.now();
 
-  // Let go before the ring filled: no guess, and say why
-  const heldShort = !!hold;
-  cancelHold();
-
   if (pointers.size === 0) {
     canvas.classList.remove('dragging');
-    if (heldShort && e.type === 'pointerup') {
-      setGuessHint('Hold longer, until the ring fills', true);
+    if (tap && e.type === 'pointerup' && gameMode === 'guess' && now - tap.t < GUESS_TAP_MAX_MS) {
+      placeGuessPin(e.clientX, e.clientY);
     } else if (tap && e.type === 'pointerup' && now - tap.t < TAP_MAX_MS) {
       if (gameMode === 'review') pickReviewRound(e.clientX, e.clientY);
     } else if (samples.length >= 2) {
@@ -2118,7 +1997,7 @@ function clearReveal() {
   revealView = null;
   for (const pin of pins) pin.release();
   activePin = -1;
-  cancelHold();
+  clearPendingGuess();
   hideReviewVisuals();
 }
 
@@ -2145,7 +2024,7 @@ function showRound() {
     gameEls.weight.style.display = WEIGHTS[daily.round] > 1 ? '' : 'none';
   }
   gameEls.clue.textContent = item.clue;
-  setGuessHint('Hold on your guess until the ring fills');
+  setGuessHint('Tap the globe to place your pin');
 }
 
 // Rotation axis of the shortest great circle from a to b. Coincident or exactly
@@ -5277,7 +5156,6 @@ function frame() {
   passportDots.visible = false; // disabled: no dots on landing page
 
   renderer.render(scene, camera);
-  if (hold) drawHoldLoupe();
   requestAnimationFrame(frame);
 }
 

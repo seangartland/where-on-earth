@@ -207,19 +207,12 @@ body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0
 }
 
 /* Hold-to-confirm: target ticks at the press point, loupe floating above the thumb */
-#hold-confirm { position: fixed; inset: 0; z-index: 1000; pointer-events: none; }
-#hold-confirm[hidden] { display: none; }
-.hold-target, .hold-loupe { position: absolute; left: 0; top: 0; }
-.hold-target i { position: absolute; left: -1.5px; top: -40px; width: 3px; height: 12px; border-radius: 2px; background: #ffc76a; box-shadow: 0 0 4px rgba(0,0,0,.8); transform-origin: 1.5px 40px; }
-.hold-target i:nth-child(2) { transform: rotate(90deg); }
-.hold-target i:nth-child(3) { transform: rotate(180deg); }
-.hold-target i:nth-child(4) { transform: rotate(270deg); }
-.hold-loupe canvas { position: absolute; left: -48px; top: -48px; width: 96px; height: 96px; border-radius: 50%; box-shadow: 0 6px 20px rgba(0,0,0,.6); }
-.hold-loupe svg { position: absolute; left: -58px; top: -58px; width: 116px; height: 116px; overflow: visible; }
-.hold-track, .hold-progress { fill: none; stroke-width: 6; }
-.hold-track { stroke: rgba(2,4,9,.72); }
-.hold-progress { stroke: #ffc76a; stroke-linecap: round; }
-.hold-cross { position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; }
-.hold-cross::before, .hold-cross::after { content: ''; position: absolute; background: #fff; box-shadow: 0 0 0 1px rgba(2,4,9,.75); }
-.hold-cross::before { left: 8px; top: 0; width: 2px; height: 18px; }
-.hold-cross::after { left: 0; top: 8px; width: 18px; height: 2px; }
+
+/* Lock in: fixed in the thumb zone, clear of the pin, so the finger never hides
+   the placement. Fades in un-tappable for a beat (LOCK_ARM_MS) so a double tap
+   on the globe can't confirm by accident. */
+.lock-button { position: absolute; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 22px); min-width: 220px; min-height: 54px; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #1b1230; font-size: 17px; letter-spacing: -.01em; box-shadow: 0 8px 28px rgba(255,159,106,.35), 0 2px 8px rgba(0,0,0,.4); pointer-events: auto; transform: translateX(-50%); animation: lock-in .35s ease-out both; }
+.lock-button[hidden] { display: none; }
+.lock-button:active { transform: translateX(-50%) scale(.96); }
+@keyframes lock-in { from { opacity: 0; transform: translateX(-50%) translateY(12px); pointer-events: none; } to { opacity: 1; transform: translateX(-50%); } }
+body.has-guess #hud { opacity: 0; }
