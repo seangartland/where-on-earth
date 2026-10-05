@@ -20094,5 +20094,93 @@
     "lng": -6.35,
     "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/The_Old_Man_of_Storr%2C_Skye.jpg/500px-The_Old_Man_of_Storr%2C_Skye.jpg"
+  },
+  {
+    "id": "rialto-bridge-venice",
+    "short": "Rialto Bridge",
+    "clue": "Rialto Bridge, Italy \ud83c\uddee\ud83c\uddf9",
+    "fact": "Completed in 1591, this stone arch was for centuries the only way to cross the Grand Canal on foot.",
+    "lat": 45.438,
+    "lng": 12.3359,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Rialto_2025_4.jpg/500px-Rialto_2025_4.jpg",
+    "category": "landmark"
+  },
+  {
+    "id": "tiananmen-square-beijing",
+    "short": "Tiananmen Square",
+    "clue": "Tiananmen Square, China \ud83c\udde8\ud83c\uddf3",
+    "fact": "One of the world's largest city squares, it lies just south of the Gate of Heavenly Peace and the Forbidden City.",
+    "lat": 39.9033,
+    "lng": 116.3917,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Tiananmen_Square_%2854137047250%29.jpg/500px-Tiananmen_Square_%2854137047250%29.jpg",
+    "category": "landmark"
+  },
+  {
+    "id": "qutub-minar-delhi",
+    "short": "Qutub Minar",
+    "clue": "Qutub Minar, India \ud83c\uddee\ud83c\uddf3",
+    "fact": "At 73 metres, this fluted red-sandstone victory tower from the early 1200s is the tallest brick minaret in the world.",
+    "lat": 28.5244,
+    "lng": 77.1855,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Qutb_Minar_2022.jpg/500px-Qutb_Minar_2022.jpg",
+    "category": "landmark"
+  },
+  {
+    "id": "chrysler-building-nyc",
+    "short": "Chrysler Building",
+    "clue": "Chrysler Building, United States \ud83c\uddfa\ud83c\uddf8",
+    "fact": "Its stainless-steel Art Deco crown made it the world's tallest building for 11 months in 1930, until the Empire State Building opened.",
+    "lat": 40.7516,
+    "lng": -73.9755,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Chrysler_Building_by_David_Shankbone_Retouched.jpg/500px-Chrysler_Building_by_David_Shankbone_Retouched.jpg",
+    "category": "landmark"
+  },
+  {
+    "id": "trafalgar-square-london",
+    "short": "Trafalgar Square",
+    "clue": "Trafalgar Square, England",
+    "fact": "Nelson's Column rises over the square, guarded by four bronze lions and named for the 1805 naval victory.",
+    "lat": 51.508,
+    "lng": -0.1281,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Trafalgar_Square%2C_London_2_-_Jun_2009.jpg/500px-Trafalgar_Square%2C_London_2_-_Jun_2009.jpg",
+    "category": "landmark"
+  },
+  {
+    "id": "copacabana-beach-rio",
+    "short": "Copacabana Beach",
+    "clue": "Copacabana Beach, Brazil \ud83c\udde7\ud83c\uddf7",
+    "fact": "This 4 km crescent of sand is famous for the black-and-white wave mosaic on its promenade and its huge New Year's Eve party.",
+    "lat": -22.9711,
+    "lng": -43.1822,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Praia_de_Copacabana_-_Rio_de_Janeiro%2C_Brasil.jpg/500px-Praia_de_Copacabana_-_Rio_de_Janeiro%2C_Brasil.jpg",
+    "category": "landmark"
+  },
+  {
+    "id": "grand-palace-bangkok",
+    "short": "Grand Palace",
+    "clue": "Grand Palace, Thailand \ud83c\uddf9\ud83c\udded",
+    "fact": "Home to Thailand's kings since 1782, the walled complex also holds the revered Emerald Buddha in Wat Phra Kaew.",
+    "lat": 13.75,
+    "lng": 100.4913,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/0005574_-_Wat_Phra_Kaew_006.jpg/500px-0005574_-_Wat_Phra_Kaew_006.jpg",
+    "category": "landmark"
+  },
+  {
+    "id": "plaza-de-espana-seville",
+    "short": "Plaza de Espa\u00f1a",
+    "clue": "Plaza de Espa\u00f1a, Spain \ud83c\uddea\ud83c\uddf8",
+    "fact": "Built for the 1929 Ibero-American Exposition, its curved arcade has tiled alcoves for each Spanish province and appears in Star Wars: Episode II.",
+    "lat": 37.3772,
+    "lng": -5.9869,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Plaza_de_Espa%C3%B1a_%28Sevilla%29_-_01.jpg/500px-Plaza_de_Espa%C3%B1a_%28Sevilla%29_-_01.jpg",
+    "category": "landmark"
   }
 ]
