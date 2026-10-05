@@ -20154,5 +20154,25 @@
     "lng": 73.7191,
     "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Statue_of_Unity.jpg/500px-Statue_of_Unity.jpg"
+  },
+  {
+    "id": "geirangerfjord-no",
+    "short": "Geirangerfjord",
+    "clue": "Geirangerfjord, Norway \ud83c\uddf3\ud83c\uddf4",
+    "fact": "This UNESCO-listed arm of the Storfjorden is lined with waterfalls like the Seven Sisters, and abandoned cliffside farms cling to ledges hundreds of metres above the water.",
+    "lat": 62.1049,
+    "lng": 7.0943,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Geirangerfjord_.jpg/500px-Geirangerfjord_.jpg"
+  },
+  {
+    "id": "isle-of-skye-gb",
+    "short": "Isle of Skye",
+    "clue": "Isle of Skye, United Kingdom \ud83c\uddec\ud83c\udde7",
+    "fact": "The largest island of Scotland's Inner Hebrides is known for the Old Man of Storr, a basalt pinnacle left behind by an ancient landslip on the Trotternish Ridge.",
+    "lat": 57.3,
+    "lng": -6.35,
+    "difficulty": 2,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/The_Old_Man_of_Storr%2C_Skye.jpg/500px-The_Old_Man_of_Storr%2C_Skye.jpg"
   }
 ]
