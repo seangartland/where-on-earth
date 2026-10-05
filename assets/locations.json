@@ -4215,7 +4215,7 @@
     "fact": "Mount Orohena is French Polynesia's highest peak at 2,241 meters, shrouded in cloud most of the year.",
     "lat": -17.6256,
     "lng": -149.4753,
-    "difficulty": 9,
+    "difficulty": 7,
     "short": "Mt Orohena",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Mont.Orohena.JPG"
   },
@@ -4455,7 +4455,7 @@
     "fact": "Mount Wai\u02bbale\u02bbale is one of the wettest places on Earth, receiving over 11 meters of rain annually.",
     "lat": 22.0714,
     "lng": -159.4964,
-    "difficulty": 8,
+    "difficulty": 6,
     "short": "Mt Wai\u02bbale\u02bbale",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Whylake.jpg/500px-Whylake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -4475,7 +4475,7 @@
     "fact": "The USS Arizona Memorial marks the resting place of 1,177 sailors killed during the Japanese attack on Pearl Harbor on December 7, 1941.",
     "lat": 21.3647,
     "lng": -157.9499,
-    "difficulty": 5,
+    "difficulty": 3,
     "short": "USS Arizona",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Arizona_%28BB39%29_Port_Bow%2C_Underway_-_NARA_-_5900075_-_1930.jpg/500px-Arizona_%28BB39%29_Port_Bow%2C_Underway_-_NARA_-_5900075_-_1930.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
@@ -4556,7 +4556,7 @@
     "fact": "Venezuela's Angel Falls has the world's highest uninterrupted waterfall drop. It plunges from the summit of Auyantepui.",
     "lat": 5.9675,
     "lng": -62.5356,
-    "difficulty": 2,
+    "difficulty": 4,
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/SaltoAngel1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
   },
   {
@@ -4586,7 +4586,7 @@
     "fact": "This Patagonian glacier is famous for periodic ice-dam ruptures. Boardwalks across the channel provide a close view of its towering front.",
     "lat": -50.4734,
     "lng": -73.0325,
-    "difficulty": 2,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Perito_Moreno_Glacier_2023.jpg/500px-Perito_Moreno_Glacier_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -4716,7 +4716,7 @@
     "fact": "This Anglican cathedral is among the world's tallest wooden churches. Its Gothic spire rises above Guyana's capital.",
     "lat": 6.8121,
     "lng": -58.1638,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/93/St._George%27s_Anglican_Cathedral_-_Georgetown_%2822878368303%29.jpg"
   },
   {
@@ -4726,7 +4726,7 @@
     "fact": "The white colonial-era palace faces Independence Square in Paramaribo's UNESCO-listed center. A palm garden lies behind it.",
     "lat": 5.8261,
     "lng": -55.1505,
-    "difficulty": 4,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Paramaribo_city_collage.png/500px-Paramaribo_city_collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -4766,7 +4766,7 @@
     "fact": "This small riverside outpost marks the southern end of the Transpantaneira. Boat trips from here are renowned for jaguar sightings.",
     "lat": -17.3616,
     "lng": -56.7753,
-    "difficulty": 4,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Porto_Jofre.JPG/500px-Porto_Jofre.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -4796,7 +4796,7 @@
     "fact": "Seasonal freshwater lagoons collect among immense white dunes near Barreirinhas. Lagoa Bonita is reached by a steep sand climb.",
     "lat": -2.5889,
     "lng": -43.0555,
-    "difficulty": 5,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Lagoa_Len%C3%A7%C3%B3is_Maranhenses.JPG/1280px-Lagoa_Len%C3%A7%C3%B3is_Maranhenses.JPG"
   },
   {
@@ -4836,7 +4836,7 @@
     "fact": "This Colombian archaeological park protects enigmatic stone figures made by a pre-Columbian culture. Many guarded monumental tombs.",
     "lat": 1.8877,
     "lng": -76.2953,
-    "difficulty": 5,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_06.jpg/500px-Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_06.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -4846,7 +4846,7 @@
     "fact": "This neo-Gothic church bridges a deep gorge near Colombia's border with Ecuador. Its altar incorporates the cliff face.",
     "lat": 0.805,
     "lng": -77.586,
-    "difficulty": 5,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Santuario_de_Las_Lajas%2C_Ipiales%2C_Colombia%2C_2015-07-21%2C_DD_26-27_HDR.JPG/500px-Santuario_de_Las_Lajas%2C_Ipiales%2C_Colombia%2C_2015-07-21%2C_DD_26-27_HDR.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -4886,7 +4886,7 @@
     "fact": "The waterfront sign celebrates Ushuaia's claim as the world's southernmost city. The Beagle Channel and Martial Mountains frame the setting.",
     "lat": -54.8071,
     "lng": -68.303,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Ushuaia_aerial_panorama.jpg/500px-Ushuaia_aerial_panorama.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5126,7 +5126,7 @@
     "fact": "Suriname's national stadium in Paramaribo is named for a footballer, broadcaster, and former national team captain. It hosts major domestic and international matches.",
     "lat": 5.837,
     "lng": -55.16,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/KamperveenStadion.jpg/500px-KamperveenStadion.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5136,7 +5136,7 @@
     "fact": "This riverside fort records centuries of Dutch colonial history in Suriname. It now houses the Surinaams Museum.",
     "lat": 5.8252,
     "lng": -55.1496,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg/500px-Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5166,7 +5166,7 @@
     "fact": "This ochre-trimmed cathedral anchors the center of French Guiana's capital. Its present form dates largely from the 19th century.",
     "lat": 4.9385,
     "lng": -52.3348,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Cath%C3%A9dralestsauveur.jpg/500px-Cath%C3%A9dralestsauveur.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5176,7 +5176,7 @@
     "fact": "Spain built this star-shaped fortress to defend the port of Callao after the devastating 1746 earthquake and tsunami. It later played roles in Peru's independence wars.",
     "lat": -12.0621,
     "lng": -77.1494,
-    "difficulty": 9,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/The_Real_Felipe_Fortress.jpg/500px-The_Real_Felipe_Fortress.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5186,7 +5186,7 @@
     "fact": "Chile established this wooden fort in 1843 to assert control over the Strait of Magellan. Harsh conditions soon prompted settlers to move to Punta Arenas.",
     "lat": -53.6268,
     "lng": -70.9174,
-    "difficulty": 9,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Fuerte_Bulnes.jpg/1280px-Fuerte_Bulnes.jpg"
   },
   {
@@ -5216,7 +5216,7 @@
     "fact": "Steam columns are most visible around dawn at this high Andean geothermal field. The site stands more than 4,300 meters above sea level.",
     "lat": -22.3379,
     "lng": -68.011,
-    "difficulty": 9,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/G%C3%A9iseres_del_Tatio%2C_Atacama%2C_Chile%2C_2016-02-01%2C_DD_01-02_HDR.JPG/500px-G%C3%A9iseres_del_Tatio%2C_Atacama%2C_Chile%2C_2016-02-01%2C_DD_01-02_HDR.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5226,7 +5226,7 @@
     "fact": "The settlement was the scene of a major 1982 Falklands War battle. Memorials commemorate those killed in the fighting.",
     "lat": -51.8278,
     "lng": -58.9791,
-    "difficulty": 9,
+    "difficulty": 7,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Grave_at_Goose_Green%2C_Falkland_Islands.jpg"
   },
   {
@@ -5236,7 +5236,7 @@
     "fact": "Prisoners arriving in French Guiana were processed at this penal camp in Saint-Laurent-du-Maroni. Preserved cell blocks recall the transportation era.",
     "lat": 5.5019,
     "lng": -54.0306,
-    "difficulty": 10,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Sous-pr%C3%A9fecture_Saint-Laurent_du_Maroni.jpg/500px-Sous-pr%C3%A9fecture_Saint-Laurent_du_Maroni.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5246,7 +5246,7 @@
     "fact": "This open-air museum occupies an 18th-century fort at the meeting of the Suriname and Commewijne rivers. Its earthworks guarded plantations and shipping.",
     "lat": 5.8873,
     "lng": -55.0911,
-    "difficulty": 10,
+    "difficulty": 8,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Aerial_photo_of_Fort_Nieuw-Amsterdam.jpg/500px-Aerial_photo_of_Fort_Nieuw-Amsterdam.jpg"
   },
   {
@@ -5256,7 +5256,7 @@
     "fact": "This exceptionally high Bolivian research station studies cosmic rays and atmospheric physics. A nearby glacier and ski area largely vanished in recent decades.",
     "lat": -16.3505,
     "lng": -68.1314,
-    "difficulty": 10,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Chacaltaya_summit_Oct_2012.jpg/500px-Chacaltaya_summit_Oct_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5316,7 +5316,7 @@
     "fact": "Tokyo Tower is a communications and observation tower inspired by the Eiffel Tower.",
     "lat": 35.6586,
     "lng": 139.7454,
-    "difficulty": 3,
+    "difficulty": 1,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tokyo_Tower_2023.jpg/500px-Tokyo_Tower_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5396,7 +5396,7 @@
     "fact": "Shibuya Crossing is one of the world's busiest pedestrian intersections in Tokyo.",
     "lat": 35.6595,
     "lng": 139.7004,
-    "difficulty": 3,
+    "difficulty": 1,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Shibuya_Crossing%2C_Aerial.jpg/500px-Shibuya_Crossing%2C_Aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5506,7 +5506,7 @@
     "fact": "The Panathenaic Stadium hosted the first modern Olympic Games in 1896.",
     "lat": 37.9683,
     "lng": 23.7411,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Panathenaic_Stadium_-_panoramio_%281%29.jpg/500px-Panathenaic_Stadium_-_panoramio_%281%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5546,7 +5546,7 @@
     "fact": "Pisa Cathedral stands in the Piazza dei Miracoli alongside the Leaning Tower.",
     "lat": 43.7231,
     "lng": 10.3964,
-    "difficulty": 4,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Pisa_-_Cattedrale_da_Battistero_02.jpg/500px-Pisa_-_Cattedrale_da_Battistero_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5606,7 +5606,7 @@
     "fact": "The Fuji TV Building in Odaiba is known for its distinctive spherical observation deck.",
     "lat": 35.6265,
     "lng": 139.7753,
-    "difficulty": 6,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/2018_FCG_Headquarters_Building_2.jpg/500px-2018_FCG_Headquarters_Building_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5616,7 +5616,7 @@
     "fact": "Odaiba is a major entertainment district on a man-made island in Tokyo Bay.",
     "lat": 35.6252,
     "lng": 139.771,
-    "difficulty": 5,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/500px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5626,7 +5626,7 @@
     "fact": "The KL Tower is a telecommunications tower and observation point in Kuala Lumpur.",
     "lat": 3.152,
     "lng": 101.703,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Kuala_Lumpur_Tower_20250822_%281%29.jpg/500px-Kuala_Lumpur_Tower_20250822_%281%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -5636,7 +5636,7 @@
     "fact": "The Texas State Capitol in Austin is one of the largest state capitol buildings in the U.S.",
     "lat": 30.2747,
     "lng": -97.7404,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/TexasStateCapitol-2010-01.JPG/500px-TexasStateCapitol-2010-01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -6556,7 +6556,7 @@
     "fact": "Legend says a fisherman found a statue in the Sumida River in 628 AD, and its lantern is the emblem of Asakusa.",
     "lat": 35.7148,
     "lng": 139.7967,
-    "difficulty": 4,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Sensoji_2023.jpg/500px-Sensoji_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -6926,7 +6926,7 @@
     "fact": "At 2,228 m it is a glaciated eroded peak in the Australian Alps, and skiers race down its run each August.",
     "lat": -36.145,
     "lng": 148.2661,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Kosciuszko_main_range_from_Scammel_Spur_Lookout_%28cropped%29.jpg/500px-Kosciuszko_main_range_from_Scammel_Spur_Lookout_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -7936,7 +7936,7 @@
     "fact": "Adventdalen is a glacial valley near Longyearbyen, Svalbard, known for its Arctic tundra ecosystem.",
     "lat": 78.1967,
     "lng": 15.5986,
-    "difficulty": 9,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Adventdalen-Vei-400.jpg/500px-Adventdalen-Vei-400.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12302,7 +12302,7 @@
     "fact": "San Salvador is El Salvador's capital, in a valley beneath the San Salvador volcano, and is famous for pupusas.",
     "lat": 13.68935,
     "lng": -89.18718,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Tikal_3.jpg/500px-Tikal_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12342,7 +12342,7 @@
     "fact": "Niter\u00f3i faces Rio across Guanabara Bay and is known for Oscar Niemeyer's flying-saucer-shaped Contemporary Art Museum.",
     "lat": -22.88333,
     "lng": -43.10361,
-    "difficulty": 5,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Cidade_Maravilhosa.jpg/500px-Cidade_Maravilhosa.jpg"
   },
   {
@@ -12512,7 +12512,7 @@
     "fact": "Soweto is the Johannesburg township where Nelson Mandela and Desmond Tutu both lived on the same street, Vilakazi Street.",
     "lat": -26.26781,
     "lng": 27.85849,
-    "difficulty": 6,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Johannesburg_skyline_2017.jpg/500px-Johannesburg_skyline_2017.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12542,7 +12542,7 @@
     "fact": "Monrovia was founded by freed American slaves and is named after US President James Monroe.",
     "lat": 6.30054,
     "lng": -10.7969,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Montane_rainforest_near_to_S%C3%A9r%C3%A9dou_(Northern_limit_of_Ziama_Massif).jpg"
   },
   {
@@ -12552,7 +12552,7 @@
     "fact": "N'Djamena is Chad's capital, set where the Chari and Logone rivers meet, right on the border with Cameroon.",
     "lat": 12.10672,
     "lng": 15.0444,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kofar_Gadan_Kaya_-_Kano_City_Gate.jpg"
   },
   {
@@ -12562,7 +12562,7 @@
     "fact": "Abobo is one of Abidjan's most populous communes, known for its sprawling markets.",
     "lat": 5.41613,
     "lng": -4.0159,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Visite_du_mus%C3%A9e_de_civilisation_de_C%C3%B4te_d%27Ivoire_08.jpg/500px-Visite_du_mus%C3%A9e_de_civilisation_de_C%C3%B4te_d%27Ivoire_08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12582,7 +12582,7 @@
     "fact": "Niamey is Niger's capital on the Niger River and hosts the Grand Mosque and the National Museum's zoo.",
     "lat": 13.51366,
     "lng": 2.1098,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Ouagadougou_Skyline.jpg/500px-Ouagadougou_Skyline.jpg"
   },
   {
@@ -12592,7 +12592,7 @@
     "fact": "Yaound\u00e9 is Cameroon's capital, built on seven hills in the country's forested south.",
     "lat": 3.86667,
     "lng": 11.51667,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg/500px-Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12612,7 +12612,7 @@
     "fact": "Shubra al-Khaymah is an industrial city on Cairo's northern edge, known for its textile mills.",
     "lat": 30.12511,
     "lng": 31.25053,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg/500px-Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg"
   },
   {
@@ -12632,7 +12632,7 @@
     "fact": "Nouakchott was a small village until it was chosen as Mauritania's capital in 1958, and it is now the largest city in the Sahara.",
     "lat": 18.08581,
     "lng": -15.9785,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Dakar-Ind%C3%A9pendance.jpg/500px-Dakar-Ind%C3%A9pendance.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12642,7 +12642,7 @@
     "fact": "Pikine is a large suburb of Dakar, created in the 1950s to resettle people from the city center.",
     "lat": 14.76457,
     "lng": -17.39071,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Dakar-Ind%C3%A9pendance.jpg/500px-Dakar-Ind%C3%A9pendance.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12672,7 +12672,7 @@
     "fact": "Lilongwe became Malawi's capital in 1975 and is a spread-out garden city.",
     "lat": -13.96692,
     "lng": 33.78725,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/ZmbziRvr.jpg/500px-ZmbziRvr.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12742,7 +12742,7 @@
     "fact": "Tangier sits at the Strait of Gibraltar, where Africa is just 14 km from Europe, and once had international-zone status.",
     "lat": 35.76727,
     "lng": -5.79975,
-    "difficulty": 6,
+    "difficulty": 3,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Rock_of_Gibraltar_South_View.jpg/500px-Rock_of_Gibraltar_South_View.jpg"
   },
   {
@@ -12762,7 +12762,7 @@
     "fact": "Khartoum North, also called Bahri, is the industrial third of Sudan's capital region, across the Blue Nile from Khartoum.",
     "lat": 15.64925,
     "lng": 32.53458,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/%C2%A9Nile-Project_-Sari_Omer_0025.jpg/500px-%C2%A9Nile-Project_-Sari_Omer_0025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12782,7 +12782,7 @@
     "fact": "Sal\u00e9 faces Rabat across the Bou Regreg river and was once a base for the infamous Sal\u00e9 Rovers pirates.",
     "lat": 34.0531,
     "lng": -6.79846,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/%22Eine_beeindruckende_Festung%22._09.jpg/500px-%22Eine_beeindruckende_Festung%22._09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12842,7 +12842,7 @@
     "fact": "Soshanguve is a large township north of Pretoria, whose name combines several South African languages.",
     "lat": -25.47288,
     "lng": 28.09919,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Uniegebou.jpg/500px-Uniegebou.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12862,7 +12862,7 @@
     "fact": "Libreville was founded by freed slaves in 1849, and its name means 'free town' in French.",
     "lat": 0.39241,
     "lng": 9.45356,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg/500px-Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12902,7 +12902,7 @@
     "fact": "Bangui is the capital of the Central African Republic and sits on the Ubangi River, across from the DR Congo.",
     "lat": 4.36122,
     "lng": 18.55496,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Stade_Tata_Rapha%C3%ABl_lors_d%27un_de_l%27AS_V.CLUB.jpg/500px-Stade_Tata_Rapha%C3%ABl_lors_d%27un_de_l%27AS_V.CLUB.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12912,7 +12912,7 @@
     "fact": "Oran is Algeria's second city and the birthplace of ra\u00ef music, as well as the setting of Camus's The Plague.",
     "lat": 35.69906,
     "lng": -0.63588,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg/500px-Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg"
   },
   {
@@ -12922,7 +12922,7 @@
     "fact": "Freetown was founded for freed slaves in 1792, and a famous old cotton tree stands at its heart.",
     "lat": 8.48714,
     "lng": -13.2356,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Montane_rainforest_near_to_S%C3%A9r%C3%A9dou_(Northern_limit_of_Ziama_Massif).jpg"
   },
   {
@@ -12942,7 +12942,7 @@
     "fact": "Port Said sits at the Mediterranean entrance of the Suez Canal and was founded when the canal was built in 1859.",
     "lat": 31.26531,
     "lng": 32.3019,
-    "difficulty": 6,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg/500px-Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg"
   },
   {
@@ -12962,7 +12962,7 @@
     "fact": "Bujumbura is Burundi's main city on the northeastern shore of Lake Tanganyika.",
     "lat": -3.38193,
     "lng": 29.36142,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg/500px-High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -12982,7 +12982,7 @@
     "fact": "Benghazi is Libya's second city and where the 2011 uprising against Gaddafi started.",
     "lat": 32.11486,
     "lng": 20.06859,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Boulders_Beach_Suedafrika.jpg/500px-Boulders_Beach_Suedafrika.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13052,7 +13052,7 @@
     "fact": "Suez is the port at the southern end of the Suez Canal, where the canal meets the Red Sea.",
     "lat": 29.97371,
     "lng": 32.52627,
-    "difficulty": 6,
+    "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg/500px-Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg"
   },
   {
@@ -13062,7 +13062,7 @@
     "fact": "Agadir is a Moroccan beach resort that was rebuilt after a 1960 earthquake, with a kasbah ruin on the hill above it.",
     "lat": 30.42018,
     "lng": -9.59815,
-    "difficulty": 6,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Marokko0112_%28retouched%29.jpg/500px-Marokko0112_%28retouched%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13202,7 +13202,7 @@
     "fact": "Minsk was almost completely rebuilt after WWII in a grand Stalinist style along the wide Independence Avenue.",
     "lat": 53.90019,
     "lng": 27.56653,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Vilnius_old_town_by_Augustas_Didzgalvis.jpg/500px-Vilnius_old_town_by_Augustas_Didzgalvis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13232,7 +13232,7 @@
     "fact": "Kharkiv is Ukraine's second city and a university town, famous for the vast Freedom Square and the constructivist Derzhprom building.",
     "lat": 49.98177,
     "lng": 36.25475,
-    "difficulty": 7,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg/500px-%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13352,7 +13352,7 @@
     "fact": "Odesa is a Black Sea port famous for its Potemkin Stairs and an opera house that is one of Europe's finest.",
     "lat": 46.48572,
     "lng": 30.74383,
-    "difficulty": 7,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/1/18/Bucharest_-_Palace_of_the_Parliament_%282024%29_%282%29.jpg/500px-Bucharest_-_Palace_of_the_Parliament_%282024%29_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13442,7 +13442,7 @@
     "fact": "Lviv is a western Ukrainian city whose UNESCO-listed old town is famous for its coffeehouses and chocolate shops.",
     "lat": 49.83826,
     "lng": 24.02324,
-    "difficulty": 7,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Krakow_Rynek_Glowny_panorama_2.jpg/500px-Krakow_Rynek_Glowny_panorama_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13472,7 +13472,7 @@
     "fact": "Sarajevo is where Archduke Franz Ferdinand was assassinated in 1914, sparking WWI, and it hosted the 1984 Winter Olympics.",
     "lat": 43.84864,
     "lng": 18.35644,
-    "difficulty": 7,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Bergama_-_AKRAPOL_-_panoramio_%284%29.jpg/500px-Bergama_-_AKRAPOL_-_panoramio_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13482,7 +13482,7 @@
     "fact": "Zaragoza is a city on the Ebro famous for the Basilica of Our Lady of the Pillar and the Moorish Aljafer\u00eda Palace.",
     "lat": 41.65606,
     "lng": -0.87734,
-    "difficulty": 7,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Abbey_of_Montserrat_02.jpg/500px-Abbey_of_Montserrat_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13562,7 +13562,7 @@
     "fact": "Irkutsk is the gateway to Lake Baikal, the world's deepest lake, and is known for its carved wooden houses.",
     "lat": 52.29566,
     "lng": 104.29076,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/UB_downtown.jpg/500px-UB_downtown.jpg"
   },
   {
@@ -13572,7 +13572,7 @@
     "fact": "D\u00fcsseldorf is known for fashion, Rhine riverside promenades, and its Altbier, a dark ale served in small glasses.",
     "lat": 51.22319,
     "lng": 6.77927,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/500px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13632,7 +13632,7 @@
     "fact": "Essen was once Europe's biggest coal and steel city, and its Zollverein colliery is now a UNESCO World Heritage Site.",
     "lat": 51.45657,
     "lng": 7.01228,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/500px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13642,7 +13642,7 @@
     "fact": "Dortmund is famous for Borussia Dortmund and its 'Yellow Wall' stadium stand, one of the loudest in football.",
     "lat": 51.51494,
     "lng": 7.466,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/500px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13682,7 +13682,7 @@
     "fact": "Sheffield is known as the 'Steel City' and was where stainless steel was invented in 1913.",
     "lat": 53.38297,
     "lng": -1.4659,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Sir_Ernest_Rutherford_LCCN2014716719_-_restoration1.jpg/500px-Sir_Ernest_Rutherford_LCCN2014716719_-_restoration1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13692,7 +13692,7 @@
     "fact": "Pristina is Kosovo's capital and is known for its unusual National Library, covered in a metal lattice and domes.",
     "lat": 42.67272,
     "lng": 21.16688,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Panoramic_view_over_central_Sofia_and_the_Vitosha_Mountain_2017-10-08.jpg/500px-Panoramic_view_over_central_Sofia_and_the_Vitosha_Mountain_2017-10-08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13712,7 +13712,7 @@
     "fact": "Quer\u00e9taro is a colonial city where the plot for Mexico's independence was hatched and the 1917 constitution was signed.",
     "lat": 20.58806,
     "lng": -100.38806,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -13722,7 +13722,7 @@
     "fact": "Le\u00f3n is Mexico's leather and shoe capital and hosts a huge international hot-air balloon festival.",
     "lat": 21.12183,
     "lng": -101.68253,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg/500px-Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13732,7 +13732,7 @@
     "fact": "Ciudad Ju\u00e1rez sits across the Rio Grande from El Paso, Texas, and is said to be where the burrito was born.",
     "lat": 31.72024,
     "lng": -106.46084,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Carlsbad_Interior_Formations.jpg/500px-Carlsbad_Interior_Formations.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13742,7 +13742,7 @@
     "fact": "Zapopan is part of greater Guadalajara and holds the Basilica of Our Lady of Zapopan and the Estadio Akron.",
     "lat": 20.72111,
     "lng": -103.38742,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg/500px-Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13752,7 +13752,7 @@
     "fact": "M\u00e9rida is the capital of Yucat\u00e1n, nicknamed the 'White City' and a gateway to Mayan ruins like Chich\u00e9n Itz\u00e1.",
     "lat": 20.967,
     "lng": -89.62318,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Dzilam_de_Bravo%2C_Yucat%C3%A1n_%2804%29.JPG/500px-Dzilam_de_Bravo%2C_Yucat%C3%A1n_%2804%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13762,7 +13762,7 @@
     "fact": "Gustavo A. Madero is a Mexico City borough that holds the Basilica of Our Lady of Guadalupe, one of the world's most visited Catholic shrines.",
     "lat": 19.49392,
     "lng": -99.11075,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -13772,7 +13772,7 @@
     "fact": "Ciudad Nezahualc\u00f3yotl was built on the dried bed of Lake Texcoco and named after a famous Aztec poet-king.",
     "lat": 19.40061,
     "lng": -99.01483,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -13782,7 +13782,7 @@
     "fact": "Mexicali is the capital of Baja California, right on the US border, and has a large Chinese community and food scene.",
     "lat": 32.62781,
     "lng": -115.45446,
-    "difficulty": 8,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Templo_Tijuana_Mexico_%28cropped%29.jpg/500px-Templo_Tijuana_Mexico_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13792,7 +13792,7 @@
     "fact": "Chihuahua is the capital of Mexico's largest state and the city where independence hero Miguel Hidalgo was executed.",
     "lat": 28.63528,
     "lng": -106.08889,
-    "difficulty": 8,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Barranca_del_cobre_2.jpg/500px-Barranca_del_cobre_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13882,7 +13882,7 @@
     "fact": "Mississauga is a large city west of Toronto that holds Toronto Pearson International Airport.",
     "lat": 43.5789,
     "lng": -79.6583,
-    "difficulty": 8,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/CN_Tower_logo.png/500px-CN_Tower_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13932,7 +13932,7 @@
     "fact": "Tlalnepantla is an industrial city on Mexico City's northern edge, with the Aztec pyramid of Tenayuca nearby.",
     "lat": 19.54005,
     "lng": -99.19538,
-    "difficulty": 9,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -13942,7 +13942,7 @@
     "fact": "Tlaquepaque is part of greater Guadalajara, famous for its crafts, ceramics, and mariachi music.",
     "lat": 20.64121,
     "lng": -103.29342,
-    "difficulty": 9,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg/500px-Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13962,7 +13962,7 @@
     "fact": "Tuxtla Guti\u00e9rrez is the capital of Chiapas and the gateway to the deep Sumidero Canyon.",
     "lat": 16.75357,
     "lng": -93.11578,
-    "difficulty": 9,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Tikal_3.jpg/500px-Tikal_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13972,7 +13972,7 @@
     "fact": "Reynosa is a border city across the Rio Grande from McAllen, Texas, with many factories assembling goods for the US.",
     "lat": 26.08005,
     "lng": -98.28456,
-    "difficulty": 9,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -13992,7 +13992,7 @@
     "fact": "Surrey is a fast-growing city in Metro Vancouver and is set to become British Columbia's largest city.",
     "lat": 49.10635,
     "lng": -122.82509,
-    "difficulty": 9,
+    "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Skyline_of_Vancouver%2C_Canada.jpg/500px-Skyline_of_Vancouver%2C_Canada.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14002,7 +14002,7 @@
     "fact": "Cuautitl\u00e1n Izcalli is a planned city founded in 1971 north of Mexico City.",
     "lat": 19.64388,
     "lng": -99.21598,
-    "difficulty": 9,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -14022,7 +14022,7 @@
     "fact": "Matamoros sits across the Rio Grande from Brownsville, Texas, near the Gulf of Mexico.",
     "lat": 25.87972,
     "lng": -97.50417,
-    "difficulty": 9,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14032,7 +14032,7 @@
     "fact": "Toluca is one of the highest cities in North America at about 2,660 meters, famous for its chorizo and the Nevado de Toluca volcano.",
     "lat": 19.28786,
     "lng": -99.65324,
-    "difficulty": 9,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Estadio_Ol%C3%ADmpico_Universitario_-_2026_-_04.jpg/500px-Estadio_Ol%C3%ADmpico_Universitario_-_2026_-_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14042,7 +14042,7 @@
     "fact": "Ciudad L\u00f3pez Mateos, part of Atizap\u00e1n, is a suburb of Mexico City spread over hilly terrain.",
     "lat": 19.55793,
     "lng": -99.25675,
-    "difficulty": 9,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -14052,7 +14052,7 @@
     "fact": "Apodaca is part of greater Monterrey and holds the city's international airport.",
     "lat": 25.78143,
     "lng": -100.18911,
-    "difficulty": 10,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14062,7 +14062,7 @@
     "fact": "General Escobedo is a fast-growing industrial municipality on the northern edge of Monterrey.",
     "lat": 25.79663,
     "lng": -100.31767,
-    "difficulty": 10,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14112,7 +14112,7 @@
     "fact": "Xalapa is the capital of Veracruz state and gave its name to the jalape\u00f1o pepper.",
     "lat": 19.53124,
     "lng": -96.91589,
-    "difficulty": 10,
+    "difficulty": 6,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Mexico-Popocatepetl.jpg/500px-Mexico-Popocatepetl.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14142,7 +14142,7 @@
     "fact": "San Nicol\u00e1s de los Garza is part of greater Monterrey and home to the main campus of the Autonomous University of Nuevo Le\u00f3n.",
     "lat": 25.74167,
     "lng": -100.30222,
-    "difficulty": 10,
+    "difficulty": 8,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14152,7 +14152,7 @@
     "fact": "Ojo de Agua is a fast-growing community in the State of Mexico, named after a natural spring.",
     "lat": 19.68028,
     "lng": -99.01,
-    "difficulty": 10,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/ZA77_Teotihuac%C3%A1n_edo_de_mex_Herberto_de_la_rosa.jpg/500px-ZA77_Teotihuac%C3%A1n_edo_de_mex_Herberto_de_la_rosa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14162,7 +14162,7 @@
     "fact": "Iztacalco is Mexico City's smallest borough and is home to the Aut\u00f3dromo Hermanos Rodr\u00edguez, where the Mexican Grand Prix is held.",
     "lat": 19.39528,
     "lng": -99.09778,
-    "difficulty": 10,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg"
   },
   {
@@ -14182,7 +14182,7 @@
     "fact": "Irapuato is known as Mexico's 'World Capital of Strawberries'.",
     "lat": 20.671,
     "lng": -101.35577,
-    "difficulty": 10,
+    "difficulty": 7,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg/500px-Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -14203,7 +14203,7 @@
     "lng": 120.35,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Mt_Pinatubo_trekking_-_panoramio_%285%29.jpg/3840px-Mt_Pinatubo_trekking_-_panoramio_%285%29.jpg",
     "clue": "Mount Pinatubo, Philippines \ud83c\uddf5\ud83c\udded",
-    "difficulty": 1
+    "difficulty": 5
   },
   {
     "id": "geneva",
@@ -14223,7 +14223,7 @@
     "lng": 58.408333,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Al_Alam_Palace.jpg/3840px-Al_Alam_Palace.jpg",
     "clue": "Muscat, Oman \ud83c\uddf4\ud83c\uddf2",
-    "difficulty": 1
+    "difficulty": 4
   },
   {
     "id": "mount-rinjani",
@@ -14283,7 +14283,7 @@
     "lng": -87.534444,
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Great_Blue_Hole.jpg",
     "clue": "Great Blue Hole, Belize \ud83c\udde7\ud83c\uddff",
-    "difficulty": 1
+    "difficulty": 4
   },
   {
     "id": "suez-canal",
@@ -14343,7 +14343,7 @@
     "lng": 6.13,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Luxembourg_Grand_Ducal_Palace_01.jpg/3840px-Luxembourg_Grand_Ducal_Palace_01.jpg",
     "clue": "Luxembourg City, Luxembourg \ud83c\uddf1\ud83c\uddfa",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "valletta",
@@ -14353,7 +14353,7 @@
     "lng": 14.5125,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/St_Sebastian_Curtain_%28cropped%29.jpg/3840px-St_Sebastian_Curtain_%28cropped%29.jpg",
     "clue": "Valletta, Malta \ud83c\uddf2\ud83c\uddf9",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "belfast",
@@ -14373,7 +14373,7 @@
     "lng": 2.65,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Kathedrale_von_Palma.jpg/3840px-Kathedrale_von_Palma.jpg",
     "clue": "Palma de Mallorca, Spain \ud83c\uddea\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "franz-josef-glacier",
@@ -14383,7 +14383,7 @@
     "lng": 170.191667,
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Franz_josef_Glacier_LC0250.jpg",
     "clue": "Franz Josef Glacier, New Zealand \ud83c\uddf3\ud83c\uddff",
-    "difficulty": 1
+    "difficulty": 5
   },
   {
     "id": "nice",
@@ -14413,7 +14413,7 @@
     "lng": 174.166667,
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/00_4801_Dolphins_-_Bay_of_Islands.jpg",
     "clue": "Which bay in New Zealand's far north, dotted with over 140 islands, is where the Treaty of Waitangi was signed?",
-    "difficulty": 1
+    "difficulty": 5
   },
   {
     "id": "nuremberg",
@@ -14423,7 +14423,7 @@
     "lng": 11.0775,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/N%C3%BCrnberger_Burg_im_Herbst_2013.jpg/3840px-N%C3%BCrnberger_Burg_im_Herbst_2013.jpg",
     "clue": "Nuremberg, Germany \ud83c\udde9\ud83c\uddea",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "panama-city",
@@ -14483,7 +14483,7 @@
     "lng": -76.615278,
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Fell%27s_Point_Aerial_2022.jpg",
     "clue": "Baltimore, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "pittsburgh",
@@ -14493,7 +14493,7 @@
     "lng": -79.976389,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Ascending_the_Duquesne_Incline.jpg/3840px-Ascending_the_Duquesne_Incline.jpg",
     "clue": "Pittsburgh, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "kansas-city",
@@ -14503,7 +14503,7 @@
     "lng": -94.578333,
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Kansas_City_-_Downtown_-_panoramio_%2815%29.jpg",
     "clue": "Kansas City, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "cincinnati",
@@ -14513,7 +14513,7 @@
     "lng": -84.5125,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Downtown_Cincinnati_viewed_from_Devou_Park_%28cropped%29.jpg/3840px-Downtown_Cincinnati_viewed_from_Devou_Park_%28cropped%29.jpg",
     "clue": "Cincinnati, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "milwaukee",
@@ -14523,7 +14523,7 @@
     "lng": -87.95,
     "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Milwaukee_Skyline_w_New_NW_Mutual_Building_2025_by_Isaac_Rowlett.jpg",
     "clue": "Milwaukee, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "salt-lake-city",
@@ -14553,7 +14553,7 @@
     "lng": -81.091111,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Savannah.tif/lossy-page1-3840px-Savannah.tif.jpg",
     "clue": "Savannah, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 4
   },
   {
     "id": "charleston",
@@ -14563,7 +14563,7 @@
     "lng": -79.931944,
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/East_Battery_Street_Charleston_Aug2010.jpg",
     "clue": "Charleston, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 1
+    "difficulty": 4
   },
   {
     "id": "key-west",
@@ -14583,7 +14583,7 @@
     "lng": -123.364722,
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Victoria_BC%2C_Canada_%28Johnson_Street%29_-_panoramio.jpg",
     "clue": "Victoria, Canada \ud83c\udde8\ud83c\udde6",
-    "difficulty": 1
+    "difficulty": 4
   },
   {
     "id": "banff",
@@ -14593,7 +14593,7 @@
     "lng": -115.573611,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Town_of_Banff_viewed_from_Sulphur_Mountain.jpg/3840px-Town_of_Banff_viewed_from_Sulphur_Mountain.jpg",
     "clue": "Banff, Canada \ud83c\udde8\ud83c\udde6",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "darwin",
@@ -14603,7 +14603,7 @@
     "lng": 130.841111,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/DarwinOct172024_02.jpg/3840px-DarwinOct172024_02.jpg",
     "clue": "Darwin, Australia \ud83c\udde6\ud83c\uddfa",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "alice-springs",
@@ -14613,7 +14613,7 @@
     "lng": 133.87,
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Alice_Springs%2C_2015_%2801%29.JPG",
     "clue": "Alice Springs, Australia \ud83c\udde6\ud83c\uddfa",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "cairns",
@@ -14623,7 +14623,7 @@
     "lng": 145.78,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cairns_%28Queensland%29_%28cropped%29.jpg/3840px-Cairns_%28Queensland%29_%28cropped%29.jpg",
     "clue": "Cairns, Australia \ud83c\udde6\ud83c\uddfa",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "horseshoe-bend",
@@ -14703,7 +14703,7 @@
     "lng": 7.962639,
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Jungfrau03.jpg",
     "clue": "Jungfrau, Switzerland \ud83c\udde8\ud83c\udded",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "lake-como",
@@ -14723,7 +14723,7 @@
     "lng": -9.426334,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Cliffs-Of-Moher-OBriens-From-South.JPG/3840px-Cliffs-Of-Moher-OBriens-From-South.JPG",
     "clue": "Cliffs of Moher, Ireland \ud83c\uddee\ud83c\uddea",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "snowdon",
@@ -14733,7 +14733,7 @@
     "lng": -4.076231,
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Snowdon_massif.jpg",
     "clue": "Snowdon, Wales",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "ben-nevis",
@@ -14743,7 +14743,7 @@
     "lng": -5.003508,
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/BenNevis2005.jpg",
     "clue": "Ben Nevis, Scotland",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "black-forest",
@@ -14763,7 +14763,7 @@
     "lng": 8.615833,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/SBB_RABe_514_DTZ_Rheinfall.jpg/3840px-SBB_RABe_514_DTZ_Rheinfall.jpg",
     "clue": "Rhine Falls, Switzerland \ud83c\udde8\ud83c\udded",
-    "difficulty": 1
+    "difficulty": 4
   },
   {
     "id": "danube-delta",
@@ -14793,7 +14793,7 @@
     "lng": 44.2983,
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Ararat_and_the_Yerevan_skyline.jpg?width=800",
     "clue": "Mount Ararat, Turkey \ud83c\uddf9\ud83c\uddf7",
-    "difficulty": 1
+    "difficulty": 3
   },
   {
     "id": "sahara",
@@ -14833,7 +14833,7 @@
     "lng": 131.103889,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg/3840px-20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg",
     "clue": "Mount Aso, Japan \ud83c\uddef\ud83c\uddf5",
-    "difficulty": 1
+    "difficulty": 5
   },
   {
     "id": "jeju-island",
@@ -15213,7 +15213,7 @@
     "lng": -77.0861,
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/West_Face_of_Mansion%2C_Mount_Vernon%2C_Near_Alexandria%2C_Virginia_%282731038734%29.jpg",
     "clue": "Mount Vernon, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 2
+    "difficulty": 4
   },
   {
     "id": "monticello",
@@ -15223,7 +15223,7 @@
     "lng": -78.452333,
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Monticello_reflected.JPG",
     "clue": "Monticello, United States \ud83c\uddfa\ud83c\uddf8",
-    "difficulty": 2
+    "difficulty": 5
   },
   {
     "id": "yellowstone-national-park",
@@ -15413,7 +15413,7 @@
     "lng": 24.327222,
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Mt._Athos_%283939757657%29.jpg",
     "clue": "Mount Athos, Greece \ud83c\uddec\ud83c\uddf7",
-    "difficulty": 2
+    "difficulty": 4
   },
   {
     "id": "knossos",
@@ -15453,7 +15453,7 @@
     "lng": 8.485556,
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lauerzersee.jpg",
     "clue": "Mount Rigi, Switzerland \ud83c\udde8\ud83c\udded",
-    "difficulty": 2
+    "difficulty": 5
   },
   {
     "id": "lascaux",
@@ -15463,7 +15463,7 @@
     "lng": 1.17,
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg",
     "clue": "Lascaux, France \ud83c\uddeb\ud83c\uddf7",
-    "difficulty": 2
+    "difficulty": 5
   },
   {
     "id": "chateau-de-chambord",
@@ -15473,7 +15473,7 @@
     "lng": 1.517222,
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Aerial_image_of_Ch%C3%A2teau_de_Chambord_%28view_from_the_southeast%29.jpg",
     "clue": "Ch\u00e2teau de Chambord, France \ud83c\uddeb\ud83c\uddf7",
-    "difficulty": 2
+    "difficulty": 4
   },
   {
     "id": "palace-of-fontainebleau",
@@ -15513,7 +15513,7 @@
     "lng": -1.584722,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Warwick_Castle_May_2016.jpg/3840px-Warwick_Castle_May_2016.jpg",
     "clue": "Warwick Castle, England",
-    "difficulty": 2
+    "difficulty": 4
   },
   {
     "id": "tintagel-castle",
@@ -15523,7 +15523,7 @@
     "lng": -4.759928,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Tintagel_Castle_-_May_2026.jpg/3840px-Tintagel_Castle_-_May_2026.jpg",
     "clue": "Tintagel Castle, England",
-    "difficulty": 2
+    "difficulty": 5
   },
   {
     "id": "fiordland-national-park",
@@ -15563,7 +15563,7 @@
     "lng": 137.3,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Flinders_Chase_National_Park_01.jpg/3840px-Flinders_Chase_National_Park_01.jpg",
     "clue": "Kangaroo Island, Australia \ud83c\udde6\ud83c\uddfa",
-    "difficulty": 2
+    "difficulty": 4
   },
   {
     "id": "rottnest-island",
@@ -15573,7 +15573,7 @@
     "lng": 115.515,
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Rottnest_Island.jpg",
     "clue": "Rottnest Island, Australia \ud83c\udde6\ud83c\uddfa",
-    "difficulty": 2
+    "difficulty": 4
   },
   {
     "id": "istanbul",
@@ -15772,7 +15772,7 @@
     "fact": "Dubai grew from a small pearl-diving and fishing port into a global city, famous for its skyscrapers and man-made islands.",
     "lat": 25.07725,
     "lng": 55.30927,
-    "difficulty": 3,
+    "difficulty": 1,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Connollystra%C3%9Fe_GO-2.jpg/500px-Connollystra%C3%9Fe_GO-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -15802,7 +15802,7 @@
     "fact": "Datong is near the Hanging Temple, which clings to a cliff face and has done so for about 1,500 years.",
     "lat": 40.09361,
     "lng": 113.29139,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
   },
   {
@@ -16012,7 +16012,7 @@
     "fact": "Kayseri is a central Turkish city known for past\u0131rma, a cured beef, and its savory mant\u0131 dumplings.",
     "lat": 38.73222,
     "lng": 35.48528,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Mount_Elbrus_%28cropped%29.jpg/500px-Mount_Elbrus_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
@@ -16032,7 +16032,7 @@
     "fact": "Gwangju is a South Korean city known as a center of arts and democracy, and it hosts the Gwangju Biennale.",
     "lat": 35.15472,
     "lng": 126.91556,
-    "difficulty": 3,
+    "difficulty": 5,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/FortSumter2009.jpg/500px-FortSumter2009.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
