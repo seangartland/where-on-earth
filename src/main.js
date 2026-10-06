@@ -856,9 +856,14 @@ const correctPin = new Pin({ color: ANSWER_COLOR, badge: answerBadgeTex, answer:
 globe.add(correctPin.root);
 let activePin = -1;
 
+// Client (CSS px) point -> NDC, relative to the canvas's own box.
+function clientToNdc(clientX, clientY, out) {
+  return out.set(((clientX - viewLeft) / viewW) * 2 - 1, -((clientY - viewTop) / viewH) * 2 + 1);
+}
+
 // Globe-local unit normal under a screen point, or null off the globe.
 function globeNormalAt(clientX, clientY) {
-  const ndc = new THREE.Vector2((clientX / viewW) * 2 - 1, -(clientY / viewH) * 2 + 1);
+  const ndc = clientToNdc(clientX, clientY, new THREE.Vector2());
   const ray = new THREE.Raycaster();
   ray.setFromCamera(ndc, camera);
   globe.updateMatrixWorld();
@@ -922,7 +927,7 @@ const nearAngle = (a, b) => a + Math.round((b - a) / (2 * Math.PI)) * 2 * Math.P
 const _ray = new THREE.Raycaster();
 const _unitSphere = new THREE.Sphere(new THREE.Vector3(), 1);
 function sphereHit(clientX, clientY, out) {
-  _ray.setFromCamera(new THREE.Vector2((clientX / viewW) * 2 - 1, -(clientY / viewH) * 2 + 1), camera);
+  _ray.setFromCamera(clientToNdc(clientX, clientY, new THREE.Vector2()), camera);
   return _ray.ray.intersectSphere(_unitSphere, out);
 }
 
@@ -960,9 +965,18 @@ function computeFit() {
   return 1 / Math.sin(Math.atan(fill * Math.tan(half)));
 }
 
+// Size from the canvas's laid-out CSS box, not window.innerWidth/innerHeight.
+// On iOS (viewport-fit=cover, toolbars, standalone) innerHeight can differ from
+// the fixed canvas's real height; the image then stretches to the CSS box while
+// taps are mapped against innerHeight, so pins land below the finger.
+let viewLeft = 0;
+let viewTop = 0;
 function resize() {
-  viewW = window.innerWidth;
-  viewH = window.innerHeight;
+  const r = canvas.getBoundingClientRect();
+  viewLeft = r.left;
+  viewTop = r.top;
+  viewW = Math.max(1, r.width || window.innerWidth);
+  viewH = Math.max(1, r.height || window.innerHeight);
   renderer.setSize(viewW, viewH, false);
   camera.aspect = viewW / viewH;
   camera.updateProjectionMatrix();
@@ -978,6 +992,8 @@ function resize() {
   if (answerLineMaterial) answerLineMaterial.resolution.set(viewW, viewH);
 }
 window.addEventListener('resize', resize);
+// The canvas box can change without a window resize (iOS toolbar, rotation settle).
+if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
 resize();
 
 // radians of rotation per css pixel so the surface tracks the finger
