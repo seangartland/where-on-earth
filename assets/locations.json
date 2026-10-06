@@ -17644,18 +17644,6 @@
     "sets": []
   },
   {
-    "id": "caspian-sea",
-    "short": "Caspian Sea",
-    "fact": "Despite its name, it is Earth’s largest enclosed inland body of water and borders five countries.",
-    "lat": 42,
-    "lng": 50.5,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/98/Caspian_Sea_from_orbit.jpg",
-    "clue": "Caspian Sea",
-    "difficulty": 1,
-    "country": "International Waters",
-    "sets": []
-  },
-  {
     "id": "gaborone",
     "short": "Gaborone",
     "fact": "A small administrative settlement grew into one of Africa’s fastest-developing capitals after independence in 1966.",
@@ -17905,18 +17893,6 @@
     "clue": "Mount Damavand, Iran 🇮🇷",
     "difficulty": 6,
     "country": "Iran",
-    "sets": []
-  },
-  {
-    "id": "aral-sea",
-    "short": "Aral Sea",
-    "fact": "Aral Sea is a lake in Kazakhstan and Uzbekistan.",
-    "lat": 45,
-    "lng": 60,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/75/AralSea1989_2014.jpg",
-    "clue": "Aral Sea, Kazakhstan 🇰🇿",
-    "difficulty": 2,
-    "country": "Kazakhstan",
     "sets": []
   },
   {
@@ -18361,18 +18337,6 @@
     "clue": "Central Park, United States 🇺🇸",
     "difficulty": 2,
     "country": "United States",
-    "sets": []
-  },
-  {
-    "id": "persian-gulf",
-    "short": "Persian Gulf",
-    "fact": "This shallow sea borders major oil-producing states and carries a large share of the world’s petroleum exports.",
-    "lat": 26,
-    "lng": 52,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/PersianGulf_vue_satellite_du_golfe_persique.jpg/3840px-PersianGulf_vue_satellite_du_golfe_persique.jpg",
-    "clue": "Persian Gulf",
-    "difficulty": 2,
-    "country": "International Waters",
     "sets": []
   },
   {
@@ -19825,18 +19789,6 @@
     "difficulty": 4,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Kremlin_and_Red_Square.1.jpg/500px-Kremlin_and_Red_Square.1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "Iraq",
-    "sets": []
-  },
-  {
-    "id": "ashgabat",
-    "short": "Ashgabat",
-    "clue": "Ashgabat, Turkmenistan 🇹🇲",
-    "fact": "Ashgabat is Turkmenistan's capital, rebuilt after a 1948 earthquake and now known for its gleaming white marble buildings.",
-    "lat": 37.95,
-    "lng": 58.38333,
-    "difficulty": 4,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Windsor_Castle_at_Sunset_-_Nov_2006.jpg/500px-Windsor_Castle_at_Sunset_-_Nov_2006.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Turkmenistan",
     "sets": []
   },
   {
@@ -24295,6 +24247,58 @@
     "difficulty": 3,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Chefchaouen-the-blue-city-of-morocco-with-palm-trees-and-the-mountain-view-in-the-backrgound.jpg/500px-Chefchaouen-the-blue-city-of-morocco-with-palm-trees-and-the-mountain-view-in-the-backrgound.jpg",
     "country": "Morocco",
+    "sets": []
+  },
+  {
+    "id": "khiva-uzbekistan",
+    "clue": "Khiva, Uzbekistan 🇺🇿",
+    "category": "city",
+    "lat": 41.3783,
+    "lng": 60.3639,
+    "fact": "Khiva's walled inner town, Itchan Kala, was the last stop for caravans before crossing the desert to Iran and became Uzbekistan's first UNESCO World Heritage Site in 1990.",
+    "difficulty": 7,
+    "short": "Khiva",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/View_from_the_city_walls%2C_Khiva_%284934484894%29.jpg/500px-View_from_the_city_walls%2C_Khiva_%284934484894%29.jpg",
+    "country": "Uzbekistan",
+    "sets": []
+  },
+  {
+    "id": "jerash-jordan",
+    "clue": "Jerash, Jordan 🇯🇴",
+    "category": "landmark",
+    "lat": 32.2806,
+    "lng": 35.8972,
+    "fact": "Ancient Gerasa is one of the best-preserved Roman provincial cities in the world, with a colonnaded street and an oval plaza ringed by 56 Ionic columns.",
+    "difficulty": 6,
+    "short": "Jerash",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Oval_Plaza_%28Forum_Romanum%2C_Gerasa_-_Jerash%2C_Jordan%29_-_%D8%B3%D8%A7%D8%AD%D8%A9_%D8%A7%D9%84%D9%86%D8%AF%D9%88%D8%A9%2C_%D8%AC%D8%B1%D8%B4.jpg/500px-Oval_Plaza_%28Forum_Romanum%2C_Gerasa_-_Jerash%2C_Jordan%29_-_%D8%B3%D8%A7%D8%AD%D8%A9_%D8%A7%D9%84%D9%86%D8%AF%D9%88%D8%A9%2C_%D8%AC%D8%B1%D8%B4.jpg",
+    "country": "Jordan",
+    "sets": []
+  },
+  {
+    "id": "rothenburg-ob-der-tauber-germany",
+    "clue": "Rothenburg ob der Tauber, Germany 🇩🇪",
+    "category": "city",
+    "lat": 49.3772,
+    "lng": 10.1789,
+    "fact": "Its intact medieval walls and half-timbered houses on the Romantic Road made it a model for the village in Disney's Pinocchio.",
+    "difficulty": 6,
+    "short": "Rothenburg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Rothenburg_BW_4.JPG/500px-Rothenburg_BW_4.JPG",
+    "country": "Germany",
+    "sets": []
+  },
+  {
+    "id": "colmar-france",
+    "clue": "Colmar, France 🇫🇷",
+    "category": "city",
+    "lat": 48.0794,
+    "lng": 7.3585,
+    "fact": "The Alsatian wine town's canal quarter, Little Venice, is lined with colorful half-timbered houses, and it is the birthplace of Statue of Liberty sculptor Frédéric Auguste Bartholdi.",
+    "difficulty": 6,
+    "short": "Colmar",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/View_of_%C3%89glise_Saint-Martin_%2843833049001%29.jpg/500px-View_of_%C3%89glise_Saint-Martin_%2843833049001%29.jpg",
+    "country": "France",
     "sets": []
   }
 ]
