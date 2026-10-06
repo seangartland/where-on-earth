@@ -3134,7 +3134,7 @@ function showResults() {
   gameEls.resultStreak.textContent = `🔥 ${streak} day streak`;
   gameEls.breakdown.replaceChildren(...daily.results.map((result, i) => {
     const li = document.createElement('li');
-    li.innerHTML = `<b>${i + 1}</b><span class="place"></span><span class="points">${result.score}<small>${result.distance.toLocaleString()} km</small></span>`;
+    li.innerHTML = `<b>${i + 1}</b><span class="place"></span><span class="points">${result.score.toLocaleString()}<small>${result.distance.toLocaleString()} km</small></span>`;
     li.querySelector('.place').textContent = selected[i].short || selected[i].clue;
     return li;
   }));
@@ -3661,7 +3661,7 @@ function openRecap(i) {
   reviewEls.base.textContent = result.base ?? Math.round((result.score * 10) / WEIGHTS[i]);
   reviewEls.mult.textContent = `×${WEIGHTS[i] / 10}`;
   reviewEls.mult.style.display = WEIGHTS[i] > 1 ? '' : 'none';
-  reviewEls.score.textContent = `+${result.score}`;
+  reviewEls.score.textContent = `+${result.score.toLocaleString()}`;
   reviewEls.fact.textContent = item.fact;
   setThumb(reviewEls.thumb, item.image);
   reviewEls.card.hidden = false;
