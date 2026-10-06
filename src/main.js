@@ -4152,6 +4152,13 @@ function recordVisit(id, base, km, canEarn = true) {
   // earnedAt: timestamp of first earn, set once and never overwritten
   if (earned && !prev.ea) entry.ea = Date.now();
   else if (prev.ea) entry.ea = prev.ea;
+  // Track when each tier was first achieved for upgrade history
+  if (earned >= 1 && !prev.eb1) entry.eb1 = Date.now();
+  else if (prev.eb1) entry.eb1 = prev.eb1;
+  if (earned >= 2 && !prev.eb2) entry.eb2 = Date.now();
+  else if (prev.eb2) entry.eb2 = prev.eb2;
+  if (earned >= 3 && !prev.eb3) entry.eb3 = Date.now();
+  else if (prev.eb3) entry.eb3 = prev.eb3;
   passport.meta[id] = entry;
   passport.visits[id] = score;
   const at = passport.order.indexOf(id);
