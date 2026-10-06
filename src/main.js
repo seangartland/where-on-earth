@@ -2657,6 +2657,12 @@ function updateBullseyeAnimation(anim, dt) {
     anim.wave = 0;
     shockwave.quaternion.setFromUnitVectors(_UP, anim.b);
     shockwave.visible = true;
+    // Stamp the empty map above the pins: the postcard pops into the band
+    // below them at the same moment and would bury it there.
+    const v = anim.b.clone().multiplyScalar(1.02).applyQuaternion(globe.quaternion).project(camera);
+    const pinY = ((1 - v.y) / 2) * viewH;
+    const headerBottom = gameEls.header.getBoundingClientRect().bottom || 60;
+    bullseyeStamp.style.top = `${Math.max(headerBottom + 80, pinY - 140)}px`;
     bullseyeStamp.hidden = false;
     bullseyeStamp.animate([
       { transform: 'translate(-50%, -50%) rotate(-24deg) scale(2.6)', opacity: 0 },
