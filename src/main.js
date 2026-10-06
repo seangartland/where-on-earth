@@ -2023,9 +2023,10 @@ function distanceKm(a, b) {
 }
 
 function scoreGuess(km, round) {
-  // Bullseye (<25km) always scores 100
-  const base = km < BULLSEYE_KM ? 100 : Math.round(100 * Math.exp(-km / 4650));
-  return base * WEIGHTS[round];
+  // Bullseye (<25km) always scores 1000. Scale the weighted contribution back
+  // down so the five-round game total remains out of 1000.
+  const base = km < BULLSEYE_KM ? 1000 : Math.round(1000 * Math.exp(-km / 4650));
+  return Math.round((base * WEIGHTS[round]) / 10);
 }
 
 function streakText() {
@@ -2994,6 +2995,7 @@ function revealGuess(guess, restoring = false) {
   const answer = currentItem();
   const kmExact = distanceKm(guess, answer);
   const km = Math.round(kmExact);
+  const base = kmExact < BULLSEYE_KM ? 1000 : Math.round(1000 * Math.exp(-kmExact / 4650));
   const oneOff = survival.active || endless.active || expeditionRun.active; // unscored, outside the daily
   const score = oneOff ? 0 : scoreGuess(kmExact, daily.round);
   if (!restoring && survival.active) {
@@ -3004,7 +3006,7 @@ function revealGuess(guess, restoring = false) {
       saveSurvivalBest(survival.survived);
     }
   } else if (!restoring && !oneOff) {
-    daily.results[daily.round] = { guess, distance: km, score };
+    daily.results[daily.round] = { guess, distance: km, score, base };
     saveDaily();
   }
   gameMode = 'reveal';
@@ -3016,13 +3018,12 @@ function revealGuess(guess, restoring = false) {
     : endless.active ? 'game-reveal endless' : 'game-reveal';
   gameEls.hint.textContent = '';
   gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : `${km.toLocaleString()} km`;
-  const base = kmExact < BULLSEYE_KM ? 100 : Math.round(100 * Math.exp(-kmExact / 4650));
   // Endless earns visits only; postcards come from daily and survival.
   const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact, !endless.active) : 0; // exact, so earning matches the flyover tier
   if (!restoring && expeditionRun.active) completeExpeditionRound();
   const weight = oneOff ? 1 : WEIGHTS[daily.round];
   gameEls.baseScore.textContent = base;
-  gameEls.mult.textContent = `×${weight}`;
+  gameEls.mult.textContent = `×${weight / 10}`;
   gameEls.mult.style.display = weight > 1 ? '' : 'none';
   const placeName = answer.short || answer.clue;
   gameEls.revealName.textContent = placeName;
@@ -3099,10 +3100,10 @@ function setThumb(img, url) {
 }
 
 function scoreEmoji(base) {
-  if (base >= 100) return '🎯';
-  if (base >= 90) return '🔥';
-  if (base >= 70) return '🏆';
-  if (base >= 40) return '🙂';
+  if (base >= 1000) return '🎯';
+  if (base >= 900) return '🔥';
+  if (base >= 700) return '🏆';
+  if (base >= 400) return '🙂';
   if (base >= 1) return '😅';
   return '🥶';
 }
@@ -3111,7 +3112,7 @@ function shareText() {
   const dateStr = new Date(`${daily.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const total = daily.results.reduce((sum, result) => sum + result.score, 0);
   const lines = daily.results.map((result, index) => {
-    const base = Math.round(result.score / WEIGHTS[index]);
+    const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
     return `${base} ${scoreEmoji(base)}`;
   });
   return `Where on Earth?\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}\n\nCan you beat me?\nhttps://where-on-earth-game.vercel.app`;
@@ -3533,7 +3534,7 @@ reviewScreen.innerHTML = `
   </header>
   <article class="reveal-card recap-card glass" hidden>
     <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div><button class="recap-close" aria-label="Close round recap">×</button></div>
-    <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><div class="score-math"><span class="base"><b class="recap-base"></b>/100</span><span class="mult recap-mult"></span><strong class="recap-score"></strong></div></div>
+    <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><div class="score-math"><span class="base"><b class="recap-base"></b>/1000</span><span class="mult recap-mult"></span><strong class="recap-score"></strong></div></div>
     <img class="recap-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
     <p class="recap-fact"></p>
     <button class="primary" data-act="back">Back to globe</button>
@@ -3657,8 +3658,8 @@ function openRecap(i) {
   reviewEls.tag.textContent = `Round ${i + 1} of 5`;
   reviewEls.name.textContent = item.clue;
   reviewEls.distance.textContent = `${result.distance.toLocaleString()} km`;
-  reviewEls.base.textContent = Math.round(result.score / WEIGHTS[i]);
-  reviewEls.mult.textContent = `×${WEIGHTS[i]}`;
+  reviewEls.base.textContent = result.base ?? Math.round((result.score * 10) / WEIGHTS[i]);
+  reviewEls.mult.textContent = `×${WEIGHTS[i] / 10}`;
   reviewEls.mult.style.display = WEIGHTS[i] > 1 ? '' : 'none';
   reviewEls.score.textContent = `+${result.score}`;
   reviewEls.fact.textContent = item.fact;
@@ -3798,7 +3799,7 @@ function recordHistory() {
     date: daily.date,
     total: daily.results.reduce((sum, result) => sum + result.score, 0),
     rounds: daily.results.map((result, i) => ({
-      base: Math.round(result.score / WEIGHTS[i]),
+      base: result.base ?? Math.round((result.score * 10) / WEIGHTS[i]),
       score: result.score,
       distance: result.distance,
     })),
@@ -3992,7 +3993,7 @@ function renderStats() {
   if (stats.bestRound) {
     const round = stats.bestRound;
     statsEls.bestRound.hidden = false;
-    statsEls.bestRound.innerHTML = `Closest guess <b>${round.base}/100</b> · ${round.distance.toLocaleString()} km away<br>Round ${round.round} of 5 · ${shortDate(round.date)}`;
+    statsEls.bestRound.innerHTML = `Closest guess <b>${round.base}/1000</b> · ${round.distance.toLocaleString()} km away<br>Round ${round.round} of 5 · ${shortDate(round.date)}`;
   } else {
     statsEls.bestRound.hidden = true;
   }
@@ -4041,8 +4042,8 @@ document.addEventListener('keydown', (e) => {
 const PASSPORT_DOT_LIMIT = 200; // rendered dots, newest first
 const PASSPORT_ORDER_LIMIT = 240; // ids kept in recency order (dots draw from these)
 const PASSPORT_STAMPS = 5; // recent photo stamps
-const PASSPORT_GOLD = 70; // /100 and up reads gold, 40+ cyan, the rest dim
-const PASSPORT_CYAN = 40;
+const PASSPORT_GOLD = 700; // /1000 and up reads gold, 400+ cyan, the rest dim
+const PASSPORT_CYAN = 400;
 const DOT_RADIUS = 1.008; // just proud of the sphere so the far side stays hidden
 const CONTINENT_SHORT = {
   Africa: 'Africa',
@@ -4075,7 +4076,7 @@ function continentOf(item) {
   return null;
 }
 
-// visits: id -> latest base score /100 (drives dot colour). meta: id -> { b: best
+// visits: id -> latest base score /1000 (drives dot colour). meta: id -> { b: best
 // base, d: closest km, f: first-visit date key, t: last-visit ms, e: earned }; meta
 // only exists for visits logged after the Passport page shipped, older ones lack it.
 // e is the best flyover tier landed there. Stored best distances are also used to
@@ -4130,13 +4131,15 @@ function readPassport() {
   const raw = readJSON(PASSPORT_KEY);
   const visits = {};
   const order = [];
-  let migrated = false;
+  const migrateScores = raw && raw.v !== 2;
+  let migrated = migrateScores;
   if (raw && raw.visits && typeof raw.visits === 'object') {
     for (const [id, base] of Object.entries(raw.visits)) {
-      const score = Number(base);
+      const score = Number(base) * (migrateScores ? 10 : 1);
       // Unicode letters: 8 ids carry accents (gorée-island-…, park-güell-…).
       if (!/^[\p{L}\p{N}_-]{1,64}$/u.test(id) || !Number.isFinite(score)) continue;
-      visits[id] = clamp(Math.round(score), 0, 100);
+      visits[id] = clamp(Math.round(score), 0, 1000);
+      if (migrateScores) raw.visits[id] = visits[id];
       order.push(id);
     }
   }
@@ -4150,7 +4153,10 @@ function readPassport() {
     for (const [id, m] of Object.entries(raw.meta)) {
       if (!(id in visits) || !m || typeof m !== 'object') continue;
       const entry = {};
-      if (Number.isFinite(m.b)) entry.b = clamp(Math.round(m.b), 0, 100);
+      if (Number.isFinite(m.b)) {
+        entry.b = clamp(Math.round(m.b * (migrateScores ? 10 : 1)), 0, 1000);
+        if (migrateScores) m.b = entry.b;
+      }
       if (Number.isFinite(m.d)) entry.d = Math.max(0, Math.round(m.d));
       if (typeof m.f === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(m.f)) entry.f = m.f;
       if (Number.isFinite(m.t)) entry.t = m.t;
@@ -4168,6 +4174,7 @@ function readPassport() {
       meta[id] = entry;
     }
   }
+  if (migrateScores) raw.v = 2;
   if (migrated) writeJSON(PASSPORT_KEY, raw);
   return { visits, order: order.slice(-PASSPORT_ORDER_LIMIT), meta };
 }
@@ -4176,7 +4183,7 @@ function readPassport() {
 // a card earned earlier is kept either way.
 function recordVisit(id, base, km, canEarn = true) {
   if (!id || !Number.isFinite(base)) return 0;
-  const score = clamp(Math.round(base), 0, 100);
+  const score = clamp(Math.round(base), 0, 1000);
   // Keep a visit logged before meta existed undated: its real first visit is unknown.
   const legacy = id in passport.visits && !passport.meta[id];
   const prev = passport.meta[id] || {};
@@ -4203,7 +4210,7 @@ function recordVisit(id, base, km, canEarn = true) {
   if (at !== -1) passport.order.splice(at, 1);
   passport.order.push(id);
   if (passport.order.length > PASSPORT_ORDER_LIMIT) passport.order = passport.order.slice(-PASSPORT_ORDER_LIMIT);
-  writeJSON(PASSPORT_KEY, { v: 1, visits: passport.visits, order: passport.order, meta: passport.meta });
+  writeJSON(PASSPORT_KEY, { v: 2, visits: passport.visits, order: passport.order, meta: passport.meta });
   passportDirty = true;
   // Return newly earned tier (0 if not newly earned)
   return earned > prevEarned ? earned : 0;
@@ -4361,7 +4368,7 @@ function syncPassport() {
     img.loading = 'lazy';
     img.decoding = 'async';
     img.dataset.tier = tierOf(spot.base);
-    img.title = `${spot.item.short || spot.item.clue} · ${spot.base}/100`;
+    img.title = `${spot.item.short || spot.item.clue} · ${spot.base}/1000`;
     img.addEventListener('error', () => img.remove(), { once: true });
     return img;
   }));
@@ -4950,7 +4957,7 @@ function passportCard(entry) {
   const stamp = document.createElement('span');
   stamp.className = 'pp-stamp';
   stamp.dataset.tier = entry.earned >= EARN_BULLSEYE ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
-  stamp.setAttribute('aria-label', `${{ seen: 'Not yet earned. ', bullseye: 'Bullseye. ', pinpoint: 'Pinpoint. ' }[earn] || ''}Best score ${entry.best} out of 100`);
+  stamp.setAttribute('aria-label', `${{ seen: 'Not yet earned. ', bullseye: 'Bullseye. ', pinpoint: 'Pinpoint. ' }[earn] || ''}Best score ${entry.best} out of 1000`);
   stamp.innerHTML = `<span>${entry.best}<small>${{ bullseye: '🎯', pinpoint: '📍' }[earn] || 'BEST'}</small></span>`;
   const name = document.createElement('p');
   name.className = 'pp-name';
@@ -5158,7 +5165,7 @@ function fillPostcard(entry) {
     ppdEls.photo.append(img);
   }
   ppdEls.stamp.dataset.tier = entry.earned >= EARN_BULLSEYE ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
-  ppdEls.stamp.setAttribute('aria-label', `Best score ${entry.best} out of 100`);
+  ppdEls.stamp.setAttribute('aria-label', `Best score ${entry.best} out of 1000`);
   ppdEls.stamp.innerHTML = `<span>${entry.best}<small>${{ bullseye: '🎯', pinpoint: '📍' }[earn] || 'BEST'}</small></span>`;
   ppdEls.from.textContent = `Postcard from ${entry.continent || 'Earth'}`;
   const flag = (item.clue || '').match(FLAG_RE);
@@ -5176,7 +5183,7 @@ function fillPostcard(entry) {
     seen: ['dim', 'Not yet'],
   }[earn];
   const cells = [
-    ['Best score', `${entry.best}<small> /100</small>`],
+    ['Best score', `${entry.best}<small> /1000</small>`],
     ['Closest guess', Number.isFinite(entry.km) ? `${entry.km.toLocaleString()}<small> km</small>` : '—'],
     ['First visited', entry.first ? longDate(entry.first) : '—'],
     ['Postcard', tier[1], tier[0]],
