@@ -1242,6 +1242,7 @@ const GOLD_COLOR = new THREE.Color('#ffd45e');
 const DEADPAN_LINES = ['away.', 'away. Bold.', 'away. Different continent.', 'away. Still on Earth, though.', 'away. Noted.'];
 
 function flyoverTier(km) {
+  if (km < PINPOINT_KM) return 'pinpoint';
   if (km < BULLSEYE_KM) return 'bullseye';
   if (km < NEAR_KM) return 'near';
   if (km > BLOWOUT_KM) return 'blowout';
@@ -2630,7 +2631,7 @@ function trimTravelLine(anim, t) {
 // so it follows the bullseye slow motion).
 function answerLanded(anim) {
   anim.landed = true;
-  if (anim.tier === 'bullseye') {
+  if (anim.tier === 'bullseye' || anim.tier === 'pinpoint') {
     audio.thump(1.7);
     audio.chime();
   } else {
@@ -2726,6 +2727,7 @@ function updateBullseyeAnimation(anim, dt) {
     const pinY = ((1 - v.y) / 2) * viewH;
     const headerBottom = gameEls.header.getBoundingClientRect().bottom || 60;
     bullseyeStamp.style.top = `${Math.max(headerBottom + 80, pinY - 140)}px`;
+    bullseyeStamp.innerHTML = anim.tier === 'pinpoint' ? '<b>📍</b>PINPOINT' : '<b>🎯</b>BULLSEYE';
     bullseyeStamp.hidden = false;
     bullseyeStamp.animate([
       { transform: 'translate(-50%, -50%) rotate(-24deg) scale(2.6)', opacity: 0 },
@@ -2757,7 +2759,7 @@ function updateTravelAnimation(dt, pinScale) {
   const anim = travelAnimation;
   anim.elapsed += dt;
   anim.pinScale = pinScale;
-  if (anim.tier === 'bullseye') {
+  if (anim.tier === 'bullseye' || anim.tier === 'pinpoint') {
     updateBullseyeAnimation(anim, dt);
     return;
   }
@@ -3058,9 +3060,9 @@ function revealGuess(guess, restoring = false) {
       else showEarnToast(answer, newlyEarned);
     }, animate ? 800 : 100);
   }
-  if (animate && tier === 'bullseye') {
+  if (animate && (tier === 'bullseye' || tier === 'pinpoint')) {
     document.body.classList.add('bullseye');
-    gameEls.hint.textContent = 'Bullseye! The gold marker shows the answer';
+    gameEls.hint.textContent = tier === 'pinpoint' ? 'Pinpoint! Incredible accuracy' : 'Bullseye! The gold marker shows the answer';
     beginBullseyeReveal(guess, answer, km);
   } else if (animate) beginTravelReveal(guess, answer, km);
   else {
