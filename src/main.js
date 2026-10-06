@@ -5194,6 +5194,7 @@ function renderCollectionsOverview() {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = `collection-set${earned === set.items.length ? ' done' : ''}`;
+    button.setAttribute('aria-label', `${set.name}: ${earned} of ${set.items.length} postcards earned`);
     button.innerHTML = `<span class="collection-set-top"><span class="collection-icon">${set.icon}</span><span class="collection-count">${earned}/${set.items.length}</span></span><span class="collection-name"></span><span class="collection-sub">${earned === set.items.length ? 'Complete' : earned ? `${set.items.length - earned} to go` : 'Not started'}</span><span class="collection-bar"><i style="width:${(earned / set.items.length) * 100}%"></i></span>`;
     button.querySelector('.collection-name').textContent = set.name;
     const thumbs = document.createElement('span');
@@ -5217,6 +5218,11 @@ function renderCollectionDetail(set) {
   head.querySelector('h2').textContent = set.name;
   const progress = document.createElement('div');
   progress.className = 'collection-progress';
+  progress.setAttribute('role', 'progressbar');
+  progress.setAttribute('aria-label', `${set.name} postcards earned`);
+  progress.setAttribute('aria-valuemin', '0');
+  progress.setAttribute('aria-valuemax', String(set.items.length));
+  progress.setAttribute('aria-valuenow', String(earned));
   progress.innerHTML = `<div class="collection-progress-top"><b>${earned} / ${set.items.length}</b><span>${Math.round(earned / set.items.length * 100)}% collected</span></div><div class="collection-segments">${set.items.map((item) => `<i class="${collectionEarn(item) ? 'earned' : ''}"></i>`).join('')}</div>`;
   const grid = document.createElement('ol');
   grid.className = 'collection-grid';
