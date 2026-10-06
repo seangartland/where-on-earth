@@ -57,16 +57,19 @@ function clearPendingGuess() {
   document.body.classList.remove('has-guess');
 }
 
-lockButton.addEventListener('pointerdown', (e) => {
-  e.stopPropagation();
-  e.preventDefault();
-});
-lockButton.addEventListener('pointerup', (e) => {
-  e.stopPropagation();
-  e.preventDefault();
-});
-lockButton.addEventListener('click', (e) => {
-  e.stopPropagation();
+// The canvas is a sibling of the HUD, not an ancestor, so stopping propagation
+// on the button can't shield it. A tap that misses the button by a few px (its
+// glow reads as part of it) hit-tests to the globe and would move the pin to
+// the button's spot, so the canvas ignores placement taps on or near it.
+const LOCK_TAP_SLOP = 16; // css px
+function nearLockButton(x, y) {
+  if (lockButton.hidden) return false;
+  const r = lockButton.getBoundingClientRect();
+  return x > r.left - LOCK_TAP_SLOP && x < r.right + LOCK_TAP_SLOP
+    && y > r.top - LOCK_TAP_SLOP && y < r.bottom + LOCK_TAP_SLOP;
+}
+
+lockButton.addEventListener('click', () => {
   if (!pendingGuess || !window.__canGuess || gameMode !== 'guess') return;
   if (performance.now() < lockArmedAt) return; // the tail of a double tap on the globe
   const guess = pendingGuess;
@@ -1086,7 +1089,7 @@ function endPointer(e) {
   if (pointers.size === 0) {
     canvas.classList.remove('dragging');
     if (tap && e.type === 'pointerup' && gameMode === 'guess' && now - tap.t < GUESS_TAP_MAX_MS) {
-      placeGuessPin(e.clientX, e.clientY);
+      if (!nearLockButton(e.clientX, e.clientY)) placeGuessPin(e.clientX, e.clientY);
     } else if (tap && e.type === 'pointerup' && now - tap.t < TAP_MAX_MS) {
       if (gameMode === 'review') pickReviewRound(e.clientX, e.clientY);
     } else if (samples.length >= 2) {
@@ -2283,6 +2286,20 @@ function projectToScreen(local, out) {
   return { x: ((out.x + 1) / 2) * viewW, y: ((1 - out.y) / 2) * viewH, facing };
 }
 
+// The lowest screen y the label may reach: the top of the reveal sheet (live,
+// so it follows the slide-in and the expand), and the postcard's held spot
+// when it is out over the label's column (padded for its tilt and pop lift).
+function lineLabelFloor(x, w) {
+  const gap = 8;
+  let floor = viewH - gap;
+  if (!gameEls.reveal.hidden) floor = Math.min(floor, gameEls.reveal.getBoundingClientRect().top - gap);
+  const run = postcardRun;
+  if (!postcard.hidden && run && run.y != null && x < run.x + POSTCARD_W + 12 && x + w > run.x - 12) {
+    floor = Math.min(floor, run.y - 16 - gap);
+  }
+  return floor;
+}
+
 // Pin the distance to the route midpoint every frame. When the pins are close
 // on screen the label lifts above them instead of sitting on the markers.
 function updateLineLabel() {
@@ -2310,8 +2327,13 @@ function updateLineLabel() {
     oy = (-dx / len) * 30 * sign;
   }
   const w = el.offsetWidth || 80;
+  const h = el.offsetHeight || 26;
   const x = clamp(m.x + ox - w / 2, 8, viewW - w - 8);
-  el.style.transform = `translate(${x.toFixed(1)}px, ${(m.y + oy - 14).toFixed(1)}px)`;
+  let y = m.y + oy - 14;
+  // Never let the sheet or the held postcard cover the distance: rise above them.
+  const floor = lineLabelFloor(x, w);
+  if (y + h > floor) y = Math.max(8, floor - h);
+  el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
   if (el.hidden) {
     el.hidden = false;
     if (el.dataset.fresh) {

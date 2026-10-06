@@ -129,7 +129,8 @@ body.survival-miss .peek-score { color: #ff9db4; }
 #place-thumb[hidden] { display: none; }
 #fact { margin: 10px 0 0; color: rgba(224,240,255,.8); font-size: 13px; line-height: 1.45; }
 
-.line-distance { position: fixed; z-index: 9; left: 0; top: 0; padding: 4px 10px 3px; border: 1px solid rgba(185,247,255,.5); border-radius: 999px; background: rgba(4,12,28,.8); color: #f4fdff; font-size: 14px; font-weight: 800; letter-spacing: -.01em; white-space: nowrap; pointer-events: none; will-change: transform; box-shadow: 0 0 16px rgba(70,205,255,.2); }
+/* z-index 10: after the .screen sections in the DOM, so above the reveal sheet; below .ppd (11) and the postcard (13). */
+.line-distance { position: fixed; z-index: 10; left: 0; top: 0; padding: 4px 10px 3px; border: 1px solid rgba(185,247,255,.5); border-radius: 999px; background: rgba(4,12,28,.8); color: #f4fdff; font-size: 14px; font-weight: 800; letter-spacing: -.01em; white-space: nowrap; pointer-events: none; will-change: transform; box-shadow: 0 0 16px rgba(70,205,255,.2); }
 .line-distance[hidden] { display: none; }
 .results-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px); background: rgba(2,4,9,.42); pointer-events: auto; }
 .results-card { box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 24px 18px; border-radius: 24px; text-align: center; }
@@ -214,5 +215,5 @@ body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0
 .lock-button { position: absolute; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 22px); min-width: 220px; min-height: 54px; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #1b1230; font-size: 17px; letter-spacing: -.01em; box-shadow: 0 8px 28px rgba(255,159,106,.35), 0 2px 8px rgba(0,0,0,.4); pointer-events: auto; transform: translateX(-50%); animation: lock-in .35s ease-out both; }
 .lock-button[hidden] { display: none; }
 .lock-button:active { transform: translateX(-50%) scale(.96); }
-@keyframes lock-in { from { opacity: 0; transform: translateX(-50%) translateY(12px); pointer-events: none; } to { opacity: 1; transform: translateX(-50%); } }
+@keyframes lock-in { from { opacity: 0; transform: translateX(-50%) translateY(12px); } to { opacity: 1; transform: translateX(-50%); } }
 body.has-guess #hud { opacity: 0; }
