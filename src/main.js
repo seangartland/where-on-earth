@@ -1626,6 +1626,7 @@ flyoverStyle.textContent = `
 .thumb-slot.waiting::before { content: ""; position: absolute; inset: 2px 0; box-sizing: border-box; border: 1.5px dashed rgba(193,224,250,.42); border-radius: 10px; background: rgba(193,224,250,.05); }
 .thumb-slot.waiting img { opacity: 0; }
 .peek-slot.waiting::before { inset: 0; }
+.peek-tier-date { color: rgba(193,224,250,.62); font-size: 11px; font-weight: 650; }
 .postcard p { margin: 0; height: 34px; overflow: hidden; color: #1d2633; font: 600 15px/34px "Marker Felt", "Bradley Hand", "Segoe Print", cursive; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 body.bullseye #reveal-card { border-color: rgba(255,212,94,.5); }`;
 document.head.appendChild(flyoverStyle);
@@ -3030,6 +3031,14 @@ function revealGuess(guess, restoring = false) {
   const placeName = answer.short || answer.clue;
   gameEls.revealName.textContent = placeName;
   gameEls.peekName.textContent = placeName;
+  const currentMeta = passport.meta[answer.id] || {};
+  const currentTierDate = currentMeta[`eb${currentMeta.e}`];
+  if (currentTierDate) {
+    const tierDate = document.createElement('span');
+    tierDate.className = 'peek-tier-date';
+    tierDate.textContent = ` · ${{ 1: 'Postcard', 2: 'Bullseye', 3: 'Pinpoint' }[currentMeta.e]} • ${shortDate(currentTierDate)}`;
+    gameEls.peekName.append(tierDate);
+  }
   gameEls.fact.textContent = answer.fact;
   setThumb(gameEls.thumb, answer.image);
   setThumb(gameEls.peekThumb, answer.image);
@@ -3854,7 +3863,10 @@ function bandColor(index, alpha) {
 }
 
 function shortDate(date) {
-  return new Date(`${date}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const value = typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)
+    ? new Date(`${date}T12:00:00`)
+    : new Date(date);
+  return Number.isNaN(value.getTime()) ? '' : value.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
 function statsSummary() {
@@ -4165,6 +4177,9 @@ function readPassport() {
       if (typeof m.f === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(m.f)) entry.f = m.f;
       if (Number.isFinite(m.t)) entry.t = m.t;
       if (m.e === EARN_NEAR || m.e === EARN_BULLSEYE || m.e === EARN_PINPOINT) entry.e = m.e;
+      for (const key of ['ea', 'eb1', 'eb2', 'eb3']) {
+        if (Number.isFinite(m[key])) entry[key] = m[key];
+      }
       // Pinpoint was added after distances were already stored. Rebuild the tier
       // from the best distance, but retain any higher tier already awarded.
       if (Number.isFinite(entry.d)) {
@@ -4202,11 +4217,11 @@ function recordVisit(id, base, km, canEarn = true) {
   if (earned && !prev.ea) entry.ea = Date.now();
   else if (prev.ea) entry.ea = prev.ea;
   // Track when each tier was first achieved for upgrade history
-  if (earned >= 1 && !prev.eb1) entry.eb1 = Date.now();
+  if (earned >= 1 && prevEarned < 1 && !prev.eb1) entry.eb1 = Date.now();
   else if (prev.eb1) entry.eb1 = prev.eb1;
-  if (earned >= 2 && !prev.eb2) entry.eb2 = Date.now();
+  if (earned >= 2 && prevEarned < 2 && !prev.eb2) entry.eb2 = Date.now();
   else if (prev.eb2) entry.eb2 = prev.eb2;
-  if (earned >= 3 && !prev.eb3) entry.eb3 = Date.now();
+  if (earned >= 3 && prevEarned < 3 && !prev.eb3) entry.eb3 = Date.now();
   else if (prev.eb3) entry.eb3 = prev.eb3;
   passport.meta[id] = entry;
   passport.visits[id] = score;
@@ -4537,6 +4552,7 @@ function passportEntries() {
         km: meta.d,
         first: meta.f,
         earned: meta.e || 0,
+        tierDates: [null, meta.eb1, meta.eb2, meta.eb3],
         // Timestamped visits are always newer than legacy ones, which fall back to
         // their place in the recency order (and to the very end if that was capped).
         recency: meta.t ?? (age.has(id) ? age.get(id) : -1),
@@ -4615,8 +4631,9 @@ passportPageStyle.textContent = `
 .pp-post[data-earn="seen"] .pp-name { color: #8992a8; }
 .pp-hint { position: absolute; z-index: 2; left: 50%; bottom: 7px; transform: translateX(-50%); padding: 3px 8px; border-radius: 999px; background: rgba(8,14,32,.78); color: #e8eef8; font-size: 9.5px; font-weight: 800; letter-spacing: .02em; white-space: nowrap; }
 .pp-name { margin: 7px 2px 0; overflow: hidden; color: #eef2ff; font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
-.pp-meta { display: flex; justify-content: space-between; gap: 4px; margin: 4px 2px 0; color: #a8b0c3; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pp-meta { min-height: 12px; margin: 4px 2px 0; color: #a8b0c3; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .pp-meta span { white-space: nowrap; }
+.pp-tier-date { color: rgba(193,224,250,.66); font-weight: 650; }
 .pp-empty { margin: 30px 8px 6px; color: rgba(224,240,255,.8); font-size: 15px; line-height: 1.5; text-align: center; }
 .pp-empty::before { content: '🛂'; display: block; margin-bottom: 8px; font-size: 38px; }
 .pp-play { display: block; min-height: 44px; margin: 16px auto 0; padding: 0 26px; border: 0; border-radius: 999px; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #1b1230; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
@@ -4978,13 +4995,15 @@ function passportCard(entry) {
   name.title = name.textContent;
   const meta = document.createElement('p');
   meta.className = 'pp-meta';
-  const km = document.createElement('span');
-  km.textContent = Number.isFinite(entry.km) ? `📍 ${entry.km.toLocaleString()} km` : '📍 —';
-  km.title = 'Closest guess';
+  const tierDate = entry.tierDates[entry.earned];
   const date = document.createElement('span');
-  date.textContent = entry.first ? shortDate(entry.first) : '—';
-  date.title = 'First visited';
-  meta.append(km, date);
+  date.className = 'pp-tier-date';
+  if (tierDate) {
+    const tier = { 1: 'Postcard', 2: 'Bullseye', 3: 'Pinpoint' }[entry.earned];
+    date.textContent = `${tier} • ${shortDate(tierDate)}`;
+    date.title = `${tier} earned`;
+  }
+  if (tierDate) meta.append(date);
   li.append(photo, stamp, name, meta);
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
@@ -5332,6 +5351,9 @@ postcardStyle.textContent = `
 .ppd-clue { margin: 4px 0 0; color: #8f9aaf; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .ppd-achievement { display: flex; align-items: center; justify-content: center; gap: 8px; height: 36px; margin: 14px 0 0; border: 1px solid #5d5132; border-radius: 10px; background: #242838; color: #c7a957; font-size: 11px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
 .ppd-achievement::before { content: '\u2726'; font-size: 12px; }
+.ppd-history { display: grid; gap: 5px; margin: 10px 4px 0; color: #9fa9bb; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ppd-history span { display: block; }
+.ppd-history[hidden] { display: none; }
 .ppd-card.prox-bullseye .ppd-achievement { border-color: #74602d; background: linear-gradient(180deg,#4a3b1d,#2b251d); color: #ffd971; }
 .ppd-card.prox-pinpoint .ppd-achievement { border-color: #a76b34; background: linear-gradient(180deg,#71401e,#3d281e); color: #ffd080; }
 .ppd-fact { margin: 14px 0 0; padding: 0 0 14px; border-bottom: 1px solid #303748; color: #c2c8d4; font-family: Georgia, serif; font-size: 13px; line-height: 1.52; }
@@ -5366,6 +5388,7 @@ postcardScreen.innerHTML = `
       <h3 id="ppd-title" data-ppd="name"></h3>
       <p class="ppd-clue" data-ppd="clue"></p>
       <div class="ppd-achievement" data-ppd="achievement"></div>
+      <div class="ppd-history" data-ppd="history" aria-label="Postcard upgrade history"></div>
       <p class="ppd-fact" data-ppd="fact"></p>
       <dl class="ppd-stats" data-ppd="stats"></dl>
       <p class="ppd-hint" data-ppd="hint"></p>
@@ -5415,6 +5438,17 @@ function fillPostcard(entry) {
   ppdEls.fact.textContent = item.fact || '';
   ppdEls.fact.hidden = !item.fact;
   ppdEls.achievement.textContent = { pinpoint: 'Pinpoint', bullseye: 'Bullseye', near: 'Postcard', seen: 'Postcard' }[earn];
+  const history = [
+    ['Postcard', entry.tierDates[1]],
+    ['Bullseye', entry.tierDates[2]],
+    ['Pinpoint', entry.tierDates[3]],
+  ].filter(([, date]) => date);
+  ppdEls.history.replaceChildren(...history.map(([tier, date]) => {
+    const row = document.createElement('span');
+    row.textContent = `${tier} • ${shortDate(date)}`;
+    return row;
+  }));
+  ppdEls.history.hidden = history.length === 0;
   const cells = [
     ['Best score', `${entry.best}<small> /1000</small>`],
     ['Closest guess', Number.isFinite(entry.km) ? `${entry.km.toLocaleString()}<small> km</small>` : '—'],
