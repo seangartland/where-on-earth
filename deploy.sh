@@ -31,6 +31,8 @@ done
 # This ensures every deploy gets fresh URLs for JS/CSS
 VERSION=$(git -C "$SCRIPT_DIR" log -1 --format=%ct 2>/dev/null || date +%s)
 sed -i -E "s/(main\.js|style\.css)\?v=[^\"]*/\1?v=$VERSION/g" "$DEPLOY_DIR/index.html"
+# Version asset JSON URLs in main.js for immutable caching
+sed -i -E "s|(assets/[a-z0-9.-]+\.json)(\?v=[^\"']*)?|\1?v=$VERSION|g" "$DEPLOY_DIR/src/main.js"
 echo "Asset version: $VERSION"
 
 # Optional files if they exist
