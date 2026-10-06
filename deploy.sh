@@ -17,6 +17,12 @@ cp -r "$SCRIPT_DIR/assets" "$DEPLOY_DIR/"
 cp -r "$SCRIPT_DIR/vendor" "$DEPLOY_DIR/"
 cp "$SCRIPT_DIR/vercel.json" "$DEPLOY_DIR/"
 
+# Auto-bump asset versions to prevent stale cache: use git commit timestamp
+# This ensures every deploy gets fresh URLs for JS/CSS
+VERSION=$(git -C "$SCRIPT_DIR" log -1 --format=%ct 2>/dev/null || date +%s)
+sed -i -E "s/(main\.js|style\.css)\?v=[^\"]*/\1?v=$VERSION/g" "$DEPLOY_DIR/index.html"
+echo "Asset version: $VERSION"
+
 # Optional files if they exist
 [ -f "$SCRIPT_DIR/review-locations.html" ] && cp "$SCRIPT_DIR/review-locations.html" "$DEPLOY_DIR/"
 
