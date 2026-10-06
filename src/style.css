@@ -108,9 +108,19 @@ body.game-reveal .reveal-name { display: block; }
 .reveal-sheet.expanded .peek-grip { background: rgba(193,224,250,.55); }
 .peek-slot { flex: none; width: 52px; height: 52px; }
 .peek-slot[hidden] { display: none; }
-#peek-thumb { display: block; width: 52px; height: 52px; border-radius: 10px; object-fit: cover; object-position: center 20%; }
+#peek-thumb { display: block; width: 52px; height: 52px; border-radius: 10px; object-fit: cover; object-position: center 20%; box-shadow: var(--ring, none); }
 #peek-thumb.no-postcard { filter: grayscale(1); opacity: 0.7; }
-#peek-thumb.bullseye-glow { box-shadow: 0 0 12px 2px rgba(255, 212, 94, 0.8); border: 2px solid #ffd45e; }
+/* Earned card borders (peek thumb + passport cards). Inner 2px ring = rarity
+   (from difficulty), outer ring = proximity tier. Elements opt in with
+   box-shadow: var(--ring); unearned cards get neither class. */
+.rarity-common { --rarity: #C4A77D; }
+.rarity-uncommon { --rarity: #9CAF88; }
+.rarity-rare { --rarity: #6B8CAE; }
+.rarity-legendary { --rarity: #8B7BB8; }
+.prox-postcard { --prox-w: 1px; --prox-glow: 0 0 #0000; }
+.prox-bullseye { --prox-w: 2px; --prox-glow: 0 0 12px 1px rgba(255,209,102,.55); }
+.prox-pinpoint { --prox-w: 3.5px; --prox-glow: 0 0 22px 4px rgba(255,209,102,.8); }
+.prox-postcard, .prox-bullseye, .prox-pinpoint { --ring: 0 0 0 2px var(--rarity, transparent), 0 0 0 calc(2px + var(--prox-w)) #ffd166, var(--prox-glow); }
 .peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .peek-name { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .peek-stats { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }

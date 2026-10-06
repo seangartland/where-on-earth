@@ -1231,6 +1231,7 @@ let travelAnimation = null;
 // ---------------------------------------------------------------------------
 // Flyover extras: accuracy tiers, synthesized sound, photo postcard
 // ---------------------------------------------------------------------------
+const PINPOINT_KM = 5;
 const BULLSEYE_KM = 25;
 const NEAR_KM = 150;
 const NEAR_MISS_KM = 300; // NEAR_KM..this: peek bar says how close the postcard was
@@ -2949,7 +2950,7 @@ function showEarnToast(answer, tier) {
   document.head.appendChild(style);
   const toast = document.createElement('div');
   toast.className = 'earn-toast';
-  const tierLabel = tier === 2 ? '🎯 Bullseye!' : '🎉 New postcard earned!';
+  const tierLabel = tier === EARN_PINPOINT ? '📍 Pinpoint!' : tier === EARN_BULLSEYE ? '🎯 Bullseye!' : '🎉 New postcard earned!';
   toast.innerHTML = `
     <img src="${answer.image || ''}" alt="">
     <div class="earn-toast-text">${tierLabel}<small>${answer.short || ''}</small></div>
@@ -3004,18 +3005,11 @@ function revealGuess(guess, restoring = false) {
   setThumb(gameEls.thumb, answer.image);
   setThumb(gameEls.peekThumb, answer.image);
   peekSlot.hidden = !answer.image;
-  // Thumbnail visual states: grayscale if no postcard (>150km), color if earned (<150km), gold glow if bullseye (<25km)
-  // In endless only an already-earned card shows in colour.
-  gameEls.peekThumb.classList.remove('no-postcard', 'bullseye-glow');
-  if (endless.active) {
-    const held = passport.meta[answer.id]?.e || 0;
-    if (held === EARN_BULLSEYE) gameEls.peekThumb.classList.add('bullseye-glow');
-    else if (!held) gameEls.peekThumb.classList.add('no-postcard');
-  } else if (kmExact < BULLSEYE_KM) {
-    gameEls.peekThumb.classList.add('bullseye-glow');
-  } else if (kmExact >= NEAR_KM) {
-    gameEls.peekThumb.classList.add('no-postcard');
-  }
+  // Thumbnail: grayscale with no postcard (>150km), else rarity + proximity
+  // borders for this guess's tier. In endless only an already-earned card shows.
+  const thumbEarn = endless.active ? passport.meta[answer.id]?.e || 0 : earnForKm(kmExact);
+  gameEls.peekThumb.classList.toggle('no-postcard', !thumbEarn);
+  applyCardTier(gameEls.peekThumb, answer, thumbEarn);
   // Near miss (150-300 km): say how close the postcard was, so a 160 km guess
   // doesn't read like a 9000 km one. Not in endless, which awards no postcards.
   const nearMiss = !endless.active && kmExact >= NEAR_KM && kmExact < NEAR_MISS_KM;
@@ -4044,6 +4038,34 @@ function continentOf(item) {
 // their logged d is close, so nothing is earned retroactively.
 const EARN_NEAR = 1; // < NEAR_KM: full-colour postcard
 const EARN_BULLSEYE = 2; // < BULLSEYE_KM: gold-edged postcard
+const EARN_PINPOINT = 3; // < PINPOINT_KM: thick gold edge, strongest glow
+const EARN_NAMES = ['seen', 'near', 'bullseye', 'pinpoint'];
+const PROX_CLASSES = ['', 'prox-postcard', 'prox-bullseye', 'prox-pinpoint'];
+const RARITY_CLASSES = ['rarity-common', 'rarity-uncommon', 'rarity-rare', 'rarity-legendary'];
+
+function earnForKm(km) {
+  if (km < PINPOINT_KM) return EARN_PINPOINT;
+  if (km < BULLSEYE_KM) return EARN_BULLSEYE;
+  if (km < NEAR_KM) return EARN_NEAR;
+  return 0;
+}
+
+// Rarity is the card's inner border colour, from the location's difficulty.
+function rarityFor(difficulty) {
+  const d = Number(difficulty) || 5;
+  if (d >= 9) return 'legendary';
+  if (d >= 7) return 'rare';
+  if (d >= 4) return 'uncommon';
+  return 'common';
+}
+
+// Dual border: inner rarity ring + outer proximity ring. Unearned cards get
+// neither (they stay grey).
+function applyCardTier(el, item, earned) {
+  el.classList.remove(...RARITY_CLASSES, ...PROX_CLASSES.filter(Boolean));
+  if (!earned) return;
+  el.classList.add(`rarity-${rarityFor(item?.difficulty)}`, PROX_CLASSES[earned]);
+}
 let passport = { visits: {}, order: [], meta: {} };
 let passportDirty = true; // dots need rebuilding before the next start screen
 let passportDotCount = 0;
@@ -4087,7 +4109,7 @@ function readPassport() {
       if (Number.isFinite(m.d)) entry.d = Math.max(0, Math.round(m.d));
       if (typeof m.f === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(m.f)) entry.f = m.f;
       if (Number.isFinite(m.t)) entry.t = m.t;
-      if (m.e === EARN_NEAR || m.e === EARN_BULLSEYE) entry.e = m.e;
+      if (m.e === EARN_NEAR || m.e === EARN_BULLSEYE || m.e === EARN_PINPOINT) entry.e = m.e;
       meta[id] = entry;
     }
   }
@@ -4107,8 +4129,7 @@ function recordVisit(id, base, km, canEarn = true) {
   const kms = [km, prev.d].filter(Number.isFinite);
   if (kms.length) entry.d = Math.round(Math.min(...kms));
   if (prev.f || !legacy) entry.f = prev.f || localDateKey();
-  const tier = Number.isFinite(km) && canEarn ? flyoverTier(km) : null;
-  const earned = Math.max(prevEarned, tier === 'bullseye' ? EARN_BULLSEYE : tier === 'near' ? EARN_NEAR : 0);
+  const earned = Math.max(prevEarned, Number.isFinite(km) && canEarn ? earnForKm(km) : 0);
   if (earned) entry.e = earned;
   // earnedAt: timestamp of first earn, set once and never overwritten
   if (earned && !prev.ea) entry.ea = Date.now();
@@ -4377,7 +4398,7 @@ passportPageStyle.textContent = `
 /* A postcard: white border round the photo, caption on the card stock, and the
    best score pressed on as a round ink stamp. Alternate cards tilt a hair so the
    grid reads as a collection pinned in a book rather than a table. */
-.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border-radius: 4px; background: #f6f1e6; box-shadow: 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.4) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border-radius: 4px; background: #f6f1e6; box-shadow: var(--ring, 0 0 #0000), 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.4) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-post:nth-child(even) { --tilt: .7deg; }
 .pp-post:active { transform: rotate(var(--tilt)) scale(.965); filter: brightness(.95); }
 .pp-post:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
@@ -4390,12 +4411,12 @@ passportPageStyle.textContent = `
 .pp-stamp small { display: block; margin-top: 2px; font-size: 10px; font-weight: 800; letter-spacing: .08em; opacity: .9; text-align: center; }
 .pp-stamp[data-tier="gold"] { color: #ffd166; text-shadow: 0 0 10px rgba(255,209,102,.45); }
 .pp-stamp[data-tier="cyan"] { color: #67e8ff; }
-/* Earned tiers. Bullseye cards get a gold edge and a slow foil sheen; seen cards
-   are the same postcard in black and white, with a nudge to come back for it. */
-.pp-post[data-earn="bullseye"] { box-shadow: 0 0 0 2px #ffd166, 0 0 18px rgba(255,209,102,.35), 0 8px 22px rgba(0,0,0,.45); }
-.pp-post[data-earn="bullseye"] .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
+/* Earned tiers. Borders come from the rarity/prox classes (style.css); bullseye
+   and pinpoint cards also get a slow foil sheen. Seen cards are the same postcard
+   in black and white, with a nudge to come back for it. */
+.pp-post:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
 @keyframes pp-foil { 0%, 60% { background-position: 120% 0; } 100% { background-position: -20% 0; } }
-@media (prefers-reduced-motion: reduce) { .pp-post[data-earn="bullseye"] .pp-photo::before { animation: none; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pp-post:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
 .pp-post[data-earn="seen"] { background: #dedad2; }
 .pp-post[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .pp-post[data-earn="seen"] .pp-name { color: #4a4f62; }
@@ -4551,7 +4572,7 @@ function passportShareStats() {
     visited: entries.length,
     total: locations.length,
     earned: entries.filter((entry) => entry.earned).length,
-    bullseyes: entries.filter((entry) => entry.earned === EARN_BULLSEYE).length,
+    bullseyes: entries.filter((entry) => entry.earned >= EARN_BULLSEYE).length,
     streak: currentStreak(),
     top3: withKm.slice(0, 3).map((e) => ({ name: e.item.short, km: Math.round(e.km), image: e.item.image })),
   };
@@ -4724,8 +4745,9 @@ let ppAll = []; // entries for the open page, filtered client-side
 function passportCard(entry) {
   const li = document.createElement('li');
   li.className = 'pp-post';
-  const earn = entry.earned === EARN_BULLSEYE ? 'bullseye' : entry.earned ? 'near' : 'seen';
+  const earn = EARN_NAMES[entry.earned] || 'seen';
   li.dataset.earn = earn;
+  applyCardTier(li, entry.item, entry.earned);
   const photo = document.createElement('div');
   photo.className = 'pp-photo';
   if (entry.item.image) {
@@ -4743,13 +4765,13 @@ function passportCard(entry) {
     hint.textContent = Number.isFinite(entry.km) && entry.km < 500 ? 'So close! Try again' : 'Within 150 km to earn';
     photo.append(hint);
   }
-  // The stamp ink follows what was earned, not the raw score: gold bullseye,
-  // cyan near miss, grey still to earn.
+  // The stamp ink follows what was earned, not the raw score: gold bullseye or
+  // pinpoint, cyan near miss, grey still to earn.
   const stamp = document.createElement('span');
   stamp.className = 'pp-stamp';
-  stamp.dataset.tier = earn === 'bullseye' ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
-  stamp.setAttribute('aria-label', `${earn === 'seen' ? 'Not yet earned. ' : earn === 'bullseye' ? 'Bullseye. ' : ''}Best score ${entry.best} out of 100`);
-  stamp.innerHTML = `<span>${entry.best}<small>${earn === 'bullseye' ? '🎯' : 'BEST'}</small></span>`;
+  stamp.dataset.tier = entry.earned >= EARN_BULLSEYE ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
+  stamp.setAttribute('aria-label', `${{ seen: 'Not yet earned. ', bullseye: 'Bullseye. ', pinpoint: 'Pinpoint. ' }[earn] || ''}Best score ${entry.best} out of 100`);
+  stamp.innerHTML = `<span>${entry.best}<small>${{ bullseye: '🎯', pinpoint: '📍' }[earn] || 'BEST'}</small></span>`;
   const name = document.createElement('p');
   name.className = 'pp-name';
   const flag = (entry.item.clue || '').match(FLAG_RE);
@@ -4804,7 +4826,7 @@ function renderPassportPage() {
   ppEls.found.textContent = ppAll.length.toLocaleString();
   ppEls.total.textContent = total.toLocaleString();
   const earned = ppAll.filter((e) => e.earned).length;
-  const bulls = ppAll.filter((e) => e.earned === EARN_BULLSEYE).length;
+  const bulls = ppAll.filter((e) => e.earned >= EARN_BULLSEYE).length;
   ppEls.earned.hidden = !has;
   ppEls.earned.innerHTML = `<b>${earned.toLocaleString()}</b> postcards earned${bulls ? ` · <b>${bulls.toLocaleString()}</b> 🎯` : ''}`;
   ppEls.bar.setAttribute('aria-valuemax', String(total));
@@ -4869,12 +4891,11 @@ const postcardStyle = document.createElement('style');
 postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) 16px calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-.ppd-card { position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 8px 8px 16px; border-radius: 6px; background: #f6f1e6; box-shadow: 0 24px 70px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.4) inset; transform-origin: 0 0; }
-.ppd-card[data-earn="bullseye"] { box-shadow: 0 0 0 2px #ffd166, 0 0 28px rgba(255,209,102,.35), 0 24px 70px rgba(0,0,0,.6); }
+.ppd-card { position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 8px 8px 16px; border-radius: 6px; background: #f6f1e6; box-shadow: var(--ring, 0 0 #0000), 0 24px 70px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.4) inset; transform-origin: 0 0; }
 .ppd-card[data-earn="seen"] { background: #dedad2; }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.ppd-card[data-earn="bullseye"] .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
-@media (prefers-reduced-motion: reduce) { .ppd-card[data-earn="bullseye"] .pp-photo::before { animation: none; opacity: 0; } }
+.ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
 .ppd-front { position: relative; }
 .ppd-front .pp-photo { border-radius: 3px; }
 .ppd-front .pp-photo::after { font-size: 44px; }
@@ -4944,8 +4965,9 @@ function longDate(date) {
 
 function fillPostcard(entry) {
   const { item } = entry;
-  const earn = entry.earned === EARN_BULLSEYE ? 'bullseye' : entry.earned ? 'near' : 'seen';
+  const earn = EARN_NAMES[entry.earned] || 'seen';
   ppdEls.card.dataset.earn = earn;
+  applyCardTier(ppdEls.card, item, entry.earned);
   ppdEls.photo.replaceChildren();
   if (item.image) {
     const img = document.createElement('img');
@@ -4955,9 +4977,9 @@ function fillPostcard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     ppdEls.photo.append(img);
   }
-  ppdEls.stamp.dataset.tier = earn === 'bullseye' ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
+  ppdEls.stamp.dataset.tier = entry.earned >= EARN_BULLSEYE ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
   ppdEls.stamp.setAttribute('aria-label', `Best score ${entry.best} out of 100`);
-  ppdEls.stamp.innerHTML = `<span>${entry.best}<small>${earn === 'bullseye' ? '🎯' : 'BEST'}</small></span>`;
+  ppdEls.stamp.innerHTML = `<span>${entry.best}<small>${{ bullseye: '🎯', pinpoint: '📍' }[earn] || 'BEST'}</small></span>`;
   ppdEls.from.textContent = `Postcard from ${entry.continent || 'Earth'}`;
   const flag = (item.clue || '').match(FLAG_RE);
   const short = item.short || item.clue || '';
@@ -4968,6 +4990,7 @@ function fillPostcard(entry) {
   ppdEls.fact.textContent = item.fact || '';
   ppdEls.fact.hidden = !item.fact;
   const tier = {
+    pinpoint: ['gold', 'Pinpoint 📍'],
     bullseye: ['gold', 'Gold 🎯'],
     near: ['cyan', 'Full colour'],
     seen: ['dim', 'Not yet'],
