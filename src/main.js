@@ -1217,6 +1217,7 @@ let travelAnimation = null;
 // ---------------------------------------------------------------------------
 const BULLSEYE_KM = 25;
 const NEAR_KM = 150;
+const NEAR_MISS_KM = 300; // NEAR_KM..this: peek bar says how close the postcard was
 const BLOWOUT_KM = 8000;
 const GOLD_COLOR = new THREE.Color('#ffd45e');
 const DEADPAN_LINES = ['away.', 'away. Bold.', 'away. Different continent.', 'away. Still on Earth, though.', 'away. Noted.'];
@@ -1663,6 +1664,11 @@ gameEls.thumb.before(thumbSlot);
 thumbSlot.append(gameEls.thumb);
 const peekSlot = gameEls.peekThumb.parentElement;
 const thumbSlots = [thumbSlot, peekSlot];
+// Near-miss line; replaces the bare distance in the peek bar (#distance itself
+// stays plain, since the route label copies its text).
+const peekNearMiss = document.createElement('span');
+peekNearMiss.className = 'peek-near-miss';
+gameEls.distance.after(peekNearMiss);
 // The reveal sheet is hidden during the flight, so a lazy thumb would only
 // start fetching once the sheet appears, after the postcard needs it.
 gameEls.thumb.loading = 'eager';
@@ -2969,7 +2975,8 @@ function revealGuess(guess, restoring = false) {
   gameEls.hint.textContent = '';
   gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : `${km.toLocaleString()} km`;
   const base = kmExact < BULLSEYE_KM ? 100 : Math.round(100 * Math.exp(-kmExact / 4650));
-  const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact) : 0; // exact, so earning matches the flyover tier
+  // Endless earns visits only; postcards come from daily and survival.
+  const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact, !endless.active) : 0; // exact, so earning matches the flyover tier
   const weight = oneOff ? 1 : WEIGHTS[daily.round];
   gameEls.baseScore.textContent = base;
   gameEls.mult.textContent = `×${weight}`;
@@ -2982,12 +2989,22 @@ function revealGuess(guess, restoring = false) {
   setThumb(gameEls.peekThumb, answer.image);
   peekSlot.hidden = !answer.image;
   // Thumbnail visual states: grayscale if no postcard (>150km), color if earned (<150km), gold glow if bullseye (<25km)
+  // In endless only an already-earned card shows in colour.
   gameEls.peekThumb.classList.remove('no-postcard', 'bullseye-glow');
-  if (kmExact < 25) {
+  if (endless.active) {
+    const held = passport.meta[answer.id]?.e || 0;
+    if (held === EARN_BULLSEYE) gameEls.peekThumb.classList.add('bullseye-glow');
+    else if (!held) gameEls.peekThumb.classList.add('no-postcard');
+  } else if (kmExact < BULLSEYE_KM) {
     gameEls.peekThumb.classList.add('bullseye-glow');
-  } else if (kmExact >= 150) {
+  } else if (kmExact >= NEAR_KM) {
     gameEls.peekThumb.classList.add('no-postcard');
   }
+  // Near miss (150-300 km): say how close the postcard was, so a 160 km guess
+  // doesn't read like a 9000 km one. Not in endless, which awards no postcards.
+  const nearMiss = !endless.active && kmExact >= NEAR_KM && kmExact < NEAR_MISS_KM;
+  peekNearMiss.textContent = nearMiss ? `So close: ${km.toLocaleString()} km, postcard at ${NEAR_KM} km` : '';
+  gameEls.peekBar.classList.toggle('near-miss', nearMiss);
   const pill = gameEls.revealPill;
   pill.classList.remove('safe', 'miss');
   if (survival.active) {
@@ -4061,7 +4078,9 @@ function readPassport() {
   return { visits, order: order.slice(-PASSPORT_ORDER_LIMIT), meta };
 }
 
-function recordVisit(id, base, km) {
+// canEarn false (endless) logs the visit and progress but awards no postcard;
+// a card earned earlier is kept either way.
+function recordVisit(id, base, km, canEarn = true) {
   if (!id || !Number.isFinite(base)) return 0;
   const score = clamp(Math.round(base), 0, 100);
   // Keep a visit logged before meta existed undated: its real first visit is unknown.
@@ -4072,7 +4091,7 @@ function recordVisit(id, base, km) {
   const kms = [km, prev.d].filter(Number.isFinite);
   if (kms.length) entry.d = Math.round(Math.min(...kms));
   if (prev.f || !legacy) entry.f = prev.f || localDateKey();
-  const tier = Number.isFinite(km) ? flyoverTier(km) : null;
+  const tier = Number.isFinite(km) && canEarn ? flyoverTier(km) : null;
   const earned = Math.max(prevEarned, tier === 'bullseye' ? EARN_BULLSEYE : tier === 'near' ? EARN_NEAR : 0);
   if (earned) entry.e = earned;
   // earnedAt: timestamp of first earn, set once and never overwritten

@@ -119,6 +119,9 @@ body.game-reveal .reveal-name { display: block; }
 body.survival .peek-score { color: #8ef0b8; }
 body.survival-miss .peek-score { color: #ff9db4; }
 .peek-distance { color: rgba(193,224,250,.7); font-size: 13px; font-weight: 650; }
+.peek-near-miss { display: none; min-width: 0; overflow: hidden; color: #ffd08a; font-size: 13px; font-weight: 750; text-overflow: ellipsis; }
+.peek-bar.near-miss .peek-distance { display: none; }
+.peek-bar.near-miss .peek-near-miss { display: inline; }
 .peek-bar .peek-next { flex: none; min-width: 0; min-height: 44px; padding: 0 18px; font-size: 15px; }
 .sheet-content { max-height: 0; overflow: hidden; transition: max-height .32s cubic-bezier(.2,.8,.2,1); }
 .reveal-sheet.expanded .sheet-content { max-height: 320px; }
