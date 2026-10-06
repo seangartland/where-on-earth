@@ -1200,6 +1200,7 @@ const gameEls = {
   survivalBestStreak: document.getElementById('survival-best-streak'),
   survivalAgain: document.getElementById('survival-again'),
   survivalHome: document.getElementById('survival-home'),
+  expeditionsEntry: document.getElementById('expeditions-button'),
 };
 
 answerLineMaterial = new LineMaterial({
@@ -2081,7 +2082,13 @@ function showRound() {
   gameEls.round.hidden = false;
   document.body.classList.add('game-round');
   const item = currentItem();
-  if (survival.active) {
+  if (expeditionRun.active) {
+    document.body.classList.add('expedition-mode');
+    const total = expeditionRun.expedition.locationIds.length;
+    gameEls.number.textContent = `${expeditionRun.expedition.emoji || '🧭'} ${expeditionRun.expedition.theme} · ${expeditionRun.index + 1}/${total}`;
+    gameEls.weight.style.display = 'none';
+    gameEls.dailyDate.hidden = true;
+  } else if (survival.active) {
     document.body.classList.add('survival');
     gameEls.number.textContent = `Round ${survival.round} — Difficulty ${survivalBand()}/10`;
     gameEls.weight.style.display = 'none';
@@ -2987,7 +2994,7 @@ function revealGuess(guess, restoring = false) {
   const answer = currentItem();
   const kmExact = distanceKm(guess, answer);
   const km = Math.round(kmExact);
-  const oneOff = survival.active || endless.active; // unscored, outside the daily
+  const oneOff = survival.active || endless.active || expeditionRun.active; // unscored, outside the daily
   const score = oneOff ? 0 : scoreGuess(kmExact, daily.round);
   if (!restoring && survival.active) {
     survival.lastDistance = km;
@@ -3003,7 +3010,8 @@ function revealGuess(guess, restoring = false) {
   gameMode = 'reveal';
   window.__canGuess = false;
   const headerFrom = gameEls.header.offsetHeight;
-  document.body.className = survival.active
+  document.body.className = expeditionRun.active ? 'game-reveal expedition-mode'
+    : survival.active
     ? `game-reveal survival${survival.missed ? ' survival-miss' : ''}`
     : endless.active ? 'game-reveal endless' : 'game-reveal';
   gameEls.hint.textContent = '';
@@ -3011,7 +3019,7 @@ function revealGuess(guess, restoring = false) {
   const base = kmExact < BULLSEYE_KM ? 100 : Math.round(100 * Math.exp(-kmExact / 4650));
   // Endless earns visits only; postcards come from daily and survival.
   const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact, !endless.active) : 0; // exact, so earning matches the flyover tier
-  if (!restoring) recordExpeditionVisit(answer.id);
+  if (!restoring && expeditionRun.active) completeExpeditionRound();
   const weight = oneOff ? 1 : WEIGHTS[daily.round];
   gameEls.baseScore.textContent = base;
   gameEls.mult.textContent = `×${weight}`;
@@ -3035,7 +3043,14 @@ function revealGuess(guess, restoring = false) {
   gameEls.peekBar.classList.toggle('near-miss', nearMiss);
   const pill = gameEls.revealPill;
   pill.classList.remove('safe', 'miss');
-  if (survival.active) {
+  if (expeditionRun.active) {
+    const total = expeditionRun.expedition.locationIds.length;
+    const finished = expeditionRun.index + 1 >= total;
+    gameEls.score.textContent = `${expeditionRun.index + 1}/${total}`;
+    pill.textContent = finished ? '🏅 Expedition complete!' : `${expeditionRun.index + 1}/${total} complete`;
+    pill.classList.add('safe');
+    gameEls.next.textContent = finished ? 'See badge' : 'Next stop';
+  } else if (survival.active) {
     gameEls.survivalStreak.textContent = survival.missed
       ? `Run ended · ${survival.survived} survived`
       : `🔥 ${survival.survived} survived`;
@@ -3126,6 +3141,7 @@ function showResults() {
 }
 
 function startGame() {
+  expeditionRun.active = false;
   survival.active = false;
   endless.active = false;
   if (daily.date !== localDateKey()) loadDaily(); // page left open past midnight
@@ -3145,6 +3161,13 @@ function nextRound() {
   if (survival.active) {
     if (survival.missed) showSurvivalGameOver();
     else survivalGo();
+  } else if (expeditionRun.active) {
+    if (expeditionRun.index + 1 >= expeditionRun.expedition.locationIds.length) showExpeditionPicker(expeditionRun.expedition.id);
+    else {
+      expeditionRun.index += 1;
+      expeditionRun.item = expeditionLocation(expeditionRun.expedition, expeditionRun.index);
+      showRound();
+    }
   } else if (endless.active) endlessNext();
   else if (daily.round >= 4) showResults();
   else {
@@ -3261,7 +3284,7 @@ nextGame.addEventListener('click', () => { if (nextGame.classList.contains('read
 const endless = { active: false, item: null, bag: [], count: 0 };
 
 function currentItem() {
-  return survival.active ? survival.item : endless.active ? endless.item : selected[daily.round];
+  return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : selected[daily.round];
 }
 
 const endlessStyle = document.createElement('style');
@@ -3307,6 +3330,7 @@ function endlessPick() {
 
 function endlessGo(item) {
   if (!item) return;
+  expeditionRun.active = false;
   survival.active = false;
   endless.active = true;
   endless.item = item;
@@ -3321,6 +3345,8 @@ function endlessNext() {
 function goHome() {
   survival.active = false;
   endless.active = false;
+  expeditionRun.active = false;
+  expeditionPicker.hidden = true;
   window.__pendingEarn = null;
   document.querySelector('.earn-toast')?.remove();
   clearReveal();
@@ -3405,6 +3431,7 @@ function survivalGo() {
 
 function startSurvival() {
   if (!locations.length) return;
+  expeditionRun.active = false;
   endless.active = false;
   survival.active = true;
   survival.item = null;
@@ -4339,97 +4366,121 @@ function syncPassport() {
 }
 
 // ---------------------------------------------------------------------------
-// Weekly expeditions: a themed set of 7 locations rotates every 7 days (same
-// epoch as dailyIds, so every player sees the same expedition). Visiting any
-// of the 7 — in any mode — checks it off; finding all 7 earns the badge.
+// Expeditions: player-selected, ordered seven-stop challenges. Progress is
+// independent for every theme and only advances while that expedition is active.
 // ---------------------------------------------------------------------------
 let expeditions = [];
-let expeditionState = { weekKey: null, expeditionId: null, visited: [], completed: false };
-
-function expeditionWeekNum(dateKey) {
-  const epoch = Date.UTC(2026, 9, 1) / 86400000; // same epoch dailyIds rotates from
-  const dayNum = Math.floor(new Date(`${dateKey}T12:00:00`).getTime() / 86400000) - epoch;
-  return Math.floor(dayNum / 7);
-}
-
-function currentExpedition() {
-  if (!expeditions.length) return null;
-  const weekNum = expeditionWeekNum(localDateKey());
-  const idx = ((weekNum % expeditions.length) + expeditions.length) % expeditions.length;
-  return { expedition: expeditions[idx], weekKey: `w${weekNum}` };
-}
-
-function readExpeditionState(current) {
-  const empty = { weekKey: current.weekKey, expeditionId: current.expedition.id, visited: [], completed: false };
-  const raw = readJSON(EXPEDITION_KEY);
-  if (!raw || raw.weekKey !== current.weekKey || raw.expeditionId !== current.expedition.id || !Array.isArray(raw.visited)) {
-    return empty;
-  }
-  const validIds = new Set(current.expedition.locationIds);
-  const visited = raw.visited.filter((id) => typeof id === 'string' && validIds.has(id));
-  return { ...empty, visited, completed: Boolean(raw.completed) && visited.length >= validIds.size };
-}
-
-function recordExpeditionVisit(id) {
-  const current = currentExpedition();
-  if (!current) return;
-  if (expeditionState.weekKey !== current.weekKey || expeditionState.expeditionId !== current.expedition.id) {
-    expeditionState = readExpeditionState(current);
-  }
-  if (current.expedition.locationIds.includes(id) && !expeditionState.visited.includes(id)) {
-    expeditionState.visited.push(id);
-    expeditionState.completed = expeditionState.visited.length >= current.expedition.locationIds.length;
-    writeJSON(EXPEDITION_KEY, expeditionState);
-  }
-  syncExpedition();
-}
+let expeditionState = { progress: {} };
+const expeditionRun = { active: false, expedition: null, item: null, index: 0 };
 
 const expeditionStyle = document.createElement('style');
 expeditionStyle.textContent = `
-.expedition { width: 100%; max-width: 330px; margin: -4px 0 14px; padding: 12px 14px 13px; border-radius: 20px; border: 1px solid rgba(157,211,255,.14); background: rgba(4,10,24,.5); text-align: center; }
-.expedition[hidden] { display: none; }
-.expedition-title { margin: 0; color: rgba(193,224,250,.78); font-size: 13px; font-weight: 750; }
-.expedition-progress { margin: 6px 0 0; color: rgba(193,224,250,.62); font-size: 13px; font-weight: 700; }
-.expedition-progress b { color: #ffc76a; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
-.expedition-badge { margin-left: 6px; color: #67e8ff; font-weight: 800; }
-.expedition-bar { margin-top: 9px; height: 5px; border-radius: 3px; background: rgba(157,211,255,.1); overflow: hidden; }
-.expedition-bar i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #ffd166, #67e8ff); transition: width .3s ease; }`;
+.expedition-picker { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 18px; background: rgba(2,4,9,.78); backdrop-filter: blur(12px); }
+.expedition-picker[hidden] { display: none; }
+.expedition-panel { width: min(100%, 390px); max-height: calc(100vh - 36px); overflow: auto; box-sizing: border-box; padding: 22px; border: 1px solid rgba(103,232,255,.25); border-radius: 24px; background: rgba(8,16,34,.96); color: #f3f9ff; }
+.expedition-panel h2 { margin: 0; font-size: 27px; }
+.expedition-panel > p { margin: 6px 0 18px; color: rgba(193,224,250,.68); }
+.expedition-list { display: grid; gap: 10px; }
+.expedition-choice { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; width: 100%; padding: 13px 14px; border: 1px solid rgba(157,211,255,.18); border-radius: 16px; background: rgba(157,211,255,.07); color: inherit; text-align: left; cursor: pointer; }
+.expedition-choice .emoji { font-size: 27px; }
+.expedition-choice strong, .expedition-choice small { display: block; }
+.expedition-choice small { margin-top: 3px; color: rgba(193,224,250,.62); }
+.expedition-choice .badge { color: #ffd166; font-size: 20px; }
+.expedition-close { width: 100%; margin-top: 16px; min-height: 42px; border: 0; background: transparent; color: rgba(193,224,250,.72); cursor: pointer; }
+body.expedition-mode .round-header, body.expedition-mode #reveal-card { border-color: rgba(255,209,102,.45); background: rgba(31,23,8,.88); }
+body.expedition-mode #reveal-card .score-math { display: none; }
+body.expedition-mode .round-meta span:first-child { color: #ffd166; }`;
 document.head.appendChild(expeditionStyle);
 
-const expeditionBox = document.createElement('div');
-expeditionBox.className = 'expedition';
-expeditionBox.hidden = true;
-expeditionBox.innerHTML = `
-  <p class="expedition-title"><span data-expedition="emoji"></span> <span data-expedition="theme"></span></p>
-  <p class="expedition-progress"><b data-expedition="count">0</b> / <span data-expedition="total">7</span> found<span class="expedition-badge" data-expedition="badge" hidden>✓ Complete!</span></p>
-  <div class="expedition-bar"><i data-expedition="bar-fill"></i></div>`;
-passportBox.after(expeditionBox);
-const expeditionEls = {
-  box: expeditionBox,
-  emoji: expeditionBox.querySelector('[data-expedition="emoji"]'),
-  theme: expeditionBox.querySelector('[data-expedition="theme"]'),
-  count: expeditionBox.querySelector('[data-expedition="count"]'),
-  total: expeditionBox.querySelector('[data-expedition="total"]'),
-  badge: expeditionBox.querySelector('[data-expedition="badge"]'),
-  barFill: expeditionBox.querySelector('[data-expedition="bar-fill"]'),
-};
+const expeditionPicker = document.createElement('section');
+expeditionPicker.className = 'expedition-picker';
+expeditionPicker.hidden = true;
+expeditionPicker.innerHTML = `<div class="expedition-panel" role="dialog" aria-modal="true" aria-labelledby="expedition-heading">
+  <h2 id="expedition-heading">Choose an expedition</h2>
+  <p>Seven hand-picked stops, played in order.</p>
+  <div class="expedition-list"></div>
+  <button class="expedition-close" type="button">← Back home</button>
+</div>`;
+document.body.appendChild(expeditionPicker);
+const expeditionList = expeditionPicker.querySelector('.expedition-list');
 
-function syncExpedition() {
-  const current = currentExpedition();
-  if (!current) { expeditionBox.hidden = true; return; }
-  if (expeditionState.weekKey !== current.weekKey || expeditionState.expeditionId !== current.expedition.id) {
-    expeditionState = readExpeditionState(current);
-  }
-  const total = current.expedition.locationIds.length;
-  const count = expeditionState.visited.length;
-  expeditionBox.hidden = false;
-  expeditionEls.emoji.textContent = current.expedition.emoji || '🧭';
-  expeditionEls.theme.textContent = current.expedition.theme;
-  expeditionEls.count.textContent = count;
-  expeditionEls.total.textContent = total;
-  expeditionEls.barFill.style.width = `${Math.round((count / total) * 100)}%`;
-  expeditionEls.badge.hidden = !expeditionState.completed;
+function loadExpeditionState() {
+  const saved = readJSON(EXPEDITION_KEY);
+  expeditionState = saved && saved.progress && typeof saved.progress === 'object' ? saved : { progress: {} };
 }
+
+function expeditionProgress(expedition) {
+  const saved = expeditionState.progress[expedition.id] || {};
+  const completed = clamp(Number(saved.completed) || 0, 0, expedition.locationIds.length);
+  return { completed, complete: completed >= expedition.locationIds.length };
+}
+
+function expeditionLocation(expedition, index) {
+  return locations.find((item) => item.id === expedition.locationIds[index]);
+}
+
+function completeExpeditionRound() {
+  const expedition = expeditionRun.expedition;
+  const progress = expeditionProgress(expedition);
+  progress.completed = Math.max(progress.completed, expeditionRun.index + 1);
+  progress.complete = progress.completed >= expedition.locationIds.length;
+  expeditionState.progress[expedition.id] = progress;
+  writeJSON(EXPEDITION_KEY, expeditionState);
+}
+
+function renderExpeditionPicker(highlightId = '') {
+  expeditionList.replaceChildren(...expeditions.map((expedition) => {
+    const progress = expeditionProgress(expedition);
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'expedition-choice';
+    button.dataset.expeditionId = expedition.id;
+    if (expedition.id === highlightId) button.dataset.justCompleted = 'true';
+    button.innerHTML = `<span class="emoji"></span><span><strong></strong><small></small></span><span class="badge"></span>`;
+    button.querySelector('.emoji').textContent = expedition.emoji || '🧭';
+    button.querySelector('strong').textContent = expedition.theme;
+    button.querySelector('small').textContent = progress.complete ? '7/7 completed · Replay' : `${progress.completed}/7 completed`;
+    button.querySelector('.badge').textContent = progress.complete ? '🏅' : '›';
+    return button;
+  }));
+}
+
+function showExpeditionPicker(highlightId = '') {
+  expeditionRun.active = false;
+  clearReveal();
+  hideScreens();
+  gameMode = 'expeditions';
+  window.__canGuess = false;
+  renderExpeditionPicker(highlightId);
+  expeditionPicker.hidden = false;
+}
+
+function startExpedition(id) {
+  const expedition = expeditions.find((item) => item.id === id);
+  if (!expedition) return;
+  const progress = expeditionProgress(expedition);
+  const index = progress.complete ? 0 : progress.completed;
+  const item = expeditionLocation(expedition, index);
+  if (!item) return;
+  expeditionPicker.hidden = true;
+  survival.active = false;
+  endless.active = false;
+  expeditionRun.active = true;
+  expeditionRun.expedition = expedition;
+  expeditionRun.index = index;
+  expeditionRun.item = item;
+  showRound();
+}
+
+gameEls.expeditionsEntry.addEventListener('click', () => showExpeditionPicker());
+expeditionPicker.addEventListener('click', (event) => {
+  const choice = event.target.closest('[data-expedition-id]');
+  if (choice) startExpedition(choice.dataset.expeditionId);
+  else if (event.target === expeditionPicker || event.target.closest('.expedition-close')) {
+    expeditionPicker.hidden = true;
+    goHome();
+  }
+});
 
 // ---------------------------------------------------------------------------
 // Passport page: the full collection as postcards, opened beside Stats
@@ -5300,13 +5351,16 @@ getJSON('assets/locations.json', RESET_DAILY ? { cache: 'reload' } : undefined).
 });
 getJSON('assets/expeditions.json').then((data) => {
   expeditions = Array.isArray(data) ? data : [];
-  syncExpedition();
+  loadExpeditionState();
+  gameEls.expeditionsEntry.disabled = !expeditions.length;
 }).catch((err) => {
+  gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('EXPEDITIONS: ' + err.message);
 });
 gameEls.play.disabled = true;
 endlessEls.entry.disabled = true;
 gameEls.survivalEntry.disabled = true;
+gameEls.expeditionsEntry.disabled = true;
 passportEntry.disabled = true;
 document.body.classList.add('game-start');
 window.__canGuess = false;
