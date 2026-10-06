@@ -1156,7 +1156,8 @@ const STREAK_KEY = 'where-on-earth-streak-v1';
 const HISTORY_KEY = 'where-on-earth-history-v1';
 const PASSPORT_KEY = 'where-on-earth-passport-v1';
 const MUTE_KEY = 'where-on-earth-muted';
-const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY]);
+const EXPEDITION_KEY = 'where-on-earth-expedition-v1';
+const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY]);
 const WEIGHTS = [1, 1, 2, 3, 3];
 const gameEls = {
   start: document.getElementById('start-screen'),
@@ -1165,6 +1166,7 @@ const gameEls = {
   play: document.getElementById('play-button'),
   number: document.getElementById('round-number'),
   weight: document.getElementById('round-weight'),
+  dailyDate: document.getElementById('daily-date'),
   clue: document.getElementById('clue'),
   hint: document.getElementById('guess-hint'),
   header: document.querySelector('.round-header'),
@@ -1908,6 +1910,15 @@ function localDateKey(date = new Date()) {
   return `${y}-${m}-${d}`;
 }
 
+// dateKey is the same YYYY-MM-DD shape used as the daily-archive.json keys.
+function formatDailyDate(dateKey) {
+  return new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
 function hashSeed(text) {
   let h = 2166136261;
   for (let i = 0; i < text.length; i++) {
@@ -2074,14 +2085,18 @@ function showRound() {
     gameEls.number.textContent = `Round ${survival.round} — Difficulty ${survivalBand()}/10`;
     gameEls.weight.style.display = 'none';
     gameEls.survivalStreak.textContent = `🔥 ${survival.survived} survived`;
+    gameEls.dailyDate.hidden = true;
   } else if (endless.active) {
     document.body.classList.add('endless');
     gameEls.number.textContent = `Endless · #${endless.count}`;
     gameEls.weight.style.display = 'none';
+    gameEls.dailyDate.hidden = true;
   } else {
     gameEls.number.textContent = `Round ${daily.round + 1} of 5`;
     gameEls.weight.textContent = `${WEIGHTS[daily.round]}× points`;
     gameEls.weight.style.display = WEIGHTS[daily.round] > 1 ? '' : 'none';
+    gameEls.dailyDate.textContent = formatDailyDate(daily.date);
+    gameEls.dailyDate.hidden = false;
   }
   gameEls.clue.textContent = item.clue;
   setGuessHint('Tap the globe to place your pin');
@@ -2994,6 +3009,7 @@ function revealGuess(guess, restoring = false) {
   const base = kmExact < BULLSEYE_KM ? 100 : Math.round(100 * Math.exp(-kmExact / 4650));
   // Endless earns visits only; postcards come from daily and survival.
   const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact, !endless.active) : 0; // exact, so earning matches the flyover tier
+  if (!restoring) recordExpeditionVisit(answer.id);
   const weight = oneOff ? 1 : WEIGHTS[daily.round];
   gameEls.baseScore.textContent = base;
   gameEls.mult.textContent = `×${weight}`;
@@ -4314,6 +4330,99 @@ function syncPassport() {
 }
 
 // ---------------------------------------------------------------------------
+// Weekly expeditions: a themed set of 7 locations rotates every 7 days (same
+// epoch as dailyIds, so every player sees the same expedition). Visiting any
+// of the 7 — in any mode — checks it off; finding all 7 earns the badge.
+// ---------------------------------------------------------------------------
+let expeditions = [];
+let expeditionState = { weekKey: null, expeditionId: null, visited: [], completed: false };
+
+function expeditionWeekNum(dateKey) {
+  const epoch = Date.UTC(2026, 9, 1) / 86400000; // same epoch dailyIds rotates from
+  const dayNum = Math.floor(new Date(`${dateKey}T12:00:00`).getTime() / 86400000) - epoch;
+  return Math.floor(dayNum / 7);
+}
+
+function currentExpedition() {
+  if (!expeditions.length) return null;
+  const weekNum = expeditionWeekNum(localDateKey());
+  const idx = ((weekNum % expeditions.length) + expeditions.length) % expeditions.length;
+  return { expedition: expeditions[idx], weekKey: `w${weekNum}` };
+}
+
+function readExpeditionState(current) {
+  const empty = { weekKey: current.weekKey, expeditionId: current.expedition.id, visited: [], completed: false };
+  const raw = readJSON(EXPEDITION_KEY);
+  if (!raw || raw.weekKey !== current.weekKey || raw.expeditionId !== current.expedition.id || !Array.isArray(raw.visited)) {
+    return empty;
+  }
+  const validIds = new Set(current.expedition.locationIds);
+  const visited = raw.visited.filter((id) => typeof id === 'string' && validIds.has(id));
+  return { ...empty, visited, completed: Boolean(raw.completed) && visited.length >= validIds.size };
+}
+
+function recordExpeditionVisit(id) {
+  const current = currentExpedition();
+  if (!current) return;
+  if (expeditionState.weekKey !== current.weekKey || expeditionState.expeditionId !== current.expedition.id) {
+    expeditionState = readExpeditionState(current);
+  }
+  if (current.expedition.locationIds.includes(id) && !expeditionState.visited.includes(id)) {
+    expeditionState.visited.push(id);
+    expeditionState.completed = expeditionState.visited.length >= current.expedition.locationIds.length;
+    writeJSON(EXPEDITION_KEY, expeditionState);
+  }
+  syncExpedition();
+}
+
+const expeditionStyle = document.createElement('style');
+expeditionStyle.textContent = `
+.expedition { width: 100%; max-width: 330px; margin: -4px 0 14px; padding: 12px 14px 13px; border-radius: 20px; border: 1px solid rgba(157,211,255,.14); background: rgba(4,10,24,.5); text-align: center; }
+.expedition[hidden] { display: none; }
+.expedition-title { margin: 0; color: rgba(193,224,250,.78); font-size: 13px; font-weight: 750; }
+.expedition-progress { margin: 6px 0 0; color: rgba(193,224,250,.62); font-size: 13px; font-weight: 700; }
+.expedition-progress b { color: #ffc76a; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.expedition-badge { margin-left: 6px; color: #67e8ff; font-weight: 800; }
+.expedition-bar { margin-top: 9px; height: 5px; border-radius: 3px; background: rgba(157,211,255,.1); overflow: hidden; }
+.expedition-bar i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #ffd166, #67e8ff); transition: width .3s ease; }`;
+document.head.appendChild(expeditionStyle);
+
+const expeditionBox = document.createElement('div');
+expeditionBox.className = 'expedition';
+expeditionBox.hidden = true;
+expeditionBox.innerHTML = `
+  <p class="expedition-title"><span data-expedition="emoji"></span> <span data-expedition="theme"></span></p>
+  <p class="expedition-progress"><b data-expedition="count">0</b> / <span data-expedition="total">7</span> found<span class="expedition-badge" data-expedition="badge" hidden>✓ Complete!</span></p>
+  <div class="expedition-bar"><i data-expedition="bar-fill"></i></div>`;
+passportBox.after(expeditionBox);
+const expeditionEls = {
+  box: expeditionBox,
+  emoji: expeditionBox.querySelector('[data-expedition="emoji"]'),
+  theme: expeditionBox.querySelector('[data-expedition="theme"]'),
+  count: expeditionBox.querySelector('[data-expedition="count"]'),
+  total: expeditionBox.querySelector('[data-expedition="total"]'),
+  badge: expeditionBox.querySelector('[data-expedition="badge"]'),
+  barFill: expeditionBox.querySelector('[data-expedition="bar-fill"]'),
+};
+
+function syncExpedition() {
+  const current = currentExpedition();
+  if (!current) { expeditionBox.hidden = true; return; }
+  if (expeditionState.weekKey !== current.weekKey || expeditionState.expeditionId !== current.expedition.id) {
+    expeditionState = readExpeditionState(current);
+  }
+  const total = current.expedition.locationIds.length;
+  const count = expeditionState.visited.length;
+  expeditionBox.hidden = false;
+  expeditionEls.emoji.textContent = current.expedition.emoji || '🧭';
+  expeditionEls.theme.textContent = current.expedition.theme;
+  expeditionEls.count.textContent = count;
+  expeditionEls.total.textContent = total;
+  expeditionEls.barFill.style.width = `${Math.round((count / total) * 100)}%`;
+  expeditionEls.badge.hidden = !expeditionState.completed;
+}
+
+// ---------------------------------------------------------------------------
 // Passport page: the full collection as postcards, opened beside Stats
 // ---------------------------------------------------------------------------
 // Same overlay pattern as the stats screen (a fixed .screen over a frozen start
@@ -5179,6 +5288,12 @@ getJSON('assets/locations.json', RESET_DAILY ? { cache: 'reload' } : undefined).
   gameEls.play.disabled = true;
   gameEls.survivalEntry.disabled = true;
   if (window.__showErr) window.__showErr('LOCATIONS: ' + err.message);
+});
+getJSON('assets/expeditions.json').then((data) => {
+  expeditions = Array.isArray(data) ? data : [];
+  syncExpedition();
+}).catch((err) => {
+  if (window.__showErr) window.__showErr('EXPEDITIONS: ' + err.message);
 });
 gameEls.play.disabled = true;
 endlessEls.entry.disabled = true;

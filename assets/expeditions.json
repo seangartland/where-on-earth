@@ -1,0 +1,26 @@
+[
+  {
+    "id": "volcano-week",
+    "theme": "Volcano Week",
+    "emoji": "🌋",
+    "locationIds": ["mount-fuji", "mount-vesuvius", "mount-pinatubo", "krakatoa-1883-eruption", "halemaumau-crater", "mt-yasur", "cotopaxi-refuge"]
+  },
+  {
+    "id": "capital-cities",
+    "theme": "Capital Cities",
+    "emoji": "🏛️",
+    "locationIds": ["tokyo-japan", "paris-france", "london-uk", "rome-italy", "beijing-china", "moscow-russia", "washington-dc-usa"]
+  },
+  {
+    "id": "ancient-wonders",
+    "theme": "Ancient Wonders",
+    "emoji": "🗿",
+    "locationIds": ["pyramids-of-giza", "badaling-great-wall", "petra-jordan", "machu-picchu", "chichen-itza", "colosseum-rome", "taj-mahal"]
+  },
+  {
+    "id": "island-hopping",
+    "theme": "Island Hopping",
+    "emoji": "🏝️",
+    "locationIds": ["easter-island", "galapagos-islands", "santorini-gr", "male-maldives", "jeju-city", "lord-howe-island", "suva-fiji"]
+  }
+]
