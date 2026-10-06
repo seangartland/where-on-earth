@@ -3037,8 +3037,10 @@ function revealGuess(guess, restoring = false) {
   // Thumbnail: grayscale with no postcard (>150km), else rarity + proximity
   // borders for this guess's tier. In endless only an already-earned card shows.
   const thumbEarn = endless.active ? passport.meta[answer.id]?.e || 0 : earnForKm(kmExact);
-  gameEls.peekThumb.classList.toggle('no-postcard', !thumbEarn);
-  applyCardTier(gameEls.peekThumb, answer, thumbEarn);
+  for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
+    thumb.classList.toggle('no-postcard', !thumbEarn);
+    applyCardTier(thumb, answer, thumbEarn);
+  }
   // Near miss (150-300 km): say how close the postcard was, so a 160 km guess
   // doesn't read like a 9000 km one. Not in endless, which awards no postcards.
   const nearMiss = !endless.active && kmExact >= NEAR_KM && kmExact < NEAR_MISS_KM;

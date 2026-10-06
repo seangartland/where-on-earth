@@ -111,8 +111,9 @@ body.game-reveal .reveal-name { display: block; }
 .peek-slot { flex: none; width: 52px; height: 52px; }
 .peek-slot[hidden] { display: none; }
 #peek-thumb { display: block; width: 52px; height: 52px; border-radius: 10px; object-fit: cover; object-position: center 20%; box-shadow: var(--ring, none); }
-#peek-thumb.no-postcard { filter: grayscale(1); opacity: 0.7; }
-#peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint { filter: none; opacity: 1; }
+#peek-thumb.no-postcard, #place-thumb.no-postcard { filter: grayscale(1); opacity: 0.7; }
+#peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint,
+#place-thumb.prox-postcard, #place-thumb.prox-bullseye, #place-thumb.prox-pinpoint { filter: none; opacity: 1; }
 /* Earned card borders (peek thumb + passport cards). Inner 2px ring = rarity
    (from difficulty), outer ring = proximity tier. Elements opt in with
    box-shadow: var(--ring); unearned cards get neither class. */
@@ -141,7 +142,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .sheet-inner { padding: 0 14px 14px; }
 .sheet-content .score-math { margin: 0 0 8px; }
 .sheet-content .score-math .base b { font-size: 16px; }
-#place-thumb { display: block; width: 100%; height: 80px; margin: 0; border-radius: 10px; object-fit: cover; object-position: center 20%; }
+#place-thumb { display: block; width: 100%; height: 80px; margin: 0; border-radius: 10px; object-fit: cover; object-position: center 20%; box-shadow: var(--ring, none); }
 #place-thumb[hidden] { display: none; }
 #fact { margin: 10px 0 0; color: rgba(224,240,255,.8); font-size: 13px; line-height: 1.45; }
 
