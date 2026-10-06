@@ -10563,40 +10563,45 @@
     "sets": []
   },
   {
-    "id": "first-barcode-scan-troy-ohio",
-    "short": "Former Marsh Supermarket, Troy",
-    "clue": "Troy, Ohio, United States 🇺🇸",
-    "fact": "A pack of Wrigley's Juicy Fruit gum was scanned at 8:01 a.m. on June 26, 1974, at a Marsh supermarket in Troy, Ohio.",
-    "lat": 40.0399,
-    "lng": -84.2263,
-    "difficulty": 9,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Partner-marsh.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "country": "United States",
+    "id": "moraine-lake",
+    "short": "Moraine Lake",
+    "clue": "Moraine Lake, Canada 🇨🇦",
+    "fact": "Glacial rock flour turns this lake in the Valley of the Ten Peaks a vivid turquoise, and the view once appeared on the back of Canada's $20 bill.",
+    "lat": 51.3225,
+    "lng": -116.1856,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/500px-Moraine_Lake_17092005.jpg",
+    "country": "Canada",
+    "sets": [
+      "Lakes",
+      "Mountains"
+    ]
+  },
+  {
+    "id": "giethoorn",
+    "short": "Giethoorn",
+    "clue": "Giethoorn, Netherlands 🇳🇱",
+    "fact": "The old village centre has no roads: canals first dug to haul peat now carry boats beneath more than 170 wooden footbridges.",
+    "lat": 52.7389,
+    "lng": 6.0781,
+    "difficulty": 5,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Giethoorn_Netherlands_flckr05.jpg/500px-Giethoorn_Netherlands_flckr05.jpg",
+    "country": "Netherlands",
     "sets": []
   },
   {
-    "id": "first-atm-enfield",
-    "short": "Barclays Enfield",
-    "clue": "Barclays Enfield, England",
-    "fact": "Actor Reg Varney withdrew the first cash from the Barclays branch in Enfield. The early machine used special vouchers rather than plastic bank cards.",
-    "lat": 51.6515,
-    "lng": -0.0818,
-    "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Barclays_Bank%2C_Enfield_%28South_Face_-_01%29.jpg/500px-Barclays_Bank%2C_Enfield_%28South_Face_-_01%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "England",
-    "sets": []
-  },
-  {
-    "id": "first-photograph-le-gras",
-    "short": "Le Gras, Saint-Loup-de-Varennes",
-    "clue": "Saint-Loup-de-Varennes, France 🇫🇷",
-    "fact": "Around 1826 or 1827, Niépce exposed a pewter plate for hours through an upstairs window at his estate, producing View from the Window at Le Gras.",
-    "lat": 46.7252,
-    "lng": 4.8336,
-    "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Saint_Loup_de_Varennes.JPG/500px-Saint_Loup_de_Varennes.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "France",
-    "sets": []
+    "id": "portofino",
+    "short": "Portofino",
+    "clue": "Portofino, Italy 🇮🇹",
+    "fact": "Pastel houses ring the tiny harbour of this Ligurian fishing village, and its piazzetta was copied wholesale for a resort hotel in Orlando, Florida.",
+    "lat": 44.3039,
+    "lng": 9.2078,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Portofino%2C_Italy_2025.jpg/500px-Portofino%2C_Italy_2025.jpg",
+    "country": "Italy",
+    "sets": [
+      "Port Cities"
+    ]
   },
   {
     "id": "woodstock-max-yasgur-farm",
@@ -22922,7 +22927,7 @@
     "lat": 49.12014,
     "lng": 12.13027,
     "difficulty": 10,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Pukapuka_Aerial_efs_1280.jpg/500px-Pukapuka_Aerial_efs_1280.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Regenstauf_mit_Aussichtsturm_am_Schlossberg_-_panoramio.jpg/500px-Regenstauf_mit_Aussichtsturm_am_Schlossberg_-_panoramio.jpg",
     "country": "Germany",
     "sets": []
   },
