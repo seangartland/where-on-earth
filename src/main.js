@@ -2026,7 +2026,7 @@ function scoreGuess(km, round) {
   // Bullseye (<25km) always scores 1000. Scale the weighted contribution back
   // down so the five-round game total remains out of 1000.
   const base = km < BULLSEYE_KM ? 1000 : Math.round(1000 * Math.exp(-km / 4650));
-  return Math.round((base * WEIGHTS[round]) / 10);
+  return Math.round(base * WEIGHTS[round]);
 }
 
 function streakText() {
@@ -3769,7 +3769,7 @@ reviewEls.screen.addEventListener('click', (e) => {
 // History starts collecting from the first game played after this shipped.
 // ---------------------------------------------------------------------------
 const HISTORY_LIMIT = 365;
-const BAND_EDGES = [200, 400, 600, 800]; // /1000 total, five rounds at weights 1,1,2,3,3
+const BAND_EDGES = [2000, 4000, 6000, 8000]; // /10000 total, five rounds at weights 1,1,2,3,3
 const BAND_LOW_RGB = [103, 232, 255]; // cyan
 const BAND_HIGH_RGB = [255, 199, 106]; // amber
 
@@ -3942,8 +3942,8 @@ statsScreen.innerHTML = `
     </div>
     <div class="stats-grid">
       <div class="stat cool"><b data-stats="games">0</b><span>Games played</span><small data-stats="games-sub"></small></div>
-      <div class="stat"><b data-stats="average">0</b><span>Average score</span><small>/1000 per game</small></div>
-      <div class="stat"><b data-stats="best">0</b><span>Best score</span><small>/1000 in one game</small></div>
+      <div class="stat"><b data-stats="average">0</b><span>Average score</span><small>/10000 per game</small></div>
+      <div class="stat"><b data-stats="best">0</b><span>Best score</span><small>/10000 in one game</small></div>
       <div class="stat cool"><b data-stats="distance">0</b><span>Avg distance</span><small>km off the mark</small></div>
     </div>
     <p class="stats-head">Score distribution</p>
