@@ -20,9 +20,9 @@ cp "$SCRIPT_DIR/vercel.json" "$DEPLOY_DIR/"
 mkdir -p "$DEPLOY_DIR/assets"
 for f in "$SCRIPT_DIR"/assets/*; do
   base=$(basename "$f")
-  # Skip backup files and known duplicates
+  # Skip backup files, duplicates, and dead files (not loaded by code)
   case "$base" in
-    *.bak|og-v3.png) continue ;;
+    *.bak|og-v3.png|world.geo.json|world-10m.geo.json) continue ;;
   esac
   cp -r "$f" "$DEPLOY_DIR/assets/"
 done
