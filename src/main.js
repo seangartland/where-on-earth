@@ -3130,7 +3130,7 @@ function showResults() {
   const streak = finishStreak();
   recordHistory();
   const total = daily.results.reduce((sum, result) => sum + result.score, 0);
-  gameEls.total.textContent = total;
+  gameEls.total.textContent = total.toLocaleString();
   gameEls.resultStreak.textContent = `🔥 ${streak} day streak`;
   gameEls.breakdown.replaceChildren(...daily.results.map((result, i) => {
     const li = document.createElement('li');
