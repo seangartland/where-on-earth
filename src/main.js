@@ -4078,9 +4078,8 @@ function continentOf(item) {
 // visits: id -> latest base score /100 (drives dot colour). meta: id -> { b: best
 // base, d: closest km, f: first-visit date key, t: last-visit ms, e: earned }; meta
 // only exists for visits logged after the Passport page shipped, older ones lack it.
-// e is the best flyover tier landed there (EARN_NEAR / EARN_BULLSEYE) and is only
-// set by guesses made after earning shipped: older visits stay "seen", even when
-// their logged d is close, so nothing is earned retroactively.
+// e is the best flyover tier landed there. Stored best distances are also used to
+// migrate newly introduced tiers upward; an earned tier is never downgraded.
 const EARN_NEAR = 1; // < NEAR_KM: full-colour postcard
 const EARN_BULLSEYE = 2; // < BULLSEYE_KM: gold-edged postcard
 const EARN_PINPOINT = 3; // < PINPOINT_KM: thick gold edge, strongest glow
@@ -4131,6 +4130,7 @@ function readPassport() {
   const raw = readJSON(PASSPORT_KEY);
   const visits = {};
   const order = [];
+  let migrated = false;
   if (raw && raw.visits && typeof raw.visits === 'object') {
     for (const [id, base] of Object.entries(raw.visits)) {
       const score = Number(base);
@@ -4155,9 +4155,20 @@ function readPassport() {
       if (typeof m.f === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(m.f)) entry.f = m.f;
       if (Number.isFinite(m.t)) entry.t = m.t;
       if (m.e === EARN_NEAR || m.e === EARN_BULLSEYE || m.e === EARN_PINPOINT) entry.e = m.e;
+      // Pinpoint was added after distances were already stored. Rebuild the tier
+      // from the best distance, but retain any higher tier already awarded.
+      if (Number.isFinite(entry.d)) {
+        const earned = Math.max(entry.e || 0, earnForKm(entry.d));
+        if (earned > (entry.e || 0)) {
+          entry.e = earned;
+          m.e = earned;
+          migrated = true;
+        }
+      }
       meta[id] = entry;
     }
   }
+  if (migrated) writeJSON(PASSPORT_KEY, raw);
   return { visits, order: order.slice(-PASSPORT_ORDER_LIMIT), meta };
 }
 
@@ -4567,7 +4578,7 @@ passportPageStyle.textContent = `
 /* A postcard: white border round the photo, caption on the card stock, and the
    best score pressed on as a round ink stamp. Alternate cards tilt a hair so the
    grid reads as a collection pinned in a book rather than a table. */
-.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border-radius: 4px; background: #f6f1e6; box-shadow: var(--ring, 0 0 #0000), 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.4) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border-radius: 4px; background: #1a1f2e; box-shadow: var(--ring, 0 0 #0000), 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-post:nth-child(even) { --tilt: .7deg; }
 .pp-post:active { transform: rotate(var(--tilt)) scale(.965); filter: brightness(.95); }
 .pp-post:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
@@ -4586,12 +4597,12 @@ passportPageStyle.textContent = `
 .pp-post:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
 @keyframes pp-foil { 0%, 60% { background-position: 120% 0; } 100% { background-position: -20% 0; } }
 @media (prefers-reduced-motion: reduce) { .pp-post:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
-.pp-post[data-earn="seen"] { background: #dedad2; }
+.pp-post[data-earn="seen"] { background: #151923; }
 .pp-post[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.pp-post[data-earn="seen"] .pp-name { color: #4a4f62; }
+.pp-post[data-earn="seen"] .pp-name { color: #8992a8; }
 .pp-hint { position: absolute; z-index: 2; left: 50%; bottom: 7px; transform: translateX(-50%); padding: 3px 8px; border-radius: 999px; background: rgba(8,14,32,.78); color: #e8eef8; font-size: 9.5px; font-weight: 800; letter-spacing: .02em; white-space: nowrap; }
-.pp-name { margin: 7px 2px 0; overflow: hidden; color: #1a1f33; font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
-.pp-meta { display: flex; justify-content: space-between; gap: 4px; margin: 4px 2px 0; color: #5b6078; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pp-name { margin: 7px 2px 0; overflow: hidden; color: #eef2ff; font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
+.pp-meta { display: flex; justify-content: space-between; gap: 4px; margin: 4px 2px 0; color: #a8b0c3; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .pp-meta span { white-space: nowrap; }
 .pp-empty { margin: 30px 8px 6px; color: rgba(224,240,255,.8); font-size: 15px; line-height: 1.5; text-align: center; }
 .pp-empty::before { content: '🛂'; display: block; margin-bottom: 8px; font-size: 38px; }
