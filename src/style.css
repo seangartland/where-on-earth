@@ -112,6 +112,7 @@ body.game-reveal .reveal-name { display: block; }
 .peek-slot[hidden] { display: none; }
 #peek-thumb { display: block; width: 52px; height: 52px; border-radius: 10px; object-fit: cover; object-position: center 20%; box-shadow: var(--ring, none); }
 #peek-thumb.no-postcard { filter: grayscale(1); opacity: 0.7; }
+#peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint { filter: none; opacity: 1; }
 /* Earned card borders (peek thumb + passport cards). Inner 2px ring = rarity
    (from difficulty), outer ring = proximity tier. Elements opt in with
    box-shadow: var(--ring); unearned cards get neither class. */
