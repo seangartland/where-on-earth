@@ -5108,7 +5108,12 @@ collectionsStyle.textContent = `
 .collections-shell { width: 100%; max-width: 390px; margin: auto; }
 .collections-nav { display: flex; align-items: center; justify-content: space-between; min-height: 40px; margin-bottom: 10px; }
 .collections-back { padding: 8px 4px; border: 0; background: none; color: rgba(214,220,232,.68); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
-.collections-sort { color: rgba(214,220,232,.32); font-size: 11px; font-weight: 650; }
+.collections-sort { color: rgba(214,220,232,.42); font-size: 11px; font-weight: 650; }
+.collections-sort-control { position: relative; display: inline-flex; align-items: center; gap: 3px; }
+.collections-sort-control::after { content: ''; width: 5px; height: 5px; margin: -3px 2px 0 1px; border-right: 1px solid rgba(214,220,232,.48); border-bottom: 1px solid rgba(214,220,232,.48); transform: rotate(45deg); pointer-events: none; }
+.collections-sort-select { max-width: 112px; margin: 0; padding: 7px 0; border: 0; outline: 0; appearance: none; -webkit-appearance: none; background: transparent; color: rgba(214,220,232,.62); font: inherit; font-weight: 700; text-overflow: ellipsis; cursor: pointer; }
+.collections-sort-select:focus-visible { border-radius: 5px; box-shadow: 0 0 0 2px rgba(210,174,98,.45); }
+.collections-sort-select option { background: #111726; color: #d6dce8; }
 .collections-eyebrow { margin: 0 0 6px; color: rgba(214,220,232,.55); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .collections-screen h2 { margin: 0; color: #f4f5f8; font-size: 27px; line-height: 1.15; letter-spacing: -.025em; }
 .collections-lede { margin: 8px 0 18px; color: rgba(214,220,232,.55); font-size: 14px; line-height: 1.5; }
@@ -5164,15 +5169,29 @@ const SET_ICONS = ['🌋','🏛️','🏔️','🌊','🏰','🏝️','🌍','�
 const collectionsScreen = document.createElement('section');
 collectionsScreen.className = 'screen collections-screen';
 collectionsScreen.hidden = true;
-collectionsScreen.innerHTML = '<div class="collections-shell"><div class="collections-nav"><button class="collections-back" type="button"></button><span class="collections-sort"></span></div><div data-collections="content"></div></div>';
+collectionsScreen.innerHTML = '<div class="collections-shell"><div class="collections-nav"><button class="collections-back" type="button"></button><div class="collections-sort"><label class="collections-sort-control">Sort: <select class="collections-sort-select" aria-label="Sort collections"><option value="completion">Completion %</option><option value="earned">Postcards earned</option><option value="closest">Closest to complete</option><option value="alpha">A–Z</option></select></label><span class="collections-sort-status" hidden></span></div></div><div data-collections="content"></div></div>';
 document.getElementById('game').appendChild(collectionsScreen);
 collectionsScreenEl = collectionsScreen;
 const collectionsBack = collectionsScreen.querySelector('.collections-back');
 const collectionsSort = collectionsScreen.querySelector('.collections-sort');
+const collectionsSortControl = collectionsSort.querySelector('.collections-sort-control');
+const collectionsSortSelect = collectionsSort.querySelector('.collections-sort-select');
+const collectionsSortStatus = collectionsSort.querySelector('.collections-sort-status');
 const collectionsContent = collectionsScreen.querySelector('[data-collections="content"]');
+const COLLECTION_SORT_KEY = 'where-on-earth-collection-sort';
+const COLLECTION_SORTS = new Set(['completion', 'earned', 'closest', 'alpha']);
 let collectionSets = [];
 let collectionReturn = 'home';
 let activeCollection = null;
+let collectionSort = 'completion';
+
+try {
+  const savedCollectionSort = localStorage.getItem(COLLECTION_SORT_KEY);
+  if (COLLECTION_SORTS.has(savedCollectionSort)) collectionSort = savedCollectionSort;
+} catch (error) {
+  storageError('Read failed', COLLECTION_SORT_KEY, error);
+}
+collectionsSortSelect.value = collectionSort;
 
 function buildCollectionSets() {
   const byName = new Map();
@@ -5185,6 +5204,19 @@ function buildCollectionSets() {
 }
 
 function collectionEarn(item) { return passport.meta[item.id]?.e || 0; }
+
+function sortedCollectionSets() {
+  const earnedCount = (set) => set.items.filter(collectionEarn).length;
+  return [...collectionSets].sort((a, b) => {
+    const aEarned = earnedCount(a);
+    const bEarned = earnedCount(b);
+    let difference = 0;
+    if (collectionSort === 'completion') difference = (bEarned * a.items.length) - (aEarned * b.items.length);
+    else if (collectionSort === 'earned') difference = bEarned - aEarned;
+    else if (collectionSort === 'closest') difference = (a.items.length - aEarned) - (b.items.length - bEarned);
+    return difference || a.name.localeCompare(b.name);
+  });
+}
 
 function collectionThumb(item) {
   const wrap = document.createElement('span');
@@ -5202,7 +5234,8 @@ function collectionThumb(item) {
 function renderCollectionsOverview() {
   activeCollection = null;
   collectionsBack.textContent = collectionReturn === 'passport' ? '‹ Passport' : '‹ Home';
-  collectionsSort.textContent = 'All sets';
+  collectionsSortControl.hidden = false;
+  collectionsSortStatus.hidden = true;
   const earnedTotal = collectionSets.reduce((sum, set) => sum + set.items.filter(collectionEarn).length, 0);
   const cardTotal = collectionSets.reduce((sum, set) => sum + set.items.length, 0);
   const complete = collectionSets.filter((set) => set.items.every(collectionEarn)).length;
@@ -5210,7 +5243,7 @@ function renderCollectionsOverview() {
   header.innerHTML = `<p class="collections-eyebrow">Your album</p><h2>Collections</h2><p class="collections-lede">Every postcard belongs to a set. Fill a set to complete the collection.</p><div class="collections-stats"><div class="collections-stat"><b>${earnedTotal}<small> / ${cardTotal}</small></b><span>Postcards</span></div><div class="collections-stat gold"><b>${complete}</b><span>Sets complete</span></div><div class="collections-stat"><b>${collectionSets.length}</b><span>Sets</span></div></div>`;
   const grid = document.createElement('div');
   grid.className = 'collection-sets';
-  collectionSets.forEach((set) => {
+  sortedCollectionSets().forEach((set) => {
     const earned = set.items.filter(collectionEarn).length;
     const button = document.createElement('button');
     button.type = 'button';
@@ -5231,7 +5264,9 @@ function renderCollectionsOverview() {
 function renderCollectionDetail(set) {
   activeCollection = set;
   collectionsBack.textContent = '‹ Collections';
-  collectionsSort.textContent = 'Sorted by number';
+  collectionsSortControl.hidden = true;
+  collectionsSortStatus.hidden = false;
+  collectionsSortStatus.textContent = 'Sorted by number';
   const earned = set.items.filter(collectionEarn).length;
   const head = document.createElement('div');
   head.className = 'collection-detail-head';
@@ -5307,6 +5342,11 @@ function closeCollections() {
 collectionsEntry.addEventListener('click', () => openCollections('home'));
 ppEls.collections.addEventListener('click', () => openCollections('passport'));
 collectionsBack.addEventListener('click', () => activeCollection ? renderCollectionsOverview() : closeCollections());
+collectionsSortSelect.addEventListener('change', () => {
+  collectionSort = collectionsSortSelect.value;
+  safeSetItem(COLLECTION_SORT_KEY, collectionSort);
+  renderCollectionsOverview();
+});
 document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape' || collectionsScreen.hidden) return;
   if (activeCollection) renderCollectionsOverview();
