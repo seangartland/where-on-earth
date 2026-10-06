@@ -1681,9 +1681,11 @@ function postcardTarget() {
 let postcardPhoto = null; // { src, ok, failed } for the current reveal
 let postcardRun = null; // { b, landedAt, popAt, phase: 'pending' | 'out' | 'settling' }
 let revealCardAt = null; // when the reveal card has finished fading in
+let afterPostcard = null; // queued until the postcard is out of the way
 function preparePostcard(item) {
   clearPostcard();
   revealCardAt = null;
+  afterPostcard = null;
   if (!item.image) return;
   const photo = { src: item.image, ok: false, failed: false };
   const loader = new Image();
@@ -1722,7 +1724,10 @@ function postcardSettleAt(run) {
 // Touchdown of the answer pin (globe-local point b). A photo still loading
 // pops late, as long as that is still before the settle would have happened.
 function postcardLanded(b) {
-  if (!postcardPhoto || postcardPhoto.failed) return;
+  if (!postcardPhoto || postcardPhoto.failed) {
+    postcardDone();
+    return;
+  }
   const run = { b, landedAt: performance.now(), popAt: null, phase: 'pending' };
   postcardRun = run;
   thumbSlots.forEach((slot) => slot.classList.add('waiting'));
@@ -1740,6 +1745,20 @@ function postcardLanded(b) {
   requestAnimationFrame(tick);
 }
 
+// Run fn once no postcard is (or is about to be) on screen. The earn toast
+// waits on this: it sits in the same band as the held postcard and would
+// cover the photo, which on a bullseye pops right as the toast appears.
+function whenPostcardDone(fn) {
+  if (postcardPhoto && !postcardPhoto.failed) afterPostcard = fn;
+  else fn();
+}
+
+function postcardDone() {
+  const fn = afterPostcard;
+  afterPostcard = null;
+  if (fn) fn();
+}
+
 function postcardCardShown(fadeMs) {
   revealCardAt = performance.now() + fadeMs;
 }
@@ -1748,11 +1767,13 @@ function postcardCardShown(fadeMs) {
 // fade in whenever it loads.
 function abandonPostcard() {
   postcardRun = null;
+  postcardPhoto = null;
   thumbSlots.forEach((slot) => slot.classList.remove('waiting'));
   for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
     const fadeIn = () => thumb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
     if (!thumb.complete) thumb.addEventListener('load', fadeIn, { once: true });
   }
+  postcardDone();
 }
 
 function popPostcard() {
@@ -1788,7 +1809,9 @@ function settlePostcard() {
   run.thumb = thumb;
   if (!thumb) {
     postcard.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: 'forwards' }).onfinish = () => {
-      if (postcardRun === run) clearPostcard();
+      if (postcardRun !== run) return;
+      clearPostcard();
+      postcardDone();
     };
     return;
   }
@@ -1823,6 +1846,7 @@ function settlePostcard() {
 function swapPostcard(run) {
   if (postcardRun !== run) return;
   clearPostcard();
+  postcardDone();
   audio.tick();
   // The slot takes the weight: a small press and rebound.
   run.thumb.animate([
@@ -1840,6 +1864,7 @@ function resetFlyoverExtras() {
   correctPin.setColor(ANSWER_COLOR);
   setCameraFov(FOV);
   clearPostcard();
+  afterPostcard = null;
   bullseyeStamp.getAnimations().forEach((a) => a.cancel());
   bullseyeStamp.hidden = true;
   document.body.classList.remove('bullseye');
@@ -2983,9 +3008,12 @@ function revealGuess(guess, restoring = false) {
   const tier = flyoverTier(kmExact);
   const animate = window.__travelAnim !== false && !restoring;
   // Queue the earn celebration for after the flyover completes.
-  // Show the earn toast immediately — it's non-blocking and doesn't compete with the flyover.
+  // The earn toast is non-blocking, but holds off until the postcard has settled.
   if (newlyEarned) {
-    setTimeout(() => showEarnToast(answer, newlyEarned), animate ? 800 : 100);
+    setTimeout(() => {
+      if (animate) whenPostcardDone(() => showEarnToast(answer, newlyEarned));
+      else showEarnToast(answer, newlyEarned);
+    }, animate ? 800 : 100);
   }
   if (animate && tier === 'bullseye') {
     document.body.classList.add('bullseye');
