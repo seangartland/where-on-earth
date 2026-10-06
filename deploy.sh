@@ -13,9 +13,19 @@ mkdir -p "$DEPLOY_DIR"
 # Copy all required directories and files
 cp -r "$SCRIPT_DIR/index.html" "$DEPLOY_DIR/"
 cp -r "$SCRIPT_DIR/src" "$DEPLOY_DIR/"
-cp -r "$SCRIPT_DIR/assets" "$DEPLOY_DIR/"
 cp -r "$SCRIPT_DIR/vendor" "$DEPLOY_DIR/"
 cp "$SCRIPT_DIR/vercel.json" "$DEPLOY_DIR/"
+
+# Copy assets but exclude backups and duplicates
+mkdir -p "$DEPLOY_DIR/assets"
+for f in "$SCRIPT_DIR"/assets/*; do
+  base=$(basename "$f")
+  # Skip backup files and known duplicates
+  case "$base" in
+    *.bak|og-v3.png) continue ;;
+  esac
+  cp -r "$f" "$DEPLOY_DIR/assets/"
+done
 
 # Auto-bump asset versions to prevent stale cache: use git commit timestamp
 # This ensures every deploy gets fresh URLs for JS/CSS

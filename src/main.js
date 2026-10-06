@@ -2048,6 +2048,7 @@ function finishStreak() {
 
 var statsScreenEl = null; // set once the stats overlay is built
 var passportScreenEl = null; // set once the passport page is built
+var collectionsScreenEl = null; // set once the collections page is built
 
 function hideScreens() {
   gameEls.start.hidden = gameEls.round.hidden = gameEls.results.hidden = true;
@@ -2055,6 +2056,7 @@ function hideScreens() {
   reviewEls.screen.hidden = true;
   if (statsScreenEl) statsScreenEl.hidden = true;
   if (passportScreenEl) passportScreenEl.hidden = true;
+  if (collectionsScreenEl) collectionsScreenEl.hidden = true;
   document.body.className = '';
 }
 
@@ -4547,9 +4549,9 @@ function passportEntries() {
 const passportPageStyle = document.createElement('style');
 passportPageStyle.textContent = `
 .pp-card [hidden] { display: none !important; }
-.home-links { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+.home-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; }
 .home-links .stats-entry { margin-top: 0; }
-.passport-entry { min-height: 40px; padding: 0 20px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
+.passport-entry { min-height: 40px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
 .pp-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 26px 14px 20px; border-radius: 24px; overflow-x: clip; }
@@ -4560,6 +4562,8 @@ passportPageStyle.textContent = `
 .pp-header-row .pp-eyebrow { text-align: left; margin: 0 0 2px; }
 .pp-header-row h2 { text-align: left !important; font-size: 19px !important; }
 .pp-share-icon { flex-shrink: 0; width: 38px; height: 38px; border: 1px solid rgba(255,209,102,.55); border-radius: 50%; background: linear-gradient(135deg, rgba(77,54,145,.95), rgba(25,47,101,.95)); color: #fff7dc; font-size: 18px; font-weight: 800; cursor: pointer; }
+.pp-collections-link { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 42px; margin: 12px 0 2px; padding: 0 14px; border: 1px solid rgba(255,209,102,.25); border-radius: 13px; background: rgba(255,209,102,.06); color: #f4e8bf; font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; }
+.pp-collections-link span { color: #ffd166; font-size: 22px; }
 .pp-progress { margin: 8px 2px 0; }
 .pp-count { margin: 0 0 6px; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 700; text-align: center; }
 .pp-count b { color: #ffc76a; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(255,199,106,.3); }
@@ -4626,10 +4630,14 @@ const passportEntry = document.createElement('button');
 passportEntry.className = 'passport-entry';
 passportEntry.textContent = '🛂 Passport';
 passportEntry.setAttribute('aria-haspopup', 'dialog');
+const collectionsEntry = document.createElement('button');
+collectionsEntry.className = 'passport-entry';
+collectionsEntry.textContent = '🛡 Collections';
+collectionsEntry.setAttribute('aria-haspopup', 'dialog');
 const homeLinks = document.createElement('div');
 homeLinks.className = 'home-links';
 statsEntry.before(homeLinks);
-homeLinks.append(statsEntry, passportEntry);
+homeLinks.append(statsEntry, passportEntry, collectionsEntry);
 
 const passportScreen = document.createElement('section');
 passportScreen.className = 'screen stats-screen passport-screen';
@@ -4644,6 +4652,7 @@ passportScreen.innerHTML = `
       </div>
       <button class="pp-share-icon" data-pps="share" aria-label="Share my passport">↗</button>
     </div>
+    <button class="pp-collections-link" type="button" data-pp="collections">🛡 View collections <span>›</span></button>
     <div class="pp-progress" data-pp="progress">
       <p class="pp-count"><b data-pp="found">0</b> / <span data-pp="total">0</span> places · <span data-pp="earned"></span></p>
       <div class="pp-bar" role="progressbar" aria-label="Postcards earned" aria-valuemin="0"><i class="pp-bar-seen" data-pp="fill"></i><i class="pp-bar-earned" data-pp="earnfill"></i></div>
@@ -4691,6 +4700,7 @@ const ppEls = {
   emptyText: passportScreen.querySelector('.pp-empty'),
   play: passportScreen.querySelector('[data-pp="play"]'),
   note: passportScreen.querySelector('[data-pp="note"]'),
+  collections: passportScreen.querySelector('[data-pp="collections"]'),
 };
 // Passport collection share card. It is created here rather than in index.html so
 // it stays next to the passport data and can reuse passportEntries() directly.
@@ -5068,6 +5078,215 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---------------------------------------------------------------------------
+// Collections: the 36 themed sets attached to locations.json. A postcard is
+// collected when its passport entry has an earned tier (near or better).
+// ---------------------------------------------------------------------------
+const collectionsStyle = document.createElement('style');
+collectionsStyle.textContent = `
+.collections-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 30px); background: #03060f; color: #e6e8ee; pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.collections-shell { width: 100%; max-width: 390px; margin: auto; }
+.collections-nav { display: flex; align-items: center; justify-content: space-between; min-height: 40px; margin-bottom: 10px; }
+.collections-back { padding: 8px 4px; border: 0; background: none; color: rgba(214,220,232,.68); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.collections-sort { color: rgba(214,220,232,.32); font-size: 11px; font-weight: 650; }
+.collections-eyebrow { margin: 0 0 6px; color: rgba(214,220,232,.55); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.collections-screen h2 { margin: 0; color: #f4f5f8; font-size: 27px; line-height: 1.15; letter-spacing: -.025em; }
+.collections-lede { margin: 8px 0 18px; color: rgba(214,220,232,.55); font-size: 14px; line-height: 1.5; }
+.collections-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin-bottom: 18px; }
+.collections-stat { padding: 11px 9px 10px; border: 1px solid rgba(214,220,232,.08); border-radius: 12px; background: #0c111c; }
+.collections-stat b { display: block; color: #e6e8ee; font-size: 19px; line-height: 1; font-variant-numeric: tabular-nums; }
+.collections-stat.gold b { color: #d2ae62; text-shadow: 0 0 12px rgba(210,174,98,.35); }
+.collections-stat span { display: block; margin-top: 4px; color: rgba(214,220,232,.32); font-size: 9px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
+.collection-sets { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.collection-set { position: relative; display: flex; min-width: 0; flex-direction: column; padding: 12px; border: 1px solid rgba(214,220,232,.08); border-radius: 14px; background: linear-gradient(180deg,#111726,#0b0f19); color: inherit; text-align: left; cursor: pointer; touch-action: manipulation; }
+.collection-set:active { transform: scale(.97); }
+.collection-set.done { border-color: rgba(210,174,98,.45); background: linear-gradient(180deg,#1a1810,#0e1018 70%); box-shadow: 0 0 18px rgba(210,174,98,.12); }
+.collection-set-top { display: flex; align-items: center; justify-content: space-between; }
+.collection-icon { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(214,220,232,.1); border-radius: 10px; background: #151b2a; font-size: 18px; }
+.collection-count { color: rgba(214,220,232,.55); font-size: 12px; font-weight: 800; }
+.collection-set.done .collection-count { color: #d2ae62; }
+.collection-name { min-height: 2.4em; margin-top: 10px; color: #e6e8ee; font-size: 14px; font-weight: 750; line-height: 1.2; }
+.collection-sub { margin-top: 2px; color: rgba(214,220,232,.32); font-size: 11px; font-weight: 650; }
+.collection-bar { height: 3px; margin: 10px 0; border-radius: 3px; overflow: hidden; background: rgba(214,220,232,.08); }
+.collection-bar i { display: block; height: 100%; border-radius: inherit; background: rgba(214,220,232,.55); }
+.collection-set.done .collection-bar i { background: #d2ae62; box-shadow: 0 0 8px rgba(210,174,98,.6); }
+.collection-thumbs { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px; margin-top: auto; }
+.collection-thumb { position: relative; aspect-ratio: 1; overflow: hidden; border: 1px solid rgba(214,220,232,.14); border-radius: 6px; background: #0a0e17; }
+.collection-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.collection-thumb.locked img { filter: grayscale(1) brightness(.35); }
+.collection-thumb.locked::after { content: '?'; position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,.45); font-size: 12px; font-weight: 850; }
+.collection-detail-head { display: flex; align-items: center; gap: 12px; }
+.collection-detail-head .collection-icon { flex: none; width: 48px; height: 48px; border-radius: 14px; font-size: 25px; }
+.collection-detail-head p { margin: 4px 0 0; color: rgba(214,220,232,.55); font-size: 13px; }
+.collection-progress { margin: 18px 0; padding: 14px; border: 1px solid rgba(214,220,232,.08); border-radius: 14px; background: #0c111c; }
+.collection-progress-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
+.collection-progress-top b { font-size: 22px; font-variant-numeric: tabular-nums; }
+.collection-progress-top span { color: rgba(214,220,232,.4); font-size: 12px; font-weight: 650; }
+.collection-segments { display: flex; gap: 3px; }
+.collection-segments i { flex: 1; height: 6px; border-radius: 3px; background: rgba(214,220,232,.08); }
+.collection-segments i.earned { background: #d2ae62; box-shadow: 0 0 5px rgba(210,174,98,.45); }
+.collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px 10px; margin: 0; padding: 0; list-style: none; }
+.collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 1px solid rgba(214,220,232,.16); border-radius: 9px; background: #1a1f2e; box-shadow: var(--ring,0 0 #0000); }
+.collection-card .photo { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 5px; background: #0d111b; }
+.collection-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.collection-card.unearned img { filter: grayscale(1) brightness(.42); }
+.collection-card.unearned .photo::after { content: '?'; position: absolute; inset: 0; display: grid; place-items: center; color: rgba(230,232,238,.5); font-size: 28px; font-weight: 850; }
+.collection-card-name { min-height: 2.3em; margin: 6px 1px 0; display: grid; place-items: center; color: #e6e8ee; font-size: 10px; font-weight: 750; line-height: 1.15; text-align: center; }
+.collection-card.unearned .collection-card-name { color: rgba(214,220,232,.4); }
+.collection-card-meta { margin: 3px 0 0; color: rgba(214,220,232,.35); font-size: 8px; font-weight: 750; text-align: center; text-transform: uppercase; }
+.collection-complete { margin: 18px 0; padding: 14px; border: 1px solid rgba(210,174,98,.5); border-radius: 14px; background: linear-gradient(135deg,#241f12,#0e111a); color: #d2ae62; font-size: 13px; font-weight: 800; text-align: center; box-shadow: 0 0 20px rgba(210,174,98,.12); }
+body.game-collections #hud { opacity: 0; }
+@media (max-width:360px) { .collection-sets { gap: 8px; } .collection-set { padding: 10px; } .collection-grid { gap: 12px 8px; } }
+`;
+document.head.appendChild(collectionsStyle);
+
+const SET_ICONS = ['🌋','🏛️','🏔️','🌊','🏰','🏝️','🌍','🧭'];
+const collectionsScreen = document.createElement('section');
+collectionsScreen.className = 'screen collections-screen';
+collectionsScreen.hidden = true;
+collectionsScreen.innerHTML = '<div class="collections-shell"><div class="collections-nav"><button class="collections-back" type="button"></button><span class="collections-sort"></span></div><div data-collections="content"></div></div>';
+document.getElementById('game').appendChild(collectionsScreen);
+collectionsScreenEl = collectionsScreen;
+const collectionsBack = collectionsScreen.querySelector('.collections-back');
+const collectionsSort = collectionsScreen.querySelector('.collections-sort');
+const collectionsContent = collectionsScreen.querySelector('[data-collections="content"]');
+let collectionSets = [];
+let collectionReturn = 'home';
+let activeCollection = null;
+
+function buildCollectionSets() {
+  const byName = new Map();
+  locations.forEach((item) => (item.sets || []).forEach((name) => {
+    if (!byName.has(name)) byName.set(name, []);
+    byName.get(name).push(item);
+  }));
+  collectionSets = [...byName].map(([name, items], index) => ({ name, items, icon: SET_ICONS[index % SET_ICONS.length] }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function collectionEarn(item) { return passport.meta[item.id]?.e || 0; }
+
+function collectionThumb(item) {
+  const wrap = document.createElement('span');
+  wrap.className = `collection-thumb${collectionEarn(item) ? '' : ' locked'}`;
+  const img = document.createElement('img');
+  img.src = item.image || '';
+  img.alt = '';
+  img.loading = 'lazy';
+  img.decoding = 'async';
+  img.addEventListener('error', () => img.remove(), { once: true });
+  wrap.append(img);
+  return wrap;
+}
+
+function renderCollectionsOverview() {
+  activeCollection = null;
+  collectionsBack.textContent = collectionReturn === 'passport' ? '‹ Passport' : '‹ Home';
+  collectionsSort.textContent = 'All sets';
+  const earnedTotal = collectionSets.reduce((sum, set) => sum + set.items.filter(collectionEarn).length, 0);
+  const cardTotal = collectionSets.reduce((sum, set) => sum + set.items.length, 0);
+  const complete = collectionSets.filter((set) => set.items.every(collectionEarn)).length;
+  const header = document.createElement('header');
+  header.innerHTML = `<p class="collections-eyebrow">Your album</p><h2>Collections</h2><p class="collections-lede">Every postcard belongs to a set. Fill a set to complete the collection.</p><div class="collections-stats"><div class="collections-stat"><b>${earnedTotal}<small> / ${cardTotal}</small></b><span>Postcards</span></div><div class="collections-stat gold"><b>${complete}</b><span>Sets complete</span></div><div class="collections-stat"><b>${collectionSets.length}</b><span>Sets</span></div></div>`;
+  const grid = document.createElement('div');
+  grid.className = 'collection-sets';
+  collectionSets.forEach((set) => {
+    const earned = set.items.filter(collectionEarn).length;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `collection-set${earned === set.items.length ? ' done' : ''}`;
+    button.innerHTML = `<span class="collection-set-top"><span class="collection-icon">${set.icon}</span><span class="collection-count">${earned}/${set.items.length}</span></span><span class="collection-name"></span><span class="collection-sub">${earned === set.items.length ? 'Complete' : earned ? `${set.items.length - earned} to go` : 'Not started'}</span><span class="collection-bar"><i style="width:${(earned / set.items.length) * 100}%"></i></span>`;
+    button.querySelector('.collection-name').textContent = set.name;
+    const thumbs = document.createElement('span');
+    thumbs.className = 'collection-thumbs';
+    set.items.slice(0, 4).forEach((item) => thumbs.append(collectionThumb(item)));
+    button.append(thumbs);
+    button.addEventListener('click', () => renderCollectionDetail(set));
+    grid.append(button);
+  });
+  collectionsContent.replaceChildren(header, grid);
+}
+
+function renderCollectionDetail(set) {
+  activeCollection = set;
+  collectionsBack.textContent = '‹ Collections';
+  collectionsSort.textContent = 'Sorted by number';
+  const earned = set.items.filter(collectionEarn).length;
+  const head = document.createElement('div');
+  head.className = 'collection-detail-head';
+  head.innerHTML = `<span class="collection-icon">${set.icon}</span><div><h2></h2><p>${set.items.length} postcards</p></div>`;
+  head.querySelector('h2').textContent = set.name;
+  const progress = document.createElement('div');
+  progress.className = 'collection-progress';
+  progress.innerHTML = `<div class="collection-progress-top"><b>${earned} / ${set.items.length}</b><span>${Math.round(earned / set.items.length * 100)}% collected</span></div><div class="collection-segments">${set.items.map((item) => `<i class="${collectionEarn(item) ? 'earned' : ''}"></i>`).join('')}</div>`;
+  const grid = document.createElement('ol');
+  grid.className = 'collection-grid';
+  set.items.forEach((item, index) => {
+    const tier = collectionEarn(item);
+    const card = document.createElement('li');
+    card.className = `collection-card${tier ? '' : ' unearned'}`;
+    applyCardTier(card, item, tier);
+    const photo = document.createElement('div');
+    photo.className = 'photo';
+    const img = document.createElement('img');
+    img.src = item.image || '';
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('error', () => img.remove(), { once: true });
+    photo.append(img);
+    const name = document.createElement('p');
+    name.className = 'collection-card-name';
+    name.textContent = item.short || item.clue;
+    const meta = document.createElement('p');
+    meta.className = 'collection-card-meta';
+    meta.textContent = `${String(index + 1).padStart(2, '0')} · ${tier ? EARN_NAMES[tier] : 'Unearned'}`;
+    card.append(photo, name, meta);
+    grid.append(card);
+  });
+  const nodes = [head];
+  if (earned === set.items.length) {
+    const complete = document.createElement('div');
+    complete.className = 'collection-complete';
+    complete.textContent = `★ Set complete · All ${set.items.length} postcards earned`;
+    nodes.push(complete);
+  }
+  nodes.push(progress, grid);
+  collectionsContent.replaceChildren(...nodes);
+  collectionsScreen.scrollTop = 0;
+}
+
+function openCollections(from = 'home') {
+  if (!collectionSets.length) buildCollectionSets();
+  collectionReturn = from;
+  gameEls.start.hidden = true;
+  passportScreen.hidden = true;
+  collectionsScreen.hidden = false;
+  document.body.className = 'game-collections';
+  window.__canGuess = false;
+  renderCollectionsOverview();
+  collectionsScreen.scrollTop = 0;
+}
+
+function closeCollections() {
+  collectionsScreen.hidden = true;
+  if (collectionReturn === 'passport') openPassport();
+  else {
+    gameEls.start.hidden = false;
+    document.body.className = 'game-start';
+    collectionsEntry.focus();
+  }
+}
+
+collectionsEntry.addEventListener('click', () => openCollections('home'));
+ppEls.collections.addEventListener('click', () => openCollections('passport'));
+collectionsBack.addEventListener('click', () => activeCollection ? renderCollectionsOverview() : closeCollections());
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape' || collectionsScreen.hidden) return;
+  if (activeCollection) renderCollectionsOverview();
+  else closeCollections();
+});
+
+// ---------------------------------------------------------------------------
 // Postcard detail: tap a card in the passport to hold it up close
 // ---------------------------------------------------------------------------
 // The detail card grows out of the tapped postcard (a FLIP from the card's rect,
@@ -5078,38 +5297,46 @@ const postcardStyle = document.createElement('style');
 postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) 16px calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-.ppd-card { position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 8px 8px 16px; border-radius: 6px; background: #f6f1e6; box-shadow: var(--ring, 0 0 #0000), 0 24px 70px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.4) inset; transform-origin: 0 0; }
-.ppd-card[data-earn="seen"] { background: #dedad2; }
+.ppd-card { --ppd-accent: #d1a943; position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 1px solid #3f485b; border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
+.ppd-card.prox-postcard { border-color: #e5bd58; }
+.ppd-card.prox-bullseye { border: 2px solid #efc557; box-shadow: 0 0 0 1px #735d28, 0 0 28px rgba(234,184,61,.4), 0 24px 70px rgba(0,0,0,.78); }
+.ppd-card.prox-pinpoint { border: 3px solid #f1c761; box-shadow: 0 0 0 2px #9d5d30, 0 0 16px rgba(255,180,63,.72), 0 0 42px rgba(239,157,50,.38), 0 24px 70px rgba(0,0,0,.78); }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
+.ppd-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 29px; margin-bottom: 10px; padding-left: 38px; }
+.ppd-rarity { display: inline-flex; align-items: center; height: 27px; padding: 0 11px; border: 1px solid #69758a; border-radius: 999px; background: #475369; color: #e6ebf6; font-size: 10px; font-weight: 900; letter-spacing: .15em; }
+.ppd-card.rarity-uncommon .ppd-rarity { border-color: #668d82; background: #38675d; color: #d9fff4; }
+.ppd-card.rarity-rare .ppd-rarity { border-color: #6f91c0; background: #375b8b; color: #dce9ff; }
+.ppd-card.rarity-legendary .ppd-rarity { border-color: #a26acb; background: #63378d; color: #f1ddff; }
+.ppd-difficulty { display: flex; align-items: center; gap: 7px; color: #9fa9bb; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.ppd-difficulty strong { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #566074; border-radius: 50%; background: #242a3b; color: #fff; font-size: 13px; letter-spacing: 0; }
 .ppd-front { position: relative; }
-.ppd-front .pp-photo { border-radius: 3px; }
+.ppd-front .pp-photo { aspect-ratio: 16 / 9; border-radius: 15px; }
 .ppd-front .pp-photo::after { font-size: 44px; }
-.ppd-front .pp-stamp { top: auto; right: 12px; bottom: -26px; width: 58px; height: 58px; font-size: 20px; box-shadow: 0 0 0 4px #f6f1e6; background: #0d1530; }
-.ppd-card[data-earn="seen"] .ppd-front .pp-stamp { box-shadow: 0 0 0 4px #dedad2; }
-.ppd-front .pp-stamp small { font-size: 8px; }
 .ppd-close { position: absolute; z-index: 3; top: 6px; left: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
 .ppd-close::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(8,14,32,.72); color: #f5fbff; font-size: 22px; line-height: 1; }
 .ppd-close:focus-visible { outline: none; }
 .ppd-close:focus-visible::before { box-shadow: 0 0 0 2px #67e8ff; }
-.ppd-body { padding: 14px 8px 0; color: #1a1f33; }
-.ppd-from { margin: 0 76px 0 0; color: #7a6f8f; font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
-.ppd-body h3 { margin: 4px 76px 0 0; color: #1a1f33; font-size: 22px; font-weight: 850; line-height: 1.15; letter-spacing: -.02em; overflow-wrap: anywhere; }
-.ppd-clue { margin: 3px 0 0; color: #5b6078; font-size: 13px; font-weight: 700; }
-.ppd-fact { margin: 12px 0 0; padding: 12px 0 0; border-top: 1px dashed rgba(26,31,51,.28); color: #2c3248; font-size: 14.5px; line-height: 1.5; }
+.ppd-body { padding: 14px 2px 0; color: #f7f8fc; }
+.ppd-from { margin: 0; color: #8f9aaf; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+.ppd-body h3 { margin: 4px 0 0; color: #f7f8fc; font-family: Georgia, serif; font-size: 27px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.ppd-clue { margin: 4px 0 0; color: #8f9aaf; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.ppd-achievement { display: flex; align-items: center; justify-content: center; gap: 8px; height: 36px; margin: 14px 0 0; border: 1px solid #5d5132; border-radius: 10px; background: #242838; color: #c7a957; font-size: 11px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+.ppd-achievement::before { content: '\u2726'; font-size: 12px; }
+.ppd-card.prox-bullseye .ppd-achievement { border-color: #74602d; background: linear-gradient(180deg,#4a3b1d,#2b251d); color: #ffd971; }
+.ppd-card.prox-pinpoint .ppd-achievement { border-color: #a76b34; background: linear-gradient(180deg,#71401e,#3d281e); color: #ffd080; }
+.ppd-fact { margin: 14px 0 0; padding: 0 0 14px; border-bottom: 1px solid #303748; color: #c2c8d4; font-family: Georgia, serif; font-size: 13px; line-height: 1.52; }
+.ppd-fact::before { content: 'DID YOU KNOW?'; display: block; margin-bottom: 5px; color: var(--ppd-accent); font-family: Inter, sans-serif; font-size: 9px; font-weight: 900; letter-spacing: .17em; }
 .ppd-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 14px 0 0; }
-.ppd-stats div { min-width: 0; padding: 8px 10px; border: 1.5px solid rgba(59,42,110,.22); border-radius: 10px; background: rgba(59,42,110,.05); }
-.ppd-stats dt { color: #6b6f86; font-size: 9.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.ppd-stats dd { margin: 3px 0 0; color: #1a1f33; font-size: 16px; font-weight: 850; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ppd-stats dd small { color: #7a7f96; font-size: 11px; font-weight: 700; }
-.ppd-stats [data-tier="gold"] dd { color: #a8760a; }
-.ppd-stats [data-tier="cyan"] dd { color: #0f7f99; }
-.ppd-hint { margin: 10px 0 0; color: #5b6078; font-size: 12px; font-weight: 700; text-align: center; }
-.ppd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; }
-.ppd-tags span { padding: 4px 10px; border-radius: 999px; background: #1b2c5a; color: #e6eeff; font-size: 11.5px; font-weight: 750; }
-.ppd-tags span + span { background: #3b2a6e; color: #ece4ff; }
-.ppd-share { display: block; width: 100%; min-height: 46px; margin: 16px 0 0; padding: 0 16px; border: 0; border-radius: 999px; background: #1b2c5a; color: #f5f8ff; font-size: 14.5px; font-weight: 800; letter-spacing: -.01em; cursor: pointer; touch-action: manipulation; box-shadow: 0 6px 16px rgba(27,44,90,.28); }
+.ppd-stats div { min-width: 0; padding: 10px; border: 1px solid #30384a; border-radius: 10px; background: #151a27; }
+.ppd-stats dt { color: #788397; font-size: 8px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+.ppd-stats dd { margin: 5px 0 0; color: #f7f8fc; font-size: 14px; font-weight: 850; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ppd-stats dd small { color: #8390a6; font-size: 10px; font-weight: 650; }
+.ppd-visited { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 13px 0 0; color: #818da2; font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.ppd-visited strong { color: #c8cfdb; font-weight: 750; text-align: right; }
+.ppd-hint { margin: 10px 0 0; color: #9fa9bb; font-size: 12px; font-weight: 700; text-align: center; }
+.ppd-share { display: block; width: 100%; min-height: 45px; margin: 13px 0 0; padding: 0 16px; border: 1px solid #4b566b; border-radius: 12px; background: #252d40; color: #fff; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; }
 .ppd-share:active { transform: scale(.98); }
 .ppd-share:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .ppd-share[hidden] { display: none; }`;
@@ -5122,18 +5349,19 @@ postcardScreen.innerHTML = `
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
+    <div class="ppd-topline"><span class="ppd-rarity" data-ppd="rarity"></span><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span></div>
     <div class="ppd-front">
       <div class="pp-photo" data-ppd="photo"></div>
-      <span class="pp-stamp" data-ppd="stamp"></span>
     </div>
     <div class="ppd-body">
       <p class="ppd-from" data-ppd="from"></p>
       <h3 id="ppd-title" data-ppd="name"></h3>
       <p class="ppd-clue" data-ppd="clue"></p>
+      <div class="ppd-achievement" data-ppd="achievement"></div>
       <p class="ppd-fact" data-ppd="fact"></p>
       <dl class="ppd-stats" data-ppd="stats"></dl>
       <p class="ppd-hint" data-ppd="hint"></p>
-      <div class="ppd-tags" data-ppd="tags"></div>
+      <div class="ppd-visited"><span>First visited</span><strong data-ppd="visited"></strong></div>
       <button class="ppd-share" data-ppd="share"></button>
     </div>
   </article>`;
@@ -5153,8 +5381,13 @@ function longDate(date) {
 function fillPostcard(entry) {
   const { item } = entry;
   const earn = EARN_NAMES[entry.earned] || 'seen';
+  const rarity = rarityFor(item.difficulty);
   ppdEls.card.dataset.earn = earn;
   applyCardTier(ppdEls.card, item, entry.earned);
+  // Unearned cards still advertise their rarity in the detail view.
+  ppdEls.card.classList.add(`rarity-${rarity}`);
+  ppdEls.rarity.textContent = rarity.toUpperCase();
+  ppdEls.difficulty.textContent = String(item.difficulty || 5);
   ppdEls.photo.replaceChildren();
   if (item.image) {
     const img = document.createElement('img');
@@ -5164,9 +5397,6 @@ function fillPostcard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     ppdEls.photo.append(img);
   }
-  ppdEls.stamp.dataset.tier = entry.earned >= EARN_BULLSEYE ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
-  ppdEls.stamp.setAttribute('aria-label', `Best score ${entry.best} out of 1000`);
-  ppdEls.stamp.innerHTML = `<span>${entry.best}<small>${{ bullseye: '🎯', pinpoint: '📍' }[earn] || 'BEST'}</small></span>`;
   ppdEls.from.textContent = `Postcard from ${entry.continent || 'Earth'}`;
   const flag = (item.clue || '').match(FLAG_RE);
   const short = item.short || item.clue || '';
@@ -5176,17 +5406,10 @@ function fillPostcard(entry) {
   ppdEls.clue.hidden = !clue || clue === short;
   ppdEls.fact.textContent = item.fact || '';
   ppdEls.fact.hidden = !item.fact;
-  const tier = {
-    pinpoint: ['gold', 'Pinpoint 📍'],
-    bullseye: ['gold', 'Gold 🎯'],
-    near: ['cyan', 'Full colour'],
-    seen: ['dim', 'Not yet'],
-  }[earn];
+  ppdEls.achievement.textContent = { pinpoint: 'Pinpoint', bullseye: 'Bullseye', near: 'Postcard', seen: 'Postcard' }[earn];
   const cells = [
     ['Best score', `${entry.best}<small> /1000</small>`],
     ['Closest guess', Number.isFinite(entry.km) ? `${entry.km.toLocaleString()}<small> km</small>` : '—'],
-    ['First visited', entry.first ? longDate(entry.first) : '—'],
-    ['Postcard', tier[1], tier[0]],
   ];
   ppdEls.stats.replaceChildren(...cells.map(([label, value, t]) => {
     const div = document.createElement('div');
@@ -5198,13 +5421,7 @@ function fillPostcard(entry) {
   ppdEls.hint.textContent = Number.isFinite(entry.km) && entry.km < 500
     ? 'So close! Land within 150 km to earn it in colour.'
     : 'Land within 150 km to earn this postcard in colour.';
-  const band = DIFFICULTY_BANDS.find((b) => b.key === entry.band);
-  const tags = [entry.continent && `🌍 ${entry.continent}`, band && `${band.label} · ${item.difficulty}/10`].filter(Boolean);
-  ppdEls.tags.replaceChildren(...tags.map((text) => {
-    const span = document.createElement('span');
-    span.textContent = text;
-    return span;
-  }));
+  ppdEls.visited.textContent = entry.first ? longDate(entry.first) : '—';
   // Only a postcard with a known closest guess has a distance to brag about.
   ppdEntry = entry;
   clearTimeout(ppdCopiedTimer);
@@ -5361,6 +5578,7 @@ getJSON('assets/locations.json', RESET_DAILY ? { cache: 'reload' } : undefined).
   endlessEls.entry.disabled = false;
   gameEls.survivalEntry.disabled = false;
   passportEntry.disabled = false;
+  collectionsEntry.disabled = false;
   if (window.__boot) window.__boot('locations loaded');
 }).catch((err) => {
   gameEls.play.disabled = true;
@@ -5380,6 +5598,7 @@ endlessEls.entry.disabled = true;
 gameEls.survivalEntry.disabled = true;
 gameEls.expeditionsEntry.disabled = true;
 passportEntry.disabled = true;
+collectionsEntry.disabled = true;
 document.body.classList.add('game-start');
 window.__canGuess = false;
 window.__game = {
