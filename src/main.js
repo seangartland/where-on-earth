@@ -2263,7 +2263,7 @@ function fadeElement(el, show, duration, delay = 0) {
 const REVEAL_BEAT_MS = 1500;
 const SHEET_SLIDE_MS = 380;
 const SHEET_PEEK_H = 80;
-const REVEAL_HEADER_H = 46; // the collapsed one-line header, see style.css
+const REVEAL_HEADER_H = 52; // the collapsed one-line header, see style.css
 let sheetTimer = 0;
 let lineLabel = null; // { mid, a, b } globe-local, while the label is on
 
@@ -3307,23 +3307,13 @@ const endlessStyle = document.createElement('style');
 endlessStyle.textContent = `
 .endless-entry { min-height: 46px; margin: 0; padding: 0 10px; border: 1px solid rgba(196,168,255,.45); border-radius: 999px; background: rgba(150,110,255,.14); color: #e9e0ff; font-size: 14px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .endless-entry:disabled { opacity: .4; }
-.endless-tools { display: none; }
-body.endless .endless-tools { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; pointer-events: auto; }
 body.endless .round-header, body.endless #reveal-card { border-color: rgba(196,168,255,.5); background: rgba(22,10,42,.86); }
 body.endless .round-meta span:first-child { color: #cdb6ff; }
-body.endless #reveal-card .score-math { display: none; }
-body.endless:not(.game-reveal) [data-endless="next"] { visibility: hidden; }
-.endless-pill[data-endless="next"] { border-color: rgba(196,168,255,.7); background: rgba(150,110,255,.32); color: #fff; }
-.endless-pill { min-height: 36px; padding: 0 14px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12); color: #ece4ff; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; touch-action: manipulation; }`;
+body.endless #reveal-card .score-math { display: none; }`;
 document.head.appendChild(endlessStyle);
 
 // Endless button is now in HTML (mode-buttons div), just get the reference
 const endlessEntry = document.getElementById('endless-button');
-
-const endlessTools = document.createElement('div');
-endlessTools.className = 'endless-tools';
-endlessTools.innerHTML = '<button class="endless-pill" data-endless="next">Next →</button>';
-gameEls.round.querySelector('.round-header').append(endlessTools);
 
 const endlessEls = { entry: endlessEntry };
 
@@ -3378,22 +3368,24 @@ function createHomeButton() {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'home-nav-btn';
-  button.setAttribute('aria-label', 'Back to home');
+  button.setAttribute('aria-label', 'Go home');
+  button.textContent = '×';
   button.addEventListener('click', goHome);
   return button;
 }
 
-gameEls.round.appendChild(createHomeButton());
+document.querySelectorAll('.home-nav-btn').forEach((button) => {
+  button.setAttribute('aria-label', 'Go home');
+  button.textContent = '×';
+});
+
+// Lives inside the clue card, so it never costs the globe a row.
+gameEls.header.prepend(createHomeButton());
 
 endlessEntry.addEventListener('click', () => {
   if (!locations.length) return;
   endless.count = 0;
   endlessNext();
-});
-endlessTools.addEventListener('click', (e) => {
-  const act = e.target.closest('[data-endless]');
-  if (!act) return;
-  if (act.dataset.endless === 'next') nextRound();
 });
 
 // ---------------------------------------------------------------------------
@@ -3508,7 +3500,7 @@ reviewStyle.textContent = `
 .next-game { margin: 12px 0 0; padding: 10px 16px 8px; }
 .next-game-time { font-size: 28px; }
 .next-game-sub { font-size: 11px; }
-.results-close { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 28px; line-height: 1; cursor: pointer; touch-action: manipulation; }
+.results-close { position: absolute; top: 6px; left: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 28px; line-height: 1; cursor: pointer; touch-action: manipulation; }
 .results-globe { display: block; margin: 0 auto; }
 #breakdown li { cursor: pointer; }
 .review-screen { pointer-events: none; }
@@ -4508,7 +4500,8 @@ const expeditionStyle = document.createElement('style');
 expeditionStyle.textContent = `
 .expedition-picker { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 18px; background: rgba(2,4,9,.78); backdrop-filter: blur(12px); }
 .expedition-picker[hidden] { display: none; }
-.expedition-panel { width: min(100%, 390px); max-height: calc(100vh - 36px); overflow: auto; box-sizing: border-box; padding: 22px; border: 1px solid rgba(103,232,255,.25); border-radius: 24px; background: rgba(8,16,34,.96); color: #f3f9ff; }
+.expedition-panel { position: relative; width: min(100%, 390px); max-height: calc(100vh - 36px); overflow: auto; box-sizing: border-box; padding: 18px; border: 1px solid rgba(103,232,255,.25); border-radius: 24px; background: rgba(8,16,34,.96); color: #f3f9ff; }
+.expedition-panel .home-nav-btn { position: absolute; top: 5px; right: 5px; }
 .expedition-panel h2 { margin: 0; font-size: 27px; }
 .expedition-panel > p { margin: 6px 0 18px; color: rgba(193,224,250,.68); }
 .expedition-list { display: grid; gap: 10px; }
@@ -4531,7 +4524,7 @@ expeditionPicker.innerHTML = `<div class="expedition-panel" role="dialog" aria-m
   <div class="expedition-list"></div>
 </div>`;
 document.body.appendChild(expeditionPicker);
-expeditionPicker.appendChild(createHomeButton());
+expeditionPicker.querySelector('.expedition-panel').prepend(createHomeButton());
 const expeditionList = expeditionPicker.querySelector('.expedition-list');
 
 function loadExpeditionState() {

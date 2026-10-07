@@ -65,12 +65,11 @@ button { font: inherit; }
 .screen[hidden] { display: none; }
 .glass { background: rgba(5, 12, 29, .82); border: 1px solid rgba(157, 211, 255, .22); box-shadow: 0 18px 60px rgba(0, 0, 0, .35), inset 0 1px rgba(255,255,255,.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
 
-/* Icon-only, 44px touch target, matches the app's glass/cyan palette (not a separate pill style).
-   Text content (if any) is indented off-canvas rather than removed, so the static HTML copies
-   in index.html stay accessible without needing their markup changed. */
-.home-nav-btn { position: fixed; z-index: 95; top: calc(env(safe-area-inset-top, 0px) + 12px); left: 12px; width: 44px; height: 44px; padding: 0; margin: 0; border: 1px solid rgba(157, 211, 255, .22); border-radius: 50%; background-color: rgba(5, 12, 29, .78); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15 5L9 12L15 19' fill='none' stroke='%23cfe6ff' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 15px 15px; box-shadow: 0 6px 18px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.05); color: transparent; font-size: 0; line-height: 0; text-indent: -9999px; overflow: hidden; white-space: nowrap; cursor: pointer; pointer-events: auto; touch-action: manipulation; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-.home-nav-btn:active { transform: scale(.92); background-color: rgba(5, 12, 29, .92); }
-.home-nav-btn:focus-visible { box-shadow: 0 6px 18px rgba(0,0,0,.32), 0 0 0 2px rgba(127,210,244,.5); }
+/* A compact X with a full 44px tap target. Static buttons may retain fallback text,
+   so the glyph is supplied as a background and their text is visually hidden. */
+.home-nav-btn { position: fixed; z-index: 95; top: calc(env(safe-area-inset-top, 0px) + 6px); right: 6px; width: 44px; height: 44px; padding: 0; margin: 0; overflow: hidden; border: 0; border-radius: 50%; background-color: transparent; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 7l10 10M17 7L7 17' fill='none' stroke='%23cfe6ff' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 18px 18px; color: transparent; font-size: 0; line-height: 0; text-indent: -9999px; white-space: nowrap; cursor: pointer; pointer-events: auto; touch-action: manipulation; }
+.home-nav-btn:active { transform: scale(.9); background-color: rgba(157,211,255,.12); }
+.home-nav-btn:focus-visible { outline: 2px solid rgba(127,210,244,.65); outline-offset: -5px; }
 
 /* Settings: gear entry top-right on the home screen opens a modal over the start card */
 .settings-entry { position: fixed; z-index: 95; top: calc(env(safe-area-inset-top, 0px) + 12px); right: 12px; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; margin: 0; border: 1px solid rgba(157, 211, 255, .22); border-radius: 50%; background-color: rgba(5, 12, 29, .78); box-shadow: 0 6px 18px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.05); color: #cfe6ff; font-size: 20px; line-height: 1; cursor: pointer; pointer-events: auto; touch-action: manipulation; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
@@ -99,12 +98,17 @@ h1 { max-width: 330px; margin: 0; color: #f1f8ff; font-size: clamp(46px, 15vw, 6
 .primary:active { transform: scale(.98); }
 .streak { min-height: 20px; margin: 18px 0 0; color: #ffc76a; font-size: 13px; font-weight: 700; }
 .round-screen { pointer-events: none; }
-.round-header { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 68px); left: 14px; right: 14px; box-sizing: border-box; padding: 14px 17px 15px; border-radius: 18px; text-align: center; }
-.round-meta { display: flex; justify-content: space-between; color: rgba(193,224,250,.67); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+.round-header { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 12px); left: 12px; right: 12px; box-sizing: border-box; min-height: 56px; padding: 7px 52px 8px 12px; border-radius: 18px; text-align: left; }
+/* Home sits in the card's top-right corner; the transparent outer area preserves a 44px target. */
+.round-header .home-nav-btn { position: absolute; top: 6px; right: 5px; left: auto; z-index: auto; display: block; }
+.round-header .home-nav-btn:active { transform: scale(.94); background-color: rgba(157,211,255,.16); }
+.round-meta { display: flex; align-items: center; gap: 8px; min-height: 18px; color: rgba(193,224,250,.67); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .round-meta span:last-child { color: #ffc76a; }
-.daily-date { margin: 4px 0 0; color: rgba(193,224,250,.5); font-size: 11px; font-weight: 650; letter-spacing: .02em; }
+.round-meta .mute-toggle { order: 1; margin: -9px -6px -9px auto; }
+.daily-date { margin: 1px 0 0; color: rgba(193,224,250,.5); font-size: 11px; font-weight: 650; letter-spacing: .02em; }
 .daily-date[hidden] { display: none; }
-.round-header h2 { margin: 9px 0 5px; color: #f3f9ff; font-size: 20px; line-height: 1.2; letter-spacing: -.02em; }
+.round-header .survival-streak { margin: 2px 0 0; font-size: 15px; }
+.round-header h2 { margin: 3px 0 1px; color: #f3f9ff; font-size: 19px; line-height: 1.2; letter-spacing: -.02em; }
 #guess-hint { margin: 0; color: rgba(193,224,250,.58); font-size: 12px; }
 .reveal-card { position: absolute; left: 14px; right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); box-sizing: border-box; padding: 17px; border-radius: 20px; pointer-events: auto; }
 .score-line { display: flex; align-items: center; justify-content: space-between; }
@@ -121,10 +125,11 @@ h1 { max-width: 330px; margin: 0; color: #f1f8ff; font-size: clamp(46px, 15vw, 6
 /* Reveal: the clue header collapses to the place name, a score pill floats
    under it while the map plays alone, then the bottom sheet peeks up. */
 .reveal-name { display: none; margin: 0; overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; letter-spacing: -.01em; line-height: 22px; text-overflow: ellipsis; white-space: nowrap; }
-body.game-reveal .round-header { display: flex; align-items: center; justify-content: center; height: 46px; padding: 0 16px; overflow: hidden; }
-body.game-reveal .round-header > :not(.reveal-name) { display: none; }
+body.game-reveal .round-header { display: flex; align-items: center; justify-content: center; min-height: 0; height: 52px; padding: 0 56px; overflow: hidden; text-align: center; }
+body.game-reveal .round-header > :not(.reveal-name):not(.home-nav-btn) { display: none; }
+body.game-reveal .round-header .home-nav-btn { top: 4px; right: 4px; }
 body.game-reveal .reveal-name { display: block; }
-.reveal-pill { position: absolute; z-index: 1; top: calc(env(safe-area-inset-top, 0px) + 124px); left: 50%; margin: 0; padding: 6px 14px 5px; border: 1px solid rgba(255,199,106,.38); border-radius: 999px; background: rgba(5,12,29,.74); color: #ffc76a; font-size: 15px; font-weight: 850; letter-spacing: -.01em; white-space: nowrap; transform: translateX(-50%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.reveal-pill { position: absolute; z-index: 1; top: calc(env(safe-area-inset-top, 0px) + 74px); left: 50%; margin: 0; padding: 6px 14px 5px; border: 1px solid rgba(255,199,106,.38); border-radius: 999px; background: rgba(5,12,29,.74); color: #ffc76a; font-size: 15px; font-weight: 850; letter-spacing: -.01em; white-space: nowrap; transform: translateX(-50%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .reveal-pill[hidden] { display: none; }
 .reveal-pill.safe { border-color: rgba(120,230,170,.4); color: #8ef0b8; }
 .reveal-pill.miss { border-color: rgba(255,120,150,.4); color: #ff9db4; }
@@ -177,7 +182,10 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .line-distance { position: fixed; z-index: 10; left: 0; top: 0; padding: 4px 10px 3px; border: 1px solid rgba(185,247,255,.5); border-radius: 999px; background: rgba(4,12,28,.8); color: #f4fdff; font-size: 14px; font-weight: 800; letter-spacing: -.01em; white-space: nowrap; pointer-events: none; will-change: transform; box-shadow: 0 0 16px rgba(70,205,255,.2); }
 .line-distance[hidden] { display: none; }
 .results-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px); background: rgba(2,4,9,.42); pointer-events: auto; }
-.results-card { box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 24px 18px; border-radius: 24px; text-align: center; }
+.results-card, .survival-results-card { position: relative; }
+.results-card { box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 18px 16px; border-radius: 24px; text-align: center; }
+.results-card .home-nav-btn, .survival-results-card .home-nav-btn { position: absolute; top: 5px; right: 5px; }
+.results-actions .home-nav-btn, .survival-result-actions .home-nav-btn { width: 44px; min-height: 44px; }
 .results-card h2 { margin: 0; color: #f5fbff; font-size: 50px; line-height: 1; letter-spacing: -.05em; }
 .results-card h2 small { color: rgba(198,226,250,.55); font-size: 18px; letter-spacing: 0; }
 .results-card .streak { margin-top: 10px; }
@@ -191,7 +199,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0; }
 
 @media (max-height: 700px) {
-  .round-header { padding: 10px 15px; }
+  .round-header { padding: 6px 52px 7px 12px; }
   .round-header h2 { font-size: 18px; }
   .reveal-card { padding: 13px 16px; }
   .peek-bar { height: 72px; padding-top: 8px; padding-bottom: 6px; }
