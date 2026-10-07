@@ -3272,7 +3272,7 @@ window.addEventListener('pin', (event) => revealGuess(event.detail));
 gameEls.play.addEventListener('click', startGame);
 gameEls.next.addEventListener('click', nextRound);
 gameEls.share.addEventListener('click', shareResult);
-document.getElementById('results-home')?.addEventListener('click', goHome);
+// #results-home is wired via the .home-nav-btn forEach below
 
 // ---------------------------------------------------------------------------
 // Next-daily countdown: one game per day, shown on the results and review
@@ -3427,13 +3427,25 @@ function createHomeButton() {
   button.className = 'home-nav-btn';
   button.setAttribute('aria-label', 'Go home');
   button.textContent = '×';
-  button.addEventListener('click', goHome);
+  button.addEventListener('click', confirmGoHome);
   return button;
+}
+
+function confirmGoHome() {
+  // Don't confirm if no game is in progress
+  if (gameMode === 'start') {
+    goHome();
+    return;
+  }
+  if (confirm('Return to home? Your current game progress will be lost.')) {
+    goHome();
+  }
 }
 
 document.querySelectorAll('.home-nav-btn').forEach((button) => {
   button.setAttribute('aria-label', 'Go home');
   button.textContent = '×';
+  button.addEventListener('click', confirmGoHome);
 });
 
 // Lives inside the clue card, so it never costs the globe a row.
@@ -4256,16 +4268,14 @@ function rarityFor(difficulty) {
   return 'common';
 }
 
-// Accuracy outlines are applied only to earned cards. Rarity is presented by
-// the separate tab so it never competes with Bullseye/Pinpoint gold.
+// Accuracy outlines are applied only to earned cards. Rarity tints the base
+// ring/border via --rarity; gold overrides it once Bullseye/Pinpoint is hit,
+// so the two signals never compete for the same pixels.
 function applyCardTier(el, item, earned) {
   el.classList.remove(...RARITY_CLASSES, ...PROX_CLASSES.filter(Boolean));
-  const slot = el.closest('.thumb-slot');
-  if (slot) slot.classList.remove(...RARITY_CLASSES);
   if (!earned) return;
   const rarityClass = `rarity-${rarityFor(item?.difficulty)}`;
   el.classList.add(rarityClass, PROX_CLASSES[earned]);
-  if (slot) slot.classList.add(rarityClass);
 }
 let passport = { visits: {}, order: [], meta: {} };
 let passportDirty = true; // dots need rebuilding before the next start screen
@@ -4748,6 +4758,7 @@ passportPageStyle.textContent = `
 .pp-post:nth-child(even) { --tilt: .7deg; }
 .pp-post:active { transform: rotate(var(--tilt)) scale(.965); filter: brightness(.95); }
 .pp-post:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
+.pp-post .rarity-tab { position: absolute; z-index: 3; top: -7px; left: 7px; }
 /* While its detail is open the card has been lifted out of the book. */
 .pp-post.pp-lifted { visibility: hidden; }
 .pp-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 2px; overflow: hidden; background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
@@ -5143,7 +5154,10 @@ function passportCard(entry) {
   if (tierDate) meta.append(date);
   const rarity = rarityFor(entry.item.difficulty);
   li.classList.add(`rarity-${rarity}`);
-  li.append(photo, stamp, name, meta);
+  const rarityTab = document.createElement('span');
+  rarityTab.className = 'rarity-tab';
+  rarityTab.textContent = rarity;
+  li.append(rarityTab, photo, stamp, name, meta);
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
@@ -5289,7 +5303,7 @@ collectionsStyle.textContent = `
 .collection-segments i.earned { background: #d2ae62; box-shadow: 0 0 5px rgba(210,174,98,.45); }
 .collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px 10px; margin: 0; padding: 0; list-style: none; }
 .collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 1px solid rgba(214,220,232,.16); border-radius: 9px; background: #1a1f2e; box-shadow: var(--ring,0 0 #0000); }
-.collection-card .rarity-tab { position: absolute; z-index: 3; top: -9px; left: 50%; max-width: calc(100% - 8px); transform: translateX(-50%); }
+.collection-card .rarity-tab { position: absolute; z-index: 3; top: -7px; left: 50%; max-width: calc(100% - 8px); transform: translateX(-50%); }
 .collection-card .photo { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 5px; background: #0d111b; }
 .collection-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .collection-card-name { min-height: 2.3em; margin: 6px 1px 0; display: grid; place-items: center; color: #e6e8ee; font-size: 10px; font-weight: 750; line-height: 1.15; text-align: center; }
@@ -5519,14 +5533,14 @@ postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
 .ppd-card { --ppd-accent: #d1a943; position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 1px solid #3f485b; border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
-.ppd-card.prox-postcard { border-color: #3f485b; }
+.ppd-card.prox-postcard { border-color: var(--rarity, #3f485b); }
 .ppd-card.prox-bullseye { border: 2px solid #F5C451; box-shadow: 0 0 0 1px #735d28, 0 0 28px rgba(245,196,81,.4), 0 24px 70px rgba(0,0,0,.78); }
 .ppd-card.prox-pinpoint { border: 3px solid #F5C451; box-shadow: 0 0 0 2px #9d5d30, 0 0 16px rgba(245,196,81,.72), 0 0 42px rgba(245,196,81,.38), 0 24px 70px rgba(0,0,0,.78); }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
 .ppd-topline { display: flex; align-items: center; min-height: 29px; margin-bottom: 10px; padding-right: 38px; }
-.ppd-rarity { position: absolute; z-index: 4; top: -10px; left: 16px; }
+.ppd-rarity { position: absolute; z-index: 4; top: -8px; left: 16px; }
 .ppd-difficulty { display: flex; align-items: center; gap: 7px; color: #9fa9bb; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .ppd-difficulty strong { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #566074; border-radius: 50%; background: #242a3b; color: #fff; font-size: 13px; letter-spacing: 0; }
 .ppd-front { position: relative; }
