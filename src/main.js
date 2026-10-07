@@ -3386,6 +3386,7 @@ function goHome() {
   gameEls.start.hidden = false;
   document.body.className = 'game-start';
   window.__canGuess = false;
+  targetDist = 3;
   syncPassport();
 }
 
