@@ -3465,7 +3465,8 @@ function confirmGoHome() {
 // Event delegation: catches all .home-nav-btn clicks, even dynamically added ones.
 // Also normalizes the button appearance.
 document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.home-nav-btn');
+  const target = e.target instanceof Element ? e.target : e.target?.parentElement;
+  const btn = target?.closest?.('.home-nav-btn');
   if (!btn) return;
   e.preventDefault();
   confirmGoHome();
