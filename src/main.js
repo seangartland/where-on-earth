@@ -3525,7 +3525,6 @@ reviewStyle.textContent = `
 .next-game { margin: 12px 0 0; padding: 10px 16px 8px; }
 .next-game-time { font-size: 28px; }
 .next-game-sub { font-size: 11px; }
-.results-close { position: absolute; top: 6px; left: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 28px; line-height: 1; cursor: pointer; touch-action: manipulation; }
 .results-globe { display: block; margin: 0 auto; }
 #breakdown li { cursor: pointer; }
 .review-screen { pointer-events: none; }
@@ -3549,11 +3548,6 @@ body.game-review #hud { opacity: 0; }
 }`;
 document.head.appendChild(reviewStyle);
 
-const resultsClose = document.createElement('button');
-resultsClose.className = 'results-close';
-resultsClose.setAttribute('aria-label', 'Close results and view rounds on the globe');
-resultsClose.textContent = '×';
-gameEls.results.querySelector('.results-card').prepend(resultsClose);
 const resultsGlobe = document.createElement('button');
 resultsGlobe.className = 'text-button results-globe';
 resultsGlobe.textContent = 'See your rounds on the globe';
