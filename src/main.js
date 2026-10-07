@@ -3164,8 +3164,12 @@ function revealThumbCurrent() {
   const earned = passport.meta[item.id]?.e || 0;
   peekSlot.classList.remove('mystery');
   for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
-    thumb.classList.toggle('seen-no-postcard', !earned);
-    thumb.classList.toggle('no-postcard', !earned);
+    // Explicitly clear grayscale state when earned
+    if (earned) {
+      thumb.classList.remove('seen-no-postcard', 'no-postcard');
+    } else {
+      thumb.classList.add('seen-no-postcard', 'no-postcard');
+    }
     applyCardTier(thumb, item, earned);
   }
 }
