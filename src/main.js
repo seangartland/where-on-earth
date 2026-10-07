@@ -4229,8 +4229,12 @@ function rarityFor(difficulty) {
 // the separate tab so it never competes with Bullseye/Pinpoint gold.
 function applyCardTier(el, item, earned) {
   el.classList.remove(...RARITY_CLASSES, ...PROX_CLASSES.filter(Boolean));
+  const slot = el.closest('.thumb-slot');
+  if (slot) slot.classList.remove(...RARITY_CLASSES);
   if (!earned) return;
-  el.classList.add(`rarity-${rarityFor(item?.difficulty)}`, PROX_CLASSES[earned]);
+  const rarityClass = `rarity-${rarityFor(item?.difficulty)}`;
+  el.classList.add(rarityClass, PROX_CLASSES[earned]);
+  if (slot) slot.classList.add(rarityClass);
 }
 let passport = { visits: {}, order: [], meta: {} };
 let passportDirty = true; // dots need rebuilding before the next start screen

@@ -160,6 +160,9 @@ body.game-reveal .reveal-name { display: block; }
 .rarity-uncommon { --rarity: #14B8A6; }
 .rarity-rare { --rarity: #2563EB; }
 .rarity-legendary { --rarity: #B83280; }
+/* Rarity dot on thumbnails: small indicator that doesn't compete with gold proximity ring */
+.thumb-slot { position: relative; }
+.thumb-slot[class*="rarity-"]::after { content: ''; position: absolute; top: -4px; right: -4px; width: 14px; height: 14px; border-radius: 50%; background: var(--rarity); border: 2px solid #0a0f1e; z-index: 2; }
 .rarity-tab { display: inline-flex; align-items: center; box-sizing: border-box; padding: 4px 12px; border: 2px solid #111827; border-radius: 6px; background: var(--rarity, #64748B); color: #fff; font-size: 11px; font-weight: 800; line-height: 1; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
 .prox-postcard { --ring: 0 0 #0000; }
 .prox-bullseye { --ring: 0 0 0 2px #F5C451, 0 0 12px 1px rgba(245,196,81,.55); }
