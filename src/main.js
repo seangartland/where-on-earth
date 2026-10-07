@@ -3033,14 +3033,6 @@ function revealGuess(guess, restoring = false) {
   const placeName = answer.short || answer.clue;
   gameEls.revealName.textContent = placeName;
   gameEls.peekName.textContent = placeName;
-  const currentMeta = passport.meta[answer.id] || {};
-  const currentTierDate = currentMeta[`eb${currentMeta.e}`];
-  if (currentTierDate) {
-    const tierDate = document.createElement('span');
-    tierDate.className = 'peek-tier-date';
-    tierDate.textContent = ` · ${{ 1: 'Postcard', 2: 'Bullseye', 3: 'Pinpoint' }[currentMeta.e]} • ${shortDate(currentTierDate)}`;
-    gameEls.peekName.append(tierDate);
-  }
   gameEls.fact.textContent = answer.fact;
   setThumb(gameEls.thumb, answer.image);
   setThumb(gameEls.peekThumb, answer.image);
@@ -4197,7 +4189,7 @@ function earnForKm(km) {
   return 0;
 }
 
-// Rarity is the card's inner border colour, from the location's difficulty.
+// Rarity is the card's tab colour, from the location's difficulty.
 function rarityFor(difficulty) {
   const d = Number(difficulty) || 5;
   if (d >= 9) return 'legendary';
@@ -4206,8 +4198,8 @@ function rarityFor(difficulty) {
   return 'common';
 }
 
-// Dual border: inner rarity ring + outer proximity ring. Unearned cards get
-// neither (they stay grey).
+// Accuracy outlines are applied only to earned cards. Rarity is presented by
+// the separate tab so it never competes with Bullseye/Pinpoint gold.
 function applyCardTier(el, item, earned) {
   el.classList.remove(...RARITY_CLASSES, ...PROX_CLASSES.filter(Boolean));
   if (!earned) return;
@@ -5235,6 +5227,7 @@ collectionsStyle.textContent = `
 .collection-segments i.earned { background: #d2ae62; box-shadow: 0 0 5px rgba(210,174,98,.45); }
 .collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px 10px; margin: 0; padding: 0; list-style: none; }
 .collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 1px solid rgba(214,220,232,.16); border-radius: 9px; background: #1a1f2e; box-shadow: var(--ring,0 0 #0000); }
+.collection-card .rarity-tab { position: absolute; z-index: 3; top: -9px; left: 50%; max-width: calc(100% - 8px); transform: translateX(-50%); }
 .collection-card .photo { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 5px; background: #0d111b; }
 .collection-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .collection-card.unearned img { filter: grayscale(1) brightness(.42); }
@@ -5370,6 +5363,11 @@ function renderCollectionDetail(set) {
     const card = document.createElement('li');
     card.className = `collection-card${tier ? '' : ' unearned'}`;
     applyCardTier(card, item, tier);
+    const rarity = rarityFor(item.difficulty);
+    card.classList.add(`rarity-${rarity}`);
+    const rarityTab = document.createElement('span');
+    rarityTab.className = 'rarity-tab';
+    rarityTab.textContent = rarity;
     const photo = document.createElement('div');
     photo.className = 'photo';
     const img = document.createElement('img');
@@ -5385,7 +5383,7 @@ function renderCollectionDetail(set) {
     const meta = document.createElement('p');
     meta.className = 'collection-card-meta';
     meta.textContent = `${String(index + 1).padStart(2, '0')} · ${tier ? EARN_NAMES[tier] : 'Unearned'}`;
-    card.append(photo, name, meta);
+    card.append(rarityTab, photo, name, meta);
     grid.append(card);
   });
   const nodes = [head];
@@ -5448,17 +5446,14 @@ postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
 .ppd-card { --ppd-accent: #d1a943; position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 1px solid #3f485b; border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
-.ppd-card.prox-postcard { border-color: #e5bd58; }
-.ppd-card.prox-bullseye { border: 2px solid #efc557; box-shadow: 0 0 0 1px #735d28, 0 0 28px rgba(234,184,61,.4), 0 24px 70px rgba(0,0,0,.78); }
-.ppd-card.prox-pinpoint { border: 3px solid #f1c761; box-shadow: 0 0 0 2px #9d5d30, 0 0 16px rgba(255,180,63,.72), 0 0 42px rgba(239,157,50,.38), 0 24px 70px rgba(0,0,0,.78); }
+.ppd-card.prox-postcard { border-color: #3f485b; }
+.ppd-card.prox-bullseye { border: 2px solid #F5C451; box-shadow: 0 0 0 1px #735d28, 0 0 28px rgba(245,196,81,.4), 0 24px 70px rgba(0,0,0,.78); }
+.ppd-card.prox-pinpoint { border: 3px solid #F5C451; box-shadow: 0 0 0 2px #9d5d30, 0 0 16px rgba(245,196,81,.72), 0 0 42px rgba(245,196,81,.38), 0 24px 70px rgba(0,0,0,.78); }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
-.ppd-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 29px; margin-bottom: 10px; padding-right: 38px; }
-.ppd-rarity { display: inline-flex; align-items: center; height: 27px; padding: 0 11px; border: 1px solid #69758a; border-radius: 999px; background: #475369; color: #e6ebf6; font-size: 10px; font-weight: 900; letter-spacing: .15em; }
-.ppd-card.rarity-uncommon .ppd-rarity { border-color: #668d82; background: #38675d; color: #d9fff4; }
-.ppd-card.rarity-rare .ppd-rarity { border-color: #6f91c0; background: #375b8b; color: #dce9ff; }
-.ppd-card.rarity-legendary .ppd-rarity { border-color: #a26acb; background: #63378d; color: #f1ddff; }
+.ppd-topline { display: flex; align-items: center; min-height: 29px; margin-bottom: 10px; padding-right: 38px; }
+.ppd-rarity { position: absolute; z-index: 4; top: -10px; left: 16px; }
 .ppd-difficulty { display: flex; align-items: center; gap: 7px; color: #9fa9bb; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .ppd-difficulty strong { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #566074; border-radius: 50%; background: #242a3b; color: #fff; font-size: 13px; letter-spacing: 0; }
 .ppd-front { position: relative; }
@@ -5502,7 +5497,8 @@ postcardScreen.innerHTML = `
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
-    <div class="ppd-topline"><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span><span class="ppd-rarity" data-ppd="rarity"></span></div>
+    <span class="rarity-tab ppd-rarity" data-ppd="rarity"></span>
+    <div class="ppd-topline"><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span></div>
     <div class="ppd-front">
       <div class="pp-photo" data-ppd="photo"></div>
     </div>

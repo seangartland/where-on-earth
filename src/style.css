@@ -152,17 +152,16 @@ body.game-reveal .reveal-name { display: block; }
 #peek-thumb.no-postcard, #place-thumb.no-postcard { filter: grayscale(1); opacity: 0.7; }
 #peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint,
 #place-thumb.prox-postcard, #place-thumb.prox-bullseye, #place-thumb.prox-pinpoint { filter: none; opacity: 1; }
-/* Earned card borders (peek thumb + passport cards). Inner 2px ring = rarity
-   (from difficulty), outer ring = proximity tier. Elements opt in with
-   box-shadow: var(--ring); unearned cards get neither class. */
-.rarity-common { --rarity: #C4A77D; }
-.rarity-uncommon { --rarity: #9CAF88; }
-.rarity-rare { --rarity: #6B8CAE; }
-.rarity-legendary { --rarity: #8B7BB8; }
-.prox-postcard { --prox-w: 1px; --prox-glow: 0 0 #0000; }
-.prox-bullseye { --prox-w: 2px; --prox-glow: 0 0 12px 1px rgba(255,209,102,.55); }
-.prox-pinpoint { --prox-w: 3.5px; --prox-glow: 0 0 22px 4px rgba(255,209,102,.8); }
-.prox-postcard, .prox-bullseye, .prox-pinpoint { --ring: 0 0 0 2px var(--rarity, transparent), 0 0 0 calc(2px + var(--prox-w)) #ffd166, var(--prox-glow); }
+/* Rarity is shown on a compact tab; gold remains reserved for the accuracy
+   outline and glow on Bullseye and Pinpoint cards. */
+.rarity-common { --rarity: #64748B; }
+.rarity-uncommon { --rarity: #14B8A6; }
+.rarity-rare { --rarity: #2563EB; }
+.rarity-legendary { --rarity: #B83280; }
+.rarity-tab { display: inline-flex; align-items: center; box-sizing: border-box; padding: 4px 12px; border: 2px solid #111827; border-radius: 6px; background: var(--rarity, #64748B); color: #fff; font-size: 11px; font-weight: 800; line-height: 1; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.prox-postcard { --ring: 0 0 #0000; }
+.prox-bullseye { --ring: 0 0 0 2px #F5C451, 0 0 12px 1px rgba(245,196,81,.55); }
+.prox-pinpoint { --ring: 0 0 0 3.5px #F5C451, 0 0 22px 4px rgba(245,196,81,.8); }
 .peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .peek-name { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .peek-stats { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
