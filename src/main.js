@@ -3774,7 +3774,6 @@ function pickReviewRound(x, y) {
   } else if (reviewOpen >= 0) closeRecap();
 }
 
-resultsClose.addEventListener('click', () => enterReview());
 resultsGlobe.addEventListener('click', () => enterReview());
 gameEls.results.addEventListener('click', (e) => {
   if (e.target === gameEls.results) enterReview(); // tap outside the card
