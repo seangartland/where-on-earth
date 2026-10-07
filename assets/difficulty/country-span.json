@@ -1,0 +1,1288 @@
+{
+ "Afghanistan": {
+  "spanKm": 1536,
+  "A": 2,
+  "ne": "countries:Afghanistan",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Albania": {
+  "spanKm": 338,
+  "A": 0,
+  "ne": "countries:Albania",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Algeria": {
+  "spanKm": 2137,
+  "A": 2,
+  "ne": "countries:Algeria",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Angola": {
+  "spanKm": 1880,
+  "A": 2,
+  "ne": "countries:Angola",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Antarctica": {
+  "spanKm": 5880,
+  "A": 3,
+  "ne": "countries:Antarctica",
+  "polygonsKept": 176,
+  "polygonsDetached": 3
+ },
+ "Argentina": {
+  "spanKm": 3699,
+  "A": 3,
+  "ne": "countries:Argentina",
+  "polygonsKept": 8,
+  "polygonsDetached": 0
+ },
+ "Armenia": {
+  "spanKm": 360,
+  "A": 0,
+  "ne": "countries:Armenia",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Australia": {
+  "spanKm": 4052,
+  "A": 3,
+  "ne": "countries:Australia",
+  "polygonsKept": 92,
+  "polygonsDetached": 2
+ },
+ "Austria": {
+  "spanKm": 578,
+  "A": 0,
+  "ne": "countries:Austria",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Azerbaijan": {
+  "spanKm": 503,
+  "A": 0,
+  "ne": "countries:Azerbaijan",
+  "polygonsKept": 6,
+  "polygonsDetached": 0
+ },
+ "Bangladesh": {
+  "spanKm": 767,
+  "A": 1,
+  "ne": "countries:Bangladesh",
+  "polygonsKept": 22,
+  "polygonsDetached": 0
+ },
+ "Belarus": {
+  "spanKm": 661,
+  "A": 1,
+  "ne": "countries:Belarus",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Belgium": {
+  "spanKm": 290,
+  "A": 0,
+  "ne": "countries:Belgium",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Belize": {
+  "spanKm": 305,
+  "A": 0,
+  "ne": "countries:Belize",
+  "polygonsKept": 10,
+  "polygonsDetached": 0
+ },
+ "Benin": {
+  "spanKm": 701,
+  "A": 1,
+  "ne": "countries:Benin",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Bhutan": {
+  "spanKm": 333,
+  "A": 0,
+  "ne": "countries:Bhutan",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Bolivia": {
+  "spanKm": 1606,
+  "A": 2,
+  "ne": "countries:Bolivia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Bosnia and Herzegovina": {
+  "spanKm": 364,
+  "A": 0,
+  "ne": "countries:Bosnia and Herzegovina",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Botswana": {
+  "spanKm": 1115,
+  "A": 1,
+  "ne": "countries:Botswana",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Brazil": {
+  "spanKm": 4623,
+  "A": 3,
+  "ne": "countries:Brazil",
+  "polygonsKept": 40,
+  "polygonsDetached": 3
+ },
+ "Brunei": {
+  "spanKm": 154,
+  "A": 0,
+  "ne": "countries:Brunei",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Bulgaria": {
+  "spanKm": 535,
+  "A": 0,
+  "ne": "countries:Bulgaria",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Burkina Faso": {
+  "spanKm": 879,
+  "A": 1,
+  "ne": "countries:Burkina Faso",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Burundi": {
+  "spanKm": 263,
+  "A": 0,
+  "ne": "countries:Burundi",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Cambodia": {
+  "spanKm": 649,
+  "A": 1,
+  "ne": "countries:Cambodia",
+  "polygonsKept": 6,
+  "polygonsDetached": 0
+ },
+ "Cameroon": {
+  "spanKm": 1308,
+  "A": 1,
+  "ne": "countries:Cameroon",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Canada": {
+  "spanKm": 5549,
+  "A": 3,
+  "ne": "countries:Canada",
+  "polygonsKept": 367,
+  "polygonsDetached": 45
+ },
+ "Cape Verde": {
+  "spanKm": 320,
+  "A": 0,
+  "ne": "countries:Cabo Verde",
+  "polygonsKept": 11,
+  "polygonsDetached": 0
+ },
+ "Central African Republic": {
+  "spanKm": 1449,
+  "A": 1,
+  "ne": "countries:Central African Republic",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Chad": {
+  "spanKm": 1778,
+  "A": 2,
+  "ne": "countries:Chad",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Chile": {
+  "spanKm": 4276,
+  "A": 3,
+  "ne": "countries:Chile",
+  "polygonsKept": 157,
+  "polygonsDetached": 6
+ },
+ "China": {
+  "spanKm": 5017,
+  "A": 3,
+  "ne": "countries:China",
+  "polygonsKept": 69,
+  "polygonsDetached": 1
+ },
+ "Colombia": {
+  "spanKm": 1867,
+  "A": 2,
+  "ne": "countries:Colombia",
+  "polygonsKept": 8,
+  "polygonsDetached": 3
+ },
+ "Comoros": {
+  "spanKm": 175,
+  "A": 0,
+  "ne": "countries:Comoros",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Congo": {
+  "spanKm": 1200,
+  "A": 1,
+  "ne": "countries:Republic of the Congo",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Cook Islands": {
+  "spanKm": 397,
+  "A": 0,
+  "ne": "countries:Cook Islands",
+  "polygonsKept": 9,
+  "polygonsDetached": 4
+ },
+ "Croatia": {
+  "spanKm": 527,
+  "A": 0,
+  "ne": "countries:Croatia",
+  "polygonsKept": 25,
+  "polygonsDetached": 0
+ },
+ "Cuba": {
+  "spanKm": 1138,
+  "A": 1,
+  "ne": "countries:Cuba",
+  "polygonsKept": 41,
+  "polygonsDetached": 0
+ },
+ "Czech Republic": {
+  "spanKm": 492,
+  "A": 0,
+  "ne": "countries:Czechia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Côte d'Ivoire": {
+  "spanKm": 802,
+  "A": 1,
+  "ne": "countries:Ivory Coast",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "DR Congo": {
+  "spanKm": 2363,
+  "A": 2,
+  "ne": "countries:Democratic Republic of the Congo",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Denmark": {
+  "spanKm": 472,
+  "A": 0,
+  "ne": "countries:Denmark",
+  "polygonsKept": 15,
+  "polygonsDetached": 0
+ },
+ "Dominican Republic": {
+  "spanKm": 388,
+  "A": 0,
+  "ne": "countries:Dominican Republic",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Ecuador": {
+  "spanKm": 752,
+  "A": 1,
+  "ne": "countries:Ecuador",
+  "polygonsKept": 4,
+  "polygonsDetached": 12
+ },
+ "Egypt": {
+  "spanKm": 1584,
+  "A": 2,
+  "ne": "countries:Egypt",
+  "polygonsKept": 8,
+  "polygonsDetached": 0
+ },
+ "El Salvador": {
+  "spanKm": 272,
+  "A": 0,
+  "ne": "countries:El Salvador",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "England": {
+  "spanKm": 715,
+  "A": 1,
+  "ne": "map_units:England",
+  "polygonsKept": 7,
+  "polygonsDetached": 0
+ },
+ "Eritrea": {
+  "spanKm": 819,
+  "A": 1,
+  "ne": "countries:Eritrea",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Estonia": {
+  "spanKm": 392,
+  "A": 0,
+  "ne": "countries:Estonia",
+  "polygonsKept": 8,
+  "polygonsDetached": 0
+ },
+ "Ethiopia": {
+  "spanKm": 1651,
+  "A": 2,
+  "ne": "countries:Ethiopia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Fiji": {
+  "spanKm": 858,
+  "A": 1,
+  "ne": "countries:Fiji",
+  "polygonsKept": 43,
+  "polygonsDetached": 1
+ },
+ "Finland": {
+  "spanKm": 1164,
+  "A": 1,
+  "ne": "countries:Finland",
+  "polygonsKept": 42,
+  "polygonsDetached": 0
+ },
+ "France": {
+  "spanKm": 1375,
+  "A": 1,
+  "ne": "countries:France",
+  "polygonsKept": 10,
+  "polygonsDetached": 11
+ },
+ "Gabon": {
+  "spanKm": 730,
+  "A": 1,
+  "ne": "countries:Gabon",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Georgia": {
+  "spanKm": 603,
+  "A": 1,
+  "ne": "countries:Georgia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Germany": {
+  "spanKm": 903,
+  "A": 1,
+  "ne": "countries:Germany",
+  "polygonsKept": 22,
+  "polygonsDetached": 0
+ },
+ "Ghana": {
+  "spanKm": 750,
+  "A": 1,
+  "ne": "countries:Ghana",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Greece": {
+  "spanKm": 848,
+  "A": 1,
+  "ne": "countries:Greece",
+  "polygonsKept": 74,
+  "polygonsDetached": 0
+ },
+ "Guatemala": {
+  "spanKm": 491,
+  "A": 0,
+  "ne": "countries:Guatemala",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Guinea": {
+  "spanKm": 860,
+  "A": 1,
+  "ne": "countries:Guinea",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Guinea-Bissau": {
+  "spanKm": 334,
+  "A": 0,
+  "ne": "countries:Guinea-Bissau",
+  "polygonsKept": 13,
+  "polygonsDetached": 0
+ },
+ "Guyana": {
+  "spanKm": 833,
+  "A": 1,
+  "ne": "countries:Guyana",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Haiti": {
+  "spanKm": 321,
+  "A": 0,
+  "ne": "countries:Haiti",
+  "polygonsKept": 5,
+  "polygonsDetached": 0
+ },
+ "Honduras": {
+  "spanKm": 673,
+  "A": 1,
+  "ne": "countries:Honduras",
+  "polygonsKept": 7,
+  "polygonsDetached": 0
+ },
+ "Hungary": {
+  "spanKm": 525,
+  "A": 0,
+  "ne": "countries:Hungary",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Iceland": {
+  "spanKm": 514,
+  "A": 0,
+  "ne": "countries:Iceland",
+  "polygonsKept": 5,
+  "polygonsDetached": 0
+ },
+ "India": {
+  "spanKm": 3378,
+  "A": 3,
+  "ne": "countries:India",
+  "polygonsKept": 17,
+  "polygonsDetached": 18
+ },
+ "Indonesia": {
+  "spanKm": 3365,
+  "A": 3,
+  "ne": "countries:Indonesia",
+  "polygonsKept": 65,
+  "polygonsDetached": 199
+ },
+ "International Waters": {
+  "spanKm": null,
+  "A": 1,
+  "note": "§2.2 special case: search region is the named sea"
+ },
+ "Iran": {
+  "spanKm": 2275,
+  "A": 2,
+  "ne": "countries:Iran",
+  "polygonsKept": 12,
+  "polygonsDetached": 0
+ },
+ "Iraq": {
+  "spanKm": 1001,
+  "A": 1,
+  "ne": "countries:Iraq",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Ireland": {
+  "spanKm": 467,
+  "A": 0,
+  "ne": "countries:Ireland",
+  "polygonsKept": 7,
+  "polygonsDetached": 0
+ },
+ "Israel": {
+  "spanKm": 444,
+  "A": 0,
+  "ne": "countries:Israel",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Italy": {
+  "spanKm": 1290,
+  "A": 1,
+  "ne": "countries:Italy",
+  "polygonsKept": 29,
+  "polygonsDetached": 0
+ },
+ "Jamaica": {
+  "spanKm": 234,
+  "A": 0,
+  "ne": "countries:Jamaica",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Japan": {
+  "spanKm": 2140,
+  "A": 2,
+  "ne": "countries:Japan",
+  "polygonsKept": 73,
+  "polygonsDetached": 36
+ },
+ "Jordan": {
+  "spanKm": 576,
+  "A": 0,
+  "ne": "countries:Jordan",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Kazakhstan": {
+  "spanKm": 2959,
+  "A": 2,
+  "ne": "countries:Kazakhstan",
+  "polygonsKept": 6,
+  "polygonsDetached": 0
+ },
+ "Kenya": {
+  "spanKm": 1170,
+  "A": 1,
+  "ne": "countries:Kenya",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Kiribati": {
+  "spanKm": 490,
+  "A": 0,
+  "ne": "countries:Kiribati",
+  "polygonsKept": 3,
+  "polygonsDetached": 32
+ },
+ "Kosovo": {
+  "spanKm": 158,
+  "A": 0,
+  "ne": "countries:Kosovo",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Kyrgyzstan": {
+  "spanKm": 965,
+  "A": 1,
+  "ne": "countries:Kyrgyzstan",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Laos": {
+  "spanKm": 1069,
+  "A": 1,
+  "ne": "countries:Laos",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Latvia": {
+  "spanKm": 447,
+  "A": 0,
+  "ne": "countries:Latvia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Lebanon": {
+  "spanKm": 211,
+  "A": 0,
+  "ne": "countries:Lebanon",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Lesotho": {
+  "spanKm": 242,
+  "A": 0,
+  "ne": "countries:Lesotho",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Liberia": {
+  "spanKm": 550,
+  "A": 0,
+  "ne": "countries:Liberia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Libya": {
+  "spanKm": 1982,
+  "A": 2,
+  "ne": "countries:Libya",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Liechtenstein": {
+  "spanKm": 24,
+  "A": 0,
+  "ne": "countries:Liechtenstein",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Lithuania": {
+  "spanKm": 372,
+  "A": 0,
+  "ne": "countries:Lithuania",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Luxembourg": {
+  "spanKm": 84,
+  "A": 0,
+  "ne": "countries:Luxembourg",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Madagascar": {
+  "spanKm": 1578,
+  "A": 2,
+  "ne": "countries:Madagascar",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Malawi": {
+  "spanKm": 898,
+  "A": 1,
+  "ne": "countries:Malawi",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Malaysia": {
+  "spanKm": 1149,
+  "A": 1,
+  "ne": "countries:Malaysia",
+  "polygonsKept": 10,
+  "polygonsDetached": 7
+ },
+ "Maldives": {
+  "spanKm": 826,
+  "A": 1,
+  "ne": "countries:Maldives",
+  "polygonsKept": 170,
+  "polygonsDetached": 6
+ },
+ "Mali": {
+  "spanKm": 1852,
+  "A": 2,
+  "ne": "countries:Mali",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Malta": {
+  "spanKm": 43,
+  "A": 0,
+  "ne": "countries:Malta",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Marshall Islands": {
+  "spanKm": 680,
+  "A": 1,
+  "ne": "countries:Marshall Islands",
+  "polygonsKept": 18,
+  "polygonsDetached": 4
+ },
+ "Mauritania": {
+  "spanKm": 1591,
+  "A": 2,
+  "ne": "countries:Mauritania",
+  "polygonsKept": 5,
+  "polygonsDetached": 0
+ },
+ "Mexico": {
+  "spanKm": 3365,
+  "A": 3,
+  "ne": "countries:Mexico",
+  "polygonsKept": 50,
+  "polygonsDetached": 1
+ },
+ "Micronesia": {
+  "spanKm": 520,
+  "A": 0,
+  "ne": "countries:Federated States of Micronesia",
+  "polygonsKept": 4,
+  "polygonsDetached": 16
+ },
+ "Moldova": {
+  "spanKm": 345,
+  "A": 0,
+  "ne": "countries:Moldova",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Monaco": {
+  "spanKm": 6,
+  "A": 0,
+  "ne": "countries:Monaco",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Mongolia": {
+  "spanKm": 2397,
+  "A": 2,
+  "ne": "countries:Mongolia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Montenegro": {
+  "spanKm": 191,
+  "A": 0,
+  "ne": "countries:Montenegro",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Morocco": {
+  "spanKm": 2100,
+  "A": 2,
+  "ne": "countries:Morocco",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Mozambique": {
+  "spanKm": 2021,
+  "A": 2,
+  "ne": "countries:Mozambique",
+  "polygonsKept": 4,
+  "polygonsDetached": 0
+ },
+ "Myanmar": {
+  "spanKm": 2085,
+  "A": 2,
+  "ne": "countries:Myanmar",
+  "polygonsKept": 39,
+  "polygonsDetached": 0
+ },
+ "Namibia": {
+  "spanKm": 1509,
+  "A": 2,
+  "ne": "countries:Namibia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Nauru": {
+  "spanKm": 7,
+  "A": 0,
+  "ne": "countries:Nauru",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Nepal": {
+  "spanKm": 840,
+  "A": 1,
+  "ne": "countries:Nepal",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Netherlands": {
+  "spanKm": 341,
+  "A": 0,
+  "ne": "countries:Netherlands",
+  "polygonsKept": 9,
+  "polygonsDetached": 3
+ },
+ "New Zealand": {
+  "spanKm": 1922,
+  "A": 2,
+  "ne": "countries:New Zealand",
+  "polygonsKept": 16,
+  "polygonsDetached": 10
+ },
+ "Nicaragua": {
+  "spanKm": 561,
+  "A": 0,
+  "ne": "countries:Nicaragua",
+  "polygonsKept": 5,
+  "polygonsDetached": 0
+ },
+ "Niger": {
+  "spanKm": 1846,
+  "A": 2,
+  "ne": "countries:Niger",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Nigeria": {
+  "spanKm": 1463,
+  "A": 1,
+  "ne": "countries:Nigeria",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Niue": {
+  "spanKm": 21,
+  "A": 0,
+  "ne": "countries:Niue",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "North Korea": {
+  "spanKm": 720,
+  "A": 1,
+  "ne": "countries:North Korea",
+  "polygonsKept": 10,
+  "polygonsDetached": 0
+ },
+ "North Macedonia": {
+  "spanKm": 216,
+  "A": 0,
+  "ne": "countries:North Macedonia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Northern Ireland": {
+  "spanKm": 177,
+  "A": 0,
+  "ne": "map_units:Northern Ireland",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Norway": {
+  "spanKm": 1908,
+  "A": 2,
+  "ne": "countries:Norway",
+  "polygonsKept": 97,
+  "polygonsDetached": 23
+ },
+ "Oman": {
+  "spanKm": 1136,
+  "A": 1,
+  "ne": "countries:Oman",
+  "polygonsKept": 6,
+  "polygonsDetached": 0
+ },
+ "Pakistan": {
+  "spanKm": 1863,
+  "A": 2,
+  "ne": "countries:Pakistan",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Palau": {
+  "spanKm": 417,
+  "A": 0,
+  "ne": "countries:Palau",
+  "polygonsKept": 7,
+  "polygonsDetached": 2
+ },
+ "Palestine": {
+  "spanKm": 180,
+  "A": 0,
+  "ne": "countries:Palestine",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Panama": {
+  "spanKm": 657,
+  "A": 1,
+  "ne": "countries:Panama",
+  "polygonsKept": 15,
+  "polygonsDetached": 0
+ },
+ "Papua New Guinea": {
+  "spanKm": 1765,
+  "A": 2,
+  "ne": "countries:Papua New Guinea",
+  "polygonsKept": 41,
+  "polygonsDetached": 17
+ },
+ "Paraguay": {
+  "spanKm": 1061,
+  "A": 1,
+  "ne": "countries:Paraguay",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Peru": {
+  "spanKm": 2112,
+  "A": 2,
+  "ne": "countries:Peru",
+  "polygonsKept": 5,
+  "polygonsDetached": 0
+ },
+ "Philippines": {
+  "spanKm": 1768,
+  "A": 2,
+  "ne": "countries:Philippines",
+  "polygonsKept": 70,
+  "polygonsDetached": 27
+ },
+ "Poland": {
+  "spanKm": 812,
+  "A": 1,
+  "ne": "countries:Poland",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Portugal": {
+  "spanKm": 586,
+  "A": 0,
+  "ne": "countries:Portugal",
+  "polygonsKept": 3,
+  "polygonsDetached": 14
+ },
+ "Qatar": {
+  "spanKm": 179,
+  "A": 0,
+  "ne": "countries:Qatar",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Romania": {
+  "spanKm": 743,
+  "A": 1,
+  "ne": "countries:Romania",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Russia": {
+  "spanKm": 8203,
+  "A": 3,
+  "ne": "countries:Russia",
+  "polygonsKept": 165,
+  "polygonsDetached": 49
+ },
+ "Rwanda": {
+  "spanKm": 249,
+  "A": 0,
+  "ne": "countries:Rwanda",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Saint Kitts and Nevis": {
+  "spanKm": 46,
+  "A": 0,
+  "ne": "countries:Saint Kitts and Nevis",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Saint Lucia": {
+  "spanKm": 44,
+  "A": 0,
+  "ne": "countries:Saint Lucia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Samoa": {
+  "spanKm": 156,
+  "A": 0,
+  "ne": "countries:Samoa",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Saudi Arabia": {
+  "spanKm": 2271,
+  "A": 2,
+  "ne": "countries:Saudi Arabia",
+  "polygonsKept": 11,
+  "polygonsDetached": 0
+ },
+ "Scotland": {
+  "spanKm": 817,
+  "A": 1,
+  "ne": "map_units:Scotland",
+  "polygonsKept": 47,
+  "polygonsDetached": 0
+ },
+ "Senegal": {
+  "spanKm": 714,
+  "A": 1,
+  "ne": "countries:Senegal",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Serbia": {
+  "spanKm": 490,
+  "A": 0,
+  "ne": "countries:Republic of Serbia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Sierra Leone": {
+  "spanKm": 347,
+  "A": 0,
+  "ne": "countries:Sierra Leone",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Singapore": {
+  "spanKm": 41,
+  "A": 0,
+  "ne": "countries:Singapore",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Slovakia": {
+  "spanKm": 425,
+  "A": 0,
+  "ne": "countries:Slovakia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Slovenia": {
+  "spanKm": 259,
+  "A": 0,
+  "ne": "countries:Slovenia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Solomon Islands": {
+  "spanKm": 849,
+  "A": 1,
+  "ne": "countries:Solomon Islands",
+  "polygonsKept": 39,
+  "polygonsDetached": 9
+ },
+ "Somalia": {
+  "spanKm": 1851,
+  "A": 2,
+  "ne": "countries:Somalia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "South Africa": {
+  "spanKm": 1826,
+  "A": 2,
+  "ne": "countries:South Africa",
+  "polygonsKept": 1,
+  "polygonsDetached": 2
+ },
+ "South Korea": {
+  "spanKm": 706,
+  "A": 1,
+  "ne": "countries:South Korea",
+  "polygonsKept": 53,
+  "polygonsDetached": 0
+ },
+ "Spain": {
+  "spanKm": 1187,
+  "A": 1,
+  "ne": "countries:Spain",
+  "polygonsKept": 15,
+  "polygonsDetached": 8
+ },
+ "Sri Lanka": {
+  "spanKm": 439,
+  "A": 0,
+  "ne": "countries:Sri Lanka",
+  "polygonsKept": 5,
+  "polygonsDetached": 0
+ },
+ "Sudan": {
+  "spanKm": 2056,
+  "A": 2,
+  "ne": "countries:Sudan",
+  "polygonsKept": 2,
+  "polygonsDetached": 0
+ },
+ "Suriname": {
+  "spanKm": 517,
+  "A": 0,
+  "ne": "countries:Suriname",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Sweden": {
+  "spanKm": 1568,
+  "A": 2,
+  "ne": "countries:Sweden",
+  "polygonsKept": 41,
+  "polygonsDetached": 0
+ },
+ "Switzerland": {
+  "spanKm": 356,
+  "A": 0,
+  "ne": "countries:Switzerland",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Syria": {
+  "spanKm": 781,
+  "A": 1,
+  "ne": "countries:Syria",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Taiwan": {
+  "spanKm": 435,
+  "A": 0,
+  "ne": "countries:Taiwan",
+  "polygonsKept": 8,
+  "polygonsDetached": 0
+ },
+ "Tajikistan": {
+  "spanKm": 713,
+  "A": 1,
+  "ne": "countries:Tajikistan",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Tanzania": {
+  "spanKm": 1520,
+  "A": 2,
+  "ne": "countries:United Republic of Tanzania",
+  "polygonsKept": 7,
+  "polygonsDetached": 0
+ },
+ "Thailand": {
+  "spanKm": 1652,
+  "A": 2,
+  "ne": "countries:Thailand",
+  "polygonsKept": 20,
+  "polygonsDetached": 0
+ },
+ "Timor-Leste": {
+  "spanKm": 375,
+  "A": 0,
+  "ne": "countries:East Timor",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Togo": {
+  "spanKm": 581,
+  "A": 0,
+  "ne": "countries:Togo",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Tonga": {
+  "spanKm": 481,
+  "A": 0,
+  "ne": "countries:Tonga",
+  "polygonsKept": 9,
+  "polygonsDetached": 1
+ },
+ "Tunisia": {
+  "spanKm": 792,
+  "A": 1,
+  "ne": "countries:Tunisia",
+  "polygonsKept": 4,
+  "polygonsDetached": 0
+ },
+ "Turkey": {
+  "spanKm": 1689,
+  "A": 2,
+  "ne": "countries:Turkey",
+  "polygonsKept": 6,
+  "polygonsDetached": 0
+ },
+ "Turkmenistan": {
+  "spanKm": 1300,
+  "A": 1,
+  "ne": "countries:Turkmenistan",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Tuvalu": {
+  "spanKm": 589,
+  "A": 0,
+  "ne": "countries:Tuvalu",
+  "polygonsKept": 9,
+  "polygonsDetached": 0
+ },
+ "Uganda": {
+  "spanKm": 793,
+  "A": 1,
+  "ne": "countries:Uganda",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Ukraine": {
+  "spanKm": 1319,
+  "A": 1,
+  "ne": "countries:Ukraine",
+  "polygonsKept": 4,
+  "polygonsDetached": 0
+ },
+ "United Arab Emirates": {
+  "spanKm": 511,
+  "A": 0,
+  "ne": "countries:United Arab Emirates",
+  "polygonsKept": 10,
+  "polygonsDetached": 0
+ },
+ "United Kingdom": {
+  "spanKm": 1263,
+  "A": 1,
+  "ne": "countries:United Kingdom",
+  "polygonsKept": 57,
+  "polygonsDetached": 0
+ },
+ "United States": {
+  "spanKm": 4658,
+  "A": 3,
+  "ne": "countries:United States of America",
+  "polygonsKept": 149,
+  "polygonsDetached": 195
+ },
+ "Uruguay": {
+  "spanKm": 596,
+  "A": 0,
+  "ne": "countries:Uruguay",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Uzbekistan": {
+  "spanKm": 1471,
+  "A": 1,
+  "ne": "countries:Uzbekistan",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Vanuatu": {
+  "spanKm": 796,
+  "A": 1,
+  "ne": "countries:Vanuatu",
+  "polygonsKept": 26,
+  "polygonsDetached": 1
+ },
+ "Vatican City": {
+  "spanKm": 0,
+  "A": 0,
+  "ne": "countries:Vatican",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Venezuela": {
+  "spanKm": 1495,
+  "A": 1,
+  "ne": "countries:Venezuela",
+  "polygonsKept": 28,
+  "polygonsDetached": 1
+ },
+ "Vietnam": {
+  "spanKm": 1646,
+  "A": 2,
+  "ne": "countries:Vietnam",
+  "polygonsKept": 25,
+  "polygonsDetached": 0
+ },
+ "Wales": {
+  "spanKm": 241,
+  "A": 0,
+  "ne": "map_units:Wales",
+  "polygonsKept": 3,
+  "polygonsDetached": 0
+ },
+ "Yemen": {
+  "spanKm": 1334,
+  "A": 1,
+  "ne": "countries:Yemen",
+  "polygonsKept": 9,
+  "polygonsDetached": 0
+ },
+ "Zambia": {
+  "spanKm": 1426,
+  "A": 1,
+  "ne": "countries:Zambia",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ },
+ "Zimbabwe": {
+  "spanKm": 853,
+  "A": 1,
+  "ne": "countries:Zimbabwe",
+  "polygonsKept": 1,
+  "polygonsDetached": 0
+ }
+}

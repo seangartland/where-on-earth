@@ -1,0 +1,57 @@
+{
+ "_doc": "Framework §2.4 curated lists, verbatim (no additions). K=+2: Pacific/Indian Ocean microstates and remote dependencies; K=+1: the framework's named low-profile non-European <5M countries. Countries not listed = 0. 'regions' covers +2 remote dependencies whose locations carry a parent country (United Kingdom). Candidates NOT added pending review: Bhutan, Maldives, Guyana, Saint Kitts and Nevis, Saint Lucia, Belize, Fiji.",
+ "K": {
+  "Tuvalu": 2,
+  "Nauru": 2,
+  "Kiribati": 2,
+  "Niue": 2,
+  "Cook Islands": 2,
+  "Palau": 2,
+  "Marshall Islands": 2,
+  "Micronesia": 2,
+  "Tonga": 2,
+  "Samoa": 2,
+  "Vanuatu": 2,
+  "Solomon Islands": 2,
+  "Guinea-Bissau": 1,
+  "Eritrea": 1,
+  "Lesotho": 1,
+  "Suriname": 1,
+  "Brunei": 1,
+  "Timor-Leste": 1,
+  "Comoros": 1,
+  "Cape Verde": 1
+ },
+ "regions": [
+  {
+   "name": "Chagos Archipelago",
+   "K": 2,
+   "bbox": [
+    -8.0,
+    70.0,
+    -4.0,
+    73.5
+   ]
+  },
+  {
+   "name": "Pitcairn Islands",
+   "K": 2,
+   "bbox": [
+    -26.0,
+    -131.0,
+    -23.5,
+    -124.0
+   ]
+  },
+  {
+   "name": "Tristan da Cunha group (incl. Gough)",
+   "K": 2,
+   "bbox": [
+    -41.0,
+    -13.5,
+    -36.5,
+    -9.0
+   ]
+  }
+ ]
+}
