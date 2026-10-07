@@ -4750,7 +4750,6 @@ passportPageStyle.textContent = `
 .pp-post:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
 /* While its detail is open the card has been lifted out of the book. */
 .pp-post.pp-lifted { visibility: hidden; }
-.pp-post .rarity-tab { position: absolute; z-index: 3; top: -9px; left: 50%; max-width: calc(100% - 8px); transform: translateX(-50%); }
 .pp-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 2px; overflow: hidden; background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
 .pp-photo::after { content: '🌍'; position: absolute; inset: 0; display: grid; place-items: center; font-size: 26px; opacity: .45; }
 .pp-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
@@ -5144,10 +5143,7 @@ function passportCard(entry) {
   if (tierDate) meta.append(date);
   const rarity = rarityFor(entry.item.difficulty);
   li.classList.add(`rarity-${rarity}`);
-  const rarityTab = document.createElement('span');
-  rarityTab.className = 'rarity-tab';
-  rarityTab.textContent = rarity;
-  li.append(photo, stamp, rarityTab, name, meta);
+  li.append(photo, stamp, name, meta);
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
