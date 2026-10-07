@@ -139,7 +139,6 @@
     .survival-result-actions { display: grid; gap: 10px; }
     .survival-result-actions button { width: 100%; margin: 0; min-height: 52px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
     .survival-result-actions .primary { border: 0; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #21152f; }
-    .survival-result-actions .secondary { border: 1px solid rgba(196,168,255,.4); background: transparent; color: #d9ccff; }
 
     @media (max-width: 360px) {
       .mode-buttons { gap: 6px; }
@@ -207,7 +206,7 @@
         <ol id="breakdown"></ol>
 <div class="results-actions">
 <button id="share-button" class="primary">Share</button>
-<button id="results-home" class="secondary">← Home</button>
+<button id="results-home" class="home-nav-btn" type="button">← Home</button>
 </div>
         <p id="share-status" role="status"></p>
       </div>
@@ -224,7 +223,7 @@
         </div>
         <div class="survival-result-actions">
           <button id="survival-again" class="primary" type="button">Play again</button>
-          <button id="survival-home" class="secondary" type="button">← Home</button>
+          <button id="survival-home" class="home-nav-btn" type="button">← Home</button>
         </div>
       </div>
     </section>

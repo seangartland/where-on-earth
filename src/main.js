@@ -3306,7 +3306,7 @@ endlessStyle.textContent = `
 .endless-entry { min-height: 46px; margin: 0; padding: 0 10px; border: 1px solid rgba(196,168,255,.45); border-radius: 999px; background: rgba(150,110,255,.14); color: #e9e0ff; font-size: 14px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .endless-entry:disabled { opacity: .4; }
 .endless-tools { display: none; }
-body.endless .endless-tools { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; pointer-events: auto; }
+body.endless .endless-tools { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; pointer-events: auto; }
 body.endless .round-header, body.endless #reveal-card { border-color: rgba(196,168,255,.5); background: rgba(22,10,42,.86); }
 body.endless .round-meta span:first-child { color: #cdb6ff; }
 body.endless #reveal-card .score-math { display: none; }
@@ -3320,7 +3320,7 @@ const endlessEntry = document.getElementById('endless-button');
 
 const endlessTools = document.createElement('div');
 endlessTools.className = 'endless-tools';
-endlessTools.innerHTML = '<button class="endless-pill" data-endless="home">← Home</button><button class="endless-pill" data-endless="next">Next →</button>';
+endlessTools.innerHTML = '<button class="endless-pill" data-endless="next">Next →</button>';
 gameEls.round.querySelector('.round-header').append(endlessTools);
 
 const endlessEls = { entry: endlessEntry };
@@ -3372,9 +3372,23 @@ function goHome() {
   syncPassport();
 }
 
-function endlessHome() {
-  goHome();
+const homeNavStyle = document.createElement('style');
+homeNavStyle.textContent = `
+.home-nav-btn { position: fixed; z-index: 95; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid rgba(196,168,255,.4); border-radius: 999px; background: rgba(15,9,28,.72); color: #d9ccff; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; pointer-events: auto; touch-action: manipulation; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.home-nav-btn:active { transform: scale(.98); }`;
+document.head.appendChild(homeNavStyle);
+
+function createHomeButton() {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'home-nav-btn';
+  button.textContent = '← Home';
+  button.setAttribute('aria-label', 'Back to home');
+  button.addEventListener('click', goHome);
+  return button;
 }
+
+gameEls.round.appendChild(createHomeButton());
 
 endlessEntry.addEventListener('click', () => {
   if (!locations.length) return;
@@ -3384,8 +3398,7 @@ endlessEntry.addEventListener('click', () => {
 endlessTools.addEventListener('click', (e) => {
   const act = e.target.closest('[data-endless]');
   if (!act) return;
-  if (act.dataset.endless === 'home') endlessHome();
-  else if (act.dataset.endless === 'next') nextRound();
+  if (act.dataset.endless === 'next') nextRound();
 });
 
 // ---------------------------------------------------------------------------
@@ -3497,8 +3510,6 @@ reviewStyle.textContent = `
 .results-globe { margin: 8px auto 0; }
 .results-actions { display: flex; align-items: stretch; gap: 10px; margin-top: 8px; }
 .results-actions #share-button { flex: 1.6 1 0; min-width: 0; margin-top: 0; min-height: 52px; padding: 0 16px; font-size: 15px; }
-.results-actions #results-home { flex: 1 1 0; min-width: 0; min-height: 52px; margin-top: 0; padding: 0 16px; white-space: nowrap; border: 1px solid rgba(196,168,255,.4); border-radius: 999px; background: transparent; color: #d9ccff; font-size: 14px; font-weight: 700; cursor: pointer; touch-action: manipulation; }
-#results-home:active { transform: scale(.98); }
 .next-game { margin: 12px 0 0; padding: 10px 16px 8px; }
 .next-game-time { font-size: 28px; }
 .next-game-sub { font-size: 11px; }
@@ -4423,7 +4434,6 @@ expeditionStyle.textContent = `
 .expedition-choice strong, .expedition-choice small { display: block; }
 .expedition-choice small { margin-top: 3px; color: rgba(193,224,250,.62); }
 .expedition-choice .badge { color: #ffd166; font-size: 20px; }
-.expedition-close { width: 100%; margin-top: 16px; min-height: 42px; border: 0; background: transparent; color: rgba(193,224,250,.72); cursor: pointer; }
 body.expedition-mode .round-header, body.expedition-mode #reveal-card { border-color: rgba(255,209,102,.45); background: rgba(31,23,8,.88); }
 body.expedition-mode #reveal-card .score-math { display: none; }
 body.expedition-mode .round-meta span:first-child { color: #ffd166; }`;
@@ -4436,9 +4446,9 @@ expeditionPicker.innerHTML = `<div class="expedition-panel" role="dialog" aria-m
   <h2 id="expedition-heading">Choose an expedition</h2>
   <p>Seven hand-picked stops, played in order.</p>
   <div class="expedition-list"></div>
-  <button class="expedition-close" type="button">← Back home</button>
 </div>`;
 document.body.appendChild(expeditionPicker);
+expeditionPicker.appendChild(createHomeButton());
 const expeditionList = expeditionPicker.querySelector('.expedition-list');
 
 function loadExpeditionState() {
@@ -4513,10 +4523,7 @@ gameEls.expeditionsEntry.addEventListener('click', () => showExpeditionPicker())
 expeditionPicker.addEventListener('click', (event) => {
   const choice = event.target.closest('[data-expedition-id]');
   if (choice) startExpedition(choice.dataset.expeditionId);
-  else if (event.target === expeditionPicker || event.target.closest('.expedition-close')) {
-    expeditionPicker.hidden = true;
-    goHome();
-  }
+  else if (event.target === expeditionPicker) goHome();
 });
 
 // ---------------------------------------------------------------------------
