@@ -2068,10 +2068,13 @@ function distanceKm(a, b) {
   return 6371.0088 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(Math.max(0, 1 - h)));
 }
 
+// The 1.7 power keeps pinpoint guesses near-perfect while the 170 km scale preserves a global tail.
+function distanceScore(km) {
+  return 1000 / (1 + (km / 170) ** 1.7);
+}
+
 function scoreGuess(km, round) {
-  // Continuous scoring: closer is always better, even within Bullseye range.
-  // 0km -> 1000, 25km -> ~900, then exponential decay beyond.
-  const base = km < BULLSEYE_KM ? Math.round(1000 - km * 4) : Math.round(1000 * Math.exp(-km / 4650));
+  const base = Math.round(distanceScore(km));
   return Math.round(base * WEIGHTS[round]);
 }
 
@@ -3045,7 +3048,7 @@ function revealGuess(guess, restoring = false) {
   const answer = currentItem();
   const kmExact = distanceKm(guess, answer);
   const km = Math.round(kmExact);
-  const base = kmExact < BULLSEYE_KM ? 1000 : Math.round(1000 * Math.exp(-kmExact / 4650));
+  const base = Math.round(distanceScore(kmExact));
   const oneOff = survival.active || endless.active || expeditionRun.active; // unscored, outside the daily
   const score = oneOff ? 0 : scoreGuess(kmExact, daily.round);
   if (!restoring && survival.active) {
