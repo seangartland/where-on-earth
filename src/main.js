@@ -3447,7 +3447,7 @@ function createHomeButton() {
   button.className = 'home-nav-btn';
   button.setAttribute('aria-label', 'Go home');
   button.textContent = '×';
-  button.addEventListener('click', confirmGoHome);
+  // Click handled by document-level delegation above
   return button;
 }
 
@@ -3462,10 +3462,17 @@ function confirmGoHome() {
   }
 }
 
+// Event delegation: catches all .home-nav-btn clicks, even dynamically added ones.
+// Also normalizes the button appearance.
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.home-nav-btn');
+  if (!btn) return;
+  e.preventDefault();
+  confirmGoHome();
+});
 document.querySelectorAll('.home-nav-btn').forEach((button) => {
   button.setAttribute('aria-label', 'Go home');
   button.textContent = '×';
-  button.addEventListener('click', confirmGoHome);
 });
 
 // Lives inside the clue card, so it never costs the globe a row.
