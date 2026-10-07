@@ -1761,7 +1761,7 @@ function preparePostcard(item, newlyEarned) {
   };
   loader.src = item.image;
   postcardPhoto = photo;
-  postcardCaption.textContent = item.short || item.clue;
+  postcardCaption.textContent = item.clue || item.short;
 }
 
 function clearPostcard() {
@@ -3028,7 +3028,7 @@ function showEarnToast(answer, tier) {
   const tierLabel = tier === EARN_PINPOINT ? '📍 Pinpoint!' : tier === EARN_BULLSEYE ? '🎯 Bullseye!' : '🎉 New postcard earned!';
   toast.innerHTML = `
     <img src="${answer.image || ''}" alt="">
-    <div class="earn-toast-text">${tierLabel}<small>${answer.short || ''}</small></div>
+    <div class="earn-toast-text">${tierLabel}<small>${answer.clue || answer.short || ''}</small></div>
   `;
   document.body.appendChild(toast);
   // Animate in
@@ -3079,7 +3079,7 @@ function revealGuess(guess, restoring = false) {
   gameEls.baseScore.textContent = base;
   gameEls.mult.textContent = `×${weight / 10}`;
   gameEls.mult.style.display = weight > 1 ? '' : 'none';
-  const placeName = answer.short || answer.clue;
+  const placeName = answer.clue || answer.short;
   gameEls.revealName.textContent = placeName;
   gameEls.peekName.textContent = placeName;
   gameEls.fact.textContent = answer.fact;
@@ -5153,8 +5153,7 @@ function passportCard(entry) {
   stamp.innerHTML = `<span>${entry.best}<small>${{ bullseye: '🎯', pinpoint: '📍' }[earn] || 'BEST'}</small></span>`;
   const name = document.createElement('p');
   name.className = 'pp-name';
-  const flag = (entry.item.clue || '').match(FLAG_RE);
-  name.textContent = `${entry.item.short || entry.item.clue}${flag ? ` ${flag[0]}` : ''}`;
+  name.textContent = entry.item.clue || entry.item.short;
   name.title = name.textContent;
   const meta = document.createElement('p');
   meta.className = 'pp-meta';
