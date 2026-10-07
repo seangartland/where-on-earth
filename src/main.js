@@ -5445,7 +5445,7 @@ document.addEventListener('keydown', (event) => {
 // reads as one postcard lifted out of the book rather than a popup on top.
 const postcardStyle = document.createElement('style');
 postcardStyle.textContent = `
-.ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) 16px calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
 .ppd-card { --ppd-accent: #d1a943; position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 1px solid #3f485b; border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
 .ppd-card.prox-postcard { border-color: #e5bd58; }
@@ -5454,7 +5454,7 @@ postcardStyle.textContent = `
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
-.ppd-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 29px; margin-bottom: 10px; padding-left: 38px; }
+.ppd-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 29px; margin-bottom: 10px; padding-right: 38px; }
 .ppd-rarity { display: inline-flex; align-items: center; height: 27px; padding: 0 11px; border: 1px solid #69758a; border-radius: 999px; background: #475369; color: #e6ebf6; font-size: 10px; font-weight: 900; letter-spacing: .15em; }
 .ppd-card.rarity-uncommon .ppd-rarity { border-color: #668d82; background: #38675d; color: #d9fff4; }
 .ppd-card.rarity-rare .ppd-rarity { border-color: #6f91c0; background: #375b8b; color: #dce9ff; }
@@ -5464,7 +5464,7 @@ postcardStyle.textContent = `
 .ppd-front { position: relative; }
 .ppd-front .pp-photo { aspect-ratio: 16 / 9; border-radius: 15px; }
 .ppd-front .pp-photo::after { font-size: 44px; }
-.ppd-close { position: absolute; z-index: 3; top: 6px; left: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
+.ppd-close { position: absolute; z-index: 3; top: var(--ppd-control-inset, 6px); right: var(--ppd-control-inset, 6px); width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
 .ppd-close::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(8,14,32,.72); color: #f5fbff; font-size: 22px; line-height: 1; }
 .ppd-close:focus-visible { outline: none; }
 .ppd-close:focus-visible::before { box-shadow: 0 0 0 2px #67e8ff; }
@@ -5502,7 +5502,7 @@ postcardScreen.innerHTML = `
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
-    <div class="ppd-topline"><span class="ppd-rarity" data-ppd="rarity"></span><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span></div>
+    <div class="ppd-topline"><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span><span class="ppd-rarity" data-ppd="rarity"></span></div>
     <div class="ppd-front">
       <div class="pp-photo" data-ppd="photo"></div>
     </div>
