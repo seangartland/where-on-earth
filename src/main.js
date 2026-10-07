@@ -2038,9 +2038,9 @@ function distanceKm(a, b) {
 }
 
 function scoreGuess(km, round) {
-  // Bullseye (<25km) always scores 1000. Scale the weighted contribution back
-  // down so the five-round game total remains out of 1000.
-  const base = km < BULLSEYE_KM ? 1000 : Math.round(1000 * Math.exp(-km / 4650));
+  // Continuous scoring: closer is always better, even within Bullseye range.
+  // 0km -> 1000, 25km -> ~900, then exponential decay beyond.
+  const base = km < BULLSEYE_KM ? Math.round(1000 - km * 4) : Math.round(1000 * Math.exp(-km / 4650));
   return Math.round(base * WEIGHTS[round]);
 }
 
