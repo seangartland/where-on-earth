@@ -1707,13 +1707,15 @@ function postcardTarget() {
 // detached Image: a failed load on an in-document <img> reaches the window
 // error handler and raises the boot error banner.
 let postcardPhoto = null; // { src, ok, failed } for the current reveal
-let postcardRun = null; // { b, landedAt, popAt, phase: 'pending' | 'out' | 'settling' }
+let postcardRun = null; // { b, landedAt, popAt, newUnlock, phase: 'pending' | 'out' | 'settling' }
+let postcardNewUnlock = false;
 let revealCardAt = null; // when the reveal card has finished fading in
 let afterPostcard = null; // queued until the postcard is out of the way
-function preparePostcard(item) {
+function preparePostcard(item, newlyEarned) {
   clearPostcard();
   revealCardAt = null;
   afterPostcard = null;
+  postcardNewUnlock = Boolean(newlyEarned);
   if (!item.image) return;
   const photo = { src: item.image, ok: false, failed: false };
   const loader = new Image();
@@ -1756,9 +1758,8 @@ function postcardLanded(b) {
     postcardDone();
     return;
   }
-  const run = { b, landedAt: performance.now(), popAt: null, phase: 'pending' };
+  const run = { b, landedAt: performance.now(), popAt: null, newUnlock: postcardNewUnlock, phase: 'pending' };
   postcardRun = run;
-  thumbSlots.forEach((slot) => slot.classList.add('waiting'));
   if (postcardPhoto.ok) popPostcard();
   const tick = () => {
     if (postcardRun !== run || run.phase === 'settling') return;
@@ -1797,6 +1798,7 @@ function abandonPostcard() {
   postcardRun = null;
   postcardPhoto = null;
   thumbSlots.forEach((slot) => slot.classList.remove('waiting'));
+  revealThumbCurrent();
   for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
     const fadeIn = () => thumb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
     if (!thumb.complete) thumb.addEventListener('load', fadeIn, { once: true });
@@ -1833,11 +1835,22 @@ function popPostcard() {
 function settlePostcard() {
   const run = postcardRun;
   run.phase = 'settling';
+  if (!run.newUnlock) {
+    postcard.getAnimations().forEach((a) => a.cancel());
+    postcard.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, easing: 'ease-out', fill: 'forwards' }).onfinish = () => {
+      if (postcardRun !== run) return;
+      revealThumbCurrent();
+      clearPostcard();
+      postcardDone();
+    };
+    return;
+  }
   const thumb = postcardTarget();
   run.thumb = thumb;
   if (!thumb) {
     postcard.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: 'forwards' }).onfinish = () => {
       if (postcardRun !== run) return;
+      revealThumbCurrent();
       clearPostcard();
       postcardDone();
     };
@@ -1873,6 +1886,7 @@ function settlePostcard() {
 
 function swapPostcard(run) {
   if (postcardRun !== run) return;
+  revealThumbCurrent();
   clearPostcard();
   postcardDone();
   audio.tick();
@@ -2167,7 +2181,7 @@ function placeRevealVisual(guess, answer) {
   return { a, b };
 }
 
-function beginTravelReveal(guess, answer, km) {
+function beginTravelReveal(guess, answer, km, newlyEarned) {
   const path = buildAnswerPath(guess, answer);
   const flight = travelFlightProfile(km);
   const tier = flyoverTier(km);
@@ -2178,7 +2192,7 @@ function beginTravelReveal(guess, answer, km) {
   gameEls.distance.textContent = `${km.toLocaleString()} km`;
   gameEls.travelDistance.querySelector('span').textContent = '0 km';
   gameEls.travelDistance.hidden = true;
-  preparePostcard(answer);
+  preparePostcard(answer, newlyEarned);
   travelAnimation = {
     ...path,
     km,
@@ -2210,14 +2224,14 @@ function beginTravelReveal(guess, answer, km) {
 
 // Bullseye: no flight. Snap-zoom onto the answer, drop a gold pin, roll a
 // shockwave across the surface in slow motion, stamp it, then the usual pullback.
-function beginBullseyeReveal(guess, answer, km) {
+function beginBullseyeReveal(guess, answer, km, newlyEarned) {
   const path = buildAnswerPath(guess, answer);
   answerLine.visible = false;
   correctPin.root.visible = false;
   correctPin.state = 'idle';
   correctPin.setColor(GOLD_COLOR, '#fff6d8');
   gameEls.distance.textContent = `${km.toLocaleString()} km`;
-  preparePostcard(answer);
+  preparePostcard(answer, newlyEarned);
   travelAnimation = {
     ...path,
     km,
@@ -3023,6 +3037,10 @@ function revealGuess(guess, restoring = false) {
     : endless.active ? 'game-reveal endless' : 'game-reveal';
   gameEls.hint.textContent = '';
   gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : `${km.toLocaleString()} km`;
+  // Capture the passport state before this guess changes it. The reveal starts
+  // with the thumbnail the player already had, then a new unlock can land in it.
+  const wasVisited = Object.hasOwn(passport.visits, answer.id);
+  const previousEarn = passport.meta[answer.id]?.e || 0;
   // Endless earns visits only; postcards come from daily and survival.
   const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact, !endless.active) : 0; // exact, so earning matches the flyover tier
   if (!restoring && expeditionRun.active) completeExpeditionRound();
@@ -3037,13 +3055,7 @@ function revealGuess(guess, restoring = false) {
   setThumb(gameEls.thumb, answer.image);
   setThumb(gameEls.peekThumb, answer.image);
   peekSlot.hidden = !answer.image;
-  // Thumbnail: grayscale with no postcard (>150km), else rarity + proximity
-  // borders for this guess's tier. In endless only an already-earned card shows.
-  const thumbEarn = endless.active ? passport.meta[answer.id]?.e || 0 : earnForKm(kmExact);
-  for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
-    thumb.classList.toggle('no-postcard', !thumbEarn);
-    applyCardTier(thumb, answer, thumbEarn);
-  }
+  setRevealThumbState(answer, wasVisited, previousEarn);
   // Near miss (150-300 km): say how close the postcard was, so a 160 km guess
   // doesn't read like a 9000 km one. Not in endless, which awards no postcards.
   const nearMiss = !endless.active && kmExact >= NEAR_KM && kmExact < NEAR_MISS_KM;
@@ -3086,9 +3098,10 @@ function revealGuess(guess, restoring = false) {
   if (animate && (tier === 'bullseye' || tier === 'pinpoint')) {
     document.body.classList.add('bullseye');
     gameEls.hint.textContent = tier === 'pinpoint' ? 'Pinpoint! Incredible accuracy' : 'Bullseye! The gold marker shows the answer';
-    beginBullseyeReveal(guess, answer, km);
-  } else if (animate) beginTravelReveal(guess, answer, km);
+    beginBullseyeReveal(guess, answer, km, newlyEarned);
+  } else if (animate) beginTravelReveal(guess, answer, km, newlyEarned);
   else {
+    revealThumbCurrent();
     const { a, b } = placeRevealVisual(guess, answer);
     gameEls.distance.textContent = `${km.toLocaleString()} km`;
     if (restoring) {
@@ -3104,6 +3117,26 @@ function setThumb(img, url) {
   if (url) img.src = url;
   else img.removeAttribute('src');
   img.hidden = !url;
+}
+
+function setRevealThumbState(item, visited, earned) {
+  peekSlot.classList.toggle('mystery', !visited);
+  for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
+    thumb.classList.toggle('seen-no-postcard', visited && !earned);
+    thumb.classList.toggle('no-postcard', visited && !earned);
+    applyCardTier(thumb, item, earned);
+  }
+}
+
+function revealThumbCurrent() {
+  const item = currentItem();
+  const earned = passport.meta[item.id]?.e || 0;
+  peekSlot.classList.remove('mystery');
+  for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
+    thumb.classList.toggle('seen-no-postcard', !earned);
+    thumb.classList.toggle('no-postcard', !earned);
+    applyCardTier(thumb, item, earned);
+  }
 }
 
 function scoreEmoji(base) {
