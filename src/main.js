@@ -3372,17 +3372,10 @@ function goHome() {
   syncPassport();
 }
 
-const homeNavStyle = document.createElement('style');
-homeNavStyle.textContent = `
-.home-nav-btn { position: fixed; z-index: 95; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid rgba(196,168,255,.4); border-radius: 999px; background: rgba(15,9,28,.72); color: #d9ccff; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; pointer-events: auto; touch-action: manipulation; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-.home-nav-btn:active { transform: scale(.98); }`;
-document.head.appendChild(homeNavStyle);
-
 function createHomeButton() {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'home-nav-btn';
-  button.textContent = '← Home';
   button.setAttribute('aria-label', 'Back to home');
   button.addEventListener('click', goHome);
   return button;

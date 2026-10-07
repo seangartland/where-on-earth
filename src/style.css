@@ -64,6 +64,13 @@ button { font: inherit; }
 .screen { position: fixed; inset: 0; z-index: 10; }
 .screen[hidden] { display: none; }
 .glass { background: rgba(5, 12, 29, .82); border: 1px solid rgba(157, 211, 255, .22); box-shadow: 0 18px 60px rgba(0, 0, 0, .35), inset 0 1px rgba(255,255,255,.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+
+/* Icon-only, 44px touch target, matches the app's glass/cyan palette (not a separate pill style).
+   Text content (if any) is indented off-canvas rather than removed, so the static HTML copies
+   in index.html stay accessible without needing their markup changed. */
+.home-nav-btn { position: fixed; z-index: 95; top: calc(env(safe-area-inset-top, 0px) + 12px); left: 12px; width: 44px; height: 44px; padding: 0; margin: 0; border: 1px solid rgba(157, 211, 255, .22); border-radius: 50%; background-color: rgba(5, 12, 29, .78); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15 5L9 12L15 19' fill='none' stroke='%23cfe6ff' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 15px 15px; box-shadow: 0 6px 18px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.05); color: transparent; font-size: 0; line-height: 0; text-indent: -9999px; overflow: hidden; white-space: nowrap; cursor: pointer; pointer-events: auto; touch-action: manipulation; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.home-nav-btn:active { transform: scale(.92); background-color: rgba(5, 12, 29, .92); }
+.home-nav-btn:focus-visible { box-shadow: 0 6px 18px rgba(0,0,0,.32), 0 0 0 2px rgba(127,210,244,.5); }
 .start-screen { display: flex; box-sizing: border-box; flex-direction: column; align-items: center; justify-content: center; padding: 28px; text-align: center; background: linear-gradient(180deg, rgba(2,4,9,.12), rgba(2,4,9,.56)); }
 .eyebrow { margin: 0 0 10px; color: #77caff; font-size: 11px; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
 h1 { max-width: 330px; margin: 0; color: #f1f8ff; font-size: clamp(46px, 15vw, 68px); line-height: .9; letter-spacing: -.065em; text-shadow: 0 0 30px rgba(77,176,255,.35); }
