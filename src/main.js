@@ -3150,27 +3150,38 @@ function setThumb(img, url) {
   img.hidden = !url;
 }
 
+// Centralized thumbnail state update: applies earn tier and grayscale in one place.
+// All modes must use this (via setRevealThumbState or revealThumbCurrent) to avoid drift.
+function applyThumbState(thumb, item, earned, visited) {
+  const showGrayscale = visited && !earned;
+  thumb.classList.toggle('seen-no-postcard', showGrayscale);
+  thumb.classList.toggle('no-postcard', showGrayscale);
+  applyCardTier(thumb, item, earned);
+}
+
 function setRevealThumbState(item, visited, earned) {
   peekSlot.classList.toggle('mystery', !visited);
   for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
-    thumb.classList.toggle('seen-no-postcard', visited && !earned);
-    thumb.classList.toggle('no-postcard', visited && !earned);
-    applyCardTier(thumb, item, earned);
+    applyThumbState(thumb, item, earned, visited);
   }
+}
+
+// Centralized thumbnail earn state: single source of truth for all modes.
+// Returns the earn tier (0-3) that the thumbnail should display.
+function getThumbEarn(item) {
+  if (!item) return 0;
+  // Endless never earns postcards (visits only, by design)
+  if (endless.active) return 0;
+  return passport.meta[item.id]?.e || 0;
 }
 
 function revealThumbCurrent() {
   const item = currentItem();
-  const earned = passport.meta[item.id]?.e || 0;
+  const earned = getThumbEarn(item);
+  const visited = Object.hasOwn(passport.visits, item.id);
   peekSlot.classList.remove('mystery');
   for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
-    // Explicitly clear grayscale state when earned
-    if (earned) {
-      thumb.classList.remove('seen-no-postcard', 'no-postcard');
-    } else {
-      thumb.classList.add('seen-no-postcard', 'no-postcard');
-    }
-    applyCardTier(thumb, item, earned);
+    applyThumbState(thumb, item, earned, visited);
   }
 }
 
