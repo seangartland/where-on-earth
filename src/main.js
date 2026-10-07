@@ -2068,9 +2068,11 @@ function distanceKm(a, b) {
   return 6371.0088 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(Math.max(0, 1 - h)));
 }
 
-// The 1.7 power keeps pinpoint guesses near-perfect while the 170 km scale preserves a global tail.
+// Stretched-exponential: near-perfect under ~10km, matches MapTap's generous
+// mid-range (~980 @ 112km, ~940 @ 301km), and decays gradually toward 0 at
+// antipodal distances instead of collapsing by a few hundred km.
 function distanceScore(km) {
-  return 1000 / (1 + (km / 170) ** 1.7);
+  return 1000 * Math.exp(-((km / 3500) ** 1.13));
 }
 
 function scoreGuess(km, round) {
