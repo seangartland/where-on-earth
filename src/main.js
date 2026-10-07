@@ -100,6 +100,21 @@ function nearLockButton(x, y) {
     && y > r.top - LOCK_TAP_SLOP && y < r.bottom + LOCK_TAP_SLOP;
 }
 
+// Skip pin placement when tapping on/near top UI (X buttons, header).
+// Prevents pins dropping behind the X when zoomed in.
+const TOP_UI_SLOP = 8; // css px
+function nearTopUI(x, y) {
+  for (const el of document.querySelectorAll('.home-nav-btn, .round-header')) {
+    if (el.offsetParent === null) continue; // hidden
+    const r = el.getBoundingClientRect();
+    if (x > r.left - TOP_UI_SLOP && x < r.right + TOP_UI_SLOP
+      && y > r.top - TOP_UI_SLOP && y < r.bottom + TOP_UI_SLOP) {
+      return true;
+    }
+  }
+  return false;
+}
+
 lockButton.addEventListener('click', () => {
   if (!pendingGuess || !window.__canGuess || gameMode !== 'guess') return;
   if (performance.now() < lockArmedAt) return; // the tail of a double tap on the globe
@@ -1136,7 +1151,7 @@ function endPointer(e) {
   if (pointers.size === 0) {
     canvas.classList.remove('dragging');
     if (tap && e.type === 'pointerup' && gameMode === 'guess' && now - tap.t < GUESS_TAP_MAX_MS) {
-      if (!nearLockButton(e.clientX, e.clientY)) placeGuessPin(e.clientX, e.clientY);
+      if (!nearLockButton(e.clientX, e.clientY) && !nearTopUI(e.clientX, e.clientY)) placeGuessPin(e.clientX, e.clientY);
     } else if (tap && e.type === 'pointerup' && now - tap.t < TAP_MAX_MS) {
       if (gameMode === 'review') pickReviewRound(e.clientX, e.clientY);
     } else if (samples.length >= 2) {
