@@ -5240,8 +5240,6 @@ collectionsStyle.textContent = `
 .collection-thumbs { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px; margin-top: auto; }
 .collection-thumb { position: relative; aspect-ratio: 1; overflow: hidden; border: 1px solid rgba(214,220,232,.14); border-radius: 6px; background: #0a0e17; }
 .collection-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.collection-thumb.locked img { filter: grayscale(1) brightness(.35); }
-.collection-thumb.locked::after { content: '?'; position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,.45); font-size: 12px; font-weight: 850; }
 .collection-detail-head { display: flex; align-items: center; gap: 12px; }
 .collection-detail-head .collection-icon { flex: none; width: 48px; height: 48px; border-radius: 14px; font-size: 25px; }
 .collection-detail-head p { margin: 4px 0 0; color: rgba(214,220,232,.55); font-size: 13px; }
@@ -5257,8 +5255,6 @@ collectionsStyle.textContent = `
 .collection-card .rarity-tab { position: absolute; z-index: 3; top: -9px; left: 50%; max-width: calc(100% - 8px); transform: translateX(-50%); }
 .collection-card .photo { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 5px; background: #0d111b; }
 .collection-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.collection-card.unearned img { filter: grayscale(1) brightness(.42); }
-.collection-card.unearned .photo::after { content: '?'; position: absolute; inset: 0; display: grid; place-items: center; color: rgba(230,232,238,.5); font-size: 28px; font-weight: 850; }
 .collection-card-name { min-height: 2.3em; margin: 6px 1px 0; display: grid; place-items: center; color: #e6e8ee; font-size: 10px; font-weight: 750; line-height: 1.15; text-align: center; }
 .collection-card.unearned .collection-card-name { color: rgba(214,220,232,.4); }
 .collection-card-meta { margin: 3px 0 0; color: rgba(214,220,232,.35); font-size: 8px; font-weight: 750; text-align: center; text-transform: uppercase; }
@@ -5307,6 +5303,7 @@ function buildCollectionSets() {
 }
 
 function collectionEarn(item) { return passport.meta[item.id]?.e || 0; }
+function collectionVisited(item) { return Object.hasOwn(passport.meta, item.id); }
 
 function sortedCollectionSets() {
   const earnedCount = (set) => set.items.filter(collectionEarn).length;
@@ -5322,8 +5319,13 @@ function sortedCollectionSets() {
 }
 
 function collectionThumb(item) {
+  const visited = collectionVisited(item);
   const wrap = document.createElement('span');
-  wrap.className = `collection-thumb${collectionEarn(item) ? '' : ' locked'}`;
+  wrap.className = `collection-thumb${visited ? '' : ' mystery'}`;
+  if (!visited) {
+    wrap.setAttribute('aria-label', 'Mystery location, not visited');
+    return wrap;
+  }
   const img = document.createElement('img');
   img.src = item.image || '';
   img.alt = '';
@@ -5387,30 +5389,37 @@ function renderCollectionDetail(set) {
   grid.className = 'collection-grid';
   set.items.forEach((item, index) => {
     const tier = collectionEarn(item);
+    const visited = collectionVisited(item);
     const card = document.createElement('li');
-    card.className = `collection-card${tier ? '' : ' unearned'}`;
+    card.className = `collection-card${tier ? '' : ' unearned'}${visited ? '' : ' mystery'}`;
     applyCardTier(card, item, tier);
     const rarity = rarityFor(item.difficulty);
-    card.classList.add(`rarity-${rarity}`);
-    const rarityTab = document.createElement('span');
-    rarityTab.className = 'rarity-tab';
-    rarityTab.textContent = rarity;
+    if (visited) card.classList.add(`rarity-${rarity}`);
     const photo = document.createElement('div');
     photo.className = 'photo';
-    const img = document.createElement('img');
-    img.src = item.image || '';
-    img.alt = '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.addEventListener('error', () => img.remove(), { once: true });
-    photo.append(img);
+    if (visited) {
+      const img = document.createElement('img');
+      img.src = item.image || '';
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.addEventListener('error', () => img.remove(), { once: true });
+      photo.append(img);
+    }
     const name = document.createElement('p');
     name.className = 'collection-card-name';
-    name.textContent = item.short || item.clue;
+    name.textContent = visited ? item.short || item.clue : '???';
     const meta = document.createElement('p');
     meta.className = 'collection-card-meta';
-    meta.textContent = `${String(index + 1).padStart(2, '0')} · ${tier ? EARN_NAMES[tier] : 'Unearned'}`;
-    card.append(rarityTab, photo, name, meta);
+    meta.textContent = `${String(index + 1).padStart(2, '0')} · ${visited ? (tier ? EARN_NAMES[tier] : 'Unearned') : 'Unvisited'}`;
+    if (!visited) card.setAttribute('aria-label', `Card ${index + 1}: mystery location, not visited`);
+    if (visited) {
+      const rarityTab = document.createElement('span');
+      rarityTab.className = 'rarity-tab';
+      rarityTab.textContent = rarity;
+      card.append(rarityTab);
+    }
+    card.append(photo, name, meta);
     grid.append(card);
   });
   const nodes = [head];

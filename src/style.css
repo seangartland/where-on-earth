@@ -276,3 +276,26 @@ body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0
 .lock-button:active { transform: translateX(-50%) scale(.96); }
 @keyframes lock-in { from { opacity: 0; transform: translateX(-50%) translateY(12px); } to { opacity: 1; transform: translateX(-50%); } }
 body.has-guess #hud { opacity: 0; }
+
+/* Collection locations stay completely secret until passport metadata records
+   a visit. No image is mounted beneath these placeholders. */
+.collection-thumb.mystery,
+.collection-card.mystery .photo {
+  background: radial-gradient(circle at 50% 38%, #172033, #080b12 72%);
+}
+
+.collection-thumb.mystery::after,
+.collection-card.mystery .photo::after {
+  content: '?';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(214, 220, 232, .42);
+  font-weight: 850;
+}
+
+.collection-thumb.mystery::after { font-size: 12px; }
+.collection-card.mystery .photo::after { font-size: 28px; }
+.collection-card.mystery { border-color: rgba(214, 220, 232, .09); background: #0d121d; }
+.collection-card.mystery .collection-card-name { color: rgba(214, 220, 232, .42); letter-spacing: .12em; }
