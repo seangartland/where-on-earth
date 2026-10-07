@@ -2048,6 +2048,7 @@ function finishStreak() {
 }
 
 var statsScreenEl = null; // set once the stats overlay is built
+var settingsScreenEl = null; // set once the settings overlay is built
 var passportScreenEl = null; // set once the passport page is built
 var collectionsScreenEl = null; // set once the collections page is built
 
@@ -2056,6 +2057,7 @@ function hideScreens() {
   gameEls.survivalResults.hidden = true;
   reviewEls.screen.hidden = true;
   if (statsScreenEl) statsScreenEl.hidden = true;
+  if (settingsScreenEl) settingsScreenEl.hidden = true;
   if (passportScreenEl) passportScreenEl.hidden = true;
   if (collectionsScreenEl) collectionsScreenEl.hidden = true;
   document.body.className = '';
@@ -4049,6 +4051,94 @@ statsScreen.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !statsScreen.hidden) closeStats();
+});
+
+const settingsEntry = document.createElement('button');
+settingsEntry.className = 'settings-entry';
+settingsEntry.innerHTML = '⚙️';
+settingsEntry.setAttribute('aria-label', 'Settings');
+settingsEntry.setAttribute('aria-haspopup', 'dialog');
+gameEls.startStreak.after(settingsEntry);
+
+const settingsScreen = document.createElement('section');
+settingsScreen.className = 'screen settings-screen';
+settingsScreen.hidden = true;
+settingsScreen.innerHTML = `
+  <div class="settings-card glass" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <button class="settings-close" aria-label="Close settings">×</button>
+    <h2 id="settings-title">Settings</h2>
+    <div class="settings-main">
+      <button class="settings-reset" type="button">Reset all data</button>
+    </div>
+    <div class="settings-confirm" hidden>
+      <p>Are you sure? This will erase all progress, postcards, collections, and stats.</p>
+      <div class="settings-actions">
+        <button class="settings-danger" type="button">Erase everything</button>
+        <button class="settings-cancel" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>`;
+document.getElementById('game').appendChild(settingsScreen);
+settingsScreenEl = settingsScreen;
+
+const settingsEls = {
+  screen: settingsScreen,
+  card: settingsScreen.querySelector('.settings-card'),
+  close: settingsScreen.querySelector('.settings-close'),
+  main: settingsScreen.querySelector('.settings-main'),
+  confirm: settingsScreen.querySelector('.settings-confirm'),
+  reset: settingsScreen.querySelector('.settings-reset'),
+  danger: settingsScreen.querySelector('.settings-danger'),
+  cancel: settingsScreen.querySelector('.settings-cancel'),
+};
+
+function openSettings() {
+  settingsEls.main.hidden = false;
+  settingsEls.confirm.hidden = true;
+  gameEls.start.hidden = true;
+  settingsScreen.hidden = false;
+  document.body.className = 'game-settings';
+  window.__canGuess = false;
+  settingsScreen.scrollTop = 0;
+  settingsEls.close.focus();
+}
+
+function closeSettings() {
+  settingsEls.main.hidden = false;
+  settingsEls.confirm.hidden = true;
+  settingsScreen.hidden = true;
+  gameEls.start.hidden = false;
+  document.body.className = 'game-start';
+  settingsEntry.focus();
+}
+
+settingsEntry.addEventListener('click', openSettings);
+settingsEls.close.addEventListener('click', closeSettings);
+settingsScreen.addEventListener('click', (e) => {
+  if (e.target === settingsScreen) closeSettings();
+});
+settingsEls.reset.addEventListener('click', () => {
+  settingsEls.main.hidden = true;
+  settingsEls.confirm.hidden = false;
+});
+settingsEls.cancel.addEventListener('click', () => {
+  settingsEls.confirm.hidden = true;
+  settingsEls.main.hidden = false;
+});
+settingsEls.danger.addEventListener('click', () => {
+  Object.keys(localStorage).forEach((key) => {
+    if (key.startsWith('where-on-earth-')) localStorage.removeItem(key);
+  });
+  location.reload();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape' || settingsScreen.hidden) return;
+  if (!settingsEls.confirm.hidden) {
+    settingsEls.confirm.hidden = true;
+    settingsEls.main.hidden = false;
+    return;
+  }
+  closeSettings();
 });
 
 // ---------------------------------------------------------------------------
