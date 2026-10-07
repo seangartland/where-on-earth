@@ -18,6 +18,37 @@ if (RESET_DAILY) {
 }
 
 // ---------------------------------------------------------------------------
+// Version check: if the server has a newer version, show a reload banner.
+// This handles iOS Safari caching the HTML despite no-cache headers.
+// ---------------------------------------------------------------------------
+(function checkVersion() {
+  const meta = document.querySelector('meta[name="app-version"]');
+  const current = meta ? meta.content : 'DEV';
+  if (current === 'DEV') return;
+  async function check() {
+    try {
+      const res = await fetch(location.pathname, { cache: 'no-store' });
+      const html = await res.text();
+      const m = html.match(/<meta name="app-version" content="([^"]+)"/);
+      if (m && m[1] !== current) {
+        let banner = document.getElementById('update-banner');
+        if (!banner) {
+          banner = document.createElement('button');
+          banner.id = 'update-banner';
+          banner.textContent = 'New version available — tap to reload';
+          banner.style.cssText = 'position:fixed;z-index:9999;top:0;left:0;right:0;padding:12px;background:#f5c451;color:#000;font-weight:700;border:0;cursor:pointer;';
+          banner.onclick = () => location.reload();
+          document.body.appendChild(banner);
+        }
+      }
+    } catch (e) {}
+  }
+  // Check on visibility change (covers back-nav) and every 5 minutes
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) check(); });
+  setInterval(check, 5 * 60 * 1000);
+})();
+
+// ---------------------------------------------------------------------------
 // Config
 // ---------------------------------------------------------------------------
 const DEG = Math.PI / 180;
