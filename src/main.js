@@ -5245,12 +5245,7 @@ function passportCard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     photo.append(img);
   }
-  if (earn === 'seen') {
-    const hint = document.createElement('span');
-    hint.className = 'pp-hint';
-    hint.textContent = Number.isFinite(entry.km) && entry.km < 500 ? 'So close! Try again' : 'Within 150 km to earn';
-    photo.append(hint);
-  }
+  // (pp-hint text removed per Sean 2026-10-07)
   // The stamp ink follows what was earned, not the raw score: gold bullseye or
   // pinpoint, cyan near miss, grey still to earn.
   const stamp = document.createElement('span');
