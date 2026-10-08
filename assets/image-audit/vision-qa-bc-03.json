@@ -1,0 +1,177 @@
+[
+ {
+  "id": "fitz-roy-laguna-de-los-tres",
+  "short": "Laguna de los Tres",
+  "country": "Argentina",
+  "clue": "Laguna de los Tres, Argentina \ud83c\udde6\ud83c\uddf7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Laguna_de_los_Tres_color.jpg/500px-Laguna_de_los_Tres_color.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "fatehpur-sikri",
+  "short": "Fatehpur Sikri",
+  "country": "India",
+  "clue": "Fatehpur Sikri, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Fatehpur-Fatehpur_Sikri_India0002.JPG/500px-Fatehpur-Fatehpur_Sikri_India0002.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "fuji-tv-building-tokyo",
+  "short": "Fuji TV Building",
+  "country": "Japan",
+  "clue": "Fuji TV Building, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Fuji_TV_Building_%40_Odaiba_%288993323619%29.jpg/500px-Fuji_TV_Building_%40_Odaiba_%288993323619%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "gdansk-old-town-d34-16",
+  "short": "Gdansk Old Town",
+  "country": "Poland",
+  "clue": "Gdansk Old Town, Poland \ud83c\uddf5\ud83c\uddf1",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Poland%2C_Gdansk%2C_Old_Town%2C_City_Tower_150501-48.jpg/500px-Poland%2C_Gdansk%2C_Old_Town%2C_City_Tower_150501-48.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "funchal-old-town-d34-78",
+  "short": "Funchal Old Town",
+  "country": "Portugal",
+  "clue": "Funchal, Madeira, Portugal \ud83c\uddf5\ud83c\uddf9",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Zona_Velha_do_Funchal%2C_Funchal%2C_Madeira_-_IMG_1148.jpg/500px-Zona_Velha_do_Funchal%2C_Funchal%2C_Madeira_-_IMG_1148.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "gagarin-launch-pad-one",
+  "short": "Baikonur Gagarin's Start",
+  "country": "Kazakhstan",
+  "clue": "Baikonur Cosmodrome, Kazakhstan \ud83c\uddf0\ud83c\uddff",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Baikonur_Cosmodrome_Soyuz_launch_pad.jpg/500px-Baikonur_Cosmodrome_Soyuz_launch_pad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "genoa-harbor-d34-46",
+  "short": "Genoa Harbor",
+  "country": "Italy",
+  "clue": "Genoa Harbor, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Woman_in_Genoa_harbor_%28Unsplash%29.jpg/500px-Woman_in_Genoa_harbor_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "gothenburg-canals-d34-34",
+  "short": "Gothenburg Canals",
+  "country": "Sweden",
+  "clue": "Gothenburg Canals, Sweden \ud83c\uddf8\ud83c\uddea",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Stora_hamnkanalen_2025_01.jpg/500px-Stora_hamnkanalen_2025_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "futuna-leava",
+  "short": "Leava, Futuna",
+  "country": "France",
+  "clue": "Leava, Futuna, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Supermarch%C3%A9_SB_Travel%2C_Leava%2C_Futuna.jpg/500px-Supermarch%C3%A9_SB_Travel%2C_Leava%2C_Futuna.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "gazipur-bd",
+  "short": "Gazipur",
+  "country": "Bangladesh",
+  "clue": "Gazipur, Bangladesh \ud83c\udde7\ud83c\udde9",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Indian_pitta_-_%E0%A6%AC%E0%A6%A8_%E0%A6%B8%E0%A7%81%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A6%B0%E0%A7%80_%28Pitta_brachyura%29%2C_Gazipur%2C_Bangladesh.jpg/500px-Indian_pitta_-_%E0%A6%AC%E0%A6%A8_%E0%A6%B8%E0%A7%81%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A6%B0%E0%A7%80_%28Pitta_brachyura%29%2C_Gazipur%2C_Bangladesh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "gravitational-waves-ligo-hanford",
+  "short": "LIGO Hanford Observatory",
+  "country": "United States",
+  "clue": "Hanford, Washington, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Baffled_LIGO_Scientists.jpg/500px-Baffled_LIGO_Scientists.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "granada-es",
+  "short": "Granada",
+  "country": "Spain",
+  "clue": "Granada, Spain \ud83c\uddea\ud83c\uddf8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Arabs_Baths_of_Alhama_de_Granada_in_Andalusia%2C_Spain.jpg/500px-Arabs_Baths_of_Alhama_de_Granada_in_Andalusia%2C_Spain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "hallstatt",
+  "short": "Hallstatt Village",
+  "country": "Austria",
+  "clue": "Hallstatt Village, Austria \ud83c\udde6\ud83c\uddf9",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Panoramic_view_of_Hallstatt_village_and_shoreline_from_lake.jpg/500px-Panoramic_view_of_Hallstatt_village_and_shoreline_from_lake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "hand-in-the-desert",
+  "short": "Hand of the Desert",
+  "country": "Chile",
+  "clue": "Hand of the Desert, Chile \ud83c\udde8\ud83c\uddf1",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Circumpolar_Mano_del_Desierto.jpg/500px-Circumpolar_Mano_del_Desierto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "harmony-point-nelson",
+  "short": "Harmony Point",
+  "country": "Antarctica",
+  "clue": "Harmony Point, Antarctica \ud83c\udde6\ud83c\uddf6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/The_United_States%2C_the_South_Atlantic%2C_and_Antarctica-_interests_and_challenges_%28IA_theunitedstatess1094534809%29.pdf/page1-500px-The_United_States%2C_the_South_Atlantic%2C_and_Antarctica-_interests_and_challenges_%28IA_theunitedstatess1094534809%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "hobart-australia",
+  "short": "Hobart",
+  "country": "Australia",
+  "clue": "Hobart, Australia \ud83c\udde6\ud83c\uddfa",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Aurora_Australis_%28icebreaker%29_berthed_in_Hobart_under_a_rainbow.jpg/500px-Aurora_Australis_%28icebreaker%29_berthed_in_Hobart_under_a_rainbow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "hoi-an",
+  "short": "Hoi An",
+  "country": "Vietnam",
+  "clue": "Hoi An, Vietnam \ud83c\uddfb\ud83c\uddf3",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Rice_Farmer_in_Hoi_An%2C_Vietnam.jpg/500px-Rice_Farmer_in_Hoi_An%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "higgs-boson-cern-atlas",
+  "short": "CERN ATLAS Experiment",
+  "country": "Switzerland",
+  "clue": "CERN, Geneva, Switzerland \ud83c\udde8\ud83c\udded",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Atlas_Experiment_CERN_%2810%29.JPG/500px-Atlas_Experiment_CERN_%2810%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "hindenburg-lakehurst",
+  "short": "Lakehurst Hindenburg Site",
+  "country": "United States",
+  "clue": "Lakehurst, New Jersey, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/NAVY_MEDICINE_Vol._96%2C_No._1_January-February_2005_%28IA_NavyMedicineVol.96No.1January-february2005%29.pdf/page1-500px-NAVY_MEDICINE_Vol._96%2C_No._1_January-February_2005_%28IA_NavyMedicineVol.96No.1January-february2005%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "honiara-solomon-islands",
+  "short": "Honiara",
+  "country": "Solomon Islands",
+  "clue": "Honiara, Solomon Islands \ud83c\uddf8\ud83c\udde7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Honiara%2C_Solomon_Islands_%282023-04-15-10-31-51_UMBRA-04%29.tiff/lossy-page1-500px-Honiara%2C_Solomon_Islands_%282023-04-15-10-31-51_UMBRA-04%29.tiff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "hangzhou",
+  "short": "Hangzhou",
+  "country": "China",
+  "clue": "Hangzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Hangzhou-location-MAP-in-Zhejiang-Province-in-China.jpg/500px-Hangzhou-location-MAP-in-Zhejiang-Province-in-China.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "honningsvag-norway",
+  "short": "Honningsv\u00e5g",
+  "country": "Norway",
+  "clue": "Honningsv\u00e5g, Norway \ud83c\uddf3\ud83c\uddf4",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/0521_Approach_to_the_harbour_-_Honningsvag%2C_Norway_-_V-P.jpg/500px-0521_Approach_to_the_harbour_-_Honningsvag%2C_Norway_-_V-P.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "huacachina-peru",
+  "short": "Huacachina Oasis",
+  "country": "Peru",
+  "clue": "Huacachina Oasis, Peru \ud83c\uddf5\ud83c\uddea",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Oasis_de_Huacachina%2C_Ica%2C_Per%C3%BA%2C_2015-07-29%2C_DD_18.JPG/500px-Oasis_de_Huacachina%2C_Ica%2C_Per%C3%BA%2C_2015-07-29%2C_DD_18.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "hunga-tonga-2022-eruption",
+  "short": "Hunga Tonga\u2013Hunga Ha'apai",
+  "country": "Tonga",
+  "clue": "Hunga Tonga\u2013Hunga Ha\u02bbapai, Tonga \ud83c\uddf9\ud83c\uddf4",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/ISS-66_Atmospheric_plume_from_2022_Hunga_Tonga_eruption_-_edited.jpg/500px-ISS-66_Atmospheric_plume_from_2022_Hunga_Tonga_eruption_-_edited.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "jericoacoara",
+  "short": "Jericoacoara Dunes",
+  "country": "Brazil",
+  "clue": "Jericoacoara Dunes, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Jericoacoara_%282007%29_02.jpg/500px-Jericoacoara_%282007%29_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+]

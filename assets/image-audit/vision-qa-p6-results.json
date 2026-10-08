@@ -1,0 +1,102 @@
+{
+  "housesteads-hadrians-wall": {
+    "pass": true,
+    "reason": "Real photo of Roman fort ruins (stone walls, gate) at Housesteads along Hadrian's Wall; matches the landmark clue."
+  },
+  "ibb": {
+    "pass": true,
+    "reason": "Real aerial 360 panorama showing a broad city view of Ibb with dense buildings and surrounding mountains; not an isolated monument."
+  },
+  "ibiza-es": {
+    "pass": true,
+    "reason": "Real aerial photo showing Ibiza's Dalt Vila fortress together with the surrounding city and harbor; a genuine city view, not just the monument alone."
+  },
+  "ichikawa": {
+    "pass": false,
+    "reason": "Real photo, but it's just a single municipal office building and street, not a city view of Ichikawa; an isolated building that doesn't convey the city."
+  },
+  "indianapolis-motor-speedway": {
+    "pass": true,
+    "reason": "Real photo of a race underway at Indianapolis Motor Speedway with grandstands and cars; clearly matches the landmark."
+  },
+  "itsukushima-shrine": {
+    "pass": true,
+    "reason": "Real photo of the iconic floating torii gate at Itsukushima Shrine; unmistakably matches the landmark."
+  },
+  "isle-of-skye-gb": {
+    "pass": true,
+    "reason": "Real landscape photo of the Quiraing on the Isle of Skye; clearly matches the place."
+  },
+  "jakarta-indonesia": {
+    "pass": true,
+    "reason": "Real photo showing a genuine skyline/city view of Jakarta with many skyscrapers; appropriate city view."
+  },
+  "kailasa-temple-ellora": {
+    "pass": true,
+    "reason": "Real photo of the rock-cut Kailasa Temple at Ellora Caves; clearly matches the landmark."
+  },
+  "kamakura-daibutsu-jp": {
+    "pass": true,
+    "reason": "Real photo of the Great Buddha (Daibutsu) statue at Kamakura; clearly matches the landmark."
+  },
+  "kandahar-afghanistan": {
+    "pass": false,
+    "reason": "Real photo, but it's an isolated university mosque building, not a view of Kandahar city; doesn't convey the city for a city-level clue."
+  },
+  "karbala": {
+    "pass": true,
+    "reason": "Real aerial photo of the Imam Husayn Shrine with the surrounding city and crowds visible; shows both the landmark and urban context, not an isolated shot."
+  },
+  "karaj-ir": {
+    "pass": true,
+    "reason": "Real photo showing a broad skyline/city view of Karaj against the mountains; appropriate city view."
+  },
+  "karnak-temple-complex": {
+    "pass": true,
+    "reason": "Real photo of columns and an obelisk at Karnak Temple; clearly matches the landmark (not a city clue)."
+  },
+  "kathmandu-nepal": {
+    "pass": true,
+    "reason": "Real aerial photo showing a dense, broad city view of Kathmandu; appropriate city view."
+  },
+  "kennedy-space-center": {
+    "pass": true,
+    "reason": "Real aerial photo of the Vehicle Assembly Building and surrounding complex at Kennedy Space Center; matches the landmark."
+  },
+  "khartoum-north-sd": {
+    "pass": true,
+    "reason": "Real street-level photo showing industrial towers and local buildings/street in Khartoum North; conveys the place reasonably well."
+  },
+  "kilwa-kisiwani-ruins": {
+    "pass": false,
+    "reason": "This is a historical hand-colored engraving/map illustration (16th century 'Quiloa'), not a real photo."
+  },
+  "kinshasa-dr-congo": {
+    "pass": false,
+    "reason": "Real photo, but it's a generic, nondescript street with a single unremarkable building and parked cars; doesn't distinctly convey Kinshasa or offer a real city view."
+  },
+  "kolkata-india": {
+    "pass": false,
+    "reason": "This is a multi-panel composite collage of six separate images stitched together, not a single real photo; unsuitable as one image even though the component photos are real."
+  },
+  "kourou-space-centre": {
+    "pass": true,
+    "reason": "Real photo of the Vega launch complex/tower at the Guiana Space Centre in Kourou; matches the landmark."
+  },
+  "konark-sun-temple": {
+    "pass": true,
+    "reason": "Real photo of the Konark Sun Temple (some scaffolding present but structure clearly recognizable); matches the landmark."
+  },
+  "krakow-poland": {
+    "pass": false,
+    "reason": "Real photo, but it's just an unremarkable 1930s office building on a street corner with no distinguishing Krakow features; an isolated building, not a city view."
+  },
+  "kremlin-moscow": {
+    "pass": true,
+    "reason": "Real photo showing a broad skyline view of the Kremlin walls, towers, and cathedrals along the river; clearly matches the landmark."
+  },
+  "kuala-lumpur-malaysia": {
+    "pass": true,
+    "reason": "Real photo of the iconic Kuala Lumpur railway station building with the city skyline (including the Petronas-area towers) visible behind it; shows both landmark and city context."
+  }
+}

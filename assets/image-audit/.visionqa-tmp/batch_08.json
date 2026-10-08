@@ -1,0 +1,184 @@
+[
+  {
+    "id": "niagara-falls-horseshoe",
+    "short": "Horseshoe Falls",
+    "country": "Canada",
+    "clue": "Horseshoe Falls, Canada \ud83c\udde8\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Niagara_Falls_%28Horseshoe_Falls%29.jpg/500px-Niagara_Falls_%28Horseshoe_Falls%29.jpg"
+  },
+  {
+    "id": "niagara-falls",
+    "short": "Niagara Falls",
+    "country": "United States",
+    "clue": "Niagara Falls, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Niagara_Falls_001.JPG/500px-Niagara_Falls_001.JPG"
+  },
+  {
+    "id": "novyi-buh",
+    "short": "Novyi Buh",
+    "country": "Ukraine",
+    "clue": "Novyi Buh, Ukraine \ud83c\uddfa\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/%D0%9D%D0%BE%D0%B2%D0%B8%D0%B9_%D0%91%D1%83%D0%B3_%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F.JPG/500px-%D0%9D%D0%BE%D0%B2%D0%B8%D0%B9_%D0%91%D1%83%D0%B3_%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F.JPG"
+  },
+  {
+    "id": "nukunonu-village-point",
+    "short": "Nukunonu Village",
+    "country": "New Zealand",
+    "clue": "Nukunonu Village, New Zealand \ud83c\uddf3\ud83c\uddff",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Tokelau_Nukuono_Luana_Liki_Hotel_20070716.jpg/500px-Tokelau_Nukuono_Luana_Liki_Hotel_20070716.jpg"
+  },
+  {
+    "id": "old-trafford",
+    "short": "Old Trafford",
+    "country": "England",
+    "clue": "Old Trafford, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Old_Traford.jpg/500px-Old_Traford.jpg"
+  },
+  {
+    "id": "one-world-trade-center-us",
+    "short": "One World Trade Center",
+    "country": "United States",
+    "clue": "One World Trade Center, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/One_World_Trade_Center%2C_New_York_%2833224081040%29.jpg/500px-One_World_Trade_Center%2C_New_York_%2833224081040%29.jpg"
+  },
+  {
+    "id": "oaxaca-mexico",
+    "short": "Oaxaca",
+    "country": "Mexico",
+    "clue": "Oaxaca, Mexico \ud83c\uddf2\ud83c\uddfd",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Oaxaca_centro.jpg/500px-Oaxaca_centro.jpg"
+  },
+  {
+    "id": "osaka-japan",
+    "short": "Osaka",
+    "country": "Japan",
+    "clue": "Osaka, Japan \ud83c\uddef\ud83c\uddf5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Osaka_montage.jpg/500px-Osaka_montage.jpg"
+  },
+  {
+    "id": "oslo-norway",
+    "short": "Oslo",
+    "country": "Norway",
+    "clue": "Oslo, Norway \ud83c\uddf3\ud83c\uddf4",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/View_from_siloen.jpg/500px-View_from_siloen.jpg"
+  },
+  {
+    "id": "ostersund",
+    "short": "\u00d6stersund",
+    "country": "Sweden",
+    "clue": "\u00d6stersund, Sweden \ud83c\uddf8\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/%C3%96stersund_from_Fr%C3%B6s%C3%B6n.jpg/500px-%C3%96stersund_from_Fr%C3%B6s%C3%B6n.jpg"
+  },
+  {
+    "id": "ouagadougou-burkina-faso",
+    "short": "Ouagadougou",
+    "country": "Burkina Faso",
+    "clue": "Ouagadougou, Burkina Faso \ud83c\udde7\ud83c\uddeb",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Gare_Ouagadougou_2013.jpg/500px-Gare_Ouagadougou_2013.jpg"
+  },
+  {
+    "id": "palace-of-culture-warsaw",
+    "short": "Palace of Culture",
+    "country": "Poland",
+    "clue": "Palace of Culture, Poland \ud83c\uddf5\ud83c\uddf1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Pa%C5%82ac_Kultury_i_Nauki_2019.jpg/500px-Pa%C5%82ac_Kultury_i_Nauki_2019.jpg"
+  },
+  {
+    "id": "palermo-cathedral-d34-59",
+    "short": "Palermo Cathedral",
+    "country": "Italy",
+    "clue": "Palermo Cathedral, Italy \ud83c\uddee\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Palermo_Cathedral_BW_2025-04-29_11-57-44.jpg/500px-Palermo_Cathedral_BW_2025-04-29_11-57-44.jpg"
+  },
+  {
+    "id": "parliament-hill-ottawa",
+    "short": "Parliament Hill",
+    "country": "Canada",
+    "clue": "Parliament Hill, Canada \ud83c\udde8\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Parliament_Hill%2C_Ottawa.jpg/500px-Parliament_Hill%2C_Ottawa.jpg"
+  },
+  {
+    "id": "park-g\u00fcell-d34-68",
+    "short": "Park G\u00fcell",
+    "country": "Spain",
+    "clue": "Park G\u00fcell, Spain \ud83c\uddea\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Casa-Museo_Gaud%C3%AD.jpg/500px-Casa-Museo_Gaud%C3%AD.jpg"
+  },
+  {
+    "id": "pentagon-us",
+    "short": "The Pentagon",
+    "country": "United States",
+    "clue": "The Pentagon, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/The_Pentagon_January_2008.jpg/500px-The_Pentagon_January_2008.jpg"
+  },
+  {
+    "id": "pearl-harbor-uss-arizona",
+    "short": "USS Arizona",
+    "country": "United States",
+    "clue": "USS Arizona, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/USS_Arizona_Memorial_%28aerial_view%29.jpg/500px-USS_Arizona_Memorial_%28aerial_view%29.jpg"
+  },
+  {
+    "id": "perth-australia",
+    "short": "Perth",
+    "country": "Australia",
+    "clue": "Perth, Australia \ud83c\udde6\ud83c\uddfa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Elizabeth_Quay_February_2016_%28cropped%29.jpg/500px-Elizabeth_Quay_February_2016_%28cropped%29.jpg"
+  },
+  {
+    "id": "piazza-del-campo-d34-51",
+    "short": "Piazza del Campo",
+    "country": "Italy",
+    "clue": "Piazza del Campo, Italy \ud83c\uddee\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Il_campo_view_from_torre.jpg/500px-Il_campo_view_from_torre.jpg"
+  },
+  {
+    "id": "petersfield",
+    "short": "Petersfield",
+    "country": "England",
+    "clue": "Petersfield, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Mile_plaque%2C_Petersfield_-_geograph.org.uk_-_1345543.jpg/500px-Mile_plaque%2C_Petersfield_-_geograph.org.uk_-_1345543.jpg"
+  },
+  {
+    "id": "phoenix-usa",
+    "short": "Phoenix",
+    "country": "United States",
+    "clue": "Phoenix, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Phoenix%2C_Arizona.JPG/500px-Phoenix%2C_Arizona.JPG"
+  },
+  {
+    "id": "phuket-thailand",
+    "short": "Phuket",
+    "country": "Thailand",
+    "clue": "Phuket, Thailand \ud83c\uddf9\ud83c\udded",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_Thai_Hua.JPG/500px-%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_Thai_Hua.JPG"
+  },
+  {
+    "id": "philadelphia-usa",
+    "short": "Philadelphia",
+    "country": "United States",
+    "clue": "Philadelphia, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Philadelphia_skyline_20240528_%28cropped%29.jpg/500px-Philadelphia_skyline_20240528_%28cropped%29.jpg"
+  },
+  {
+    "id": "pingyao-ancient-city",
+    "short": "Pingyao Ancient City",
+    "country": "China",
+    "clue": "Pingyao Ancient City, China \ud83c\udde8\ud83c\uddf3",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Pingyao_40.JPG/500px-Pingyao_40.JPG"
+  },
+  {
+    "id": "pisa-cathedral",
+    "short": "Pisa Cathedral",
+    "country": "Italy",
+    "clue": "Pisa Cathedral, Italy \ud83c\uddee\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Duomo_of_the_Archdiocese_of_Pisa.jpeg/500px-Duomo_of_the_Archdiocese_of_Pisa.jpeg"
+  },
+  {
+    "id": "pindi-bhattian",
+    "short": "Pindi Bhattian",
+    "country": "Pakistan",
+    "clue": "Pindi Bhattian, Pakistan \ud83c\uddf5\ud83c\uddf0",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/M2-2.JPG/500px-M2-2.JPG"
+  }
+]

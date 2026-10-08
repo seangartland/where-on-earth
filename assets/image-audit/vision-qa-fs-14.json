@@ -1,0 +1,202 @@
+[
+ {
+  "id": "shenyang-cn",
+  "short": "Shenyang",
+  "country": "China",
+  "clue": "Shenyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Skyline_of_Shenyang_3.jpg/500px-Skyline_of_Shenyang_3.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "shijiazhuang-cn",
+  "short": "Shijiazhuang",
+  "country": "China",
+  "clue": "Shijiazhuang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/%E7%9F%B3%E5%AE%B6%E5%BA%84%E8%A7%A3%E6%94%BE%E5%B9%BF%E5%9C%BA.jpg/500px-%E7%9F%B3%E5%AE%B6%E5%BA%84%E8%A7%A3%E6%94%BE%E5%B9%BF%E5%9C%BA.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "shymkent",
+  "short": "Shymkent",
+  "country": "Kazakhstan",
+  "clue": "Shymkent, Kazakhstan \ud83c\uddf0\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Shymkent_independence_square_in_2023.jpg/500px-Shymkent_independence_square_in_2023.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "shiyan-cn",
+  "short": "Shiyan",
+  "country": "China",
+  "clue": "Shiyan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/DFYZ_view_backhill.jpg/500px-DFYZ_view_backhill.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "shubra-al-khaymah-eg",
+  "short": "Shubr\u0101 al Khaymah",
+  "country": "Egypt",
+  "clue": "Shubr\u0101 al Khaymah, Egypt \ud83c\uddea\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/3-D_Building_on_Google_Map_-_panoramio.jpg/500px-3-D_Building_on_Google_Map_-_panoramio.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sialkot",
+  "short": "Sialkot",
+  "country": "Pakistan",
+  "clue": "Sialkot, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Sialkot_Boulevard.jpg/500px-Sialkot_Boulevard.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "soacha-co",
+  "short": "Soacha",
+  "country": "Colombia",
+  "clue": "Soacha, Colombia \ud83c\udde8\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Soacha_2024_4.jpg/500px-Soacha_2024_4.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sokoto-ng",
+  "short": "Sokoto",
+  "country": "Nigeria",
+  "clue": "Sokoto, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/View_of_Sokoto_%281890%29.jpg/500px-View_of_Sokoto_%281890%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "songon",
+  "short": "Songon",
+  "country": "C\u00f4te d'Ivoire",
+  "clue": "Songon, C\u00f4te d'Ivoire \ud83c\udde8\ud83c\uddee",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bl%C3%A9ssou%C3%A9_Agban_d%27Adiapot%C3%A9_%28Songon%29.JPG/500px-Bl%C3%A9ssou%C3%A9_Agban_d%27Adiapot%C3%A9_%28Songon%29.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "songjiang-cn",
+  "short": "Songjiang",
+  "country": "China",
+  "clue": "Songjiang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Shanghai_Songjiang_IMG_8472_Shijiatang_and_Sangjiatang_areas.jpg/500px-Shanghai_Songjiang_IMG_8472_Shijiatang_and_Sangjiatang_areas.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "srinagar",
+  "short": "Srinagar",
+  "country": "India",
+  "clue": "Srinagar, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Srinagar_pano.jpg/500px-Srinagar_pano.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "south-tangerang-id",
+  "short": "South Tangerang",
+  "country": "Indonesia",
+  "clue": "South Tangerang, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Balai_Kota_Tangsel.jpg/500px-Balai_Kota_Tangsel.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "soweto-za",
+  "short": "Soweto",
+  "country": "South Africa",
+  "clue": "Soweto, South Africa \ud83c\uddff\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Soweto-003.jpg/500px-Soweto-003.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "stuttgart-de",
+  "short": "Stuttgart",
+  "country": "Germany",
+  "clue": "Stuttgart, Germany \ud83c\udde9\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Neues_Schloss_Schlossplatzspringbrunnen_Jubil%C3%A4umss%C3%A4ule_Schlossplatz_Stuttgart_2015_01.jpg/500px-Neues_Schloss_Schlossplatzspringbrunnen_Jubil%C3%A4umss%C3%A4ule_Schlossplatz_Stuttgart_2015_01.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "suez-eg",
+  "short": "Suez",
+  "country": "Egypt",
+  "clue": "Suez, Egypt \ud83c\uddea\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/US_Navy_031013-N-6187M-001_The_nuclear_powered_aircraft_carrier_USS_Enterprise_%28CVN_65%29_passes_an_Islamic_mosque_on_the_western_bank_of_the_Suez_Canal_while_transiting_to_the_Red_Sea.jpg/500px-US_Navy_031013-N-6187M-001_The_nuclear_powered_aircraft_carrier_USS_Enterprise_%28CVN_65%29_passes_an_Islamic_mosque_on_the_western_bank_of_the_Suez_Canal_while_transiting_to_the_Red_Sea.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "surat-in",
+  "short": "Surat",
+  "country": "India",
+  "clue": "Surat, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Surat_at_night.JPG/500px-Surat_at_night.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "surabaya-id",
+  "short": "Surabaya",
+  "country": "Indonesia",
+  "clue": "Surabaya, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Surabaya_skyline.jpg/500px-Surabaya_skyline.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sunnyside",
+  "short": "Sunnyside",
+  "country": "United States",
+  "clue": "Sunnyside, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/SunnysideArch.JPG/500px-SunnysideArch.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sulaymaniyah",
+  "short": "Sulaymaniyah",
+  "country": "Iraq",
+  "clue": "Sulaymaniyah, Iraq \ud83c\uddee\ud83c\uddf6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/The_Sulaymaniyah_Museum.JPG/500px-The_Sulaymaniyah_Museum.JPG",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "suzhou-cn",
+  "short": "Suzhou",
+  "country": "China",
+  "clue": "Suzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/%E4%B9%BE%E5%B1%B1_-_panoramio.jpg/500px-%E4%B9%BE%E5%B1%B1_-_panoramio.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "suqian-cn",
+  "short": "Suqian",
+  "country": "China",
+  "clue": "Suqian, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shuyang_City_View_01.JPG/500px-Shuyang_City_View_01.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "surrey-ca",
+  "short": "Surrey",
+  "country": "Canada",
+  "clue": "Surrey, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Surrey_Central_%282025%29.jpg/500px-Surrey_Central_%282025%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "taian-cn",
+  "short": "Tai\u2019an",
+  "country": "China",
+  "clue": "Tai\u2019an, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/20200127_%E6%B3%B0%E5%AE%89%E5%B1%B1%E8%84%9A%E4%B8%8B.jpg/500px-20200127_%E6%B3%B0%E5%AE%89%E5%B1%B1%E8%84%9A%E4%B8%8B.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "taichung-tw",
+  "short": "Taichung",
+  "country": "Taiwan",
+  "clue": "Taichung, Taiwan \ud83c\uddf9\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Taichung_montage.PNG/500px-Taichung_montage.PNG",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "tabas",
+  "short": "Tabas",
+  "country": "Iran",
+  "clue": "Tabas, Iran \ud83c\uddee\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tabas120.jpg/500px-Tabas120.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

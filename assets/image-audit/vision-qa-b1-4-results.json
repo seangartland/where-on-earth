@@ -1,0 +1,102 @@
+{
+  "chennai-in": {
+    "pass": false,
+    "reason": "Real photo of Chennai Central railway station, but it's a single building close-up with street crowd in front, not a city view — isolated landmark."
+  },
+  "chiba": {
+    "pass": true,
+    "reason": "Real photo showing Chiba's Keiyo petrochemical complex and urban sprawl with Mt. Fuji behind — genuine city/industrial landscape view."
+  },
+  "chicago": {
+    "pass": true,
+    "reason": "Real photo, classic Chicago skyline across Lake Michigan — clearly shows the city."
+  },
+  "chihuahua-mx": {
+    "pass": false,
+    "reason": "Wikipedia montage/collage of 7 separate photos (cathedral, column, buildings, skyline panel), not a single real photo or clean city view."
+  },
+  "chisinau-md": {
+    "pass": false,
+    "reason": "Real photo but shows only the Chisinau train station facade close-up, an isolated building, not a city view."
+  },
+  "ciudad-apodaca-mx": {
+    "pass": false,
+    "reason": "Low-quality phone photo of a generic small commercial building (\"Aqua\") behind a fence with a rainbow — doesn't recognizably show Ciudad Apodaca, too generic/could be anywhere."
+  },
+  "ciudad-general-escobedo-mx": {
+    "pass": false,
+    "reason": "Real photo but shows only the municipal palace building with palm trees, an isolated building with no surrounding city context."
+  },
+  "ciudad-guayana-ve": {
+    "pass": true,
+    "reason": "Real aerial photo showing the city spread along the river with buildings and green areas — genuine city view."
+  },
+  "cochabamba-bo": {
+    "pass": true,
+    "reason": "Real panoramic aerial photo of Cochabamba filling the valley beneath mountains — clear city view."
+  },
+  "coimbatore-in": {
+    "pass": true,
+    "reason": "Real elevated photo showing broad city sprawl in the background; temple structure in foreground is incidental framing, not the main subject."
+  },
+  "columbus": {
+    "pass": false,
+    "reason": "Wikipedia montage/collage of multiple separate photos (skyline, capitol, university, street, arena, riverboat), not a single real photo."
+  },
+  "coquitlam": {
+    "pass": true,
+    "reason": "Real photo of Coquitlam's high-rise cluster against the mountain backdrop — shows the city."
+  },
+  "cordoba-ar": {
+    "pass": false,
+    "reason": "Wikipedia montage/collage of multiple photos, includes non-photo elements (a university logo graphic) — not a single real photo or city view."
+  },
+  "cucuta-co": {
+    "pass": true,
+    "reason": "Real elevated photo of Cucuta's dense city buildings with mountains behind — clear city view."
+  },
+  "da-nang-vn": {
+    "pass": false,
+    "reason": "Real photo but just a generic hospital building and street with cars — doesn't recognizably convey Da Nang, could be any city."
+  },
+  "daejeon-kr": {
+    "pass": true,
+    "reason": "Real aerial photo of Daejeon's skyline emerging from cloud/mist — clear, distinctive city view."
+  },
+  "dakar": {
+    "pass": true,
+    "reason": "Real aerial photo of Dakar's downtown square, streets, harbor and buildings — genuine city view."
+  },
+  "daqing-cn": {
+    "pass": true,
+    "reason": "Real aerial cityscape photo showing Daqing's skyline and urban area — clear city view."
+  },
+  "datong": {
+    "pass": false,
+    "reason": "Real photo but dominated by a large formal plaza/monument complex in the foreground; city skyline is only a hazy sliver in the background — reads as an isolated landmark, not a city view."
+  },
+  "davao-ph": {
+    "pass": false,
+    "reason": "Real photo but just a generic muddy river with palm trees/jungle — no city features visible at all, doesn't show Davao."
+  },
+  "dazhou-cn": {
+    "pass": false,
+    "reason": "Real photo but just an empty train platform at night — no skyline or city features, could be any station."
+  },
+  "delhi": {
+    "pass": false,
+    "reason": "Real photo of the Red Fort, a famous single monument shot close-up — not a city view of Delhi."
+  },
+  "dera-ghazi-khan": {
+    "pass": false,
+    "reason": "Real photo but a generic single institutional building with empty lawn — isolated building with no recognizable city context."
+  },
+  "dhaka": {
+    "pass": true,
+    "reason": "Real photo, dense skyline panorama of Dhaka — clear city view."
+  },
+  "diyarbakr-tr": {
+    "pass": false,
+    "reason": "Real photo but shows only the Diyarbakir train station building and a parking lot — isolated building, no city view."
+  }
+}

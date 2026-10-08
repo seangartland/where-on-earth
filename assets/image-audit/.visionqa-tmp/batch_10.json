@@ -1,0 +1,184 @@
+[
+  {
+    "id": "seoul-south-korea",
+    "short": "Seoul",
+    "country": "South Korea",
+    "clue": "Seoul, South Korea \ud83c\uddf0\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/%EB%8D%95%EC%88%98%EA%B6%81%EC%9D%98_%EA%B0%80%EC%9D%84.jpg/500px-%EB%8D%95%EC%88%98%EA%B6%81%EC%9D%98_%EA%B0%80%EC%9D%84.jpg"
+  },
+  {
+    "id": "seville-spain",
+    "short": "Seville",
+    "country": "Spain",
+    "clue": "Seville, Spain \ud83c\uddea\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sevilla_Luft_120308.JPG/500px-Sevilla_Luft_120308.JPG"
+  },
+  {
+    "id": "sharjah-ae",
+    "short": "Sharjah",
+    "country": "United Arab Emirates",
+    "clue": "Sharjah, United Arab Emirates \ud83c\udde6\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Sharjah_city_skyline_in_2015.jpg/500px-Sharjah_city_skyline_in_2015.jpg"
+  },
+  {
+    "id": "sheffield-gb",
+    "short": "Sheffield",
+    "country": "England",
+    "clue": "Sheffield, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sheffield_City.jpg/500px-Sheffield_City.jpg"
+  },
+  {
+    "id": "sheikh-zayed-mosque",
+    "short": "Sheikh Zayed Mosque",
+    "country": "United Arab Emirates",
+    "clue": "Sheikh Zayed Mosque, United Arab Emirates \ud83c\udde6\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Sheikh_Zayed_Mosque_Silhouette.jpg/500px-Sheikh_Zayed_Mosque_Silhouette.jpg"
+  },
+  {
+    "id": "shuri-castle",
+    "short": "Shuri Castle",
+    "country": "Japan",
+    "clue": "Shuri Castle, Okinawa, Japan \ud83c\uddef\ud83c\uddf5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Naha_Shuri_Castle51s3s4200.jpg/500px-Naha_Shuri_Castle51s3s4200.jpg"
+  },
+  {
+    "id": "shunan",
+    "short": "Sh\u016bnan",
+    "country": "Japan",
+    "clue": "Sh\u016bnan, Japan \ud83c\uddef\ud83c\uddf5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/View_of_tokuyama.jpg/500px-View_of_tokuyama.jpg"
+  },
+  {
+    "id": "siem-reap-cambodia",
+    "short": "Siem Reap",
+    "country": "Cambodia",
+    "clue": "Siem Reap, Cambodia \ud83c\uddf0\ud83c\udded",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Street_scene%2C_Siem_Reap%2C_2018_%2812%29.jpg/500px-Street_scene%2C_Siem_Reap%2C_2018_%2812%29.jpg"
+  },
+  {
+    "id": "silkeborg",
+    "short": "Silkeborg",
+    "country": "Denmark",
+    "clue": "Silkeborg, Denmark \ud83c\udde9\ud83c\uddf0",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Silkeborg_Kirke2.JPG/500px-Silkeborg_Kirke2.JPG"
+  },
+  {
+    "id": "silute",
+    "short": "Silute",
+    "country": "Lithuania",
+    "clue": "Silute, Lithuania \ud83c\uddf1\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/%C5%A0ilut%C4%97s_evangelik%C5%B3_liuteron%C5%B3_ba%C5%BEny%C4%8Dia_2010.jpg/500px-%C5%A0ilut%C4%97s_evangelik%C5%B3_liuteron%C5%B3_ba%C5%BEny%C4%8Dia_2010.jpg"
+  },
+  {
+    "id": "simien-mountains",
+    "short": "Simien Mountains National Park",
+    "country": "Ethiopia",
+    "clue": "Simien Mountains National Park, Ethiopia \ud83c\uddea\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Simiensk%C3%A9_hory.jpg/500px-Simiensk%C3%A9_hory.jpg"
+  },
+  {
+    "id": "sigiriya",
+    "short": "Sigiriya",
+    "country": "Sri Lanka",
+    "clue": "Sigiriya, Sri Lanka \ud83c\uddf1\ud83c\uddf0",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sigiriya_Apprach.JPG/500px-Sigiriya_Apprach.JPG"
+  },
+  {
+    "id": "socotra-island",
+    "short": "Socotra Island",
+    "country": "Yemen",
+    "clue": "Socotra, Yemen \ud83c\uddfe\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D1%96_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0_%D0%B7_%D0%90%D1%84%D1%80%D0%B8%D0%BA%D0%B8.jpg/500px-%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D1%96_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0_%D0%B7_%D0%90%D1%84%D1%80%D0%B8%D0%BA%D0%B8.jpg"
+  },
+  {
+    "id": "sossusvlei-dead-vlei",
+    "short": "Deadvlei",
+    "country": "Namibia",
+    "clue": "Deadvlei, Namibia \ud83c\uddf3\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Parched-earth-dead-vlei.jpg/500px-Parched-earth-dead-vlei.jpg"
+  },
+  {
+    "id": "star-wars-lars-homestead-interior",
+    "short": "Hotel Sidi Driss",
+    "country": "Tunisia",
+    "clue": "Matmata, Tunisia \ud83c\uddf9\ud83c\uddf3",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/H%C3%B4tel%2C_Sidi_Driss%2C_Star_Wars%2C_mars_2022%2C_DSC_2269.jpg/500px-H%C3%B4tel%2C_Sidi_Driss%2C_Star_Wars%2C_mars_2022%2C_DSC_2269.jpg"
+  },
+  {
+    "id": "st-marks-square-venice",
+    "short": "St. Mark's Square",
+    "country": "Italy",
+    "clue": "St. Mark's Square, Italy \ud83c\uddee\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Piazza_San_Marco_%28Venice%29_at_night-msu-2021-6449-.jpg/500px-Piazza_San_Marco_%28Venice%29_at_night-msu-2021-6449-.jpg"
+  },
+  {
+    "id": "statue-of-liberty",
+    "short": "Statue of Liberty",
+    "country": "United States",
+    "clue": "Statue of Liberty, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Statue_of_Liberty_and_a_sightseeing_boat%2C_Liberty_Island%2C_New_York.jpg/500px-Statue_of_Liberty_and_a_sightseeing_boat%2C_Liberty_Island%2C_New_York.jpg"
+  },
+  {
+    "id": "stockholm-sweden",
+    "short": "Stockholm",
+    "country": "Sweden",
+    "clue": "Stockholm, Sweden \ud83c\uddf8\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Stockholm_gamlastan_etc.jpg/500px-Stockholm_gamlastan_etc.jpg"
+  },
+  {
+    "id": "strasbourg-france",
+    "short": "Strasbourg",
+    "country": "France",
+    "clue": "Strasbourg, France \ud83c\uddeb\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Strasburg.jpg/500px-Strasburg.jpg"
+  },
+  {
+    "id": "sultan-ahmed-mosque",
+    "short": "Blue Mosque",
+    "country": "Turkey",
+    "clue": "Blue Mosque, Turkey \ud83c\uddf9\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul%2C_Turkey_002.jpg/500px-Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul%2C_Turkey_002.jpg"
+  },
+  {
+    "id": "sydney-opera-house",
+    "short": "Sydney Opera House",
+    "country": "Australia",
+    "clue": "Sydney Opera House, Australia \ud83c\udde6\ud83c\uddfa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/00_1375_Sydney_Opera_House_%28Australia%29.jpg/500px-00_1375_Sydney_Opera_House_%28Australia%29.jpg"
+  },
+  {
+    "id": "tampa-usa",
+    "short": "Tampa",
+    "country": "United States",
+    "clue": "Tampa, Florida \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/City_of_Tampa_montage.jpg/500px-City_of_Tampa_montage.jpg"
+  },
+  {
+    "id": "the-hague-nl",
+    "short": "The Hague",
+    "country": "Netherlands",
+    "clue": "The Hague, Netherlands \ud83c\uddf3\ud83c\uddf1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Den_Haag_Centrum_nieuwe_architectuur.jpg/500px-Den_Haag_Centrum_nieuwe_architectuur.jpg"
+  },
+  {
+    "id": "thermopylae",
+    "short": "Thermopylae",
+    "country": "Greece",
+    "clue": "Thermopylae, Greece \ud83c\uddec\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Thermopylae_04.jpg/500px-Thermopylae_04.jpg"
+  },
+  {
+    "id": "tehran",
+    "short": "Tehran",
+    "country": "Iran",
+    "clue": "Tehran, Iran \ud83c\uddee\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Shirpala%2C_Teher%C3%A1n%2C_Ir%C3%A1n%2C_2016-09-18%2C_DD_36.jpg/500px-Shirpala%2C_Teher%C3%A1n%2C_Ir%C3%A1n%2C_2016-09-18%2C_DD_36.jpg"
+  },
+  {
+    "id": "thingvellir",
+    "short": "Thingvellir",
+    "country": "Iceland",
+    "clue": "Thingvellir, Iceland \ud83c\uddee\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Thingvellir.jpg/500px-Thingvellir.jpg"
+  }
+]

@@ -1,0 +1,177 @@
+[
+ {
+  "id": "brooklyn-us",
+  "short": "Brooklyn",
+  "country": "United States",
+  "clue": "Brooklyn, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bedstuybrownstone1.jpg/500px-Bedstuybrownstone1.jpg"
+ },
+ {
+  "id": "bujumbura-bi",
+  "short": "Bujumbura",
+  "country": "Burundi",
+  "clue": "Bujumbura, Burundi \ud83c\udde7\ud83c\uddee",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/BUJUMBURA_MAIRIE_3.jpg/500px-BUJUMBURA_MAIRIE_3.jpg"
+ },
+ {
+  "id": "bukavu-cd",
+  "short": "Bukavu",
+  "country": "DR Congo",
+  "clue": "Bukavu, DR Congo \ud83c\udde8\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cathedrale_Bukavu.jpg/500px-Cathedrale_Bukavu.jpg"
+ },
+ {
+  "id": "bursa-tr",
+  "short": "Bursa",
+  "country": "Turkey",
+  "clue": "Bursa, Turkey \ud83c\uddf9\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/City_of_Bursa.jpg/500px-City_of_Bursa.jpg"
+ },
+ {
+  "id": "busan",
+  "short": "Busan",
+  "country": "South Korea",
+  "clue": "Busan, South Korea \ud83c\uddf0\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Busan_Station_3.JPG/500px-Busan_Station_3.JPG"
+ },
+ {
+  "id": "cabiao",
+  "short": "Cabiao",
+  "country": "Philippines",
+  "clue": "Cabiao, Philippines \ud83c\uddf5\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Cabiao36jf.JPG/500px-Cabiao36jf.JPG"
+ },
+ {
+  "id": "cagliari",
+  "short": "Cagliari",
+  "country": "Italy",
+  "clue": "Cagliari, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Cagliari_Regierungspalast.jpg/500px-Cagliari_Regierungspalast.jpg"
+ },
+ {
+  "id": "cairo",
+  "short": "Cairo",
+  "country": "Egypt",
+  "clue": "Cairo, Egypt \ud83c\uddea\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cairo_Skyline_(2020).jpg/500px-Cairo_Skyline_(2020).jpg"
+ },
+ {
+  "id": "caloocan-ph",
+  "short": "Caloocan",
+  "country": "Philippines",
+  "clue": "Caloocan, Philippines \ud83c\uddf5\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Aacaloocanjf.JPG/500px-Aacaloocanjf.JPG"
+ },
+ {
+  "id": "camama-ao",
+  "short": "Camama",
+  "country": "Angola",
+  "clue": "Camama, Angola \ud83c\udde6\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/New_campus_(6177681401)_(cropped).jpg/500px-New_campus_(6177681401)_(cropped).jpg"
+ },
+ {
+  "id": "campinas-br",
+  "short": "Campinas",
+  "country": "Brazil",
+  "clue": "Campinas, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Campinas_Poster.jpg/500px-Campinas_Poster.jpg"
+ },
+ {
+  "id": "campos-dos-goytacazes-br",
+  "short": "Campos dos Goytacazes",
+  "country": "Brazil",
+  "clue": "Campos dos Goytacazes, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Campos_RJ.jpg/500px-Campos_RJ.jpg"
+ },
+ {
+  "id": "caracas-ve",
+  "short": "Caracas",
+  "country": "Venezuela",
+  "clue": "Caracas, Venezuela \ud83c\uddfb\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Caracas_desde_el_%C3%A1vila.jpg/500px-Caracas_desde_el_%C3%A1vila.jpg"
+ },
+ {
+  "id": "carrefour-ht",
+  "short": "Carrefour",
+  "country": "Haiti",
+  "clue": "Carrefour, Haiti \ud83c\udded\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Panoramic_View_of_Carrefour%2C_Haiti.jpg/500px-Panoramic_View_of_Carrefour%2C_Haiti.jpg"
+ },
+ {
+  "id": "cartagena",
+  "short": "Cartagena",
+  "country": "Colombia",
+  "clue": "Cartagena, Colombia \ud83c\udde8\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/View_of_Cartagena_from_Convento_de_Santa_Cruz_de_la_Popa_01.jpg/500px-View_of_Cartagena_from_Convento_de_Santa_Cruz_de_la_Popa_01.jpg"
+ },
+ {
+  "id": "casablanca",
+  "short": "Casablanca",
+  "country": "Morocco",
+  "clue": "Casablanca, Morocco \ud83c\uddf2\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Casablancanasa.jpg/500px-Casablancanasa.jpg"
+ },
+ {
+  "id": "cerritos",
+  "short": "Cerritos",
+  "country": "United States",
+  "clue": "Cerritos, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Cerritos_Library_1.jpg/500px-Cerritos_Library_1.jpg"
+ },
+ {
+  "id": "ceska-trebova",
+  "short": "\u010cesk\u00e1 T\u0159ebov\u00e1",
+  "country": "Czech Republic",
+  "clue": "\u010cesk\u00e1 T\u0159ebov\u00e1, Czech Republic \ud83c\udde8\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Kate%C5%99ina.jpg/500px-Kate%C5%99ina.jpg"
+ },
+ {
+  "id": "chachoengsao",
+  "short": "Chachoengsao",
+  "country": "Thailand",
+  "clue": "Chachoengsao, Thailand \ud83c\uddf9\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/%E0%B8%AA%E0%B8%96%E0%B8%B9%E0%B8%9B%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%95%E0%B8%B2%E0%B8%81%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%82%E0%B8%88%E0%B9%89%E0%B9%82%E0%B8%A5%E0%B9%89_King_Taksin_Pagoda_-_panoramio_(1).jpg/500px-%E0%B8%AA%E0%B8%96%E0%B8%B9%E0%B8%9B%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%95%E0%B8%B2%E0%B8%81%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%82%E0%B8%88%E0%B9%89%E0%B9%82%E0%B8%A5%E0%B9%89_King_Taksin_Pagoda_-_panoramio_(1).jpg"
+ },
+ {
+  "id": "chahar-dangeh",
+  "short": "Chah\u0101r Dangeh",
+  "country": "Iran",
+  "clue": "Chah\u0101r Dangeh, Iran \ud83c\uddee\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%D8%AE%DB%8C%D8%A7%D8%A8%D8%A7%D9%86_%D8%A7%D9%81%D8%B4%DB%8C%D9%86_-_panoramio_(1).jpg/500px-%D8%AE%DB%8C%D8%A7%D8%A8%D8%A7%D9%86_%D8%A7%D9%81%D8%B4%DB%8C%D9%86_-_panoramio_(1).jpg"
+ },
+ {
+  "id": "chaozhou-cn",
+  "short": "Chaozhou",
+  "country": "China",
+  "clue": "Chaozhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%E6%BD%AE%E5%B7%9E%E5%B8%82%E6%BD%AE%E6%9E%AB%E8%B7%AF%E5%92%8C%E6%BD%AE%E5%B7%9E%E5%A4%A7%E9%81%93%E4%BA%A4%E7%95%8C%E5%A4%84%E7%9A%84%E4%B8%89%E5%B9%A2%E5%A4%A7%E6%A5%BC.jpeg/500px-%E6%BD%AE%E5%B7%9E%E5%B8%82%E6%BD%AE%E6%9E%AB%E8%B7%AF%E5%92%8C%E6%BD%AE%E5%B7%9E%E5%A4%A7%E9%81%93%E4%BA%A4%E7%95%8C%E5%A4%84%E7%9A%84%E4%B8%89%E5%B9%A2%E5%A4%A7%E6%A5%BC.jpeg"
+ },
+ {
+  "id": "charlotte",
+  "short": "Charlotte",
+  "country": "United States",
+  "clue": "Charlotte, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Charlotte_collage.jpg/500px-Charlotte_collage.jpg"
+ },
+ {
+  "id": "cheboksary",
+  "short": "Cheboksary",
+  "country": "Russia",
+  "clue": "Cheboksary, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cheboksary._View_of_downtown.jpg/500px-Cheboksary._View_of_downtown.jpg"
+ },
+ {
+  "id": "chelyabinsk-ru",
+  "short": "Chelyabinsk",
+  "country": "Russia",
+  "clue": "Chelyabinsk, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%D0%A5%D1%80%D0%B5%D0%B1%D0%B5%D1%82_%D0%97%D1%8E%D1%80%D0%B0%D1%82%D0%BA%D1%83%D0%BB%D1%8C.jpg/500px-%D0%A5%D1%80%D0%B5%D0%B1%D0%B5%D1%82_%D0%97%D1%8E%D1%80%D0%B0%D1%82%D0%BA%D1%83%D0%BB%D1%8C.jpg"
+ },
+ {
+  "id": "chengdu-cn",
+  "short": "Chengdu",
+  "country": "China",
+  "clue": "Chengdu, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%E9%9B%AA%E5%B1%B1%E4%B8%8B%E7%9A%84%E6%88%90%E9%83%BD%E5%B8%82%E5%A4%A9%E9%99%85%E7%BA%BF_Chengdu_skyline_with_snow_capped_mountains.jpg/500px-%E9%9B%AA%E5%B1%B1%E4%B8%8B%E7%9A%84%E6%88%90%E9%83%BD%E5%B8%82%E5%A4%A9%E9%99%85%E7%BA%BF_Chengdu_skyline_with_snow_capped_mountains.jpg"
+ }
+]

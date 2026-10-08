@@ -1,0 +1,202 @@
+[
+ {
+  "id": "rangpur",
+  "short": "Rangpur",
+  "country": "Bangladesh",
+  "clue": "Rangpur, Bangladesh \ud83c\udde7\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Tajer_Hat_zamindar_Bari.jpg/500px-Tajer_Hat_zamindar_Bari.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rawalpindi-pk",
+  "short": "Rawalpindi",
+  "country": "Pakistan",
+  "clue": "Rawalpindi, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Rawalpindi_railway_station_4.JPG/500px-Rawalpindi_railway_station_4.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "registan-samarkand",
+  "short": "Registan",
+  "country": "Uzbekistan",
+  "clue": "Registan, Uzbekistan \ud83c\uddfa\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Registan_01.jpg/500px-Registan_01.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "reynosa-mx",
+  "short": "Reynosa",
+  "country": "Mexico",
+  "clue": "Reynosa, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Vista_desde_el_tejado.jpeg/500px-Vista_desde_el_tejado.jpeg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rehovot",
+  "short": "Re\u1e96ovot",
+  "country": "Israel",
+  "clue": "Re\u1e96ovot, Israel \ud83c\uddee\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Rehovot_Science_Park.jpg/500px-Rehovot_Science_Park.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rimini",
+  "short": "Rimini",
+  "country": "Italy",
+  "clue": "Rimini, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/08_b_piazza_cavour_pan_301.jpg/500px-08_b_piazza_cavour_pan_301.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rio-tinto",
+  "short": "Rio Tinto",
+  "country": "Portugal",
+  "clue": "Rio Tinto, Portugal \ud83c\uddf5\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BE_CRE.jpg/500px-BE_CRE.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rosario-ar",
+  "short": "Rosario",
+  "country": "Argentina",
+  "clue": "Rosario, Argentina \ud83c\udde6\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Montaje_Rosario_01.jpg/500px-Montaje_Rosario_01.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "roncesvalles",
+  "short": "Roncesvalles",
+  "country": "Canada",
+  "clue": "Roncesvalles, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Roncesvalles_Looking_South.jpg/500px-Roncesvalles_Looking_South.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sabha",
+  "short": "Sabha",
+  "country": "Libya",
+  "clue": "Sabha, Libya \ud83c\uddf1\ud83c\uddfe",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Sebha_Bank_from_Kazem_hotel_2010-02-08.jpg/500px-Sebha_Bank_from_Kazem_hotel_2010-02-08.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "saint-laurent-camp-transportation",
+  "short": "Camp de la Transportation",
+  "country": "France",
+  "clue": "Camp de la Transportation, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Camp_de_la_Transportation-13.jpg/500px-Camp_de_la_Transportation-13.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rostov-on-don-ru",
+  "short": "Rostov-on-Don",
+  "country": "Russia",
+  "clue": "Rostov-on-Don, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/View_Rostov.jpg/500px-View_Rostov.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "saharanpur",
+  "short": "Sah\u0101ranpur",
+  "country": "India",
+  "clue": "Sah\u0101ranpur, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Saharanpur.png/500px-Saharanpur.png",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "saguenay",
+  "short": "Saguenay",
+  "country": "Canada",
+  "clue": "Saguenay, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ville_saguenay_montage.jpg/500px-Ville_saguenay_montage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sale-ma",
+  "short": "Sal\u00e9",
+  "country": "Morocco",
+  "clue": "Sal\u00e9, Morocco \ud83c\uddf2\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Monuments_de_Sal%C3%A9.png/500px-Monuments_de_Sal%C3%A9.png",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "saltillo-mx",
+  "short": "Saltillo",
+  "country": "Mexico",
+  "clue": "Saltillo, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Saltillo%2C_mexico%283%29.jpg/500px-Saltillo%2C_mexico%283%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "salta-ar",
+  "short": "Salta",
+  "country": "Argentina",
+  "clue": "Salta, Argentina \ud83c\udde6\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Collage_Salta.PNG/500px-Collage_Salta.PNG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "salinas-da-margarida",
+  "short": "Salinas da Margarida",
+  "country": "Brazil",
+  "clue": "Salinas da Margarida, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Distrito_cairu_salinas_da_margarida.jpg/500px-Distrito_cairu_salinas_da_margarida.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "saitama-jp",
+  "short": "Saitama",
+  "country": "Japan",
+  "clue": "Saitama, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Saitama_city_montage.jpg/500px-Saitama_city_montage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sakai",
+  "short": "Sakai",
+  "country": "Japan",
+  "clue": "Sakai, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Daisenryo_Kofun_zenkei-2.jpg/500px-Daisenryo_Kofun_zenkei-2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "samara-ru",
+  "short": "Samara",
+  "country": "Russia",
+  "clue": "Samara, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Samara_-_Port_%282008-07-13%29.jpg/500px-Samara_-_Port_%282008-07-13%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "salvador-pelourinho",
+  "short": "Pelourinho",
+  "country": "Brazil",
+  "clue": "Pelourinho, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Pelourinho.png/500px-Pelourinho.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "san-miguel-de-tucuman-ar",
+  "short": "San Miguel de Tucum\u00e1n",
+  "country": "Argentina",
+  "clue": "San Miguel de Tucum\u00e1n, Argentina \ud83c\udde6\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Cathedral_tucuman2.JPG/500px-Cathedral_tucuman2.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "san-jose",
+  "short": "San Jose",
+  "country": "United States",
+  "clue": "San Jose, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/SanJose_Infobox_Pic_Montage.jpg/500px-SanJose_Infobox_Pic_Montage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "samarinda",
+  "short": "Samarinda",
+  "country": "Indonesia",
+  "clue": "Samarinda, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Kantor_Kecamatan_Samarinda_Kota%2C_Samarinda.jpg/500px-Kantor_Kecamatan_Samarinda_Kota%2C_Samarinda.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

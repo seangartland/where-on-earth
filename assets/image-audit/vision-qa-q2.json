@@ -1,0 +1,184 @@
+[
+ {
+  "id": "kyiv-ukraine",
+  "short": "Kyiv",
+  "country": "Ukraine",
+  "clue": "Kyiv, Ukraine \ud83c\uddfa\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Kyiv_%28234807751%29.jpeg/500px-Kyiv_%28234807751%29.jpeg"
+ },
+ {
+  "id": "lago-general-carrera",
+  "short": "Catedral de M\u00e1rmol",
+  "country": "Chile",
+  "clue": "Catedral de M\u00e1rmol, Chile \ud83c\udde8\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Catedraldemarmol.JPG/500px-Catedraldemarmol.JPG"
+ },
+ {
+  "id": "lake-titicaca-uros",
+  "short": "Uros Floating Islands",
+  "country": "Peru",
+  "clue": "Uros Floating Islands, Peru \ud83c\uddf5\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Islas_flotantes_de_los_Uros%2C_Lago_Titicaca%2C_Per%C3%BA%2C_2015-08-01%2C_DD_25.JPG/500px-Islas_flotantes_de_los_Uros%2C_Lago_Titicaca%2C_Per%C3%BA%2C_2015-08-01%2C_DD_25.JPG"
+ },
+ {
+  "id": "lake-bled",
+  "short": "Lake Bled",
+  "country": "Slovenia",
+  "clue": "Lake Bled, Slovenia \ud83c\uddf8\ud83c\uddee",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Aerial_image_of_Lake_Bled_%28view_from_the_southwest%29.jpg/500px-Aerial_image_of_Lake_Bled_%28view_from_the_southwest%29.jpg"
+ },
+ {
+  "id": "las-vegas-usa",
+  "short": "Las Vegas",
+  "country": "United States",
+  "clue": "Las Vegas, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Downtown_Las_Vegas_from_Stratosphere_3.jpg/500px-Downtown_Las_Vegas_from_Stratosphere_3.jpg"
+ },
+ {
+  "id": "leh-india",
+  "short": "Leh",
+  "country": "India",
+  "clue": "Leh, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Leh%2C_Ladakh%2C_India.jpg/500px-Leh%2C_Ladakh%2C_India.jpg"
+ },
+ {
+  "id": "lisbon-portugal",
+  "short": "Lisbon",
+  "country": "Portugal",
+  "clue": "Lisbon, Portugal \ud83c\uddf5\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Lisboa837.png/500px-Lisboa837.png"
+ },
+ {
+  "id": "lilongwe-mw",
+  "short": "Lilongwe",
+  "country": "Malawi",
+  "clue": "Lilongwe, Malawi \ud83c\uddf2\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Entrance_to_Luanar.jpg/500px-Entrance_to_Luanar.jpg"
+ },
+ {
+  "id": "little-bighorn-battlefield",
+  "short": "Little Bighorn",
+  "country": "United States",
+  "clue": "Little Bighorn Battlefield, Montana, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Little_Bighorn_Battlefield_National_Monument.JPG/500px-Little_Bighorn_Battlefield_National_Monument.JPG"
+ },
+ {
+  "id": "little-mermaid-dk",
+  "short": "The Little Mermaid",
+  "country": "Denmark",
+  "clue": "The Little Mermaid, Denmark \ud83c\udde9\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Petite_sir%C3%A8ne_de_Copenhague_%28conforme_%C3%A0_la_loi_danoise%29.JPG/500px-Petite_sir%C3%A8ne_de_Copenhague_%28conforme_%C3%A0_la_loi_danoise%29.JPG"
+ },
+ {
+  "id": "lome-tg",
+  "short": "Lom\u00e9",
+  "country": "Togo",
+  "clue": "Lom\u00e9, Togo \ud83c\uddf9\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Monuments_de_l%27ind%C3%A9pendance_et_Palais_des_congr%C3%A8s_de_Lom%C3%A9.jpg/500px-Monuments_de_l%27ind%C3%A9pendance_et_Palais_des_congr%C3%A8s_de_Lom%C3%A9.jpg"
+ },
+ {
+  "id": "london-eye-gb",
+  "short": "London Eye",
+  "country": "England",
+  "clue": "London Eye, England",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/London_Eye_seen_from_the_north_bank_of_the_Thames%2C_London.jpg/500px-London_Eye_seen_from_the_north_bank_of_the_Thames%2C_London.jpg"
+ },
+ {
+  "id": "lotus-temple",
+  "short": "Lotus Temple",
+  "country": "India",
+  "clue": "Lotus Temple, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Lotus_temple_daytime.jpg/500px-Lotus_temple_daytime.jpg"
+ },
+ {
+  "id": "louisville-usa",
+  "short": "Louisville",
+  "country": "United States",
+  "clue": "Louisville, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Louisville_montage.jpg/500px-Louisville_montage.jpg"
+ },
+ {
+  "id": "lucerne-ch",
+  "short": "Lucerne",
+  "country": "Switzerland",
+  "clue": "Lucerne, Switzerland \ud83c\udde8\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Luzern_asv2022-10_Bahnhof_img1.jpg/500px-Luzern_asv2022-10_Bahnhof_img1.jpg"
+ },
+ {
+  "id": "lumbini-nepal",
+  "short": "Lumbini",
+  "country": "Nepal",
+  "clue": "Lumbini, Nepal \ud83c\uddf3\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Lumbini_4.jpg/500px-Lumbini_4.jpg"
+ },
+ {
+  "id": "luanda-angola",
+  "short": "Luanda",
+  "country": "Angola",
+  "clue": "Luanda, Angola \ud83c\udde6\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Luanda_feb09_ost01.jpg/500px-Luanda_feb09_ost01.jpg"
+ },
+ {
+  "id": "lyon-france",
+  "short": "Lyon",
+  "country": "France",
+  "clue": "Lyon, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/01._Panorama_de_Lyon_pris_depuis_le_toit_de_la_Basilique_de_Fourvi%C3%A8re.jpg/500px-01._Panorama_de_Lyon_pris_depuis_le_toit_de_la_Basilique_de_Fourvi%C3%A8re.jpg"
+ },
+ {
+  "id": "machu-picchu",
+  "short": "Machu Picchu",
+  "country": "Peru",
+  "clue": "Machu Picchu, Peru \ud83c\uddf5\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/80_-_Machu_Picchu_-_Juin_2009_-_edit.jpg/500px-80_-_Machu_Picchu_-_Juin_2009_-_edit.jpg"
+ },
+ {
+  "id": "madrid-spain",
+  "short": "Madrid",
+  "country": "Spain",
+  "clue": "Madrid, Spain \ud83c\uddea\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Madrid_%2838624991251%29.jpg/500px-Madrid_%2838624991251%29.jpg"
+ },
+ {
+  "id": "malbork-castle",
+  "short": "Malbork Castle",
+  "country": "Poland",
+  "clue": "Malbork Castle, Poland \ud83c\uddf5\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Panorama_of_Malbork_Castle%2C_part_4.jpg/500px-Panorama_of_Malbork_Castle%2C_part_4.jpg"
+ },
+ {
+  "id": "manaus-opera-house",
+  "short": "Amazon Theatre",
+  "country": "Brazil",
+  "clue": "Amazon Theatre, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Teatro_Amazonas_Atualmente_01.jpg/500px-Teatro_Amazonas_Atualmente_01.jpg"
+ },
+ {
+  "id": "mashhad-ir",
+  "short": "Mashhad",
+  "country": "Iran",
+  "clue": "Mashhad, Iran \ud83c\uddee\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Aerial_view_of_imam_reza_shrine_-_1976.jpg/500px-Aerial_view_of_imam_reza_shrine_-_1976.jpg"
+ },
+ {
+  "id": "mata-utu-wallis",
+  "short": "Mata-Utu",
+  "country": "France",
+  "clue": "Mata-Utu, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Mata-Utu_seen_from_a_drone_%28Wallis_and_Futuna%29.png/500px-Mata-Utu_seen_from_a_drone_%28Wallis_and_Futuna%29.png"
+ },
+ {
+  "id": "matera-sassi",
+  "short": "Matera",
+  "country": "Italy",
+  "clue": "Matera, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Cittadimatera1.jpg/500px-Cittadimatera1.jpg"
+ },
+ {
+  "id": "mauna-kea",
+  "short": "Mauna Kea",
+  "country": "United States",
+  "clue": "Mauna Kea, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Mauna_Kea10.jpg/500px-Mauna_Kea10.jpg"
+ }
+]

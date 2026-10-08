@@ -1,0 +1,202 @@
+[
+ {
+  "id": "pretoria",
+  "short": "Pretoria",
+  "country": "South Africa",
+  "clue": "Pretoria, South Africa \ud83c\uddff\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Pretoria_CBD1.jpg/500px-Pretoria_CBD1.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "puebla-mexico",
+  "short": "Puebla",
+  "country": "Mexico",
+  "clue": "Puebla, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Malinche.jpg/500px-Malinche.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "prenzlauer-berg",
+  "short": "Prenzlauer Berg",
+  "country": "Germany",
+  "clue": "Prenzlauer Berg, Germany \ud83c\udde9\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Kastanienallee%2C_U-Bhf_Eberswalder_Str%2C_Konnopke.jpg/500px-Kastanienallee%2C_U-Bhf_Eberswalder_Str%2C_Konnopke.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "pucioasa",
+  "short": "Pucioasa",
+  "country": "Romania",
+  "clue": "Pucioasa, Romania \ud83c\uddf7\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Pucioasa.jpg/500px-Pucioasa.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "pristina-xk",
+  "short": "Pristina",
+  "country": "Kosovo",
+  "clue": "Pristina, Kosovo \ud83c\uddfd\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Prishtina_seen_from_Mother_Theresa_Cathedral.jpg/500px-Prishtina_seen_from_Mother_Theresa_Cathedral.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "putuo",
+  "short": "Putuo",
+  "country": "China",
+  "clue": "Putuo, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/201806_Hengfeng_Road_Bridge_and_Suzhou_Creek.jpg/500px-201806_Hengfeng_Road_Bridge_and_Suzhou_Creek.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "pudong-cn",
+  "short": "Pudong",
+  "country": "China",
+  "clue": "Pudong, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Shanghai_skyline_from_the_bund.jpg/500px-Shanghai_skyline_from_the_bund.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "pyongyang-north-korea",
+  "short": "Pyongyang",
+  "country": "North Korea",
+  "clue": "Pyongyang, North Korea \ud83c\uddf0\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Panoramic_view_from_Juche_Tower.jpg/500px-Panoramic_view_from_Juche_Tower.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "pyryatyn",
+  "short": "Pyryatyn",
+  "country": "Ukraine",
+  "clue": "Pyryatyn, Ukraine \ud83c\uddfa\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/%D0%A1%D0%BE%D0%B1%D0%BE%D1%80_%D0%A0i%D0%B7%D0%B4%D0%B2%D0%B0_%D0%91%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%86i._%D0%BC.%D0%9F%D0%B8%D1%80%D1%8F%D1%82%D0%B8%D0%BD.jpg/500px-%D0%A1%D0%BE%D0%B1%D0%BE%D1%80_%D0%A0i%D0%B7%D0%B4%D0%B2%D0%B0_%D0%91%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%86i._%D0%BC.%D0%9F%D0%B8%D1%80%D1%8F%D1%82%D0%B8%D0%BD.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "qingyang",
+  "short": "Qingyang",
+  "country": "China",
+  "clue": "Qingyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/%E5%AE%81%E5%8E%BF%E4%BA%8C%E4%B8%AD%EF%BC%8C%E7%94%98%E8%82%83%E5%AE%81%E5%8E%BF%EF%BC%8C%E4%B8%AD%E5%9B%BD_-_panoramio.jpg/500px-%E5%AE%81%E5%8E%BF%E4%BA%8C%E4%B8%AD%EF%BC%8C%E7%94%98%E8%82%83%E5%AE%81%E5%8E%BF%EF%BC%8C%E4%B8%AD%E5%9B%BD_-_panoramio.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "qingdao-cn",
+  "short": "Qingdao",
+  "country": "China",
+  "clue": "Qingdao, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Qingdao_University.jpg/500px-Qingdao_University.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "qingpu-cn",
+  "short": "Qingpu",
+  "country": "China",
+  "clue": "Qingpu, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Zhujiajiao_canal_1.JPG/500px-Zhujiajiao_canal_1.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "qingyuan-cn",
+  "short": "Qingyuan",
+  "country": "China",
+  "clue": "Qingyuan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Qingyuan_City_Xiaoshi_Skyline_Guangdong_Province.JPG/500px-Qingyuan_City_Xiaoshi_Skyline_Guangdong_Province.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rajkot-in",
+  "short": "R\u0101jkot",
+  "country": "India",
+  "clue": "R\u0101jkot, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Rajkot_-_Aji_River_Overview.jpg/500px-Rajkot_-_Aji_River_Overview.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "qom",
+  "short": "Qom",
+  "country": "Iran",
+  "clue": "Qom, Iran \ud83c\uddee\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/SARASARNAMA_Qom.JPG/500px-SARASARNAMA_Qom.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "quito",
+  "short": "Quito",
+  "country": "Ecuador",
+  "clue": "Quito, Ecuador \ud83c\uddea\ud83c\udde8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/FACHADA_ASAMBLEA_NACIONAL._QUITO%2C_20_DE_FEBRERO_2020._01.jpg/500px-FACHADA_ASAMBLEA_NACIONAL._QUITO%2C_20_DE_FEBRERO_2020._01.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "rajshahi",
+  "short": "Rajshahi",
+  "country": "Bangladesh",
+  "clue": "Rajshahi, Bangladesh \ud83c\udde7\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Rajshahi_Railway_Station_0003.jpg/500px-Rajshahi_Railway_Station_0003.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rabat-morocco",
+  "short": "Rabat",
+  "country": "Morocco",
+  "clue": "Rabat, Morocco \ud83c\uddf2\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Kasbah_des_Oudaias_P1060356.JPG/500px-Kasbah_des_Oudaias_P1060356.JPG",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "qinzhou-cn",
+  "short": "Qinzhou",
+  "country": "China",
+  "clue": "Qinzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Qinzhou_Railway_Station_%2820240220122803%29.jpg/500px-Qinzhou_Railway_Station_%2820240220122803%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "qujing-cn",
+  "short": "Qujing",
+  "country": "China",
+  "clue": "Qujing, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%E6%9B%B2%E9%9D%96%E5%B8%82%E5%A4%A9%E9%99%85%E7%BA%BF_-_%E8%88%AA%E6%8B%8D_-_2024-10-02_10.jpg/500px-%E6%9B%B2%E9%9D%96%E5%B8%82%E5%A4%A9%E9%99%85%E7%BA%BF_-_%E8%88%AA%E6%8B%8D_-_2024-10-02_10.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "queens-us",
+  "short": "Queens",
+  "country": "United States",
+  "clue": "Queens, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Queens_Montage_2012_1.png/500px-Queens_Montage_2012_1.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "quezon-city-ph",
+  "short": "Quezon City",
+  "country": "Philippines",
+  "clue": "Quezon City, Philippines \ud83c\uddf5\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Katipunan_area_with_Eastwood_%28view_from_SMDC_Blue%29_%28Quezon_City_and_Marikina%29%282017-09-06%29.jpg/500px-Katipunan_area_with_Eastwood_%28view_from_SMDC_Blue%29_%28Quezon_City_and_Marikina%29%282017-09-06%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "quetta-pk",
+  "short": "Quetta",
+  "country": "Pakistan",
+  "clue": "Quetta, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Quetta_Railway_Station_-_40311.jpg/500px-Quetta_Railway_Station_-_40311.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "rakvere",
+  "short": "Rakvere",
+  "country": "Estonia",
+  "clue": "Rakvere, Estonia \ud83c\uddea\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Rakvere_linnuse_varemed_vallikraaviga1.jpg/500px-Rakvere_linnuse_varemed_vallikraaviga1.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "ranchi",
+  "short": "Ranchi",
+  "country": "India",
+  "clue": "Ranchi, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/View_From_Pahari_Temple.jpg/500px-View_From_Pahari_Temple.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

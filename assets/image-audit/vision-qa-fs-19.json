@@ -1,0 +1,74 @@
+[
+ {
+  "id": "zhanjiang-cn",
+  "short": "Zhanjiang",
+  "country": "China",
+  "clue": "Zhanjiang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zhanjiang_-_Renmin_Dadao_-_P1580452.JPG/500px-Zhanjiang_-_Renmin_Dadao_-_P1580452.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zhuhai-cn",
+  "short": "Zhuhai",
+  "country": "China",
+  "clue": "Zhuhai, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Zhuhai_Overview_201306.jpg/500px-Zhuhai_Overview_201306.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zhengzhou-cn",
+  "short": "Zhengzhou",
+  "country": "China",
+  "clue": "Zhengzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/East_station_building_of_ZZH_in_20190320_01.jpg/500px-East_station_building_of_ZZH_in_20190320_01.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zhongshan",
+  "short": "Zhongshan",
+  "country": "China",
+  "clue": "Zhongshan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Zhongshan_montage.jpg/500px-Zhongshan_montage.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "zhucheng",
+  "short": "Zhucheng",
+  "country": "China",
+  "clue": "Zhucheng, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/%E6%BF%B0%E6%B2%B3%E5%9C%A8%E8%AB%B8%E5%9F%8E%E7%9A%84%E9%83%A8%E5%88%86.jpg/500px-%E6%BF%B0%E6%B2%B3%E5%9C%A8%E8%AB%B8%E5%9F%8E%E7%9A%84%E9%83%A8%E5%88%86.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zhaoqing-cn",
+  "short": "Zhaoqing",
+  "country": "China",
+  "clue": "Zhaoqing, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/GD_Guangdong_Starlake_Pearl_Hotel_Duanzhou_Zhaoqing_03_view_July-2012.JPG/500px-GD_Guangdong_Starlake_Pearl_Hotel_Duanzhou_Zhaoqing_03_view_July-2012.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zigong-cn",
+  "short": "Zigong",
+  "country": "China",
+  "clue": "Zigong, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ziliujing%2C_Zigong%2C_Sichuan%2C_China_-_panoramio_%282%29.jpg/500px-Ziliujing%2C_Zigong%2C_Sichuan%2C_China_-_panoramio_%282%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zibo-cn",
+  "short": "Zibo",
+  "country": "China",
+  "clue": "Zibo, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Zibo_montage.jpg/500px-Zibo_montage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zunyi-cn",
+  "short": "Zunyi",
+  "country": "China",
+  "clue": "Zunyi, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Zunyi.JPG/500px-Zunyi.JPG",
+  "verdict": "FAIL-auto"
+ }
+]

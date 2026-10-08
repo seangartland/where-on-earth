@@ -1,0 +1,702 @@
+[
+ {
+  "id": "beirut-lebanon",
+  "short": "Beirut",
+  "country": "Lebanon",
+  "clue": "Beirut, Lebanon \ud83c\uddf1\ud83c\udde7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Centre-ville_de_Beyrouth.JPG/500px-Centre-ville_de_Beyrouth.JPG"
+ },
+ {
+  "id": "bethlehem",
+  "short": "Bethlehem",
+  "country": "Palestine",
+  "clue": "Bethlehem, Palestine \ud83c\uddf5\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Palestine-06314_-_West_Bank_%2834121979493%29.jpg/500px-Palestine-06314_-_West_Bank_%2834121979493%29.jpg"
+ },
+ {
+  "id": "bilbao-spain",
+  "short": "Bilbao",
+  "country": "Spain",
+  "clue": "Bilbao, Spain \ud83c\uddea\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Cityscape_-_Bilbao%2C_Spain_-_panoramio_%281%29.jpg/500px-Cityscape_-_Bilbao%2C_Spain_-_panoramio_%281%29.jpg"
+ },
+ {
+  "id": "boston-usa",
+  "short": "Boston",
+  "country": "United States",
+  "clue": "Boston, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Boston_from_the_Harbour%2C_Massachusetts_%28493360%29_%2810772382303%29.jpg/500px-Boston_from_the_Harbour%2C_Massachusetts_%28493360%29_%2810772382303%29.jpg"
+ },
+ {
+  "id": "black-forest",
+  "short": "Black Forest",
+  "country": "Germany",
+  "clue": "Black Forest, Germany \ud83c\udde9\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Blick_ins_Renchtal.JPG/500px-Blick_ins_Renchtal.JPG"
+ },
+ {
+  "id": "birds-nest-beijing",
+  "short": "Bird's Nest",
+  "country": "China",
+  "clue": "Bird's Nest Stadium, Beijing, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Beijing_National_Stadium_from_the_Central_Axis_%2820220905140702%29.jpg/500px-Beijing_National_Stadium_from_the_Central_Axis_%2820220905140702%29.jpg"
+ },
+ {
+  "id": "bodh-gaya-india",
+  "short": "Bodh Gaya",
+  "country": "India",
+  "clue": "Bodh Gaya, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Bodhgaya_3639641913_f4c5f73689_t.jpg/500px-Bodhgaya_3639641913_f4c5f73689_t.jpg"
+ },
+ {
+  "id": "bordeaux-france",
+  "short": "Bordeaux",
+  "country": "France",
+  "clue": "Bordeaux, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/138_-_Place_de_la_Bourse_et_le_miroir_d%27eau_-_Bordeaux.jpg/500px-138_-_Place_de_la_Bourse_et_le_miroir_d%27eau_-_Bordeaux.jpg"
+ },
+ {
+  "id": "brasilia-br",
+  "short": "Bras\u00edlia",
+  "country": "Brazil",
+  "clue": "Bras\u00edlia, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Planalto_Central_%28cropped%29.jpg/500px-Planalto_Central_%28cropped%29.jpg"
+ },
+ {
+  "id": "bratislava-slovakia",
+  "short": "Bratislava",
+  "country": "Slovakia",
+  "clue": "Bratislava, Slovakia \ud83c\uddf8\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Hlavn%C3%A9_Namestie_%2835096533142%29.jpg/500px-Hlavn%C3%A9_Namestie_%2835096533142%29.jpg"
+ },
+ {
+  "id": "bulguksa",
+  "short": "Bulguksa Temple",
+  "country": "South Korea",
+  "clue": "Bulguksa Temple, South Korea \ud83c\uddf0\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Geungnakjeon%2C_Bulguksa_01.jpg/500px-Geungnakjeon%2C_Bulguksa_01.jpg"
+ },
+ {
+  "id": "bucharest-romania",
+  "short": "Bucharest",
+  "country": "Romania",
+  "clue": "Bucharest, Romania \ud83c\uddf7\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bucharest_university.jpg/500px-Bucharest_university.jpg"
+ },
+ {
+  "id": "brno-cathedral-d34-19",
+  "short": "Brno Cathedral",
+  "country": "Czech Republic",
+  "clue": "Brno Cathedral, Czech Republic \ud83c\udde8\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Brno%2C_katedr%C3%A1la_sv._Petra_a_Pavla.jpg/500px-Brno%2C_katedr%C3%A1la_sv._Petra_a_Pavla.jpg"
+ },
+ {
+  "id": "brussels-belgium",
+  "short": "Brussels",
+  "country": "Belgium",
+  "clue": "Brussels, Belgium \ud83c\udde7\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Brussels_view_from_Mont_des_Arts%2C_Brussels%2C_Belgium_%28cropped%29.jpg/500px-Brussels_view_from_Mont_des_Arts%2C_Brussels%2C_Belgium_%28cropped%29.jpg"
+ },
+ {
+  "id": "bruges-belgium",
+  "short": "Bruges",
+  "country": "Belgium",
+  "clue": "Bruges, Belgium \ud83c\udde7\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Brugge-CanalRozenhoedkaai.JPG/500px-Brugge-CanalRozenhoedkaai.JPG"
+ },
+ {
+  "id": "budapest-hungary",
+  "short": "Budapest",
+  "country": "Hungary",
+  "clue": "Budapest, Hungary \ud83c\udded\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg/500px-Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg"
+ },
+ {
+  "id": "burj-khalifa-dubai",
+  "short": "Burj Khalifa",
+  "country": "United Arab Emirates",
+  "clue": "Burj Khalifa, United Arab Emirates \ud83c\udde6\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Dubai_skyline_2015_%28crop%29.jpg/500px-Dubai_skyline_2015_%28crop%29.jpg"
+ },
+ {
+  "id": "burnley",
+  "short": "Burnley",
+  "country": "England",
+  "clue": "Burnley, England",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_%27Old_Red_Lion%27%2C_Burnley%2C_Lancashire_-_geograph.org.uk_-_545717.jpg/500px-The_%27Old_Red_Lion%27%2C_Burnley%2C_Lancashire_-_geograph.org.uk_-_545717.jpg"
+ },
+ {
+  "id": "buzludzha-monument-bulgaria",
+  "short": "Buzludzha Monument",
+  "country": "Bulgaria",
+  "clue": "Buzludzha Monument, Bulgaria \ud83c\udde7\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/%D0%91%D1%83%D0%B7%D0%BB%D1%83%D0%B4%D0%B6%D0%B0_IMG6338.jpg/500px-%D0%91%D1%83%D0%B7%D0%BB%D1%83%D0%B4%D0%B6%D0%B0_IMG6338.jpg"
+ },
+ {
+  "id": "calgary-canada",
+  "short": "Calgary",
+  "country": "Canada",
+  "clue": "Calgary, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/PengrowthSaddledomeDay.jpg/500px-PengrowthSaddledomeDay.jpg"
+ },
+ {
+  "id": "canberra-australia",
+  "short": "Canberra",
+  "country": "Australia",
+  "clue": "Canberra, Australia \ud83c\udde6\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Civic_viewed_from_Mount_Ainslie_June_2014.jpg/500px-Civic_viewed_from_Mount_Ainslie_June_2014.jpg"
+ },
+ {
+  "id": "cape-coast-castle",
+  "short": "Cape Coast Castle",
+  "country": "Ghana",
+  "clue": "Cape Coast Castle, Ghana \ud83c\uddec\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Fort_William_%283_of_9%29.jpg/500px-Fort_William_%283_of_9%29.jpg"
+ },
+ {
+  "id": "cancun-mexico",
+  "short": "Canc\u00fan",
+  "country": "Mexico",
+  "clue": "Canc\u00fan, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Canc%C3%BAnCollage.jpg/500px-Canc%C3%BAnCollage.jpg"
+ },
+ {
+  "id": "capitol-building-washington",
+  "short": "United States Capitol",
+  "country": "United States",
+  "clue": "United States Capitol, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/USCapitolRotunda.JPG/500px-USCapitolRotunda.JPG"
+ },
+ {
+  "id": "cape-town-south-africa",
+  "short": "Cape Town",
+  "country": "South Africa",
+  "clue": "Cape Town, South Africa \ud83c\uddff\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ciudad_del_Cabo_desde_Cabeza_de_Le%C3%B3n%2C_Sud%C3%A1frica%2C_2018-07-22%2C_DD_34.jpg/500px-Ciudad_del_Cabo_desde_Cabeza_de_Le%C3%B3n%2C_Sud%C3%A1frica%2C_2018-07-22%2C_DD_34.jpg"
+ },
+ {
+  "id": "cape-of-good-hope",
+  "short": "Cape of Good Hope",
+  "country": "South Africa",
+  "clue": "Cape of Good Hope, South Africa \ud83c\uddff\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Cape_of_Good_Hope_%28Zaian_2008%29.JPG/500px-Cape_of_Good_Hope_%28Zaian_2008%29.JPG"
+ },
+ {
+  "id": "central-park",
+  "short": "Central Park",
+  "country": "United States",
+  "clue": "Central Park, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg/500px-Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg"
+ },
+ {
+  "id": "cesky-krumlov-d34-18",
+  "short": "Cesky Krumlov",
+  "country": "Czech Republic",
+  "clue": "Cesky Krumlov, Czech Republic \ud83c\udde8\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Castello_%289572386406%29.jpg/500px-Castello_%289572386406%29.jpg"
+ },
+ {
+  "id": "caroline-island",
+  "short": "Caroline Island",
+  "country": "Kiribati",
+  "clue": "Caroline Island, Kiribati \ud83c\uddf0\ud83c\uddee",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/NASA-CarolineAtoll.jpg/500px-NASA-CarolineAtoll.jpg"
+ },
+ {
+  "id": "cardiff-wales",
+  "short": "Cardiff",
+  "country": "Wales",
+  "clue": "Cardiff, Wales",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Cardiffmontage3.jpg/500px-Cardiffmontage3.jpg"
+ },
+ {
+  "id": "cathedral-of-our-lady-d34-0",
+  "short": "Cathedral of Our Lady",
+  "country": "Belgium",
+  "clue": "Cathedral of Our Lady, Belgium \ud83c\udde7\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/View_of_Antwerp_Cathedral_from_the_Groenplaats.jpg/500px-View_of_Antwerp_Cathedral_from_the_Groenplaats.jpg"
+ },
+ {
+  "id": "chiang-mai-thailand",
+  "short": "Chiang Mai",
+  "country": "Thailand",
+  "clue": "Chiang Mai, Thailand \ud83c\uddf9\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Panoramic_view_of_Chiang_Mai_City.jpg/500px-Panoramic_view_of_Chiang_Mai_City.jpg"
+ },
+ {
+  "id": "chishtian",
+  "short": "Chishtian",
+  "country": "Pakistan",
+  "clue": "Chishtian, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/SufiTajSarwar.JPG/500px-SufiTajSarwar.JPG"
+ },
+ {
+  "id": "coffin-island-devils-island",
+  "short": "Devil's Island",
+  "country": "France",
+  "clue": "Devil's Island, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/%C3%8Ele_du_Diable_depuis_l%27%C3%AEle_Royale.jpg/500px-%C3%8Ele_du_Diable_depuis_l%27%C3%AEle_Royale.jpg"
+ },
+ {
+  "id": "churchill-manitoba",
+  "short": "Churchill",
+  "country": "Canada",
+  "clue": "Churchill, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Churchill-manitoba-sign.jpg/500px-Churchill-manitoba-sign.jpg"
+ },
+ {
+  "id": "ciudad-juarez-mx",
+  "short": "Ciudad Ju\u00e1rez",
+  "country": "Mexico",
+  "clue": "Ciudad Ju\u00e1rez, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Ciudad_Juarez_Temple_by_Christine_Asay.jpg/500px-Ciudad_Juarez_Temple_by_Christine_Asay.jpg"
+ },
+ {
+  "id": "colca-canyon-condor-cross",
+  "short": "Cruz del Condor",
+  "country": "Peru",
+  "clue": "Cruz del Condor, Peru \ud83c\uddf5\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/05.Mirador%2C_la_Cruz_del_Condor%2C_ca%C3%B1%C3%B3n_del_Colca_%2834%29.JPG/500px-05.Mirador%2C_la_Cruz_del_Condor%2C_ca%C3%B1%C3%B3n_del_Colca_%2834%29.JPG"
+ },
+ {
+  "id": "cologne-cathedral",
+  "short": "Cologne Cathedral",
+  "country": "Germany",
+  "clue": "Cologne Cathedral, Germany \ud83c\udde9\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/K%C3%B6lner_Dom_von_Osten.jpg/500px-K%C3%B6lner_Dom_von_Osten.jpg"
+ },
+ {
+  "id": "colombo-sri-lanka",
+  "short": "Colombo",
+  "country": "Sri Lanka",
+  "clue": "Colombo, Sri Lanka \ud83c\uddf1\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Colombo_skyline_2024.jpg/500px-Colombo_skyline_2024.jpg"
+ },
+ {
+  "id": "copenhagen-denmark",
+  "short": "Copenhagen",
+  "country": "Denmark",
+  "clue": "Copenhagen, Denmark \ud83c\udde9\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Copenhagen_-_view_from_Christiansborg_castle.jpg/500px-Copenhagen_-_view_from_Christiansborg_castle.jpg"
+ },
+ {
+  "id": "copacabana-beach-rio",
+  "short": "Copacabana Beach",
+  "country": "Brazil",
+  "clue": "Copacabana Beach, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Aerial_view_of_Copacabana_beach.jpg/500px-Aerial_view_of_Copacabana_beach.jpg"
+ },
+ {
+  "id": "crater-lake",
+  "short": "Crater Lake",
+  "country": "United States",
+  "clue": "Crater Lake, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Day_181_-_Crater_Lake%2C_Oregon_%2818695528363%29.jpg/500px-Day_181_-_Crater_Lake%2C_Oregon_%2818695528363%29.jpg"
+ },
+ {
+  "id": "cusco-plaza-de-armas",
+  "short": "Cusco",
+  "country": "Peru",
+  "clue": "Cusco, Peru \ud83c\uddf5\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Cusco%2C_Sacsayhuam%C3%A1n_-_panoramio.jpg/500px-Cusco%2C_Sacsayhuam%C3%A1n_-_panoramio.jpg"
+ },
+ {
+  "id": "dead-sea",
+  "short": "Dead Sea",
+  "country": "Jordan",
+  "clue": "Dead Sea, Jordan \ud83c\uddef\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Dead_Sea_by_David_Shankbone.jpg/500px-Dead_Sea_by_David_Shankbone.jpg"
+ },
+ {
+  "id": "daegu-kr",
+  "short": "Daegu",
+  "country": "South Korea",
+  "clue": "Daegu, South Korea \ud83c\uddf0\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/DaeguStationFlatform.jpg/500px-DaeguStationFlatform.jpg"
+ },
+ {
+  "id": "damascus-syria",
+  "short": "Damascus",
+  "country": "Syria",
+  "clue": "Damascus, Syria \ud83c\uddf8\ud83c\uddfe",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Damascus_University.jpg/500px-Damascus_University.jpg"
+ },
+ {
+  "id": "derawar-fort-pakistan",
+  "short": "Derawar Fort",
+  "country": "Pakistan",
+  "clue": "Derawar Fort, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Derawar_Fort_side_view.jpg/500px-Derawar_Fort_side_view.jpg"
+ },
+ {
+  "id": "detroit-usa",
+  "short": "Detroit",
+  "country": "United States",
+  "clue": "Detroit, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Detroit_montage_2020.jpg/500px-Detroit_montage_2020.jpg"
+ },
+ {
+  "id": "dhanbad",
+  "short": "Dhanbad",
+  "country": "India",
+  "clue": "Dhanbad, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Skyline_of_dhanbad.jpg/500px-Skyline_of_dhanbad.jpg"
+ },
+ {
+  "id": "dholavira-india",
+  "short": "Dholavira",
+  "country": "India",
+  "clue": "Dholavira, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Dholavira_gujarat.jpg/500px-Dholavira_gujarat.jpg"
+ },
+ {
+  "id": "dettifoss",
+  "short": "Dettifoss",
+  "country": "Iceland",
+  "clue": "Dettifoss, Iceland \ud83c\uddee\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Dettifoss_Panorama_03.jpg/500px-Dettifoss_Panorama_03.jpg"
+ },
+ {
+  "id": "disneyland",
+  "short": "Disneyland",
+  "country": "United States",
+  "clue": "Disneyland, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Christmas_for_Sleeping_Beauty_Castle_%2828017248690%29.jpg/500px-Christmas_for_Sleeping_Beauty_Castle_%2828017248690%29.jpg"
+ },
+ {
+  "id": "dunedin-new-zealand",
+  "short": "Dunedin",
+  "country": "New Zealand",
+  "clue": "Dunedin, New Zealand \ud83c\uddf3\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/NZL-dunedin-octogon-rath-stpauls.jpg/500px-NZL-dunedin-octogon-rath-stpauls.jpg"
+ },
+ {
+  "id": "dublin-castle-d34-6",
+  "short": "Dublin Castle",
+  "country": "Ireland",
+  "clue": "Dublin Castle, Ireland \ud83c\uddee\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Dublin_castle.JPG/500px-Dublin_castle.JPG"
+ },
+ {
+  "id": "dubrovnik-croatia",
+  "short": "Dubrovnik",
+  "country": "Croatia",
+  "clue": "Dubrovnik, Croatia \ud83c\udded\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Luftbild_vom_Hafen_Polace_auf_Mljet_mit_Blick_auf_die_Inseln_Kobrava%2C_Ovrata_und_Moracnik%2C_Kroatien_%2848608980182%29.jpg/500px-Luftbild_vom_Hafen_Polace_auf_Mljet_mit_Blick_auf_die_Inseln_Kobrava%2C_Ovrata_und_Moracnik%2C_Kroatien_%2848608980182%29.jpg"
+ },
+ {
+  "id": "duomo-florence",
+  "short": "Florence Cathedral",
+  "country": "Italy",
+  "clue": "Florence Cathedral, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Florence_Duomo_from_Michelangelo_hill.jpg/500px-Florence_Duomo_from_Michelangelo_hill.jpg"
+ },
+ {
+  "id": "dunkirk-evacuation",
+  "short": "Dunkirk",
+  "country": "France",
+  "clue": "Dunkirk, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Dunkerquepaysage2.png/500px-Dunkerquepaysage2.png"
+ },
+ {
+  "id": "dushanbe-tajikistan",
+  "short": "Dushanbe",
+  "country": "Tajikistan",
+  "clue": "Dushanbe, Tajikistan \ud83c\uddf9\ud83c\uddef",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Tehron_Street_Dushanbe.jpg/500px-Tehron_Street_Dushanbe.jpg"
+ },
+ {
+  "id": "eiffel-tower",
+  "short": "Eiffel Tower",
+  "country": "France",
+  "clue": "Eiffel Tower, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg"
+ },
+ {
+  "id": "edmonton-canada",
+  "short": "Edmonton",
+  "country": "Canada",
+  "clue": "Edmonton, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Downtown_edmonton.jpg/500px-Downtown_edmonton.jpg"
+ },
+ {
+  "id": "esenyurt",
+  "short": "Esenyurt",
+  "country": "Turkey",
+  "clue": "Esenyurt, Turkey \ud83c\uddf9\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Haramidere_G%C3%B6kdelenler_B%C3%B6lgesi_Esenyurt_%C4%B0stanbul.JPG/500px-Haramidere_G%C3%B6kdelenler_B%C3%B6lgesi_Esenyurt_%C4%B0stanbul.JPG"
+ },
+ {
+  "id": "edinburgh-castle-d34-2",
+  "short": "Edinburgh Castle",
+  "country": "Scotland",
+  "clue": "Edinburgh Castle, Scotland",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/City_of_Edinburgh_-_Edinburgh_Castle_-_20140421193357.jpg/500px-City_of_Edinburgh_-_Edinburgh_Castle_-_20140421193357.jpg"
+ },
+ {
+  "id": "fakaofo-fale",
+  "short": "Fakaofo",
+  "country": "New Zealand",
+  "clue": "Fakaofo, New Zealand \ud83c\uddf3\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Fakaofo_Satellite_NASA.jpg/500px-Fakaofo_Satellite_NASA.jpg"
+ },
+ {
+  "id": "fenway-park",
+  "short": "Fenway Park",
+  "country": "United States",
+  "clue": "Fenway Park, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/View_of_Fenway_Park_from_the_press_box_in_July_2022.jpg/500px-View_of_Fenway_Park_from_the_press_box_in_July_2022.jpg"
+ },
+ {
+  "id": "fez-morocco",
+  "short": "Fez",
+  "country": "Morocco",
+  "clue": "Fez, Morocco \ud83c\uddf2\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Medina_of_Fes%2C_Marocco.jpg/500px-Medina_of_Fes%2C_Marocco.jpg"
+ },
+ {
+  "id": "first-powered-flight-kill-devil-hills",
+  "short": "Wright Brothers National Memorial",
+  "country": "United States",
+  "clue": "Kitty Hawk, North Carolina, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Wright_Brothers_Memorial-27527-1.JPG/500px-Wright_Brothers_Memorial-27527-1.JPG"
+ },
+ {
+  "id": "fort-jesus-mombasa",
+  "short": "Fort Jesus",
+  "country": "Kenya",
+  "clue": "Fort Jesus, Kenya \ud83c\uddf0\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Fort_JesusMombasa.jpg/500px-Fort_JesusMombasa.jpg"
+ },
+ {
+  "id": "florence-italy",
+  "short": "Florence",
+  "country": "Italy",
+  "clue": "Florence, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Panoramica_Firenze.jpg/500px-Panoramica_Firenze.jpg"
+ },
+ {
+  "id": "forbidden-city-beijing",
+  "short": "Forbidden City",
+  "country": "China",
+  "clue": "Forbidden City, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Hall_of_Supreme_Harmony_%2820241127120000%29.jpg/500px-Hall_of_Supreme_Harmony_%2820241127120000%29.jpg"
+ },
+ {
+  "id": "fort-nieuw-amsterdam",
+  "short": "Fort Nieuw Amsterdam",
+  "country": "Suriname",
+  "clue": "Fort Nieuw Amsterdam, Suriname",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/AMH-6914-KB_Map_of_Nieuw_Amsterdam_fort.jpg/500px-AMH-6914-KB_Map_of_Nieuw_Amsterdam_fort.jpg"
+ },
+ {
+  "id": "fort-worth",
+  "short": "Fort Worth",
+  "country": "United States",
+  "clue": "Fort Worth, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Downtown_Fort_Worth_Skyline.jpg/500px-Downtown_Fort_Worth_Skyline.jpg"
+ },
+ {
+  "id": "fort-zeelandia-paramaribo",
+  "short": "Fort Zeelandia",
+  "country": "Suriname",
+  "clue": "Fort Zeelandia, Suriname",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Zicht_op_buitenmuur_aan_de_rivierzijde_met_zicht_op_bastion_-_Paramaribo_-_20377866_-_RCE.jpg/500px-Zicht_op_buitenmuur_aan_de_rivierzijde_met_zicht_op_bastion_-_Paramaribo_-_20377866_-_RCE.jpg"
+ },
+ {
+  "id": "fort-sumter-charleston",
+  "short": "Fort Sumter",
+  "country": "United States",
+  "clue": "Fort Sumter, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/FortsumterNM-welcome.jpg/500px-FortsumterNM-welcome.jpg"
+ },
+ {
+  "id": "fortaleza-br",
+  "short": "Fortaleza",
+  "country": "Brazil",
+  "clue": "Fortaleza, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Praia_do_Mucuripe.jpg/500px-Praia_do_Mucuripe.jpg"
+ },
+ {
+  "id": "fukushima-daiichi",
+  "short": "Fukushima Daiichi",
+  "country": "Japan",
+  "clue": "Fukushima Daiichi, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Fukushima_1_Nuclear_Power_Plant_02.jpg/500px-Fukushima_1_Nuclear_Power_Plant_02.jpg"
+ },
+ {
+  "id": "fox-glacier",
+  "short": "Fox Glacier",
+  "country": "New Zealand",
+  "clue": "Fox Glacier, New Zealand \ud83c\uddf3\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Fox_Glacier_main_street_MRD.jpg/500px-Fox_Glacier_main_street_MRD.jpg"
+ },
+ {
+  "id": "geirangerfjord-no",
+  "short": "Geirangerfjord",
+  "country": "Norway",
+  "clue": "Geirangerfjord, Norway \ud83c\uddf3\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fiordo_de_Geiranger_desde_Flydalsjuvet%2C_Noruega%2C_2019-09-07%2C_DD_61.jpg/500px-Fiordo_de_Geiranger_desde_Flydalsjuvet%2C_Noruega%2C_2019-09-07%2C_DD_61.jpg"
+ },
+ {
+  "id": "gateway-arch-st-louis",
+  "short": "Gateway Arch",
+  "country": "United States",
+  "clue": "Gateway Arch, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/St_Louis_Gateway_Arch.jpg/500px-St_Louis_Gateway_Arch.jpg"
+ },
+ {
+  "id": "geysir-d34-42",
+  "short": "Geysir",
+  "country": "Iceland",
+  "clue": "Geysir, Iceland \ud83c\uddee\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Geysir-22-Great_Geysir-2018-gje.jpg/500px-Geysir-22-Great_Geysir-2018-gje.jpg"
+ },
+ {
+  "id": "giants-causeway",
+  "short": "Giant's Causeway",
+  "country": "Northern Ireland",
+  "clue": "Giant's Causeway, Northern Ireland",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Giants_Causeway_1b.JPG/500px-Giants_Causeway_1b.JPG"
+ },
+ {
+  "id": "gettysburg-battlefield",
+  "short": "Gettysburg",
+  "country": "United States",
+  "clue": "Gettysburg, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Gettysburg_Today.jpg/500px-Gettysburg_Today.jpg"
+ },
+ {
+  "id": "geneva",
+  "short": "Geneva",
+  "country": "Switzerland",
+  "clue": "Geneva, Switzerland \ud83c\udde8\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Geneva_from_Mount_Sal%C3%A8ve.jpg/500px-Geneva_from_Mount_Sal%C3%A8ve.jpg"
+ },
+ {
+  "id": "georgetown-st-georges-cathedral",
+  "short": "Georgetown",
+  "country": "Guyana",
+  "clue": "Georgetown, Guyana",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/St_George%27s_Cathedral.jpg/500px-St_George%27s_Cathedral.jpg"
+ },
+ {
+  "id": "gjirokaster-fortress-albania",
+  "short": "Gjirokast\u00ebr Fortress",
+  "country": "Albania",
+  "clue": "Gjirokast\u00ebr Fortress, Albania \ud83c\udde6\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kalaja_e_Gjirokastr%C3%ABs_15.jpg/500px-Kalaja_e_Gjirokastr%C3%ABs_15.jpg"
+ },
+ {
+  "id": "giethoorn",
+  "short": "Giethoorn",
+  "country": "Netherlands",
+  "clue": "Giethoorn, Netherlands \ud83c\uddf3\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Giethoorn_Netherlands_flckr03.jpg/500px-Giethoorn_Netherlands_flckr03.jpg"
+ },
+ {
+  "id": "ghent-belgium",
+  "short": "Ghent",
+  "country": "Belgium",
+  "clue": "Ghent, Belgium \ud83c\udde7\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ghent_-_centre.jpg/500px-Ghent_-_centre.jpg"
+ },
+ {
+  "id": "giza-eg",
+  "short": "Giza",
+  "country": "Egypt",
+  "clue": "Giza, Egypt \ud83c\uddea\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Giza_Corniche.jpg/500px-Giza_Corniche.jpg"
+ },
+ {
+  "id": "great-ocean-road",
+  "short": "Great Ocean Road",
+  "country": "Australia",
+  "clue": "Great Ocean Road, Australia \ud83c\udde6\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Great_ocean_road.jpg/500px-Great_ocean_road.jpg"
+ },
+ {
+  "id": "gwangju",
+  "short": "Gwangju",
+  "country": "South Korea",
+  "clue": "Gwangju, South Korea \ud83c\uddf0\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/%EB%AC%B4%EC%A7%84%EA%B3%A0%EC%84%B1%EC%A7%80%EC%97%90%EC%84%9C_%EB%82%B4%EB%A0%A4%EB%8B%A4%EB%B3%B8_%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C_%EC%8B%9C%EA%B0%80%EC%A7%80.jpg/500px-%EB%AC%B4%EC%A7%84%EA%B3%A0%EC%84%B1%EC%A7%80%EC%97%90%EC%84%9C_%EB%82%B4%EB%A0%A4%EB%8B%A4%EB%B3%B8_%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C_%EC%8B%9C%EA%B0%80%EC%A7%80.jpg"
+ },
+ {
+  "id": "halemaumau-crater",
+  "short": "Halema\u02bbuma\u02bbu",
+  "country": "United States",
+  "clue": "Halema\u02bbuma\u02bbu, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Rainbow_and_sulfur_dioxide_emissions_from_the_Halema%60uma%60u_vent.jpg/500px-Rainbow_and_sulfur_dioxide_emissions_from_the_Halema%60uma%60u_vent.jpg"
+ },
+ {
+  "id": "hanoi-vietnam",
+  "short": "Hanoi",
+  "country": "Vietnam",
+  "clue": "Hanoi, Vietnam \ud83c\uddfb\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Hanoi_Skyline_-_NKS.jpg/500px-Hanoi_Skyline_-_NKS.jpg"
+ },
+ {
+  "id": "halifax-canada",
+  "short": "Halifax",
+  "country": "Canada",
+  "clue": "Halifax, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Halifax_City_Hall%2C_summer_2014.jpg/500px-Halifax_City_Hall%2C_summer_2014.jpg"
+ },
+ {
+  "id": "harare-zimbabwe",
+  "short": "Harare",
+  "country": "Zimbabwe",
+  "clue": "Harare, Zimbabwe \ud83c\uddff\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Harare_skyline.jpg/500px-Harare_skyline.jpg"
+ },
+ {
+  "id": "heimaey-iceland",
+  "short": "Heimaey",
+  "country": "Iceland",
+  "clue": "Heimaey, Iceland \ud83c\uddee\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Iglesia_de_postes_de_Heimaey%2C_Islas_Vestman%2C_Su%C3%B0urland%2C_Islandia%2C_2014-08-17%2C_DD_097_%28cropped%29.JPG/500px-Iglesia_de_postes_de_Heimaey%2C_Islas_Vestman%2C_Su%C3%B0urland%2C_Islandia%2C_2014-08-17%2C_DD_097_%28cropped%29.JPG"
+ },
+ {
+  "id": "helsinki-cathedral-d34-31",
+  "short": "Helsinki Cathedral",
+  "country": "Finland",
+  "clue": "Helsinki Cathedral, Finland \ud83c\uddeb\ud83c\uddee",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lutheran_Cathedral_Helsinki.jpg/500px-Lutheran_Cathedral_Helsinki.jpg"
+ },
+ {
+  "id": "hermitage-museum",
+  "short": "Hermitage Museum",
+  "country": "Russia",
+  "clue": "Hermitage Museum, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Winter_Palace_Panorama_4.jpg/500px-Winter_Palace_Panorama_4.jpg"
+ },
+ {
+  "id": "hollywood",
+  "short": "Hollywood",
+  "country": "United States",
+  "clue": "Hollywood, Florida, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/HollywoodBM.jpg/500px-HollywoodBM.jpg"
+ },
+ {
+  "id": "hong-kong",
+  "short": "Hong Kong",
+  "country": "China",
+  "clue": "Hong Kong \ud83c\udded\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/HK_AuShueHungMemLibrary.JPG/500px-HK_AuShueHungMemLibrary.JPG"
+ },
+ {
+  "id": "hohhot-cn",
+  "short": "Hohhot",
+  "country": "China",
+  "clue": "Hohhot, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hohhot_Montage.png/500px-Hohhot_Montage.png"
+ },
+ {
+  "id": "huddersfield",
+  "short": "Huddersfield",
+  "country": "England",
+  "clue": "Huddersfield, England",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Huddersfield_Railway_Station_%28RLH%29.jpg/500px-Huddersfield_Railway_Station_%28RLH%29.jpg"
+ }
+]

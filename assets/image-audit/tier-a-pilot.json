@@ -1,0 +1,362 @@
+[
+ {
+  "id": "abeokuta-ng",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Lag...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Abeokutafromolumorock.jpg/500px-Abeokutafromolumorock.jpg",
+  "file": "Abeokutafromolumorock.jpg",
+  "verdict": "SOFT-FAIL",
+  "wd_km": 0.83
+ },
+ {
+  "id": "akure-ng",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Osu...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/St._Thomas_Anglican_Church%2C_Akure%2C_Ondo_State.jpg/500px-St._Thomas_Anglican_Church%2C_Akure%2C_Ondo_State.jpg",
+  "file": "St. Thomas Anglican Church, Akure, Ondo State.jpg",
+  "verdict": "SOFT-FAIL",
+  "wd_km": 0.35
+ },
+ {
+  "id": "algiers",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/%22...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Argel_3.jpg/500px-Argel_3.jpg",
+  "file": "Argel 3.jpg",
+  "verdict": "SOFT-FAIL",
+  "wd_km": 5.54
+ },
+ {
+  "id": "ankara-tr",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/G%C...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Ankara_districts.png/500px-Ankara_districts.png",
+  "file": "Ankara districts.png",
+  "verdict": "SOFT-FAIL",
+  "wd_km": 0.74
+ },
+ {
+  "id": "anshan-cn",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Anshan_City_Skyline.jpg/500px-Anshan_City_Skyline.jpg",
+  "file": "Anshan City Skyline.jpg",
+  "verdict": "SOFT-FAIL",
+  "wd_km": 1.89
+ },
+ {
+  "id": "aberdeen-scotland",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/%2B...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Aberdeen_from_Tollohill_Woods.JPG/500px-Aberdeen_from_Tollohill_Woods.JPG",
+  "file": "Aberdeen from Tollohill Woods.JPG",
+  "verdict": "UNSURE",
+  "wd_km": 0.35
+ },
+ {
+  "id": "abidjan-ivory-coast",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Vis...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Plateau_2010%2C_Abidjan.jpg/500px-Plateau_2010%2C_Abidjan.jpg",
+  "file": "Plateau 2010, Abidjan.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 3.32
+ },
+ {
+  "id": "addis-ababa-ethiopia",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Add...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/AddisView.jpg/500px-AddisView.jpg",
+  "file": "AddisView.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 0.75
+ },
+ {
+  "id": "adelaide-australia",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Ade...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Adelaide_DougBarber.jpg/500px-Adelaide_DougBarber.jpg",
+  "file": "Adelaide DougBarber.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 0.13
+ },
+ {
+  "id": "alexandria-egypt",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/San...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/AlexandriaSkyline.jpg/500px-AlexandriaSkyline.jpg",
+  "file": "AlexandriaSkyline.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 2.51
+ },
+ {
+  "id": "almaty",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Rom...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/13_%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D0%90%D0%BB%D0%BC%D0%B0-%D0%90%D1%82%D1%83_%D1%81_%D0%B3%D0%BE%D1%80%D1%8B_%D0%9A%D0%BE%D0%BA_%D0%A2%D1%8E%D0%B1%D0%B5.jpg/500px-13_%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D0%90%D0%BB%D0%BC%D0%B0-%D0%90%D1%82%D1%83_%D1%81_%D0%B3%D0%BE%D1%80%D1%8B_%D0%9A%D0%BE%D0%BA_%D0%A2%D1%8E%D0%B1%D0%B5.jpg",
+  "file": "13 \u0412\u0438\u0434 \u043d\u0430 \u0410\u043b\u043c\u0430-\u0410\u0442\u0443 \u0441 \u0433\u043e\u0440\u044b \u041a\u043e\u043a \u0422\u044e\u0431\u0435.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 1.42
+ },
+ {
+  "id": "angeles-city",
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mon...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Angeles_City_2021.jpg/500px-Angeles_City_2021.jpg",
+  "file": "Angeles City 2021.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 0.35
+ },
+ {
+  "id": "antwerp-be",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Amb...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/City_of_Antwerp.jpg/500px-City_of_Antwerp.jpg",
+  "file": "City of Antwerp.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 0.2
+ },
+ {
+  "id": "apia-samoa",
+  "old": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a8/WS-apia-...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Samoa_-_Apia_Govt_buildings.jpg/500px-Samoa_-_Apia_Govt_buildings.jpg",
+  "file": "Samoa - Apia Govt buildings.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 9.05
+ },
+ {
+  "id": "asmara-eritrea",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Asm...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Fiat_tagliero%2C_09.JPG/500px-Fiat_tagliero%2C_09.JPG",
+  "file": "Fiat tagliero, 09.JPG",
+  "verdict": "UNSURE",
+  "wd_km": 1.47
+ },
+ {
+  "id": "aswan-egypt",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Pan...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Panoramic_view_of_Aswan_2%2C_Egypt.jpg/500px-Panoramic_view_of_Aswan_2%2C_Egypt.jpg",
+  "file": "Panoramic view of Aswan 2, Egypt.jpg",
+  "verdict": "UNSURE",
+  "wd_km": 0.01
+ },
+ {
+  "id": "abu-simbel-temples",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Ram...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Gro%C3%9Fer_Tempel_%28Abu_Simbel%29_31.jpg/500px-Gro%C3%9Fer_Tempel_%28Abu_Simbel%29_31.jpg",
+  "file": "Gro\u00dfer Tempel (Abu Simbel) 31.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.04
+ },
+ {
+  "id": "acropolis-athens-gr",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/102...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg/500px-Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg",
+  "file": "Attica 06-13 Athens 50 View from Philopappos - Acropolis Hill.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.04
+ },
+ {
+  "id": "ait-benhaddou-ksar",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Ait...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Ait_Ben_Haddou_3.jpg/500px-Ait_Ben_Haddou_3.jpg",
+  "file": "Ait Ben Haddou 3.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.52
+ },
+ {
+  "id": "alberobello-trulli",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Alb...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Alberobello_con_il_drone.jpg/500px-Alberobello_con_il_drone.jpg",
+  "file": "Alberobello con il drone.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.04
+ },
+ {
+  "id": "albuquerque-usa",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Alb...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Albuquerque_Infobox_Photo.png/500px-Albuquerque_Infobox_Photo.png",
+  "file": "Albuquerque Infobox Photo.png",
+  "verdict": "PASS-auto",
+  "wd_km": 0.01
+ },
+ {
+  "id": "alcatraz-island",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Alc...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Alcatraz_Island_as_seen_from_the_East.jpg/500px-Alcatraz_Island_as_seen_from_the_East.jpg",
+  "file": "Alcatraz Island as seen from the East.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.01
+ },
+ {
+  "id": "alcazaba-of-malaga-d34-67",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Alc...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Alcazaba_de_M%C3%A1laga_overview.jpg/500px-Alcazaba_de_M%C3%A1laga_overview.jpg",
+  "file": "Alcazaba de M\u00e1laga overview.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.13
+ },
+ {
+  "id": "alert-nunavut",
+  "old": "https://upload.wikimedia.org/wikipedia/commons/6/68/Alert_Nu...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/NOAA_-_Alert_observatory.jpg/500px-NOAA_-_Alert_observatory.jpg",
+  "file": "NOAA - Alert observatory.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.32
+ },
+ {
+  "id": "alexander-nevsky-cathedral-d34-23",
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ale...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/AlexanderNevskyCathedral-Sofia-6.jpg/500px-AlexanderNevskyCathedral-Sofia-6.jpg",
+  "file": "AlexanderNevskyCathedral-Sofia-6.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.05
+ },
+ {
+  "id": "alhambra-granada",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Daw...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Alhambra_detail.jpg/500px-Alhambra_detail.jpg",
+  "file": "Alhambra detail.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.04
+ },
+ {
+  "id": "alice-springs",
+  "old": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Alice_Sp...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Alice_Springs_ridge.jpeg/500px-Alice_Springs_ridge.jpeg",
+  "file": "Alice Springs ridge.jpeg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.34
+ },
+ {
+  "id": "amalfi-coast-d34-58",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Ama...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Ravello_September_2007.jpg/500px-Ravello_September_2007.jpg",
+  "file": "Ravello September 2007.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.17
+ },
+ {
+  "id": "amber-fort-jaipur",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/201...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jaipur_03-2016_04_Amber_Fort.jpg/500px-Jaipur_03-2016_04_Amber_Fort.jpg",
+  "file": "Jaipur 03-2016 04 Amber Fort.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.07
+ },
+ {
+  "id": "amman-jordan",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/New...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Amman_in_Jordan.svg/500px-Amman_in_Jordan.svg",
+  "file": "Amman in Jordan.svg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.63
+ },
+ {
+  "id": "amritsar-india",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Gol...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Amritsar-header.jpg/500px-Amritsar-header.jpg",
+  "file": "Amritsar-header.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 0.91
+ },
+ {
+  "id": "amsterdam-netherlands",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Ima...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Amsterdam_Photo_2020_Copernicus_Sentinel-2.jpg/500px-Amsterdam_Photo_2020_Copernicus_Sentinel-2.jpg",
+  "file": "Amsterdam Photo 2020 Copernicus Sentinel-2.jpg",
+  "verdict": "PASS-auto",
+  "wd_km": 1.41
+ },
+ {
+  "id": "abuja-ng",
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kof...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/The_National_Assembly_Globe.jpg/500px-The_National_Assembly_Globe.jpg",
+  "file": "The National Assembly Globe.jpg",
+  "verdict": "FAIL-auto",
+  "wd_km": 0.48
+ },
+ {
+  "id": "astana-kz",
+  "old": "https://upload.wikimedia.org/wikipedia/commons/8/82/Meteorit...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Trip_to_Astana_%282015-10-24%29_01.jpg/500px-Trip_to_Astana_%282015-10-24%29_01.jpg",
+  "file": "Trip to Astana (2015-10-24) 01.jpg",
+  "verdict": "FAIL-auto",
+  "wd_km": 5.27
+ },
+ {
+  "id": "baoji-cn",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Cit...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/View_from_Zhonghua_Shigu_Park_%28%E4%B8%AD%E5%8D%8E%E7%9F%B3%E9%BC%93%E5%9B%AD%29_on_Baoji.jpg/500px-View_from_Zhonghua_Shigu_Park_%28%E4%B8%AD%E5%8D%8E%E7%9F%B3%E9%BC%93%E5%9B%AD%29_on_Baoji.jpg",
+  "file": "View from Zhonghua Shigu Park (\u4e2d\u534e\u77f3\u9f13\u56ed) on Baoji.jpg",
+  "verdict": "FAIL-auto",
+  "wd_km": 5.74
+ },
+ {
+  "id": "bauchi-ng",
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kof...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Babban_Gwani.jpg/500px-Babban_Gwani.jpg",
+  "file": "Babban Gwani.jpg",
+  "verdict": "FAIL-auto",
+  "wd_km": 0.61
+ },
+ {
+  "id": "bazhong-cn",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Cit...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/%E5%B7%B4%E4%B8%AD_-_panoramio.jpg/500px-%E5%B7%B4%E4%B8%AD_-_panoramio.jpg",
+  "file": "\u5df4\u4e2d - panoramio.jpg",
+  "verdict": "FAIL-auto",
+  "wd_km": 1.7
+ },
+ {
+  "id": "bobo-dioulasso-bf",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Dje...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/ASC_Leiden_-_van_Achterberg_Collection_-_5_-_021_-_Un_coin_de_la_Grande_Mosqu%C3%A9e_avec_vingt_niveaux_de_b%C3%A2tons_-_Bobo-Dioulasso%2C_Burkina_Faso%2C_19-26_ao%C3%BBt_2001.tif/500px-ASC_Leiden_-_van_Achterberg_Collection_-_5_-_021_-_Un_coin_de_la_Grande_Mosqu%C3%A9e_avec_vingt_niveaux_de_b%C3%A2tons_-_Bobo-Dioulasso%2C_Burkina_Faso%2C_19-26_ao%C3%BBt_2001.tif",
+  "file": "ASC Leiden - van Achterberg Collection - 5 - 021 - Un coin de la Grande Mosqu\u00e9e avec vingt niveaux de b\u00e2tons - Bobo-Dioulasso, Burkina Faso, 19-26 ao\u00fbt 2001.tif",
+  "verdict": "FAIL-auto",
+  "wd_km": 0.33
+ },
+ {
+  "id": "bristol",
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kof...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Bristol_landmarks_collage.png/500px-Bristol_landmarks_collage.png",
+  "file": "Bristol landmarks collage.png",
+  "verdict": "FAIL-auto",
+  "wd_km": 0.19
+ },
+ {
+  "id": "campo-grande-br",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Por...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Campo_Grande_Collage.png/500px-Campo_Grande_Collage.png",
+  "file": "Campo Grande Collage.png",
+  "verdict": "FAIL-auto",
+  "wd_km": 3.82
+ },
+ {
+  "id": "changzhou-cn",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Hua...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/20090919_Changzhou_Imgp5266.jpg/500px-20090919_Changzhou_Imgp5266.jpg",
+  "file": "20090919 Changzhou Imgp5266.jpg",
+  "verdict": "FAIL-auto",
+  "wd_km": 4.52
+ },
+ {
+  "id": "chattogram-bd",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/%E0...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Chittagong_collage.png/500px-Chittagong_collage.png",
+  "file": "Chittagong collage.png",
+  "verdict": "FAIL-auto",
+  "wd_km": 0.39
+ },
+ {
+  "id": "cn-tower-toronto",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/CN_...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/CN_Tower_from_Puente_de_Luz%2C_Toronto%2C_Ontario%2C_2025-08-25_01.jpg/500px-CN_Tower_from_Puente_de_Luz%2C_Toronto%2C_Ontario%2C_2025-08-25_01.jpg",
+  "file": "CN Tower from Puente de Luz, Toronto, Ontario, 2025-08-25 01.jpg",
+  "verdict": "FAIL-auto",
+  "wd_km": 0.02
+ },
+ {
+  "id": "culiacan-mx",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Bar...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Battle_of_Culiacan.png/500px-Battle_of_Culiacan.png",
+  "file": "Battle of Culiacan.png",
+  "verdict": "FAIL-auto",
+  "wd_km": 0.54
+ },
+ {
+  "id": "disuq",
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Hun...",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Desouk-Montage.png/500px-Desouk-Montage.png",
+  "file": "Desouk-Montage.png",
+  "verdict": "FAIL-auto",
+  "wd_km": 0.01
+ }
+]

@@ -1,0 +1,177 @@
+[
+ {
+  "id": "chennai-in",
+  "short": "Chennai",
+  "country": "India",
+  "clue": "Chennai, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Chennai_Central_D.jpg/500px-Chennai_Central_D.jpg"
+ },
+ {
+  "id": "chiba",
+  "short": "Chiba",
+  "country": "Japan",
+  "clue": "Chiba, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Mt._Fuji_and_Keiyo_petrochemical_complex.JPG/500px-Mt._Fuji_and_Keiyo_petrochemical_complex.JPG"
+ },
+ {
+  "id": "chicago",
+  "short": "Chicago",
+  "country": "United States",
+  "clue": "Chicago, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/2010-02-19_3000x2000_chicago_skyline.jpg/500px-2010-02-19_3000x2000_chicago_skyline.jpg"
+ },
+ {
+  "id": "chihuahua-mx",
+  "short": "Chihuahua",
+  "country": "Mexico",
+  "clue": "Chihuahua, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Chihuahua_montage.jpg/500px-Chihuahua_montage.jpg"
+ },
+ {
+  "id": "chisinau-md",
+  "short": "Chisinau",
+  "country": "Moldova",
+  "clue": "Chisinau, Moldova \ud83c\uddf2\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chisinau_train_station.JPG/500px-Chisinau_train_station.JPG"
+ },
+ {
+  "id": "ciudad-apodaca-mx",
+  "short": "Ciudad Apodaca",
+  "country": "Mexico",
+  "clue": "Ciudad Apodaca, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Motel_en_apodaca.jpg/500px-Motel_en_apodaca.jpg"
+ },
+ {
+  "id": "ciudad-general-escobedo-mx",
+  "short": "Ciudad General Escobedo",
+  "country": "Mexico",
+  "clue": "Ciudad General Escobedo, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/PalacioMunicipalEsc.jpg/500px-PalacioMunicipalEsc.jpg"
+ },
+ {
+  "id": "ciudad-guayana-ve",
+  "short": "Ciudad Guayana",
+  "country": "Venezuela",
+  "clue": "Ciudad Guayana, Venezuela \ud83c\uddfb\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Panor%C3%A1mica_a%C3%A9rea_de_ciudad_Guayana.jpg/500px-Panor%C3%A1mica_a%C3%A9rea_de_ciudad_Guayana.jpg"
+ },
+ {
+  "id": "cochabamba-bo",
+  "short": "Cochabamba",
+  "country": "Bolivia",
+  "clue": "Cochabamba, Bolivia \ud83c\udde7\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Cochabamba_1988.jpg/500px-Cochabamba_1988.jpg"
+ },
+ {
+  "id": "coimbatore-in",
+  "short": "Coimbatore",
+  "country": "India",
+  "clue": "Coimbatore, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panoramic_View_of_Coimbatore_from_Atop_Marudhamalai_Temple.jpg/500px-Panoramic_View_of_Coimbatore_from_Atop_Marudhamalai_Temple.jpg"
+ },
+ {
+  "id": "columbus",
+  "short": "Columbus",
+  "country": "United States",
+  "clue": "Columbus, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Montage_Columbus_1.jpg/500px-Montage_Columbus_1.jpg"
+ },
+ {
+  "id": "coquitlam",
+  "short": "Coquitlam",
+  "country": "Canada",
+  "clue": "Coquitlam, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Coquitlam_Town_Centre_Area.jpg/500px-Coquitlam_Town_Centre_Area.jpg"
+ },
+ {
+  "id": "cordoba-ar",
+  "short": "C\u00f3rdoba",
+  "country": "Argentina",
+  "clue": "C\u00f3rdoba, Argentina \ud83c\udde6\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Montaje_CBA_9.jpg/500px-Montaje_CBA_9.jpg"
+ },
+ {
+  "id": "cucuta-co",
+  "short": "C\u00facuta",
+  "country": "Colombia",
+  "clue": "C\u00facuta, Colombia \ud83c\udde8\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/C%C3%BAcuta_desde_Torcoroma%2C_C%C3%BAcuta.jpeg/500px-C%C3%BAcuta_desde_Torcoroma%2C_C%C3%BAcuta.jpeg"
+ },
+ {
+  "id": "da-nang-vn",
+  "short": "Da Nang",
+  "country": "Vietnam",
+  "clue": "Da Nang, Vietnam \ud83c\uddfb\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Da_Nang_Hospital.jpg/500px-Da_Nang_Hospital.jpg"
+ },
+ {
+  "id": "daejeon-kr",
+  "short": "Daejeon",
+  "country": "South Korea",
+  "clue": "Daejeon, South Korea \ud83c\uddf0\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/%EB%8C%80%EC%A0%84%EC%8B%9C_%EB%8F%99%EA%B5%AC8%EA%B2%BD_%EC%8B%9D%EC%9E%A5%EC%82%B0.jpg/500px-%EB%8C%80%EC%A0%84%EC%8B%9C_%EB%8F%99%EA%B5%AC8%EA%B2%BD_%EC%8B%9D%EC%9E%A5%EC%82%B0.jpg"
+ },
+ {
+  "id": "dakar",
+  "short": "Dakar",
+  "country": "Senegal",
+  "clue": "Dakar, Senegal \ud83c\uddf8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Dakar-Ind%C3%A9pendance.jpg/500px-Dakar-Ind%C3%A9pendance.jpg"
+ },
+ {
+  "id": "daqing-cn",
+  "short": "Daqing",
+  "country": "China",
+  "clue": "Daqing, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Cityscape_of_Dongfeng_Xincun_20250530174919.jpg/500px-Cityscape_of_Dongfeng_Xincun_20250530174919.jpg"
+ },
+ {
+  "id": "datong",
+  "short": "Datong",
+  "country": "China",
+  "clue": "Datong, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/The_skyline_of_Datong%EF%BC%88Southgate%EF%BC%892019.jpg/500px-The_skyline_of_Datong%EF%BC%88Southgate%EF%BC%892019.jpg"
+ },
+ {
+  "id": "davao-ph",
+  "short": "Davao",
+  "country": "Philippines",
+  "clue": "Davao, Philippines \ud83c\uddf5\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Davao_river.jpg/500px-Davao_river.jpg"
+ },
+ {
+  "id": "dazhou-cn",
+  "short": "Dazhou",
+  "country": "China",
+  "clue": "Dazhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/202309_Platform_1%2C2_of_Dazhou_Station.jpg/500px-202309_Platform_1%2C2_of_Dazhou_Station.jpg"
+ },
+ {
+  "id": "delhi",
+  "short": "Delhi",
+  "country": "India",
+  "clue": "Delhi, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Red_Fort_in_Delhi_03-2016_img3.jpg/500px-Red_Fort_in_Delhi_03-2016_img3.jpg"
+ },
+ {
+  "id": "dera-ghazi-khan",
+  "short": "Dera Ghazi Khan",
+  "country": "Pakistan",
+  "clue": "Dera Ghazi Khan, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/University_Building%2C_D.G._Khan.jpg/500px-University_Building%2C_D.G._Khan.jpg"
+ },
+ {
+  "id": "dhaka",
+  "short": "Dhaka",
+  "country": "Bangladesh",
+  "clue": "Dhaka, Bangladesh \ud83c\udde7\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Dhaka_skyline1.jpg/500px-Dhaka_skyline1.jpg"
+ },
+ {
+  "id": "diyarbakr-tr",
+  "short": "Diyarbak\u0131r",
+  "country": "Turkey",
+  "clue": "Diyarbak\u0131r, Turkey \ud83c\uddf9\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/%C3%8Estgeha_trenan_a_Amed%C3%AA_2010.JPG/500px-%C3%8Estgeha_trenan_a_Amed%C3%AA_2010.JPG"
+ }
+]

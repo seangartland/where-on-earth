@@ -1,0 +1,594 @@
+{
+"_doc": "Capital(s) and #1 metro per dataset country (factual list) for §2.9 icon test and §2.2 primate relief. Match on normalized `short` for city-type items (clue begins with short and short is the whole place name).",
+"Afghanistan": [
+"Kabul"
+],
+"Albania": [
+"Tirana"
+],
+"Algeria": [
+"Algiers"
+],
+"Angola": [
+"Luanda"
+],
+"Antarctica": [],
+"Argentina": [
+"Buenos Aires"
+],
+"Armenia": [
+"Yerevan"
+],
+"Australia": [
+"Canberra",
+"Sydney"
+],
+"Austria": [
+"Vienna"
+],
+"Azerbaijan": [
+"Baku"
+],
+"Bangladesh": [
+"Dhaka"
+],
+"Belarus": [
+"Minsk"
+],
+"Belgium": [
+"Brussels"
+],
+"Belize": [
+"Belmopan",
+"Belize City"
+],
+"Benin": [
+"Porto-Novo",
+"Cotonou"
+],
+"Bhutan": [
+"Thimphu"
+],
+"Bolivia": [
+"Sucre",
+"La Paz",
+"Santa Cruz de la Sierra"
+],
+"Bosnia and Herzegovina": [
+"Sarajevo"
+],
+"Botswana": [
+"Gaborone"
+],
+"Brazil": [
+"Brasília",
+"São Paulo"
+],
+"Brunei": [
+"Bandar Seri Begawan"
+],
+"Bulgaria": [
+"Sofia"
+],
+"Burkina Faso": [
+"Ouagadougou"
+],
+"Burundi": [
+"Gitega",
+"Bujumbura"
+],
+"Cambodia": [
+"Phnom Penh"
+],
+"Cameroon": [
+"Yaoundé",
+"Douala"
+],
+"Canada": [
+"Ottawa",
+"Toronto"
+],
+"Cape Verde": [
+"Praia"
+],
+"Central African Republic": [
+"Bangui"
+],
+"Chad": [
+"N'Djamena"
+],
+"Chile": [
+"Santiago"
+],
+"China": [
+"Beijing",
+"Shanghai"
+],
+"Colombia": [
+"Bogotá"
+],
+"Comoros": [
+"Moroni"
+],
+"Congo": [
+"Brazzaville"
+],
+"Cook Islands": [
+"Avarua"
+],
+"Croatia": [
+"Zagreb"
+],
+"Cuba": [
+"Havana"
+],
+"Czech Republic": [
+"Prague"
+],
+"Côte d'Ivoire": [
+"Yamoussoukro",
+"Abidjan"
+],
+"DR Congo": [
+"Kinshasa"
+],
+"Denmark": [
+"Copenhagen"
+],
+"Dominican Republic": [
+"Santo Domingo"
+],
+"Ecuador": [
+"Quito",
+"Guayaquil"
+],
+"Egypt": [
+"Cairo"
+],
+"El Salvador": [
+"San Salvador"
+],
+"England": [
+"London"
+],
+"Eritrea": [
+"Asmara"
+],
+"Estonia": [
+"Tallinn"
+],
+"Ethiopia": [
+"Addis Ababa"
+],
+"Fiji": [
+"Suva"
+],
+"Finland": [
+"Helsinki"
+],
+"France": [
+"Paris"
+],
+"Gabon": [
+"Libreville"
+],
+"Georgia": [
+"Tbilisi"
+],
+"Germany": [
+"Berlin"
+],
+"Ghana": [
+"Accra"
+],
+"Greece": [
+"Athens"
+],
+"Guatemala": [
+"Guatemala City"
+],
+"Guinea": [
+"Conakry"
+],
+"Guinea-Bissau": [
+"Bissau"
+],
+"Guyana": [
+"Georgetown"
+],
+"Haiti": [
+"Port-au-Prince"
+],
+"Honduras": [
+"Tegucigalpa"
+],
+"Hungary": [
+"Budapest"
+],
+"Iceland": [
+"Reykjavík"
+],
+"India": [
+"New Delhi",
+"Delhi",
+"Mumbai"
+],
+"Indonesia": [
+"Jakarta"
+],
+"International Waters": [],
+"Iran": [
+"Tehran"
+],
+"Iraq": [
+"Baghdad"
+],
+"Ireland": [
+"Dublin"
+],
+"Israel": [
+"Jerusalem",
+"Tel Aviv"
+],
+"Italy": [
+"Rome"
+],
+"Jamaica": [
+"Kingston"
+],
+"Japan": [
+"Tokyo"
+],
+"Jordan": [
+"Amman"
+],
+"Kazakhstan": [
+"Astana",
+"Almaty"
+],
+"Kenya": [
+"Nairobi"
+],
+"Kiribati": [
+"South Tarawa",
+"Tarawa"
+],
+"Kosovo": [
+"Pristina"
+],
+"Kyrgyzstan": [
+"Bishkek"
+],
+"Laos": [
+"Vientiane"
+],
+"Latvia": [
+"Riga"
+],
+"Lebanon": [
+"Beirut"
+],
+"Lesotho": [
+"Maseru"
+],
+"Liberia": [
+"Monrovia"
+],
+"Libya": [
+"Tripoli"
+],
+"Liechtenstein": [
+"Vaduz"
+],
+"Lithuania": [
+"Vilnius"
+],
+"Luxembourg": [
+"Luxembourg City",
+"Luxembourg"
+],
+"Madagascar": [
+"Antananarivo"
+],
+"Malawi": [
+"Lilongwe"
+],
+"Malaysia": [
+"Kuala Lumpur"
+],
+"Maldives": [
+"Malé"
+],
+"Mali": [
+"Bamako"
+],
+"Malta": [
+"Valletta"
+],
+"Marshall Islands": [
+"Majuro"
+],
+"Mauritania": [
+"Nouakchott"
+],
+"Mexico": [
+"Mexico City"
+],
+"Micronesia": [
+"Palikir"
+],
+"Moldova": [
+"Chișinău"
+],
+"Monaco": [
+"Monaco"
+],
+"Mongolia": [
+"Ulaanbaatar"
+],
+"Montenegro": [
+"Podgorica"
+],
+"Morocco": [
+"Rabat",
+"Casablanca"
+],
+"Mozambique": [
+"Maputo"
+],
+"Myanmar": [
+"Naypyidaw",
+"Yangon"
+],
+"Namibia": [
+"Windhoek"
+],
+"Nauru": [
+"Yaren"
+],
+"Nepal": [
+"Kathmandu"
+],
+"Netherlands": [
+"Amsterdam"
+],
+"New Zealand": [
+"Wellington",
+"Auckland"
+],
+"Nicaragua": [
+"Managua"
+],
+"Niger": [
+"Niamey"
+],
+"Nigeria": [
+"Abuja",
+"Lagos"
+],
+"Niue": [
+"Alofi"
+],
+"North Korea": [
+"Pyongyang"
+],
+"North Macedonia": [
+"Skopje"
+],
+"Northern Ireland": [
+"Belfast"
+],
+"Norway": [
+"Oslo"
+],
+"Oman": [
+"Muscat"
+],
+"Pakistan": [
+"Islamabad",
+"Karachi"
+],
+"Palau": [
+"Ngerulmud",
+"Koror"
+],
+"Palestine": [
+"Ramallah",
+"Gaza City"
+],
+"Panama": [
+"Panama City"
+],
+"Papua New Guinea": [
+"Port Moresby"
+],
+"Paraguay": [
+"Asunción"
+],
+"Peru": [
+"Lima"
+],
+"Philippines": [
+"Manila"
+],
+"Poland": [
+"Warsaw"
+],
+"Portugal": [
+"Lisbon"
+],
+"Qatar": [
+"Doha"
+],
+"Romania": [
+"Bucharest"
+],
+"Russia": [
+"Moscow"
+],
+"Rwanda": [
+"Kigali"
+],
+"Saint Kitts and Nevis": [
+"Basseterre"
+],
+"Saint Lucia": [
+"Castries"
+],
+"Samoa": [
+"Apia"
+],
+"Saudi Arabia": [
+"Riyadh"
+],
+"Scotland": [
+"Edinburgh",
+"Glasgow"
+],
+"Senegal": [
+"Dakar"
+],
+"Serbia": [
+"Belgrade"
+],
+"Sierra Leone": [
+"Freetown"
+],
+"Singapore": [
+"Singapore"
+],
+"Slovakia": [
+"Bratislava"
+],
+"Slovenia": [
+"Ljubljana"
+],
+"Solomon Islands": [
+"Honiara"
+],
+"Somalia": [
+"Mogadishu"
+],
+"South Africa": [
+"Pretoria",
+"Cape Town",
+"Bloemfontein",
+"Johannesburg"
+],
+"South Korea": [
+"Seoul"
+],
+"Spain": [
+"Madrid"
+],
+"Sri Lanka": [
+"Sri Jayawardenepura Kotte",
+"Colombo"
+],
+"Sudan": [
+"Khartoum"
+],
+"Suriname": [
+"Paramaribo"
+],
+"Sweden": [
+"Stockholm"
+],
+"Switzerland": [
+"Bern",
+"Zürich",
+"Zurich"
+],
+"Syria": [
+"Damascus"
+],
+"Taiwan": [
+"Taipei"
+],
+"Tajikistan": [
+"Dushanbe"
+],
+"Tanzania": [
+"Dodoma",
+"Dar es Salaam"
+],
+"Thailand": [
+"Bangkok"
+],
+"Timor-Leste": [
+"Dili"
+],
+"Togo": [
+"Lomé"
+],
+"Tonga": [
+"Nukuʻalofa",
+"Nuku'alofa"
+],
+"Tunisia": [
+"Tunis"
+],
+"Turkey": [
+"Ankara",
+"Istanbul"
+],
+"Turkmenistan": [
+"Ashgabat"
+],
+"Tuvalu": [
+"Funafuti"
+],
+"Uganda": [
+"Kampala"
+],
+"Ukraine": [
+"Kyiv",
+"Kiev"
+],
+"United Arab Emirates": [
+"Abu Dhabi",
+"Dubai"
+],
+"United Kingdom": [
+"London"
+],
+"United States": [
+"Washington",
+"Washington, D.C.",
+"New York City",
+"New York"
+],
+"Uruguay": [
+"Montevideo"
+],
+"Uzbekistan": [
+"Tashkent"
+],
+"Vanuatu": [
+"Port Vila"
+],
+"Vatican City": [
+"Vatican City"
+],
+"Venezuela": [
+"Caracas"
+],
+"Vietnam": [
+"Hanoi",
+"Ho Chi Minh City"
+],
+"Wales": [
+"Cardiff"
+],
+"Yemen": [
+"Sanaa",
+"Sana'a",
+"Aden"
+],
+"Zambia": [
+"Lusaka"
+],
+"Zimbabwe": [
+"Harare"
+]
+}

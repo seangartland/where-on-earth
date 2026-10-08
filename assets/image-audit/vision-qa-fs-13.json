@@ -1,0 +1,202 @@
+[
+ {
+  "id": "san-pedro-sula-hn",
+  "short": "San Pedro Sula",
+  "country": "Honduras",
+  "clue": "San Pedro Sula, Honduras \ud83c\udded\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/San_Pedro_Sula_Cathedral.jpg/500px-San_Pedro_Sula_Cathedral.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "san-luis-potosi-mx",
+  "short": "San Luis Potos\u00ed",
+  "country": "Mexico",
+  "clue": "San Luis Potos\u00ed, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Montage_San_Luis_Potosi.jpg/500px-Montage_San_Luis_Potosi.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "san-luis-de-la-paz",
+  "short": "San Luis de la Paz",
+  "country": "Mexico",
+  "clue": "San Luis de la Paz, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/San_Lu%C3%ADs_de_la_Paz%2C_Guanajuato%2C_M%C3%A9xico.jpg/500px-San_Lu%C3%ADs_de_la_Paz%2C_Guanajuato%2C_M%C3%A9xico.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sanaa-ye",
+  "short": "Sanaa",
+  "country": "Yemen",
+  "clue": "Sanaa, Yemen \ud83c\uddfe\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/San%27a03_flickr.jpg/500px-San%27a03_flickr.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "santiago",
+  "short": "Santiago",
+  "country": "Chile",
+  "clue": "Santiago, Chile \ud83c\udde8\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Vista_de_Santiago_desde_San_Cristobal.jpg/500px-Vista_de_Santiago_desde_San_Cristobal.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "santa-marta-co",
+  "short": "Santa Marta",
+  "country": "Colombia",
+  "clue": "Santa Marta, Colombia \ud83c\udde8\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/2018_Santa_Marta_%28Colombia%29_-_Edificio_de_los_Bancos_en_el_Parque_Sim%C3%B3n_Bol%C3%ADvar.jpg/500px-2018_Santa_Marta_%28Colombia%29_-_Edificio_de_los_Bancos_en_el_Parque_Sim%C3%B3n_Bol%C3%ADvar.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "santo-domingo-de-los-colorados-ec",
+  "short": "Santo Domingo de los Colorados",
+  "country": "Ecuador",
+  "clue": "Santo Domingo de los Colorados, Ecuador \ud83c\uddea\ud83c\udde8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Collage_Santo_Domingo.png/500px-Collage_Santo_Domingo.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "santo-domingo-este-do",
+  "short": "Santo Domingo Este",
+  "country": "Dominican Republic",
+  "clue": "Santo Domingo Este, Dominican Republic \ud83c\udde9\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Santo_Domingo_Este%2C_Dominican_Republic_-_panoramio_%2869%29.jpg/500px-Santo_Domingo_Este%2C_Dominican_Republic_-_panoramio_%2869%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sao-joao-de-meriti-br",
+  "short": "S\u00e3o Jo\u00e3o de Meriti",
+  "country": "Brazil",
+  "clue": "S\u00e3o Jo\u00e3o de Meriti, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Igreja_da_Matriz_de_S%C3%A3o_Jo%C3%A3o_de_Meriti.JPG/500px-Igreja_da_Matriz_de_S%C3%A3o_Jo%C3%A3o_de_Meriti.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "santo-domingo-do",
+  "short": "Santo Domingo",
+  "country": "Dominican Republic",
+  "clue": "Santo Domingo, Dominican Republic \ud83c\udde9\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Santo_Domingo_%28Dominican_Republic%29_taken_atop_Novocentro_tower_viewing_the_city_to_the_southwest_2010.jpg/500px-Santo_Domingo_%28Dominican_Republic%29_taken_atop_Novocentro_tower_viewing_the_city_to_the_southwest_2010.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sao-joao-do-triunfo",
+  "short": "S\u00e3o Jo\u00e3o do Triunfo",
+  "country": "Brazil",
+  "clue": "S\u00e3o Jo\u00e3o do Triunfo, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/S%C3%A3o_Jo%C3%A3o_do_Triunfo_PR_Brasil_avenida_central.jpg/500px-S%C3%A3o_Jo%C3%A3o_do_Triunfo_PR_Brasil_avenida_central.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sao-luis-br",
+  "short": "S\u00e3o Lu\u00eds",
+  "country": "Brazil",
+  "clue": "S\u00e3o Lu\u00eds, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/SaoLuis-Street2.jpg/500px-SaoLuis-Street2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "saratov-ru",
+  "short": "Saratov",
+  "country": "Russia",
+  "clue": "Saratov, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/1856._Card_from_set_of_geographical_cards_of_the_Russian_Empire_120.jpg/500px-1856._Card_from_set_of_geographical_cards_of_the_Russian_Empire_120.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sarajevo-ba",
+  "short": "Sarajevo",
+  "country": "Bosnia and Herzegovina",
+  "clue": "Sarajevo, Bosnia and Herzegovina \ud83c\udde7\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sarajevo_Tram-Line_Halida-Kajtaza_2011-10-19_%283%29.jpg/500px-Sarajevo_Tram-Line_Halida-Kajtaza_2011-10-19_%283%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sargodha",
+  "short": "Sargodha",
+  "country": "Pakistan",
+  "clue": "Sargodha, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Mainentry_Sargodha_public_school.jpg/500px-Mainentry_Sargodha_public_school.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sao-paulo-br",
+  "short": "S\u00e3o Paulo",
+  "country": "Brazil",
+  "clue": "S\u00e3o Paulo, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sao_Paulo_Skyline_in_Brazil.jpg/500px-Sao_Paulo_Skyline_in_Brazil.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sao-rafael",
+  "short": "Sao Rafael",
+  "country": "Brazil",
+  "clue": "Sao Rafael, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Panoramica_sao_rafael_1.JPG/500px-Panoramica_sao_rafael_1.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sendai",
+  "short": "Sendai",
+  "country": "Japan",
+  "clue": "Sendai, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg/500px-SendaiCity_Skylines_from_Mukaiyama2018.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "semarang-id",
+  "short": "Semarang",
+  "country": "Indonesia",
+  "clue": "Semarang, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Becak_Tugu_Muda_Semarang_Central_Java.jpg/500px-Becak_Tugu_Muda_Semarang_Central_Java.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "shangqiu-cn",
+  "short": "Shangqiu",
+  "country": "China",
+  "clue": "Shangqiu, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/20220726_Historic_City_of_Shangqiu_01.jpg/500px-20220726_Historic_City_of_Shangqiu_01.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "senaki",
+  "short": "Senaki",
+  "country": "Georgia",
+  "clue": "Senaki, Georgia \ud83c\uddec\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Senaki_Cathedral_%283%29.jpg/500px-Senaki_Cathedral_%283%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "serra-br",
+  "short": "Serra",
+  "country": "Brazil",
+  "clue": "Serra, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Vista_de_Serra_%28Tims%29.jpg/500px-Vista_de_Serra_%28Tims%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "sha-tin",
+  "short": "Sha Tin",
+  "country": "China",
+  "clue": "Sha Tin, Hong Kong \ud83c\udded\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Sha_Tin_Station_Platform_2011.jpg/500px-Sha_Tin_Station_Platform_2011.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "shantou-cn",
+  "short": "Shantou",
+  "country": "China",
+  "clue": "Shantou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Shantou_Montage.jpg/500px-Shantou_Montage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "shenzhen-cn",
+  "short": "Shenzhen",
+  "country": "China",
+  "clue": "Shenzhen, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/The_west_panorama_of_Shenzhen2021.jpg/500px-The_west_panorama_of_Shenzhen2021.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

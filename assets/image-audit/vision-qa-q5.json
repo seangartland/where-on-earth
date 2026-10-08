@@ -1,0 +1,184 @@
+[
+ {
+  "id": "pingyao-ancient-city",
+  "short": "Pingyao Ancient City",
+  "country": "China",
+  "clue": "Pingyao Ancient City, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Pingyao_40.JPG/500px-Pingyao_40.JPG"
+ },
+ {
+  "id": "pisa-cathedral",
+  "short": "Pisa Cathedral",
+  "country": "Italy",
+  "clue": "Pisa Cathedral, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Duomo_of_the_Archdiocese_of_Pisa.jpeg/500px-Duomo_of_the_Archdiocese_of_Pisa.jpeg"
+ },
+ {
+  "id": "pittsburgh",
+  "short": "Pittsburgh",
+  "country": "United States",
+  "clue": "Pittsburgh, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Duquesne_Incline_%2850076338942%29_%28cropped%29.jpg/500px-Duquesne_Incline_%2850076338942%29_%28cropped%29.jpg"
+ },
+ {
+  "id": "port-of-rotterdam-d34-9",
+  "short": "Port of Rotterdam",
+  "country": "Netherlands",
+  "clue": "Port of Rotterdam, Netherlands \ud83c\uddf3\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Port_of_Rotterdam_Landsat_8_Photo_8_May_2016.jpg/500px-Port_of_Rotterdam_Landsat_8_Photo_8_May_2016.jpg"
+ },
+ {
+  "id": "potala-palace-lhasa",
+  "short": "Potala Palace",
+  "country": "China",
+  "clue": "Potala Palace, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Potala.jpg/500px-Potala.jpg"
+ },
+ {
+  "id": "pohutu-geyser",
+  "short": "Pohutu Geyser",
+  "country": "New Zealand",
+  "clue": "Pohutu Geyser, New Zealand \ud83c\uddf3\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Pohutu_Geyser_%2839485409944%29.jpg/500px-Pohutu_Geyser_%2839485409944%29.jpg"
+ },
+ {
+  "id": "prague-castle-d34-17",
+  "short": "Prague Castle",
+  "country": "Czech Republic",
+  "clue": "Prague Castle, Czech Republic \ud83c\udde8\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Castillo_de_Praga%2C_Praga%2C_Rep%C3%BAblica_Checa%2C_2022-07-02%2C_DD_209.jpg/500px-Castillo_de_Praga%2C_Praga%2C_Rep%C3%BAblica_Checa%2C_2022-07-02%2C_DD_209.jpg"
+ },
+ {
+  "id": "prayagraj",
+  "short": "Prayagraj",
+  "country": "India",
+  "clue": "Prayagraj, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Allahabad_city.jpg/500px-Allahabad_city.jpg"
+ },
+ {
+  "id": "prambanan-indonesia",
+  "short": "Prambanan Temple",
+  "country": "Indonesia",
+  "clue": "Prambanan Temple, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Prambanan_Complex_1.jpg/500px-Prambanan_Complex_1.jpg"
+ },
+ {
+  "id": "punta-arenas-magellan-monument",
+  "short": "Punta Arenas",
+  "country": "Chile",
+  "clue": "Punta Arenas, Chile \ud83c\udde8\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Punta_Arenas%2C_Cerro_de_la_Cruz_0798.jpg/500px-Punta_Arenas%2C_Cerro_de_la_Cruz_0798.jpg"
+ },
+ {
+  "id": "pyramids-of-giza",
+  "short": "Pyramids of Giza",
+  "country": "Egypt",
+  "clue": "Pyramids of Giza, Egypt \ud83c\uddea\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Pyramids_of_the_Giza_Necropolis.jpg/500px-Pyramids_of_the_Giza_Necropolis.jpg"
+ },
+ {
+  "id": "redford",
+  "short": "Redford",
+  "country": "United States",
+  "clue": "Redford, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Redford_Township_Hall_Michigan.JPG/500px-Redford_Township_Hall_Michigan.JPG"
+ },
+ {
+  "id": "red-fort-in",
+  "short": "Red Fort",
+  "country": "India",
+  "clue": "Red Fort, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Red_Fort%2C_Delhi_by_alexfurr.jpg/500px-Red_Fort%2C_Delhi_by_alexfurr.jpg"
+ },
+ {
+  "id": "recife-marco-zero",
+  "short": "Recife",
+  "country": "Brazil",
+  "clue": "Recife, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Recife_-_In%C3%ADcio_da_Avenida_Boa_Viagem.jpg/500px-Recife_-_In%C3%ADcio_da_Avenida_Boa_Viagem.jpg"
+ },
+ {
+  "id": "reichstag-de",
+  "short": "Reichstag Building",
+  "country": "Germany",
+  "clue": "Reichstag Building, Germany \ud83c\udde9\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Reichstagsgeb%C3%A4ude_von_Westen.jpg/500px-Reichstagsgeb%C3%A4ude_von_Westen.jpg"
+ },
+ {
+  "id": "rila-monastery-bulgaria",
+  "short": "Rila Monastery",
+  "country": "Bulgaria",
+  "clue": "Rila Monastery, Bulgaria \ud83c\udde7\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Rila_Monastery%2C_August_2013.jpg/500px-Rila_Monastery%2C_August_2013.jpg"
+ },
+ {
+  "id": "roman-temple-of-evora-d34-75",
+  "short": "Roman Temple of Evora",
+  "country": "Portugal",
+  "clue": "Roman Temple of Evora, Portugal \ud83c\uddf5\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Evora-RomanTemple.jpg/500px-Evora-RomanTemple.jpg"
+ },
+ {
+  "id": "ruiru",
+  "short": "Ruiru",
+  "country": "Kenya",
+  "clue": "Ruiru, Kenya \ud83c\uddf0\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Ruiru.jpg/500px-Ruiru.jpg"
+ },
+ {
+  "id": "rocky-mountain-national-park",
+  "short": "Rocky Mountain National Park",
+  "country": "United States",
+  "clue": "Rocky Mountain National Park, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Bearlakeinspring2.jpg/500px-Bearlakeinspring2.jpg"
+ },
+ {
+  "id": "salt-lake-city",
+  "short": "Salt Lake City",
+  "country": "United States",
+  "clue": "Salt Lake City, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Salt_Lake_City_pan_1.jpg/500px-Salt_Lake_City_pan_1.jpg"
+ },
+ {
+  "id": "san-diego-usa",
+  "short": "San Diego",
+  "country": "United States",
+  "clue": "San Diego, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/San_Diego_skyline_18_%28cropped%29.jpg/500px-San_Diego_skyline_18_%28cropped%29.jpg"
+ },
+ {
+  "id": "san-antonio-usa",
+  "short": "San Antonio",
+  "country": "United States",
+  "clue": "San Antonio, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SA_Montage_Nima.png/500px-SA_Montage_Nima.png"
+ },
+ {
+  "id": "sanctuary-of-f\u00e1tima-d34-77",
+  "short": "Sanctuary of F\u00e1tima",
+  "country": "Portugal",
+  "clue": "Sanctuary of F\u00e1tima, Portugal \ud83c\uddf5\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Faithway_%282850562202%29_%28cropped%29.jpg/500px-Faithway_%282850562202%29_%28cropped%29.jpg"
+ },
+ {
+  "id": "santa-fe",
+  "short": "Santa Fe",
+  "country": "United States",
+  "clue": "Santa Fe, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Santa_Fe_NM.jpg/500px-Santa_Fe_NM.jpg"
+ },
+ {
+  "id": "savannah",
+  "short": "Savannah",
+  "country": "United States",
+  "clue": "Savannah, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/SavannahRooftopViewNW20140422.jpg/500px-SavannahRooftopViewNW20140422.jpg"
+ },
+ {
+  "id": "sapporo-japan",
+  "short": "Sapporo",
+  "country": "Japan",
+  "clue": "Sapporo, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/%E6%9C%AD%E5%B9%8C%E3%82%BF%E3%83%AF%E3%83%BC%E9%9B%BB%E6%B3%A2%E5%A1%94%E5%B1%95%E6%9C%9B%E5%8F%B0%E3%81%8B%E3%82%89%E6%9C%AD%E5%B9%8C%E9%A7%85%E6%96%B9%E9%9D%A2_-_panoramio.jpg/500px-%E6%9C%AD%E5%B9%8C%E3%82%BF%E3%83%AF%E3%83%BC%E9%9B%BB%E6%B3%A2%E5%A1%94%E5%B1%95%E6%9C%9B%E5%8F%B0%E3%81%8B%E3%82%89%E6%9C%AD%E5%B9%8C%E9%A7%85%E6%96%B9%E9%9D%A2_-_panoramio.jpg"
+ }
+]

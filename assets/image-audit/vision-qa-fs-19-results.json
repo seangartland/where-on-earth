@@ -1,0 +1,38 @@
+{
+  "zhanjiang-cn": {
+    "pass": true,
+    "reason": "Real street photograph of Renmin Avenue in Zhanjiang; it shows the city's built environment and roadway rather than an isolated landmark."
+  },
+  "zhuhai-cn": {
+    "pass": true,
+    "reason": "Real overview photograph showing Zhuhai's coastal urban skyline and surrounding cityscape."
+  },
+  "zhengzhou-cn": {
+    "pass": false,
+    "reason": "Real photograph and correctly located, but it is centered on the isolated Zhengzhou railway-station building rather than providing a city view."
+  },
+  "zhongshan": {
+    "pass": false,
+    "reason": "A montage assembled from several photographs, not a single real photographic view of Zhongshan; strict city-image QA rejects composites."
+  },
+  "zhucheng": {
+    "pass": false,
+    "reason": "Real photograph of a section of the Wei River, but it is primarily a river/landscape view and does not clearly depict Zhucheng as a city."
+  },
+  "zhaoqing-cn": {
+    "pass": true,
+    "reason": "Real elevated photograph from the Starlake Pearl Hotel showing the broader Duanzhou/Zhaoqing urban area; it functions as a city view."
+  },
+  "zigong-cn": {
+    "pass": true,
+    "reason": "Real geotagged Panoramio photograph of Ziliujing in central Zigong showing the local urban environment, not an isolated monument."
+  },
+  "zibo-cn": {
+    "pass": false,
+    "reason": "A four-panel city montage rather than a single real photographic view; strict city-image QA rejects composites."
+  },
+  "zunyi-cn": {
+    "pass": true,
+    "reason": "Real photograph of Zunyi's riverside urban core, with roads, dense buildings, and high-rises forming a clear city view."
+  }
+}

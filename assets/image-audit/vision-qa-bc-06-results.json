@@ -1,0 +1,102 @@
+{
+  "nui-tuvalu": {
+    "pass": true,
+    "reason": "Real aerial photograph clearly showing Nui Atoll and its islets."
+  },
+  "normandy-american-cemetery-and-memorial": {
+    "pass": true,
+    "reason": "Real photo clearly showing the Normandy American Cemetery, with its extensive rows of grave markers."
+  },
+  "olympia-greece": {
+    "pass": true,
+    "reason": "Real photograph showing the archaeological site and ruins at Olympia."
+  },
+  "omaha": {
+    "pass": false,
+    "reason": "Real historical photo, but it shows Omaha Beach in Normandy rather than the city of Omaha, Nebraska."
+  },
+  "omdurman-sd": {
+    "pass": false,
+    "reason": "The image focuses on a Mahdist figure inside the Khalifa's House rather than providing a representative city view of Omdurman."
+  },
+  "palace-of-parliament-d34-24": {
+    "pass": true,
+    "reason": "Real cityscape photograph looking along Union Boulevard toward Bucharest's Palace of Parliament, which is clearly visible."
+  },
+  "oivi-kokoda": {
+    "pass": false,
+    "reason": "Not a real photo of the place; it is a scanned publication cover/page and does not show Oivi or Kokoda."
+  },
+  "our-lady-peace-basilica": {
+    "pass": true,
+    "reason": "Real photographic panorama clearly showing the Basilica of Our Lady of Peace and its surroundings in Yamoussoukro."
+  },
+  "penrhyn-omoka": {
+    "pass": false,
+    "reason": "Real satellite photograph of Penrhyn Atoll, but it is too broad to show or identify Omoka village as the named place."
+  },
+  "paracas-candelabra": {
+    "pass": true,
+    "reason": "Real photograph clearly showing the Paracas Candelabra geoglyph on the hillside."
+  },
+  "pavuvu-russells": {
+    "pass": true,
+    "reason": "Real satellite photograph clearly showing Pavuvu Island within the Russell Islands."
+  },
+  "pantheon-rome": {
+    "pass": true,
+    "reason": "Real photograph clearly showing the Pantheon's exterior in Rome."
+  },
+  "perm-ru": {
+    "pass": false,
+    "reason": "Real photo, but it shows the isolated Perm-36 prison-camp museum outside the city rather than a representative view of Perm."
+  },
+  "peros-banhos": {
+    "pass": false,
+    "reason": "Not a real photo; it is a map/diagram of Peros Banhos."
+  },
+  "petra-nabatean-treasury": {
+    "pass": true,
+    "reason": "Real photograph clearly showing Al-Khazneh, the Treasury at Petra."
+  },
+  "petra-jordan": {
+    "pass": true,
+    "reason": "Real photograph clearly showing Petra's rock-cut archaeological landscape."
+  },
+  "pikine-sn": {
+    "pass": false,
+    "reason": "Not a suitable real city photograph; the GIF is a graphic/map-like image and does not provide a representative view of Pikine."
+  },
+  "pitcairn-bounty-bay": {
+    "pass": true,
+    "reason": "Real photograph taken while approaching Bounty Bay, clearly showing the bay and Pitcairn's shoreline."
+  },
+  "pitons-of-saint-lucia": {
+    "pass": true,
+    "reason": "Real photograph clearly showing Petit Piton, one of Saint Lucia's two Pitons."
+  },
+  "polonnaruwa-sri-lanka": {
+    "pass": true,
+    "reason": "Real photograph clearly showing the Hatadage ruins within ancient Polonnaruwa."
+  },
+  "porto-old-town-d34-74": {
+    "pass": false,
+    "reason": "Real photo, but it shows the former municipal chamber in Porto Santo, Madeira, not Porto Old Town."
+  },
+  "plitvice-lakes": {
+    "pass": true,
+    "reason": "Real landscape photograph clearly showing the lakes and waterfalls of Plitvice Lakes National Park."
+  },
+  "porto-portugal": {
+    "pass": false,
+    "reason": "Real photo, but it shows Porto Covo, a different Portuguese town, rather than the city of Porto."
+  },
+  "potosi-casa-de-la-moneda": {
+    "pass": true,
+    "reason": "Real photograph clearly showing the Casa Nacional de Moneda, the historic mint in Potosi."
+  },
+  "pukapuka-village": {
+    "pass": true,
+    "reason": "Real aerial photograph showing Pukapuka Islet, including the settlement and surrounding lagoon landscape."
+  }
+}

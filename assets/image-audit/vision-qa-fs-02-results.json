@@ -1,0 +1,102 @@
+{
+  "cixi-cn": {
+    "pass": false,
+    "reason": "Real photo but shows a street with an amusement-park ferris wheel and parking area, not a representative view of Cixi — an isolated local scene, not a city view."
+  },
+  "cn-tower-toronto": {
+    "pass": true,
+    "reason": "Real photo, clearly shows the CN Tower itself. This is a landmark entry (not a city entry), so an isolated shot of the tower is the correct subject."
+  },
+  "conakry-gn": {
+    "pass": true,
+    "reason": "Real aerial photo showing Conakry's coastline, peninsula, and dense urban area — a genuine city view."
+  },
+  "cotonou-bj": {
+    "pass": true,
+    "reason": "Real elevated photo showing Cotonou's urban skyline and greenery — a genuine city view, not an isolated monument."
+  },
+  "dalian-cn": {
+    "pass": true,
+    "reason": "Real aerial photo showing Dalian's skyline, park, and surroundings — a genuine city view."
+  },
+  "curitiba-br": {
+    "pass": true,
+    "reason": "Real aerial photo showing Curitiba's dense skyline and suburbs — a genuine city view."
+  },
+  "dammam-sa": {
+    "pass": false,
+    "reason": "Real photo but shows an isolated medical complex building and its parking lot, not a view of the city of Dammam."
+  },
+  "culiacan-mx": {
+    "pass": false,
+    "reason": "Real photo but depicts a burned-out vehicle/incident scene (appears to be from a cartel-related clash), not a view of the city of Culiacán."
+  },
+  "doha-qatar": {
+    "pass": true,
+    "reason": "Real photo, clear and recognizable skyline of Doha — a genuine city view."
+  },
+  "disuq": {
+    "pass": false,
+    "reason": "Multi-panel montage mixing close-ups of a mosque dome, statues, and a lit minaret with a skyline strip — not a single coherent city view, several panels are isolated monuments."
+  },
+  "east-london": {
+    "pass": false,
+    "reason": "Real photo but shows only the East London Town Hall building up close — an isolated monument, not a city view."
+  },
+  "ecatepec-de-morelos-mx": {
+    "pass": false,
+    "reason": "Real photo but shows a single church building at night — an isolated monument, not a city view."
+  },
+  "ensenada-mx": {
+    "pass": false,
+    "reason": "Multi-panel montage; includes an irrelevant close-up of grapes alongside harbor/coast photos — not a coherent single city view."
+  },
+  "erbil-iq": {
+    "pass": true,
+    "reason": "Real aerial photo showing the Erbil Citadel together with the dense surrounding city — functions as a genuine city view, not just an isolated monument shot."
+  },
+  "fazenda-rio-grande": {
+    "pass": true,
+    "reason": "Real street-level photo showing multiple buildings and a town street — a genuine (if modest) city/town view, not an isolated monument."
+  },
+  "fort-mchenry": {
+    "pass": true,
+    "reason": "Real photo, clearly shows Fort McHenry's entrance and walls. This is a landmark entry (not a city entry), so showing the fort itself is correct."
+  },
+  "freetown-sl": {
+    "pass": true,
+    "reason": "Real aerial photo showing Freetown's coastline, hills, and urban sprawl — a genuine city view."
+  },
+  "fushun-cn": {
+    "pass": false,
+    "reason": "Real photo but shows a small snowy rural/village scene with a power-line tower — does not read as a view of the city of Fushun."
+  },
+  "goiania-br": {
+    "pass": false,
+    "reason": "Multi-panel montage mixing a skyline shot with isolated clock tower, sculptures, and monuments — not a single coherent city view."
+  },
+  "gqeberha-za": {
+    "pass": false,
+    "reason": "Real photo but shows a Queen Victoria statue in front of a library — an isolated monument, not a city view."
+  },
+  "guatemala-city-gt": {
+    "pass": true,
+    "reason": "Real elevated photo showing Guatemala City's skyline and surrounding neighborhoods with mountains behind — a genuine city view."
+  },
+  "guayaquil-ec": {
+    "pass": false,
+    "reason": "Multi-panel montage mixing skyline/waterfront shots with an isolated monument (columns) — not a single coherent city view."
+  },
+  "guadalupe-mx": {
+    "pass": true,
+    "reason": "Real aerial photo showing a sprawling city view with mountain backdrop — a genuine city view."
+  },
+  "guangzhou-cn": {
+    "pass": false,
+    "reason": "Not a photo at all — it is a political map highlighting 2010 Asian Games participating countries. Does not show Guangzhou or any city."
+  },
+  "guilin-cn": {
+    "pass": true,
+    "reason": "Real aerial photo showing Guilin's cityscape with its iconic karst mountains and river — a genuine, recognizable city view."
+  }
+}

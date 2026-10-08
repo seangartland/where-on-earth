@@ -1,0 +1,184 @@
+[
+  {
+    "id": "giants-causeway",
+    "short": "Giant's Causeway",
+    "country": "Northern Ireland",
+    "clue": "Giant's Causeway, Northern Ireland",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Giants_Causeway_1b.JPG/500px-Giants_Causeway_1b.JPG"
+  },
+  {
+    "id": "gettysburg-battlefield",
+    "short": "Gettysburg",
+    "country": "United States",
+    "clue": "Gettysburg, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Gettysburg_Today.jpg/500px-Gettysburg_Today.jpg"
+  },
+  {
+    "id": "geneva",
+    "short": "Geneva",
+    "country": "Switzerland",
+    "clue": "Geneva, Switzerland \ud83c\udde8\ud83c\udded",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Geneva_from_Mount_Sal%C3%A8ve.jpg/500px-Geneva_from_Mount_Sal%C3%A8ve.jpg"
+  },
+  {
+    "id": "georgetown-st-georges-cathedral",
+    "short": "Georgetown",
+    "country": "Guyana",
+    "clue": "Georgetown, Guyana",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/St_George%27s_Cathedral.jpg/500px-St_George%27s_Cathedral.jpg"
+  },
+  {
+    "id": "gjirokaster-fortress-albania",
+    "short": "Gjirokast\u00ebr Fortress",
+    "country": "Albania",
+    "clue": "Gjirokast\u00ebr Fortress, Albania \ud83c\udde6\ud83c\uddf1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kalaja_e_Gjirokastr%C3%ABs_15.jpg/500px-Kalaja_e_Gjirokastr%C3%ABs_15.jpg"
+  },
+  {
+    "id": "giethoorn",
+    "short": "Giethoorn",
+    "country": "Netherlands",
+    "clue": "Giethoorn, Netherlands \ud83c\uddf3\ud83c\uddf1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Giethoorn_Netherlands_flckr03.jpg/500px-Giethoorn_Netherlands_flckr03.jpg"
+  },
+  {
+    "id": "ghent-belgium",
+    "short": "Ghent",
+    "country": "Belgium",
+    "clue": "Ghent, Belgium \ud83c\udde7\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ghent_-_centre.jpg/500px-Ghent_-_centre.jpg"
+  },
+  {
+    "id": "giza-eg",
+    "short": "Giza",
+    "country": "Egypt",
+    "clue": "Giza, Egypt \ud83c\uddea\ud83c\uddec",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Giza_Corniche.jpg/500px-Giza_Corniche.jpg"
+  },
+  {
+    "id": "great-ocean-road",
+    "short": "Great Ocean Road",
+    "country": "Australia",
+    "clue": "Great Ocean Road, Australia \ud83c\udde6\ud83c\uddfa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Great_ocean_road.jpg/500px-Great_ocean_road.jpg"
+  },
+  {
+    "id": "gwangju",
+    "short": "Gwangju",
+    "country": "South Korea",
+    "clue": "Gwangju, South Korea \ud83c\uddf0\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/%EB%AC%B4%EC%A7%84%EA%B3%A0%EC%84%B1%EC%A7%80%EC%97%90%EC%84%9C_%EB%82%B4%EB%A0%A4%EB%8B%A4%EB%B3%B8_%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C_%EC%8B%9C%EA%B0%80%EC%A7%80.jpg/500px-%EB%AC%B4%EC%A7%84%EA%B3%A0%EC%84%B1%EC%A7%80%EC%97%90%EC%84%9C_%EB%82%B4%EB%A0%A4%EB%8B%A4%EB%B3%B8_%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C_%EC%8B%9C%EA%B0%80%EC%A7%80.jpg"
+  },
+  {
+    "id": "halemaumau-crater",
+    "short": "Halema\u02bbuma\u02bbu",
+    "country": "United States",
+    "clue": "Halema\u02bbuma\u02bbu, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Rainbow_and_sulfur_dioxide_emissions_from_the_Halema%60uma%60u_vent.jpg/500px-Rainbow_and_sulfur_dioxide_emissions_from_the_Halema%60uma%60u_vent.jpg"
+  },
+  {
+    "id": "hanoi-vietnam",
+    "short": "Hanoi",
+    "country": "Vietnam",
+    "clue": "Hanoi, Vietnam \ud83c\uddfb\ud83c\uddf3",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Hanoi_Skyline_-_NKS.jpg/500px-Hanoi_Skyline_-_NKS.jpg"
+  },
+  {
+    "id": "halifax-canada",
+    "short": "Halifax",
+    "country": "Canada",
+    "clue": "Halifax, Canada \ud83c\udde8\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Halifax_City_Hall%2C_summer_2014.jpg/500px-Halifax_City_Hall%2C_summer_2014.jpg"
+  },
+  {
+    "id": "harare-zimbabwe",
+    "short": "Harare",
+    "country": "Zimbabwe",
+    "clue": "Harare, Zimbabwe \ud83c\uddff\ud83c\uddfc",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Harare_skyline.jpg/500px-Harare_skyline.jpg"
+  },
+  {
+    "id": "heimaey-iceland",
+    "short": "Heimaey",
+    "country": "Iceland",
+    "clue": "Heimaey, Iceland \ud83c\uddee\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Iglesia_de_postes_de_Heimaey%2C_Islas_Vestman%2C_Su%C3%B0urland%2C_Islandia%2C_2014-08-17%2C_DD_097_%28cropped%29.JPG/500px-Iglesia_de_postes_de_Heimaey%2C_Islas_Vestman%2C_Su%C3%B0urland%2C_Islandia%2C_2014-08-17%2C_DD_097_%28cropped%29.JPG"
+  },
+  {
+    "id": "helsinki-cathedral-d34-31",
+    "short": "Helsinki Cathedral",
+    "country": "Finland",
+    "clue": "Helsinki Cathedral, Finland \ud83c\uddeb\ud83c\uddee",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lutheran_Cathedral_Helsinki.jpg/500px-Lutheran_Cathedral_Helsinki.jpg"
+  },
+  {
+    "id": "hermitage-museum",
+    "short": "Hermitage Museum",
+    "country": "Russia",
+    "clue": "Hermitage Museum, Russia \ud83c\uddf7\ud83c\uddfa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Winter_Palace_Panorama_4.jpg/500px-Winter_Palace_Panorama_4.jpg"
+  },
+  {
+    "id": "hollywood",
+    "short": "Hollywood",
+    "country": "United States",
+    "clue": "Hollywood, Florida, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/HollywoodBM.jpg/500px-HollywoodBM.jpg"
+  },
+  {
+    "id": "hong-kong",
+    "short": "Hong Kong",
+    "country": "China",
+    "clue": "Hong Kong \ud83c\udded\ud83c\uddf0",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/HK_AuShueHungMemLibrary.JPG/500px-HK_AuShueHungMemLibrary.JPG"
+  },
+  {
+    "id": "hohhot-cn",
+    "short": "Hohhot",
+    "country": "China",
+    "clue": "Hohhot, China \ud83c\udde8\ud83c\uddf3",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hohhot_Montage.png/500px-Hohhot_Montage.png"
+  },
+  {
+    "id": "huddersfield",
+    "short": "Huddersfield",
+    "country": "England",
+    "clue": "Huddersfield, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Huddersfield_Railway_Station_%28RLH%29.jpg/500px-Huddersfield_Railway_Station_%28RLH%29.jpg"
+  },
+  {
+    "id": "housesteads-hadrians-wall",
+    "short": "Housesteads",
+    "country": "England",
+    "clue": "Housesteads, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Milecastle_37_-_geograph.org.uk_-_526779.jpg/500px-Milecastle_37_-_geograph.org.uk_-_526779.jpg"
+  },
+  {
+    "id": "ibb",
+    "short": "Ibb",
+    "country": "Yemen",
+    "clue": "Ibb, Yemen \ud83c\uddfe\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ibb_Governorate_-_Yemen_-_360%C2%B0_panoramas_%282023%29.jpg/500px-Ibb_Governorate_-_Yemen_-_360%C2%B0_panoramas_%282023%29.jpg"
+  },
+  {
+    "id": "ibiza-es",
+    "short": "Ibiza",
+    "country": "Spain",
+    "clue": "Ibiza, Spain \ud83c\uddea\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Eivissa_-_Dalt_Vila_from_Airplane.jpg/500px-Eivissa_-_Dalt_Vila_from_Airplane.jpg"
+  },
+  {
+    "id": "ichikawa",
+    "short": "Ichikawa",
+    "country": "Japan",
+    "clue": "Ichikawa, Japan \ud83c\uddef\ud83c\uddf5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Ichikawashiyakusyo.jpg/500px-Ichikawashiyakusyo.jpg"
+  },
+  {
+    "id": "indianapolis-motor-speedway",
+    "short": "Indianapolis Motor Speedway",
+    "country": "United States",
+    "clue": "Indianapolis Motor Speedway, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/2007_Indianapolis_500_-_Starting_field_formation_before_start.jpg/500px-2007_Indianapolis_500_-_Starting_field_formation_before_start.jpg"
+  }
+]

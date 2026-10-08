@@ -1,0 +1,177 @@
+[
+ {
+  "id": "innsbruck-austria",
+  "short": "Innsbruck",
+  "country": "Austria",
+  "clue": "Innsbruck, Austria \ud83c\udde6\ud83c\uddf9",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/12-06-05-innsbruck-by-ralfr-164.jpg/500px-12-06-05-innsbruck-by-ralfr-164.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "jeju-island",
+  "short": "Jeju Island",
+  "country": "South Korea",
+  "clue": "Jeju Island, South Korea \ud83c\uddf0\ud83c\uddf7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Jeju_Island.jpg/500px-Jeju_Island.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "iwo-jima-flag-raising",
+  "short": "Mount Suribachi Summit",
+  "country": "Japan",
+  "clue": "Iwo Jima, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Genaust-Memorial-Plaque.jpg/500px-Genaust-Memorial-Plaque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "jaws-menemsha-harbor",
+  "short": "Menemsha Harbor",
+  "country": "United States",
+  "clue": "Menemsha, Martha's Vineyard, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Sunset_at_Menemsha_Harbor.jpg/500px-Sunset_at_Menemsha_Harbor.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "jabalpur",
+  "short": "Jabalpur",
+  "country": "India",
+  "clue": "Jabalpur, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Ashtbhuji_Ganesha_Statue_Jabalpur_India.jpg/500px-Ashtbhuji_Ganesha_Statue_Jabalpur_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "kigali-rwanda",
+  "short": "Kigali",
+  "country": "Rwanda",
+  "clue": "Kigali, Rwanda \ud83c\uddf7\ud83c\uddfc",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/ASC_Leiden_-_Rwanda_2021_-_005_-_Genocide_Monument_2014%2C_University_of_Rwanda_-_Kigali.jpg/500px-ASC_Leiden_-_Rwanda_2021_-_005_-_Genocide_Monument_2014%2C_University_of_Rwanda_-_Kigali.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "kangaroo-island",
+  "short": "Kangaroo Island",
+  "country": "Australia",
+  "clue": "Kangaroo Island, Australia \ud83c\udde6\ud83c\uddfa",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Cape_Barren_geese_%28Cereopsis_novaehollandiae%29_in_flight_Kangaroo_Island_2.jpg/500px-Cape_Barren_geese_%28Cereopsis_novaehollandiae%29_in_flight_Kangaroo_Island_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "kinkakuji",
+  "short": "Kinkaku-ji (Golden Pavilion)",
+  "country": "Japan",
+  "clue": "Kinkaku-ji (Golden Pavilion), Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Kinkaku-ji_in_November_2016_-02.jpg/500px-Kinkaku-ji_in_November_2016_-02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "lake-balaton-d34-21",
+  "short": "Lake Balaton",
+  "country": "Hungary",
+  "clue": "Lake Balaton, Hungary \ud83c\udded\ud83c\uddfa",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Lake_Balaton_region_WV_banner.jpg/500px-Lake_Balaton_region_WV_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "lindbergh-spirit-st-louis-landing",
+  "short": "Le Bourget Airfield",
+  "country": "France",
+  "clue": "Le Bourget, Paris, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/A_British_BAe-146-STA_flies_at_the_38th_Paris_International_Air_and_Space_Show_at_Le_Bourget_Airfield_-_DPLA_-_50af255238ba6d29224537dcdee3ebf4.jpeg/500px-A_British_BAe-146-STA_flies_at_the_38th_Paris_International_Air_and_Space_Show_at_Le_Bourget_Airfield_-_DPLA_-_50af255238ba6d29224537dcdee3ebf4.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "lifou-cliffs",
+  "short": "Lifou Cliffs",
+  "country": "France",
+  "clue": "Lifou Cliffs, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Lifou_falaises_Xodre.JPG/500px-Lifou_falaises_Xodre.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "lake-garda",
+  "short": "Lake Garda",
+  "country": "Italy",
+  "clue": "Lake Garda, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/IMG8529-3_Hotel_Astor_Private_Pier%2C_Limone_Sul_Garda%2C_Italy%2C_2017-04.jpg/500px-IMG8529-3_Hotel_Astor_Private_Pier%2C_Limone_Sul_Garda%2C_Italy%2C_2017-04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "kyoto-japan",
+  "short": "Kyoto",
+  "country": "Japan",
+  "clue": "Kyoto, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Illuminated_white_and_purple_facade_of_the_office_building_Rohm_Semiconductor_in_Kyoto%2C_Japan.jpg/500px-Illuminated_white_and_purple_facade_of_the_office_building_Rohm_Semiconductor_in_Kyoto%2C_Japan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "kotors-old-town",
+  "short": "Kotor Old Town",
+  "country": "Montenegro",
+  "clue": "Kotor Old Town, Montenegro \ud83c\uddf2\ud83c\uddea",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/The_Old_Fortress_and_the_Old_Town_of_Corfu_-_September_2017.jpg/500px-The_Old_Fortress_and_the_Old_Town_of_Corfu_-_September_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "kiritimati-london",
+  "short": "London, Kiritimati",
+  "country": "Kiribati",
+  "clue": "London, Kiritimati, Kiribati \ud83c\uddf0\ud83c\uddee",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Hastings_TG_582_over_London%2C_Xmas_Island_Aug_1956.jpg/500px-Hastings_TG_582_over_London%2C_Xmas_Island_Aug_1956.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "lucca-walls-d34-50",
+  "short": "Lucca Walls",
+  "country": "Italy",
+  "clue": "Lucca Walls, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/LuccaWallsDetail.JPG/500px-LuccaWallsDetail.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "ljubljana-old-town-d34-29",
+  "short": "Ljubljana Old Town",
+  "country": "Slovenia",
+  "clue": "Ljubljana Old Town, Slovenia \ud83c\uddf8\ud83c\uddee",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Ljubljana_Old_Town%2C_Slovenia_%28Old_Camera%29_%2832857239603%29.jpg/500px-Ljubljana_Old_Town%2C_Slovenia_%28Old_Camera%29_%2832857239603%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "luxembourg-city",
+  "short": "Luxembourg City",
+  "country": "Luxembourg",
+  "clue": "Luxembourg City, Luxembourg \ud83c\uddf1\ud83c\uddfa",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Luxembourg_Pfaffenthal_Alzette_B%C3%A9inchen_01.jpg/500px-Luxembourg_Pfaffenthal_Alzette_B%C3%A9inchen_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "marion-island",
+  "short": "Marion Island Station",
+  "country": "South Africa",
+  "clue": "Marion Island Station, South Africa \ud83c\uddff\ud83c\udde6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A_Fourth_of_July_celebration._St._Helena_Island%2C_South_Carolina%2C_1939.jpg/500px-A_Fourth_of_July_celebration._St._Helena_Island%2C_South_Carolina%2C_1939.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "mbuguni",
+  "short": "Mbuguni",
+  "country": "Tanzania",
+  "clue": "Mbuguni, Tanzania \ud83c\uddf9\ud83c\uddff",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Archiv_f%C3%BCr_Molluskenkunde_%28IA_bub_gb_YH08AAAAIAAJ%29.pdf/page1-500px-Archiv_f%C3%BCr_Molluskenkunde_%28IA_bub_gb_YH08AAAAIAAJ%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "marrakech-morocco",
+  "short": "Marrakech",
+  "country": "Morocco",
+  "clue": "Marrakech, Morocco \ud83c\uddf2\ud83c\udde6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Oriental_hanging_lanterns._Souk_Haddadine%2C_Marrakech_Medina%2C_Morocco.jpg/500px-Oriental_hanging_lanterns._Souk_Haddadine%2C_Marrakech_Medina%2C_Morocco.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "maheno-shipwreck",
+  "short": "Maheno Shipwreck",
+  "country": "Australia",
+  "clue": "Maheno Shipwreck, Australia \ud83c\udde6\ud83c\uddfa",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Fraser_Island_shipwreck_of_Maheno_%28ship_1905%29_IGP4364.jpg/500px-Fraser_Island_shipwreck_of_Maheno_%28ship_1905%29_IGP4364.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "mcmurdo-hut-point",
+  "short": "Hut Point, McMurdo",
+  "country": "Antarctica",
+  "clue": "Hut Point, McMurdo, Antarctica \ud83c\udde6\ud83c\uddf6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/View_of_McMurdo_Station_from_Hut_Point.jpeg/500px-View_of_McMurdo_Station_from_Hut_Point.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "mecca-kaaba-saudi",
+  "short": "Kaaba",
+  "country": "Saudi Arabia",
+  "clue": "Kaaba, Saudi Arabia \ud83c\uddf8\ud83c\udde6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Supplicating_Pilgrim_at_Masjid_Al_Haram._Mecca%2C_Saudi_Arabia.jpg/500px-Supplicating_Pilgrim_at_Masjid_Al_Haram._Mecca%2C_Saudi_Arabia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "matterhorn-summit",
+  "short": "Matterhorn Summit",
+  "country": "Switzerland",
+  "clue": "Matterhorn, Switzerland \ud83c\udde8\ud83c\udded",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Matterhorn_summit_%2822545964845%29.jpg/500px-Matterhorn_summit_%2822545964845%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+]

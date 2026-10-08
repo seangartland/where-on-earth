@@ -1,0 +1,184 @@
+[
+  {
+    "id": "bethlehem",
+    "short": "Bethlehem",
+    "country": "Palestine",
+    "clue": "Bethlehem, Palestine \ud83c\uddf5\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Palestine-06314_-_West_Bank_%2834121979493%29.jpg/500px-Palestine-06314_-_West_Bank_%2834121979493%29.jpg"
+  },
+  {
+    "id": "bilbao-spain",
+    "short": "Bilbao",
+    "country": "Spain",
+    "clue": "Bilbao, Spain \ud83c\uddea\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Cityscape_-_Bilbao%2C_Spain_-_panoramio_%281%29.jpg/500px-Cityscape_-_Bilbao%2C_Spain_-_panoramio_%281%29.jpg"
+  },
+  {
+    "id": "boston-usa",
+    "short": "Boston",
+    "country": "United States",
+    "clue": "Boston, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Boston_from_the_Harbour%2C_Massachusetts_%28493360%29_%2810772382303%29.jpg/500px-Boston_from_the_Harbour%2C_Massachusetts_%28493360%29_%2810772382303%29.jpg"
+  },
+  {
+    "id": "black-forest",
+    "short": "Black Forest",
+    "country": "Germany",
+    "clue": "Black Forest, Germany \ud83c\udde9\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Blick_ins_Renchtal.JPG/500px-Blick_ins_Renchtal.JPG"
+  },
+  {
+    "id": "birds-nest-beijing",
+    "short": "Bird's Nest",
+    "country": "China",
+    "clue": "Bird's Nest Stadium, Beijing, China \ud83c\udde8\ud83c\uddf3",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Beijing_National_Stadium_from_the_Central_Axis_%2820220905140702%29.jpg/500px-Beijing_National_Stadium_from_the_Central_Axis_%2820220905140702%29.jpg"
+  },
+  {
+    "id": "bodh-gaya-india",
+    "short": "Bodh Gaya",
+    "country": "India",
+    "clue": "Bodh Gaya, India \ud83c\uddee\ud83c\uddf3",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Bodhgaya_3639641913_f4c5f73689_t.jpg/500px-Bodhgaya_3639641913_f4c5f73689_t.jpg"
+  },
+  {
+    "id": "bordeaux-france",
+    "short": "Bordeaux",
+    "country": "France",
+    "clue": "Bordeaux, France \ud83c\uddeb\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/138_-_Place_de_la_Bourse_et_le_miroir_d%27eau_-_Bordeaux.jpg/500px-138_-_Place_de_la_Bourse_et_le_miroir_d%27eau_-_Bordeaux.jpg"
+  },
+  {
+    "id": "brasilia-br",
+    "short": "Bras\u00edlia",
+    "country": "Brazil",
+    "clue": "Bras\u00edlia, Brazil \ud83c\udde7\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Planalto_Central_%28cropped%29.jpg/500px-Planalto_Central_%28cropped%29.jpg"
+  },
+  {
+    "id": "bratislava-slovakia",
+    "short": "Bratislava",
+    "country": "Slovakia",
+    "clue": "Bratislava, Slovakia \ud83c\uddf8\ud83c\uddf0",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Hlavn%C3%A9_Namestie_%2835096533142%29.jpg/500px-Hlavn%C3%A9_Namestie_%2835096533142%29.jpg"
+  },
+  {
+    "id": "bulguksa",
+    "short": "Bulguksa Temple",
+    "country": "South Korea",
+    "clue": "Bulguksa Temple, South Korea \ud83c\uddf0\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Geungnakjeon%2C_Bulguksa_01.jpg/500px-Geungnakjeon%2C_Bulguksa_01.jpg"
+  },
+  {
+    "id": "bucharest-romania",
+    "short": "Bucharest",
+    "country": "Romania",
+    "clue": "Bucharest, Romania \ud83c\uddf7\ud83c\uddf4",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bucharest_university.jpg/500px-Bucharest_university.jpg"
+  },
+  {
+    "id": "brno-cathedral-d34-19",
+    "short": "Brno Cathedral",
+    "country": "Czech Republic",
+    "clue": "Brno Cathedral, Czech Republic \ud83c\udde8\ud83c\uddff",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Brno%2C_katedr%C3%A1la_sv._Petra_a_Pavla.jpg/500px-Brno%2C_katedr%C3%A1la_sv._Petra_a_Pavla.jpg"
+  },
+  {
+    "id": "brussels-belgium",
+    "short": "Brussels",
+    "country": "Belgium",
+    "clue": "Brussels, Belgium \ud83c\udde7\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Brussels_view_from_Mont_des_Arts%2C_Brussels%2C_Belgium_%28cropped%29.jpg/500px-Brussels_view_from_Mont_des_Arts%2C_Brussels%2C_Belgium_%28cropped%29.jpg"
+  },
+  {
+    "id": "bruges-belgium",
+    "short": "Bruges",
+    "country": "Belgium",
+    "clue": "Bruges, Belgium \ud83c\udde7\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Brugge-CanalRozenhoedkaai.JPG/500px-Brugge-CanalRozenhoedkaai.JPG"
+  },
+  {
+    "id": "budapest-hungary",
+    "short": "Budapest",
+    "country": "Hungary",
+    "clue": "Budapest, Hungary \ud83c\udded\ud83c\uddfa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg/500px-Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg"
+  },
+  {
+    "id": "burj-khalifa-dubai",
+    "short": "Burj Khalifa",
+    "country": "United Arab Emirates",
+    "clue": "Burj Khalifa, United Arab Emirates \ud83c\udde6\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Dubai_skyline_2015_%28crop%29.jpg/500px-Dubai_skyline_2015_%28crop%29.jpg"
+  },
+  {
+    "id": "burnley",
+    "short": "Burnley",
+    "country": "England",
+    "clue": "Burnley, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_%27Old_Red_Lion%27%2C_Burnley%2C_Lancashire_-_geograph.org.uk_-_545717.jpg/500px-The_%27Old_Red_Lion%27%2C_Burnley%2C_Lancashire_-_geograph.org.uk_-_545717.jpg"
+  },
+  {
+    "id": "buzludzha-monument-bulgaria",
+    "short": "Buzludzha Monument",
+    "country": "Bulgaria",
+    "clue": "Buzludzha Monument, Bulgaria \ud83c\udde7\ud83c\uddec",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/%D0%91%D1%83%D0%B7%D0%BB%D1%83%D0%B4%D0%B6%D0%B0_IMG6338.jpg/500px-%D0%91%D1%83%D0%B7%D0%BB%D1%83%D0%B4%D0%B6%D0%B0_IMG6338.jpg"
+  },
+  {
+    "id": "calgary-canada",
+    "short": "Calgary",
+    "country": "Canada",
+    "clue": "Calgary, Canada \ud83c\udde8\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/PengrowthSaddledomeDay.jpg/500px-PengrowthSaddledomeDay.jpg"
+  },
+  {
+    "id": "canberra-australia",
+    "short": "Canberra",
+    "country": "Australia",
+    "clue": "Canberra, Australia \ud83c\udde6\ud83c\uddfa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Civic_viewed_from_Mount_Ainslie_June_2014.jpg/500px-Civic_viewed_from_Mount_Ainslie_June_2014.jpg"
+  },
+  {
+    "id": "cape-coast-castle",
+    "short": "Cape Coast Castle",
+    "country": "Ghana",
+    "clue": "Cape Coast Castle, Ghana \ud83c\uddec\ud83c\udded",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Fort_William_%283_of_9%29.jpg/500px-Fort_William_%283_of_9%29.jpg"
+  },
+  {
+    "id": "cancun-mexico",
+    "short": "Canc\u00fan",
+    "country": "Mexico",
+    "clue": "Canc\u00fan, Mexico \ud83c\uddf2\ud83c\uddfd",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Canc%C3%BAnCollage.jpg/500px-Canc%C3%BAnCollage.jpg"
+  },
+  {
+    "id": "capitol-building-washington",
+    "short": "United States Capitol",
+    "country": "United States",
+    "clue": "United States Capitol, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/USCapitolRotunda.JPG/500px-USCapitolRotunda.JPG"
+  },
+  {
+    "id": "cape-town-south-africa",
+    "short": "Cape Town",
+    "country": "South Africa",
+    "clue": "Cape Town, South Africa \ud83c\uddff\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ciudad_del_Cabo_desde_Cabeza_de_Le%C3%B3n%2C_Sud%C3%A1frica%2C_2018-07-22%2C_DD_34.jpg/500px-Ciudad_del_Cabo_desde_Cabeza_de_Le%C3%B3n%2C_Sud%C3%A1frica%2C_2018-07-22%2C_DD_34.jpg"
+  },
+  {
+    "id": "cape-of-good-hope",
+    "short": "Cape of Good Hope",
+    "country": "South Africa",
+    "clue": "Cape of Good Hope, South Africa \ud83c\uddff\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Cape_of_Good_Hope_%28Zaian_2008%29.JPG/500px-Cape_of_Good_Hope_%28Zaian_2008%29.JPG"
+  },
+  {
+    "id": "central-park",
+    "short": "Central Park",
+    "country": "United States",
+    "clue": "Central Park, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg/500px-Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg"
+  }
+]

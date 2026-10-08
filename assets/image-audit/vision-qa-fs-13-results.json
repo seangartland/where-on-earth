@@ -1,0 +1,102 @@
+{
+  "san-pedro-sula-hn": {
+    "pass": false,
+    "reason": "Real photo of the cathedral, but it is an isolated landmark rather than a city view of San Pedro Sula."
+  },
+  "san-luis-potosi-mx": {
+    "pass": false,
+    "reason": "A collage of multiple photos, not a single real city-view photograph."
+  },
+  "san-luis-de-la-paz": {
+    "pass": false,
+    "reason": "Real photo, but it focuses on a church complex rather than showing the city."
+  },
+  "sanaa-ye": {
+    "pass": true,
+    "reason": "Real photo with a broad, recognizable view across Sanaa's dense traditional cityscape."
+  },
+  "santiago": {
+    "pass": true,
+    "reason": "Real panoramic photo clearly showing Santiago's urban skyline and surrounding city."
+  },
+  "santa-marta-co": {
+    "pass": false,
+    "reason": "Real photo, but it is centered on one office building and a small plaza rather than a representative city view."
+  },
+  "santo-domingo-de-los-colorados-ec": {
+    "pass": false,
+    "reason": "A multi-image collage rather than a single real city-view photograph."
+  },
+  "santo-domingo-este-do": {
+    "pass": true,
+    "reason": "Real photo showing an open urban streetscape with the built-up city visible across the frame."
+  },
+  "sao-joao-de-meriti-br": {
+    "pass": false,
+    "reason": "Real photo, but it is dominated by an isolated church tower rather than a city view."
+  },
+  "santo-domingo-do": {
+    "pass": true,
+    "reason": "Real elevated photograph showing a broad section of Santo Domingo's urban fabric and skyline."
+  },
+  "sao-joao-do-triunfo": {
+    "pass": true,
+    "reason": "Real photo showing a representative central street and the surrounding townscape."
+  },
+  "sao-luis-br": {
+    "pass": true,
+    "reason": "Real photo showing a coherent historic streetscape in Sao Luis rather than a single isolated landmark."
+  },
+  "saratov-ru": {
+    "pass": false,
+    "reason": "Historical illustrated map/card, not a real photograph and not a view of Saratov city."
+  },
+  "sarajevo-ba": {
+    "pass": true,
+    "reason": "Real photo showing a broad Sarajevo street scene with buildings and hillside neighborhoods."
+  },
+  "sargodha": {
+    "pass": false,
+    "reason": "Real photo of a school entrance and sculpture, not a city view of Sargodha."
+  },
+  "sao-paulo-br": {
+    "pass": true,
+    "reason": "Real wide cityscape clearly showing Sao Paulo's dense skyline."
+  },
+  "sao-rafael": {
+    "pass": true,
+    "reason": "Real panoramic photo showing the built-up town across a wide frame."
+  },
+  "sendai": {
+    "pass": true,
+    "reason": "Real cityscape showing Sendai's skyline together with surrounding urban neighborhoods."
+  },
+  "semarang-id": {
+    "pass": false,
+    "reason": "Real photo, but it is composed around the Tugu Muda monument and nearby landmark rather than a genuine city view."
+  },
+  "shangqiu-cn": {
+    "pass": true,
+    "reason": "Real aerial photo clearly showing Shangqiu's historic city and the larger modern city around it."
+  },
+  "senaki": {
+    "pass": false,
+    "reason": "Real photo of an isolated cathedral, not a city view of Senaki."
+  },
+  "serra-br": {
+    "pass": false,
+    "reason": "Real photo, but the distant settlement is minor and the frame is dominated by vegetation and open industrial terrain, so it does not clearly show Serra as a city."
+  },
+  "sha-tin": {
+    "pass": false,
+    "reason": "Real photo of a railway station platform, not a city view of Sha Tin."
+  },
+  "shantou-cn": {
+    "pass": false,
+    "reason": "A collage of several photos rather than a single real city-view photograph."
+  },
+  "shenzhen-cn": {
+    "pass": true,
+    "reason": "Real panoramic photograph clearly showing Shenzhen's extensive urban skyline."
+  }
+}

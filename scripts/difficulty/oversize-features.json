@@ -1,0 +1,485 @@
+{
+ "meta": {
+  "generated": "2026-10-06",
+  "rule": "framework §2.7: R (pin to farthest edge) > 150 km is not eligible",
+  "scope": "natural features only (Wikidata P31 class), cities never; see extent.py",
+  "counts": {
+   "natural": 10,
+   "otherOversize": 0,
+   "naturalUnmeasured": 30
+  },
+  "notRemoved": "list only; assets/locations.json is untouched"
+ },
+ "features": [
+  {
+   "id": "sahara",
+   "name": "Sahara",
+   "type": "desert",
+   "extentKm": 3189,
+   "extentSource": "natural earth geography_regions_polys \"Sahara\" (OSM: Nominatim returned no geometry for ['R7500668'])",
+   "wikidata": "Q6583",
+   "wikidataClass": [
+    "desert"
+   ],
+   "currentDifficulty": 4,
+   "suggestedStrategy": "Retire, or re-pin to a named oasis, dune field or landmark inside it (e.g. Erg Chebbi or Siwa for the Sahara)."
+  },
+  {
+   "id": "rocky-mountains",
+   "name": "Rocky Mountains",
+   "type": "mountain range",
+   "extentKm": 1920,
+   "extentSource": "natural earth geography_regions_polys \"Rocky Mountains\" (OSM: Nominatim returned no geometry for ['W1458309038'])",
+   "wikidata": "Q5463",
+   "wikidataClass": [
+    "non-geologically related mountain range",
+    "mountain range"
+   ],
+   "currentDifficulty": 4,
+   "suggestedStrategy": "Re-pin to the highest summit (a point feature, so S=0) and rename it to that summit. Otherwise retire.",
+   "repinCandidate": {
+    "name": "Mount Elbert",
+    "wikidata": "Q657225",
+    "lat": 39.117777777777775,
+    "lng": -106.44527777777778,
+    "basis": "Wikidata P610 highest point"
+   }
+  },
+  {
+   "id": "great-barrier-reef",
+   "name": "Great Barrier Reef",
+   "type": "reef",
+   "extentKm": 1241,
+   "extentSource": "osm",
+   "wikidata": "Q7343",
+   "wikidataClass": [
+    "coral reef",
+    "natural cultural heritage site",
+    "tourist attraction",
+    "World Heritage Site"
+   ],
+   "currentDifficulty": 5,
+   "suggestedStrategy": "Re-pin to a named reef, cay or dive site (e.g. Heart Reef). Otherwise retire.",
+   "datasetEntriesWithin150km": [
+    {
+     "id": "cairns",
+     "km": 58
+    }
+   ],
+   "warn": "nearest OSM vertex 36 km from pin: check match"
+  },
+  {
+   "id": "tristan-da-cunha",
+   "name": "Tristan da Cunha",
+   "type": "island / archipelago",
+   "extentKm": 445,
+   "extentSource": "osm",
+   "wikidata": "Q220982",
+   "wikidataClass": [
+    "island group"
+   ],
+   "currentDifficulty": 10,
+   "suggestedStrategy": "Re-pin to the main town or highest peak of the island group and rename it. Otherwise retire.",
+   "repinCandidate": {
+    "name": "Queen Mary's Peak",
+    "wikidata": "Q2062890",
+    "lat": -37.11175,
+    "lng": -12.287805555555556,
+    "basis": "Wikidata P610 highest point"
+   },
+   "datasetEntriesWithin150km": [
+    {
+     "id": "tristan-edinburgh",
+     "km": 0
+    }
+   ]
+  },
+  {
+   "id": "pukapuka-village",
+   "name": "Pukapuka Village",
+   "type": "reef",
+   "extentKm": 430,
+   "extentSource": "osm",
+   "wikidata": "Q1130629",
+   "wikidataClass": [
+    "atoll",
+    "reef island"
+   ],
+   "currentDifficulty": 10,
+   "suggestedStrategy": "Re-pin to a named reef, cay or dive site (e.g. Heart Reef). Otherwise retire."
+  },
+  {
+   "id": "serengeti-tanzania",
+   "name": "Serengeti",
+   "type": "biome / land cover",
+   "extentKm": 319,
+   "extentSource": "natural earth geography_regions_polys \"Serengeti\" (OSM: no OSM way/relation tagged with this Q)",
+   "wikidata": "Q4991540",
+   "wikidataClass": [
+    "region",
+    "plain",
+    "ecosystem"
+   ],
+   "currentDifficulty": 4,
+   "suggestedStrategy": "Re-pin to a named town, lodge or landmark inside it. Otherwise retire.",
+   "datasetEntriesWithin150km": [
+    {
+     "id": "ol-duvai-gorge",
+     "km": 93
+    }
+   ]
+  },
+  {
+   "id": "galapagos-islands",
+   "name": "Galapagos Islands",
+   "type": "island / archipelago",
+   "extentKm": 291,
+   "extentSource": "osm",
+   "wikidata": "Q38095",
+   "wikidataClass": [
+    "archipelago",
+    "WWF ecoregion"
+   ],
+   "currentDifficulty": 1,
+   "suggestedStrategy": "Re-pin to the main town or highest peak of the island group and rename it. Otherwise retire.",
+   "repinCandidate": {
+    "name": "Volcán Wolf",
+    "wikidata": "Q1376373",
+    "lat": 0.033333333333333,
+    "lng": -91.333333333333,
+    "basis": "Wikidata P610 highest point"
+   }
+  },
+  {
+   "id": "okavango-delta",
+   "name": "Okavango Delta",
+   "type": "river",
+   "extentKm": 194,
+   "extentSource": "osm",
+   "wikidata": "Q650872",
+   "wikidataClass": [
+    "river delta",
+    "body of water",
+    "watercourse",
+    "inland delta"
+   ],
+   "currentDifficulty": 5,
+   "suggestedStrategy": "Re-pin to a canonical point on the river: its mouth, a named falls, or a named city crossing (\"Mouth of the X\"), as §3b did for the Mississippi. Otherwise retire.",
+   "datasetEntriesWithin150km": [
+    {
+     "id": "tsodilo-hills-bw",
+     "km": 142
+    }
+   ]
+  },
+  {
+   "id": "florida-keys",
+   "name": "Florida Keys",
+   "type": "island / archipelago",
+   "extentKm": 173,
+   "extentSource": "osm",
+   "wikidata": "Q537749",
+   "wikidataClass": [
+    "archipelago"
+   ],
+   "currentDifficulty": 5,
+   "suggestedStrategy": "Re-pin to the main town or highest peak of the island group and rename it. Otherwise retire.",
+   "datasetEntriesWithin150km": [
+    {
+     "id": "key-west",
+     "km": 27
+    }
+   ]
+  },
+  {
+   "id": "grand-canyon",
+   "name": "Grand Canyon",
+   "type": "park / protected area",
+   "extentKm": 168,
+   "extentSource": "osm",
+   "wikidata": "Q220289",
+   "wikidataClass": [
+    "National Park of the United States",
+    "national park"
+   ],
+   "currentDifficulty": 1,
+   "suggestedStrategy": "Re-pin to the park's signature landmark or main gateway (e.g. Old Faithful for Yellowstone) and rename it. Otherwise retire.",
+   "datasetEntriesWithin150km": [
+    {
+     "id": "horseshoe-bend",
+     "km": 101
+    }
+   ]
+  }
+ ],
+ "otherOversize": [],
+ "naturalUnmeasured": [
+  {
+   "id": "antelope-canyon-lower",
+   "name": "Lower Antelope Canyon",
+   "wikidataClass": [
+    "slot canyon"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "badwater-basin",
+   "name": "Badwater Basin",
+   "wikidataClass": [
+    "depression",
+    "endorheic basin"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "bahia-exploradores",
+   "name": "Bahía Exploradores",
+   "wikidataClass": [
+    "bay"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "benin-city-temple",
+   "name": "Osun-Osogbo Sacred Grove (Shrine area)",
+   "wikidataClass": [
+    "sacred grove",
+    "cultural heritage",
+    "monument",
+    "heritage site",
+    "forest",
+    "rainforest"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "bumthang-valley-bhutan",
+   "name": "Bumthang Valley",
+   "wikidataClass": [
+    "valley"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "cabo-manglares",
+   "name": "Cabo Manglares",
+   "wikidataClass": [
+    "peninsula"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "cappadocia-turkey",
+   "name": "Cappadocia",
+   "wikidataClass": [
+    "region",
+    "historical region"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "copper-canyon",
+   "name": "Barrancas del Cobre",
+   "wikidataClass": [
+    "mountain range"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "flaming-cliffs-bayanzag",
+   "name": "Flaming Cliffs",
+   "wikidataClass": [
+    "region"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "gateway-arch-st-louis",
+   "name": "Gateway Arch",
+   "wikidataClass": [
+    "architectural landmark",
+    "park",
+    "monument",
+    "arch"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "great-sea-reef",
+   "name": "Great Sea Reef",
+   "wikidataClass": [
+    "reef"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "ha-long-bay",
+   "name": "Ha Long Bay",
+   "wikidataClass": [
+    "bay"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "heart-reef",
+   "name": "Heart Reef",
+   "wikidataClass": [
+    "reef"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "island-of-mozambique-fort",
+   "name": "Fort São Sebastião",
+   "wikidataClass": [
+    "sea fort",
+    "cultural heritage"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "kiriwina-trobriands",
+   "name": "Kiriwina",
+   "wikidataClass": [
+    "island",
+    "limestone island"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "krakatoa-1883-eruption",
+   "name": "Krakatau Caldera",
+   "wikidataClass": [
+    "volcanic island",
+    "former island",
+    "caldera"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "mcmurdo-hut-point",
+   "name": "Hut Point, McMurdo",
+   "wikidataClass": [
+    "peninsula"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "mount-kenya-summit",
+   "name": "Mount Kenya Summit",
+   "wikidataClass": [
+    "IUCN category II: National Park",
+    "mountain"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "mount-pinatubo",
+   "name": "Mount Pinatubo",
+   "wikidataClass": [
+    "mountain",
+    "caldera",
+    "summit",
+    "somma volcano"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "outer-banks",
+   "name": "Outer Banks",
+   "wikidataClass": [
+    "barrier island",
+    "island",
+    "island group"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "peterhof-palace-ru",
+   "name": "Peterhof Palace",
+   "wikidataClass": [
+    "palace complex",
+    "protected area"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "pitcairn-bounty-bay",
+   "name": "Bounty Bay, Pitcairn",
+   "wikidataClass": [
+    "bay",
+    "bight"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "resolute-bay",
+   "name": "Resolute Bay",
+   "wikidataClass": [
+    "bay"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "san-agustin-statue-forest",
+   "name": "San Agustin Statues",
+   "wikidataClass": [
+    "cultural property",
+    "archaeological park",
+    "museum"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "taltal-punta-ballena",
+   "name": "Punta Ballena, Taltal",
+   "wikidataClass": [
+    "peninsula"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "tambora-1815-eruption",
+   "name": "Mount Tambora",
+   "wikidataClass": [
+    "stratovolcano",
+    "mountain",
+    "caldera"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "torres-del-paine-base-viewpoint",
+   "name": "Torres del Paine",
+   "wikidataClass": [
+    "massif"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "tsingy-de-bemaraha",
+   "name": "Tsingy de Bemaraha",
+   "wikidataClass": [
+    "strict nature reserve of Madagascar"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "uelu-katadu-national-park",
+   "name": "Ulu Temburong National Park",
+   "wikidataClass": [
+    "national park"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  },
+  {
+   "id": "yolyn-am-mongolia",
+   "name": "Yolyn Am",
+   "wikidataClass": [
+    "ravine",
+    "canyon"
+   ],
+   "why": "unmeasured: no OSM way/relation tagged with this Q; no Wikidata extreme points"
+  }
+ ]
+}

@@ -1,0 +1,102 @@
+{
+  "likasi-cd": {
+    "pass": false,
+    "reason": "Old black-and-white archival photo (c.1930) of a single colonial-era building (church/mission with tower), not a modern city view of Likasi."
+  },
+  "loudi": {
+    "pass": true,
+    "reason": "Real color photo of a Loudi street intersection with buildings, traffic, and pedestrians — a genuine city view, not an isolated monument."
+  },
+  "luan-cn": {
+    "pass": false,
+    "reason": "Real photo of a river with apartment towers, but the original title indicates it was shot incidentally from a train window en route to Shanghai-Hongqiao, so it's not clearly or reliably a depiction of Lu'an itself."
+  },
+  "lubsko": {
+    "pass": true,
+    "reason": "Real photo of Lubsko's historic town square (town hall and church) with cars and surrounding buildings — represents the town center, not a single isolated landmark."
+  },
+  "ludhiana-in": {
+    "pass": false,
+    "reason": "Shows only a railway platform and station sign reading 'Ludhiana Jn' — confirms location but does not show the city at all."
+  },
+  "luliang-cn": {
+    "pass": true,
+    "reason": "Real wide aerial/elevated photo of Lüliang's skyline and urban sprawl — a genuine city view."
+  },
+  "lusaka": {
+    "pass": true,
+    "reason": "Real photo of downtown Lusaka with multiple skyscrapers (including the Samsung-branded tower), fountain, and skyline — clear city view."
+  },
+  "lviv-ua": {
+    "pass": false,
+    "reason": "Shows only Lviv University's main building and plaza — a single isolated landmark, not a city view."
+  },
+  "luohe-cn": {
+    "pass": false,
+    "reason": "Shows only the Luohe railway station building and forecourt (Chinese characters confirm location), not a view of the city."
+  },
+  "maceio-br": {
+    "pass": true,
+    "reason": "Real photo of Maceió's coastal avenue with traffic, palm trees, buildings, and turquoise ocean — a genuine city view."
+  },
+  "madurai-in": {
+    "pass": false,
+    "reason": "A multi-panel collage/montage of 7 separate images, not a single real photo."
+  },
+  "maipu-cl": {
+    "pass": false,
+    "reason": "A multi-panel collage/montage of 8 separate images, not a single real photo."
+  },
+  "majuro-marshall-islands": {
+    "pass": false,
+    "reason": "Old 1978 photo of a UN mission delegation boarding a plane on an airport tarmac — doesn't show the city of Majuro at all."
+  },
+  "maianga-ao": {
+    "pass": true,
+    "reason": "Real elevated photo showing a broad cityscape of Luanda/Maianga with a skyscraper under construction and dense urban area beyond — a genuine, if hazy, city view."
+  },
+  "makhachkala-ru": {
+    "pass": false,
+    "reason": "A multi-panel collage/montage of 6 separate images, not a single real photo."
+  },
+  "maiduguri-ng": {
+    "pass": false,
+    "reason": "Shows only the Maiduguri Central Mosque against the sky — an isolated monument, not a city view."
+  },
+  "malegaon": {
+    "pass": false,
+    "reason": "Shows only the ruins of Malegaon Fort — an isolated monument, not a city view."
+  },
+  "managua-ni": {
+    "pass": true,
+    "reason": "Real aerial dusk/night photo of Managua showing Avenida Bolívar, illuminated 'árboles de la vida' sculptures, the plaza, and surrounding city — a genuine city view."
+  },
+  "manaus-br": {
+    "pass": false,
+    "reason": "A multi-panel collage/montage of 6 separate images, not a single real photo."
+  },
+  "mandalay": {
+    "pass": false,
+    "reason": "Mostly trees and the moat's water surface, with Mandalay Palace only a tiny silhouette far in the background — does not meaningfully show the city."
+  },
+  "mar-del-plata-ar": {
+    "pass": false,
+    "reason": "A multi-panel collage/montage of 9 separate images, not a single real photo."
+  },
+  "maracaibo-ve": {
+    "pass": true,
+    "reason": "Real elevated photo of Maracaibo showing a dense arrangement of high-rise apartment buildings and streets — clear city view."
+  },
+  "marseille-fr": {
+    "pass": true,
+    "reason": "Real panoramic photo of Marseille from Notre-Dame de la Garde showing the harbor, old port, and full cityscape — excellent city view."
+  },
+  "marano-di-napoli": {
+    "pass": true,
+    "reason": "Real dusk photo showing the illuminated town/city spread below hills — a genuine, if atmospheric, city view."
+  },
+  "maracay-ve": {
+    "pass": true,
+    "reason": "Real photo of Maracay's skyline seen across a park/forest foreground — clear city view."
+  }
+}

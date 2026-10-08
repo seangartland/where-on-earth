@@ -1,0 +1,202 @@
+[
+ {
+  "id": "xiangyang-cn",
+  "short": "Xiangyang",
+  "country": "China",
+  "clue": "Xiangyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Xiangyang_skyline_02.jpg/500px-Xiangyang_skyline_02.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "xining-cn",
+  "short": "Xining",
+  "country": "China",
+  "clue": "Xining, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Xining_Montage.jpg/500px-Xining_Montage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "xuchang-cn",
+  "short": "Xuchang",
+  "country": "China",
+  "clue": "Xuchang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/20240427_Getian_Avenue_in_Changge.jpg/500px-20240427_Getian_Avenue_in_Changge.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "xinyang-cn",
+  "short": "Xinyang",
+  "country": "China",
+  "clue": "Xinyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/%E4%B9%A1%E6%9D%91%E6%B0%94%E6%81%AF_-_panoramio_%286%29.jpg/500px-%E4%B9%A1%E6%9D%91%E6%B0%94%E6%81%AF_-_panoramio_%286%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yancheng-cn",
+  "short": "Yancheng",
+  "country": "China",
+  "clue": "Yancheng, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Tinghu%2C_Yancheng%2C_Jiangsu%2C_China_-_panoramio_%2844%29.jpg/500px-Tinghu%2C_Yancheng%2C_Jiangsu%2C_China_-_panoramio_%2844%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yangon",
+  "short": "Yangon",
+  "country": "Myanmar",
+  "clue": "Yangon, Myanmar \ud83c\uddf2\ud83c\uddf2",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/2016_Rangun%2C_Dawny_budynek_S%C4%85du_Najwy%C5%BCszego_%2815%29.jpg/500px-2016_Rangun%2C_Dawny_budynek_S%C4%85du_Najwy%C5%BCszego_%2815%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yangzhou-cn",
+  "short": "Yangzhou",
+  "country": "China",
+  "clue": "Yangzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/The_Five_Pavilion_bridge.jpg/500px-The_Five_Pavilion_bridge.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "xuzhou-cn",
+  "short": "Xuzhou",
+  "country": "China",
+  "clue": "Xuzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Yunlong_Mountain_8.jpg/500px-Yunlong_Mountain_8.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yaroslavl-ru",
+  "short": "Yaroslavl",
+  "country": "Russia",
+  "clue": "Yaroslavl, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Yaroslavl_State_University%2C_1_corpus.JPG/500px-Yaroslavl_State_University%2C_1_corpus.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yaounde-cm",
+  "short": "Yaound\u00e9",
+  "country": "Cameroon",
+  "clue": "Yaound\u00e9, Cameroon \ud83c\udde8\ud83c\uddf2",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Yaound%C3%A9_Sports_Palace_2014_%2802%29.JPG/500px-Yaound%C3%A9_Sports_Palace_2014_%2802%29.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yekaterinburg-ru",
+  "short": "Yekaterinburg",
+  "country": "Russia",
+  "clue": "Yekaterinburg, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Views_of_Yekaterinburg_from_Vysotsky_viewpoint_-_12.jpg/500px-Views_of_Yekaterinburg_from_Vysotsky_viewpoint_-_12.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yichang-cn",
+  "short": "Yichang",
+  "country": "China",
+  "clue": "Yichang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Yichang_skyline_5.jpg/500px-Yichang_skyline_5.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yinchuan-cn",
+  "short": "Yinchuan",
+  "country": "China",
+  "clue": "Yinchuan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Yinchuan_Montage.jpg/500px-Yinchuan_Montage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yixing-cn",
+  "short": "Yixing",
+  "country": "China",
+  "clue": "Yixing, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/%E5%AE%9C%E5%85%B4%E5%9B%BD%E9%99%85%E5%A4%A7%E9%85%92%E5%BA%97%E5%B9%BF%E5%9C%BA_-_panoramio.jpg/500px-%E5%AE%9C%E5%85%B4%E5%9B%BD%E9%99%85%E5%A4%A7%E9%85%92%E5%BA%97%E5%B9%BF%E5%9C%BA_-_panoramio.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "yonago",
+  "short": "Yonago",
+  "country": "Japan",
+  "clue": "Yonago, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Yonago_montage.JPG/500px-Yonago_montage.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yiwu-cn",
+  "short": "Yiwu",
+  "country": "China",
+  "clue": "Yiwu, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Yiwu_3.jpg/500px-Yiwu_3.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "yokohama-jp",
+  "short": "Yokohama",
+  "country": "Japan",
+  "clue": "Yokohama, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Minato-mirai_from_Yamashita_Park_at_night.jpg/500px-Minato-mirai_from_Yamashita_Park_at_night.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zaragoza-es",
+  "short": "Zaragoza",
+  "country": "Spain",
+  "clue": "Zaragoza, Spain \ud83c\uddea\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Vista_de_Zaragoza_en_1647.jpg/500px-Vista_de_Zaragoza_en_1647.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zapopan-mx",
+  "short": "Zapopan",
+  "country": "Mexico",
+  "clue": "Zapopan, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Zapopan%2C_Jalisco%2C_Mexico%2C_2021_-_003.jpg/500px-Zapopan%2C_Jalisco%2C_Mexico%2C_2021_-_003.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zamboanga",
+  "short": "Zamboanga",
+  "country": "Philippines",
+  "clue": "Zamboanga, Philippines \ud83c\uddf5\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Zamboanga_City_from_Garden_Orchid_Hotel.jpg/500px-Zamboanga_City_from_Garden_Orchid_Hotel.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "yunfu-cn",
+  "short": "Yunfu",
+  "country": "China",
+  "clue": "Yunfu, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Luoding-Wenta.jpg/500px-Luoding-Wenta.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zaozhuang-cn",
+  "short": "Zaozhuang",
+  "country": "China",
+  "clue": "Zaozhuang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/%E5%8F%B0%E5%84%BF%E5%BA%84%E5%8F%A4%E5%9F%8E103.jpg/500px-%E5%8F%B0%E5%84%BF%E5%BA%84%E5%8F%A4%E5%9F%8E103.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zaporizhzhya-ua",
+  "short": "Zaporizhzhya",
+  "country": "Ukraine",
+  "clue": "Zaporizhzhya, Ukraine \ud83c\uddfa\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/%D0%9D%D0%B0%D0%B4_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%BE%D0%BC_%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D1%83%D1%80%D0%B3%D1%96%D0%B2.jpg/500px-%D0%9D%D0%B0%D0%B4_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%BE%D0%BC_%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D1%83%D1%80%D0%B3%D1%96%D0%B2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zaoyang",
+  "short": "Zaoyang",
+  "country": "China",
+  "clue": "Zaoyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Aerial_photography_of_Zaoyang_City.jpg/500px-Aerial_photography_of_Zaoyang_City.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "zarqa",
+  "short": "Zarqa",
+  "country": "Jordan",
+  "clue": "Zarqa, Jordan \ud83c\uddef\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Zarqa14.jpg/500px-Zarqa14.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

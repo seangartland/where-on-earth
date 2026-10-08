@@ -1,0 +1,202 @@
+[
+ {
+  "id": "tabriz-ir",
+  "short": "Tabriz",
+  "country": "Iran",
+  "clue": "Tabriz, Iran \ud83c\uddee\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Panorama_of_Tabriz.jpg/500px-Panorama_of_Tabriz.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "taguig-ph",
+  "short": "Taguig",
+  "country": "Philippines",
+  "clue": "Taguig, Philippines \ud83c\uddf5\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Archdiocesan_of_St._Anne.JPG/500px-Archdiocesan_of_St._Anne.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "taiyuan-cn",
+  "short": "Taiyuan",
+  "country": "China",
+  "clue": "Taiyuan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/J84682_TempleYongzuo_20140717-155800.22_TempleYongzuoPEst.jpg/500px-J84682_TempleYongzuo_20140717-155800.22_TempleYongzuoPEst.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "taipei",
+  "short": "Taipei",
+  "country": "Taiwan",
+  "clue": "Taipei, Taiwan \ud83c\uddf9\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Taipei-fine-arts-museum.jpg/500px-Taipei-fine-arts-museum.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "taiz",
+  "short": "Taiz",
+  "country": "Yemen",
+  "clue": "Taiz, Yemen \ud83c\uddfe\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Taizz_flicr02.jpg/500px-Taizz_flicr02.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "takeo",
+  "short": "Takeo",
+  "country": "Cambodia",
+  "clue": "Takeo, Cambodia \ud83c\uddf0\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Takeo_Independence_Monument_4051.jpg/500px-Takeo_Independence_Monument_4051.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "taizhou-cn",
+  "short": "Taizhou",
+  "country": "China",
+  "clue": "Taizhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Jingcheng_Subdistrict_August_2025_Jingjiang.jpg/500px-Jingcheng_Subdistrict_August_2025_Jingjiang.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tambacounda",
+  "short": "Tambacounda",
+  "country": "Senegal",
+  "clue": "Tambacounda, Senegal \ud83c\uddf8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Niels_Broekzitter%2C_2009.jpg/500px-Niels_Broekzitter%2C_2009.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tangshan-cn",
+  "short": "Tangshan",
+  "country": "China",
+  "clue": "Tangshan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/TangShan.jpg/500px-TangShan.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tashkent",
+  "short": "Tashkent",
+  "country": "Uzbekistan",
+  "clue": "Tashkent, Uzbekistan \ud83c\uddfa\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Temir_yo%CA%BBl_vokzali_27.jpg/500px-Temir_yo%CA%BBl_vokzali_27.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tarkwa",
+  "short": "Tarkwa",
+  "country": "Ghana",
+  "clue": "Tarkwa, Ghana \ud83c\uddec\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Districts_of_the_Western_Region_%282019%29.png/500px-Districts_of_the_Western_Region_%282019%29.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "taoyuan",
+  "short": "Taoyuan",
+  "country": "Taiwan",
+  "clue": "Taoyuan, Taiwan \ud83c\uddf9\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Taoyuan_District_montage.png/500px-Taoyuan_District_montage.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tasikmalaya",
+  "short": "Tasikmalaya",
+  "country": "Indonesia",
+  "clue": "Tasikmalaya, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Masjid_Agung_Tasikmalaya.jpg/500px-Masjid_Agung_Tasikmalaya.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tangerang-id",
+  "short": "Tangerang",
+  "country": "Indonesia",
+  "clue": "Tangerang, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Pintu_Stasiun_Tangerang_2015.jpg/500px-Pintu_Stasiun_Tangerang_2015.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tavros",
+  "short": "T\u00e1vros",
+  "country": "Greece",
+  "clue": "T\u00e1vros, Greece \ud83c\uddec\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Estavromenos_Tavros.jpg/500px-Estavromenos_Tavros.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tegucigalpa-hn",
+  "short": "Tegucigalpa",
+  "country": "Honduras",
+  "clue": "Tegucigalpa, Honduras \ud83c\udded\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Centro_historico_de_Tegucigalpa_y_Comayag%C3%BCela.jpg/500px-Centro_historico_de_Tegucigalpa_y_Comayag%C3%BCela.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "tbilisi",
+  "short": "Tbilisi",
+  "country": "Georgia",
+  "clue": "Tbilisi, Georgia \ud83c\uddec\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Tbilisi_Art_Acdemy_photo_from_archive.jpg/500px-Tbilisi_Art_Acdemy_photo_from_archive.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "the-bronx",
+  "short": "The Bronx",
+  "country": "United States",
+  "clue": "The Bronx, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Yankee_Stadium_001.JPG/500px-Yankee_Stadium_001.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tianjin-cn",
+  "short": "Tianjin",
+  "country": "China",
+  "clue": "Tianjin, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Tianjin_Station_03.jpg/500px-Tianjin_Station_03.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "teresina-br",
+  "short": "Teresina",
+  "country": "Brazil",
+  "clue": "Teresina, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Teresina_Rio_Poti.JPG/500px-Teresina_Rio_Poti.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tijuana",
+  "short": "Tijuana",
+  "country": "Mexico",
+  "clue": "Tijuana, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Panoramica_Paseo_Del_Rio.jpg/500px-Panoramica_Paseo_Del_Rio.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "times-square-nyc",
+  "short": "Times Square",
+  "country": "United States",
+  "clue": "Times Square, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/500px-New_york_times_square-terabass.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tlaquepaque-mx",
+  "short": "Tlaquepaque",
+  "country": "Mexico",
+  "clue": "Tlaquepaque, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Estaci%C3%B3n_Tlaquepaque_Centro_L3_%2822-05-17%29.jpg/500px-Estaci%C3%B3n_Tlaquepaque_Centro_L3_%2822-05-17%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "toluca-mx",
+  "short": "Toluca",
+  "country": "Mexico",
+  "clue": "Toluca, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Toluca_a_los_pies_del_nevado.jpg/500px-Toluca_a_los_pies_del_nevado.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tlalnepantla-mx",
+  "short": "Tlalnepantla",
+  "country": "Mexico",
+  "clue": "Tlalnepantla, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/PlazaTlalnepantla05.JPG/500px-PlazaTlalnepantla05.JPG",
+  "verdict": "SOFT-FAIL"
+ }
+]

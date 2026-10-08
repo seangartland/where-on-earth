@@ -1,0 +1,102 @@
+{
+  "cape-of-good-hope": {
+    "pass": true,
+    "reason": "Real aerial photo of the rocky Cape of Good Hope coastline with cliffs and beach; matches the place."
+  },
+  "central-park": {
+    "pass": true,
+    "reason": "Real photo of a Central Park pond with autumn trees and the NYC skyline behind; clearly identifiable as Central Park."
+  },
+  "cesky-krumlov-d34-18": {
+    "pass": true,
+    "reason": "Real photo of Cesky Krumlov castle complex with surrounding town rooftops visible, not just an isolated close-up."
+  },
+  "caroline-island": {
+    "pass": true,
+    "reason": "Real NASA satellite photo clearly showing the elongated atoll shape of Caroline Island."
+  },
+  "cardiff-wales": {
+    "pass": false,
+    "reason": "This is a Wikipedia infobox montage of 7 separate photos (Senedd, stadium, memorial, castle keep, city hall, bay, skyline), not a single real photograph. Fails the real-photo/city-view criteria."
+  },
+  "cathedral-of-our-lady-d34-0": {
+    "pass": true,
+    "reason": "Real photo of the Cathedral of Our Lady's tower and plaza in Antwerp; this entry is the monument itself, so a monument shot is correct."
+  },
+  "chiang-mai-thailand": {
+    "pass": true,
+    "reason": "Real panoramic aerial photo showing the sprawling city of Chiang Mai, not an isolated monument."
+  },
+  "chishtian": {
+    "pass": true,
+    "reason": "Real photo of the Sufi Taj Sarwar shrine, the defining landmark of the small town of Chishtian."
+  },
+  "coffin-island-devils-island": {
+    "pass": true,
+    "reason": "Real photo of a small palm-covered island viewed from the water, consistent with Devil's Island."
+  },
+  "churchill-manitoba": {
+    "pass": true,
+    "reason": "Real photo of the 'Welcome to the Town of Churchill' sign, a clear identifier for this small town."
+  },
+  "ciudad-juarez-mx": {
+    "pass": false,
+    "reason": "Shows a generic LDS temple building that is visually identical to LDS temples worldwide; does not depict Ciudad Juárez the city at all. Fails 'shows the place' and city-view criteria."
+  },
+  "colca-canyon-condor-cross": {
+    "pass": true,
+    "reason": "Real photo of the Cruz del Condor viewpoint overlooking Colca Canyon; matches the place."
+  },
+  "cologne-cathedral": {
+    "pass": true,
+    "reason": "Real photo of Cologne Cathedral's iconic twin spires; this entry is the monument itself, correctly depicted."
+  },
+  "colombo-sri-lanka": {
+    "pass": true,
+    "reason": "Real photo of the Colombo skyline across the water; a genuine city view, not an isolated monument."
+  },
+  "copenhagen-denmark": {
+    "pass": true,
+    "reason": "Real elevated photo of central Copenhagen rooftops and canal; a genuine city view."
+  },
+  "copacabana-beach-rio": {
+    "pass": true,
+    "reason": "Real aerial photo of the curved Copacabana Beach shoreline with Rio skyline; matches the place."
+  },
+  "crater-lake": {
+    "pass": true,
+    "reason": "Real photo of Crater Lake with Wizard Island visible; matches the place clearly."
+  },
+  "cusco-plaza-de-armas": {
+    "pass": true,
+    "reason": "Real panoramic photo showing the city of Cusco spread across the valley; a genuine city view."
+  },
+  "dead-sea": {
+    "pass": true,
+    "reason": "Real photo of the Dead Sea shoreline with the Jordanian/Israeli mountains in the background; matches the place."
+  },
+  "daegu-kr": {
+    "pass": false,
+    "reason": "Shows a generic train station platform with no identifying features of Daegu; could be any train station. Daegu is a major city and this fails to show a city view or any identifiable element."
+  },
+  "damascus-syria": {
+    "pass": false,
+    "reason": "Shows 'Damascus University', a nondescript institutional building with no identifying context. Damascus is a major historic capital and this image fails to convey the city at all."
+  },
+  "derawar-fort-pakistan": {
+    "pass": true,
+    "reason": "Real photo of Derawar Fort's distinctive circular bastions in the desert; matches the place clearly."
+  },
+  "detroit-usa": {
+    "pass": false,
+    "reason": "This is a Wikipedia infobox montage of 13 separate photos, not a single real photograph. Fails the real-photo criterion."
+  },
+  "dhanbad": {
+    "pass": true,
+    "reason": "Real aerial photo showing the city of Dhanbad with residential towers and urban sprawl; a genuine city view."
+  },
+  "dholavira-india": {
+    "pass": true,
+    "reason": "Real photo of the Dholavira archaeological ruins; matches the place."
+  }
+}

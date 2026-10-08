@@ -1,0 +1,177 @@
+[
+ {
+  "id": "housesteads-hadrians-wall",
+  "short": "Housesteads",
+  "country": "England",
+  "clue": "Housesteads, England",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Milecastle_37_-_geograph.org.uk_-_526779.jpg/500px-Milecastle_37_-_geograph.org.uk_-_526779.jpg"
+ },
+ {
+  "id": "ibb",
+  "short": "Ibb",
+  "country": "Yemen",
+  "clue": "Ibb, Yemen \ud83c\uddfe\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ibb_Governorate_-_Yemen_-_360%C2%B0_panoramas_%282023%29.jpg/500px-Ibb_Governorate_-_Yemen_-_360%C2%B0_panoramas_%282023%29.jpg"
+ },
+ {
+  "id": "ibiza-es",
+  "short": "Ibiza",
+  "country": "Spain",
+  "clue": "Ibiza, Spain \ud83c\uddea\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Eivissa_-_Dalt_Vila_from_Airplane.jpg/500px-Eivissa_-_Dalt_Vila_from_Airplane.jpg"
+ },
+ {
+  "id": "ichikawa",
+  "short": "Ichikawa",
+  "country": "Japan",
+  "clue": "Ichikawa, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Ichikawashiyakusyo.jpg/500px-Ichikawashiyakusyo.jpg"
+ },
+ {
+  "id": "indianapolis-motor-speedway",
+  "short": "Indianapolis Motor Speedway",
+  "country": "United States",
+  "clue": "Indianapolis Motor Speedway, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/2007_Indianapolis_500_-_Starting_field_formation_before_start.jpg/500px-2007_Indianapolis_500_-_Starting_field_formation_before_start.jpg"
+ },
+ {
+  "id": "itsukushima-shrine",
+  "short": "Itsukushima Shrine",
+  "country": "Japan",
+  "clue": "Itsukushima Shrine, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Itsukushima_Gate.jpg/500px-Itsukushima_Gate.jpg"
+ },
+ {
+  "id": "isle-of-skye-gb",
+  "short": "Isle of Skye",
+  "country": "Scotland",
+  "clue": "Isle of Skye, Scotland",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Quiraing%2C_Isle_of_Skye.jpg/500px-Quiraing%2C_Isle_of_Skye.jpg"
+ },
+ {
+  "id": "jakarta-indonesia",
+  "short": "Jakarta",
+  "country": "Indonesia",
+  "clue": "Jakarta, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Jakarta.jpg/500px-Jakarta.jpg"
+ },
+ {
+  "id": "kailasa-temple-ellora",
+  "short": "Kailasa Temple",
+  "country": "India",
+  "clue": "Kailasa Temple, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Ellora_Cave_16_si0308.jpg/500px-Ellora_Cave_16_si0308.jpg"
+ },
+ {
+  "id": "kamakura-daibutsu-jp",
+  "short": "Great Buddha of Kamakura",
+  "country": "Japan",
+  "clue": "Great Buddha of Kamakura, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Kamakura_Budda_Daibutsu_front_1885.jpg/500px-Kamakura_Budda_Daibutsu_front_1885.jpg"
+ },
+ {
+  "id": "kandahar-afghanistan",
+  "short": "Kandahar",
+  "country": "Afghanistan",
+  "clue": "Kandahar, Afghanistan \ud83c\udde6\ud83c\uddeb",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/KandaharUniversity-Mosque-2005.JPEG/500px-KandaharUniversity-Mosque-2005.JPEG"
+ },
+ {
+  "id": "karbala",
+  "short": "Karbala",
+  "country": "Iraq",
+  "clue": "Karbala, Iraq \ud83c\uddee\ud83c\uddf6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Kerbela_Hussein_Moschee.jpg/500px-Kerbela_Hussein_Moschee.jpg"
+ },
+ {
+  "id": "karaj-ir",
+  "short": "Karaj",
+  "country": "Iran",
+  "clue": "Karaj, Iran \ud83c\uddee\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Azimieh_Aerial_View.jpg/500px-Azimieh_Aerial_View.jpg"
+ },
+ {
+  "id": "karnak-temple-complex",
+  "short": "Karnak Temple",
+  "country": "Egypt",
+  "clue": "Karnak Temple, Egypt \ud83c\uddea\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Luxor%2C_Egypt%2C_Karnak.jpg/500px-Luxor%2C_Egypt%2C_Karnak.jpg"
+ },
+ {
+  "id": "kathmandu-nepal",
+  "short": "Kathmandu",
+  "country": "Nepal",
+  "clue": "Kathmandu, Nepal \ud83c\uddf3\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kathmandu_Avion_01.JPG/500px-Kathmandu_Avion_01.JPG"
+ },
+ {
+  "id": "kennedy-space-center",
+  "short": "Kennedy Space Center",
+  "country": "United States",
+  "clue": "Kennedy Space Center, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/VAB_Aerial_-_GPN-2000-000869.jpg/500px-VAB_Aerial_-_GPN-2000-000869.jpg"
+ },
+ {
+  "id": "khartoum-north-sd",
+  "short": "Khartoum North",
+  "country": "Sudan",
+  "clue": "Khartoum North, Sudan \ud83c\uddf8\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Khartum_north_industrial.jpg/500px-Khartum_north_industrial.jpg"
+ },
+ {
+  "id": "kilwa-kisiwani-ruins",
+  "short": "Kilwa Kisiwani",
+  "country": "Tanzania",
+  "clue": "Kilwa Kisiwani, Tanzania \ud83c\uddf9\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/City_of_Kilwa%2C_1572.jpg/500px-City_of_Kilwa%2C_1572.jpg"
+ },
+ {
+  "id": "kinshasa-dr-congo",
+  "short": "Kinshasa",
+  "country": "DR Congo",
+  "clue": "Kinshasa, DR Congo \ud83c\udde8\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Immeuble_%C3%A0_Kasa-vubu.jpg/500px-Immeuble_%C3%A0_Kasa-vubu.jpg"
+ },
+ {
+  "id": "kolkata-india",
+  "short": "Kolkata",
+  "country": "India",
+  "clue": "Kolkata, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Kolkata_Imgs.jpg/500px-Kolkata_Imgs.jpg"
+ },
+ {
+  "id": "kourou-space-centre",
+  "short": "Guiana Space Centre",
+  "country": "France",
+  "clue": "Guiana Space Centre, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Ensemble_de_lancement_Vega.jpg/500px-Ensemble_de_lancement_Vega.jpg"
+ },
+ {
+  "id": "konark-sun-temple",
+  "short": "Konark Sun Temple",
+  "country": "India",
+  "clue": "Konark Sun Temple, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Konark_Sun_Temple_Architecture9.jpg/500px-Konark_Sun_Temple_Architecture9.jpg"
+ },
+ {
+  "id": "krakow-poland",
+  "short": "Krakow",
+  "country": "Poland",
+  "clue": "Krakow, Poland \ud83c\uddf5\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Krak%C3%B3w_County_Office%2C_1935_design._Fryderyk_Tadanier_and_Stefan_Strojek%2C_18a-20_Juliusza_S%C5%82owackiego_Alley%2C_Krak%C3%B3w%2C_Poland.jpg/500px-Krak%C3%B3w_County_Office%2C_1935_design._Fryderyk_Tadanier_and_Stefan_Strojek%2C_18a-20_Juliusza_S%C5%82owackiego_Alley%2C_Krak%C3%B3w%2C_Poland.jpg"
+ },
+ {
+  "id": "kremlin-moscow",
+  "short": "Kremlin",
+  "country": "Russia",
+  "clue": "Kremlin, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Moscow_05-2012_Kremlin_22.jpg/500px-Moscow_05-2012_Kremlin_22.jpg"
+ },
+ {
+  "id": "kuala-lumpur-malaysia",
+  "short": "Kuala Lumpur",
+  "country": "Malaysia",
+  "clue": "Kuala Lumpur, Malaysia \ud83c\uddf2\ud83c\uddfe",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Railway_station_KL_2007_010_pano.jpg/500px-Railway_station_KL_2007_010_pano.jpg"
+ }
+]

@@ -1,0 +1,177 @@
+[
+ {
+  "id": "dettifoss",
+  "short": "Dettifoss",
+  "country": "Iceland",
+  "clue": "Dettifoss, Iceland \ud83c\uddee\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Dettifoss_Panorama_03.jpg/500px-Dettifoss_Panorama_03.jpg"
+ },
+ {
+  "id": "disneyland",
+  "short": "Disneyland",
+  "country": "United States",
+  "clue": "Disneyland, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Christmas_for_Sleeping_Beauty_Castle_%2828017248690%29.jpg/500px-Christmas_for_Sleeping_Beauty_Castle_%2828017248690%29.jpg"
+ },
+ {
+  "id": "dunedin-new-zealand",
+  "short": "Dunedin",
+  "country": "New Zealand",
+  "clue": "Dunedin, New Zealand \ud83c\uddf3\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/NZL-dunedin-octogon-rath-stpauls.jpg/500px-NZL-dunedin-octogon-rath-stpauls.jpg"
+ },
+ {
+  "id": "dublin-castle-d34-6",
+  "short": "Dublin Castle",
+  "country": "Ireland",
+  "clue": "Dublin Castle, Ireland \ud83c\uddee\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Dublin_castle.JPG/500px-Dublin_castle.JPG"
+ },
+ {
+  "id": "dubrovnik-croatia",
+  "short": "Dubrovnik",
+  "country": "Croatia",
+  "clue": "Dubrovnik, Croatia \ud83c\udded\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Luftbild_vom_Hafen_Polace_auf_Mljet_mit_Blick_auf_die_Inseln_Kobrava%2C_Ovrata_und_Moracnik%2C_Kroatien_%2848608980182%29.jpg/500px-Luftbild_vom_Hafen_Polace_auf_Mljet_mit_Blick_auf_die_Inseln_Kobrava%2C_Ovrata_und_Moracnik%2C_Kroatien_%2848608980182%29.jpg"
+ },
+ {
+  "id": "duomo-florence",
+  "short": "Florence Cathedral",
+  "country": "Italy",
+  "clue": "Florence Cathedral, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Florence_Duomo_from_Michelangelo_hill.jpg/500px-Florence_Duomo_from_Michelangelo_hill.jpg"
+ },
+ {
+  "id": "dunkirk-evacuation",
+  "short": "Dunkirk",
+  "country": "France",
+  "clue": "Dunkirk, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Dunkerquepaysage2.png/500px-Dunkerquepaysage2.png"
+ },
+ {
+  "id": "dushanbe-tajikistan",
+  "short": "Dushanbe",
+  "country": "Tajikistan",
+  "clue": "Dushanbe, Tajikistan \ud83c\uddf9\ud83c\uddef",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Tehron_Street_Dushanbe.jpg/500px-Tehron_Street_Dushanbe.jpg"
+ },
+ {
+  "id": "eiffel-tower",
+  "short": "Eiffel Tower",
+  "country": "France",
+  "clue": "Eiffel Tower, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg"
+ },
+ {
+  "id": "edmonton-canada",
+  "short": "Edmonton",
+  "country": "Canada",
+  "clue": "Edmonton, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Downtown_edmonton.jpg/500px-Downtown_edmonton.jpg"
+ },
+ {
+  "id": "esenyurt",
+  "short": "Esenyurt",
+  "country": "Turkey",
+  "clue": "Esenyurt, Turkey \ud83c\uddf9\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Haramidere_G%C3%B6kdelenler_B%C3%B6lgesi_Esenyurt_%C4%B0stanbul.JPG/500px-Haramidere_G%C3%B6kdelenler_B%C3%B6lgesi_Esenyurt_%C4%B0stanbul.JPG"
+ },
+ {
+  "id": "edinburgh-castle-d34-2",
+  "short": "Edinburgh Castle",
+  "country": "Scotland",
+  "clue": "Edinburgh Castle, Scotland",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/City_of_Edinburgh_-_Edinburgh_Castle_-_20140421193357.jpg/500px-City_of_Edinburgh_-_Edinburgh_Castle_-_20140421193357.jpg"
+ },
+ {
+  "id": "fakaofo-fale",
+  "short": "Fakaofo",
+  "country": "New Zealand",
+  "clue": "Fakaofo, New Zealand \ud83c\uddf3\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Fakaofo_Satellite_NASA.jpg/500px-Fakaofo_Satellite_NASA.jpg"
+ },
+ {
+  "id": "fenway-park",
+  "short": "Fenway Park",
+  "country": "United States",
+  "clue": "Fenway Park, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/View_of_Fenway_Park_from_the_press_box_in_July_2022.jpg/500px-View_of_Fenway_Park_from_the_press_box_in_July_2022.jpg"
+ },
+ {
+  "id": "fez-morocco",
+  "short": "Fez",
+  "country": "Morocco",
+  "clue": "Fez, Morocco \ud83c\uddf2\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Medina_of_Fes%2C_Marocco.jpg/500px-Medina_of_Fes%2C_Marocco.jpg"
+ },
+ {
+  "id": "first-powered-flight-kill-devil-hills",
+  "short": "Wright Brothers National Memorial",
+  "country": "United States",
+  "clue": "Kitty Hawk, North Carolina, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Wright_Brothers_Memorial-27527-1.JPG/500px-Wright_Brothers_Memorial-27527-1.JPG"
+ },
+ {
+  "id": "fort-jesus-mombasa",
+  "short": "Fort Jesus",
+  "country": "Kenya",
+  "clue": "Fort Jesus, Kenya \ud83c\uddf0\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Fort_JesusMombasa.jpg/500px-Fort_JesusMombasa.jpg"
+ },
+ {
+  "id": "florence-italy",
+  "short": "Florence",
+  "country": "Italy",
+  "clue": "Florence, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Panoramica_Firenze.jpg/500px-Panoramica_Firenze.jpg"
+ },
+ {
+  "id": "forbidden-city-beijing",
+  "short": "Forbidden City",
+  "country": "China",
+  "clue": "Forbidden City, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Hall_of_Supreme_Harmony_%2820241127120000%29.jpg/500px-Hall_of_Supreme_Harmony_%2820241127120000%29.jpg"
+ },
+ {
+  "id": "fort-nieuw-amsterdam",
+  "short": "Fort Nieuw Amsterdam",
+  "country": "Suriname",
+  "clue": "Fort Nieuw Amsterdam, Suriname",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/AMH-6914-KB_Map_of_Nieuw_Amsterdam_fort.jpg/500px-AMH-6914-KB_Map_of_Nieuw_Amsterdam_fort.jpg"
+ },
+ {
+  "id": "fort-worth",
+  "short": "Fort Worth",
+  "country": "United States",
+  "clue": "Fort Worth, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Downtown_Fort_Worth_Skyline.jpg/500px-Downtown_Fort_Worth_Skyline.jpg"
+ },
+ {
+  "id": "fort-zeelandia-paramaribo",
+  "short": "Fort Zeelandia",
+  "country": "Suriname",
+  "clue": "Fort Zeelandia, Suriname",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Zicht_op_buitenmuur_aan_de_rivierzijde_met_zicht_op_bastion_-_Paramaribo_-_20377866_-_RCE.jpg/500px-Zicht_op_buitenmuur_aan_de_rivierzijde_met_zicht_op_bastion_-_Paramaribo_-_20377866_-_RCE.jpg"
+ },
+ {
+  "id": "fort-sumter-charleston",
+  "short": "Fort Sumter",
+  "country": "United States",
+  "clue": "Fort Sumter, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/FortsumterNM-welcome.jpg/500px-FortsumterNM-welcome.jpg"
+ },
+ {
+  "id": "fortaleza-br",
+  "short": "Fortaleza",
+  "country": "Brazil",
+  "clue": "Fortaleza, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Praia_do_Mucuripe.jpg/500px-Praia_do_Mucuripe.jpg"
+ },
+ {
+  "id": "fukushima-daiichi",
+  "short": "Fukushima Daiichi",
+  "country": "Japan",
+  "clue": "Fukushima Daiichi, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Fukushima_1_Nuclear_Power_Plant_02.jpg/500px-Fukushima_1_Nuclear_Power_Plant_02.jpg"
+ }
+]

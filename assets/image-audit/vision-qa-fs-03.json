@@ -1,0 +1,202 @@
+[
+ {
+  "id": "guiyang-cn",
+  "short": "Guiyang",
+  "country": "China",
+  "clue": "Guiyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Guiyang_montage_2019.png/500px-Guiyang_montage_2019.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "gujranwala-pk",
+  "short": "Gujranwala",
+  "country": "Pakistan",
+  "clue": "Gujranwala, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Gujranwala_flyover.jpg/500px-Gujranwala_flyover.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "haikou",
+  "short": "Haikou",
+  "country": "China",
+  "clue": "Haikou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Haikou_skyline_6_-_2009_09_07.jpg/500px-Haikou_skyline_6_-_2009_09_07.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "harrow",
+  "short": "Harrow",
+  "country": "England",
+  "clue": "Harrow, England",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/005_-_Harrow_High_School_%26_Sports_College.jpg/500px-005_-_Harrow_High_School_%26_Sports_College.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "hamilton-ca",
+  "short": "Hamilton",
+  "country": "Canada",
+  "clue": "Hamilton, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/HamiltonOntarioSkylineD.JPG/500px-HamiltonOntarioSkylineD.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "hamamatsu",
+  "short": "Hamamatsu",
+  "country": "Japan",
+  "clue": "Hamamatsu, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/JRC-HamamatsuStation-NorthGate.jpg/500px-JRC-HamamatsuStation-NorthGate.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "handan-cn",
+  "short": "Handan",
+  "country": "China",
+  "clue": "Handan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/%E9%82%AF%E9%83%B8%E5%B8%82%E8%A1%97%E9%81%9301.jpg/500px-%E9%82%AF%E9%83%B8%E5%B8%82%E8%A1%97%E9%81%9301.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "harunabad",
+  "short": "Harunabad",
+  "country": "Pakistan",
+  "clue": "Harunabad, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Aerial_view_of_Haroonabad.jpg/500px-Aerial_view_of_Haroonabad.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "haiphong-vn",
+  "short": "Haiphong",
+  "country": "Vietnam",
+  "clue": "Haiphong, Vietnam \ud83c\uddfb\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Ga_Hai_Phong.JPG/500px-Ga_Hai_Phong.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "havana",
+  "short": "Havana",
+  "country": "Cuba",
+  "clue": "Havana, Cuba \ud83c\udde8\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cuba_libre_%286941395159%29.jpg/500px-Cuba_libre_%286941395159%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "heroica-matamoros-mx",
+  "short": "Heroica Matamoros",
+  "country": "Mexico",
+  "clue": "Heroica Matamoros, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Matamoros_Portada.jpg/500px-Matamoros_Portada.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "harbin-cn",
+  "short": "Harbin",
+  "country": "China",
+  "clue": "Harbin, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/26941-Harbin_%2849027716202%29.jpg/500px-26941-Harbin_%2849027716202%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "homs",
+  "short": "Homs",
+  "country": "Syria",
+  "clue": "Homs, Syria \ud83c\uddf8\ud83c\uddfe",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Homs_syria3.JPG/500px-Homs_syria3.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "hermosillo-mx",
+  "short": "Hermosillo",
+  "country": "Mexico",
+  "clue": "Hermosillo, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Skyline_Hermosillo.jpg/500px-Skyline_Hermosillo.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "heze-cn",
+  "short": "Heze",
+  "country": "China",
+  "clue": "Heze, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Tang_tower_of_Yuncheng.jpg/500px-Tang_tower_of_Yuncheng.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "heshan",
+  "short": "Heshan",
+  "country": "China",
+  "clue": "Heshan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jinshan_North_Road%2C_Yiyang%2C_Hunan%2C_8_April_2020.jpg/500px-Jinshan_North_Road%2C_Yiyang%2C_Hunan%2C_8_April_2020.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "huai-an-cn",
+  "short": "Huai'an",
+  "country": "China",
+  "clue": "Huai'an, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/%E6%B8%85%E6%B1%9F%E6%B5%A6%E7%A0%81%E5%A4%B4%E9%A3%8E%E5%85%89.jpg/500px-%E6%B8%85%E6%B1%9F%E6%B5%A6%E7%A0%81%E5%A4%B4%E9%A3%8E%E5%85%89.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "ibadan-ng",
+  "short": "Ibadan",
+  "country": "Nigeria",
+  "clue": "Ibadan, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Aerial_view_of_Ibadan_from_the_top_of_Mapo_Hall_1.jpg/500px-Aerial_view_of_Ibadan_from_the_top_of_Mapo_Hall_1.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "hue-vn",
+  "short": "Hu\u1ebf",
+  "country": "Vietnam",
+  "clue": "Hu\u1ebf, Vietnam \ud83c\uddfb\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Vietnam%2C_Hue%2C_Imperial_City_of_Hue%2C_Enclosure.jpg/500px-Vietnam%2C_Hue%2C_Imperial_City_of_Hue%2C_Enclosure.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "hyderabad-pk",
+  "short": "Hyderabad",
+  "country": "Pakistan",
+  "clue": "Hyderabad, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/PK_Hyderabad_asv2020-02_img29_Pakka_Qila_Road.jpg/500px-PK_Hyderabad_asv2020-02_img29_Pakka_Qila_Road.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "ibague-co",
+  "short": "Ibagu\u00e9",
+  "country": "Colombia",
+  "clue": "Ibagu\u00e9, Colombia \ud83c\udde8\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ibagu%C3%A9%2C_Colombia.jpg/500px-Ibagu%C3%A9%2C_Colombia.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "indianapolis",
+  "short": "Indianapolis",
+  "country": "United States",
+  "clue": "Indianapolis, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Downtown_Indianapolis.jpg/500px-Downtown_Indianapolis.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "incheon-kr",
+  "short": "Incheon",
+  "country": "South Korea",
+  "clue": "Incheon, South Korea \ud83c\uddf0\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Incheon_Cityscape.jpg/500px-Incheon_Cityscape.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "ilorin-ng",
+  "short": "Ilorin",
+  "country": "Nigeria",
+  "clue": "Ilorin, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Ahmadu_Bello_Way%2C_Ilorin6.jpg/500px-Ahmadu_Bello_Way%2C_Ilorin6.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "irapuato-mx",
+  "short": "Irapuato",
+  "country": "Mexico",
+  "clue": "Irapuato, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/IrapuatoCentroHistorico.jpg/500px-IrapuatoCentroHistorico.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

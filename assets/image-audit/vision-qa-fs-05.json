@@ -1,0 +1,202 @@
+[
+ {
+  "id": "kalyan-in",
+  "short": "Kaly\u0101n",
+  "country": "India",
+  "clue": "Kaly\u0101n, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Kalyan_Junction_railway_station_-_Stationboard.jpg/500px-Kalyan_Junction_railway_station_-_Stationboard.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kameyama",
+  "short": "Kameyama",
+  "country": "Japan",
+  "clue": "Kameyama, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/JR_Kameyama-station.jpg/500px-JR_Kameyama-station.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kakamega-ke",
+  "short": "Kakamega",
+  "country": "Kenya",
+  "clue": "Kakamega, Kenya \ud83c\uddf0\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Cykeltaxi_i_kakamega.jpg/500px-Cykeltaxi_i_kakamega.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kananga-cd",
+  "short": "Kananga",
+  "country": "DR Congo",
+  "clue": "Kananga, DR Congo \ud83c\udde8\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Aerial_photograph_of_Kananga.jpg/500px-Aerial_photograph_of_Kananga.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "kampala",
+  "short": "Kampala",
+  "country": "Uganda",
+  "clue": "Kampala, Uganda \ud83c\uddfa\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_from_7th_floor_on_Crane_Chambers_at_Kampala_road_-_panoramio.jpg/500px-View_from_7th_floor_on_Crane_Chambers_at_Kampala_road_-_panoramio.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kanash",
+  "short": "Kanash",
+  "country": "Russia",
+  "clue": "Kanash, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Kanash_railway_station_08-2016.jpg/500px-Kanash_railway_station_08-2016.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kanpur-in",
+  "short": "Kanpur",
+  "country": "India",
+  "clue": "Kanpur, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/JK_Temple%28Juggilal_Kamlapati_temple%29_is_a_temple_in_the_Indian_city_of_Kanpur.It_is_considered_to_be_a_unique_blend_of_ancient_and_modern_architecture.jpg/500px-JK_Temple%28Juggilal_Kamlapati_temple%29_is_a_temple_in_the_Indian_city_of_Kanpur.It_is_considered_to_be_a_unique_blend_of_ancient_and_modern_architecture.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "kaohsiung-tw",
+  "short": "Kaohsiung",
+  "country": "Taiwan",
+  "clue": "Kaohsiung, Taiwan \ud83c\uddf9\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kaohsiung_Skyline_2020.jpg/500px-Kaohsiung_Skyline_2020.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "kano",
+  "short": "Kano",
+  "country": "Nigeria",
+  "clue": "Kano, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/KanofromDalaHill.jpg/500px-KanofromDalaHill.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "karagandy",
+  "short": "Karagandy",
+  "country": "Kazakhstan",
+  "clue": "Karagandy, Kazakhstan \ud83c\uddf0\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/%D0%9A%D0%B0%D1%80%D0%B0%D0%B3%D0%B0%D0%BD%D0%B4%D0%B0_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82.JPG/500px-%D0%9A%D0%B0%D1%80%D0%B0%D0%B3%D0%B0%D0%BD%D0%B4%D0%B0_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kerch",
+  "short": "Kerch",
+  "country": "Ukraine",
+  "clue": "Kerch, Crimea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kerch_ObeliskOfGlory.jpg/500px-Kerch_ObeliskOfGlory.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kawasaki-jp",
+  "short": "Kawasaki",
+  "country": "Japan",
+  "clue": "Kawasaki, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Kawasaki_montage.jpg/500px-Kawasaki_montage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "katsina-ng",
+  "short": "Katsina",
+  "country": "Nigeria",
+  "clue": "Katsina, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/The_view_from_peak_of_Gobarau_Minaret.jpg/500px-The_view_from_peak_of_Gobarau_Minaret.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kayseri",
+  "short": "Kayseri",
+  "country": "Turkey",
+  "clue": "Kayseri, Turkey \ud83c\uddf9\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Kayseri_tren_gar%C4%B1.JPG/500px-Kayseri_tren_gar%C4%B1.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "khajuraho-india",
+  "short": "Khajuraho Group of Monuments",
+  "country": "India",
+  "clue": "Khajuraho Group of Monuments, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Khajuraho_tempel_india.jpg/500px-Khajuraho_tempel_india.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "kemerovo-ru",
+  "short": "Kemerovo",
+  "country": "Russia",
+  "clue": "Kemerovo, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/%D0%9D%D0%A4%D0%98_%D0%9A%D0%B5%D0%BC%D0%93%D0%A3.jpg/500px-%D0%9D%D0%A4%D0%98_%D0%9A%D0%B5%D0%BC%D0%93%D0%A3.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "kazan-ru",
+  "short": "Kazan",
+  "country": "Russia",
+  "clue": "Kazan, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/KAZ_Collage_2015.png/500px-KAZ_Collage_2015.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kerkrade",
+  "short": "Kerkrade",
+  "country": "Netherlands",
+  "clue": "Kerkrade, Netherlands \ud83c\uddf3\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Bibliotheek_Kerkrade_-_Martin_Buberplein_15_-_22_november_2019_-_1.jpg/500px-Bibliotheek_Kerkrade_-_Martin_Buberplein_15_-_22_november_2019_-_1.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "khabarovsk-ru",
+  "short": "Khabarovsk",
+  "country": "Russia",
+  "clue": "Khabarovsk, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/%D0%A3%D1%81%D1%81%D1%83%D1%80%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80.jpg/500px-%D0%A3%D1%81%D1%81%D1%83%D1%80%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kharkiv-ua",
+  "short": "Kharkiv",
+  "country": "Ukraine",
+  "clue": "Kharkiv, Ukraine \ud83c\uddfa\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Palace_Sports_Institute.JPG/500px-Palace_Sports_Institute.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "khulna-bd",
+  "short": "Khulna",
+  "country": "Bangladesh",
+  "clue": "Khulna, Bangladesh \ud83c\udde7\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Khulna_railway_station.jpg/500px-Khulna_railway_station.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "khartoum",
+  "short": "Khartoum",
+  "country": "Sudan",
+  "clue": "Khartoum, Sudan \ud83c\uddf8\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Elmek_Nimir_Bridge.jpg/500px-Elmek_Nimir_Bridge.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kingston",
+  "short": "Kingston",
+  "country": "Jamaica",
+  "clue": "Kingston, Jamaica \ud83c\uddef\ud83c\uddf2",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/PortofKingston.jpg/500px-PortofKingston.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kitakyushu",
+  "short": "Kitakyushu",
+  "country": "Japan",
+  "clue": "Kitakyushu, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Kitakyushu_university.jpg/500px-Kitakyushu_university.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kirkuk",
+  "short": "Kirkuk",
+  "country": "Iraq",
+  "clue": "Kirkuk, Iraq \ud83c\uddee\ud83c\uddf6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kirkuk_citadel.jpg/500px-Kirkuk_citadel.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

@@ -1,0 +1,103 @@
+{
+ "_doc": "Framework \u00a72.8: exactly the named examples. G=-1 if pin within 25 km of any point. Canals are sampled as polylines. Old G1 items NOT on this list (galapagos-islands, key-west) are flagged for review, not added.",
+ "anchors": [
+  {
+   "name": "Bering Strait",
+   "pts": [
+    [
+     65.75,
+     -168.98
+    ]
+   ]
+  },
+  {
+   "name": "Strait of Gibraltar",
+   "pts": [
+    [
+     35.95,
+     -5.5
+    ],
+    [
+     35.97,
+     -5.75
+    ],
+    [
+     36.0,
+     -5.35
+    ]
+   ]
+  },
+  {
+   "name": "Suez Canal",
+   "pts": [
+    [
+     31.26,
+     32.31
+    ],
+    [
+     31.05,
+     32.31
+    ],
+    [
+     30.83,
+     32.32
+    ],
+    [
+     30.6,
+     32.32
+    ],
+    [
+     30.4,
+     32.35
+    ],
+    [
+     30.2,
+     32.48
+    ],
+    [
+     29.95,
+     32.56
+    ]
+   ]
+  },
+  {
+   "name": "Panama Canal",
+   "pts": [
+    [
+     9.35,
+     -79.92
+    ],
+    [
+     9.2,
+     -79.85
+    ],
+    [
+     9.08,
+     -79.68
+    ],
+    [
+     8.95,
+     -79.57
+    ]
+   ]
+  },
+  {
+   "name": "Easter Island",
+   "pts": [
+    [
+     -27.12,
+     -109.35
+    ]
+   ]
+  },
+  {
+   "name": "Cape of Good Hope",
+   "pts": [
+    [
+     -34.357,
+     18.474
+    ]
+   ]
+  }
+ ]
+}

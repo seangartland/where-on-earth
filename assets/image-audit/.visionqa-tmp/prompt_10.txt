@@ -1,0 +1,24 @@
+You are doing visual QA on place-name photos for a geography game called "Where on Earth".
+
+Input file (JSON array): /home/hatch/workspace/map-game/demo/assets/image-audit/.visionqa-tmp/batch_10.json
+Each item has: id, short (place name), country, clue, image_url.
+
+For EACH item in the input file, do the following:
+1. Download the image with: curl -sL --max-time 20 -o /tmp/visionqa_<id>.jpg "<image_url>" (sanitize id for filename, e.g. replace non-alnum with _)
+2. Use the Read tool to actually view the downloaded image file.
+3. Judge it against these three questions:
+   a. Is this a REAL PHOTOGRAPH (not an SVG icon, map, diagram, flag, chart, or image that is mostly text/logo)?
+   b. Does it plausibly show the named place ("short" + "country")? Use your knowledge of real-world landmarks/geography to judge plausibility — don't just trust the filename.
+   c. If "short" refers to a CITY (not a natural feature/region/country), does the photo read as the city itself (skyline, street scene, general cityscape view) rather than a single isolated monument/building that is itself a distinct, separately-named landmark (e.g. just the Eiffel Tower alone for "Paris" might still be OK since it's iconic and clearly Paris, but a random isolated building with no identifying context is not)? Use judgment — iconic skyline shots or clearly-labeled iconic landmarks for that exact city are fine.
+
+Be STRICT: a wrong or misleading photo is worse than no photo at all. If you are at all uncertain whether the photo is correct, mark it as pass:false and explain why in reason. Only pass:true when you're confident all three checks pass.
+
+Write ALL results for this batch to this exact output file path (create/overwrite it): /home/hatch/workspace/map-game/demo/assets/image-audit/.visionqa-tmp/results_10.json
+
+The output file must be a single JSON object mapping each item's "id" to an object:
+{
+  "<id>": {"pass": true, "reason": ""},
+  "<id2>": {"pass": false, "reason": "short explanation of what's wrong"}
+}
+
+Every id from the input file must appear in the output, with no exceptions. Do not skip any item even if the download fails (if download fails or the file isn't a valid image, mark pass:false with reason "image failed to load"). When you have written the output file for every item, stop — do not do anything else, do not modify any other files.

@@ -1,0 +1,90 @@
+{
+  "tarawa-kiribati": {
+    "pass": false,
+    "reason": "Satellite imagery rather than a ground-level real photo, and it does not provide a recognizable city view of Tarawa."
+  },
+  "tanbaly-kazakhstan": {
+    "pass": false,
+    "reason": "Real petroglyph photo, but it is identified as Tamgaly-Tas, a different site from the Tanbaly (Tamgaly) World Heritage property."
+  },
+  "tel-aviv": {
+    "pass": false,
+    "reason": "Real photo in Tel Aviv, but it isolates Reading Power Station rather than showing the city."
+  },
+  "teraina": {
+    "pass": false,
+    "reason": "NASA orbital/satellite view rather than an on-location real photo suitable for representing the place."
+  },
+  "tepui-auyan": {
+    "pass": false,
+    "reason": "Real photo, but it is a close-up of Heliamphora plants and does not show Auyan-tepui itself."
+  },
+  "timgad-ruins": {
+    "pass": true,
+    "reason": "Real panoramic photo clearly showing the archaeological ruins of Timgad."
+  },
+  "thanh-hoa": {
+    "pass": false,
+    "reason": "Historical ceremony photo at ancestral tombs; it does not show a city view of Thanh Hoa."
+  },
+  "troy": {
+    "pass": false,
+    "reason": "Real photo taken from the Troy site, but the subject is the outward landscape/view rather than clearly visible Troy ruins."
+  },
+  "tiwanaku-kalasasaya": {
+    "pass": false,
+    "reason": "A historical illustration/print, not a real photograph."
+  },
+  "tulum-ruins": {
+    "pass": true,
+    "reason": "Real photo clearly showing the Tulum archaeological ruins."
+  },
+  "tuvalu-vaiaku": {
+    "pass": true,
+    "reason": "Real photo showing the broader Funafuti/Vaiaku township rather than an isolated landmark."
+  },
+  "valley-of-queens-luxor": {
+    "pass": true,
+    "reason": "Real on-location photo clearly showing the Valley of the Queens landscape and site."
+  },
+  "university-of-coimbra-d34-73": {
+    "pass": true,
+    "reason": "Real panoramic photo clearly showing the University of Coimbra courtyard and surrounding university architecture."
+  },
+  "vatnajökull-d34-44": {
+    "pass": true,
+    "reason": "Real landscape photo showing Breidamerkurjokull, an outlet glacier of the Vatnajokull ice cap."
+  },
+  "valley-of-kings": {
+    "pass": true,
+    "reason": "Real aerial photograph clearly showing the Valley of the Kings and its surrounding terrain."
+  },
+  "vlkolinec-slovakia": {
+    "pass": true,
+    "reason": "Real photo clearly showing the historic village and its characteristic streetscape."
+  },
+  "vostok-island": {
+    "pass": true,
+    "reason": "Real photograph from an approaching boat clearly showing Vostok Island's coastal profile."
+  },
+  "wartburg-castle": {
+    "pass": true,
+    "reason": "Real photo clearly showing Wartburg Castle in its setting."
+  },
+  "wales-alaska": {
+    "pass": false,
+    "reason": "Wrong place: the photo shows the Community Hall in Wales, Utah, not Wales, Alaska."
+  },
+  "yaren-nauru": {
+    "pass": true,
+    "reason": "Real street-level photo showing Yaren's built environment rather than an isolated monument."
+  },
+  "udi": {
+    "pass": false,
+    "reason": "Real photo, but it isolates a post-office building and does not provide a city or town view of Udi."
+  },
+  "zaranj": {
+    "pass": true,
+    "reason": "Real street-level photo taken in Zaranj that shows the city's streets and surrounding urban fabric."
+  }
+}

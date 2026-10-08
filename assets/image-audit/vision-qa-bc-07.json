@@ -1,0 +1,177 @@
+[
+ {
+  "id": "pyramids-louvre-paris",
+  "short": "Louvre Pyramid",
+  "country": "France",
+  "clue": "Louvre Pyramid, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/500px-Louvre_Museum_Wikimedia_Commons.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "quilotoa-crater-viewpoint",
+  "short": "Quilotoa Crater Lake",
+  "country": "Ecuador",
+  "clue": "Quilotoa Crater Lake, Ecuador \ud83c\uddea\ud83c\udde8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Quilotoa_crater_lake%2C_Ecuador%2C_Jan_2010.jpg/500px-Quilotoa_crater_lake%2C_Ecuador%2C_Jan_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "real-alc\u00e1zar-of-seville-d34-64",
+  "short": "Real Alc\u00e1zar of Seville",
+  "country": "Spain",
+  "clue": "Real Alc\u00e1zar of Seville, Spain \ud83c\uddea\ud83c\uddf8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Alc%C3%A1zar_Seville_April_2019-11.jpg/500px-Alc%C3%A1zar_Seville_April_2019-11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "riga-old-town-d34-14",
+  "short": "Riga Old Town",
+  "country": "Latvia",
+  "clue": "Riga Old Town, Latvia",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Old_Riga_Vecr%C4%ABga_Town_Hall.jpg/500px-Old_Riga_Vecr%C4%ABga_Town_Hall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "riyadh",
+  "short": "Riyadh",
+  "country": "Saudi Arabia",
+  "clue": "Riyadh, Saudi Arabia \ud83c\uddf8\ud83c\udde6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Riyadh_Skyline.jpg/500px-Riyadh_Skyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "sabratha-ruins-libya",
+  "short": "Sabratha Ruins",
+  "country": "Libya",
+  "clue": "Sabratha Ruins, Libya \ud83c\uddf1\ud83c\uddfe",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Sabratha_ruins_10.JPG/500px-Sabratha_ruins_10.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "rottnest-island",
+  "short": "Rottnest Island",
+  "country": "Australia",
+  "clue": "Rottnest Island, Australia \ud83c\udde6\ud83c\uddfa",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Salmon_Point%2C_Rottnest_Island%2C_April_2026.jpg/500px-Salmon_Point%2C_Rottnest_Island%2C_April_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "sagarmatha-everest-nepal",
+  "short": "Mount Everest Base Camp (South)",
+  "country": "Nepal",
+  "clue": "Mount Everest Base Camp (South), Nepal \ud83c\uddf3\ud83c\uddf5",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Mount_Everest%27s_west_shoulder%2C_Mt._Everest%2C_Mt._Nuptse_near_EBC%2C_Nepal.jpg/500px-Mount_Everest%27s_west_shoulder%2C_Mt._Everest%2C_Mt._Nuptse_near_EBC%2C_Nepal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "salomon-islands-chagos",
+  "short": "Salomon Islands, Chagos",
+  "country": "United Kingdom",
+  "clue": "Salomon Islands, Chagos, United Kingdom \ud83c\uddf8\ud83c\udded",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Diego_Garcia_%28United_Kingdom%29_-_DPLA_-_3279598ef94173108003007e96fab1de.jpg/500px-Diego_Garcia_%28United_Kingdom%29_-_DPLA_-_3279598ef94173108003007e96fab1de.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "san-ignacio-mini-mission",
+  "short": "San Ignacio Min\u00ed",
+  "country": "Argentina",
+  "clue": "San Ignacio Min\u00ed, Argentina \ud83c\udde6\ud83c\uddf7",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/San_Ignacio_Min%C3%AD_mission_ruins.jpg/500px-San_Ignacio_Min%C3%AD_mission_ruins.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "santa-monica-pier",
+  "short": "Santa Monica Pier",
+  "country": "United States",
+  "clue": "Santa Monica Pier, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/USA_Santa_Monica_Beach_and_pier_CA.jpg/500px-USA_Santa_Monica_Beach_and_pier_CA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "scott-hut-cape-evans",
+  "short": "Scott Hut",
+  "country": "Antarctica",
+  "clue": "Scott Hut, Antarctica \ud83c\udde6\ud83c\uddf6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Hut_A%2C_Scott_Base.jpg/500px-Hut_A%2C_Scott_Base.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "savusavu-bay",
+  "short": "Savusavu Bay",
+  "country": "Fiji",
+  "clue": "Savusavu Bay, Fiji \ud83c\uddeb\ud83c\uddef",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Lemonpeel_Angelfish%2C_Savusavu_Bay%2C_Fiji_imported_from_iNaturalist_photo_325186780.jpg/500px-Lemonpeel_Angelfish%2C_Savusavu_Bay%2C_Fiji_imported_from_iNaturalist_photo_325186780.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "sequoia-national-park",
+  "short": "Sequoia National Park",
+  "country": "United States",
+  "clue": "Sequoia National Park, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Giant_sequoias_in_Sequoia_National_Park_2013.jpg/500px-Giant_sequoias_in_Sequoia_National_Park_2013.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "shackleton-hut-cape-royds",
+  "short": "Shackleton Hut",
+  "country": "Antarctica",
+  "clue": "Shackleton Hut, Antarctica \ud83c\udde6\ud83c\uddf6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Cindy_Kiro%2C_Shackleton%27s_Hut%2C_2025.jpg/500px-Cindy_Kiro%2C_Shackleton%27s_Hut%2C_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "shigatse-tibet",
+  "short": "Shigatse",
+  "country": "China",
+  "clue": "Shigatse, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Shigatse_Dzong%2C_Tibet.jpg/500px-Shigatse_Dzong%2C_Tibet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "soshanguve-za",
+  "short": "Soshanguve",
+  "country": "South Africa",
+  "clue": "Soshanguve, South Africa \ud83c\uddff\ud83c\udde6",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Soshanguve_Crossing.jpg/500px-Soshanguve_Crossing.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "south-beach",
+  "short": "South Beach",
+  "country": "United States",
+  "clue": "South Beach, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Lifeguard_stand%2C_Miami_Beach.jpg/500px-Lifeguard_stand%2C_Miami_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "st-basils-cathedral",
+  "short": "St Basil's Cathedral",
+  "country": "Russia",
+  "clue": "St Basil's Cathedral, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Moscow_-_2025_-_Daytime_view_of_St._Basil%27s_Cathedral_from_Vasilyevsky_Spusk.jpg/500px-Moscow_-_2025_-_Daytime_view_of_St._Basil%27s_Cathedral_from_Vasilyevsky_Spusk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "stavanger-old-town-d34-39",
+  "short": "Stavanger Old Town",
+  "country": "Norway",
+  "clue": "Stavanger Old Town, Norway \ud83c\uddf3\ud83c\uddf4",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Old_Town_-_Stavanger%2C_Norway_-_panoramio.jpg/500px-Old_Town_-_Stavanger%2C_Norway_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "stockholm-old-town-d34-33",
+  "short": "Stockholm Old Town",
+  "country": "Sweden",
+  "clue": "Stockholm Old Town, Sweden \ud83c\uddf8\ud83c\uddea",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Obelisk_at_Slottsbacken_%2824763797051%29.jpg/500px-Obelisk_at_Slottsbacken_%2824763797051%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "suez-canal",
+  "short": "Suez Canal",
+  "country": "Egypt",
+  "clue": "Suez Canal, Egypt \ud83c\uddea\ud83c\uddec",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Suez_Canal_Bridge_%282008%29_07.jpg/500px-Suez_Canal_Bridge_%282008%29_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "stone-of-destiny",
+  "short": "Stone of Destiny",
+  "country": "Scotland",
+  "clue": "Stone of Destiny, Scotland",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Stone_of_Destiny_Travels_to_London_for_Coronation_of_Charles_III.jpg/500px-Stone_of_Destiny_Travels_to_London_for_Coronation_of_Charles_III.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "tabuaeran",
+  "short": "Tabuaeran, Kiribati",
+  "country": "Kiribati",
+  "clue": "Tabuaeran, Kiribati, Kiribati \ud83c\uddf0\ud83c\uddee",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Tabuaeran_Kiribati.jpg/500px-Tabuaeran_Kiribati.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "id": "tama",
+  "short": "Tama",
+  "country": "Japan",
+  "clue": "Tama, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Station-Master_Tama.JPG/500px-Station-Master_Tama.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+]

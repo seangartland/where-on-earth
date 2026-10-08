@@ -1,0 +1,281 @@
+{
+ "meta": {
+  "generated": "2026-10-06",
+  "doc": "Pin sanity check -> pin-suspects.json (read-only on assets/locations.json).\n\nTwo measured tests per location:\n  error   pin is not inside any Natural Earth 10m polygon of its `country`, the nearest polygon vertex\n          is > 50 km away, AND either the pin is inside ANOTHER country's polygon or flipping the\n          latitude sign puts it inside (or within 10 km of) its own country (hemisphere sign flip).\n          Pins in the same sovereign's dependencies (Greenland, Tahiti, Tristan) are not flagged.\n  review  an enwiki article whose title IS the item's name (short or \"<short>, <country>\") has\n          coordinates 50-500 km from the pin (from wiki.measure's rejected candidates). Farther\n          hits are namesakes elsewhere (Lincoln, Surrey) and are ignored.\nNeither test changes a score: score.py copies the flags into the item's notes.\nUsage: python3 pins.py",
+  "counts": {
+   "suspects": 26,
+   "error": 9,
+   "signFlip": 4,
+   "review": 14,
+   "disputed": 3
+  }
+ },
+ "items": {
+  "aganoa-beach": {
+   "short": "Aganoa Beach",
+   "country": "Samoa",
+   "lat": -13.8806,
+   "lng": -171.4539,
+   "review": {
+    "sameNameArticle": "Aganoa Beach",
+    "articleKmFromPin": 91
+   }
+  },
+  "boulders-beach": {
+   "short": "Boulders Beach",
+   "country": "South Africa",
+   "lat": 34.1985,
+   "lng": 18.4514,
+   "error": {
+    "nearestOwnBorderKm": 6372,
+    "pinIsInside": "ocean",
+    "latitudeSignFlipFixes": true
+   }
+  },
+  "cape-point": {
+   "short": "Cape Point",
+   "country": "South Africa",
+   "lat": 34.3568,
+   "lng": 18.474,
+   "error": {
+    "nearestOwnBorderKm": 6389,
+    "pinIsInside": "ocean",
+    "latitudeSignFlipFixes": true
+   }
+  },
+  "chiefs-island-moremi": {
+   "short": "Chief's Island, Moremi",
+   "country": "Botswana",
+   "lat": 19.2833,
+   "lng": 22.9,
+   "error": {
+    "nearestOwnBorderKm": 4128,
+    "pinIsInside": "Chad",
+    "latitudeSignFlipFixes": true
+   }
+  },
+  "ciudad-perdida": {
+   "short": "Ciudad Perdida",
+   "country": "Colombia",
+   "lat": 11.49,
+   "lng": -72.2833,
+   "review": {
+    "sameNameArticle": "Ciudad Perdida",
+    "articleKmFromPin": 186
+   }
+  },
+  "grand-canyon": {
+   "short": "Grand Canyon",
+   "country": "United States",
+   "lat": 36.1069,
+   "lng": -112.1129,
+   "review": {
+    "sameNameArticle": "Grand Canyon",
+    "articleKmFromPin": 61
+   }
+  },
+  "great-zimbabwe": {
+   "short": "Great Zimbabwe",
+   "country": "Zimbabwe",
+   "lat": 20.2686,
+   "lng": 30.9336,
+   "error": {
+    "nearestOwnBorderKm": 3992,
+    "pinIsInside": "Sudan",
+    "latitudeSignFlipFixes": true
+   }
+  },
+  "hargeysa": {
+   "short": "Hargeysa",
+   "country": "Somalia",
+   "lat": 9.56,
+   "lng": 44.065,
+   "disputed": {
+    "pinIsInside": "Somaliland"
+   }
+  },
+  "ittoqqortoormiit-greenland": {
+   "short": "Ittoqqortoormiit",
+   "country": "Iceland",
+   "lat": 70.4846,
+   "lng": -21.9603,
+   "error": {
+    "nearestOwnBorderKm": 447,
+    "pinIsInside": "Greenland",
+    "latitudeSignFlipFixes": false
+   }
+  },
+  "jianshui": {
+   "short": "Jianshui",
+   "country": "China",
+   "lat": 24.2774,
+   "lng": 101.224,
+   "review": {
+    "sameNameArticle": "Jianshui",
+    "articleKmFromPin": 178
+   }
+  },
+  "katsina-ng": {
+   "short": "Katsina",
+   "country": "Nigeria",
+   "lat": 12.99082,
+   "lng": 7.60177,
+   "review": {
+    "sameNameArticle": "Katsina",
+    "articleKmFromPin": 83
+   }
+  },
+  "kerch": {
+   "short": "Kerch",
+   "country": "Ukraine",
+   "lat": 45.35675,
+   "lng": 36.47542,
+   "disputed": {
+    "pinIsInside": "Russia"
+   }
+  },
+  "la-rinconada-peru": {
+   "short": "La Rinconada",
+   "country": "Peru",
+   "lat": -14.6676,
+   "lng": -70.6303,
+   "review": {
+    "sameNameArticle": "La Rinconada, Peru",
+    "articleKmFromPin": 127
+   }
+  },
+  "lago-general-carrera": {
+   "short": "Catedral de Mármol",
+   "country": "Chile",
+   "lat": -46.6417,
+   "lng": -72.6703,
+   "review": {
+    "sameNameArticle": "Catedral de Mármol",
+    "articleKmFromPin": 77
+   }
+  },
+  "lake-titicaca-uros": {
+   "short": "Uros Floating Islands",
+   "country": "Peru",
+   "lat": -15.8167,
+   "lng": -69.9714,
+   "review": {
+    "sameNameArticle": "Uros floating islands",
+    "articleKmFromPin": 69
+   }
+  },
+  "lalibela-ethiopia": {
+   "short": "Lalibela",
+   "country": "Ethiopia",
+   "lat": 11.1238,
+   "lng": 39.0412,
+   "review": {
+    "sameNameArticle": "Lalibela",
+    "articleKmFromPin": 101
+   }
+  },
+  "masada-israel": {
+   "short": "Masada",
+   "country": "Israel",
+   "lat": 31.3156,
+   "lng": 35.3539,
+   "review": {
+    "sameNameArticle": "Masada, Israel",
+    "articleKmFromPin": 154
+   }
+  },
+  "mount-nyangani-summit": {
+   "short": "Mount Nyangani Summit",
+   "country": "Zimbabwe",
+   "lat": 15.8794,
+   "lng": 28.7672,
+   "error": {
+    "nearestOwnBorderKm": 3504,
+    "pinIsInside": "Sudan",
+    "latitudeSignFlipFixes": false
+   }
+  },
+  "pantanal-porto-jofre": {
+   "short": "Porto Jofre",
+   "country": "Bolivia",
+   "lat": -17.3616,
+   "lng": -56.7753,
+   "error": {
+    "nearestOwnBorderKm": 109,
+    "pinIsInside": "Brazil",
+    "latitudeSignFlipFixes": false
+   }
+  },
+  "qaanaaq": {
+   "short": "Qaanaaq",
+   "country": "Canada",
+   "lat": 77.467,
+   "lng": -69.2287,
+   "error": {
+    "nearestOwnBorderKm": 165,
+    "pinIsInside": "Greenland",
+    "latitudeSignFlipFixes": false
+   }
+  },
+  "rock-of-gibraltar": {
+   "short": "Rock of Gibraltar",
+   "country": "United Kingdom",
+   "lat": 36.143,
+   "lng": -5.353,
+   "error": {
+    "nearestOwnBorderKm": 1533,
+    "pinIsInside": "Spain",
+    "latitudeSignFlipFixes": false
+   }
+  },
+  "ruqi": {
+   "short": "Ruqi",
+   "country": "Somalia",
+   "lat": 9.97293,
+   "lng": 43.4276,
+   "disputed": {
+    "pinIsInside": "Somaliland"
+   }
+  },
+  "ryogoku": {
+   "short": "Ryōgoku",
+   "country": "Japan",
+   "lat": 35.71667,
+   "lng": 140.36667,
+   "review": {
+    "sameNameArticle": "Ryōgoku",
+    "articleKmFromPin": 52
+   }
+  },
+  "san-luis-potosi-mx": {
+   "short": "San Luis Potosí",
+   "country": "Mexico",
+   "lat": 22.15234,
+   "lng": -100.97135,
+   "review": {
+    "sameNameArticle": "San Luis Potosí",
+    "articleKmFromPin": 74
+   }
+  },
+  "suzhou-cn": {
+   "short": "Suzhou",
+   "country": "China",
+   "lat": 33.63611,
+   "lng": 116.97889,
+   "review": {
+    "sameNameArticle": "Suzhou",
+    "articleKmFromPin": 429
+   }
+  },
+  "veracruz-mx": {
+   "short": "Veracruz",
+   "country": "Mexico",
+   "lat": 19.18095,
+   "lng": -96.1429,
+   "review": {
+    "sameNameArticle": "Veracruz",
+    "articleKmFromPin": 74
+   }
+  }
+ }
+}

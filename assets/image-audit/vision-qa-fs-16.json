@@ -1,0 +1,202 @@
+[
+ {
+  "id": "tirunelveli-in",
+  "short": "Tirunelveli",
+  "country": "India",
+  "clue": "Tirunelveli, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Nellaiappar2.jpg/500px-Nellaiappar2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tomsk-ru",
+  "short": "Tomsk",
+  "country": "Russia",
+  "clue": "Tomsk, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Dachas_IMG_1651_1652-2_images_tonemapped_def2.jpg/500px-Dachas_IMG_1651_1652-2_images_tonemapped_def2.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "toronto",
+  "short": "Toronto",
+  "country": "Canada",
+  "clue": "Toronto, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sunset_Toronto_Skyline_Panorama_Crop_from_Snake_Island.jpg/500px-Sunset_Toronto_Skyline_Panorama_Crop_from_Snake_Island.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tolyatti-ru",
+  "short": "Tolyatti",
+  "country": "Russia",
+  "clue": "Tolyatti, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Komsomolsky_district%2C_Tolyatti%2C_Russia.JPG/500px-Komsomolsky_district%2C_Tolyatti%2C_Russia.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "touba-sn",
+  "short": "Touba",
+  "country": "Senegal",
+  "clue": "Touba, Senegal \ud83c\uddf8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Touba_034_%2845718877585%29.jpg/500px-Touba_034_%2845718877585%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tula",
+  "short": "Tula",
+  "country": "Russia",
+  "clue": "Tula, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Tula_asv2019-09_img04_Kremlin_aerial_view.jpg/500px-Tula_asv2019-09_img04_Kremlin_aerial_view.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tshikapa-cd",
+  "short": "Tshikapa",
+  "country": "DR Congo",
+  "clue": "Tshikapa, DR Congo \ud83c\udde8\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tshikapa%2C_Kasai_province%2C_DR_Congo_%E2%80%93_As_part_of_its_Quick_Impact_Project%2C_MONUSCO_has_refurbished_the_Central_Prison_in_Tshikapa.jpg/500px-Tshikapa%2C_Kasai_province%2C_DR_Congo_%E2%80%93_As_part_of_its_Quick_Impact_Project%2C_MONUSCO_has_refurbished_the_Central_Prison_in_Tshikapa.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "tsukubamirai",
+  "short": "Tsukubamirai",
+  "country": "Japan",
+  "clue": "Tsukubamirai, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Tsukubamirai_Public_Library.jpg/500px-Tsukubamirai_Public_Library.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "trujillo-pe",
+  "short": "Trujillo",
+  "country": "Peru",
+  "clue": "Trujillo, Peru \ud83c\uddf5\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Trujillo_Peru_Collage.png/500px-Trujillo_Peru_Collage.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tuxtla-mx",
+  "short": "Tuxtla",
+  "country": "Mexico",
+  "clue": "Tuxtla, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tuxtla_Guti%C3%A9rrez_-_Mosaico_Fotogr%C3%A1fico.png/500px-Tuxtla_Guti%C3%A9rrez_-_Mosaico_Fotogr%C3%A1fico.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "uberlandia-br",
+  "short": "Uberl\u00e2ndia",
+  "country": "Brazil",
+  "clue": "Uberl\u00e2ndia, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Centraludi.jpg/500px-Centraludi.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "tyumen-ru",
+  "short": "Tyumen",
+  "country": "Russia",
+  "clue": "Tyumen, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%28%D0%A2%D1%8E%D0%BC%D0%B5%D0%BD%D1%8C%29-2.jpg/500px-%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%28%D0%A2%D1%8E%D0%BC%D0%B5%D0%BD%D1%8C%29-2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "twelve-apostles",
+  "short": "Twelve Apostles",
+  "country": "Australia",
+  "clue": "Twelve Apostles, Australia \ud83c\udde6\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/The_twelve_apostles_Victoria_Australia_2010.jpg/500px-The_twelve_apostles_Victoria_Australia_2010.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "ulsan",
+  "short": "Ulsan",
+  "country": "South Korea",
+  "clue": "Ulsan, South Korea \ud83c\uddf0\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Shade_Of_Taehwagang_%2871978891%29.jpeg/500px-Shade_Of_Taehwagang_%2871978891%29.jpeg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "ufa-ru",
+  "short": "Ufa",
+  "country": "Russia",
+  "clue": "Ufa, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/%D3%A8%D0%A4%D3%A8-2015-%28v2%29.jpg/500px-%D3%A8%D0%A4%D3%A8-2015-%28v2%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "ulyanovsk-ru",
+  "short": "Ulyanovsk",
+  "country": "Russia",
+  "clue": "Ulyanovsk, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_city_of_Ulyanovsk%2C_Russia.jpg/500px-The_city_of_Ulyanovsk%2C_Russia.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "urumqi-cn",
+  "short": "\u00dcr\u00fcmqi",
+  "country": "China",
+  "clue": "\u00dcr\u00fcmqi, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Urumqi_Skyline_July_2019.jpg/500px-Urumqi_Skyline_July_2019.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "ursynow",
+  "short": "Ursyn\u00f3w",
+  "country": "Poland",
+  "clue": "Ursyn\u00f3w, Poland \ud83c\uddf5\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ulica_Cynamonowa_w_Warszawie_2021a.jpg/500px-Ulica_Cynamonowa_w_Warszawie_2021a.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "valencia-es",
+  "short": "Valencia",
+  "country": "Spain",
+  "clue": "Valencia, Spain \ud83c\uddea\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Vue_sur_la_ville_depuis_la_Tour_du_Miguelete_%288277318710%29.jpg/500px-Vue_sur_la_ville_depuis_la_Tour_du_Miguelete_%288277318710%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "vadodara-in",
+  "short": "Vadodara",
+  "country": "India",
+  "clue": "Vadodara, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/NyayM.jpg/500px-NyayM.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "vagator",
+  "short": "Vagator",
+  "country": "India",
+  "clue": "Vagator, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Vagator_Beach%2C_Goa%2C_India.jpg/500px-Vagator_Beach%2C_Goa%2C_India.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "valle-de-guanape",
+  "short": "Valle de Guanape",
+  "country": "Venezuela",
+  "clue": "Valle de Guanape, Venezuela \ud83c\uddfb\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Plaza_Bolivar_-_panoramio_%2817%29.jpg/500px-Plaza_Bolivar_-_panoramio_%2817%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "van-turkey",
+  "short": "Van",
+  "country": "Turkey",
+  "clue": "Van, Turkey \ud83c\uddf9\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/City_of_Van_%28view_from_Van_Kalesi%29.jpg/500px-City_of_Van_%28view_from_Van_Kalesi%29.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "varanasi",
+  "short": "Varanasi",
+  "country": "India",
+  "clue": "Varanasi, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Varanasi_Munshi_Ghat3.jpg/500px-Varanasi_Munshi_Ghat3.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "vellore",
+  "short": "Vellore",
+  "country": "India",
+  "clue": "Vellore, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vellore_lok_sabha_constituency.png/500px-Vellore_lok_sabha_constituency.png",
+  "verdict": "FAIL-auto"
+ }
+]

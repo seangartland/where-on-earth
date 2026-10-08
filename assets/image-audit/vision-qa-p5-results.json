@@ -1,0 +1,102 @@
+{
+  "fox-glacier": {
+    "pass": true,
+    "reason": "Real photo of Fox Glacier township with the glacier-capped Southern Alps behind the main street; clearly shows the place."
+  },
+  "geirangerfjord-no": {
+    "pass": true,
+    "reason": "Real aerial photo of Geirangerfjord with a cruise ship and village at the fjord head; clearly shows the place."
+  },
+  "gateway-arch-st-louis": {
+    "pass": true,
+    "reason": "Real photo of the Gateway Arch with the St. Louis skyline; clue names the landmark specifically so a monument shot is correct."
+  },
+  "geysir-d34-42": {
+    "pass": true,
+    "reason": "Real photo of the Geysir geothermal field mid-eruption with a labeled 'GEYSIR' rock in foreground; clearly shows the place."
+  },
+  "giants-causeway": {
+    "pass": true,
+    "reason": "Real photo of the basalt hexagonal columns at Giant's Causeway with visitors; clearly shows the landmark."
+  },
+  "gettysburg-battlefield": {
+    "pass": false,
+    "reason": "Hazy, generic distant view of a town with a school and sports fields; no battlefield monuments, cannons, or memorials visible, so it does not clearly show Gettysburg's battlefield."
+  },
+  "geneva": {
+    "pass": true,
+    "reason": "Real aerial city view of Geneva with Lake Geneva and surrounding mountains; genuine city view, not an isolated monument."
+  },
+  "georgetown-st-georges-cathedral": {
+    "pass": true,
+    "reason": "Real panoramic street-level view of Georgetown with St. George's Cathedral among surrounding buildings; shows a city view, not just an isolated monument."
+  },
+  "gjirokaster-fortress-albania": {
+    "pass": true,
+    "reason": "Real photo of Gjirokastër Fortress with its clock tower; clue names the fortress specifically so a monument shot is correct."
+  },
+  "giethoorn": {
+    "pass": true,
+    "reason": "Real photo of a Giethoorn canal with boats and a thatched-roof farmhouse; iconic and accurate depiction of the village."
+  },
+  "ghent-belgium": {
+    "pass": true,
+    "reason": "Real photo of Ghent's historic Graslei guild houses along the river; classic city view, not a single isolated monument."
+  },
+  "giza-eg": {
+    "pass": false,
+    "reason": "Shows a generic Nile-side skyline (Giza Corniche) with modern high-rises and boats; no pyramids or any feature distinguishing it from neighboring Cairo."
+  },
+  "great-ocean-road": {
+    "pass": true,
+    "reason": "Real photo of the winding coastal Great Ocean Road hugging a cliff above the sea; clearly shows the landmark."
+  },
+  "gwangju": {
+    "pass": true,
+    "reason": "Real elevated city skyline view of Gwangju from a hillside; genuine city view, not an isolated monument."
+  },
+  "halemaumau-crater": {
+    "pass": true,
+    "reason": "Real photo of the Halemaʻumaʻu volcanic crater with a large steam plume and rainbow; clearly shows the place."
+  },
+  "hanoi-vietnam": {
+    "pass": true,
+    "reason": "Real aerial city view of Hanoi with the Nhat Tan Bridge, river, and skyline; genuine city view."
+  },
+  "halifax-canada": {
+    "pass": false,
+    "reason": "Clue is the general city of Halifax, but the image shows only a single isolated building (Halifax City Hall) rather than a city view."
+  },
+  "harare-zimbabwe": {
+    "pass": true,
+    "reason": "Real aerial skyline view of Harare's downtown and surrounding suburbs; genuine city view, not an isolated monument."
+  },
+  "heimaey-iceland": {
+    "pass": false,
+    "reason": "Shows only a single isolated black church against a lava-covered hillside; too generic and does not distinctly convey Heimaey (known for its volcanic landscape and harbor town)."
+  },
+  "helsinki-cathedral-d34-31": {
+    "pass": true,
+    "reason": "Real photo of Helsinki Cathedral; clue names the cathedral specifically so a monument shot is correct."
+  },
+  "hermitage-museum": {
+    "pass": true,
+    "reason": "Real photo of the Winter Palace (Hermitage Museum) facade along the Neva River; clue names the museum specifically so a monument shot is correct."
+  },
+  "hollywood": {
+    "pass": true,
+    "reason": "Real rooftop view of Hollywood, Florida's beachfront town; clue disambiguates it from LA's Hollywood, and the image shows a genuine town/beach view."
+  },
+  "hong-kong": {
+    "pass": false,
+    "reason": "Shows a generic, unidentifiable building (a memorial library) with no skyline, harbor, or any recognizable Hong Kong feature."
+  },
+  "hohhot-cn": {
+    "pass": true,
+    "reason": "Montage of four genuine Hohhot landmarks (horn/horse-themed monument arch, pavilion, mosque gate, and White Pagoda); reasonably represents the city through multiple real views rather than one random object."
+  },
+  "huddersfield": {
+    "pass": false,
+    "reason": "Clue is the general town of Huddersfield, but the image shows only a single isolated building (the railway station) rather than a town/city view."
+  }
+}

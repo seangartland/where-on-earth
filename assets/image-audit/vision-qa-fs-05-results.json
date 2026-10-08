@@ -1,0 +1,102 @@
+{
+  "kalyan-in": {
+    "pass": false,
+    "reason": "Real photo but it's a close-up of the railway station nameboard/signage, not a city view — isolated signage shot, not representative of Kalyan."
+  },
+  "kameyama": {
+    "pass": false,
+    "reason": "Real photo of JR Kameyama Station building, but it's a single isolated building, not a city view."
+  },
+  "kakamega-ke": {
+    "pass": true,
+    "reason": "Real photo, street-level scene with roadside vendors, bicycles, and townspeople — plausible representative street view of the town."
+  },
+  "kananga-cd": {
+    "pass": true,
+    "reason": "Real aerial photo clearly showing the town spread across the landscape — good city view."
+  },
+  "kampala": {
+    "pass": true,
+    "reason": "Real photo, elevated street view with skyline, traffic, and 'Cairo Bank' building — clear city view matching Kampala."
+  },
+  "kanash": {
+    "pass": false,
+    "reason": "Real photo but shows only the railway station building and platform — isolated structure, not a city view."
+  },
+  "kanpur-in": {
+    "pass": false,
+    "reason": "Real photo but it's a single temple (JK Temple) in isolation — isolated monument, not a city view of Kanpur."
+  },
+  "kaohsiung-tw": {
+    "pass": true,
+    "reason": "Real photo, night skyline view clearly showing the city — good city view."
+  },
+  "kano": {
+    "pass": true,
+    "reason": "Real aerial/overlook photo from Dala Hill showing the city's rooftops extending to the horizon — good city view."
+  },
+  "karagandy": {
+    "pass": true,
+    "reason": "Real photo, street-level view of a town square with buildings and traffic — valid city view."
+  },
+  "kerch": {
+    "pass": false,
+    "reason": "Real photo but dominated by the Obelisk of Glory monument in the foreground — isolated monument shot, not a city view, despite bay/city visible in the background."
+  },
+  "kawasaki-jp": {
+    "pass": false,
+    "reason": "Not a single real photo — it's a stitched montage/collage of six separate images, fails the real-photo criterion."
+  },
+  "katsina-ng": {
+    "pass": true,
+    "reason": "Real photo, overlook from Gobarau Minaret showing the city's rooftops extending outward — valid city view."
+  },
+  "kayseri": {
+    "pass": false,
+    "reason": "Real photo but shows only the train station building — isolated structure, not a city view."
+  },
+  "khajuraho-india": {
+    "pass": true,
+    "reason": "Real photo directly matching the clue ('Khajuraho Group of Monuments') — since the clue itself names the monument complex, this is correct and not subject to the city-view rule."
+  },
+  "kemerovo-ru": {
+    "pass": true,
+    "reason": "Real photo, street-level view with buildings, trees, and cars — valid city view."
+  },
+  "kazan-ru": {
+    "pass": false,
+    "reason": "Not a single real photo — it's a stitched collage of six separate images (towers, mosque, palace, street, aerial), fails the real-photo criterion."
+  },
+  "kerkrade": {
+    "pass": false,
+    "reason": "Real photo but a close-up of generic shopfronts (Game Cave, Maker Space, Boekstart) — nothing identifies this as Kerkrade specifically, and it's not a city view."
+  },
+  "khabarovsk-ru": {
+    "pass": true,
+    "reason": "Real aerial photo clearly showing a tree-lined boulevard and surrounding cityscape — good city view."
+  },
+  "kharkiv-ua": {
+    "pass": false,
+    "reason": "Real photo but shows a single building (Palace of Sports) in snow — isolated structure, not a city view."
+  },
+  "khulna-bd": {
+    "pass": false,
+    "reason": "Real photo but shows only the railway station building — isolated structure, not a city view."
+  },
+  "khartoum": {
+    "pass": true,
+    "reason": "Real photo showing a bridge over the Nile with a substantial city skyline, boats, and urban context behind it — valid city view, not just an isolated landmark."
+  },
+  "kingston": {
+    "pass": true,
+    "reason": "Real aerial photo clearly showing the city, harbor, and bay — good city view."
+  },
+  "kitakyushu": {
+    "pass": false,
+    "reason": "Real photo but shows a single modern building (appears to be a university building) in isolation — not a city view."
+  },
+  "kirkuk": {
+    "pass": false,
+    "reason": "Real photo but a close-up of the citadel's fortress wall — isolated monument shot, not a city view."
+  }
+}

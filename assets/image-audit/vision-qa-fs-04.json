@@ -1,0 +1,202 @@
+[
+ {
+  "id": "irkutsk-ru",
+  "short": "Irkutsk",
+  "country": "Russia",
+  "clue": "Irkutsk, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA._%D0%9D%D0%B8%D0%B6%D0%BD%D1%8F%D1%8F_%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F.JPG/500px-%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA._%D0%9D%D0%B8%D0%B6%D0%BD%D1%8F%D1%8F_%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "izhevsk-ru",
+  "short": "Izhevsk",
+  "country": "Russia",
+  "clue": "Izhevsk, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Aerial_photographs_of_Izhevsk-108.jpg/500px-Aerial_photographs_of_Izhevsk-108.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "indore-in",
+  "short": "Indore",
+  "country": "India",
+  "clue": "Indore, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Indore_Rajwada.jpg/500px-Indore_Rajwada.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "isfahan-iran",
+  "short": "Isfahan",
+  "country": "Iran",
+  "clue": "Isfahan, Iran \ud83c\uddee\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/33_pol_aerial.jpg/500px-33_pol_aerial.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "jacksonville",
+  "short": "Jacksonville",
+  "country": "United States",
+  "clue": "Jacksonville, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Jacksonville_skyline.jpg/500px-Jacksonville_skyline.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "istanbul",
+  "short": "Istanbul",
+  "country": "Turkey",
+  "clue": "Istanbul, Turkey \ud83c\uddf9\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Istanbul_Montage_2016.png/500px-Istanbul_Montage_2016.png",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "iztapalapa-mx",
+  "short": "Iztapalapa",
+  "country": "Mexico",
+  "clue": "Iztapalapa, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/San_Lucas_Iztapalapa.jpg/500px-San_Lucas_Iztapalapa.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jepara-id",
+  "short": "Jepara",
+  "country": "Indonesia",
+  "clue": "Jepara, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jepara_monument.jpg/500px-Jepara_monument.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "jamshedpur-in",
+  "short": "Jamshedpur",
+  "country": "India",
+  "clue": "Jamshedpur, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cityscapes_of_Jamshedpur.jpg/500px-Cityscapes_of_Jamshedpur.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jiangyin-cn",
+  "short": "Jiangyin",
+  "country": "China",
+  "clue": "Jiangyin, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9C%9B%E6%B1%9F%E6%A5%BC%E7%9C%BA%E6%9C%9B%E6%B1%9F%E9%98%B4%E5%B8%82%E5%8C%BA_2017%E5%86%AC.jpg/500px-%E6%9C%9B%E6%B1%9F%E6%A5%BC%E7%9C%BA%E6%9C%9B%E6%B1%9F%E9%98%B4%E5%B8%82%E5%8C%BA_2017%E5%86%AC.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jeddah-sa",
+  "short": "Jeddah",
+  "country": "Saudi Arabia",
+  "clue": "Jeddah, Saudi Arabia \ud83c\uddf8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Jeddah-seaport-saudiarabia_%28cropped%29.PNG/500px-Jeddah-seaport-saudiarabia_%28cropped%29.PNG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jieyang-cn",
+  "short": "Jieyang",
+  "country": "China",
+  "clue": "Jieyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/%E6%A6%95%E5%9F%8E%E5%8C%BA%E6%97%A5%E6%99%AF.jpg/500px-%E6%A6%95%E5%9F%8E%E5%8C%BA%E6%97%A5%E6%99%AF.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jilin-cn",
+  "short": "Jilin",
+  "country": "China",
+  "clue": "Jilin, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/%E5%90%89%E6%9E%97%E9%BE%99%E5%B1%B1%E8%A7%82%E5%9F%8E_1.jpg/500px-%E5%90%89%E6%9E%97%E9%BE%99%E5%B1%B1%E8%A7%82%E5%9F%8E_1.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jining",
+  "short": "Jining",
+  "country": "China",
+  "clue": "Jining, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/%E6%B5%8E%E5%AE%81%E5%B8%82%2C_%E4%B8%AD%E5%9B%BD_Dec_07%2C_2020_15-57-16.jpeg/500px-%E6%B5%8E%E5%AE%81%E5%B8%82%2C_%E4%B8%AD%E5%9B%BD_Dec_07%2C_2020_15-57-16.jpeg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jinan-cn",
+  "short": "Jinan",
+  "country": "China",
+  "clue": "Jinan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Jinan_Railway_Station_2015.jpg/500px-Jinan_Railway_Station_2015.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "jinjiang-cn",
+  "short": "Jinjiang",
+  "country": "China",
+  "clue": "Jinjiang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Jinjiang_-_panoramio.jpg/500px-Jinjiang_-_panoramio.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "jinhua",
+  "short": "Jinhua",
+  "country": "China",
+  "clue": "Jinhua, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Jinhuamontage.jpg/500px-Jinhuamontage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jos-ng",
+  "short": "Jos",
+  "country": "Nigeria",
+  "clue": "Jos, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Jos%2C_looking_south_from_Anglo-Jos.jpg/500px-Jos%2C_looking_south_from_Anglo-Jos.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jyvaskyla",
+  "short": "Jyv\u00e4skyl\u00e4",
+  "country": "Finland",
+  "clue": "Jyv\u00e4skyl\u00e4, Finland \ud83c\uddeb\ud83c\uddee",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Jyv%C3%A4skyl%C3%A4_-_Agora.jpg/500px-Jyv%C3%A4skyl%C3%A4_-_Agora.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "johor-bahru",
+  "short": "Johor Bahru",
+  "country": "Malaysia",
+  "clue": "Johor Bahru, Malaysia \ud83c\uddf2\ud83c\uddfe",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Alter_chinesischer_Tempel_-_Old_Chinese_Temple_of_Johor_Bahru_%282025%29_-_img_16.jpg/500px-Alter_chinesischer_Tempel_-_Old_Chinese_Temple_of_Johor_Bahru_%282025%29_-_img_16.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "jinzhou",
+  "short": "Jinzhou",
+  "country": "China",
+  "clue": "Jinzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Jinzhou.jpg/500px-Jinzhou.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "joinville-br",
+  "short": "Joinville",
+  "country": "Brazil",
+  "clue": "Joinville, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/01_JoinvilleCentro.jpg/500px-01_JoinvilleCentro.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kaduna-ng",
+  "short": "Kaduna",
+  "country": "Nigeria",
+  "clue": "Kaduna, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kaduna_River%2C_Kaduna_%28Nigeria%29%2C_2007.JPG/500px-Kaduna_River%2C_Kaduna_%28Nigeria%29%2C_2007.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kabul-af",
+  "short": "Kabul",
+  "country": "Afghanistan",
+  "clue": "Kabul, Afghanistan \ud83c\udde6\ud83c\uddeb",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Kabul_TV_Hill_view.jpg/500px-Kabul_TV_Hill_view.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "kaifeng-cn",
+  "short": "Kaifeng",
+  "country": "China",
+  "clue": "Kaifeng, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/%E9%BC%93%E6%A5%BC%E5%A4%9C%E5%B8%82_-_panoramio_%281%29.jpg/500px-%E9%BC%93%E6%A5%BC%E5%A4%9C%E5%B8%82_-_panoramio_%281%29.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "id": "timbuktu-mali",
+    "short": "Timbuktu",
+    "country": "Mali",
+    "clue": "Timbuktu, Mali \ud83c\uddf2\ud83c\uddf1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Timbuktu_Mosque_Sankore.jpg/500px-Timbuktu_Mosque_Sankore.jpg"
+  },
+  {
+    "id": "topkapi-palace",
+    "short": "Topkapi Palace",
+    "country": "Turkey",
+    "clue": "Topkapi Palace, Turkey \ud83c\uddf9\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Palacio_de_Topkap%C4%B1%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-30%2C_DD_64.jpg/500px-Palacio_de_Topkap%C4%B1%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-30%2C_DD_64.jpg"
+  },
+  {
+    "id": "tower-bridge-london",
+    "short": "Tower Bridge",
+    "country": "England",
+    "clue": "Tower Bridge, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/London_-_London_Tower_Bridge_-_140806_171049.jpg/500px-London_-_London_Tower_Bridge_-_140806_171049.jpg"
+  },
+  {
+    "id": "tucson-usa",
+    "short": "Tucson",
+    "country": "United States",
+    "clue": "Tucson, Arizona \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Tucson_Museum_of_Art.jpg/500px-Tucson_Museum_of_Art.jpg"
+  },
+  {
+    "id": "tunis-tunisia",
+    "short": "Tunis",
+    "country": "Tunisia",
+    "clue": "Tunis, Tunisia \ud83c\uddf9\ud83c\uddf3",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Panoramique_du_centre_de_Tunis_%283197369985%29_%28cropped%29.jpg/500px-Panoramique_du_centre_de_Tunis_%283197369985%29_%28cropped%29.jpg"
+  },
+  {
+    "id": "tristan-da-cunha",
+    "short": "Tristan da Cunha",
+    "country": "United Kingdom",
+    "clue": "Tristan da Cunha, South Atlantic \ud83c\uddf8\ud83c\udded",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Tristan_da_Cunha_ASTER.jpg/500px-Tristan_da_Cunha_ASTER.jpg"
+  },
+  {
+    "id": "two-lovers-point",
+    "short": "Two Lovers Point",
+    "country": "United States",
+    "clue": "Two Lovers Point, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Two_Lovers_Point_2025.jpg/500px-Two_Lovers_Point_2025.jpg"
+  },
+  {
+    "id": "uluru",
+    "short": "Uluru",
+    "country": "Australia",
+    "clue": "Uluru, Australia \ud83c\udde6\ud83c\uddfa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Sunset_at_Uluru_on_July_30%2C_2005.jpg/500px-Sunset_at_Uluru_on_July_30%2C_2005.jpg"
+  },
+  {
+    "id": "uppsala-cathedral-d34-35",
+    "short": "Uppsala Cathedral",
+    "country": "Sweden",
+    "clue": "Uppsala Cathedral, Sweden \ud83c\uddf8\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Uppsala_domkyrka_i_oktober_2011.jpg/500px-Uppsala_domkyrka_i_oktober_2011.jpg"
+  },
+  {
+    "id": "valle-de-la-luna-chile",
+    "short": "Valle de la Luna",
+    "country": "Chile",
+    "clue": "Valle de la Luna, Chile \ud83c\udde8\ud83c\uddf1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/El_Valle_de_la_Luna_%28Chile%29.jpg/500px-El_Valle_de_la_Luna_%28Chile%29.jpg"
+  },
+  {
+    "id": "valletta",
+    "short": "Valletta",
+    "country": "Malta",
+    "clue": "Valletta, Malta \ud83c\uddf2\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Malta%2C_2010_-_panoramio_-_Bengt_Nyman_%2823%29.jpg/500px-Malta%2C_2010_-_panoramio_-_Bengt_Nyman_%2823%29.jpg"
+  },
+  {
+    "id": "vienna-austria",
+    "short": "Vienna",
+    "country": "Austria",
+    "clue": "Vienna, Austria \ud83c\udde6\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Wien_katedra_sw_Szczepana_widok_z_wiezy_6.jpg/500px-Wien_katedra_sw_Szczepana_widok_z_wiezy_6.jpg"
+  },
+  {
+    "id": "vestmannaeyjar-iceland",
+    "short": "Vestmannaeyjar",
+    "country": "Iceland",
+    "clue": "Vestmannaeyjar, Iceland \ud83c\uddee\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/2014-09-14_13-38-01_Iceland_-_Vestmannaeyjum_Vestmannaeyjar.jpg/500px-2014-09-14_13-38-01_Iceland_-_Vestmannaeyjum_Vestmannaeyjar.jpg"
+  },
+  {
+    "id": "waitomo-caves",
+    "short": "Waitomo Caves",
+    "country": "New Zealand",
+    "clue": "Waitomo Caves, New Zealand \ud83c\uddf3\ud83c\uddff",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Waitomo_Hotel_-_Flickr_-_Teacher_Traveler.jpg/500px-Waitomo_Hotel_-_Flickr_-_Teacher_Traveler.jpg"
+  },
+  {
+    "id": "waikiki",
+    "short": "Waikiki",
+    "country": "United States",
+    "clue": "Waikiki, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Waikiki_Beach_%282024%29-L1004709.jpg/500px-Waikiki_Beach_%282024%29-L1004709.jpg"
+  },
+  {
+    "id": "wellington-new-zealand",
+    "short": "Wellington",
+    "country": "New Zealand",
+    "clue": "Wellington, New Zealand \ud83c\uddf3\ud83c\uddff",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/WellingtonPanorama.jpg/500px-WellingtonPanorama.jpg"
+  },
+  {
+    "id": "westminster-abbey-gb",
+    "short": "Westminster Abbey",
+    "country": "England",
+    "clue": "Westminster Abbey, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Westminster-Abbey.JPG/500px-Westminster-Abbey.JPG"
+  },
+  {
+    "id": "western-wall-jerusalem",
+    "short": "Western Wall",
+    "country": "Israel",
+    "clue": "Western Wall, Israel \ud83c\uddee\ud83c\uddf1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Entrance_tunnel_Western_Wall.JPG/500px-Entrance_tunnel_Western_Wall.JPG"
+  },
+  {
+    "id": "whitehorse-yukon",
+    "short": "Whitehorse",
+    "country": "Canada",
+    "clue": "Whitehorse, Canada \ud83c\udde8\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Whitehorse%2C_Yukon_in_2019.jpg/500px-Whitehorse%2C_Yukon_in_2019.jpg"
+  },
+  {
+    "id": "wounded-knee-creek",
+    "short": "Wounded Knee",
+    "country": "United States",
+    "clue": "Wounded Knee, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Wounded_Knee_96.jpg/500px-Wounded_Knee_96.jpg"
+  },
+  {
+    "id": "yerevan",
+    "short": "Yerevan",
+    "country": "Armenia",
+    "clue": "Yerevan, Armenia \ud83c\udde6\ud83c\uddf2",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Mount_Ararat_and_the_Yerevan_skyline_in_spring_%2828mm%29.jpg/500px-Mount_Ararat_and_the_Yerevan_skyline_in_spring_%2828mm%29.jpg"
+  },
+  {
+    "id": "yellowknife-nwt",
+    "short": "Yellowknife",
+    "country": "Canada",
+    "clue": "Yellowknife, Canada \ud83c\udde8\ud83c\udde6",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Downtown_Yellowknife_2.jpg/500px-Downtown_Yellowknife_2.jpg"
+  },
+  {
+    "id": "york-minster-d34-3",
+    "short": "York Minster",
+    "country": "England",
+    "clue": "York Minster, England",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/York_Minster_from_M%26S.JPG/500px-York_Minster_from_M%26S.JPG"
+  },
+  {
+    "id": "yosemite-valley",
+    "short": "Yosemite Valley",
+    "country": "United States",
+    "clue": "Yosemite Valley, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/LeConte_Memorial_Lodge.jpg/500px-LeConte_Memorial_Lodge.jpg"
+  },
+  {
+    "id": "zermatt-ch",
+    "short": "Zermatt",
+    "country": "Switzerland",
+    "clue": "Zermatt, Switzerland \ud83c\udde8\ud83c\udded",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/1_zermatt_night_2012.jpg/500px-1_zermatt_night_2012.jpg"
+  },
+  {
+    "id": "zugspitze-summit",
+    "short": "Zugspitze Summit",
+    "country": "Germany",
+    "clue": "Zugspitze, Germany \ud83c\udde9\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/250610_Sign_on_Zugspitze_02.JPG/500px-250610_Sign_on_Zugspitze_02.JPG"
+  }
+]

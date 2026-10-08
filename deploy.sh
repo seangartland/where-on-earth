@@ -15,6 +15,8 @@ cp -r "$SCRIPT_DIR/index.html" "$DEPLOY_DIR/"
 # Copy preview mockups
 cp "$SCRIPT_DIR"/preview-*.html "$DEPLOY_DIR/" 2>/dev/null || true
 cp -r "$SCRIPT_DIR/src" "$DEPLOY_DIR/"
+# Drop main.js/style.css backups (main.js.bak-*, main.js.backup-*)
+rm -f "$DEPLOY_DIR"/src/*.bak* "$DEPLOY_DIR"/src/*.backup*
 cp -r "$SCRIPT_DIR/vendor" "$DEPLOY_DIR/"
 cp "$SCRIPT_DIR/vercel.json" "$DEPLOY_DIR/"
 
@@ -22,9 +24,10 @@ cp "$SCRIPT_DIR/vercel.json" "$DEPLOY_DIR/"
 mkdir -p "$DEPLOY_DIR/assets"
 for f in "$SCRIPT_DIR"/assets/*; do
   base=$(basename "$f")
-  # Skip backup files, duplicates, and dead files (not loaded by code)
+  # Skip backup files, duplicates, and dead files (not loaded by code).
+  # image-audit/ and difficulty/ are offline QA/pipeline data (~43 MB), never fetched by the game.
   case "$base" in
-    *.bak|og-v3.png|world.geo.json|world-10m.geo.json) continue ;;
+    *.bak|*.pre-*|og-v3.png|world.geo.json|world-10m.geo.json|image-audit|difficulty) continue ;;
   esac
   cp -r "$f" "$DEPLOY_DIR/assets/"
 done

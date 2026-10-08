@@ -1,0 +1,877 @@
+{
+ "aba-ng": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg/500px-Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Aba_Nigeria_hotel.jpg/500px-Aba_Nigeria_hotel.jpg",
+  "source": "p18",
+  "qid": "Q202162",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner mount-cameroon-summit. Strong Wikidata country+coords match (country confirmed, 1.12 km); own P18 JPEG: Aba Nigeria hotel.jpg"
+ },
+ "abala": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Rock_stacks_in_Anapai_Bay.jpg/500px-Rock_stacks_in_Anapai_Bay.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Paysage_Abala_II.jpg/500px-Paysage_Abala_II.jpg",
+  "source": "p18",
+  "qid": "Q305188",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner bark-bay. Strong Wikidata country+coords match (country confirmed, 0.71 km); own P18 JPEG: Paysage Abala II.jpg"
+ },
+ "abu-dhabi-ae": {
+  "old": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/7d/Sheikh_Zayed_Mosque_view.jpg/500px-Sheikh_Zayed_Mosque_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/%D0%90%D0%B1%D1%83-%D0%94%D0%B0%D0%B1%D0%B8_(Abu_Dhabi)_-_panoramio_(1).jpg/500px-%D0%90%D0%B1%D1%83-%D0%94%D0%B0%D0%B1%D0%B8_(Abu_Dhabi)_-_panoramio_(1).jpg",
+  "source": "p18",
+  "qid": "Q1519",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner sheikh-zayed-mosque. Strong Wikidata country+coords match (country confirmed, 0.01 km); own P18 JPEG: \u0410\u0431\u0443-\u0414\u0430\u0431\u0438 (Abu Dhabi) - panoramio (1).jpg"
+ },
+ "acapulco-de-juarez-mx": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/500px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Acapulco_Collage_2013.jpg/500px-Acapulco_Collage_2013.jpg",
+  "source": "p18",
+  "qid": "Q81398",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hand-of-god-azteca. Strong Wikidata country+coords match (country confirmed, 2.77 km); own P18 JPEG: Acapulco Collage 2013.jpg"
+ },
+ "accra": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Skyline_of_George_Town%2C_Penang_at_night_Nov2024-29-17.jpg/500px-Skyline_of_George_Town%2C_Penang_at_night_Nov2024-29-17.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Accra_town.jpg/500px-Accra_town.jpg",
+  "source": "p18",
+  "qid": "Q3761",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner george-town-malaysia. Strong Wikidata country+coords match (country confirmed, 0 km); own P18 JPEG: Accra town.jpg"
+ },
+ "adana-tr": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Cappadocia_balloon_trip%2C_Ortahisar_Castle_%2811893715185%29.jpg/500px-Cappadocia_balloon_trip%2C_Ortahisar_Castle_%2811893715185%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Adana1.jpg/500px-Adana1.jpg",
+  "source": "p18",
+  "qid": "Q38545",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner cappadocia-turkey. Strong Wikidata country+coords match (country confirmed, 0.02 km); own P18 JPEG: Adana1.jpg"
+ },
+ "aden": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Catedral_de_Sal_de_Zipaquira.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Old_Town_Aden_Yemen.jpg/500px-Old_Town_Aden_Yemen.jpg",
+  "source": "p18",
+  "qid": "Q131694",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner zipaquira-salt-cathedral. Strong Wikidata country+coords match (country confirmed, 2.34 km); own P18 JPEG: Old Town Aden Yemen.jpg"
+ },
+ "agadez": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/South_Tarawa_from_the_air.jpg/1280px-South_Tarawa_from_the_air.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/1997_277-16A_Agadez_hotel.jpg/500px-1997_277-16A_Agadez_hotel.jpg",
+  "source": "p18",
+  "qid": "Q320049",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner tarawa-kiribati. Strong Wikidata country+coords match (country confirmed, 0.13 km); own P18 JPEG: 1997 277-16A Agadez hotel.jpg"
+ },
+ "agadir-ma": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Marokko0112_%28retouched%29.jpg/500px-Marokko0112_%28retouched%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Agadir_Areal_view_cropped.jpg/500px-Agadir_Areal_view_cropped.jpg",
+  "source": "p18",
+  "qid": "Q170525",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner koutoubia-mosque-marrakech. Strong Wikidata country+coords match (country confirmed, 1.45 km); own P18 JPEG: Agadir Areal view cropped.jpg"
+ },
+ "agra-in": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/500px-Taj_Mahal_%28Edited%29.jpeg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Aks_The_Reflection_Taj_Mahal.jpg/500px-Aks_The_Reflection_Taj_Mahal.jpg",
+  "source": "p18",
+  "qid": "Q42941",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner taj-mahal. Strong Wikidata country+coords match (country confirmed, 0.5 km); own P18 JPEG: Aks The Reflection Taj Mahal.jpg"
+ },
+ "aguascalientes-mx": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg/500px-Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Centro_de_Aguascalientes.jpg/500px-Centro_de_Aguascalientes.jpg",
+  "source": "p18",
+  "qid": "Q200805",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner guadalajara-mexico. Strong Wikidata country+coords match (country confirmed, 1.23 km); own P18 JPEG: Centro de Aguascalientes.jpg"
+ },
+ "ahmedabad-in": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/The_drainage_system_at_Lothal_2.JPG/500px-The_drainage_system_at_Lothal_2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Amdavad_Aerial.jpg/500px-Amdavad_Aerial.jpg",
+  "source": "p18",
+  "qid": "Q1070",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner lothal-india. Strong Wikidata country+coords match (country confirmed, 0.88 km); own P18 JPEG: Amdavad Aerial.jpg"
+ },
+ "ahvaz": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Abbey_of_Montserrat_02.jpg/500px-Abbey_of_Montserrat_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/1399011818071582320074684_%D8%B2%D9%85%DB%8C%D9%86_%D9%86%D9%81%D8%B3_%D9%85%DB%8C_%DA%A9%D8%B4%D8%AF.jpg/500px-1399011818071582320074684_%D8%B2%D9%85%DB%8C%D9%86_%D9%86%D9%81%D8%B3_%D9%85%DB%8C_%DA%A9%D8%B4%D8%AF.jpg",
+  "source": "p18",
+  "qid": "Q170366",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner montserrat-monastery-d34-69. Strong Wikidata country+coords match (country confirmed, 0.01 km); own P18 JPEG: 1399011818071582320074684 \u0632\u0645\u06cc\u0646 \u0646\u0641\u0633 \u0645\u06cc \u06a9\u0634\u062f.jpg"
+ },
+ "ajman": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nashville%2C_Tennessee_%28cropped%29.jpg/500px-Nashville%2C_Tennessee_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Palacio_del_Emir_de_Ajm%C3%A1n.jpg/500px-Palacio_del_Emir_de_Ajm%C3%A1n.jpg",
+  "source": "p18",
+  "qid": "Q530171",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner nashville-usa. Strong Wikidata country+coords match (country confirmed, 0.28 km); own P18 JPEG: Palacio del Emir de Ajm\u00e1n.jpg"
+ },
+ "aleppo-sy": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg/500px-G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Aleppo%2C_View_of_the_city%2C_Syria.jpg/500px-Aleppo%2C_View_of_the_city%2C_Syria.jpg",
+  "source": "p18",
+  "qid": "Q41183",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner gobekli-tepe. Strong Wikidata country+coords match (country confirmed, 0.17 km); own P18 JPEG: Aleppo, View of the city, Syria.jpg"
+ },
+ "ananindeua-br": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Len%C3%A7%C3%B3is_Maranhenses_2018.jpg/500px-Len%C3%A7%C3%B3is_Maranhenses_2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/BR-316_em_Ananindeua.JPG/500px-BR-316_em_Ananindeua.JPG",
+  "source": "p18",
+  "qid": "Q485887",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner lencois-maranhenses. Strong Wikidata country+coords match (country confirmed, 0.04 km); own P18 JPEG: BR-316 em Ananindeua.JPG"
+ },
+ "antipolo": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Auschwitz_I_%2822_May_2010%29_b.jpg/500px-Auschwitz_I_%2822_May_2010%29_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Line_2_Antipolo_Station_Platform.jpg/500px-Line_2_Antipolo_Station_Platform.jpg",
+  "source": "p18",
+  "qid": "Q16786991",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner auschwitz-birkenau. Strong Wikidata country+coords match (country confirmed, 0.19 km); own P18 JPEG: Line 2 Antipolo Station Platform.jpg"
+ },
+ "arar": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Skyline_of_Beijing_CBD_with_B-5906_approaching_%2820211016171955%29_%281%29.jpg/500px-Skyline_of_Beijing_CBD_with_B-5906_approaching_%2820211016171955%29_%281%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/20210128_153213Arar_Tower.jpg/500px-20210128_153213Arar_Tower.jpg",
+  "source": "p18",
+  "qid": "Q626199",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner beijing-china. Strong Wikidata country+coords match (country confirmed, 2.23 km); own P18 JPEG: 20210128 153213Arar Tower.jpg"
+ },
+ "asuncion-py": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/San_Ignacio_Min%C3%AD.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Asunci%C3%B3n_Paraguay.jpg/500px-Asunci%C3%B3n_Paraguay.jpg",
+  "source": "p18",
+  "qid": "Q2933",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner san-ignacio-mini-mission. Strong Wikidata country+coords match (country confirmed, 1.45 km); own P18 JPEG: Asunci\u00f3n Paraguay.jpg"
+ },
+ "aurangabad": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Wawel_%284%29.jpg/500px-Wawel_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Cave_16_-_Inside_view_(4)%2C_Ellora_Caves.jpg/500px-Cave_16_-_Inside_view_(4)%2C_Ellora_Caves.jpg",
+  "source": "p18",
+  "qid": "Q592942",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner wawel-castle. Strong Wikidata country+coords match (country confirmed, 1.25 km); own P18 JPEG: Cave 16 - Inside view (4), Ellora Caves.jpg"
+ },
+ "bahawalpur": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/51714-Terracota-Army.jpg/500px-51714-Terracota-Army.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/CHOWK_SARAIKI_BAHAWALPUR.jpg/500px-CHOWK_SARAIKI_BAHAWALPUR.jpg",
+  "source": "p18",
+  "qid": "Q318156",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner terracotta-army. Strong Wikidata country+coords match (country confirmed, 0.38 km); own P18 JPEG: CHOWK SARAIKI BAHAWALPUR.jpg"
+ },
+ "baku": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Luanda_2025_focused_%28cropped%29.jpg/500px-Luanda_2025_focused_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/%D0%91%D0%B0%D0%BA%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D1%8B%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB_%D0%9D%D0%BE%D1%8F%D0%B1%D1%80%D1%8C_2024.jpg/500px-%D0%91%D0%B0%D0%BA%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D1%8B%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB_%D0%9D%D0%BE%D1%8F%D0%B1%D1%80%D1%8C_2024.jpg",
+  "source": "p18",
+  "qid": "Q4076080",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner luanda-angola. Strong Wikidata country+coords match (country confirmed, 3.54 km); own P18 JPEG: \u0411\u0430\u043a\u0438\u043d\u0441\u043a\u0438\u0439 \u0436\u0435\u043b\u0435\u0437\u043d\u043e\u0434\u043e\u0440\u043e\u0436\u043d\u044b\u0439 \u0432\u043e\u043a\u0437\u0430\u043b \u041d\u043e\u044f\u0431\u0440\u044c 2024.jpg"
+ },
+ "bandar-lampung": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Adams_Bridge_aerial.jpg/500px-Adams_Bridge_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Masjid_Agung_Al-Furqon_Bandar_Lampung.jpg/500px-Masjid_Agung_Al-Furqon_Bandar_Lampung.jpg",
+  "source": "p18",
+  "qid": "Q65299509",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner adams-bridge. Strong Wikidata country+coords match (country confirmed, 0 km); own P18 JPEG: Masjid Agung Al-Furqon Bandar Lampung.jpg"
+ },
+ "bandung-id": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg/500px-Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Montage_of_Bandung.jpg/500px-Montage_of_Bandung.jpg",
+  "source": "p18",
+  "qid": "Q10389",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner jakarta-indonesia. Strong Wikidata country+coords match (country confirmed, 0.03 km); own P18 JPEG: Montage of Bandung.jpg"
+ },
+ "banff-national-park": {
+  "old": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Moraine_Lake_17092005.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/1_Sulphur_mountain_panorama.jpg/500px-1_Sulphur_mountain_panorama.jpg",
+  "source": "p18",
+  "qid": "Q6007840",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner moraine-lake. Strong Wikidata country+coords match (country confirmed, 0 km); own P18 JPEG: 1 Sulphur mountain panorama.jpg"
+ },
+ "bannu-pk": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Badshahi_Mosque_front_picture.jpg/500px-Badshahi_Mosque_front_picture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Bannu%2C_Pakistan.jpg/500px-Bannu%2C_Pakistan.jpg",
+  "source": "p18",
+  "qid": "Q806916",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner badshahi-mosque. Strong Wikidata country+coords match (country confirmed, 0.43 km); own P18 JPEG: Bannu, Pakistan.jpg"
+ },
+ "bao-an-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/%E5%AE%9D%E5%AE%89%E5%A4%A7%E9%81%93.JPG/500px-%E5%AE%9D%E5%AE%89%E5%A4%A7%E9%81%93.JPG",
+  "source": "p18",
+  "qid": "Q807049",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hong-kong. Strong Wikidata country+coords match (country confirmed, 2.25 km); own P18 JPEG: \u5b9d\u5b89\u5927\u9053.JPG"
+ },
+ "baotou-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Pingyao_Shilou_2013.08.25_07-01-33.jpg/500px-Pingyao_Shilou_2013.08.25_07-01-33.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Baotou%2C_Inner_Mongolia.jpg/500px-Baotou%2C_Inner_Mongolia.jpg",
+  "source": "p18",
+  "qid": "Q569907",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner pingyao-ancient-city. Strong Wikidata country+coords match (country confirmed, 0.94 km); own P18 JPEG: Baotou, Inner Mongolia.jpg"
+ },
+ "barakpur": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Housesteads_Roman_Fort_aerial.jpg/500px-Housesteads_Roman_Fort_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Barrackpore_Railway_Station_-_North_24_Parganas_2012-04-11_9670.JPG/500px-Barrackpore_Railway_Station_-_North_24_Parganas_2012-04-11_9670.JPG",
+  "source": "p18",
+  "qid": "Q709298",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner housesteads-hadrians-wall. Strong Wikidata country+coords match (country confirmed, 1.48 km); own P18 JPEG: Barrackpore Railway Station - North 24 Parganas 2012-04-11 9670.JPG"
+ },
+ "barquisimeto-ve": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/CIUDAD_PERDIDA_2.jpg/500px-CIUDAD_PERDIDA_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Baqtoeste.jpg/500px-Baqtoeste.jpg",
+  "source": "p18",
+  "qid": "Q4709",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner ciudad-perdida. Strong Wikidata country+coords match (country confirmed, 1.18 km); own P18 JPEG: Baqtoeste.jpg"
+ },
+ "batam-id": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Singapore_Skyline_2019-10.jpg/500px-Singapore_Skyline_2019-10.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Vue_de_batam2.jpg/500px-Vue_de_batam2.jpg",
+  "source": "p18",
+  "qid": "Q10103",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner merlion-singapore. Strong Wikidata country+coords match (country confirmed, 3.8 km); own P18 JPEG: Vue de batam2.jpg"
+ },
+ "bayan-nur-cn": {
+  "old": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Yoliinam.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Bayan_Bolig.jpg/500px-Bayan_Bolig.jpg",
+  "source": "p18",
+  "qid": "Q571126",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner yolyn-am-mongolia. Strong Wikidata country+coords match (country confirmed, 2.94 km); own P18 JPEG: Bayan Bolig.jpg"
+ },
+ "beira-mz": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Crowne_Plaza%2C_Harare.png/500px-Crowne_Plaza%2C_Harare.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Beira_center_2000.jpg/500px-Beira_center_2000.jpg",
+  "source": "p18",
+  "qid": "Q211563",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner harare-zimbabwe. Strong Wikidata country+coords match (country confirmed, 1.63 km); own P18 JPEG: Beira center 2000.jpg"
+ },
+ "bekasi-id": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg/500px-Bundaran_Hotel_Indonesia_%282025%29_%28cropped%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Stasiun_Bekasi%2C_2019.jpg/500px-Stasiun_Bekasi%2C_2019.jpg",
+  "source": "p18",
+  "qid": "Q1811845",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner jakarta-indonesia. Strong Wikidata country+coords match (country confirmed, 1.04 km); own P18 JPEG: Stasiun Bekasi, 2019.jpg"
+ },
+ "belem-br": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Len%C3%A7%C3%B3is_Maranhenses_2018.jpg/500px-Len%C3%A7%C3%B3is_Maranhenses_2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Montagem_Bel%C3%A9m.jpg/500px-Montagem_Bel%C3%A9m.jpg",
+  "source": "p18",
+  "qid": "Q12829733",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner lencois-maranhenses. Strong Wikidata country+coords match (country confirmed, 0.06 km); own P18 JPEG: Montagem Bel\u00e9m.jpg"
+ },
+ "belford-roxo-br": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Maracana_2022.jpg/500px-Maracana_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Novo_Portico_Belford_Roxo.jpg/500px-Novo_Portico_Belford_Roxo.jpg",
+  "source": "p18",
+  "qid": "Q737636",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner maracana-stadium. Strong Wikidata country+coords match (country confirmed, 0.06 km); own P18 JPEG: Novo Portico Belford Roxo.jpg"
+ },
+ "belo-horizonte-br": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Conjunto_arquitet%C3%B4nico_e_urban%C3%ADstico_de_Ouro_Preto.JPG/500px-Conjunto_arquitet%C3%B4nico_e_urban%C3%ADstico_de_Ouro_Preto.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Esta%C3%A7%C3%A3o_de_Belo_Horizonte.jpg/500px-Esta%C3%A7%C3%A3o_de_Belo_Horizonte.jpg",
+  "source": "p18",
+  "qid": "Q136763523",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner ouro-preto-tiradentes-square. Strong Wikidata country+coords match (country confirmed, 0.51 km); own P18 JPEG: Esta\u00e7\u00e3o de Belo Horizonte.jpg"
+ },
+ "bengaluru-in": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Adams_Bridge_aerial.jpg/500px-Adams_Bridge_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/UB_City.jpg/500px-UB_City.jpg",
+  "source": "p18",
+  "qid": "Q1355",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner adams-bridge. Strong Wikidata country+coords match (country confirmed, 0.84 km); own P18 JPEG: UB City.jpg"
+ },
+ "benghazi-ly": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Boulders_Beach_Suedafrika.jpg/500px-Boulders_Beach_Suedafrika.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/The_Old_Town%2C_Benghazi%2C_Libya.jpg/500px-The_Old_Town%2C_Benghazi%2C_Libya.jpg",
+  "source": "p18",
+  "qid": "Q40816",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner boulders-beach. Strong Wikidata country+coords match (country confirmed, 0.27 km); own P18 JPEG: The Old Town, Benghazi, Libya.jpg"
+ },
+ "berrechid": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Arviat_Church_Centers_1995-06-30.jpg/500px-Arviat_Church_Centers_1995-06-30.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Berrechid_Province_administration_building_in_Berrechid_-_front_2024.jpg/500px-Berrechid_Province_administration_building_in_Berrechid_-_front_2024.jpg",
+  "source": "p18",
+  "qid": "Q2395317",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner arviat-canada. Strong Wikidata country+coords match (country confirmed, 0.41 km); own P18 JPEG: Berrechid Province administration building in Berrechid - front 2024.jpg"
+ },
+ "bhuj": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Citadelle_Laferri%C3%A8re.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Prag_Mahal_Bhuj.jpg/500px-Prag_Mahal_Bhuj.jpg",
+  "source": "p18",
+  "qid": "Q798382",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner citadelle-laferriere-mountaintop. Strong Wikidata country+coords match (country confirmed, 0.45 km); own P18 JPEG: Prag Mahal Bhuj.jpg"
+ },
+ "bien-hoa-vn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Phnom_Penh_skyline_from_TK_district_Dec_2024.jpg/500px-Phnom_Penh_skyline_from_TK_district_Dec_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_V%C4%83n_mi%E1%BA%BFu_Tr%E1%BA%A5n_Bi%C3%AAn.jpg/500px-Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_V%C4%83n_mi%E1%BA%BFu_Tr%E1%BA%A5n_Bi%C3%AAn.jpg",
+  "source": "p18",
+  "qid": "Q19316",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner phnom-penh-cambodia. Strong Wikidata country+coords match (country confirmed, 0.72 km); own P18 JPEG: Nh\u00e0 th\u1edd ch\u00ednh V\u0103n mi\u1ebfu Tr\u1ea5n Bi\u00ean.jpg"
+ },
+ "birmingham-gb": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Museum_of_Oxford_%285652685943%29.jpg/500px-Museum_of_Oxford_%285652685943%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Birmingham-Skyline-from-Edgbaston-crop.jpg/500px-Birmingham-Skyline-from-Edgbaston-crop.jpg",
+  "source": "p18",
+  "qid": "Q20986424",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner oxford-england. Strong Wikidata country+coords match (country confirmed, 0.15 km); own P18 JPEG: Birmingham-Skyline-from-Edgbaston-crop.jpg"
+ },
+ "blantyre-mw": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Crowne_Plaza%2C_Harare.png/500px-Crowne_Plaza%2C_Harare.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Blantyre_City.jpg/500px-Blantyre_City.jpg",
+  "source": "p18",
+  "qid": "Q188693",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner harare-zimbabwe. Strong Wikidata country+coords match (country confirmed, 0.32 km); own P18 JPEG: Blantyre City.jpg"
+ },
+ "bobrovo": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Panorama_quilotoa_crater_lake_ecuador.jpg/500px-Panorama_quilotoa_crater_lake_ecuador.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/%D0%92%D0%B8%D0%B4_%D0%BF%D0%B3%D1%82_%D0%91%D0%BE%D0%B1%D1%80%D0%BE%D0%B2%D0%BE_%D1%81_%D0%B2%D1%8B%D1%81%D0%BE%D1%82%D1%8B_%D0%BF%D1%82%D0%B8%D1%87%D1%8C%D0%B5%D0%B3%D0%BE_%D0%BF%D0%BE%D0%BB%D1%91%D1%82%D0%B0_2017-07-11_(DJI_0008)_(cropped).jpg/500px-%D0%92%D0%B8%D0%B4_%D0%BF%D0%B3%D1%82_%D0%91%D0%BE%D0%B1%D1%80%D0%BE%D0%B2%D0%BE_%D1%81_%D0%B2%D1%8B%D1%81%D0%BE%D1%82%D1%8B_%D0%BF%D1%82%D0%B8%D1%87%D1%8C%D0%B5%D0%B3%D0%BE_%D0%BF%D0%BE%D0%BB%D1%91%D1%82%D0%B0_2017-07-11_(DJI_0008)_(cropped).jpg",
+  "source": "p18",
+  "qid": "Q4088821",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner quilotoa-crater-viewpoint. Strong Wikidata country+coords match (country confirmed, 0.28 km); own P18 JPEG: \u0412\u0438\u0434 \u043f\u0433\u0442 \u0411\u043e\u0431\u0440\u043e\u0432\u043e \u0441 \u0432\u044b\u0441\u043e\u0442\u044b \u043f\u0442\u0438\u0447\u044c\u0435\u0433\u043e \u043f\u043e\u043b\u0451\u0442\u0430 2017-07-11 (DJI 0008) (cropped).jpg"
+ },
+ "bogor": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Ouagadougou_Skyline.jpg/500px-Ouagadougou_Skyline.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Montage_of_Bogor.jpg/500px-Montage_of_Bogor.jpg",
+  "source": "p18",
+  "qid": "Q10393",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner ouagadougou-burkina-faso. Strong Wikidata country+coords match (country confirmed, 1.18 km); own P18 JPEG: Montage of Bogor.jpg"
+ },
+ "borough-park": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Piton_de_la_Fournaise%2C_R%C3%A9union_Island_%28High_Resolution%29.jpg/500px-Piton_de_la_Fournaise%2C_R%C3%A9union_Island_%28High_Resolution%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/4812_14thAve.jpg/500px-4812_14thAve.jpg",
+  "source": "p18",
+  "qid": "Q2911280",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner piton-de-la-fournaise. Strong Wikidata country+coords match (country confirmed, 0.33 km); own P18 JPEG: 4812 14thAve.jpg"
+ },
+ "bouake-ci": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Basilique_notre_Dame_de_la_Paix_de_Yamoussoukro.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Cibkegaredetrain.JPG/500px-Cibkegaredetrain.JPG",
+  "source": "p18",
+  "qid": "Q3096025",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner our-lady-peace-basilica. Strong Wikidata country+coords match (country confirmed, 0.96 km); own P18 JPEG: Cibkegaredetrain.JPG"
+ },
+ "bozhou-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/20260210_Guo_River_in_Bozhou_03.jpg/500px-20260210_Guo_River_in_Bozhou_03.jpg",
+  "source": "p18",
+  "qid": "Q360769",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner luoyang-cn. Strong Wikidata country+coords match (country confirmed, 1.66 km); own P18 JPEG: 20260210 Guo River in Bozhou 03.jpg"
+ },
+ "brasilia-national-congress": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Brasilia_National_Congress.JPG/1280px-Brasilia_National_Congress.JPG",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Congresso_Nacional.jpg/500px-Congresso_Nacional.jpg",
+  "source": "p18",
+  "qid": "Q949699",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner brasilia-br. Strong Wikidata country+coords match (country confirmed, 0 km); own P18 JPEG: Congresso Nacional.jpg"
+ },
+ "brooklyn-us": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bedstuybrownstone1.jpg/500px-Bedstuybrownstone1.jpg",
+  "source": "p18",
+  "qid": "Q18419",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner brooklyn-bridge. Strong Wikidata country+coords match (country confirmed, 0.08 km); own P18 JPEG: Bedstuybrownstone1.jpg"
+ },
+ "bujumbura-bi": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg/500px-High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/BUJUMBURA_MAIRIE_3.jpg/500px-BUJUMBURA_MAIRIE_3.jpg",
+  "source": "p18",
+  "qid": "Q3854",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner kigali-rwanda. Strong Wikidata country+coords match (country confirmed, 0.07 km); own P18 JPEG: BUJUMBURA MAIRIE 3.jpg"
+ },
+ "bukavu-cd": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg/500px-High_Angle_View_Of_Kigali_City_Street_on_November_29%2C_2018._Emmanuel_Kwizera.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cathedrale_Bukavu.jpg/500px-Cathedrale_Bukavu.jpg",
+  "source": "p18",
+  "qid": "Q2560377",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner kigali-rwanda. Strong Wikidata country+coords match (country confirmed, 2.23 km); own P18 JPEG: Cathedrale Bukavu.jpg"
+ },
+ "bursa-tr": {
+  "old": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Sultan_Ahmed_Mosque_Front_Fa%C3%A7ade_and_Southern_Minaret%2C_2024.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/City_of_Bursa.jpg/500px-City_of_Bursa.jpg",
+  "source": "p18",
+  "qid": "Q40738",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner sultan-ahmed-mosque. Strong Wikidata country+coords match (country confirmed, 1.8 km); own P18 JPEG: City of Bursa.jpg"
+ },
+ "busan": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Busan_Station_3.JPG/500px-Busan_Station_3.JPG",
+  "source": "p18",
+  "qid": "Q53118",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner ha-long-bay. Strong Wikidata country+coords match (country confirmed, 1.81 km); own P18 JPEG: Busan Station 3.JPG"
+ },
+ "cabiao": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Pedra_de_Cucu%C3%AD_-_panoramio.jpg/500px-Pedra_de_Cucu%C3%AD_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Cabiao36jf.JPG/500px-Cabiao36jf.JPG",
+  "source": "p18",
+  "qid": "Q55545",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner piedra-del-cocuy. Strong Wikidata country+coords match (country confirmed, 0.48 km); own P18 JPEG: Cabiao36jf.JPG"
+ },
+ "cagliari": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Punte_Nuevo_Bridge%2C_Ronda_-_Spain.jpg/500px-Punte_Nuevo_Bridge%2C_Ronda_-_Spain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Cagliari_Regierungspalast.jpg/500px-Cagliari_Regierungspalast.jpg",
+  "source": "p18",
+  "qid": "Q16149",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner puente-nuevo-d34-66. Strong Wikidata country+coords match (country confirmed, 1.27 km); own P18 JPEG: Cagliari Regierungspalast.jpg"
+ },
+ "cairo": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Adelaide_skyline%2C_December_2022_b.jpg/500px-Adelaide_skyline%2C_December_2022_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cairo_Skyline_(2020).jpg/500px-Cairo_Skyline_(2020).jpg",
+  "source": "p18",
+  "qid": "Q85",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner adelaide-australia. Strong Wikidata country+coords match (country confirmed, 2.42 km); own P18 JPEG: Cairo Skyline (2020).jpg"
+ },
+ "caloocan-ph": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Cityscape_of_Manila%2C_2025_%2801%29.jpg/500px-Cityscape_of_Manila%2C_2025_%2801%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Aacaloocanjf.JPG/500px-Aacaloocanjf.JPG",
+  "source": "p18",
+  "qid": "Q1478",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner manila-philippines. Strong Wikidata country+coords match (country confirmed, 0.14 km); own P18 JPEG: Aacaloocanjf.JPG"
+ },
+ "camama-ao": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Luanda_2025_focused_%28cropped%29.jpg/500px-Luanda_2025_focused_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/New_campus_(6177681401)_(cropped).jpg/500px-New_campus_(6177681401)_(cropped).jpg",
+  "source": "p18",
+  "qid": "Q9675019",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner luanda-angola. Strong Wikidata country+coords match (country confirmed, 0.26 km); own P18 JPEG: New campus (6177681401) (cropped).jpg"
+ },
+ "campinas-br": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Paraty_05.JPG/500px-Paraty_05.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Campinas_Poster.jpg/500px-Campinas_Poster.jpg",
+  "source": "p18",
+  "qid": "Q171617",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner paraty-historic-center. Strong Wikidata country+coords match (country confirmed, 0.63 km); own P18 JPEG: Campinas Poster.jpg"
+ },
+ "campos-dos-goytacazes-br": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Cidade_Maravilhosa.jpg/500px-Cidade_Maravilhosa.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Campos_RJ.jpg/500px-Campos_RJ.jpg",
+  "source": "p18",
+  "qid": "Q689868",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner rio-de-janeiro-brazil. Strong Wikidata country+coords match (country confirmed, 0.7 km); own P18 JPEG: Campos RJ.jpg"
+ },
+ "caracas-ve": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/CIUDAD_PERDIDA_2.jpg/500px-CIUDAD_PERDIDA_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Caracas_desde_el_%C3%A1vila.jpg/500px-Caracas_desde_el_%C3%A1vila.jpg",
+  "source": "p18",
+  "qid": "Q1533",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner ciudad-perdida. Strong Wikidata country+coords match (country confirmed, 4.35 km); own P18 JPEG: Caracas desde el \u00e1vila.jpg"
+ },
+ "carrefour-ht": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Citadelle_Laferri%C3%A8re.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Panoramic_View_of_Carrefour%2C_Haiti.jpg/500px-Panoramic_View_of_Carrefour%2C_Haiti.jpg",
+  "source": "p18",
+  "qid": "Q986207",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner citadelle-laferriere-mountaintop. Strong Wikidata country+coords match (country confirmed, 0 km); own P18 JPEG: Panoramic View of Carrefour, Haiti.jpg"
+ },
+ "cartagena": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Luanda_2025_focused_%28cropped%29.jpg/500px-Luanda_2025_focused_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/View_of_Cartagena_from_Convento_de_Santa_Cruz_de_la_Popa_01.jpg/500px-View_of_Cartagena_from_Convento_de_Santa_Cruz_de_la_Popa_01.jpg",
+  "source": "p18",
+  "qid": "Q657461",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner luanda-angola. Strong Wikidata country+coords match (country confirmed, 4.5 km); own P18 JPEG: View of Cartagena from Convento de Santa Cruz de la Popa 01.jpg"
+ },
+ "casablanca": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cathedral_of_Ani.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Casablancanasa.jpg/500px-Casablancanasa.jpg",
+  "source": "p18",
+  "qid": "Q649078",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner ani-cathedral-ruin. Strong Wikidata country+coords match (country confirmed, 0.16 km); own P18 JPEG: Casablancanasa.jpg"
+ },
+ "cerritos": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/TexasStateCapitol-2010-01.JPG/500px-TexasStateCapitol-2010-01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Cerritos_Library_1.jpg/500px-Cerritos_Library_1.jpg",
+  "source": "p18",
+  "qid": "Q575316",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner austin-capitol-texas. Strong Wikidata country+coords match (country confirmed, 1.38 km); own P18 JPEG: Cerritos Library 1.jpg"
+ },
+ "ceska-trebova": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/500px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Kate%C5%99ina.jpg/500px-Kate%C5%99ina.jpg",
+  "source": "p18",
+  "qid": "Q341056",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner cologne-cathedral. Strong Wikidata country+coords match (country confirmed, 0.36 km); own P18 JPEG: Kate\u0159ina.jpg"
+ },
+ "chachoengsao": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Panorama_of_Toledo_at_sunset._View_from_the_south.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/%E0%B8%AA%E0%B8%96%E0%B8%B9%E0%B8%9B%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%95%E0%B8%B2%E0%B8%81%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%82%E0%B8%88%E0%B9%89%E0%B9%82%E0%B8%A5%E0%B9%89_King_Taksin_Pagoda_-_panoramio_(1).jpg/500px-%E0%B8%AA%E0%B8%96%E0%B8%B9%E0%B8%9B%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%95%E0%B8%B2%E0%B8%81%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%82%E0%B8%88%E0%B9%89%E0%B9%82%E0%B8%A5%E0%B9%89_King_Taksin_Pagoda_-_panoramio_(1).jpg",
+  "source": "p18",
+  "qid": "Q334906",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner toledo-d34-62. Strong Wikidata country+coords match (country confirmed, 0.16 km); own P18 JPEG: \u0e2a\u0e16\u0e39\u0e1b\u0e40\u0e08\u0e14\u0e35\u0e22\u0e4c\u0e1e\u0e23\u0e30\u0e40\u0e08\u0e49\u0e32\u0e15\u0e32\u0e01\u0e2a\u0e34\u0e19\u0e17\u0e35\u0e48\u0e1b\u0e32\u0e01\u0e19\u0e49\u0e33\u0e42\u0e08\u0e49\u0e42\u0e25\u0e49 King Taksin Pagoda - panoramio (1).jpg"
+ },
+ "chahar-dangeh": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Kluane_Lake_YT_2005.jpg/500px-Kluane_Lake_YT_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%D8%AE%DB%8C%D8%A7%D8%A8%D8%A7%D9%86_%D8%A7%D9%81%D8%B4%DB%8C%D9%86_-_panoramio_(1).jpg/500px-%D8%AE%DB%8C%D8%A7%D8%A8%D8%A7%D9%86_%D8%A7%D9%81%D8%B4%DB%8C%D9%86_-_panoramio_(1).jpg",
+  "source": "p18",
+  "qid": "Q1772344",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner tupak-amik-lake. Strong Wikidata country+coords match (country confirmed, 0.01 km); own P18 JPEG: \u062e\u06cc\u0627\u0628\u0627\u0646 \u0627\u0641\u0634\u06cc\u0646 - panoramio (1).jpg"
+ },
+ "chaozhou-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%E6%BD%AE%E5%B7%9E%E5%B8%82%E6%BD%AE%E6%9E%AB%E8%B7%AF%E5%92%8C%E6%BD%AE%E5%B7%9E%E5%A4%A7%E9%81%93%E4%BA%A4%E7%95%8C%E5%A4%84%E7%9A%84%E4%B8%89%E5%B9%A2%E5%A4%A7%E6%A5%BC.jpeg/500px-%E6%BD%AE%E5%B7%9E%E5%B8%82%E6%BD%AE%E6%9E%AB%E8%B7%AF%E5%92%8C%E6%BD%AE%E5%B7%9E%E5%A4%A7%E9%81%93%E4%BA%A4%E7%95%8C%E5%A4%84%E7%9A%84%E4%B8%89%E5%B9%A2%E5%A4%A7%E6%A5%BC.jpeg",
+  "source": "p18",
+  "qid": "Q59227",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hong-kong. Strong Wikidata country+coords match (country confirmed, 1.94 km); own P18 JPEG: \u6f6e\u5dde\u5e02\u6f6e\u67ab\u8def\u548c\u6f6e\u5dde\u5927\u9053\u4ea4\u754c\u5904\u7684\u4e09\u5e62\u5927\u697c.jpeg"
+ },
+ "charlotte": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg/500px-%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Charlotte_collage.jpg/500px-Charlotte_collage.jpg",
+  "source": "p18",
+  "qid": "Q16565",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner seoul-south-korea. Strong Wikidata country+coords match (country confirmed, 0.02 km); own P18 JPEG: Charlotte collage.jpg"
+ },
+ "cheboksary": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cheboksary._View_of_downtown.jpg/500px-Cheboksary._View_of_downtown.jpg",
+  "source": "p18",
+  "qid": "Q5470",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner leshan-giant-buddha. Strong Wikidata country+coords match (country confirmed, 0.28 km); own P18 JPEG: Cheboksary. View of downtown.jpg"
+ },
+ "chelyabinsk-ru": {
+  "old": "https://upload.wikimedia.org/wikipedia/commons/8/82/Meteorite_explosion_over_Chelyabinsk_on_February_15%2C_2013.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%D0%A5%D1%80%D0%B5%D0%B1%D0%B5%D1%82_%D0%97%D1%8E%D1%80%D0%B0%D1%82%D0%BA%D1%83%D0%BB%D1%8C.jpg/500px-%D0%A5%D1%80%D0%B5%D0%B1%D0%B5%D1%82_%D0%97%D1%8E%D1%80%D0%B0%D1%82%D0%BA%D1%83%D0%BB%D1%8C.jpg",
+  "source": "p18",
+  "qid": "Q5714",
+  "evidence": "FAIL-auto: legacy gif source. Strong Wikidata country+coords match (country confirmed, 1.83 km); own P18 JPEG: \u0425\u0440\u0435\u0431\u0435\u0442 \u0417\u044e\u0440\u0430\u0442\u043a\u0443\u043b\u044c.jpg"
+ },
+ "chengdu-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/36275-Leshan_%2849067653383%29.jpg/500px-36275-Leshan_%2849067653383%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%E9%9B%AA%E5%B1%B1%E4%B8%8B%E7%9A%84%E6%88%90%E9%83%BD%E5%B8%82%E5%A4%A9%E9%99%85%E7%BA%BF_Chengdu_skyline_with_snow_capped_mountains.jpg/500px-%E9%9B%AA%E5%B1%B1%E4%B8%8B%E7%9A%84%E6%88%90%E9%83%BD%E5%B8%82%E5%A4%A9%E9%99%85%E7%BA%BF_Chengdu_skyline_with_snow_capped_mountains.jpg",
+  "source": "p18",
+  "qid": "Q30002",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner leshan-giant-buddha. Strong Wikidata country+coords match (country confirmed, 0.81 km); own P18 JPEG: \u96ea\u5c71\u4e0b\u7684\u6210\u90fd\u5e02\u5929\u9645\u7ebf Chengdu skyline with snow capped mountains.jpg"
+ },
+ "chennai-in": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Adams_Bridge_aerial.jpg/500px-Adams_Bridge_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Chennai_Central_D.jpg/500px-Chennai_Central_D.jpg",
+  "source": "p18",
+  "qid": "Q257382",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner adams-bridge. Strong Wikidata country+coords match (country confirmed, 0.52 km); own P18 JPEG: Chennai Central D.jpg"
+ },
+ "chiba": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Stonewall_Inn_5_pride_weekend_2016.jpg/500px-Stonewall_Inn_5_pride_weekend_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Mt._Fuji_and_Keiyo_petrochemical_complex.JPG/500px-Mt._Fuji_and_Keiyo_petrochemical_complex.JPG",
+  "source": "p18",
+  "qid": "Q80011",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner stonewall-uprising. Strong Wikidata country+coords match (country confirmed, 0.76 km); own P18 JPEG: Mt. Fuji and Keiyo petrochemical complex.JPG"
+ },
+ "chicago": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/2010-02-19_3000x2000_chicago_skyline.jpg/500px-2010-02-19_3000x2000_chicago_skyline.jpg",
+  "source": "p18",
+  "qid": "Q1297",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner luoyang-cn. Strong Wikidata country+coords match (country confirmed, 4 km); own P18 JPEG: 2010-02-19 3000x2000 chicago skyline.jpg"
+ },
+ "chihuahua-mx": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Barranca_del_cobre_2.jpg/500px-Barranca_del_cobre_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Chihuahua_montage.jpg/500px-Chihuahua_montage.jpg",
+  "source": "p18",
+  "qid": "Q61302",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner copper-canyon. Strong Wikidata country+coords match (country confirmed, 1.18 km); own P18 JPEG: Chihuahua montage.jpg"
+ },
+ "chisinau-md": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Castelul_Bran2.jpg/500px-Castelul_Bran2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chisinau_train_station.JPG/500px-Chisinau_train_station.JPG",
+  "source": "p18",
+  "qid": "Q4222669",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner bran-castle. Strong Wikidata country+coords match (country confirmed, 0.39 km); own P18 JPEG: Chisinau train station.JPG"
+ },
+ "ciudad-apodaca-mx": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Motel_en_apodaca.jpg/500px-Motel_en_apodaca.jpg",
+  "source": "p18",
+  "qid": "Q1782406",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner monterrey-mexico. Strong Wikidata country+coords match (country confirmed, 0.06 km); own P18 JPEG: Motel en apodaca.jpg"
+ },
+ "ciudad-general-escobedo-mx": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/PalacioMunicipalEsc.jpg/500px-PalacioMunicipalEsc.jpg",
+  "source": "p18",
+  "qid": "Q778941",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner monterrey-mexico. Strong Wikidata country+coords match (country confirmed, 1.58 km); own P18 JPEG: PalacioMunicipalEsc.jpg"
+ },
+ "ciudad-guayana-ve": {
+  "old": "https://upload.wikimedia.org/wikipedia/commons/e/e9/SaltoAngel1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Panor%C3%A1mica_a%C3%A9rea_de_ciudad_Guayana.jpg/500px-Panor%C3%A1mica_a%C3%A9rea_de_ciudad_Guayana.jpg",
+  "source": "p18",
+  "qid": "Q507080",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner angel-falls. Strong Wikidata country+coords match (country confirmed, 6.24 km); own P18 JPEG: Panor\u00e1mica a\u00e9rea de ciudad Guayana.jpg"
+ },
+ "cochabamba-bo": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Casa_de_la_Libertad_Sucre.jpg/1280px-Casa_de_la_Libertad_Sucre.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Cochabamba_1988.jpg/500px-Cochabamba_1988.jpg",
+  "source": "p18",
+  "qid": "Q183124",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner sucre-casa-libertad. Strong Wikidata country+coords match (country confirmed, 1.33 km); own P18 JPEG: Cochabamba 1988.jpg"
+ },
+ "coimbatore-in": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Adams_Bridge_aerial.jpg/500px-Adams_Bridge_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panoramic_View_of_Coimbatore_from_Atop_Marudhamalai_Temple.jpg/500px-Panoramic_View_of_Coimbatore_from_Atop_Marudhamalai_Temple.jpg",
+  "source": "p18",
+  "qid": "Q9885",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner adams-bridge. Strong Wikidata country+coords match (country confirmed, 0.61 km); own P18 JPEG: Panoramic View of Coimbatore from Atop Marudhamalai Temple.jpg"
+ },
+ "columbus": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg/500px-Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Montage_Columbus_1.jpg/500px-Montage_Columbus_1.jpg",
+  "source": "p18",
+  "qid": "Q16567",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner guadalajara-mexico. Strong Wikidata country+coords match (country confirmed, 0.19 km); own P18 JPEG: Montage Columbus 1.jpg"
+ },
+ "coquitlam": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/500px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Coquitlam_Town_Centre_Area.jpg/500px-Coquitlam_Town_Centre_Area.jpg",
+  "source": "p18",
+  "qid": "Q643215",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner cologne-cathedral. Strong Wikidata country+coords match (country confirmed, 0.71 km); own P18 JPEG: Coquitlam Town Centre Area.jpg"
+ },
+ "cordoba-ar": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ruins_of_Quilmes_08.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Montaje_CBA_9.jpg/500px-Montaje_CBA_9.jpg",
+  "source": "p18",
+  "qid": "Q44210",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner quilmes-hillside-ruins. Strong Wikidata country+coords match (country confirmed, 1.24 km); own P18 JPEG: Montaje CBA 9.jpg"
+ },
+ "cucuta-co": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Catedral_de_Sal_de_Zipaquira.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/C%C3%BAcuta_desde_Torcoroma%2C_C%C3%BAcuta.jpeg/500px-C%C3%BAcuta_desde_Torcoroma%2C_C%C3%BAcuta.jpeg",
+  "source": "p18",
+  "qid": "Q216847",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner zipaquira-salt-cathedral. Strong Wikidata country+coords match (country confirmed, 0.02 km); own P18 JPEG: C\u00facuta desde Torcoroma, C\u00facuta.jpeg"
+ },
+ "da-nang-vn": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Old_Town_Hoi_An_003.JPG",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Da_Nang_Hospital.jpg/500px-Da_Nang_Hospital.jpg",
+  "source": "p18",
+  "qid": "Q5207272",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hoi-an. Strong Wikidata country+coords match (country confirmed, 0.78 km); own P18 JPEG: Da Nang Hospital.jpg"
+ },
+ "daejeon-kr": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg/500px-%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/%EB%8C%80%EC%A0%84%EC%8B%9C_%EB%8F%99%EA%B5%AC8%EA%B2%BD_%EC%8B%9D%EC%9E%A5%EC%82%B0.jpg/500px-%EB%8C%80%EC%A0%84%EC%8B%9C_%EB%8F%99%EA%B5%AC8%EA%B2%BD_%EC%8B%9D%EC%9E%A5%EC%82%B0.jpg",
+  "source": "p18",
+  "qid": "Q20921",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner seoul-south-korea. Strong Wikidata country+coords match (country confirmed, 0.1 km); own P18 JPEG: \ub300\uc804\uc2dc \ub3d9\uad6c8\uacbd \uc2dd\uc7a5\uc0b0.jpg"
+ },
+ "dakar": {
+  "old": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Citadelle_Laferri%C3%A8re.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Dakar-Ind%C3%A9pendance.jpg/500px-Dakar-Ind%C3%A9pendance.jpg",
+  "source": "p18",
+  "qid": "Q3718",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner citadelle-laferriere-mountaintop. Strong Wikidata country+coords match (country confirmed, 2.69 km); own P18 JPEG: Dakar-Ind\u00e9pendance.jpg"
+ },
+ "daqing-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Vladivostok._GUM_Department_Store_P8070703_2200.jpg/500px-Vladivostok._GUM_Department_Store_P8070703_2200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Cityscape_of_Dongfeng_Xincun_20250530174919.jpg/500px-Cityscape_of_Dongfeng_Xincun_20250530174919.jpg",
+  "source": "p18",
+  "qid": "Q304848",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner vladivostok-russia. Strong Wikidata country+coords match (country confirmed, 1.73 km); own P18 JPEG: Cityscape of Dongfeng Xincun 20250530174919.jpg"
+ },
+ "datong": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/The_skyline_of_Datong%EF%BC%88Southgate%EF%BC%892019.jpg/500px-The_skyline_of_Datong%EF%BC%88Southgate%EF%BC%892019.jpg",
+  "source": "p18",
+  "qid": "Q72877",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner shanghai-china. Strong Wikidata country+coords match (country confirmed, 0 km); own P18 JPEG: The skyline of Datong\uff08Southgate\uff092019.jpg"
+ },
+ "davao-ph": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Chocolate_Hills_Bohol.JPG/500px-Chocolate_Hills_Bohol.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Davao_river.jpg/500px-Davao_river.jpg",
+  "source": "p18",
+  "qid": "Q1173075",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner chocolate-hills. Strong Wikidata country+coords match (country confirmed, 0.83 km); own P18 JPEG: Davao river.jpg"
+ },
+ "dazhou-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Zhangjiajie_National_Forest_Park.jpg/1280px-Zhangjiajie_National_Forest_Park.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/202309_Platform_1%2C2_of_Dazhou_Station.jpg/500px-202309_Platform_1%2C2_of_Dazhou_Station.jpg",
+  "source": "p18",
+  "qid": "Q22101168",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner zhangjiajie-national-forest-park. Strong Wikidata country+coords match (country confirmed, 1.67 km); own P18 JPEG: 202309 Platform 1,2 of Dazhou Station.jpg"
+ },
+ "delhi": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/The_Battle_of_Bunker%27s_Hill_Bridgeman_Images.jpg/500px-The_Battle_of_Bunker%27s_Hill_Bridgeman_Images.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Red_Fort_in_Delhi_03-2016_img3.jpg/500px-Red_Fort_in_Delhi_03-2016_img3.jpg",
+  "source": "p18",
+  "qid": "Q1353",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner bunker-hill-monument. Strong Wikidata country+coords match (country confirmed, 2.18 km); own P18 JPEG: Red Fort in Delhi 03-2016 img3.jpg"
+ },
+ "dera-ghazi-khan": {
+  "old": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Danakil_depression.jpg/500px-Danakil_depression.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/University_Building%2C_D.G._Khan.jpg/500px-University_Building%2C_D.G._Khan.jpg",
+  "source": "p18",
+  "qid": "Q999076",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner danakil-depression. Strong Wikidata country+coords match (country confirmed, 0.81 km); own P18 JPEG: University Building, D.G. Khan.jpg"
+ },
+ "dhaka": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/2017_Aerial_view_Hoover_Dam_4774.jpg/500px-2017_Aerial_view_Hoover_Dam_4774.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Dhaka_skyline1.jpg/500px-Dhaka_skyline1.jpg",
+  "source": "p18",
+  "qid": "Q1354",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hoover-dam. Strong Wikidata country+coords match (country confirmed, 2.44 km); own P18 JPEG: Dhaka skyline1.jpg"
+ },
+ "diyarbakr-tr": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg/500px-G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/%C3%8Estgeha_trenan_a_Amed%C3%AA_2010.JPG/500px-%C3%8Estgeha_trenan_a_Amed%C3%AA_2010.JPG",
+  "source": "p18",
+  "qid": "Q43398830",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner gobekli-tepe. Strong Wikidata country+coords match (country confirmed, 0.11 km); own P18 JPEG: \u00cestgeha trenan a Amed\u00ea 2010.JPG"
+ },
+ "dnipro-ua": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg/500px-%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Collage_of_Dnipro_city_images.jpg/500px-Collage_of_Dnipro_city_images.jpg",
+  "source": "p18",
+  "qid": "Q48256",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner kyiv-ukraine. Strong Wikidata country+coords match (country confirmed, 0.11 km); own P18 JPEG: Collage of Dnipro city images.jpg"
+ },
+ "dodoma-tz": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Kondoa_mchoro_mwambani_2012_Tamino.jpg/500px-Kondoa_mchoro_mwambani_2012_Tamino.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Scene_at_Nyerere_Square%2C_Dodoma_City.jpg/500px-Scene_at_Nyerere_Square%2C_Dodoma_City.jpg",
+  "source": "p18",
+  "qid": "Q3866",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner kondoa-rock-art. Strong Wikidata country+coords match (country confirmed, 1.45 km); own P18 JPEG: Scene at Nyerere Square, Dodoma City.jpg"
+ },
+ "doetinchem": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Doetinchem%2C_Sint_Catharinakerk_RM13084_in_straatzicht_foto7_2012-07-22_14.54.jpg/500px-Doetinchem%2C_Sint_Catharinakerk_RM13084_in_straatzicht_foto7_2012-07-22_14.54.jpg",
+  "source": "p18",
+  "qid": "Q16068685",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hong-kong. Strong Wikidata country+coords match (country confirmed, 0.06 km); own P18 JPEG: Doetinchem, Sint Catharinakerk RM13084 in straatzicht foto7 2012-07-22 14.54.jpg"
+ },
+ "dombivali": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Ljubljana_Old_Town%2C_Slovenia_%28Old_Camera%29_%2833286165680%29.jpg/500px-Ljubljana_Old_Town%2C_Slovenia_%28Old_Camera%29_%2833286165680%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Headquarter_Of_Kalyan_Dombivli_Muncipal_Corporation_(cropped).jpg/500px-Headquarter_Of_Kalyan_Dombivli_Muncipal_Corporation_(cropped).jpg",
+  "source": "p18",
+  "qid": "Q581999",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner ljubljana-old-town-d34-29. Strong Wikidata country+coords match (country confirmed, 5.57 km); own P18 JPEG: Headquarter Of Kalyan Dombivli Muncipal Corporation (cropped).jpg"
+ },
+ "donetsk-ua": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg/500px-%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/%D0%92%D0%B8%D0%B4_%D0%B8%D0%B7_%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D0%BA%D0%BE%D0%B9_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%BD%D0%BE%D0%B9_%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8_003.jpg/500px-%D0%92%D0%B8%D0%B4_%D0%B8%D0%B7_%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D0%BA%D0%BE%D0%B9_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%BD%D0%BE%D0%B9_%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8_003.jpg",
+  "source": "p18",
+  "qid": "Q43070",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner kyiv-ukraine. Strong Wikidata country+coords match (country confirmed, 0.8 km); own P18 JPEG: \u0412\u0438\u0434 \u0438\u0437 \u0414\u043e\u043d\u0435\u0446\u043a\u043e\u0439 \u043e\u0431\u043b\u0430\u0441\u0442\u043d\u043e\u0439 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438 003.jpg"
+ },
+ "dongguan-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Dongguan_montage.jpg/500px-Dongguan_montage.jpg",
+  "source": "p18",
+  "qid": "Q59218",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hong-kong. Strong Wikidata country+coords match (country confirmed, 3.28 km); own P18 JPEG: Dongguan montage.jpg"
+ },
+ "donghe": {
+  "old": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Nightingale_Island.jpg/500px-Nightingale_Island.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/%E9%A3%9E%E6%9C%BA%E9%99%8D%E8%90%BD_-_panoramio.jpg/500px-%E9%A3%9E%E6%9C%BA%E9%99%8D%E8%90%BD_-_panoramio.jpg",
+  "source": "p18",
+  "qid": "Q1201657",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner nightingale-island. Strong Wikidata country+coords match (country confirmed, 1.77 km); own P18 JPEG: \u98de\u673a\u964d\u843d - panoramio.jpg"
+ },
+ "dongshi": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Ford%27s_Theatre_-_2026_%2855266858418%29.jpg/500px-Ford%27s_Theatre_-_2026_%2855266858418%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Dongshih_fishing_port01.jpg/500px-Dongshih_fishing_port01.jpg",
+  "source": "p18",
+  "qid": "Q263915",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner lincoln-assassination-fords-theatre. Strong Wikidata country+coords match (country confirmed, 3.15 km); own P18 JPEG: Dongshih fishing port01.jpg"
+ },
+ "douala-cm": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg/500px-Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Douala.JPG/500px-Douala.JPG",
+  "source": "p18",
+  "qid": "Q132830",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner mount-cameroon-summit. Strong Wikidata country+coords match (country confirmed, 0.51 km); own P18 JPEG: Douala.JPG"
+ },
+ "dundee": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Saint_Basil%27s_Cathedral_in_Moscow.jpg/500px-Saint_Basil%27s_Cathedral_in_Moscow.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Dundee_Picture_Collage_(new).jpg/500px-Dundee_Picture_Collage_(new).jpg",
+  "source": "p18",
+  "qid": "Q123709",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner st-basils-cathedral. Strong Wikidata country+coords match (country confirmed, 1 km); own P18 JPEG: Dundee Picture Collage (new).jpg"
+ },
+ "dunhua": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/2013%E5%B9%B47%E6%9C%886%E6%97%A5%E2%80%94%E2%80%94%E5%9B%A2%E7%BB%93%E8%B7%AF%E4%B8%9C%E6%AE%B5_-_panoramio.jpg/500px-2013%E5%B9%B47%E6%9C%886%E6%97%A5%E2%80%94%E2%80%94%E5%9B%A2%E7%BB%93%E8%B7%AF%E4%B8%9C%E6%AE%B5_-_panoramio.jpg",
+  "source": "p18",
+  "qid": "Q713307",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner ha-long-bay. Strong Wikidata country+coords match (country confirmed, 0.5 km); own P18 JPEG: 2013\u5e747\u67086\u65e5\u2014\u2014\u56e2\u7ed3\u8def\u4e1c\u6bb5 - panoramio.jpg"
+ },
+ "dursley": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Aerial_view_of_a_section_of_Kandahar_in_2013.jpg/500px-Aerial_view_of_a_section_of_Kandahar_in_2013.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/DursleyMarket.jpg/500px-DursleyMarket.jpg",
+  "source": "p18",
+  "qid": "Q681043",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner kandahar-afghanistan. Strong Wikidata country+coords match (country confirmed, 0.07 km); own P18 JPEG: DursleyMarket.jpg"
+ },
+ "dusseldorf-de": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/500px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/D%C3%BCsseldorf_Panorama.jpg/500px-D%C3%BCsseldorf_Panorama.jpg",
+  "source": "p18",
+  "qid": "Q1718",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner cologne-cathedral. Strong Wikidata country+coords match (country confirmed, 0.32 km); own P18 JPEG: D\u00fcsseldorf Panorama.jpg"
+ },
+ "enugu-ng": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg/500px-Mount_Cameroon_view_from_Buea_%28Soppo%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Akwata_Roundabout.jpg/500px-Akwata_Roundabout.jpg",
+  "source": "p18",
+  "qid": "Q465022",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner mount-cameroon-summit. Strong Wikidata country+coords match (country confirmed, 0.53 km); own P18 JPEG: Akwata Roundabout.jpg"
+ },
+ "erzurum": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/500px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Erzurum555.jpg/500px-Erzurum555.jpg",
+  "source": "p18",
+  "qid": "Q122803",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner odaiba-tokyo. Strong Wikidata country+coords match (country confirmed, 0.17 km); own P18 JPEG: Erzurum555.jpg"
+ },
+ "essen-de": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/500px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Essenhbf.jpg/500px-Essenhbf.jpg",
+  "source": "p18",
+  "qid": "Q135607",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner cologne-cathedral. Strong Wikidata country+coords match (country confirmed, 0.59 km); own P18 JPEG: Essenhbf.jpg"
+ },
+ "faisalabad-pk": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Badshahi_Mosque_front_picture.jpg/500px-Badshahi_Mosque_front_picture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Clocktower_Faisalabad%2C_Panorama.jpg/500px-Clocktower_Faisalabad%2C_Panorama.jpg",
+  "source": "p18",
+  "qid": "Q173985",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner badshahi-mosque. Strong Wikidata country+coords match (country confirmed, 1.05 km); own P18 JPEG: Clocktower Faisalabad, Panorama.jpg"
+ },
+ "foshan-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Century_Lotus_Sports_Center_%26_Fangta_seen_from_Dongping_Bridge.jpg/500px-Century_Lotus_Sports_Center_%26_Fangta_seen_from_Dongping_Bridge.jpg",
+  "source": "p18",
+  "qid": "Q34412",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hong-kong. Strong Wikidata country+coords match (country confirmed, 2.67 km); own P18 JPEG: Century Lotus Sports Center & Fangta seen from Dongping Bridge.jpg"
+ },
+ "frankfurt-am-main-de": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg/500px-Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Frankfurter_Altstadt_mit_Skyline_2019_(100MP).jpg/500px-Frankfurter_Altstadt_mit_Skyline_2019_(100MP).jpg",
+  "source": "p18",
+  "qid": "Q1794",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner wartburg-castle. Strong Wikidata country+coords match (country confirmed, 0.57 km); own P18 JPEG: Frankfurter Altstadt mit Skyline 2019 (100MP).jpg"
+ },
+ "fukuoka-jp": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/500px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Fukuoka_Seaside_Momochi_Aerial_Shoot.jpg/500px-Fukuoka_Seaside_Momochi_Aerial_Shoot.jpg",
+  "source": "p18",
+  "qid": "Q123258",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner itsukushima-shrine. Strong Wikidata country+coords match (country confirmed, 0.69 km); own P18 JPEG: Fukuoka Seaside Momochi Aerial Shoot.jpg"
+ },
+ "fuyang-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Fuyang_Anhui_Downtown_Area_Walkway.jpeg/500px-Fuyang_Anhui_Downtown_Area_Walkway.jpeg",
+  "source": "p18",
+  "qid": "Q360584",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner luoyang-cn. Strong Wikidata country+coords match (country confirmed, 1.15 km); own P18 JPEG: Fuyang Anhui Downtown Area Walkway.jpeg"
+ },
+ "fuzhou": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Downtown_Grise_Fiord.jpg/500px-Downtown_Grise_Fiord.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Fuzhou_Taixi_CBD.jpg/500px-Fuzhou_Taixi_CBD.jpg",
+  "source": "p18",
+  "qid": "Q68481",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner grise-fiord. Strong Wikidata country+coords match (country confirmed, 2.25 km); own P18 JPEG: Fuzhou Taixi CBD.jpg"
+ },
+ "ganzhou-cn": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg/1280px-Victoria_Harbour_skyline%2C_Hong_Kong_%282008%29.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Ganzhounan_Railway_Station_7959_1.jpg/500px-Ganzhounan_Railway_Station_7959_1.jpg",
+  "source": "p18",
+  "qid": "Q363166",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner hong-kong. Strong Wikidata country+coords match (country confirmed, 1.95 km); own P18 JPEG: Ganzhounan Railway Station 7959 1.jpg"
+ },
+ "gaziantep-tr": {
+  "old": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg/500px-G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Gaziantepskyline.jpg/500px-Gaziantepskyline.jpg",
+  "source": "p18",
+  "qid": "Q93338",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner gobekli-tepe. Strong Wikidata country+coords match (country confirmed, 0.47 km); own P18 JPEG: Gaziantepskyline.jpg"
+ },
+ "goyang-si": {
+  "old": "https://upload.wikimedia.org/wikipedia/commons/1/14/Fortaleza_de_S%C3%A3o_Sebasti%C3%A3o_-_detail.jpg",
+  "new": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Goyang_street.jpg/500px-Goyang_street.jpg",
+  "source": "p18",
+  "qid": "Q42061",
+  "evidence": "FAIL-auto: duplicate non-owner; confirmed owner island-of-mozambique-fort. Strong Wikidata country+coords match (country confirmed, 0 km); own P18 JPEG: Goyang street.jpg"
+ }
+}

@@ -1,0 +1,177 @@
+[
+ {
+  "id": "bannu-pk",
+  "short": "Bannu",
+  "country": "Pakistan",
+  "clue": "Bannu, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Bannu%2C_Pakistan.jpg/500px-Bannu%2C_Pakistan.jpg"
+ },
+ {
+  "id": "bao-an-cn",
+  "short": "Bao'an",
+  "country": "China",
+  "clue": "Bao'an, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/%E5%AE%9D%E5%AE%89%E5%A4%A7%E9%81%93.JPG/500px-%E5%AE%9D%E5%AE%89%E5%A4%A7%E9%81%93.JPG"
+ },
+ {
+  "id": "baotou-cn",
+  "short": "Baotou",
+  "country": "China",
+  "clue": "Baotou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Baotou%2C_Inner_Mongolia.jpg/500px-Baotou%2C_Inner_Mongolia.jpg"
+ },
+ {
+  "id": "barakpur",
+  "short": "B\u0101r\u0101kpur",
+  "country": "India",
+  "clue": "B\u0101r\u0101kpur, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Barrackpore_Railway_Station_-_North_24_Parganas_2012-04-11_9670.JPG/500px-Barrackpore_Railway_Station_-_North_24_Parganas_2012-04-11_9670.JPG"
+ },
+ {
+  "id": "barquisimeto-ve",
+  "short": "Barquisimeto",
+  "country": "Venezuela",
+  "clue": "Barquisimeto, Venezuela \ud83c\uddfb\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Baqtoeste.jpg/500px-Baqtoeste.jpg"
+ },
+ {
+  "id": "batam-id",
+  "short": "Batam",
+  "country": "Indonesia",
+  "clue": "Batam, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Vue_de_batam2.jpg/500px-Vue_de_batam2.jpg"
+ },
+ {
+  "id": "bayan-nur-cn",
+  "short": "Bayan Nur",
+  "country": "China",
+  "clue": "Bayan Nur, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Bayan_Bolig.jpg/500px-Bayan_Bolig.jpg"
+ },
+ {
+  "id": "beira-mz",
+  "short": "Beira",
+  "country": "Mozambique",
+  "clue": "Beira, Mozambique \ud83c\uddf2\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Beira_center_2000.jpg/500px-Beira_center_2000.jpg"
+ },
+ {
+  "id": "bekasi-id",
+  "short": "Bekasi",
+  "country": "Indonesia",
+  "clue": "Bekasi, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Stasiun_Bekasi%2C_2019.jpg/500px-Stasiun_Bekasi%2C_2019.jpg"
+ },
+ {
+  "id": "belem-br",
+  "short": "Bel\u00e9m",
+  "country": "Brazil",
+  "clue": "Bel\u00e9m, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Montagem_Bel%C3%A9m.jpg/500px-Montagem_Bel%C3%A9m.jpg"
+ },
+ {
+  "id": "belford-roxo-br",
+  "short": "Belford Roxo",
+  "country": "Brazil",
+  "clue": "Belford Roxo, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Novo_Portico_Belford_Roxo.jpg/500px-Novo_Portico_Belford_Roxo.jpg"
+ },
+ {
+  "id": "belo-horizonte-br",
+  "short": "Belo Horizonte",
+  "country": "Brazil",
+  "clue": "Belo Horizonte, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Esta%C3%A7%C3%A3o_de_Belo_Horizonte.jpg/500px-Esta%C3%A7%C3%A3o_de_Belo_Horizonte.jpg"
+ },
+ {
+  "id": "bengaluru-in",
+  "short": "Bengaluru",
+  "country": "India",
+  "clue": "Bengaluru, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/UB_City.jpg/500px-UB_City.jpg"
+ },
+ {
+  "id": "benghazi-ly",
+  "short": "Benghazi",
+  "country": "Libya",
+  "clue": "Benghazi, Libya \ud83c\uddf1\ud83c\uddfe",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/The_Old_Town%2C_Benghazi%2C_Libya.jpg/500px-The_Old_Town%2C_Benghazi%2C_Libya.jpg"
+ },
+ {
+  "id": "berrechid",
+  "short": "Berrechid",
+  "country": "Morocco",
+  "clue": "Berrechid, Morocco \ud83c\uddf2\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Berrechid_Province_administration_building_in_Berrechid_-_front_2024.jpg/500px-Berrechid_Province_administration_building_in_Berrechid_-_front_2024.jpg"
+ },
+ {
+  "id": "bhuj",
+  "short": "Bhuj",
+  "country": "India",
+  "clue": "Bhuj, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Prag_Mahal_Bhuj.jpg/500px-Prag_Mahal_Bhuj.jpg"
+ },
+ {
+  "id": "bien-hoa-vn",
+  "short": "Bi\u00ean H\u00f2a",
+  "country": "Vietnam",
+  "clue": "Bi\u00ean H\u00f2a, Vietnam \ud83c\uddfb\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_V%C4%83n_mi%E1%BA%BFu_Tr%E1%BA%A5n_Bi%C3%AAn.jpg/500px-Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_V%C4%83n_mi%E1%BA%BFu_Tr%E1%BA%A5n_Bi%C3%AAn.jpg"
+ },
+ {
+  "id": "birmingham-gb",
+  "short": "Birmingham",
+  "country": "England",
+  "clue": "Birmingham, England",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Birmingham-Skyline-from-Edgbaston-crop.jpg/500px-Birmingham-Skyline-from-Edgbaston-crop.jpg"
+ },
+ {
+  "id": "blantyre-mw",
+  "short": "Blantyre",
+  "country": "Malawi",
+  "clue": "Blantyre, Malawi \ud83c\uddf2\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Blantyre_City.jpg/500px-Blantyre_City.jpg"
+ },
+ {
+  "id": "bobrovo",
+  "short": "Bobrovo",
+  "country": "Russia",
+  "clue": "Bobrovo, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/%D0%92%D0%B8%D0%B4_%D0%BF%D0%B3%D1%82_%D0%91%D0%BE%D0%B1%D1%80%D0%BE%D0%B2%D0%BE_%D1%81_%D0%B2%D1%8B%D1%81%D0%BE%D1%82%D1%8B_%D0%BF%D1%82%D0%B8%D1%87%D1%8C%D0%B5%D0%B3%D0%BE_%D0%BF%D0%BE%D0%BB%D1%91%D1%82%D0%B0_2017-07-11_(DJI_0008)_(cropped).jpg/500px-%D0%92%D0%B8%D0%B4_%D0%BF%D0%B3%D1%82_%D0%91%D0%BE%D0%B1%D1%80%D0%BE%D0%B2%D0%BE_%D1%81_%D0%B2%D1%8B%D1%81%D0%BE%D1%82%D1%8B_%D0%BF%D1%82%D0%B8%D1%87%D1%8C%D0%B5%D0%B3%D0%BE_%D0%BF%D0%BE%D0%BB%D1%91%D1%82%D0%B0_2017-07-11_(DJI_0008)_(cropped).jpg"
+ },
+ {
+  "id": "bogor",
+  "short": "Bogor",
+  "country": "Indonesia",
+  "clue": "Bogor, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Montage_of_Bogor.jpg/500px-Montage_of_Bogor.jpg"
+ },
+ {
+  "id": "borough-park",
+  "short": "Borough Park",
+  "country": "United States",
+  "clue": "Borough Park, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/4812_14thAve.jpg/500px-4812_14thAve.jpg"
+ },
+ {
+  "id": "bouake-ci",
+  "short": "Bouak\u00e9",
+  "country": "C\u00f4te d'Ivoire",
+  "clue": "Bouak\u00e9, C\u00f4te d'Ivoire \ud83c\udde8\ud83c\uddee",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Cibkegaredetrain.JPG/500px-Cibkegaredetrain.JPG"
+ },
+ {
+  "id": "bozhou-cn",
+  "short": "Bozhou",
+  "country": "China",
+  "clue": "Bozhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/20260210_Guo_River_in_Bozhou_03.jpg/500px-20260210_Guo_River_in_Bozhou_03.jpg"
+ },
+ {
+  "id": "brasilia-national-congress",
+  "short": "National Congress of Brazil",
+  "country": "Brazil",
+  "clue": "National Congress of Brazil, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Congresso_Nacional.jpg/500px-Congresso_Nacional.jpg"
+ }
+]

@@ -1,0 +1,50 @@
+{
+ "delhi": {
+  "short": "Delhi",
+  "country": "India",
+  "infobox_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Jama_Masjid_2011.jpg/500px-Jama_Masjid_2011.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "page_title": "Delhi"
+ },
+ "cairo": {
+  "short": "Cairo",
+  "country": "Egypt",
+  "infobox_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg/500px-Cairo_Opera_House%2C_Al_Hurriyah_Park_and_the_Nile_river_%2814797782354%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "page_title": "Cairo"
+ },
+ "chicago": {
+  "short": "Chicago",
+  "country": "United States",
+  "infobox_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Chicago_River_ferry_b.jpg/500px-Chicago_River_ferry_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "page_title": "Chicago"
+ },
+ "istanbul": {
+  "short": "Istanbul",
+  "country": "Turkey",
+  "infobox_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Historical_peninsula_and_modern_skyline_of_Istanbul.jpg/500px-Historical_peninsula_and_modern_skyline_of_Istanbul.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "page_title": "Istanbul"
+ },
+ "baku": {
+  "short": "Baku",
+  "country": "Azerbaijan",
+  "infobox_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Baku_Montage.jpg/500px-Baku_Montage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "page_title": "Baku"
+ },
+ "agra-in": {
+  "short": "Agra",
+  "country": "India",
+  "infobox_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Taj_Mahal%2C_Agra%2C_India.jpg/500px-Taj_Mahal%2C_Agra%2C_India.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "page_title": "Agra"
+ },
+ "dhaka": {
+  "short": "Dhaka",
+  "country": "Bangladesh",
+  "infobox_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Tejgaon_Commercial_Area.jpg/500px-Tejgaon_Commercial_Area.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "page_title": "Dhaka"
+ },
+ "lagos": {
+  "short": "Lagos",
+  "country": "Nigeria",
+  "infobox_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Lagos-centre-from-executive-lounge-Continental-hotel-2026-IMG_7970.jpg/500px-Lagos-centre-from-executive-lounge-Continental-hotel-2026-IMG_7970.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "page_title": "Lagos"
+ }
+}

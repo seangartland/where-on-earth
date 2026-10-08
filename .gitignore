@@ -2,3 +2,8 @@
 *.log
 .DS_Store
 node_modules/
+.build-tmp/
+__pycache__/
+scripts/difficulty/ne/
+scripts/difficulty/pageviews-cache.json
+scripts/difficulty/extent-cache.json

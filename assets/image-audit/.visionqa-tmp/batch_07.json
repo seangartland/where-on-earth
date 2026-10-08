@@ -1,0 +1,184 @@
+[
+  {
+    "id": "melbourne-australia",
+    "short": "Melbourne",
+    "country": "Australia",
+    "clue": "Melbourne, Australia \ud83c\udde6\ud83c\uddfa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Melbourne_CBD_and_Ceremonial_Avenue_%28in_2024%29_as_seen_from_the_rooftop_of_Shrine_of_Remembrance.jpg/500px-Melbourne_CBD_and_Ceremonial_Avenue_%28in_2024%29_as_seen_from_the_rooftop_of_Shrine_of_Remembrance.jpg"
+  },
+  {
+    "id": "miami-usa",
+    "short": "Miami",
+    "country": "United States",
+    "clue": "Miami, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Downtown_Miami_aerial_2008.jpg/500px-Downtown_Miami_aerial_2008.jpg"
+  },
+  {
+    "id": "mendoza-argentina",
+    "short": "Mendoza",
+    "country": "Argentina",
+    "clue": "Mendoza, Argentina \ud83c\udde6\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Ciudad_de_Mendoza%2C_la_cuarta_ciudad_m%C3%A1s_poblada_del_pa%C3%ADs..jpg/500px-Ciudad_de_Mendoza%2C_la_cuarta_ciudad_m%C3%A1s_poblada_del_pa%C3%ADs..jpg"
+  },
+  {
+    "id": "mombasa-kenya",
+    "short": "Mombasa",
+    "country": "Kenya",
+    "clue": "Mombasa, Kenya \ud83c\uddf0\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Downtown_Mombasa.jpg/500px-Downtown_Mombasa.jpg"
+  },
+  {
+    "id": "mohenjo-daro",
+    "short": "Mohenjo-daro",
+    "country": "Pakistan",
+    "clue": "Mohenjo-daro, Pakistan \ud83c\uddf5\ud83c\uddf0",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Mohenjodaro_Sindh.jpeg/500px-Mohenjodaro_Sindh.jpeg"
+  },
+  {
+    "id": "monterrey-mexico",
+    "short": "Monterrey",
+    "country": "Mexico",
+    "clue": "Monterrey, Mexico \ud83c\uddf2\ud83c\uddfd",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Cerro_de_la_Silla.jpg/500px-Cerro_de_la_Silla.jpg"
+  },
+  {
+    "id": "monument-valley-mitten",
+    "short": "East Mitten Butte",
+    "country": "United States",
+    "clue": "East Mitten Butte, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Monumentvalley3.jpg/500px-Monumentvalley3.jpg"
+  },
+  {
+    "id": "mount-ararat",
+    "short": "Mount Ararat",
+    "country": "Turkey",
+    "clue": "Mount Ararat, Turkey \ud83c\uddf9\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/NEO_ararat_big.jpg/500px-NEO_ararat_big.jpg"
+  },
+  {
+    "id": "mount-aso",
+    "short": "Mount Aso",
+    "country": "Japan",
+    "clue": "Mount Aso, Japan \ud83c\uddef\ud83c\uddf5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mt.Aso_and_caldera01.jpg/500px-Mt.Aso_and_caldera01.jpg"
+  },
+  {
+    "id": "mount-bromo",
+    "short": "Mount Bromo",
+    "country": "Indonesia",
+    "clue": "Mount Bromo, Indonesia \ud83c\uddee\ud83c\udde9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mount_Bromo_closeup_on_sunrise_2.jpg/500px-Mount_Bromo_closeup_on_sunrise_2.jpg"
+  },
+  {
+    "id": "mount-fuji",
+    "short": "Mount Fuji",
+    "country": "Japan",
+    "clue": "Mount Fuji, Japan \ud83c\uddef\ud83c\uddf5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Kodaki_fuji_frm_shojinko_refurb.jpg/500px-Kodaki_fuji_frm_shojinko_refurb.jpg"
+  },
+  {
+    "id": "mount-etna",
+    "short": "Mount Etna",
+    "country": "Italy",
+    "clue": "Mount Etna, Italy \ud83c\uddee\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Etna_from_Reggio_Calabria_-_Italy_-_10_Feb._2017_-_%281%29.jpg/500px-View_of_Mount_Etna_from_Reggio_Calabria_-_Italy_-_10_Feb._2017_-_%281%29.jpg"
+  },
+  {
+    "id": "mount-nemrut",
+    "short": "Mount Nemrut",
+    "country": "Turkey",
+    "clue": "Mount Nemrut, Turkey \ud83c\uddf9\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Worshipping_Nemrut.jpg/500px-Worshipping_Nemrut.jpg"
+  },
+  {
+    "id": "mount-rinjani",
+    "short": "Mount Rinjani",
+    "country": "Indonesia",
+    "clue": "Mount Rinjani, Indonesia \ud83c\uddee\ud83c\udde9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Gunung_Rinjani_dari_Jalur_Sembalun.jpg/500px-Gunung_Rinjani_dari_Jalur_Sembalun.jpg"
+  },
+  {
+    "id": "murano-d34-55",
+    "short": "Murano",
+    "country": "Italy",
+    "clue": "Murano, Italy \ud83c\uddee\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Aerial_photographs_of_Venice_2013%2C_Anton_Nossik%2C_009.jpg/500px-Aerial_photographs_of_Venice_2013%2C_Anton_Nossik%2C_009.jpg"
+  },
+  {
+    "id": "muscat",
+    "short": "Muscat",
+    "country": "Oman",
+    "clue": "Muscat, Oman \ud83c\uddf4\ud83c\uddf2",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Central_Business_District%2C_Muscat%2C_Oman.jpg/500px-Central_Business_District%2C_Muscat%2C_Oman.jpg"
+  },
+  {
+    "id": "mykonos-gr",
+    "short": "Mykonos",
+    "country": "Greece",
+    "clue": "Mykonos, Greece \ud83c\uddec\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Little_Venice_with_a_view_of_the_ferry_terminal_in_Mykonos%2C_Greece_-_50661522178.jpg/500px-Little_Venice_with_a_view_of_the_ferry_terminal_in_Mykonos%2C_Greece_-_50661522178.jpg"
+  },
+  {
+    "id": "nagasaki-atomic-bombing",
+    "short": "Nagasaki",
+    "country": "Japan",
+    "clue": "Nagasaki, Japan \ud83c\uddef\ud83c\uddf5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/NagasakiUniv_Katafuchi_KeirinHall.jpg/500px-NagasakiUniv_Katafuchi_KeirinHall.jpg"
+  },
+  {
+    "id": "naples-italy",
+    "short": "Naples",
+    "country": "Italy",
+    "clue": "Naples, Italy \ud83c\uddee\ud83c\uddf9",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Universit%C3%A0_degli_Studi_di_Napoli_Federico_II_%283542%29.jpg/500px-Universit%C3%A0_degli_Studi_di_Napoli_Federico_II_%283542%29.jpg"
+  },
+  {
+    "id": "nara",
+    "short": "Nara",
+    "country": "Japan",
+    "clue": "Nara, Japan \ud83c\uddef\ud83c\uddf5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Kasuga-taisha%2C_chumon-1.jpg/500px-Kasuga-taisha%2C_chumon-1.jpg"
+  },
+  {
+    "id": "napa-valley-ava",
+    "short": "Napa Valley AVA",
+    "country": "United States",
+    "clue": "Napa Valley AVA, United States \ud83c\uddfa\ud83c\uddf8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Lightmatter_napa_valley.jpg/500px-Lightmatter_napa_valley.jpg"
+  },
+  {
+    "id": "neunkirchen",
+    "short": "Neunkirchen",
+    "country": "Germany",
+    "clue": "Neunkirchen, Germany \ud83c\udde9\ud83c\uddea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Neunkirchen_Saar_Einkaufszentrum1.jpg/500px-Neunkirchen_Saar_Einkaufszentrum1.jpg"
+  },
+  {
+    "id": "nazareth",
+    "short": "Nazareth",
+    "country": "Israel",
+    "clue": "Nazareth, Israel \ud83c\uddee\ud83c\uddf1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Habsora_from_selezian.jpg/500px-Habsora_from_selezian.jpg"
+  },
+  {
+    "id": "ngerulmud-palau",
+    "short": "Ngerulmud",
+    "country": "Palau",
+    "clue": "Ngerulmud, Palau \ud83c\uddf5\ud83c\uddfc",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/State_of_Melekeok.png/500px-State_of_Melekeok.png"
+  },
+  {
+    "id": "nice",
+    "short": "Nice",
+    "country": "France",
+    "clue": "Nice, France \ud83c\uddeb\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Port_Of_Nice%2C_C%C3%B4te_d%27Azur.jpg/500px-Port_Of_Nice%2C_C%C3%B4te_d%27Azur.jpg"
+  },
+  {
+    "id": "notre-dame-paris",
+    "short": "Notre-Dame Cathedral",
+    "country": "France",
+    "clue": "Notre-Dame Cathedral, France \ud83c\uddeb\ud83c\uddf7",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Notre-Dame_de_Paris_2013-07-24.jpg/500px-Notre-Dame_de_Paris_2013-07-24.jpg"
+  }
+]

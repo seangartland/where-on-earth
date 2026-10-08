@@ -1,0 +1,202 @@
+[
+ {
+  "id": "marvdasht",
+  "short": "Marvdasht",
+  "country": "Iran",
+  "clue": "Marvdasht, Iran \ud83c\uddee\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Tachar_Persepolis_Iran.JPG/500px-Tachar_Persepolis_Iran.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "maoming-cn",
+  "short": "Maoming",
+  "country": "China",
+  "clue": "Maoming, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/W_Dongzhen.jpg/500px-W_Dongzhen.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "matsudo",
+  "short": "Matsudo",
+  "country": "Japan",
+  "clue": "Matsudo, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Japan_matsudo_sta_west.jpg/500px-Japan_matsudo_sta_west.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "matola-mz",
+  "short": "Matola",
+  "country": "Mozambique",
+  "clue": "Matola, Mozambique \ud83c\uddf2\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Antigo_edif%C3%ADcio_do_Conselho_Municipal_da_Matola.jpg/500px-Antigo_edif%C3%ADcio_do_Conselho_Municipal_da_Matola.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "maturin-ve",
+  "short": "Matur\u00edn",
+  "country": "Venezuela",
+  "clue": "Matur\u00edn, Venezuela \ud83c\uddfb\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Plaza_El_Estudiante_de_Maturin.jpg/500px-Plaza_El_Estudiante_de_Maturin.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "medan-id",
+  "short": "Medan",
+  "country": "Indonesia",
+  "clue": "Medan, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Medan_city_2019_%28cropped%29.jpg/500px-Medan_city_2019_%28cropped%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "mazatlan-mx",
+  "short": "Mazatl\u00e1n",
+  "country": "Mexico",
+  "clue": "Mazatl\u00e1n, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Mazatlan_El_Faro_2.jpg/500px-Mazatlan_El_Faro_2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "merida-mx",
+  "short": "M\u00e9rida",
+  "country": "Mexico",
+  "clue": "M\u00e9rida, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Collage_Merida_Yucatan.jpg/500px-Collage_Merida_Yucatan.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "melitopol",
+  "short": "Melitopol",
+  "country": "Ukraine",
+  "clue": "Melitopol, Ukraine \ud83c\uddfa\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/MGPU_Melitopol.jpg/500px-MGPU_Melitopol.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "mexicali-mx",
+  "short": "Mexicali",
+  "country": "Mexico",
+  "clue": "Mexicali, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/MexicaliMontage.jpg/500px-MexicaliMontage.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "milan-duomo",
+  "short": "Milan Cathedral",
+  "country": "Italy",
+  "clue": "Milan Cathedral, Italy \ud83c\uddee\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/20110724_Milan_Cathedral_5260.jpg/500px-20110724_Milan_Cathedral_5260.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "mississauga-ca",
+  "short": "Mississauga",
+  "country": "Canada",
+  "clue": "Mississauga, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Mississauga_Celebration_Square%2C_May_16_2026.jpg/500px-Mississauga_Celebration_Square%2C_May_16_2026.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "minhang-cn",
+  "short": "Minhang",
+  "country": "China",
+  "clue": "Minhang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/202309_Third_Minpu_Bridge.jpg/500px-202309_Third_Minpu_Bridge.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "monrovia-lr",
+  "short": "Monrovia",
+  "country": "Liberia",
+  "clue": "Monrovia, Liberia \ud83c\uddf1\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Liberia%2C_Africa_-_panoramio_%28256%29.jpg/500px-Liberia%2C_Africa_-_panoramio_%28256%29.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "mogadishu-so",
+  "short": "Mogadishu",
+  "country": "Somalia",
+  "clue": "Mogadishu, Somalia \ud83c\uddf8\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pictures_from_an_armed_convoy_trip_in_Mogadishu.jpg/500px-Pictures_from_an_armed_convoy_trip_in_Mogadishu.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "montevideo-plaza-independencia",
+  "short": "Montevideo",
+  "country": "Uruguay",
+  "clue": "Montevideo, Uruguay",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_City_%28198895997%29.jpeg/500px-The_City_%28198895997%29.jpeg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "morelia-mx",
+  "short": "Morelia",
+  "country": "Mexico",
+  "clue": "Morelia, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Morelia_panorama_DSC_0400_ed_AD.jpg/500px-Morelia_panorama_DSC_0400_ed_AD.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "moreno",
+  "short": "Moreno",
+  "country": "Argentina",
+  "clue": "Moreno, Argentina \ud83c\udde6\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Estaci%C3%B3n_Moreno_2023_%283%29.jpg/500px-Estaci%C3%B3n_Moreno_2023_%283%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "mukkudal",
+  "short": "Mukk\u016bdal",
+  "country": "India",
+  "clue": "Mukk\u016bdal, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Mukkudal_anaicut.jpg/500px-Mukkudal_anaicut.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "multan-pk",
+  "short": "Multan",
+  "country": "Pakistan",
+  "clue": "Multan, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/MultanMontage.jpg/500px-MultanMontage.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nagpur-in",
+  "short": "Nagpur",
+  "country": "India",
+  "clue": "Nagpur, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Sitabuldi_Market.JPG/500px-Sitabuldi_Market.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "n-djamena-td",
+  "short": "N'Djamena",
+  "country": "Chad",
+  "clue": "N'Djamena, Chad \ud83c\uddf9\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Place_de_la_nation4_%28Tchad%29.jpg/500px-Place_de_la_nation4_%28Tchad%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nagoya-jp",
+  "short": "Nagoya",
+  "country": "Japan",
+  "clue": "Nagoya, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Japan_Nagoya.png/500px-Japan_Nagoya.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nampula-mz",
+  "short": "Nampula",
+  "country": "Mozambique",
+  "clue": "Nampula, Mozambique \ud83c\uddf2\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nampula_Airport.jpg/500px-Nampula_Airport.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "najaf",
+  "short": "Najaf",
+  "country": "Iraq",
+  "clue": "Najaf, Iraq \ud83c\uddee\ud83c\uddf6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/ImamAliMosqueNajafIraq.JPG/500px-ImamAliMosqueNajafIraq.JPG",
+  "verdict": "FAIL-auto"
+ }
+]

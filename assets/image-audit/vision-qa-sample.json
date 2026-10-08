@@ -1,0 +1,282 @@
+[
+ {
+  "id": "erbil-iq",
+  "short": "Erbil",
+  "country": "Iraq",
+  "clue": "Erbil, Iraq \ud83c\uddee\ud83c\uddf6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Citadel_%28old_city%29_of_Hewl%C3%AAr_%28Erbil%29.jpg/500px-Citadel_%28old_city%29_of_Hewl%C3%AAr_%28Erbil%29.jpg"
+ },
+ {
+  "id": "banff",
+  "short": "Banff",
+  "country": "Canada",
+  "clue": "Banff, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Banff_Avenue_-_Cascade_Mountain01.jpg/500px-Banff_Avenue_-_Cascade_Mountain01.jpg"
+ },
+ {
+  "id": "malegaon",
+  "short": "Malegaon",
+  "country": "India",
+  "clue": "Malegaon, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Malegaon_Fort.jpg/500px-Malegaon_Fort.jpg"
+ },
+ {
+  "id": "laval-ca",
+  "short": "Laval",
+  "country": "Canada",
+  "clue": "Laval, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Laval_City_Hall_%28edited%29.jpg/500px-Laval_City_Hall_%28edited%29.jpg"
+ },
+ {
+  "id": "komaki",
+  "short": "Komaki",
+  "country": "Japan",
+  "clue": "Komaki, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Komaki_Castle_02.JPG/500px-Komaki_Castle_02.JPG"
+ },
+ {
+  "id": "golden-temple-in",
+  "short": "Golden Temple",
+  "country": "India",
+  "clue": "Golden Temple, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Hamandir_Sahib_%28Golden_Temple%29.jpg/500px-Hamandir_Sahib_%28Golden_Temple%29.jpg"
+ },
+ {
+  "id": "dublin-ireland",
+  "short": "Dublin",
+  "country": "Ireland",
+  "clue": "Dublin, Ireland \ud83c\uddee\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Dublin_-_aerial_-_2025-07-07_01.jpg/500px-Dublin_-_aerial_-_2025-07-07_01.jpg"
+ },
+ {
+  "id": "van-turkey",
+  "short": "Van",
+  "country": "Turkey",
+  "clue": "Van, Turkey \ud83c\uddf9\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/City_of_Van_%28view_from_Van_Kalesi%29.jpg/500px-City_of_Van_%28view_from_Van_Kalesi%29.jpg"
+ },
+ {
+  "id": "cork-ireland",
+  "short": "Cork",
+  "country": "Ireland",
+  "clue": "Cork, Ireland \ud83c\uddee\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Centre%2C_Cork%2C_Ireland_-_panoramio_%285%29.jpg/500px-Centre%2C_Cork%2C_Ireland_-_panoramio_%285%29.jpg"
+ },
+ {
+  "id": "zaoyang",
+  "short": "Zaoyang",
+  "country": "China",
+  "clue": "Zaoyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Aerial_photography_of_Zaoyang_City.jpg/500px-Aerial_photography_of_Zaoyang_City.jpg"
+ },
+ {
+  "id": "reykjavik-iceland",
+  "short": "Reykjavik",
+  "country": "Iceland",
+  "clue": "Reykjavik, Iceland \ud83c\uddee\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Reykjav%C3%ADk_5545_%28cropped%29.JPG/500px-Reykjav%C3%ADk_5545_%28cropped%29.JPG"
+ },
+ {
+  "id": "baoji-cn",
+  "short": "Baoji",
+  "country": "China",
+  "clue": "Baoji, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/View_from_Zhonghua_Shigu_Park_%28%E4%B8%AD%E5%8D%8E%E7%9F%B3%E9%BC%93%E5%9B%AD%29_on_Baoji.jpg/500px-View_from_Zhonghua_Shigu_Park_%28%E4%B8%AD%E5%8D%8E%E7%9F%B3%E9%BC%93%E5%9B%AD%29_on_Baoji.jpg"
+ },
+ {
+  "id": "baoding-cn",
+  "short": "Baoding",
+  "country": "China",
+  "clue": "Baoding, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/East_facade_of_Baoding_Railway_Station_%2820240719093051%29.jpg/500px-East_facade_of_Baoding_Railway_Station_%2820240719093051%29.jpg"
+ },
+ {
+  "id": "denpasar-indonesia",
+  "short": "Denpasar",
+  "country": "Indonesia",
+  "clue": "Denpasar, Bali \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Aerial_view_of_Bajra_Sandhi_Monument_Denpasar_Bali_Indonesia.jpg/500px-Aerial_view_of_Bajra_Sandhi_Monument_Denpasar_Bali_Indonesia.jpg"
+ },
+ {
+  "id": "kitakyushu",
+  "short": "Kitakyushu",
+  "country": "Japan",
+  "clue": "Kitakyushu, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Kitakyushu_university.jpg/500px-Kitakyushu_university.jpg"
+ },
+ {
+  "id": "la-garriga",
+  "short": "la Garriga",
+  "country": "Spain",
+  "clue": "la Garriga, Spain \ud83c\uddea\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/La_Garriga_%28Sant_Esteve_2007%29_021.jpg/500px-La_Garriga_%28Sant_Esteve_2007%29_021.jpg"
+ },
+ {
+  "id": "tasikmalaya",
+  "short": "Tasikmalaya",
+  "country": "Indonesia",
+  "clue": "Tasikmalaya, Indonesia \ud83c\uddee\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Masjid_Agung_Tasikmalaya.jpg/500px-Masjid_Agung_Tasikmalaya.jpg"
+ },
+ {
+  "id": "banaue-rice-terraces-ph",
+  "short": "Banaue Rice Terraces",
+  "country": "Philippines",
+  "clue": "Banaue Rice Terraces, Philippines \ud83c\uddf5\ud83c\udded",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Rice_Terraces_Banaue.jpg/500px-Rice_Terraces_Banaue.jpg"
+ },
+ {
+  "id": "wellington-new-zealand",
+  "short": "Wellington",
+  "country": "New Zealand",
+  "clue": "Wellington, New Zealand \ud83c\uddf3\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/WellingtonPanorama.jpg/500px-WellingtonPanorama.jpg"
+ },
+ {
+  "id": "kalemegdan-fortress-d34-25",
+  "short": "Kalemegdan Fortress",
+  "country": "Serbia",
+  "clue": "Kalemegdan Fortress, Serbia \ud83c\uddf7\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Despotova_kula6.jpg/500px-Despotova_kula6.jpg"
+ },
+ {
+  "id": "reynosa-mx",
+  "short": "Reynosa",
+  "country": "Mexico",
+  "clue": "Reynosa, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Vista_desde_el_tejado.jpeg/500px-Vista_desde_el_tejado.jpeg"
+ },
+ {
+  "id": "kisangani-cd",
+  "short": "Kisangani",
+  "country": "DR Congo",
+  "clue": "Kisangani, DR Congo \ud83c\udde8\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Kisangani_rond-point_Cath%C3%A9drale_et_Congo_Palace.jpg/500px-Kisangani_rond-point_Cath%C3%A9drale_et_Congo_Palace.jpg"
+ },
+ {
+  "id": "santo-domingo-do",
+  "short": "Santo Domingo",
+  "country": "Dominican Republic",
+  "clue": "Santo Domingo, Dominican Republic \ud83c\udde9\ud83c\uddf4",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Santo_Domingo_%28Dominican_Republic%29_taken_atop_Novocentro_tower_viewing_the_city_to_the_southwest_2010.jpg/500px-Santo_Domingo_%28Dominican_Republic%29_taken_atop_Novocentro_tower_viewing_the_city_to_the_southwest_2010.jpg"
+ },
+ {
+  "id": "zagreb-croatia",
+  "short": "Zagreb",
+  "country": "Croatia",
+  "clue": "Zagreb, Croatia \ud83c\udded\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Zagreb_%2829255640143%29.jpg/500px-Zagreb_%2829255640143%29.jpg"
+ },
+ {
+  "id": "manchester-england",
+  "short": "Manchester",
+  "country": "England",
+  "clue": "Manchester, England",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Manchester_from_the_Sky%2C_2008.jpg/500px-Manchester_from_the_Sky%2C_2008.jpg"
+ },
+ {
+  "id": "alexander-nevsky-cathedral-d34-23",
+  "short": "Alexander Nevsky Cathedral",
+  "country": "Bulgaria",
+  "clue": "Alexander Nevsky Cathedral, Bulgaria \ud83c\udde7\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/AlexanderNevskyCathedral-Sofia-6.jpg/500px-AlexanderNevskyCathedral-Sofia-6.jpg"
+ },
+ {
+  "id": "helsinki-cathedral-d34-31",
+  "short": "Helsinki Cathedral",
+  "country": "Finland",
+  "clue": "Helsinki Cathedral, Finland \ud83c\uddeb\ud83c\uddee",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lutheran_Cathedral_Helsinki.jpg/500px-Lutheran_Cathedral_Helsinki.jpg"
+ },
+ {
+  "id": "rio-tinto",
+  "short": "Rio Tinto",
+  "country": "Portugal",
+  "clue": "Rio Tinto, Portugal \ud83c\uddf5\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BE_CRE.jpg/500px-BE_CRE.jpg"
+ },
+ {
+  "id": "nishinomiya",
+  "short": "Nishinomiya",
+  "country": "Japan",
+  "clue": "Nishinomiya, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Hanshin_Nishinomiya_Station_%28EBISTA_NISHINOMIYA%29.jpg/500px-Hanshin_Nishinomiya_Station_%28EBISTA_NISHINOMIYA%29.jpg"
+ },
+ {
+  "id": "harare-zimbabwe",
+  "short": "Harare",
+  "country": "Zimbabwe",
+  "clue": "Harare, Zimbabwe \ud83c\uddff\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Harare_skyline.jpg/500px-Harare_skyline.jpg"
+ },
+ {
+  "id": "khartoum",
+  "short": "Khartoum",
+  "country": "Sudan",
+  "clue": "Khartoum, Sudan \ud83c\uddf8\ud83c\udde9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Elmek_Nimir_Bridge.jpg/500px-Elmek_Nimir_Bridge.jpg"
+ },
+ {
+  "id": "ngerulmud-palau",
+  "short": "Ngerulmud",
+  "country": "Palau",
+  "clue": "Ngerulmud, Palau \ud83c\uddf5\ud83c\uddfc",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/State_of_Melekeok.png/500px-State_of_Melekeok.png"
+ },
+ {
+  "id": "delicate-arch-utah",
+  "short": "Delicate Arch",
+  "country": "United States",
+  "clue": "Delicate Arch, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Delicate_Arch_in_Arches_National_Park_3.jpg/500px-Delicate_Arch_in_Arches_National_Park_3.jpg"
+ },
+ {
+  "id": "pindi-bhattian",
+  "short": "Pindi Bhattian",
+  "country": "Pakistan",
+  "clue": "Pindi Bhattian, Pakistan \ud83c\uddf5\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/M2-2.JPG/500px-M2-2.JPG"
+ },
+ {
+  "id": "dholavira-india",
+  "short": "Dholavira",
+  "country": "India",
+  "clue": "Dholavira, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Dholavira_gujarat.jpg/500px-Dholavira_gujarat.jpg"
+ },
+ {
+  "id": "oyo-ng",
+  "short": "Oyo",
+  "country": "Nigeria",
+  "clue": "Oyo, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Random_images_at_Photowalk_at_Ogun_and_Oyo_states_06.jpg/500px-Random_images_at_Photowalk_at_Ogun_and_Oyo_states_06.jpg"
+ },
+ {
+  "id": "novosibirsk-ru",
+  "short": "Novosibirsk",
+  "country": "Russia",
+  "clue": "Novosibirsk, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Novosibirsk_view.jpg/500px-Novosibirsk_view.jpg"
+ },
+ {
+  "id": "luang-prabang-laos",
+  "short": "Luang Prabang",
+  "country": "Laos",
+  "clue": "Luang Prabang, Laos \ud83c\uddf1\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Luang_Prabang%2C_Laos._III.jpg/500px-Luang_Prabang%2C_Laos._III.jpg"
+ },
+ {
+  "id": "blue-lagoon-iceland",
+  "short": "Blue Lagoon",
+  "country": "Iceland",
+  "clue": "Blue Lagoon, Iceland \ud83c\uddee\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Blue_Lagoon_2012-08-23_%284%29.JPG/500px-Blue_Lagoon_2012-08-23_%284%29.JPG"
+ },
+ {
+  "id": "serra-br",
+  "short": "Serra",
+  "country": "Brazil",
+  "clue": "Serra, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Vista_de_Serra_%28Tims%29.jpg/500px-Vista_de_Serra_%28Tims%29.jpg"
+ }
+]

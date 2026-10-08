@@ -1,0 +1,202 @@
+[
+ {
+  "id": "veracruz-mx",
+  "short": "Veracruz",
+  "country": "Mexico",
+  "clue": "Veracruz, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/15-07-14-Landschaft-zwischen-Mexico-und-Golfk%C3%BCste-RalfR-WMA_0473.jpg/500px-15-07-14-Landschaft-zwischen-Mexico-und-Golfk%C3%BCste-RalfR-WMA_0473.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "villa-nueva-gt",
+  "short": "Villa Nueva",
+  "country": "Guatemala",
+  "clue": "Villa Nueva, Guatemala \ud83c\uddec\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Collage_Villa_Nueva_Guatemala_2.jpg/500px-Collage_Villa_Nueva_Guatemala_2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "victoria-de-durango-mx",
+  "short": "Victoria de Durango",
+  "country": "Mexico",
+  "clue": "Victoria de Durango, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Panoramica_plaza_de_armas_Durango.jpg/500px-Panoramica_plaza_de_armas_Durango.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "vientiane",
+  "short": "Vientiane",
+  "country": "Laos",
+  "clue": "Vientiane, Laos \ud83c\uddf1\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/20171118_Vientiane_3220_DxO.jpg/500px-20171118_Vientiane_3220_DxO.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "vijayawada",
+  "short": "Vijayawada",
+  "country": "India",
+  "clue": "Vijayawada, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Vijayawada_%28rural%29_mandal_in_Krishna_district.jpg/500px-Vijayawada_%28rural%29_mandal_in_Krishna_district.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "vinh",
+  "short": "Vinh",
+  "country": "Vietnam",
+  "clue": "Vinh, Vietnam \ud83c\uddfb\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Thanh_vinh_nhin_tu_nui_quyet.jpg/500px-Thanh_vinh_nhin_tu_nui_quyet.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "visakhapatnam",
+  "short": "Visakhapatnam",
+  "country": "India",
+  "clue": "Visakhapatnam, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/View_of_Vizag_from_Kailasagiri.JPG/500px-View_of_Vizag_from_Kailasagiri.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "virar",
+  "short": "Vir\u0101r",
+  "country": "India",
+  "clue": "Vir\u0101r, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Virar_railway_station_-_Entrance.jpg/500px-Virar_railway_station_-_Entrance.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "volgograd-ru",
+  "short": "Volgograd",
+  "country": "Russia",
+  "clue": "Volgograd, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/May2015_Volgograd_img18_Central_station.jpg/500px-May2015_Volgograd_img18_Central_station.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "voronezh-ru",
+  "short": "Voronezh",
+  "country": "Russia",
+  "clue": "Voronezh, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D1%86%D0%B5%D0%BD%D1%82%D1%80_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0_%D1%81_%D0%93%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D0%B8_%D0%A7%D0%B8%D0%B6%D0%BE%D0%B2%D0%B0.jpg/500px-%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D1%86%D0%B5%D0%BD%D1%82%D1%80_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0_%D1%81_%D0%93%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D0%B8_%D0%A7%D0%B8%D0%B6%D0%BE%D0%B2%D0%B0.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "warri-ng",
+  "short": "Warri",
+  "country": "Nigeria",
+  "clue": "Warri, Nigeria \ud83c\uddf3\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Warri.jpg/500px-Warri.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "wenzhou-cn",
+  "short": "Wenzhou",
+  "country": "China",
+  "clue": "Wenzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Vue_g%C3%A9n%C3%A9rale_de_Wenzhou.JPG/500px-Vue_g%C3%A9n%C3%A9rale_de_Wenzhou.JPG",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "weifang-cn",
+  "short": "Weifang",
+  "country": "China",
+  "clue": "Weifang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/20211212_Bailang_River_04.jpg/500px-20211212_Bailang_River_04.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "wanzhou-cn",
+  "short": "Wanzhou",
+  "country": "China",
+  "clue": "Wanzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/%E4%B8%87%E5%B7%9E%E7%81%AB%E8%BD%A6%E7%AB%99_-_panoramio.jpg/500px-%E4%B8%87%E5%B7%9E%E7%81%AB%E8%BD%A6%E7%AB%99_-_panoramio.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "whitchurch-stouffville",
+  "short": "Whitchurch-Stouffville",
+  "country": "Canada",
+  "clue": "Whitchurch-Stouffville, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/MainSteetWhitchurch-Stouffville2.jpg/500px-MainSteetWhitchurch-Stouffville2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "wharton",
+  "short": "Wharton",
+  "country": "United States",
+  "clue": "Wharton, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Huntsman_Hall_%28Philadelphia%29.JPG/500px-Huntsman_Hall_%28Philadelphia%29.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "wuhu-cn",
+  "short": "Wuhu",
+  "country": "China",
+  "clue": "Wuhu, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/201705_Facade_of_Wuhu_Railway_Station.jpg/500px-201705_Facade_of_Wuhu_Railway_Station.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "xiamen-cn",
+  "short": "Xiamen",
+  "country": "China",
+  "clue": "Xiamen, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Xiamen_night_cityscape_2018_-_Flickr_-_Jaykhuang.jpg/500px-Xiamen_night_cityscape_2018_-_Flickr_-_Jaykhuang.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "wrocaw-pl",
+  "short": "Wroc\u0142aw",
+  "country": "Poland",
+  "clue": "Wroc\u0142aw, Poland \ud83c\uddf5\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Rynek_Starego_Miasta_We_Wroclawiu_%28152991773%29.jpeg/500px-Rynek_Starego_Miasta_We_Wroclawiu_%28152991773%29.jpeg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "wuhan-cn",
+  "short": "Wuhan",
+  "country": "China",
+  "clue": "Wuhan, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/%E6%AD%A6%E6%B1%89%E9%BB%84%E9%B9%A4%E6%A5%BC%E4%BF%AF%E7%9E%B0.jpg/500px-%E6%AD%A6%E6%B1%89%E9%BB%84%E9%B9%A4%E6%A5%BC%E4%BF%AF%E7%9E%B0.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "winnipeg-ca",
+  "short": "Winnipeg",
+  "country": "Canada",
+  "clue": "Winnipeg, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Winnipeg_skyline_%282025%29.jpg/500px-Winnipeg_skyline_%282025%29.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "wuzhong-cn",
+  "short": "Wuzhong",
+  "country": "China",
+  "clue": "Wuzhong, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wuzhong.jpg/500px-Wuzhong.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "wuxi-cn",
+  "short": "Wuxi",
+  "country": "China",
+  "clue": "Wuxi, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Wuxi-bird-view.PNG/500px-Wuxi-bird-view.PNG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "xichang",
+  "short": "Xichang",
+  "country": "China",
+  "clue": "Xichang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/202309_Front_Square_of_Xichangxi_Station.jpg/500px-202309_Front_Square_of_Xichangxi_Station.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "xian-china",
+  "short": "Xi'an",
+  "country": "China",
+  "clue": "Xi'an, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Xi%27an_Railway_Station_2024.jpg/500px-Xi%27an_Railway_Station_2024.jpg",
+  "verdict": "FAIL-auto"
+ }
+]

@@ -1,0 +1,202 @@
+[
+ {
+  "id": "cixi-cn",
+  "short": "Cixi",
+  "country": "China",
+  "clue": "Cixi, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/%E6%B5%B7%E7%9A%AE%E5%B2%9B%E6%AC%A2%E4%B9%90%E4%B8%96%E7%95%8C_-_Happy_Live_Park_-_2015.10_-_panoramio.jpg/500px-%E6%B5%B7%E7%9A%AE%E5%B2%9B%E6%AC%A2%E4%B9%90%E4%B8%96%E7%95%8C_-_Happy_Live_Park_-_2015.10_-_panoramio.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "cn-tower-toronto",
+  "short": "CN Tower",
+  "country": "Canada",
+  "clue": "CN Tower, Canada \ud83c\udde8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/CN_Tower_from_Puente_de_Luz%2C_Toronto%2C_Ontario%2C_2025-08-25_01.jpg/500px-CN_Tower_from_Puente_de_Luz%2C_Toronto%2C_Ontario%2C_2025-08-25_01.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "conakry-gn",
+  "short": "Conakry",
+  "country": "Guinea",
+  "clue": "Conakry, Guinea \ud83c\uddec\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Un_aper%C3%A7u_de_la_ville_de_conakry.jpg/500px-Un_aper%C3%A7u_de_la_ville_de_conakry.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "cotonou-bj",
+  "short": "Cotonou",
+  "country": "Benin",
+  "clue": "Cotonou, Benin \ud83c\udde7\ud83c\uddef",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Vue_panoramique_quartier_cadj%C3%A9houn-Cotonou_au_B%C3%A9nin_1.jpg/500px-Vue_panoramique_quartier_cadj%C3%A9houn-Cotonou_au_B%C3%A9nin_1.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "dalian-cn",
+  "short": "Dalian",
+  "country": "China",
+  "clue": "Dalian, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Dalian_Skyline_Enhanced.jpg/500px-Dalian_Skyline_Enhanced.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "curitiba-br",
+  "short": "Curitiba",
+  "country": "Brazil",
+  "clue": "Curitiba, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Curitiba_Eixos_e_densidade_78_%2824160257688%29.jpg/500px-Curitiba_Eixos_e_densidade_78_%2824160257688%29.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "dammam-sa",
+  "short": "Dammam",
+  "country": "Saudi Arabia",
+  "clue": "Dammam, Saudi Arabia \ud83c\uddf8\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Dammam_medical_complex_2014-01-19_22-43.jpg/500px-Dammam_medical_complex_2014-01-19_22-43.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "culiacan-mx",
+  "short": "Culiac\u00e1n",
+  "country": "Mexico",
+  "clue": "Culiac\u00e1n, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Battle_of_Culiacan.png/500px-Battle_of_Culiacan.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "doha-qatar",
+  "short": "Doha",
+  "country": "Qatar",
+  "clue": "Doha, Qatar \ud83c\uddf6\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Doha_skyline_in_the_morning_%2812544910974%29.jpg/500px-Doha_skyline_in_the_morning_%2812544910974%29.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "disuq",
+  "short": "Dis\u016bq",
+  "country": "Egypt",
+  "clue": "Dis\u016bq, Egypt \ud83c\uddea\ud83c\uddec",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Desouk-Montage.png/500px-Desouk-Montage.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "east-london",
+  "short": "East London",
+  "country": "South Africa",
+  "clue": "East London, South Africa \ud83c\uddff\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/East_London_Town_Hall.JPG/500px-East_London_Town_Hall.JPG",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "ecatepec-de-morelos-mx",
+  "short": "Ecatepec de Morelos",
+  "country": "Mexico",
+  "clue": "Ecatepec de Morelos, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/M-15-169-04-00.JPG/500px-M-15-169-04-00.JPG",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "ensenada-mx",
+  "short": "Ensenada",
+  "country": "Mexico",
+  "clue": "Ensenada, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ensenada_montage.jpg/500px-Ensenada_montage.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "erbil-iq",
+  "short": "Erbil",
+  "country": "Iraq",
+  "clue": "Erbil, Iraq \ud83c\uddee\ud83c\uddf6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Citadel_%28old_city%29_of_Hewl%C3%AAr_%28Erbil%29.jpg/500px-Citadel_%28old_city%29_of_Hewl%C3%AAr_%28Erbil%29.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "fazenda-rio-grande",
+  "short": "Fazenda Rio Grande",
+  "country": "Brazil",
+  "clue": "Fazenda Rio Grande, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/PrediosFazendaRioGrandePR.jpg/500px-PrediosFazendaRioGrandePR.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "fort-mchenry",
+  "short": "Fort McHenry",
+  "country": "United States",
+  "clue": "Fort McHenry, United States \ud83c\uddfa\ud83c\uddf8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/FtMcHenryEntrance.JPG/500px-FtMcHenryEntrance.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "freetown-sl",
+  "short": "Freetown",
+  "country": "Sierra Leone",
+  "clue": "Freetown, Sierra Leone \ud83c\uddf8\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Freetown-aerialview.jpg/500px-Freetown-aerialview.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "fushun-cn",
+  "short": "Fushun",
+  "country": "China",
+  "clue": "Fushun, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/%E8%BE%BD%E5%AE%81%E5%8F%91%E7%94%B5%E5%8E%82%E9%99%84%E8%BF%91_-_panoramio_-_George_Wenn.jpg/500px-%E8%BE%BD%E5%AE%81%E5%8F%91%E7%94%B5%E5%8E%82%E9%99%84%E8%BF%91_-_panoramio_-_George_Wenn.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "goiania-br",
+  "short": "Goi\u00e2nia",
+  "country": "Brazil",
+  "clue": "Goi\u00e2nia, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Goi%C3%A2nia_Collage.png/500px-Goi%C3%A2nia_Collage.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "gqeberha-za",
+  "short": "Gqeberha",
+  "country": "South Africa",
+  "clue": "Gqeberha, South Africa \ud83c\uddff\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Queen_Victoria_statue_outside_the_Main_Library%2C_Port_Elizabeth%2CSouth_Africa.jpg/500px-Queen_Victoria_statue_outside_the_Main_Library%2C_Port_Elizabeth%2CSouth_Africa.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "guatemala-city-gt",
+  "short": "Guatemala City",
+  "country": "Guatemala",
+  "clue": "Guatemala City, Guatemala \ud83c\uddec\ud83c\uddf9",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Buildings_in_Guatemala_City.jpg/500px-Buildings_in_Guatemala_City.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "guayaquil-ec",
+  "short": "Guayaquil",
+  "country": "Ecuador",
+  "clue": "Guayaquil, Ecuador \ud83c\uddea\ud83c\udde8",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Gye13.jpg/500px-Gye13.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "guadalupe-mx",
+  "short": "Guadalupe",
+  "country": "Mexico",
+  "clue": "Guadalupe, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mexico_Monterrey_Guadalupe.JPG/500px-Mexico_Monterrey_Guadalupe.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "guangzhou-cn",
+  "short": "Guangzhou",
+  "country": "China",
+  "clue": "Guangzhou, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/2010_Asian_Games_participating_countries.png/500px-2010_Asian_Games_participating_countries.png",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "guilin-cn",
+  "short": "Guilin",
+  "country": "China",
+  "clue": "Guilin, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/View_of_Guilin_from_Elephant_Trunk_Hill.jpg/500px-View_of_Guilin_from_Elephant_Trunk_Hill.jpg",
+  "verdict": "SOFT-FAIL"
+ }
+]

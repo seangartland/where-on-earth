@@ -1,0 +1,34 @@
+{
+  "delhi": {
+    "pass": false,
+    "reason": "Real photograph, but it is an isolated landmark view of Jama Masjid rather than a view of Delhi as a city; not a strict improvement over the placeholder's same monument-only problem."
+  },
+  "cairo": {
+    "pass": true,
+    "reason": "Real photograph showing the Nile, park, opera-house area, and surrounding Cairo buildings together; it reads as a city scene and is substantially better than the incorrect placeholder."
+  },
+  "chicago": {
+    "pass": true,
+    "reason": "Real photograph of the Chicago River framed by dense downtown architecture; it clearly shows the city and is substantially better than the incorrect placeholder."
+  },
+  "istanbul": {
+    "pass": true,
+    "reason": "Real panoramic photograph combining Istanbul's historical peninsula with its modern skyline; it clearly depicts the city and is better than the placeholder montage."
+  },
+  "baku": {
+    "pass": false,
+    "reason": "A montage assembled from multiple photographs rather than one real city photograph; despite showing Baku locations and being more relevant than the incorrect placeholder, it fails the strict photo criterion."
+  },
+  "agra-in": {
+    "pass": false,
+    "reason": "Real photograph, but it shows the Taj Mahal as an isolated monument rather than Agra city; it does not fix the placeholder's monument-only problem."
+  },
+  "dhaka": {
+    "pass": true,
+    "reason": "Real photograph of the Tejgaon commercial district with a broad field of urban buildings; it clearly shows Dhaka and is substantially better than the incorrect placeholder."
+  },
+  "lagos": {
+    "pass": true,
+    "reason": "Real elevated photograph of central Lagos with a broad urban skyline; it clearly shows the city and is a stronger city-level view than the placeholder."
+  }
+}

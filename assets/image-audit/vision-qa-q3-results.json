@@ -1,0 +1,106 @@
+{
+  "mecca-saudi-arabia": {
+    "pass": true,
+    "reason": "Real photo montage: Kaaba/Masjid al-Haram close-up plus multiple aerial shots of the surrounding city of Mecca. Shows the place and gives a genuine city view, not just an isolated monument."
+  },
+  "meiji-shrine": {
+    "pass": true,
+    "reason": "Real photo of the Meiji Shrine main hall courtyard with visitors. Correctly shows the named shrine itself (not a city claim, so no city-view requirement applies)."
+  },
+  "medellin-botero-plaza": {
+    "pass": true,
+    "reason": "Real photo, wide aerial skyline view of Medellin at dusk showing the city spread across the valley. Note: id references 'Botero Plaza' but the image is a general city skyline, not that specific plaza -- still a valid city view of Medellin though."
+  },
+  "medina-saudi-arabia": {
+    "pass": false,
+    "reason": "Real photo, but it is a close-up of Masjid an-Nabawi only -- an isolated monument, not a city view of Medina. Compare to the Mecca entry which uses a city-wide montage; Medina should too."
+  },
+  "melbourne-australia": {
+    "pass": true,
+    "reason": "Real photo of the Melbourne CBD skyline viewed from the Shrine of Remembrance, with city park and skyscrapers clearly visible. Good city view."
+  },
+  "miami-usa": {
+    "pass": true,
+    "reason": "Real aerial photo of downtown Miami with surrounding bay, bridges, and skyline. Clear city view."
+  },
+  "mendoza-argentina": {
+    "pass": true,
+    "reason": "Real photo of Mendoza's city skyline with Andes foothills in the background. Good city view."
+  },
+  "mombasa-kenya": {
+    "pass": true,
+    "reason": "Real street-level photo of downtown Mombasa showing multiple buildings, traffic, and the Nyali Bridge area in the background. Shows the city, not a single isolated monument."
+  },
+  "mohenjo-daro": {
+    "pass": true,
+    "reason": "Real photo of the Mohenjo-daro archaeological ruins (brick structures, stupa mound visible). Correctly shows the ancient site; not a modern city so the city-view rule doesn't apply."
+  },
+  "monterrey-mexico": {
+    "pass": true,
+    "reason": "Real photo of Cerro de la Silla with the city of Monterrey visible at its base. Both the landmark mountain and the city are shown."
+  },
+  "monument-valley-mitten": {
+    "pass": true,
+    "reason": "Real photo clearly showing the East Mitten Butte rock formation in Monument Valley. Matches the named landmark."
+  },
+  "mount-ararat": {
+    "pass": true,
+    "reason": "Real satellite/orbital photo clearly showing the snow-capped Mount Ararat massif. Shows the place; not a city."
+  },
+  "mount-aso": {
+    "pass": true,
+    "reason": "Real photo of the Mount Aso caldera and surrounding farmland/plains, taken from a viewpoint on the crater rim. Shows the volcanic landscape."
+  },
+  "mount-bromo": {
+    "pass": true,
+    "reason": "Real photo of Mount Bromo's crater with visible steam/smoke, surrounded by the Tengger caldera. Clearly shows the volcano."
+  },
+  "mount-fuji": {
+    "pass": true,
+    "reason": "Real photo of snow-capped Mount Fuji reflected near Lake Shoji. Classic, clear depiction of the mountain."
+  },
+  "mount-etna": {
+    "pass": true,
+    "reason": "Real photo of Mount Etna smoking, viewed across the Strait of Messina from Reggio Calabria. Clearly shows the volcano."
+  },
+  "mount-nemrut": {
+    "pass": true,
+    "reason": "Real photo of the Mount Nemrut tumulus summit mound with the rock-cut statue remains visible at its base. Shows the actual site."
+  },
+  "mount-rinjani": {
+    "pass": true,
+    "reason": "Real photo of Mount Rinjani's volcanic cone rising above forested foothills. Clearly shows the mountain."
+  },
+  "murano-d34-55": {
+    "pass": true,
+    "reason": "Real aerial photo of Murano island in the Venetian lagoon, showing its built-up layout, canals, and surrounding water. Good island/town view, not a single isolated building."
+  },
+  "muscat": {
+    "pass": true,
+    "reason": "Real photo of a Muscat plaza with clock tower, government buildings, and the mountains behind. Shows a representative city view."
+  },
+  "mykonos-gr": {
+    "pass": true,
+    "reason": "Real aerial photo of Mykonos town (including Little Venice) with whitewashed buildings along the coast. Good town/city view."
+  },
+  "nagasaki-atomic-bombing": {
+    "pass": false,
+    "reason": "Real photo, but it's a single university hall building (Nagasaki University Katafuchi Keirin Hall) -- an isolated building, not a city view of Nagasaki, and unrelated to the 'atomic bombing' framing implied by the id."
+  },
+  "naples-italy": {
+    "pass": false,
+    "reason": "Real photo, but it is a tight facade shot of a single historic building (University of Naples). Isolated monument, not a city view of Naples."
+  },
+  "nara": {
+    "pass": false,
+    "reason": "Real photo, but it only shows one shrine building (Kasuga Taisha) -- an isolated monument, not a city view of Nara."
+  },
+  "napa-valley-ava": {
+    "pass": true,
+    "reason": "Real photo of the 'Welcome to Napa Valley' sign with vineyards behind it. Correctly represents the wine-growing region (an AVA, not a city, so the city-view rule doesn't apply)."
+  },
+  "neunkirchen": {
+    "pass": true,
+    "reason": "Real photo of Neunkirchen's central plaza/shopping square with multiple buildings and a statue. Reasonable representative view for a small town."
+  }
+}

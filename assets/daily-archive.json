@@ -20,5 +20,27 @@
       "id": "kermadec-islands",
       "round": 5
     }
+  ],
+  "2026-10-07": [
+    {
+      "id": "camp-nou",
+      "round": 1
+    },
+    {
+      "id": "algiers",
+      "round": 2
+    },
+    {
+      "id": "gaborone",
+      "round": 3
+    },
+    {
+      "id": "senaki",
+      "round": 4
+    },
+    {
+      "id": "ananindeua-br",
+      "round": 5
+    }
   ]
 }

@@ -1,0 +1,202 @@
+[
+ {
+  "id": "nanchang-cn",
+  "short": "Nanchang",
+  "country": "China",
+  "clue": "Nanchang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Nanchang_city_view_%28July_2017%29.jpg/500px-Nanchang_city_view_%28July_2017%29.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "nantong-cn",
+  "short": "Nantong",
+  "country": "China",
+  "clue": "Nantong, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/%E5%8D%97%E9%80%9A.jpg/500px-%E5%8D%97%E9%80%9A.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "natal-br",
+  "short": "Natal",
+  "country": "Brazil",
+  "clue": "Natal, Brazil \ud83c\udde7\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Natal%2C_capital_do_Rio_Grande_do_Norte%2C_Brasil.jpg/500px-Natal%2C_capital_do_Rio_Grande_do_Norte%2C_Brasil.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nanyang-cn",
+  "short": "Nanyang",
+  "country": "China",
+  "clue": "Nanyang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Xichuan.jpg/500px-Xichuan.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nanchong-cn",
+  "short": "Nanchong",
+  "country": "China",
+  "clue": "Nanchong, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Nanchong_night.jpg/500px-Nanchong_night.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nanjing-cn",
+  "short": "Nanjing",
+  "country": "China",
+  "clue": "Nanjing, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Nanjing_CBD_from_City_Wall.jpg/500px-Nanjing_CBD_from_City_Wall.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "nanning-cn",
+  "short": "Nanning",
+  "country": "China",
+  "clue": "Nanning, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Nanning_Seen_from_Longxiang_Tower.jpg/500px-Nanning_Seen_from_Longxiang_Tower.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "naucalpan-de-juarez-mx",
+  "short": "Naucalpan de Ju\u00e1rez",
+  "country": "Mexico",
+  "clue": "Naucalpan de Ju\u00e1rez, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Santuario_de_Los_Remedios%2C_Naucalp%C3%A1n%2C_Estado_de_M%C3%A9xico.JPG/500px-Santuario_de_Los_Remedios%2C_Naucalp%C3%A1n%2C_Estado_de_M%C3%A9xico.JPG",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "nay-pyi-taw",
+  "short": "Nay Pyi Taw",
+  "country": "Myanmar",
+  "clue": "Nay Pyi Taw, Myanmar \ud83c\uddf2\ud83c\uddf2",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Naypyidaw_--_Water_Fountain_Garden.JPG/500px-Naypyidaw_--_Water_Fountain_Garden.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "neijiang-cn",
+  "short": "Neijiang",
+  "country": "China",
+  "clue": "Neijiang, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/NeiJiang.JPG/500px-NeiJiang.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "navi-mumbai",
+  "short": "Navi Mumbai",
+  "country": "India",
+  "clue": "Navi Mumbai, India \ud83c\uddee\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Navi_Mumbai_Skyline.jpg/500px-Navi_Mumbai_Skyline.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "new-territories",
+  "short": "New Territories",
+  "country": "China",
+  "clue": "New Territories, Hong Kong \ud83c\udded\ud83c\uddf0",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/HK_ShatinNewTown_2008_08.JPG/500px-HK_ShatinNewTown_2008_08.JPG",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "niigata",
+  "short": "Niigata",
+  "country": "Japan",
+  "clue": "Niigata, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Niigata_from_Bandaijima_Building_20200906_P4.jpg/500px-Niigata_from_Bandaijima_Building_20200906_P4.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nimes",
+  "short": "N\u00eemes",
+  "country": "France",
+  "clue": "N\u00eemes, France \ud83c\uddeb\ud83c\uddf7",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/N%C3%AEmes%2C_Centre_ville.jpg/500px-N%C3%AEmes%2C_Centre_ville.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nishinomiya",
+  "short": "Nishinomiya",
+  "country": "Japan",
+  "clue": "Nishinomiya, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Hanshin_Nishinomiya_Station_%28EBISTA_NISHINOMIYA%29.jpg/500px-Hanshin_Nishinomiya_Station_%28EBISTA_NISHINOMIYA%29.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "niamey-ne",
+  "short": "Niamey",
+  "country": "Niger",
+  "clue": "Niamey, Niger \ud83c\uddf3\ud83c\uddea",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Plaque_indicatif_du_lion_au_Mus%C3%A9e_National_Boubou_Hama.jpg/500px-Plaque_indicatif_du_lion_au_Mus%C3%A9e_National_Boubou_Hama.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nizhniy-novgorod-ru",
+  "short": "Nizhniy Novgorod",
+  "country": "Russia",
+  "clue": "Nizhniy Novgorod, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Nizhny_Novgorod_2025-04-29_Minin_and_Pozharsky_square_01.jpg/500px-Nizhny_Novgorod_2025-04-29_Minin_and_Pozharsky_square_01.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "ningbo-cn",
+  "short": "Ningbo",
+  "country": "China",
+  "clue": "Ningbo, China \ud83c\udde8\ud83c\uddf3",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Ningbo_South_Business_District_24-09-2018.jpg/500px-Ningbo_South_Business_District_24-09-2018.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "novosibirsk-ru",
+  "short": "Novosibirsk",
+  "country": "Russia",
+  "clue": "Novosibirsk, Russia \ud83c\uddf7\ud83c\uddfa",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Novosibirsk_view.jpg/500px-Novosibirsk_view.jpg",
+  "verdict": "SOFT-FAIL"
+ },
+ {
+  "id": "novovolynsk",
+  "short": "Novovolynsk",
+  "country": "Ukraine",
+  "clue": "Novovolynsk, Ukraine \ud83c\uddfa\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/%D0%9D%D0%BE%D0%B2%D0%BE%D0%B2%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%2C_2020%2C_01.jpg/500px-%D0%9D%D0%BE%D0%B2%D0%BE%D0%B2%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%2C_2020%2C_01.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "nuevo-laredo-mx",
+  "short": "Nuevo Laredo",
+  "country": "Mexico",
+  "clue": "Nuevo Laredo, Mexico \ud83c\uddf2\ud83c\uddfd",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Presidencia_Municipal_Edificio.jpg/500px-Presidencia_Municipal_Edificio.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "odz-pl",
+  "short": "\u0141\u00f3d\u017a",
+  "country": "Poland",
+  "clue": "\u0141\u00f3d\u017a, Poland \ud83c\uddf5\ud83c\uddf1",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/O_i_Z_UL.jpg/500px-O_i_Z_UL.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "oita",
+  "short": "\u014cita",
+  "country": "Japan",
+  "clue": "\u014cita, Japan \ud83c\uddef\ud83c\uddf5",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Oita_jr_oita_sta_concourse.jpg/500px-Oita_jr_oita_sta_concourse.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "odesa-ua",
+  "short": "Odesa",
+  "country": "Ukraine",
+  "clue": "Odesa, Ukraine \ud83c\uddfa\ud83c\udde6",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Odesa_Dvoryanska_st_2-2.jpg/500px-Odesa_Dvoryanska_st_2-2.jpg",
+  "verdict": "FAIL-auto"
+ },
+ {
+  "id": "oran-dz",
+  "short": "Oran",
+  "country": "Algeria",
+  "clue": "Oran, Algeria \ud83c\udde9\ud83c\uddff",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Oran_paysages.jpg/500px-Oran_paysages.jpg",
+  "verdict": "FAIL-auto"
+ }
+]
