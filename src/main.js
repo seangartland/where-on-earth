@@ -1404,7 +1404,7 @@ let travelAnimation = null;
 const PINPOINT_KM = 5;
 const BULLSEYE_KM = 25;
 const NEAR_KM = 150;
-const NEAR_MISS_KM = 300; // NEAR_KM..this: peek bar says how close the postcard was
+const NEAR_MISS_KM = 300;
 const BLOWOUT_KM = 8000;
 const GOLD_COLOR = new THREE.Color('#ffd45e');
 const DEADPAN_LINES = ['away.', 'away. Bold.', 'away. Different continent.', 'away. Still on Earth, though.', 'away. Noted.'];
@@ -2357,10 +2357,9 @@ function placeRevealVisual(guess, answer) {
   return { a, b };
 }
 
-function beginTravelReveal(guess, answer, km, newlyEarned) {
+function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km)) {
   const path = buildAnswerPath(guess, answer);
   const flight = travelFlightProfile(km);
-  const tier = flyoverTier(km);
   answerLine.visible = false;
   answerLine.geometry.instanceCount = 0;
   correctPin.root.visible = false;
@@ -2400,7 +2399,7 @@ function beginTravelReveal(guess, answer, km, newlyEarned) {
 
 // Bullseye: no flight. Snap-zoom onto the answer, drop a gold pin, roll a
 // shockwave across the surface in slow motion, stamp it, then the usual pullback.
-function beginBullseyeReveal(guess, answer, km, newlyEarned) {
+function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km)) {
   const path = buildAnswerPath(guess, answer);
   answerLine.visible = false;
   correctPin.root.visible = false;
@@ -2411,7 +2410,9 @@ function beginBullseyeReveal(guess, answer, km, newlyEarned) {
   travelAnimation = {
     ...path,
     km,
-    tier: 'bullseye',
+    // Keep the landing stamp in sync with the exact-distance classification
+    // selected in revealGuess; `km` is rounded only for display.
+    tier,
     elapsed: 0,
     startDist: dist,
     answerDropped: false,
@@ -3241,8 +3242,8 @@ function revealGuess(guess, restoring = false) {
   if (!restoring && expeditionRun.active) completeExpeditionRound();
   const weight = oneOff ? 1 : WEIGHTS[daily.round];
   gameEls.baseScore.textContent = base;
-  gameEls.mult.textContent = `×${weight / 10}`;
-  gameEls.mult.style.display = weight > 1 ? '' : 'none';
+  gameEls.mult.textContent = `×${weight.toFixed(1)}`;
+  gameEls.mult.style.display = oneOff ? 'none' : '';
   const placeName = answer.clue || answer.short;
   gameEls.revealName.textContent = placeName;
   gameEls.peekName.textContent = placeName;
@@ -3288,8 +3289,8 @@ function revealGuess(guess, restoring = false) {
   if (animate && (tier === 'bullseye' || tier === 'pinpoint')) {
     document.body.classList.add('bullseye');
     gameEls.hint.textContent = tier === 'pinpoint' ? 'Pinpoint! Incredible accuracy' : 'Bullseye! The gold marker shows the answer';
-    beginBullseyeReveal(guess, answer, km, newlyEarned);
-  } else if (animate) beginTravelReveal(guess, answer, km, newlyEarned);
+    beginBullseyeReveal(guess, answer, km, newlyEarned, tier);
+  } else if (animate) beginTravelReveal(guess, answer, km, newlyEarned, tier);
   else {
     revealThumbCurrent();
     const { a, b } = placeRevealVisual(guess, answer);
@@ -4606,10 +4607,12 @@ const PROX_CLASSES = ['', 'prox-postcard', 'prox-bullseye', 'prox-pinpoint'];
 const RARITY_CLASSES = ['rarity-common', 'rarity-uncommon', 'rarity-rare', 'rarity-legendary'];
 
 function earnForKm(km) {
-  if (km < PINPOINT_KM) return EARN_PINPOINT;
-  if (km < BULLSEYE_KM) return EARN_BULLSEYE;
-  if (km < NEAR_KM) return EARN_NEAR;
-  return 0;
+  // Passport and flyover tiers must share the exact, unrounded boundary check.
+  return {
+    pinpoint: EARN_PINPOINT,
+    bullseye: EARN_BULLSEYE,
+    near: EARN_NEAR,
+  }[flyoverTier(km)] || 0;
 }
 
 // Rarity is the card-frame colour, from the location's difficulty.
@@ -6009,9 +6012,7 @@ function fillPostcard(entry) {
     return div;
   }));
   ppdEls.hint.hidden = earn !== 'seen';
-  ppdEls.hint.textContent = Number.isFinite(entry.km) && entry.km < 500
-    ? 'So close! Land within 150 km to earn it in colour.'
-    : 'Land within 150 km to earn this postcard in colour.';
+  ppdEls.hint.textContent = 'Land within 150 km to earn this postcard in colour.';
   ppdEls.visited.textContent = entry.first ? longDate(entry.first) : '—';
   // Only a postcard with a known closest guess has a distance to brag about.
   ppdEntry = entry;
