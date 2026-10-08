@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rarity color preview</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b11;
+      --panel: #111621;
+      --panel-2: #171d29;
+      --text: #f5f7fb;
+      --muted: #8d96a7;
+      --common: #8b93a1;
+      --uncommon: #42c678;
+      --rare: #4195ef;
+      --legendary: #a86df4;
+      --gold: #f7c84a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(80, 105, 166, .18), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .phone {
+      width: min(390px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 22px 16px 40px;
+      overflow: hidden;
+    }
+
+    header { margin-bottom: 18px; }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 5px 0 3px;
+      font-size: 25px;
+      letter-spacing: -.04em;
+    }
+
+    .intro {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .proximity-labels,
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .proximity-labels {
+      margin: 0 0 8px;
+      padding-left: 8px;
+      color: #aeb6c4;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .card-grid { margin-bottom: 24px; }
+
+    .card {
+      --rarity: var(--common);
+      position: relative;
+      min-width: 0;
+      height: 128px;
+      padding: 9px;
+      border: 2px solid var(--rarity);
+      border-radius: 13px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), transparent 45%),
+        var(--panel);
+      box-shadow: 0 8px 22px rgba(0,0,0,.24), inset 0 0 0 1px rgba(255,255,255,.025);
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: -28px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--rarity) 15%, transparent);
+      filter: blur(3px);
+    }
+
+    .uncommon { --rarity: var(--uncommon); }
+    .rare { --rarity: var(--rare); }
+    .legendary { --rarity: var(--legendary); }
+
+    .icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 10px;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--panel-2);
+      color: var(--rarity);
+      font-size: 22px;
+    }
+
+    .card h2 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 11px;
+      line-height: 1.16;
+      letter-spacing: -.01em;
+    }
+
+    .distance {
+      position: absolute;
+      z-index: 1;
+      left: 9px;
+      bottom: 9px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .bullseye .icon,
+    .pinpoint .icon {
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 0 3px rgba(247, 200, 74, .14), 0 0 14px rgba(247, 200, 74, .25);
+    }
+
+    .accuracy-badge {
+      position: absolute;
+      z-index: 2;
+      top: 7px;
+      right: 6px;
+      padding: 3px 5px;
+      border: 1px solid rgba(247, 200, 74, .5);
+      border-radius: 999px;
+      background: #372d12;
+      color: #ffe08a;
+      font-size: 7px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .modal-demo {
+      position: relative;
+      padding: 18px;
+      border: 2px solid var(--legendary);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #18142a, #111722 65%);
+      box-shadow: 0 18px 55px rgba(0,0,0,.48), 0 0 30px rgba(168,109,244,.12);
+    }
+
+    .modal-demo .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .rarity-text {
+      color: #caa6ff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .close {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      border: 1px solid #343b49;
+      border-radius: 50%;
+      place-items: center;
+      color: #aab2c0;
+      font-size: 16px;
+    }
+
+    .modal-body { display: flex; gap: 14px; align-items: center; }
+
+    .modal-icon {
+      display: grid;
+      flex: 0 0 74px;
+      height: 74px;
+      border: 3px solid var(--gold);
+      border-radius: 18px;
+      background: #211a32;
+      box-shadow: 0 0 0 5px rgba(247,200,74,.1), 0 0 22px rgba(247,200,74,.18);
+      place-items: center;
+      font-size: 38px;
+    }
+
+    .modal-copy { min-width: 0; }
+    .modal-copy h2 { margin: 0 0 5px; font-size: 20px; letter-spacing: -.03em; }
+    .modal-copy p { margin: 0 0 9px; color: var(--muted); font-size: 12px; }
+
+    .modal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 8px;
+      border: 1px solid rgba(247,200,74,.52);
+      border-radius: 999px;
+      background: #352b11;
+      color: #ffe18e;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main class="phone">
+    <header>
+      <div class="eyebrow">Passport collection</div>
+      <h1>Rarity at a glance</h1>
+      <p class="intro">Border color carries rarity. Exceptional accuracy gets a gold ring and badge.</p>
+    </header>
+
+    <div class="proximity-labels" aria-hidden="true">
+      <span>Bullseye</span><span>Pinpoint</span><span>Close</span>
+    </div>
+
+    <section class="card-grid" aria-label="Twelve rarity and proximity combinations">
+      <article class="card bullseye"><span class="accuracy-badge">Bullseye</span><div class="icon">🗽</div><h2>Statue of Liberty</h2><span class="distance">18 m away</span></article>
+      <article class="card pinpoint"><span class="accuracy-badge">Pinpoint</span><div class="icon">🏛️</div><h2>Lincoln Memorial</h2><span class="distance">320 m away</span></article>
+      <article class="card"><div class="icon">🌉</div><h2>Brooklyn Bridge</h2><span class="distance">2.8 km away</span></article>
+
+      <article class="card uncommon bullseye"><span class="accuracy-badge">Bullseye</span><div class="icon">⛩️</div><h2>Fushimi Inari</h2><span class="distance">24 m away</span></article>
+      <article class="card uncommon pinpoint"><span class="accuracy-badge">Pinpoint</span><div class="icon">🏰</div><h2>Edinburgh Castle</h2><span class="distance">410 m away</span></article>
+      <article class="card uncommon"><div class="icon">🌋</div><h2>Mount Bromo</h2><span class="distance">4.1 km away</span></article>
+
+      <article class="card rare bullseye"><span class="accuracy-badge">Bullseye</span><div class="icon">🕌</div><h2>Sheikh Zayed</h2><span class="distance">12 m away</span></article>
+      <article class="card rare pinpoint"><span class="accuracy-badge">Pinpoint</span><div class="icon">🗿</div><h2>Moai of Rapa Nui</h2><span class="distance">280 m away</span></article>
+      <article class="card rare"><div class="icon">🏔️</div><h2>Torres del Paine</h2><span class="distance">6.7 km away</span></article>
+
+      <article class="card legendary bullseye"><span class="accuracy-badge">Bullseye</span><div class="icon">✨</div><h2>Machu Picchu</h2><span class="distance">9 m away</span></article>
+      <article class="card legendary pinpoint"><span class="accuracy-badge">Pinpoint</span><div class="icon">🛕</div><h2>Angkor Wat</h2><span class="distance">190 m away</span></article>
+      <article class="card legendary"><div class="icon">🌌</div><h2>Uluru</h2><span class="distance">3.4 km away</span></article>
+    </section>
+
+    <section class="modal-demo" aria-label="Full location modal example">
+      <div class="topline">
+        <span class="rarity-text">Legendary find</span>
+        <span class="close" aria-hidden="true">×</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icon">✨</div>
+        <div class="modal-copy">
+          <h2>Machu Picchu</h2>
+          <p>Peru · 15th century</p>
+          <span class="modal-badge">◎ Bullseye · 9 m</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
