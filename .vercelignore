@@ -1,0 +1,30 @@
+# Build tooling and working files: never served to players.
+# Added 2026-10-08 to cut deployment storage (was shipping ~124MB/deploy).
+.build-tmp/
+.fanout-tmp/
+build/
+scripts/
+previews/
+shots-islands/
+shots-rarity/
+*.log
+*.bak
+*.bak-*
+
+# Image-audit working data (41MB+ of QA images, triage JSONs, tmp dirs).
+assets/image-audit/
+
+# Source geography files: only the .topo.json builds are fetched at runtime.
+assets/*.geo.json
+assets/*.geojson
+
+# Stale backups, superseded social images, retired data files.
+assets/*.bak
+assets/*.pre-55-removal
+assets/difficulty/
+assets/postcard-summary-strip.png
+assets/trivia-bank.json
+assets/countries-110m.json
+assets/og.png
+assets/og-v2.png
+assets/og.svg
