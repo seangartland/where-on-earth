@@ -155,7 +155,7 @@ body.game-reveal .reveal-name { display: block; }
 
 .reveal-sheet { position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding-bottom: env(safe-area-inset-bottom, 0px); border-width: 1px 0 0; border-radius: 20px 20px 0 0; pointer-events: auto; touch-action: none; }
 .reveal-sheet[hidden] { display: none; }
-.peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; height: 80px; padding: 10px 14px 8px; cursor: pointer; outline: none; }
+.peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 94px; padding: 16px 14px 10px; cursor: pointer; outline: none; }
 .peek-bar[aria-expanded="true"] { align-items: stretch; height: auto; min-height: 132px; padding-top: 20px; padding-bottom: 12px; }
 .peek-bar:focus-visible { box-shadow: inset 0 0 0 2px rgba(127,210,244,.5); border-radius: 20px 20px 0 0; }
 .peek-grip { position: absolute; top: 6px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: rgba(193,224,250,.32); transition: background .2s; }
@@ -191,16 +191,15 @@ body.game-reveal .reveal-name { display: block; }
 body.survival .peek-score { color: #8ef0b8; }
 body.survival-miss .peek-score { color: #ff9db4; }
 .peek-distance { color: rgba(193,224,250,.7); font-size: 13px; font-weight: 650; }
-.peek-near-miss { display: none; min-width: 0; overflow: hidden; color: #ffd08a; font-size: 13px; font-weight: 750; text-overflow: ellipsis; }
-.peek-bar.near-miss .peek-distance { display: none; }
-.peek-bar.near-miss .peek-near-miss { display: inline; }
+.peek-text .score-math { display: flex; align-items: baseline; gap: 6px; line-height: 1; }
+.peek-text .score-math .base { font-size: 13px; }
+.peek-text .score-math .base b { font-size: 13px; }
+.peek-text .score-math .mult { font-size: 13px; }
 .peek-bar .peek-next { flex: none; min-width: 0; min-height: 44px; padding: 0 18px; font-size: 15px; }
 .peek-bar[aria-expanded="true"] .peek-next { align-self: center; padding: 0 14px; }
 .sheet-content { max-height: 0; overflow: hidden; transition: max-height .32s cubic-bezier(.2,.8,.2,1); }
 .reveal-sheet.expanded .sheet-content { max-height: 320px; }
 .sheet-inner { padding: 0 14px 14px; }
-.sheet-content .score-math { margin: 0 0 8px; }
-.sheet-content .score-math .base b { font-size: 16px; }
 #place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 10px; object-fit: cover; object-position: center 20%; box-shadow: var(--ring, none); }
 #place-thumb[hidden] { display: none; }
 #fact { margin: 10px 0 0; color: rgba(224,240,255,.8); font-size: 13px; line-height: 1.45; }
@@ -241,6 +240,14 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .result-score b { color: #ffc76a; font-size: 18px; }
 .result-score span { font-size: 11px; }
 .results-card .streak { margin: 0 0 12px; text-align: center; }
+.round-breakdown { margin: 16px 0 10px; }
+.round-breakdown h2 { margin: 0 0 6px; color: rgba(198,226,250,.58); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+#results-breakdown { margin: 0; padding: 0; list-style: none; }
+#results-breakdown li { display: grid; grid-template-columns: 25px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(173,216,255,.11); font-size: 15px; }
+#results-breakdown li > b { color: rgba(198,226,250,.58); font-size: 12px; }
+#results-breakdown .place { overflow: hidden; color: rgba(225,240,255,.92); text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+#results-breakdown .points { color: #ffc76a; font-size: 16px; font-weight: 800; text-align: right; }
+#results-breakdown .points small { display: block; color: rgba(193,224,250,.5); font-weight: 500; }
 .results-actions { position: relative; }
 .results-actions .primary { width: 100%; }
 .text-button { background: none; border: none; color: rgba(193,224,250,.55); font: 13px/1.4 system-ui, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 8px; margin-top: 4px; }

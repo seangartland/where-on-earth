@@ -716,7 +716,7 @@ function initMapLab(lakes) {
         for (const f of riverGeo.features)
           if (f.properties.scalerank <= maxSr) coords.push(...f.geometry.coordinates);
       swap('river', cleanCoast(coords), { color: '#4a86b8', width: 0.6, opacity: 0.3 });
-      return riverGeo.features.filter((f) => f.properties.scalerank <= maxSr).length;
+      return maxSr > 0 ? riverGeo.features.filter((f) => f.properties.scalerank <= maxSr).length : 0;
     },
   };
   window.__maplab = api;
@@ -1337,6 +1337,7 @@ const gameEls = {
   next: document.getElementById('next-button'),
   total: document.getElementById('total-score'),
   breakdown: document.getElementById('breakdown'),
+  resultsBreakdown: document.getElementById('results-breakdown'),
   postcardSummaryLede: document.getElementById('postcard-summary-lede'),
   postcardSummaryCounts: document.getElementById('postcard-summary-counts'),
   postcardSummaryContinue: document.getElementById('postcard-summary-continue'),
@@ -1839,11 +1840,6 @@ gameEls.thumb.before(thumbSlot);
 thumbSlot.append(gameEls.thumb);
 const peekSlot = gameEls.peekThumb.parentElement;
 const thumbSlots = [thumbSlot, peekSlot];
-// Near-miss line; replaces the bare distance in the peek bar (#distance itself
-// stays plain, since the route label copies its text).
-const peekNearMiss = document.createElement('span');
-peekNearMiss.className = 'peek-near-miss';
-gameEls.distance.after(peekNearMiss);
 // The reveal sheet is hidden during the flight, so a lazy thumb would only
 // start fetching once the sheet appears, after the postcard needs it.
 gameEls.thumb.loading = 'eager';
@@ -3233,11 +3229,6 @@ function revealGuess(guess, restoring = false) {
   setThumb(gameEls.peekThumb, answer.image);
   peekSlot.hidden = !answer.image;
   setRevealThumbState(answer, wasVisited, previousEarn);
-  // Near miss (150-300 km): say how close the postcard was, so a 160 km guess
-  // doesn't read like a 9000 km one. Not in endless, which awards no postcards.
-  const nearMiss = !endless.active && kmExact >= NEAR_KM && kmExact < NEAR_MISS_KM;
-  peekNearMiss.textContent = nearMiss ? `So close: ${km.toLocaleString()} km, postcard at ${NEAR_KM} km` : '';
-  gameEls.peekBar.classList.toggle('near-miss', nearMiss);
   const pill = gameEls.revealPill;
   pill.classList.remove('safe', 'miss');
   if (expeditionRun.active) {
@@ -3461,6 +3452,23 @@ function showResults() {
   const total = daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
   gameEls.resultStreak.textContent = `🔥 ${streak} day streak`;
+  gameEls.resultsBreakdown.replaceChildren(...daily.results.map((result, i) => {
+    const round = document.createElement('li');
+    const number = document.createElement('b');
+    const place = document.createElement('span');
+    const points = document.createElement('span');
+    const distance = document.createElement('small');
+
+    number.textContent = i + 1;
+    place.className = 'place';
+    place.textContent = selected[i]?.short || selected[i]?.clue || 'Unknown location';
+    points.className = 'points';
+    points.textContent = result.score.toLocaleString();
+    distance.textContent = `${result.distance.toLocaleString()} km`;
+    points.append(distance);
+    round.append(number, place, points);
+    return round;
+  }));
   tickCountdown();
 }
 
