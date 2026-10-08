@@ -12,6 +12,8 @@ mkdir -p "$DEPLOY_DIR"
 
 # Copy all required directories and files
 cp -r "$SCRIPT_DIR/index.html" "$DEPLOY_DIR/"
+# Copy preview mockups
+cp "$SCRIPT_DIR"/preview-*.html "$DEPLOY_DIR/" 2>/dev/null || true
 cp -r "$SCRIPT_DIR/src" "$DEPLOY_DIR/"
 cp -r "$SCRIPT_DIR/vendor" "$DEPLOY_DIR/"
 cp "$SCRIPT_DIR/vercel.json" "$DEPLOY_DIR/"
