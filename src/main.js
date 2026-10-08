@@ -2082,6 +2082,15 @@ let daily = null;
 let selected = [];
 let gameMode = 'start';
 
+// Keep placeholder art in the passport, but never use it for a game target.
+// This is intentionally based on the image URL so a real replacement image
+// automatically restores the location to every mode.
+function isPlayableLocation(item) {
+  return typeof item?.image === 'string'
+    && item.image.length > 0
+    && !item.image.includes('No_image_available');
+}
+
 function localDateKey(date = new Date()) {
   const y = date.getFullYear();
   const m = String(date.getMonth() + 1).padStart(2, '0');
@@ -2123,7 +2132,7 @@ function dailyIds(date, list) {
   // day N takes index N mod band length, so no location repeats until its whole
   // band is exhausted, and everyone gets the same daily game.
   const bands = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]].map(([lo, hi]) =>
-    list.filter((item) => item.image && (item.difficulty || 5) >= lo && (item.difficulty || 5) <= hi),
+    list.filter((item) => isPlayableLocation(item) && (item.difficulty || 5) >= lo && (item.difficulty || 5) <= hi),
   );
   // Days since a fixed epoch; drives the rotation.
   const epoch = Date.UTC(2026, 9, 1) / 86400000;
@@ -2182,7 +2191,7 @@ function loadDaily() {
     : { date, ids: dailyIds(date, locations), round: 0, results: [], complete: false };
   daily.round = clamp(Number(daily.round) || 0, 0, 4);
   daily.results = Array.isArray(daily.results) ? daily.results.slice(0, 5) : [];
-  selected = daily.ids.map((id) => locations.find((item) => item.id === id)).filter(Boolean);
+  selected = daily.ids.map((id) => locations.find((item) => item.id === id)).filter(isPlayableLocation);
   if (selected.length !== 5) {
     daily = { date, ids: dailyIds(date, locations), round: 0, results: [], complete: false };
     selected = daily.ids.map((id) => locations.find((item) => item.id === id));
@@ -2271,7 +2280,7 @@ function showRound() {
   const item = currentItem();
   if (expeditionRun.active) {
     document.body.classList.add('expedition-mode');
-    const total = expeditionRun.expedition.locationIds.length;
+    const total = expeditionLocations(expeditionRun.expedition).length;
     gameEls.number.textContent = `${expeditionRun.expedition.emoji || '🧭'} ${expeditionRun.expedition.theme} · ${expeditionRun.index + 1}/${total}`;
     gameEls.weight.style.display = 'none';
     gameEls.dailyDate.hidden = true;
@@ -3245,7 +3254,7 @@ function revealGuess(guess, restoring = false) {
   const pill = gameEls.revealPill;
   pill.classList.remove('safe', 'miss');
   if (expeditionRun.active) {
-    const total = expeditionRun.expedition.locationIds.length;
+    const total = expeditionLocations(expeditionRun.expedition).length;
     const finished = expeditionRun.index + 1 >= total;
     gameEls.score.textContent = `${expeditionRun.index + 1}/${total}`;
     pill.textContent = finished ? '🏅 Expedition complete!' : `${expeditionRun.index + 1}/${total} complete`;
@@ -3507,7 +3516,7 @@ function nextRound() {
     if (survival.missed) showSurvivalGameOver();
     else survivalGo();
   } else if (expeditionRun.active) {
-    if (expeditionRun.index + 1 >= expeditionRun.expedition.locationIds.length) showExpeditionPicker(expeditionRun.expedition.id);
+    if (expeditionRun.index + 1 >= expeditionLocations(expeditionRun.expedition).length) showExpeditionPicker(expeditionRun.expedition.id);
     else {
       expeditionRun.index += 1;
       expeditionRun.item = expeditionLocation(expeditionRun.expedition, expeditionRun.index);
@@ -3646,10 +3655,10 @@ const endlessEntry = document.getElementById('endless-button');
 
 const endlessEls = { entry: endlessEntry };
 
-// Pure random: every guess picks from all image-backed locations.
+// Pure random: every guess picks from all playable image-backed locations.
 // Repeats are expected — dailies are the way to see new places.
 function endlessPick() {
-  const all = locations.filter((item) => item.image);
+  const all = locations.filter(isPlayableLocation);
   // Keep track of recent picks to avoid repeats (last 50)
   if (!endless.recent) endless.recent = [];
   let pick = all[Math.floor(Math.random() * all.length)];
@@ -3851,7 +3860,7 @@ function survivalBand() {
 // bag, collection weighting, or repeat prevention in Survival.
 function survivalPick() {
   const band = survivalBand();
-  const choices = locations.filter((item) => item.image && Number(item.difficulty) === band);
+  const choices = locations.filter((item) => isPlayableLocation(item) && Number(item.difficulty) === band);
   if (!choices.length) return null;
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -4928,7 +4937,7 @@ expeditionPicker.className = 'expedition-picker';
 expeditionPicker.hidden = true;
 expeditionPicker.innerHTML = `<div class="expedition-panel" role="dialog" aria-modal="true" aria-labelledby="expedition-heading">
   <h2 id="expedition-heading">Choose an expedition</h2>
-  <p>Seven hand-picked stops, played in order.</p>
+  <p>Hand-picked stops, played in order.</p>
   <div class="expedition-list"></div>
 </div>`;
 document.body.appendChild(expeditionPicker);
@@ -4942,26 +4951,38 @@ function loadExpeditionState() {
 
 function expeditionProgress(expedition) {
   const saved = expeditionState.progress[expedition.id] || {};
-  const completed = clamp(Number(saved.completed) || 0, 0, expedition.locationIds.length);
-  return { completed, complete: completed >= expedition.locationIds.length };
+  const total = expeditionLocations(expedition).length;
+  const completed = clamp(Number(saved.completed) || 0, 0, total);
+  return { completed, complete: completed >= total };
+}
+
+function expeditionLocations(expedition) {
+  return expedition.locationIds
+    .map((id) => locations.find((item) => item.id === id))
+    .filter(isPlayableLocation);
 }
 
 function expeditionLocation(expedition, index) {
-  return locations.find((item) => item.id === expedition.locationIds[index]);
+  return expeditionLocations(expedition)[index];
+}
+
+function updateExpeditionEntry() {
+  gameEls.expeditionsEntry.disabled = !expeditions.some((expedition) => expeditionLocations(expedition).length);
 }
 
 function completeExpeditionRound() {
   const expedition = expeditionRun.expedition;
   const progress = expeditionProgress(expedition);
   progress.completed = Math.max(progress.completed, expeditionRun.index + 1);
-  progress.complete = progress.completed >= expedition.locationIds.length;
+  progress.complete = progress.completed >= expeditionLocations(expedition).length;
   expeditionState.progress[expedition.id] = progress;
   writeJSON(EXPEDITION_KEY, expeditionState);
 }
 
 function renderExpeditionPicker(highlightId = '') {
-  expeditionList.replaceChildren(...expeditions.map((expedition) => {
+  expeditionList.replaceChildren(...expeditions.filter((expedition) => expeditionLocations(expedition).length).map((expedition) => {
     const progress = expeditionProgress(expedition);
+    const total = expeditionLocations(expedition).length;
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'expedition-choice';
@@ -4970,7 +4991,7 @@ function renderExpeditionPicker(highlightId = '') {
     button.innerHTML = `<span class="emoji"></span><span><strong></strong><small></small></span><span class="badge"></span>`;
     button.querySelector('.emoji').textContent = expedition.emoji || '🧭';
     button.querySelector('strong').textContent = expedition.theme;
-    button.querySelector('small').textContent = progress.complete ? '7/7 completed · Replay' : `${progress.completed}/7 completed`;
+    button.querySelector('small').textContent = progress.complete ? `${total}/${total} completed · Replay` : `${progress.completed}/${total} completed`;
     button.querySelector('.badge').textContent = progress.complete ? '🏅' : '›';
     return button;
   }));
@@ -6147,6 +6168,7 @@ getJSON('assets/locations.json', RESET_DAILY ? { cache: 'reload' } : undefined).
   gameEls.play.disabled = false;
   endlessEls.entry.disabled = false;
   gameEls.survivalEntry.disabled = false;
+  updateExpeditionEntry();
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
   if (window.__boot) window.__boot('locations loaded');
@@ -6158,7 +6180,7 @@ getJSON('assets/locations.json', RESET_DAILY ? { cache: 'reload' } : undefined).
 getJSON('assets/expeditions.json').then((data) => {
   expeditions = Array.isArray(data) ? data : [];
   loadExpeditionState();
-  gameEls.expeditionsEntry.disabled = !expeditions.length;
+  updateExpeditionEntry();
 }).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('EXPEDITIONS: ' + err.message);
