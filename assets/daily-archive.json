@@ -42,5 +42,27 @@
       "id": "ananindeua-br",
       "round": 5
     }
+  ],
+  "2026-10-08": [
+    {
+      "id": "milan-it",
+      "round": 1
+    },
+    {
+      "id": "strasbourg-france",
+      "round": 2
+    },
+    {
+      "id": "badshahi-mosque",
+      "round": 3
+    },
+    {
+      "id": "vlkolinec-slovakia",
+      "round": 4
+    },
+    {
+      "id": "teraina",
+      "round": 5
+    }
   ]
 }
