@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Postcard rarity × proximity</title>
+  <link rel="stylesheet" href="./src/style.css">
+  <style>
+    html,body{min-height:100%;height:auto;overflow:auto;touch-action:pan-y}
+    body{position:static;box-sizing:border-box;width:min(100%,390px);margin:0 auto;padding:24px 14px 42px;background:#0b1020}*{box-sizing:border-box}
+    .preview-title{margin:0;color:#f5fbff;font-size:24px;letter-spacing:-.04em}.preview-intro{margin:6px 0 26px;color:rgba(198,226,250,.62);font-size:12px;line-height:1.45}
+    .matrix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 10px}.column-label{margin:0 0 -8px;color:#77caff;font-size:9px;font-weight:850;letter-spacing:.12em;text-align:center;text-transform:uppercase}
+    .rarity-common{--rarity:#9aa6bb;--rarity-ink:#dfe5ef;--rarity-bg:#2e3647}.rarity-uncommon{--rarity:#4fcf8a;--rarity-ink:#7ff0b0;--rarity-bg:#173b2c}.rarity-rare{--rarity:#6c8cff;--rarity-ink:#a9bcff;--rarity-bg:#1f2a5c}.rarity-legendary{--rarity:#c77dff;--rarity-ink:#f3dcff;--rarity-bg:#5a2d86}
+    .specimen{min-width:0}.card{position:relative;overflow:visible;min-height:138px;padding:8px;border:1.5px solid var(--rarity);border-radius:15px;background:#1a1f2e;box-shadow:0 12px 28px rgba(0,0,0,.34)}
+    .card.bullseye{border:2px solid #f5c451;box-shadow:0 0 0 1px #735d28,0 0 14px rgba(245,196,81,.36),0 12px 28px rgba(0,0,0,.38)}.card.pinpoint{border:3px solid #f5c451;box-shadow:0 0 0 1px #9d5d30,0 0 21px rgba(245,196,81,.54),0 12px 28px rgba(0,0,0,.42)}
+    .rarity-tab{position:absolute;z-index:3;top:-9px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;justify-content:center;height:18px;padding:0 8px;border:1px solid var(--rarity);border-radius:999px;background:var(--rarity-bg);color:var(--rarity-ink);box-shadow:0 0 0 2px #0b1020;font-size:10px;font-weight:800;line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+    .rarity-legendary .rarity-tab{border-color:#e0b3ff;background:linear-gradient(135deg,#7a3fc0,#b04fd8);color:#fff;box-shadow:0 0 0 2px #0b1020,0 0 8px rgba(199,125,255,.45)}
+    .photo{overflow:hidden;height:78px;border-radius:9px;background:#111827}.photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 42%}.bullseye .photo{box-shadow:inset 0 0 0 1.5px #f5c451}.pinpoint .photo{box-shadow:inset 0 0 0 2.5px #f5c451}
+    .place{overflow:hidden;margin:8px 1px 0;color:#f7f8fc;font:700 15px/1.1 Georgia,serif;text-overflow:ellipsis;white-space:nowrap}.meta{display:flex;justify-content:space-between;gap:4px;margin:5px 1px 0;color:#939db1;font-size:8.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}.bullseye .tier,.pinpoint .tier{color:#ffd971}
+    .row-name{grid-column:1/-1;margin:-9px 0 -17px 2px;color:rgba(198,226,250,.45);font-size:8px;font-weight:850;letter-spacing:.15em;text-transform:uppercase}
+  </style>
+</head>
+<body>
+  <h1 class="preview-title">Rarity × proximity</h1>
+  <p class="preview-intro">All 12 postcard combinations at the 390px phone viewport. Rarity stays centered and opaque; gold belongs only to proximity.</p>
+  <main class="matrix" aria-label="Twelve rarity and proximity combinations">
+    <p class="column-label">Base</p><p class="column-label">Bullseye</p><p class="column-label">Pinpoint</p>
+    <p class="row-name">Common</p>
+    <article class="specimen rarity-common"><div class="card"><span class="rarity-tab">Common</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Postcard</span></div></div></article>
+    <article class="specimen rarity-common"><div class="card bullseye"><span class="rarity-tab">Common</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Bullseye</span></div></div></article>
+    <article class="specimen rarity-common"><div class="card pinpoint"><span class="rarity-tab">Common</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Pinpoint</span></div></div></article>
+    <p class="row-name">Uncommon</p>
+    <article class="specimen rarity-uncommon"><div class="card"><span class="rarity-tab">Uncommon</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Postcard</span></div></div></article>
+    <article class="specimen rarity-uncommon"><div class="card bullseye"><span class="rarity-tab">Uncommon</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Bullseye</span></div></div></article>
+    <article class="specimen rarity-uncommon"><div class="card pinpoint"><span class="rarity-tab">Uncommon</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Pinpoint</span></div></div></article>
+    <p class="row-name">Rare</p>
+    <article class="specimen rarity-rare"><div class="card"><span class="rarity-tab">Rare</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Postcard</span></div></div></article>
+    <article class="specimen rarity-rare"><div class="card bullseye"><span class="rarity-tab">Rare</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Bullseye</span></div></div></article>
+    <article class="specimen rarity-rare"><div class="card pinpoint"><span class="rarity-tab">Rare</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Pinpoint</span></div></div></article>
+    <p class="row-name">Legendary</p>
+    <article class="specimen rarity-legendary"><div class="card"><span class="rarity-tab">Legendary</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Postcard</span></div></div></article>
+    <article class="specimen rarity-legendary"><div class="card bullseye"><span class="rarity-tab">Legendary</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Bullseye</span></div></div></article>
+    <article class="specimen rarity-legendary"><div class="card pinpoint"><span class="rarity-tab">Legendary</span><div class="photo"><img src="./assets/image-audit/q4-imgs/notre-dame-paris.jpg" alt=""></div><div class="place">Paris</div><div class="meta"><span>France</span><span class="tier">Pinpoint</span></div></div></article>
+  </main>
+</body>
+</html>
