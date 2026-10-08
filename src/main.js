@@ -54,7 +54,12 @@ if (RESET_DAILY) {
 const DEG = Math.PI / 180;
 const FOV = 36;
 const ATMO_RADIUS = 1.17;
-const MIN_DIST = 1.32;
+// Player zoom floor: ~190 km above the surface, ~0.17 km per css px on a
+// 390 px phone, enough to see Robben Island or Alcatraz as a shape.
+const MIN_DIST = 1.03;
+// Scripted cameras (bullseye snap, flight, reveal framing) keep the closest
+// framing they were tuned at; only the player's own zoom goes deeper.
+const SCENE_MIN_DIST = 1.32;
 const PITCH_LIMIT = 85 * DEG; // look down at the poles, never flip north-down
 const FRICTION = 2.1; // velocity decay per second (exponential)
 const MAX_SPIN = 7; // rad/s
@@ -474,7 +479,11 @@ function lakeArea(f) {
   return (x1 - x0) * (y1 - y0);
 }
 
-function buildLandTexture(geo, coastLines, lakes) {
+// Remote OSM islands (islands.topo.json `blob`) bake at least this wide, in
+// 4096-texture texels (~13 km), so a 2 km atoll still reads as a dot of land.
+const ISLAND_BLOB_TEXELS = 1.5;
+
+function buildLandTexture(geo, coastLines, lakes, islands) {
   const maxTex = renderer.capabilities.maxTextureSize;
   const W = maxTex >= 4096 ? 4096 : 2048;
   const H = W / 2;
@@ -506,6 +515,18 @@ function buildLandTexture(geo, coastLines, lakes) {
   }
   for (const line of coastLines) addToPath(coast, unwrap(line), W, H, false);
 
+  // Supplemental OSM islands: own path, nonzero fill, so one lying over coarse
+  // base land can't punch an evenodd hole in it. No MIN_ISLAND rule.
+  const isles = new Path2D();
+  const blobs = new Path2D();
+  for (const f of islands.features) {
+    for (const [ring] of f.geometry.coordinates) {
+      const pts = unwrap(ring);
+      addToPath(isles, pts, W, H, true);
+      if (f.properties.blob) addToPath(blobs, pts, W, H, true);
+    }
+  }
+
   // big lakes, island rings included so evenodd keeps lake islands as land
   const water = new Path2D();
   for (const f of lakes.features) {
@@ -522,20 +543,32 @@ function buildLandTexture(geo, coastLines, lakes) {
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
 
+  // all land in the current fill colour: base land, islands at true size, and
+  // remote islands stroked out to their minimum blob size
+  const fillLand = () => {
+    ctx.fill(land, 'evenodd');
+    ctx.fill(isles);
+    ctx.save();
+    ctx.strokeStyle = ctx.fillStyle;
+    ctx.lineWidth = ISLAND_BLOB_TEXELS * s;
+    ctx.stroke(blobs);
+    ctx.restore();
+  };
+
   // B: broad shelf haze around landmasses
   ctx.fillStyle = 'rgb(0,0,140)';
   ctx.shadowColor = 'rgb(0,0,255)';
   ctx.shadowBlur = 46 * s;
-  ctx.fill(land, 'evenodd');
+  fillLand();
   ctx.shadowBlur = 16 * s;
-  ctx.fill(land, 'evenodd');
+  fillLand();
 
   // R: land fill
   ctx.shadowBlur = 0;
   ctx.fillStyle = 'rgb(255,0,0)';
   ctx.strokeStyle = 'rgb(255,0,0)';
   ctx.lineWidth = 1 * s;
-  ctx.fill(land, 'evenodd');
+  fillLand();
   ctx.stroke(land);
 
   // knock lakes out of the land fill (R -> 0) and dim the shelf haze under
@@ -570,6 +603,7 @@ function buildLandTexture(geo, coastLines, lakes) {
 }
 
 const outlineMaterials = [];
+const outlineMeshes = [];
 let answerLineMaterial = null;
 function buildOutline(lines, radius, opts) {
   const pos = [];
@@ -606,6 +640,8 @@ function buildOutline(lines, radius, opts) {
   outlineMaterials.push(mat);
   const mesh = new LineSegments2(geo, mat);
   mesh.renderOrder = 2;
+  mesh.userData.radius = radius;
+  outlineMeshes.push(mesh);
   return mesh;
 }
 
@@ -618,6 +654,8 @@ let landLoaded = false;
 // detailed 10m coastlines; world.geo.json is still loaded for the land fill.
 // The page loads the *.topo.json versions (build/make-topojson.mjs): same
 // coordinates, quantized on the source's 1e-4 degree grid, ~2x smaller.
+// islands.topo.json (build/make-islands.mjs): OSM outlines for island pins
+// Natural Earth is too coarse to draw, already simplified at build time.
 const getJSON = (url, init) => fetch(url, init).then((r) => (r.ok ? r.json() : Promise.reject(new Error(url + ' ' + r.status))));
 // Decode delta arcs ourselves as (q + t/s) / 1e4: division is correctly
 // rounded, so points are bit-identical to parsing the original GeoJSON
@@ -650,14 +688,18 @@ Promise.all([
   getTopo('assets/world-10m.topo.json'),
   getTopo('assets/lakes-10m.topo.json'),
   getTopo('assets/rivers-10m-scalerank.topo.json'),
+  // optional: the globe still works (minus small islands) if this one fails
+  getTopo('assets/islands.topo.json').catch(() => ({ features: [] })),
 ])
-  .then(([geo, geo10m, lakes, rivers]) => {
+  .then(([geo, geo10m, lakes, rivers, islands]) => {
     // Internal country borders hidden: coastlines only, keeps the challenge in
     // your geography, not in reading lines. (Border data stays in the GeoJSON
-    // for a future practice mode.) Big-lake shores count as coastline.
-    const coast = cleanCoast(
-      geo10m.features.find((f) => f.properties.kind === 'coast').geometry.coordinates,
-    );
+    // for a future practice mode.) Big-lake shores count as coastline, and so
+    // do the OSM islands, which skip cleanCoast's MIN_ISLAND rule.
+    const coast = [
+      ...cleanCoast(geo10m.features.find((f) => f.properties.kind === 'coast').geometry.coordinates),
+      ...islands.features.flatMap((f) => f.geometry.coordinates.map(([ring]) => ring)),
+    ];
     // Rivers: 655 Natural Earth features with per-feature scalerank; use <= 7.
     const riverCoords = [];
     for (const f of rivers.features)
@@ -667,7 +709,7 @@ Promise.all([
     const sortedLakes = [...lakes.features].sort((a, b) => lakeArea(b) - lakeArea(a));
     const bigLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(0, 20) }));
     const smallLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(20) }));
-    globeMat.uniforms.uMap.value = buildLandTexture(geo, coast, lakes);
+    globeMat.uniforms.uMap.value = buildLandTexture(geo, coast, lakes, islands);
     globe.add(buildOutline(coast, 1.002, { color: '#7fd2f4', width: 0.78, opacity: 0.92 }));
     mapLab.lakeMesh = buildOutline(bigLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
     mapLab.lakeMeshDim = buildOutline(smallLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.28 });
@@ -1161,6 +1203,11 @@ resize();
 // radians of rotation per css pixel so the surface tracks the finger
 const radPerPx = () => (2 * (dist - 1) * Math.tan((FOV / 2) * DEG)) / viewH;
 
+// Zoom scales altitude, not distance from the centre: map scale goes with
+// altitude, so a pinch or wheel notch feels the same at any depth instead of
+// slamming through the last few hundred km near MIN_DIST.
+const zoomTo = (from, factor) => clamp(1 + (from - 1) * factor, MIN_DIST, maxDist);
+
 const pointers = new Map();
 let samples = []; // recent {t, yaw, pitch} while dragging, for release velocity
 let tap = null;
@@ -1251,7 +1298,7 @@ canvas.addEventListener('pointermove', (e) => {
   if (tap && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > TAP_MAX_MOVE) tap = null;
 
   if (pinch && pointers.size >= 2) {
-    targetDist = clamp(pinch.dist * (pinch.span / Math.max(pinchSpan(), 1)), MIN_DIST, maxDist);
+    targetDist = zoomTo(pinch.dist, pinch.span / Math.max(pinchSpan(), 1));
   }
 
   applyDrag();
@@ -1299,7 +1346,7 @@ canvas.addEventListener(
   (e) => {
     e.preventDefault();
     const unit = e.deltaMode === 1 ? 0.05 : e.ctrlKey ? 0.012 : 0.0015;
-    targetDist = clamp(targetDist * Math.exp(e.deltaY * unit), MIN_DIST, maxDist);
+    targetDist = zoomTo(targetDist, Math.exp(e.deltaY * unit));
     markInteraction();
   },
   { passive: false }
@@ -2441,7 +2488,15 @@ function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyoverTier(
   vYaw = vPitch = autoSpin = 0;
 }
 
+let cameraNearBase = 0.05;
 function setCameraNear(near) {
+  cameraNearBase = near;
+  applyCameraNear();
+}
+// Deep player zoom sits ~0.03 above the surface, inside the 0.05 near plane:
+// pull the plane in with altitude so it never slices the globe.
+function applyCameraNear() {
+  const near = Math.min(cameraNearBase, Math.max((dist - 1) * 0.5, 0.002));
   if (camera.near === near) return;
   camera.near = near;
   camera.updateProjectionMatrix();
@@ -2927,7 +2982,7 @@ function updateBullseyeAnimation(anim, dt) {
   }
   // Snap: a fast damper straight down onto the answer, a quick rising zip.
   followTravelPoint(anim.b, 14);
-  if (!anim.landed) targetDist = Math.max(MIN_DIST, 1.42);
+  if (!anim.landed) targetDist = Math.max(SCENE_MIN_DIST, 1.42);
   const zip = clamp((anim.elapsed - zoomStart) / 0.45, 0, 1);
   audio.whooshSet(Math.sin(Math.PI * zip) * 0.8, 0.3 + 0.7 * zip);
   if (zip >= 1) audio.whooshStop();
@@ -2963,7 +3018,7 @@ function updateBullseyeAnimation(anim, dt) {
   // Drop into slow motion on impact and ease back to full speed.
   timeScale = since < slowFor ? 0.3 : THREE.MathUtils.lerp(0.3, 1, smoothstep(clamp((since - slowFor) / 0.4, 0, 1)));
   // A slow push-in while time is stretched.
-  targetDist = Math.max(MIN_DIST, 1.42 - 0.05 * smoothstep(clamp(since / slowFor, 0, 1)));
+  targetDist = Math.max(SCENE_MIN_DIST, 1.42 - 0.05 * smoothstep(clamp(since / slowFor, 0, 1)));
   anim.wave += (dt * timeScale) / 0.9;
   shockwaveMat.uniforms.uP.value = Math.min(anim.wave, 1);
   shockwaveMat.uniforms.uRadius.value = 0.3 * anim.pinScale;
@@ -2991,8 +3046,8 @@ function updateTravelAnimation(dt, pinScale) {
   const travelDuration = anim.travelDuration;
   const arriveDuration = anim.arriveDuration;
   const arriveBlend = 0.5;
-  const flyDist = Math.max(MIN_DIST, 1 + anim.flyAlt);
-  const arriveDist = Math.max(MIN_DIST, 1.52);
+  const flyDist = Math.max(SCENE_MIN_DIST, 1 + anim.flyAlt);
+  const arriveDist = Math.max(SCENE_MIN_DIST, 1.52);
   const flyStart = diveStart + diveDuration;
   const arriveStart = flyStart + travelDuration;
   const pullbackStart = arriveStart + arriveDuration;
@@ -3116,7 +3171,7 @@ function frameRevealPoints(a, b, strip = revealStrip()) {
   const screenSlope = (safeRadius / (viewH / 2)) * Math.tan((FOV / 2) * DEG);
   const screenFit = Math.cos(halfAngle) + Math.sin(halfAngle) / Math.max(screenSlope, 0.02);
   const horizonFit = halfAngle < Math.PI / 2 ? 1 / Math.max(Math.cos(halfAngle), 0.04) : 14;
-  targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, MIN_DIST, 14);
+  targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
 
   // Slerp's halfway point is simply the normalized vector sum, except for the
   // vanishingly rare antipodal case where a stable perpendicular is used.
@@ -6293,6 +6348,12 @@ function frame() {
   }
 
   dist = damp(dist, targetDist, 9, dt);
+  applyCameraNear();
+  // Outlines float 0.002 above the globe so they never sink into its facets.
+  // Near the ground that lift shows as parallax against the fill and pins, so
+  // it shrinks with altitude (floor clears the 160x100 sphere's ~0.0003 sag).
+  const outlineLift = clamp((dist - 1) * 0.006, 0.0004, 0.002);
+  for (const m of outlineMeshes) m.scale.setScalar((1 + outlineLift) / m.userData.radius);
   camera.position.set(0, 0, dist);
   camera.up.set(0, 1, 0);
   camera.lookAt(0, 0, 0);
@@ -6321,7 +6382,10 @@ function frame() {
   // unusually wide reveal framings so the badge/checkmark do not disappear.
   const screenScale = (dist - 1) / Math.max(fitDist - 1, 0.1);
   const farT = smoothstep(clamp((dist - fitDist) / Math.max(14 - fitDist, 0.1), 0, 1));
-  const pinScale = clamp(screenScale * (1 + 0.28 * farT), 0.22, 6);
+  // Below SCENE_MIN_DIST the floor shrinks with altitude: pins hold the screen
+  // size they had there instead of ballooning over the coast at deep zoom.
+  const pinFloor = 0.22 * Math.min(1, (dist - 1) / (SCENE_MIN_DIST - 1));
+  const pinScale = clamp(screenScale * (1 + 0.28 * farT), pinFloor, 6);
   // Runs before the pins so they can be sized for this frame's flight camera.
   updateTravelAnimation(dt, pinScale);
   const pinDt = dt * timeScale; // bullseye slow motion
@@ -6346,6 +6410,8 @@ window.__view = {
   get yaw() { return yaw; },
   get pitch() { return pitch; },
   set(y, p) { yaw = y; pitch = p; vYaw = vPitch = autoSpin = 0; lastInteraction = performance.now() + 1e9; },
+  get dist() { return dist; },
+  zoom(d) { dist = targetDist = d; },
   pick(x, y) { // globe-local point under a screen point
     const h = sphereHit(x, y, new THREE.Vector3());
     return h && h.applyQuaternion(globe.quaternion.clone().invert()).toArray();
