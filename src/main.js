@@ -1233,6 +1233,8 @@ const gameEls = {
   next: document.getElementById('next-button'),
   total: document.getElementById('total-score'),
   breakdown: document.getElementById('breakdown'),
+  postcardSummaryLede: document.getElementById('postcard-summary-lede'),
+  postcardSummaryCounts: document.getElementById('postcard-summary-counts'),
   share: document.getElementById('share-button'),
   status: document.getElementById('share-status'),
   startStreak: document.getElementById('start-streak'),
@@ -3060,6 +3062,17 @@ function showEarnToast(answer, tier) {
   }, 3000);
 }
 
+// Save the outcome with the round rather than trying to reconstruct it from the
+// passport later. A postcard can only be new or upgraded at the instant the
+// guess is made; opening an already-finished daily must not change that story.
+function postcardRoundOutcome(previousEarn, newlyEarned) {
+  if (!newlyEarned) return { kind: 'miss' };
+  return {
+    kind: previousEarn ? 'upgrade' : 'new',
+    tier: newlyEarned,
+  };
+}
+
 function revealGuess(guess, restoring = false) {
   if (gameMode !== 'guess' && !restoring) return;
   const answer = currentItem();
@@ -3075,9 +3088,6 @@ function revealGuess(guess, restoring = false) {
       survival.survived += 1;
       saveSurvivalBest(survival.survived);
     }
-  } else if (!restoring && !oneOff) {
-    daily.results[daily.round] = { guess, distance: km, score, base };
-    saveDaily();
   }
   gameMode = 'reveal';
   window.__canGuess = false;
@@ -3094,6 +3104,17 @@ function revealGuess(guess, restoring = false) {
   const previousEarn = passport.meta[answer.id]?.e || 0;
   // Endless earns visits only; postcards come from daily and survival.
   const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact, !endless.active) : 0; // exact, so earning matches the flyover tier
+  if (!restoring && !oneOff) {
+    daily.results[daily.round] = {
+      guess,
+      distance: km,
+      score,
+      base,
+      distanceExact: kmExact,
+      postcard: postcardRoundOutcome(previousEarn, newlyEarned),
+    };
+    saveDaily();
+  }
   if (!restoring && expeditionRun.active) completeExpeditionRound();
   const weight = oneOff ? 1 : WEIGHTS[daily.round];
   gameEls.baseScore.textContent = base;
@@ -3214,6 +3235,62 @@ function scoreEmoji(base) {
   return '🥶';
 }
 
+const COUNTRY_FLAGS = {
+  Scotland: '🏴', England: '🏴', 'Northern Ireland': '🇬🇧', Wales: '🏴',
+  'International Waters': '🌊', Uruguay: '🇺🇾', 'United States': '🇺🇸',
+  Suriname: '🇸🇷', Botswana: '🇧🇼', Guyana: '🇬🇾', Ukraine: '🇺🇦',
+  Comoros: '🇰🇲', Niue: '🇳🇺', 'Cape Verde': '🇨🇻', Latvia: '🇱🇻',
+  'Vatican City': '🇻🇦', Lesotho: '🇱🇸', Brunei: '🇧🇳',
+};
+
+function flagForLocation(item) {
+  return item.clue?.match(/\p{Regional_Indicator}{2}/u)?.[0] || COUNTRY_FLAGS[item.country] || '🌍';
+}
+
+function postcardDistance(result, outcome) {
+  const distance = Number.isFinite(result.distanceExact) ? result.distanceExact : result.distance;
+  const precision = outcome?.tier === EARN_PINPOINT ? 1 : 0;
+  return `${distance.toLocaleString(undefined, { maximumFractionDigits: precision, minimumFractionDigits: precision })} km`;
+}
+
+function postcardSummaryCard(result, item) {
+  const outcome = result.postcard || { kind: 'miss' };
+  const card = document.createElement('article');
+  card.className = `postcard-summary-card ${outcome.kind}${outcome.tier === EARN_PINPOINT ? ' pinpoint' : ''}`;
+  const photo = document.createElement('img');
+  photo.className = 'postcard-summary-photo';
+  photo.src = item.image || '';
+  photo.alt = '';
+  photo.loading = 'lazy';
+  photo.addEventListener('error', () => { photo.classList.add('unavailable'); });
+  const copy = document.createElement('div');
+  copy.className = 'postcard-summary-copy';
+  const topline = document.createElement('div');
+  topline.className = 'postcard-summary-topline';
+  const badge = document.createElement('span');
+  badge.className = 'postcard-summary-badge';
+  badge.textContent = outcome.kind === 'new' ? '✦ New' : outcome.kind === 'upgrade' ? '↑ Upgraded' : 'No postcard';
+  const distance = document.createElement('span');
+  distance.className = 'postcard-summary-distance';
+  distance.textContent = postcardDistance(result, outcome);
+  const place = document.createElement('div');
+  place.className = 'postcard-summary-place';
+  place.textContent = item.short || item.clue;
+  const country = document.createElement('div');
+  country.className = 'postcard-summary-country';
+  country.textContent = `${flagForLocation(item)} ${item.country || ''}`;
+  if (outcome.kind === 'upgrade') {
+    const tier = document.createElement('span');
+    tier.className = 'postcard-summary-tier';
+    tier.textContent = ` · ${outcome.tier === EARN_PINPOINT ? 'Pinpoint' : 'Bullseye'}`;
+    country.append(tier);
+  }
+  topline.append(badge, distance);
+  copy.append(topline, place, country);
+  card.append(photo, copy);
+  return card;
+}
+
 function shareText() {
   const dateStr = new Date(`${daily.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const total = daily.results.reduce((sum, result) => sum + result.score, 0);
@@ -3238,12 +3315,25 @@ function showResults() {
   const total = daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
   gameEls.resultStreak.textContent = `🔥 ${streak} day streak`;
-  gameEls.breakdown.replaceChildren(...daily.results.map((result, i) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<b>${i + 1}</b><span class="place"></span><span class="points">${result.score.toLocaleString()}<small>${result.distance.toLocaleString()} km</small></span>`;
-    li.querySelector('.place').textContent = selected[i].short || selected[i].clue;
-    return li;
-  }));
+  const outcomes = daily.results.map((result) => result.postcard || { kind: 'miss' });
+  const newCount = outcomes.filter(({ kind }) => kind === 'new').length;
+  const upgradeCount = outcomes.filter(({ kind }) => kind === 'upgrade').length;
+  gameEls.postcardSummaryLede.textContent = newCount || upgradeCount
+    ? `${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' — and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`
+    : 'No postcards this time — get within 150 km to earn one.';
+  gameEls.breakdown.replaceChildren(...daily.results.map((result, i) => postcardSummaryCard(result, selected[i])));
+  const countLabel = (count, label) => {
+    const el = document.createElement('span');
+    const number = document.createElement('b');
+    number.textContent = count;
+    el.append(number, ` ${label}`);
+    return el;
+  };
+  gameEls.postcardSummaryCounts.replaceChildren(
+    countLabel(newCount, 'new'),
+    Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }),
+    countLabel(upgradeCount, 'upgraded'),
+  );
   tickCountdown();
 }
 
@@ -3597,23 +3687,12 @@ const REVIEW_LINE_HIT = 20;
 const reviewStyle = document.createElement('style');
 reviewStyle.textContent = `
 .results-card { position: relative; }
-/* Compact results layout: fit score, 5 rounds, share, and countdown in 844px without scroll */
-.results-card .eyebrow { margin: 0 0 2px; }
-.results-card h2 { margin: 0; font-size: 52px; line-height: 1; }
-.results-card h2 small { font-size: 22px; }
-.results-card .streak { margin: 6px 0 0; }
-#breakdown { margin: 12px 0 0; padding: 0; }
-#breakdown li { padding: 8px 0; }
-#breakdown .points { font-size: 20px; }
-#breakdown .points small { font-size: 13px; }
 .results-globe { margin: 8px auto 0; }
-.results-actions { display: flex; align-items: stretch; gap: 10px; margin-top: 8px; }
-.results-actions #share-button { flex: 1.6 1 0; min-width: 0; margin-top: 0; min-height: 52px; padding: 0 16px; font-size: 15px; }
 .next-game { margin: 12px 0 0; padding: 10px 16px 8px; }
 .next-game-time { font-size: 28px; }
 .next-game-sub { font-size: 11px; }
 .results-globe { display: block; margin: 0 auto; }
-#breakdown li { cursor: pointer; }
+.postcard-summary-card { cursor: pointer; }
 .review-screen { pointer-events: none; }
 .review-bar { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px; right: 14px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 10px 10px 10px 16px; border-radius: 18px; pointer-events: auto; }
 .review-bar .review-title { flex: 1; min-width: 0; }
@@ -3865,8 +3944,8 @@ gameEls.results.addEventListener('click', (e) => {
   if (e.target === gameEls.results) enterReview(); // tap outside the card
 });
 gameEls.breakdown.addEventListener('click', (e) => {
-  const li = e.target.closest('li');
-  if (li) enterReview([...gameEls.breakdown.children].indexOf(li));
+  const card = e.target.closest('.postcard-summary-card');
+  if (card) enterReview([...gameEls.breakdown.children].indexOf(card));
 });
 reviewEls.screen.addEventListener('click', (e) => {
   const act = e.target.closest('[data-act]');

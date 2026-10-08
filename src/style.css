@@ -192,17 +192,44 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .line-distance[hidden] { display: none; }
 .results-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px); background: rgba(2,4,9,.42); pointer-events: auto; }
 .results-card, .survival-results-card { position: relative; }
-.results-card { box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 18px 16px; border-radius: 24px; text-align: center; }
+.results-card { box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 20px 14px 18px; border-radius: 24px; text-align: left; }
 .results-card .home-nav-btn, .survival-results-card .home-nav-btn { position: absolute; top: 5px; right: 5px; }
 .results-actions .home-nav-btn, .survival-result-actions .home-nav-btn { width: 44px; min-height: 44px; }
-.results-card h2 { margin: 0; color: #f5fbff; font-size: 50px; line-height: 1; letter-spacing: -.05em; }
-.results-card h2 small { color: rgba(198,226,250,.55); font-size: 18px; letter-spacing: 0; }
-.results-card .streak { margin-top: 10px; }
-#breakdown { margin: 18px 0; padding: 0; list-style: none; text-align: left; }
-#breakdown li { display: grid; grid-template-columns: 25px 1fr auto; gap: 8px; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(173,216,255,.11); font-size: 15px; }
-#breakdown .place { overflow: hidden; color: rgba(225,240,255,.92); text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
-#breakdown .points { color: #ffc76a; font-weight: 800; text-align: right; font-size: 16px; }
-#breakdown .points small { display: block; color: rgba(193,224,250,.5); font-weight: 500; }
+.postcard-summary-header { position: relative; padding: 3px 48px 15px 2px; }
+.postcard-summary-header .eyebrow { margin-bottom: 6px; }
+.postcard-summary-header h2 { margin: 0; color: #f5fbff; font-size: 29px; line-height: 1.05; letter-spacing: -.045em; }
+.postcard-summary-lede { min-height: 18px; margin: 7px 0 0; color: rgba(198,226,250,.57); font-size: 13px; line-height: 1.4; }
+.postcard-summary-list { display: grid; gap: 9px; }
+.postcard-summary-card { position: relative; display: grid; grid-template-columns: 88px minmax(0, 1fr); min-height: 88px; overflow: hidden; border: 1px solid rgba(157,211,255,.18); border-radius: 17px; background: rgba(5,12,29,.82); box-shadow: 0 12px 36px rgba(0,0,0,.26), inset 0 1px rgba(255,255,255,.05); }
+.postcard-summary-photo { width: 88px; height: 88px; background: rgba(193,224,250,.08); object-fit: cover; object-position: center 20%; }
+.postcard-summary-photo.unavailable { opacity: .25; }
+.postcard-summary-copy { min-width: 0; padding: 12px 12px 11px 13px; }
+.postcard-summary-topline { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 6px; }
+.postcard-summary-badge { display: inline-flex; align-items: center; min-height: 20px; padding: 0 8px; border-radius: 999px; font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.postcard-summary-distance { color: rgba(198,226,250,.66); font-size: 11px; font-weight: 750; white-space: nowrap; }
+.postcard-summary-place { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 800; line-height: 1.15; letter-spacing: -.02em; text-overflow: ellipsis; white-space: nowrap; }
+.postcard-summary-country { margin-top: 3px; overflow: hidden; color: rgba(198,226,250,.58); font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.postcard-summary-tier { color: #ffd477; }
+.postcard-summary-card.new .postcard-summary-badge { border: 1px solid rgba(119,202,255,.45); background: rgba(119,202,255,.14); color: #8bd9ff; }
+.postcard-summary-card.upgrade { border-color: rgba(245,196,81,.34); box-shadow: 0 12px 36px rgba(0,0,0,.26), inset 0 0 0 1px rgba(245,196,81,.08); }
+.postcard-summary-card.upgrade .postcard-summary-badge { border: 1px solid rgba(245,196,81,.5); background: rgba(245,196,81,.13); color: #ffd477; }
+.postcard-summary-card.upgrade .postcard-summary-distance { color: #ffd477; }
+.postcard-summary-card.upgrade .postcard-summary-photo { box-shadow: inset 0 0 0 2px #f5c451, 0 0 18px rgba(245,196,81,.22); }
+.postcard-summary-card.pinpoint { border-color: rgba(245,196,81,.55); }
+.postcard-summary-card.pinpoint .postcard-summary-photo { box-shadow: inset 0 0 0 3px #f5c451, 0 0 24px rgba(245,196,81,.35); }
+.postcard-summary-card.miss { border-style: dashed; background: rgba(5,12,29,.48); }
+.postcard-summary-card.miss .postcard-summary-photo { filter: grayscale(1); opacity: .48; }
+.postcard-summary-card.miss .postcard-summary-badge { border: 1px solid rgba(193,224,250,.2); background: rgba(193,224,250,.06); color: rgba(193,224,250,.5); }
+.postcard-summary-card.miss .postcard-summary-place { color: rgba(225,240,255,.7); }
+.postcard-summary-counts { display: flex; justify-content: center; gap: 13px; margin: 16px 0 12px; color: rgba(198,226,250,.6); font-size: 11px; font-weight: 750; }
+.postcard-summary-counts b { color: #f5fbff; font-size: 14px; }
+.postcard-summary-separator { color: rgba(198,226,250,.35); }
+.result-score { margin: 0 0 10px; color: rgba(198,226,250,.58); font-size: 12px; font-weight: 700; text-align: center; }
+.result-score b { color: #ffc76a; font-size: 18px; }
+.result-score span { font-size: 11px; }
+.results-card .streak { margin: 0 0 12px; text-align: center; }
+.results-actions { position: relative; }
+.results-actions .primary { width: 100%; }
 .text-button { background: none; border: none; color: rgba(193,224,250,.55); font: 13px/1.4 system-ui, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 8px; margin-top: 4px; }
 #share-status { min-height: 16px; margin: 8px 0 0; color: #8bd9ff; font-size: 11px; }
 body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0; }
@@ -215,7 +242,10 @@ body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0
   .peek-slot, #peek-thumb { width: 46px; height: 46px; }
   #fact { margin: 8px 0 0; }
   .results-card { padding-top: 18px; }
-  #breakdown { margin: 12px 0; }
+  .postcard-summary-list { gap: 7px; }
+  .postcard-summary-card, .postcard-summary-photo { min-height: 78px; height: 78px; }
+  .postcard-summary-copy { padding-top: 9px; padding-bottom: 8px; }
+  .postcard-summary-counts { margin: 11px 0 9px; }
 }
 
 #hud.ready {
