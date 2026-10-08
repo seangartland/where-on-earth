@@ -1232,6 +1232,7 @@ const gameEls = {
   thumb: document.getElementById('place-thumb'),
   next: document.getElementById('next-button'),
   total: document.getElementById('total-score'),
+  postcardSummary: document.getElementById('postcard-summary'),
   breakdown: document.getElementById('breakdown'),
   postcardSummaryLede: document.getElementById('postcard-summary-lede'),
   postcardSummaryCounts: document.getElementById('postcard-summary-counts'),
@@ -3318,22 +3319,24 @@ function showResults() {
   const outcomes = daily.results.map((result) => result.postcard || { kind: 'miss' });
   const newCount = outcomes.filter(({ kind }) => kind === 'new').length;
   const upgradeCount = outcomes.filter(({ kind }) => kind === 'upgrade').length;
-  gameEls.postcardSummaryLede.textContent = newCount || upgradeCount
-    ? `${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' — and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`
-    : 'No postcards this time — get within 150 km to earn one.';
-  gameEls.breakdown.replaceChildren(...daily.results.map((result, i) => postcardSummaryCard(result, selected[i])));
-  const countLabel = (count, label) => {
-    const el = document.createElement('span');
-    const number = document.createElement('b');
-    number.textContent = count;
-    el.append(number, ` ${label}`);
-    return el;
-  };
-  gameEls.postcardSummaryCounts.replaceChildren(
-    countLabel(newCount, 'new'),
-    Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }),
-    countLabel(upgradeCount, 'upgraded'),
-  );
+  const hasPostcardSummary = newCount > 0 || upgradeCount > 0;
+  gameEls.postcardSummary.hidden = !hasPostcardSummary;
+  if (hasPostcardSummary) {
+    gameEls.postcardSummaryLede.textContent = `${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' — and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
+    gameEls.breakdown.replaceChildren(...daily.results.map((result, i) => postcardSummaryCard(result, selected[i])));
+    const countLabel = (count, label) => {
+      const el = document.createElement('span');
+      const number = document.createElement('b');
+      number.textContent = count;
+      el.append(number, ` ${label}`);
+      return el;
+    };
+    gameEls.postcardSummaryCounts.replaceChildren(
+      countLabel(newCount, 'new'),
+      Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }),
+      countLabel(upgradeCount, 'upgraded'),
+    );
+  }
   tickCountdown();
 }
 
