@@ -32,13 +32,27 @@ for f in "$SCRIPT_DIR"/assets/*; do
   cp -r "$f" "$DEPLOY_DIR/assets/"
 done
 
-# Auto-bump asset versions to prevent stale cache: use git commit timestamp
-# This ensures every deploy gets fresh URLs for JS/CSS
-VERSION=$(git -C "$SCRIPT_DIR" log -1 --format=%ct 2>/dev/null || date +%s)
-sed -i -E "s/(main\.js|style\.css)\?v=[^\"]*/\1?v=$VERSION/g" "$DEPLOY_DIR/index.html"
-# Version asset JSON URLs in main.js for immutable caching
-sed -i -E "s|(assets/[a-z0-9.-]+\.json)(\?v=[^\"']*)?|\1?v=$VERSION|g" "$DEPLOY_DIR/src/main.js"
-echo "Asset version: $VERSION"
+# Content-based versioning: only changed files get new URLs
+# This ensures browsers cache unchanged files across deploys
+version_file() {
+  sha256sum "$1" | cut -c1-12
+}
+
+# Version main.js and style.css by content hash
+MAIN_JS_HASH=$(version_file "$DEPLOY_DIR/src/main.js")
+STYLE_CSS_HASH=$(version_file "$DEPLOY_DIR/src/style.css")
+sed -i -E "s|main\.js\?v=[^\"]*|main.js?v=$MAIN_JS_HASH|g" "$DEPLOY_DIR/index.html"
+sed -i -E "s|style\.css\?v=[^\"]*|style.css?v=$STYLE_CSS_HASH|g" "$DEPLOY_DIR/index.html"
+
+# Version asset JSON URLs by content hash
+for json_file in "$DEPLOY_DIR"/assets/*.json; do
+  [ -f "$json_file" ] || continue
+  base=$(basename "$json_file")
+  hash=$(version_file "$json_file")
+  # Replace in main.js: assets/<base> or assets/<base>?v=xxx
+  sed -i -E "s|(assets/$base)(\?v=[^\"']*)?|\1?v=$hash|g" "$DEPLOY_DIR/src/main.js"
+done
+echo "Asset versions: content-based (unchanged files keep cached URLs)"
 
 # Optional files if they exist
 [ -f "$SCRIPT_DIR/review-locations.html" ] && cp "$SCRIPT_DIR/review-locations.html" "$DEPLOY_DIR/"
