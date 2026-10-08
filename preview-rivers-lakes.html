@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rivers &amp; Lakes Density Lab</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #0b1020; color: #e8f0fa;
+    font-family: -apple-system, system-ui, sans-serif; }
+  body { max-width: 430px; margin: 0 auto; padding: 16px 14px 40px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: #8b96a8; font-size: 13px; margin-bottom: 14px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .controls .group { flex: 1 1 100%; }
+  .controls .label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
+    color: #8b96a8; margin-bottom: 6px; }
+  .btnrow { display: flex; flex-wrap: wrap; gap: 6px; }
+  button.opt { background: #1a2236; color: #c6d2e8; border: 1px solid #2e3a55;
+    border-radius: 999px; padding: 8px 13px; font-size: 13px; cursor: pointer; }
+  button.opt.active { background: #2b6cb0; border-color: #2b6cb0; color: #fff; font-weight: 700; }
+  button.opt.lake-on.active { background: #1d6f8e; border-color: #1d6f8e; }
+  button.opt:disabled { opacity: .45; }
+  .frame-wrap { position: relative; width: 100%; border-radius: 12px; overflow: hidden;
+    border: 1px solid #1c2740; background: #060a14; }
+  #game { display: block; width: 100%; height: 460px; border: 0; background: #060a14; }
+  #loading { position: absolute; inset: 0; display: flex; align-items: center;
+    justify-content: center; color: #8b96a8; font-size: 14px;
+    background: #060a14; pointer-events: none; transition: opacity .4s; }
+  #loading.hide { opacity: 0; }
+  .stats { display: flex; gap: 16px; margin-top: 10px; font-size: 12px; color: #8b96a8; }
+  .stats b { color: #e8f0fa; }
+  .legend { display: flex; gap: 16px; margin-top: 8px; font-size: 12px; color: #8b96a8; }
+  .sw { display: inline-block; width: 18px; height: 3px; vertical-align: middle;
+    margin-right: 5px; border-radius: 2px; }
+  .note { margin-top: 14px; font-size: 12px; color: #6b7a94; line-height: 1.5; }
+  .tip { margin-top: 8px; font-size: 12px; color: #6b7a94; }
+</style>
+</head>
+<body>
+<h1>Rivers &amp; Lakes Density Lab</h1>
+<div class="sub">The real game globe, live. Toggle density to compare. Drag the globe to spin it.</div>
+
+<div class="controls">
+  <div class="group">
+    <div class="label">Rivers (Natural Earth 10m, by scalerank)</div>
+    <div class="btnrow" id="riverBtns">
+      <button class="opt" data-sr="0">Off</button>
+      <button class="opt" data-sr="1">&le;1</button>
+      <button class="opt" data-sr="2">&le;2</button>
+      <button class="opt" data-sr="3">&le;3</button>
+      <button class="opt" data-sr="4">&le;4</button>
+      <button class="opt active" data-sr="5">&le;5</button>
+      <button class="opt" data-sr="6">&le;6</button>
+      <button class="opt" data-sr="7">&le;7</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="label">Lakes (by size, from lakes-10m asset)</div>
+    <div class="btnrow" id="lakeBtns">
+      <button class="opt lake-on" data-lake="0">Off</button>
+      <button class="opt lake-on active" data-lake="80">80</button>
+      <button class="opt lake-on" data-lake="150">150</button>
+      <button class="opt lake-on" data-lake="300">300</button>
+      <button class="opt lake-on" data-lake="531">All</button>
+    </div>
+  </div>
+</div>
+
+<div class="frame-wrap">
+  <iframe id="game" title="Where on Earth globe preview"
+    src="index.html?maplab=1&rivers=5&lakes=80"></iframe>
+  <div id="loading">Loading the globe&hellip;</div>
+</div>
+
+<div class="legend">
+  <span><span class="sw" style="background:#4a86b8"></span>Rivers</span>
+  <span><span class="sw" style="background:#5f9fd0"></span>Lake shores</span>
+</div>
+<div class="stats" id="stats"><span>Waiting for globe&hellip;</span></div>
+
+<div class="tip">Tip: drag inside the globe to spin it and inspect density up close.</div>
+<div class="note">
+  This embeds the actual game (index.html?maplab=1) and swaps the river/lake
+  outline layers on the live 3D globe, so what you see is exactly what would
+  ship. Rivers come from Natural Earth 10m at full resolution; the lab-only
+  asset (rivers-10m-scalerank.geo.json) is fetched only in lab mode and never
+  affects normal gameplay. Lakes are the top N by size from the existing
+  lakes-10m asset (531 total). The ?maplab hook in src/main.js is inert unless
+  the query param is present.
+</div>
+
+<script>
+const frame = document.getElementById('game');
+const stats = document.getElementById('stats');
+const loading = document.getElementById('loading');
+let curSr = 5, curLakes = 80;
+let riverCount = null, lakeCount = null;
+
+function send() {
+  frame.contentWindow.postMessage({ type: 'maplab', rivers: curSr, lakes: curLakes }, '*');
+}
+function paintStats() {
+  const r = riverCount === null ? '&hellip;' : '<b>' + riverCount + '</b>';
+  const l = lakeCount === null ? '&hellip;' : '<b>' + lakeCount + '</b>';
+  stats.innerHTML = '<span>' + r + ' rivers (&le;' + curSr + ')</span>' +
+    '<span>' + l + ' lakes shown</span>';
+}
+function setBusy(b) {
+  document.querySelectorAll('#riverBtns .opt, #lakeBtns .opt')
+    .forEach(x => { x.disabled = b; });
+}
+window.addEventListener('message', (e) => {
+  const d = e.data;
+  if (!d || d.type !== 'maplab-done') return;
+  loading.classList.add('hide');
+  setTimeout(() => loading.remove(), 600);
+  if (d.rivers !== null && d.rivers !== undefined) riverCount = d.rivers;
+  if (d.lakes !== null && d.lakes !== undefined) lakeCount = d.lakes;
+  paintStats();
+  setBusy(false);
+});
+document.getElementById('riverBtns').addEventListener('click', (e) => {
+  const b = e.target.closest('button.opt');
+  if (!b || b.disabled) return;
+  document.querySelectorAll('#riverBtns .opt').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  curSr = parseInt(b.dataset.sr, 10);
+  setBusy(true);
+  send();
+});
+document.getElementById('lakeBtns').addEventListener('click', (e) => {
+  const b = e.target.closest('button.opt');
+  if (!b || b.disabled) return;
+  document.querySelectorAll('#lakeBtns .opt').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  curLakes = parseInt(b.dataset.lake, 10);
+  setBusy(true);
+  send();
+});
+paintStats();
+</script>
+</body>
+</html>
