@@ -5896,8 +5896,8 @@ postcardStyle.textContent = `
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
-.ppd-topline { display: flex; align-items: center; min-height: 29px; margin-bottom: 10px; padding-right: 38px; }
-.ppd-rarity { position: absolute; z-index: 4; top: -8px; left: 16px; }
+.ppd-topline { display: flex; align-items: center; min-height: 29px; margin-bottom: 10px; padding-right: 38px; padding-left: 84px; }
+.ppd-rarity { position: absolute; z-index: 4; top: 13px; left: 16px; }
 .ppd-difficulty { display: flex; align-items: center; gap: 7px; color: #9fa9bb; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .ppd-difficulty strong { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #566074; border-radius: 50%; background: #242a3b; color: #fff; font-size: 13px; letter-spacing: 0; }
 .ppd-front { position: relative; }
