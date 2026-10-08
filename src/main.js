@@ -4042,7 +4042,9 @@ function pickReviewRound(x, y) {
 }
 
 resultsGlobe.addEventListener('click', () => enterReview());
-gameEls.postcardSummaryContinue.addEventListener('click', showResults);
+if (gameEls.postcardSummaryContinue) {
+  gameEls.postcardSummaryContinue.addEventListener('click', showResults);
+}
 gameEls.results.addEventListener('click', (e) => {
   if (e.target === gameEls.results) enterReview(); // tap outside the card
 });
