@@ -5,6 +5,7 @@ Replicates the client's dailyIds() logic exactly:
 - 5 difficulty bands: [1-2], [3-4], [5-6], [7-8], [9-10]
 - Each band shuffled deterministically with seed "band-{b}"
 - Day N takes index N mod band length
+- Landmarks are excluded using the same name terms as the daily game
 
 Appends {date: [5 location IDs]} to assets/daily-archive.json.
 """
@@ -16,6 +17,17 @@ from pathlib import Path
 DEMO_DIR = Path(__file__).parent.parent
 LOCATIONS_PATH = DEMO_DIR / "assets" / "locations.json"
 ARCHIVE_PATH = DEMO_DIR / "assets" / "daily-archive.json"
+
+LANDMARK_TERMS = (
+    "temple", "cathedral", "church", "mosque", "palace", "castle", "museum",
+    "tower", "bridge", "statue", "monument", "ruins", "abbey", "shrine",
+    "fort", "citadel", "basilica", "chapel", "synagogue", "pagoda",
+    "house of", "hall of", "tomb of",
+)
+
+def is_landmark(location):
+    """Return whether a location's short name identifies it as a landmark."""
+    return any(term in str(location.get("short", "")).lower() for term in LANDMARK_TERMS)
 
 def hash_seed(s):
     """Match client's hashSeed: simple string hash to 32-bit int."""
@@ -39,8 +51,8 @@ def random_from(seed):
 def daily_ids(date_str, locations):
     bands = []
     for lo, hi in [(1,2), (3,4), (5,6), (7,8), (9,10)]:
-        band = [l for l in locations 
-                if l.get('image') and lo <= (l.get('difficulty') or 5) <= hi]
+        band = [l for l in locations
+                if not is_landmark(l) and l.get('image') and lo <= (l.get('difficulty') or 5) <= hi]
         bands.append(band)
     
     epoch = datetime(2026, 10, 1, tzinfo=timezone.utc).timestamp() / 86400

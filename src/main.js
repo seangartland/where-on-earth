@@ -2089,6 +2089,13 @@ let daily = null;
 let selected = [];
 let gameMode = 'start';
 
+const LANDMARK_TERMS = [
+  'temple', 'cathedral', 'church', 'mosque', 'palace', 'castle', 'museum',
+  'tower', 'bridge', 'statue', 'monument', 'ruins', 'abbey', 'shrine',
+  'fort', 'citadel', 'basilica', 'chapel', 'synagogue', 'pagoda',
+  'house of', 'hall of', 'tomb of',
+];
+
 // Keep placeholder art in the passport, but never use it for a game target.
 // This is intentionally based on the image URL so a real replacement image
 // automatically restores the location to every mode.
@@ -2096,6 +2103,11 @@ function isPlayableLocation(item) {
   return typeof item?.image === 'string'
     && item.image.length > 0
     && !item.image.includes('No_image_available');
+}
+
+function isLandmark(item) {
+  const name = typeof item?.short === 'string' ? item.short.toLowerCase() : '';
+  return LANDMARK_TERMS.some((term) => name.includes(term));
 }
 
 function localDateKey(date = new Date()) {
@@ -2139,7 +2151,7 @@ function dailyIds(date, list) {
   // day N takes index N mod band length, so no location repeats until its whole
   // band is exhausted, and everyone gets the same daily game.
   const bands = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]].map(([lo, hi]) =>
-    list.filter((item) => isPlayableLocation(item) && (item.difficulty || 5) >= lo && (item.difficulty || 5) <= hi),
+    list.filter((item) => !isLandmark(item) && isPlayableLocation(item) && (item.difficulty || 5) >= lo && (item.difficulty || 5) <= hi),
   );
   // Days since a fixed epoch; drives the rotation.
   const epoch = Date.UTC(2026, 9, 1) / 86400000;
@@ -2198,7 +2210,7 @@ function loadDaily() {
     : { date, ids: dailyIds(date, locations), round: 0, results: [], complete: false };
   daily.round = clamp(Number(daily.round) || 0, 0, 4);
   daily.results = Array.isArray(daily.results) ? daily.results.slice(0, 5) : [];
-  selected = daily.ids.map((id) => locations.find((item) => item.id === id)).filter(isPlayableLocation);
+  selected = daily.ids.map((id) => locations.find((item) => item.id === id)).filter((item) => isPlayableLocation(item) && !isLandmark(item));
   if (selected.length !== 5) {
     daily = { date, ids: dailyIds(date, locations), round: 0, results: [], complete: false };
     selected = daily.ids.map((id) => locations.find((item) => item.id === id));
