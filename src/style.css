@@ -162,7 +162,7 @@ body.game-reveal .reveal-name { display: block; }
 .reveal-sheet.expanded .peek-grip { background: rgba(193,224,250,.55); }
 .peek-slot { position: relative; flex: none; width: 52px; height: 52px; }
 .peek-slot[hidden] { display: none; }
-#peek-thumb { display: block; box-sizing: border-box; width: 52px; height: 52px; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 10px; object-fit: cover; object-position: center 20%; box-shadow: var(--ring, none); }
+#peek-thumb { display: block; box-sizing: border-box; width: 52px; height: 52px; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 10px; object-fit: cover; object-position: center 20%; }
 .peek-bar[aria-expanded="true"] .peek-slot { display: none; }
 .peek-slot.mystery::before { content: ""; position: absolute; inset: 0; box-sizing: border-box; border: 1.5px dashed rgba(193,224,250,.55); border-radius: 10px; background: rgba(193,224,250,.05); }
 .peek-slot.mystery #peek-thumb { visibility: hidden; }
@@ -177,8 +177,14 @@ body.game-reveal .reveal-name { display: block; }
 .rarity-legendary { --rarity: #c77dff; --rarity-bg: rgba(199,125,255,.16); --rarity-border: rgba(199,125,255,.56); }
 .thumb-slot { position: relative; }
 .ppd-rarity { display: inline-flex; align-items: center; box-sizing: border-box; padding: 3px 9px; border: 1px solid var(--rarity-border, rgba(154,166,187,.52)); border-radius: 999px; background: var(--rarity-bg, rgba(154,166,187,.14)); color: var(--rarity, #9aa6bb); font-size: 9.5px; font-weight: 800; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
-.prox-bullseye { --ring: inset 0 0 0 2px #F5C451, 0 0 12px 1px rgba(245,196,81,.55); }
-.prox-pinpoint { --ring: inset 0 0 0 3.5px #F5C451, 0 0 22px 4px rgba(245,196,81,.8); }
+/* Accuracy badge (setProxBadge): a small gold chip pinned inside the photo, clear
+   of the rarity frame, so Bullseye/Pinpoint never recolours or glows the border.
+   Compact hosts show the icon only; the postcard modal gets the large version. */
+.prox-badge { position: absolute; z-index: 3; top: 5px; left: 5px; display: inline-flex; align-items: center; gap: 3px; box-sizing: border-box; height: 18px; padding: 0 6px 0 4px; border-radius: 999px; background: linear-gradient(180deg, #ffdc7a, #e9b23c); box-shadow: 0 1px 3px rgba(0,0,0,.5); color: #2b1d00; font-size: 8.5px; font-weight: 900; line-height: 1; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
+.prox-badge i { font-size: 10px; font-style: normal; letter-spacing: 0; }
+.prox-badge.compact { gap: 0; width: 18px; padding: 0; justify-content: center; }
+.prox-badge.compact b { display: none; }
+.thumb-slot.waiting .prox-badge, .peek-slot.mystery .prox-badge, .thumb-slot:has(> img[hidden]) .prox-badge { display: none; }
 .peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .peek-name { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .peek-bar[aria-expanded="true"] .peek-text { align-self: center; }
@@ -198,7 +204,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .sheet-content { max-height: 0; overflow: hidden; transition: max-height .32s cubic-bezier(.2,.8,.2,1); }
 .reveal-sheet.expanded .sheet-content { max-height: 320px; }
 .sheet-inner { padding: 0 14px 14px; }
-#place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 10px; object-fit: cover; object-position: center 20%; box-shadow: var(--ring, none); }
+#place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 10px; object-fit: cover; object-position: center 20%; }
 #place-thumb[hidden] { display: none; }
 #fact { margin: 10px 0 0; color: rgba(224,240,255,.8); font-size: 13px; line-height: 1.45; }
 
@@ -228,8 +234,6 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-card.new .postcard-summary-badge { border: 1px solid rgba(119,202,255,.45); background: rgba(119,202,255,.14); color: #8bd9ff; }
 .postcard-summary-card.upgrade .postcard-summary-badge { border: 1px solid rgba(245,196,81,.5); background: rgba(245,196,81,.13); color: #ffd477; }
 .postcard-summary-card.upgrade .postcard-summary-distance { color: #ffd477; }
-.postcard-summary-card.bullseye .postcard-summary-photo { box-shadow: inset 0 0 0 2px #f5c451, 0 0 18px rgba(245,196,81,.22); }
-.postcard-summary-card.pinpoint .postcard-summary-photo { box-shadow: inset 0 0 0 3.5px #f5c451, 0 0 24px rgba(245,196,81,.35); }
 .postcard-summary-counts { display: flex; justify-content: center; gap: 13px; margin: 16px 0 12px; color: rgba(198,226,250,.6); font-size: 11px; font-weight: 750; }
 .postcard-summary-counts b { color: #f5fbff; font-size: 14px; }
 .postcard-summary-separator { color: rgba(198,226,250,.35); }

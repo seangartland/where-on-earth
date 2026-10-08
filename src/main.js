@@ -3324,6 +3324,7 @@ function applyThumbState(thumb, item, earned, visited) {
   thumb.classList.toggle('seen-no-postcard', showGrayscale);
   thumb.classList.toggle('no-postcard', showGrayscale);
   applyCardTier(thumb, item, earned);
+  setProxBadge(thumb.parentElement, earned, thumb === gameEls.peekThumb ? 'compact' : '');
 }
 
 function setRevealThumbState(item, visited, earned) {
@@ -3384,7 +3385,7 @@ function postcardSummaryCard(result, item) {
   if (!outcome || !['new', 'upgrade'].includes(outcome.kind)) return null;
   const rarity = rarityFor(item.difficulty);
   const card = document.createElement('article');
-  card.className = `postcard-summary-card rarity-${rarity} ${outcome.kind}${outcome.tier === EARN_BULLSEYE ? ' bullseye' : ''}${outcome.tier === EARN_PINPOINT ? ' pinpoint' : ''}`;
+  card.className = `postcard-summary-card rarity-${rarity} ${outcome.kind}`;
   const photo = document.createElement('img');
   photo.className = 'postcard-summary-photo';
   photo.src = item.image || '';
@@ -3416,6 +3417,7 @@ function postcardSummaryCard(result, item) {
   topline.append(badge, distance);
   copy.append(topline, place, country);
   card.append(photo, copy);
+  setProxBadge(card, outcome.tier);
   return card;
 }
 
@@ -4611,8 +4613,8 @@ function continentOf(item) {
 // e is the best flyover tier landed there. Stored best distances are also used to
 // migrate newly introduced tiers upward; an earned tier is never downgraded.
 const EARN_NEAR = 1; // < NEAR_KM: full-colour postcard
-const EARN_BULLSEYE = 2; // < BULLSEYE_KM: gold-edged postcard
-const EARN_PINPOINT = 3; // < PINPOINT_KM: thick gold edge, strongest glow
+const EARN_BULLSEYE = 2; // < BULLSEYE_KM: gold Bullseye badge
+const EARN_PINPOINT = 3; // < PINPOINT_KM: gold Pinpoint badge
 const EARN_NAMES = ['seen', 'near', 'bullseye', 'pinpoint'];
 const PROX_CLASSES = ['', 'prox-postcard', 'prox-bullseye', 'prox-pinpoint'];
 const RARITY_CLASSES = ['rarity-common', 'rarity-uncommon', 'rarity-rare', 'rarity-legendary'];
@@ -4635,14 +4637,29 @@ function rarityFor(difficulty) {
   return 'common';
 }
 
-// Every location carries its rarity frame. Accuracy appears only after earning
-// a postcard, as a gold overlay rather than a replacement for that frame.
+// Every location carries its rarity frame. Accuracy never touches that frame:
+// Bullseye/Pinpoint show only as a gold badge (setProxBadge).
 function applyCardTier(el, item, earned) {
   el.classList.remove(...RARITY_CLASSES, ...PROX_CLASSES.filter(Boolean));
   if (!item) return;
   const rarityClass = `rarity-${rarityFor(item?.difficulty)}`;
   el.classList.add(rarityClass);
   if (earned) el.classList.add(PROX_CLASSES[earned]);
+}
+
+// The one accuracy badge every surface uses (styles: .prox-badge in style.css).
+// host must be positioned; size is '' (icon + label), 'compact' (icon) or 'large'.
+const PROX_BADGES = { [EARN_BULLSEYE]: ['🎯', 'Bullseye'], [EARN_PINPOINT]: ['📍', 'Pinpoint'] };
+function setProxBadge(host, earned, size = '') {
+  const old = host.querySelector(':scope > .prox-badge');
+  const badge = PROX_BADGES[earned];
+  if (!badge) { old?.remove(); return; }
+  const el = old || document.createElement('span');
+  el.className = `prox-badge${size ? ` ${size}` : ''}`;
+  el.setAttribute('role', 'img');
+  el.setAttribute('aria-label', badge[1]);
+  el.innerHTML = `<i aria-hidden="true">${badge[0]}</i><b aria-hidden="true">${badge[1]}</b>`;
+  if (!old) host.append(el);
 }
 let passport = { visits: {}, order: [], meta: {} };
 let passportDirty = true; // dots need rebuilding before the next start screen
@@ -5133,7 +5150,7 @@ passportPageStyle.textContent = `
 /* A postcard: white border round the photo, caption on the card stock, and the
    best score pressed on as a round ink stamp. Alternate cards tilt a hair so the
    grid reads as a collection pinned in a book rather than a table. */
-.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 4px; background: #1a1f2e; box-shadow: var(--ring, 0 0 #0000), 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 4px; background: #1a1f2e; box-shadow: 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-post:nth-child(even) { --tilt: .7deg; }
 .pp-post:active { transform: rotate(var(--tilt)) scale(.965); filter: brightness(.95); }
 .pp-post:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
@@ -5146,12 +5163,9 @@ passportPageStyle.textContent = `
 .pp-stamp small { display: block; margin-top: 2px; font-size: 10px; font-weight: 800; letter-spacing: .08em; opacity: .9; text-align: center; }
 .pp-stamp[data-tier="gold"] { color: #ffd166; text-shadow: 0 0 10px rgba(255,209,102,.45); }
 .pp-stamp[data-tier="cyan"] { color: #67e8ff; }
-/* Earned tiers. Borders come from the rarity/prox classes (style.css); bullseye
-   and pinpoint cards also get a slow foil sheen. Seen cards are the same postcard
-   in black and white, with a nudge to come back for it. */
-.pp-post:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
-@keyframes pp-foil { 0%, 60% { background-position: 120% 0; } 100% { background-position: -20% 0; } }
-@media (prefers-reduced-motion: reduce) { .pp-post:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
+/* Earned tiers. The border is rarity only (style.css); bullseye and pinpoint add
+   just the gold .prox-badge on the photo. Seen cards are the same postcard in
+   black and white, with a nudge to come back for it. */
 .pp-post[data-earn="seen"] { background: #151923; }
 .pp-post[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .pp-post[data-earn="seen"] .pp-name { color: #8992a8; }
@@ -5501,6 +5515,7 @@ function passportCard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     photo.append(img);
   }
+  setProxBadge(photo, entry.earned);
   // (pp-hint text removed per Sean 2026-10-07)
   // The stamp ink follows what was earned, not the raw score: gold bullseye or
   // pinpoint, cyan near miss, grey still to earn.
@@ -5669,7 +5684,7 @@ collectionsStyle.textContent = `
 .collection-segments i { flex: 1; height: 6px; border-radius: 3px; background: rgba(214,220,232,.08); }
 .collection-segments i.earned { background: #d2ae62; box-shadow: 0 0 5px rgba(210,174,98,.45); }
 .collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px 10px; margin: 0; padding: 0; list-style: none; }
-.collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 9px; background: #1a1f2e; box-shadow: var(--ring,0 0 #0000); }
+.collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 9px; background: #1a1f2e; }
 .collection-card .photo { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 5px; background: #0d111b; }
 .collection-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .collection-card-name { min-height: 2.3em; margin: 6px 1px 0; display: grid; place-items: center; color: #e6e8ee; font-size: 10px; font-weight: 750; line-height: 1.15; text-align: center; }
@@ -5820,6 +5835,7 @@ function renderCollectionDetail(set) {
       img.decoding = 'async';
       img.addEventListener('error', () => img.remove(), { once: true });
       photo.append(img);
+      setProxBadge(photo, tier, 'compact');
     }
     const name = document.createElement('p');
     name.className = 'collection-card-name';
@@ -5891,11 +5907,9 @@ postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
 .ppd-card { --ppd-accent: #d1a943; position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 2px solid var(--rarity, #3f485b); border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
-.ppd-card.prox-bullseye { box-shadow: inset 0 0 0 2px #F5C451, 0 0 28px rgba(245,196,81,.4), 0 24px 70px rgba(0,0,0,.78); }
-.ppd-card.prox-pinpoint { box-shadow: inset 0 0 0 3.5px #F5C451, 0 0 16px rgba(245,196,81,.72), 0 0 42px rgba(245,196,81,.38), 0 24px 70px rgba(0,0,0,.78); }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
-@media (prefers-reduced-motion: reduce) { .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
+.ppd-front .prox-badge { top: 10px; left: 10px; gap: 5px; height: 26px; padding: 0 11px 0 8px; font-size: 11px; box-shadow: 0 2px 8px rgba(0,0,0,.55); }
+.ppd-front .prox-badge i { font-size: 14px; }
 .ppd-topline { display: flex; align-items: center; min-height: 29px; margin-bottom: 10px; padding-right: 38px; padding-left: 84px; }
 .ppd-rarity { position: absolute; z-index: 4; top: 13px; left: 16px; }
 .ppd-difficulty { display: flex; align-items: center; gap: 7px; color: #9fa9bb; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
@@ -5991,6 +6005,7 @@ function fillPostcard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     ppdEls.photo.append(img);
   }
+  setProxBadge(ppdEls.photo, entry.earned, 'large');
   ppdEls.from.textContent = `Postcard from ${entry.continent || 'Earth'}`;
   const flag = (item.clue || '').match(FLAG_RE);
   const short = item.short || item.clue || '';
