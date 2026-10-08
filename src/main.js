@@ -1824,8 +1824,15 @@ syncMuteButtons();
 const bullseyeStamp = document.createElement('p');
 bullseyeStamp.className = 'bullseye-stamp';
 bullseyeStamp.hidden = true;
-bullseyeStamp.innerHTML = '<b>🎯</b>BULLSEYE';
 document.body.append(bullseyeStamp);
+
+function setAccuracyStamp(tier) {
+  const pinpoint = tier === 'pinpoint';
+  bullseyeStamp.innerHTML = pinpoint ? '<b>📍</b>PINPOINT' : '<b>🎯</b>BULLSEYE';
+  bullseyeStamp.setAttribute('aria-label', pinpoint ? 'Pinpoint' : 'Bullseye');
+}
+
+setAccuracyStamp('bullseye');
 
 const postcard = document.createElement('figure');
 postcard.className = 'postcard';
@@ -2931,7 +2938,7 @@ function updateBullseyeAnimation(anim, dt) {
     const pinY = ((1 - v.y) / 2) * viewH;
     const headerBottom = gameEls.header.getBoundingClientRect().bottom || 60;
     bullseyeStamp.style.top = `${Math.max(headerBottom + 80, pinY - 140)}px`;
-    bullseyeStamp.innerHTML = anim.tier === 'pinpoint' ? '<b>📍</b>PINPOINT' : '<b>🎯</b>BULLSEYE';
+    setAccuracyStamp(anim.tier);
     bullseyeStamp.hidden = false;
     bullseyeStamp.animate([
       { transform: 'translate(-50%, -50%) rotate(-24deg) scale(2.6)', opacity: 0 },
@@ -3555,7 +3562,7 @@ window.addEventListener('pin', (event) => revealGuess(event.detail));
 gameEls.play.addEventListener('click', startGame);
 gameEls.next.addEventListener('click', nextRound);
 gameEls.share.addEventListener('click', shareResult);
-// #results-home is wired via the .home-nav-btn forEach below
+// Finished-game close controls are wired via the .home-nav-btn delegation below.
 
 // ---------------------------------------------------------------------------
 // Next-daily countdown: one game per day, shown on the results and review
@@ -3808,6 +3815,11 @@ document.addEventListener('click', (e) => {
   const btn = target?.closest?.('.home-nav-btn');
   if (!btn) return;
   e.preventDefault();
+  // Results are terminal states: the player has no in-progress run to lose.
+  if (btn.classList.contains('finished-home-nav')) {
+    goHome();
+    return;
+  }
   confirmGoHome();
 });
 document.querySelectorAll('.home-nav-btn').forEach((button) => {
@@ -3908,7 +3920,6 @@ function showSurvivalGameOver() {
 
 gameEls.survivalEntry.addEventListener('click', startSurvival);
 gameEls.survivalAgain.addEventListener('click', startSurvival);
-gameEls.survivalHome.addEventListener('click', goHome);
 
 // ---------------------------------------------------------------------------
 // Post-game review: all five rounds on the globe, tap one to reopen its recap
