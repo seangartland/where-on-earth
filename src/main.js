@@ -670,7 +670,7 @@ Promise.all([
     globeMat.uniforms.uMap.value = buildLandTexture(geo, coast, lakes);
     globe.add(buildOutline(coast, 1.002, { color: '#7fd2f4', width: 0.78, opacity: 0.92 }));
     mapLab.lakeMesh = buildOutline(bigLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
-    mapLab.lakeMeshDim = buildOutline(smallLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.18 });
+    mapLab.lakeMeshDim = buildOutline(smallLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.28 });
     mapLab.riverMesh = buildOutline(riverLines, 1.002, { color: '#4a86b8', width: 0.6, opacity: 0.3 });
     globe.add(mapLab.lakeMesh);
     globe.add(mapLab.lakeMeshDim);
@@ -719,7 +719,7 @@ function initMapLab(lakes, rivers) {
       const feats = n > 0 ? lakeFeats.slice(0, n) : [];
       // Same bright/dim split as production: top 20 bright, rest dim.
       swap('lake', cleanCoast(lakeRings({ features: feats.slice(0, 20) })), { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
-      swap('lakedim', cleanCoast(lakeRings({ features: feats.slice(20) })), { color: '#5f9fd0', width: 0.8, opacity: 0.18 });
+      swap('lakedim', cleanCoast(lakeRings({ features: feats.slice(20) })), { color: '#5f9fd0', width: 0.8, opacity: 0.28 });
       return feats.length;
     },
     async setRivers(maxSr) {
