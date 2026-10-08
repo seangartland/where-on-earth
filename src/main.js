@@ -462,6 +462,18 @@ function lakeRings(lakes) {
   return rings;
 }
 
+// Bbox area for sorting lakes largest-first (drives the bright/dim split).
+function lakeArea(f) {
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const poly of f.geometry.coordinates)
+    for (const ring of poly)
+      for (const [x, y] of ring) {
+        if (x < x0) x0 = x; if (x > x1) x1 = x;
+        if (y < y0) y0 = y; if (y > y1) y1 = y;
+      }
+  return (x1 - x0) * (y1 - y0);
+}
+
 function buildLandTexture(geo, coastLines, lakes) {
   const maxTex = renderer.capabilities.maxTextureSize;
   const W = maxTex >= 4096 ? 4096 : 2048;
@@ -600,8 +612,9 @@ function buildOutline(lines, radius, opts) {
 let landReveal = 0;
 let landLoaded = false;
 
-// lakes-10m.geo.json is built from Natural Earth 10m lakes; rivers-10m.geo.json
-// from Natural Earth 10m rivers (scalerank <= 3). world-10m.geo.json holds the
+// lakes-10m.geo.json is built from Natural Earth 10m lakes;
+// rivers-10m-scalerank.geo.json from Natural Earth 10m rivers (all 655,
+// per-feature scalerank; production uses scalerank <= 7). world-10m.geo.json
 // detailed 10m coastlines; world.geo.json is still loaded for the land fill.
 // The page loads the *.topo.json versions (build/make-topojson.mjs): same
 // coordinates, quantized on the source's 1e-4 degree grid, ~2x smaller.
@@ -629,13 +642,14 @@ const getTopo = (url) => getJSON(url).then(topoFeatures);
 const mapLab = {
   on: new URLSearchParams(location.search).has('maplab'),
   lakeMesh: null,
+  lakeMeshDim: null,
   riverMesh: null,
 };
 Promise.all([
   getTopo('assets/world.topo.json'),
   getTopo('assets/world-10m.topo.json'),
   getTopo('assets/lakes-10m.topo.json'),
-  getTopo('assets/rivers-10m.topo.json'),
+  getTopo('assets/rivers-10m-scalerank.topo.json'),
 ])
   .then(([geo, geo10m, lakes, rivers]) => {
     // Internal country borders hidden: coastlines only, keeps the challenge in
@@ -644,19 +658,26 @@ Promise.all([
     const coast = cleanCoast(
       geo10m.features.find((f) => f.properties.kind === 'coast').geometry.coordinates,
     );
-    const lakeLines = cleanCoast(lakeRings(lakes));
-    const riverLines = cleanCoast(
-      rivers.features.find((f) => f.properties.kind === 'river').geometry.coordinates,
-    );
+    // Rivers: 655 Natural Earth features with per-feature scalerank; use <= 7.
+    const riverCoords = [];
+    for (const f of rivers.features)
+      if (f.properties.scalerank <= 7) riverCoords.push(...f.geometry.coordinates);
+    const riverLines = cleanCoast(riverCoords);
+    // Lakes: largest 20 get the bright shoreline, the rest a softer dim line.
+    const sortedLakes = [...lakes.features].sort((a, b) => lakeArea(b) - lakeArea(a));
+    const bigLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(0, 20) }));
+    const smallLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(20) }));
     globeMat.uniforms.uMap.value = buildLandTexture(geo, coast, lakes);
     globe.add(buildOutline(coast, 1.002, { color: '#7fd2f4', width: 0.78, opacity: 0.92 }));
-    mapLab.lakeMesh = buildOutline(lakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
+    mapLab.lakeMesh = buildOutline(bigLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
+    mapLab.lakeMeshDim = buildOutline(smallLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.18 });
     mapLab.riverMesh = buildOutline(riverLines, 1.002, { color: '#4a86b8', width: 0.6, opacity: 0.3 });
     globe.add(mapLab.lakeMesh);
+    globe.add(mapLab.lakeMeshDim);
     globe.add(mapLab.riverMesh);
     landLoaded = true;
     if (window.__boot) window.__boot('map data loaded');
-    if (new URLSearchParams(location.search).has('maplab')) initMapLab(lakes);
+    if (new URLSearchParams(location.search).has('maplab')) initMapLab(lakes, rivers);
   })
   .catch((err) => {
     console.error('failed to load land data', err);
@@ -666,31 +687,20 @@ Promise.all([
 // Rivers/lakes density lab (?maplab). Rebuilds the lake-shore and river
 // outline layers on the live globe at the requested density. Only wired up
 // when the page is loaded with ?maplab, so normal gameplay is untouched.
-function initMapLab(lakes) {
+function initMapLab(lakes, rivers) {
   // Lab view: hide all game UI so the bare globe is visible and spinnable.
   const gameMain = document.getElementById('game');
   if (gameMain) gameMain.style.display = 'none';
   const hud = document.getElementById('hud');
   if (hud) hud.style.display = 'none';
   // lakes-10m features sorted largest-first (bbox area); the lab shows the top N.
-  const lakeFeats = lakes.features
-    .map((f) => {
-      let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
-      for (const poly of f.geometry.coordinates)
-        for (const ring of poly)
-          for (const [x, y] of ring) {
-            if (x < x0) x0 = x; if (x > x1) x1 = x;
-            if (y < y0) y0 = y; if (y > y1) y1 = y;
-          }
-      return { f, area: (x1 - x0) * (y1 - y0) };
-    })
-    .sort((a, b) => b.area - a.area)
-    .map((x) => x.f);
+  const lakeFeats = [...lakes.features].sort((a, b) => lakeArea(b) - lakeArea(a));
 
   // Swap one outline layer, showing it immediately (the boot reveal fade is
   // long done by the time the lab runs, so new materials must not start at 0).
   function swap(which, lines, opts) {
-    const old = which === 'lake' ? mapLab.lakeMesh : mapLab.riverMesh;
+    const old = which === 'lake' ? mapLab.lakeMesh
+      : which === 'lakedim' ? mapLab.lakeMeshDim : mapLab.riverMesh;
     const nu = buildOutline(lines, 1.002, opts);
     nu.material.opacity = nu.material.userData.baseOpacity ?? 1;
     globe.remove(old);
@@ -699,24 +709,27 @@ function initMapLab(lakes) {
     old.geometry.dispose();
     old.material.dispose();
     globe.add(nu);
-    if (which === 'lake') mapLab.lakeMesh = nu; else mapLab.riverMesh = nu;
+    if (which === 'lake') mapLab.lakeMesh = nu;
+    else if (which === 'lakedim') mapLab.lakeMeshDim = nu;
+    else mapLab.riverMesh = nu;
   }
 
-  let riverGeo = null; // full-res rivers with per-feature scalerank, fetched on demand
   const api = {
     async setLakes(n) {
       const feats = n > 0 ? lakeFeats.slice(0, n) : [];
-      swap('lake', cleanCoast(lakeRings({ features: feats })), { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
+      // Same bright/dim split as production: top 20 bright, rest dim.
+      swap('lake', cleanCoast(lakeRings({ features: feats.slice(0, 20) })), { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
+      swap('lakedim', cleanCoast(lakeRings({ features: feats.slice(20) })), { color: '#5f9fd0', width: 0.8, opacity: 0.18 });
       return feats.length;
     },
     async setRivers(maxSr) {
-      if (!riverGeo) riverGeo = await getJSON('assets/rivers-10m-scalerank.geo.json');
+      // Rivers come pre-loaded via getTopo (no extra fetch); filter by scalerank.
       const coords = [];
       if (maxSr > 0)
-        for (const f of riverGeo.features)
+        for (const f of rivers.features)
           if (f.properties.scalerank <= maxSr) coords.push(...f.geometry.coordinates);
       swap('river', cleanCoast(coords), { color: '#4a86b8', width: 0.6, opacity: 0.3 });
-      return maxSr > 0 ? riverGeo.features.filter((f) => f.properties.scalerank <= maxSr).length : 0;
+      return maxSr > 0 ? rivers.features.filter((f) => f.properties.scalerank <= maxSr).length : 0;
     },
   };
   window.__maplab = api;

@@ -83,10 +83,11 @@
 <div class="note">
   This embeds the actual game (index.html?maplab=1) and swaps the river/lake
   outline layers on the live 3D globe, so what you see is exactly what would
-  ship. Rivers come from Natural Earth 10m at full resolution; the lab-only
-  asset (rivers-10m-scalerank.geo.json) is fetched only in lab mode and never
-  affects normal gameplay. Lakes are the top N by size from the existing
-  lakes-10m asset (531 total). The ?maplab hook in src/main.js is inert unless
+  ship. Rivers come from Natural Earth 10m at full resolution; the lab shares
+  the production asset (rivers-10m-scalerank.topo.json), which is always loaded
+  and never affects normal gameplay. Lakes are the top N by size from the existing
+  lakes-10m asset (531 total), with the largest 20 drawn bright and the rest dim.
+  The ?maplab hook in src/main.js is inert unless
   the query param is present.
 </div>
 

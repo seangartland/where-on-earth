@@ -43,7 +43,7 @@ function restoreRingStarts(topo, geo) {
   return restored;
 }
 
-const NAMES =["world", "world-10m", "lakes-10m", "rivers-10m"];
+const NAMES =["world", "world-10m", "lakes-10m", "rivers-10m", "rivers-10m-scalerank"];
 const GRID = { scale: [1e-4, 1e-4], translate: [-180, -90] };
 
 for (const name of NAMES) {
