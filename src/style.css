@@ -215,7 +215,6 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .results-card, .survival-results-card { position: relative; }
 .results-card { box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 20px 14px 18px; border-radius: 24px; text-align: left; }
 .results-card .home-nav-btn, .survival-results-card .home-nav-btn { position: absolute; top: 5px; right: 5px; }
-.results-actions .home-nav-btn, .survival-result-actions .home-nav-btn { width: 44px; min-height: 44px; }
 .postcard-summary-header { position: relative; padding: 3px 48px 15px 2px; }
 .postcard-summary-header .eyebrow { margin-bottom: 6px; }
 .postcard-summary-header h2 { margin: 0; color: #f5fbff; font-size: 29px; line-height: 1.05; letter-spacing: -.045em; }
