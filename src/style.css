@@ -245,11 +245,13 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .round-breakdown { margin: 16px 0 10px; }
 .round-breakdown h2 { margin: 0 0 6px; color: rgba(198,226,250,.58); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
 #results-breakdown { margin: 0; padding: 0; list-style: none; }
-#results-breakdown li { display: grid; grid-template-columns: 25px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(173,216,255,.11); font-size: 15px; }
-#results-breakdown li > b { color: rgba(198,226,250,.58); font-size: 12px; }
-#results-breakdown .place { overflow: hidden; color: rgba(225,240,255,.92); text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
-#results-breakdown .points { color: #ffc76a; font-size: 16px; font-weight: 800; text-align: right; }
-#results-breakdown .points small { display: block; color: rgba(193,224,250,.5); font-weight: 500; }
+#results-breakdown li { display: flex; align-items: center; min-width: 0; gap: 7px; padding: 9px 0; border-bottom: 1px solid rgba(173,216,255,.11); font-size: 15px; }
+#results-breakdown li > b { flex: 0 0 18px; color: rgba(198,226,250,.58); font-size: 12px; }
+#results-breakdown .place { min-width: 0; overflow: hidden; color: rgba(225,240,255,.92); text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+#results-breakdown .result-separator { flex: 0 0 auto; color: rgba(193,224,250,.42); }
+#results-breakdown .result-metrics { display: inline-flex; flex: 0 0 auto; align-items: baseline; gap: 6px; white-space: nowrap; }
+#results-breakdown .points { color: #ffc76a; font-size: 14px; font-weight: 800; }
+#results-breakdown .distance { color: rgba(193,224,250,.62); font-size: 12px; font-weight: 600; }
 .results-actions { position: relative; }
 .results-actions .primary { width: 100%; }
 .text-button { background: none; border: none; color: rgba(193,224,250,.55); font: 13px/1.4 system-ui, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 8px; margin-top: 4px; }
