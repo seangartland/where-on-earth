@@ -2546,19 +2546,6 @@
   "difficultyWhy": "F4\u00b7A1\u00b7K0\u00b7C0\u00b7S0 \u2192 6"
  },
  {
-  "id": "bobrovo",
-  "short": "Bobrovo",
-  "clue": "Bobrovo, Russia \ud83c\uddf7\ud83c\uddfa",
-  "fact": "Bobrovo is a village in the New Moscow area, just south of Moscow's Butovo district.",
-  "lat": 55.5275,
-  "lng": 37.615,
-  "difficulty": 3,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Russia",
-  "sets": [],
-  "difficultyWhy": "F5\u00b7A3\u00b7K0\u00b7C0\u00b7S0 \u2192 5 \u2192 evened to 3"
- },
- {
   "id": "bodh-gaya-india",
   "short": "Bodh Gaya",
   "clue": "Bodh Gaya, India \ud83c\uddee\ud83c\uddf3",
@@ -3945,19 +3932,6 @@
   "difficultyWhy": "F4\u00b7A3\u00b7K0\u00b7C0\u00b7S0 \u2192 8"
  },
  {
-  "id": "ceska-trebova",
-  "short": "\u010cesk\u00e1 T\u0159ebov\u00e1",
-  "clue": "\u010cesk\u00e1 T\u0159ebov\u00e1, Czech Republic \ud83c\udde8\ud83c\uddff",
-  "fact": "\u010cesk\u00e1 T\u0159ebov\u00e1 is a Czech town known as one of the country's most important railway junctions.",
-  "lat": 49.90436,
-  "lng": 16.44413,
-  "difficulty": 6,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Czech Republic",
-  "sets": [],
-  "difficultyWhy": "F5\u00b7A0\u00b7K0\u00b7C0\u00b7S0 \u2192 6"
- },
- {
   "id": "cesky-krumlov-d34-18",
   "short": "Cesky Krumlov",
   "clue": "Cesky Krumlov, Czech Republic \ud83c\udde8\ud83c\uddff",
@@ -4023,19 +3997,6 @@
   "country": "United Kingdom",
   "sets": [],
   "difficultyWhy": "F1\u00b7A2\u00b7K2\u00b7C1\u00b7S0 \u2192 7"
- },
- {
-  "id": "chahar-dangeh",
-  "short": "Chah\u0101r Dangeh",
-  "clue": "Chah\u0101r Dangeh, Iran \ud83c\uddee\ud83c\uddf7",
-  "fact": "Chahar Dangeh is a town on the southern industrial edge of Tehran province.",
-  "lat": 35.6031,
-  "lng": 51.3098,
-  "difficulty": 4,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Iran",
-  "sets": [],
-  "difficultyWhy": "F5\u00b7A2\u00b7K0\u00b7C0\u00b7S0 \u2192 4 (neighbor tehran)"
  },
  {
   "id": "chakia",
@@ -5998,19 +5959,6 @@
   "difficultyWhy": "F3\u00b7A2\u00b7K0\u00b7C0\u00b7S0 \u2192 5 (relief)"
  },
  {
-  "id": "doetinchem",
-  "short": "Doetinchem",
-  "clue": "Doetinchem, Netherlands \ud83c\uddf3\ud83c\uddf1",
-  "fact": "Doetinchem is a town in the Achterhoek region of the Netherlands, on the Oude IJssel river.",
-  "lat": 51.965,
-  "lng": 6.28889,
-  "difficulty": 5,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Netherlands",
-  "sets": [],
-  "difficultyWhy": "F4\u00b7A0\u00b7K0\u00b7C0\u00b7S0 \u2192 5"
- },
- {
   "id": "doha-qatar",
   "clue": "Doha, Qatar \ud83c\uddf6\ud83c\udde6",
   "fact": "The Museum of Islamic Art here was designed entirely by I. M. Pei and reopened in 2023 after seven years of restoration, on its own artificial island.",
@@ -6359,19 +6307,6 @@
   "country": "South Africa",
   "sets": [],
   "difficultyWhy": "F2\u00b7A2\u00b7K0\u00b7C0\u00b7S0 \u2192 5"
- },
- {
-  "id": "dursley",
-  "short": "Dursley",
-  "clue": "Dursley, England",
-  "fact": "Dursley is a Gloucestershire town below the Cotswolds, known for the Lister engine factory, and is said to have inspired the name of Harry Potter's Dursley family.",
-  "lat": 51.68139,
-  "lng": -2.35333,
-  "difficulty": 7,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "England",
-  "sets": [],
-  "difficultyWhy": "F5\u00b7A1\u00b7K0\u00b7C0\u00b7S0 \u2192 7"
  },
  {
   "id": "dushanbe-tajikistan",
@@ -10984,19 +10919,6 @@
   "country": "Turkmenistan",
   "sets": [],
   "difficultyWhy": "F5\u00b7A1\u00b7K0\u00b7C0\u00b7S0 \u2192 7"
- },
- {
-  "id": "kerkrade",
-  "short": "Kerkrade",
-  "clue": "Kerkrade, Netherlands \ud83c\uddf3\ud83c\uddf1",
-  "fact": "Kerkrade is a Dutch town that shares a border street with the German town of Herzogenrath.",
-  "lat": 50.86583,
-  "lng": 6.0625,
-  "difficulty": 5,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Netherlands",
-  "sets": [],
-  "difficultyWhy": "F4\u00b7A0\u00b7K0\u00b7C0\u00b7S0 \u2192 5"
  },
  {
   "id": "kermadec-islands",
@@ -19088,19 +19010,6 @@
   "difficultyWhy": "F4\u00b7A1\u00b7K0\u00b7C0\u00b7S0 \u2192 6"
  },
  {
-  "id": "rakvere",
-  "short": "Rakvere",
-  "clue": "Rakvere, Estonia \ud83c\uddea\ud83c\uddea",
-  "fact": "Rakvere is an Estonian town with a medieval castle on a hill and a giant bronze aurochs statue.",
-  "lat": 59.34808,
-  "lng": 26.35784,
-  "difficulty": 6,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Estonia",
-  "sets": [],
-  "difficultyWhy": "F5\u00b7A0\u00b7K0\u00b7C0\u00b7S0 \u2192 6"
- },
- {
   "id": "raleigh-usa",
   "clue": "Raleigh, United States \ud83c\uddfa\ud83c\uddf8",
   "fact": "Raleigh is North Carolina's capital and part of the Research Triangle, known for its universities and tech sector.",
@@ -20907,19 +20816,6 @@
   "difficultyWhy": "F4\u00b7A3\u00b7K0\u00b7C0\u00b7S0 \u2192 8"
  },
  {
-  "id": "senaki",
-  "short": "Senaki",
-  "clue": "Senaki, Georgia \ud83c\uddec\ud83c\uddea",
-  "fact": "Senaki is a town in western Georgia's Samegrelo region and is home to a military air base.",
-  "lat": 42.27077,
-  "lng": 42.06334,
-  "difficulty": 7,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Georgia",
-  "sets": [],
-  "difficultyWhy": "F5\u00b7A1\u00b7K0\u00b7C0\u00b7S0 \u2192 7"
- },
- {
   "id": "sendai",
   "short": "Sendai",
   "clue": "Sendai, Japan \ud83c\uddef\ud83c\uddf5",
@@ -21412,19 +21308,6 @@
   "country": "Denmark",
   "sets": [],
   "difficultyWhy": "F4\u00b7A0\u00b7K0\u00b7C0\u00b7S0 \u2192 5"
- },
- {
-  "id": "silute",
-  "short": "Silute",
-  "clue": "Silute, Lithuania \ud83c\uddf1\ud83c\uddf9",
-  "fact": "\u0160ilut\u0117 is a Lithuanian town near the Curonian Lagoon and the gateway to the Nemunas Delta.",
-  "lat": 55.34889,
-  "lng": 21.48306,
-  "difficulty": 6,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Lithuania",
-  "sets": [],
-  "difficultyWhy": "F5\u00b7A0\u00b7K0\u00b7C0\u00b7S0 \u2192 6"
  },
  {
   "id": "simien-mountains",

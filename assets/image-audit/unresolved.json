@@ -176,10 +176,6 @@
   "reason": "passed but no candidate"
  },
  {
-  "id": "bobrovo",
-  "reason": "passed but no candidate"
- },
- {
   "id": "bogor",
   "reason": "passed but no candidate"
  },
@@ -268,16 +264,8 @@
   "reason": "Real photo, but it's an isolated library building with a Chr"
  },
  {
-  "id": "ceska-trebova",
-  "reason": "Real photo, but it's a close-up of a single wooden church su"
- },
- {
   "id": "chachoengsao",
   "reason": "Real photo, but it's an isolated temple/pagoda monument at d"
- },
- {
-  "id": "chahar-dangeh",
-  "reason": "passed but no candidate"
  },
  {
   "id": "chaozhou-cn",
@@ -408,10 +396,6 @@
   "reason": "passed but no candidate"
  },
  {
-  "id": "doetinchem",
-  "reason": "passed but no candidate"
- },
- {
   "id": "dombivali",
   "reason": "Real photo, but it's a single isolated building (Kalyan-Domb"
  },
@@ -441,10 +425,6 @@
  },
  {
   "id": "dunhua",
-  "reason": "passed but no candidate"
- },
- {
-  "id": "dursley",
   "reason": "passed but no candidate"
  },
  {
@@ -984,10 +964,6 @@
   "reason": "Not a single real photo \u2014 it's a stitched collage of six sep"
  },
  {
-  "id": "kerkrade",
-  "reason": "Real photo but a close-up of generic shopfronts (Game Cave, "
- },
- {
   "id": "kharkiv-ua",
   "reason": "Real photo but shows a single building (Palace of Sports) in"
  },
@@ -1264,10 +1240,6 @@
   "reason": "Real photograph of Quetta Railway Station, but the isolated "
  },
  {
-  "id": "rakvere",
-  "reason": "Real photograph of Rakvere castle ruins, but the isolated mo"
- },
- {
   "id": "rangpur",
   "reason": "Real photo, but it shows an isolated zamindar mansion rather"
  },
@@ -1338,10 +1310,6 @@
  {
   "id": "semarang-id",
   "reason": "Real photo, but it is composed around the Tugu Muda monument"
- },
- {
-  "id": "senaki",
-  "reason": "Real photo of an isolated cathedral, not a city view of Sena"
  },
  {
   "id": "sha-tin",
@@ -1794,10 +1762,6 @@
  {
   "id": "silkeborg",
   "reason": "Real photo but shows only a single isolated church building "
- },
- {
-  "id": "silute",
-  "reason": "Real photo but shows only a single isolated Lutheran church "
  },
  {
   "id": "timbuktu-mali",
