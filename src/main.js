@@ -3622,9 +3622,15 @@ async function confirmGoHome() {
     goHome();
     return;
   }
+  // Daily is the default game while no alternate mode is active. Its state is
+  // persisted after each round, so returning home does not discard progress.
+  const isDailyGame = !endless.active && !survival.active && !expeditionRun.active;
+  const message = isDailyGame
+    ? 'Your progress is saved. You can continue later.'
+    : 'Your current game progress will be lost.';
   if (await showConfirmModal({
     title: 'Return to home?',
-    message: 'Your current game progress will be lost.',
+    message,
     confirmLabel: 'Return home',
     cancelLabel: 'Keep playing',
   })) {
