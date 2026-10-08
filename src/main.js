@@ -622,6 +622,15 @@ function topoFeatures(topo) {
   return topoFeature({ ...topo, transform: undefined, arcs }, topo.objects.data);
 }
 const getTopo = (url) => getJSON(url).then(topoFeatures);
+// Map lab: density preview tool for the rivers/lakes lab page. Completely
+// inert unless the page is loaded with ?maplab in the URL; then it listens
+// for postMessage({type:'maplab', rivers, lakes}) from the embedding page and
+// rebuilds the river/lake outline layers at the requested density.
+const mapLab = {
+  on: new URLSearchParams(location.search).has('maplab'),
+  lakeMesh: null,
+  riverMesh: null,
+};
 Promise.all([
   getTopo('assets/world.topo.json'),
   getTopo('assets/world-10m.topo.json'),
@@ -641,15 +650,109 @@ Promise.all([
     );
     globeMat.uniforms.uMap.value = buildLandTexture(geo, coast, lakes);
     globe.add(buildOutline(coast, 1.002, { color: '#7fd2f4', width: 0.78, opacity: 0.92 }));
-    globe.add(buildOutline(lakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.45 }));
-    globe.add(buildOutline(riverLines, 1.002, { color: '#4a86b8', width: 0.6, opacity: 0.3 }));
+    mapLab.lakeMesh = buildOutline(lakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
+    mapLab.riverMesh = buildOutline(riverLines, 1.002, { color: '#4a86b8', width: 0.6, opacity: 0.3 });
+    globe.add(mapLab.lakeMesh);
+    globe.add(mapLab.riverMesh);
     landLoaded = true;
     if (window.__boot) window.__boot('map data loaded');
+    if (new URLSearchParams(location.search).has('maplab')) initMapLab(lakes);
   })
   .catch((err) => {
     console.error('failed to load land data', err);
     if (window.__showErr) window.__showErr('MAPDATA: ' + (err && err.message ? err.message : err));
   });
+
+// Rivers/lakes density lab (?maplab). Rebuilds the lake-shore and river
+// outline layers on the live globe at the requested density. Only wired up
+// when the page is loaded with ?maplab, so normal gameplay is untouched.
+function initMapLab(lakes) {
+  // Lab view: hide all game UI so the bare globe is visible and spinnable.
+  const gameMain = document.getElementById('game');
+  if (gameMain) gameMain.style.display = 'none';
+  const hud = document.getElementById('hud');
+  if (hud) hud.style.display = 'none';
+  // lakes-10m features sorted largest-first (bbox area); the lab shows the top N.
+  const lakeFeats = lakes.features
+    .map((f) => {
+      let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+      for (const poly of f.geometry.coordinates)
+        for (const ring of poly)
+          for (const [x, y] of ring) {
+            if (x < x0) x0 = x; if (x > x1) x1 = x;
+            if (y < y0) y0 = y; if (y > y1) y1 = y;
+          }
+      return { f, area: (x1 - x0) * (y1 - y0) };
+    })
+    .sort((a, b) => b.area - a.area)
+    .map((x) => x.f);
+
+  // Swap one outline layer, showing it immediately (the boot reveal fade is
+  // long done by the time the lab runs, so new materials must not start at 0).
+  function swap(which, lines, opts) {
+    const old = which === 'lake' ? mapLab.lakeMesh : mapLab.riverMesh;
+    const nu = buildOutline(lines, 1.002, opts);
+    nu.material.opacity = nu.material.userData.baseOpacity ?? 1;
+    globe.remove(old);
+    const i = outlineMaterials.indexOf(old.material);
+    if (i >= 0) outlineMaterials.splice(i, 1);
+    old.geometry.dispose();
+    old.material.dispose();
+    globe.add(nu);
+    if (which === 'lake') mapLab.lakeMesh = nu; else mapLab.riverMesh = nu;
+  }
+
+  let riverGeo = null; // full-res rivers with per-feature scalerank, fetched on demand
+  const api = {
+    async setLakes(n) {
+      const feats = n > 0 ? lakeFeats.slice(0, n) : [];
+      swap('lake', cleanCoast(lakeRings({ features: feats })), { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
+      return feats.length;
+    },
+    async setRivers(maxSr) {
+      if (!riverGeo) riverGeo = await getJSON('assets/rivers-10m-scalerank.geo.json');
+      const coords = [];
+      if (maxSr > 0)
+        for (const f of riverGeo.features)
+          if (f.properties.scalerank <= maxSr) coords.push(...f.geometry.coordinates);
+      swap('river', cleanCoast(coords), { color: '#4a86b8', width: 0.6, opacity: 0.3 });
+      return riverGeo.features.filter((f) => f.properties.scalerank <= maxSr).length;
+    },
+  };
+  window.__maplab = api;
+  const pending = [];
+  let ready = true;
+  window.addEventListener('message', (e) => {
+    const d = e.data;
+    if (!d || d.type !== 'maplab') return;
+    pending.push({ d, src: e.source });
+    if (ready) drain();
+  });
+  async function drain() {
+    ready = false;
+    while (pending.length) {
+      const { d, src } = pending.shift();
+      let rivers = null, lakes = null;
+      try {
+        if (d.lakes !== undefined) lakes = await api.setLakes(d.lakes);
+        if (d.rivers !== undefined) rivers = await api.setRivers(d.rivers);
+      } catch (err) {
+        console.error('maplab failed', err);
+      }
+      try { src.postMessage({ type: 'maplab-done', rivers, lakes }, '*'); } catch (_) {}
+    }
+    ready = true;
+  }
+  // Apply any initial density requested via the query string (?maplab&rivers=5&lakes=300).
+  const q = new URLSearchParams(location.search);
+  const init = {};
+  if (q.has('rivers')) init.rivers = parseInt(q.get('rivers'), 10) || 0;
+  if (q.has('lakes')) init.lakes = parseInt(q.get('lakes'), 10) || 0;
+  if (init.rivers !== undefined || init.lakes !== undefined) {
+    pending.push({ d: { type: 'maplab', ...init }, src: window.parent });
+    drain();
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Pin
@@ -3260,7 +3363,7 @@ function postcardSummaryCard(result, item) {
   if (!outcome || !['new', 'upgrade'].includes(outcome.kind)) return null;
   const rarity = rarityFor(item.difficulty);
   const card = document.createElement('article');
-  card.className = `postcard-summary-card rarity-${rarity} ${outcome.kind}${outcome.tier === EARN_PINPOINT ? ' pinpoint' : ''}`;
+  card.className = `postcard-summary-card rarity-${rarity} ${outcome.kind}${outcome.tier === EARN_BULLSEYE ? ' bullseye' : ''}${outcome.tier === EARN_PINPOINT ? ' pinpoint' : ''}`;
   const photo = document.createElement('img');
   photo.className = 'postcard-summary-photo';
   photo.src = item.image || '';
@@ -3283,9 +3386,6 @@ function postcardSummaryCard(result, item) {
   const country = document.createElement('div');
   country.className = 'postcard-summary-country';
   country.textContent = `${flagForLocation(item)} ${item.country || ''}`;
-  const rarityBadge = document.createElement('span');
-  rarityBadge.className = 'rarity-tab postcard-summary-rarity';
-  rarityBadge.textContent = rarity;
   if (outcome.kind === 'upgrade') {
     const tier = document.createElement('span');
     tier.className = 'postcard-summary-tier';
@@ -3293,7 +3393,7 @@ function postcardSummaryCard(result, item) {
     country.append(tier);
   }
   topline.append(badge, distance);
-  copy.append(topline, place, country, rarityBadge);
+  copy.append(topline, place, country);
   card.append(photo, copy);
   return card;
 }
@@ -4482,7 +4582,7 @@ function earnForKm(km) {
   return 0;
 }
 
-// Rarity is the card's tab colour, from the location's difficulty.
+// Rarity is the card-frame colour, from the location's difficulty.
 function rarityFor(difficulty) {
   const d = Number(difficulty) || 5;
   if (d >= 9) return 'legendary';
@@ -4491,14 +4591,14 @@ function rarityFor(difficulty) {
   return 'common';
 }
 
-// Accuracy outlines are applied only to earned cards. Rarity tints the base
-// ring/border via --rarity; gold overrides it once Bullseye/Pinpoint is hit,
-// so the two signals never compete for the same pixels.
+// Every location carries its rarity frame. Accuracy appears only after earning
+// a postcard, as a gold overlay rather than a replacement for that frame.
 function applyCardTier(el, item, earned) {
   el.classList.remove(...RARITY_CLASSES, ...PROX_CLASSES.filter(Boolean));
-  if (!earned) return;
+  if (!item) return;
   const rarityClass = `rarity-${rarityFor(item?.difficulty)}`;
-  el.classList.add(rarityClass, PROX_CLASSES[earned]);
+  el.classList.add(rarityClass);
+  if (earned) el.classList.add(PROX_CLASSES[earned]);
 }
 let passport = { visits: {}, order: [], meta: {} };
 let passportDirty = true; // dots need rebuilding before the next start screen
@@ -4977,11 +5077,10 @@ passportPageStyle.textContent = `
 /* A postcard: white border round the photo, caption on the card stock, and the
    best score pressed on as a round ink stamp. Alternate cards tilt a hair so the
    grid reads as a collection pinned in a book rather than a table. */
-.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border-radius: 4px; background: #1a1f2e; box-shadow: var(--ring, 0 0 #0000), 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 4px; background: #1a1f2e; box-shadow: var(--ring, 0 0 #0000), 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-post:nth-child(even) { --tilt: .7deg; }
 .pp-post:active { transform: rotate(var(--tilt)) scale(.965); filter: brightness(.95); }
 .pp-post:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
-.pp-post .rarity-tab { position: absolute; z-index: 3; top: -7px; left: 7px; }
 /* While its detail is open the card has been lifted out of the book. */
 .pp-post.pp-lifted { visibility: hidden; }
 .pp-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 2px; overflow: hidden; background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
@@ -5369,12 +5468,7 @@ function passportCard(entry) {
     date.title = `${tier} earned`;
   }
   if (tierDate) meta.append(date);
-  const rarity = rarityFor(entry.item.difficulty);
-  li.classList.add(`rarity-${rarity}`);
-  const rarityTab = document.createElement('span');
-  rarityTab.className = 'rarity-tab';
-  rarityTab.textContent = rarity;
-  li.append(rarityTab, photo, stamp, name, meta);
+  li.append(photo, stamp, name, meta);
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
@@ -5519,8 +5613,7 @@ collectionsStyle.textContent = `
 .collection-segments i { flex: 1; height: 6px; border-radius: 3px; background: rgba(214,220,232,.08); }
 .collection-segments i.earned { background: #d2ae62; box-shadow: 0 0 5px rgba(210,174,98,.45); }
 .collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px 10px; margin: 0; padding: 0; list-style: none; }
-.collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 1px solid rgba(214,220,232,.16); border-radius: 9px; background: #1a1f2e; box-shadow: var(--ring,0 0 #0000); }
-.collection-card .rarity-tab { position: absolute; z-index: 3; top: -7px; left: 50%; max-width: calc(100% - 8px); transform: translateX(-50%); }
+.collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 9px; background: #1a1f2e; box-shadow: var(--ring,0 0 #0000); }
 .collection-card .photo { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 5px; background: #0d111b; }
 .collection-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .collection-card-name { min-height: 2.3em; margin: 6px 1px 0; display: grid; place-items: center; color: #e6e8ee; font-size: 10px; font-weight: 750; line-height: 1.15; text-align: center; }
@@ -5661,8 +5754,6 @@ function renderCollectionDetail(set) {
     const card = document.createElement('li');
     card.className = `collection-card${tier ? '' : ' unearned'}${visited ? '' : ' mystery'}`;
     applyCardTier(card, item, tier);
-    const rarity = rarityFor(item.difficulty);
-    if (visited) card.classList.add(`rarity-${rarity}`);
     const photo = document.createElement('div');
     photo.className = 'photo';
     if (visited) {
@@ -5681,12 +5772,6 @@ function renderCollectionDetail(set) {
     meta.className = 'collection-card-meta';
     meta.textContent = `${String(index + 1).padStart(2, '0')} · ${visited ? (tier ? EARN_NAMES[tier] : 'Unearned') : 'Unvisited'}`;
     if (!visited) card.setAttribute('aria-label', `Card ${index + 1}: mystery location, not visited`);
-    if (visited) {
-      const rarityTab = document.createElement('span');
-      rarityTab.className = 'rarity-tab';
-      rarityTab.textContent = rarity;
-      card.append(rarityTab);
-    }
     card.append(photo, name, meta);
     grid.append(card);
   });
@@ -5749,10 +5834,9 @@ const postcardStyle = document.createElement('style');
 postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-.ppd-card { --ppd-accent: #d1a943; position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 1px solid #3f485b; border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
-.ppd-card.prox-postcard { border-color: var(--rarity, #3f485b); }
-.ppd-card.prox-bullseye { border: 2px solid #F5C451; box-shadow: 0 0 0 1px #735d28, 0 0 28px rgba(245,196,81,.4), 0 24px 70px rgba(0,0,0,.78); }
-.ppd-card.prox-pinpoint { border: 3px solid #F5C451; box-shadow: 0 0 0 2px #9d5d30, 0 0 16px rgba(245,196,81,.72), 0 0 42px rgba(245,196,81,.38), 0 24px 70px rgba(0,0,0,.78); }
+.ppd-card { --ppd-accent: #d1a943; position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 2px solid var(--rarity, #3f485b); border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
+.ppd-card.prox-bullseye { box-shadow: inset 0 0 0 2px #F5C451, 0 0 28px rgba(245,196,81,.4), 0 24px 70px rgba(0,0,0,.78); }
+.ppd-card.prox-pinpoint { box-shadow: inset 0 0 0 3.5px #F5C451, 0 0 16px rgba(245,196,81,.72), 0 0 42px rgba(245,196,81,.38), 0 24px 70px rgba(0,0,0,.78); }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,200,.35) 50%, transparent 65%) no-repeat; background-size: 250% 100%; animation: pp-foil 5s ease-in-out infinite; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .ppd-card:is([data-earn="bullseye"], [data-earn="pinpoint"]) .pp-photo::before { animation: none; opacity: 0; } }
@@ -5801,7 +5885,7 @@ postcardScreen.innerHTML = `
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
-    <span class="rarity-tab ppd-rarity" data-ppd="rarity"></span>
+    <span class="ppd-rarity" data-ppd="rarity"></span>
     <div class="ppd-topline"><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span></div>
     <div class="ppd-front">
       <div class="pp-photo" data-ppd="photo"></div>
