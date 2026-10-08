@@ -1208,6 +1208,7 @@ const WEIGHTS = [1, 1, 2, 3, 3];
 const gameEls = {
   start: document.getElementById('start-screen'),
   round: document.getElementById('round-screen'),
+  postcardSummaryScreen: document.getElementById('postcard-summary-screen'),
   results: document.getElementById('results-screen'),
   play: document.getElementById('play-button'),
   number: document.getElementById('round-number'),
@@ -1232,10 +1233,10 @@ const gameEls = {
   thumb: document.getElementById('place-thumb'),
   next: document.getElementById('next-button'),
   total: document.getElementById('total-score'),
-  postcardSummary: document.getElementById('postcard-summary'),
   breakdown: document.getElementById('breakdown'),
   postcardSummaryLede: document.getElementById('postcard-summary-lede'),
   postcardSummaryCounts: document.getElementById('postcard-summary-counts'),
+  postcardSummaryContinue: document.getElementById('postcard-summary-continue'),
   share: document.getElementById('share-button'),
   status: document.getElementById('share-status'),
   startStreak: document.getElementById('start-streak'),
@@ -2121,7 +2122,7 @@ var passportScreenEl = null; // set once the passport page is built
 var collectionsScreenEl = null; // set once the collections page is built
 
 function hideScreens() {
-  gameEls.start.hidden = gameEls.round.hidden = gameEls.results.hidden = true;
+  gameEls.start.hidden = gameEls.round.hidden = gameEls.postcardSummaryScreen.hidden = gameEls.results.hidden = true;
   gameEls.survivalResults.hidden = true;
   reviewEls.screen.hidden = true;
   if (statsScreenEl) statsScreenEl.hidden = true;
@@ -3255,9 +3256,11 @@ function postcardDistance(result, outcome) {
 }
 
 function postcardSummaryCard(result, item) {
-  const outcome = result.postcard || { kind: 'miss' };
+  const outcome = result.postcard;
+  if (!outcome || !['new', 'upgrade'].includes(outcome.kind)) return null;
+  const rarity = rarityFor(item.difficulty);
   const card = document.createElement('article');
-  card.className = `postcard-summary-card ${outcome.kind}${outcome.tier === EARN_PINPOINT ? ' pinpoint' : ''}`;
+  card.className = `postcard-summary-card rarity-${rarity} ${outcome.kind}${outcome.tier === EARN_PINPOINT ? ' pinpoint' : ''}`;
   const photo = document.createElement('img');
   photo.className = 'postcard-summary-photo';
   photo.src = item.image || '';
@@ -3270,7 +3273,7 @@ function postcardSummaryCard(result, item) {
   topline.className = 'postcard-summary-topline';
   const badge = document.createElement('span');
   badge.className = 'postcard-summary-badge';
-  badge.textContent = outcome.kind === 'new' ? '✦ New' : outcome.kind === 'upgrade' ? '↑ Upgraded' : 'No postcard';
+  badge.textContent = outcome.kind === 'new' ? '✦ New' : '↑ Upgraded';
   const distance = document.createElement('span');
   distance.className = 'postcard-summary-distance';
   distance.textContent = postcardDistance(result, outcome);
@@ -3280,6 +3283,9 @@ function postcardSummaryCard(result, item) {
   const country = document.createElement('div');
   country.className = 'postcard-summary-country';
   country.textContent = `${flagForLocation(item)} ${item.country || ''}`;
+  const rarityBadge = document.createElement('span');
+  rarityBadge.className = 'rarity-tab postcard-summary-rarity';
+  rarityBadge.textContent = rarity;
   if (outcome.kind === 'upgrade') {
     const tier = document.createElement('span');
     tier.className = 'postcard-summary-tier';
@@ -3287,7 +3293,7 @@ function postcardSummaryCard(result, item) {
     country.append(tier);
   }
   topline.append(badge, distance);
-  copy.append(topline, place, country);
+  copy.append(topline, place, country, rarityBadge);
   card.append(photo, copy);
   return card;
 }
@@ -3300,6 +3306,45 @@ function shareText() {
     return `${base} ${scoreEmoji(base)}`;
   });
   return `Where on Earth?\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}\n\nCan you beat me?\nhttps://where-on-earth-game.vercel.app`;
+}
+
+function postcardSummaryOutcomes() {
+  return daily.results
+    .map((result, index) => ({ result, item: selected[index] }))
+    .filter(({ result }) => ['new', 'upgrade'].includes(result.postcard?.kind));
+}
+
+function postcardSummaryCounts(outcomes) {
+  return outcomes.reduce((counts, { result }) => {
+    counts[result.postcard.kind] += 1;
+    return counts;
+  }, { new: 0, upgrade: 0 });
+}
+
+function showPostcardSummary() {
+  const outcomes = postcardSummaryOutcomes();
+  if (!outcomes.length) return showResults();
+  clearReveal();
+  hideScreens();
+  gameMode = 'postcard-summary';
+  window.__canGuess = false;
+  gameEls.postcardSummaryScreen.hidden = false;
+  document.body.classList.add('game-results');
+  const { new: newCount, upgrade: upgradeCount } = postcardSummaryCounts(outcomes);
+  gameEls.postcardSummaryLede.textContent = `${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' — and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
+  gameEls.breakdown.replaceChildren(...outcomes.map(({ result, item }) => postcardSummaryCard(result, item)));
+  const countLabel = (count, label) => {
+    const el = document.createElement('span');
+    const number = document.createElement('b');
+    number.textContent = count;
+    el.append(number, ` ${label}`);
+    return el;
+  };
+  gameEls.postcardSummaryCounts.replaceChildren(
+    countLabel(newCount, 'new'),
+    Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }),
+    countLabel(upgradeCount, 'upgraded'),
+  );
 }
 
 function showResults() {
@@ -3316,27 +3361,6 @@ function showResults() {
   const total = daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
   gameEls.resultStreak.textContent = `🔥 ${streak} day streak`;
-  const outcomes = daily.results.map((result) => result.postcard || { kind: 'miss' });
-  const newCount = outcomes.filter(({ kind }) => kind === 'new').length;
-  const upgradeCount = outcomes.filter(({ kind }) => kind === 'upgrade').length;
-  const hasPostcardSummary = newCount > 0 || upgradeCount > 0;
-  gameEls.postcardSummary.hidden = !hasPostcardSummary;
-  if (hasPostcardSummary) {
-    gameEls.postcardSummaryLede.textContent = `${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' — and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
-    gameEls.breakdown.replaceChildren(...daily.results.map((result, i) => postcardSummaryCard(result, selected[i])));
-    const countLabel = (count, label) => {
-      const el = document.createElement('span');
-      const number = document.createElement('b');
-      number.textContent = count;
-      el.append(number, ` ${label}`);
-      return el;
-    };
-    gameEls.postcardSummaryCounts.replaceChildren(
-      countLabel(newCount, 'new'),
-      Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }),
-      countLabel(upgradeCount, 'upgraded'),
-    );
-  }
   tickCountdown();
 }
 
@@ -3369,7 +3393,7 @@ function nextRound() {
       showRound();
     }
   } else if (endless.active) endlessNext();
-  else if (daily.round >= 4) showResults();
+  else if (daily.round >= 4) showPostcardSummary();
   else {
     daily.round += 1;
     saveDaily();
@@ -3625,6 +3649,11 @@ async function confirmGoHome() {
     goHome();
     return;
   }
+  // Don't confirm if game is complete (on results page) — nothing to lose
+  if (daily.complete || (typeof endless !== 'undefined' && endless.complete)) {
+    goHome();
+    return;
+  }
   // Daily is the default game while no alternate mode is active. Its state is
   // persisted after each round, so returning home does not discard progress.
   const isDailyGame = !endless.active && !survival.active && !expeditionRun.active;
@@ -3766,7 +3795,6 @@ reviewStyle.textContent = `
 .next-game-time { font-size: 28px; }
 .next-game-sub { font-size: 11px; }
 .results-globe { display: block; margin: 0 auto; }
-.postcard-summary-card { cursor: pointer; }
 .review-screen { pointer-events: none; }
 .review-bar { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px; right: 14px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 10px 10px 10px 16px; border-radius: 18px; pointer-events: auto; }
 .review-bar .review-title { flex: 1; min-width: 0; }
@@ -4014,12 +4042,9 @@ function pickReviewRound(x, y) {
 }
 
 resultsGlobe.addEventListener('click', () => enterReview());
+gameEls.postcardSummaryContinue.addEventListener('click', showResults);
 gameEls.results.addEventListener('click', (e) => {
   if (e.target === gameEls.results) enterReview(); // tap outside the card
-});
-gameEls.breakdown.addEventListener('click', (e) => {
-  const card = e.target.closest('.postcard-summary-card');
-  if (card) enterReview([...gameEls.breakdown.children].indexOf(card));
 });
 reviewEls.screen.addEventListener('click', (e) => {
   const act = e.target.closest('[data-act]');
