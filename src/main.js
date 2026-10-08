@@ -3556,13 +3556,78 @@ function createHomeButton() {
   return button;
 }
 
-function confirmGoHome() {
+let confirmModal;
+let confirmModalResolve;
+let confirmModalReturnFocus;
+
+function showConfirmModal({ title, message, confirmLabel, cancelLabel }) {
+  if (!confirmModal) {
+    confirmModal = document.createElement('section');
+    confirmModal.className = 'confirm-modal';
+    confirmModal.hidden = true;
+    confirmModal.innerHTML = `
+      <div class="confirm-modal__card glass" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title" aria-describedby="confirm-modal-message">
+        <h2 class="confirm-modal__title" id="confirm-modal-title"></h2>
+        <p class="confirm-modal__message" id="confirm-modal-message"></p>
+        <div class="confirm-modal__actions">
+          <button class="confirm-modal__cancel" type="button"></button>
+          <button class="confirm-modal__confirm" type="button"></button>
+        </div>
+      </div>`;
+    document.getElementById('game').appendChild(confirmModal);
+
+    confirmModal.addEventListener('click', (event) => {
+      if (event.target === confirmModal) closeConfirmModal(false);
+    });
+    confirmModal.querySelector('.confirm-modal__cancel').addEventListener('click', () => closeConfirmModal(false));
+    confirmModal.querySelector('.confirm-modal__confirm').addEventListener('click', () => closeConfirmModal(true));
+  }
+
+  // A single shared dialog prevents competing confirmation layers.
+  if (!confirmModal.hidden) return Promise.resolve(false);
+
+  confirmModal.querySelector('.confirm-modal__title').textContent = title;
+  confirmModal.querySelector('.confirm-modal__message').textContent = message;
+  confirmModal.querySelector('.confirm-modal__confirm').textContent = confirmLabel;
+  confirmModal.querySelector('.confirm-modal__cancel').textContent = cancelLabel;
+  confirmModalReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  confirmModal.hidden = false;
+  confirmModal.querySelector('.confirm-modal__cancel').focus();
+
+  return new Promise((resolve) => {
+    confirmModalResolve = resolve;
+  });
+}
+
+function closeConfirmModal(confirmed) {
+  if (!confirmModal || confirmModal.hidden) return;
+  confirmModal.hidden = true;
+  const resolve = confirmModalResolve;
+  confirmModalResolve = null;
+  resolve?.(confirmed);
+  confirmModalReturnFocus?.focus();
+  confirmModalReturnFocus = null;
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && confirmModal && !confirmModal.hidden) {
+    event.preventDefault();
+    closeConfirmModal(false);
+  }
+});
+
+async function confirmGoHome() {
   // Don't confirm if no game is in progress
   if (gameMode === 'start') {
     goHome();
     return;
   }
-  if (confirm('Return to home? Your current game progress will be lost.')) {
+  if (await showConfirmModal({
+    title: 'Return to home?',
+    message: 'Your current game progress will be lost.',
+    confirmLabel: 'Return home',
+    cancelLabel: 'Keep playing',
+  })) {
     goHome();
   }
 }
