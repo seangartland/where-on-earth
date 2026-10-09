@@ -19,6 +19,12 @@ cp -r "$SCRIPT_DIR/src" "$DEPLOY_DIR/"
 # Drop main.js/style.css backups (main.js.bak-*, main.js.backup-*)
 rm -f "$DEPLOY_DIR"/src/*.bak* "$DEPLOY_DIR"/src/*.backup*
 cp -r "$SCRIPT_DIR/vendor" "$DEPLOY_DIR/"
+# Import map points to lib/<version>/ — copy vendor there too
+LIB_VER=$(grep -o '"three": "./lib/[^"]*"' "$SCRIPT_DIR/index.html" | head -1 | sed 's/.*".\/lib\///;s/\/three.*//')
+if [ -n "$LIB_VER" ]; then
+  mkdir -p "$DEPLOY_DIR/lib/$LIB_VER"
+  cp -r "$SCRIPT_DIR/vendor/"* "$DEPLOY_DIR/lib/$LIB_VER/"
+fi
 cp "$SCRIPT_DIR/vercel.json" "$DEPLOY_DIR/"
 
 # Copy assets but exclude backups and duplicates
