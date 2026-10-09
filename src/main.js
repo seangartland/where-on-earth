@@ -3526,6 +3526,10 @@ function revealGuess(guess, restoring = false) {
     };
     saveDaily();
   }
+  if (!restoring && (survival.active || expeditionRun.active)) {
+    const postcard = postcardRoundOutcome(previousEarn, newlyEarned);
+    if (postcard.kind !== 'miss') runHaul.push({ result: { distance: km, distanceExact: kmExact, postcard }, item: answer });
+  }
   if (!restoring && expeditionRun.active) completeExpeditionRound();
   const weight = oneOff ? 1 : WEIGHTS[daily.round];
   gameEls.baseScore.textContent = base;
@@ -3717,6 +3721,15 @@ function postcardSummaryOutcomes() {
     .filter(({ result }) => ['new', 'upgrade'].includes(result.postcard?.kind));
 }
 
+// Survival and Expeditions are unscored, so they have no daily.results to read
+// back. Their new and upgraded postcards are collected here as rounds are played.
+const runHaul = [];
+
+// Show the run's haul before moving on, then forget it so it can't show twice.
+function showRunHaul(next, nextLabel) {
+  showPostcardSummary(runHaul.splice(0), next, nextLabel);
+}
+
 function postcardSummaryCounts(outcomes) {
   return outcomes.reduce((counts, { result }) => {
     counts[result.postcard.kind] += 1;
@@ -3724,9 +3737,12 @@ function postcardSummaryCounts(outcomes) {
   }, { new: 0, upgrade: 0 });
 }
 
-function showPostcardSummary() {
-  const outcomes = postcardSummaryOutcomes();
-  if (!outcomes.length) return showResults();
+let postcardSummaryNext = showResults;
+
+function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next = showResults, nextLabel = 'Continue to results') {
+  if (!outcomes.length) return next();
+  postcardSummaryNext = next;
+  gameEls.postcardSummaryContinue.textContent = nextLabel;
   clearReveal();
   hideScreens();
   gameMode = 'postcard-summary';
@@ -3816,10 +3832,13 @@ function nextRound() {
   window.__pendingEarn = null;
   document.querySelector('.earn-toast')?.remove();
   if (survival.active) {
-    if (survival.missed) showSurvivalGameOver();
+    if (survival.missed) showRunHaul(showSurvivalGameOver, 'See run');
     else survivalGo();
   } else if (expeditionRun.active) {
-    if (expeditionRun.index + 1 >= expeditionLocations(expeditionRun.expedition).length) showExpeditionPicker(expeditionRun.expedition.id);
+    if (expeditionRun.index + 1 >= expeditionLocations(expeditionRun.expedition).length) {
+      const { id } = expeditionRun.expedition;
+      showRunHaul(() => showExpeditionPicker(id), 'See badge');
+    }
     else {
       expeditionRun.index += 1;
       expeditionRun.item = expeditionLocation(expeditionRun.expedition, expeditionRun.index);
@@ -4181,7 +4200,7 @@ function survivalGo() {
   survival.missed = false;
   if (!survival.item) {
     survival.round -= 1;
-    showSurvivalGameOver();
+    showRunHaul(showSurvivalGameOver, 'See run');
     return;
   }
   showRound();
@@ -4197,6 +4216,7 @@ function startSurvival() {
   survival.survived = 0;
   survival.lastDistance = null;
   survival.missed = false;
+  runHaul.length = 0;
   survivalGo();
 }
 
@@ -4481,7 +4501,7 @@ function pickReviewRound(x, y) {
 
 resultsGlobe.addEventListener('click', () => enterReview());
 if (gameEls.postcardSummaryContinue) {
-  gameEls.postcardSummaryContinue.addEventListener('click', showResults);
+  gameEls.postcardSummaryContinue.addEventListener('click', () => postcardSummaryNext());
 }
 gameEls.results.addEventListener('click', (e) => {
   if (e.target === gameEls.results) enterReview(); // tap outside the card
@@ -5164,6 +5184,7 @@ passportStyle.textContent = `
 .passport[hidden] { display: none; }
 .passport-count { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; font-weight: 700; }
 .passport-earned { color: #ffd166; }
+.passport-streak { color: #ffc76a; }
 .passport-count b { color: #ffc76a; font-size: 27px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.02em; text-shadow: 0 0 22px rgba(255,199,106,.3); }
 .passport-stamps { display: flex; justify-content: center; gap: 7px; margin-top: 11px; }
 .passport-stamps img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: rgba(157,211,255,.08); border: 2px solid rgba(157,211,255,.28); }
@@ -5185,7 +5206,7 @@ const passportBox = document.createElement('div');
 passportBox.className = 'passport';
 passportBox.hidden = true;
 passportBox.innerHTML = `
-  <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places found<span class="passport-earned" data-passport="earned"></span></p>
+  <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places found<span class="passport-earned" data-passport="earned"></span><span class="passport-streak" data-passport="streak"></span></p>
   <div class="passport-stamps" data-passport="stamps"></div>
   <div class="passport-continents" data-passport="continents"></div>`;
 // Above the mode-button grid, never inside it: a fourth grid child shoves
@@ -5196,6 +5217,7 @@ const passportEls = {
   found: passportBox.querySelector('[data-passport="found"]'),
   total: passportBox.querySelector('[data-passport="total"]'),
   earned: passportBox.querySelector('[data-passport="earned"]'),
+  streak: passportBox.querySelector('[data-passport="streak"]'),
   stamps: passportBox.querySelector('[data-passport="stamps"]'),
   continents: passportBox.querySelector('[data-passport="continents"]'),
 };
@@ -5204,10 +5226,13 @@ function syncPassport() {
   if (passportDirty) buildPassportDots();
   const summary = passportSummary();
   passportEls.box.hidden = summary.found === 0;
+  gameEls.start.classList.toggle('has-passport', summary.found > 0);
   if (!summary.found) return;
   passportEls.found.textContent = summary.found.toLocaleString();
   passportEls.total.textContent = summary.total.toLocaleString();
   passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} earned` : '';
+  const streak = currentStreak();
+  passportEls.streak.textContent = streak ? ` · 🔥 ${streak.toLocaleString()}` : '';
   passportEls.stamps.replaceChildren(...summary.recent.map((spot) => {
     const img = document.createElement('img');
     img.src = spot.item.image;
@@ -5346,6 +5371,7 @@ function startExpedition(id) {
   expeditionRun.expedition = expedition;
   expeditionRun.index = index;
   expeditionRun.item = item;
+  runHaul.length = 0;
   showRound();
 }
 
@@ -5404,8 +5430,9 @@ function passportEntries() {
 const passportPageStyle = document.createElement('style');
 passportPageStyle.textContent = `
 .pp-card [hidden] { display: none !important; }
-.home-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; }
-.home-links .stats-entry { margin-top: 0; }
+.home-links { display: flex; flex-wrap: nowrap; justify-content: center; gap: 6px; width: min(100%, 354px); max-width: calc(100vw - 32px); box-sizing: border-box; margin-top: 10px; }
+.home-links > button { flex: 1 1 0; min-width: 0; margin-top: 0; padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 360px) { .home-links > button { padding: 0 4px; font-size: 12px; } }
 .passport-entry { min-height: 44px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
@@ -5563,9 +5590,9 @@ passportShareStyle.textContent = `
 .pp-share-button { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 46px; margin: 14px 0 0; padding: 0 18px; border: 1px solid rgba(255,209,102,.55); border-radius: 999px; background: linear-gradient(135deg, rgba(77,54,145,.95), rgba(25,47,101,.95)); color: #fff7dc; font: inherit; font-size: 14px; font-weight: 850; cursor: pointer; box-shadow: 0 8px 24px rgba(14,7,40,.32), inset 0 1px rgba(255,255,255,.12); touch-action: manipulation; }
 .pp-share-button:active { transform: scale(.98); }
 .pp-share-button:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
-.pps { position: fixed; z-index: 14; inset: 0; box-sizing: border-box; display: grid; align-content: center; justify-items: center; gap: 14px; padding: max(18px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom)); background: rgba(2,5,16,.88); overflow: auto; overscroll-behavior: contain; }
+.pps { position: fixed; z-index: 14; inset: 0; box-sizing: border-box; display: grid; align-content: center; justify-items: center; gap: 14px; padding: max(18px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom)); background: rgba(2,5,16,.9); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); overflow: auto; overscroll-behavior: contain; }
 .pps[hidden] { display: none; }
-.pps-card { position: relative; box-sizing: border-box; width: min(100%, 358px); aspect-ratio: 1.48; padding: 22px 20px 18px; border: 1px solid rgba(184,166,255,.42); border-radius: 22px; overflow: hidden; background: radial-gradient(circle at 84% 4%, rgba(132,93,255,.34), transparent 35%), linear-gradient(145deg, #101b43, #090d25 72%); box-shadow: 0 24px 70px rgba(0,0,0,.58), inset 0 1px rgba(255,255,255,.1); color: #f7f8ff; }
+.pps-card { position: relative; box-sizing: border-box; width: min(100%, 358px); padding: 22px 20px 18px; border: 1px solid rgba(184,166,255,.42); border-radius: 22px; overflow: hidden; background: radial-gradient(circle at 84% 4%, rgba(132,93,255,.34), transparent 35%), linear-gradient(145deg, #101b43, #090d25 72%); box-shadow: 0 24px 70px rgba(0,0,0,.58), inset 0 1px rgba(255,255,255,.1); color: #f7f8ff; }
 .pps-card::before { content: ''; position: absolute; right: -25px; bottom: -38px; width: 150px; height: 150px; border: 1px dashed rgba(103,232,255,.22); border-radius: 50%; box-shadow: 0 0 0 18px rgba(103,232,255,.025), 0 0 0 42px rgba(196,168,255,.025); }
 .pps-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .pps-kicker { margin: 0; color: #8fdfff; font-size: 10px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
@@ -5577,6 +5604,7 @@ passportShareStyle.textContent = `
 .pps-stat.gold { border-color: rgba(255,209,102,.34); }
 .pps-stat b { display: block; color: #eaf9ff; font-size: 21px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pps-stat:first-child b { color: #67e8ff; }
+.pps-stat b small { margin-left: 1px; color: rgba(103,232,255,.62); font-size: .6em; font-weight: 800; }
 .pps-stat.gold b { color: #ffd166; }
 .pps-stat span { display: block; margin-top: 5px; color: rgba(218,229,255,.7); font-size: 10px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pps-top3 { position: relative; margin: 15px 0 0; color: #f3ecff; font-size: 12px; font-weight: 700; line-height: 1.6; }
@@ -5634,7 +5662,8 @@ function passportShareText(stats) {
 }
 
 function fillPassportShareCard(stats) {
-  ppsEls.visited.textContent = `${stats.visited.toLocaleString()}/${stats.total.toLocaleString()}`;
+  // The total rides small beside the count, as on the passport header, so four-digit totals fit the tile.
+  ppsEls.visited.replaceChildren(stats.visited.toLocaleString(), Object.assign(document.createElement('small'), { textContent: `/${stats.total.toLocaleString()}` }));
   ppsEls.earned.textContent = stats.earned.toLocaleString();
   ppsEls.bullseyes.textContent = stats.bullseyes.toLocaleString();
   if (stats.top3 && stats.top3.length > 0) {
@@ -6204,8 +6233,8 @@ postcardStyle.textContent = `
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-front .prox-badge { top: 10px; left: 10px; gap: 5px; height: 26px; padding: 0 11px 0 8px; font-size: 11px; box-shadow: 0 2px 8px rgba(0,0,0,.55); }
 .ppd-front .prox-badge i { font-size: 14px; }
-.ppd-topline { display: flex; align-items: center; min-height: 29px; margin-bottom: 10px; padding-right: 38px; padding-left: 84px; }
-.ppd-rarity { position: absolute; z-index: 4; top: 13px; left: 16px; }
+.ppd-topline { display: flex; align-items: center; gap: 10px; min-height: 29px; margin-bottom: 10px; padding-right: 38px; padding-left: 3px; }
+.ppd-rarity { flex: none; }
 .ppd-difficulty { display: flex; align-items: center; gap: 7px; color: #9fa9bb; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .ppd-difficulty strong { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #566074; border-radius: 50%; background: #242a3b; color: #fff; font-size: 13px; letter-spacing: 0; }
 .ppd-front { position: relative; }
@@ -6249,8 +6278,7 @@ postcardScreen.innerHTML = `
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
-    <span class="ppd-rarity" data-ppd="rarity"></span>
-    <div class="ppd-topline"><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span></div>
+    <div class="ppd-topline"><span class="ppd-rarity" data-ppd="rarity"></span><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span></div>
     <div class="ppd-front">
       <div class="pp-photo" data-ppd="photo"></div>
     </div>
