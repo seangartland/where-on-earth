@@ -10,14 +10,15 @@
     try {
       var meta = document.querySelector('meta[name="app-version"]');
       var pageVersion = meta ? meta.content : 'DEV';
-      var stored = localStorage.getItem('woe-version');
-      if (stored && stored !== pageVersion) {
-        // New version deployed, clear and hard reload
-        localStorage.setItem('woe-version', pageVersion);
-        window.location.reload(true);
-      } else if (!stored) {
-        localStorage.setItem('woe-version', pageVersion);
-      }
+      // Fetch the live version (bypass cache) and compare
+      fetch('/assets/version.txt?t=' + Date.now(), { cache: 'no-store' })
+        .then(function(r) { return r.ok ? r.text() : null; })
+        .then(function(liveVersion) {
+          if (liveVersion && liveVersion.trim() !== pageVersion) {
+            window.location.reload(true);
+          }
+        })
+        .catch(function() {});
     } catch (e) {}
   })();
   </script>

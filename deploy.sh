@@ -54,6 +54,7 @@ sed -i -E "s|style\.css\?v=[^\"]*|style.css?v=$STYLE_CSS_HASH|g" "$DEPLOY_DIR/in
 # Stamp app-version for cache-buster (forces hard reload on version change)
 DEPLOY_VERSION=$(date +%Y%m%d%H%M%S)
 sed -i -E "s|<meta name=\"app-version\" content=\"[^\"]*\"|<meta name=\"app-version\" content=\"$DEPLOY_VERSION\"|" "$DEPLOY_DIR/index.html"
+echo -n "$DEPLOY_VERSION" > "$DEPLOY_DIR/assets/version.txt"
 
 # Version asset JSON URLs by content hash
 for json_file in "$DEPLOY_DIR"/assets/*.json; do
