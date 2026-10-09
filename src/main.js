@@ -5180,7 +5180,7 @@ passportStyle.textContent = `
 /* A plain scrim, not backdrop-filter: a blurred panel over the live WebGL canvas
    starves the software compositor (the stats overlay needed a frozen loop for the
    same reason) and the dots show through the tint anyway. */
-.passport { width: 100%; max-width: 330px; margin: -4px 0 24px; padding: 12px 14px 13px; border-radius: 20px; border: 1px solid rgba(157,211,255,.14); background: rgba(4,10,24,.5); }
+.passport { width: 100%; max-width: 330px; margin: 18px 0 24px; padding: 12px 14px 13px; border-radius: 20px; border: 1px solid rgba(157,211,255,.14); background: rgba(4,10,24,.5); }
 .passport[hidden] { display: none; }
 .passport-count { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; font-weight: 700; }
 .passport-earned { color: #ffd166; }
