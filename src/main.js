@@ -3712,7 +3712,7 @@ function shareText() {
     const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
     return `${base} ${scoreEmoji(base)}`;
   });
-  return `Where on Earth?\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}\n\nCan you beat me?\nhttps://where-on-earth-game.vercel.app`;
+  return `Where on Earth?\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}\n\nCan you beat me?\nhttps://where-on.earth`;
 }
 
 function postcardSummaryOutcomes() {
@@ -5636,7 +5636,7 @@ passportShareScreen.innerHTML = `
       <div class="pps-stat gold"><b data-pps="bullseyes">0</b><span>Bullseyes</span></div>
     </div>
     <p class="pps-top3" data-pps="top3"></p>
-    <p class="pps-url">where-on-earth-game.vercel.app</p>
+    <p class="pps-url">where-on.earth</p>
   </article>
   <div class="pps-actions"><button class="pps-again" type="button" data-pps="again">Share again</button><button class="pps-close" type="button" data-pps="close">Close</button></div>
   <p class="pps-status" role="status" data-pps="status"></p>`;
@@ -5737,7 +5737,7 @@ function passportShareImage(stats) {
   }
   ctx.fillStyle = 'rgba(193,224,250,.56)';
   ctx.font = '700 21px system-ui, sans-serif';
-  ctx.fillText('where-on-earth-game.vercel.app', 72, 660);
+  ctx.fillText('where-on.earth', 72, 660);
 
   // Closest-guess postcard image in dotted circle, bottom right
   const drawCircleImage = () => new Promise((resolve) => {
@@ -6474,7 +6474,7 @@ window.addEventListener('keydown', (e) => {
 // Share: brag about a postcard. The link is the homepage only, never a
 // playable round, so friends land on the daily.
 // ---------------------------------------------------------------------------
-const HOME_URL = 'https://where-on-earth-game.vercel.app';
+const HOME_URL = 'https://where-on.earth';
 const SHARE_LABEL = '📮 Share this postcard';
 
 function postcardShareText(entry) {
