@@ -772,14 +772,23 @@ function queueLoadRender() {
   requestAnimationFrame(() => { loadRenderQueued = false; renderLoad(); });
 }
 
+let smoothedLoaded = 0;
 function renderLoad() {
   let loaded = 0;
   let total = 0;
   for (const entry of Object.values(LOAD)) { loaded += entry.loaded; total += entry.size; }
+  // Smooth the displayed progress to avoid chunky jumps when assets complete without streaming
+  // Ease towards the target: move 20% of the remaining distance each frame
+  if (Math.abs(loaded - smoothedLoaded) > 1000) {
+    smoothedLoaded += (loaded - smoothedLoaded) * 0.2;
+    queueLoadRender(); // keep animating until caught up
+  } else {
+    smoothedLoaded = loaded;
+  }
   // hold at 99% while the last layers build, so 100% means really ready
-  const frac = loadFinished ? 1 : Math.min(0.99, total ? loaded / total : 0);
+  const frac = loadFinished ? 1 : Math.min(0.99, total ? smoothedLoaded / total : 0);
   const pct = Math.round(frac * 100);
-  const mb = (loadFinished ? total : loaded) / 1e6;
+  const mb = (loadFinished ? total : smoothedLoaded) / 1e6;
   const stage = loadFinished ? 'Ready' : loadStageText(frac);
   if (loadEls.boot) loadEls.boot.classList.remove('pending');
   loadEls.stage.forEach((el) => { if (el.textContent !== stage) el.textContent = stage; });
