@@ -1,13 +1,15 @@
 # Build tooling and working files: never served to players.
 # Added 2026-10-08 to cut deployment storage (was shipping ~124MB/deploy).
-.build-tmp/
-.fanout-tmp/
-build/
-scripts/
-previews/
-shots-islands/
-shots-rarity/
-shots-phase2/
+# NOTE: directory patterns are anchored with leading / so they only match
+# at the repo root. An unanchored `build/` would also exclude vendor/three/build/.
+/.build-tmp/
+/.fanout-tmp/
+/build/
+/scripts/
+/previews/
+/shots-islands/
+/shots-rarity/
+/shots-phase2/
 *.log
 *.bak
 *.bak-*

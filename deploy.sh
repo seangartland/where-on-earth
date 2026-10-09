@@ -6,6 +6,16 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DEPLOY_DIR="/tmp/woe-deploy"
 
+# Regression guard: fail loudly if .vercelignore would exclude runtime files.
+# (2026-10-09: unanchored `build/` in .vercelignore excluded vendor/three/build/,
+# breaking production on every Git auto-deploy.)
+IGNORED_RUNTIME=$(git -C "$SCRIPT_DIR" ls-files index.html src vendor 2>/dev/null | git -C "$SCRIPT_DIR" -c core.excludesFile=.vercelignore check-ignore --no-index --stdin 2>/dev/null | grep -v '\.bak' || true)
+if [ -n "$IGNORED_RUNTIME" ]; then
+  echo "❌ .vercelignore excludes runtime files:"
+  echo "$IGNORED_RUNTIME"
+  exit 1
+fi
+
 echo "Building deploy directory..."
 rm -rf "$DEPLOY_DIR"
 mkdir -p "$DEPLOY_DIR"
