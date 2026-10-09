@@ -51,8 +51,9 @@ STYLE_CSS_HASH=$(version_file "$DEPLOY_DIR/src/style.css")
 sed -i -E "s|main\.js\?v=[^\"]*|main.js?v=$MAIN_JS_HASH|g" "$DEPLOY_DIR/index.html"
 sed -i -E "s|style\.css\?v=[^\"]*|style.css?v=$STYLE_CSS_HASH|g" "$DEPLOY_DIR/index.html"
 
-# Stamp app-version for cache-buster (forces hard reload on version change)
-DEPLOY_VERSION=$(date +%Y%m%d%H%M%S)
+# Stamp app-version for cache-buster (content-based: only changes when HTML changes)
+# Hash the HTML after asset versioning but before stamping (exclude the version meta itself)
+DEPLOY_VERSION=$(grep -v 'name="app-version"' "$DEPLOY_DIR/index.html" | sha256sum | cut -c1-12)
 sed -i -E "s|<meta name=\"app-version\" content=\"[^\"]*\"|<meta name=\"app-version\" content=\"$DEPLOY_VERSION\"|" "$DEPLOY_DIR/index.html"
 echo -n "$DEPLOY_VERSION" > "$DEPLOY_DIR/assets/version.txt"
 
