@@ -69,6 +69,7 @@
       background: rgba(90, 12, 12, 0.94); color: #ffd9d9;
       font: 12px/1.5 -apple-system, system-ui, sans-serif;
       padding: 10px 12px; border-radius: 10px; white-space: pre-wrap;
+      pointer-events: none;
     }
     #err[hidden] { display: none; }
   </style>
@@ -85,7 +86,7 @@
     .mode-buttons > button {
       width: 100%;
       min-width: 0;
-      min-height: 46px;
+      min-height: 54px;
       margin: 0;
       padding: 0 10px;
       border: 1px solid rgba(196,168,255,.45);
@@ -100,14 +101,11 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-    .mode-buttons > button {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 1px;
-      min-height: 54px;
       line-height: 1.15;
     }
     .mode-buttons .mode-name,
@@ -129,12 +127,16 @@
     }
     body.survival .survival-streak { display: block; }
     body.survival .round-header,
-    body.survival #reveal-card {
+    body.survival #reveal-card,
+    body.endless .round-header,
+    body.endless #reveal-card {
       border-color: rgba(196, 168, 255, .52);
       background: rgba(22, 10, 42, .88);
     }
-    body.survival .round-meta span:first-child { color: #d7c4ff; }
-    body.survival #reveal-card .score-math { display: none; }
+    body.survival .round-meta span:first-child,
+    body.endless .round-meta span:first-child { color: #d7c4ff; }
+    body.survival #reveal-card .score-math,
+    body.endless #reveal-card .score-math { display: none; }
     body.survival #next-button {
       background: linear-gradient(135deg, #8057e8, #a06cff);
     }

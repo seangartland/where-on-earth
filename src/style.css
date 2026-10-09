@@ -14,10 +14,6 @@ body {
 body {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(60% 40% at 82% 12%, rgba(72, 52, 140, 0.16), transparent 70%),
-    radial-gradient(55% 35% at 12% 88%, rgba(18, 86, 128, 0.14), transparent 70%),
-    radial-gradient(120% 80% at 50% 45%, #0a1531 0%, #050a19 48%, #020409 100%);
   color: #cfe6ff;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
 }
@@ -142,7 +138,6 @@ h1 { max-width: 330px; margin: 0; color: #f1f8ff; font-size: clamp(46px, 15vw, 6
 .score-math .base { color: #fff; font-size: 14px; font-weight: 700; white-space: nowrap; }
 .score-math .base b { font-size: 22px; font-weight: 800; }
 .score-math .mult { color: rgba(193,224,250,.62); font-size: 15px; font-weight: 700; }
-.score-math #round-score { color: #ffc76a; font-size: 28px; }
 .reveal-card .primary { width: 100%; min-height: 48px; }
 
 /* Reveal: the clue header collapses to the place name, a score pill floats
@@ -179,7 +174,6 @@ body.game-reveal .reveal-name { display: block; }
 .rarity-uncommon { --rarity: #4fcf8a; --rarity-bg: rgba(79,207,138,.14); --rarity-border: rgba(79,207,138,.52); }
 .rarity-rare { --rarity: #6c8cff; --rarity-bg: rgba(108,140,255,.16); --rarity-border: rgba(108,140,255,.56); }
 .rarity-legendary { --rarity: #c77dff; --rarity-bg: rgba(199,125,255,.16); --rarity-border: rgba(199,125,255,.56); }
-.thumb-slot { position: relative; }
 .ppd-rarity { display: inline-flex; align-items: center; box-sizing: border-box; padding: 3px 9px; border: 1px solid var(--rarity-border, rgba(154,166,187,.52)); border-radius: 999px; background: var(--rarity-bg, rgba(154,166,187,.14)); color: var(--rarity, #9aa6bb); font-size: 9.5px; font-weight: 800; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 /* Accuracy badge (setProxBadge): a small gold chip pinned inside the photo, clear
    of the rarity frame, so Bullseye/Pinpoint never recolours or glows the border.
@@ -309,25 +303,6 @@ body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0
 #travel-distance[hidden] { display: none; }
 #travel-distance span { display: block; font-size: clamp(24px, 7vw, 36px); font-weight: 850; letter-spacing: -.04em; }
 #travel-distance small { display: block; color: rgba(193, 235, 250, .66); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-
-#err {
-  position: fixed;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  z-index: 50;
-  background: rgba(90, 12, 12, 0.94);
-  color: #ffd7d7;
-  font: 11px/1.5 ui-monospace, monospace;
-  padding: 8px 10px;
-  border-radius: 8px;
-  white-space: pre-wrap;
-  pointer-events: none;
-}
-
-#err[hidden] {
-  display: none;
-}
 
 /* Hold-to-confirm: target ticks at the press point, loupe floating above the thumb */
 

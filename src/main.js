@@ -504,7 +504,6 @@ function buildLandTexture(geo, islands) {
   ctx.fillRect(0, 0, W, H);
 
   const land = new Path2D();
-  const coast = new Path2D();
   for (const f of geo.features) {
     if (f.properties.kind !== 'land') continue;
     for (const poly of f.geometry.coordinates) {
@@ -1649,7 +1648,6 @@ let travelAnimation = null;
 const PINPOINT_KM = 5;
 const BULLSEYE_KM = 25;
 const NEAR_KM = 150;
-const NEAR_MISS_KM = 300;
 const BLOWOUT_KM = 8000;
 const GOLD_COLOR = new THREE.Color('#ffd45e');
 const DEADPAN_LINES = ['away.', 'away. Bold.', 'away. Different continent.', 'away. Still on Earth, though.', 'away. Noted.'];
@@ -2034,11 +2032,9 @@ flyoverStyle.textContent = `
 .bullseye-stamp[hidden], .postcard[hidden] { display: none; }
 .postcard { position: fixed; z-index: 13; left: 0; top: 0; margin: 0; width: 212px; box-sizing: border-box; padding: 8px 8px 0; border-radius: 3px; background: #fbf8f1; box-shadow: 0 14px 34px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.3); pointer-events: none; will-change: transform, opacity; }
 .postcard img { display: block; width: 100%; height: 124px; object-fit: cover; object-position: center 20%; background: #d9d4c8; }
-.thumb-slot { position: relative; }
 .thumb-slot.waiting::before { content: ""; position: absolute; inset: 2px 0; box-sizing: border-box; border: 1.5px dashed rgba(193,224,250,.42); border-radius: 10px; background: rgba(193,224,250,.05); }
 .thumb-slot.waiting img { opacity: 0; }
 .peek-slot.waiting::before { inset: 0; }
-.peek-tier-date { color: rgba(193,224,250,.62); font-size: 11px; font-weight: 650; }
 .postcard p { margin: 0; height: 34px; overflow: hidden; color: #1d2633; font: 600 15px/34px "Marker Felt", "Bradley Hand", "Segoe Print", cursive; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 body.bullseye #reveal-card { border-color: rgba(255,212,94,.5); }`;
 document.head.appendChild(flyoverStyle);
@@ -3963,15 +3959,7 @@ function currentItem() {
   return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : selected[daily.round];
 }
 
-const endlessStyle = document.createElement('style');
-endlessStyle.textContent = `
-.endless-entry { min-height: 46px; margin: 0; padding: 0 10px; border: 1px solid rgba(196,168,255,.45); border-radius: 999px; background: rgba(150,110,255,.14); color: #e9e0ff; font-size: 14px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
-.endless-entry:disabled { opacity: .4; }
-body.endless .round-header, body.endless #reveal-card { border-color: rgba(196,168,255,.5); background: rgba(22,10,42,.86); }
-body.endless .round-meta span:first-child { color: #cdb6ff; }
-body.endless #reveal-card .score-math { display: none; }`;
-document.head.appendChild(endlessStyle);
-
+// Endless reuses the survival mode restyle (index.html).
 // Endless button is now in HTML (mode-buttons div), just get the reference
 const endlessEntry = document.getElementById('endless-button');
 
@@ -4670,7 +4658,6 @@ statsStyle.textContent = `
 .stats-best { margin: 16px 0 0; padding: 12px 14px; border: 1px solid rgba(255,199,106,.26); border-radius: 14px; background: rgba(255,199,106,.08); color: rgba(240,248,255,.86); font-size: 13px; line-height: 1.45; }
 .stats-best b { color: #ffc76a; }
 .stats-note { margin: 16px 0 0; color: rgba(193,224,250,.42); font-size: 11px; line-height: 1.5; text-align: center; }
-.stats-empty { margin: 22px 0 0; color: rgba(224,240,255,.78); font-size: 14px; line-height: 1.5; text-align: center; }
 .stats-close { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 28px; line-height: 1; cursor: pointer; touch-action: manipulation; }
 body.game-stats #hud { opacity: 0; }
 @media (max-height: 700px) {
@@ -4977,7 +4964,6 @@ function setProxBadge(host, earned, size = '') {
 }
 let passport = { visits: {}, order: [], meta: {} };
 let passportDirty = true; // dots need rebuilding before the next start screen
-let passportDotCount = 0;
 let locationIndex = null; // built lazily; locations arrive after this section runs
 
 function passportLocation(id) {
@@ -5171,7 +5157,6 @@ function buildPassportDots() {
   geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
   passportDots.geometry = geometry;
-  passportDotCount = spots.length;
   passportDirty = false;
 }
 
@@ -5449,9 +5434,6 @@ passportPageStyle.textContent = `
 .pp-progress { margin: 8px 2px 0; }
 .pp-count { margin: 0 0 6px; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 700; text-align: center; }
 .pp-count b { color: #ffc76a; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(255,199,106,.3); }
-.pp-earned { margin: -2px 0 8px; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 700; text-align: center; }
-.pp-earned b { color: #ffd166; font-variant-numeric: tabular-nums; }
-.pp-earned[hidden] { display: none; }
 /* Two layers: visited as a pale track, earned as the bright gradient over it. */
 .pp-bar { position: relative; height: 8px; border-radius: 8px; background: rgba(157,211,255,.1); overflow: hidden; }
 .pp-bar i { position: absolute; left: 0; top: 0; height: 100%; border-radius: 8px; transition: width .4s ease-out; }
@@ -5490,7 +5472,6 @@ passportPageStyle.textContent = `
 .pp-post[data-earn="seen"] { background: #151923; }
 .pp-post[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .pp-post[data-earn="seen"] .pp-name { color: #8992a8; }
-.pp-hint { position: absolute; z-index: 2; left: 50%; bottom: 7px; transform: translateX(-50%); padding: 3px 8px; border-radius: 999px; background: rgba(8,14,32,.78); color: #e8eef8; font-size: 9.5px; font-weight: 800; letter-spacing: .02em; white-space: nowrap; }
 .pp-name { margin: 7px 2px 0; overflow: hidden; color: #eef2ff; font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
 .pp-meta { min-height: 12px; margin: 4px 2px 0; color: #a8b0c3; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .pp-meta span { white-space: nowrap; }
@@ -5587,9 +5568,6 @@ const ppEls = {
 const PASSPORT_SHARE_URL = new URL('/', location.href).href;
 const passportShareStyle = document.createElement('style');
 passportShareStyle.textContent = `
-.pp-share-button { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 46px; margin: 14px 0 0; padding: 0 18px; border: 1px solid rgba(255,209,102,.55); border-radius: 999px; background: linear-gradient(135deg, rgba(77,54,145,.95), rgba(25,47,101,.95)); color: #fff7dc; font: inherit; font-size: 14px; font-weight: 850; cursor: pointer; box-shadow: 0 8px 24px rgba(14,7,40,.32), inset 0 1px rgba(255,255,255,.12); touch-action: manipulation; }
-.pp-share-button:active { transform: scale(.98); }
-.pp-share-button:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
 .pps { position: fixed; z-index: 14; inset: 0; box-sizing: border-box; display: grid; align-content: center; justify-items: center; gap: 14px; padding: max(18px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom)); background: rgba(2,5,16,.9); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); overflow: auto; overscroll-behavior: contain; }
 .pps[hidden] { display: none; }
 .pps-card { position: relative; box-sizing: border-box; width: min(100%, 358px); padding: 22px 20px 18px; border: 1px solid rgba(184,166,255,.42); border-radius: 22px; overflow: hidden; background: radial-gradient(circle at 84% 4%, rgba(132,93,255,.34), transparent 35%), linear-gradient(145deg, #101b43, #090d25 72%); box-shadow: 0 24px 70px rgba(0,0,0,.58), inset 0 1px rgba(255,255,255,.1); color: #f7f8ff; }
