@@ -3,6 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="app-version" content="DEV" />
+  <script>
+  // Cache-buster: if the deployed version changed, force a hard reload
+  // to escape stale HTML cached by iOS Safari/PWA.
+  (function() {
+    try {
+      var meta = document.querySelector('meta[name="app-version"]');
+      var pageVersion = meta ? meta.content : 'DEV';
+      var stored = localStorage.getItem('woe-version');
+      if (stored && stored !== pageVersion) {
+        // New version deployed, clear and hard reload
+        localStorage.setItem('woe-version', pageVersion);
+        window.location.reload(true);
+      } else if (!stored) {
+        localStorage.setItem('woe-version', pageVersion);
+      }
+    } catch (e) {}
+  })();
+  </script>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
