@@ -1,0 +1,709 @@
+[
+  {
+    "id": "acapulco-de-juarez-mx",
+    "name": "Acapulco de Juárez",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Vista_Acapulco_de_Juarez.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "ajman",
+    "name": "Ajman",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "anapurna-base-camp-nepal",
+    "name": "Annapurna Base Camp",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Annapurna_Base_Camp_with_snow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with distinctive, location-specific landscape content that clearly represents the named place."
+  },
+  {
+    "id": "asuncion-py",
+    "name": "Asunción",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Asunci%C3%B3n_Paraguay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "avarua-cook-islands",
+    "name": "Avarua",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "banff",
+    "name": "Banff",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "barakpur",
+    "name": "Bārākpur",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "bayan-nur-cn",
+    "name": "Bayan Nur",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "benghazi-ly",
+    "name": "Benghazi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "bien-hoa-vn",
+    "name": "Biên Hòa",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "bogor",
+    "name": "Bogor",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "brasilia-national-congress",
+    "name": "National Congress of Brazil",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Brazilian_National_Congress.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly depicting the exact named site; the site is the principal subject."
+  },
+  {
+    "id": "bucheon-si",
+    "name": "Bucheon-si",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "buzludzha-monument-bulgaria",
+    "name": "Buzludzha Monument",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/%D0%91%D1%83%D0%B7%D0%BB%D1%83%D0%B4%D0%B6%D0%B0_IMG6338.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly depicting the exact named site; the site is the principal subject."
+  },
+  {
+    "id": "camama-ao",
+    "name": "Camama",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "carrefour-ht",
+    "name": "Carrefour",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Panoramic_View_of_Carrefour%2C_Haiti.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "cesky-krumlov-d34-18",
+    "name": "Cesky Krumlov",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Cesky_Krumlov_Oldtown.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "channel-swim-captain-webb",
+    "name": "Calais Landing Beach",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "cheboksary",
+    "name": "Cheboksary",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cheboksary._View_of_downtown.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "chisinau-md",
+    "name": "Chisinau",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "cixi-cn",
+    "name": "Cixi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "concepcion-jesuit-mission",
+    "name": "Concepcion Mission",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Concepcion_church.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly depicting the exact named site; the site is the principal subject."
+  },
+  {
+    "id": "cotopaxi-refuge",
+    "name": "Cotopaxi Refuge",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "davao-ph",
+    "name": "Davao",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "disuq",
+    "name": "Disūq",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "dongshi",
+    "name": "Dongshi",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Dongshi_Fisherman%27s_Wharf%2C_Chiayi_County_%28Taiwan%29.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "frankfurt-am-main-de",
+    "name": "Frankfurt am Main",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Skyline_Frankfurt_am_Main_2015.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "hamamatsu",
+    "name": "Hamamatsu",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "jabalpur",
+    "name": "Jabalpur",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "kazan-ru",
+    "name": "Kazan",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Kazan_River_port_area_08-2016_img3.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "lilongwe-mw",
+    "name": "Lilongwe",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "mandalay",
+    "name": "Mandalay",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "minhang-cn",
+    "name": "Minhang",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "neunkirchen",
+    "name": "Neunkirchen",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "osaka-japan",
+    "name": "Osaka",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Osaka_Castle_Outer_Moat_and_Osaka_Business_Park%2C_November_2016.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "eagle-island-chagos",
+    "name": "Eagle Islands, Chagos",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "fukushima-daiichi",
+    "name": "Fukushima Daiichi",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Fukushima_Daiichi_Nuclear_Power_Plant_seen_from_the_sea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly depicting the exact named site; the site is the principal subject."
+  },
+  {
+    "id": "harmony-point-nelson",
+    "name": "Harmony Point",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "jacksonville",
+    "name": "Jacksonville",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "kerch",
+    "name": "Kerch",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "lindbergh-spirit-st-louis-landing",
+    "name": "Le Bourget Airfield",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "mar-del-plata-ar",
+    "name": "Mar del Plata",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Mar-del-plata.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "moreno",
+    "name": "Moreno",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "ngerulmud-palau",
+    "name": "Ngerulmud",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Ngerulmud_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "oyo-ng",
+    "name": "Oyo",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "east-london",
+    "name": "East London",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/East_London%2C_Union_of_South_Africa.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "futuna-leava",
+    "name": "Leava, Futuna",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Village_de_Leava_-_%C3%AEle_de_Futuna.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "harrow",
+    "name": "Harrow",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Station_Road%2C_Harrow_-_geograph.org.uk_-_6735367.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "jepara-id",
+    "name": "Jepara",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "khulna-bd",
+    "name": "Khulna",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Zero_point%2C_khulna.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "linyi-cn",
+    "name": "Linyi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "marion-island",
+    "name": "Marion Island Station",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "mount-kenya-summit",
+    "name": "Mount Kenya Summit",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mount_Kenya_stitched.jpg",
+    "reason": "Real photograph with distinctive, location-specific landscape content that clearly represents the named place."
+  },
+  {
+    "id": "niigata",
+    "name": "Niigata",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "pasig-city",
+    "name": "Pasig City",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Pasig_City_1.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "prambanan-indonesia",
+    "name": "Prambanan Temple",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Yogyakarta_Indonesia_Prambanan-temple-complex-02.jpg",
+    "reason": "Real photograph clearly depicting the exact named site; the site is the principal subject."
+  },
+  {
+    "id": "redford",
+    "name": "Redford",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "san-luis-potosi-mx",
+    "name": "San Luis Potosí",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "songjiang-cn",
+    "name": "Songjiang",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "tashkent",
+    "name": "Tashkent",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "trujillo-pe",
+    "name": "Trujillo",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "volgograd-ru",
+    "name": "Volgograd",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "yaroslavl-ru",
+    "name": "Yaroslavl",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "zermatt-ch",
+    "name": "Zermatt",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Zermatt_and_Matterhorn.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "ecatepec-de-morelos-mx",
+    "name": "Ecatepec de Morelos",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Ecatepec_de_Morelos_%282%29.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "ganzhou-cn",
+    "name": "Ganzhou",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "harunabad",
+    "name": "Harunabad",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Aerial_view_of_Haroonabad.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "jinjiang-cn",
+    "name": "Jinjiang",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "kilwa-kisiwani-ruins",
+    "name": "Kilwa Kisiwani",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Kilwa-Kisiwani-ruins-tanzania.jpg",
+    "reason": "Real photograph clearly depicting the exact named site; the site is the principal subject."
+  },
+  {
+    "id": "little-bighorn-battlefield",
+    "name": "Little Bighorn",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "marrakech-morocco",
+    "name": "Marrakech",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "moyo-uganda",
+    "name": "Moyo District",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "nishinomiya",
+    "name": "Nishinomiya",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "peine",
+    "name": "Peine",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Peine_Eule_Wahrzeichen_Sankt-Jakobi-Kirchplatz_Kirchturm_S%C3%BCdwestseite_Stadtzentrum.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "puebla-mexico",
+    "name": "Puebla",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "rehovot",
+    "name": "Reẖovot",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "san-pedro-sula-hn",
+    "name": "San Pedro Sula",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "songon",
+    "name": "Songon",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "tasikmalaya",
+    "name": "Tasikmalaya",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "tsukubamirai",
+    "name": "Tsukubamirai",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "waikiki",
+    "name": "Waikiki",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Waikiki_Beach_%282024%29-L1004709.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "yekaterinburg-ru",
+    "name": "Yekaterinburg",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "zhanjiang-cn",
+    "name": "Zhanjiang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Zhanjiang_street_with_a_Mao_portrait.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "pordenone",
+    "name": "Pordenone",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "qingpu-cn",
+    "name": "Qingpu",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "rangpur",
+    "name": "Rangpur",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Honumatola_Rangpur_City_02.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "sabha",
+    "name": "Sabha",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Sebha_Bank_from_Kazem_hotel_2010-02-08.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "san-jose",
+    "name": "San Jose",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "saratov-ru",
+    "name": "Saratov",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "socotra-island",
+    "name": "Socotra Island",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Dragonblood_tree_in_Socotra_2.jpg",
+    "reason": "Real photograph with distinctive, location-specific landscape content that clearly represents the named place."
+  },
+  {
+    "id": "sunnyside",
+    "name": "Sunnyside",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "taoyuan",
+    "name": "Taoyuan",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "the-bronx",
+    "name": "The Bronx",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "touba-sn",
+    "name": "Touba",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Ville_touba_mosquee.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "udi",
+    "name": "Udi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "villa-nueva-gt",
+    "name": "Villa Nueva",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are non-photographic, irrelevant, ambiguous, or fail to show the named location itself with sufficient confidence."
+  },
+  {
+    "id": "wounded-knee-creek",
+    "name": "Wounded Knee",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Wounded_Knee_aftermath5.jpg",
+    "reason": "Real photograph clearly depicting the exact named site; the site is the principal subject."
+  },
+  {
+    "id": "yangon",
+    "name": "Yangon",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/20160814_Maha_Bandula_Yangon_0276.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  },
+  {
+    "id": "yixing-cn",
+    "name": "Yixing",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "zapopan-mx",
+    "name": "Zapopan",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: no candidate confidently shows the named location at the required scope; candidates are isolated subjects, ambiguous/nearby places, or otherwise insufficiently location-specific."
+  },
+  {
+    "id": "zibo-cn",
+    "name": "Zibo",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Zhangdian%2C_Zibo%2C_Shandong%2C_China_-_panoramio.jpg",
+    "reason": "Real photograph clearly showing the named city or locality as a broader streetscape, cityscape, or place view rather than an unrelated isolated object."
+  }
+]

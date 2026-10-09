@@ -1,0 +1,709 @@
+[
+  {
+    "id": "abala",
+    "name": "Abala",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "agra-in",
+    "name": "Agra",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "aleppo-sy",
+    "name": "Aleppo",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Aleppo%2C_Streets_of_the_city%2C_Syria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Aleppo, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Aleppo, Streets of the city, Syria.jpg)."
+  },
+  {
+    "id": "arpanet-first-message-ucla",
+    "name": "Boelter Hall, UCLA",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "auschwitz-birkenau",
+    "name": "Auschwitz-Birkenau",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Auschwitz_II_Birkenau.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Auschwitz II Birkenau.jpg)."
+  },
+  {
+    "id": "bahawalpur",
+    "name": "Bahawalpur",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Bahawalpur_Pakistan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Bahawalpur, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Bahawalpur Pakistan.jpg)."
+  },
+  {
+    "id": "baoding-cn",
+    "name": "Baoding",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "batam-id",
+    "name": "Batam",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Batam%2C_Indonesia%2C_2010-12-01%2C_DD_02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Batam, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Batam, Indonesia, 2010-12-01, DD 02.JPG)."
+  },
+  {
+    "id": "bekasi-id",
+    "name": "Bekasi",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Skybridge_LRT_Bekasi_Barat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Bekasi, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Skybridge LRT Bekasi Barat.jpg)."
+  },
+  {
+    "id": "bhatpara",
+    "name": "Bhātpāra",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "blue-lagoon-iceland",
+    "name": "Blue Lagoon",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Blue_Lagoon_with_%C3%9Eorbj%C3%B6rn%2C_Iceland%2C_20230430_1626_3692.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Blue Lagoon with Þorbjörn, Iceland, 20230430 1626 3692.jpg)."
+  },
+  {
+    "id": "bouake-ci",
+    "name": "Bouaké",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "bristol",
+    "name": "Bristol",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Bristol_041019_ms_night_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Bristol, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Bristol 041019 ms night 02.jpg)."
+  },
+  {
+    "id": "bunker-hill-monument",
+    "name": "Bunker Hill",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "cagliari",
+    "name": "Cagliari",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Cagliari-Molentargius-Poetto-Quartu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Cagliari, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Cagliari-Molentargius-Poetto-Quartu.jpg)."
+  },
+  {
+    "id": "cappadocia-goreme-tr",
+    "name": "Göreme Open-Air Museum",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/G%C3%B6reme_Open_Air_Museum_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Göreme Open Air Museum 01.jpg)."
+  },
+  {
+    "id": "cathedral-of-our-lady-d34-0",
+    "name": "Cathedral of Our Lady",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Cathedral_Antwerp_July_2015-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Cathedral Antwerp July 2015-1.jpg)."
+  },
+  {
+    "id": "chagos-diego-garcia-point",
+    "name": "Diego Garcia Point",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "chatra",
+    "name": "Chatrā",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "chiba",
+    "name": "Chiba",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "ciudad-apodaca-mx",
+    "name": "Ciudad Apodaca",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "colca-canyon-condor-cross",
+    "name": "Cruz del Condor",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cruz_del_Condor_no_Colca_Canyon_-_Peru_%2817963069742%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Cruz del Condor no Colca Canyon - Peru (17963069742).jpg)."
+  },
+  {
+    "id": "cordoba-ar",
+    "name": "Córdoba",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/ATARDECER-C%C3%B3rdoba-Argentina.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Córdoba, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:ATARDECER-Córdoba-Argentina.jpg)."
+  },
+  {
+    "id": "daqing-cn",
+    "name": "Daqing",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "delhi",
+    "name": "Delhi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "dna-cavendish-cambridge",
+    "name": "Old Cavendish Laboratory",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "falavarjan",
+    "name": "Falāvarjān",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "giza-eg",
+    "name": "Giza",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "hoi-an",
+    "name": "Hoi An",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/H%E1%BB%99i_An%2C_Ancient_Town%2C_2020-01_CN-06.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Hoi An, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Hội An, Ancient Town, 2020-01 CN-06.jpg)."
+  },
+  {
+    "id": "kalyan-in",
+    "name": "Kalyān",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "krasnodar-ru",
+    "name": "Krasnodar",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Krasnodar_004.JPG",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Krasnodar, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Krasnodar 004.JPG)."
+  },
+  {
+    "id": "ludhiana-in",
+    "name": "Ludhiana",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "mazatlan-mx",
+    "name": "Mazatlán",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Mazatl%C3%A1n_Sinaloa_March_2021_-_Beautiful_Balconies.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Mazatlán, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Mazatlán Sinaloa March 2021 - Beautiful Balconies.jpg)."
+  },
+  {
+    "id": "n-djamena-td",
+    "name": "N'Djamena",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/N%27djamena%2C_Chad_1962.webp",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of N'Djamena, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:N'djamena, Chad 1962.webp)."
+  },
+  {
+    "id": "odesa-ua",
+    "name": "Odesa",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Odesa_2021-11-30_2.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Odesa, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Odesa 2021-11-30 2.jpg)."
+  },
+  {
+    "id": "phalodi",
+    "name": "Phalodi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "falkland-goose-green-memorial",
+    "name": "Goose Green Memorial",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "goyang-si",
+    "name": "Goyang-si",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Seonghyeon-ro%2C_Ilsandong-gu%2C_Goyang-si%2C_Gyeonggi-do%2C_South_Korea_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Goyang-si, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Seonghyeon-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do, South Korea - panoramio.jpg)."
+  },
+  {
+    "id": "hong-kong",
+    "name": "Hong Kong",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Hong_Kong_Harbour_Night_2019-06-11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Hong Kong, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Hong Kong Harbour Night 2019-06-11.jpg)."
+  },
+  {
+    "id": "kamakura-daibutsu-jp",
+    "name": "Great Buddha of Kamakura",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/The_Great_Buddha_of_Kamakura.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:The Great Buddha of Kamakura.jpg)."
+  },
+  {
+    "id": "kryvyy-rih-ua",
+    "name": "Kryvyy Rih",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Kryvyi_Rih_Old_Town.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Kryvyy Rih, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Kryvyi Rih Old Town.jpg)."
+  },
+  {
+    "id": "lviv-ua",
+    "name": "Lviv",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Lw%C3%B3w_-_Widok_z_wie%C5%BCy_ratuszowej_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Lviv, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Lwów - Widok z wieży ratuszowej 01.jpg)."
+  },
+  {
+    "id": "mbuguni",
+    "name": "Mbuguni",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "najaf",
+    "name": "Najaf",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "odz-pl",
+    "name": "Łódź",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "phoenix-usa",
+    "name": "Phoenix",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Phoenix%2C_United_States_%28Unsplash_z7pnyucFR5s%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Phoenix, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Phoenix, United States (Unsplash z7pnyucFR5s).jpg)."
+  },
+  {
+    "id": "fez-morocco",
+    "name": "Fez",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "gqeberha-za",
+    "name": "Gqeberha",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "housesteads-hadrians-wall",
+    "name": "Housesteads",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Housesteads_Roman_Fort_aerial.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Housesteads Roman Fort aerial.jpg)."
+  },
+  {
+    "id": "kameyama",
+    "name": "Kameyama",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Kameyama_%285758995735%29.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Kameyama, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Kameyama (5758995735).jpg)."
+  },
+  {
+    "id": "la-gloria",
+    "name": "La Gloria",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "madurai-in",
+    "name": "Madurai",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Madurai%2C_India.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Madurai, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Madurai, India.jpg)."
+  },
+  {
+    "id": "medellin-botero-plaza",
+    "name": "Medellin",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Overlooking_El_Tesoro_in_Medellin%2C_Colombia.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Medellin, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Overlooking El Tesoro in Medellin, Colombia.jpg)."
+  },
+  {
+    "id": "nanyang-cn",
+    "name": "Nanyang",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "oita",
+    "name": "Ōita",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "phuket-thailand",
+    "name": "Phuket",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "qinzhou-cn",
+    "name": "Qinzhou",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Qinzhou.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Qinzhou, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Qinzhou.jpg)."
+  },
+  {
+    "id": "saharanpur",
+    "name": "Sahāranpur",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "semarang-id",
+    "name": "Semarang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Old_Town_Semarang_Indonesia_1.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Semarang, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Old Town Semarang Indonesia 1.jpg)."
+  },
+  {
+    "id": "tabas",
+    "name": "Tabas",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Tabas%2C_Iran.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Tabas, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Tabas, Iran.jpg)."
+  },
+  {
+    "id": "tirunelveli-in",
+    "name": "Tirunelveli",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "vagator",
+    "name": "Vagator",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Vagator_pano_26012016.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Vagator, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Vagator pano 26012016.jpg)."
+  },
+  {
+    "id": "xiamen-cn",
+    "name": "Xiamen",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "yonago",
+    "name": "Yonago",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "zugspitze-summit",
+    "name": "Zugspitze Summit",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Zugspitze_-_Summit_%286761797085%29.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Zugspitze - Summit (6761797085).jpg)."
+  },
+  {
+    "id": "fort-nieuw-amsterdam",
+    "name": "Fort Nieuw Amsterdam",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "guadalupe-mx",
+    "name": "Guadalupe",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "huddersfield",
+    "name": "Huddersfield",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Merrie_England%2C_New_Street%2C_Huddersfield_%2830th_November_2023%29.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Huddersfield, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Merrie England, New Street, Huddersfield (30th November 2023).jpg)."
+  },
+  {
+    "id": "kanpur-in",
+    "name": "Kanpur",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "lake-titicaca-uros",
+    "name": "Uros Floating Islands",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Islas_flotantes_de_los_Uros%2C_Lago_Titicaca%2C_Per%C3%BA%2C_2015-08-01%2C_DD_44-48_PAN.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Islas flotantes de los Uros, Lago Titicaca, Perú, 2015-08-01, DD 44-48 PAN.jpg)."
+  },
+  {
+    "id": "maiduguri-ng",
+    "name": "Maiduguri",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Keke_and_street_market_Maiduguri_Borno_State_Nigeria.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Maiduguri, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Keke and street market Maiduguri Borno State Nigeria.jpg)."
+  },
+  {
+    "id": "medina-saudi-arabia",
+    "name": "Medina",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Medina_City_Streets.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Medina, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Medina City Streets.jpg)."
+  },
+  {
+    "id": "naples-italy",
+    "name": "Naples",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Naples_from_the_Castello_Sant_Elmo_with_Abbazia_San_Martino_the_port_and_the_Vesuv.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Naples, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Naples from the Castello Sant Elmo with Abbazia San Martino the port and the Vesuv.jpg)."
+  },
+  {
+    "id": "oivi-kokoda",
+    "name": "Oivi Kokoda",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "pietermaritzburg-za",
+    "name": "Pietermaritzburg",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pietermaritzburg_1966.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Pietermaritzburg, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Pietermaritzburg 1966.jpg)."
+  },
+  {
+    "id": "queens-us",
+    "name": "Queens",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Long_Island_City_New_York_May_2015_panorama_3.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Queens, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Long Island City New York May 2015 panorama 3.jpg)."
+  },
+  {
+    "id": "saint-laurent-camp-transportation",
+    "name": "Camp de la Transportation",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Camp_de_la_Transportation-06.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Camp de la Transportation-06.jpg)."
+  },
+  {
+    "id": "serra-br",
+    "name": "Serra",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "taian-cn",
+    "name": "Tai’an",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "tiwanaku-kalasasaya",
+    "name": "Tiwanaku",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Tiwanaku_-_Ruins_of_monumental_gate.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Tiwanaku - Ruins of monumental gate.jpg)."
+  },
+  {
+    "id": "valle-de-guanape",
+    "name": "Valle de Guanape",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "xian-china",
+    "name": "Xi'an",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Xi%27an%2C_China_%2838809%29.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Xi'an, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Xi'an, China (38809).jpg)."
+  },
+  {
+    "id": "york-minster-d34-3",
+    "name": "York Minster",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/York_Minster_Nave_2%2C_Nth_Yorkshire%2C_UK_-_Diliff.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:York Minster Nave 2, Nth Yorkshire, UK - Diliff.jpg)."
+  },
+  {
+    "id": "pikine-sn",
+    "name": "Pikine",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "putuo",
+    "name": "Putuo",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Putuo_Mountain_%28Unsplash%29.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Putuo Mountain (Unsplash).jpg)."
+  },
+  {
+    "id": "quetta-pk",
+    "name": "Quetta",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Quetta_1955.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Quetta, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Quetta 1955.jpg)."
+  },
+  {
+    "id": "reichstag-de",
+    "name": "Reichstag Building",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Reichstag_building_Berlin_view_from_west_before_sunset.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Reichstag building Berlin view from west before sunset.jpg)."
+  },
+  {
+    "id": "saitama-jp",
+    "name": "Saitama",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "santa-fe",
+    "name": "Santa Fe",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Santa_Fe%2C_United_States_%28Unsplash_WaiPcZlkDFQ%29.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Santa Fe, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Santa Fe, United States (Unsplash WaiPcZlkDFQ).jpg)."
+  },
+  {
+    "id": "sheikh-zayed-mosque",
+    "name": "Sheikh Zayed Mosque",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Sheikh_Zayed_Masjid_in_Abu_Dhabi%2C_United_Arab_Emirates_-_panoramio.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Sheikh Zayed Masjid in Abu Dhabi, United Arab Emirates - panoramio.jpg)."
+  },
+  {
+    "id": "south-tangerang-id",
+    "name": "South Tangerang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/South_Tangerang%2C_South_Tangerang_City%2C_Banten%2C_Indonesia_-_panoramio.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of South Tangerang, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:South Tangerang, South Tangerang City, Banten, Indonesia - panoramio.jpg)."
+  },
+  {
+    "id": "takeo",
+    "name": "Takeo",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Takeo_Psar_Nat.JPG",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Takeo, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Takeo Psar Nat.JPG)."
+  },
+  {
+    "id": "tavros",
+    "name": "Távros",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Tavros%2C_Athens.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Távros, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Tavros, Athens.jpg)."
+  },
+  {
+    "id": "tlalnepantla-mx",
+    "name": "Tlalnepantla",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "tucson-usa",
+    "name": "Tucson",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "valle-de-la-luna-chile",
+    "name": "Valle de la Luna",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Duna_Mayor%2C_Valle_de_la_Luna%2C_San_Pedro_de_Atacama%2C_Chile%2C_2016-02-01%2C_DD_173-175_HDR.JPG",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Duna Mayor, Valle de la Luna, San Pedro de Atacama, Chile, 2016-02-01, DD 173-175 HDR.JPG)."
+  },
+  {
+    "id": "waitomo-caves",
+    "name": "Waitomo Caves",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Glow_Worms_in_the_Waitomo_Caves_New_Zealand%28GN04828%29.jpg",
+    "reason": "Best candidate: a real photograph that clearly depicts the exact named site, with stronger location relevance and context than the alternatives (File:Glow Worms in the Waitomo Caves New Zealand(GN04828).jpg)."
+  },
+  {
+    "id": "xiangyang-cn",
+    "name": "Xiangyang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Xiangyang_skyline_02.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Xiangyang, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Xiangyang skyline 02.jpg)."
+  },
+  {
+    "id": "yellowknife-nwt",
+    "name": "Yellowknife",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Yellowknife%2C_Northwest_Territories.jpg",
+    "reason": "Best candidate: a real photograph with a sufficiently broad, recognizable urban view of Yellowknife, rather than a map, graphic, object, or isolated landmark. Selected over the weaker alternatives (File:Yellowknife, Northwest Territories.jpg)."
+  },
+  {
+    "id": "zagreb-croatia",
+    "name": "Zagreb",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  },
+  {
+    "id": "zhaoqing-cn",
+    "name": "Zhaoqing",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Rejected all candidates: none confidently satisfies the location standard; the set consists of an isolated landmark/building, map/graphic, unrelated subject, or an otherwise ambiguous view rather than a clear photograph of the named place."
+  }
+]

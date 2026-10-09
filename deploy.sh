@@ -13,7 +13,8 @@ mkdir -p "$DEPLOY_DIR"
 # Copy all required directories and files
 cp -r "$SCRIPT_DIR/index.html" "$DEPLOY_DIR/"
 # Copy preview mockups
-cp "$SCRIPT_DIR"/preview-*.html "$DEPLOY_DIR/" 2>/dev/null || true
+# REMOVED: do not ship internal preview pages to prod
+# cp "$SCRIPT_DIR"/preview-*.html "$DEPLOY_DIR/" 2>/dev/null || true
 cp -r "$SCRIPT_DIR/src" "$DEPLOY_DIR/"
 # Drop main.js/style.css backups (main.js.bak-*, main.js.backup-*)
 rm -f "$DEPLOY_DIR"/src/*.bak* "$DEPLOY_DIR"/src/*.backup*
@@ -55,7 +56,8 @@ done
 echo "Asset versions: content-based (unchanged files keep cached URLs)"
 
 # Optional files if they exist
-[ -f "$SCRIPT_DIR/review-locations.html" ] && cp "$SCRIPT_DIR/review-locations.html" "$DEPLOY_DIR/"
+# REMOVED: do not ship internal review tool to prod
+# [ -f "$SCRIPT_DIR/review-locations.html" ] && cp "$SCRIPT_DIR/review-locations.html" "$DEPLOY_DIR/"
 
 echo "Deploying to Vercel..."
 DEPLOY_OUTPUT=$(python3 ~/workspace/skills/vercel/bin/vercel-api deploy prj_gqXXakaMlcpXFkZIOp792miGxtv5 "$DEPLOY_DIR" --target production 2>&1)

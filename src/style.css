@@ -182,11 +182,14 @@ body.game-reveal .reveal-name { display: block; }
 /* Accuracy badge (setProxBadge): a small gold chip pinned inside the photo, clear
    of the rarity frame, so Bullseye/Pinpoint never recolours or glows the border.
    Compact hosts show the icon only; the postcard modal gets the large version. */
-.prox-badge { position: absolute; z-index: 3; top: 5px; left: 5px; display: inline-flex; align-items: center; gap: 3px; box-sizing: border-box; height: 18px; padding: 0 6px 0 4px; border-radius: 999px; background: linear-gradient(180deg, #ffdc7a, #e9b23c); box-shadow: 0 1px 3px rgba(0,0,0,.5); color: #2b1d00; font-size: 8.5px; font-weight: 900; line-height: 1; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
+.prox-badge { position: absolute; z-index: 3; top: 5px; left: 5px; display: inline-flex; align-items: center; gap: 3px; box-sizing: border-box; height: 18px; padding: 0 6px 0 4px; border-radius: 999px; background: linear-gradient(180deg, #ffdc7a, #e9b23c); box-shadow: 0 1px 3px rgba(0,0,0,.5); color: #2b1d00; font-size: 10px; font-weight: 900; line-height: 1; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
 .prox-badge i { font-size: 10px; font-style: normal; letter-spacing: 0; }
 .prox-badge.compact { gap: 0; width: 18px; padding: 0; justify-content: center; }
 .prox-badge.compact b { display: none; }
 .thumb-slot.waiting .prox-badge, .peek-slot.mystery .prox-badge, .thumb-slot:has(> img[hidden]) .prox-badge { display: none; }
+/* Proximity badge must overlay the thumbnail corner, never wrap into layout */
+.peek-slot, .thumb-slot { position: relative; overflow: visible; }
+.peek-slot > .prox-badge, .thumb-slot > .prox-badge { position: absolute; top: 4px; left: 4px; margin: 0; transform: none; }
 .peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .peek-name { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .peek-bar[aria-expanded="true"] .peek-text { align-self: center; }
@@ -357,3 +360,36 @@ body.has-guess #hud { opacity: 0; }
 .collection-card.mystery .photo::after { font-size: 28px; }
 .collection-card.mystery { border-color: rgba(214, 220, 232, .09); background: #0d121d; }
 .collection-card.mystery .collection-card-name { color: rgba(214, 220, 232, .42); letter-spacing: .12em; }
+
+/* Loading: full boot screen until the land fill is on the globe, then a slim
+   pill on the start screen for the rest (coast, lakes, rivers, locations). */
+.load-bar { position: relative; overflow: hidden; height: 6px; border-radius: 999px; background: rgba(127, 210, 244, .14); box-shadow: inset 0 0 0 1px rgba(157, 211, 255, .08); }
+.load-fill { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, #3f9fe0, #7fd2f4); box-shadow: 0 0 12px rgba(127, 210, 244, .55); transform: scaleX(0); transform-origin: left center; transition: transform .35s cubic-bezier(.22, 1, .36, 1); }
+#boot.pending .load-fill { width: 34%; transform: none; animation: load-slide 1.3s ease-in-out infinite; }
+@keyframes load-slide { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+
+#boot { transition: opacity .5s ease; }
+#boot.done { opacity: 0; pointer-events: none; }
+.boot-orb { position: relative; width: 72px; height: 72px; margin: 0 0 22px; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #1d3f73 0%, #0b1a3a 52%, #050a19 100%); box-shadow: 0 0 0 1px rgba(127, 210, 244, .35), 0 0 34px rgba(77, 176, 255, .32), inset -8px -10px 18px rgba(0, 0, 0, .5); animation: boot-breathe 2.4s ease-in-out infinite; }
+.boot-orb::after { content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 2px solid transparent; border-top-color: rgba(127, 210, 244, .75); animation: boot-spin 1.1s linear infinite; }
+@keyframes boot-spin { to { transform: rotate(360deg); } }
+@keyframes boot-breathe { 50% { box-shadow: 0 0 0 1px rgba(127, 210, 244, .5), 0 0 46px rgba(77, 176, 255, .45), inset -8px -10px 18px rgba(0, 0, 0, .5); } }
+#boot .boot-title { margin: 0; color: #f1f8ff; font-size: 34px; font-weight: 800; line-height: 1; letter-spacing: -.045em; text-shadow: 0 0 30px rgba(77, 176, 255, .35); }
+#boot .boot-stage { min-height: 20px; margin: 18px 0 12px; color: rgba(218, 237, 255, .82); font-size: 14px; font-weight: 600; }
+#boot .load-bar { width: min(240px, calc(100vw - 80px)); }
+#boot .boot-meta { display: flex; justify-content: space-between; width: min(240px, calc(100vw - 80px)); min-height: 16px; margin: 8px 0 0; color: rgba(193, 224, 250, .55); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.load-pill { position: fixed; z-index: 11; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 46px); box-sizing: border-box; width: min(280px, calc(100vw - 48px)); padding: 8px 14px 10px; border: 1px solid rgba(157, 211, 255, .18); border-radius: 14px; background: rgba(5, 12, 29, .72); box-shadow: 0 8px 28px rgba(0, 0, 0, .3); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); pointer-events: none; opacity: 0; visibility: hidden; transform: translate(-50%, 6px); transition: opacity .4s ease, transform .4s ease, visibility 0s linear .4s; }
+/* delayed fade-in: a load that finishes within ~0.4 s never shows the pill */
+.load-pill.on { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .5s ease .4s, transform .5s cubic-bezier(.22, 1, .36, 1) .4s, visibility 0s; }
+body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s linear .2s; }
+.load-pill-row { display: flex; justify-content: space-between; gap: 10px; margin: 0 0 7px; color: rgba(218, 237, 255, .8); font-size: 12px; font-weight: 600; white-space: nowrap; }
+.load-pill-row .load-mb { color: rgba(193, 224, 250, .5); font-variant-numeric: tabular-nums; }
+.load-pill .load-bar { height: 4px; }
+.load-pill.done .load-fill { background: linear-gradient(90deg, #4fcf8a, #8ee6b4); box-shadow: 0 0 12px rgba(79, 207, 138, .5); }
+@media (max-height: 620px) {
+  .load-pill { bottom: calc(env(safe-area-inset-bottom, 0px) + 36px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .boot-orb, .boot-orb::after, #boot.pending .load-fill { animation: none; }
+}

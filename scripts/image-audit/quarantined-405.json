@@ -1,0 +1,2837 @@
+[
+ {
+  "id": "aba-ng",
+  "name": "Aba",
+  "country": "Nigeria",
+  "lat": 5.10658,
+  "lng": 7.36667
+ },
+ {
+  "id": "abala",
+  "name": "Abala",
+  "country": "Niger",
+  "lat": 14.9369,
+  "lng": 3.4336
+ },
+ {
+  "id": "abuja-ng",
+  "name": "Abuja",
+  "country": "Nigeria",
+  "lat": 9.05785,
+  "lng": 7.49508
+ },
+ {
+  "id": "acapulco-de-juarez-mx",
+  "name": "Acapulco de Ju\u00e1rez",
+  "country": "Mexico",
+  "lat": 16.84942,
+  "lng": -99.90891
+ },
+ {
+  "id": "agadez",
+  "name": "Agadez",
+  "country": "Niger",
+  "lat": 16.97333,
+  "lng": 7.99111
+ },
+ {
+  "id": "agra-in",
+  "name": "Agra",
+  "country": "India",
+  "lat": 27.18333,
+  "lng": 78.01667
+ },
+ {
+  "id": "aguascalientes-mx",
+  "name": "Aguascalientes",
+  "country": "Mexico",
+  "lat": 21.88262,
+  "lng": -102.2843
+ },
+ {
+  "id": "ajman",
+  "name": "Ajman",
+  "country": "United Arab Emirates",
+  "lat": 25.40177,
+  "lng": 55.47878
+ },
+ {
+  "id": "akure-ng",
+  "name": "Akure",
+  "country": "Nigeria",
+  "lat": 7.25256,
+  "lng": 5.19312
+ },
+ {
+  "id": "aleppo-sy",
+  "name": "Aleppo",
+  "country": "Syria",
+  "lat": 36.20124,
+  "lng": 37.16117
+ },
+ {
+  "id": "ananindeua-br",
+  "name": "Ananindeua",
+  "country": "Brazil",
+  "lat": -1.36556,
+  "lng": -48.37222
+ },
+ {
+  "id": "anapurna-base-camp-nepal",
+  "name": "Annapurna Base Camp",
+  "country": "Nepal",
+  "lat": 28.5302,
+  "lng": 83.8788
+ },
+ {
+  "id": "arar",
+  "name": "Arar",
+  "country": "Saudi Arabia",
+  "lat": 30.97531,
+  "lng": 41.03808
+ },
+ {
+  "id": "arpanet-first-message-ucla",
+  "name": "Boelter Hall, UCLA",
+  "country": "United States",
+  "lat": 34.0689,
+  "lng": -118.4432
+ },
+ {
+  "id": "asmara-eritrea",
+  "name": "Asmara",
+  "country": "Eritrea",
+  "lat": 15.3229,
+  "lng": 38.9251
+ },
+ {
+  "id": "asuncion-py",
+  "name": "Asunci\u00f3n",
+  "country": "Paraguay",
+  "lat": -25.28646,
+  "lng": -57.647
+ },
+ {
+  "id": "aurangabad",
+  "name": "Aurangabad",
+  "country": "India",
+  "lat": 19.87757,
+  "lng": 75.34226
+ },
+ {
+  "id": "auschwitz-birkenau",
+  "name": "Auschwitz-Birkenau",
+  "country": "Poland",
+  "lat": 50.0343,
+  "lng": 19.1795
+ },
+ {
+  "id": "austin-usa",
+  "name": "Austin",
+  "country": "United States",
+  "lat": 30.2672,
+  "lng": -97.7431
+ },
+ {
+  "id": "avarua-cook-islands",
+  "name": "Avarua",
+  "country": "Cook Islands",
+  "lat": -21.2078,
+  "lng": -159.775
+ },
+ {
+  "id": "badlands-national-park",
+  "name": "Badlands Wall",
+  "country": "United States",
+  "lat": 43.7675,
+  "lng": -101.929
+ },
+ {
+  "id": "bahawalpur",
+  "name": "Bahawalpur",
+  "country": "Pakistan",
+  "lat": 29.39779,
+  "lng": 71.6752
+ },
+ {
+  "id": "baku",
+  "name": "Baku",
+  "country": "Azerbaijan",
+  "lat": 40.37767,
+  "lng": 49.89201
+ },
+ {
+  "id": "banff",
+  "name": "Banff",
+  "country": "Canada",
+  "lat": 51.177778,
+  "lng": -115.573611
+ },
+ {
+  "id": "bao-an-cn",
+  "name": "Bao'an",
+  "country": "China",
+  "lat": 22.55213,
+  "lng": 113.88288
+ },
+ {
+  "id": "baoding-cn",
+  "name": "Baoding",
+  "country": "China",
+  "lat": 38.87288,
+  "lng": 115.46246
+ },
+ {
+  "id": "baotou-cn",
+  "name": "Baotou",
+  "country": "China",
+  "lat": 40.6516,
+  "lng": 109.84389
+ },
+ {
+  "id": "barakpur",
+  "name": "B\u0101r\u0101kpur",
+  "country": "India",
+  "lat": 22.76602,
+  "lng": 88.36336
+ },
+ {
+  "id": "barquisimeto-ve",
+  "name": "Barquisimeto",
+  "country": "Venezuela",
+  "lat": 10.0647,
+  "lng": -69.35703
+ },
+ {
+  "id": "batam-id",
+  "name": "Batam",
+  "country": "Indonesia",
+  "lat": 1.14937,
+  "lng": 104.02491
+ },
+ {
+  "id": "bauchi-ng",
+  "name": "Bauchi",
+  "country": "Nigeria",
+  "lat": 10.31032,
+  "lng": 9.84388
+ },
+ {
+  "id": "bayan-nur-cn",
+  "name": "Bayan Nur",
+  "country": "China",
+  "lat": 40.74143,
+  "lng": 107.38599
+ },
+ {
+  "id": "beira-mz",
+  "name": "Beira",
+  "country": "Mozambique",
+  "lat": -19.84361,
+  "lng": 34.83889
+ },
+ {
+  "id": "bekasi-id",
+  "name": "Bekasi",
+  "country": "Indonesia",
+  "lat": -6.2349,
+  "lng": 106.9896
+ },
+ {
+  "id": "belagavi",
+  "name": "Belagavi",
+  "country": "India",
+  "lat": 15.85212,
+  "lng": 74.50447
+ },
+ {
+  "id": "benghazi-ly",
+  "name": "Benghazi",
+  "country": "Libya",
+  "lat": 32.11486,
+  "lng": 20.06859
+ },
+ {
+  "id": "berrechid",
+  "name": "Berrechid",
+  "country": "Morocco",
+  "lat": 33.26553,
+  "lng": -7.58754
+ },
+ {
+  "id": "bhatpara",
+  "name": "Bh\u0101tp\u0101ra",
+  "country": "India",
+  "lat": 22.86643,
+  "lng": 88.40113
+ },
+ {
+  "id": "bhuj",
+  "name": "Bhuj",
+  "country": "India",
+  "lat": 23.25397,
+  "lng": 69.66928
+ },
+ {
+  "id": "bien-hoa-vn",
+  "name": "Bi\u00ean H\u00f2a",
+  "country": "Vietnam",
+  "lat": 10.94469,
+  "lng": 106.82432
+ },
+ {
+  "id": "birds-nest-beijing",
+  "name": "Bird's Nest",
+  "country": "China",
+  "lat": 39.9929,
+  "lng": 116.3965
+ },
+ {
+  "id": "blue-lagoon-iceland",
+  "name": "Blue Lagoon",
+  "country": "Iceland",
+  "lat": 63.8804,
+  "lng": -22.4495
+ },
+ {
+  "id": "bodh-gaya-india",
+  "name": "Bodh Gaya",
+  "country": "India",
+  "lat": 24.6959,
+  "lng": 84.9913
+ },
+ {
+  "id": "bogor",
+  "name": "Bogor",
+  "country": "Indonesia",
+  "lat": -6.59444,
+  "lng": 106.78917
+ },
+ {
+  "id": "borough-park",
+  "name": "Borough Park",
+  "country": "United States",
+  "lat": 40.63399,
+  "lng": -73.99681
+ },
+ {
+  "id": "bouake-ci",
+  "name": "Bouak\u00e9",
+  "country": "C\u00f4te d'Ivoire",
+  "lat": 7.69385,
+  "lng": -5.03031
+ },
+ {
+  "id": "bozhou-cn",
+  "name": "Bozhou",
+  "country": "China",
+  "lat": 33.87722,
+  "lng": 115.77028
+ },
+ {
+  "id": "brasilia-national-congress",
+  "name": "National Congress of Brazil",
+  "country": "Brazil",
+  "lat": -15.7997,
+  "lng": -47.8642
+ },
+ {
+  "id": "brazzaville-cg",
+  "name": "Brazzaville",
+  "country": "Congo",
+  "lat": -4.26613,
+  "lng": 15.28318
+ },
+ {
+  "id": "bristol",
+  "name": "Bristol",
+  "country": "England",
+  "lat": 51.45523,
+  "lng": -2.59665
+ },
+ {
+  "id": "brno-cathedral-d34-19",
+  "name": "Brno Cathedral",
+  "country": "Czech Republic",
+  "lat": 49.191,
+  "lng": 16.6079
+ },
+ {
+  "id": "bucheon-si",
+  "name": "Bucheon-si",
+  "country": "South Korea",
+  "lat": 37.49889,
+  "lng": 126.78306
+ },
+ {
+  "id": "bulguksa",
+  "name": "Bulguksa Temple",
+  "country": "South Korea",
+  "lat": 35.7917,
+  "lng": 129.3323
+ },
+ {
+  "id": "bunker-hill-monument",
+  "name": "Bunker Hill",
+  "country": "United States",
+  "lat": 42.3764,
+  "lng": -71.0608
+ },
+ {
+  "id": "bursa-tr",
+  "name": "Bursa",
+  "country": "Turkey",
+  "lat": 40.19559,
+  "lng": 29.06013
+ },
+ {
+  "id": "buzludzha-monument-bulgaria",
+  "name": "Buzludzha Monument",
+  "country": "Bulgaria",
+  "lat": 42.7339,
+  "lng": 25.3933
+ },
+ {
+  "id": "cabiao",
+  "name": "Cabiao",
+  "country": "Philippines",
+  "lat": 15.2488,
+  "lng": 120.8548
+ },
+ {
+  "id": "cagliari",
+  "name": "Cagliari",
+  "country": "Italy",
+  "lat": 39.23054,
+  "lng": 9.11917
+ },
+ {
+  "id": "caloocan-ph",
+  "name": "Caloocan",
+  "country": "Philippines",
+  "lat": 14.64953,
+  "lng": 120.96788
+ },
+ {
+  "id": "camama-ao",
+  "name": "Camama",
+  "country": "Angola",
+  "lat": -8.93611,
+  "lng": 13.26518
+ },
+ {
+  "id": "candoi",
+  "name": "Cand\u00f3i",
+  "country": "Brazil",
+  "lat": -25.57056,
+  "lng": -52.0512
+ },
+ {
+  "id": "cappadocia-goreme-tr",
+  "name": "G\u00f6reme Open-Air Museum",
+  "country": "Turkey",
+  "lat": 38.6431,
+  "lng": 34.8283
+ },
+ {
+  "id": "cardiff-wales",
+  "name": "Cardiff",
+  "country": "Wales",
+  "lat": 51.4816,
+  "lng": -3.1791
+ },
+ {
+  "id": "carrefour-ht",
+  "name": "Carrefour",
+  "country": "Haiti",
+  "lat": 18.53333,
+  "lng": -72.4
+ },
+ {
+  "id": "cartagena",
+  "name": "Cartagena",
+  "country": "Colombia",
+  "lat": 10.39817,
+  "lng": -75.49328
+ },
+ {
+  "id": "cathedral-of-our-lady-d34-0",
+  "name": "Cathedral of Our Lady",
+  "country": "Belgium",
+  "lat": 51.2206,
+  "lng": 4.401
+ },
+ {
+  "id": "cerritos",
+  "name": "Cerritos",
+  "country": "United States",
+  "lat": 33.85835,
+  "lng": -118.06479
+ },
+ {
+  "id": "cesky-krumlov-d34-18",
+  "name": "Cesky Krumlov",
+  "country": "Czech Republic",
+  "lat": 48.8127,
+  "lng": 14.3175
+ },
+ {
+  "id": "chachoengsao",
+  "name": "Chachoengsao",
+  "country": "Thailand",
+  "lat": 13.6882,
+  "lng": 101.07156
+ },
+ {
+  "id": "chagos-diego-garcia-point",
+  "name": "Diego Garcia Point",
+  "country": "United Kingdom",
+  "lat": -7.3133,
+  "lng": 72.4111
+ },
+ {
+  "id": "champasak-laos",
+  "name": "Wat Phu Champasak",
+  "country": "Laos",
+  "lat": 14.8489,
+  "lng": 105.8169
+ },
+ {
+  "id": "channel-swim-captain-webb",
+  "name": "Calais Landing Beach",
+  "country": "France",
+  "lat": 50.9643,
+  "lng": 1.8431
+ },
+ {
+  "id": "charlotte",
+  "name": "Charlotte",
+  "country": "United States",
+  "lat": 35.22709,
+  "lng": -80.84313
+ },
+ {
+  "id": "chatra",
+  "name": "Chatr\u0101",
+  "country": "India",
+  "lat": 24.20645,
+  "lng": 84.87085
+ },
+ {
+  "id": "chattogram-bd",
+  "name": "Chattogram",
+  "country": "Bangladesh",
+  "lat": 22.3384,
+  "lng": 91.83168
+ },
+ {
+  "id": "cheboksary",
+  "name": "Cheboksary",
+  "country": "Russia",
+  "lat": 56.13218,
+  "lng": 47.246
+ },
+ {
+  "id": "chennai-in",
+  "name": "Chennai",
+  "country": "India",
+  "lat": 13.08784,
+  "lng": 80.27847
+ },
+ {
+  "id": "chiba",
+  "name": "Chiba",
+  "country": "Japan",
+  "lat": 35.6,
+  "lng": 140.11667
+ },
+ {
+  "id": "chihuahua-mx",
+  "name": "Chihuahua",
+  "country": "Mexico",
+  "lat": 28.63528,
+  "lng": -106.08889
+ },
+ {
+  "id": "chisinau-md",
+  "name": "Chisinau",
+  "country": "Moldova",
+  "lat": 47.00902,
+  "lng": 28.85938
+ },
+ {
+  "id": "chuuk-wrecks",
+  "name": "Chuuk Wrecks",
+  "country": "Micronesia",
+  "lat": 7.4167,
+  "lng": 151.7833
+ },
+ {
+  "id": "ciudad-apodaca-mx",
+  "name": "Ciudad Apodaca",
+  "country": "Mexico",
+  "lat": 25.78143,
+  "lng": -100.18911
+ },
+ {
+  "id": "ciudad-general-escobedo-mx",
+  "name": "Ciudad General Escobedo",
+  "country": "Mexico",
+  "lat": 25.79663,
+  "lng": -100.31767
+ },
+ {
+  "id": "cixi-cn",
+  "name": "Cixi",
+  "country": "China",
+  "lat": 30.1764,
+  "lng": 121.2457
+ },
+ {
+  "id": "coimbatore-in",
+  "name": "Coimbatore",
+  "country": "India",
+  "lat": 11.00555,
+  "lng": 76.96612
+ },
+ {
+  "id": "colca-canyon-condor-cross",
+  "name": "Cruz del Condor",
+  "country": "Peru",
+  "lat": -15.6117,
+  "lng": -71.9039
+ },
+ {
+  "id": "columbus",
+  "name": "Columbus",
+  "country": "United States",
+  "lat": 39.96118,
+  "lng": -82.99879
+ },
+ {
+  "id": "concepcion-jesuit-mission",
+  "name": "Concepcion Mission",
+  "country": "Bolivia",
+  "lat": -16.1311,
+  "lng": -62.0268
+ },
+ {
+  "id": "copacabana-beach-rio",
+  "name": "Copacabana Beach",
+  "country": "Brazil",
+  "lat": -22.9711,
+  "lng": -43.1822
+ },
+ {
+  "id": "cordoba-ar",
+  "name": "C\u00f3rdoba",
+  "country": "Argentina",
+  "lat": -31.40648,
+  "lng": -64.18853
+ },
+ {
+  "id": "cork-ireland",
+  "name": "Cork",
+  "country": "Ireland",
+  "lat": 51.8985,
+  "lng": -8.4756
+ },
+ {
+  "id": "cotopaxi-refuge",
+  "name": "Cotopaxi Refuge",
+  "country": "Ecuador",
+  "lat": -0.6805,
+  "lng": -78.4374
+ },
+ {
+  "id": "daejeon-kr",
+  "name": "Daejeon",
+  "country": "South Korea",
+  "lat": 36.34913,
+  "lng": 127.38493
+ },
+ {
+  "id": "daqing-cn",
+  "name": "Daqing",
+  "country": "China",
+  "lat": 46.58333,
+  "lng": 125.0
+ },
+ {
+  "id": "datong",
+  "name": "Datong",
+  "country": "China",
+  "lat": 40.09361,
+  "lng": 113.29139
+ },
+ {
+  "id": "davao-ph",
+  "name": "Davao",
+  "country": "Philippines",
+  "lat": 7.07306,
+  "lng": 125.61278
+ },
+ {
+  "id": "dazhou-cn",
+  "name": "Dazhou",
+  "country": "China",
+  "lat": 31.2106,
+  "lng": 107.46308
+ },
+ {
+  "id": "delhi",
+  "name": "Delhi",
+  "country": "India",
+  "lat": 28.65195,
+  "lng": 77.23149
+ },
+ {
+  "id": "dera-ghazi-khan",
+  "name": "Dera Ghazi Khan",
+  "country": "Pakistan",
+  "lat": 30.04587,
+  "lng": 70.64029
+ },
+ {
+  "id": "disuq",
+  "name": "Dis\u016bq",
+  "country": "Egypt",
+  "lat": 31.13259,
+  "lng": 30.64784
+ },
+ {
+  "id": "diyarbakr-tr",
+  "name": "Diyarbak\u0131r",
+  "country": "Turkey",
+  "lat": 37.91363,
+  "lng": 40.21721
+ },
+ {
+  "id": "dna-cavendish-cambridge",
+  "name": "Old Cavendish Laboratory",
+  "country": "England",
+  "lat": 52.2028,
+  "lng": 0.1197
+ },
+ {
+  "id": "dnipro-ua",
+  "name": "Dnipro",
+  "country": "Ukraine",
+  "lat": 48.46664,
+  "lng": 35.04066
+ },
+ {
+  "id": "dombivali",
+  "name": "Dombivali",
+  "country": "India",
+  "lat": 19.21667,
+  "lng": 73.08333
+ },
+ {
+  "id": "donetsk-ua",
+  "name": "Donetsk",
+  "country": "Ukraine",
+  "lat": 48.023,
+  "lng": 37.80224
+ },
+ {
+  "id": "donghe",
+  "name": "Donghe",
+  "country": "China",
+  "lat": 40.56611,
+  "lng": 110.01972
+ },
+ {
+  "id": "dongshi",
+  "name": "Dongshi",
+  "country": "Taiwan",
+  "lat": 23.45689,
+  "lng": 120.15003
+ },
+ {
+  "id": "eagle-island-chagos",
+  "name": "Eagle Islands, Chagos",
+  "country": "United Kingdom",
+  "lat": -6.2,
+  "lng": 71.3
+ },
+ {
+  "id": "east-london",
+  "name": "East London",
+  "country": "South Africa",
+  "lat": -33.01529,
+  "lng": 27.91162
+ },
+ {
+  "id": "ecatepec-de-morelos-mx",
+  "name": "Ecatepec de Morelos",
+  "country": "Mexico",
+  "lat": 19.60492,
+  "lng": -99.06064
+ },
+ {
+  "id": "ensenada-mx",
+  "name": "Ensenada",
+  "country": "Mexico",
+  "lat": 31.87149,
+  "lng": -116.60071
+ },
+ {
+  "id": "enugu-ng",
+  "name": "Enugu",
+  "country": "Nigeria",
+  "lat": 6.44132,
+  "lng": 7.49883
+ },
+ {
+  "id": "erzurum",
+  "name": "Erzurum",
+  "country": "Turkey",
+  "lat": 39.90861,
+  "lng": 41.27694
+ },
+ {
+  "id": "faisalabad-pk",
+  "name": "Faisalabad",
+  "country": "Pakistan",
+  "lat": 31.41554,
+  "lng": 73.08969
+ },
+ {
+  "id": "falavarjan",
+  "name": "Fal\u0101varj\u0101n",
+  "country": "Iran",
+  "lat": 32.5553,
+  "lng": 51.50973
+ },
+ {
+  "id": "falkland-goose-green-memorial",
+  "name": "Goose Green Memorial",
+  "country": "United Kingdom",
+  "lat": -51.8278,
+  "lng": -58.9791
+ },
+ {
+  "id": "fez-morocco",
+  "name": "Fez",
+  "country": "Morocco",
+  "lat": 34.0181,
+  "lng": -5.0078
+ },
+ {
+  "id": "fort-nieuw-amsterdam",
+  "name": "Fort Nieuw Amsterdam",
+  "country": "Suriname",
+  "lat": 5.8873,
+  "lng": -55.0911
+ },
+ {
+  "id": "fort-sumter-charleston",
+  "name": "Fort Sumter",
+  "country": "United States",
+  "lat": 32.7523,
+  "lng": -79.8747
+ },
+ {
+  "id": "fort-worth",
+  "name": "Fort Worth",
+  "country": "United States",
+  "lat": 32.72541,
+  "lng": -97.32085
+ },
+ {
+  "id": "fort-zeelandia-paramaribo",
+  "name": "Fort Zeelandia",
+  "country": "Suriname",
+  "lat": 5.8252,
+  "lng": -55.1496
+ },
+ {
+  "id": "foshan-cn",
+  "name": "Foshan",
+  "country": "China",
+  "lat": 23.02677,
+  "lng": 113.13148
+ },
+ {
+  "id": "frankfurt-am-main-de",
+  "name": "Frankfurt am Main",
+  "country": "Germany",
+  "lat": 50.11552,
+  "lng": 8.68417
+ },
+ {
+  "id": "fukushima-daiichi",
+  "name": "Fukushima Daiichi",
+  "country": "Japan",
+  "lat": 37.4211,
+  "lng": 141.0328
+ },
+ {
+  "id": "futuna-leava",
+  "name": "Leava, Futuna",
+  "country": "France",
+  "lat": -14.2933,
+  "lng": -178.1583
+ },
+ {
+  "id": "ganzhou-cn",
+  "name": "Ganzhou",
+  "country": "China",
+  "lat": 25.84664,
+  "lng": 114.9326
+ },
+ {
+  "id": "gaziantep-tr",
+  "name": "Gaziantep",
+  "country": "Turkey",
+  "lat": 37.05944,
+  "lng": 37.3825
+ },
+ {
+  "id": "gazipur-bd",
+  "name": "Gazipur",
+  "country": "Bangladesh",
+  "lat": 23.99844,
+  "lng": 90.42234
+ },
+ {
+  "id": "georgetown-st-georges-cathedral",
+  "name": "Georgetown",
+  "country": "Guyana",
+  "lat": 6.8121,
+  "lng": -58.1638
+ },
+ {
+  "id": "gettysburg-battlefield",
+  "name": "Gettysburg",
+  "country": "United States",
+  "lat": 39.8183,
+  "lng": -77.2314
+ },
+ {
+  "id": "giza-eg",
+  "name": "Giza",
+  "country": "Egypt",
+  "lat": 30.00944,
+  "lng": 31.20861
+ },
+ {
+  "id": "goyang-si",
+  "name": "Goyang-si",
+  "country": "South Korea",
+  "lat": 37.65639,
+  "lng": 126.835
+ },
+ {
+  "id": "gqeberha-za",
+  "name": "Gqeberha",
+  "country": "South Africa",
+  "lat": -33.96109,
+  "lng": 25.61494
+ },
+ {
+  "id": "guadalupe-mx",
+  "name": "Guadalupe",
+  "country": "Mexico",
+  "lat": 25.67663,
+  "lng": -100.25907
+ },
+ {
+  "id": "guangzhou-cn",
+  "name": "Guangzhou",
+  "country": "China",
+  "lat": 23.11667,
+  "lng": 113.25
+ },
+ {
+  "id": "guayaquil-ec",
+  "name": "Guayaquil",
+  "country": "Ecuador",
+  "lat": -2.19616,
+  "lng": -79.88621
+ },
+ {
+  "id": "gujranwala-pk",
+  "name": "Gujranwala",
+  "country": "Pakistan",
+  "lat": 32.15567,
+  "lng": 74.18705
+ },
+ {
+  "id": "halifax-canada",
+  "name": "Halifax",
+  "country": "Canada",
+  "lat": 44.6488,
+  "lng": -63.5752
+ },
+ {
+  "id": "hamamatsu",
+  "name": "Hamamatsu",
+  "country": "Japan",
+  "lat": 34.7,
+  "lng": 137.73333
+ },
+ {
+  "id": "harmony-point-nelson",
+  "name": "Harmony Point",
+  "country": "Antarctica",
+  "lat": -62.3,
+  "lng": -59.2667
+ },
+ {
+  "id": "harrow",
+  "name": "Harrow",
+  "country": "England",
+  "lat": 51.57835,
+  "lng": -0.33208
+ },
+ {
+  "id": "harunabad",
+  "name": "Harunabad",
+  "country": "Pakistan",
+  "lat": 29.61206,
+  "lng": 73.13802
+ },
+ {
+  "id": "heroica-matamoros-mx",
+  "name": "Heroica Matamoros",
+  "country": "Mexico",
+  "lat": 25.87972,
+  "lng": -97.50417
+ },
+ {
+  "id": "heshan",
+  "name": "Heshan",
+  "country": "China",
+  "lat": 28.56938,
+  "lng": 112.34733
+ },
+ {
+  "id": "heze-cn",
+  "name": "Heze",
+  "country": "China",
+  "lat": 35.23929,
+  "lng": 115.47358
+ },
+ {
+  "id": "hindenburg-lakehurst",
+  "name": "Lakehurst Hindenburg Site",
+  "country": "United States",
+  "lat": 40.0304,
+  "lng": -74.3259
+ },
+ {
+  "id": "hoi-an",
+  "name": "Hoi An",
+  "country": "Vietnam",
+  "lat": 15.8801,
+  "lng": 108.338
+ },
+ {
+  "id": "hong-kong",
+  "name": "Hong Kong",
+  "country": "China",
+  "lat": 22.3193,
+  "lng": 114.1694
+ },
+ {
+  "id": "housesteads-hadrians-wall",
+  "name": "Housesteads",
+  "country": "England",
+  "lat": 54.9928,
+  "lng": -2.4792
+ },
+ {
+  "id": "huddersfield",
+  "name": "Huddersfield",
+  "country": "England",
+  "lat": 53.64904,
+  "lng": -1.78416
+ },
+ {
+  "id": "ichikawa",
+  "name": "Ichikawa",
+  "country": "Japan",
+  "lat": 35.73413,
+  "lng": 139.9065
+ },
+ {
+  "id": "indore-in",
+  "name": "Indore",
+  "country": "India",
+  "lat": 22.71792,
+  "lng": 75.8333
+ },
+ {
+  "id": "innsbruck-austria",
+  "name": "Innsbruck",
+  "country": "Austria",
+  "lat": 47.2692,
+  "lng": 11.4041
+ },
+ {
+  "id": "iwo-jima-flag-raising",
+  "name": "Mount Suribachi Summit",
+  "country": "Japan",
+  "lat": 24.7504,
+  "lng": 141.2895
+ },
+ {
+  "id": "jabalpur",
+  "name": "Jabalpur",
+  "country": "India",
+  "lat": 23.16697,
+  "lng": 79.95006
+ },
+ {
+  "id": "jacksonville",
+  "name": "Jacksonville",
+  "country": "United States",
+  "lat": 30.33218,
+  "lng": -81.65565
+ },
+ {
+  "id": "jepara-id",
+  "name": "Jepara",
+  "country": "Indonesia",
+  "lat": -6.5924,
+  "lng": 110.671
+ },
+ {
+  "id": "jinjiang-cn",
+  "name": "Jinjiang",
+  "country": "China",
+  "lat": 24.81978,
+  "lng": 118.57415
+ },
+ {
+  "id": "kaduna-ng",
+  "name": "Kaduna",
+  "country": "Nigeria",
+  "lat": 10.52641,
+  "lng": 7.43879
+ },
+ {
+  "id": "kailasa-temple-ellora",
+  "name": "Kailasa Temple",
+  "country": "India",
+  "lat": 20.0238,
+  "lng": 75.179
+ },
+ {
+  "id": "kakamega-ke",
+  "name": "Kakamega",
+  "country": "Kenya",
+  "lat": 0.28422,
+  "lng": 34.75229
+ },
+ {
+  "id": "kalemegdan-fortress-d34-25",
+  "name": "Kalemegdan Fortress",
+  "country": "Serbia",
+  "lat": 44.8224,
+  "lng": 20.4482
+ },
+ {
+  "id": "kalyan-in",
+  "name": "Kaly\u0101n",
+  "country": "India",
+  "lat": 19.2437,
+  "lng": 73.13554
+ },
+ {
+  "id": "kamakura-daibutsu-jp",
+  "name": "Great Buddha of Kamakura",
+  "country": "Japan",
+  "lat": 35.3167,
+  "lng": 139.5358
+ },
+ {
+  "id": "kameyama",
+  "name": "Kameyama",
+  "country": "Japan",
+  "lat": 34.85,
+  "lng": 136.45
+ },
+ {
+  "id": "kanpur-in",
+  "name": "Kanpur",
+  "country": "India",
+  "lat": 26.46523,
+  "lng": 80.34975
+ },
+ {
+  "id": "karagandy",
+  "name": "Karagandy",
+  "country": "Kazakhstan",
+  "lat": 49.80187,
+  "lng": 73.10211
+ },
+ {
+  "id": "karnak-temple-complex",
+  "name": "Karnak Temple",
+  "country": "Egypt",
+  "lat": 25.7188,
+  "lng": 32.6573
+ },
+ {
+  "id": "katsina-ng",
+  "name": "Katsina",
+  "country": "Nigeria",
+  "lat": 12.99082,
+  "lng": 7.60177
+ },
+ {
+  "id": "kawasaki-jp",
+  "name": "Kawasaki",
+  "country": "Japan",
+  "lat": 35.52056,
+  "lng": 139.71722
+ },
+ {
+  "id": "kazan-ru",
+  "name": "Kazan",
+  "country": "Russia",
+  "lat": 55.78874,
+  "lng": 49.12214
+ },
+ {
+  "id": "kerch",
+  "name": "Kerch",
+  "country": "Ukraine",
+  "lat": 45.35675,
+  "lng": 36.47542
+ },
+ {
+  "id": "khulna-bd",
+  "name": "Khulna",
+  "country": "Bangladesh",
+  "lat": 22.80979,
+  "lng": 89.56439
+ },
+ {
+  "id": "kilwa-kisiwani-ruins",
+  "name": "Kilwa Kisiwani",
+  "country": "Tanzania",
+  "lat": -8.9603,
+  "lng": 39.5128
+ },
+ {
+  "id": "kirkuk",
+  "name": "Kirkuk",
+  "country": "Iraq",
+  "lat": 35.46806,
+  "lng": 44.39222
+ },
+ {
+  "id": "kotors-old-town",
+  "name": "Kotor Old Town",
+  "country": "Montenegro",
+  "lat": 42.4247,
+  "lng": 18.771
+ },
+ {
+  "id": "krakow-old-town-d34-10",
+  "name": "Krakow Old Town",
+  "country": "Poland",
+  "lat": 50.0614,
+  "lng": 19.9372
+ },
+ {
+  "id": "krakow-poland",
+  "name": "Krakow",
+  "country": "Poland",
+  "lat": 50.0647,
+  "lng": 19.945
+ },
+ {
+  "id": "krasnodar-ru",
+  "name": "Krasnodar",
+  "country": "Russia",
+  "lat": 45.04534,
+  "lng": 38.98178
+ },
+ {
+  "id": "kryvyy-rih-ua",
+  "name": "Kryvyy Rih",
+  "country": "Ukraine",
+  "lat": 47.90572,
+  "lng": 33.39404
+ },
+ {
+  "id": "la-gloria",
+  "name": "La Gloria",
+  "country": "Colombia",
+  "lat": 8.61954,
+  "lng": -73.80212
+ },
+ {
+  "id": "lake-titicaca-uros",
+  "name": "Uros Floating Islands",
+  "country": "Peru",
+  "lat": -15.8167,
+  "lng": -69.9714
+ },
+ {
+  "id": "laval-ca",
+  "name": "Laval",
+  "country": "Canada",
+  "lat": 45.56995,
+  "lng": -73.692
+ },
+ {
+  "id": "leon-de-los-aldama-mx",
+  "name": "Le\u00f3n de los Aldama",
+  "country": "Mexico",
+  "lat": 21.12183,
+  "lng": -101.68253
+ },
+ {
+  "id": "lianjiang-cn",
+  "name": "Lianjiang",
+  "country": "China",
+  "lat": 21.64673,
+  "lng": 110.28172
+ },
+ {
+  "id": "likasi-cd",
+  "name": "Likasi",
+  "country": "DR Congo",
+  "lat": -10.98303,
+  "lng": 26.7384
+ },
+ {
+  "id": "lilongwe-mw",
+  "name": "Lilongwe",
+  "country": "Malawi",
+  "lat": -13.96692,
+  "lng": 33.78725
+ },
+ {
+  "id": "lindbergh-spirit-st-louis-landing",
+  "name": "Le Bourget Airfield",
+  "country": "France",
+  "lat": 48.9475,
+  "lng": 2.4353
+ },
+ {
+  "id": "linyi-cn",
+  "name": "Linyi",
+  "country": "China",
+  "lat": 35.06306,
+  "lng": 118.34278
+ },
+ {
+  "id": "little-bighorn-battlefield",
+  "name": "Little Bighorn",
+  "country": "United States",
+  "lat": 45.5708,
+  "lng": -107.4275
+ },
+ {
+  "id": "little-mermaid-dk",
+  "name": "The Little Mermaid",
+  "country": "Denmark",
+  "lat": 55.6929,
+  "lng": 12.5993
+ },
+ {
+  "id": "louisville-usa",
+  "name": "Louisville",
+  "country": "United States",
+  "lat": 38.2527,
+  "lng": -85.7585
+ },
+ {
+  "id": "luan-cn",
+  "name": "Lu\u2019an",
+  "country": "China",
+  "lat": 31.73561,
+  "lng": 116.51688
+ },
+ {
+  "id": "lucerne-ch",
+  "name": "Lucerne",
+  "country": "Switzerland",
+  "lat": 47.0502,
+  "lng": 8.3093
+ },
+ {
+  "id": "ludhiana-in",
+  "name": "Ludhiana",
+  "country": "India",
+  "lat": 30.91204,
+  "lng": 75.85379
+ },
+ {
+  "id": "lviv-ua",
+  "name": "Lviv",
+  "country": "Ukraine",
+  "lat": 49.83826,
+  "lng": 24.02324
+ },
+ {
+  "id": "madurai-in",
+  "name": "Madurai",
+  "country": "India",
+  "lat": 9.919,
+  "lng": 78.11953
+ },
+ {
+  "id": "maiduguri-ng",
+  "name": "Maiduguri",
+  "country": "Nigeria",
+  "lat": 11.84692,
+  "lng": 13.15712
+ },
+ {
+  "id": "maipu-cl",
+  "name": "Maip\u00fa",
+  "country": "Chile",
+  "lat": -33.51421,
+  "lng": -70.7651
+ },
+ {
+  "id": "majuro-marshall-islands",
+  "name": "Majuro",
+  "country": "Marshall Islands",
+  "lat": 7.0667,
+  "lng": 171.2667
+ },
+ {
+  "id": "makhachkala-ru",
+  "name": "Makhachkala",
+  "country": "Russia",
+  "lat": 42.97782,
+  "lng": 47.50027
+ },
+ {
+  "id": "malegaon",
+  "name": "Malegaon",
+  "country": "India",
+  "lat": 20.54966,
+  "lng": 74.53462
+ },
+ {
+  "id": "mandalay",
+  "name": "Mandalay",
+  "country": "Myanmar",
+  "lat": 21.97473,
+  "lng": 96.08359
+ },
+ {
+  "id": "mar-del-plata-ar",
+  "name": "Mar del Plata",
+  "country": "Argentina",
+  "lat": -38.00042,
+  "lng": -57.5562
+ },
+ {
+  "id": "marion-island",
+  "name": "Marion Island Station",
+  "country": "South Africa",
+  "lat": -46.8756,
+  "lng": 37.7167
+ },
+ {
+  "id": "marrakech-morocco",
+  "name": "Marrakech",
+  "country": "Morocco",
+  "lat": 31.6295,
+  "lng": -7.9811
+ },
+ {
+  "id": "marvdasht",
+  "name": "Marvdasht",
+  "country": "Iran",
+  "lat": 29.87407,
+  "lng": 52.80258
+ },
+ {
+  "id": "mata-utu-wallis",
+  "name": "Mata-Utu",
+  "country": "France",
+  "lat": -13.2833,
+  "lng": -176.1833
+ },
+ {
+  "id": "matola-mz",
+  "name": "Matola",
+  "country": "Mozambique",
+  "lat": -25.96222,
+  "lng": 32.45889
+ },
+ {
+  "id": "maturin-ve",
+  "name": "Matur\u00edn",
+  "country": "Venezuela",
+  "lat": 9.74569,
+  "lng": -63.18323
+ },
+ {
+  "id": "mazatlan-mx",
+  "name": "Mazatl\u00e1n",
+  "country": "Mexico",
+  "lat": 23.22163,
+  "lng": -106.41885
+ },
+ {
+  "id": "mbuguni",
+  "name": "Mbuguni",
+  "country": "Tanzania",
+  "lat": -3.56667,
+  "lng": 36.95
+ },
+ {
+  "id": "medellin-botero-plaza",
+  "name": "Medellin",
+  "country": "Colombia",
+  "lat": 6.2519,
+  "lng": -75.5689
+ },
+ {
+  "id": "medina-saudi-arabia",
+  "name": "Medina",
+  "country": "Saudi Arabia",
+  "lat": 24.5247,
+  "lng": 39.5692
+ },
+ {
+  "id": "melitopol",
+  "name": "Melitopol",
+  "country": "Ukraine",
+  "lat": 46.84735,
+  "lng": 35.38196
+ },
+ {
+  "id": "mendoza-argentina",
+  "name": "Mendoza",
+  "country": "Argentina",
+  "lat": -32.8895,
+  "lng": -68.8458
+ },
+ {
+  "id": "merida-mx",
+  "name": "M\u00e9rida",
+  "country": "Mexico",
+  "lat": 20.967,
+  "lng": -89.62318
+ },
+ {
+  "id": "migrant-mother-nipomo",
+  "name": "Nipomo Migrant Camp Site",
+  "country": "United States",
+  "lat": 35.0353,
+  "lng": -120.4856
+ },
+ {
+  "id": "minhang-cn",
+  "name": "Minhang",
+  "country": "China",
+  "lat": 31.10881,
+  "lng": 121.37471
+ },
+ {
+  "id": "moreno",
+  "name": "Moreno",
+  "country": "Argentina",
+  "lat": -34.63401,
+  "lng": -58.79138
+ },
+ {
+  "id": "mount-kenya-summit",
+  "name": "Mount Kenya Summit",
+  "country": "Kenya",
+  "lat": -0.1506,
+  "lng": 37.3073
+ },
+ {
+  "id": "moyo-uganda",
+  "name": "Moyo District",
+  "country": "Uganda",
+  "lat": 3.6431,
+  "lng": 31.7289
+ },
+ {
+  "id": "mt-orohena",
+  "name": "Mt Orohena",
+  "country": "France",
+  "lat": -17.6256,
+  "lng": -149.4753
+ },
+ {
+  "id": "mt-waialeale",
+  "name": "Mt Wai\u02bbale\u02bbale",
+  "country": "United States",
+  "lat": 22.0714,
+  "lng": -159.4964
+ },
+ {
+  "id": "mukkudal",
+  "name": "Mukk\u016bdal",
+  "country": "India",
+  "lat": 8.74312,
+  "lng": 77.5225
+ },
+ {
+  "id": "multan-pk",
+  "name": "Multan",
+  "country": "Pakistan",
+  "lat": 30.19679,
+  "lng": 71.47824
+ },
+ {
+  "id": "n-djamena-td",
+  "name": "N'Djamena",
+  "country": "Chad",
+  "lat": 12.10672,
+  "lng": 15.0444
+ },
+ {
+  "id": "najaf",
+  "name": "Najaf",
+  "country": "Iraq",
+  "lat": 32.02594,
+  "lng": 44.34625
+ },
+ {
+  "id": "nanyang-cn",
+  "name": "Nanyang",
+  "country": "China",
+  "lat": 33.00524,
+  "lng": 112.54659
+ },
+ {
+  "id": "naples-italy",
+  "name": "Naples",
+  "country": "Italy",
+  "lat": 40.8518,
+  "lng": 14.2681
+ },
+ {
+  "id": "nara",
+  "name": "Nara",
+  "country": "Japan",
+  "lat": 34.684444,
+  "lng": 135.805
+ },
+ {
+  "id": "natal-br",
+  "name": "Natal",
+  "country": "Brazil",
+  "lat": -5.795,
+  "lng": -35.20944
+ },
+ {
+  "id": "naucalpan-de-juarez-mx",
+  "name": "Naucalpan de Ju\u00e1rez",
+  "country": "Mexico",
+  "lat": 19.47851,
+  "lng": -99.23963
+ },
+ {
+  "id": "nay-pyi-taw",
+  "name": "Nay Pyi Taw",
+  "country": "Myanmar",
+  "lat": 19.745,
+  "lng": 96.12972
+ },
+ {
+  "id": "neunkirchen",
+  "name": "Neunkirchen",
+  "country": "Germany",
+  "lat": 49.34449,
+  "lng": 7.18045
+ },
+ {
+  "id": "ngerulmud-palau",
+  "name": "Ngerulmud",
+  "country": "Palau",
+  "lat": 7.5006,
+  "lng": 134.6242
+ },
+ {
+  "id": "niigata",
+  "name": "Niigata",
+  "country": "Japan",
+  "lat": 37.92259,
+  "lng": 139.04125
+ },
+ {
+  "id": "nishinomiya",
+  "name": "Nishinomiya",
+  "country": "Japan",
+  "lat": 34.71562,
+  "lng": 135.33199
+ },
+ {
+  "id": "nizhniy-novgorod-ru",
+  "name": "Nizhniy Novgorod",
+  "country": "Russia",
+  "lat": 56.32867,
+  "lng": 44.00205
+ },
+ {
+  "id": "notre-dame-paris",
+  "name": "Notre-Dame Cathedral",
+  "country": "France",
+  "lat": 48.8529,
+  "lng": 2.35
+ },
+ {
+  "id": "nuevo-laredo-mx",
+  "name": "Nuevo Laredo",
+  "country": "Mexico",
+  "lat": 27.47629,
+  "lng": -99.51639
+ },
+ {
+  "id": "nukunonu-village-point",
+  "name": "Nukunonu Village",
+  "country": "New Zealand",
+  "lat": -9.2019,
+  "lng": -171.7839
+ },
+ {
+  "id": "odesa-ua",
+  "name": "Odesa",
+  "country": "Ukraine",
+  "lat": 46.48572,
+  "lng": 30.74383
+ },
+ {
+  "id": "odz-pl",
+  "name": "\u0141\u00f3d\u017a",
+  "country": "Poland",
+  "lat": 51.77058,
+  "lng": 19.47395
+ },
+ {
+  "id": "oita",
+  "name": "\u014cita",
+  "country": "Japan",
+  "lat": 33.23333,
+  "lng": 131.6
+ },
+ {
+  "id": "oivi-kokoda",
+  "name": "Oivi Kokoda",
+  "country": "Papua New Guinea",
+  "lat": -9.0694,
+  "lng": 147.7439
+ },
+ {
+  "id": "okene",
+  "name": "Okene",
+  "country": "Nigeria",
+  "lat": 7.55122,
+  "lng": 6.23589
+ },
+ {
+  "id": "omaha",
+  "name": "Omaha",
+  "country": "United States",
+  "lat": 41.25626,
+  "lng": -95.94043
+ },
+ {
+  "id": "omsk-ru",
+  "name": "Omsk",
+  "country": "Russia",
+  "lat": 54.99244,
+  "lng": 73.36859
+ },
+ {
+  "id": "oran-dz",
+  "name": "Oran",
+  "country": "Algeria",
+  "lat": 35.69906,
+  "lng": -0.63588
+ },
+ {
+  "id": "osaka-japan",
+  "name": "Osaka",
+  "country": "Japan",
+  "lat": 34.6937,
+  "lng": 135.5023
+ },
+ {
+  "id": "oyo-ng",
+  "name": "Oyo",
+  "country": "Nigeria",
+  "lat": 7.85367,
+  "lng": 3.93235
+ },
+ {
+  "id": "pasig-city",
+  "name": "Pasig City",
+  "country": "Philippines",
+  "lat": 14.58691,
+  "lng": 121.0614
+ },
+ {
+  "id": "peine",
+  "name": "Peine",
+  "country": "Germany",
+  "lat": 52.31928,
+  "lng": 10.2352
+ },
+ {
+  "id": "penrhyn-omoka",
+  "name": "Omoka, Penrhyn",
+  "country": "Cook Islands",
+  "lat": -8.9797,
+  "lng": -158.0333
+ },
+ {
+  "id": "pereira-co",
+  "name": "Pereira",
+  "country": "Colombia",
+  "lat": 4.81428,
+  "lng": -75.69488
+ },
+ {
+  "id": "perm-ru",
+  "name": "Perm",
+  "country": "Russia",
+  "lat": 58.01046,
+  "lng": 56.25017
+ },
+ {
+  "id": "peros-banhos",
+  "name": "Peros Banhos",
+  "country": "United Kingdom",
+  "lat": -5.4167,
+  "lng": 71.85
+ },
+ {
+  "id": "phalodi",
+  "name": "Phalodi",
+  "country": "India",
+  "lat": 27.13102,
+  "lng": 72.36826
+ },
+ {
+  "id": "phoenix-usa",
+  "name": "Phoenix",
+  "country": "United States",
+  "lat": 33.4484,
+  "lng": -112.074
+ },
+ {
+  "id": "phuket-thailand",
+  "name": "Phuket",
+  "country": "Thailand",
+  "lat": 7.8804,
+  "lng": 98.3923
+ },
+ {
+  "id": "pietermaritzburg-za",
+  "name": "Pietermaritzburg",
+  "country": "South Africa",
+  "lat": -29.61679,
+  "lng": 30.39278
+ },
+ {
+  "id": "pikine-sn",
+  "name": "Pikine",
+  "country": "Senegal",
+  "lat": 14.76457,
+  "lng": -17.39071
+ },
+ {
+  "id": "pikit",
+  "name": "Pikit",
+  "country": "Philippines",
+  "lat": 7.05444,
+  "lng": 124.67194
+ },
+ {
+  "id": "pingyao-ancient-city",
+  "name": "Pingyao Ancient City",
+  "country": "China",
+  "lat": 37.2011,
+  "lng": 112.1761
+ },
+ {
+  "id": "pohutu-geyser",
+  "name": "Pohutu Geyser",
+  "country": "New Zealand",
+  "lat": -38.1608,
+  "lng": 176.2581
+ },
+ {
+  "id": "pordenone",
+  "name": "Pordenone",
+  "country": "Italy",
+  "lat": 45.95689,
+  "lng": 12.66051
+ },
+ {
+  "id": "porto-old-town-d34-74",
+  "name": "Porto Old Town",
+  "country": "Portugal",
+  "lat": 41.1406,
+  "lng": -8.6131
+ },
+ {
+  "id": "prambanan-indonesia",
+  "name": "Prambanan Temple",
+  "country": "Indonesia",
+  "lat": -7.752,
+  "lng": 110.4915
+ },
+ {
+  "id": "puebla-mexico",
+  "name": "Puebla",
+  "country": "Mexico",
+  "lat": 19.0414,
+  "lng": -98.2063
+ },
+ {
+  "id": "putuo",
+  "name": "Putuo",
+  "country": "China",
+  "lat": 31.251,
+  "lng": 121.3897
+ },
+ {
+  "id": "pyramids-of-giza",
+  "name": "Pyramids of Giza",
+  "country": "Egypt",
+  "lat": 29.9792,
+  "lng": 31.1342
+ },
+ {
+  "id": "pyryatyn",
+  "name": "Pyryatyn",
+  "country": "Ukraine",
+  "lat": 50.24388,
+  "lng": 32.5203
+ },
+ {
+  "id": "qingdao-cn",
+  "name": "Qingdao",
+  "country": "China",
+  "lat": 36.06488,
+  "lng": 120.38042
+ },
+ {
+  "id": "qingpu-cn",
+  "name": "Qingpu",
+  "country": "China",
+  "lat": 31.15394,
+  "lng": 121.11408
+ },
+ {
+  "id": "qingyang",
+  "name": "Qingyang",
+  "country": "China",
+  "lat": 35.70976,
+  "lng": 107.64455
+ },
+ {
+  "id": "qinzhou-cn",
+  "name": "Qinzhou",
+  "country": "China",
+  "lat": 21.98247,
+  "lng": 108.65061
+ },
+ {
+  "id": "queens-us",
+  "name": "Queens",
+  "country": "United States",
+  "lat": 40.68149,
+  "lng": -73.83652
+ },
+ {
+  "id": "quetta-pk",
+  "name": "Quetta",
+  "country": "Pakistan",
+  "lat": 30.18414,
+  "lng": 67.00141
+ },
+ {
+  "id": "quito",
+  "name": "Quito",
+  "country": "Ecuador",
+  "lat": -0.22985,
+  "lng": -78.52495
+ },
+ {
+  "id": "rabat-morocco",
+  "name": "Rabat",
+  "country": "Morocco",
+  "lat": 34.0209,
+  "lng": -6.8416
+ },
+ {
+  "id": "rajkot-in",
+  "name": "R\u0101jkot",
+  "country": "India",
+  "lat": 22.29161,
+  "lng": 70.79322
+ },
+ {
+  "id": "rangpur",
+  "name": "Rangpur",
+  "country": "Bangladesh",
+  "lat": 25.74664,
+  "lng": 89.25166
+ },
+ {
+  "id": "rawalpindi-pk",
+  "name": "Rawalpindi",
+  "country": "Pakistan",
+  "lat": 33.59733,
+  "lng": 73.0479
+ },
+ {
+  "id": "redford",
+  "name": "Redford",
+  "country": "United States",
+  "lat": 42.38337,
+  "lng": -83.2966
+ },
+ {
+  "id": "rehovot",
+  "name": "Re\u1e96ovot",
+  "country": "Israel",
+  "lat": 31.89421,
+  "lng": 34.81199
+ },
+ {
+  "id": "reichstag-de",
+  "name": "Reichstag Building",
+  "country": "Germany",
+  "lat": 52.5186,
+  "lng": 13.3762
+ },
+ {
+  "id": "reykjavik-iceland",
+  "name": "Reykjavik",
+  "country": "Iceland",
+  "lat": 64.1466,
+  "lng": -21.9426
+ },
+ {
+  "id": "rio-tinto",
+  "name": "Rio Tinto",
+  "country": "Portugal",
+  "lat": 41.17872,
+  "lng": -8.55953
+ },
+ {
+  "id": "ruiru",
+  "name": "Ruiru",
+  "country": "Kenya",
+  "lat": -1.14665,
+  "lng": 36.96087
+ },
+ {
+  "id": "sabha",
+  "name": "Sabha",
+  "country": "Libya",
+  "lat": 27.03766,
+  "lng": 14.42832
+ },
+ {
+  "id": "saguenay",
+  "name": "Saguenay",
+  "country": "Canada",
+  "lat": 48.41675,
+  "lng": -71.06573
+ },
+ {
+  "id": "saharanpur",
+  "name": "Sah\u0101ranpur",
+  "country": "India",
+  "lat": 29.9679,
+  "lng": 77.54522
+ },
+ {
+  "id": "saint-laurent-camp-transportation",
+  "name": "Camp de la Transportation",
+  "country": "France",
+  "lat": 5.5019,
+  "lng": -54.0306
+ },
+ {
+  "id": "saitama-jp",
+  "name": "Saitama",
+  "country": "Japan",
+  "lat": 35.90807,
+  "lng": 139.65657
+ },
+ {
+  "id": "sakai",
+  "name": "Sakai",
+  "country": "Japan",
+  "lat": 34.58216,
+  "lng": 135.46653
+ },
+ {
+  "id": "salinas-da-margarida",
+  "name": "Salinas da Margarida",
+  "country": "Brazil",
+  "lat": -12.87111,
+  "lng": -38.76444
+ },
+ {
+  "id": "san-antonio-usa",
+  "name": "San Antonio",
+  "country": "United States",
+  "lat": 29.4241,
+  "lng": -98.4936
+ },
+ {
+  "id": "san-jose",
+  "name": "San Jose",
+  "country": "United States",
+  "lat": 37.33939,
+  "lng": -121.89496
+ },
+ {
+  "id": "san-luis-de-la-paz",
+  "name": "San Luis de la Paz",
+  "country": "Mexico",
+  "lat": 21.29845,
+  "lng": -100.51485
+ },
+ {
+  "id": "san-luis-potosi-mx",
+  "name": "San Luis Potos\u00ed",
+  "country": "Mexico",
+  "lat": 22.15234,
+  "lng": -100.97135
+ },
+ {
+  "id": "san-pedro-sula-hn",
+  "name": "San Pedro Sula",
+  "country": "Honduras",
+  "lat": 15.50585,
+  "lng": -88.02588
+ },
+ {
+  "id": "santa-fe",
+  "name": "Santa Fe",
+  "country": "United States",
+  "lat": 35.667222,
+  "lng": -105.964444
+ },
+ {
+  "id": "santo-domingo-de-los-colorados-ec",
+  "name": "Santo Domingo de los Colorados",
+  "country": "Ecuador",
+  "lat": -0.25368,
+  "lng": -79.17628
+ },
+ {
+  "id": "sao-joao-de-meriti-br",
+  "name": "S\u00e3o Jo\u00e3o de Meriti",
+  "country": "Brazil",
+  "lat": -22.80389,
+  "lng": -43.37222
+ },
+ {
+  "id": "sao-rafael",
+  "name": "Sao Rafael",
+  "country": "Brazil",
+  "lat": -23.62821,
+  "lng": -46.45395
+ },
+ {
+  "id": "saratov-ru",
+  "name": "Saratov",
+  "country": "Russia",
+  "lat": 51.54048,
+  "lng": 45.9901
+ },
+ {
+  "id": "sargodha",
+  "name": "Sargodha",
+  "country": "Pakistan",
+  "lat": 32.08586,
+  "lng": 72.67418
+ },
+ {
+  "id": "semarang-id",
+  "name": "Semarang",
+  "country": "Indonesia",
+  "lat": -6.99306,
+  "lng": 110.42083
+ },
+ {
+  "id": "serra-br",
+  "name": "Serra",
+  "country": "Brazil",
+  "lat": -20.12861,
+  "lng": -40.30778
+ },
+ {
+  "id": "sheikh-zayed-mosque",
+  "name": "Sheikh Zayed Mosque",
+  "country": "United Arab Emirates",
+  "lat": 24.4128,
+  "lng": 54.475
+ },
+ {
+  "id": "shubra-al-khaymah-eg",
+  "name": "Shubr\u0101 al Khaymah",
+  "country": "Egypt",
+  "lat": 30.12511,
+  "lng": 31.25053
+ },
+ {
+  "id": "shymkent",
+  "name": "Shymkent",
+  "country": "Kazakhstan",
+  "lat": 42.30988,
+  "lng": 69.60042
+ },
+ {
+  "id": "silkeborg",
+  "name": "Silkeborg",
+  "country": "Denmark",
+  "lat": 56.1697,
+  "lng": 9.54508
+ },
+ {
+  "id": "socotra-island",
+  "name": "Socotra Island",
+  "country": "Yemen",
+  "lat": 12.4634,
+  "lng": 53.8237
+ },
+ {
+  "id": "sokoto-ng",
+  "name": "Sokoto",
+  "country": "Nigeria",
+  "lat": 13.06269,
+  "lng": 5.24322
+ },
+ {
+  "id": "songjiang-cn",
+  "name": "Songjiang",
+  "country": "China",
+  "lat": 31.03443,
+  "lng": 121.22326
+ },
+ {
+  "id": "songon",
+  "name": "Songon",
+  "country": "C\u00f4te d'Ivoire",
+  "lat": 5.3196,
+  "lng": -4.25415
+ },
+ {
+  "id": "south-tangerang-id",
+  "name": "South Tangerang",
+  "country": "Indonesia",
+  "lat": -6.28862,
+  "lng": 106.71789
+ },
+ {
+  "id": "st-marks-square-venice",
+  "name": "St. Mark's Square",
+  "country": "Italy",
+  "lat": 45.434,
+  "lng": 12.3388
+ },
+ {
+  "id": "star-wars-lars-homestead-interior",
+  "name": "Hotel Sidi Driss",
+  "country": "Tunisia",
+  "lat": 33.5422,
+  "lng": 9.9666
+ },
+ {
+  "id": "sultan-ahmed-mosque",
+  "name": "Blue Mosque",
+  "country": "Turkey",
+  "lat": 41.0055,
+  "lng": 28.9769
+ },
+ {
+  "id": "sunnyside",
+  "name": "Sunnyside",
+  "country": "United States",
+  "lat": 40.73982,
+  "lng": -73.93542
+ },
+ {
+  "id": "suzhou-cn",
+  "name": "Suzhou",
+  "country": "China",
+  "lat": 33.63611,
+  "lng": 116.97889
+ },
+ {
+  "id": "tabas",
+  "name": "Tabas",
+  "country": "Iran",
+  "lat": 33.59586,
+  "lng": 56.92437
+ },
+ {
+  "id": "taian-cn",
+  "name": "Tai\u2019an",
+  "country": "China",
+  "lat": 36.18528,
+  "lng": 117.12
+ },
+ {
+  "id": "takeo",
+  "name": "Takeo",
+  "country": "Cambodia",
+  "lat": 10.99081,
+  "lng": 104.78498
+ },
+ {
+  "id": "tampa-usa",
+  "name": "Tampa",
+  "country": "United States",
+  "lat": 27.9506,
+  "lng": -82.4572
+ },
+ {
+  "id": "tanbaly-kazakhstan",
+  "name": "Tanbaly Petroglyphs",
+  "country": "Kazakhstan",
+  "lat": 43.8008,
+  "lng": 75.535
+ },
+ {
+  "id": "tangerang-id",
+  "name": "Tangerang",
+  "country": "Indonesia",
+  "lat": -6.17806,
+  "lng": 106.63
+ },
+ {
+  "id": "taoyuan",
+  "name": "Taoyuan",
+  "country": "Taiwan",
+  "lat": 24.99368,
+  "lng": 121.29696
+ },
+ {
+  "id": "tarawa-kiribati",
+  "name": "Tarawa",
+  "country": "Kiribati",
+  "lat": 1.3278,
+  "lng": 172.9764
+ },
+ {
+  "id": "tashkent",
+  "name": "Tashkent",
+  "country": "Uzbekistan",
+  "lat": 41.26465,
+  "lng": 69.21627
+ },
+ {
+  "id": "tasikmalaya",
+  "name": "Tasikmalaya",
+  "country": "Indonesia",
+  "lat": -7.3274,
+  "lng": 108.2207
+ },
+ {
+  "id": "tavros",
+  "name": "T\u00e1vros",
+  "country": "Greece",
+  "lat": 37.97064,
+  "lng": 23.69043
+ },
+ {
+  "id": "tepui-auyan",
+  "name": "Auyan-tepui",
+  "country": "Venezuela",
+  "lat": 5.9028,
+  "lng": -62.5361
+ },
+ {
+  "id": "teraina",
+  "name": "Teraina, Kiribati",
+  "country": "Kiribati",
+  "lat": 4.6878,
+  "lng": -160.3742
+ },
+ {
+  "id": "thanh-hoa",
+  "name": "Thanh H\u00f3a",
+  "country": "Vietnam",
+  "lat": 19.8,
+  "lng": 105.76667
+ },
+ {
+  "id": "the-bronx",
+  "name": "The Bronx",
+  "country": "United States",
+  "lat": 40.84985,
+  "lng": -73.86641
+ },
+ {
+  "id": "timbuktu-mali",
+  "name": "Timbuktu",
+  "country": "Mali",
+  "lat": 16.7666,
+  "lng": -3.0026
+ },
+ {
+  "id": "tirunelveli-in",
+  "name": "Tirunelveli",
+  "country": "India",
+  "lat": 8.72742,
+  "lng": 77.6838
+ },
+ {
+  "id": "tiwanaku-kalasasaya",
+  "name": "Tiwanaku",
+  "country": "Bolivia",
+  "lat": -16.5547,
+  "lng": -68.6733
+ },
+ {
+  "id": "tlalnepantla-mx",
+  "name": "Tlalnepantla",
+  "country": "Mexico",
+  "lat": 19.54005,
+  "lng": -99.19538
+ },
+ {
+  "id": "tlaquepaque-mx",
+  "name": "Tlaquepaque",
+  "country": "Mexico",
+  "lat": 20.64121,
+  "lng": -103.29342
+ },
+ {
+  "id": "topkapi-palace",
+  "name": "Topkapi Palace",
+  "country": "Turkey",
+  "lat": 41.0138,
+  "lng": 28.9833
+ },
+ {
+  "id": "toronto",
+  "name": "Toronto",
+  "country": "Canada",
+  "lat": 43.70643,
+  "lng": -79.39864
+ },
+ {
+  "id": "touba-sn",
+  "name": "Touba",
+  "country": "Senegal",
+  "lat": 14.86229,
+  "lng": -15.87532
+ },
+ {
+  "id": "troy",
+  "name": "Troy",
+  "country": "Turkey",
+  "lat": 39.9575,
+  "lng": 26.238889
+ },
+ {
+  "id": "trujillo-pe",
+  "name": "Trujillo",
+  "country": "Peru",
+  "lat": -8.11599,
+  "lng": -79.02998
+ },
+ {
+  "id": "tsukubamirai",
+  "name": "Tsukubamirai",
+  "country": "Japan",
+  "lat": 35.98411,
+  "lng": 140.00929
+ },
+ {
+  "id": "tucson-usa",
+  "name": "Tucson",
+  "country": "United States",
+  "lat": 32.2226,
+  "lng": -110.9747
+ },
+ {
+  "id": "tula",
+  "name": "Tula",
+  "country": "Russia",
+  "lat": 54.19609,
+  "lng": 37.61822
+ },
+ {
+  "id": "tuxtla-mx",
+  "name": "Tuxtla",
+  "country": "Mexico",
+  "lat": 16.75357,
+  "lng": -93.11578
+ },
+ {
+  "id": "twelve-apostles",
+  "name": "Twelve Apostles",
+  "country": "Australia",
+  "lat": -38.6621,
+  "lng": 143.1056
+ },
+ {
+  "id": "udi",
+  "name": "Udi",
+  "country": "Nigeria",
+  "lat": 6.31592,
+  "lng": 7.42086
+ },
+ {
+  "id": "vadodara-in",
+  "name": "Vadodara",
+  "country": "India",
+  "lat": 22.29941,
+  "lng": 73.20812
+ },
+ {
+  "id": "vagator",
+  "name": "Vagator",
+  "country": "India",
+  "lat": 15.59766,
+  "lng": 73.74496
+ },
+ {
+  "id": "valle-de-guanape",
+  "name": "Valle de Guanape",
+  "country": "Venezuela",
+  "lat": 9.90999,
+  "lng": -65.67405
+ },
+ {
+  "id": "valle-de-la-luna-chile",
+  "name": "Valle de la Luna",
+  "country": "Chile",
+  "lat": -22.9117,
+  "lng": -68.2878
+ },
+ {
+  "id": "vellore",
+  "name": "Vellore",
+  "country": "India",
+  "lat": 12.9184,
+  "lng": 79.13255
+ },
+ {
+  "id": "veracruz-mx",
+  "name": "Veracruz",
+  "country": "Mexico",
+  "lat": 19.18095,
+  "lng": -96.1429
+ },
+ {
+  "id": "victoria-de-durango-mx",
+  "name": "Victoria de Durango",
+  "country": "Mexico",
+  "lat": 24.02032,
+  "lng": -104.65756
+ },
+ {
+  "id": "villa-nueva-gt",
+  "name": "Villa Nueva",
+  "country": "Guatemala",
+  "lat": 14.52512,
+  "lng": -90.58544
+ },
+ {
+  "id": "virar",
+  "name": "Vir\u0101r",
+  "country": "India",
+  "lat": 19.45591,
+  "lng": 72.81136
+ },
+ {
+  "id": "volgograd-ru",
+  "name": "Volgograd",
+  "country": "Russia",
+  "lat": 48.71378,
+  "lng": 44.4976
+ },
+ {
+  "id": "waikiki",
+  "name": "Waikiki",
+  "country": "United States",
+  "lat": 21.2752,
+  "lng": -157.8312
+ },
+ {
+  "id": "waitomo-caves",
+  "name": "Waitomo Caves",
+  "country": "New Zealand",
+  "lat": -38.2646,
+  "lng": 175.0986
+ },
+ {
+  "id": "wales-alaska",
+  "name": "Wales",
+  "country": "United States",
+  "lat": 65.6092,
+  "lng": -168.0872
+ },
+ {
+  "id": "wanzhou-cn",
+  "name": "Wanzhou",
+  "country": "China",
+  "lat": 30.76451,
+  "lng": 108.39586
+ },
+ {
+  "id": "wharton",
+  "name": "Wharton",
+  "country": "United States",
+  "lat": 39.92678,
+  "lng": -75.15712
+ },
+ {
+  "id": "wounded-knee-creek",
+  "name": "Wounded Knee",
+  "country": "United States",
+  "lat": 43.1403,
+  "lng": -102.3635
+ },
+ {
+  "id": "wrocaw-pl",
+  "name": "Wroc\u0142aw",
+  "country": "Poland",
+  "lat": 51.10286,
+  "lng": 17.03006
+ },
+ {
+  "id": "xiamen-cn",
+  "name": "Xiamen",
+  "country": "China",
+  "lat": 24.47979,
+  "lng": 118.08187
+ },
+ {
+  "id": "xian-china",
+  "name": "Xi'an",
+  "country": "China",
+  "lat": 34.3416,
+  "lng": 108.9398
+ },
+ {
+  "id": "xiangyang-cn",
+  "name": "Xiangyang",
+  "country": "China",
+  "lat": 32.0422,
+  "lng": 112.14479
+ },
+ {
+  "id": "xichang",
+  "name": "Xichang",
+  "country": "China",
+  "lat": 27.89642,
+  "lng": 102.26341
+ },
+ {
+  "id": "xinyang-cn",
+  "name": "Xinyang",
+  "country": "China",
+  "lat": 32.12278,
+  "lng": 114.06556
+ },
+ {
+  "id": "xuchang-cn",
+  "name": "Xuchang",
+  "country": "China",
+  "lat": 34.03189,
+  "lng": 113.86299
+ },
+ {
+  "id": "yangon",
+  "name": "Yangon",
+  "country": "Myanmar",
+  "lat": 16.80528,
+  "lng": 96.15611
+ },
+ {
+  "id": "yangzhou-cn",
+  "name": "Yangzhou",
+  "country": "China",
+  "lat": 32.39722,
+  "lng": 119.43583
+ },
+ {
+  "id": "yaroslavl-ru",
+  "name": "Yaroslavl",
+  "country": "Russia",
+  "lat": 57.62987,
+  "lng": 39.87368
+ },
+ {
+  "id": "yekaterinburg-ru",
+  "name": "Yekaterinburg",
+  "country": "Russia",
+  "lat": 56.85733,
+  "lng": 60.61529
+ },
+ {
+  "id": "yellowknife-nwt",
+  "name": "Yellowknife",
+  "country": "Canada",
+  "lat": 62.454,
+  "lng": -114.3718
+ },
+ {
+  "id": "yerevan",
+  "name": "Yerevan",
+  "country": "Armenia",
+  "lat": 40.17765,
+  "lng": 44.5126
+ },
+ {
+  "id": "yichang-cn",
+  "name": "Yichang",
+  "country": "China",
+  "lat": 30.71444,
+  "lng": 111.28472
+ },
+ {
+  "id": "yiwu-cn",
+  "name": "Yiwu",
+  "country": "China",
+  "lat": 29.31506,
+  "lng": 120.07676
+ },
+ {
+  "id": "yixing-cn",
+  "name": "Yixing",
+  "country": "China",
+  "lat": 31.36059,
+  "lng": 119.82016
+ },
+ {
+  "id": "yokohama-jp",
+  "name": "Yokohama",
+  "country": "Japan",
+  "lat": 35.43333,
+  "lng": 139.65
+ },
+ {
+  "id": "yonago",
+  "name": "Yonago",
+  "country": "Japan",
+  "lat": 35.43333,
+  "lng": 133.33333
+ },
+ {
+  "id": "york-minster-d34-3",
+  "name": "York Minster",
+  "country": "England",
+  "lat": 53.9626,
+  "lng": -1.0815
+ },
+ {
+  "id": "zagreb-croatia",
+  "name": "Zagreb",
+  "country": "Croatia",
+  "lat": 45.815,
+  "lng": 15.9819
+ },
+ {
+  "id": "zamboanga",
+  "name": "Zamboanga",
+  "country": "Philippines",
+  "lat": 6.91028,
+  "lng": 122.07389
+ },
+ {
+  "id": "zaoyang",
+  "name": "Zaoyang",
+  "country": "China",
+  "lat": 32.12722,
+  "lng": 112.75417
+ },
+ {
+  "id": "zaozhuang-cn",
+  "name": "Zaozhuang",
+  "country": "China",
+  "lat": 34.86472,
+  "lng": 117.55417
+ },
+ {
+  "id": "zapopan-mx",
+  "name": "Zapopan",
+  "country": "Mexico",
+  "lat": 20.72111,
+  "lng": -103.38742
+ },
+ {
+  "id": "zaporizhzhya-ua",
+  "name": "Zaporizhzhya",
+  "country": "Ukraine",
+  "lat": 47.85167,
+  "lng": 35.11714
+ },
+ {
+  "id": "zermatt-ch",
+  "name": "Zermatt",
+  "country": "Switzerland",
+  "lat": 46.0207,
+  "lng": 7.7491
+ },
+ {
+  "id": "zhanjiang-cn",
+  "name": "Zhanjiang",
+  "country": "China",
+  "lat": 21.23391,
+  "lng": 110.38749
+ },
+ {
+  "id": "zhaoqing-cn",
+  "name": "Zhaoqing",
+  "country": "China",
+  "lat": 23.04893,
+  "lng": 112.46091
+ },
+ {
+  "id": "zhongshan",
+  "name": "Zhongshan",
+  "country": "China",
+  "lat": 22.52306,
+  "lng": 113.37912
+ },
+ {
+  "id": "zhucheng",
+  "name": "Zhucheng",
+  "country": "China",
+  "lat": 35.99472,
+  "lng": 119.3975
+ },
+ {
+  "id": "zhuhai-cn",
+  "name": "Zhuhai",
+  "country": "China",
+  "lat": 22.27694,
+  "lng": 113.56778
+ },
+ {
+  "id": "zibo-cn",
+  "name": "Zibo",
+  "country": "China",
+  "lat": 36.79056,
+  "lng": 118.06333
+ },
+ {
+  "id": "zigong-cn",
+  "name": "Zigong",
+  "country": "China",
+  "lat": 29.34162,
+  "lng": 104.77689
+ },
+ {
+  "id": "zugspitze-summit",
+  "name": "Zugspitze Summit",
+  "country": "Germany",
+  "lat": 47.421,
+  "lng": 10.985
+ }
+]

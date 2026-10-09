@@ -483,14 +483,23 @@ function lakeArea(f) {
 // 4096-texture texels (~13 km), so a 2 km atoll still reads as a dot of land.
 const ISLAND_BLOB_TEXELS = 1.5;
 
-function buildLandTexture(geo, coastLines, lakes, islands) {
+// The land texture is baked in three passes on one canvas so the globe can
+// show as soon as the land fill arrives: buildLandTexture (land + shelf haze,
+// R/B), then addCoastGlow (G) once the 10m coast lands, then knockOutLakes.
+// The passes commute: the glow only adds G and the lake multiply keeps G, so
+// the result matches the old single-pass bake. The caller sets needsUpdate;
+// each re-upload of the 4096 texture is costly, so glow and lakes share one.
+function buildLandTexture(geo, islands) {
   const maxTex = renderer.capabilities.maxTextureSize;
   const W = maxTex >= 4096 ? 4096 : 2048;
   const H = W / 2;
   const cv = document.createElement('canvas');
   cv.width = W;
   cv.height = H;
-  const ctx = cv.getContext('2d');
+  // CPU-backed: on a GPU-raster canvas the blurs are deferred to the GPU
+  // process, and drawing passes after the first upload stalled frames for
+  // 15+ s in a software-GL test
+  const ctx = cv.getContext('2d', { willReadFrequently: true });
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, W, H);
 
@@ -513,7 +522,6 @@ function buildLandTexture(geo, coastLines, lakes, islands) {
       }
     }
   }
-  for (const line of coastLines) addToPath(coast, unwrap(line), W, H, false);
 
   // Supplemental OSM islands: own path, nonzero fill, so one lying over coarse
   // base land can't punch an evenodd hole in it. No MIN_ISLAND rule.
@@ -524,17 +532,6 @@ function buildLandTexture(geo, coastLines, lakes, islands) {
       const pts = unwrap(ring);
       addToPath(isles, pts, W, H, true);
       if (f.properties.blob) addToPath(blobs, pts, W, H, true);
-    }
-  }
-
-  // big lakes, island rings included so evenodd keeps lake islands as land
-  const water = new Path2D();
-  for (const f of lakes.features) {
-    for (const poly of f.geometry.coordinates) {
-      for (const ring of poly) {
-        if (ring !== poly[0] && ringExtent(ring) < MIN_ISLAND) continue;
-        addToPath(water, unwrap(ring), W, H, true);
-      }
     }
   }
 
@@ -571,12 +568,24 @@ function buildLandTexture(geo, coastLines, lakes, islands) {
   fillLand();
   ctx.stroke(land);
 
-  // knock lakes out of the land fill (R -> 0) and dim the shelf haze under
-  // them (B) to a near-shore level; at full haze a lake is as bright as land
-  ctx.globalCompositeOperation = 'multiply';
-  ctx.fillStyle = 'rgb(0,255,30)';
-  ctx.fill(water, 'evenodd');
+  const tex = new THREE.CanvasTexture(cv);
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  tex.minFilter = THREE.LinearMipmapLinearFilter;
+  tex.generateMipmaps = true;
+  return tex;
+}
+
+function addCoastGlow(tex, coastLines) {
+  const cv = tex.image;
+  const W = cv.width;
+  const H = cv.height;
+  const s = W / 4096;
+  const ctx = cv.getContext('2d');
+  const coast = new Path2D();
+  for (const line of coastLines) addToPath(coast, unwrap(line), W, H, false);
   ctx.globalCompositeOperation = 'lighter';
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
 
   // G: coastal glow as a soft halo only. The crisp core is the vector outline;
   // a baked core stroke here sat under it, a texel off, and read as a doubled,
@@ -594,12 +603,31 @@ function buildLandTexture(geo, coastLines, lakes, islands) {
   ctx.stroke(coast);
   ctx.restore();
   // Internal country borders are intentionally never drawn: coastlines only.
+}
 
-  const tex = new THREE.CanvasTexture(cv);
-  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-  tex.minFilter = THREE.LinearMipmapLinearFilter;
-  tex.generateMipmaps = true;
-  return tex;
+function knockOutLakes(tex, lakes) {
+  const cv = tex.image;
+  const W = cv.width;
+  const H = cv.height;
+  const ctx = cv.getContext('2d');
+  // big lakes, island rings included so evenodd keeps lake islands as land
+  const water = new Path2D();
+  for (const f of lakes.features) {
+    for (const poly of f.geometry.coordinates) {
+      for (const ring of poly) {
+        if (ring !== poly[0] && ringExtent(ring) < MIN_ISLAND) continue;
+        addToPath(water, unwrap(ring), W, H, true);
+      }
+    }
+  }
+  // knock lakes out of the land fill (R -> 0) and dim the shelf haze under
+  // them (B) to a near-shore level; at full haze a lake is as bright as land
+  ctx.save();
+  ctx.shadowBlur = 0;
+  ctx.globalCompositeOperation = 'multiply';
+  ctx.fillStyle = 'rgb(0,255,30)';
+  ctx.fill(water, 'evenodd');
+  ctx.restore();
 }
 
 const outlineMaterials = [];
@@ -637,6 +665,8 @@ function buildOutline(lines, radius, opts) {
     depthWrite: false,
   });
   mat.userData.baseOpacity = opts.opacity ?? 1;
+  // per-layer fade-in clock: layers arrive at different times while loading
+  mat.userData.reveal = 0;
   outlineMaterials.push(mat);
   const mesh = new LineSegments2(geo, mat);
   mesh.renderOrder = 2;
@@ -657,6 +687,135 @@ let landLoaded = false;
 // islands.topo.json (build/make-islands.mjs): OSM outlines for island pins
 // Natural Earth is too coarse to draw, already simplified at build time.
 const getJSON = (url, init) => fetch(url, init).then((r) => (r.ok ? r.json() : Promise.reject(new Error(url + ' ' + r.status))));
+
+// ---------------------------------------------------------------------------
+// Asset loading with progress
+// ---------------------------------------------------------------------------
+// First visit pulls ~6.3 MB of JSON (15-20 s on 4G). The big files stream
+// through loadJSON so the loader can show real bytes, and the map arrives in
+// stages, each drawn as it lands: land fill (globe shows, boot screen goes),
+// then the 10m coast, then lakes, then rivers. A slim pill on the start
+// screen carries the rest of the progress.
+// Sizes are decoded bytes, the denominator until a response reports its own.
+// Vercel compresses JSON, so its Content-Length is the compressed size and
+// can't be compared with streamed (decoded) bytes. Refresh these when an
+// asset is rebuilt; drift only skews the bar, it is corrected per file on
+// completion.
+const LOAD = {
+  land: { url: 'assets/world.topo.json', size: 970247 },
+  islands: { url: 'assets/islands.topo.json', size: 4605 },
+  locations: { url: 'assets/locations.json', size: 1132325 },
+  coast: { url: 'assets/world-10m.topo.json', size: 1681949 },
+  lakes: { url: 'assets/lakes-10m.topo.json', size: 726015 },
+  rivers: { url: 'assets/rivers-10m-scalerank.topo.json', size: 1782934 },
+};
+for (const entry of Object.values(LOAD)) { entry.loaded = 0; entry.done = false; }
+
+function loadJSON(entry, init) {
+  return fetch(entry.url, init)
+    .then(async (r) => {
+      if (!r.ok) throw new Error(entry.url + ' ' + r.status);
+      const len = Number(r.headers.get('content-length'));
+      if (len > 0 && !r.headers.get('content-encoding')) entry.size = len;
+      if (!r.body || !r.body.getReader) return r.json(); // no streaming: jumps at the end
+      const reader = r.body.getReader();
+      const chunks = [];
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        entry.loaded += value.byteLength;
+        if (entry.loaded > entry.size) entry.size = entry.loaded;
+        queueLoadRender();
+      }
+      return JSON.parse(await new Blob(chunks).text());
+    })
+    .then((data) => {
+      entry.size = entry.loaded = entry.loaded || entry.size;
+      entry.done = true;
+      queueLoadRender();
+      return data;
+    }, (err) => {
+      entry.size = entry.loaded; // drop the failed remainder from the total
+      entry.done = true;
+      queueLoadRender();
+      throw err;
+    });
+}
+
+// Work still outstanding before the loader is finished: bytes landing is not
+// enough, the map layers also have to be built.
+const loadJobs = new Set(['map', 'locations']);
+let loadFinished = false;
+let globeRevealed = false;
+let loadRenderQueued = false;
+const loadEls = {
+  boot: document.getElementById('boot'),
+  pill: document.getElementById('load-pill'),
+  stage: document.querySelectorAll('.load-stage'),
+  fill: document.querySelectorAll('.load-fill'),
+  bar: document.querySelectorAll('.load-bar'),
+  pct: document.querySelectorAll('.load-pct'),
+  mb: document.querySelectorAll('.load-mb'),
+};
+
+function loadStageText(frac) {
+  if (frac >= 0.9) return 'Almost there…';
+  if (!LOAD.land.done || !LOAD.coast.done) return 'Loading world map…';
+  if (!LOAD.lakes.done || !LOAD.rivers.done) return 'Loading rivers & lakes…';
+  return 'Almost there…';
+}
+
+function queueLoadRender() {
+  if (loadRenderQueued) return;
+  loadRenderQueued = true;
+  requestAnimationFrame(() => { loadRenderQueued = false; renderLoad(); });
+}
+
+function renderLoad() {
+  let loaded = 0;
+  let total = 0;
+  for (const entry of Object.values(LOAD)) { loaded += entry.loaded; total += entry.size; }
+  // hold at 99% while the last layers build, so 100% means really ready
+  const frac = loadFinished ? 1 : Math.min(0.99, total ? loaded / total : 0);
+  const pct = Math.round(frac * 100);
+  const mb = (loadFinished ? total : loaded) / 1e6;
+  const stage = loadFinished ? 'Ready' : loadStageText(frac);
+  if (loadEls.boot) loadEls.boot.classList.remove('pending');
+  loadEls.stage.forEach((el) => { if (el.textContent !== stage) el.textContent = stage; });
+  loadEls.fill.forEach((el) => { el.style.transform = `scaleX(${frac})`; });
+  loadEls.bar.forEach((el) => el.setAttribute('aria-valuenow', String(pct)));
+  loadEls.pct.forEach((el) => { el.textContent = pct + '%'; });
+  loadEls.mb.forEach((el) => { el.textContent = `${mb.toFixed(1)} / ${(total / 1e6).toFixed(1)} MB`; });
+}
+
+function loadJobDone(name) {
+  loadJobs.delete(name);
+  if (loadJobs.size || loadFinished) return;
+  loadFinished = true;
+  renderLoad();
+  if (loadEls.pill) {
+    loadEls.pill.classList.add('done');
+    setTimeout(() => { loadEls.pill.classList.remove('on'); }, 700);
+  }
+}
+
+// Boot screen out, globe in. Called once the land fill is on the globe (or the
+// map failed, so the error banner isn't left behind a loading screen).
+function revealGlobe() {
+  if (globeRevealed) return;
+  globeRevealed = true;
+  if (loadEls.boot) {
+    loadEls.boot.classList.add('done');
+    setTimeout(() => { loadEls.boot.hidden = true; }, 600);
+  }
+  // CSS delays the pill's fade-in, so a load that's nearly done never flashes it
+  if (loadEls.pill && !loadFinished) loadEls.pill.classList.add('on');
+}
+
+// Let the browser paint the previous stage before the next CPU-heavy build.
+const nextPaint = () => new Promise((resolve) => requestAnimationFrame(() => setTimeout(resolve, 0)));
+
 // Decode delta arcs ourselves as (q + t/s) / 1e4: division is correctly
 // rounded, so points are bit-identical to parsing the original GeoJSON
 // (topojson's q * 1e-4 + t leaves float noise that nudges the simplifier).
@@ -672,7 +831,7 @@ function topoFeatures(topo) {
   });
   return topoFeature({ ...topo, transform: undefined, arcs }, topo.objects.data);
 }
-const getTopo = (url) => getJSON(url).then(topoFeatures);
+const getTopo = (entry) => loadJSON(entry).then(topoFeatures);
 // Map lab: density preview tool for the rivers/lakes lab page. Completely
 // inert unless the page is loaded with ?maplab in the URL; then it listens
 // for postMessage({type:'maplab', rivers, lakes}) from the embedding page and
@@ -683,47 +842,76 @@ const mapLab = {
   lakeMeshDim: null,
   riverMesh: null,
 };
-Promise.all([
-  getTopo('assets/world.topo.json'),
-  getTopo('assets/world-10m.topo.json'),
-  getTopo('assets/lakes-10m.topo.json'),
-  getTopo('assets/rivers-10m-scalerank.topo.json'),
-  // optional: the globe still works (minus small islands) if this one fails
-  getTopo('assets/islands.topo.json').catch(() => ({ features: [] })),
-])
-  .then(([geo, geo10m, lakes, rivers, islands]) => {
-    // Internal country borders hidden: coastlines only, keeps the challenge in
-    // your geography, not in reading lines. (Border data stays in the GeoJSON
-    // for a future practice mode.) Big-lake shores count as coastline, and so
-    // do the OSM islands, which skip cleanCoast's MIN_ISLAND rule.
-    const coast = [
-      ...cleanCoast(geo10m.features.find((f) => f.properties.kind === 'coast').geometry.coordinates),
-      ...islands.features.flatMap((f) => f.geometry.coordinates.map(([ring]) => ring)),
-    ];
-    // Rivers: 655 Natural Earth features with per-feature scalerank; use <= 7.
-    const riverCoords = [];
-    for (const f of rivers.features)
-      if (f.properties.scalerank <= 7) riverCoords.push(...f.geometry.coordinates);
-    const riverLines = cleanCoast(riverCoords);
-    // Lakes: largest 20 get the bright shoreline, the rest a softer dim line.
-    const sortedLakes = [...lakes.features].sort((a, b) => lakeArea(b) - lakeArea(a));
-    const bigLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(0, 20) }));
-    const smallLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(20) }));
-    globeMat.uniforms.uMap.value = buildLandTexture(geo, coast, lakes, islands);
-    globe.add(buildOutline(coast, 1.002, { color: '#7fd2f4', width: 0.78, opacity: 0.92 }));
-    mapLab.lakeMesh = buildOutline(bigLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
-    mapLab.lakeMeshDim = buildOutline(smallLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.28 });
-    mapLab.riverMesh = buildOutline(riverLines, 1.002, { color: '#4a86b8', width: 0.6, opacity: 0.3 });
-    globe.add(mapLab.lakeMesh);
-    globe.add(mapLab.lakeMeshDim);
-    globe.add(mapLab.riverMesh);
-    landLoaded = true;
-    if (window.__boot) window.__boot('map data loaded');
-    if (new URLSearchParams(location.search).has('maplab')) initMapLab(lakes, rivers);
-  })
+// Fetches are staged so the land fill gets the bandwidth first, then the
+// coast, then lakes + rivers together. locations.json (bottom of the file)
+// runs alongside from the start, since it gates the play buttons.
+const landP = getTopo(LOAD.land);
+// optional: the globe still works (minus small islands) if this one fails
+const islandsP = getTopo(LOAD.islands).catch(() => ({ features: [] }));
+const coastP = landP.catch(() => {}).then(() => getTopo(LOAD.coast));
+const lakesP = coastP.catch(() => {}).then(() => getTopo(LOAD.lakes));
+const riversP = coastP.catch(() => {}).then(() => getTopo(LOAD.rivers));
+// awaited in order below; mark handled so an early failure doesn't also
+// raise unhandled-rejection banners for the later stages
+for (const p of [coastP, lakesP, riversP]) p.catch(() => {});
+
+async function loadMap() {
+  const [geo, islands] = await Promise.all([landP, islandsP]);
+  const tex = buildLandTexture(geo, islands);
+  globeMat.uniforms.uMap.value = tex;
+  landLoaded = true;
+  revealGlobe();
+  if (window.__boot) window.__boot('land loaded');
+
+  // Internal country borders hidden: coastlines only, keeps the challenge in
+  // your geography, not in reading lines. (Border data stays in the GeoJSON
+  // for a future practice mode.) Big-lake shores count as coastline, and so
+  // do the OSM islands, which skip cleanCoast's MIN_ISLAND rule.
+  const geo10m = await coastP;
+  await nextPaint();
+  const coast = [
+    ...cleanCoast(geo10m.features.find((f) => f.properties.kind === 'coast').geometry.coordinates),
+    ...islands.features.flatMap((f) => f.geometry.coordinates.map(([ring]) => ring)),
+  ];
+  addCoastGlow(tex, coast); // uploaded with the lakes pass below
+  globe.add(buildOutline(coast, 1.002, { color: '#7fd2f4', width: 0.78, opacity: 0.92 }));
+  if (window.__boot) window.__boot('coast loaded');
+
+  // Lakes: largest 20 get the bright shoreline, the rest a softer dim line.
+  // if lakes fail, still upload the glow
+  const lakes = await lakesP.catch((err) => { tex.needsUpdate = true; throw err; });
+  await nextPaint();
+  const sortedLakes = [...lakes.features].sort((a, b) => lakeArea(b) - lakeArea(a));
+  const bigLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(0, 20) }));
+  const smallLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(20) }));
+  knockOutLakes(tex, lakes);
+  tex.needsUpdate = true;
+  mapLab.lakeMesh = buildOutline(bigLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.45 });
+  mapLab.lakeMeshDim = buildOutline(smallLakeLines, 1.002, { color: '#5f9fd0', width: 0.8, opacity: 0.28 });
+  globe.add(mapLab.lakeMesh);
+  globe.add(mapLab.lakeMeshDim);
+
+  // Rivers: 655 Natural Earth features with per-feature scalerank; use <= 7.
+  const rivers = await riversP;
+  await nextPaint();
+  const riverCoords = [];
+  for (const f of rivers.features)
+    if (f.properties.scalerank <= 7) riverCoords.push(...f.geometry.coordinates);
+  mapLab.riverMesh = buildOutline(cleanCoast(riverCoords), 1.002, { color: '#4a86b8', width: 0.6, opacity: 0.3 });
+  globe.add(mapLab.riverMesh);
+
+  if (window.__boot) window.__boot('map data loaded');
+  if (mapLab.on) initMapLab(lakes, rivers);
+}
+
+loadMap()
   .catch((err) => {
     console.error('failed to load land data', err);
     if (window.__showErr) window.__showErr('MAPDATA: ' + (err && err.message ? err.message : err));
+  })
+  .finally(() => {
+    revealGlobe();
+    loadJobDone('map');
   });
 
 // Rivers/lakes density lab (?maplab). Rebuilds the lake-shore and river
@@ -745,6 +933,7 @@ function initMapLab(lakes, rivers) {
       : which === 'lakedim' ? mapLab.lakeMeshDim : mapLab.riverMesh;
     const nu = buildOutline(lines, 1.002, opts);
     nu.material.opacity = nu.material.userData.baseOpacity ?? 1;
+    nu.material.userData.reveal = 1;
     globe.remove(old);
     const i = outlineMaterials.indexOf(old.material);
     if (i >= 0) outlineMaterials.splice(i, 1);
@@ -1819,7 +2008,7 @@ const audio = {
 
 const flyoverStyle = document.createElement('style');
 flyoverStyle.textContent = `
-.mute-toggle { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin: -9px 0; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(193,224,250,.72); cursor: pointer; pointer-events: auto; touch-action: manipulation; }
+.mute-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin: -15px -6px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(193,224,250,.72); cursor: pointer; pointer-events: auto; touch-action: manipulation; }
 .mute-toggle svg { width: 18px; height: 18px; }
 .mute-toggle .waves { transition: opacity .15s; }
 .mute-toggle.muted .waves { opacity: 0; }
@@ -2152,9 +2341,22 @@ function isPlayableLocation(item) {
     && !item.image.includes('No_image_available');
 }
 
+// Non-city locations (landmarks, mountains, lakes, etc.) are tagged with a
+// category in locations.json and excluded from launch game modes. They stay
+// in the DB for future modes (e.g. landmarks mode, nature mode).
+function isLaunchExcluded(item) {
+  const cat = item?.category;
+  // Fall back to name matching for items missing the category field
+  if (!cat) {
+    const name = typeof item?.short === 'string' ? item.short.toLowerCase() : '';
+    return LANDMARK_TERMS.some((term) => name.includes(term));
+  }
+  return cat !== 'city';
+}
+
+// Legacy alias
 function isLandmark(item) {
-  const name = typeof item?.short === 'string' ? item.short.toLowerCase() : '';
-  return LANDMARK_TERMS.some((term) => name.includes(term));
+  return isLaunchExcluded(item);
 }
 
 function localDateKey(date = new Date()) {
@@ -2354,7 +2556,9 @@ function showRound() {
     document.body.classList.add('survival');
     gameEls.number.textContent = `Round ${survival.round} — Difficulty ${survivalBand()}/10`;
     gameEls.weight.style.display = 'none';
-    gameEls.survivalStreak.textContent = `🔥 ${survival.survived} survived`;
+    gameEls.survivalStreak.textContent = survival.round === 1
+      ? 'One miss over 150 km ends the run'
+      : `🔥 ${survival.survived} survived`;
     gameEls.dailyDate.hidden = true;
   } else if (endless.active) {
     document.body.classList.add('endless');
@@ -3578,6 +3782,12 @@ function showResults() {
   tickCountdown();
 }
 
+function syncDailyButton() {
+  const played = daily && daily.complete && daily.date === localDateKey();
+  gameEls.play.querySelector('.mode-desc').textContent = played ? '✓ Played · see results' : '5 places, once a day';
+  gameEls.play.classList.toggle('played', Boolean(played));
+}
+
 function startGame() {
   expeditionRun.active = false;
   survival.active = false;
@@ -3742,7 +3952,7 @@ const endlessEls = { entry: endlessEntry };
 // Pure random: every guess picks from all playable image-backed locations.
 // Repeats are expected — dailies are the way to see new places.
 function endlessPick() {
-  const all = locations.filter(isPlayableLocation);
+  const all = locations.filter((item) => isPlayableLocation(item) && !isLandmark(item));
   // Keep track of recent picks to avoid repeats (last 50)
   if (!endless.recent) endless.recent = [];
   let pick = all[Math.floor(Math.random() * all.length)];
@@ -3785,6 +3995,7 @@ function goHome() {
   window.__canGuess = false;
   targetDist = 3;
   syncPassport();
+  syncDailyButton();
 }
 
 function createHomeButton() {
@@ -3949,7 +4160,7 @@ function survivalBand() {
 // bag, collection weighting, or repeat prevention in Survival.
 function survivalPick() {
   const band = survivalBand();
-  const choices = locations.filter((item) => isPlayableLocation(item) && Number(item.difficulty) === band);
+  const choices = locations.filter((item) => isPlayableLocation(item) && !isLandmark(item) && Number(item.difficulty) === band);
   if (!choices.length) return null;
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -4022,7 +4233,7 @@ reviewStyle.textContent = `
 .recap-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
 .recap-tag { margin: 0 0 4px; color: rgba(193,224,250,.67); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .recap-head h3 { margin: 0; color: #f3f9ff; font-size: 18px; line-height: 1.2; letter-spacing: -.02em; }
-.recap-close { flex: none; width: 40px; height: 40px; margin: -8px -8px 0 0; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 26px; line-height: 1; cursor: pointer; touch-action: manipulation; }
+.recap-close { flex: none; width: 44px; height: 44px; margin: -10px -10px 0 0; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 26px; line-height: 1; cursor: pointer; touch-action: manipulation; }
 .recap-card .recap-score { color: #ffc76a; font-size: 28px; }
 .recap-thumb { display: block; width: 100%; height: 130px; margin: 12px 0 0; border-radius: 10px; object-fit: cover; object-position: center 20%; }
 .recap-thumb[hidden] { display: none; }
@@ -4404,7 +4615,7 @@ function statsSummary() {
 
 const statsStyle = document.createElement('style');
 statsStyle.textContent = `
-.stats-entry { min-height: 40px; margin-top: 10px; padding: 0 20px; border: 1px solid rgba(255,199,106,.4); border-radius: 999px; background: rgba(255,199,106,.1); color: #ffe0ae; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
+.stats-entry { min-height: 44px; margin-top: 10px; padding: 0 20px; border: 1px solid rgba(255,199,106,.4); border-radius: 999px; background: rgba(255,199,106,.1); color: #ffe0ae; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .stats-entry:active { transform: scale(.98); }
 .stats-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px); background: rgba(2,4,9,.68); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .stats-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 26px 18px 20px; border-radius: 24px; }
@@ -5186,7 +5397,7 @@ passportPageStyle.textContent = `
 .pp-card [hidden] { display: none !important; }
 .home-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; }
 .home-links .stats-entry { margin-top: 0; }
-.passport-entry { min-height: 40px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
+.passport-entry { min-height: 44px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
 .pp-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 26px 14px 20px; border-radius: 24px; overflow-x: clip; }
@@ -5196,7 +5407,7 @@ passportPageStyle.textContent = `
 .pp-header-row > div { flex: 1; }
 .pp-header-row .pp-eyebrow { text-align: left; margin: 0 0 2px; }
 .pp-header-row h2 { text-align: left !important; font-size: 19px !important; }
-.pp-share-icon { flex-shrink: 0; width: 38px; height: 38px; border: 1px solid rgba(255,209,102,.55); border-radius: 50%; background: linear-gradient(135deg, rgba(77,54,145,.95), rgba(25,47,101,.95)); color: #fff7dc; font-size: 18px; font-weight: 800; cursor: pointer; }
+.pp-share-icon { flex-shrink: 0; width: 44px; height: 44px; border: 1px solid rgba(255,209,102,.55); border-radius: 50%; background: linear-gradient(135deg, rgba(77,54,145,.95), rgba(25,47,101,.95)); color: #fff7dc; font-size: 18px; font-weight: 800; cursor: pointer; }
 .pp-collections-link { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 42px; margin: 12px 0 2px; padding: 0 14px; border: 1px solid rgba(255,209,102,.25); border-radius: 13px; background: rgba(255,209,102,.06); color: #f4e8bf; font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; }
 .pp-collections-link span { color: #ffd166; font-size: 22px; }
 .pp-progress { margin: 8px 2px 0; }
@@ -5215,7 +5426,7 @@ passportPageStyle.textContent = `
 .pp-shown { margin: 0; color: rgba(193,224,250,.45); font-size: 11px; }
 .pp-unearned { display: flex; align-items: center; gap: 4px; margin: 0; color: rgba(193,224,250,.7); font-size: 11px; font-weight: 700; cursor: pointer; white-space: nowrap; }
 .pp-unearned input { accent-color: #67e8ff; width: 14px; height: 14px; }
-.pp-filters select { appearance: none; -webkit-appearance: none; min-height: 34px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
+.pp-filters select { appearance: none; -webkit-appearance: none; min-height: 44px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
 .pp-filters select option { background: #0b1430; color: #ece4ff; }
 .pp-shown { margin: 10px 0 0; color: rgba(193,224,250,.45); font-size: 11px; text-align: center; }
 /* minmax(0) keeps the columns equal however long a caption is; the padding is
@@ -5348,7 +5559,7 @@ passportShareStyle.textContent = `
 .pps-card { position: relative; box-sizing: border-box; width: min(100%, 358px); aspect-ratio: 1.48; padding: 22px 20px 18px; border: 1px solid rgba(184,166,255,.42); border-radius: 22px; overflow: hidden; background: radial-gradient(circle at 84% 4%, rgba(132,93,255,.34), transparent 35%), linear-gradient(145deg, #101b43, #090d25 72%); box-shadow: 0 24px 70px rgba(0,0,0,.58), inset 0 1px rgba(255,255,255,.1); color: #f7f8ff; }
 .pps-card::before { content: ''; position: absolute; right: -25px; bottom: -38px; width: 150px; height: 150px; border: 1px dashed rgba(103,232,255,.22); border-radius: 50%; box-shadow: 0 0 0 18px rgba(103,232,255,.025), 0 0 0 42px rgba(196,168,255,.025); }
 .pps-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.pps-kicker { margin: 0; color: #8fdfff; font-size: 9px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
+.pps-kicker { margin: 0; color: #8fdfff; font-size: 10px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
 .pps-card h3 { margin: 4px 0 0; font-size: 22px; line-height: 1; letter-spacing: -.035em; }
 .pps-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 2px dashed #ffd166; border-radius: 50%; color: #ffd166; font-size: 21px; transform: rotate(9deg); box-shadow: 0 0 16px rgba(255,209,102,.18); }
 .pps-stats { position: relative; display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 7px; margin-top: 20px; }
@@ -5358,10 +5569,10 @@ passportShareStyle.textContent = `
 .pps-stat b { display: block; color: #eaf9ff; font-size: 21px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pps-stat:first-child b { color: #67e8ff; }
 .pps-stat.gold b { color: #ffd166; }
-.pps-stat span { display: block; margin-top: 5px; color: rgba(218,229,255,.58); font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.pps-stat span { display: block; margin-top: 5px; color: rgba(218,229,255,.7); font-size: 10px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pps-top3 { position: relative; margin: 15px 0 0; color: #f3ecff; font-size: 12px; font-weight: 700; line-height: 1.6; }
 .pps-top3 b { color: #ffd166; }
-.pps-url { margin: 12px 0 0; color: rgba(193,224,250,.45); font-size: 9px; font-weight: 750; letter-spacing: .04em; }
+.pps-url { margin: 12px 0 0; color: rgba(193,224,250,.62); font-size: 10px; font-weight: 750; letter-spacing: .04em; }
 .pps-actions { display: flex; gap: 10px; width: min(100%, 358px); }
 .pps-actions button { min-height: 44px; border-radius: 999px; font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; }
 .pps-again { flex: 1; border: 0; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #21152f; }
@@ -5715,8 +5926,8 @@ const collectionsStyle = document.createElement('style');
 collectionsStyle.textContent = `
 .collections-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 30px); background: #03060f; color: #e6e8ee; pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .collections-shell { width: 100%; max-width: 390px; margin: auto; }
-.collections-nav { display: flex; align-items: center; justify-content: space-between; min-height: 40px; margin-bottom: 10px; }
-.collections-back { padding: 8px 4px; border: 0; background: none; color: rgba(214,220,232,.68); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.collections-nav { display: flex; align-items: center; justify-content: space-between; min-height: 44px; margin-bottom: 10px; }
+.collections-back { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; border: 0; background: none; color: rgba(214,220,232,.68); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
 .collections-sort { color: rgba(214,220,232,.42); font-size: 11px; font-weight: 650; }
 .collections-sort-control { position: relative; display: inline-flex; align-items: center; gap: 3px; }
 .collections-sort-control::after { content: ''; width: 5px; height: 5px; margin: -3px 2px 0 1px; border-right: 1px solid rgba(214,220,232,.48); border-bottom: 1px solid rgba(214,220,232,.48); transform: rotate(45deg); pointer-events: none; }
@@ -5730,7 +5941,7 @@ collectionsStyle.textContent = `
 .collections-stat { padding: 11px 9px 10px; border: 1px solid rgba(214,220,232,.08); border-radius: 12px; background: #0c111c; }
 .collections-stat b { display: block; color: #e6e8ee; font-size: 19px; line-height: 1; font-variant-numeric: tabular-nums; }
 .collections-stat.gold b { color: #d2ae62; text-shadow: 0 0 12px rgba(210,174,98,.35); }
-.collections-stat span { display: block; margin-top: 4px; color: rgba(214,220,232,.32); font-size: 9px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
+.collections-stat span { display: block; margin-top: 4px; color: rgba(214,220,232,.62); font-size: 10px; font-weight: 750; letter-spacing: .03em; text-transform: uppercase; }
 .collection-sets { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
 .collection-set { position: relative; display: flex; min-width: 0; flex-direction: column; padding: 12px; border: 1px solid rgba(214,220,232,.08); border-radius: 14px; background: linear-gradient(180deg,#111726,#0b0f19); color: inherit; text-align: left; cursor: pointer; touch-action: manipulation; }
 .collection-set:active { transform: scale(.97); }
@@ -5763,7 +5974,7 @@ collectionsStyle.textContent = `
 .collection-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .collection-card-name { min-height: 2.3em; margin: 6px 1px 0; display: grid; place-items: center; color: #e6e8ee; font-size: 10px; font-weight: 750; line-height: 1.15; text-align: center; }
 .collection-card.unearned .collection-card-name { color: rgba(214,220,232,.4); }
-.collection-card-meta { margin: 3px 0 0; color: rgba(214,220,232,.35); font-size: 8px; font-weight: 750; text-align: center; text-transform: uppercase; }
+.collection-card-meta { margin: 3px 0 0; color: rgba(214,220,232,.62); font-size: 10px; font-weight: 750; text-align: center; text-transform: uppercase; }
 .collection-complete { margin: 18px 0; padding: 14px; border: 1px solid rgba(210,174,98,.5); border-radius: 14px; background: linear-gradient(135deg,#241f12,#0e111a); color: #d2ae62; font-size: 13px; font-weight: 800; text-align: center; box-shadow: 0 0 20px rgba(210,174,98,.12); }
 body.game-collections #hud { opacity: 0; }
 @media (max-width:360px) { .collection-sets { gap: 8px; } .collection-set { padding: 10px; } .collection-grid { gap: 12px 8px; } }
@@ -6007,10 +6218,10 @@ postcardStyle.textContent = `
 .ppd-card.prox-bullseye .ppd-achievement { border-color: #74602d; background: linear-gradient(180deg,#4a3b1d,#2b251d); color: #ffd971; }
 .ppd-card.prox-pinpoint .ppd-achievement { border-color: #a76b34; background: linear-gradient(180deg,#71401e,#3d281e); color: #ffd080; }
 .ppd-fact { margin: 14px 0 0; padding: 0 0 14px; border-bottom: 1px solid #303748; color: #c2c8d4; font-family: Georgia, serif; font-size: 13px; line-height: 1.52; }
-.ppd-fact::before { content: 'DID YOU KNOW?'; display: block; margin-bottom: 5px; color: var(--ppd-accent); font-family: Inter, sans-serif; font-size: 9px; font-weight: 900; letter-spacing: .17em; }
+.ppd-fact::before { content: 'DID YOU KNOW?'; display: block; margin-bottom: 5px; color: var(--ppd-accent); font-family: Inter, sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .15em; }
 .ppd-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 14px 0 0; }
 .ppd-stats div { min-width: 0; padding: 10px; border: 1px solid #30384a; border-radius: 10px; background: #151a27; }
-.ppd-stats dt { color: #788397; font-size: 8px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+.ppd-stats dt { color: #8a95a9; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
 .ppd-stats dd { margin: 5px 0 0; color: #f7f8fc; font-size: 14px; font-weight: 850; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ppd-stats dd small { color: #8390a6; font-size: 10px; font-weight: 650; }
 .ppd-visited { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 13px 0 0; color: #818da2; font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
@@ -6260,11 +6471,12 @@ ppdEls.share.addEventListener('click', async () => {
 
 passport = readPassport();
 
-getJSON('assets/locations.json', RESET_DAILY ? { cache: 'reload' } : undefined).then((data) => {
+loadJSON(LOAD.locations, RESET_DAILY ? { cache: 'reload' } : undefined).then((data) => {
   locations = data;
   locationIndex = null;
   loadDaily();
   syncPassport();
+  syncDailyButton();
   gameEls.startStreak.textContent = streakText();
   gameEls.play.disabled = false;
   endlessEls.entry.disabled = false;
@@ -6273,10 +6485,12 @@ getJSON('assets/locations.json', RESET_DAILY ? { cache: 'reload' } : undefined).
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
   if (window.__boot) window.__boot('locations loaded');
+  loadJobDone('locations');
 }).catch((err) => {
   gameEls.play.disabled = true;
   gameEls.survivalEntry.disabled = true;
   if (window.__showErr) window.__showErr('LOCATIONS: ' + err.message);
+  loadJobDone('locations');
 });
 getJSON('assets/expeditions.json').then((data) => {
   expeditions = Array.isArray(data) ? data : [];
@@ -6368,14 +6582,16 @@ function frame() {
 
   if (landLoaded && landReveal < 1) {
     landReveal = Math.min(1, landReveal + dt / 1.1);
-    const e = 1 - Math.pow(1 - landReveal, 3);
-    globeMat.uniforms.uLand.value = e;
-    outlineMaterials.forEach((m) => {
-      m.opacity = e * (m.userData.baseOpacity ?? 1);
-      if (landReveal === 1 && (m.userData.baseOpacity ?? 1) >= 1) {
-        m.transparent = false; m.needsUpdate = true;
-      }
-    });
+    globeMat.uniforms.uLand.value = 1 - Math.pow(1 - landReveal, 3);
+  }
+  // each outline layer fades in on its own clock as it finishes loading
+  for (const m of outlineMaterials) {
+    if (m.userData.reveal >= 1) continue;
+    m.userData.reveal = Math.min(1, m.userData.reveal + dt / 1.1);
+    m.opacity = (1 - Math.pow(1 - m.userData.reveal, 3)) * (m.userData.baseOpacity ?? 1);
+    if (m.userData.reveal === 1 && (m.userData.baseOpacity ?? 1) >= 1) {
+      m.transparent = false; m.needsUpdate = true;
+    }
   }
 
   // Keep roughly the same screen footprint, then add a restrained boost in
@@ -6401,8 +6617,8 @@ function frame() {
 
 window.__booted = true;
 if (window.__boot) window.__boot('ready');
-var bootEl = document.getElementById('boot');
-if (bootEl) bootEl.style.display = 'none';
+// the boot screen stays up until the land fill is on the globe (revealGlobe)
+renderLoad();
 window.__audio = audio; // test hook: context state, live whoosh
 // test hook: read the view, or pin it for screenshots
 window.__view = {

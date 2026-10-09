@@ -1,0 +1,709 @@
+[
+  {
+    "id": "abuja-ng",
+    "name": "Abuja",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "aguascalientes-mx",
+    "name": "Aguascalientes",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "ananindeua-br",
+    "name": "Ananindeua",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/BR-316_em_Ananindeua.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Urban roadway photograph clearly identified as BR-316 in Ananindeua; it shows the city environment rather than an isolated landmark."
+  },
+  {
+    "id": "asmara-eritrea",
+    "name": "Asmara",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates are a flag, coat of arms, and historic map; none is a real photograph of Asmara."
+  },
+  {
+    "id": "austin-usa",
+    "name": "Austin",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates depict the person Lloyd Austin or a council diagram, not the city of Austin."
+  },
+  {
+    "id": "baku",
+    "name": "Baku",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Vista_de_Baku%2C_Azerbaiy%C3%A1n%2C_2016-09-26%2C_DD_138.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Clear real photograph presenting a broad, recognizable view of Baku's cityscape."
+  },
+  {
+    "id": "baotou-cn",
+    "name": "Baotou",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "bauchi-ng",
+    "name": "Bauchi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "belagavi",
+    "name": "Belagavi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "bhuj",
+    "name": "Bhuj",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "bodh-gaya-india",
+    "name": "Bodh Gaya",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "bozhou-cn",
+    "name": "Bozhou",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates isolate Bozhou railway station rather than showing Bozhou as a city."
+  },
+  {
+    "id": "brno-cathedral-d34-19",
+    "name": "Brno Cathedral",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Brno_Cathedral_St._Peter_and_Paul-03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph explicitly depicting the exact Cathedral of St. Peter and Paul in Brno."
+  },
+  {
+    "id": "bursa-tr",
+    "name": "Bursa",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "caloocan-ph",
+    "name": "Caloocan",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/0525jfFunnside_Highways_Sunset_Barangay_Caloocan_Cityfvf_19.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph of the highway and surrounding urban fabric in Caloocan, suitable as a city view."
+  },
+  {
+    "id": "cardiff-wales",
+    "name": "Cardiff",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "cerritos",
+    "name": "Cerritos",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "champasak-laos",
+    "name": "Wat Phu Champasak",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Stone_gate_with_columns_and_Buddhist_reliefs_leading_to_a_clothed_statue_of_the_Buddha_seated%2C_Wat_Phou_temple%2C_Champasak%2C_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph explicitly showing the stone gateway and reliefs at the exact Wat Phu temple site."
+  },
+  {
+    "id": "chattogram-bd",
+    "name": "Chattogram",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "chihuahua-mx",
+    "name": "Chihuahua",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Centro_de_Chihuahua.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph of central Chihuahua showing the urban setting rather than a single isolated subject."
+  },
+  {
+    "id": "ciudad-general-escobedo-mx",
+    "name": "Ciudad General Escobedo",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "columbus",
+    "name": "Columbus",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Downtown_Columbus_View_from_Main_St_Bridge_-_edit1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Broad real photograph of downtown Columbus from the Main Street Bridge; clearly a cityscape."
+  },
+  {
+    "id": "cork-ireland",
+    "name": "Cork",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "datong",
+    "name": "Datong",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/The_skyline_of_Datong%EF%BC%88Southgate%EF%BC%892019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real skyline photograph of Datong at the South Gate, clearly showing the city."
+  },
+  {
+    "id": "dera-ghazi-khan",
+    "name": "Dera Ghazi Khan",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates are locator maps or diagrams, not real city photographs."
+  },
+  {
+    "id": "dnipro-ua",
+    "name": "Dnipro",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates show a river island/natural scene and do not depict the city of Dnipro."
+  },
+  {
+    "id": "fort-sumter-charleston",
+    "name": "Fort Sumter",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Fort_Sumter_National_Monument_South_Carolina.jpg",
+    "reason": "Real photograph clearly depicting the exact Fort Sumter site."
+  },
+  {
+    "id": "guangzhou-cn",
+    "name": "Guangzhou",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "ichikawa",
+    "name": "Ichikawa",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "karagandy",
+    "name": "Karagandy",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Novy_Gorod%2C_Karagandy_100000%2C_Kazakhstan_-_panoramio_%281%29.jpg",
+    "reason": "Real photograph of the Novy Gorod urban district in Karagandy, showing the city environment."
+  },
+  {
+    "id": "laval-ca",
+    "name": "Laval",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates depict Université Laval in Quebec City, not the city of Laval."
+  },
+  {
+    "id": "maipu-cl",
+    "name": "Maipú",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "melitopol",
+    "name": "Melitopol",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Heroiv_Ukrainy_Street%2C_Melitopol%2C_Zaporizhzhia_Oblast%2C_Ukraine.jpg",
+    "reason": "Real street-level photograph of Heroiv Ukrainy Street in Melitopol, clearly showing the city."
+  },
+  {
+    "id": "nara",
+    "name": "Nara",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "okene",
+    "name": "Okene",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "dombivali",
+    "name": "Dombivali",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "fort-worth",
+    "name": "Fort Worth",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "guayaquil-ec",
+    "name": "Guayaquil",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Slums_of_Ecuador_Guayaquil.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real broad photograph of Guayaquil's dense urban fabric; it depicts the city rather than an isolated building."
+  },
+  {
+    "id": "indore-in",
+    "name": "Indore",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "karnak-temple-complex",
+    "name": "Karnak Temple",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Templo_de_Karnak%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_144.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "High-quality real photograph explicitly depicting the exact Karnak Temple complex."
+  },
+  {
+    "id": "leon-de-los-aldama-mx",
+    "name": "León de los Aldama",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "The candidates show a Mexibús station bearing the name, not the city of León de los Aldama."
+  },
+  {
+    "id": "majuro-marshall-islands",
+    "name": "Majuro",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/The_Marshall_Islands_-_Majuro_-_Surroundings.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real landscape photograph of Majuro and its settled surroundings, clearly relevant to the atoll city."
+  },
+  {
+    "id": "mendoza-argentina",
+    "name": "Mendoza",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Ciudad_de_Mendoza%2C_la_cuarta_ciudad_m%C3%A1s_poblada_del_pa%C3%ADs..jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Broad real photograph explicitly presenting the city of Mendoza."
+  },
+  {
+    "id": "natal-br",
+    "name": "Natal",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Apr2024._Praia_do_Meio%2C_Natal%2C_Brazil_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real coastal city photograph of Praia do Meio in Natal with the urban setting visible."
+  },
+  {
+    "id": "omaha",
+    "name": "Omaha",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Omaha%2C_United_States_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph explicitly identified as Omaha and showing the city's urban scene."
+  },
+  {
+    "id": "donetsk-ua",
+    "name": "Donetsk",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "fort-zeelandia-paramaribo",
+    "name": "Fort Zeelandia",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Fort_Zeelandia_top_view_%28photo_5%29_located_at_Abraham_Crijnssenweg_1_paramaribo%2C_suriname.jpg",
+    "reason": "Real overhead photograph explicitly showing the exact Fort Zeelandia in Paramaribo."
+  },
+  {
+    "id": "gujranwala-pk",
+    "name": "Gujranwala",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Gujranwala_flyover.jpg",
+    "reason": "Real photograph of Gujranwala's flyover and surrounding urban streetscape."
+  },
+  {
+    "id": "innsbruck-austria",
+    "name": "Innsbruck",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/12-06-05-innsbruck-by-ralfr-164.jpg",
+    "reason": "Real photograph showing Innsbruck's recognizable urban and alpine city setting."
+  },
+  {
+    "id": "katsina-ng",
+    "name": "Katsina",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Steel_rolling_round-about%2C_IBB_Way%2C_Katsina.jpg",
+    "reason": "Real streetscape photograph of a major roundabout on IBB Way in Katsina."
+  },
+  {
+    "id": "lianjiang-cn",
+    "name": "Lianjiang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Lianjiang_City.jpg",
+    "reason": "Real broad photograph identified as Lianjiang City and showing its urban environment."
+  },
+  {
+    "id": "makhachkala-ru",
+    "name": "Makhachkala",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "merida-mx",
+    "name": "Mérida",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "naucalpan-de-juarez-mx",
+    "name": "Naucalpan de Juárez",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Boulevard_Manuel_%C3%81vila_Camacho%2C_Naucalpan_de_Ju%C3%A1rez%2C_Estado_de_M%C3%A9xico.jpg",
+    "reason": "Real streetscape of Boulevard Manuel Ávila Camacho in Naucalpan de Juárez."
+  },
+  {
+    "id": "omsk-ru",
+    "name": "Omsk",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Irtish_v_Omsk.JPG",
+    "reason": "Real broad view of the Irtysh through Omsk with the city setting visible."
+  },
+  {
+    "id": "pingyao-ancient-city",
+    "name": "Pingyao Ancient City",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates depict the modern railway station or trains, not the exact ancient city site."
+  },
+  {
+    "id": "rabat-morocco",
+    "name": "Rabat",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "salinas-da-margarida",
+    "name": "Salinas da Margarida",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates isolate the same church and do not show Salinas da Margarida as a city."
+  },
+  {
+    "id": "shymkent",
+    "name": "Shymkent",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Ordabasy_Plaza_%28Shymkent%29.jpg",
+    "reason": "Real photograph of Ordabasy Plaza and its surrounding Shymkent urban environment."
+  },
+  {
+    "id": "tanbaly-kazakhstan",
+    "name": "Tanbaly Petroglyphs",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "The candidates depict Tamgaly-Tas, a different site from the named Tanbaly petroglyph complex."
+  },
+  {
+    "id": "topkapi-palace",
+    "name": "Topkapi Palace",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Istanbul_asv2020-02_img19_Topkap%C4%B1_Palace.jpg",
+    "reason": "Real broad photograph explicitly depicting the exact Topkapı Palace complex."
+  },
+  {
+    "id": "veracruz-mx",
+    "name": "Veracruz",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Miguel_Aleman_Blvd%2C_Veracruz%2C_p1_2019.jpg",
+    "reason": "Real street-level photograph of Miguel Alemán Boulevard in Veracruz, showing the city."
+  },
+  {
+    "id": "xinyang-cn",
+    "name": "Xinyang",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "zaoyang",
+    "name": "Zaoyang",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "donghe",
+    "name": "Donghe",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "foshan-cn",
+    "name": "Foshan",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates are maps/graphics or a montage; none is a single real photograph of the city."
+  },
+  {
+    "id": "halifax-canada",
+    "name": "Halifax",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "iwo-jima-flag-raising",
+    "name": "Mount Suribachi Summit",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Genaust-Memorial-Plaque.jpg",
+    "reason": "Real photograph of the memorial plaque at the exact Mount Suribachi summit site."
+  },
+  {
+    "id": "kawasaki-jp",
+    "name": "Kawasaki",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Kawasaki_port.jpg",
+    "reason": "Real broad photograph of Kawasaki's port and industrial urban landscape."
+  },
+  {
+    "id": "likasi-cd",
+    "name": "Likasi",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates depict Kolwezi or its mines, not Likasi."
+  },
+  {
+    "id": "malegaon",
+    "name": "Malegaon",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Golden_Nagar%2C_Malegaon%2C_Maharashtra_423203%2C_India_-_panoramio.jpg",
+    "reason": "Real photograph of the Golden Nagar neighborhood in Malegaon, showing the city environment."
+  },
+  {
+    "id": "migrant-mother-nipomo",
+    "name": "Nipomo Migrant Camp Site",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates are unrelated document/PDF covers and do not photograph the exact Nipomo Migrant Camp site."
+  },
+  {
+    "id": "nay-pyi-taw",
+    "name": "Nay Pyi Taw",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "oran-dz",
+    "name": "Oran",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/ORAN_City_%26_Coast.jpg",
+    "reason": "Broad real photograph explicitly showing Oran's city and coastline."
+  },
+  {
+    "id": "pohutu-geyser",
+    "name": "Pohutu Geyser",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pohutu_Geyser%2C_New_Zealand.jpg",
+    "reason": "Real photograph explicitly showing the exact Pohutu Geyser."
+  },
+  {
+    "id": "rajkot-in",
+    "name": "Rājkot",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Rajkot_-_Aji_River_Overview.jpg",
+    "reason": "Broad real photograph of Rajkot around the Aji River, showing the city's urban fabric."
+  },
+  {
+    "id": "san-antonio-usa",
+    "name": "San Antonio",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "silkeborg",
+    "name": "Silkeborg",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates are close details of Silkeborg Library/signage, not a city view."
+  },
+  {
+    "id": "tangerang-id",
+    "name": "Tangerang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Tangerang%2C_1.jpg",
+    "reason": "Real photograph identified as Tangerang and showing the city environment."
+  },
+  {
+    "id": "toronto",
+    "name": "Toronto",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Toronto_-_ON_-_Toronto_Harbourfront7.jpg",
+    "reason": "Real broad photograph of Toronto's harbourfront with the recognizable city skyline."
+  },
+  {
+    "id": "victoria-de-durango-mx",
+    "name": "Victoria de Durango",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates are a map, montage, or isolated themed attraction; none is a qualifying city photograph."
+  },
+  {
+    "id": "xuchang-cn",
+    "name": "Xuchang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Aerial_View_of_Xuchang.jpg",
+    "reason": "Real aerial photograph clearly showing the cityscape of Xuchang."
+  },
+  {
+    "id": "zaozhuang-cn",
+    "name": "Zaozhuang",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates isolate university facilities or the railway station rather than showing Zaozhuang as a city."
+  },
+  {
+    "id": "pikit",
+    "name": "Pikit",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates are a flag, locator map, or isolated terminal; none adequately depicts Pikit itself."
+  },
+  {
+    "id": "pyramids-of-giza",
+    "name": "Pyramids of Giza",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/All_Gizah_Pyramids.jpg",
+    "reason": "Real broad photograph explicitly showing the exact Giza pyramid complex."
+  },
+  {
+    "id": "quito",
+    "name": "Quito",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Quito_calle_Garc%C3%ADa_Moreno.jpg",
+    "reason": "Real street-level photograph of García Moreno in Quito, clearly showing the historic city."
+  },
+  {
+    "id": "reykjavik-iceland",
+    "name": "Reykjavik",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates show individual birds or an airplane, not Reykjavík as a city."
+  },
+  {
+    "id": "sakai",
+    "name": "Sakai",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidate meets the strict standard: the images are non-photographic, too narrowly focused on an isolated subject, ambiguous, or insufficient to confirm the named location."
+  },
+  {
+    "id": "santo-domingo-de-los-colorados-ec",
+    "name": "Santo Domingo de los Colorados",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates show churches in Lima or Quito, or a non-photographic/ambiguous collage; none confidently depicts Santo Domingo de los Colorados."
+  },
+  {
+    "id": "shubra-al-khaymah-eg",
+    "name": "Shubrā al Khaymah",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Shubra_el_Kheima1.jpg",
+    "reason": "Real broad photograph explicitly identified as Shubra el-Kheima and showing its urban environment."
+  },
+  {
+    "id": "st-marks-square-venice",
+    "name": "St. Mark's Square",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Panorama_Piazza_San_Marco_and_Venice_on_Easter_2013.jpg",
+    "reason": "Real panoramic photograph explicitly showing the exact Piazza San Marco."
+  },
+  {
+    "id": "tampa-usa",
+    "name": "Tampa",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Tampa_Riverwalk%2C_Tampa%2C_United_States_%28Unsplash%29.jpg",
+    "reason": "Real photograph of Tampa Riverwalk with a broad downtown city setting."
+  },
+  {
+    "id": "tepui-auyan",
+    "name": "Auyan-tepui",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates show a plant or only generally labeled Canaima landscapes; the exact Auyan-tepui cannot be confirmed confidently."
+  },
+  {
+    "id": "tlaquepaque-mx",
+    "name": "Tlaquepaque",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Tlaquepaque%2C_Jalisco_I_01.jpg",
+    "reason": "Real street/city photograph explicitly identified as Tlaquepaque, Jalisco."
+  },
+  {
+    "id": "tula",
+    "name": "Tula",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Tula_asv2019-09_img06_Kremlin_aerial_view.jpg",
+    "reason": "Real aerial photograph of Tula Kremlin with substantial surrounding cityscape visible."
+  },
+  {
+    "id": "vellore",
+    "name": "Vellore",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates are an isolated fort, a montage, or a map; none is a qualifying city photograph."
+  },
+  {
+    "id": "wales-alaska",
+    "name": "Wales",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "All candidates depict places named Wales in Utah or Massachusetts, not Wales, Alaska."
+  },
+  {
+    "id": "xichang",
+    "name": "Xichang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/202309_Skyline_of_Xichang_from_Taihe.jpg",
+    "reason": "Real skyline photograph explicitly showing Xichang from Taihe."
+  },
+  {
+    "id": "yerevan",
+    "name": "Yerevan",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Mount_Ararat_and_the_Yerevan_skyline.jpg",
+    "reason": "Real broad skyline photograph of Yerevan with Mount Ararat, clearly depicting the city."
+  },
+  {
+    "id": "zamboanga",
+    "name": "Zamboanga",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Barangay_Cawit_Zamboanga_City_Philippines.jpg",
+    "reason": "Real photograph of Barangay Cawit showing a genuine part of Zamboanga City's built environment."
+  },
+  {
+    "id": "zhongshan",
+    "name": "Zhongshan",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Candidates are a montage, map, or museum interior; none is a qualifying city photograph."
+  }
+]

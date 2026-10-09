@@ -7,6 +7,7 @@ scripts/
 previews/
 shots-islands/
 shots-rarity/
+shots-phase2/
 *.log
 *.bak
 *.bak-*
@@ -28,3 +29,7 @@ assets/countries-110m.json
 assets/og.png
 assets/og-v2.png
 assets/og.svg
+
+# Internal tools: not for players
+preview-*.html
+review-locations.html

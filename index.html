@@ -39,18 +39,12 @@
     #boot {
       position: fixed; inset: 0; z-index: 100;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: #050a19; color: #cfe6ff;
+      background: radial-gradient(120% 80% at 50% 45%, #0a1531 0%, #050a19 48%, #020409 100%);
+      color: #cfe6ff;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-      text-align: center; padding: 24px;
+      text-align: center; padding: 24px; box-sizing: border-box;
     }
-    #boot .boot-title { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; color: #f1f8ff; margin: 0 0 12px; }
-    #boot .boot-spin {
-      width: 34px; height: 34px; margin: 0 0 16px; border-radius: 50%;
-      border: 3px solid rgba(127, 210, 244, 0.25); border-top-color: #7fd2f4;
-      animation: bootspin 0.9s linear infinite;
-    }
-    @keyframes bootspin { to { transform: rotate(360deg); } }
-    #boot-status { font-size: 13px; color: rgba(193, 224, 250, 0.65); margin: 0; min-height: 18px; }
+    #boot[hidden] { display: none; }
     #err {
       position: fixed; top: 8px; left: 8px; right: 8px; z-index: 200;
       background: rgba(90, 12, 12, 0.94); color: #ffd9d9;
@@ -88,7 +82,21 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    .mode-buttons > button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      min-height: 54px;
+      line-height: 1.15;
+    }
+    .mode-buttons .mode-name,
+    .mode-buttons .mode-desc { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+    .mode-buttons .mode-desc { font-size: 11px; font-weight: 650; opacity: .72; }
     .mode-buttons > button:active { transform: scale(.98); }
+    .mode-buttons > button:disabled { opacity: .45; cursor: progress; }
+    .mode-buttons > button:disabled:active { transform: none; }
     #play-button { background: linear-gradient(135deg, #ffd166, #ff9f6a); border: 0; color: #21152f; font-weight: 800; }
 
     .survival-streak {
@@ -147,14 +155,21 @@
     @media (max-width: 360px) {
       .mode-buttons { gap: 6px; }
       .mode-buttons > button { padding-inline: 7px; font-size: 13px; }
+      .mode-buttons .mode-desc { font-size: 10px; }
     }
   </style>
 </head>
 <body>
-  <div id="boot">
-    <p class="boot-title">Where on Earth</p>
-    <div class="boot-spin"></div>
-    <p id="boot-status">Loading...</p>
+  <div id="boot" class="pending">
+    <div class="boot-orb" aria-hidden="true"></div>
+    <p class="boot-title">Where on Earth?</p>
+    <p class="load-stage boot-stage" aria-live="polite">Loading world map…</p>
+    <div class="load-bar" role="progressbar" aria-label="Loading" aria-valuemin="0" aria-valuemax="100"><i class="load-fill"></i></div>
+    <p class="boot-meta"><span class="load-pct"></span><span class="load-mb"></span></p>
+  </div>
+  <div id="load-pill" class="load-pill" aria-hidden="true">
+    <p class="load-pill-row"><span class="load-stage"></span><span class="load-mb"></span></p>
+    <div class="load-bar"><i class="load-fill"></i></div>
   </div>
   <canvas id="globe"></canvas>
   <main id="game" aria-live="polite">
@@ -163,10 +178,10 @@
       <h1>Where on Earth?</h1>
       <p class="how-to">Find five places. Spin the globe, zoom in, tap to place your pin, then lock it in.</p>
       <div class="mode-buttons" aria-label="Game modes">
-        <button id="play-button" type="button">Daily</button>
-        <button id="endless-button" type="button">Endless</button>
-        <button id="survival-button" type="button">Survival</button>
-        <button id="expeditions-button" type="button">Expeditions</button>
+        <button id="play-button" type="button"><span class="mode-name">Daily</span><small class="mode-desc">5 places, once a day</small></button>
+        <button id="endless-button" type="button"><span class="mode-name">Endless</span><small class="mode-desc">Play nonstop</small></button>
+        <button id="survival-button" type="button"><span class="mode-name">Survival</span><small class="mode-desc">Stay within 150 km</small></button>
+        <button id="expeditions-button" type="button"><span class="mode-name">Expeditions</span><small class="mode-desc">Themed journeys</small></button>
       </div>
       <p id="start-streak" class="streak"></p>
       <p class="map-credit">Map data: Natural Earth · Islands © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a></p>
@@ -255,10 +270,10 @@
   <div id="err" hidden></div>
   <script>
     window.__bootStage = 'page parsed';
+    // Stage names are for the "not booted" diagnostic only; the visible
+    // progress is driven by main.js (renderLoad).
     window.__boot = function (stage) {
       window.__bootStage = stage;
-      var d = document.getElementById('boot-status');
-      if (d) d.textContent = stage + '...';
     };
     window.__boot('starting');
     window.__showErr = function (m) {

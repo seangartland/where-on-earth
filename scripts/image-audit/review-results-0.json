@@ -1,0 +1,716 @@
+[
+  {
+    "id": "aba-ng",
+    "name": "Aba",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "agadez",
+    "name": "Agadez",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Niger%2C_Agadez_%2835%29%2C_auberge_Tellit_and_Grand_Mosque%2C_old_town.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Niger, Agadez (35), auberge Tellit and Grand Mosque, old town.jpg)."
+  },
+  {
+    "id": "akure-ng",
+    "name": "Akure",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Akure_Wide_Angle_Shot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Akure Wide Angle Shot.jpg)."
+  },
+  {
+    "id": "arar",
+    "name": "Arar",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "aurangabad",
+    "name": "Aurangabad",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "badlands-national-park",
+    "name": "Badlands Wall",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "bao-an-cn",
+    "name": "Bao'an",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "barquisimeto-ve",
+    "name": "Barquisimeto",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "beira-mz",
+    "name": "Beira",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Beira_center_2000.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Beira center 2000.jpg)."
+  },
+  {
+    "id": "berrechid",
+    "name": "Berrechid",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "birds-nest-beijing",
+    "name": "Bird's Nest",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "borough-park",
+    "name": "Borough Park",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "brazzaville-cg",
+    "name": "Brazzaville",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "bulguksa",
+    "name": "Bulguksa Temple",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Bulguksa_temple_entrance_gate_stairs_flower_bed_and_blue_sky_in_Gyeongju_South_Korea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Bulguksa temple entrance gate stairs flower bed and blue sky in Gyeongju South Korea.jpg)."
+  },
+  {
+    "id": "cabiao",
+    "name": "Cabiao",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "candoi",
+    "name": "Candói",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "cartagena",
+    "name": "Cartagena",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/View_of_Cartagena_from_Convento_de_Santa_Cruz_de_la_Popa_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:View of Cartagena from Convento de Santa Cruz de la Popa 01.jpg)."
+  },
+  {
+    "id": "chachoengsao",
+    "name": "Chachoengsao",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "charlotte",
+    "name": "Charlotte",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Uptown_Charlotte_2018_taking_by_DJI_Phantom_4_pro_-_Perspective_Corrected_Edit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Uptown Charlotte 2018 taking by DJI Phantom 4 pro - Perspective Corrected Edit.jpg)."
+  },
+  {
+    "id": "chennai-in",
+    "name": "Chennai",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Saidapet_Bridges_Adyar_River_Chennai_Jul18_DSC05378.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Saidapet Bridges Adyar River Chennai Jul18 DSC05378.jpg)."
+  },
+  {
+    "id": "chuuk-wrecks",
+    "name": "Chuuk Wrecks",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "coimbatore-in",
+    "name": "Coimbatore",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "copacabana-beach-rio",
+    "name": "Copacabana Beach",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Aerial_view_of_Copacabana_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Aerial view of Copacabana beach.jpg)."
+  },
+  {
+    "id": "daejeon-kr",
+    "name": "Daejeon",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "dazhou-cn",
+    "name": "Dazhou",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "diyarbakr-tr",
+    "name": "Diyarbakır",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "ensenada-mx",
+    "name": "Ensenada",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "gaziantep-tr",
+    "name": "Gaziantep",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "heroica-matamoros-mx",
+    "name": "Heroica Matamoros",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "kaduna-ng",
+    "name": "Kaduna",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "kirkuk",
+    "name": "Kirkuk",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Kirkuk_Qaysariyya_Bazaar_%281855%29%2C_Kirkuk%2C_Iraq_04.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Kirkuk Qaysariyya Bazaar (1855), Kirkuk, Iraq 04.jpg)."
+  },
+  {
+    "id": "little-mermaid-dk",
+    "name": "The Little Mermaid",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Petite_sir%C3%A8ne_de_Copenhague_%28conforme_%C3%A0_la_loi_danoise%29.JPG",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Petite sirène de Copenhague (conforme à la loi danoise).JPG)."
+  },
+  {
+    "id": "marvdasht",
+    "name": "Marvdasht",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "mt-orohena",
+    "name": "Mt Orohena",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "No candidates were provided."
+  },
+  {
+    "id": "nizhniy-novgorod-ru",
+    "name": "Nizhniy Novgorod",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Nizhegorodskiy_rayon%2C_Nizhniy_Novgorod%2C_Nizhegorodskaya_oblast%27_Russia_-_panoramio.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Nizhegorodskiy rayon, Nizhniy Novgorod, Nizhegorodskaya oblast' Russia - panoramio.jpg)."
+  },
+  {
+    "id": "penrhyn-omoka",
+    "name": "Omoka, Penrhyn",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "enugu-ng",
+    "name": "Enugu",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Enugu_Nigeria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Enugu Nigeria.jpg)."
+  },
+  {
+    "id": "gazipur-bd",
+    "name": "Gazipur",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "heshan",
+    "name": "Heshan",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "kailasa-temple-ellora",
+    "name": "Kailasa Temple",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Ellora_Caves%2C_India%2C_Kailasa_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Ellora Caves, India, Kailasa Temple.jpg)."
+  },
+  {
+    "id": "kotors-old-town",
+    "name": "Kotor Old Town",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "louisville-usa",
+    "name": "Louisville",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "mata-utu-wallis",
+    "name": "Mata-Utu",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "mt-waialeale",
+    "name": "Mt Waiʻaleʻale",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "notre-dame-paris",
+    "name": "Notre-Dame Cathedral",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Paris%2C_Notre_Dame_--_2014_--_1458-65.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Paris, Notre Dame -- 2014 -- 1458-65.jpg)."
+  },
+  {
+    "id": "pereira-co",
+    "name": "Pereira",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "erzurum",
+    "name": "Erzurum",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Erzurum%2C_Turkey_-_panoramio_%2822%29.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Erzurum, Turkey - panoramio (22).jpg)."
+  },
+  {
+    "id": "georgetown-st-georges-cathedral",
+    "name": "Georgetown",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "heze-cn",
+    "name": "Heze",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/The_crossroads_in_Heze%2CShandong_province.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:The crossroads in Heze,Shandong province.jpg)."
+  },
+  {
+    "id": "kakamega-ke",
+    "name": "Kakamega",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Cykeltaxi_i_kakamega.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Cykeltaxi i kakamega.jpg)."
+  },
+  {
+    "id": "krakow-old-town-d34-10",
+    "name": "Krakow Old Town",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Old_Town%2C_southern_part_near_Wawel_Castle%2C_2025%2C_bird%27s_eye_view%2C_Krak%C3%B3w%2C_Poland.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Old Town, southern part near Wawel Castle, 2025, bird's eye view, Kraków, Poland.jpg)."
+  },
+  {
+    "id": "luan-cn",
+    "name": "Lu’an",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "matola-mz",
+    "name": "Matola",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "mukkudal",
+    "name": "Mukkūdal",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "nuevo-laredo-mx",
+    "name": "Nuevo Laredo",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "perm-ru",
+    "name": "Perm",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Perm._Kama_River_P6232055_2575.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Perm. Kama River P6232055 2575.jpg)."
+  },
+  {
+    "id": "pyryatyn",
+    "name": "Pyryatyn",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "rio-tinto",
+    "name": "Rio Tinto",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/POR_Rio_Tinto_Rua_Areias_01.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:POR Rio Tinto Rua Areias 01.jpg)."
+  },
+  {
+    "id": "sao-joao-de-meriti-br",
+    "name": "São João de Meriti",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Centro%2C_S%C3%A3o_Jo%C3%A3o_de_Meriti_-_RJ%2C_Brazil_-_panoramio.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Centro, São João de Meriti - RJ, Brazil - panoramio.jpg)."
+  },
+  {
+    "id": "star-wars-lars-homestead-interior",
+    "name": "Hotel Sidi Driss",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/H%C3%B4tel_Sidi_Driss%2C_Starwars%2C_Tunisie%2C_20220325_141007.jpg",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Hôtel Sidi Driss, Starwars, Tunisie, 20220325 141007.jpg)."
+  },
+  {
+    "id": "teraina",
+    "name": "Teraina, Kiribati",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "tuxtla-mx",
+    "name": "Tuxtla",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Jardines_de_Tuxtla%2C_Tuxtla_Guti%C3%A9rrez%2C_Chis.%2C_Mexico_-_panoramio.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Jardines de Tuxtla, Tuxtla Gutiérrez, Chis., Mexico - panoramio.jpg)."
+  },
+  {
+    "id": "wanzhou-cn",
+    "name": "Wanzhou",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Wanzhou%2C_Chongqing%2C_China_-_panoramio.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Wanzhou, Chongqing, China - panoramio.jpg)."
+  },
+  {
+    "id": "yichang-cn",
+    "name": "Yichang",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Yichang_skyline_8.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Yichang skyline 8.jpg)."
+  },
+  {
+    "id": "zhucheng",
+    "name": "Zhucheng",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "faisalabad-pk",
+    "name": "Faisalabad",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Clocktower_Faisalabad%2C_Panorama.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Clocktower Faisalabad, Panorama.jpg)."
+  },
+  {
+    "id": "gettysburg-battlefield",
+    "name": "Gettysburg",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Napoleon_Cannon_at_Gettysburg%2C_PA.jpg",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Napoleon Cannon at Gettysburg, PA.jpg)."
+  },
+  {
+    "id": "hindenburg-lakehurst",
+    "name": "Lakehurst Hindenburg Site",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "kalemegdan-fortress-d34-25",
+    "name": "Kalemegdan Fortress",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Kalemegdan%2C_a10.jpg",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Kalemegdan, a10.jpg)."
+  },
+  {
+    "id": "krakow-poland",
+    "name": "Krakow",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Krakow_-_Wawel_from_Vistula_-_4.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Krakow - Wawel from Vistula - 4.jpg)."
+  },
+  {
+    "id": "lucerne-ch",
+    "name": "Lucerne",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Lucerne_Lake_Pilatus_panoramic_P1170968.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Lucerne Lake Pilatus panoramic P1170968.jpg)."
+  },
+  {
+    "id": "maturin-ve",
+    "name": "Maturín",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "multan-pk",
+    "name": "Multan",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "nukunonu-village-point",
+    "name": "Nukunonu Village",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "peros-banhos",
+    "name": "Peros Banhos",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "qingdao-cn",
+    "name": "Qingdao",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "ruiru",
+    "name": "Ruiru",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "sao-rafael",
+    "name": "Sao Rafael",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "sultan-ahmed-mosque",
+    "name": "Blue Mosque",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul%2C_Turkey_002.jpg",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Exterior of Sultan Ahmed I Mosque in Istanbul, Turkey 002.jpg)."
+  },
+  {
+    "id": "thanh-hoa",
+    "name": "Thanh Hóa",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "twelve-apostles",
+    "name": "Twelve Apostles",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Princetown_%28AU%29%2C_Port_Campbell_National_Park%2C_Twelve_Apostles_--_2019_--_0930.jpg",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Princetown (AU), Port Campbell National Park, Twelve Apostles -- 2019 -- 0930.jpg)."
+  },
+  {
+    "id": "wharton",
+    "name": "Wharton",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "yiwu-cn",
+    "name": "Yiwu",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "zhuhai-cn",
+    "name": "Zhuhai",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "porto-old-town-d34-74",
+    "name": "Porto Old Town",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "qingyang",
+    "name": "Qingyang",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "rawalpindi-pk",
+    "name": "Rawalpindi",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Rawalpindi_1963.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Rawalpindi 1963.jpg)."
+  },
+  {
+    "id": "saguenay",
+    "name": "Saguenay",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "san-luis-de-la-paz",
+    "name": "San Luis de la Paz",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Centro_Hist%C3%B3rico_de_San_Luis_de_la_Paz%2C_Guanajuato.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Centro Histórico de San Luis de la Paz, Guanajuato.jpg)."
+  },
+  {
+    "id": "sargodha",
+    "name": "Sargodha",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "sokoto-ng",
+    "name": "Sokoto",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Sokoto_market_2006.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Sokoto market 2006.jpg)."
+  },
+  {
+    "id": "suzhou-cn",
+    "name": "Suzhou",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "tarawa-kiribati",
+    "name": "Tarawa",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Kiribati_Tarawa_Vogel.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Kiribati Tarawa Vogel.jpg)."
+  },
+  {
+    "id": "timbuktu-mali",
+    "name": "Timbuktu",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "troy",
+    "name": "Troy",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Walls_of_Troy_%282%29.jpg",
+    "reason": "Real photograph showing the exact named site; strongest clearly identifiable candidate (File:Walls of Troy (2).jpg)."
+  },
+  {
+    "id": "vadodara-in",
+    "name": "Vadodara",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Chaganlal_Gopalji_Nayak_Marg_-_Vadodara_-_Gujarat_-_DSC001.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Chaganlal Gopalji Nayak Marg - Vadodara - Gujarat - DSC001.jpg)."
+  },
+  {
+    "id": "virar",
+    "name": "Virār",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Virar_East%2C_Virar%2C_Maharashtra_401303%2C_India_-_panoramio.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Virar East, Virar, Maharashtra 401303, India - panoramio.jpg)."
+  },
+  {
+    "id": "wrocaw-pl",
+    "name": "Wrocław",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "yangzhou-cn",
+    "name": "Yangzhou",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Yangzhou_am_Morgen.JPG",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Yangzhou am Morgen.JPG)."
+  },
+  {
+    "id": "yokohama-jp",
+    "name": "Yokohama",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Yokohama_Landmark_Tower_seen_from_Kokusai_Bridge.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Yokohama Landmark Tower seen from Kokusai Bridge.jpg)."
+  },
+  {
+    "id": "zaporizhzhya-ua",
+    "name": "Zaporizhzhya",
+    "verdict": "REJECTED",
+    "url": null,
+    "reason": "Reject all: candidates are wrong, non-photographic, too narrowly focused, or not confidently identifiable as the requested location."
+  },
+  {
+    "id": "zigong-cn",
+    "name": "Zigong",
+    "verdict": "APPROVED",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Ziliujing%2C_Zigong%2C_Sichuan%2C_China_-_panoramio_%282%29.jpg",
+    "reason": "Real photograph with a sufficiently broad, location-specific city or landscape view; strongest relevant candidate (File:Ziliujing, Zigong, Sichuan, China - panoramio (2).jpg)."
+  }
+]
