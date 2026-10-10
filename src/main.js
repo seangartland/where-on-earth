@@ -690,20 +690,27 @@ const getJSON = (url, init) => fetch(url, init).then((r) => (r.ok ? r.json() : P
 // ---------------------------------------------------------------------------
 // Asset loading with progress
 // ---------------------------------------------------------------------------
-// First visit pulls ~6.3 MB of JSON (15-20 s on 4G). The big files stream
-// through loadJSON so the loader can show real bytes, and the map arrives in
-// stages, each drawn as it lands: land fill (globe shows, boot screen goes),
-// then the 10m coast, then lakes, then rivers. A slim pill on the start
-// screen carries the rest of the progress.
+// Two phases, each with its own bar:
+//  - critical: land fill + islands + locations (~2 MB). That is everything a
+//    round needs, so the boot screen's bar covers only these bytes and the
+//    game is revealed, playable, the moment they're built.
+//  - detail: 10m coast, then lakes + rivers (~4 MB). Purely visual, fetched
+//    at low priority only after the critical bytes are in (so they never
+//    compete for bandwidth), drawn onto the live globe as each lands. The
+//    slim pill on the start screen shows this phase.
+// Every file streams through loadJSON so the bars track real bytes.
 // Sizes are decoded bytes, the denominator until a response reports its own.
 // Vercel compresses JSON, so its Content-Length is the compressed size and
-// can't be compared with streamed (decoded) bytes. Refresh these when an
-// asset is rebuilt; drift only skews the bar, it is corrected per file on
-// completion.
+// can't be compared with streamed (decoded) bytes. deploy.sh restamps these
+// from the shipped files; drift only skews the bar, it is corrected per file
+// on completion.
+// Repeat visits: deploy.sh appends ?v=<content hash> to each asset URL, which
+// vercel.json serves as immutable, so unchanged assets come straight from the
+// HTTP cache with no revalidation round trip.
 const LOAD = {
   land: { url: 'assets/world.topo.json', size: 970247 },
   islands: { url: 'assets/islands.topo.json', size: 4605 },
-  locations: { url: 'assets/locations.json', size: 1132325 },
+  locations: { url: 'assets/locations.json', size: 1069753 },
   coast: { url: 'assets/world-10m.topo.json', size: 1681949 },
   lakes: { url: 'assets/lakes-10m.topo.json', size: 726015 },
   rivers: { url: 'assets/rivers-10m-scalerank.topo.json', size: 1782934 },
@@ -742,28 +749,40 @@ function loadJSON(entry, init) {
     });
 }
 
-// Work still outstanding before the loader is finished: bytes landing is not
-// enough, the map layers also have to be built.
-const loadJobs = new Set(['map', 'locations']);
-let loadFinished = false;
+// A phase finishes when its jobs do: bytes landing is not enough, the layers
+// (and the location list) also have to be built.
+const bootEl = document.getElementById('boot');
+const pillEl = document.getElementById('load-pill');
+const phaseEls = (root) => ({
+  stage: root ? root.querySelectorAll('.load-stage') : [],
+  fill: root ? root.querySelectorAll('.load-fill') : [],
+  bar: root ? root.querySelectorAll('.load-bar') : [],
+  pct: root ? root.querySelectorAll('.load-pct') : [],
+  mb: root ? root.querySelectorAll('.load-mb') : [],
+});
+const LOAD_PHASES = {
+  critical: {
+    entries: [LOAD.land, LOAD.islands, LOAD.locations],
+    jobs: new Set(['map', 'locations']),
+    els: phaseEls(bootEl),
+    stageText() {
+      if (!LOAD.land.done) return 'Loading world map…';
+      if (!LOAD.locations.done) return 'Loading places…';
+      return 'Almost there…';
+    },
+  },
+  detail: {
+    entries: [LOAD.coast, LOAD.lakes, LOAD.rivers],
+    jobs: new Set(['detail']),
+    els: phaseEls(pillEl),
+    stageText() {
+      return LOAD.coast.done ? 'Adding rivers & lakes…' : 'Sharpening coastlines…';
+    },
+  },
+};
+for (const phase of Object.values(LOAD_PHASES)) { phase.finished = false; phase.shown = 0; }
 let globeRevealed = false;
 let loadRenderQueued = false;
-const loadEls = {
-  boot: document.getElementById('boot'),
-  pill: document.getElementById('load-pill'),
-  stage: document.querySelectorAll('.load-stage'),
-  fill: document.querySelectorAll('.load-fill'),
-  bar: document.querySelectorAll('.load-bar'),
-  pct: document.querySelectorAll('.load-pct'),
-  mb: document.querySelectorAll('.load-mb'),
-};
-
-function loadStageText(frac) {
-  if (frac >= 0.9) return 'Almost there…';
-  if (!LOAD.land.done || !LOAD.coast.done) return 'Loading world map…';
-  if (!LOAD.lakes.done || !LOAD.rivers.done) return 'Loading rivers & lakes…';
-  return 'Almost there…';
-}
 
 function queueLoadRender() {
   if (loadRenderQueued) return;
@@ -771,54 +790,66 @@ function queueLoadRender() {
   requestAnimationFrame(() => { loadRenderQueued = false; renderLoad(); });
 }
 
-let smoothedLoaded = 0;
-function renderLoad() {
+function renderPhase(phase) {
   let loaded = 0;
   let total = 0;
-  for (const entry of Object.values(LOAD)) { loaded += entry.loaded; total += entry.size; }
-  // Smooth the displayed progress to avoid chunky jumps when assets complete without streaming
-  // Ease towards the target: move 20% of the remaining distance each frame
-  if (Math.abs(loaded - smoothedLoaded) > 1000) {
-    smoothedLoaded += (loaded - smoothedLoaded) * 0.2;
+  for (const entry of phase.entries) { loaded += entry.loaded; total += entry.size; }
+  // Ease the shown bytes toward the real ones (20% of the gap per frame), so
+  // a burst of chunks glides instead of jumps. Once every byte is in, snap:
+  // the layer build is about to block the main thread, and the fill's CSS
+  // transform transition runs on the compositor, so it still glides to 99%.
+  if (phase.entries.every((entry) => entry.done)) {
+    phase.shown = loaded;
+  } else if (Math.abs(loaded - phase.shown) > 1000) {
+    phase.shown += (loaded - phase.shown) * 0.2;
     queueLoadRender(); // keep animating until caught up
   } else {
-    smoothedLoaded = loaded;
+    phase.shown = loaded;
   }
   // hold at 99% while the last layers build, so 100% means really ready
-  const frac = loadFinished ? 1 : Math.min(0.99, total ? smoothedLoaded / total : 0);
+  const frac = phase.finished ? 1 : Math.min(0.99, total ? phase.shown / total : 0);
   const pct = Math.round(frac * 100);
-  const mb = (loadFinished ? total : smoothedLoaded) / 1e6;
-  const stage = loadFinished ? 'Ready' : loadStageText(frac);
-  if (loadEls.boot) loadEls.boot.classList.remove('pending');
-  loadEls.stage.forEach((el) => { if (el.textContent !== stage) el.textContent = stage; });
-  loadEls.fill.forEach((el) => { el.style.transform = `scaleX(${frac})`; });
-  loadEls.bar.forEach((el) => el.setAttribute('aria-valuenow', String(pct)));
-  loadEls.pct.forEach((el) => { el.textContent = pct + '%'; });
-  loadEls.mb.forEach((el) => { el.textContent = `${mb.toFixed(1)} / ${(total / 1e6).toFixed(1)} MB`; });
+  const mb = (phase.finished ? total : phase.shown) / 1e6;
+  const stage = phase.finished ? 'Ready' : phase.stageText();
+  const { els } = phase;
+  els.stage.forEach((el) => { if (el.textContent !== stage) el.textContent = stage; });
+  els.fill.forEach((el) => { el.style.transform = `scaleX(${frac})`; });
+  els.bar.forEach((el) => el.setAttribute('aria-valuenow', String(pct)));
+  els.pct.forEach((el) => { el.textContent = pct + '%'; });
+  els.mb.forEach((el) => { el.textContent = `${mb.toFixed(1)} / ${(total / 1e6).toFixed(1)} MB`; });
 }
 
-function loadJobDone(name) {
-  loadJobs.delete(name);
-  if (loadJobs.size || loadFinished) return;
-  loadFinished = true;
+function renderLoad() {
+  if (bootEl) bootEl.classList.remove('pending');
+  renderPhase(LOAD_PHASES.critical);
+  renderPhase(LOAD_PHASES.detail);
+}
+
+function loadJobDone(phaseName, job) {
+  const phase = LOAD_PHASES[phaseName];
+  phase.jobs.delete(job);
+  if (phase.jobs.size || phase.finished) return;
+  phase.finished = true;
   renderLoad();
-  if (loadEls.pill) {
-    loadEls.pill.classList.add('done');
-    setTimeout(() => { loadEls.pill.classList.remove('on'); }, 700);
+  if (phase === LOAD_PHASES.critical) revealGlobe();
+  else if (pillEl) {
+    pillEl.classList.add('done');
+    setTimeout(() => { pillEl.classList.remove('on'); }, 700);
   }
 }
 
-// Boot screen out, globe in. Called once the land fill is on the globe (or the
-// map failed, so the error banner isn't left behind a loading screen).
+// Boot screen out, playable globe in. Called once the critical phase is done
+// (or failed, so the error banner isn't left behind a loading screen).
 function revealGlobe() {
   if (globeRevealed) return;
   globeRevealed = true;
-  if (loadEls.boot) {
-    loadEls.boot.classList.add('done');
-    setTimeout(() => { loadEls.boot.hidden = true; }, 600);
+  if (bootEl) {
+    bootEl.classList.add('done');
+    setTimeout(() => { bootEl.hidden = true; }, 600);
   }
-  // CSS delays the pill's fade-in, so a load that's nearly done never flashes it
-  if (loadEls.pill && !loadFinished) loadEls.pill.classList.add('on');
+  // CSS delays the pill's fade-in, so detail that's nearly done (or already
+  // cached) never flashes it
+  if (pillEl && !LOAD_PHASES.detail.finished) pillEl.classList.add('on');
 }
 
 // Let the browser paint the previous stage before the next CPU-heavy build.
@@ -839,7 +870,7 @@ function topoFeatures(topo) {
   });
   return topoFeature({ ...topo, transform: undefined, arcs }, topo.objects.data);
 }
-const getTopo = (entry) => loadJSON(entry).then(topoFeatures);
+const getTopo = (entry, init) => loadJSON(entry, init).then(topoFeatures);
 // Map lab: density preview tool for the rivers/lakes lab page. Completely
 // inert unless the page is loaded with ?maplab in the URL; then it listens
 // for postMessage({type:'maplab', rivers, lakes}) from the embedding page and
@@ -850,31 +881,45 @@ const mapLab = {
   lakeMeshDim: null,
   riverMesh: null,
 };
-// Fetches are staged so the land fill gets the bandwidth first, then the
-// coast, then lakes + rivers together. locations.json (bottom of the file)
-// runs alongside from the start, since it gates the play buttons.
-const landP = getTopo(LOAD.land);
+// Critical fetches start now at high priority; locations.json is consumed at
+// the bottom of the file, where it gates the play buttons.
+const landP = getTopo(LOAD.land, { priority: 'high' });
 // optional: the globe still works (minus small islands) if this one fails
-const islandsP = getTopo(LOAD.islands).catch(() => ({ features: [] }));
-const coastP = landP.catch(() => {}).then(() => getTopo(LOAD.coast));
-const lakesP = coastP.catch(() => {}).then(() => getTopo(LOAD.lakes));
-const riversP = coastP.catch(() => {}).then(() => getTopo(LOAD.rivers));
+const islandsP = getTopo(LOAD.islands, { priority: 'high' }).catch(() => ({ features: [] }));
+const locationsP = loadJSON(LOAD.locations, { priority: 'high', ...(RESET_DAILY ? { cache: 'reload' } : {}) });
+// Detail waits for every critical byte, then all three stream together.
+// Each phase's layer builds also wait for that phase's last byte: a build
+// blocks the main thread, and doing one while other files still stream froze
+// the bar and then jumped it (the "two big chunks").
+const criticalBytesP = Promise.allSettled([landP, islandsP, locationsP]);
+const detailP = (entry) => criticalBytesP.then(() => getTopo(entry, { priority: 'low' }));
+const coastP = detailP(LOAD.coast);
+const lakesP = detailP(LOAD.lakes);
+const riversP = detailP(LOAD.rivers);
+const detailBytesP = Promise.allSettled([coastP, lakesP, riversP]);
 // awaited in order below; mark handled so an early failure doesn't also
 // raise unhandled-rejection banners for the later stages
-for (const p of [coastP, lakesP, riversP]) p.catch(() => {});
+for (const p of [locationsP, coastP, lakesP, riversP]) p.catch(() => {});
 
-async function loadMap() {
+// Critical: the land fill (with OSM islands) is all a round needs on the globe.
+async function loadLand() {
+  await criticalBytesP;
+  await nextPaint();
   const [geo, islands] = await Promise.all([landP, islandsP]);
   const tex = buildLandTexture(geo, islands);
   globeMat.uniforms.uMap.value = tex;
   landLoaded = true;
-  revealGlobe();
   if (window.__boot) window.__boot('land loaded');
+  return { tex, islands };
+}
 
+// Detail: drawn onto the live globe in the background, each layer as it lands.
+async function loadDetail({ tex, islands }) {
   // Internal country borders hidden: coastlines only, keeps the challenge in
   // your geography, not in reading lines. (Border data stays in the GeoJSON
   // for a future practice mode.) Big-lake shores count as coastline, and so
   // do the OSM islands, which skip cleanCoast's MIN_ISLAND rule.
+  await detailBytesP;
   const geo10m = await coastP;
   await nextPaint();
   const coast = [
@@ -912,15 +957,21 @@ async function loadMap() {
   if (mapLab.on) initMapLab(lakes, rivers);
 }
 
-loadMap()
+const landReady = loadLand();
+landReady
   .catch((err) => {
     console.error('failed to load land data', err);
     if (window.__showErr) window.__showErr('MAPDATA: ' + (err && err.message ? err.message : err));
   })
-  .finally(() => {
-    revealGlobe();
-    loadJobDone('map');
-  });
+  .finally(() => loadJobDone('critical', 'map'));
+// a land failure is already reported above; detail just stands down
+landReady
+  .then(loadDetail, () => {})
+  .catch((err) => {
+    console.error('failed to load map detail', err);
+    if (window.__showErr) window.__showErr('MAPDETAIL: ' + (err && err.message ? err.message : err));
+  })
+  .finally(() => loadJobDone('detail', 'detail'));
 
 // Rivers/lakes density lab (?maplab). Rebuilds the lake-shore and river
 // outline layers on the live globe at the requested density. Only wired up
@@ -2410,7 +2461,7 @@ function dailyIds(date, list) {
   // Days since a fixed epoch; drives the rotation.
   const epoch = Date.UTC(2026, 9, 1) / 86400000;
   const dayNum = Math.floor(new Date(`${date}T12:00:00`).getTime() / 86400000) - epoch;
-  return bands.map((band, b) => {
+  const selections = bands.map((band, b) => {
     if (!band.length) return null;
     const shuffled = [...band];
     const rand = randomFrom(hashSeed(`band-${b}`));
@@ -2419,8 +2470,27 @@ function dailyIds(date, list) {
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     const idx = ((dayNum % shuffled.length) + shuffled.length) % shuffled.length;
-    return shuffled[idx].id;
-  }).filter(Boolean);
+    return { shuffled, idx };
+  });
+  // Pick one per band, avoiding duplicate countries across the 5 rounds.
+  // Deterministic: same day always yields the same 5 locations for everyone.
+  const usedCountries = new Set();
+  const result = [];
+  for (const sel of selections) {
+    if (!sel) continue;
+    const { shuffled, idx } = sel;
+    let pickIdx = idx;
+    for (let i = 0; i < shuffled.length; i++) {
+      const candidateIdx = (idx + i) % shuffled.length;
+      if (!usedCountries.has(shuffled[candidateIdx].country)) {
+        pickIdx = candidateIdx;
+        break;
+      }
+    }
+    usedCountries.add(shuffled[pickIdx].country);
+    result.push(shuffled[pickIdx].id);
+  }
+  return result;
 }
 
 function readJSON(key) {
@@ -6486,7 +6556,7 @@ ppdEls.share.addEventListener('click', async () => {
 
 passport = readPassport();
 
-loadJSON(LOAD.locations, RESET_DAILY ? { cache: 'reload' } : undefined).then((data) => {
+locationsP.then((data) => {
   locations = data;
   locationIndex = null;
   loadDaily();
@@ -6500,12 +6570,12 @@ loadJSON(LOAD.locations, RESET_DAILY ? { cache: 'reload' } : undefined).then((da
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
   if (window.__boot) window.__boot('locations loaded');
-  loadJobDone('locations');
+  loadJobDone('critical', 'locations');
 }).catch((err) => {
   gameEls.play.disabled = true;
   gameEls.survivalEntry.disabled = true;
   if (window.__showErr) window.__showErr('LOCATIONS: ' + err.message);
-  loadJobDone('locations');
+  loadJobDone('critical', 'locations');
 });
 getJSON('assets/expeditions.json').then((data) => {
   expeditions = Array.isArray(data) ? data : [];

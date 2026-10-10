@@ -55,7 +55,23 @@ version_file() {
   sha256sum "$1" | cut -c1-12
 }
 
-# Version main.js and style.css by content hash
+# Version asset JSON URLs by content hash
+for json_file in "$DEPLOY_DIR"/assets/*.json; do
+  [ -f "$json_file" ] || continue
+  base=$(basename "$json_file")
+  hash=$(version_file "$json_file")
+  # Replace in main.js: assets/<base> or assets/<base>?v=xxx
+  sed -i -E "s|(assets/$base)(\?v=[^\"']*)?|\1?v=$hash|g" "$DEPLOY_DIR/src/main.js"
+  # Restamp the loader's decoded-size denominator (LOAD in main.js) so the
+  # progress bar never drifts after an asset rebuild
+  size=$(stat -c %s "$json_file")
+  sed -i -E "s|(url: 'assets/$base\?v=$hash', size: )[0-9]+|\1$size|" "$DEPLOY_DIR/src/main.js"
+done
+echo "Asset versions: content-based (unchanged files keep cached URLs)"
+
+# Version main.js and style.css by content hash. Must run AFTER the asset
+# loop: that rewrites main.js, and hashing it first would let an asset-only
+# change ship under the old immutable main.js URL (stale assets forever).
 MAIN_JS_HASH=$(version_file "$DEPLOY_DIR/src/main.js")
 STYLE_CSS_HASH=$(version_file "$DEPLOY_DIR/src/style.css")
 sed -i -E "s|main\.js\?v=[^\"]*|main.js?v=$MAIN_JS_HASH|g" "$DEPLOY_DIR/index.html"
@@ -67,15 +83,6 @@ DEPLOY_VERSION=$(grep -v 'name="app-version"' "$DEPLOY_DIR/index.html" | sha256s
 sed -i -E "s|<meta name=\"app-version\" content=\"[^\"]*\"|<meta name=\"app-version\" content=\"$DEPLOY_VERSION\"|" "$DEPLOY_DIR/index.html"
 echo -n "$DEPLOY_VERSION" > "$DEPLOY_DIR/assets/version.txt"
 
-# Version asset JSON URLs by content hash
-for json_file in "$DEPLOY_DIR"/assets/*.json; do
-  [ -f "$json_file" ] || continue
-  base=$(basename "$json_file")
-  hash=$(version_file "$json_file")
-  # Replace in main.js: assets/<base> or assets/<base>?v=xxx
-  sed -i -E "s|(assets/$base)(\?v=[^\"']*)?|\1?v=$hash|g" "$DEPLOY_DIR/src/main.js"
-done
-echo "Asset versions: content-based (unchanged files keep cached URLs)"
 
 # Optional files if they exist
 # REMOVED: do not ship internal review tool to prod

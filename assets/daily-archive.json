@@ -64,5 +64,49 @@
       "id": "teraina",
       "round": 5
     }
+  ],
+  "2026-10-09": [
+    {
+      "id": "tokyo-japan",
+      "round": 1
+    },
+    {
+      "id": "lyon-france",
+      "round": 2
+    },
+    {
+      "id": "battle-of-hastings",
+      "round": 3
+    },
+    {
+      "id": "bandung-id",
+      "round": 4
+    },
+    {
+      "id": "jericoacoara",
+      "round": 5
+    }
+  ],
+  "2026-10-10": [
+    {
+      "id": "sagrada-familia",
+      "round": 1
+    },
+    {
+      "id": "seville-spain",
+      "round": 2
+    },
+    {
+      "id": "zarqa",
+      "round": 3
+    },
+    {
+      "id": "leon-de-los-aldama-mx",
+      "round": 4
+    },
+    {
+      "id": "cixi-cn",
+      "round": 5
+    }
   ]
 }
