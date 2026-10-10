@@ -44,7 +44,7 @@ for f in "$SCRIPT_DIR"/assets/*; do
   # Skip backup files, duplicates, and dead files (not loaded by code).
   # image-audit/ and difficulty/ are offline QA/pipeline data (~43 MB), never fetched by the game.
   case "$base" in
-    *.bak|*.pre-*|og-v3.png|world.geo.json|world-10m.geo.json|image-audit|difficulty) continue ;;
+    *.bak|*.pre-*|world.geo.json|world-10m.geo.json|image-audit|difficulty) continue ;;
   esac
   cp -r "$f" "$DEPLOY_DIR/assets/"
 done
