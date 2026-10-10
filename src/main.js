@@ -1102,10 +1102,15 @@ function fetchInsetTile(t) {
   fetch(t.url, { signal: ctrl.signal, mode: 'cors', priority: t.visible ? 'high' : 'low' })
     .then((r) => {
       if (r.status === 429) { tripInsetBreaker(); throw new Error('HTTP 429'); }
+      if (r.status === 404) {
+        // No tile here (ocean) — not a failure, don't count toward breaker
+        return null;
+      }
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.blob();
     })
     .then((blob) => {
+      if (!blob) return; // 404, nothing to do
       noteInsetLatency(performance.now() - t0);
       inset.fails = 0;
       inset.trips = 0;
