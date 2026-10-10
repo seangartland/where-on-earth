@@ -125,10 +125,11 @@ print('Alias status:', d.get('status'))
     VENDOR_PATH=$(grep -o "\./lib/[^\"]*/three/build/three.module.js" "$SCRIPT_DIR/index.html" | head -1 | sed "s|^\.||")
     VENDOR_CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://where-on-earth-game.vercel.app${VENDOR_PATH:-/vendor/three/build/three.module.js}")
     LOC_COUNT=$(curl -s "https://where-on-earth-game.vercel.app/assets/locations.json" 2>/dev/null | python3 -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo "?")
+    EXPECTED_COUNT=$(python3 -c "import json; print(len(json.load(open('$SCRIPT_DIR/assets/locations.json'))))")
     echo "Vendor (three.js): $VENDOR_CODE"
-    echo "Locations: $LOC_COUNT"
+    echo "Locations: $LOC_COUNT (expected $EXPECTED_COUNT)"
     
-    if [ "$VENDOR_CODE" = "200" ] && [ "$LOC_COUNT" = "2000" ]; then
+    if [ "$VENDOR_CODE" = "200" ] && [ "$LOC_COUNT" = "$EXPECTED_COUNT" ]; then
         echo "✅ Deploy successful"
     else
         echo "⚠️  Deploy may have issues - verify manually"
