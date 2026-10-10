@@ -992,8 +992,7 @@ function startInsetWindow(want) {
   const { z, n } = want;
   const x0 = imod(want.tx0, n) / n;
   buf.bounds.set(x0, want.ty0 / n, x0 + INSET_TILES / n, (want.ty0 + INSET_TILES) / n);
-  const providerIdx = SAT_PROVIDERS.indexOf(satProvider);
-  const win = { ...want, gen: ++inset.gen, buf, tiles: [], byKey: new Map(), visLeft: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
+  const win = { ...want, pi: SAT_PROVIDERS.indexOf(satProvider), gen: ++inset.gen, buf, tiles: [], visLeft: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
   for (let sy = 0; sy < want.rows; sy++) {
     for (let sx = 0; sx < want.cols; sx++) {
       const tx = want.tx0 + sx;
@@ -1001,15 +1000,15 @@ function startInsetWindow(want) {
       const x = imod(tx, n);
       const visible = tx >= want.vx0 && tx <= want.vx1 && ty >= want.vy0 && ty <= want.vy1;
       const tile = {
-        key: `${providerIdx}/${z}/${x}/${ty}`,
-        url: satProvider.url(z, ty, x),
-        sx, sy, visible,
+        x, y: ty, sx, sy, visible,
+        k: 0, src: '', url: '', // source: own tile (k = 0) or the ancestor k levels up
         pri: (visible ? 0 : 1000) + Math.hypot(tx + 0.5 - want.ccx, ty + 0.5 - want.ccy),
         state: 0, // 0 idle, 1 decoding / awaiting upload, 2 done (uploaded or given up)
         tries: 0,
       };
+      setInsetSrc(win, tile);
+      while (inset.missing.has(tile.src) && tile.k < z) { tile.k++; setInsetSrc(win, tile); }
       win.tiles.push(tile);
-      win.byKey.set(tile.key, tile);
       win.allLeft++;
       if (visible) win.visLeft++;
     }
@@ -1017,24 +1016,48 @@ function startInsetWindow(want) {
   win.tiles.sort((a, b) => a.pri - b.pri);
   buf.win = win;
   // abort fetches the new window doesn't need; the rest land in it
+  const srcs = new Set(win.tiles.map((t) => t.src));
   for (const [key, f] of inset.inflight) {
-    if (!win.byKey.has(key)) { f.ctrl.abort(); inset.inflight.delete(key); }
+    if (!srcs.has(key)) { f.ctrl.abort(); inset.inflight.delete(key); }
   }
   inset.win = win;
   inset.lastBuild = performance.now();
   feedInsetWindow(win);
 }
 
+// R2 holds every tile only at z0-3; z4+ is just the 3x3 around each location
+// (scripts/prefetch-eox-tiles.mjs). A tile it doesn't hold is filled from its
+// nearest ancestor, cropped and upscaled, so the view stays one EOX mosaic
+// instead of stepping to the NASA base at hard tile edges.
+function setInsetSrc(win, t) {
+  const z = win.z - t.k;
+  const x = t.x >> t.k;
+  const y = t.y >> t.k;
+  t.src = `${win.pi}/${z}/${x}/${y}`;
+  t.url = satProvider.url(z, y, x);
+}
+
+// Start an idle tile from its source: cached blob, a fetch already in flight
+// (it is delivered here when it lands), or the fetch queue in priority order.
+// Known-missing sources step up to the parent.
+function loadInsetTile(win, t) {
+  while (inset.missing.has(t.src)) {
+    if (t.k >= win.z) { finishInsetTile(win, t); return; }
+    t.k++;
+    setInsetSrc(win, t);
+  }
+  if (inset.inflight.has(t.src)) return;
+  const blob = lruGet(t.src);
+  if (blob) { decodeInsetTile(win, t, blob); return; }
+  const q = inset.queue;
+  const i = q.findIndex((o) => o.pri > t.pri);
+  q.splice(i < 0 ? q.length : i, 0, t);
+}
+
 // Queue every idle tile: straight to decode from the blob cache, else fetch.
 function feedInsetWindow(win) {
   inset.queue = [];
-  for (const t of win.tiles) {
-    if (t.state !== 0 || inset.inflight.has(t.key)) continue;
-    if (inset.missing.has(t.key)) { finishInsetTile(win, t); continue; }
-    const blob = lruGet(t.key);
-    if (blob) decodeInsetTile(win, t, blob);
-    else inset.queue.push(t);
-  }
+  for (const t of win.tiles) if (t.state === 0) loadInsetTile(win, t);
 }
 
 function insetsOff() {
@@ -1068,16 +1091,39 @@ function finishInsetTile(win, t) {
 function failInsetTile(win, t) {
   t.state = 0;
   if (++t.tries >= INSET_TRIES) finishInsetTile(win, t);
-  else if (inset.win === win) inset.queue.push(t);
+  else if (inset.win === win) loadInsetTile(win, t);
+}
+
+// The part of ancestor bitmap `bmp` under tile t, upscaled to a 256 px tile.
+// drawImage filters across the crop edge from the real neighbouring pixels,
+// so adjacent fallback tiles stay continuous.
+let _insetCrop = null;
+function cropInsetTile(t, bmp) {
+  if (!_insetCrop) _insetCrop = Object.assign(document.createElement('canvas'), { width: 256, height: 256 });
+  const ctx = _insetCrop.getContext('2d');
+  const m = (1 << t.k) - 1;
+  const s = 256 / (1 << t.k);
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(bmp, (t.x & m) * s, (t.y & m) * s, s, s, 0, 0, 256, 256);
+  bmp.close();
+  return createImageBitmap(_insetCrop);
 }
 
 function decodeInsetTile(win, t, blob) {
   t.state = 1;
-  createImageBitmap(blob).then((bmp) => {
-    if (inset.win !== win || win.buf.win !== win) { bmp.close(); t.state = 0; return; }
-    if (bmp.width !== 256 || bmp.height !== 256) { bmp.close(); failInsetTile(win, t); return; }
-    inset.uploads.push({ win, t, bmp });
-  }, () => failInsetTile(win, t));
+  const stale = () => inset.win !== win || win.buf.win !== win;
+  createImageBitmap(blob)
+    .then((bmp) => {
+      if (stale()) { bmp.close(); return null; }
+      if (bmp.width !== 256 || bmp.height !== 256) { bmp.close(); throw new Error('tile size'); }
+      return t.k ? cropInsetTile(t, bmp) : bmp;
+    })
+    .then((bmp) => {
+      if (!bmp) { t.state = 0; return; }
+      if (stale()) { bmp.close(); t.state = 0; return; }
+      inset.uploads.push({ win, t, bmp });
+    }, () => failInsetTile(win, t));
 }
 
 // Circuit breaker: 5 consecutive failures or any 429 pause detail loading,
@@ -1103,10 +1149,13 @@ function noteInsetLatency(ms) {
   else if (med < 600) inset.slow = false;
 }
 
+// One fetch per source key; every tile of the current window waiting on that
+// source gets the result (several tiles can share an ancestor).
 function fetchInsetTile(t) {
+  const key = t.src;
   const ctrl = new AbortController();
   const entry = { ctrl };
-  inset.inflight.set(t.key, entry);
+  inset.inflight.set(key, entry);
   const t0 = performance.now();
   fetch(t.url, { signal: ctrl.signal, mode: 'cors', priority: t.visible ? 'high' : 'low' })
     .then((r) => {
@@ -1119,25 +1168,27 @@ function fetchInsetTile(t) {
       noteInsetLatency(performance.now() - t0);
       inset.fails = 0;
       inset.trips = 0;
-      if (blob) lruPut(t.key, blob);
-      else inset.missing.add(t.key);
-      // deliver to whichever window wants this tile now; a missing tile is
-      // done (the base shows there) so the window can still complete
+      if (blob) lruPut(key, blob);
+      else inset.missing.add(key);
+      // deliver to whichever window wants this source now; a missing source
+      // sends its tiles on to the parent (z0-3 always exist, so it ends)
       const win = inset.win;
-      const tile = win && win.byKey.get(t.key);
-      if (tile && tile.state === 0) {
+      if (!win) return;
+      for (const tile of win.tiles) {
+        if (tile.state !== 0 || tile.src !== key) continue;
         if (blob) decodeInsetTile(win, tile, blob);
-        else finishInsetTile(win, tile);
+        else loadInsetTile(win, tile);
       }
     })
     .catch((err) => {
       if (err.name === 'AbortError') return;
       if (++inset.fails >= 5) tripInsetBreaker();
+      if (inset.inflight.get(key) === entry) inset.inflight.delete(key);
       const win = inset.win;
-      const tile = win && win.byKey.get(t.key);
-      if (tile && tile.state === 0) failInsetTile(win, tile);
+      if (!win) return;
+      for (const tile of win.tiles) if (tile.state === 0 && tile.src === key) failInsetTile(win, tile);
     })
-    .finally(() => { if (inset.inflight.get(t.key) === entry) inset.inflight.delete(t.key); });
+    .finally(() => { if (inset.inflight.get(key) === entry) inset.inflight.delete(key); });
 }
 
 function pumpInsetFetches(now) {
@@ -1145,7 +1196,7 @@ function pumpInsetFetches(now) {
   const max = inset.slow ? INSET_FETCHES_SLOW : INSET_FETCHES;
   while (inset.inflight.size < max && inset.queue.length) {
     const t = inset.queue.shift();
-    if (t.state !== 0 || inset.inflight.has(t.key)) continue;
+    if (t.state !== 0 || inset.inflight.has(t.src)) continue;
     fetchInsetTile(t);
   }
 }
@@ -1286,7 +1337,7 @@ window.__sat = {
     return {
       size: INSET_SIZE, gen: w && w.gen,
       z: w && w.z, cols: w && w.cols, rows: w && w.rows,
-      tiles: w && w.tiles.length, visLeft: w && w.visLeft, allLeft: w && w.allLeft,
+      tiles: w && w.tiles.length, fallback: w && w.tiles.filter((t) => t.k).length, visLeft: w && w.visLeft, allLeft: w && w.allLeft,
       ready: !!(w && w.ready), mipped: !!(w && w.mipped),
       inflight: inset.inflight.size, queued: inset.queue.length, uploads: inset.uploads.length,
       lru: inset.lru.size, lruKB: Math.round(inset.lruBytes / 1024),
