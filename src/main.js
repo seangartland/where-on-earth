@@ -729,7 +729,10 @@ function buildOutline(lines, radius, opts) {
 // ---------------------------------------------------------------------------
 const SAT_PROVIDERS = [
   {
-    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg`,
+    // ?v=2: the edge and browsers cached tiles from before the bucket's CORS
+    // policy without Access-Control-Allow-Origin (immutable, 1 year); a new
+    // query string is a new cache key, so every tile is fetched with CORS.
+    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg?v=2`,
     credit: 'Base imagery: NASA Blue Marble · Detail imagery: <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a>',
     maxZ: 8,
   },
@@ -741,7 +744,7 @@ let satTarget = 0; // uSatMix eases toward this
 let satT = 0;
 let satApplied = 0; // last satT pushed to the uniforms and overlays
 let satCreditEl = null;
-let satProvider = null; // Esri provider used only by the detail insets
+let satProvider = null; // tile provider used only by the detail insets
 let satDisabled = false; // for the session, after a second context loss
 
 async function loadSatBase() {
@@ -820,6 +823,7 @@ const inset = {
   uploads: [], // decoded bitmaps waiting for a frame's upload budget
   lru: new Map(), // tile key -> compressed Blob, oldest first
   lruBytes: 0,
+  missing: new Set(), // tile keys that 404 (open ocean): never refetched
   fails: 0, // consecutive fetch failures
   trips: 0, // breaker trips since the last success (exponential backoff)
   pausedUntil: 0,
@@ -975,8 +979,12 @@ function insetCovers(win, want) {
 
 function startInsetWindow(want) {
   const bufs = ensureInsets();
-  // keep a completed window underneath; otherwise refill the top buffer
-  if (bufs[inset.over].win && bufs[inset.over].win.ready) inset.over = 1 - inset.over;
+  // Keep whatever shows underneath: a completed top window always, a partly
+  // filled one unless the buffer below is complete. Refilling a top that
+  // already shows tiles would blank them back to the base.
+  const top = bufs[inset.over].win;
+  const under = bufs[1 - inset.over].win;
+  if (top && (top.ready || (top.loaded > 0 && !(under && under.ready)))) inset.over = 1 - inset.over;
   const buf = bufs[inset.over];
   clearInset(buf);
   buf.mix = 0;
@@ -985,7 +993,7 @@ function startInsetWindow(want) {
   const x0 = imod(want.tx0, n) / n;
   buf.bounds.set(x0, want.ty0 / n, x0 + INSET_TILES / n, (want.ty0 + INSET_TILES) / n);
   const providerIdx = SAT_PROVIDERS.indexOf(satProvider);
-  const win = { ...want, gen: ++inset.gen, buf, tiles: [], byKey: new Map(), visLeft: 0, allLeft: 0, ready: false, mipped: false };
+  const win = { ...want, gen: ++inset.gen, buf, tiles: [], byKey: new Map(), visLeft: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
   for (let sy = 0; sy < want.rows; sy++) {
     for (let sx = 0; sx < want.cols; sx++) {
       const tx = want.tx0 + sx;
@@ -1022,6 +1030,7 @@ function feedInsetWindow(win) {
   inset.queue = [];
   for (const t of win.tiles) {
     if (t.state !== 0 || inset.inflight.has(t.key)) continue;
+    if (inset.missing.has(t.key)) { finishInsetTile(win, t); continue; }
     const blob = lruGet(t.key);
     if (blob) decodeInsetTile(win, t, blob);
     else inset.queue.push(t);
@@ -1102,23 +1111,24 @@ function fetchInsetTile(t) {
   fetch(t.url, { signal: ctrl.signal, mode: 'cors', priority: t.visible ? 'high' : 'low' })
     .then((r) => {
       if (r.status === 429) { tripInsetBreaker(); throw new Error('HTTP 429'); }
-      if (r.status === 404) {
-        // No tile here (ocean) — not a failure, don't count toward breaker
-        return null;
-      }
+      if (r.status === 404) return null; // no tile here (ocean): not a failure
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.blob();
     })
     .then((blob) => {
-      if (!blob) return; // 404, nothing to do
       noteInsetLatency(performance.now() - t0);
       inset.fails = 0;
       inset.trips = 0;
-      lruPut(t.key, blob);
-      // deliver to whichever window wants this tile now
+      if (blob) lruPut(t.key, blob);
+      else inset.missing.add(t.key);
+      // deliver to whichever window wants this tile now; a missing tile is
+      // done (the base shows there) so the window can still complete
       const win = inset.win;
       const tile = win && win.byKey.get(t.key);
-      if (tile && tile.state === 0) decodeInsetTile(win, tile, blob);
+      if (tile && tile.state === 0) {
+        if (blob) decodeInsetTile(win, tile, blob);
+        else finishInsetTile(win, tile);
+      }
     })
     .catch((err) => {
       if (err.name === 'AbortError') return;
@@ -1149,6 +1159,7 @@ function pumpInsetUploads() {
     renderer.copyTextureToTexture(_tileSrc, win.buf.rt.texture, null, _tileDst.set(t.sx * 256, t.sy * 256));
     _tileSrc.image = null;
     bmp.close(); // never hoard decoded pixels
+    win.loaded++;
     finishInsetTile(win, t);
     done++;
   }
