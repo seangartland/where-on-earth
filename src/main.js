@@ -4,6 +4,7 @@ import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { feature as topoFeature } from 'topojson-client';
+import { dailyIds, isLandmark, isPlayableLocation, monthKey } from './daily.js';
 
 if (window.__boot) window.__boot('3D engine loaded');
 
@@ -35,7 +36,7 @@ if (RESET_DAILY) {
         if (!banner) {
           banner = document.createElement('button');
           banner.id = 'update-banner';
-          banner.textContent = 'New version available — tap to reload';
+          banner.textContent = 'New version available. Tap to reload';
           banner.style.cssText = 'position:fixed;z-index:9999;top:0;left:0;right:0;padding:12px;background:#f5c451;color:#000;font-weight:700;border:0;cursor:pointer;';
           banner.onclick = () => location.reload();
           document.body.appendChild(banner);
@@ -3113,44 +3114,6 @@ let daily = null;
 let selected = [];
 let gameMode = 'start';
 
-const LANDMARK_TERMS = [
-  'temple', 'cathedral', 'church', 'mosque', 'palace', 'castle', 'museum',
-  'tower', 'bridge', 'statue', 'monument', 'ruins', 'abbey', 'shrine',
-  'fort', 'citadel', 'basilica', 'chapel', 'synagogue', 'pagoda',
-  'house of', 'hall of', 'tomb of',
-];
-
-// Keep placeholder art in the passport, but never use it for a game target.
-// This is intentionally based on the image URL so a real replacement image
-// automatically restores the location to every mode.
-function isPlayableLocation(item) {
-  if (typeof item?.image !== 'string' || item.image.length === 0 || item.image.includes('No_image_available')) return false;
-  // Antarctica is quarantined: the map projection breaks near the pole
-  // (pin drops and zoom/swipe become buggy), so these are excluded from play.
-  const lat = Number(item?.lat);
-  if (Number.isFinite(lat) && lat < -60) return false;
-  if (typeof item?.country === 'string' && item.country.toLowerCase().includes('antarctica')) return false;
-  return true;
-}
-
-// Non-city locations (landmarks, mountains, lakes, etc.) are tagged with a
-// category in locations.json and excluded from launch game modes. They stay
-// in the DB for future modes (e.g. landmarks mode, nature mode).
-function isLaunchExcluded(item) {
-  const cat = item?.category;
-  // Fall back to name matching for items missing the category field
-  if (!cat) {
-    const name = typeof item?.short === 'string' ? item.short.toLowerCase() : '';
-    return LANDMARK_TERMS.some((term) => name.includes(term));
-  }
-  return cat !== 'city';
-}
-
-// Legacy alias
-function isLandmark(item) {
-  return isLaunchExcluded(item);
-}
-
 function localDateKey(date = new Date()) {
   const y = date.getFullYear();
   const m = String(date.getMonth() + 1).padStart(2, '0');
@@ -3165,68 +3128,6 @@ function formatDailyDate(dateKey) {
     month: 'long',
     day: 'numeric',
   });
-}
-
-function hashSeed(text) {
-  let h = 2166136261;
-  for (let i = 0; i < text.length; i++) {
-    h ^= text.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
-
-function randomFrom(seed) {
-  return () => {
-    seed |= 0;
-    seed = (seed + 0x6d2b79f5) | 0;
-    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function dailyIds(date, list) {
-  // Five difficulty bands, one per round: R1 = diff 1-2, R2 = 3-4, R3 = 5-6,
-  // R4 = 7-8, R5 = 9-10. Each band has its own deterministically shuffled queue;
-  // day N takes index N mod band length, so no location repeats until its whole
-  // band is exhausted, and everyone gets the same daily game.
-  const bands = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]].map(([lo, hi]) =>
-    list.filter((item) => !isLandmark(item) && isPlayableLocation(item) && (item.difficulty || 5) >= lo && (item.difficulty || 5) <= hi),
-  );
-  // Days since a fixed epoch; drives the rotation.
-  const epoch = Date.UTC(2026, 9, 1) / 86400000;
-  const dayNum = Math.floor(new Date(`${date}T12:00:00`).getTime() / 86400000) - epoch;
-  const selections = bands.map((band, b) => {
-    if (!band.length) return null;
-    const shuffled = [...band];
-    const rand = randomFrom(hashSeed(`band-${b}`));
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(rand() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    const idx = ((dayNum % shuffled.length) + shuffled.length) % shuffled.length;
-    return { shuffled, idx };
-  });
-  // Pick one per band, avoiding duplicate countries across the 5 rounds.
-  // Deterministic: same day always yields the same 5 locations for everyone.
-  const usedCountries = new Set();
-  const result = [];
-  for (const sel of selections) {
-    if (!sel) continue;
-    const { shuffled, idx } = sel;
-    let pickIdx = idx;
-    for (let i = 0; i < shuffled.length; i++) {
-      const candidateIdx = (idx + i) % shuffled.length;
-      if (!usedCountries.has(shuffled[candidateIdx].country)) {
-        pickIdx = candidateIdx;
-        break;
-      }
-    }
-    usedCountries.add(shuffled[pickIdx].country);
-    result.push(shuffled[pickIdx].id);
-  }
-  return result;
 }
 
 function readJSON(key) {
@@ -3365,7 +3266,7 @@ function showRound() {
     gameEls.dailyDate.hidden = true;
   } else if (survival.active) {
     document.body.classList.add('survival');
-    gameEls.number.textContent = `Round ${survival.round} — Difficulty ${survivalBand()}/10`;
+    gameEls.number.textContent = `Round ${survival.round}  Difficulty ${survivalBand()}/10`;
     gameEls.weight.style.display = 'none';
     gameEls.survivalStreak.textContent = survival.round === 1
       ? 'One miss over 150 km ends the run'
@@ -4552,7 +4453,7 @@ function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next = showRe
   gameEls.postcardSummaryScreen.hidden = false;
   document.body.classList.add('game-results');
   const { new: newCount, upgrade: upgradeCount } = postcardSummaryCounts(outcomes);
-  gameEls.postcardSummaryLede.textContent = `${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' — and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
+  gameEls.postcardSummaryLede.textContent = `${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
   gameEls.breakdown.replaceChildren(...outcomes.map(({ result, item }) => postcardSummaryCard(result, item)));
   const countLabel = (count, label) => {
     const el = document.createElement('span');
@@ -4586,24 +4487,27 @@ function showResults() {
     const round = document.createElement('li');
     const number = document.createElement('b');
     const place = document.createElement('span');
-    const separator = document.createElement('span');
     const metrics = document.createElement('span');
     const points = document.createElement('span');
     const distance = document.createElement('span');
 
-    number.textContent = `${i + 1}.`;
+    const item = selected[i];
+    const city = item?.short || item?.clue || 'Unknown location';
+    const country = item?.country || '';
+    const flag = item ? flagForLocation(item) : '🌍';
+    const rawScore = result.base ?? Math.round(result.score / WEIGHTS[i]);
+
+    number.textContent = i + 1;
     place.className = 'place';
-    place.textContent = selected[i]?.short || selected[i]?.clue || 'Unknown location';
-    separator.className = 'result-separator';
-    separator.textContent = '—';
-    separator.setAttribute('aria-hidden', 'true');
+    const hasCountry = country && city.toLocaleLowerCase().includes(country.toLocaleLowerCase());
+    place.textContent = `${city}${country && !hasCountry ? `, ${country}` : ''} ${flag}`;
     metrics.className = 'result-metrics';
     points.className = 'points';
-    points.textContent = `${result.score.toLocaleString()} pts`;
+    points.textContent = rawScore.toLocaleString();
     distance.className = 'distance';
     distance.textContent = `${result.distance.toLocaleString()} km`;
     metrics.append(points, distance);
-    round.append(number, place, separator, metrics);
+    round.append(number, place, metrics);
     return round;
   }));
   tickCountdown();
@@ -4629,7 +4533,7 @@ function startGame() {
 
 function nextRound() {
   if (gameMode !== 'reveal') return;
-  // Clear any pending earn toast from the previous round — if the user moved on
+  // Clear any pending earn toast from the previous round; if the user moved on
   // before the flyover finished, the toast should not appear in the new round.
   window.__pendingEarn = null;
   document.querySelector('.earn-toast')?.remove();
@@ -4772,7 +4676,7 @@ const endlessEntry = document.getElementById('endless-button');
 const endlessEls = { entry: endlessEntry };
 
 // Pure random: every guess picks from all playable image-backed locations.
-// Repeats are expected — dailies are the way to see new places.
+// Repeats are expected; dailies are the way to see new places.
 function endlessPick() {
   const all = locations.filter((item) => isPlayableLocation(item) && !isLandmark(item));
   // Keep track of recent picks to avoid repeats (last 50)
@@ -4896,7 +4800,7 @@ async function confirmGoHome() {
     goHome();
     return;
   }
-  // Don't confirm if game is complete (on results page) — nothing to lose
+  // Don't confirm if game is complete (on results page); nothing to lose
   if (daily.complete || (typeof endless !== 'undefined' && endless.complete)) {
     goHome();
     return;
@@ -5042,6 +4946,19 @@ const REVIEW_LINE_HIT = 20;
 const reviewStyle = document.createElement('style');
 reviewStyle.textContent = `
 .results-card { position: relative; }
+.results-title { margin: 2px 48px 3px; color: rgba(198,226,250,.58); font-size: 11px; font-weight: 850; letter-spacing: .14em; text-align: center; text-transform: uppercase; }
+.results-card .result-score { display: flex; align-items: baseline; justify-content: center; gap: 5px; margin: 0 0 4px; }
+.results-card .result-score b { color: #ffc76a; font-size: clamp(42px, 14vw, 58px); font-weight: 850; line-height: 1; letter-spacing: -.055em; }
+.results-card .result-score span { color: rgba(198,226,250,.58); font-size: 14px; font-weight: 700; }
+.results-card .streak { margin-bottom: 10px; }
+.results-card .round-breakdown { margin-top: 10px; }
+.results-card .round-breakdown h2 { display: none; }
+#results-breakdown li { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 10px 0; }
+#results-breakdown li > b { font-size: 13px; }
+#results-breakdown .place { min-width: 0; overflow: visible; color: rgba(225,240,255,.92); font-weight: 650; line-height: 1.25; overflow-wrap: anywhere; white-space: normal; }
+#results-breakdown .result-metrics { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; min-width: 62px; white-space: nowrap; }
+#results-breakdown .points { color: #ffc76a; font-size: 17px; font-weight: 850; line-height: 1.1; }
+#results-breakdown .distance { color: rgba(193,224,250,.58); font-size: 11px; font-weight: 600; }
 .results-globe { margin: 8px auto 0; }
 .next-game { margin: 12px 0 0; padding: 10px 16px 8px; }
 .next-game-time { font-size: 28px; }
@@ -5067,6 +4984,13 @@ body.game-review #hud { opacity: 0; }
   .recap-fact { margin: 9px 0 11px; }
 }`;
 document.head.appendChild(reviewStyle);
+
+const resultScore = gameEls.total.closest('.result-score');
+const resultsTitle = document.createElement('p');
+resultsTitle.className = 'results-title';
+resultsTitle.textContent = daily ? "TODAY'S RESULT" : 'SCORE';
+resultScore.firstChild.textContent = '';
+resultScore.before(resultsTitle);
 
 const resultsGlobe = document.createElement('button');
 resultsGlobe.className = 'text-button results-globe';
@@ -5520,9 +5444,9 @@ function renderStats() {
   setStat('streak', stats.streak);
   setStat('longest', stats.longest);
   setStat('games', stats.games.toLocaleString());
-  setStat('average', stats.games ? stats.average.toLocaleString() : '—');
-  setStat('best', stats.games ? stats.bestTotal.toLocaleString() : '—');
-  setStat('distance', stats.games ? `${stats.averageDistance.toLocaleString()} km` : '—');
+  setStat('average', stats.games ? stats.average.toLocaleString() : '');
+  setStat('best', stats.games ? stats.bestTotal.toLocaleString() : '');
+  setStat('distance', stats.games ? `${stats.averageDistance.toLocaleString()} km` : '');
   const sub = statsScreen.querySelector('[data-stats="games-sub"]');
   sub.textContent = stats.games ? `since ${shortDate(stats.first)}` : 'no games logged yet';
 
@@ -5550,7 +5474,7 @@ function renderStats() {
 
   const notes = ['Endless games are unscored, so they aren’t counted here.'];
   if (!stats.games) notes.unshift('Play today’s five places and these tiles start filling in.');
-  else if (stats.games < 3) notes.unshift(`Averages and your longest streak settle in after a few games — ${stats.games} logged so far.`);
+  else if (stats.games < 3) notes.unshift(`Averages and your longest streak settle in after a few games. ${stats.games} logged so far.`);
   statsEls.note.innerHTML = notes.join(' ');
 }
 
@@ -6342,7 +6266,7 @@ passportScreen.innerHTML = `
       <p class="pp-empty"></p>
       <button class="pp-play" data-pp="play">Play today’s game</button>
     </div>
-    <p class="pp-note" data-pp="note">Land within 150 km to earn a postcard in full colour, within 25 km for gold. Black-and-white cards come back in Endless once you’ve seen everywhere. Earlier stamps show “—” for distance and date.</p>
+    <p class="pp-note" data-pp="note">Land within 150 km to earn a postcard in full colour, within 25 km for gold. Black-and-white cards come back in Endless once you’ve seen everywhere. Earlier stamps leave distance and date blank.</p>
   </div>`;
 document.getElementById('game').appendChild(passportScreen);
 passportScreenEl = passportScreen;
@@ -6451,7 +6375,7 @@ function fillPassportShareCard(stats) {
   ppsEls.earned.textContent = stats.earned.toLocaleString();
   ppsEls.bullseyes.textContent = stats.bullseyes.toLocaleString();
   if (stats.top3 && stats.top3.length > 0) {
-    ppsEls.top3.innerHTML = '<b>Closest guesses:</b><br>' + stats.top3.map((t, i) => `${i + 1}. ${t.name} — ${t.km} km`).join('<br>');
+    ppsEls.top3.innerHTML = '<b>Closest guesses:</b><br>' + stats.top3.map((t, i) => `${i + 1}. ${t.name}  ${t.km} km`).join('<br>');
   } else {
     ppsEls.top3.innerHTML = `🔥 <b>${stats.streak.toLocaleString()}</b> day current streak`;
   }
@@ -6576,13 +6500,13 @@ async function sharePassport() {
       ppsEls.status.textContent = 'Passport shared!';
     } else {
       await navigator.clipboard.writeText(text);
-      ppsEls.status.textContent = 'Passport stats copied — paste them anywhere.';
+      ppsEls.status.textContent = 'Passport stats copied. Paste them anywhere.';
     }
   } catch (error) {
     if (error?.name === 'AbortError') return;
     try {
       await navigator.clipboard.writeText(text);
-      ppsEls.status.textContent = 'Passport stats copied — paste them anywhere.';
+      ppsEls.status.textContent = 'Passport stats copied. Paste them anywhere.';
     } catch {
       ppsEls.status.textContent = 'Sharing is unavailable on this browser.';
     }
@@ -7135,7 +7059,7 @@ function fillPostcard(entry) {
   ppdEls.history.hidden = history.length === 0;
   const cells = [
     ['Best score', `${entry.best}<small> /1000</small>`],
-    ['Closest guess', Number.isFinite(entry.km) ? `${entry.km.toLocaleString()}<small> km</small>` : '—'],
+    ['Closest guess', Number.isFinite(entry.km) ? `${entry.km.toLocaleString()}<small> km</small>` : ''],
   ];
   ppdEls.stats.replaceChildren(...cells.map(([label, value, t]) => {
     const div = document.createElement('div');
@@ -7145,7 +7069,7 @@ function fillPostcard(entry) {
   }));
   ppdEls.hint.hidden = earn !== 'seen';
   ppdEls.hint.textContent = 'Land within 150 km to earn this postcard in colour.';
-  ppdEls.visited.textContent = entry.first ? longDate(entry.first) : '—';
+  ppdEls.visited.textContent = entry.first ? longDate(entry.first) : '';
   // Only a postcard with a known closest guess has a distance to brag about.
   ppdEntry = entry;
   clearTimeout(ppdCopiedTimer);
