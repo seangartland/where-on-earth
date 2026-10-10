@@ -724,14 +724,14 @@ function buildOutline(lines, radius, opts) {
 // ?map=classic forces the stylized map for testing; it is kept intact for a
 // future mode.
 //   base:   the whole world in one local 2048x1024 equirectangular texture
-//   insets: two detail windows (A under B) that follow the camera at z4-z11,
+//   insets: two detail windows (A under B) that follow the camera at z4-z8,
 //           filled tile by tile once the camera settles (see "Detail insets")
 // ---------------------------------------------------------------------------
 const SAT_PROVIDERS = [
   {
-    url: (z, y, x) => `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`,
-    credit: 'Base imagery: NASA Blue Marble · Detail imagery: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
-    maxZ: 11,
+    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg`,
+    credit: 'Base imagery: NASA Blue Marble · Detail imagery: <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a>',
+    maxZ: 8,
   },
 ];
 const SAT_BASE_URL = './assets/blue-marble-2k.jpg';
@@ -785,7 +785,7 @@ const satReady = initSatellite();
 
 // ---------------------------------------------------------------------------
 // Detail insets
-// Two render-target textures hold a window of z4-z11 tiles around the view.
+// Two render-target textures hold a window of z4-z8 tiles around the view.
 // A new window fills the buffer that isn't showing, drawn on top (B) and
 // cleared to alpha 0, so unloaded tiles show the older inset or the base.
 // Once every visible tile has landed, the old buffer fades out underneath.
