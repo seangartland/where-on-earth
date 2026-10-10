@@ -273,7 +273,7 @@ const globeMat = new THREE.ShaderMaterial({
   uniforms: {
     uMap: { value: blankTex },
     uLand: { value: 0 },
-    // satellite imagery (see "Satellite imagery" below): Web Mercator z3 base
+    // satellite imagery (see "Satellite imagery" below): equirectangular base
     uSatBase: { value: blankTex },
     uSatMix: { value: 0 },
     // detail insets: A draws under B; bounds are Mercator (x0, y0, x1, y1)
@@ -283,9 +283,6 @@ const globeMat = new THREE.ShaderMaterial({
     uInsetBoundsB: { value: new THREE.Vector4(0, 0, 1, 1) },
     uInsetMixA: { value: 0 },
     uInsetMixB: { value: 0 },
-    // pole caps beyond Mercator's 85.05 deg, sampled from the base edge rows
-    uCapN: { value: new THREE.Vector3(0.85, 0.88, 0.92) },
-    uCapS: { value: new THREE.Vector3(0.85, 0.88, 0.92) },
   },
   vertexShader: /* glsl */ `
     varying vec2 vUv;
@@ -309,8 +306,6 @@ const globeMat = new THREE.ShaderMaterial({
     uniform vec4 uInsetBoundsB;
     uniform float uInsetMixA;
     uniform float uInsetMixB;
-    uniform vec3 uCapN;
-    uniform vec3 uCapS;
     varying vec2 vUv;
     varying vec3 vNormalW;
     varying vec3 vPosW;
@@ -359,20 +354,17 @@ const globeMat = new THREE.ShaderMaterial({
       vec3 H = normalize(vec3(0.5, 0.8, 0.6) + V);
       col += vec3(0.30, 0.52, 0.85) * pow(max(dot(N, H), 0.0), 24.0) * 0.16 * (1.0 - land);
 
-      // satellite: sphere UVs are equirectangular (v = (lat+90)/180), tiles are
-      // Web Mercator, so project per fragment. Lat clamps at Mercator's 85.05
-      // deg limit; past ~84 deg the imagery blends into flat pole caps.
+      // The local Blue Marble base and the sphere UVs are equirectangular, so
+      // the base covers both poles directly. Detail tiles remain Web Mercator.
       // Replaces the graticule, glow and sheen wholesale via the crossfade.
+      vec3 sat = texture2D(uSatBase, vUv).rgb;
       float latRaw = (vUv.y - 0.5) * 3.14159265;
       float lat = clamp(latRaw, -1.48442, 1.48442);
       vec2 merc = vec2(vUv.x, 0.5 - log(tan(0.78539816 + 0.5 * lat)) / 6.28318531);
-      vec3 sat = texture2D(uSatBase, merc).rgb;
       vec4 ia = insetSample(uInsetA, uInsetBoundsA, merc) * uInsetMixA;
       sat = sat * (1.0 - ia.a) + ia.rgb;
       vec4 ib = insetSample(uInsetB, uInsetBoundsB, merc) * uInsetMixB;
       sat = sat * (1.0 - ib.a) + ib.rgb;
-      float cap = smoothstep(1.4570, 1.4835, abs(latRaw)); // 83.5 -> 85 deg
-      sat = mix(sat, latRaw > 0.0 ? uCapN : uCapS, cap);
       sat *= mix(0.72, 1.0, sqrt(ndv)); // soft limb darkening
       col = mix(col, sat, uSatMix);
 
@@ -731,75 +723,32 @@ function buildOutline(lines, radius, opts) {
 // map always loads underneath, so a failed fetch just leaves it showing.
 // ?map=classic forces the stylized map for testing; it is kept intact for a
 // future mode.
-//   base:   the whole world at z3, one 2048^2 Web Mercator texture
+//   base:   the whole world in one local 2048x1024 equirectangular texture
 //   insets: two detail windows (A under B) that follow the camera at z4-z11,
 //           filled tile by tile once the camera settles (see "Detail insets")
 // ---------------------------------------------------------------------------
 const SAT_PROVIDERS = [
   {
     url: (z, y, x) => `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`,
-    credit: 'Powered by Esri · Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
+    credit: 'Base imagery: NASA Blue Marble · Detail imagery: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
     maxZ: 11,
   },
-  {
-    url: (z, y, x) => `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default/GoogleMapsCompatible_Level8/${z}/${y}/${x}.jpeg`,
-    credit: 'Imagery: NASA EOSDIS GIBS / Blue Marble',
-    maxZ: 8, // GoogleMapsCompatible_Level8
-  },
 ];
-const SAT_BASE_Z = 3; // 8x8 tiles -> one 2048^2 texture
-const SAT_TIMEOUT_MS = 8000;
+const SAT_BASE_URL = './assets/blue-marble-2k.jpg';
 const SAT_FADE_S = 0.4;
 const mapStyle = new URLSearchParams(location.search).get('map') === 'classic' ? 'classic' : 'satellite';
 let satTarget = 0; // uSatMix eases toward this
 let satT = 0;
 let satApplied = 0; // last satT pushed to the uniforms and overlays
 let satCreditEl = null;
-let satProvider = null; // the provider whose base loaded; insets use it too
+let satProvider = null; // Esri provider used only by the detail insets
 let satDisabled = false; // for the session, after a second context loss
 
-// Resolves with the base texture and pole-cap colors once >= 90% of tiles
-// land; rejects on timeout or once more than a quarter of the tiles failed.
-async function loadSatBase(provider) {
-  const n = 1 << SAT_BASE_Z;
-  const total = n * n;
-  const cvs = document.createElement('canvas');
-  cvs.width = cvs.height = n * 256;
-  const ctx = cvs.getContext('2d');
-  ctx.fillStyle = '#0a1a33'; // ocean-ish, so a missing tile is not a black hole
-  ctx.fillRect(0, 0, cvs.width, cvs.height);
-  const ctrl = new AbortController();
-  let ok = 0;
-  let failed = 0;
-  let bail;
-  const bailed = new Promise((r) => { bail = r; });
-  const jobs = [];
-  for (let y = 0; y < n; y++) {
-    for (let x = 0; x < n; x++) {
-      jobs.push(fetch(provider.url(SAT_BASE_Z, y, x), { signal: ctrl.signal, mode: 'cors' })
-        .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.blob(); })
-        .then((b) => createImageBitmap(b))
-        .then((bmp) => { ctx.drawImage(bmp, x * 256, y * 256); bmp.close(); ok++; })
-        .catch(() => { if (++failed > total / 4) bail(); }));
-    }
-  }
-  await Promise.race([Promise.allSettled(jobs), bailed, new Promise((r) => setTimeout(r, SAT_TIMEOUT_MS))]);
-  ctrl.abort();
-  if (ok < total * 0.9) throw new Error(`satellite base: ${ok}/${total} tiles`);
-  // Pole caps: Mercator stops at 85.05 deg, so the shader blends to the mean
-  // color of the base's top and bottom rows from ~84 deg poleward.
-  const rowMean = (y) => {
-    const d = ctx.getImageData(0, y, cvs.width, 2).data;
-    let r = 0; let g = 0; let b = 0;
-    for (let i = 0; i < d.length; i += 4) { r += d[i]; g += d[i + 1]; b += d[i + 2]; }
-    const k = 255 * (d.length / 4);
-    return new THREE.Vector3(r / k, g / k, b / k);
-  };
-  const tex = new THREE.CanvasTexture(cvs);
-  tex.flipY = false; // row 0 = north; the shader's Mercator math assumes it
+async function loadSatBase() {
+  const tex = await new THREE.TextureLoader().loadAsync(SAT_BASE_URL);
   tex.colorSpace = THREE.NoColorSpace; // globeMat writes gl_FragColor raw
   tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-  return { tex, capN: rowMean(0), capS: rowMean(cvs.height - 2) };
+  return tex;
 }
 
 function showSatToast(text) {
@@ -811,33 +760,23 @@ function showSatToast(text) {
   setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 300); }, 3500);
 }
 
-// Esri first; if its base fails (> 25% errors or < 90% in 8 s), GIBS for the
-// session. If both fail, classic stays up with a toast; next session retries.
-// Resolves true once satellite is up, false when classic is what shows (the
-// detail layers below load only then).
+// Load the local NASA base first. Esri is retained only for detail insets.
+// Resolves true once satellite is up, false when classic is what shows.
 async function initSatellite() {
   if (mapStyle !== 'satellite') return false;
-  if (navigator.onLine === false) {
-    showSatToast('Satellite view unavailable, showing classic map.');
-    return false;
-  }
-  for (const provider of SAT_PROVIDERS) {
-    try {
-      const base = await loadSatBase(provider);
-      if (satDisabled) { base.tex.dispose(); return false; }
-      globeMat.uniforms.uSatBase.value = base.tex;
-      globeMat.uniforms.uCapN.value.copy(base.capN);
-      globeMat.uniforms.uCapS.value.copy(base.capS);
-      satProvider = provider;
-      satCreditEl = document.createElement('p');
-      satCreditEl.className = 'sat-credit';
-      satCreditEl.textContent = provider.credit;
-      document.body.appendChild(satCreditEl);
-      satTarget = 1;
-      return true;
-    } catch (err) {
-      console.warn(err);
-    }
+  try {
+    const base = await loadSatBase();
+    if (satDisabled) { base.dispose(); return false; }
+    globeMat.uniforms.uSatBase.value = base;
+    satProvider = SAT_PROVIDERS[0];
+    satCreditEl = document.createElement('p');
+    satCreditEl.className = 'sat-credit';
+    satCreditEl.textContent = satProvider.credit;
+    document.body.appendChild(satCreditEl);
+    satTarget = 1;
+    return true;
+  } catch (err) {
+    console.warn(err);
   }
   showSatToast('Satellite view unavailable, showing classic map.');
   return false;
