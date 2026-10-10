@@ -729,7 +729,7 @@ function buildOutline(lines, radius, opts) {
 // ---------------------------------------------------------------------------
 const SAT_PROVIDERS = [
   {
-    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${y}/${x}.jpg`,
+    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg`,
     credit: 'Base imagery: NASA Blue Marble · Detail imagery: <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a>',
     maxZ: 8,
   },
@@ -771,7 +771,7 @@ async function initSatellite() {
     satProvider = SAT_PROVIDERS[0];
     satCreditEl = document.createElement('p');
     satCreditEl.className = 'sat-credit';
-    satCreditEl.textContent = satProvider.credit;
+    satCreditEl.innerHTML = satProvider.credit;
     document.body.appendChild(satCreditEl);
     satTarget = 1;
     return true;
