@@ -715,7 +715,7 @@ const LOAD = {
   lakes: { url: 'assets/lakes-10m.topo.json', size: 726015 },
   rivers: { url: 'assets/rivers-10m-scalerank.topo.json', size: 1782934 },
 };
-for (const entry of Object.values(LOAD)) { entry.loaded = 0; entry.done = false; }
+for (const entry of Object.values(LOAD)) { entry.loaded = 0; entry.done = false; entry.built = false; }
 
 function loadJSON(entry, init) {
   return fetch(entry.url, init)
@@ -773,6 +773,11 @@ const LOAD_PHASES = {
   },
   detail: {
     entries: [LOAD.coast, LOAD.lakes, LOAD.rivers],
+    // On a fast connection these bytes land while the critical build still
+    // holds the main thread, so the pill's visible life is mostly the layer
+    // builds. Bytes fill the first half of the bar, each layer's build (weighted
+    // by its size) the second, or the bar sat frozen and then jumped to 100%.
+    builds: true,
     jobs: new Set(['detail']),
     els: phaseEls(pillEl),
     stageText() {
@@ -793,23 +798,32 @@ function queueLoadRender() {
 function renderPhase(phase) {
   let loaded = 0;
   let total = 0;
-  for (const entry of phase.entries) { loaded += entry.loaded; total += entry.size; }
-  // Ease the shown bytes toward the real ones (20% of the gap per frame), so
+  let built = 0;
+  for (const entry of phase.entries) {
+    loaded += entry.loaded;
+    total += entry.size;
+    if (entry.built) built += entry.size;
+  }
+  // progress in bytes, plus the built layers' bytes again for a building phase
+  const progress = loaded + built;
+  const span = phase.builds ? 2 * total : total;
+  // Ease the shown progress toward the real one (20% of the gap per frame), so
   // a burst of chunks glides instead of jumps. Once every byte is in, snap:
-  // the layer build is about to block the main thread, and the fill's CSS
-  // transform transition runs on the compositor, so it still glides to 99%.
+  // a layer build is about to block the main thread, and the fill's CSS
+  // transform transition runs on the compositor, so it still glides there.
   if (phase.entries.every((entry) => entry.done)) {
-    phase.shown = loaded;
-  } else if (Math.abs(loaded - phase.shown) > 1000) {
-    phase.shown += (loaded - phase.shown) * 0.2;
+    phase.shown = progress;
+  } else if (Math.abs(progress - phase.shown) > 1000) {
+    phase.shown += (progress - phase.shown) * 0.2;
     queueLoadRender(); // keep animating until caught up
   } else {
-    phase.shown = loaded;
+    phase.shown = progress;
   }
   // hold at 99% while the last layers build, so 100% means really ready
-  const frac = phase.finished ? 1 : Math.min(0.99, total ? phase.shown / total : 0);
+  const frac = phase.finished ? 1 : Math.min(0.99, span ? phase.shown / span : 0);
   const pct = Math.round(frac * 100);
-  const mb = (phase.finished ? total : phase.shown) / 1e6;
+  // the MB readout counts downloaded bytes only
+  const mb = (phase.finished ? total : Math.min(phase.shown, loaded)) / 1e6;
   const stage = phase.finished ? 'Ready' : phase.stageText();
   const { els } = phase;
   els.stage.forEach((el) => { if (el.textContent !== stage) el.textContent = stage; });
@@ -854,6 +868,16 @@ function revealGlobe() {
 
 // Let the browser paint the previous stage before the next CPU-heavy build.
 const nextPaint = () => new Promise((resolve) => requestAnimationFrame(() => setTimeout(resolve, 0)));
+// Detail builds block the main thread for a second or more each on a phone.
+// Before one starts, paint the pill's new value and give the fill's .35s
+// transition time to finish: an engine that doesn't run it off the main
+// thread would otherwise hold the bar where it was until the build ends.
+// Detail is background work, so the short wait costs nothing visible.
+const settleDetailBar = (entry) => {
+  if (entry) entry.built = true;
+  queueLoadRender();
+  return nextPaint().then(() => new Promise((resolve) => setTimeout(resolve, 350)));
+};
 
 // Decode delta arcs ourselves as (q + t/s) / 1e4: division is correctly
 // rounded, so points are bit-identical to parsing the original GeoJSON
@@ -921,7 +945,7 @@ async function loadDetail({ tex, islands }) {
   // do the OSM islands, which skip cleanCoast's MIN_ISLAND rule.
   await detailBytesP;
   const geo10m = await coastP;
-  await nextPaint();
+  await settleDetailBar();
   const coast = [
     ...cleanCoast(geo10m.features.find((f) => f.properties.kind === 'coast').geometry.coordinates),
     ...islands.features.flatMap((f) => f.geometry.coordinates.map(([ring]) => ring)),
@@ -933,8 +957,11 @@ async function loadDetail({ tex, islands }) {
   // Lakes: largest 20 get the bright shoreline, the rest a softer dim line.
   // if lakes fail, still upload the glow
   const lakes = await lakesP.catch((err) => { tex.needsUpdate = true; throw err; });
-  await nextPaint();
-  const sortedLakes = [...lakes.features].sort((a, b) => lakeArea(b) - lakeArea(a));
+  await settleDetailBar(LOAD.coast);
+  // area once per lake: a comparator that rescans every ring per comparison
+  // made this sort a large part of the lakes build
+  const areas = new Map(lakes.features.map((f) => [f, lakeArea(f)]));
+  const sortedLakes = [...lakes.features].sort((a, b) => areas.get(b) - areas.get(a));
   const bigLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(0, 20) }));
   const smallLakeLines = cleanCoast(lakeRings({ features: sortedLakes.slice(20) }));
   knockOutLakes(tex, lakes);
@@ -946,12 +973,13 @@ async function loadDetail({ tex, islands }) {
 
   // Rivers: 655 Natural Earth features with per-feature scalerank; use <= 7.
   const rivers = await riversP;
-  await nextPaint();
+  await settleDetailBar(LOAD.lakes);
   const riverCoords = [];
   for (const f of rivers.features)
     if (f.properties.scalerank <= 7) riverCoords.push(...f.geometry.coordinates);
   mapLab.riverMesh = buildOutline(cleanCoast(riverCoords), 1.002, { color: '#4a86b8', width: 0.6, opacity: 0.3 });
   globe.add(mapLab.riverMesh);
+  LOAD.rivers.built = true;
 
   if (window.__boot) window.__boot('map data loaded');
   if (mapLab.on) initMapLab(lakes, rivers);
