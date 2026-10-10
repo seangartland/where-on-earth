@@ -6815,6 +6815,19 @@ function renderCollectionDetail(set) {
     meta.textContent = `${String(index + 1).padStart(2, '0')} · ${visited ? (tier ? EARN_NAMES[tier] : 'Unearned') : 'Unvisited'}`;
     if (!visited) card.setAttribute('aria-label', `Card ${index + 1}: mystery location, not visited`);
     card.append(photo, name, meta);
+    // Tap to open postcard modal (only for visited locations)
+    if (visited) {
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-haspopup', 'dialog');
+      const entry = { item, earned: tier, continent: item.continent };
+      card.addEventListener('click', () => openPostcard(entry, card));
+      card.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        openPostcard(entry, card);
+      });
+    }
     grid.append(card);
   });
   const nodes = [head];
