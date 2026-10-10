@@ -57,7 +57,7 @@ const FOV = 36;
 const ATMO_RADIUS = 1.17;
 // Player zoom floor: ~190 km above the surface, ~0.17 km per css px on a
 // 390 px phone, enough to see Robben Island or Alcatraz as a shape.
-const MIN_DIST = 1.03;
+const MIN_DIST = 1.24;
 // Scripted cameras (bullseye snap, flight, reveal framing) keep the closest
 // framing they were tuned at; only the player's own zoom goes deeper.
 const SCENE_MIN_DIST = 1.32;
@@ -729,7 +729,7 @@ function buildOutline(lines, radius, opts) {
 // ---------------------------------------------------------------------------
 const SAT_PROVIDERS = [
   {
-    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg`,
+    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${y}/${x}.jpg`,
     credit: 'Base imagery: NASA Blue Marble · Detail imagery: <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a>',
     maxZ: 8,
   },
