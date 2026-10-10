@@ -6820,7 +6820,16 @@ function renderCollectionDetail(set) {
       card.tabIndex = 0;
       card.setAttribute('role', 'button');
       card.setAttribute('aria-haspopup', 'dialog');
-      const entry = { item, earned: tier, continent: item.continent };
+      const meta = passport.meta[item.id] || {};
+      const entry = {
+        item,
+        earned: tier,
+        continent: item.continent,
+        tierDates: [null, meta.eb1, meta.eb2, meta.eb3],
+        best: meta.b,
+        km: meta.d,
+        first: meta.f,
+      };
       card.addEventListener('click', () => openPostcard(entry, card));
       card.addEventListener('keydown', (e) => {
         if (e.key !== 'Enter' && e.key !== ' ') return;
