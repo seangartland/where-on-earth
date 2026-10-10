@@ -2392,9 +2392,13 @@ const LANDMARK_TERMS = [
 // This is intentionally based on the image URL so a real replacement image
 // automatically restores the location to every mode.
 function isPlayableLocation(item) {
-  return typeof item?.image === 'string'
-    && item.image.length > 0
-    && !item.image.includes('No_image_available');
+  if (typeof item?.image !== 'string' || item.image.length === 0 || item.image.includes('No_image_available')) return false;
+  // Antarctica is quarantined: the map projection breaks near the pole
+  // (pin drops and zoom/swipe become buggy), so these are excluded from play.
+  const lat = Number(item?.lat);
+  if (Number.isFinite(lat) && lat < -60) return false;
+  if (typeof item?.country === 'string' && item.country.toLowerCase().includes('antarctica')) return false;
+  return true;
 }
 
 // Non-city locations (landmarks, mountains, lakes, etc.) are tagged with a
