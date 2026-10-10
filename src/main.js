@@ -272,6 +272,19 @@ const globeMat = new THREE.ShaderMaterial({
   uniforms: {
     uMap: { value: blankTex },
     uLand: { value: 0 },
+    // satellite imagery (see "Satellite imagery" below): Web Mercator z3 base
+    uSatBase: { value: blankTex },
+    uSatMix: { value: 0 },
+    // detail insets: A draws under B; bounds are Mercator (x0, y0, x1, y1)
+    uInsetA: { value: blankTex },
+    uInsetB: { value: blankTex },
+    uInsetBoundsA: { value: new THREE.Vector4(0, 0, 1, 1) },
+    uInsetBoundsB: { value: new THREE.Vector4(0, 0, 1, 1) },
+    uInsetMixA: { value: 0 },
+    uInsetMixB: { value: 0 },
+    // pole caps beyond Mercator's 85.05 deg, sampled from the base edge rows
+    uCapN: { value: new THREE.Vector3(0.85, 0.88, 0.92) },
+    uCapS: { value: new THREE.Vector3(0.85, 0.88, 0.92) },
   },
   vertexShader: /* glsl */ `
     varying vec2 vUv;
@@ -287,11 +300,31 @@ const globeMat = new THREE.ShaderMaterial({
   fragmentShader: /* glsl */ `
     uniform sampler2D uMap;
     uniform float uLand;
+    uniform sampler2D uSatBase;
+    uniform float uSatMix;
+    uniform sampler2D uInsetA;
+    uniform sampler2D uInsetB;
+    uniform vec4 uInsetBoundsA;
+    uniform vec4 uInsetBoundsB;
+    uniform float uInsetMixA;
+    uniform float uInsetMixB;
+    uniform vec3 uCapN;
+    uniform vec3 uCapS;
     varying vec2 vUv;
     varying vec3 vNormalW;
     varying vec3 vPosW;
 
     float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+
+    // Inset texels are premultiplied: cleared to alpha 0, tiles land opaque,
+    // so bilinear and mip edges between loaded and empty tiles stay clean.
+    // x wraps (fract) so an inset can straddle the antimeridian; local coords
+    // are relative to the bounds to hold precision at z11. ~2% feathered edge.
+    vec4 insetSample(sampler2D t, vec4 b, vec2 m) {
+      vec2 l = vec2(fract(m.x - b.x), m.y - b.y) / (b.zw - b.xy);
+      vec2 e = smoothstep(vec2(0.0), vec2(0.02), l) * smoothstep(vec2(0.0), vec2(0.02), 1.0 - l);
+      return texture2D(t, l) * (e.x * e.y);
+    }
 
     void main() {
       vec4 m = texture2D(uMap, vUv) * uLand;
@@ -325,9 +358,26 @@ const globeMat = new THREE.ShaderMaterial({
       vec3 H = normalize(vec3(0.5, 0.8, 0.6) + V);
       col += vec3(0.30, 0.52, 0.85) * pow(max(dot(N, H), 0.0), 24.0) * 0.16 * (1.0 - land);
 
-      // atmospheric rim haze
+      // satellite: sphere UVs are equirectangular (v = (lat+90)/180), tiles are
+      // Web Mercator, so project per fragment. Lat clamps at Mercator's 85.05
+      // deg limit; past ~84 deg the imagery blends into flat pole caps.
+      // Replaces the graticule, glow and sheen wholesale via the crossfade.
+      float latRaw = (vUv.y - 0.5) * 3.14159265;
+      float lat = clamp(latRaw, -1.48442, 1.48442);
+      vec2 merc = vec2(vUv.x, 0.5 - log(tan(0.78539816 + 0.5 * lat)) / 6.28318531);
+      vec3 sat = texture2D(uSatBase, merc).rgb;
+      vec4 ia = insetSample(uInsetA, uInsetBoundsA, merc) * uInsetMixA;
+      sat = sat * (1.0 - ia.a) + ia.rgb;
+      vec4 ib = insetSample(uInsetB, uInsetBoundsB, merc) * uInsetMixB;
+      sat = sat * (1.0 - ib.a) + ib.rgb;
+      float cap = smoothstep(1.4570, 1.4835, abs(latRaw)); // 83.5 -> 85 deg
+      sat = mix(sat, latRaw > 0.0 ? uCapN : uCapS, cap);
+      sat *= mix(0.72, 1.0, sqrt(ndv)); // soft limb darkening
+      col = mix(col, sat, uSatMix);
+
+      // atmospheric rim haze (eased back over imagery)
       float fres = pow(1.0 - ndv, 2.6);
-      col += vec3(0.18, 0.48, 1.00) * fres * 0.80;
+      col += vec3(0.18, 0.48, 1.00) * fres * mix(0.80, 0.32, uSatMix);
 
       col += (hash(gl_FragCoord.xy) - 0.5) / 255.0; // dither against banding
       gl_FragColor = vec4(col, 1.0);
@@ -674,6 +724,622 @@ function buildOutline(lines, radius, opts) {
   return mesh;
 }
 
+// ---------------------------------------------------------------------------
+// Satellite imagery (docs/satellite-plan.md)
+// Satellite is the default and only user-facing map. The stylized ("classic")
+// map always loads underneath, so a failed fetch just leaves it showing.
+// ?map=classic forces the stylized map for testing; it is kept intact for a
+// future mode.
+//   base:   the whole world at z3, one 2048^2 Web Mercator texture
+//   insets: two detail windows (A under B) that follow the camera at z4-z11,
+//           filled tile by tile once the camera settles (see "Detail insets")
+// ---------------------------------------------------------------------------
+const SAT_PROVIDERS = [
+  {
+    url: (z, y, x) => `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`,
+    credit: 'Powered by Esri · Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
+    maxZ: 11,
+  },
+  {
+    url: (z, y, x) => `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default/GoogleMapsCompatible_Level8/${z}/${y}/${x}.jpeg`,
+    credit: 'Imagery: NASA EOSDIS GIBS / Blue Marble',
+    maxZ: 8, // GoogleMapsCompatible_Level8
+  },
+];
+const SAT_BASE_Z = 3; // 8x8 tiles -> one 2048^2 texture
+const SAT_TIMEOUT_MS = 8000;
+const SAT_FADE_S = 0.4;
+const mapStyle = new URLSearchParams(location.search).get('map') === 'classic' ? 'classic' : 'satellite';
+let satTarget = 0; // uSatMix eases toward this
+let satT = 0;
+let satApplied = 0; // last satT pushed to the uniforms and overlays
+let satCreditEl = null;
+let satProvider = null; // the provider whose base loaded; insets use it too
+let satDisabled = false; // for the session, after a second context loss
+
+// Resolves with the base texture and pole-cap colors once >= 90% of tiles
+// land; rejects on timeout or once more than a quarter of the tiles failed.
+async function loadSatBase(provider) {
+  const n = 1 << SAT_BASE_Z;
+  const total = n * n;
+  const cvs = document.createElement('canvas');
+  cvs.width = cvs.height = n * 256;
+  const ctx = cvs.getContext('2d');
+  ctx.fillStyle = '#0a1a33'; // ocean-ish, so a missing tile is not a black hole
+  ctx.fillRect(0, 0, cvs.width, cvs.height);
+  const ctrl = new AbortController();
+  let ok = 0;
+  let failed = 0;
+  let bail;
+  const bailed = new Promise((r) => { bail = r; });
+  const jobs = [];
+  for (let y = 0; y < n; y++) {
+    for (let x = 0; x < n; x++) {
+      jobs.push(fetch(provider.url(SAT_BASE_Z, y, x), { signal: ctrl.signal, mode: 'cors' })
+        .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.blob(); })
+        .then((b) => createImageBitmap(b))
+        .then((bmp) => { ctx.drawImage(bmp, x * 256, y * 256); bmp.close(); ok++; })
+        .catch(() => { if (++failed > total / 4) bail(); }));
+    }
+  }
+  await Promise.race([Promise.allSettled(jobs), bailed, new Promise((r) => setTimeout(r, SAT_TIMEOUT_MS))]);
+  ctrl.abort();
+  if (ok < total * 0.9) throw new Error(`satellite base: ${ok}/${total} tiles`);
+  // Pole caps: Mercator stops at 85.05 deg, so the shader blends to the mean
+  // color of the base's top and bottom rows from ~84 deg poleward.
+  const rowMean = (y) => {
+    const d = ctx.getImageData(0, y, cvs.width, 2).data;
+    let r = 0; let g = 0; let b = 0;
+    for (let i = 0; i < d.length; i += 4) { r += d[i]; g += d[i + 1]; b += d[i + 2]; }
+    const k = 255 * (d.length / 4);
+    return new THREE.Vector3(r / k, g / k, b / k);
+  };
+  const tex = new THREE.CanvasTexture(cvs);
+  tex.flipY = false; // row 0 = north; the shader's Mercator math assumes it
+  tex.colorSpace = THREE.NoColorSpace; // globeMat writes gl_FragColor raw
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  return { tex, capN: rowMean(0), capS: rowMean(cvs.height - 2) };
+}
+
+function showSatToast(text) {
+  const el = document.createElement('div');
+  el.className = 'sat-toast';
+  el.textContent = text;
+  document.body.appendChild(el);
+  requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('show')));
+  setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 300); }, 3500);
+}
+
+// Esri first; if its base fails (> 25% errors or < 90% in 8 s), GIBS for the
+// session. If both fail, classic stays up with a toast; next session retries.
+// Resolves true once satellite is up, false when classic is what shows (the
+// detail layers below load only then).
+async function initSatellite() {
+  if (mapStyle !== 'satellite') return false;
+  if (navigator.onLine === false) {
+    showSatToast('Satellite view unavailable, showing classic map.');
+    return false;
+  }
+  for (const provider of SAT_PROVIDERS) {
+    try {
+      const base = await loadSatBase(provider);
+      if (satDisabled) { base.tex.dispose(); return false; }
+      globeMat.uniforms.uSatBase.value = base.tex;
+      globeMat.uniforms.uCapN.value.copy(base.capN);
+      globeMat.uniforms.uCapS.value.copy(base.capS);
+      satProvider = provider;
+      satCreditEl = document.createElement('p');
+      satCreditEl.className = 'sat-credit';
+      satCreditEl.textContent = provider.credit;
+      document.body.appendChild(satCreditEl);
+      satTarget = 1;
+      return true;
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+  showSatToast('Satellite view unavailable, showing classic map.');
+  return false;
+}
+const satReady = initSatellite();
+
+// ---------------------------------------------------------------------------
+// Detail insets
+// Two render-target textures hold a window of z4-z11 tiles around the view.
+// A new window fills the buffer that isn't showing, drawn on top (B) and
+// cleared to alpha 0, so unloaded tiles show the older inset or the base.
+// Once every visible tile has landed, the old buffer fades out underneath.
+// Nothing fetches or uploads while the camera moves fast; a window is only
+// chosen once it settles (or, during the slow idle drift, when the view
+// outruns the current window).
+// ---------------------------------------------------------------------------
+const INSET_MIN_Z = 4;
+const INSET_Q = 1; // target texels per css px: 1 = css px, 0.5 = device px
+const INSET_SIZE = renderer.capabilities.maxTextureSize < 4096 ? 1536 : 2048;
+const INSET_TILES = INSET_SIZE / 256; // footprint cap per side, margin included
+const INSET_FADE_S = 0.25;
+const INSET_FETCHES = 6;
+const INSET_FETCHES_SLOW = 3;
+const INSET_UPLOADS_PER_FRAME = 4;
+const INSET_SETTLE_MS = 150;
+const INSET_FAST_PX_S = 400; // screen speed above which nothing streams
+const INSET_STILL_PX_S = 25;
+const INSET_LRU_TILES = 400;
+const INSET_LRU_BYTES = 8 << 20;
+const INSET_TRIES = 2;
+const MERC_MAX_LAT = 85.05112878 * DEG;
+const imod = (a, n) => ((a % n) + n) % n;
+
+const inset = {
+  bufs: null, // [{ rt, bounds, mix, fadeTo, win }]; bufs[over] draws on top
+  over: 0,
+  win: null, // window being fed (fetch/decode/upload target); null = off
+  gen: 0,
+  queue: [], // tiles of `win` waiting for a fetch slot, centre first
+  inflight: new Map(), // tile key -> { ctrl }
+  uploads: [], // decoded bitmaps waiting for a frame's upload budget
+  lru: new Map(), // tile key -> compressed Blob, oldest first
+  lruBytes: 0,
+  fails: 0, // consecutive fetch failures
+  trips: 0, // breaker trips since the last success (exponential backoff)
+  pausedUntil: 0,
+  latency: [], // last few fetch times, for the slow-network fallback
+  slow: false,
+  prevYaw: 0, prevPitch: 0, prevDist: 0, hasPrev: false,
+  stillSince: -1,
+  lastCheck: 0,
+  lastBuild: 0,
+  losses: 0, // webgl context losses this session
+};
+
+const _tileSrc = new THREE.Texture(); // wrapper so copyTextureToTexture reads an ImageBitmap
+const _tileDst = new THREE.Vector2();
+const _insetRay = new THREE.Raycaster();
+const _insetNdc = new THREE.Vector2();
+const _insetP = new THREE.Vector3();
+const _insetQ = new THREE.Quaternion();
+const _origin = new THREE.Vector3();
+const _insetSphere = new THREE.Sphere(new THREE.Vector3(), 1);
+const _insetClear = new THREE.Color();
+
+function ensureInsets() {
+  if (inset.bufs) return inset.bufs;
+  inset.bufs = [0, 1].map(() => {
+    const rt = new THREE.WebGLRenderTarget(INSET_SIZE, INSET_SIZE, { depthBuffer: false, colorSpace: THREE.NoColorSpace });
+    rt.texture.generateMipmaps = false; // copyTextureToTexture would rebuild them per tile; we do it once per window
+    return { rt, bounds: new THREE.Vector4(0, 0, 1, 1), mix: 0, fadeTo: 0, win: null };
+  });
+  return inset.bufs;
+}
+
+// Mip levels are built once per completed window with raw GL (three only sets
+// sampler state at upload time, and render-target textures never re-upload).
+// While a window fills, sampling stays on level 0 so stale levels never show.
+function setInsetMips(buf, on) {
+  const gl = renderer.getContext();
+  const handle = renderer.properties.get(buf.rt.texture).__webglTexture;
+  if (!handle || gl.isContextLost()) return;
+  renderer.state.bindTexture(gl.TEXTURE_2D, handle);
+  if (on) gl.generateMipmap(gl.TEXTURE_2D);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, on ? gl.LINEAR_MIPMAP_LINEAR : gl.LINEAR);
+}
+
+function clearInset(buf) {
+  const prev = renderer.getRenderTarget();
+  renderer.getClearColor(_insetClear);
+  const prevAlpha = renderer.getClearAlpha();
+  renderer.setRenderTarget(buf.rt);
+  renderer.setClearColor(0x000000, 0);
+  renderer.clear(true, false, false);
+  renderer.setRenderTarget(prev);
+  renderer.setClearColor(_insetClear, prevAlpha);
+  setInsetMips(buf, false);
+}
+
+function lruGet(key) {
+  const blob = inset.lru.get(key);
+  if (blob) { inset.lru.delete(key); inset.lru.set(key, blob); }
+  return blob;
+}
+
+function lruPut(key, blob) {
+  const old = inset.lru.get(key);
+  if (old) { inset.lruBytes -= old.size; inset.lru.delete(key); }
+  inset.lru.set(key, blob);
+  inset.lruBytes += blob.size;
+  while (inset.lru.size > INSET_LRU_TILES || inset.lruBytes > INSET_LRU_BYTES) {
+    const [k, b] = inset.lru.entries().next().value;
+    inset.lru.delete(k);
+    inset.lruBytes -= b.size;
+  }
+}
+
+// Globe-local unit point under an NDC point; rays that miss the globe take
+// the nearest point on the limb, so a view showing space still bounds itself.
+function insetPointAt(nx, ny, out) {
+  _insetRay.setFromCamera(_insetNdc.set(nx, ny), camera);
+  const hit = _insetRay.ray.intersectSphere(_insetSphere, out);
+  if (!hit) _insetRay.ray.closestPointToPoint(_origin, out);
+  out.normalize().applyQuaternion(_insetQ);
+  return hit;
+}
+
+const mercX = (p) => { const a = Math.atan2(p.z, -p.x) / (2 * Math.PI); return a < 0 ? a + 1 : a; };
+const mercY = (p) => {
+  const lat = clamp(Math.asin(clamp(p.y, -1, 1)), -MERC_MAX_LAT, MERC_MAX_LAT);
+  return 0.5 - Math.log(Math.tan(Math.PI / 4 + lat / 2)) / (2 * Math.PI);
+};
+
+// The visible region in Mercator units, from a 9x9 grid of screen rays. x is
+// kept relative to the screen centre in [-0.5, 0.5) so a view across the
+// antimeridian stays one contiguous range.
+function sampleInsetView() {
+  _insetQ.copy(globe.quaternion).invert();
+  if (!insetPointAt(0, 0, _insetP)) return null;
+  const cx = mercX(_insetP);
+  const view = { cx, cy: mercY(_insetP), lat: Math.asin(clamp(_insetP.y, -1, 1)), rx0: 0, rx1: 0, y0: 1, y1: 0 };
+  const N = 9;
+  for (let j = 0; j < N; j++) {
+    for (let i = 0; i < N; i++) {
+      insetPointAt((i / (N - 1)) * 2 - 1, (j / (N - 1)) * 2 - 1, _insetP);
+      let rx = mercX(_insetP) - cx;
+      rx -= Math.round(rx);
+      const my = mercY(_insetP);
+      view.rx0 = Math.min(view.rx0, rx); view.rx1 = Math.max(view.rx1, rx);
+      view.y0 = Math.min(view.y0, my); view.y1 = Math.max(view.y1, my);
+    }
+  }
+  return view;
+}
+
+// Tile window at zoom z: visible tiles plus a one-tile margin, or null when
+// that footprint doesn't fit the inset texture. tx is unwrapped (it may run
+// past either edge of the world); fetches wrap it.
+function insetWindowAt(view, z) {
+  const n = 1 << z;
+  const vx0 = Math.floor((view.cx + view.rx0) * n);
+  const vx1 = Math.floor((view.cx + view.rx1) * n);
+  const vy0 = clamp(Math.floor(view.y0 * n), 0, n - 1);
+  const vy1 = clamp(Math.floor(view.y1 * n), 0, n - 1);
+  const tx0 = vx0 - 1;
+  const cols = vx1 - vx0 + 3;
+  const ty0 = Math.max(0, vy0 - 1);
+  const rows = Math.min(n - 1, vy1 + 1) - ty0 + 1;
+  if (cols > INSET_TILES || rows > INSET_TILES) return null;
+  return { z, n, tx0, ty0, cols, rows, vx0, vx1, vy0, vy1, ccx: view.cx * n, ccy: view.cy * n };
+}
+
+// z = ceil(log2(156543 cos(lat) / (mpp q))), clamped to [4, provider max],
+// one level lower on a slow network, then dropped until the footprint fits.
+// Returns { view, want } with want = null when the inset should be off.
+function pickInsetWindow() {
+  const view = sampleInsetView();
+  if (!view) return { view, want: null };
+  const mpp = ((dist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / viewH;
+  let z = Math.ceil(Math.log2((156543.03 * Math.cos(view.lat)) / (mpp * INSET_Q)));
+  z = clamp(z, INSET_MIN_Z, satProvider.maxZ);
+  if (inset.slow) z = Math.max(INSET_MIN_Z, z - 1);
+  for (; z >= INSET_MIN_Z; z--) {
+    const want = insetWindowAt(view, z);
+    if (want) return { view, want };
+  }
+  return { view, want: null };
+}
+
+// Does window `win` already hold every visible tile of `want` (same zoom)?
+function insetCovers(win, want) {
+  if (!win || !want || win.z !== want.z) return false;
+  if (want.vy0 < win.ty0 || want.vy1 > win.ty0 + win.rows - 1) return false;
+  return imod(want.vx0 - win.tx0, win.n) + (want.vx1 - want.vx0) <= win.cols - 1;
+}
+
+function startInsetWindow(want) {
+  const bufs = ensureInsets();
+  // keep a completed window underneath; otherwise refill the top buffer
+  if (bufs[inset.over].win && bufs[inset.over].win.ready) inset.over = 1 - inset.over;
+  const buf = bufs[inset.over];
+  clearInset(buf);
+  buf.mix = 0;
+  buf.fadeTo = 1;
+  const { z, n } = want;
+  const x0 = imod(want.tx0, n) / n;
+  buf.bounds.set(x0, want.ty0 / n, x0 + INSET_TILES / n, (want.ty0 + INSET_TILES) / n);
+  const providerIdx = SAT_PROVIDERS.indexOf(satProvider);
+  const win = { ...want, gen: ++inset.gen, buf, tiles: [], byKey: new Map(), visLeft: 0, allLeft: 0, ready: false, mipped: false };
+  for (let sy = 0; sy < want.rows; sy++) {
+    for (let sx = 0; sx < want.cols; sx++) {
+      const tx = want.tx0 + sx;
+      const ty = want.ty0 + sy;
+      const x = imod(tx, n);
+      const visible = tx >= want.vx0 && tx <= want.vx1 && ty >= want.vy0 && ty <= want.vy1;
+      const tile = {
+        key: `${providerIdx}/${z}/${x}/${ty}`,
+        url: satProvider.url(z, ty, x),
+        sx, sy, visible,
+        pri: (visible ? 0 : 1000) + Math.hypot(tx + 0.5 - want.ccx, ty + 0.5 - want.ccy),
+        state: 0, // 0 idle, 1 decoding / awaiting upload, 2 done (uploaded or given up)
+        tries: 0,
+      };
+      win.tiles.push(tile);
+      win.byKey.set(tile.key, tile);
+      win.allLeft++;
+      if (visible) win.visLeft++;
+    }
+  }
+  win.tiles.sort((a, b) => a.pri - b.pri);
+  buf.win = win;
+  // abort fetches the new window doesn't need; the rest land in it
+  for (const [key, f] of inset.inflight) {
+    if (!win.byKey.has(key)) { f.ctrl.abort(); inset.inflight.delete(key); }
+  }
+  inset.win = win;
+  inset.lastBuild = performance.now();
+  feedInsetWindow(win);
+}
+
+// Queue every idle tile: straight to decode from the blob cache, else fetch.
+function feedInsetWindow(win) {
+  inset.queue = [];
+  for (const t of win.tiles) {
+    if (t.state !== 0 || inset.inflight.has(t.key)) continue;
+    const blob = lruGet(t.key);
+    if (blob) decodeInsetTile(win, t, blob);
+    else inset.queue.push(t);
+  }
+}
+
+function insetsOff() {
+  if (inset.win) {
+    for (const f of inset.inflight.values()) f.ctrl.abort();
+    inset.inflight.clear();
+    inset.queue = [];
+    inset.win = null;
+  }
+  if (inset.bufs) for (const b of inset.bufs) b.fadeTo = 0;
+}
+
+function finishInsetTile(win, t) {
+  if (t.state === 2) return;
+  t.state = 2;
+  win.allLeft--;
+  if (t.visible) win.visLeft--;
+  if (!win.ready && win.visLeft === 0) {
+    win.ready = true;
+    const other = inset.bufs[inset.bufs[0] === win.buf ? 1 : 0];
+    other.fadeTo = 0; // crossfade the old window out underneath
+  }
+  if (!win.mipped && win.allLeft === 0) {
+    win.mipped = true;
+    setInsetMips(win.buf, true);
+  }
+}
+
+// A failed tile retries once (after any breaker pause), then is given up so
+// the window can complete; the base or older inset shows through there.
+function failInsetTile(win, t) {
+  t.state = 0;
+  if (++t.tries >= INSET_TRIES) finishInsetTile(win, t);
+  else if (inset.win === win) inset.queue.push(t);
+}
+
+function decodeInsetTile(win, t, blob) {
+  t.state = 1;
+  createImageBitmap(blob).then((bmp) => {
+    if (inset.win !== win || win.buf.win !== win) { bmp.close(); t.state = 0; return; }
+    if (bmp.width !== 256 || bmp.height !== 256) { bmp.close(); failInsetTile(win, t); return; }
+    inset.uploads.push({ win, t, bmp });
+  }, () => failInsetTile(win, t));
+}
+
+// Circuit breaker: 5 consecutive failures or any 429 pause detail loading,
+// 60 s doubling per trip (capped at 8 min). Silent; base + current inset stay.
+function tripInsetBreaker() {
+  inset.fails = 0;
+  // the other in-flight requests of a burst land after the trip; one pause per burst
+  if (performance.now() < inset.pausedUntil) return;
+  inset.trips++;
+  inset.pausedUntil = performance.now() + Math.min(60000 * 2 ** (inset.trips - 1), 480000);
+}
+
+// Slow network (iOS has no navigator.connection): rolling median latency
+// over 1.5 s drops the inset a zoom level and halves concurrency; under 0.6 s
+// restores it.
+function noteInsetLatency(ms) {
+  const l = inset.latency;
+  l.push(ms);
+  if (l.length > 15) l.shift();
+  if (l.length < 5) return;
+  const med = [...l].sort((a, b) => a - b)[l.length >> 1];
+  if (med > 1500) inset.slow = true;
+  else if (med < 600) inset.slow = false;
+}
+
+function fetchInsetTile(t) {
+  const ctrl = new AbortController();
+  const entry = { ctrl };
+  inset.inflight.set(t.key, entry);
+  const t0 = performance.now();
+  fetch(t.url, { signal: ctrl.signal, mode: 'cors', priority: t.visible ? 'high' : 'low' })
+    .then((r) => {
+      if (r.status === 429) { tripInsetBreaker(); throw new Error('HTTP 429'); }
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.blob();
+    })
+    .then((blob) => {
+      noteInsetLatency(performance.now() - t0);
+      inset.fails = 0;
+      inset.trips = 0;
+      lruPut(t.key, blob);
+      // deliver to whichever window wants this tile now
+      const win = inset.win;
+      const tile = win && win.byKey.get(t.key);
+      if (tile && tile.state === 0) decodeInsetTile(win, tile, blob);
+    })
+    .catch((err) => {
+      if (err.name === 'AbortError') return;
+      if (++inset.fails >= 5) tripInsetBreaker();
+      const win = inset.win;
+      const tile = win && win.byKey.get(t.key);
+      if (tile && tile.state === 0) failInsetTile(win, tile);
+    })
+    .finally(() => { if (inset.inflight.get(t.key) === entry) inset.inflight.delete(t.key); });
+}
+
+function pumpInsetFetches(now) {
+  if (!inset.win || navigator.onLine === false || now < inset.pausedUntil) return;
+  const max = inset.slow ? INSET_FETCHES_SLOW : INSET_FETCHES;
+  while (inset.inflight.size < max && inset.queue.length) {
+    const t = inset.queue.shift();
+    if (t.state !== 0 || inset.inflight.has(t.key)) continue;
+    fetchInsetTile(t);
+  }
+}
+
+// Frame budget: at most 4 tile sub-uploads (texSubImage2D) per frame.
+function pumpInsetUploads() {
+  for (let done = 0; done < INSET_UPLOADS_PER_FRAME && inset.uploads.length;) {
+    const { win, t, bmp } = inset.uploads.shift();
+    if (inset.win !== win || win.buf.win !== win) { bmp.close(); t.state = 0; continue; }
+    _tileSrc.image = bmp;
+    renderer.copyTextureToTexture(_tileSrc, win.buf.rt.texture, null, _tileDst.set(t.sx * 256, t.sy * 256));
+    _tileSrc.image = null;
+    bmp.close(); // never hoard decoded pixels
+    finishInsetTile(win, t);
+    done++;
+  }
+}
+
+// Choose the window for the current view and start, resume, or keep it.
+function evaluateInsets(now, drifting) {
+  const { view, want } = pickInsetWindow();
+  if (!want) { insetsOff(); return; }
+  const top = inset.bufs && inset.bufs[inset.over];
+  const cur = top && top.win;
+  if (insetCovers(cur, want)) {
+    if (inset.win !== cur) { // back after an off spell: show it and finish it
+      inset.win = cur;
+      top.fadeTo = 1;
+      feedInsetWindow(cur);
+    }
+    return;
+  }
+  // While the globe drifts, only chase it when the view outruns the window
+  // or the zoom is two levels off, at most once a second.
+  if (drifting && cur && inset.win === cur) {
+    if (now - inset.lastBuild < 1000) return;
+    if (Math.abs(cur.z - want.z) < 2 && insetCovers(cur, insetWindowAt(view, cur.z))) return;
+  }
+  startInsetWindow(want);
+}
+
+function updateInsets(dt) {
+  if (!satProvider || satDisabled || satTarget === 0) return;
+  const now = performance.now();
+  // camera motion in screen px/s at the centre, and zoom in log-altitude/s
+  let speed = 0;
+  let zoomRate = 0;
+  if (inset.hasPrev && dt > 0) {
+    const dYaw = (yaw - inset.prevYaw) * Math.cos(pitch);
+    speed = Math.hypot(dYaw, pitch - inset.prevPitch) / dt / radPerPx();
+    zoomRate = Math.abs(Math.log((dist - 1) / (inset.prevDist - 1))) / dt;
+  }
+  inset.prevYaw = yaw; inset.prevPitch = pitch; inset.prevDist = dist; inset.hasPrev = true;
+  const easing = Math.abs(Math.log((targetDist - 1) / (dist - 1))) > 0.01;
+  const fast = pointers.size > 0 || speed > INSET_FAST_PX_S || zoomRate > 0.4;
+  const still = !fast && !easing && speed < INSET_STILL_PX_S && zoomRate < 0.03;
+  if (!still) inset.stillSince = -1;
+  else if (inset.stillSince < 0) inset.stillSince = now;
+  const settled = still && now - inset.stillSince >= INSET_SETTLE_MS;
+
+  if (!fast && (settled || !still) && now - inset.lastCheck > (settled ? 500 : 300)) {
+    inset.lastCheck = now;
+    evaluateInsets(now, !settled);
+  }
+  if (!fast) {
+    pumpInsetFetches(now);
+    pumpInsetUploads();
+  }
+
+  if (!inset.bufs) return;
+  const u = globeMat.uniforms;
+  for (const b of inset.bufs) {
+    b.mix = b.fadeTo > b.mix ? Math.min(b.fadeTo, b.mix + dt / INSET_FADE_S) : Math.max(b.fadeTo, b.mix - dt / INSET_FADE_S);
+  }
+  const top = inset.bufs[inset.over];
+  const under = inset.bufs[1 - inset.over];
+  u.uInsetA.value = under.rt.texture; u.uInsetBoundsA.value = under.bounds; u.uInsetMixA.value = smoothstep(under.mix);
+  u.uInsetB.value = top.rt.texture; u.uInsetBoundsB.value = top.bounds; u.uInsetMixB.value = smoothstep(top.mix);
+}
+
+function releaseSatellite() {
+  const u = globeMat.uniforms;
+  if (u.uSatBase.value !== blankTex) { u.uSatBase.value.dispose(); u.uSatBase.value = blankTex; }
+  insetsOff();
+  for (const { bmp } of inset.uploads) bmp.close();
+  inset.uploads = [];
+  if (inset.bufs) { for (const b of inset.bufs) b.rt.dispose(); inset.bufs = null; }
+  u.uInsetA.value = u.uInsetB.value = blankTex;
+  u.uInsetMixA.value = u.uInsetMixB.value = 0;
+}
+
+// WebGL context loss: three restores the context and re-uploads the classic
+// and base textures on its own; the insets restart empty and refill on the
+// next settle. A second loss in one session turns satellite off for good.
+canvas.addEventListener('webglcontextlost', () => {
+  inset.losses++;
+  insetsOff();
+  for (const { bmp } of inset.uploads) bmp.close();
+  inset.uploads = [];
+  if (inset.bufs) for (const b of inset.bufs) { b.win = null; b.mix = 0; }
+  if (inset.losses >= 2 && !satDisabled) {
+    satDisabled = true;
+    satTarget = satT = 0; // snap to classic; updateSatellite applies it once
+    releaseSatellite();
+    startDetail(); // classic is showing now, so it needs its detail layers
+  }
+});
+
+const outlineRevealOpacity = (m) => (1 - Math.pow(1 - m.userData.reveal, 3)) * (m.userData.baseOpacity ?? 1);
+
+// Per frame: stream the insets, ease the crossfade and fade the coast/lake/
+// river overlays out under the imagery. Answer outlines, pins and arcs are
+// not touched.
+function updateSatellite(dt) {
+  updateInsets(dt);
+  if (satT === satTarget && satT === satApplied) return;
+  satT = satTarget > satT ? Math.min(satTarget, satT + dt / SAT_FADE_S) : Math.max(satTarget, satT - dt / SAT_FADE_S);
+  satApplied = satT;
+  const s = smoothstep(satT);
+  globeMat.uniforms.uSatMix.value = s;
+  for (const m of outlineMaterials) {
+    m.visible = s < 1;
+    const opaque = s === 0 && m.userData.reveal >= 1 && (m.userData.baseOpacity ?? 1) >= 1;
+    if (m.transparent === opaque) { m.transparent = !opaque; m.needsUpdate = true; }
+    m.opacity = outlineRevealOpacity(m) * (1 - s);
+  }
+  if (satCreditEl) satCreditEl.classList.toggle('show', s > 0);
+  document.body.classList.toggle('sat-on', s > 0);
+}
+
+// test hook: inset state for headless checks
+window.__sat = {
+  get provider() { return satProvider && satProvider.credit; },
+  get mix() { return globeMat.uniforms.uSatMix.value; },
+  get inset() {
+    const w = inset.win;
+    return {
+      size: INSET_SIZE, gen: w && w.gen,
+      z: w && w.z, cols: w && w.cols, rows: w && w.rows,
+      tiles: w && w.tiles.length, visLeft: w && w.visLeft, allLeft: w && w.allLeft,
+      ready: !!(w && w.ready), mipped: !!(w && w.mipped),
+      inflight: inset.inflight.size, queued: inset.queue.length, uploads: inset.uploads.length,
+      lru: inset.lru.size, lruKB: Math.round(inset.lruBytes / 1024),
+      slow: inset.slow, latency: [...inset.latency].sort((a, b) => a - b).map(Math.round), pausedFor: Math.max(0, Math.round(inset.pausedUntil - performance.now())),
+      mixA: globeMat.uniforms.uInsetMixA.value, mixB: globeMat.uniforms.uInsetMixB.value,
+    };
+  },
+};
+
 let landReveal = 0;
 let landLoaded = false;
 
@@ -863,7 +1529,7 @@ function revealGlobe() {
   }
   // CSS delays the pill's fade-in, so detail that's nearly done (or already
   // cached) never flashes it
-  if (pillEl && !LOAD_PHASES.detail.finished) pillEl.classList.add('on');
+  if (pillEl && detailStarted && !LOAD_PHASES.detail.finished) pillEl.classList.add('on');
 }
 
 // Let the browser paint the previous stage before the next CPU-heavy build.
@@ -916,14 +1582,9 @@ const locationsP = loadJSON(LOAD.locations, { priority: 'high', ...(RESET_DAILY 
 // blocks the main thread, and doing one while other files still stream froze
 // the bar and then jumped it (the "two big chunks").
 const criticalBytesP = Promise.allSettled([landP, islandsP, locationsP]);
-const detailP = (entry) => criticalBytesP.then(() => getTopo(entry, { priority: 'low' }));
-const coastP = detailP(LOAD.coast);
-const lakesP = detailP(LOAD.lakes);
-const riversP = detailP(LOAD.rivers);
-const detailBytesP = Promise.allSettled([coastP, lakesP, riversP]);
-// awaited in order below; mark handled so an early failure doesn't also
-// raise unhandled-rejection banners for the later stages
-for (const p of [locationsP, coastP, lakesP, riversP]) p.catch(() => {});
+// consumed at the bottom of the file; mark handled so a failure there doesn't
+// also raise an unhandled-rejection banner
+locationsP.catch(() => {});
 
 // Critical: the land fill (with OSM islands) is all a round needs on the globe.
 async function loadLand() {
@@ -938,7 +1599,7 @@ async function loadLand() {
 }
 
 // Detail: drawn onto the live globe in the background, each layer as it lands.
-async function loadDetail({ tex, islands }) {
+async function loadDetail({ tex, islands }, { coastP, lakesP, riversP, detailBytesP }) {
   // Internal country borders hidden: coastlines only, keeps the challenge in
   // your geography, not in reading lines. (Border data stays in the GeoJSON
   // for a future practice mode.) Big-lake shores count as coastline, and so
@@ -992,14 +1653,34 @@ landReady
     if (window.__showErr) window.__showErr('MAPDATA: ' + (err && err.message ? err.message : err));
   })
   .finally(() => loadJobDone('critical', 'map'));
-// a land failure is already reported above; detail just stands down
-landReady
-  .then(loadDetail, () => {})
-  .catch((err) => {
-    console.error('failed to load map detail', err);
-    if (window.__showErr) window.__showErr('MAPDETAIL: ' + (err && err.message ? err.message : err));
-  })
-  .finally(() => loadJobDone('detail', 'detail'));
+// Satellite skips the detail layers (10m coast + lakes + rivers, ~4 MB): the
+// imagery already shows them, and the vector lines on top are just noise. They
+// load only when classic shows: ?map=classic, satellite failing to come up, a
+// second context loss turning it off, or the ?maplab tool (which edits them).
+let detailStarted = false;
+function startDetail() {
+  if (detailStarted) return;
+  detailStarted = true;
+  const detailP = (entry) => criticalBytesP.then(() => getTopo(entry, { priority: 'low' }));
+  const coastP = detailP(LOAD.coast);
+  const lakesP = detailP(LOAD.lakes);
+  const riversP = detailP(LOAD.rivers);
+  const detailBytesP = Promise.allSettled([coastP, lakesP, riversP]);
+  // awaited in order in loadDetail; mark handled so an early failure doesn't
+  // also raise unhandled-rejection banners for the later stages
+  for (const p of [coastP, lakesP, riversP]) p.catch(() => {});
+  // started after the boot reveal (satellite fell back): show the pill now
+  if (globeRevealed && pillEl && !LOAD_PHASES.detail.finished) pillEl.classList.add('on');
+  // a land failure is already reported above; detail just stands down
+  landReady
+    .then((land) => loadDetail(land, { coastP, lakesP, riversP, detailBytesP }), () => {})
+    .catch((err) => {
+      console.error('failed to load map detail', err);
+      if (window.__showErr) window.__showErr('MAPDETAIL: ' + (err && err.message ? err.message : err));
+    })
+    .finally(() => loadJobDone('detail', 'detail'));
+}
+satReady.then((satOn) => { if (!satOn || mapLab.on) startDetail(); });
 
 // Rivers/lakes density lab (?maplab). Rebuilds the lake-shore and river
 // outline layers on the live globe at the requested density. Only wired up
@@ -6733,6 +7414,7 @@ function frame() {
       m.transparent = false; m.needsUpdate = true;
     }
   }
+  updateSatellite(dt);
 
   // Keep roughly the same screen footprint, then add a restrained boost in
   // unusually wide reveal framings so the badge/checkmark do not disappear.
