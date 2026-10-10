@@ -1415,7 +1415,11 @@ function sphereHit(clientX, clientY, out) {
 // L (globe-local) exactly under the finger (world point D).
 //   y-row of RX(-pitch) D must equal L.y   -> pitch (two roots, take nearest)
 //   then RY(yaw) rotates L.xz onto M.xz      -> yaw
-// Returns false when the point can't be held exactly (pitch clamp, pole).
+// Returns false when the point can't be held exactly (off the globe, limb),
+// and null without touching the view when holding it needs a pitch past
+// PITCH_LIMIT. Solving yaw at the clamped pitch there turned the overshoot
+// into a whirl about the pole (a straight drag toward Antarctica spun the
+// globe ~120 deg), so the caller falls back to screen deltas instead.
 const _D = new THREE.Vector3();
 function solveGrab(L, clientX, clientY) {
   if (!sphereHit(clientX, clientY, _D)) return false;
@@ -1426,14 +1430,14 @@ function solveGrab(L, clientX, clientY) {
   const p1 = nearAngle(alpha + spread, pitch);
   const p2 = nearAngle(alpha - spread, pitch);
   const p = Math.abs(p1 - pitch) < Math.abs(p2 - pitch) ? p1 : p2;
-  const pc = clamp(p, -PITCH_LIMIT, PITCH_LIMIT);
-  const cp = Math.cos(pc);
-  const sp = Math.sin(pc);
+  if (Math.abs(p) > PITCH_LIMIT) return null;
+  const cp = Math.cos(p);
+  const sp = Math.sin(p);
   const mx = _D.x;
-  const mz = -_D.y * sp + _D.z * cp; // z-row of RX(-pc) D
-  pitch = pc;
+  const mz = -_D.y * sp + _D.z * cp; // z-row of RX(-p) D
+  pitch = p;
   yaw = nearAngle(Math.atan2(mx, mz) - Math.atan2(L.x, L.z), yaw);
-  return Math.abs(c) <= 1 && pc === p;
+  return Math.abs(c) <= 1;
 }
 
 function computeFit() {
@@ -1489,6 +1493,7 @@ let samples = []; // recent {t, yaw, pitch} while dragging, for release velocity
 let tap = null;
 let pinch = null;
 let grab = null; // globe-local point held under the finger centroid
+let grabWorld = null; // the same point in world space, or null off the globe
 let dragAt = null; // centroid already applied to the view
 let lastInteraction = -1;
 let interacted = false;
@@ -1519,9 +1524,26 @@ function pinchSpan() {
 function grabAt(x, y) {
   dragAt = { x, y };
   const hit = sphereHit(x, y, new THREE.Vector3());
+  grabWorld = hit && hit.clone();
   setGlobeQuaternion(globe, yaw, pitch);
   grab = hit && hit.applyQuaternion(_inv.copy(globe.quaternion).invert());
   if (grab && Math.hypot(grab.x, grab.z) < 0.09) grab = null;
+}
+
+// Screen-delta drag, used near a pole and past the pitch limit: horizontal
+// motion spins the globe about its axis, vertical motion tilts it (and is
+// simply absorbed at the limit). Yaw moves a surface point sideways at rate
+// g = cos(pitch) z - sin(pitch) y (x of axis x point), which flips sign past a
+// visible pole, so a finger below the south pole still drags the ground with
+// it. Dividing by g tracks the finger; near g = 0 (level with the pole) the
+// gain eases through zero instead, so a swipe across the pole can't whip or
+// jitter the yaw between directions.
+function screenDrag(c) {
+  const k = radPerPx();
+  const g = grabWorld ? Math.cos(pitch) * grabWorld.z - Math.sin(pitch) * grabWorld.y : 1;
+  yaw += ((c.x - dragAt.x) * k * g) / Math.max(g * g, 0.35 * 0.35);
+  pitch = clamp(pitch + (c.y - dragAt.y) * k, -PITCH_LIMIT, PITCH_LIMIT);
+  grabAt(c.x, c.y);
 }
 
 function resetAnchor() {
@@ -1535,13 +1557,14 @@ function resetAnchor() {
 // pointer moves and every frame (a pinch zoom shifts the mapping between moves).
 function applyDrag() {
   const c = centroid();
-  if (grab) {
-    if (!solveGrab(grab, c.x, c.y)) grabAt(c.x, c.y); // hit a limit: re-grab so reversing responds at once
+  // At the limit the exact solve can still hold a point by whirling yaw about
+  // the nearby pole, so stay on screen deltas until the drag tilts back off it.
+  if (grab && Math.abs(pitch) < PITCH_LIMIT) {
+    const held = solveGrab(grab, c.x, c.y);
+    if (held === null) screenDrag(c); // past the pitch limit
+    else if (!held) grabAt(c.x, c.y); // hit a limit: re-grab so reversing responds at once
   } else if (dragAt) {
-    const k = radPerPx();
-    yaw += (c.x - dragAt.x) * k;
-    pitch = clamp(pitch + (c.y - dragAt.y) * k, -PITCH_LIMIT, PITCH_LIMIT);
-    grabAt(c.x, c.y);
+    screenDrag(c);
   }
   dragAt = c;
 }
