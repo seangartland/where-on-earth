@@ -733,7 +733,7 @@ const SAT_PROVIDERS = [
     // policy without Access-Control-Allow-Origin (immutable, 1 year); a new
     // query string is a new cache key, so every tile is fetched with CORS.
     url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg?v=3`,
-    credit: 'Base imagery: NASA Blue Marble · Detail imagery: <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a>',
+    credit: 'Imagery <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a> (Sentinel-2 2025) · Base NASA Blue Marble',
     maxZ: 8,
   },
 ];
@@ -796,7 +796,7 @@ const satReady = initSatellite();
 // chosen once it settles (or, during the slow idle drift, when the view
 // outruns the current window).
 // ---------------------------------------------------------------------------
-const INSET_MIN_Z = 4;
+const INSET_MIN_Z = 0;
 const INSET_Q = 1; // target texels per css px: 1 = css px, 0.5 = device px
 const INSET_SIZE = renderer.capabilities.maxTextureSize < 4096 ? 1536 : 2048;
 const INSET_TILES = INSET_SIZE / 256; // footprint cap per side, margin included
