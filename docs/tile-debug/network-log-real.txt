@@ -1,0 +1,42 @@
+4529ms CONSOLE error: Failed to load resource: the server responded with a status of 404 ()
+STATE home {"size":2048,"gen":null,"z":null,"cols":null,"rows":null,"tiles":null,"visLeft":null,"allLeft":null,"ready":false,"mipped":false,"inflight":0,"queued":0,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":0,"mixA":0,"mixB":0}
+STATE initial {"size":2048,"gen":null,"z":null,"cols":null,"rows":null,"tiles":null,"visLeft":null,"allLeft":null,"ready":false,"mipped":false,"inflight":0,"queued":0,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":0,"mixA":0,"mixB":0}
+STATE in1 {"size":2048,"gen":null,"z":null,"cols":null,"rows":null,"tiles":null,"visLeft":null,"allLeft":null,"ready":false,"mipped":false,"inflight":0,"queued":0,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":0,"mixA":0,"mixB":0}
+31100ms REQ https://tiles.where-on.earth/tiles/5/14/14.jpg
+31100ms REQ https://tiles.where-on.earth/tiles/5/13/14.jpg
+31104ms REQ https://tiles.where-on.earth/tiles/5/14/13.jpg
+31104ms REQ https://tiles.where-on.earth/tiles/5/13/13.jpg
+31104ms REQ https://tiles.where-on.earth/tiles/5/14/15.jpg
+31104ms REQ https://tiles.where-on.earth/tiles/5/13/15.jpg
+32728ms CONSOLE error: Access to fetch at 'https://tiles.where-on.earth/tiles/5/14/13.jpg' from origin 'https://www.where-on.earth' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the 
+32728ms FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/13.jpg
+32728ms CONSOLE error: Failed to load resource: net::ERR_FAILED
+32758ms REQ https://tiles.where-on.earth/tiles/5/14/12.jpg
+32758ms CONSOLE error: Access to fetch at 'https://tiles.where-on.earth/tiles/5/13/14.jpg' from origin 'https://www.where-on.earth' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the 
+32758ms FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/13/14.jpg
+32758ms CONSOLE error: Failed to load resource: net::ERR_FAILED
+32758ms CONSOLE error: Access to fetch at 'https://tiles.where-on.earth/tiles/5/14/15.jpg' from origin 'https://www.where-on.earth' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the 
+32760ms FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/15.jpg
+32760ms CONSOLE error: Failed to load resource: net::ERR_FAILED
+32762ms CONSOLE error: Access to fetch at 'https://tiles.where-on.earth/tiles/5/13/13.jpg' from origin 'https://www.where-on.earth' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the 
+32766ms FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/13/13.jpg
+32767ms CONSOLE error: Failed to load resource: net::ERR_FAILED
+32779ms CONSOLE error: Access to fetch at 'https://tiles.where-on.earth/tiles/5/14/14.jpg' from origin 'https://www.where-on.earth' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the 
+32779ms FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/14.jpg
+32779ms CONSOLE error: Failed to load resource: net::ERR_FAILED
+32782ms CONSOLE error: Access to fetch at 'https://tiles.where-on.earth/tiles/5/13/15.jpg' from origin 'https://www.where-on.earth' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the 
+32782ms FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/13/15.jpg
+32787ms CONSOLE error: Failed to load resource: net::ERR_FAILED
+33022ms CONSOLE error: Access to fetch at 'https://tiles.where-on.earth/tiles/5/14/12.jpg' from origin 'https://www.where-on.earth' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the 
+33022ms FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/12.jpg
+33024ms CONSOLE error: Failed to load resource: net::ERR_FAILED
+STATE in2 {"size":2048,"gen":1,"z":5,"cols":4,"rows":6,"tiles":24,"visLeft":8,"allLeft":24,"ready":false,"mipped":false,"inflight":0,"queued":24,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":58596,"mixA":0,"mixB":1}
+STATE in3 {"size":2048,"gen":2,"z":7,"cols":6,"rows":8,"tiles":48,"visLeft":24,"allLeft":48,"ready":false,"mipped":false,"inflight":0,"queued":48,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":52662,"mixA":0,"mixB":1}
+STATE in4 {"size":2048,"gen":2,"z":7,"cols":6,"rows":8,"tiles":48,"visLeft":24,"allLeft":48,"ready":false,"mipped":false,"inflight":0,"queued":48,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":46996,"mixA":0,"mixB":1}
+STATE in5 {"size":2048,"gen":2,"z":7,"cols":6,"rows":8,"tiles":48,"visLeft":24,"allLeft":48,"ready":false,"mipped":false,"inflight":0,"queued":48,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":41298,"mixA":0,"mixB":1}
+STATE in6 {"size":2048,"gen":2,"z":7,"cols":6,"rows":8,"tiles":48,"visLeft":24,"allLeft":48,"ready":false,"mipped":false,"inflight":0,"queued":48,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":35761,"mixA":0,"mixB":1}
+STATE in7 {"size":2048,"gen":2,"z":7,"cols":6,"rows":8,"tiles":48,"visLeft":24,"allLeft":48,"ready":false,"mipped":false,"inflight":0,"queued":48,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":30095,"mixA":0,"mixB":1}
+STATE in8 {"size":2048,"gen":2,"z":7,"cols":6,"rows":8,"tiles":48,"visLeft":24,"allLeft":48,"ready":false,"mipped":false,"inflight":0,"queued":48,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":24667,"mixA":0,"mixB":1}
+STATE out1 {"size":2048,"gen":3,"z":4,"cols":4,"rows":6,"tiles":24,"visLeft":8,"allLeft":24,"ready":false,"mipped":false,"inflight":0,"queued":24,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":18265,"mixA":0,"mixB":1}
+STATE out2 {"size":2048,"gen":null,"z":null,"cols":null,"rows":null,"tiles":null,"visLeft":null,"allLeft":null,"ready":false,"mipped":false,"inflight":0,"queued":0,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":10950,"mixA":0,"mixB":0}
+STATE out3 {"size":2048,"gen":null,"z":null,"cols":null,"rows":null,"tiles":null,"visLeft":null,"allLeft":null,"ready":false,"mipped":false,"inflight":0,"queued":0,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":3001,"mixA":0,"mixB":0}

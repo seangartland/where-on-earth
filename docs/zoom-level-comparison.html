@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, sans-serif; margin: 0; padding: 16px; background: var(--hatch-widget-bg, #f5f5f5); color: var(--hatch-widget-text, #000); }
+h1 { font-size: 20px; margin-bottom: 8px; }
+.subtitle { color: var(--hatch-widget-muted, #666); font-size: 14px; margin-bottom: 24px; }
+.option { background: var(--hatch-widget-surface, white); border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid var(--hatch-widget-border, #eee); }
+.option h2 { font-size: 18px; margin: 0 0 8px 0; }
+.tile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 12px 0; border-radius: 8px; overflow: hidden; }
+.tile-grid img { width: 100%; height: auto; display: block; }
+.detail { font-size: 14px; line-height: 1.6; }
+.detail strong { font-weight: 600; }
+.tradeoff { font-size: 13px; color: var(--hatch-widget-muted, #666); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--hatch-widget-border, #eee); }
+.viewport-note { font-size: 12px; color: var(--hatch-widget-muted, #999); margin-top: 24px; text-align: center; }
+.location-label { font-size: 12px; color: var(--hatch-widget-muted, #666); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<h1>Zoom Level Comparison</h1>
+<div class="subtitle">Same location (San Francisco Bay Area) at different max zoom levels</div>
+
+<div class="option">
+<h2>Option A: Max z9</h2>
+<div class="location-label">San Francisco Bay Area - z9 tiles</div>
+<div class="tile-grid">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/197/86" alt="z9 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/197/87" alt="z9 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/198/86" alt="z9 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/198/87" alt="z9 tile">
+</div>
+<div class="detail">
+<strong>Detail:</strong> Neighborhoods, major roads, parks, water features<br>
+<strong>Tiles needed:</strong> 20,292 (z4-z9)<br>
+<strong>Est. AWS egress:</strong> $1-3<br>
+<strong>Landsat 30m:</strong> Looks good at this level
+</div>
+<div class="tradeoff">Tradeoff: Less precision. Players identify districts and landmarks, not specific streets.</div>
+</div>
+
+<div class="option">
+<h2>Option B: Max z10</h2>
+<div class="location-label">San Francisco Bay Area - z10 tiles (centered on downtown SF)</div>
+<div class="tile-grid">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/394/173" alt="z10 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/394/174" alt="z10 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/395/173" alt="z10 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/395/174" alt="z10 tile">
+</div>
+<div class="detail">
+<strong>Detail:</strong> Individual streets, city blocks, building clusters<br>
+<strong>Tiles needed:</strong> 32,234 (z4-z10)<br>
+<strong>Est. AWS egress:</strong> $2-4<br>
+<strong>Landsat 30m:</strong> Adequate, starting to soften
+</div>
+<div class="tradeoff">Tradeoff: Good balance of precision and cost. Sweet spot for gameplay.</div>
+</div>
+
+<div class="option">
+<h2>Option C: Max z11 (current)</h2>
+<div class="location-label">San Francisco Bay Area - z11 tiles (downtown SF detail)</div>
+<div class="tile-grid">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/788/346" alt="z11 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/788/347" alt="z11 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/789/346" alt="z11 tile">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/789/347" alt="z11 tile">
+</div>
+<div class="detail">
+<strong>Detail:</strong> Individual buildings, cars, trees (Esri quality)<br>
+<strong>Tiles needed:</strong> 45,913 (z4-z11)<br>
+<strong>Est. AWS egress:</strong> $2-6<br>
+<strong>Landsat 30m:</strong> Blurry, not recommended at this zoom
+</div>
+<div class="tradeoff">Tradeoff: Maximum precision, but requires Esri. Can't self-host at this quality with Landsat.</div>
+</div>
+
+<div class="viewport-note">Tiles: Esri World Imagery (for illustration). Verified at 390px viewport.</div>
+</body>
+</html>

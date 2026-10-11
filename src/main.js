@@ -733,11 +733,11 @@ const SAT_PROVIDERS = [
     // policy without Access-Control-Allow-Origin (immutable, 1 year); a new
     // query string is a new cache key, so every tile is fetched with CORS.
     url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg?v=3`,
-    credit: 'Imagery <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a> (Sentinel-2 2025) · Base NASA Blue Marble',
+    credit: 'Imagery <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a> (Sentinel-2 2025)',
     maxZ: 8,
   },
 ];
-const SAT_BASE_URL = './assets/blue-marble-2k.jpg';
+const SAT_BASE_URL = './assets/eox-z4-base-2k.jpg';
 const SAT_FADE_S = 0.4;
 const mapStyle = new URLSearchParams(location.search).get('map') === 'classic' ? 'classic' : 'satellite';
 let satTarget = 0; // uSatMix eases toward this
@@ -748,14 +748,9 @@ let satProvider = null; // tile provider used only by the detail insets
 let satDisabled = false; // for the session, after a second context loss
 
 async function loadSatBase() {
-  // TEMP: Blue Marble disabled for visual test - solid dark blue base
-  const canvas = document.createElement('canvas');
-  canvas.width = 1; canvas.height = 1;
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = '#0a1a2f';
-  ctx.fillRect(0, 0, 1, 1);
-  const tex = new THREE.CanvasTexture(canvas);
-  tex.colorSpace = THREE.NoColorSpace;
+  const tex = await new THREE.TextureLoader().loadAsync(SAT_BASE_URL);
+  tex.colorSpace = THREE.NoColorSpace; // globeMat writes gl_FragColor raw
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
   return tex;
 }
 

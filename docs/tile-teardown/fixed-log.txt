@@ -1,0 +1,227 @@
+mix 1
+12003 initial gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+12511 initial gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+13028 initial gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+13536 initial gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+16202 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+16708 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+17215 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+17727 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+19171 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+19706 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+20213 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+20718 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+21236 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+21742 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+22246 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+22752 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+23256 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+23761 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+24266 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+24798 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+27501 in2 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+28007 in2 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+28513 in2 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+29026 in2 gen=1 z=5 vis=12 all=30 ready=false infl=6 q=24 lru=0 paused=0 mixA=0.00 mixB=0.35
+30452 in2 gen=1 z=5 vis=12 all=30 ready=false infl=6 q=24 lru=0 paused=0 mixA=0.00 mixB=1.00
+30562 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/14/13.jpg?v=2
+30616 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/13.jpg?v=2
+30620 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/14/15.jpg?v=2
+30620 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/14.jpg?v=2
+30633 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/14.jpg?v=2
+30840 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/14/14.jpg?v=2
+31014 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/15.jpg?v=2
+31017 in2 gen=1 z=5 vis=7 all=25 ready=false infl=3 q=22 lru=5 paused=0 mixA=0.00 mixB=1.00
+31017 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/13.jpg?v=2
+31174 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/14/12.jpg?v=2
+31500 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/12.jpg?v=2
+31523 in2 gen=1 z=5 vis=3 all=21 ready=false infl=2 q=18 lru=10 paused=0 mixA=0.00 mixB=1.00
+31942 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/12.jpg?v=2
+31948 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/15.jpg?v=2
+32031 in2 gen=1 z=5 vis=2 all=20 ready=false infl=2 q=16 lru=12 paused=0 mixA=0.00 mixB=1.00
+32402 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/12/14.jpg?v=2
+32402 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/12/13.jpg?v=2
+32536 in2 gen=1 z=5 vis=0 all=18 ready=true infl=1 q=15 lru=14 paused=0 mixA=0.00 mixB=1.00
+32903 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/12/15.jpg?v=2
+33013 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/16/14.jpg?v=2
+33043 in2 gen=1 z=5 vis=0 all=16 ready=true infl=1 q=13 lru=16 paused=0 mixA=0.00 mixB=1.00
+33358 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/14/16.jpg?v=2
+33655 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/16.jpg?v=2
+33660 in2 gen=1 z=5 vis=0 all=13 ready=true infl=3 q=10 lru=17 paused=0 mixA=0.00 mixB=1.00
+33660 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/12/12.jpg?v=2
+33763 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/16/13.jpg?v=2
+34168 in2 gen=1 z=5 vis=0 all=10 ready=true infl=3 q=7 lru=20 paused=0 mixA=0.00 mixB=1.00
+34220 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/16/15.jpg?v=2
+34233 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/14/11.jpg?v=2
+34256 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/16.jpg?v=2
+34668 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/16/12.jpg?v=2
+34941 in2 gen=1 z=5 vis=0 all=6 ready=true infl=6 q=0 lru=24 paused=0 mixA=0.00 mixB=1.00
+34950 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/12/16.jpg?v=2
+34950 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/11.jpg?v=2
+34956 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/12/11.jpg?v=2
+34956 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/16/16.jpg?v=2
+34959 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/11.jpg?v=2
+35255 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/16/11.jpg?v=2
+35657 in2 gen=1 z=5 vis=0 all=0 ready=true infl=0 q=0 lru=30 paused=0 mixA=0.00 mixB=1.00
+36163 in2 gen=1 z=5 vis=0 all=0 ready=true infl=0 q=0 lru=30 paused=0 mixA=0.00 mixB=1.00
+36670 in2 gen=1 z=5 vis=0 all=0 ready=true infl=0 q=0 lru=30 paused=0 mixA=0.00 mixB=1.00
+39145 in3 gen=1 z=5 vis=0 all=0 ready=true infl=0 q=0 lru=30 paused=0 mixA=0.00 mixB=1.00
+39652 in3 gen=1 z=5 vis=0 all=0 ready=true infl=0 q=0 lru=30 paused=0 mixA=0.00 mixB=1.00
+40161 in3 gen=2 z=7 vis=18 all=40 ready=false infl=6 q=34 lru=30 paused=0 mixA=1.00 mixB=0.10
+40215 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/54/56.jpg?v=2
+40226 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/56/56.jpg?v=2
+40237 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/55/56.jpg?v=2
+40246 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/55/55.jpg?v=2
+40252 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/55/57.jpg?v=2
+40264 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/56/57.jpg?v=2
+40582 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/54/57.jpg?v=2
+40612 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/54/55.jpg?v=2
+40617 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/55/58.jpg?v=2
+40625 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/54/58.jpg?v=2
+40949 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/56/55.jpg?v=2
+40980 in3 gen=2 z=7 vis=7 all=29 ready=false infl=5 q=24 lru=35 paused=0 mixA=1.00 mixB=0.92
+40983 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/56/58.jpg?v=2
+41064 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/56/54.jpg?v=2
+41073 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/55/54.jpg?v=2
+41086 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/55/59.jpg?v=2
+41105 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/54/54.jpg?v=2
+41121 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/56/59.jpg?v=2
+41628 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/53/56.jpg?v=2
+41645 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/57/55.jpg?v=2
+41653 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/57/56.jpg?v=2
+41660 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/54/59.jpg?v=2
+41704 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/53/57.jpg?v=2
+41711 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/57/57.jpg?v=2
+42407 in3 gen=2 z=7 vis=0 all=17 ready=true infl=6 q=11 lru=41 paused=0 mixA=0.58 mixB=1.00
+42415 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/53/58.jpg?v=2
+42415 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/57/54.jpg?v=2
+42415 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/55/53.jpg?v=2
+42415 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/53/54.jpg?v=2
+42415 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/57/58.jpg?v=2
+42415 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/53/55.jpg?v=2
+42528 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/57/59.jpg?v=2
+42544 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/54/53.jpg?v=2
+42549 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/56/53.jpg?v=2
+42556 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/53/59.jpg?v=2
+42917 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/57/53.jpg?v=2
+42921 in3 gen=2 z=7 vis=0 all=6 ready=true infl=6 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+43002 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/55/60.jpg?v=2
+43014 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/53/53.jpg?v=2
+43015 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/54/60.jpg?v=2
+43026 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/57/60.jpg?v=2
+43044 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/53/60.jpg?v=2
+43054 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/56/60.jpg?v=2
+43428 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+43935 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+44441 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+44950 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+45457 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+45965 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+46497 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+47003 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+47511 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+48018 in3 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+50114 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+50620 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+51129 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+51633 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+52935 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+53444 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+53951 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+54460 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+54965 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+55499 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+56011 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+56519 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+57026 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+57539 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+58049 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+58563 in4 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+60855 in5 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+61364 in5 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+61869 in5 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+62399 in5 gen=2 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+63321 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/52/57.jpg?v=2
+63328 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/52/54.jpg?v=2
+63336 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/52/58.jpg?v=2
+63345 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/51/56.jpg?v=2
+63355 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/52/56.jpg?v=2
+63468 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/52/55.jpg?v=2
+63758 in5 gen=3 z=7 vis=0 all=10 ready=true infl=6 q=2 lru=43 paused=0 mixA=0.90 mixB=0.35
+63929 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/51/58.jpg?v=2
+63936 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/51/54.jpg?v=2
+63936 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/52/53.jpg?v=2
+63936 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/52/59.jpg?v=2
+63936 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/51/57.jpg?v=2
+63936 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/51/55.jpg?v=2
+64025 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/51/59.jpg?v=2
+64102 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/51/53.jpg?v=2
+64264 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.09 mixB=1.00
+64768 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+65273 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+65803 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+66310 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+66817 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+67321 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+67833 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+68347 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+68853 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+69361 in5 gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+70533 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+71040 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+71548 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+72053 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+72561 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+73068 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+73572 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+74105 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+74613 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+75124 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+75629 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+76132 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+76640 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+77145 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+77659 hold gen=3 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+77870 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/50/56.jpg?v=2
+77879 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/50/58.jpg?v=2
+77893 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/50/57.jpg?v=2
+77900 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/50/55.jpg?v=2
+77900 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/49/56.jpg?v=2
+77906 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/50/54.jpg?v=2
+78207 hold gen=4 z=7 vis=0 all=8 ready=true infl=6 q=2 lru=43 paused=0 mixA=0.90 mixB=0.65
+78331 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/49/55.jpg?v=2
+78342 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/50/59.jpg?v=2
+78350 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/49/54.jpg?v=2
+78407 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/50/53.jpg?v=2
+78411 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/49/58.jpg?v=2
+78437 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/49/57.jpg?v=2
+78617 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/49/59.jpg?v=2
+78621 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/49/53.jpg?v=2
+78716 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.10 mixB=1.00
+79220 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+79727 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+80235 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+80745 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+81251 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+81756 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+82266 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+82771 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+83277 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+83801 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+84309 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+84816 hold gen=4 z=7 vis=0 all=0 ready=true infl=0 q=0 lru=43 paused=0 mixA=0.00 mixB=1.00
+85127 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/48/54.jpg?v=2
+85135 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/48/57.jpg?v=2
+85141 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/48/56.jpg?v=2
+85149 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/48/58.jpg?v=2
+85149 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/47/56.jpg?v=2
+85168 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/48/55.jpg?v=2
+85319 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/47/58.jpg?v=2
+85319 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/47/55.jpg?v=2
+85322 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/47/57.jpg?v=2
+85324 hold gen=5 z=7 vis=0 all=5 ready=true infl=3 q=2 lru=43 paused=0 mixA=0.90 mixB=0.35
+85344 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/47/54.jpg?v=2
+85359 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/48/59.jpg?v=2
+85363 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/48/53.jpg?v=2
+85527 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/47/53.jpg?v=2
+85548 RES 404 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/7/47/59.jpg?v=2

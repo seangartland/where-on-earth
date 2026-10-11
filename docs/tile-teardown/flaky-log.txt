@@ -1,0 +1,134 @@
+mix 1
+11614 initial gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+12147 initial gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+12656 initial gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+13161 initial gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+15980 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+16486 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+16990 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+17495 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+19174 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+19680 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+20188 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+20693 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+21200 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+21706 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+22212 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+22719 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+23224 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+23749 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+24257 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+24763 in1 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+27668 in2 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+28176 in2 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+28681 in2 gen=null z=null vis=null all=null ready=false infl=0 q=0 lru=0 paused=0 mixA=0.00 mixB=0.00
+28847 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/14.jpg?v=2
+28847 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/13.jpg?v=2
+28850 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/15.jpg?v=2
+29040 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/12.jpg?v=2
+29190 in2 gen=1 z=5 vis=12 all=30 ready=false infl=6 q=24 lru=0 paused=0 mixA=0.00 mixB=0.58
+30621 in2 gen=1 z=5 vis=12 all=30 ready=false infl=6 q=24 lru=0 paused=0 mixA=0.00 mixB=1.00
+30656 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/14.jpg?v=2
+30667 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/12.jpg?v=2
+30667 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/13.jpg?v=2
+30668 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/13.jpg?v=2
+30669 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/13/15.jpg?v=2
+30669 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/14.jpg?v=2
+31078 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/12/14.jpg?v=2
+31085 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/15.jpg?v=2
+31085 RES 200 acao=https://www.where-on.earth https://tiles.where-on.earth/tiles/5/15/12.jpg?v=2
+31098 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/12/13.jpg?v=2
+31101 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/12/15.jpg?v=2
+31102 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/16/14.jpg?v=2
+31148 in2 gen=1 z=5 vis=6 all=24 ready=false infl=0 q=22 lru=8 paused=0 mixA=0.00 mixB=1.00
+31549 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/14/16.jpg?v=2
+31551 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/12/12.jpg?v=2
+31551 FAIL net::ERR_FAILED https://tiles.where-on.earth/tiles/5/16/13.jpg?v=2
+31655 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=59894 mixA=0.00 mixB=1.00
+32159 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=59390 mixA=0.00 mixB=1.00
+32663 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=58886 mixA=0.00 mixB=1.00
+33169 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=58381 mixA=0.00 mixB=1.00
+33676 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=57873 mixA=0.00 mixB=1.00
+34182 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=57367 mixA=0.00 mixB=1.00
+34688 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=56862 mixA=0.00 mixB=1.00
+35193 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=56356 mixA=0.00 mixB=1.00
+35697 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=55853 mixA=0.00 mixB=1.00
+36204 in2 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=55347 mixA=0.00 mixB=1.00
+38470 in3 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=53080 mixA=0.00 mixB=1.00
+38978 in3 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=52573 mixA=0.00 mixB=1.00
+39483 in3 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=52066 mixA=0.00 mixB=1.00
+39988 in3 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=51561 mixA=0.00 mixB=1.00
+41273 in3 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=50276 mixA=0.00 mixB=1.00
+41784 in3 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=49769 mixA=0.00 mixB=1.00
+42292 in3 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=49259 mixA=0.00 mixB=1.00
+42810 in3 gen=1 z=5 vis=4 all=22 ready=false infl=0 q=22 lru=8 paused=48750 mixA=0.00 mixB=1.00
+43318 in3 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=48231 mixA=1.00 mixB=0.35
+43854 in3 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=47698 mixA=1.00 mixB=1.00
+44361 in3 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=47188 mixA=1.00 mixB=1.00
+44874 in3 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=46677 mixA=1.00 mixB=1.00
+45387 in3 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=46162 mixA=1.00 mixB=1.00
+45894 in3 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=45655 mixA=1.00 mixB=1.00
+46400 in3 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=45150 mixA=1.00 mixB=1.00
+46905 in3 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=44644 mixA=1.00 mixB=1.00
+48795 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=42755 mixA=1.00 mixB=1.00
+49311 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=42239 mixA=1.00 mixB=1.00
+49818 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=41731 mixA=1.00 mixB=1.00
+50351 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=41201 mixA=1.00 mixB=1.00
+51666 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=39884 mixA=1.00 mixB=1.00
+52175 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=39375 mixA=1.00 mixB=1.00
+52681 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=38868 mixA=1.00 mixB=1.00
+53188 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=38362 mixA=1.00 mixB=1.00
+53698 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=37852 mixA=1.00 mixB=1.00
+54209 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=37342 mixA=1.00 mixB=1.00
+54714 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=36835 mixA=1.00 mixB=1.00
+55223 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=36331 mixA=1.00 mixB=1.00
+55750 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=35800 mixA=1.00 mixB=1.00
+56258 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=35291 mixA=1.00 mixB=1.00
+56765 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=34784 mixA=1.00 mixB=1.00
+57272 in4 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=34277 mixA=1.00 mixB=1.00
+59369 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=32182 mixA=1.00 mixB=1.00
+59876 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=31674 mixA=1.00 mixB=1.00
+60382 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=31168 mixA=1.00 mixB=1.00
+60891 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=30659 mixA=1.00 mixB=1.00
+62185 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=29364 mixA=1.00 mixB=1.00
+62693 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=28859 mixA=1.00 mixB=1.00
+63198 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=28352 mixA=1.00 mixB=1.00
+63707 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=27844 mixA=1.00 mixB=1.00
+64210 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=27339 mixA=1.00 mixB=1.00
+64716 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=26833 mixA=1.00 mixB=1.00
+65251 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=26298 mixA=1.00 mixB=1.00
+65760 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=25789 mixA=1.00 mixB=1.00
+66268 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=25283 mixA=1.00 mixB=1.00
+66775 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=24775 mixA=1.00 mixB=1.00
+67281 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=24269 mixA=1.00 mixB=1.00
+67794 in5 gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=23756 mixA=1.00 mixB=1.00
+69110 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=22439 mixA=1.00 mixB=1.00
+69617 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=21934 mixA=1.00 mixB=1.00
+70121 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=21428 mixA=1.00 mixB=1.00
+70627 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=20923 mixA=1.00 mixB=1.00
+71154 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=20400 mixA=1.00 mixB=1.00
+71663 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=19889 mixA=1.00 mixB=1.00
+72169 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=19380 mixA=1.00 mixB=1.00
+72676 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=18875 mixA=1.00 mixB=1.00
+73182 hold gen=2 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=18367 mixA=1.00 mixB=1.00
+73686 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=17863 mixA=1.00 mixB=0.77
+74194 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=17356 mixA=1.00 mixB=1.00
+74700 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=16849 mixA=1.00 mixB=1.00
+75207 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=16345 mixA=1.00 mixB=1.00
+75713 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=15837 mixA=1.00 mixB=1.00
+76219 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=15330 mixA=1.00 mixB=1.00
+76723 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=14826 mixA=1.00 mixB=1.00
+77255 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=14301 mixA=1.00 mixB=1.00
+77769 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=13783 mixA=1.00 mixB=1.00
+78276 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=13274 mixA=1.00 mixB=1.00
+78782 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=12767 mixA=1.00 mixB=1.00
+79289 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=12260 mixA=1.00 mixB=1.00
+79794 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=11756 mixA=1.00 mixB=1.00
+80299 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=11251 mixA=1.00 mixB=1.00
+80808 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=10744 mixA=1.00 mixB=1.00
+81315 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=10234 mixA=1.00 mixB=1.00
+81819 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=9730 mixA=1.00 mixB=1.00
+82349 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=9202 mixA=1.00 mixB=1.00
+82867 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=8692 mixA=1.00 mixB=1.00
+83372 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=8177 mixA=1.00 mixB=1.00
+83881 hold gen=3 z=6 vis=6 all=20 ready=false infl=0 q=20 lru=8 paused=7668 mixA=1.00 mixB=1.00

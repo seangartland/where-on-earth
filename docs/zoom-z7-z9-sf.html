@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, sans-serif; margin: 0; padding: 16px; background: var(--hatch-widget-bg, #f5f5f5); color: var(--hatch-widget-text, #000); }
+h1 { font-size: 20px; margin-bottom: 8px; }
+.subtitle { color: var(--hatch-widget-muted, #666); font-size: 14px; margin-bottom: 24px; }
+.option { background: var(--hatch-widget-surface, white); border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid var(--hatch-widget-border, #eee); }
+.option h2 { font-size: 18px; margin: 0 0 8px 0; }
+.tile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 12px 0; border-radius: 8px; overflow: hidden; }
+.tile-grid img { width: 100%; height: auto; display: block; background: #ddd; min-height: 80px; }
+.detail { font-size: 14px; line-height: 1.6; }
+.viewport-note { font-size: 12px; color: var(--hatch-widget-muted, #999); margin-top: 24px; text-align: center; }
+.location-label { font-size: 12px; color: var(--hatch-widget-muted, #666); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<h1>SF Bay Area: z7 through z9</h1>
+<div class="subtitle">San Francisco (37.77N, 122.42W) — Esri World Imagery</div>
+
+<div class="option">
+<h2>z7 — Regional view</h2>
+<div class="location-label">Covers: Bay Area + Central Valley + Coast</div>
+<div class="tile-grid">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/7/49/20" alt="z7">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/7/49/21" alt="z7">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/7/50/20" alt="z7">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/7/50/21" alt="z7">
+</div>
+<div class="detail">You see the entire Bay Area, coastline, and Central Valley. Good for "which metro area is this?"</div>
+</div>
+
+<div class="option">
+<h2>z8 — Metro view</h2>
+<div class="location-label">Covers: SF Bay Area detail</div>
+<div class="tile-grid">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/98/40" alt="z8">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/98/41" alt="z8">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/99/40" alt="z8">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/99/41" alt="z8">
+</div>
+<div class="detail">Bay shape clear, cities distinguishable, bridges visible. Good for city-level guessing.</div>
+</div>
+
+<div class="option">
+<h2>z9 — City view</h2>
+<div class="location-label">Covers: San Francisco + immediate surroundings</div>
+<div class="tile-grid">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/197/81" alt="z9">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/197/82" alt="z9">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/198/81" alt="z9">
+<img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/198/82" alt="z9">
+</div>
+<div class="detail">Neighborhoods, Golden Gate Park, downtown. Plenty for precise city guessing.</div>
+</div>
+
+<div class="viewport-note">Tiles: Esri World Imagery. 390px viewport.</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+STATE home {"size":2048,"gen":null,"z":null,"cols":null,"rows":null,"tiles":null,"visLeft":null,"allLeft":null,"ready":false,"mipped":false,"inflight":0,"queued":0,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":0,"mixA":0,"mixB":0}
+STATE initial {"size":2048,"gen":null,"z":null,"cols":null,"rows":null,"tiles":null,"visLeft":null,"allLeft":null,"ready":false,"mipped":false,"inflight":0,"queued":0,"uploads":0,"lru":0,"lruKB":0,"slow":false,"latency":[],"pausedFor":0,"mixA":0,"mixB":0}
+29106ms REQ https://tiles.where-on.earth/tiles/7/56/56.jpg
+29113ms REQ https://tiles.where-on.earth/tiles/7/56/57.jpg
+29114ms REQ https://tiles.where-on.earth/tiles/7/55/56.jpg
+29115ms REQ https://tiles.where-on.earth/tiles/7/55/57.jpg
+29116ms REQ https://tiles.where-on.earth/tiles/7/57/56.jpg
+29116ms REQ https://tiles.where-on.earth/tiles/7/56/55.jpg
+31049ms RES 404 https://tiles.where-on.earth/tiles/7/55/56.jpg acao=https://www.where-on.earth
+31049ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+31098ms RES 404 https://tiles.where-on.earth/tiles/7/56/55.jpg acao=https://www.where-on.earth
+31098ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+31106ms REQ https://tiles.where-on.earth/tiles/7/57/57.jpg
+31107ms REQ https://tiles.where-on.earth/tiles/7/55/55.jpg
+31153ms RES 404 https://tiles.where-on.earth/tiles/7/56/56.jpg acao=https://www.where-on.earth
+31156ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+31160ms RES 200 https://tiles.where-on.earth/tiles/7/57/56.jpg acao=https://www.where-on.earth
+31204ms RES 200 https://tiles.where-on.earth/tiles/7/56/57.jpg acao=https://www.where-on.earth
+31319ms RES 404 https://tiles.where-on.earth/tiles/7/55/55.jpg acao=https://www.where-on.earth
+31319ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+31325ms RES 200 https://tiles.where-on.earth/tiles/7/57/57.jpg acao=https://www.where-on.earth
+31682ms REQ https://tiles.where-on.earth/tiles/7/57/55.jpg
+31685ms REQ https://tiles.where-on.earth/tiles/7/56/58.jpg
+31686ms REQ https://tiles.where-on.earth/tiles/7/55/58.jpg
+31686ms REQ https://tiles.where-on.earth/tiles/7/57/58.jpg
+31686ms REQ https://tiles.where-on.earth/tiles/7/56/54.jpg
+31687ms RES 200 https://tiles.where-on.earth/tiles/7/55/57.jpg acao=https://www.where-on.earth
+31696ms REQ https://tiles.where-on.earth/tiles/7/55/54.jpg
+31823ms RES 404 https://tiles.where-on.earth/tiles/7/56/54.jpg acao=https://www.where-on.earth
+31828ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+31857ms RES 200 https://tiles.where-on.earth/tiles/7/55/58.jpg acao=https://www.where-on.earth
+31862ms RES 404 https://tiles.where-on.earth/tiles/7/55/54.jpg acao=https://www.where-on.earth
+31864ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+31889ms RES 404 https://tiles.where-on.earth/tiles/7/57/55.jpg acao=https://www.where-on.earth
+31889ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+31889ms RES 200 https://tiles.where-on.earth/tiles/7/56/58.jpg acao=https://www.where-on.earth
+32189ms REQ https://tiles.where-on.earth/tiles/7/57/54.jpg
+32193ms REQ https://tiles.where-on.earth/tiles/7/56/59.jpg
+32195ms RES 200 https://tiles.where-on.earth/tiles/7/57/58.jpg acao=https://www.where-on.earth
+STATE in1 {"size":2048,"gen":1,"z":7,"cols":5,"rows":8,"tiles":40,"visLeft":12,"allLeft":34,"ready":false,"mipped":false,"inflight":3,"queued":31,"uploads":0,"lru":6,"lruKB":21,"slow":true,"latency":[225,478,512,2058,2104,2583],"pausedFor":0,"mixA":0,"mixB":1}
+32313ms REQ https://tiles.where-on.earth/tiles/7/55/59.jpg
+32363ms RES 404 https://tiles.where-on.earth/tiles/7/57/54.jpg acao=https://www.where-on.earth
+32363ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+32444ms REQ https://tiles.where-on.earth/tiles/7/57/59.jpg
+32450ms RES 200 https://tiles.where-on.earth/tiles/7/55/59.jpg acao=https://www.where-on.earth
+32517ms RES 200 https://tiles.where-on.earth/tiles/7/56/59.jpg acao=https://www.where-on.earth
+33066ms REQ https://tiles.where-on.earth/tiles/7/54/56.jpg
+33069ms REQ https://tiles.where-on.earth/tiles/7/54/57.jpg
+33069ms REQ https://tiles.where-on.earth/tiles/7/54/55.jpg
+33094ms REQ https://tiles.where-on.earth/tiles/7/58/56.jpg
+33094ms REQ https://tiles.where-on.earth/tiles/7/58/57.jpg
+33094ms RES 200 https://tiles.where-on.earth/tiles/7/57/59.jpg acao=https://www.where-on.earth
+33256ms REQ https://tiles.where-on.earth/tiles/7/54/58.jpg
+33259ms RES 404 https://tiles.where-on.earth/tiles/7/54/55.jpg acao=https://www.where-on.earth
+33259ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+33271ms REQ https://tiles.where-on.earth/tiles/7/58/55.jpg
+33309ms RES 200 https://tiles.where-on.earth/tiles/7/58/57.jpg acao=https://www.where-on.earth
+33310ms RES 404 https://tiles.where-on.earth/tiles/7/54/56.jpg acao=https://www.where-on.earth
+33310ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+33313ms RES 200 https://tiles.where-on.earth/tiles/7/54/57.jpg acao=https://www.where-on.earth
+33404ms RES 200 https://tiles.where-on.earth/tiles/7/54/58.jpg acao=https://www.where-on.earth
+33439ms RES 200 https://tiles.where-on.earth/tiles/7/58/56.jpg acao=https://www.where-on.earth
+33575ms RES 200 https://tiles.where-on.earth/tiles/7/58/55.jpg acao=https://www.where-on.earth
+34321ms REQ https://tiles.where-on.earth/tiles/7/58/58.jpg
+34322ms REQ https://tiles.where-on.earth/tiles/7/54/54.jpg
+34325ms REQ https://tiles.where-on.earth/tiles/7/58/54.jpg
+34325ms REQ https://tiles.where-on.earth/tiles/7/56/53.jpg
+34326ms REQ https://tiles.where-on.earth/tiles/7/54/59.jpg
+34326ms REQ https://tiles.where-on.earth/tiles/7/55/53.jpg
+34446ms RES 404 https://tiles.where-on.earth/tiles/7/58/54.jpg acao=https://www.where-on.earth
+34452ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+34459ms REQ https://tiles.where-on.earth/tiles/7/57/53.jpg
+34465ms RES 404 https://tiles.where-on.earth/tiles/7/55/53.jpg acao=https://www.where-on.earth
+34465ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+34529ms RES 200 https://tiles.where-on.earth/tiles/7/54/59.jpg acao=https://www.where-on.earth
+34543ms RES 404 https://tiles.where-on.earth/tiles/7/56/53.jpg acao=https://www.where-on.earth
+34543ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+34606ms RES 200 https://tiles.where-on.earth/tiles/7/58/58.jpg acao=https://www.where-on.earth
+34608ms RES 404 https://tiles.where-on.earth/tiles/7/54/54.jpg acao=https://www.where-on.earth
+34608ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+34623ms RES 404 https://tiles.where-on.earth/tiles/7/57/53.jpg acao=https://www.where-on.earth
+34623ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+34939ms REQ https://tiles.where-on.earth/tiles/7/58/59.jpg
+34942ms REQ https://tiles.where-on.earth/tiles/7/54/53.jpg
+34942ms REQ https://tiles.where-on.earth/tiles/7/56/60.jpg
+34945ms REQ https://tiles.where-on.earth/tiles/7/55/60.jpg
+34946ms REQ https://tiles.where-on.earth/tiles/7/58/53.jpg
+34946ms REQ https://tiles.where-on.earth/tiles/7/57/60.jpg
+35064ms RES 404 https://tiles.where-on.earth/tiles/7/58/53.jpg acao=https://www.where-on.earth
+35064ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+35117ms RES 404 https://tiles.where-on.earth/tiles/7/56/60.jpg acao=https://www.where-on.earth
+35117ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+35119ms RES 404 https://tiles.where-on.earth/tiles/7/57/60.jpg acao=https://www.where-on.earth
+35119ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+35120ms RES 404 https://tiles.where-on.earth/tiles/7/54/53.jpg acao=https://www.where-on.earth
+35120ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+35202ms RES 200 https://tiles.where-on.earth/tiles/7/58/59.jpg acao=https://www.where-on.earth
+35215ms RES 404 https://tiles.where-on.earth/tiles/7/55/60.jpg acao=https://www.where-on.earth
+35215ms CONSOLE error: Failed to load resource: the server responded with a status of 404 (Not Found)
+STATE in2 {"size":2048,"gen":1,"z":7,"cols":5,"rows":8,"tiles":40,"visLeft":8,"allLeft":22,"ready":false,"mipped":false,"inflight":0,"queued":22,"uploads":0,"lru":18,"lruKB":100,"slow":false,"latency":[248,314,371,405,452,478,505,512,546,579,730,748,815,870,2583],"pausedFor":55520,"mixA":0,"mixB":1}
+STATE in3 {"size":2048,"gen":1,"z":7,"cols":5,"rows":8,"tiles":40,"visLeft":8,"allLeft":22,"ready":false,"mipped":false,"inflight":0,"queued":22,"uploads":0,"lru":18,"lruKB":100,"slow":false,"latency":[248,314,371,405,452,478,505,512,546,579,730,748,815,870,2583],"pausedFor":48608,"mixA":0,"mixB":1}
+STATE in4 {"size":2048,"gen":1,"z":7,"cols":5,"rows":8,"tiles":40,"visLeft":8,"allLeft":22,"ready":false,"mipped":false,"inflight":0,"queued":22,"uploads":0,"lru":18,"lruKB":100,"slow":false,"latency":[248,314,371,405,452,478,505,512,546,579,730,748,815,870,2583],"pausedFor":41696,"mixA":0,"mixB":1}
+STATE in5 {"size":2048,"gen":1,"z":7,"cols":5,"rows":8,"tiles":40,"visLeft":8,"allLeft":22,"ready":false,"mipped":false,"inflight":0,"queued":22,"uploads":0,"lru":18,"lruKB":100,"slow":false,"latency":[248,314,371,405,452,478,505,512,546,579,730,748,815,870,2583],"pausedFor":34308,"mixA":0,"mixB":1}
+STATE in6 {"size":2048,"gen":1,"z":7,"cols":5,"rows":8,"tiles":40,"visLeft":8,"allLeft":22,"ready":false,"mipped":false,"inflight":0,"queued":22,"uploads":0,"lru":18,"lruKB":100,"slow":false,"latency":[248,314,371,405,452,478,505,512,546,579,730,748,815,870,2583],"pausedFor":26817,"mixA":0,"mixB":1}
