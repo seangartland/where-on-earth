@@ -5685,6 +5685,8 @@ function rarityFor(difficulty) {
   return 'common';
 }
 
+const RARITY_HEX = { common: '#9aa6bb', uncommon: '#4fcf8a', rare: '#6c8cff', legendary: '#c77dff' };
+
 // Every location carries its rarity frame. Accuracy never touches that frame:
 // Bullseye/Pinpoint show only as a gold badge (setProxBadge).
 function applyCardTier(el, item, earned) {
@@ -6258,7 +6260,11 @@ passportPageStyle.textContent = `
    of rebuilding, so only a sort change rebuilds the DOM (see renderPassportDex). */
 .pp-dex-wrap { margin-top: 10px; }
 .pp-group { content-visibility: auto; contain-intrinsic-size: auto 900px; }
-.pp-group-head { position: sticky; top: 0; z-index: 1; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+.pp-group-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
+.pp-group-head:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
+.pp-group-head::after { content: ''; flex: none; width: 6px; height: 6px; margin: -3px 3px 0 0; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
+.pp-group-head[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(225deg); }
+.pp-group-head-text { min-width: 0; }
 .pp-chunk { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 .pp-dex { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 8px; margin: 0; padding: 4px 3px; list-style: none; }
 .pp-slot { position: relative; min-width: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
@@ -6476,19 +6482,27 @@ const passportShareStyle = document.createElement('style');
 passportShareStyle.textContent = `
 .pps { position: fixed; z-index: 14; inset: 0; box-sizing: border-box; display: grid; align-content: center; justify-items: center; gap: 14px; padding: max(18px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom)); background: rgba(2,5,16,.9); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); overflow: auto; overscroll-behavior: contain; }
 .pps[hidden] { display: none; }
+.pps-card [hidden] { display: none !important; }
 .pps-card { position: relative; box-sizing: border-box; width: min(100%, 358px); padding: 22px 20px 18px; border: 1px solid rgba(184,166,255,.42); border-radius: 22px; overflow: hidden; background: radial-gradient(circle at 84% 4%, rgba(132,93,255,.34), transparent 35%), linear-gradient(145deg, #101b43, #090d25 72%); box-shadow: 0 24px 70px rgba(0,0,0,.58), inset 0 1px rgba(255,255,255,.1); color: #f7f8ff; }
 .pps-card::before { content: ''; position: absolute; right: -25px; bottom: -38px; width: 150px; height: 150px; border: 1px dashed rgba(103,232,255,.22); border-radius: 50%; box-shadow: 0 0 0 18px rgba(103,232,255,.025), 0 0 0 42px rgba(196,168,255,.025); }
 .pps-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .pps-kicker { margin: 0; color: #8fdfff; font-size: 10px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
 .pps-card h3 { margin: 4px 0 0; font-size: 22px; line-height: 1; letter-spacing: -.035em; }
 .pps-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 2px dashed #ffd166; border-radius: 50%; color: #ffd166; font-size: 21px; transform: rotate(9deg); box-shadow: 0 0 16px rgba(255,209,102,.18); }
-.pps-stats { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 20px; }
+.pps-progress { position: relative; margin-top: 12px; }
+.pps-visited { margin: 0 0 6px; color: rgba(218,229,255,.72); font-size: 12px; font-weight: 750; }
+.pps-visited b { color: #67e8ff; font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.pps-label { position: relative; margin: 16px 0 7px; color: #8fdfff; font-size: 10px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
+.pps-top3 { position: relative; padding: 4px 3px; }
+.pps-top3 .pp-slot { cursor: default; }
+.pps-km { white-space: nowrap; }
+.pps-flag { position: absolute; inset: 0; display: grid; place-items: center; font-size: 34px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.5)); }
+.pps-streak { position: relative; margin: 15px 0 0; color: #f3ecff; font-size: 12px; font-weight: 700; }
+.pps-streak b { color: #ffd166; }
+.pps-stats { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 14px 3px 0; }
 .pps-stat { min-width: 0; padding: 10px 9px 9px; border: 1px solid rgba(157,211,255,.13); border-radius: 12px; background: rgba(4,10,28,.54); }
-.pps-stat:first-child { border-color: rgba(103,232,255,.3); }
 .pps-stat.gold { border-color: rgba(255,209,102,.34); }
 .pps-stat b { display: block; color: #eaf9ff; font-size: 21px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pps-stat:first-child b { color: #67e8ff; }
-.pps-stat b small { margin-left: 1px; color: rgba(103,232,255,.62); font-size: .6em; font-weight: 800; }
 .pps-stat.gold b { color: #ffd166; }
 .pps-stat span { display: block; margin-top: 5px; color: rgba(218,229,255,.7); font-size: 10px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pps-top3 { position: relative; margin: 15px 0 0; color: #f3ecff; font-size: 12px; font-weight: 700; line-height: 1.6; }
@@ -6514,13 +6528,20 @@ passportShareScreen.setAttribute('aria-labelledby', 'pps-title');
 passportShareScreen.innerHTML = `
   <article class="pps-card">
     <div class="pps-top"><div><p class="pps-kicker">Where on Earth</p><h3 id="pps-title">My passport</h3></div><span class="pps-mark" aria-hidden="true">🛂</span></div>
+    <div class="pps-progress">
+      <p class="pps-visited"><b data-pps="visited">0</b> of <span data-pps="total">0</span> places visited</p>
+      <div class="pp-bar" aria-hidden="true"><i class="pp-bar-seen" data-pps="barSeen"></i><i class="pp-bar-earned" data-pps="barEarned"></i></div>
+    </div>
+    <section class="pps-best" data-pps="best" aria-labelledby="pps-best-title">
+      <p class="pps-label" id="pps-best-title">Closest guesses</p>
+      <ol class="pp-dex pps-top3" data-pps="top3"></ol>
+    </section>
+    <p class="pps-streak" data-pps="streak" hidden></p>
     <div class="pps-stats">
-      <div class="pps-stat"><b data-pps="visited">0/0</b><span>Places visited</span></div>
       <div class="pps-stat"><b data-pps="earned">0</b><span>Postcards</span></div>
       <div class="pps-stat gold"><b data-pps="bullseyes">0</b><span>Bullseyes</span></div>
       <div class="pps-stat gold"><b data-pps="pinpoints">0</b><span>Pinpoints</span></div>
     </div>
-    <p class="pps-top3" data-pps="top3"></p>
     <p class="pps-url">where-on.earth</p>
   </article>
   <div class="pps-actions"><button class="pps-again" type="button" data-pps="again">Share again</button><button class="pps-close" type="button" data-pps="close">Close</button></div>
@@ -6538,26 +6559,43 @@ function passportShareStats() {
     bullseyes: entries.filter((entry) => entry.earned >= EARN_BULLSEYE).length,
     pinpoints: entries.filter((entry) => entry.earned >= EARN_PINPOINT).length,
     streak: currentStreak(),
-    top3: withKm.slice(0, 3).map((e) => ({ name: e.item.short, km: Math.round(e.km), image: e.item.image })),
+    top3: withKm.slice(0, 3),
   };
+}
+
+function formatShareKm(km) {
+  return km < 1 ? '<1 km' : `${Math.round(km).toLocaleString()} km`;
 }
 
 function passportShareText(stats) {
   const remaining = stats.total - stats.visited;
-  return `My Where on Earth Passport:\n📍 ${stats.pinpoints} Pinpoints\n🎯 ${stats.bullseyes} Bullseyes\n🛂 ${stats.earned} Postcards\n🌍 ${stats.visited} Visited\n🗺️ ${remaining} New places to explore`;
+  const closest = stats.top3?.length ? `\nClosest: ${stats.top3.map((entry) => `${entry.item.short} ${formatShareKm(entry.km)}`).join(' · ')}` : '';
+  return `My Where on Earth Passport:\n📍 ${stats.pinpoints.toLocaleString()} Pinpoints\n🎯 ${stats.bullseyes.toLocaleString()} Bullseyes\n🛂 ${stats.earned.toLocaleString()} Postcards\n🌍 ${stats.visited.toLocaleString()} Visited\n🗺️ ${remaining.toLocaleString()} New places to explore${closest}`;
 }
 
 function fillPassportShareCard(stats) {
-  // The total rides small beside the count, as on the passport header, so four-digit totals fit the tile.
-  ppsEls.visited.replaceChildren(stats.visited.toLocaleString(), Object.assign(document.createElement('small'), { textContent: `/${stats.total.toLocaleString()}` }));
+  ppsEls.visited.textContent = stats.visited.toLocaleString();
+  ppsEls.total.textContent = stats.total.toLocaleString();
+  ppsEls.barSeen.style.width = `${stats.total ? (stats.visited / stats.total) * 100 : 0}%`;
+  ppsEls.barEarned.style.width = `${stats.total ? (stats.earned / stats.total) * 100 : 0}%`;
   ppsEls.earned.textContent = stats.earned.toLocaleString();
   ppsEls.bullseyes.textContent = stats.bullseyes.toLocaleString();
   ppsEls.pinpoints.textContent = stats.pinpoints.toLocaleString();
-  if (stats.top3 && stats.top3.length > 0) {
-    ppsEls.top3.innerHTML = '<b>Closest guesses:</b><br>' + stats.top3.map((t, i) => `${i + 1}. ${t.name}  ${t.km} km`).join('<br>');
-  } else {
-    ppsEls.top3.innerHTML = `🔥 <b>${stats.streak.toLocaleString()}</b> day current streak`;
+  ppsEls.top3.replaceChildren();
+  ppsEls.best.hidden = !stats.top3?.length;
+  ppsEls.streak.hidden = Boolean(stats.top3?.length);
+  if (stats.top3?.length) {
+    ppsEls.top3.replaceChildren(...stats.top3.map((entry) => {
+      const li = document.createElement('li');
+      li.className = 'pp-slot';
+      li.dataset.earn = EARN_NAMES[entry.earned] || 'seen';
+      applyCardTier(li, entry.item, entry.earned);
+      li.append(...passportSlotFace(entry, formatShareKm(entry.km), { flagForPlaceholder: true }));
+      return li;
+    }));
   }
+  while (ppsEls.top3.children.length < 3 && !ppsEls.best.hidden) ppsEls.top3.append(ppMysteryTemplate.cloneNode(true));
+  ppsEls.streak.innerHTML = `🔥 <b>${stats.streak.toLocaleString()}</b> day current streak`;
 }
 
 function roundRect(ctx, x, y, width, height, radius) {
@@ -6570,14 +6608,14 @@ function roundRect(ctx, x, y, width, height, radius) {
 function passportShareImage(stats) {
   const canvas = document.createElement('canvas');
   canvas.width = 1200;
-  canvas.height = 700;
+  canvas.height = 800;
   const ctx = canvas.getContext('2d');
-  const bg = ctx.createLinearGradient(0, 0, 1200, 700);
+  const bg = ctx.createLinearGradient(0, 0, 1200, 800);
   bg.addColorStop(0, '#152756');
   bg.addColorStop(.55, '#15143d');
   bg.addColorStop(1, '#080b20');
   ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, 1200, 700);
+  ctx.fillRect(0, 0, 1200, 800);
   const glow = ctx.createRadialGradient(1010, 0, 0, 1010, 0, 430);
   glow.addColorStop(0, 'rgba(132,93,255,.52)');
   glow.addColorStop(1, 'rgba(132,93,255,0)');
@@ -6591,77 +6629,83 @@ function passportShareImage(stats) {
   ctx.fillText('My passport', 72, 150);
   ctx.font = '54px system-ui, sans-serif';
   ctx.fillText('🛂', 1040, 112);
-  const boxes = [
-    { x: 72, w: 300, value: stats.visited.toLocaleString(), label: 'places visited', color: '#67e8ff' },
-    { x: 392, w: 232, value: stats.earned.toLocaleString(), label: 'POSTCARDS', color: '#f5fbff' },
-    { x: 644, w: 232, value: stats.bullseyes.toLocaleString(), label: 'BULLSEYES', color: '#ffd166' },
-    { x: 896, w: 232, value: stats.pinpoints.toLocaleString(), label: 'PINPOINTS', color: '#ffd166' },
-  ];
-  boxes.forEach((box) => {
-    ctx.fillStyle = 'rgba(4,10,28,.56)';
-    ctx.strokeStyle = box.color === '#ffd166' ? 'rgba(255,209,102,.48)' : 'rgba(157,211,255,.24)';
-    ctx.lineWidth = 2;
-    roundRect(ctx, box.x, 215, box.w, 170, 24);
-    ctx.fillStyle = box.color;
-    // Shrink font for long values like "1,000/1,000"
-    const fontSize = box.value.length > 7 ? 40 : box.value.length > 5 ? 48 : 54;
-    ctx.font = `900 ${fontSize}px system-ui, sans-serif`;
-    ctx.fillText(box.value, box.x + 28, 292);
-    ctx.fillStyle = 'rgba(218,229,255,.64)';
-    ctx.font = '800 19px system-ui, sans-serif';
-    ctx.fillText(box.label, box.x + 28, 345);
-  });
-  ctx.fillStyle = '#f3ecff';
-  ctx.font = '800 29px system-ui, sans-serif';
-  if (stats.top3 && stats.top3.length > 0) {
-    ctx.fillText('Closest guesses:', 72, 460);
-    ctx.font = '700 24px system-ui, sans-serif';
-    stats.top3.forEach((t, i) => {
-      ctx.fillStyle = i === 0 ? '#ffd166' : '#c3d4f5';
-      ctx.fillText(`${i + 1}. ${t.name}: ${t.km} km`, 72, 495 + i * 32);
-    });
-  } else {
-    ctx.fillText(`🔥  ${stats.streak.toLocaleString()} day current streak`, 72, 460);
-  }
-  ctx.fillStyle = 'rgba(193,224,250,.56)';
-  ctx.font = '700 21px system-ui, sans-serif';
-  ctx.fillText('where-on.earth', 72, 660);
+  ctx.fillStyle = 'rgba(218,229,255,.72)';
+  ctx.font = '800 24px system-ui, sans-serif';
+  ctx.fillText('of ' + stats.total.toLocaleString() + ' places visited', 72 + ctx.measureText(stats.visited.toLocaleString()).width + 12, 212);
+  ctx.fillStyle = '#67e8ff';
+  ctx.font = '900 30px system-ui, sans-serif';
+  ctx.fillText(stats.visited.toLocaleString(), 72, 212);
+  ctx.fillStyle = 'rgba(157,211,255,.1)';
+  ctx.fillRect(72, 230, 1056, 10);
+  ctx.fillStyle = 'rgba(193,224,250,.22)';
+  ctx.fillRect(72, 230, stats.total ? 1056 * stats.visited / stats.total : 0, 10);
+  const earnedGradient = ctx.createLinearGradient(72, 0, 1128, 0);
+  earnedGradient.addColorStop(0, '#67e8ff'); earnedGradient.addColorStop(.55, '#c4a8ff'); earnedGradient.addColorStop(1, '#ffd166');
+  ctx.fillStyle = earnedGradient;
+  ctx.fillRect(72, 230, stats.total ? 1056 * stats.earned / stats.total : 0, 10);
+  ctx.fillStyle = '#8fdfff';
+  ctx.font = '850 20px system-ui, sans-serif';
+  ctx.fillText('CLOSEST GUESSES', 72, 296);
 
-  // Closest-guess postcard image in dotted circle, bottom right
-  const drawCircleImage = () => new Promise((resolve) => {
-    if (!stats.top3 || !stats.top3.length || !stats.top3[0].image) {
-      resolve();
-      return;
-    }
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => {
-      const cx = 1050, cy = 560, r = 90;
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.clip();
-      // Cover-fit the image into the circle
-      const scale = Math.max((r * 2) / img.width, (r * 2) / img.height);
+  const tileXs = [72, 432, 792];
+  const mystery = (x) => {
+    ctx.fillStyle = '#1b2c5a'; ctx.fillRect(x, 316, 336, 224);
+    ctx.strokeStyle = 'rgba(193,224,250,.42)'; ctx.lineWidth = 3; ctx.setLineDash([10, 8]); ctx.strokeRect(x + 2, 318, 332, 220); ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(214,220,232,.4)'; ctx.font = '900 80px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText('?', x + 168, 450);
+    ctx.font = '900 22px system-ui, sans-serif'; ctx.fillText('???', x + 168, 520); ctx.textAlign = 'left';
+  };
+  const loadImage = (src) => new Promise((resolve) => {
+    if (!src) return resolve(null);
+    const img = new Image(); img.crossOrigin = 'anonymous';
+    const timer = setTimeout(() => resolve(null), 1500);
+    img.onload = () => { clearTimeout(timer); resolve(img); };
+    img.onerror = () => { clearTimeout(timer); resolve(null); };
+    img.src = src;
+  });
+  const loads = Promise.all([0, 1, 2].map((i) => {
+    const entry = stats.top3?.[i];
+    return entry && hasRealPhoto(entry.item) ? loadImage(entry.item.image) : Promise.resolve(null);
+  }));
+  const drawTile = (entry, img, x) => {
+    if (!entry) return mystery(x);
+    const rarity = rarityFor(entry.item.difficulty);
+    ctx.fillStyle = '#1b2c5a'; ctx.fillRect(x, 316, 336, 224);
+    if (img) {
+      const scale = Math.max(336 / img.width, 224 / img.height);
       const w = img.width * scale, h = img.height * scale;
-      ctx.drawImage(img, cx - w / 2, cy - h / 2, w, h);
-      ctx.restore();
-      // Dotted circle border
-      ctx.save();
-      ctx.strokeStyle = 'rgba(255,209,102,.7)';
-      ctx.lineWidth = 3;
-      ctx.setLineDash([8, 8]);
-      ctx.beginPath();
-      ctx.arc(cx, cy, r + 6, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.restore();
-      resolve();
-    };
-    img.onerror = () => resolve();
-    img.src = stats.top3[0].image;
+      ctx.save(); ctx.beginPath(); ctx.rect(x, 316, 336, 224); ctx.clip(); ctx.drawImage(img, x + (336 - w) / 2, 316 + (224 - h) * .2, w, h); ctx.restore();
+    } else {
+      ctx.fillStyle = '#1b2c5a'; ctx.fillRect(x, 316, 336, 224);
+      ctx.fillStyle = 'rgba(255,255,255,.95)'; ctx.font = '96px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(flagForLocation(entry.item), x + 168, 460); ctx.textAlign = 'left';
+    }
+    ctx.strokeStyle = RARITY_HEX[rarity]; ctx.lineWidth = 4; ctx.strokeRect(x + 2, 318, 332, 220);
+    ctx.fillStyle = 'rgba(8,14,32,.78)'; ctx.roundRect(x + 218, 328, 106, 38, 18); ctx.fill();
+    ctx.fillStyle = '#e6f0ff'; ctx.font = '800 22px system-ui, sans-serif'; ctx.fillText(formatShareKm(entry.km), x + 230, 354);
+    if (entry.earned >= EARN_BULLSEYE) {
+      const badge = entry.earned >= EARN_PINPOINT ? '📍 PINPOINT' : '🎯 BULLSEYE';
+      ctx.fillStyle = '#ffdc7a'; ctx.roundRect(x + 12, 328, 170, 38, 18); ctx.fill(); ctx.fillStyle = '#2b1d00'; ctx.font = '900 18px system-ui, sans-serif'; ctx.fillText(badge, x + 22, 354);
+    }
+    ctx.fillStyle = '#eef2ff'; ctx.font = '800 28px system-ui, sans-serif';
+    let name = `${entry.item.short || entry.item.clue} ${flagForLocation(entry.item)}`;
+    while (ctx.measureText(name).width > 336 && name.length > 1) name = `${name.slice(0, -2)}…`;
+    ctx.fillText(name, x, 580);
+  };
+  return loads.then((images) => {
+    [0, 1, 2].forEach((i) => drawTile(stats.top3?.[i], images[i], tileXs[i]));
+    const boxes = [
+      { x: 72, value: stats.earned, label: 'POSTCARDS', color: '#f5fbff' },
+      { x: 432, value: stats.bullseyes, label: 'BULLSEYES', color: '#ffd166' },
+      { x: 792, value: stats.pinpoints, label: 'PINPOINTS', color: '#ffd166' },
+    ];
+    boxes.forEach((box) => {
+      ctx.fillStyle = 'rgba(4,10,28,.56)'; ctx.strokeStyle = box.color === '#ffd166' ? 'rgba(255,209,102,.48)' : 'rgba(157,211,255,.24)'; ctx.lineWidth = 2; roundRect(ctx, box.x, 616, 336, 104, 20);
+      ctx.fillStyle = box.color; ctx.font = '900 48px system-ui, sans-serif'; ctx.fillText(box.value.toLocaleString(), box.x + 28, 680);
+      ctx.fillStyle = 'rgba(218,229,255,.64)'; ctx.font = '800 18px system-ui, sans-serif'; ctx.fillText(box.label, box.x + 28, 704);
+    });
+    if (!stats.top3?.length) { ctx.fillStyle = '#f3ecff'; ctx.font = '800 29px system-ui, sans-serif'; ctx.fillText(`🔥  ${stats.streak.toLocaleString()} day current streak`, 72, 400); }
+    ctx.fillStyle = 'rgba(193,224,250,.56)'; ctx.font = '700 21px system-ui, sans-serif'; ctx.fillText('where-on.earth', 72, 768);
+    return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
   });
-
-  return drawCircleImage().then(() => new Promise((resolve) => canvas.toBlob(resolve, 'image/png')));
 }
 
 async function sharePassport() {
@@ -6679,13 +6723,13 @@ async function sharePassport() {
       else await navigator.share({ title: 'My Where on Earth passport', text, url: PASSPORT_SHARE_URL });
       ppsEls.status.textContent = 'Passport shared!';
     } else {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(`${text}\n${PASSPORT_SHARE_URL}`);
       ppsEls.status.textContent = 'Passport stats copied. Paste them anywhere.';
     }
   } catch (error) {
     if (error?.name === 'AbortError') return;
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(`${text}\n${PASSPORT_SHARE_URL}`);
       ppsEls.status.textContent = 'Passport stats copied. Paste them anywhere.';
     } catch {
       ppsEls.status.textContent = 'Sharing is unavailable on this browser.';
@@ -6728,34 +6772,11 @@ function passportSlot(entry) {
   const earn = EARN_NAMES[entry.earned] || 'seen';
   li.dataset.earn = earn;
   applyCardTier(li, entry.item, entry.earned);
-  const photo = document.createElement('div');
-  photo.className = 'pp-slot-photo';
-  if (entry.item.image) {
-    const img = document.createElement('img');
-    img.src = entry.item.image;
-    img.alt = '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.addEventListener('error', () => img.remove(), { once: true });
-    photo.append(img);
-  }
-  setProxBadge(photo, entry.earned, 'compact');
-  if (entry.best != null) {
-    const score = document.createElement('span');
-    score.className = 'pp-slot-score';
-    score.textContent = entry.best;
-    photo.append(score);
-  }
-  const flag = flagForLocation(entry.item);
-  const name = document.createElement('p');
-  name.className = 'pp-slot-name';
-  name.textContent = `${entry.item.short || entry.item.clue}${flag ? ` ${flag}` : ''}`;
-  name.title = name.textContent;
-  li.append(photo, name);
+  li.append(...passportSlotFace(entry, entry.best));
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
-  li.setAttribute('aria-label', `Open postcard: ${name.textContent}`);
+  li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}`);
   li.addEventListener('click', () => openPostcard(entry, li));
   li.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
@@ -6763,6 +6784,39 @@ function passportSlot(entry) {
     openPostcard(entry, li);
   });
   return li;
+}
+
+function passportSlotFace(entry, pillText, { flagForPlaceholder = true } = {}) {
+  const photo = document.createElement('div');
+  photo.className = 'pp-slot-photo';
+  if (hasRealPhoto(entry.item) || !flagForPlaceholder) {
+    if (entry.item.image) {
+      const img = document.createElement('img');
+      img.src = entry.item.image;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.addEventListener('error', () => img.remove(), { once: true });
+      photo.append(img);
+    }
+  } else {
+    photo.append(Object.assign(document.createElement('span'), {
+      className: 'pps-flag', textContent: flagForLocation(entry.item),
+    }));
+  }
+  setProxBadge(photo, entry.earned, 'compact');
+  if (pillText != null) {
+    const score = document.createElement('span');
+    score.className = 'pp-slot-score';
+    score.textContent = pillText;
+    photo.append(score);
+  }
+  const flag = flagForLocation(entry.item);
+  const name = document.createElement('p');
+  name.className = 'pp-slot-name';
+  name.textContent = `${entry.item.short || entry.item.clue}${flag ? ` ${flag}` : ''}`;
+  name.title = name.textContent;
+  return [photo, name];
 }
 
 function ppTagSlot(li, entry) {
@@ -6791,12 +6845,66 @@ try {
 } catch (error) { storageError('Read failed', PP_STATUS_KEY, error); }
 ppEls.status.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.status === ppStatus)));
 
-let ppDexGroups = []; // atlas sort only: [{ section, name }]
+let ppDexGroups = []; // atlas sort only: [{ section, name, head }]
 let ppDexLis = []; // every rendered slot: [{ li, entry }]
+
+const PP_COLLAPSED_KEY = 'where-on-earth-collapsed-continents';
+const ppCollapsedContinents = new Set();
+try {
+  const raw = localStorage.getItem(PP_COLLAPSED_KEY);
+  if (raw) JSON.parse(raw).forEach((name) => ppCollapsedContinents.add(name));
+} catch (error) { storageError('Read failed', PP_COLLAPSED_KEY, error); }
+
+function savePpCollapsedContinents() {
+  try { localStorage.setItem(PP_COLLAPSED_KEY, JSON.stringify([...ppCollapsedContinents])); }
+  catch (error) { storageError('Write failed', PP_COLLAPSED_KEY, error); }
+}
 
 function ppGroupHeadText(name, items) {
   const visited = items.filter((e) => e.visited).length;
   return `${name} · ${visited.toLocaleString()}/${items.length.toLocaleString()}`;
+}
+
+// Shared collapsible <h3 class="pp-group-head"> for both the Places dex
+// (atlas sort) and the Countries list (continent sort). `onCollapse`
+// toggles whatever that caller's group body is (a <ul>, or a running list
+// of row <li>s) and is also called once up front for the saved state.
+function ppGroupHead(name, text, onCollapse) {
+  const head = document.createElement('h3');
+  head.className = 'pp-group-head';
+  head.tabIndex = 0;
+  head.setAttribute('role', 'button');
+  const label = document.createElement('span');
+  label.className = 'pp-group-head-text';
+  label.textContent = text;
+  const chevron = document.createElement('span');
+  chevron.className = 'pp-group-chevron';
+  chevron.setAttribute('aria-hidden', 'true');
+  head.append(label, chevron);
+  const apply = (collapsed) => {
+    head.setAttribute('aria-expanded', String(!collapsed));
+    onCollapse(collapsed);
+  };
+  const toggle = () => {
+    const collapsed = !ppCollapsedContinents.has(name);
+    if (collapsed) ppCollapsedContinents.add(name); else ppCollapsedContinents.delete(name);
+    savePpCollapsedContinents();
+    apply(collapsed);
+  };
+  head.addEventListener('click', toggle);
+  head.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    toggle();
+  });
+  head.ppExpand = () => {
+    if (!ppCollapsedContinents.has(name)) return;
+    ppCollapsedContinents.delete(name);
+    savePpCollapsedContinents();
+    apply(false);
+  };
+  apply(ppCollapsedContinents.has(name));
+  return head;
 }
 
 function renderPassportJump() {
@@ -6807,7 +6915,10 @@ function renderPassportJump() {
     const total = section.querySelectorAll('.pp-slot').length;
     const visited = section.querySelectorAll('.pp-slot:not(.is-mystery)').length;
     chip.textContent = `${name} ${visited}/${total}`;
-    chip.addEventListener('click', () => section.scrollIntoView({ block: 'start' }));
+    chip.addEventListener('click', () => {
+      section.querySelector('.pp-group-head')?.ppExpand();
+      section.scrollIntoView({ block: 'start' });
+    });
     return chip;
   }));
 }
@@ -6836,9 +6947,6 @@ function renderPassportDex() {
       const section = document.createElement('section');
       section.className = 'pp-group';
       section.dataset.continent = name;
-      const head = document.createElement('h3');
-      head.className = 'pp-group-head';
-      head.textContent = ppGroupHeadText(name, items);
       const ul = document.createElement('ul');
       ul.className = 'pp-dex';
       ul.append(...items.map((entry) => {
@@ -6847,9 +6955,10 @@ function renderPassportDex() {
         ppDexLis.push({ li, entry });
         return li;
       }));
+      const head = ppGroupHead(name, ppGroupHeadText(name, items), (collapsed) => { ul.hidden = collapsed; });
       section.append(head, ul);
       frag.append(section);
-      ppDexGroups.push({ section, name });
+      ppDexGroups.push({ section, name, head });
     }
   } else {
     const visited = ppAll.filter((e) => e.visited).sort(PP_FLAT_COMPARE[sort] || PP_FLAT_COMPARE.recent);
@@ -6970,18 +7079,28 @@ function renderCountryList() {
   ppEls.countrySummary.textContent = `${earnedCountries} of ${rows.length} countries · ${completeCountries} complete`;
   const list = document.createElement('ul');
   list.className = 'pp-dex pp-ccards';
-  let group = null;
-  rows.forEach((row) => {
-    if (sort === 'continent' && row.continent !== group) {
-      group = row.continent;
+  const countryGroups = sort === 'continent'
+    ? [...rows.reduce((groups, row) => {
+      const name = row.continent || 'Other';
+      if (!groups.has(name)) groups.set(name, []);
+      groups.get(name).push(row);
+      return groups;
+    }, new Map())]
+    : [['', rows]];
+  countryGroups.forEach(([group, groupRows]) => {
+    const groupCards = [];
+    if (sort === 'continent') {
+      const visited = groupRows.reduce((sum, row) => sum + row.visited, 0);
+      const total = groupRows.reduce((sum, row) => sum + row.total, 0);
       const headLi = document.createElement('li');
       headLi.className = 'pp-ccards-head';
-      const head = document.createElement('h3');
-      head.className = 'pp-group-head';
-      head.textContent = group || 'Other';
+      const head = ppGroupHead(group, `${group} · ${visited.toLocaleString()}/${total.toLocaleString()}`, (collapsed) => {
+        groupCards.forEach((card) => { card.hidden = collapsed; });
+      });
       headLi.append(head);
       list.append(headLi);
     }
+    groupRows.forEach((row) => {
     const complete = row.total > 0 && row.earned === row.total;
     const state = row.visited === 0 ? 'unvisited' : row.earned > 0 ? 'earned' : 'seen';
     const li = document.createElement('li');
@@ -7024,7 +7143,9 @@ function renderCountryList() {
     button.append(photo, name, meta, sub);
     button.addEventListener('click', () => openCountryDetail(row.name));
     li.append(button);
-    list.append(li);
+    groupCards.push(li);
+  });
+    list.append(...groupCards);
   });
   ppEls.countryListBody.replaceChildren(list);
 }
