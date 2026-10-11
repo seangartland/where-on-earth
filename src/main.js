@@ -796,7 +796,7 @@ const satReady = initSatellite();
 // chosen once it settles (or, during the slow idle drift, when the view
 // outruns the current window).
 // ---------------------------------------------------------------------------
-const INSET_MIN_Z = 0;
+const INSET_MIN_Z = 2;
 const INSET_Q = 1; // target texels per css px: 1 = css px, 0.5 = device px
 const INSET_SIZE = renderer.capabilities.maxTextureSize < 4096 ? 1536 : 2048;
 const INSET_TILES = INSET_SIZE / 256; // footprint cap per side, margin included
