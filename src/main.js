@@ -6220,32 +6220,32 @@ passportPageStyle.textContent = `
 .passport-entry { min-height: 44px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
-.pp-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 26px 14px 20px; border-radius: 24px; overflow-x: clip; }
+.pp-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; }
 .pp-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
-.pp-eyebrow { margin: 0 0 4px; color: #77caff; font-size: 10px; font-weight: 750; letter-spacing: .22em; text-align: center; text-transform: uppercase; }
-.pp-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; padding-right: 40px; }
-.pp-header-row > div { flex: 1; }
-.pp-header-row .pp-eyebrow { text-align: left; margin: 0 0 2px; }
-.pp-header-row h2 { text-align: left !important; font-size: 19px !important; }
+.pp-header-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; padding-right: 40px; }
+.pp-header-row h2 { flex: 1; text-align: left !important; font-size: 19px !important; }
+.pp-header-actions { display: flex; flex-shrink: 0; gap: 8px; }
 .pp-share-icon { flex-shrink: 0; width: 44px; height: 44px; border: 1px solid rgba(255,209,102,.55); border-radius: 50%; background: linear-gradient(135deg, rgba(77,54,145,.95), rgba(25,47,101,.95)); color: #fff7dc; font-size: 18px; font-weight: 800; cursor: pointer; }
-.pp-collections-link { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 42px; margin: 12px 0 2px; padding: 0 14px; border: 1px solid rgba(255,209,102,.25); border-radius: 13px; background: rgba(255,209,102,.06); color: #f4e8bf; font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; }
-.pp-collections-link span { color: #ffd166; font-size: 22px; }
 .pp-progress { margin: 8px 2px 0; }
-.pp-count { margin: 0 0 6px; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 700; text-align: center; }
-.pp-count [data-pp="earned"] { display: block; margin-top: 2px; }
+.pp-count { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 0 0 4px; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 700; text-align: left; }
+.pp-count-main { white-space: nowrap; }
+.pp-count [data-pp="earned"] { min-width: 0; overflow: hidden; text-align: right; white-space: nowrap; text-overflow: ellipsis; }
 .pp-stat { white-space: nowrap; }
-.pp-count b { color: #ffc76a; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(255,199,106,.3); }
+.pp-count b { color: #ffc76a; font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(255,199,106,.3); }
 /* Two layers: visited as a pale track, earned as the bright gradient over it. */
-.pp-bar { position: relative; height: 8px; border-radius: 8px; background: rgba(157,211,255,.1); overflow: hidden; }
+.pp-bar { position: relative; height: 4px; border-radius: 8px; background: rgba(157,211,255,.1); overflow: hidden; }
 .pp-bar i { position: absolute; left: 0; top: 0; height: 100%; border-radius: 8px; transition: width .4s ease-out; }
 .pp-bar .pp-bar-seen { background: rgba(193,224,250,.22); }
 .pp-bar .pp-bar-earned { background: linear-gradient(90deg, #67e8ff, #c4a8ff 55%, #ffd166); box-shadow: 0 0 12px rgba(255,209,102,.35); }
-.pp-tabs { display: flex; gap: 6px; margin-top: 12px; }
-.pp-tabs button { flex: 1 1 0; min-height: 40px; border: 1px solid rgba(157,211,255,.18); border-radius: 11px; background: rgba(157,211,255,.05); color: rgba(193,224,250,.62); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.pp-tabs { display: flex; gap: 6px; margin-top: 8px; }
+.pp-tabs button { flex: 1 1 0; min-height: 34px; border: 1px solid rgba(157,211,255,.18); border-radius: 11px; background: rgba(157,211,255,.05); color: rgba(193,224,250,.62); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
 .pp-tabs button[aria-selected="true"] { border-color: rgba(103,232,255,.5); background: rgba(103,232,255,.1); color: #c9f6ff; }
-.pp-status { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; margin-top: 10px; }
+.pp-status-row { display: flex; align-items: stretch; gap: 5px; margin-top: 8px; }
+.pp-status { flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
 .pp-status button { min-height: 44px; padding: 0 2px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 750; cursor: pointer; touch-action: manipulation; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pp-status button[aria-pressed="true"] { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
+.pp-filters-toggle { flex: none; width: 44px; min-height: 44px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 16px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.pp-filters-toggle[aria-expanded="true"] { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
 .pp-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
 .pp-jump { display: flex; gap: 6px; margin-top: 8px; padding-bottom: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .pp-jump button { flex: none; min-height: 30px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 10px; font-weight: 750; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
@@ -6273,21 +6273,46 @@ passportPageStyle.textContent = `
 .pp-slot.is-mystery { cursor: default; }
 .pp-slot.is-mystery .pp-slot-photo { border-color: rgba(214,220,232,.16); }
 .pp-slot.is-mystery .pp-slot-name { color: rgba(214,220,232,.4); letter-spacing: .1em; text-align: center; }
-.pp-play { display: block; min-height: 44px; margin: 14px auto 0; padding: 0 26px; border: 0; border-radius: 999px; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #1b1230; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
 /* Countries tab */
 .pp-country-summary { margin: 10px 2px 0; color: rgba(193,224,250,.55); font-size: 12px; font-weight: 700; text-align: center; }
 .pp-country-sort { margin-top: 8px; }
-.pp-countries { margin: 10px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.pp-country { display: flex; align-items: center; gap: 9px; min-height: 44px; padding: 7px 10px; border: 1px solid rgba(157,211,255,.1); border-radius: 12px; background: rgba(157,211,255,.04); color: inherit; font: inherit; text-align: left; cursor: pointer; touch-action: manipulation; }
-.pp-country-flag { flex: none; font-size: 22px; }
-.pp-country-name { flex: 1; min-width: 0; overflow: hidden; color: #eef2ff; font-size: 13px; font-weight: 750; text-overflow: ellipsis; white-space: nowrap; }
-.pp-country-count { flex: none; color: rgba(193,224,250,.6); font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
-.pp-country-bar { display: block; flex: 0 0 56px; height: 4px; }
-.pp-country.is-complete { border-color: rgba(255,209,102,.4); }
-.pp-country.is-complete .pp-country-count { color: #ffd166; }
-.pp-country.is-unvisited .pp-country-flag { filter: grayscale(1); opacity: .45; }
-.pp-country.is-unvisited .pp-country-name { color: rgba(193,224,250,.4); }
-.pp-countries .pp-group-head { margin: 6px 0 0; background: transparent; }
+/* Country cards: same grid and size as .pp-slot, but read as a *stack* of
+   postcards (offset card edges behind), with a neutral frame instead of rarity,
+   a flag chip and a progress strip. Never carries a prox badge or score pill.
+   Postcards earned leads (meta line); places visited is secondary (sub line) —
+   it's about earning, not visiting (Sean, 2026-10-11). */
+.pp-ccards { margin-top: 10px; }
+.pp-ccards-head { grid-column: 1 / -1; }
+.pp-ccards .pp-group-head { position: static; margin: 6px 0 0; background: transparent; }
+.pp-ccard { min-width: 0; }
+.pp-ccard > button { display: block; width: 100%; padding: 6px 6px 0 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.pp-ccard > button:active .pp-ccard-photo { transform: scale(.97); }
+.pp-ccard > button:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }
+.pp-ccard-photo { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 1.5px solid rgba(157,211,255,.28); background: linear-gradient(135deg, #1b2c5a, #3b2a6e);
+  /* two card edges peeking out top-right = "a stack of postcards" (own box-shadow is not clipped by overflow) */
+  box-shadow: 3px -3px 0 -1px #24304d, 3px -3px 0 0 rgba(157,211,255,.18), 6px -6px 0 -2px #18203a, 6px -6px 0 -1px rgba(157,211,255,.1); transition: transform .12s ease-out; }
+.pp-ccard-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+/* bottom scrim so the flag chip and strip read on any photo */
+.pp-ccard-photo::after { content: ''; position: absolute; inset: auto 0 0 0; height: 42%; background: linear-gradient(transparent, rgba(8,14,32,.72)); pointer-events: none; }
+.pp-ccard-flag { position: absolute; z-index: 1; left: 5px; bottom: 8px; font-size: 18px; line-height: 1; filter: drop-shadow(0 1px 2px rgba(0,0,0,.6)); }
+.pp-ccard-bar { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; height: 4px; border-radius: 0; background: rgba(8,14,32,.6); }
+.pp-ccard-bar i { border-radius: 0; }
+.pp-ccard-name { margin: 5px 1px 0; overflow: hidden; color: #eef2ff; font-size: 11px; font-weight: 800; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.pp-ccard-meta, .pp-ccard-sub { margin: 1px 1px 0; overflow: hidden; color: rgba(193,224,250,.62); font-size: 10px; font-weight: 700; line-height: 1.25; font-variant-numeric: tabular-nums; text-overflow: ellipsis; white-space: nowrap; }
+.pp-ccard-meta b { color: #eef2ff; font-weight: 800; }
+/* states */
+.pp-ccard[data-state="seen"] .pp-ccard-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
+.pp-ccard[data-state="unvisited"] .pp-ccard-photo { border-color: rgba(214,220,232,.12); box-shadow: none; }
+.pp-ccard[data-state="unvisited"] .pp-ccard-flag { filter: grayscale(1); opacity: .45; }
+.pp-ccard[data-state="unvisited"] :is(.pp-ccard-name, .pp-ccard-meta, .pp-ccard-sub) { color: rgba(193,224,250,.4); }
+/* no photo: the flag becomes the picture */
+.pp-ccard-photo.is-flagtile { background: radial-gradient(circle at 50% 42%, #1d2a48, #0b1120 75%); }
+.pp-ccard-photo.is-flagtile::after { display: none; }
+.pp-ccard-photo.is-flagtile .pp-ccard-flag { inset: 0; display: grid; place-items: center; font-size: 40px; filter: none; }
+/* complete: gold frame and gold stack edges; the leading (postcards) line turns gold too */
+.pp-ccard.is-complete .pp-ccard-photo { border-color: #ffd166; box-shadow: 3px -3px 0 -1px #3a2f12, 3px -3px 0 0 rgba(255,209,102,.5), 6px -6px 0 -2px #2a2310, 6px -6px 0 -1px rgba(255,209,102,.3); }
+.pp-ccard.is-complete .pp-ccard-meta { color: #ffd166; }
+@media (max-width: 360px) { .pp-ccard-flag { font-size: 16px; } }
 .pp-country-head { margin-top: 10px; }
 .pp-country-head-row { display: flex; align-items: center; gap: 12px; }
 .pp-country-head-flag { flex: none; font-size: 40px; }
@@ -6349,15 +6374,14 @@ passportScreen.innerHTML = `
   <div class="pp-card glass" role="dialog" aria-modal="true" aria-labelledby="pp-title">
     <button class="stats-close" aria-label="Close passport">×</button>
     <div class="pp-header-row">
-      <div>
-        <p class="pp-eyebrow">Where on Earth</p>
-        <h2 id="pp-title">Your passport</h2>
+      <h2 id="pp-title">Your passport</h2>
+      <div class="pp-header-actions">
+        <button class="pp-share-icon" data-pp="collections" aria-label="View collections">🛡</button>
+        <button class="pp-share-icon" data-pps="share" aria-label="Share my passport">↗</button>
       </div>
-      <button class="pp-share-icon" data-pps="share" aria-label="Share my passport">↗</button>
     </div>
-    <button class="pp-collections-link" type="button" data-pp="collections">🛡 View collections <span>›</span></button>
     <div class="pp-progress" data-pp="progress">
-      <p class="pp-count"><b data-pp="found">0</b> / <span data-pp="total">0</span> places<span data-pp="earned"></span></p>
+      <p class="pp-count"><span class="pp-count-main"><b data-pp="found">0</b> / <span data-pp="total">0</span> places</span><span data-pp="earned"></span></p>
       <div class="pp-bar" role="progressbar" aria-label="Postcards earned" aria-valuemin="0"><i class="pp-bar-seen" data-pp="fill"></i><i class="pp-bar-earned" data-pp="earnfill"></i></div>
     </div>
     <div class="pp-tabs" role="tablist" data-pp="tabs">
@@ -6365,13 +6389,16 @@ passportScreen.innerHTML = `
       <button type="button" role="tab" data-view="countries" aria-selected="false">Countries</button>
     </div>
     <div data-pp="places-view">
-      <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
-        <button type="button" data-status="all" aria-pressed="true">All</button>
-        <button type="button" data-status="earned" aria-pressed="false">Earned</button>
-        <button type="button" data-status="seen" aria-pressed="false">Seen</button>
-        <button type="button" data-status="unvisited" aria-pressed="false">Unvisited</button>
+      <div class="pp-status-row">
+        <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
+          <button type="button" data-status="all" aria-pressed="true">All</button>
+          <button type="button" data-status="earned" aria-pressed="false">Earned</button>
+          <button type="button" data-status="seen" aria-pressed="false">Seen</button>
+          <button type="button" data-status="unvisited" aria-pressed="false">Unvisited</button>
+        </div>
+        <button type="button" class="pp-filters-toggle" data-pp="filters-toggle" aria-expanded="false" aria-label="More filters">⋯</button>
       </div>
-      <div class="pp-filters" data-pp="filters">
+      <div class="pp-filters" data-pp="filters" hidden>
         <select data-pp="continent" aria-label="Filter by continent" hidden><option value="">All continents</option></select>
         <select data-pp="band" aria-label="Filter by difficulty"><option value="">All difficulties</option></select>
         <select data-pp="sort" aria-label="Sort by">
@@ -6382,10 +6409,9 @@ passportScreen.innerHTML = `
         </select>
       </div>
       <div class="pp-jump" data-pp="jump"></div>
-      <div class="pp-subrow">
+      <div class="pp-subrow" data-pp="subrow">
         <p class="pp-shown" data-pp="shown"></p>
       </div>
-      <button class="pp-play" data-pp="play" hidden>Play today’s game</button>
       <div class="pp-dex-wrap" data-pp="dex"></div>
       <p class="pp-note" data-pp="note">Land within 150 km to earn a postcard in full colour, within 25 km for gold. Black-and-white cards come back in Endless once you’ve seen everywhere. Earlier stamps leave distance and date blank.</p>
     </div>
@@ -6424,13 +6450,14 @@ const ppEls = {
   countriesView: passportScreen.querySelector('[data-pp="countries-view"]'),
   status: passportScreen.querySelector('[data-pp="status"]'),
   filters: passportScreen.querySelector('[data-pp="filters"]'),
+  filtersToggle: passportScreen.querySelector('[data-pp="filters-toggle"]'),
   continent: passportScreen.querySelector('[data-pp="continent"]'),
   band: passportScreen.querySelector('[data-pp="band"]'),
   sort: passportScreen.querySelector('[data-pp="sort"]'),
   jump: passportScreen.querySelector('[data-pp="jump"]'),
+  subrow: passportScreen.querySelector('[data-pp="subrow"]'),
   shown: passportScreen.querySelector('[data-pp="shown"]'),
   dex: passportScreen.querySelector('[data-pp="dex"]'),
-  play: passportScreen.querySelector('[data-pp="play"]'),
   note: passportScreen.querySelector('[data-pp="note"]'),
   collections: passportScreen.querySelector('[data-pp="collections"]'),
   countryList: passportScreen.querySelector('[data-pp="country-list"]'),
@@ -6862,6 +6889,7 @@ function applyPassportFilters() {
     section.hidden = ![...section.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
   }
   const filtered = ppStatus !== 'all' || band || continent;
+  ppEls.subrow.hidden = !filtered;
   ppEls.shown.textContent = filtered
     ? (shown ? `${shown.toLocaleString()} of ${ppAll.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
     : '';
@@ -6884,7 +6912,6 @@ function renderPassportPage() {
   ppEls.bar.setAttribute('aria-valuenow', String(earned));
   ppEls.fill.style.width = `${total ? (found / total) * 100 : 0}%`;
   ppEls.earnFill.style.width = `${total ? (earned / total) * 100 : 0}%`;
-  ppEls.play.hidden = found > 0;
   renderPassportDex();
 }
 
@@ -6893,18 +6920,33 @@ function renderPassportPage() {
 // to locationIndex) groups every location by countryKey(); this is a
 // list/detail renderer over it, reusing passportSlot() for the detail grid
 // (docs/passport-redesign-opus.md §3). England/Scotland/Wales/Northern
-// Ireland/United Kingdom stay five separate rows (Sean, 2026-10-11); a
-// country's "12/36" counts postcards earned, not just places visited.
+// Ireland/United Kingdom stay five separate rows (Sean, 2026-10-11). The list
+// cards lead with postcards earned, not places visited, same logic as
+// catching vs. seeing (Sean, 2026-10-11, docs/country-cards-opus.md); the
+// "12/36" detail-head wording is places visited, unchanged.
 // ---------------------------------------------------------------------------
+
+// 338 locations ship Wikimedia's "No image available" graphic instead of a photo.
+function hasRealPhoto(item) {
+  return Boolean(item.image) && !item.image.includes('No_image_available');
+}
+
 function countryProgress(key) {
   const country = countryIndex.get(key);
   let visited = 0;
   let earned = 0;
+  let cover = null;
+  let coverRank = -1;
   for (const item of country.items) {
-    if (isVisited(item.id)) visited += 1;
-    if (passport.meta[item.id]?.e) earned += 1;
+    if (!isVisited(item.id)) continue;
+    visited += 1;
+    const meta = passport.meta[item.id] || {};
+    if (meta.e) earned += 1;
+    if (!hasRealPhoto(item)) continue;
+    const rank = (meta.e || 0) * 2000 + (meta.b ?? passport.visits[item.id] ?? 0);
+    if (rank > coverRank) { cover = { item, earned: meta.e || 0 }; coverRank = rank; }
   }
-  return { visited, earned, total: country.items.length };
+  return { visited, earned, total: country.items.length, cover };
 }
 
 const PP_COUNTRY_SORTS = {
@@ -6927,36 +6969,62 @@ function renderCountryList() {
   const completeCountries = rows.filter((r) => r.total > 0 && r.earned === r.total).length;
   ppEls.countrySummary.textContent = `${earnedCountries} of ${rows.length} countries · ${completeCountries} complete`;
   const list = document.createElement('ul');
-  list.className = 'pp-countries';
+  list.className = 'pp-dex pp-ccards';
   let group = null;
   rows.forEach((row) => {
     if (sort === 'continent' && row.continent !== group) {
       group = row.continent;
+      const headLi = document.createElement('li');
+      headLi.className = 'pp-ccards-head';
       const head = document.createElement('h3');
       head.className = 'pp-group-head';
       head.textContent = group || 'Other';
-      list.append(head);
+      headLi.append(head);
+      list.append(headLi);
     }
     const complete = row.total > 0 && row.earned === row.total;
+    const state = row.visited === 0 ? 'unvisited' : row.earned > 0 ? 'earned' : 'seen';
+    const li = document.createElement('li');
+    li.className = `pp-ccard${complete ? ' is-complete' : ''}`;
+    li.dataset.state = state;
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = `pp-country${complete ? ' is-complete' : ''}${row.visited === 0 ? ' is-unvisited' : ''}`;
-    button.setAttribute('aria-label', `${row.name}: ${row.earned} of ${row.total} postcards earned, ${row.visited} places visited`);
+    button.setAttribute('aria-label', `${row.name}: ${row.earned} postcard${row.earned === 1 ? '' : 's'} earned, ${row.visited} of ${row.total} places visited`);
+    const photo = document.createElement('div');
+    photo.className = 'pp-ccard-photo';
     const flag = document.createElement('span');
-    flag.className = 'pp-country-flag';
+    flag.className = 'pp-ccard-flag';
     flag.textContent = row.flag;
-    const name = document.createElement('span');
-    name.className = 'pp-country-name';
-    name.textContent = row.name;
-    const count = document.createElement('span');
-    count.className = 'pp-country-count';
-    count.textContent = `${row.earned}/${row.total}${complete ? ' ✓' : ''}`;
+    flag.setAttribute('aria-hidden', 'true');
+    if (row.cover) {
+      const img = document.createElement('img');
+      img.src = row.cover.item.image;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.addEventListener('error', () => { img.remove(); photo.classList.add('is-flagtile'); }, { once: true });
+      photo.append(img);
+    } else {
+      photo.classList.add('is-flagtile');
+    }
     const bar = document.createElement('span');
-    bar.className = 'pp-bar pp-country-bar';
+    bar.className = 'pp-bar pp-ccard-bar';
+    bar.setAttribute('aria-hidden', 'true');
     bar.innerHTML = `<i class="pp-bar-seen" style="width:${row.total ? (row.visited / row.total) * 100 : 0}%"></i><i class="pp-bar-earned" style="width:${row.total ? (row.earned / row.total) * 100 : 0}%"></i>`;
-    button.append(flag, name, count, bar);
+    photo.append(flag, bar);
+    const name = document.createElement('p');
+    name.className = 'pp-ccard-name';
+    name.textContent = row.name;
+    const meta = document.createElement('p');
+    meta.className = 'pp-ccard-meta';
+    meta.innerHTML = complete ? '✓ Complete' : `<b>${row.earned}</b> postcard${row.earned === 1 ? '' : 's'}`;
+    const sub = document.createElement('p');
+    sub.className = 'pp-ccard-sub';
+    sub.textContent = `${row.visited}/${row.total} places`;
+    button.append(photo, name, meta, sub);
     button.addEventListener('click', () => openCountryDetail(row.name));
-    list.append(button);
+    li.append(button);
+    list.append(li);
   });
   ppEls.countryListBody.replaceChildren(list);
 }
@@ -7055,12 +7123,13 @@ ppEls.status.querySelectorAll('button').forEach((btn) => {
 ppEls.continent.addEventListener('change', applyPassportFilters);
 ppEls.band.addEventListener('change', applyPassportFilters);
 ppEls.sort.addEventListener('change', renderPassportDex);
+ppEls.filtersToggle.addEventListener('click', () => {
+  const expanded = ppEls.filtersToggle.getAttribute('aria-expanded') === 'true';
+  ppEls.filtersToggle.setAttribute('aria-expanded', String(!expanded));
+  ppEls.filters.hidden = expanded;
+});
 ppEls.countrySort.addEventListener('change', renderCountryList);
 ppEls.countryBack.addEventListener('click', closeCountryDetail);
-ppEls.play.addEventListener('click', () => {
-  closePassport(false);
-  gameEls.play.click();
-});
 passportScreen.addEventListener('click', (e) => {
   if (e.target === passportScreen) closePassport();
 });
