@@ -7014,13 +7014,9 @@ postcardStyle.textContent = `
 .ppd-from { margin: 0; color: #8f9aaf; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
 .ppd-body h3 { margin: 4px 0 0; color: #f7f8fc; font-family: Georgia, serif; font-size: 27px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; overflow-wrap: anywhere; }
 .ppd-clue { margin: 4px 0 0; color: #8f9aaf; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.ppd-achievement { display: flex; align-items: center; justify-content: center; gap: 8px; height: 36px; margin: 14px 0 0; border: 1px solid #5d5132; border-radius: 10px; background: #242838; color: #c7a957; font-size: 11px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
-.ppd-achievement::before { content: '\u2726'; font-size: 12px; }
-.ppd-history { display: grid; gap: 5px; margin: 10px 4px 0; color: #9fa9bb; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ppd-history { display: grid; gap: 5px; margin: 14px 4px 0; color: #9fa9bb; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .ppd-history span { display: block; }
 .ppd-history[hidden] { display: none; }
-.ppd-card.prox-bullseye .ppd-achievement { border-color: #74602d; background: linear-gradient(180deg,#4a3b1d,#2b251d); color: #ffd971; }
-.ppd-card.prox-pinpoint .ppd-achievement { border-color: #a76b34; background: linear-gradient(180deg,#71401e,#3d281e); color: #ffd080; }
 .ppd-fact { margin: 14px 0 0; padding: 0 0 14px; border-bottom: 1px solid #303748; color: #c2c8d4; font-family: Georgia, serif; font-size: 13px; line-height: 1.52; }
 .ppd-fact::before { content: 'DID YOU KNOW?'; display: block; margin-bottom: 5px; color: var(--ppd-accent); font-family: Inter, sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .15em; }
 .ppd-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 14px 0 0; }
@@ -7052,8 +7048,7 @@ postcardScreen.innerHTML = `
       <p class="ppd-from" data-ppd="from"></p>
       <h3 id="ppd-title" data-ppd="name"></h3>
       <p class="ppd-clue" data-ppd="clue"></p>
-      <div class="ppd-achievement" data-ppd="achievement"></div>
-      <div class="ppd-history" data-ppd="history" aria-label="Postcard upgrade history"></div>
+      <div class="ppd-history" data-ppd="history" aria-label="Postcard earned date"></div>
       <p class="ppd-fact" data-ppd="fact"></p>
       <dl class="ppd-stats" data-ppd="stats"></dl>
       <p class="ppd-hint" data-ppd="hint"></p>
@@ -7103,18 +7098,15 @@ function fillPostcard(entry) {
   ppdEls.clue.hidden = !clue || clue === short;
   ppdEls.fact.textContent = item.fact || '';
   ppdEls.fact.hidden = !item.fact;
-  ppdEls.achievement.textContent = { pinpoint: 'Pinpoint', bullseye: 'Bullseye', near: 'Postcard', seen: 'Postcard' }[earn];
-  const history = [
-    ['Postcard', entry.tierDates[1]],
-    ['Bullseye', entry.tierDates[2]],
-    ['Pinpoint', entry.tierDates[3]],
-  ].filter(([, date]) => date);
-  ppdEls.history.replaceChildren(...history.map(([tier, date]) => {
+  const tierDate = entry.tierDates[entry.earned];
+  ppdEls.history.replaceChildren();
+  if (tierDate) {
+    const tierLabel = { 1: 'Postcard', 2: 'Bullseye', 3: 'Pinpoint' }[entry.earned];
     const row = document.createElement('span');
-    row.textContent = `${tier} • ${shortDate(date)}`;
-    return row;
-  }));
-  ppdEls.history.hidden = history.length === 0;
+    row.textContent = `${tierLabel} • ${shortDate(tierDate)}`;
+    ppdEls.history.append(row);
+  }
+  ppdEls.history.hidden = !tierDate;
   const cells = [
     ['Best score', `${entry.best}<small> /1000</small>`],
     ['Closest guess', Number.isFinite(entry.km) ? `${entry.km.toLocaleString()}<small> km</small>` : ''],
