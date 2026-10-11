@@ -729,10 +729,10 @@ function buildOutline(lines, radius, opts) {
 // ---------------------------------------------------------------------------
 const SAT_PROVIDERS = [
   {
-    // ?v=2: the edge and browsers cached tiles from before the bucket's CORS
+    // ?v=3: 2025 imagery replaced 2016, bust edge and browser cache
     // policy without Access-Control-Allow-Origin (immutable, 1 year); a new
     // query string is a new cache key, so every tile is fetched with CORS.
-    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg?v=2`,
+    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg?v=3`,
     credit: 'Base imagery: NASA Blue Marble · Detail imagery: <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a>',
     maxZ: 8,
   },
