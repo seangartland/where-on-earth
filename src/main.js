@@ -6178,6 +6178,8 @@ passportPageStyle.textContent = `
 .pp-collections-link span { color: #ffd166; font-size: 22px; }
 .pp-progress { margin: 8px 2px 0; }
 .pp-count { margin: 0 0 6px; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 700; text-align: center; }
+.pp-count [data-pp="earned"] { display: block; margin-top: 2px; }
+.pp-stat { white-space: nowrap; }
 .pp-count b { color: #ffc76a; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(255,199,106,.3); }
 /* Two layers: visited as a pale track, earned as the bright gradient over it. */
 .pp-bar { position: relative; height: 8px; border-radius: 8px; background: rgba(157,211,255,.1); overflow: hidden; }
@@ -6260,7 +6262,7 @@ passportScreen.innerHTML = `
     </div>
     <button class="pp-collections-link" type="button" data-pp="collections">🛡 View collections <span>›</span></button>
     <div class="pp-progress" data-pp="progress">
-      <p class="pp-count"><b data-pp="found">0</b> / <span data-pp="total">0</span> places · <span data-pp="earned"></span></p>
+      <p class="pp-count"><b data-pp="found">0</b> / <span data-pp="total">0</span> places<span data-pp="earned"></span></p>
       <div class="pp-bar" role="progressbar" aria-label="Postcards earned" aria-valuemin="0"><i class="pp-bar-seen" data-pp="fill"></i><i class="pp-bar-earned" data-pp="earnfill"></i></div>
     </div>
     <div class="pp-filters" data-pp="filters">
@@ -6321,7 +6323,7 @@ passportShareStyle.textContent = `
 .pps-kicker { margin: 0; color: #8fdfff; font-size: 10px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
 .pps-card h3 { margin: 4px 0 0; font-size: 22px; line-height: 1; letter-spacing: -.035em; }
 .pps-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 2px dashed #ffd166; border-radius: 50%; color: #ffd166; font-size: 21px; transform: rotate(9deg); box-shadow: 0 0 16px rgba(255,209,102,.18); }
-.pps-stats { position: relative; display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 7px; margin-top: 20px; }
+.pps-stats { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 20px; }
 .pps-stat { min-width: 0; padding: 10px 9px 9px; border: 1px solid rgba(157,211,255,.13); border-radius: 12px; background: rgba(4,10,28,.54); }
 .pps-stat:first-child { border-color: rgba(103,232,255,.3); }
 .pps-stat.gold { border-color: rgba(255,209,102,.34); }
@@ -6357,6 +6359,7 @@ passportShareScreen.innerHTML = `
       <div class="pps-stat"><b data-pps="visited">0/0</b><span>Places visited</span></div>
       <div class="pps-stat"><b data-pps="earned">0</b><span>Postcards</span></div>
       <div class="pps-stat gold"><b data-pps="bullseyes">0</b><span>Bullseyes</span></div>
+      <div class="pps-stat gold"><b data-pps="pinpoints">0</b><span>Pinpoints</span></div>
     </div>
     <p class="pps-top3" data-pps="top3"></p>
     <p class="pps-url">where-on.earth</p>
@@ -6374,6 +6377,7 @@ function passportShareStats() {
     total: locations.length,
     earned: entries.filter((entry) => entry.earned).length,
     bullseyes: entries.filter((entry) => entry.earned >= EARN_BULLSEYE).length,
+    pinpoints: entries.filter((entry) => entry.earned >= EARN_PINPOINT).length,
     streak: currentStreak(),
     top3: withKm.slice(0, 3).map((e) => ({ name: e.item.short, km: Math.round(e.km), image: e.item.image })),
   };
@@ -6381,7 +6385,7 @@ function passportShareStats() {
 
 function passportShareText(stats) {
   const remaining = stats.total - stats.visited;
-  return `My Where on Earth Passport:\n🎯 ${stats.bullseyes} Bullseyes\n🛂 ${stats.earned} Postcards\n📍 ${stats.visited} Visited\n🗺️ ${remaining} New places to explore`;
+  return `My Where on Earth Passport:\n📍 ${stats.pinpoints} Pinpoints\n🎯 ${stats.bullseyes} Bullseyes\n🛂 ${stats.earned} Postcards\n🌍 ${stats.visited} Visited\n🗺️ ${remaining} New places to explore`;
 }
 
 function fillPassportShareCard(stats) {
@@ -6389,6 +6393,7 @@ function fillPassportShareCard(stats) {
   ppsEls.visited.replaceChildren(stats.visited.toLocaleString(), Object.assign(document.createElement('small'), { textContent: `/${stats.total.toLocaleString()}` }));
   ppsEls.earned.textContent = stats.earned.toLocaleString();
   ppsEls.bullseyes.textContent = stats.bullseyes.toLocaleString();
+  ppsEls.pinpoints.textContent = stats.pinpoints.toLocaleString();
   if (stats.top3 && stats.top3.length > 0) {
     ppsEls.top3.innerHTML = '<b>Closest guesses:</b><br>' + stats.top3.map((t, i) => `${i + 1}. ${t.name}  ${t.km} km`).join('<br>');
   } else {
@@ -6428,9 +6433,10 @@ function passportShareImage(stats) {
   ctx.font = '54px system-ui, sans-serif';
   ctx.fillText('🛂', 1040, 112);
   const boxes = [
-    { x: 72, w: 360, value: stats.visited.toLocaleString(), label: 'places visited', color: '#67e8ff' },
-    { x: 452, w: 290, value: stats.earned.toLocaleString(), label: 'POSTCARDS EARNED', color: '#f5fbff' },
-    { x: 762, w: 290, value: stats.bullseyes.toLocaleString(), label: 'BULLSEYES', color: '#ffd166' },
+    { x: 72, w: 300, value: stats.visited.toLocaleString(), label: 'places visited', color: '#67e8ff' },
+    { x: 392, w: 232, value: stats.earned.toLocaleString(), label: 'POSTCARDS', color: '#f5fbff' },
+    { x: 644, w: 232, value: stats.bullseyes.toLocaleString(), label: 'BULLSEYES', color: '#ffd166' },
+    { x: 896, w: 232, value: stats.pinpoints.toLocaleString(), label: 'PINPOINTS', color: '#ffd166' },
   ];
   boxes.forEach((box) => {
     ctx.fillStyle = 'rgba(4,10,28,.56)';
@@ -6626,8 +6632,10 @@ function renderPassportPage() {
   ppEls.total.textContent = total.toLocaleString();
   const earned = ppAll.filter((e) => e.earned).length;
   const bulls = ppAll.filter((e) => e.earned >= EARN_BULLSEYE).length;
+  const pins = ppAll.filter((e) => e.earned >= EARN_PINPOINT).length;
   ppEls.earned.hidden = !has;
-  ppEls.earned.innerHTML = `<b>${earned.toLocaleString()}</b> postcards earned${bulls ? ` · <b>${bulls.toLocaleString()}</b> 🎯` : ''}`;
+  const stat = (n, label) => `<span class="pp-stat"><b>${n.toLocaleString()}</b> ${label}</span>`;
+  ppEls.earned.innerHTML = [stat(earned, 'postcards'), bulls ? stat(bulls, '🎯') : '', pins ? stat(pins, '📍') : ''].filter(Boolean).join(' · ');
   ppEls.bar.setAttribute('aria-valuemax', String(total));
   ppEls.bar.setAttribute('aria-valuenow', String(earned));
   ppEls.fill.style.width = `${total ? (ppAll.length / total) * 100 : 0}%`;
