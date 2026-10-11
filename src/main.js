@@ -748,9 +748,14 @@ let satProvider = null; // tile provider used only by the detail insets
 let satDisabled = false; // for the session, after a second context loss
 
 async function loadSatBase() {
-  const tex = await new THREE.TextureLoader().loadAsync(SAT_BASE_URL);
-  tex.colorSpace = THREE.NoColorSpace; // globeMat writes gl_FragColor raw
-  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  // TEMP: Blue Marble disabled for visual test - solid dark blue base
+  const canvas = document.createElement('canvas');
+  canvas.width = 1; canvas.height = 1;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#0a1a2f';
+  ctx.fillRect(0, 0, 1, 1);
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.NoColorSpace;
   return tex;
 }
 
