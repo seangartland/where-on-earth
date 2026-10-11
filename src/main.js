@@ -61,7 +61,7 @@ const MIN_DIST = 1.24;
 // Scripted cameras (bullseye snap, flight, reveal framing) keep the closest
 // framing they were tuned at; only the player's own zoom goes deeper.
 const SCENE_MIN_DIST = 1.32;
-const PITCH_LIMIT = 85 * DEG; // look down at the poles, never flip north-down
+const PITCH_LIMIT = 75 * DEG; // look down at the poles, never flip north-down
 const FRICTION = 2.1; // velocity decay per second (exponential)
 const MAX_SPIN = 7; // rad/s
 const TAP_MAX_MS = 350;
