@@ -220,21 +220,8 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-header .eyebrow { margin-bottom: 6px; }
 .postcard-summary-header h2 { margin: 0; color: #f5fbff; font-size: 29px; line-height: 1.05; letter-spacing: -.045em; }
 .postcard-summary-lede { min-height: 18px; margin: 7px 0 0; color: rgba(198,226,250,.57); font-size: 13px; line-height: 1.4; }
-.postcard-summary-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
-.postcard-summary-card { position: relative; display: block; overflow: hidden; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 12px; background: rgba(5,12,29,.82); box-shadow: 0 12px 36px rgba(0,0,0,.26), inset 0 1px rgba(255,255,255,.05); }
-.postcard-summary-photo { display: block; width: 100%; aspect-ratio: 4 / 3; background: rgba(193,224,250,.08); object-fit: cover; object-position: center 20%; }
-.postcard-summary-distance-badge { position: absolute; right: 8px; bottom: 8px; z-index: 1; padding: 4px 7px; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; background: rgba(4,12,28,.82); color: #f4fdff; font-size: 11px; font-weight: 800; line-height: 1; white-space: nowrap; }
-.postcard-summary-photo.unavailable { opacity: .25; }
-.postcard-summary-copy { min-width: 0; padding: 12px 12px 11px 13px; }
-.postcard-summary-topline { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 6px; }
-.postcard-summary-badge { display: inline-flex; align-items: center; min-height: 20px; padding: 0 8px; border-radius: 999px; font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
-.postcard-summary-distance { color: rgba(198,226,250,.66); font-size: 11px; font-weight: 750; white-space: nowrap; }
-.postcard-summary-place { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 800; line-height: 1.15; letter-spacing: -.02em; text-overflow: ellipsis; white-space: nowrap; }
-.postcard-summary-country { margin-top: 3px; overflow: hidden; color: rgba(198,226,250,.58); font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.postcard-summary-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; padding: 4px 3px; }
 .postcard-summary-tier { color: #ffd477; }
-.postcard-summary-card.new .postcard-summary-badge { border: 1px solid rgba(119,202,255,.45); background: rgba(119,202,255,.14); color: #8bd9ff; }
-.postcard-summary-card.upgrade .postcard-summary-badge { border: 1px solid rgba(245,196,81,.5); background: rgba(245,196,81,.13); color: #ffd477; }
-.postcard-summary-card.upgrade .postcard-summary-distance { color: #ffd477; }
 .postcard-summary-counts { display: flex; justify-content: center; gap: 13px; margin: 16px 0 12px; color: rgba(198,226,250,.6); font-size: 11px; font-weight: 750; }
 .postcard-summary-counts b { color: #f5fbff; font-size: 14px; }
 .postcard-summary-separator { color: rgba(198,226,250,.35); }
@@ -267,10 +254,6 @@ body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0
   .peek-slot, #peek-thumb { width: 46px; height: 46px; }
   #fact { margin: 8px 0 0; }
   .results-card { padding-top: 18px; }
-  .postcard-summary-list { gap: 7px; }
-  .postcard-summary-card { min-height: 100px; height: auto; }
-  .postcard-summary-photo { min-height: 100px; height: 100px; }
-  .postcard-summary-copy { padding-top: 9px; padding-bottom: 8px; }
   .postcard-summary-counts { margin: 11px 0 9px; }
 }
 

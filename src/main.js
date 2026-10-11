@@ -4385,44 +4385,48 @@ function postcardDistance(result, outcome) {
 function postcardSummaryCard(result, item) {
   const outcome = result.postcard;
   if (!outcome || !['new', 'upgrade'].includes(outcome.kind)) return null;
-  const rarity = rarityFor(item.difficulty);
   const card = document.createElement('article');
-  card.className = `postcard-summary-card rarity-${rarity} ${outcome.kind}`;
-  const photo = document.createElement('img');
-  photo.className = 'postcard-summary-photo';
-  photo.src = item.image || '';
-  photo.alt = '';
-  photo.loading = 'lazy';
-  photo.addEventListener('error', () => { photo.classList.add('unavailable'); });
-  const distanceBadge = document.createElement('span');
-  distanceBadge.className = 'postcard-summary-distance-badge';
-  distanceBadge.textContent = postcardDistance(result, outcome);
-  const copy = document.createElement('div');
-  copy.className = 'postcard-summary-copy';
-  const topline = document.createElement('div');
-  topline.className = 'postcard-summary-topline';
-  const badge = document.createElement('span');
-  badge.className = 'postcard-summary-badge';
-  badge.textContent = outcome.kind === 'new' ? '✦ New' : '↑ Upgraded';
-  const distance = document.createElement('span');
-  distance.className = 'postcard-summary-distance';
-  distance.textContent = postcardDistance(result, outcome);
-  const place = document.createElement('div');
-  place.className = 'postcard-summary-place';
-  place.textContent = item.short || item.clue;
-  const country = document.createElement('div');
-  country.className = 'postcard-summary-country';
-  country.textContent = `${flagForLocation(item)} ${item.country || ''}`;
+  card.className = 'pp-post';
+  applyCardTier(card, item, outcome.tier);
+  const photo = document.createElement('div');
+  photo.className = 'pp-photo';
+  if (item.image) {
+    const img = document.createElement('img');
+    img.src = item.image;
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('error', () => img.remove(), { once: true });
+    photo.append(img);
+  }
+  setProxBadge(photo, outcome.tier);
+  const flag = flagForLocation(item);
+  const name = document.createElement('p');
+  name.className = 'pp-name';
+  name.textContent = `${item.short || item.clue}${flag ? ` ${flag}` : ''}`;
+  const meta = document.createElement('p');
+  meta.className = 'pp-meta';
+  const distanceText = postcardDistance(result, outcome);
   if (outcome.kind === 'upgrade') {
     const tier = document.createElement('span');
     tier.className = 'postcard-summary-tier';
-    tier.textContent = ` · ${outcome.tier === EARN_PINPOINT ? 'Pinpoint' : 'Bullseye'}`;
-    country.append(tier);
+    tier.textContent = `↑ ${outcome.tier === EARN_PINPOINT ? 'Pinpoint' : 'Bullseye'}`;
+    meta.append(tier, ` • ${distanceText}`);
+  } else {
+    meta.textContent = `New • ${distanceText}`;
   }
-  topline.append(badge, distance);
-  copy.append(topline, place, country);
-  card.append(photo, distanceBadge, copy);
-  setProxBadge(card, outcome.tier);
+  card.append(photo, name, meta);
+  const entry = passportEntryFor(item);
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-haspopup', 'dialog');
+  card.setAttribute('aria-label', `Open postcard: ${name.textContent}`);
+  card.addEventListener('click', () => openPostcard(entry, card));
+  card.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    openPostcard(entry, card);
+  });
   return card;
 }
 
@@ -6135,26 +6139,35 @@ function difficultyBand(item) {
   return band ? band.key : null;
 }
 
+// Shared by the passport grid and the postgame summary cards: everything
+// openPostcard()/fillPostcard() need to show a location's detail view.
+function buildPassportEntry(item, age) {
+  const meta = passport.meta[item.id] || {};
+  return {
+    item,
+    best: meta.b ?? passport.visits[item.id],
+    km: meta.d,
+    first: meta.f,
+    earned: meta.e || 0,
+    tierDates: [null, meta.eb1, meta.eb2, meta.eb3],
+    // Timestamped visits are always newer than legacy ones, which fall back to
+    // their place in the recency order (and to the very end if that was capped).
+    recency: meta.t ?? (age?.has(item.id) ? age.get(item.id) : -1),
+    continent: continentOf(item),
+    band: difficultyBand(item),
+  };
+}
+
+function passportEntryFor(item) {
+  return buildPassportEntry(item);
+}
+
 function passportEntries() {
   const age = new Map(passport.order.map((id, i) => [id, i]));
   return Object.keys(passport.visits)
     .map((id) => {
       const item = passportLocation(id);
-      if (!item) return null; // location retired from locations.json
-      const meta = passport.meta[id] || {};
-      return {
-        item,
-        best: meta.b ?? passport.visits[id],
-        km: meta.d,
-        first: meta.f,
-        earned: meta.e || 0,
-        tierDates: [null, meta.eb1, meta.eb2, meta.eb3],
-        // Timestamped visits are always newer than legacy ones, which fall back to
-        // their place in the recency order (and to the very end if that was capped).
-        recency: meta.t ?? (age.has(id) ? age.get(id) : -1),
-        continent: continentOf(item),
-        band: difficultyBand(item),
-      };
+      return item ? buildPassportEntry(item, age) : null; // location retired from locations.json
     })
     .filter(Boolean)
     .sort((a, b) => b.recency - a.recency);
@@ -6570,18 +6583,20 @@ function passportCard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     photo.append(img);
   }
-  setProxBadge(photo, entry.earned);
+  setProxBadge(photo, entry.earned, 'compact');
   // (pp-hint text removed per Sean 2026-10-07)
   // The stamp ink follows what was earned, not the raw score: gold bullseye or
-  // pinpoint, cyan near miss, grey still to earn.
+  // pinpoint, cyan near miss, grey still to earn. The tier icon lives on the
+  // prox badge; the stamp always reads BEST so the two badges don't repeat it.
   const stamp = document.createElement('span');
   stamp.className = 'pp-stamp';
   stamp.dataset.tier = entry.earned >= EARN_BULLSEYE ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
   stamp.setAttribute('aria-label', `${{ seen: 'Not yet earned. ', bullseye: 'Bullseye. ', pinpoint: 'Pinpoint. ' }[earn] || ''}Best score ${entry.best} out of 1000`);
-  stamp.innerHTML = `<span>${entry.best}<small>${{ bullseye: '🎯', pinpoint: '📍' }[earn] || 'BEST'}</small></span>`;
+  stamp.innerHTML = `<span>${entry.best}<small>BEST</small></span>`;
+  const flag = flagForLocation(entry.item);
   const name = document.createElement('p');
   name.className = 'pp-name';
-  name.textContent = entry.item.clue || entry.item.short;
+  name.textContent = `${entry.item.short || entry.item.clue}${flag ? ` ${flag}` : ''}`;
   name.title = name.textContent;
   const meta = document.createElement('p');
   meta.className = 'pp-meta';
