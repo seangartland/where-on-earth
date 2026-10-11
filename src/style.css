@@ -220,9 +220,9 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-header .eyebrow { margin-bottom: 6px; }
 .postcard-summary-header h2 { margin: 0; color: #f5fbff; font-size: 29px; line-height: 1.05; letter-spacing: -.045em; }
 .postcard-summary-lede { min-height: 18px; margin: 7px 0 0; color: rgba(198,226,250,.57); font-size: 13px; line-height: 1.4; }
-.postcard-summary-list { display: grid; gap: 9px; }
-.postcard-summary-card { position: relative; display: grid; grid-template-columns: 88px minmax(0, 1fr); min-height: 108px; overflow: hidden; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 17px; background: rgba(5,12,29,.82); box-shadow: 0 12px 36px rgba(0,0,0,.26), inset 0 1px rgba(255,255,255,.05); }
-.postcard-summary-photo { width: 88px; height: 108px; background: rgba(193,224,250,.08); object-fit: cover; object-position: center 20%; }
+.postcard-summary-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
+.postcard-summary-card { position: relative; display: block; overflow: hidden; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 12px; background: rgba(5,12,29,.82); box-shadow: 0 12px 36px rgba(0,0,0,.26), inset 0 1px rgba(255,255,255,.05); }
+.postcard-summary-photo { display: block; width: 100%; aspect-ratio: 4 / 3; background: rgba(193,224,250,.08); object-fit: cover; object-position: center 20%; }
 .postcard-summary-photo.unavailable { opacity: .25; }
 .postcard-summary-copy { min-width: 0; padding: 12px 12px 11px 13px; }
 .postcard-summary-topline { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 6px; }
