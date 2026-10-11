@@ -2285,7 +2285,11 @@ canvas.addEventListener('pointermove', (e) => {
   if (tap && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > TAP_MAX_MOVE) tap = null;
 
   if (pinch && pointers.size >= 2) {
-    targetDist = zoomTo(pinch.dist, pinch.span / Math.max(pinchSpan(), 1));
+    const span = Math.max(pinchSpan(), 1);
+    const want = 1 + (pinch.dist - 1) * (pinch.span / span);
+    targetDist = clamp(want, MIN_DIST, maxDist);
+    // Past a limit, re-base so reversing the pinch responds immediately.
+    if (targetDist !== want) pinch = { span, dist: targetDist };
   }
 
   applyDrag();
@@ -7334,7 +7338,11 @@ function frame() {
     yaw += autoSpin * dt;
   }
 
-  dist = damp(dist, targetDist, 9, dt);
+  // Ease altitude in log space: map scale goes with altitude, so equal
+  // ratios take equal time whether zooming in or out, deep or wide.
+  // While pinching, fingers drive zoom directly with no damper tail.
+  if (pinch) dist = targetDist;
+  else dist = 1 + Math.exp(damp(Math.log(dist - 1), Math.log(targetDist - 1), 9, dt));
   applyCameraNear();
   // Outlines float 0.002 above the globe so they never sink into its facets.
   // Near the ground that lift shows as parallax against the fill and pins, so
