@@ -4394,6 +4394,9 @@ function postcardSummaryCard(result, item) {
   photo.alt = '';
   photo.loading = 'lazy';
   photo.addEventListener('error', () => { photo.classList.add('unavailable'); });
+  const distanceBadge = document.createElement('span');
+  distanceBadge.className = 'postcard-summary-distance-badge';
+  distanceBadge.textContent = postcardDistance(result, outcome);
   const copy = document.createElement('div');
   copy.className = 'postcard-summary-copy';
   const topline = document.createElement('div');
@@ -4418,7 +4421,7 @@ function postcardSummaryCard(result, item) {
   }
   topline.append(badge, distance);
   copy.append(topline, place, country);
-  card.append(photo, copy);
+  card.append(photo, distanceBadge, copy);
   setProxBadge(card, outcome.tier);
   return card;
 }

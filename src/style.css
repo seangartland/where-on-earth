@@ -223,6 +223,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
 .postcard-summary-card { position: relative; display: block; overflow: hidden; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 12px; background: rgba(5,12,29,.82); box-shadow: 0 12px 36px rgba(0,0,0,.26), inset 0 1px rgba(255,255,255,.05); }
 .postcard-summary-photo { display: block; width: 100%; aspect-ratio: 4 / 3; background: rgba(193,224,250,.08); object-fit: cover; object-position: center 20%; }
+.postcard-summary-distance-badge { position: absolute; right: 8px; bottom: 8px; z-index: 1; padding: 4px 7px; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; background: rgba(4,12,28,.82); color: #f4fdff; font-size: 11px; font-weight: 800; line-height: 1; white-space: nowrap; }
 .postcard-summary-photo.unavailable { opacity: .25; }
 .postcard-summary-copy { min-width: 0; padding: 12px 12px 11px 13px; }
 .postcard-summary-topline { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 6px; }
