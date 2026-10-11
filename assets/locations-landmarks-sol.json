@@ -4346,5 +4346,20 @@
     "sets": [],
     "difficultyWhy": "F3·A3·K0·C0·S0 → 3 (neighbor new-york-usa)",
     "category": "city"
+  },
+  {
+    "id": "rankin-inlet-canada",
+    "short": "Rankin Inlet",
+    "clue": "Rankin Inlet, Canada 🇨🇦",
+    "fact": "Rankin Inlet is the largest inland community in Nunavut, located on the Kudlulik Peninsula by Hudson Bay.",
+    "lat": 62.8089,
+    "lng": -92.085,
+    "difficulty": 9,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Rankin_Inlet_From_Air.jpg/500px-Rankin_Inlet_From_Air.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "country": "Canada",
+    "continent": "North America",
+    "sets": [],
+    "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
+    "category": "city"
   }
 ]
