@@ -6264,7 +6264,7 @@ passportPageStyle.textContent = `
 .pp-slot { position: relative; min-width: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-slot-photo { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 2px solid var(--rarity, rgba(214,220,232,.16)); background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
 .pp-slot-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-.pp-slot-score { position: absolute; z-index: 2; top: 3px; left: 3px; padding: 1px 5px; border-radius: 999px; background: rgba(8,14,32,.78); color: #e6f0ff; font-size: 9px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pp-slot-score { position: absolute; z-index: 2; top: 5px; right: 5px; height: 18px; padding: 1px 5px; border-radius: 999px; background: rgba(8,14,32,.78); color: #e6f0ff; font-size: 9px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .pp-slot-name { margin: 4px 1px 0; overflow: hidden; color: #eef2ff; font-size: 10px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .pp-slot[data-earn="seen"] .pp-slot-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .pp-slot[data-earn="seen"] .pp-slot-name { color: #8992a8; }
