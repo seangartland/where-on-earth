@@ -5649,6 +5649,7 @@ const CONTINENT_BOXES = [
 ];
 
 function continentOf(item) {
+  if (item.continent) return item.continent;
   for (const [name, latMin, latMax, lngMin, lngMax] of CONTINENT_BOXES) {
     if (item.lat >= latMin && item.lat <= latMax && item.lng >= lngMin && item.lng <= lngMax) return name;
   }
@@ -5717,6 +5718,10 @@ function passportLocation(id) {
   if (!locationIndex) locationIndex = new Map(locations.map((item) => [item.id, item]));
   return locationIndex.get(id);
 }
+
+// The one "have we been here" predicate (passport, dex grid and collections all
+// share it). Older visits recorded before passport.meta shipped still count.
+function isVisited(id) { return Object.hasOwn(passport.visits, id); }
 
 function tierOf(base) {
   if (base >= PASSPORT_GOLD) return 'gold';
@@ -6134,12 +6139,18 @@ function difficultyBand(item) {
   return band ? band.key : null;
 }
 
+// England/Scotland/Wales/Northern Ireland/United Kingdom stay five separate
+// rows (Sean, 2026-10-11) — this is just the one place that name is read from.
+function countryKey(item) { return item.country; }
+
 // Shared by the passport grid and the postgame summary cards: everything
 // openPostcard()/fillPostcard() need to show a location's detail view.
 function buildPassportEntry(item, age) {
   const meta = passport.meta[item.id] || {};
   return {
     item,
+    visited: isVisited(item.id),
+    country: countryKey(item),
     best: meta.b ?? passport.visits[item.id],
     km: meta.d,
     first: meta.f,
@@ -6166,6 +6177,39 @@ function passportEntries() {
     })
     .filter(Boolean)
     .sort((a, b) => b.recency - a.recency);
+}
+
+// Every location, visited or not — the dex grid's full 1,301 slots.
+function passportAllEntries() {
+  const age = new Map(passport.order.map((id, i) => [id, i]));
+  return locations.map((item) => buildPassportEntry(item, age));
+}
+
+// Built once locations arrive (next to locationIndex, below). Map<countryKey,
+// { name, flag, continent, items[] }>: flag is the most frequent clue flag
+// among that country's items (territories carry their own flag), continent is
+// the majority item.continent.
+let countryIndex = null;
+function buildCountryIndex() {
+  const byKey = new Map();
+  for (const item of locations) {
+    const key = countryKey(item);
+    if (!byKey.has(key)) byKey.set(key, { name: key, items: [], flagCounts: new Map(), continentCounts: new Map() });
+    const entry = byKey.get(key);
+    entry.items.push(item);
+    const flag = flagForLocation(item);
+    entry.flagCounts.set(flag, (entry.flagCounts.get(flag) || 0) + 1);
+    const continent = continentOf(item);
+    entry.continentCounts.set(continent, (entry.continentCounts.get(continent) || 0) + 1);
+  }
+  const top = (counts) => [...counts].sort((a, b) => b[1] - a[1])[0][0];
+  countryIndex = new Map([...byKey].map(([key, entry]) => [key, {
+    name: entry.name,
+    flag: top(entry.flagCounts),
+    continent: top(entry.continentCounts),
+    items: entry.items,
+  }]));
+  return countryIndex;
 }
 
 const passportPageStyle = document.createElement('style');
@@ -6197,17 +6241,61 @@ passportPageStyle.textContent = `
 .pp-bar i { position: absolute; left: 0; top: 0; height: 100%; border-radius: 8px; transition: width .4s ease-out; }
 .pp-bar .pp-bar-seen { background: rgba(193,224,250,.22); }
 .pp-bar .pp-bar-earned { background: linear-gradient(90deg, #67e8ff, #c4a8ff 55%, #ffd166); box-shadow: 0 0 12px rgba(255,209,102,.35); }
-.pp-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+.pp-tabs { display: flex; gap: 6px; margin-top: 12px; }
+.pp-tabs button { flex: 1 1 0; min-height: 40px; border: 1px solid rgba(157,211,255,.18); border-radius: 11px; background: rgba(157,211,255,.05); color: rgba(193,224,250,.62); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.pp-tabs button[aria-selected="true"] { border-color: rgba(103,232,255,.5); background: rgba(103,232,255,.1); color: #c9f6ff; }
+.pp-status { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; margin-top: 10px; }
+.pp-status button { min-height: 44px; padding: 0 2px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 750; cursor: pointer; touch-action: manipulation; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-status button[aria-pressed="true"] { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
+.pp-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+.pp-jump { display: flex; gap: 6px; margin-top: 8px; padding-bottom: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.pp-jump button { flex: none; min-height: 30px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 10px; font-weight: 750; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
 .pp-subrow { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
 .pp-shown { margin: 0; color: rgba(193,224,250,.45); font-size: 11px; }
-.pp-unearned { display: flex; align-items: center; gap: 4px; margin: 0; color: rgba(193,224,250,.7); font-size: 11px; font-weight: 700; cursor: pointer; white-space: nowrap; }
-.pp-unearned input { accent-color: #67e8ff; width: 14px; height: 14px; }
 .pp-filters select { appearance: none; -webkit-appearance: none; min-height: 44px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
 .pp-filters select option { background: #0b1430; color: #ece4ff; }
 .pp-shown { margin: 10px 0 0; color: rgba(193,224,250,.45); font-size: 11px; text-align: center; }
-/* minmax(0) keeps the columns equal however long a caption is; the padding is
-   room for the tilt so nothing pokes past the grid edge. */
-.pp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; margin: 14px 0 0; padding: 4px 3px; list-style: none; }
+/* Dex grid: every slot renders once per open; filters toggle [hidden] instead
+   of rebuilding, so only a sort change rebuilds the DOM (see renderPassportDex). */
+.pp-dex-wrap { margin-top: 10px; }
+.pp-group { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+.pp-group-head { position: sticky; top: 0; z-index: 1; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+.pp-chunk { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+.pp-dex { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 8px; margin: 0; padding: 4px 3px; list-style: none; }
+.pp-slot { position: relative; min-width: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.pp-slot-photo { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 2px solid var(--rarity, rgba(214,220,232,.16)); background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
+.pp-slot-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.pp-slot-score { position: absolute; z-index: 2; top: 3px; left: 3px; padding: 1px 5px; border-radius: 999px; background: rgba(8,14,32,.78); color: #e6f0ff; font-size: 9px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pp-slot-name { margin: 4px 1px 0; overflow: hidden; color: #eef2ff; font-size: 10px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.pp-slot[data-earn="seen"] .pp-slot-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
+.pp-slot[data-earn="seen"] .pp-slot-name { color: #8992a8; }
+/* Mystery: a neutral border (not the rarity frame) until the place is visited,
+   same as Collections (Sean, 2026-10-11). */
+.pp-slot.is-mystery { cursor: default; }
+.pp-slot.is-mystery .pp-slot-photo { border-color: rgba(214,220,232,.16); }
+.pp-slot.is-mystery .pp-slot-name { color: rgba(214,220,232,.4); letter-spacing: .1em; text-align: center; }
+.pp-play { display: block; min-height: 44px; margin: 14px auto 0; padding: 0 26px; border: 0; border-radius: 999px; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #1b1230; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+/* Countries tab */
+.pp-country-summary { margin: 10px 2px 0; color: rgba(193,224,250,.55); font-size: 12px; font-weight: 700; text-align: center; }
+.pp-country-sort { margin-top: 8px; }
+.pp-countries { margin: 10px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.pp-country { display: flex; align-items: center; gap: 9px; min-height: 44px; padding: 7px 10px; border: 1px solid rgba(157,211,255,.1); border-radius: 12px; background: rgba(157,211,255,.04); color: inherit; font: inherit; text-align: left; cursor: pointer; touch-action: manipulation; }
+.pp-country-flag { flex: none; font-size: 22px; }
+.pp-country-name { flex: 1; min-width: 0; overflow: hidden; color: #eef2ff; font-size: 13px; font-weight: 750; text-overflow: ellipsis; white-space: nowrap; }
+.pp-country-count { flex: none; color: rgba(193,224,250,.6); font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pp-country-bar { display: block; flex: 0 0 56px; height: 4px; }
+.pp-country.is-complete { border-color: rgba(255,209,102,.4); }
+.pp-country.is-complete .pp-country-count { color: #ffd166; }
+.pp-country.is-unvisited .pp-country-flag { filter: grayscale(1); opacity: .45; }
+.pp-country.is-unvisited .pp-country-name { color: rgba(193,224,250,.4); }
+.pp-countries .pp-group-head { margin: 6px 0 0; background: transparent; }
+.pp-country-head { margin-top: 10px; }
+.pp-country-head-row { display: flex; align-items: center; gap: 12px; }
+.pp-country-head-flag { flex: none; font-size: 40px; }
+.pp-country-head h3 { margin: 0; color: #f5fbff; font-size: 19px; }
+.pp-country-head p { margin: 2px 0 0; color: rgba(193,224,250,.55); font-size: 12px; }
+.pp-country-head .pp-country-bar { width: 100%; height: 4px; margin-top: 10px; }
+.pp-country-dex { margin-top: 12px; }
 /* A postcard: white border round the photo, caption on the card stock, and the
    best score pressed on as a round ink stamp. Alternate cards tilt a hair so the
    grid reads as a collection pinned in a book rather than a table. */
@@ -6234,13 +6322,10 @@ passportPageStyle.textContent = `
 .pp-meta { min-height: 12px; margin: 4px 2px 0; color: #a8b0c3; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .pp-meta span { white-space: nowrap; }
 .pp-tier-date { color: rgba(193,224,250,.66); font-weight: 650; }
-.pp-empty { margin: 30px 8px 6px; color: rgba(224,240,255,.8); font-size: 15px; line-height: 1.5; text-align: center; }
-.pp-empty::before { content: '🛂'; display: block; margin-bottom: 8px; font-size: 38px; }
-.pp-play { display: block; min-height: 44px; margin: 16px auto 0; padding: 0 26px; border: 0; border-radius: 999px; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #1b1230; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
 .pp-note { margin: 18px 0 0; color: rgba(193,224,250,.42); font-size: 11px; line-height: 1.5; text-align: center; }
 body.game-passport #hud { opacity: 0; }
 @media (max-width: 360px) {
-  .pp-grid { gap: 12px 9px; }
+  .pp-dex { gap: 8px 6px; }
   .pp-stamp { width: 36px; height: 36px; font-size: 13px; }
 }`;
 document.head.appendChild(passportPageStyle);
@@ -6276,25 +6361,52 @@ passportScreen.innerHTML = `
       <p class="pp-count"><b data-pp="found">0</b> / <span data-pp="total">0</span> places<span data-pp="earned"></span></p>
       <div class="pp-bar" role="progressbar" aria-label="Postcards earned" aria-valuemin="0"><i class="pp-bar-seen" data-pp="fill"></i><i class="pp-bar-earned" data-pp="earnfill"></i></div>
     </div>
-    <div class="pp-filters" data-pp="filters">
-      <select data-pp="continent" aria-label="Filter by continent"><option value="">All continents</option></select>
-      <select data-pp="band" aria-label="Filter by difficulty"><option value="">All difficulties</option></select>
-      <select data-pp="sort" aria-label="Sort by">
-        <option value="recent">Most recent</option>
-        <option value="distance">Closest guess</option>
-        <option value="name">Name A-Z</option>
-      </select>
+    <div class="pp-tabs" role="tablist" data-pp="tabs">
+      <button type="button" role="tab" data-view="places" aria-selected="true">Places</button>
+      <button type="button" role="tab" data-view="countries" aria-selected="false">Countries</button>
     </div>
-    <div class="pp-subrow">
-      <p class="pp-shown" data-pp="shown"></p>
-      <label class="pp-unearned"><input type="checkbox" data-pp="unearned"> Unearned only</label>
+    <div data-pp="places-view">
+      <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
+        <button type="button" data-status="all" aria-pressed="true">All</button>
+        <button type="button" data-status="earned" aria-pressed="false">Earned</button>
+        <button type="button" data-status="seen" aria-pressed="false">Seen</button>
+        <button type="button" data-status="unvisited" aria-pressed="false">Unvisited</button>
+      </div>
+      <div class="pp-filters" data-pp="filters">
+        <select data-pp="continent" aria-label="Filter by continent" hidden><option value="">All continents</option></select>
+        <select data-pp="band" aria-label="Filter by difficulty"><option value="">All difficulties</option></select>
+        <select data-pp="sort" aria-label="Sort by">
+          <option value="atlas">Atlas</option>
+          <option value="recent">Most recent</option>
+          <option value="distance">Closest guess</option>
+          <option value="name">Name A-Z</option>
+        </select>
+      </div>
+      <div class="pp-jump" data-pp="jump"></div>
+      <div class="pp-subrow">
+        <p class="pp-shown" data-pp="shown"></p>
+      </div>
+      <button class="pp-play" data-pp="play" hidden>Play today’s game</button>
+      <div class="pp-dex-wrap" data-pp="dex"></div>
+      <p class="pp-note" data-pp="note">Land within 150 km to earn a postcard in full colour, within 25 km for gold. Black-and-white cards come back in Endless once you’ve seen everywhere. Earlier stamps leave distance and date blank.</p>
     </div>
-    <ul class="pp-grid" data-pp="grid"></ul>
-    <div data-pp="empty" hidden>
-      <p class="pp-empty"></p>
-      <button class="pp-play" data-pp="play">Play today’s game</button>
+    <div data-pp="countries-view" hidden>
+      <div data-pp="country-list">
+        <p class="pp-country-summary" data-pp="country-summary"></p>
+        <select class="pp-country-sort" data-pp="country-sort" aria-label="Sort countries">
+          <option value="earned">Most earned</option>
+          <option value="closest">Closest to complete</option>
+          <option value="alpha">A–Z</option>
+          <option value="continent">By continent</option>
+        </select>
+        <div data-pp="country-list-body"></div>
+      </div>
+      <div data-pp="country-detail" hidden>
+        <button class="collections-back" type="button" data-pp="country-back">‹ Countries</button>
+        <div class="pp-country-head" data-pp="country-head"></div>
+        <ul class="pp-dex pp-country-dex" data-pp="country-dex"></ul>
+      </div>
     </div>
-    <p class="pp-note" data-pp="note">Land within 150 km to earn a postcard in full colour, within 25 km for gold. Black-and-white cards come back in Endless once you’ve seen everywhere. Earlier stamps leave distance and date blank.</p>
   </div>`;
 document.getElementById('game').appendChild(passportScreen);
 passportScreenEl = passportScreen;
@@ -6308,18 +6420,28 @@ const ppEls = {
   fill: passportScreen.querySelector('[data-pp="fill"]'),
   earned: passportScreen.querySelector('[data-pp="earned"]'),
   earnFill: passportScreen.querySelector('[data-pp="earnfill"]'),
+  tabs: passportScreen.querySelector('[data-pp="tabs"]'),
+  placesView: passportScreen.querySelector('[data-pp="places-view"]'),
+  countriesView: passportScreen.querySelector('[data-pp="countries-view"]'),
+  status: passportScreen.querySelector('[data-pp="status"]'),
   filters: passportScreen.querySelector('[data-pp="filters"]'),
   continent: passportScreen.querySelector('[data-pp="continent"]'),
   band: passportScreen.querySelector('[data-pp="band"]'),
   sort: passportScreen.querySelector('[data-pp="sort"]'),
-  unearned: passportScreen.querySelector('[data-pp="unearned"]'),
+  jump: passportScreen.querySelector('[data-pp="jump"]'),
   shown: passportScreen.querySelector('[data-pp="shown"]'),
-  grid: passportScreen.querySelector('[data-pp="grid"]'),
-  empty: passportScreen.querySelector('[data-pp="empty"]'),
-  emptyText: passportScreen.querySelector('.pp-empty'),
+  dex: passportScreen.querySelector('[data-pp="dex"]'),
   play: passportScreen.querySelector('[data-pp="play"]'),
   note: passportScreen.querySelector('[data-pp="note"]'),
   collections: passportScreen.querySelector('[data-pp="collections"]'),
+  countryList: passportScreen.querySelector('[data-pp="country-list"]'),
+  countryDetail: passportScreen.querySelector('[data-pp="country-detail"]'),
+  countrySummary: passportScreen.querySelector('[data-pp="country-summary"]'),
+  countrySort: passportScreen.querySelector('[data-pp="country-sort"]'),
+  countryListBody: passportScreen.querySelector('[data-pp="country-list-body"]'),
+  countryBack: passportScreen.querySelector('[data-pp="country-back"]'),
+  countryHead: passportScreen.querySelector('[data-pp="country-head"]'),
+  countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
 };
 // Passport collection share card. It is created here rather than in index.html so
 // it stays next to the passport data and can reuse passportEntries() directly.
@@ -6559,16 +6681,29 @@ passportShareScreen.addEventListener('click', (event) => { if (event.target === 
 ppEls.continent.append(...CONTINENT_ORDER.map((name) => new Option(name, name)));
 ppEls.band.append(...DIFFICULTY_BANDS.map((b) => new Option(`${b.label} (${b.min}–${b.max})`, b.key)));
 
-let ppAll = []; // entries for the open page, filtered client-side
+let ppAll = []; // every location for the open page (passportAllEntries()), filtered client-side
 
-function passportCard(entry) {
+// One template, cloned for every mystery slot: mysteries never mount an <img>
+// and look identical, so building 1,000+ of them is cheap (3 nodes each).
+const ppMysteryTemplate = document.createElement('li');
+ppMysteryTemplate.className = 'pp-slot is-mystery';
+ppMysteryTemplate.setAttribute('aria-label', 'Mystery location, not visited');
+ppMysteryTemplate.append(
+  Object.assign(document.createElement('div'), { className: 'pp-slot-photo mystery-photo' }),
+  Object.assign(document.createElement('p'), { className: 'pp-slot-name', textContent: '???' }),
+);
+
+// passportCard() → passportSlot(): a compact 3-up tile for the dex grid, with a
+// mystery branch for unvisited places (Idea 1, docs/passport-redesign-opus.md §2).
+function passportSlot(entry) {
+  if (!entry.visited) return ppMysteryTemplate.cloneNode(true);
   const li = document.createElement('li');
-  li.className = 'pp-post';
+  li.className = 'pp-slot';
   const earn = EARN_NAMES[entry.earned] || 'seen';
   li.dataset.earn = earn;
   applyCardTier(li, entry.item, entry.earned);
   const photo = document.createElement('div');
-  photo.className = 'pp-photo';
+  photo.className = 'pp-slot-photo';
   if (entry.item.image) {
     const img = document.createElement('img');
     img.src = entry.item.image;
@@ -6579,32 +6714,18 @@ function passportCard(entry) {
     photo.append(img);
   }
   setProxBadge(photo, entry.earned, 'compact');
-  // (pp-hint text removed per Sean 2026-10-07)
-  // The stamp ink follows what was earned, not the raw score: gold bullseye or
-  // pinpoint, cyan near miss, grey still to earn. The tier icon lives on the
-  // prox badge; the stamp always reads BEST so the two badges don't repeat it.
-  const stamp = document.createElement('span');
-  stamp.className = 'pp-stamp';
-  stamp.dataset.tier = entry.earned >= EARN_BULLSEYE ? 'gold' : earn === 'near' ? 'cyan' : 'dim';
-  stamp.setAttribute('aria-label', `${{ seen: 'Not yet earned. ', bullseye: 'Bullseye. ', pinpoint: 'Pinpoint. ' }[earn] || ''}Best score ${entry.best} out of 1000`);
-  stamp.innerHTML = `<span>${entry.best}<small>BEST</small></span>`;
+  if (entry.best != null) {
+    const score = document.createElement('span');
+    score.className = 'pp-slot-score';
+    score.textContent = entry.best;
+    photo.append(score);
+  }
   const flag = flagForLocation(entry.item);
   const name = document.createElement('p');
-  name.className = 'pp-name';
+  name.className = 'pp-slot-name';
   name.textContent = `${entry.item.short || entry.item.clue}${flag ? ` ${flag}` : ''}`;
   name.title = name.textContent;
-  const meta = document.createElement('p');
-  meta.className = 'pp-meta';
-  const tierDate = entry.tierDates[entry.earned];
-  const date = document.createElement('span');
-  date.className = 'pp-tier-date';
-  if (tierDate) {
-    const tier = { 1: 'Postcard', 2: 'Bullseye', 3: 'Pinpoint' }[entry.earned];
-    date.textContent = `${tier} • ${shortDate(tierDate)}`;
-    date.title = `${tier} earned`;
-  }
-  if (tierDate) meta.append(date);
-  li.append(photo, stamp, name, meta);
+  li.append(photo, name);
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
@@ -6618,55 +6739,291 @@ function passportCard(entry) {
   return li;
 }
 
-function renderPassportGrid() {
-  const continent = ppEls.continent.value;
-  const band = ppEls.band.value;
+function ppTagSlot(li, entry) {
+  li.dataset.status = entry.visited ? (entry.earned ? 'earned' : 'seen') : 'unvisited';
+  li.dataset.band = entry.band || '';
+  li.dataset.continent = entry.continent || '';
+}
+
+// Atlas grouping/within-group order: by country, then by name (so a country's
+// slots sit together under one flag). Used for every group, and for mysteries
+// at the tail of a flat sort (recency/distance are meaningless for them).
+function ppAtlasCompare(a, b) {
+  return a.country.localeCompare(b.country) || (a.item.short || '').localeCompare(b.item.short || '');
+}
+const PP_FLAT_COMPARE = {
+  distance: (a, b) => (a.km ?? Infinity) - (b.km ?? Infinity),
+  name: (a, b) => (a.item.short || '').localeCompare(b.item.short || ''),
+  recent: (a, b) => b.recency - a.recency,
+};
+const PP_STATUS_KEY = 'where-on-earth-passport-status';
+const PP_STATUSES = new Set(['all', 'earned', 'seen', 'unvisited']);
+let ppStatus = 'all';
+try {
+  const savedStatus = localStorage.getItem(PP_STATUS_KEY);
+  if (PP_STATUSES.has(savedStatus)) ppStatus = savedStatus;
+} catch (error) { storageError('Read failed', PP_STATUS_KEY, error); }
+ppEls.status.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.status === ppStatus)));
+
+let ppDexGroups = []; // atlas sort only: [{ section, name }]
+let ppDexLis = []; // every rendered slot: [{ li, entry }]
+
+function ppGroupHeadText(name, items) {
+  const visited = items.filter((e) => e.visited).length;
+  return `${name} · ${visited.toLocaleString()}/${items.length.toLocaleString()}`;
+}
+
+function renderPassportJump() {
+  if (!ppDexGroups.length) { ppEls.jump.replaceChildren(); return; }
+  ppEls.jump.replaceChildren(...ppDexGroups.map(({ section, name }) => {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    const total = section.querySelectorAll('.pp-slot').length;
+    const visited = section.querySelectorAll('.pp-slot:not(.is-mystery)').length;
+    chip.textContent = `${name} ${visited}/${total}`;
+    chip.addEventListener('click', () => section.scrollIntoView({ block: 'start' }));
+    return chip;
+  }));
+}
+
+// Build once per open (or per sort change): every slot renders once, kept in
+// ppDexLis so status/band/continent filter changes only toggle [hidden]
+// (docs/passport-redesign-opus.md §2d).
+function renderPassportDex() {
   const sort = ppEls.sort.value;
-  const unearnedOnly = ppEls.unearned.checked;
-  let shown = ppAll.filter((e) => (!continent || e.continent === continent) && (!band || e.band === band) && (!unearnedOnly || !e.earned));
-  // Sort: recent (default), distance, name
-  const by = {
-    distance: (a, b) => (a.km ?? Infinity) - (b.km ?? Infinity),
-    name: (a, b) => (a.item.short || '').localeCompare(b.item.short || ''),
-    recent: (a, b) => b.recency - a.recency,
-  }[sort] || ((a, b) => b.recency - a.recency);
-  shown = [...shown].sort(by);
-  ppEls.grid.replaceChildren(...shown.map(passportCard));
-  ppEls.shown.textContent = continent || band
-    ? (shown.length ? `${shown.length.toLocaleString()} of ${ppAll.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
+  const atlas = sort === 'atlas';
+  ppEls.continent.hidden = atlas;
+  ppDexGroups = [];
+  ppDexLis = [];
+  const frag = document.createDocumentFragment();
+  if (atlas) {
+    const byContinent = new Map();
+    for (const entry of ppAll) {
+      const key = entry.continent || 'Other';
+      if (!byContinent.has(key)) byContinent.set(key, []);
+      byContinent.get(key).push(entry);
+    }
+    const order = [...CONTINENT_ORDER, ...[...byContinent.keys()].filter((k) => !CONTINENT_ORDER.includes(k))];
+    for (const name of order) {
+      if (!byContinent.has(name)) continue;
+      const items = byContinent.get(name).sort(ppAtlasCompare);
+      const section = document.createElement('section');
+      section.className = 'pp-group';
+      section.dataset.continent = name;
+      const head = document.createElement('h3');
+      head.className = 'pp-group-head';
+      head.textContent = ppGroupHeadText(name, items);
+      const ul = document.createElement('ul');
+      ul.className = 'pp-dex';
+      ul.append(...items.map((entry) => {
+        const li = passportSlot(entry);
+        ppTagSlot(li, entry);
+        ppDexLis.push({ li, entry });
+        return li;
+      }));
+      section.append(head, ul);
+      frag.append(section);
+      ppDexGroups.push({ section, name });
+    }
+  } else {
+    const visited = ppAll.filter((e) => e.visited).sort(PP_FLAT_COMPARE[sort] || PP_FLAT_COMPARE.recent);
+    const mysteries = ppAll.filter((e) => !e.visited).sort(ppAtlasCompare);
+    const ordered = [...visited, ...mysteries];
+    const CHUNK = 60;
+    for (let i = 0; i < ordered.length; i += CHUNK) {
+      const ul = document.createElement('ul');
+      ul.className = 'pp-dex pp-chunk';
+      ul.append(...ordered.slice(i, i + CHUNK).map((entry) => {
+        const li = passportSlot(entry);
+        ppTagSlot(li, entry);
+        ppDexLis.push({ li, entry });
+        return li;
+      }));
+      frag.append(ul);
+    }
+  }
+  ppEls.dex.replaceChildren(frag);
+  renderPassportJump();
+  applyPassportFilters();
+}
+
+// Toggle-only pass: status/band/continent changes never rebuild the dex.
+function applyPassportFilters() {
+  const band = ppEls.band.value;
+  const continent = ppEls.continent.hidden ? '' : ppEls.continent.value;
+  let shown = 0;
+  for (const { li, entry } of ppDexLis) {
+    const show = (ppStatus === 'all' || li.dataset.status === ppStatus)
+      && (!band || entry.band === band)
+      && (!continent || li.dataset.continent === continent);
+    li.hidden = !show;
+    if (show) shown += 1;
+  }
+  for (const { section } of ppDexGroups) {
+    section.hidden = ![...section.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
+  }
+  const filtered = ppStatus !== 'all' || band || continent;
+  ppEls.shown.textContent = filtered
+    ? (shown ? `${shown.toLocaleString()} of ${ppAll.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
     : '';
 }
 
 function renderPassportPage() {
-  ppAll = passportEntries();
+  const visited = passportEntries(); // visited only, for the header stats and share card
+  ppAll = passportAllEntries(); // every location, for the dex grid
   const total = locations.length;
-  const has = ppAll.length > 0;
-  ppEls.found.textContent = ppAll.length.toLocaleString();
+  const found = visited.length;
+  ppEls.found.textContent = found.toLocaleString();
   ppEls.total.textContent = total.toLocaleString();
-  const earned = ppAll.filter((e) => e.earned).length;
-  const bulls = ppAll.filter((e) => e.earned >= EARN_BULLSEYE).length;
-  const pins = ppAll.filter((e) => e.earned >= EARN_PINPOINT).length;
-  ppEls.earned.hidden = !has;
+  const earned = visited.filter((e) => e.earned).length;
+  const bulls = visited.filter((e) => e.earned >= EARN_BULLSEYE).length;
+  const pins = visited.filter((e) => e.earned >= EARN_PINPOINT).length;
+  ppEls.earned.hidden = found === 0;
   const stat = (n, label) => `<span class="pp-stat"><b>${n.toLocaleString()}</b> ${label}</span>`;
   ppEls.earned.innerHTML = [stat(earned, 'postcards'), bulls ? stat(bulls, '🎯') : '', pins ? stat(pins, '📍') : ''].filter(Boolean).join(' · ');
   ppEls.bar.setAttribute('aria-valuemax', String(total));
   ppEls.bar.setAttribute('aria-valuenow', String(earned));
-  ppEls.fill.style.width = `${total ? (ppAll.length / total) * 100 : 0}%`;
+  ppEls.fill.style.width = `${total ? (found / total) * 100 : 0}%`;
   ppEls.earnFill.style.width = `${total ? (earned / total) * 100 : 0}%`;
-  ppEls.filters.hidden = !has;
-  ppEls.note.hidden = !has;
-  ppEls.empty.hidden = has;
-  ppEls.emptyText.textContent = 'Your passport is empty. Play your first game!';
-  if (!has) {
-    ppEls.grid.replaceChildren();
-    ppEls.shown.textContent = '';
-    return;
+  ppEls.play.hidden = found > 0;
+  renderPassportDex();
+}
+
+// ---------------------------------------------------------------------------
+// Idea 2: the Countries tab. countryIndex (built once locations arrive, next
+// to locationIndex) groups every location by countryKey(); this is a
+// list/detail renderer over it, reusing passportSlot() for the detail grid
+// (docs/passport-redesign-opus.md §3). England/Scotland/Wales/Northern
+// Ireland/United Kingdom stay five separate rows (Sean, 2026-10-11); a
+// country's "12/36" counts postcards earned, not just places visited.
+// ---------------------------------------------------------------------------
+function countryProgress(key) {
+  const country = countryIndex.get(key);
+  let visited = 0;
+  let earned = 0;
+  for (const item of country.items) {
+    if (isVisited(item.id)) visited += 1;
+    if (passport.meta[item.id]?.e) earned += 1;
   }
-  renderPassportGrid();
+  return { visited, earned, total: country.items.length };
+}
+
+const PP_COUNTRY_SORTS = {
+  earned: (a, b) => b.earned - a.earned || a.name.localeCompare(b.name),
+  closest: (a, b) => (a.total - a.earned) - (b.total - b.earned) || a.name.localeCompare(b.name),
+  alpha: (a, b) => a.name.localeCompare(b.name),
+  continent: (a, b) => CONTINENT_ORDER.indexOf(a.continent) - CONTINENT_ORDER.indexOf(b.continent) || a.name.localeCompare(b.name),
+};
+
+function renderCountryList() {
+  const rows = [...countryIndex.values()].map((country) => ({
+    ...countryProgress(country.name),
+    name: country.name,
+    flag: country.flag,
+    continent: country.continent,
+  }));
+  const sort = ppEls.countrySort.value;
+  rows.sort(PP_COUNTRY_SORTS[sort] || PP_COUNTRY_SORTS.earned);
+  const earnedCountries = rows.filter((r) => r.earned > 0).length;
+  const completeCountries = rows.filter((r) => r.total > 0 && r.earned === r.total).length;
+  ppEls.countrySummary.textContent = `${earnedCountries} of ${rows.length} countries · ${completeCountries} complete`;
+  const list = document.createElement('ul');
+  list.className = 'pp-countries';
+  let group = null;
+  rows.forEach((row) => {
+    if (sort === 'continent' && row.continent !== group) {
+      group = row.continent;
+      const head = document.createElement('h3');
+      head.className = 'pp-group-head';
+      head.textContent = group || 'Other';
+      list.append(head);
+    }
+    const complete = row.total > 0 && row.earned === row.total;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `pp-country${complete ? ' is-complete' : ''}${row.visited === 0 ? ' is-unvisited' : ''}`;
+    button.setAttribute('aria-label', `${row.name}: ${row.earned} of ${row.total} postcards earned, ${row.visited} places visited`);
+    const flag = document.createElement('span');
+    flag.className = 'pp-country-flag';
+    flag.textContent = row.flag;
+    const name = document.createElement('span');
+    name.className = 'pp-country-name';
+    name.textContent = row.name;
+    const count = document.createElement('span');
+    count.className = 'pp-country-count';
+    count.textContent = `${row.earned}/${row.total}${complete ? ' ✓' : ''}`;
+    const bar = document.createElement('span');
+    bar.className = 'pp-bar pp-country-bar';
+    bar.innerHTML = `<i class="pp-bar-seen" style="width:${row.total ? (row.visited / row.total) * 100 : 0}%"></i><i class="pp-bar-earned" style="width:${row.total ? (row.earned / row.total) * 100 : 0}%"></i>`;
+    button.append(flag, name, count, bar);
+    button.addEventListener('click', () => openCountryDetail(row.name));
+    list.append(button);
+  });
+  ppEls.countryListBody.replaceChildren(list);
+}
+
+function openCountryDetail(key) {
+  ppCountryListScroll = passportScreen.scrollTop;
+  ppActiveCountry = key;
+  renderCountryDetail(key);
+}
+
+function renderCountryDetail(key) {
+  const country = countryIndex.get(key);
+  const age = new Map(passport.order.map((id, i) => [id, i]));
+  const entries = country.items
+    .map((item) => buildPassportEntry(item, age))
+    .sort((a, b) => (a.visited === b.visited ? 0 : a.visited ? -1 : 1) || (a.item.short || '').localeCompare(b.item.short || ''));
+  const visited = entries.filter((e) => e.visited).length;
+  const earned = entries.filter((e) => e.earned).length;
+  ppEls.countryHead.innerHTML = `
+    <div class="pp-country-head-row">
+      <span class="pp-country-head-flag">${country.flag}</span>
+      <div><h3></h3><p>${visited} / ${entries.length} places · ${earned} postcard${earned === 1 ? '' : 's'}</p></div>
+    </div>
+    <span class="pp-bar pp-country-bar"><i class="pp-bar-seen" style="width:${entries.length ? (visited / entries.length) * 100 : 0}%"></i><i class="pp-bar-earned" style="width:${entries.length ? (earned / entries.length) * 100 : 0}%"></i></span>`;
+  ppEls.countryHead.querySelector('h3').textContent = country.name;
+  ppEls.countryDex.replaceChildren(...entries.map((entry) => {
+    const li = passportSlot(entry);
+    ppTagSlot(li, entry);
+    return li;
+  }));
+  ppEls.countryList.hidden = true;
+  ppEls.countryDetail.hidden = false;
+}
+
+function closeCountryDetail() {
+  ppActiveCountry = null;
+  ppEls.countryDetail.hidden = true;
+  ppEls.countryList.hidden = false;
+  passportScreen.scrollTop = ppCountryListScroll;
+}
+
+const PP_VIEW_KEY = 'where-on-earth-passport-view';
+let ppView = 'places';
+try {
+  const savedView = localStorage.getItem(PP_VIEW_KEY);
+  if (savedView === 'places' || savedView === 'countries') ppView = savedView;
+} catch (error) { storageError('Read failed', PP_VIEW_KEY, error); }
+let ppActiveCountry = null;
+let ppCountryListScroll = 0;
+
+function setPassportView(view) {
+  ppView = view;
+  safeSetItem(PP_VIEW_KEY, view);
+  ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.view === view)));
+  ppEls.placesView.hidden = view !== 'places';
+  ppEls.countriesView.hidden = view !== 'countries';
+  if (view !== 'countries') return;
+  if (!countryIndex) buildCountryIndex();
+  if (ppActiveCountry) renderCountryDetail(ppActiveCountry);
+  else renderCountryList();
 }
 
 function openPassport() {
   renderPassportPage();
+  ppActiveCountry = null;
+  setPassportView(ppView);
   gameEls.start.hidden = true;
   passportScreen.hidden = false;
   document.body.className = 'game-passport';
@@ -6685,10 +7042,22 @@ function closePassport(refocus = true) {
 
 passportEntry.addEventListener('click', openPassport);
 ppEls.close.addEventListener('click', () => closePassport());
-ppEls.continent.addEventListener('change', renderPassportGrid);
-ppEls.band.addEventListener('change', renderPassportGrid);
-ppEls.sort.addEventListener('change', renderPassportGrid);
-ppEls.unearned.addEventListener('change', renderPassportGrid);
+ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => {
+  tab.addEventListener('click', () => setPassportView(tab.dataset.view));
+});
+ppEls.status.querySelectorAll('button').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    ppStatus = btn.dataset.status;
+    safeSetItem(PP_STATUS_KEY, ppStatus);
+    ppEls.status.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    applyPassportFilters();
+  });
+});
+ppEls.continent.addEventListener('change', applyPassportFilters);
+ppEls.band.addEventListener('change', applyPassportFilters);
+ppEls.sort.addEventListener('change', renderPassportDex);
+ppEls.countrySort.addEventListener('change', renderCountryList);
+ppEls.countryBack.addEventListener('click', closeCountryDetail);
 ppEls.play.addEventListener('click', () => {
   closePassport(false);
   gameEls.play.click();
@@ -6697,7 +7066,9 @@ passportScreen.addEventListener('click', (e) => {
   if (e.target === passportScreen) closePassport();
 });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !passportScreen.hidden) closePassport();
+  if (e.key !== 'Escape' || passportScreen.hidden) return;
+  if (ppView === 'countries' && ppActiveCountry) closeCountryDetail();
+  else closePassport();
 });
 
 // ---------------------------------------------------------------------------
@@ -6802,7 +7173,7 @@ function buildCollectionSets() {
 }
 
 function collectionEarn(item) { return passport.meta[item.id]?.e || 0; }
-function collectionVisited(item) { return Object.hasOwn(passport.meta, item.id); }
+function collectionVisited(item) { return isVisited(item.id); }
 
 function sortedCollectionSets() {
   const earnedCount = (set) => set.items.filter(collectionEarn).length;
@@ -6820,7 +7191,7 @@ function sortedCollectionSets() {
 function collectionThumb(item) {
   const visited = collectionVisited(item);
   const wrap = document.createElement('span');
-  wrap.className = `collection-thumb${visited ? '' : ' mystery'}`;
+  wrap.className = `collection-thumb${visited ? '' : ' mystery-photo'}`;
   if (!visited) {
     wrap.setAttribute('aria-label', 'Mystery location, not visited');
     return wrap;
@@ -6893,7 +7264,7 @@ function renderCollectionDetail(set) {
     card.className = `collection-card${tier ? '' : ' unearned'}${visited ? '' : ' mystery'}`;
     applyCardTier(card, item, tier);
     const photo = document.createElement('div');
-    photo.className = 'photo';
+    photo.className = `photo${visited ? '' : ' mystery-photo'}`;
     if (visited) {
       const img = document.createElement('img');
       img.src = item.image || '';
@@ -6921,7 +7292,7 @@ function renderCollectionDetail(set) {
       const entry = {
         item,
         earned: tier,
-        continent: item.continent,
+        continent: continentOf(item),
         tierDates: [null, meta.eb1, meta.eb2, meta.eb3],
         best: meta.b,
         km: meta.d,
@@ -7269,6 +7640,7 @@ passport = readPassport();
 locationsP.then((data) => {
   locations = data;
   locationIndex = null;
+  countryIndex = buildCountryIndex();
   loadDaily();
   syncPassport();
   syncDailyButton();
