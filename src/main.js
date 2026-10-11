@@ -2496,11 +2496,11 @@ globe.add(shockwave);
 
 // Web Audio, everything synthesized. iOS only lets a context start inside a
 // user gesture, so it is created (and re-resumed after interruptions) on taps.
-// iOS also files Web Audio as "ambient" by default, which the ring/silent
-// switch mutes outright, so the game was silent on most iPhones. Declaring the
-// page's audio session as playback (Safari 16.4+) makes it audible like a
-// video would be; when muted it drops back to ambient so it never interrupts
-// the player's own music.
+// Keep the audio session category "ambient" (Safari 16.4+): it respects the
+// ring/silent switch and, critically, never interrupts or ducks whatever the
+// player is already listening to (music, a podcast). The tradeoff is the
+// game goes silent with the ring/silent switch on, which is the right
+// tradeoff — this is a secondary SFX layer, not the player's primary audio.
 function storageError(message, key, error) {
   console.error(`[storage] ${message}: ${key}`, error || '');
 }
@@ -2652,9 +2652,8 @@ const audio = {
 
   syncSession() {
     const session = navigator.audioSession;
-    const type = this.muted ? 'ambient' : 'playback';
-    if (session && session.type !== type) {
-      try { session.type = type; } catch (err) { /* older WebKit: read-only */ }
+    if (session && session.type !== 'ambient') {
+      try { session.type = 'ambient'; } catch (err) { /* older WebKit: read-only */ }
     }
   },
 
