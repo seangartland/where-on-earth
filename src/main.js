@@ -6909,14 +6909,14 @@ function ppGroupHead(name, text, onCollapse) {
 
 function renderPassportJump() {
   if (!ppDexGroups.length) { ppEls.jump.replaceChildren(); return; }
-  ppEls.jump.replaceChildren(...ppDexGroups.map(({ section, name }) => {
+  ppEls.jump.replaceChildren(...ppDexGroups.map(({ section, name, head }) => {
     const chip = document.createElement('button');
     chip.type = 'button';
     const total = section.querySelectorAll('.pp-slot').length;
     const visited = section.querySelectorAll('.pp-slot:not(.is-mystery)').length;
     chip.textContent = `${name} ${visited}/${total}`;
     chip.addEventListener('click', () => {
-      section.querySelector('.pp-group-head')?.ppExpand();
+      head.ppExpand();
       section.scrollIntoView({ block: 'start' });
     });
     return chip;
