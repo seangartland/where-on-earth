@@ -6270,7 +6270,9 @@ passportPageStyle.textContent = `
 .pp-slot { position: relative; min-width: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-slot-photo { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 2px solid var(--rarity, rgba(214,220,232,.16)); background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
 .pp-slot-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-.pp-slot-score { position: absolute; z-index: 2; top: 5px; right: 5px; height: 18px; padding: 1px 5px; border-radius: 999px; background: rgba(8,14,32,.78); color: #e6f0ff; font-size: 9px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pp-slot-score { position: absolute; z-index: 2; top: 5px; right: 5px; box-sizing: border-box; height: 18px; padding: 1px 5px; border: 0; border-radius: 999px; background: rgba(8,14,32,.82); color: #e6f0ff; font-size: 9px; font-weight: 800; font-variant-numeric: tabular-nums; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
+.pp-slot-score[data-tier="bullseye"] { border: 1.5px solid #ffd166; background: rgba(8,14,32,.88); color: #ffd166; }
+.pp-slot-score[data-tier="pinpoint"] { background: #e9b23c; color: #2b1d00; }
 .pp-slot-name { margin: 4px 1px 0; overflow: hidden; color: #eef2ff; font-size: 10px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .pp-slot[data-earn="seen"] .pp-slot-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .pp-slot[data-earn="seen"] .pp-slot-name { color: #8992a8; }
@@ -6770,13 +6772,17 @@ function passportSlot(entry) {
   const li = document.createElement('li');
   li.className = 'pp-slot';
   const earn = EARN_NAMES[entry.earned] || 'seen';
+  const tier = entry.earned >= EARN_PINPOINT ? 'pinpoint' : entry.earned >= EARN_BULLSEYE ? 'bullseye' : 'ordinary';
+  const tierLabel = tier[0].toUpperCase() + tier.slice(1);
+  const hasDistance = entry.earned >= EARN_BULLSEYE && Number.isFinite(entry.km);
+  const pillText = hasDistance ? formatShareKm(entry.km) : entry.best;
   li.dataset.earn = earn;
   applyCardTier(li, entry.item, entry.earned);
-  li.append(...passportSlotFace(entry, entry.best));
+  li.append(...passportSlotFace(entry, pillText, { scoreTier: tier, showProxBadge: false }));
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
-  li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}`);
+  li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${tierLabel}, ${pillText}${hasDistance ? '' : ' score'}`);
   li.addEventListener('click', () => openPostcard(entry, li));
   li.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
@@ -6786,7 +6792,7 @@ function passportSlot(entry) {
   return li;
 }
 
-function passportSlotFace(entry, pillText, { flagForPlaceholder = true } = {}) {
+function passportSlotFace(entry, pillText, { flagForPlaceholder = true, scoreTier = '', showProxBadge = true } = {}) {
   const photo = document.createElement('div');
   photo.className = 'pp-slot-photo';
   if (hasRealPhoto(entry.item) || !flagForPlaceholder) {
@@ -6804,10 +6810,11 @@ function passportSlotFace(entry, pillText, { flagForPlaceholder = true } = {}) {
       className: 'pps-flag', textContent: flagForLocation(entry.item),
     }));
   }
-  setProxBadge(photo, entry.earned, 'compact');
+  if (showProxBadge) setProxBadge(photo, entry.earned, 'compact');
   if (pillText != null) {
     const score = document.createElement('span');
     score.className = 'pp-slot-score';
+    if (scoreTier) score.dataset.tier = scoreTier;
     score.textContent = pillText;
     photo.append(score);
   }
