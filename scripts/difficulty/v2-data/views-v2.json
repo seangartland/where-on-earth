@@ -1,0 +1,404 @@
+{
+ "alberobello-trulli": {
+  "title": "Alberobello",
+  "views": 217.2,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "caxias-do-sul-br": {
+  "title": "Caxias do Sul",
+  "views": 69.2,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "champs-elysees-paris": {
+  "title": "Champs-Élysées",
+  "views": 804.9,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "chihuahua-mx": {
+  "title": "Chihuahua City",
+  "views": 213.0,
+  "distKm": 1,
+  "how": "hand-corrected title"
+ },
+ "ibiza-es": {
+  "title": "Ibiza",
+  "views": 1410.6,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "jericoacoara": {
+  "title": "Jijoca de Jericoacoara",
+  "views": 10.1,
+  "distKm": 1,
+  "how": "hand-corrected title"
+ },
+ "matera-sassi": {
+  "title": "Matera",
+  "views": 693.0,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "nagpur-in": {
+  "title": "Nagpur",
+  "views": 631.2,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "odesa-ua": {
+  "title": "Odesa",
+  "views": 1021.4,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "pointe-noire-cg": {
+  "title": "Pointe-Noire",
+  "views": 84.8,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "portland-oregon-usa": {
+  "title": "Portland, Oregon",
+  "views": 2569.3,
+  "distKm": 1,
+  "how": "hand-corrected title"
+ },
+ "san-luis-potosi-mx": {
+  "title": "San Luis Potosí (city)",
+  "views": 136.2,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "shigatse-tibet": {
+  "title": "Shigatse",
+  "views": 167.0,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "suzhou-cn": {
+  "title": "Suzhou",
+  "views": 646.7,
+  "distKm": 429,
+  "how": "hand-corrected title"
+ },
+ "taiz": {
+  "title": "Taiz",
+  "views": 156.7,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "takeo": {
+  "title": "Doun Kaev (town)",
+  "views": 7.4,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "vagator": {
+  "title": "Vagator Beach",
+  "views": 11.4,
+  "distKm": null,
+  "how": "hand-corrected title"
+ },
+ "bogota-colombia": {
+  "title": "Bogotá",
+  "views": 1546.8,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "tirana-albania": {
+  "title": "Tirana",
+  "views": 898.2,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "andorra-la-vella-andorra": {
+  "title": "Andorra la Vella",
+  "views": 350.4,
+  "distKm": 2,
+  "how": "auto"
+ },
+ "st-johns-antigua-and-barbuda": {
+  "title": "St. John's, Antigua and Barbuda",
+  "views": 252.7,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "nassau-bahamas": {
+  "title": "Nassau, Bahamas",
+  "views": 989.3,
+  "distKm": 4,
+  "how": "auto"
+ },
+ "manama-bahrain": {
+  "title": "Manama",
+  "views": 529.7,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "bridgetown-barbados": {
+  "title": "Bridgetown",
+  "views": 386.7,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "bandar-seri-begawan-brunei": {
+  "title": "Bandar Seri Begawan",
+  "views": 386.6,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "praia-cabo-verde": {
+  "title": "Praia",
+  "views": 787.3,
+  "distKm": 2,
+  "how": "auto"
+ },
+ "moroni-comoros": {
+  "title": "Moroni, Comoros",
+  "views": 232.2,
+  "distKm": 2,
+  "how": "auto"
+ },
+ "san-jose-costa-rica": {
+  "title": "San José, Costa Rica",
+  "views": 490.3,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "nicosia-cyprus": {
+  "title": "Nicosia",
+  "views": 943.9,
+  "distKm": 2,
+  "how": "auto"
+ },
+ "djibouti-city-djibouti": {
+  "title": "Djibouti City",
+  "views": 211.2,
+  "distKm": null,
+  "how": "hand-corrected title (country-name/accent collision)"
+ },
+ "roseau-dominica": {
+  "title": "Roseau",
+  "views": 143.8,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "malabo-equatorial-guinea": {
+  "title": "Malabo",
+  "views": 384.4,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "mbabane-eswatini": {
+  "title": "Mbabane",
+  "views": 309.3,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "banjul-gambia": {
+  "title": "Banjul",
+  "views": 297.3,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "st-georges-grenada": {
+  "title": "St. George's, Grenada",
+  "views": 194.9,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "bissau-guinea-bissau": {
+  "title": "Bissau",
+  "views": 244.3,
+  "distKm": 4,
+  "how": "auto"
+ },
+ "georgetown-guyana": {
+  "title": "Georgetown, Guyana",
+  "views": 661.7,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "kuwait-city-kuwait": {
+  "title": "Kuwait City",
+  "views": 564.0,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "maseru-lesotho": {
+  "title": "Maseru",
+  "views": 233.9,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "port-louis-mauritius": {
+  "title": "Port Louis",
+  "views": 363.9,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "podgorica-montenegro": {
+  "title": "Podgorica",
+  "views": 597.7,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "skopje-north-macedonia": {
+  "title": "Skopje",
+  "views": 971.9,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "basseterre-st-kitts-and-nevis": {
+  "title": "Basseterre",
+  "views": 239.0,
+  "distKm": 2,
+  "how": "auto"
+ },
+ "kingstown-st-vincent-and-grenadines": {
+  "title": "Kingstown",
+  "views": 128.2,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "san-marino-san-marino": {
+  "title": "City of San Marino",
+  "views": 185.6,
+  "distKm": null,
+  "how": "hand-corrected title (country-name/accent collision)"
+ },
+ "sao-tome-sao-tome-and-principe": {
+  "title": "São Tomé",
+  "views": 312.1,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "victoria-seychelles": {
+  "title": "Victoria, Seychelles",
+  "views": 327.7,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "juba-south-sudan": {
+  "title": "Juba",
+  "views": 466.2,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "paramaribo-suriname": {
+  "title": "Paramaribo",
+  "views": 511.6,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "port-of-spain-trinidad-and-tobago": {
+  "title": "Port of Spain",
+  "views": 678.7,
+  "distKm": 2,
+  "how": "auto"
+ },
+ "montevideo-uruguay": {
+  "title": "Montevideo",
+  "views": 1162.5,
+  "distKm": 2,
+  "how": "auto"
+ },
+ "belmopan-bz": {
+  "title": "Belmopan",
+  "views": 239.5,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "castries-lc": {
+  "title": "Castries",
+  "views": 162.5,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "funchal-pt": {
+  "title": "Funchal",
+  "views": 1009.3,
+  "distKm": 1,
+  "how": "auto"
+ },
+ "gdansk-pl": {
+  "title": "Gdańsk",
+  "views": 1424.0,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "krakow-pl": {
+  "title": "Kraków",
+  "views": 1492.1,
+  "distKm": null,
+  "how": "hand-corrected title (country-name/accent collision)"
+ },
+ "stavanger-no": {
+  "title": "Stavanger",
+  "views": 499.9,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "ljubljana-si": {
+  "title": "Ljubljana",
+  "views": 1402.9,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "sucre-bolivia": {
+  "title": "Sucre",
+  "views": 355.7,
+  "distKm": 0.0,
+  "how": "auto"
+ },
+ "gitega-burundi": {
+  "title": "Gitega",
+  "views": 183.5,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "yamoussoukro-ivory-coast": {
+  "title": "Yamoussoukro",
+  "views": 367.2,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "ramallah-palestine": {
+  "title": "Ramallah",
+  "views": 760.4,
+  "distKm": null,
+  "how": "hand-corrected title (country-name/accent collision)"
+ },
+ "lima-peru": {
+  "title": "Lima",
+  "views": 1290.1,
+  "distKm": 2,
+  "how": "auto"
+ },
+ "sri-jayawardenepura-kotte": {
+  "title": "Sri Jayawardenepura Kotte",
+  "views": 335.3,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "bern-switzerland": {
+  "title": "Bern",
+  "views": 973.5,
+  "distKm": 0,
+  "how": "auto"
+ },
+ "ashgabat-turkmenistan": {
+  "title": "Ashgabat",
+  "views": 750.4,
+  "distKm": 0.0,
+  "how": "auto"
+ },
+ "vatican-city": {
+  "title": "Vatican City",
+  "views": 3988.3,
+  "distKm": 0.0,
+  "how": "auto"
+ }
+}

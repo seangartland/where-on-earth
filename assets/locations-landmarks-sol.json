@@ -13400,5 +13400,37 @@
     "sets": [],
     "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
     "category": "city"
+  },
+  {
+    "id": "lincoln",
+    "short": "Lincoln",
+    "clue": "Lincoln, United States 🇺🇸",
+    "fact": "Lincoln is a California city known for the Gladding, McBean terra cotta factory, which has been operating since 1875.",
+    "lat": 38.89156,
+    "lng": -121.29301,
+    "difficulty": 8,
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lincoln%20ne%20skyline.JPG",
+    "country": "United States",
+    "continent": "North America",
+    "sets": [],
+    "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
+    "category": "city"
+  },
+  {
+    "id": "tristan-da-cunha",
+    "clue": "Tristan da Cunha, South Atlantic 🇸🇭",
+    "category": "city",
+    "lat": -37.0676,
+    "lng": -12.3116,
+    "fact": "This South Atlantic island's main settlement, Edinburgh of the Seven Seas, lies about 2,400 kilometers from the nearest other inhabited land.",
+    "difficulty": 8,
+    "short": "Tristan da Cunha",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Tristan_da_Cunha_ASTER.jpg/500px-Tristan_da_Cunha_ASTER.jpg",
+    "country": "United Kingdom",
+    "continent": "Europe",
+    "sets": [
+      "History Was Here"
+    ],
+    "difficultyWhy": "F1·A2·K2·C1·S1 → 8"
   }
 ]

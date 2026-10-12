@@ -1,0 +1,7640 @@
+{
+ "abala": {
+  "title": "Abala, Niger",
+  "asked": "Abala, Niger",
+  "how": "v1 title+coords",
+  "views": 3.0,
+  "qid": "Q305188",
+  "types": "municipality of Niger",
+  "distKm": 0,
+  "flags": []
+ },
+ "aberdeen-scotland": {
+  "title": "Aberdeen",
+  "asked": "Aberdeen",
+  "how": "v1 title+coords",
+  "views": 887.3,
+  "qid": "Q36405",
+  "types": "city; big city; human settlement",
+  "distKm": 1,
+  "flags": []
+ },
+ "abidjan-ivory-coast": {
+  "title": "Abidjan",
+  "asked": "Abidjan",
+  "how": "v1 title+coords",
+  "views": 875.6,
+  "qid": "Q1515",
+  "types": "city; human settlement; big city; former capital",
+  "distKm": 6,
+  "flags": []
+ },
+ "abu-dhabi-ae": {
+  "title": "Abu Dhabi",
+  "asked": "Abu Dhabi",
+  "how": "v1 title+coords",
+  "views": 2543.3,
+  "qid": "Q1519",
+  "types": "city; administrative territorial entity; metropolis; federal capital; human settlement",
+  "distKm": 4,
+  "flags": []
+ },
+ "abuja-ng": {
+  "title": "Abuja",
+  "asked": "Abuja",
+  "how": "v1 title+coords",
+  "views": 897.2,
+  "qid": "Q3787",
+  "types": "city; federal capital; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "acapulco-de-juarez-mx": {
+  "title": "Acapulco",
+  "asked": "Acapulco",
+  "how": "v1 title+coords",
+  "views": 551.4,
+  "qid": "Q81398",
+  "types": "city; big city; seaside resort; port city; locality of Mexico",
+  "distKm": 3,
+  "flags": []
+ },
+ "accra": {
+  "title": "Accra",
+  "asked": "Accra",
+  "how": "v1 title+coords",
+  "views": 911.1,
+  "qid": "Q3761",
+  "types": "city; big city; port city; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "addis-ababa-ethiopia": {
+  "title": "Addis Ababa",
+  "asked": "Addis Ababa",
+  "how": "v1 title+coords",
+  "views": 1634.9,
+  "qid": "Q3624",
+  "types": "capital city; region of Ethiopia; federal capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "adelaide-australia": {
+  "title": "Adelaide",
+  "asked": "Adelaide",
+  "how": "v1 title+coords",
+  "views": 1675.9,
+  "qid": "Q5112",
+  "types": "capital city",
+  "distKm": 0,
+  "flags": []
+ },
+ "aden": {
+  "title": "Aden",
+  "asked": "Aden",
+  "how": "v1 title+coords",
+  "views": 939.1,
+  "qid": "Q131694",
+  "types": "city; former capital; human settlement; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "agadez": {
+  "title": "Agadez",
+  "asked": "Agadez",
+  "how": "v1 title+coords",
+  "views": 192.6,
+  "qid": "Q320049",
+  "types": "municipality of Niger",
+  "distKm": 0,
+  "flags": []
+ },
+ "agadir-ma": {
+  "title": "Agadir",
+  "asked": "Agadir",
+  "how": "v1 title+coords",
+  "views": 409.4,
+  "qid": "Q170525",
+  "types": "city; urban commune of Morocco",
+  "distKm": 1,
+  "flags": []
+ },
+ "agra-in": {
+  "title": "Agra",
+  "asked": "Agra",
+  "how": "v1 title+coords",
+  "views": 875.0,
+  "qid": "Q42941",
+  "types": "city; big city; former capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "ahmedabad-in": {
+  "title": "Ahmedabad",
+  "asked": "Ahmedabad",
+  "how": "v1 title+coords",
+  "views": 1414.3,
+  "qid": "Q1070",
+  "types": "largest city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "ahvaz": {
+  "title": "Ahvaz",
+  "asked": "Ahvaz",
+  "how": "v1 title+coords",
+  "views": 297.4,
+  "qid": "Q170366",
+  "types": "big city; city of Iran",
+  "distKm": 2,
+  "flags": []
+ },
+ "ajman": {
+  "title": "Ajman",
+  "asked": "Ajman",
+  "how": "v1 title+coords",
+  "views": 247.4,
+  "qid": "Q530171",
+  "types": "city; big city",
+  "distKm": 4,
+  "flags": []
+ },
+ "al-ain-city": {
+  "title": "Al Ain",
+  "asked": "Al Ain",
+  "how": "v1 title+coords",
+  "views": 304.0,
+  "qid": "Q234600",
+  "types": "city; human settlement; border city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "alberobello-trulli": {
+  "title": "Alberobello",
+  "asked": "Alberobello",
+  "how": "hand",
+  "views": 217.2,
+  "qid": "Q51812",
+  "types": "comune of Italy",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "albuquerque-usa": {
+  "title": "Albuquerque, New Mexico",
+  "asked": "Albuquerque, New Mexico",
+  "how": "v1 title+coords",
+  "views": 2119.6,
+  "qid": "Q34804",
+  "types": "big city; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "aleppo-sy": {
+  "title": "Aleppo",
+  "asked": "Aleppo",
+  "how": "v1 title+coords",
+  "views": 781.8,
+  "qid": "Q41183",
+  "types": "city; big city; populated place in Syria",
+  "distKm": 0,
+  "flags": []
+ },
+ "alexandria-egypt": {
+  "title": "Alexandria",
+  "asked": "Alexandria",
+  "how": "v1 title+coords",
+  "views": 1957.7,
+  "qid": "Q87",
+  "types": "city; polis; municipality; big city; port city",
+  "distKm": 3,
+  "flags": []
+ },
+ "algiers": {
+  "title": "Algiers",
+  "asked": "Algiers",
+  "how": "v1 title+coords",
+  "views": 1109.9,
+  "qid": "Q3561",
+  "types": "city; capital city; human settlement",
+  "distKm": 0,
+  "flags": []
+ },
+ "alice-springs": {
+  "title": "Alice Springs",
+  "asked": "Alice Springs",
+  "how": "v1 title+coords",
+  "views": 918.9,
+  "qid": "Q17872",
+  "types": "town",
+  "distKm": 0,
+  "flags": []
+ },
+ "almaty": {
+  "title": "Almaty",
+  "asked": "Almaty",
+  "how": "v1 title+coords",
+  "views": 1490.1,
+  "qid": "Q35493",
+  "types": "city; largest city; city of republican significance; former national capital",
+  "distKm": 4,
+  "flags": []
+ },
+ "amman-jordan": {
+  "title": "Amman",
+  "asked": "Amman",
+  "how": "v1 title+coords",
+  "views": 922.2,
+  "qid": "Q3805",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "amritsar-india": {
+  "title": "Amritsar",
+  "asked": "Amritsar",
+  "how": "v1 title+coords",
+  "views": 589.0,
+  "qid": "Q48403",
+  "types": "metropolis",
+  "distKm": 1,
+  "flags": []
+ },
+ "amsterdam-netherlands": {
+  "title": "Amsterdam",
+  "asked": "Amsterdam",
+  "how": "v1 title+coords",
+  "views": 3078.5,
+  "qid": "Q727",
+  "types": "city; cycling city; big city; port city; cadastral populated place in the Netherlands; largest city; place with town rights and privileges; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "anchorage-usa": {
+  "title": "Anchorage, Alaska",
+  "asked": "Anchorage, Alaska",
+  "how": "v1 title+coords",
+  "views": 1834.8,
+  "qid": "Q39450",
+  "types": "city in the United States; big city; consolidated city-county",
+  "distKm": 0,
+  "flags": []
+ },
+ "angeles-city": {
+  "title": "Angeles City",
+  "asked": "Angeles City",
+  "how": "v1 title+coords",
+  "views": 290.3,
+  "qid": "Q55741",
+  "types": "military town; highly urbanized city",
+  "distKm": 0,
+  "flags": []
+ },
+ "ankara-tr": {
+  "title": "Ankara",
+  "asked": "Ankara",
+  "how": "v1 title+coords",
+  "views": 1316.8,
+  "qid": "Q3640",
+  "types": "city; metropolitan municipality in Turkey",
+  "distKm": 1,
+  "flags": []
+ },
+ "antalya": {
+  "title": "Antalya",
+  "asked": "Antalya",
+  "how": "v1 title+coords",
+  "views": 728.1,
+  "qid": "Q6487",
+  "types": "city; big city; metropolitan municipality in Turkey",
+  "distKm": 2,
+  "flags": []
+ },
+ "antananarivo": {
+  "title": "Antananarivo",
+  "asked": "Antananarivo",
+  "how": "v1 title+coords",
+  "views": 702.9,
+  "qid": "Q3915",
+  "types": "big city; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "antwerp-be": {
+  "title": "Antwerp",
+  "asked": "Antwerp",
+  "how": "v1 title+coords",
+  "views": 1289.3,
+  "qid": "Q12892",
+  "types": "Belgian municipality with the title of city; port city; municipality of Belgium",
+  "distKm": 0,
+  "flags": []
+ },
+ "apia-samoa": {
+  "title": "Apia",
+  "asked": "Apia",
+  "how": "v1 title+coords",
+  "views": 254.4,
+  "qid": "Q36260",
+  "types": "city",
+  "distKm": 2,
+  "flags": []
+ },
+ "arar": {
+  "title": "Arar City",
+  "asked": "Arar City",
+  "how": "v1 title+coords",
+  "views": 48.2,
+  "qid": "Q626199",
+  "types": "big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "armenia": {
+  "title": "Armenia, El Salvador",
+  "asked": "Armenia, El Salvador",
+  "how": "v1 title+coords",
+  "views": 8.4,
+  "qid": "Q682015",
+  "types": "human settlement; district of El Salvador",
+  "distKm": 1,
+  "flags": []
+ },
+ "arusha-tanzania": {
+  "title": "Arusha",
+  "asked": "Arusha",
+  "how": "v1 title+coords",
+  "views": 198.1,
+  "qid": "Q4301",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": [
+   "POP Arusha 617631 views 198.1"
+  ]
+ },
+ "asmara-eritrea": {
+  "title": "Asmara",
+  "asked": "Asmara",
+  "how": "v1 title+coords",
+  "views": 535.1,
+  "qid": "Q3642",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "astana-kz": {
+  "title": "Astana",
+  "asked": "Astana",
+  "how": "v1 title+coords",
+  "views": 1314.4,
+  "qid": "Q1520",
+  "types": "big city; city or town; city of republican significance; planned national capital; national capital",
+  "distKm": 5,
+  "flags": []
+ },
+ "asuncion-py": {
+  "title": "Asunción",
+  "asked": "Asunción",
+  "how": "v1 title+coords",
+  "views": 800.6,
+  "qid": "Q2933",
+  "types": "city; border city; big city; largest city; capital region",
+  "distKm": 1,
+  "flags": []
+ },
+ "aswan-egypt": {
+  "title": "Aswan",
+  "asked": "Aswan",
+  "how": "v1 title+coords",
+  "views": 395.4,
+  "qid": "Q29888",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "athens-greece": {
+  "title": "Athens",
+  "asked": "Athens",
+  "how": "v1 title+coords",
+  "views": 2457.6,
+  "qid": "Q1524",
+  "types": "metropolis; big city; free city; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "atlanta-usa": {
+  "title": "Atlanta",
+  "asked": "Atlanta",
+  "how": "v1 title+coords",
+  "views": 3549.4,
+  "qid": "Q23556",
+  "types": "county seat; city in the United States; big city; municipality of Georgia",
+  "distKm": 0,
+  "flags": []
+ },
+ "auckland-new-zealand": {
+  "title": "Auckland",
+  "asked": "Auckland",
+  "how": "v1 title+coords",
+  "views": 1691.6,
+  "qid": "Q37100",
+  "types": "city; metropolis; global city; port city; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "austin-usa": {
+  "title": "Austin, Texas",
+  "asked": "Austin, Texas",
+  "how": "v1 title+coords",
+  "views": 2455.9,
+  "qid": "Q16559",
+  "types": "county seat; big city; city of Texas",
+  "distKm": 0,
+  "flags": []
+ },
+ "avarua-cook-islands": {
+  "title": "Avarua",
+  "asked": "Avarua",
+  "how": "v1 title+coords",
+  "views": 127.7,
+  "qid": "Q170482",
+  "types": "town; district",
+  "distKm": 0,
+  "flags": []
+ },
+ "baghdad": {
+  "title": "Baghdad",
+  "asked": "Baghdad",
+  "how": "v1 title+coords",
+  "views": 1766.8,
+  "qid": "Q1530",
+  "types": "federal capital; big city; largest city",
+  "distKm": 4,
+  "flags": []
+ },
+ "baku": {
+  "title": "Baku",
+  "asked": "Baku",
+  "how": "v1 title+coords",
+  "views": 1540.1,
+  "qid": "Q9248",
+  "types": "city; şəhər; national capital",
+  "distKm": 5,
+  "flags": []
+ },
+ "baltimore": {
+  "title": "Baltimore",
+  "asked": "Baltimore",
+  "how": "v1 title+coords",
+  "views": 2393.1,
+  "qid": "Q5092",
+  "types": "independent city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "bamako": {
+  "title": "Bamako",
+  "asked": "Bamako",
+  "how": "v1 title+coords",
+  "views": 524.7,
+  "qid": "Q3703",
+  "types": "city; capital district or territory; seat of government; first-level administrative division",
+  "distKm": 4,
+  "flags": []
+ },
+ "bandung-id": {
+  "title": "Bandung",
+  "asked": "Bandung",
+  "how": "v1 title+coords",
+  "views": 365.5,
+  "qid": "Q10389",
+  "types": "city of Indonesia",
+  "distKm": 0,
+  "flags": []
+ },
+ "banff": {
+  "title": "Banff, Alberta",
+  "asked": "Banff, Alberta",
+  "how": "v1 title+coords",
+  "views": 848.3,
+  "qid": "Q58337",
+  "types": "town in Alberta",
+  "distKm": 0,
+  "flags": []
+ },
+ "bangkok-thailand": {
+  "title": "Bangkok",
+  "asked": "Bangkok",
+  "how": "v1 title+coords",
+  "views": 2627.9,
+  "qid": "Q1861",
+  "types": "city; megacity; financial center; big city; special administrative area of Thailand; first-level administrative division; largest city; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "bangui-cf": {
+  "title": "Bangui",
+  "asked": "Bangui",
+  "how": "v1 title+coords",
+  "views": 443.8,
+  "qid": "Q3832",
+  "types": "city; prefecture of the Central African Republic; border city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "banissa": {
+  "title": "Banissa",
+  "asked": "Banissa",
+  "how": "v1 title+coords",
+  "views": 1.8,
+  "qid": "Q4855794",
+  "types": "human settlement",
+  "distKm": 5,
+  "flags": []
+ },
+ "barquisimeto-ve": {
+  "title": "Barquisimeto",
+  "asked": "Barquisimeto",
+  "how": "v1 title+coords",
+  "views": 102.2,
+  "qid": "Q4709",
+  "types": "city; human settlement; big city",
+  "distKm": 2,
+  "flags": [
+   "POP Barquisimeto 1240714 views 102.2"
+  ]
+ },
+ "barranquilla-co": {
+  "title": "Barranquilla",
+  "asked": "Barranquilla",
+  "how": "v1 title+coords",
+  "views": 718.3,
+  "qid": "Q62823",
+  "types": "municipality of Colombia; big city; district of Colombia",
+  "distKm": 3,
+  "flags": []
+ },
+ "barrow-alaska": {
+  "title": "Utqiagvik, Alaska",
+  "asked": "Utqiagvik, Alaska",
+  "how": "v1 title+coords",
+  "views": 1083.4,
+  "qid": "Q79809",
+  "types": "city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "basel-switzerland": {
+  "title": "Basel",
+  "asked": "Basel",
+  "how": "v1 title+coords",
+  "views": 1102.5,
+  "qid": "Q78",
+  "types": "municipality of Switzerland; big city; border city; college town; cantonal capital of Switzerland; city of Switzerland",
+  "distKm": 1,
+  "flags": []
+ },
+ "basrah-iq": {
+  "title": "Basra",
+  "asked": "Basra",
+  "how": "v1 title+coords",
+  "views": 524.8,
+  "qid": "Q48195",
+  "types": "big city; port city",
+  "distKm": 3,
+  "flags": []
+ },
+ "batam-id": {
+  "title": "Batam",
+  "asked": "Batam",
+  "how": "v1 title+coords",
+  "views": 339.7,
+  "qid": "Q10103",
+  "types": "city of Indonesia",
+  "distKm": 4,
+  "flags": []
+ },
+ "beijing-china": {
+  "title": "Beijing",
+  "asked": "Beijing",
+  "how": "v1 title+coords",
+  "views": 3036.7,
+  "qid": "Q956",
+  "types": "city; national central city; direct-administered municipality; megacity; metropolis; big city; global city; national capital; former national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "beira-mz": {
+  "title": "Beira, Mozambique",
+  "asked": "Beira, Mozambique",
+  "how": "v1 title+coords",
+  "views": 131.6,
+  "qid": "Q211563",
+  "types": "city; big city; municipality of Mozambique",
+  "distKm": 2,
+  "flags": [
+   "POP Beira 687764 views 131.6"
+  ]
+ },
+ "beirut-lebanon": {
+  "title": "Beirut",
+  "asked": "Beirut",
+  "how": "v1 title+coords",
+  "views": 1919.7,
+  "qid": "Q3820",
+  "types": "administrative territorial entity; big city; national capital; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "belem-br": {
+  "title": "Belém",
+  "asked": "Belém",
+  "how": "v1 title+coords",
+  "views": 434.6,
+  "qid": "Q12829733",
+  "types": "big city; municipality of Brazil; state capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "belfast": {
+  "title": "Belfast",
+  "asked": "Belfast",
+  "how": "v1 title+coords",
+  "views": 2001.4,
+  "qid": "Q10686",
+  "types": "city; largest city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "belgrade": {
+  "title": "Belgrade",
+  "asked": "Belgrade",
+  "how": "v1 title+coords",
+  "views": 1847.4,
+  "qid": "Q3711",
+  "types": "city; capital city; metropolis; global city; tourist destination; primate city; big city; largest city",
+  "distKm": 2,
+  "flags": []
+ },
+ "belo-horizonte-br": {
+  "title": "Belo Horizonte",
+  "asked": "Belo Horizonte",
+  "how": "v1 title+coords",
+  "views": 645.4,
+  "qid": "Q42800",
+  "types": "city; municipality of Brazil",
+  "distKm": 1,
+  "flags": []
+ },
+ "bengaluru-in": {
+  "title": "Bengaluru",
+  "asked": "Bengaluru",
+  "how": "v1 title+coords",
+  "views": 2415.4,
+  "qid": "Q1355",
+  "types": "city; megacity; global city; metropolis; state capital; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "benghazi-ly": {
+  "title": "Benghazi",
+  "asked": "Benghazi",
+  "how": "v1 title+coords",
+  "views": 544.1,
+  "qid": "Q40816",
+  "types": "city; big city; port city; municipality of Libya",
+  "distKm": 0,
+  "flags": []
+ },
+ "benin-city-ng": {
+  "title": "Benin City",
+  "asked": "Benin City",
+  "how": "v1 title+coords",
+  "views": 310.5,
+  "qid": "Q320704",
+  "types": "city; local government area of Nigeria",
+  "distKm": 1,
+  "flags": []
+ },
+ "bergen-norway": {
+  "title": "Bergen",
+  "asked": "Bergen",
+  "how": "v1 title+coords",
+  "views": 833.4,
+  "qid": "Q26793",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "berlin-germany": {
+  "title": "Berlin",
+  "asked": "Berlin",
+  "how": "v1 title+coords",
+  "views": 4583.1,
+  "qid": "Q64",
+  "types": "city-state; Hanseatic city; integrated municipality; metropolis; megalopolis; college town; federated state of Germany; seat of government; largest city; town divided by border; federal capital; Unitary municipality in Germany; urban municipality in Germany; independent city in Berlin; cultural capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "bethlehem": {
+  "title": "Bethlehem",
+  "asked": "Bethlehem",
+  "how": "v1 title+coords",
+  "views": 1599.1,
+  "qid": "Q5776",
+  "types": "city; municipality of the State of Palestine; holy city of Christianity",
+  "distKm": 0,
+  "flags": []
+ },
+ "beverly-hills": {
+  "title": "Beverly Hills, California",
+  "asked": "Beverly Hills, California",
+  "how": "v1 title+coords",
+  "views": 975.7,
+  "qid": "Q127856",
+  "types": "city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "bhuj": {
+  "title": "Bhuj",
+  "asked": "Bhuj",
+  "how": "v1 title+coords",
+  "views": 114.9,
+  "qid": "Q798382",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "bilbao-spain": {
+  "title": "Bilbao",
+  "asked": "Bilbao",
+  "how": "v1 title+coords",
+  "views": 1405.9,
+  "qid": "Q8692",
+  "types": "municipality of Spain",
+  "distKm": 1,
+  "flags": []
+ },
+ "birmingham-gb": {
+  "title": "Birmingham",
+  "asked": "Birmingham",
+  "how": "v1 title+coords",
+  "views": 2883.5,
+  "qid": "Q2256",
+  "types": "city; metropolis; college town; unparished area; city of United Kingdom",
+  "distKm": 0,
+  "flags": []
+ },
+ "bishkek-kyrgyzstan": {
+  "title": "Bishkek",
+  "asked": "Bishkek",
+  "how": "v1 title+coords",
+  "views": 774.3,
+  "qid": "Q9361",
+  "types": "big city; first-level administrative division",
+  "distKm": 3,
+  "flags": []
+ },
+ "blantyre-mw": {
+  "title": "Blantyre",
+  "asked": "Blantyre",
+  "how": "v1 title+coords",
+  "views": 123.2,
+  "qid": "Q188693",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": [
+   "POP Blantyre 902588 views 123.2"
+  ]
+ },
+ "bobo-dioulasso-bf": {
+  "title": "Bobo-Dioulasso",
+  "asked": "Bobo-Dioulasso",
+  "how": "v1 title+coords",
+  "views": 119.6,
+  "qid": "Q223761",
+  "types": "city",
+  "distKm": 1,
+  "flags": [
+   "POP Bobo-Dioulasso 904920 views 119.6"
+  ]
+ },
+ "bordeaux-france": {
+  "title": "Bordeaux",
+  "asked": "Bordeaux",
+  "how": "v1 title+coords",
+  "views": 1200.4,
+  "qid": "Q1479",
+  "types": "commune of France; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "boston-usa": {
+  "title": "Boston",
+  "asked": "Boston",
+  "how": "v1 title+coords",
+  "views": 4026.0,
+  "qid": "Q100",
+  "types": "city in the United States; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "bouake-ci": {
+  "title": "Bouaké",
+  "asked": "Bouaké",
+  "how": "v1 title+coords",
+  "views": 57.6,
+  "qid": "Q271000",
+  "types": "big city",
+  "distKm": 2,
+  "flags": [
+   "POP Bouaké 832371 views 57.6"
+  ]
+ },
+ "brampton-ca": {
+  "title": "Brampton",
+  "asked": "Brampton",
+  "how": "v1 title+coords",
+  "views": 587.0,
+  "qid": "Q44198",
+  "types": "city; big city; lower-tier municipality of Ontario",
+  "distKm": 1,
+  "flags": []
+ },
+ "brasilia-br": {
+  "title": "Brasília",
+  "asked": "Brasília",
+  "how": "v1 title+coords",
+  "views": 1282.6,
+  "qid": "Q2844",
+  "types": "administrative territorial entity; federal capital; municipality of Brazil; political city; big city; planned national capital",
+  "distKm": 5,
+  "flags": []
+ },
+ "bratislava-slovakia": {
+  "title": "Bratislava",
+  "asked": "Bratislava",
+  "how": "v1 title+coords",
+  "views": 1463.4,
+  "qid": "Q1780",
+  "types": "city; big city; municipality of Slovakia",
+  "distKm": 1,
+  "flags": []
+ },
+ "brazzaville-cg": {
+  "title": "Brazzaville",
+  "asked": "Brazzaville",
+  "how": "v1 title+coords",
+  "views": 549.0,
+  "qid": "Q3844",
+  "types": "city; border city; big city; commune of the Republic of the Congo",
+  "distKm": 2,
+  "flags": []
+ },
+ "brisbane-australia": {
+  "title": "Brisbane",
+  "asked": "Brisbane",
+  "how": "v1 title+coords",
+  "views": 1933.7,
+  "qid": "Q34932",
+  "types": "city; administrative territorial entity; big city; state capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "bristol": {
+  "title": "Bristol",
+  "asked": "Bristol",
+  "how": "v1 title+coords",
+  "views": 1828.2,
+  "qid": "Q23154",
+  "types": "city; big city; port city; city of United Kingdom",
+  "distKm": 0,
+  "flags": []
+ },
+ "brooklyn-us": {
+  "title": "Brooklyn",
+  "asked": "Brooklyn",
+  "how": "v1 title+coords",
+  "views": 8389.1,
+  "qid": "Q18419",
+  "types": "borough of New York City",
+  "distKm": 0,
+  "flags": []
+ },
+ "bruges-belgium": {
+  "title": "Bruges",
+  "asked": "Bruges",
+  "how": "v1 title+coords",
+  "views": 1070.2,
+  "qid": "Q12994",
+  "types": "city; Belgian municipality with the title of city; municipality of Belgium; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "brussels-belgium": {
+  "title": "Brussels",
+  "asked": "Brussels",
+  "how": "v1 title+coords",
+  "views": 1840.8,
+  "qid": "Q240",
+  "types": "region of Belgium",
+  "distKm": 0,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "bucaramanga-co": {
+  "title": "Bucaramanga",
+  "asked": "Bucaramanga",
+  "how": "v1 title+coords",
+  "views": 145.1,
+  "qid": "Q243766",
+  "types": "big city; city of Colombia; municipality of Colombia",
+  "distKm": 13,
+  "flags": [
+   "POP Bucaramanga 581130 views 145.1"
+  ]
+ },
+ "bucharest-romania": {
+  "title": "Bucharest",
+  "asked": "Bucharest",
+  "how": "v1 title+coords",
+  "views": 1530.0,
+  "qid": "Q19660",
+  "types": "municipality of Romania",
+  "distKm": 1,
+  "flags": []
+ },
+ "budapest-hungary": {
+  "title": "Budapest",
+  "asked": "Budapest",
+  "how": "v1 title+coords",
+  "views": 2923.5,
+  "qid": "Q1781",
+  "types": "big city; enclave; primate city; financial center; metropolis; town in Hungary; national capital; largest city; global city; commercial capital city",
+  "distKm": 1,
+  "flags": []
+ },
+ "buenos-aires-argentina": {
+  "title": "Buenos Aires",
+  "asked": "Buenos Aires",
+  "how": "v1 title+coords",
+  "views": 2608.0,
+  "qid": "Q1486",
+  "types": "administrative territorial entity; electoral unit; federal capital; federal district; primate city; autonomous city; city of Argentina; first-level administrative division; largest city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "bujumbura-bi": {
+  "title": "Bujumbura",
+  "asked": "Bujumbura",
+  "how": "v1 title+coords",
+  "views": 282.2,
+  "qid": "Q3854",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "bukavu-cd": {
+  "title": "Bukavu",
+  "asked": "Bukavu",
+  "how": "v1 title+coords",
+  "views": 100.9,
+  "qid": "Q222279",
+  "types": "border city; official city of the Democratic Republic of the Congo",
+  "distKm": 3,
+  "flags": [
+   "POP Bukavu 816811 views 100.9"
+  ]
+ },
+ "bukhara-uzbekistan": {
+  "title": "Bukhara",
+  "asked": "Bukhara",
+  "how": "v1 title+coords",
+  "views": 610.5,
+  "qid": "Q5764",
+  "types": "city; local administrative unit in the NUTS system; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "bulawayo-zw": {
+  "title": "Bulawayo",
+  "asked": "Bulawayo",
+  "how": "v1 title+coords",
+  "views": 303.9,
+  "qid": "Q193250",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "burnley": {
+  "title": "Burnley",
+  "asked": "Burnley",
+  "how": "v1 title+coords",
+  "views": 435.6,
+  "qid": "Q209096",
+  "types": "market town; unparished area",
+  "distKm": 2,
+  "flags": []
+ },
+ "bursa-tr": {
+  "title": "Bursa",
+  "asked": "Bursa",
+  "how": "v1 title+coords",
+  "views": 634.1,
+  "qid": "Q40738",
+  "types": "city; big city; metropolitan municipality in Turkey; metropolitan municipality",
+  "distKm": 0,
+  "flags": []
+ },
+ "busan": {
+  "title": "Busan",
+  "asked": "Busan",
+  "how": "v1 title+coords",
+  "views": 1059.9,
+  "qid": "Q16520",
+  "types": "city; metropolis; metropolitan city of South Korea; port city",
+  "distKm": 10,
+  "flags": []
+ },
+ "cagliari": {
+  "title": "Cagliari",
+  "asked": "Cagliari",
+  "how": "v1 title+coords",
+  "views": 520.1,
+  "qid": "Q1897",
+  "types": "comune of Italy",
+  "distKm": 1,
+  "flags": []
+ },
+ "cairns": {
+  "title": "Cairns",
+  "asked": "Cairns",
+  "how": "v1 title+coords",
+  "views": 571.7,
+  "qid": "Q189133",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "cairo": {
+  "title": "Cairo",
+  "asked": "Cairo",
+  "how": "v1 title+coords",
+  "views": 1962.7,
+  "qid": "Q85",
+  "types": "metropolis; megacity; big city; tourist destination; ancient city; national capital; largest city",
+  "distKm": 2,
+  "flags": []
+ },
+ "calgary-canada": {
+  "title": "Calgary",
+  "asked": "Calgary",
+  "how": "v1 title+coords",
+  "views": 1978.5,
+  "qid": "Q36312",
+  "types": "city; big city; city in Alberta",
+  "distKm": 1,
+  "flags": []
+ },
+ "cali-co": {
+  "title": "Cali",
+  "asked": "Cali",
+  "how": "v1 title+coords",
+  "views": 477.9,
+  "qid": "Q51103",
+  "types": "city; big city; municipality of Colombia",
+  "distKm": 1,
+  "flags": []
+ },
+ "campo-grande-br": {
+  "title": "Campo Grande",
+  "asked": "Campo Grande",
+  "how": "v1 title+coords",
+  "views": 126.3,
+  "qid": "Q168929",
+  "types": "human settlement; municipality of Brazil; big city",
+  "distKm": 6,
+  "flags": [
+   "POP Campo Grande 906092 views 126.3"
+  ]
+ },
+ "can-tho-vn": {
+  "title": "Cần Thơ",
+  "asked": "Cần Thơ",
+  "how": "v1 title+coords",
+  "views": 148.3,
+  "qid": "Q216075",
+  "types": "big city; centrally-governed cities of Vietnam; provinces of Vietnam",
+  "distKm": 1,
+  "flags": [
+   "POP Cần Thơ 1507187 views 148.3"
+  ]
+ },
+ "canberra-australia": {
+  "title": "Canberra",
+  "asked": "Canberra",
+  "how": "v1 title+coords",
+  "views": 2144.8,
+  "qid": "Q3114",
+  "types": "city; federal capital; big city; planned national capital; political city",
+  "distKm": 1,
+  "flags": []
+ },
+ "cancun-mexico": {
+  "title": "Cancún",
+  "asked": "Cancún",
+  "how": "v1 title+coords",
+  "views": 1122.2,
+  "qid": "Q8969",
+  "types": "city; big city; locality of Mexico",
+  "distKm": 0,
+  "flags": []
+ },
+ "cannes-fr": {
+  "title": "Cannes",
+  "asked": "Cannes",
+  "how": "v1 title+coords",
+  "views": 501.8,
+  "qid": "Q39984",
+  "types": "city; commune of France",
+  "distKm": 0,
+  "flags": []
+ },
+ "cape-town-south-africa": {
+  "title": "Cape Town",
+  "asked": "Cape Town",
+  "how": "v1 title+coords",
+  "views": 2178.9,
+  "qid": "Q5465",
+  "types": "administrative territorial entity; big city; port city; statistical territorial entity; legislative capital; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "capri-it": {
+  "title": "Capri",
+  "asked": "Capri",
+  "how": "v1 title+coords",
+  "views": 663.6,
+  "qid": "Q173292",
+  "types": "island",
+  "distKm": 1,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "caracas-ve": {
+  "title": "Caracas",
+  "asked": "Caracas",
+  "how": "v1 title+coords",
+  "views": 1609.8,
+  "qid": "Q1533",
+  "types": "city; administrative territorial entity; federal capital; big city; largest city",
+  "distKm": 4,
+  "flags": []
+ },
+ "carcassonne-cite": {
+  "title": "Carcassonne",
+  "asked": "Carcassonne",
+  "how": "v1 title+coords",
+  "views": 725.2,
+  "qid": "Q6582",
+  "types": "commune of France",
+  "distKm": 1,
+  "flags": []
+ },
+ "cardiff-wales": {
+  "title": "Cardiff",
+  "asked": "Cardiff",
+  "how": "v1 title+coords",
+  "views": 1445.9,
+  "qid": "Q10690",
+  "types": "city; largest city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "cartagena": {
+  "title": "Cartagena, Colombia",
+  "asked": "Cartagena, Colombia",
+  "how": "v1 title+coords",
+  "views": 782.6,
+  "qid": "Q657461",
+  "types": "municipality of Colombia; big city; city of Colombia",
+  "distKm": 1,
+  "flags": []
+ },
+ "casablanca": {
+  "title": "Casablanca",
+  "asked": "Casablanca",
+  "how": "v1 title+coords",
+  "views": 1910.8,
+  "qid": "Q7903",
+  "types": "city",
+  "distKm": 7,
+  "flags": []
+ },
+ "caxias-do-sul-br": {
+  "title": "Caxias do Sul",
+  "asked": "Caxias do Sul",
+  "how": "hand",
+  "views": 69.2,
+  "qid": "Q110017",
+  "types": "municipality of Brazil; big city",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "cebu-city": {
+  "title": "Cebu City",
+  "asked": "Cebu City",
+  "how": "v1 title+coords",
+  "views": 538.6,
+  "qid": "Q1467",
+  "types": "highly urbanized city",
+  "distKm": 3,
+  "flags": []
+ },
+ "cesky-krumlov-d34-18": {
+  "title": "Český Krumlov",
+  "asked": "Český Krumlov",
+  "how": "v1 title+coords",
+  "views": 272.1,
+  "qid": "Q188082",
+  "types": "Czech municipality with expanded powers; municipality with authorized municipal office; municipality of the Czech Republic; municipality with town privileges in the Czech Republic; district town",
+  "distKm": 0,
+  "flags": []
+ },
+ "champs-elysees-paris": {
+  "title": "Champs-Élysées",
+  "asked": "Champs-Élysées",
+  "how": "v2 hand-corrected title",
+  "views": 804.9,
+  "qid": "Q550",
+  "types": "boulevard; avenue",
+  "distKm": null,
+  "flags": [
+   "NOT-SETTLEMENT",
+   "DIST None"
+  ]
+ },
+ "changsha": {
+  "title": "Changsha",
+  "asked": "Changsha",
+  "how": "v1 title+coords",
+  "views": 503.1,
+  "qid": "Q174091",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 5,
+  "flags": []
+ },
+ "charleston": {
+  "title": "Charleston, South Carolina",
+  "asked": "Charleston, South Carolina",
+  "how": "v1 geosearch",
+  "views": 1566.5,
+  "qid": "Q47716",
+  "types": "big city; county seat; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "charlotte": {
+  "title": "Charlotte, North Carolina",
+  "asked": "Charlotte, North Carolina",
+  "how": "v1 title+coords",
+  "views": 2305.0,
+  "qid": "Q16565",
+  "types": "county seat; city in the United States; big city; city of North Carolina",
+  "distKm": 0,
+  "flags": []
+ },
+ "chattogram-bd": {
+  "title": "Chittagong",
+  "asked": "Chittagong",
+  "how": "v1 title+coords",
+  "views": 551.1,
+  "qid": "Q376749",
+  "types": "city; port city",
+  "distKm": 0,
+  "flags": []
+ },
+ "chefchaouen-morocco": {
+  "title": "Chefchaouen",
+  "asked": "Chefchaouen",
+  "how": "v1 title+coords",
+  "views": 359.0,
+  "qid": "Q676778",
+  "types": "city; urban commune of Morocco",
+  "distKm": 0,
+  "flags": []
+ },
+ "chengdu-cn": {
+  "title": "Chengdu",
+  "asked": "Chengdu",
+  "how": "v1 title+coords",
+  "views": 1512.4,
+  "qid": "Q30002",
+  "types": "city; megacity; sub-province-level division; prefecture-level city of China; former capital; provincial capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "chennai-in": {
+  "title": "Chennai",
+  "asked": "Chennai",
+  "how": "v1 title+coords",
+  "views": 2118.8,
+  "qid": "Q1352",
+  "types": "city; administrative territorial entity; state capital; business cluster; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "chiang-mai-thailand": {
+  "title": "Chiang Mai",
+  "asked": "Chiang Mai",
+  "how": "v1 title+coords",
+  "views": 860.6,
+  "qid": "Q52028",
+  "types": "big city; thesaban nakhon",
+  "distKm": 2,
+  "flags": []
+ },
+ "chicago": {
+  "title": "Chicago",
+  "asked": "Chicago",
+  "how": "v1 title+coords",
+  "views": 5504.1,
+  "qid": "Q1297",
+  "types": "global city; city of Illinois; big city",
+  "distKm": 4,
+  "flags": []
+ },
+ "chiclayo-pe": {
+  "title": "Chiclayo",
+  "asked": "Chiclayo",
+  "how": "v1 title+coords",
+  "views": 94.9,
+  "qid": "Q260911",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": [
+   "POP Chiclayo 609400 views 94.9"
+  ]
+ },
+ "chihuahua-mx": {
+  "title": "Chihuahua City",
+  "asked": "Chihuahua City",
+  "how": "hand",
+  "views": 213.0,
+  "qid": "Q61302",
+  "types": "city; big city; locality of Mexico",
+  "distKm": 1,
+  "flags": []
+ },
+ "chisinau-md": {
+  "title": "Chișinău",
+  "asked": "Chișinău",
+  "how": "v1 title+coords",
+  "views": 800.3,
+  "qid": "Q21197",
+  "types": "city; municipality; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "chongqing-cn": {
+  "title": "Chongqing",
+  "asked": "Chongqing",
+  "how": "v1 title+coords",
+  "views": 3409.5,
+  "qid": "Q11725",
+  "types": "megacity; direct-administered municipality",
+  "distKm": 1,
+  "flags": []
+ },
+ "cincinnati": {
+  "title": "Cincinnati",
+  "asked": "Cincinnati",
+  "how": "v1 title+coords",
+  "views": 1780.8,
+  "qid": "Q43196",
+  "types": "county seat; big city; city of Ohio",
+  "distKm": 0,
+  "flags": []
+ },
+ "ciudad-guayana-ve": {
+  "title": "Ciudad Guayana",
+  "asked": "Ciudad Guayana",
+  "how": "v1 title+coords",
+  "views": 74.7,
+  "qid": "Q507080",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": [
+   "POP Ciudad Guayana 978202 views 74.7"
+  ]
+ },
+ "ciudad-juarez-mx": {
+  "title": "Ciudad Juárez",
+  "asked": "Ciudad Juárez",
+  "how": "v1 title+coords",
+  "views": 740.8,
+  "qid": "Q26590",
+  "types": "locality of Mexico; big city; border city",
+  "distKm": 4,
+  "flags": []
+ },
+ "cleveland-usa": {
+  "title": "Cleveland",
+  "asked": "Cleveland",
+  "how": "v1 title+coords",
+  "views": 1787.0,
+  "qid": "Q37320",
+  "types": "county seat; city in the United States; big city; city of Ohio",
+  "distKm": 0,
+  "flags": []
+ },
+ "cochabamba-bo": {
+  "title": "Cochabamba",
+  "asked": "Cochabamba",
+  "how": "v1 title+coords",
+  "views": 309.8,
+  "qid": "Q183124",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "colmar-france": {
+  "title": "Colmar",
+  "asked": "Colmar",
+  "how": "v1 title+coords",
+  "views": 452.1,
+  "qid": "Q130994",
+  "types": "commune of France",
+  "distKm": 0,
+  "flags": []
+ },
+ "colombo-sri-lanka": {
+  "title": "Colombo",
+  "asked": "Colombo",
+  "how": "v1 title+coords",
+  "views": 1030.0,
+  "qid": "Q35381",
+  "types": "city; big city; largest city; commercial capital city; economic capital city; former national capital; de facto national capital",
+  "distKm": 2,
+  "flags": []
+ },
+ "columbus": {
+  "title": "Columbus, Ohio",
+  "asked": "Columbus, Ohio",
+  "how": "v1 geosearch",
+  "views": 1877.4,
+  "qid": "Q16567",
+  "types": "county seat; big city; city of Ohio",
+  "distKm": 0,
+  "flags": []
+ },
+ "conakry-gn": {
+  "title": "Conakry",
+  "asked": "Conakry",
+  "how": "v1 title+coords",
+  "views": 398.0,
+  "qid": "Q3733",
+  "types": "city",
+  "distKm": 5,
+  "flags": []
+ },
+ "copenhagen-denmark": {
+  "title": "Copenhagen",
+  "asked": "Copenhagen",
+  "how": "v1 title+coords",
+  "views": 2368.9,
+  "qid": "Q1748",
+  "types": "city; big city; cycling city; national capital; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "cordoba-ar": {
+  "title": "Córdoba, Argentina",
+  "asked": "Córdoba, Argentina",
+  "how": "v1 title+coords",
+  "views": 416.6,
+  "qid": "Q44210",
+  "types": "city of Argentina",
+  "distKm": 1,
+  "flags": []
+ },
+ "cork-ireland": {
+  "title": "Cork (city)",
+  "asked": "Cork (city)",
+  "how": "v1 title+coords",
+  "views": 1174.8,
+  "qid": "Q36647",
+  "types": "city; big city; administrative city in the Republic of Ireland",
+  "distKm": 0,
+  "flags": []
+ },
+ "cotonou-bj": {
+  "title": "Cotonou",
+  "asked": "Cotonou",
+  "how": "v1 title+coords",
+  "views": 333.5,
+  "qid": "Q43595",
+  "types": "city; metropolis; big city; commune of Benin",
+  "distKm": 2,
+  "flags": []
+ },
+ "coyoacan-mx": {
+  "title": "Coyoacán",
+  "asked": "Coyoacán",
+  "how": "v1 title+coords",
+  "views": 275.1,
+  "qid": "Q661315",
+  "types": "territorial demarcation of Mexico City",
+  "distKm": 0,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "cucuta-co": {
+  "title": "Cúcuta",
+  "asked": "Cúcuta",
+  "how": "v1 title+coords",
+  "views": 150.2,
+  "qid": "Q216847",
+  "types": "city; border city; big city; metropolitan area; municipality of Colombia",
+  "distKm": 1,
+  "flags": [
+   "POP Cúcuta 777106 views 150.2"
+  ]
+ },
+ "cuiaba-br": {
+  "title": "Cuiabá",
+  "asked": "Cuiabá",
+  "how": "v1 title+coords",
+  "views": 114.6,
+  "qid": "Q170762",
+  "types": "big city; municipality of Brazil",
+  "distKm": 0,
+  "flags": [
+   "POP Cuiabá 618124 views 114.6"
+  ]
+ },
+ "curitiba-br": {
+  "title": "Curitiba",
+  "asked": "Curitiba",
+  "how": "v1 title+coords",
+  "views": 492.3,
+  "qid": "Q4361",
+  "types": "big city; municipality of Brazil",
+  "distKm": 0,
+  "flags": []
+ },
+ "da-nang-vn": {
+  "title": "Da Nang",
+  "asked": "Da Nang",
+  "how": "v1 title+coords",
+  "views": 949.6,
+  "qid": "Q25282",
+  "types": "city; centrally-governed cities of Vietnam; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "daegu-kr": {
+  "title": "Daegu",
+  "asked": "Daegu",
+  "how": "v1 title+coords",
+  "views": 487.5,
+  "qid": "Q20927",
+  "types": "metropolitan city of South Korea; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "daejeon-kr": {
+  "title": "Daejeon",
+  "asked": "Daejeon",
+  "how": "v1 title+coords",
+  "views": 359.2,
+  "qid": "Q20921",
+  "types": "metropolitan city of South Korea; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "dakar": {
+  "title": "Dakar",
+  "asked": "Dakar",
+  "how": "v1 title+coords",
+  "views": 920.0,
+  "qid": "Q3718",
+  "types": "big city; port city; city",
+  "distKm": 0,
+  "flags": []
+ },
+ "dalian-cn": {
+  "title": "Dalian",
+  "asked": "Dalian",
+  "how": "v1 title+coords",
+  "views": 581.4,
+  "qid": "Q74881",
+  "types": "prefecture-level city of China; sub-province-level division; big city; city specifically designated in the state plan",
+  "distKm": 1,
+  "flags": []
+ },
+ "dallas-usa": {
+  "title": "Dallas",
+  "asked": "Dallas",
+  "how": "v1 title+coords",
+  "views": 2243.7,
+  "qid": "Q16557",
+  "types": "city in the United States; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "damascus-syria": {
+  "title": "Damascus",
+  "asked": "Damascus",
+  "how": "v1 title+coords",
+  "views": 1875.4,
+  "qid": "Q3766",
+  "types": "city; big city; national capital; ancient city; populated place in Syria; largest city",
+  "distKm": 3,
+  "flags": []
+ },
+ "dammam-sa": {
+  "title": "Dammam",
+  "asked": "Dammam",
+  "how": "v1 title+coords",
+  "views": 425.4,
+  "qid": "Q160320",
+  "types": "big city; port city",
+  "distKm": 0,
+  "flags": []
+ },
+ "dar-es-salaam": {
+  "title": "Dar es Salaam",
+  "asked": "Dar es Salaam",
+  "how": "v1 title+coords",
+  "views": 1011.2,
+  "qid": "Q1960",
+  "types": "city; port city; former national capital; largest city; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "darjeeling-in": {
+  "title": "Darjeeling",
+  "asked": "Darjeeling",
+  "how": "v1 title+coords",
+  "views": 972.8,
+  "qid": "Q169997",
+  "types": "big city; municipality of West Bengal",
+  "distKm": 1,
+  "flags": []
+ },
+ "darwin": {
+  "title": "Darwin, Northern Territory",
+  "asked": "Darwin, Northern Territory",
+  "how": "v1 title+coords",
+  "views": 1156.2,
+  "qid": "Q11568",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "datong": {
+  "title": "Datong",
+  "asked": "Datong",
+  "how": "v1 title+coords",
+  "views": 149.3,
+  "qid": "Q72877",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 6,
+  "flags": [
+   "POP Datong 3105591 views 149.3"
+  ]
+ },
+ "davao-ph": {
+  "title": "Davao City",
+  "asked": "Davao City",
+  "how": "v1 geosearch",
+  "views": 670.9,
+  "qid": "Q1473",
+  "types": "highly urbanized city",
+  "distKm": 1,
+  "flags": []
+ },
+ "delhi": {
+  "title": "Delhi",
+  "asked": "Delhi",
+  "how": "v1 title+coords",
+  "views": 2684.3,
+  "qid": "Q1353",
+  "types": "municipality; megacity; metropolis; largest city",
+  "distKm": 5,
+  "flags": []
+ },
+ "denpasar-indonesia": {
+  "title": "Denpasar",
+  "asked": "Denpasar",
+  "how": "v1 title+coords",
+  "views": 291.1,
+  "qid": "Q11506",
+  "types": "city of Indonesia",
+  "distKm": 2,
+  "flags": []
+ },
+ "denver-usa": {
+  "title": "Denver",
+  "asked": "Denver",
+  "how": "v1 title+coords",
+  "views": 2212.9,
+  "qid": "Q16554",
+  "types": "city in the United States; consolidated city-county; big city; municipality of Colorado",
+  "distKm": 0,
+  "flags": []
+ },
+ "detroit-usa": {
+  "title": "Detroit",
+  "asked": "Detroit",
+  "how": "v1 title+coords",
+  "views": 2763.8,
+  "qid": "Q12439",
+  "types": "county seat; border city; city in the United States; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "dhaka": {
+  "title": "Dhaka",
+  "asked": "Dhaka",
+  "how": "v1 title+coords",
+  "views": 1737.7,
+  "qid": "Q1354",
+  "types": "administrative territorial entity; megacity; metropolis; largest city; financial center",
+  "distKm": 6,
+  "flags": []
+ },
+ "dili-timor-leste": {
+  "title": "Dili",
+  "asked": "Dili",
+  "how": "v1 title+coords",
+  "views": 365.7,
+  "qid": "Q9310",
+  "types": "capital city; national capital",
+  "distKm": 2,
+  "flags": []
+ },
+ "diyarbakr-tr": {
+  "title": "Diyarbakır",
+  "asked": "Diyarbakır",
+  "how": "v1 title+coords",
+  "views": 536.7,
+  "qid": "Q83387",
+  "types": "city; big city; metropolitan municipality in Turkey",
+  "distKm": 2,
+  "flags": []
+ },
+ "dnipro-ua": {
+  "title": "Dnipro",
+  "asked": "Dnipro",
+  "how": "v1 title+coords",
+  "views": 495.9,
+  "qid": "Q48256",
+  "types": "big city; centre of oblast",
+  "distKm": 0,
+  "flags": []
+ },
+ "dodoma-tz": {
+  "title": "Dodoma",
+  "asked": "Dodoma",
+  "how": "v1 title+coords",
+  "views": 377.9,
+  "qid": "Q3866",
+  "types": "big city; de jure national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "doha-qatar": {
+  "title": "Doha",
+  "asked": "Doha",
+  "how": "v1 title+coords",
+  "views": 1333.8,
+  "qid": "Q3861",
+  "types": "human settlement; largest city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "donetsk-ua": {
+  "title": "Donetsk",
+  "asked": "Donetsk",
+  "how": "v1 title+coords",
+  "views": 742.5,
+  "qid": "Q43070",
+  "types": "city; city or town; city in Ukraine; city of regional significance of Ukraine",
+  "distKm": 1,
+  "flags": []
+ },
+ "dongshi": {
+  "title": "Dongshi, Chiayi",
+  "asked": "Dongshi, Chiayi",
+  "how": "v1 geosearch",
+  "views": 1.8,
+  "qid": "Q263915",
+  "types": "township of Taiwan",
+  "distKm": 3,
+  "flags": []
+ },
+ "dortmund-de": {
+  "title": "Dortmund",
+  "asked": "Dortmund",
+  "how": "v1 title+coords",
+  "views": 620.6,
+  "qid": "Q1295",
+  "types": "major regional center; Hanseatic city; urban municipality in Germany; urban district of North Rhine-Westphalia; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "douala-cm": {
+  "title": "Douala",
+  "asked": "Douala",
+  "how": "v1 title+coords",
+  "views": 366.0,
+  "qid": "Q132830",
+  "types": "big city; port city",
+  "distKm": 1,
+  "flags": []
+ },
+ "dresden-germany": {
+  "title": "Dresden",
+  "asked": "Dresden",
+  "how": "v1 title+coords",
+  "views": 1295.1,
+  "qid": "Q1731",
+  "types": "major regional center; big city; urban municipality in Germany; urban district in Saxony",
+  "distKm": 0,
+  "flags": []
+ },
+ "dubai": {
+  "title": "Dubai",
+  "asked": "Dubai",
+  "how": "v1 title+coords",
+  "views": 5201.0,
+  "qid": "Q612",
+  "types": "city; administrative territorial entity; global city; metropolis; big city; largest city",
+  "distKm": 15,
+  "flags": []
+ },
+ "dublin-ireland": {
+  "title": "Dublin",
+  "asked": "Dublin",
+  "how": "v1 title+coords",
+  "views": 2683.6,
+  "qid": "Q1761",
+  "types": "municipality; big city; port city; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "dubrovnik-croatia": {
+  "title": "Dubrovnik",
+  "asked": "Dubrovnik",
+  "how": "v1 title+coords",
+  "views": 1060.8,
+  "qid": "Q1722",
+  "types": "port city; town in Croatia",
+  "distKm": 2,
+  "flags": []
+ },
+ "dundee": {
+  "title": "Dundee",
+  "asked": "Dundee",
+  "how": "v1 title+coords",
+  "views": 650.8,
+  "qid": "Q123709",
+  "types": "city; big city; lieutenancy area of Scotland",
+  "distKm": 1,
+  "flags": []
+ },
+ "dunedin-new-zealand": {
+  "title": "Dunedin",
+  "asked": "Dunedin",
+  "how": "v1 title+coords",
+  "views": 619.0,
+  "qid": "Q133073",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "dunkirk-evacuation": {
+  "title": "Dunkirk",
+  "asked": "Dunkirk",
+  "how": "v1 title+coords",
+  "views": 579.1,
+  "qid": "Q45797",
+  "types": "commune of France",
+  "distKm": 1,
+  "flags": []
+ },
+ "durban-south-africa": {
+  "title": "Durban",
+  "asked": "Durban",
+  "how": "v1 title+coords",
+  "views": 911.3,
+  "qid": "Q5468",
+  "types": "city; big city; port city",
+  "distKm": 4,
+  "flags": []
+ },
+ "dushanbe-tajikistan": {
+  "title": "Dushanbe",
+  "asked": "Dushanbe",
+  "how": "v1 title+coords",
+  "views": 554.9,
+  "qid": "Q9365",
+  "types": "capital city",
+  "distKm": 3,
+  "flags": []
+ },
+ "dusseldorf-de": {
+  "title": "Düsseldorf",
+  "asked": "Düsseldorf",
+  "how": "v1 title+coords",
+  "views": 1123.7,
+  "qid": "Q1718",
+  "types": "state capital in Germany; city; big city; urban municipality in Germany; urban district of North Rhine-Westphalia",
+  "distKm": 0,
+  "flags": []
+ },
+ "edinburgh-scotland": {
+  "title": "Edinburgh",
+  "asked": "Edinburgh",
+  "how": "v1 title+coords",
+  "views": 2866.8,
+  "qid": "Q23436",
+  "types": "city; lieutenancy area of Scotland; big city; college town",
+  "distKm": 0,
+  "flags": []
+ },
+ "edmonton-canada": {
+  "title": "Edmonton",
+  "asked": "Edmonton",
+  "how": "v1 title+coords",
+  "views": 1662.1,
+  "qid": "Q2096",
+  "types": "city; big city; provincial or territorial capital city in Canada; city in Alberta",
+  "distKm": 1,
+  "flags": []
+ },
+ "ensenada-mx": {
+  "title": "Ensenada",
+  "asked": "Ensenada",
+  "how": "v1 title+coords",
+  "views": 198.6,
+  "qid": "Q656189",
+  "types": "city; locality of Mexico",
+  "distKm": 2,
+  "flags": []
+ },
+ "enugu-ng": {
+  "title": "Enugu (city)",
+  "asked": "Enugu (city)",
+  "how": "hand",
+  "views": 111.1,
+  "qid": "Q465022",
+  "types": "big city",
+  "distKm": 2,
+  "flags": [
+   "POP Enugu 950000 views 111.1"
+  ]
+ },
+ "ephesus": {
+  "title": "Ephesus",
+  "asked": "Ephesus",
+  "how": "v1 title+coords",
+  "views": 1278.0,
+  "qid": "Q47611",
+  "types": "settlement site; polis; Ancient Greek archaeological site",
+  "distKm": 0,
+  "flags": []
+ },
+ "erbil-iq": {
+  "title": "Erbil",
+  "asked": "Erbil",
+  "how": "v1 title+coords",
+  "views": 748.1,
+  "qid": "Q132754",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "erzurum": {
+  "title": "Erzurum",
+  "asked": "Erzurum",
+  "how": "v1 title+coords",
+  "views": 268.7,
+  "qid": "Q122803",
+  "types": "city; big city; metropolitan municipality in Turkey",
+  "distKm": 0,
+  "flags": []
+ },
+ "essen-de": {
+  "title": "Essen",
+  "asked": "Essen",
+  "how": "v1 title+coords",
+  "views": 494.6,
+  "qid": "Q2066",
+  "types": "Hanseatic city; college town; big city; urban municipality in Germany; urban district of North Rhine-Westphalia; Option municipality",
+  "distKm": 1,
+  "flags": []
+ },
+ "faisalabad-pk": {
+  "title": "Faisalabad",
+  "asked": "Faisalabad",
+  "how": "v1 title+coords",
+  "views": 410.9,
+  "qid": "Q173985",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "fatehpur-sikri": {
+  "title": "Fatehpur Sikri",
+  "asked": "Fatehpur Sikri",
+  "how": "v1 title+coords",
+  "views": 426.1,
+  "qid": "Q179046",
+  "types": "city; Municipal council (India); fort",
+  "distKm": 11,
+  "flags": []
+ },
+ "fez-morocco": {
+  "title": "Fez, Morocco",
+  "asked": "Fez, Morocco",
+  "how": "v1 title+coords",
+  "views": 566.4,
+  "qid": "Q80985",
+  "types": "city",
+  "distKm": 3,
+  "flags": []
+ },
+ "florence-italy": {
+  "title": "Florence",
+  "asked": "Florence",
+  "how": "v1 title+coords",
+  "views": 1928.1,
+  "qid": "Q2044",
+  "types": "comune of Italy; big city; Italian city-state",
+  "distKm": 0,
+  "flags": []
+ },
+ "florianopolis-br": {
+  "title": "Florianópolis",
+  "asked": "Florianópolis",
+  "how": "v1 title+coords",
+  "views": 451.8,
+  "qid": "Q132997",
+  "types": "big city; municipality of Brazil",
+  "distKm": 1,
+  "flags": []
+ },
+ "frankfurt-am-main-de": {
+  "title": "Frankfurt",
+  "asked": "Frankfurt",
+  "how": "v1 title+coords",
+  "views": 1686.8,
+  "qid": "Q1794",
+  "types": "big city; European City; financial center; college town; urban district of Hesse; urban municipality in Germany; global city",
+  "distKm": 1,
+  "flags": []
+ },
+ "freetown-sl": {
+  "title": "Freetown",
+  "asked": "Freetown",
+  "how": "v1 title+coords",
+  "views": 434.8,
+  "qid": "Q3780",
+  "types": "city; big city; port city",
+  "distKm": 0,
+  "flags": []
+ },
+ "fukuoka-jp": {
+  "title": "Fukuoka",
+  "asked": "Fukuoka",
+  "how": "v1 title+coords",
+  "views": 849.1,
+  "qid": "Q26600",
+  "types": "city of Japan; city designated by government ordinance; port city; prefectural capital of Japan; big city; city for international conferences and tourism; college town",
+  "distKm": 2,
+  "flags": []
+ },
+ "funafuti-tuvalu": {
+  "title": "Funafuti",
+  "asked": "Funafuti",
+  "how": "v1 title+coords",
+  "views": 258.5,
+  "qid": "Q34126",
+  "types": "city; electoral unit; atoll; Council of Tuvalu; reef island",
+  "distKm": 1,
+  "flags": []
+ },
+ "gaborone": {
+  "title": "Gaborone",
+  "asked": "Gaborone",
+  "how": "v1 title+coords",
+  "views": 451.0,
+  "qid": "Q3919",
+  "types": "city; administrative territorial entity; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "galway-ireland": {
+  "title": "Galway",
+  "asked": "Galway",
+  "how": "v1 title+coords",
+  "views": 911.0,
+  "qid": "Q129610",
+  "types": "city; port city",
+  "distKm": 1,
+  "flags": []
+ },
+ "gaziantep-tr": {
+  "title": "Gaziantep",
+  "asked": "Gaziantep",
+  "how": "v1 title+coords",
+  "views": 378.5,
+  "qid": "Q93338",
+  "types": "city; metropolitan municipality in Turkey; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "geneva": {
+  "title": "Geneva",
+  "asked": "Geneva",
+  "how": "v1 title+coords",
+  "views": 1721.9,
+  "qid": "Q71",
+  "types": "municipality of Switzerland; big city; college town; cantonal capital of Switzerland; city of Switzerland",
+  "distKm": 0,
+  "flags": []
+ },
+ "george-town-malaysia": {
+  "title": "George Town, Penang",
+  "asked": "George Town, Penang",
+  "how": "v1 title+coords",
+  "views": 415.9,
+  "qid": "Q61092",
+  "types": "city; big city; city of Malaysia",
+  "distKm": 0,
+  "flags": []
+ },
+ "ghent-belgium": {
+  "title": "Ghent",
+  "asked": "Ghent",
+  "how": "v1 title+coords",
+  "views": 859.4,
+  "qid": "Q1296",
+  "types": "Belgian municipality with the title of city; municipality of Belgium; big city; carfree city",
+  "distKm": 1,
+  "flags": []
+ },
+ "giza-eg": {
+  "title": "Giza",
+  "asked": "Giza",
+  "how": "v1 title+coords",
+  "views": 506.5,
+  "qid": "Q81788",
+  "types": "city; tourist destination",
+  "distKm": 3,
+  "flags": []
+ },
+ "glasgow-scotland": {
+  "title": "Glasgow",
+  "asked": "Glasgow",
+  "how": "v1 title+coords",
+  "views": 2351.7,
+  "qid": "Q4093",
+  "types": "city; lieutenancy area of Scotland; big city; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "goiania-br": {
+  "title": "Goiânia",
+  "asked": "Goiânia",
+  "how": "v1 title+coords",
+  "views": 314.7,
+  "qid": "Q83189",
+  "types": "city; municipality of Brazil",
+  "distKm": 1,
+  "flags": []
+ },
+ "gqeberha-za": {
+  "title": "Gqeberha",
+  "asked": "Gqeberha",
+  "how": "v1 title+coords",
+  "views": 532.5,
+  "qid": "Q125434",
+  "types": "city; port city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "granada-es": {
+  "title": "Granada",
+  "asked": "Granada",
+  "how": "v1 title+coords",
+  "views": 966.6,
+  "qid": "Q8810",
+  "types": "municipality of Spain",
+  "distKm": 0,
+  "flags": []
+ },
+ "guadalajara-mexico": {
+  "title": "Guadalajara",
+  "asked": "Guadalajara",
+  "how": "v1 title+coords",
+  "views": 1526.2,
+  "qid": "Q9022",
+  "types": "metropolis; big city; global city; state capital; locality of Mexico",
+  "distKm": 2,
+  "flags": []
+ },
+ "guangzhou-cn": {
+  "title": "Guangzhou",
+  "asked": "Guangzhou",
+  "how": "v1 title+coords",
+  "views": 2711.4,
+  "qid": "Q16572",
+  "types": "metropolis; megacity; sub-province-level division; prefecture-level city of China; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "guatemala-city-gt": {
+  "title": "Guatemala City",
+  "asked": "Guatemala City",
+  "how": "v1 title+coords",
+  "views": 563.7,
+  "qid": "Q1555",
+  "types": "city; human settlement; big city; municipality of Guatemala; largest city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "guayaquil-ec": {
+  "title": "Guayaquil",
+  "asked": "Guayaquil",
+  "how": "v1 title+coords",
+  "views": 608.9,
+  "qid": "Q43509",
+  "types": "city; big city; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "guilin-cn": {
+  "title": "Guilin",
+  "asked": "Guilin",
+  "how": "v1 title+coords",
+  "views": 350.0,
+  "qid": "Q189633",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "gwangju": {
+  "title": "Gwangju",
+  "asked": "Gwangju",
+  "how": "v1 title+coords",
+  "views": 389.1,
+  "qid": "Q41283",
+  "types": "metropolitan city of South Korea; big city",
+  "distKm": 6,
+  "flags": []
+ },
+ "haikou": {
+  "title": "Haikou",
+  "asked": "Haikou",
+  "how": "v1 title+coords",
+  "views": 299.0,
+  "qid": "Q189823",
+  "types": "prefecture-level city of China; big city; city",
+  "distKm": 2,
+  "flags": []
+ },
+ "haiphong-vn": {
+  "title": "Haiphong",
+  "asked": "Haiphong",
+  "how": "v1 title+coords",
+  "views": 201.0,
+  "qid": "Q72818",
+  "types": "centrally-governed cities of Vietnam; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "halifax-canada": {
+  "title": "Halifax, Nova Scotia",
+  "asked": "Halifax, Nova Scotia",
+  "how": "v1 title+coords",
+  "views": 1751.5,
+  "qid": "Q2141",
+  "types": "regional municipality in Canada; metropolitan area",
+  "distKm": 1,
+  "flags": []
+ },
+ "hallstatt": {
+  "title": "Hallstatt",
+  "asked": "Hallstatt",
+  "how": "v1 geosearch",
+  "views": 540.5,
+  "qid": "Q131633",
+  "types": "municipality of Austria; market municipality",
+  "distKm": 0,
+  "flags": []
+ },
+ "hamamatsu": {
+  "title": "Hamamatsu",
+  "asked": "Hamamatsu",
+  "how": "v1 title+coords",
+  "views": 217.7,
+  "qid": "Q185125",
+  "types": "administrative territorial entity; city of Japan; business cluster; core city of Japan; city for international conferences and tourism; city designated by government ordinance; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "hamburg-germany": {
+  "title": "Hamburg",
+  "asked": "Hamburg",
+  "how": "v1 title+coords",
+  "views": 2047.5,
+  "qid": "Q1055",
+  "types": "city-state; metropolis; free imperial city; port city; Hanseatic city; Unitary municipality in Germany; urban municipality in Germany; federated state of Germany; urban district of Hamburg; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "hamilton-ca": {
+  "title": "Hamilton, Ontario",
+  "asked": "Hamilton, Ontario",
+  "how": "v1 title+coords",
+  "views": 900.0,
+  "qid": "Q133116",
+  "types": "city; big city; single-tier municipality",
+  "distKm": 11,
+  "flags": []
+ },
+ "hangzhou": {
+  "title": "Hangzhou",
+  "asked": "Hangzhou",
+  "how": "v1 title+coords",
+  "views": 1135.1,
+  "qid": "Q4970",
+  "types": "sub-province-level division; prefecture-level city of China; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "hanoi-vietnam": {
+  "title": "Hanoi",
+  "asked": "Hanoi",
+  "how": "v1 title+coords",
+  "views": 1470.1,
+  "qid": "Q1858",
+  "types": "centrally-governed cities of Vietnam; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "harare-zimbabwe": {
+  "title": "Harare",
+  "asked": "Harare",
+  "how": "v1 title+coords",
+  "views": 1024.0,
+  "qid": "Q3921",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "harbin-cn": {
+  "title": "Harbin",
+  "asked": "Harbin",
+  "how": "v1 title+coords",
+  "views": 1120.9,
+  "qid": "Q42956",
+  "types": "city; sub-province-level division",
+  "distKm": 1,
+  "flags": []
+ },
+ "hargeysa": {
+  "title": "Hargeisa",
+  "asked": "Hargeisa",
+  "how": "v1 title+coords",
+  "views": 534.0,
+  "qid": "Q168652",
+  "types": "big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "havana": {
+  "title": "Havana",
+  "asked": "Havana",
+  "how": "v1 title+coords",
+  "views": 1033.8,
+  "qid": "Q1563",
+  "types": "city; largest city",
+  "distKm": 3,
+  "flags": []
+ },
+ "heidelberg-de": {
+  "title": "Heidelberg",
+  "asked": "Heidelberg",
+  "how": "v1 title+coords",
+  "views": 811.1,
+  "qid": "Q2966",
+  "types": "district capital; major regional center; residenz; City district in Baden-Württemberg; Lutherstadt; big city; urban municipality in Germany",
+  "distKm": 4,
+  "flags": []
+ },
+ "heimaey-iceland": {
+  "title": "Heimaey",
+  "asked": "Heimaey",
+  "how": "v1 title+coords",
+  "views": 81.6,
+  "qid": "Q211182",
+  "types": "island",
+  "distKm": 1,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "helsinki-finland": {
+  "title": "Helsinki",
+  "asked": "Helsinki",
+  "how": "v1 title+coords",
+  "views": 1606.6,
+  "qid": "Q1757",
+  "types": "city; big city; municipality of Finland; port city; metropolis",
+  "distKm": 0,
+  "flags": []
+ },
+ "hermosillo-mx": {
+  "title": "Hermosillo",
+  "asked": "Hermosillo",
+  "how": "v1 title+coords",
+  "views": 269.0,
+  "qid": "Q189138",
+  "types": "city; big city; locality of Mexico",
+  "distKm": 2,
+  "flags": []
+ },
+ "hiroshima-japan": {
+  "title": "Hiroshima",
+  "asked": "Hiroshima",
+  "how": "v1 title+coords",
+  "views": 1519.6,
+  "qid": "Q34664",
+  "types": "city designated by government ordinance; city of Japan; port city; big city; prefectural capital of Japan",
+  "distKm": 1,
+  "flags": []
+ },
+ "ho-chi-minh-city-vn": {
+  "title": "Ho Chi Minh City",
+  "asked": "Ho Chi Minh City",
+  "how": "v1 title+coords",
+  "views": 2421.9,
+  "qid": "Q1854",
+  "types": "megacity; centrally-governed cities of Vietnam; big city; largest city",
+  "distKm": 9,
+  "flags": []
+ },
+ "hobart-australia": {
+  "title": "Hobart",
+  "asked": "Hobart",
+  "how": "v1 title+coords",
+  "views": 943.6,
+  "qid": "Q40191",
+  "types": "capital city",
+  "distKm": 0,
+  "flags": []
+ },
+ "hohhot-cn": {
+  "title": "Hohhot",
+  "asked": "Hohhot",
+  "how": "v1 title+coords",
+  "views": 303.9,
+  "qid": "Q535534",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 9,
+  "flags": []
+ },
+ "homs": {
+  "title": "Homs",
+  "asked": "Homs",
+  "how": "v1 title+coords",
+  "views": 320.9,
+  "qid": "Q131301",
+  "types": "tell; populated place in Syria; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "hong-kong": {
+  "title": "Hong Kong",
+  "asked": "Hong Kong",
+  "how": "v1 title+coords",
+  "views": 8220.0,
+  "qid": "Q8646",
+  "types": "city; city-state; metropolis; dependent territory; special administrative region of China; global city; big city; customs territory of China; nationality for sports",
+  "distKm": 4,
+  "flags": []
+ },
+ "honiara-solomon-islands": {
+  "title": "Honiara",
+  "asked": "Honiara",
+  "how": "v1 title+coords",
+  "views": 207.1,
+  "qid": "Q40921",
+  "types": "city",
+  "distKm": 2,
+  "flags": []
+ },
+ "honningsvag-norway": {
+  "title": "Honningsvåg",
+  "asked": "Honningsvåg",
+  "how": "v1 title+coords",
+  "views": 81.8,
+  "qid": "Q493472",
+  "types": "city; urban area in Norway",
+  "distKm": 1,
+  "flags": []
+ },
+ "honolulu-usa": {
+  "title": "Honolulu",
+  "asked": "Honolulu",
+  "how": "v1 title+coords",
+  "views": 1746.9,
+  "qid": "Q18094",
+  "types": "county seat; big city; consolidated city-county",
+  "distKm": 1,
+  "flags": []
+ },
+ "houston-usa": {
+  "title": "Houston",
+  "asked": "Houston",
+  "how": "v1 title+coords",
+  "views": 2826.4,
+  "qid": "Q16555",
+  "types": "county seat; city in the United States; port city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "huddersfield": {
+  "title": "Huddersfield",
+  "asked": "Huddersfield",
+  "how": "v1 title+coords",
+  "views": 312.8,
+  "qid": "Q201812",
+  "types": "town; big city; market town; unparished area",
+  "distKm": 1,
+  "flags": []
+ },
+ "hue-vn": {
+  "title": "Huế",
+  "asked": "Huế",
+  "how": "v1 title+coords",
+  "views": 443.7,
+  "qid": "Q36399",
+  "types": "city; centrally-governed cities of Vietnam; provinces of Vietnam; former capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "ibadan-ng": {
+  "title": "Ibadan",
+  "asked": "Ibadan",
+  "how": "v1 title+coords",
+  "views": 366.3,
+  "qid": "Q183298",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "ibb": {
+  "title": "Ibb",
+  "asked": "Ibb",
+  "how": "v1 title+coords",
+  "views": 47.0,
+  "qid": "Q99648",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": [
+   "POP Ibb 771514 views 47.0"
+  ]
+ },
+ "ibiza-es": {
+  "title": "Ibiza",
+  "asked": "Ibiza",
+  "how": "hand",
+  "views": 1410.6,
+  "qid": "Q52631",
+  "types": "island; counties of the Balearic Islands",
+  "distKm": null,
+  "flags": [
+   "NOT-SETTLEMENT",
+   "DIST None"
+  ]
+ },
+ "ilulissat-greenland": {
+  "title": "Ilulissat",
+  "asked": "Ilulissat",
+  "how": "v1 title+coords",
+  "views": 179.7,
+  "qid": "Q191047",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "incheon-kr": {
+  "title": "Incheon",
+  "asked": "Incheon",
+  "how": "v1 title+coords",
+  "views": 541.6,
+  "qid": "Q20934",
+  "types": "metropolitan city of South Korea",
+  "distKm": 7,
+  "flags": []
+ },
+ "indianapolis": {
+  "title": "Indianapolis",
+  "asked": "Indianapolis",
+  "how": "v1 title+coords",
+  "views": 1709.1,
+  "qid": "Q6346",
+  "types": "county seat; planned community; city in the United States; big city; consolidated city-county",
+  "distKm": 0,
+  "flags": []
+ },
+ "innsbruck-austria": {
+  "title": "Innsbruck",
+  "asked": "Innsbruck",
+  "how": "v1 title+coords",
+  "views": 663.6,
+  "qid": "Q1735",
+  "types": "city; big city; district of Austria; place with town rights and privileges; statutory city of Austria; municipality of Austria",
+  "distKm": 1,
+  "flags": []
+ },
+ "iqaluit-nunavut": {
+  "title": "Iqaluit",
+  "asked": "Iqaluit",
+  "how": "v1 title+coords",
+  "views": 978.0,
+  "qid": "Q2030",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "irkutsk-ru": {
+  "title": "Irkutsk",
+  "asked": "Irkutsk",
+  "how": "v1 title+coords",
+  "views": 472.5,
+  "qid": "Q6576",
+  "types": "city; big city; city/town in Russia",
+  "distKm": 1,
+  "flags": []
+ },
+ "isfahan-iran": {
+  "title": "Isfahan",
+  "asked": "Isfahan",
+  "how": "v1 title+coords",
+  "views": 923.4,
+  "qid": "Q42053",
+  "types": "metropolis; global city; big city; city of Iran",
+  "distKm": 1,
+  "flags": []
+ },
+ "islamabad-pk": {
+  "title": "Islamabad",
+  "asked": "Islamabad",
+  "how": "v1 title+coords",
+  "views": 1517.4,
+  "qid": "Q1362",
+  "types": "administrative territorial entity; federal capital; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "isle-of-skye-gb": {
+  "title": "Isle of Skye",
+  "asked": "Isle of Skye",
+  "how": "v1 title+coords",
+  "views": 699.7,
+  "qid": "Q107393",
+  "types": "island",
+  "distKm": 0,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "istanbul": {
+  "title": "Istanbul",
+  "asked": "Istanbul",
+  "how": "v1 title+coords",
+  "views": 3667.6,
+  "qid": "Q406",
+  "types": "megacity; big city; metropolitan municipality in Turkey; port city; largest city; former capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "izmir-tr": {
+  "title": "İzmir",
+  "asked": "İzmir",
+  "how": "v1 title+coords",
+  "views": 738.3,
+  "qid": "Q35997",
+  "types": "port city; metropolitan municipality in Turkey",
+  "distKm": 1,
+  "flags": []
+ },
+ "jacksonville": {
+  "title": "Jacksonville, Florida",
+  "asked": "Jacksonville, Florida",
+  "how": "v1 title+coords",
+  "views": 1879.3,
+  "qid": "Q16568",
+  "types": "city in the United States; consolidated city-county; big city",
+  "distKm": 9,
+  "flags": []
+ },
+ "jaipur-india": {
+  "title": "Jaipur",
+  "asked": "Jaipur",
+  "how": "v1 title+coords",
+  "views": 1041.5,
+  "qid": "Q66485",
+  "types": "urban area; big city; state capital; town in India",
+  "distKm": 3,
+  "flags": []
+ },
+ "jakarta-indonesia": {
+  "title": "Jakarta",
+  "asked": "Jakarta",
+  "how": "v1 title+coords",
+  "views": 3085.7,
+  "qid": "Q3630",
+  "types": "province of Indonesia; metropolis; megacity; global city; Daerah Khusus; largest city; national capital",
+  "distKm": 4,
+  "flags": []
+ },
+ "jeddah-sa": {
+  "title": "Jeddah",
+  "asked": "Jeddah",
+  "how": "v1 title+coords",
+  "views": 1181.1,
+  "qid": "Q374365",
+  "types": "human settlement; big city",
+  "distKm": 6,
+  "flags": []
+ },
+ "jeju-city": {
+  "title": "Jeju City",
+  "asked": "Jeju City",
+  "how": "v1 title+coords",
+  "views": 208.6,
+  "qid": "Q42142",
+  "types": "big city; list of capitals in South Korea; administrative city in South Korea; city of South Korea",
+  "distKm": 0,
+  "flags": []
+ },
+ "jerash-jordan": {
+  "title": "Jerash",
+  "asked": "Jerash",
+  "how": "v1 title+coords",
+  "views": 160.0,
+  "qid": "Q31565",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "jericoacoara": {
+  "title": "Jijoca de Jericoacoara",
+  "asked": "Jijoca de Jericoacoara",
+  "how": "v2 hand-corrected title",
+  "views": 10.1,
+  "qid": "Q1367980",
+  "types": "municipality of Brazil",
+  "distKm": 1,
+  "flags": []
+ },
+ "jerusalem": {
+  "title": "Jerusalem",
+  "asked": "Jerusalem",
+  "how": "v1 title+coords",
+  "views": 4594.1,
+  "qid": "Q1218",
+  "types": "city",
+  "distKm": 2,
+  "flags": []
+ },
+ "jijiga": {
+  "title": "Jijiga",
+  "asked": "Jijiga",
+  "how": "v1 title+coords",
+  "views": 105.6,
+  "qid": "Q755763",
+  "types": "city; big city; district of Ethiopia",
+  "distKm": 0,
+  "flags": []
+ },
+ "joao-pessoa-br": {
+  "title": "João Pessoa, Paraíba",
+  "asked": "João Pessoa, Paraíba",
+  "how": "v1 title+coords",
+  "views": 167.1,
+  "qid": "Q167436",
+  "types": "municipality of Brazil; big city",
+  "distKm": 2,
+  "flags": [
+   "POP João Pessoa 817511 views 167.1"
+  ]
+ },
+ "johannesburg-south-africa": {
+  "title": "Johannesburg",
+  "asked": "Johannesburg",
+  "how": "v1 title+coords",
+  "views": 1913.8,
+  "qid": "Q34647",
+  "types": "city; big city; financial center; global city; state capital; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "johor-bahru": {
+  "title": "Johor Bahru",
+  "asked": "Johor Bahru",
+  "how": "v1 title+coords",
+  "views": 417.6,
+  "qid": "Q231318",
+  "types": "city of Malaysia",
+  "distKm": 1,
+  "flags": []
+ },
+ "jos-ng": {
+  "title": "Jos",
+  "asked": "Jos",
+  "how": "v1 title+coords",
+  "views": 163.5,
+  "qid": "Q321079",
+  "types": "big city",
+  "distKm": 1,
+  "flags": [
+   "POP Jos 1040000 views 163.5"
+  ]
+ },
+ "jyvaskyla": {
+  "title": "Jyväskylä",
+  "asked": "Jyväskylä",
+  "how": "v1 title+coords",
+  "views": 191.8,
+  "qid": "Q134620",
+  "types": "city; municipality of Finland",
+  "distKm": 1,
+  "flags": []
+ },
+ "kabul-af": {
+  "title": "Kabul",
+  "asked": "Kabul",
+  "how": "v1 title+coords",
+  "views": 1220.7,
+  "qid": "Q5838",
+  "types": "city; human settlement; administrative territorial entity; largest city; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "kaduna-ng": {
+  "title": "Kaduna",
+  "asked": "Kaduna",
+  "how": "v1 title+coords",
+  "views": 99.6,
+  "qid": "Q208318",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": [
+   "POP Kaduna 1850000 views 99.6"
+  ]
+ },
+ "kaifeng-cn": {
+  "title": "Kaifeng",
+  "asked": "Kaifeng",
+  "how": "v1 title+coords",
+  "views": 458.7,
+  "qid": "Q208471",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "kakamega-ke": {
+  "title": "Kakamega",
+  "asked": "Kakamega",
+  "how": "v1 title+coords",
+  "views": 42.4,
+  "qid": "Q302912",
+  "types": "city",
+  "distKm": 0,
+  "flags": [
+   "POP Kakamega 1867579 views 42.4"
+  ]
+ },
+ "kampala": {
+  "title": "Kampala",
+  "asked": "Kampala",
+  "how": "v1 title+coords",
+  "views": 1541.7,
+  "qid": "Q3894",
+  "types": "city; administrative territorial entity; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "kandahar-afghanistan": {
+  "title": "Kandahar",
+  "asked": "Kandahar",
+  "how": "v1 title+coords",
+  "views": 772.8,
+  "qid": "Q45604",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "kano": {
+  "title": "Kano (city)",
+  "asked": "Kano (city)",
+  "how": "v1 title+coords",
+  "views": 358.5,
+  "qid": "Q182984",
+  "types": "city; big city; geographic location",
+  "distKm": 0,
+  "flags": []
+ },
+ "kansas-city": {
+  "title": "Kansas City, Missouri",
+  "asked": "Kansas City, Missouri",
+  "how": "v1 title+coords",
+  "views": 2537.3,
+  "qid": "Q41819",
+  "types": "county seat; big city; city in the United States; LGBT sanctuary city",
+  "distKm": 0,
+  "flags": []
+ },
+ "kaohsiung-tw": {
+  "title": "Kaohsiung",
+  "asked": "Kaohsiung",
+  "how": "v1 title+coords",
+  "views": 520.3,
+  "qid": "Q181557",
+  "types": "special municipality",
+  "distKm": 2,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "karachi-pakistan": {
+  "title": "Karachi",
+  "asked": "Karachi",
+  "how": "v1 title+coords",
+  "views": 2210.1,
+  "qid": "Q8660",
+  "types": "metropolis; megacity; administrative territorial entity; big city; state capital; largest city; city or town",
+  "distKm": 1,
+  "flags": []
+ },
+ "karagandy": {
+  "title": "Karaganda",
+  "asked": "Karaganda",
+  "how": "v1 title+coords",
+  "views": 153.6,
+  "qid": "Q484706",
+  "types": "city; big city; city of regional significance",
+  "distKm": 0,
+  "flags": []
+ },
+ "karbala": {
+  "title": "Karbala",
+  "asked": "Karbala",
+  "how": "v1 title+coords",
+  "views": 480.1,
+  "qid": "Q199909",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "kathmandu-nepal": {
+  "title": "Kathmandu",
+  "asked": "Kathmandu",
+  "how": "v1 title+coords",
+  "views": 1415.2,
+  "qid": "Q3037",
+  "types": "city; municipality; federal capital; big city; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "kayseri": {
+  "title": "Kayseri",
+  "asked": "Kayseri",
+  "how": "v1 title+coords",
+  "views": 274.2,
+  "qid": "Q48338",
+  "types": "city; big city; metropolitan municipality in Turkey",
+  "distKm": 1,
+  "flags": []
+ },
+ "kazan-ru": {
+  "title": "Kazan",
+  "asked": "Kazan",
+  "how": "v1 title+coords",
+  "views": 971.2,
+  "qid": "Q900",
+  "types": "administrative territorial entity; big city; city of republic significance; largest city; city or town",
+  "distKm": 1,
+  "flags": []
+ },
+ "kerkici": {
+  "title": "Kerkiçi",
+  "asked": "Kerkiçi",
+  "how": "v1 title+coords",
+  "views": 0.6,
+  "qid": "Q137669853",
+  "types": "town of Turkmenistan",
+  "distKm": 0,
+  "flags": []
+ },
+ "key-west": {
+  "title": "Key West",
+  "asked": "Key West",
+  "how": "v1 title+coords",
+  "views": 827.9,
+  "qid": "Q485186",
+  "types": "city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "khabarovsk-ru": {
+  "title": "Khabarovsk",
+  "asked": "Khabarovsk",
+  "how": "v1 title+coords",
+  "views": 625.1,
+  "qid": "Q4454",
+  "types": "big city; city of krai significance; city or town",
+  "distKm": 3,
+  "flags": []
+ },
+ "kharkhorin-mongolia": {
+  "title": "Kharkhorin",
+  "asked": "Kharkhorin",
+  "how": "v1 title+coords",
+  "views": 70.1,
+  "qid": "Q932069",
+  "types": "district of Mongolia",
+  "distKm": 0,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "kharkiv-ua": {
+  "title": "Kharkiv",
+  "asked": "Kharkiv",
+  "how": "v1 title+coords",
+  "views": 713.4,
+  "qid": "Q42308",
+  "types": "city in Ukraine; centre of oblast",
+  "distKm": 2,
+  "flags": []
+ },
+ "khartoum": {
+  "title": "Khartoum",
+  "asked": "Khartoum",
+  "how": "v1 title+coords",
+  "views": 917.0,
+  "qid": "Q1963",
+  "types": "city; federal capital; big city",
+  "distKm": 6,
+  "flags": []
+ },
+ "khiva-uzbekistan": {
+  "title": "Khiva",
+  "asked": "Khiva",
+  "how": "v1 title+coords",
+  "views": 230.9,
+  "qid": "Q486195",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "khulna-bd": {
+  "title": "Khulna",
+  "asked": "Khulna",
+  "how": "v1 title+coords",
+  "views": 134.4,
+  "qid": "Q243325",
+  "types": "city; big city",
+  "distKm": 3,
+  "flags": [
+   "POP Khulna 1500689 views 134.4"
+  ]
+ },
+ "kigali-rwanda": {
+  "title": "Kigali",
+  "asked": "Kigali",
+  "how": "v1 title+coords",
+  "views": 555.0,
+  "qid": "Q3859",
+  "types": "capital city; province of Rwanda; big city; largest city; first-level administrative division",
+  "distKm": 6,
+  "flags": []
+ },
+ "kingston": {
+  "title": "Kingston, Jamaica",
+  "asked": "Kingston, Jamaica",
+  "how": "v1 title+coords",
+  "views": 881.0,
+  "qid": "Q34692",
+  "types": "city; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "kinshasa-dr-congo": {
+  "title": "Kinshasa",
+  "asked": "Kinshasa",
+  "how": "v1 title+coords",
+  "views": 1985.2,
+  "qid": "Q3838",
+  "types": "megacity; border city; primate city; largest city; first-level administrative division; national capital",
+  "distKm": 14,
+  "flags": []
+ },
+ "kirkenes-norway": {
+  "title": "Kirkenes",
+  "asked": "Kirkenes",
+  "how": "v1 title+coords",
+  "views": 153.4,
+  "qid": "Q209423",
+  "types": "city; administrative centre; urban area in Norway",
+  "distKm": 0,
+  "flags": []
+ },
+ "kirkuk": {
+  "title": "Kirkuk",
+  "asked": "Kirkuk",
+  "how": "v1 title+coords",
+  "views": 214.0,
+  "qid": "Q173310",
+  "types": "city; big city",
+  "distKm": 7,
+  "flags": []
+ },
+ "kisangani-cd": {
+  "title": "Kisangani",
+  "asked": "Kisangani",
+  "how": "v1 title+coords",
+  "views": 194.3,
+  "qid": "Q146723",
+  "types": "big city; official city of the Democratic Republic of the Congo",
+  "distKm": 1,
+  "flags": [
+   "POP Kisangani 1602144 views 194.3"
+  ]
+ },
+ "kitakyushu": {
+  "title": "Kitakyushu",
+  "asked": "Kitakyushu",
+  "how": "v1 title+coords",
+  "views": 204.1,
+  "qid": "Q188806",
+  "types": "city of Japan; big city; city designated by government ordinance; port city",
+  "distKm": 5,
+  "flags": []
+ },
+ "kitwe-zm": {
+  "title": "Kitwe",
+  "asked": "Kitwe",
+  "how": "v1 title+coords",
+  "views": 58.3,
+  "qid": "Q239580",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": [
+   "POP Kitwe 665961 views 58.3"
+  ]
+ },
+ "kobe-jp": {
+  "title": "Kobe",
+  "asked": "Kobe",
+  "how": "v1 title+coords",
+  "views": 646.5,
+  "qid": "Q48320",
+  "types": "big city; city of Japan; city designated by government ordinance; port city; prefectural capital of Japan; city for international conferences and tourism",
+  "distKm": 1,
+  "flags": []
+ },
+ "kochi-india": {
+  "title": "Kochi",
+  "asked": "Kochi",
+  "how": "v1 title+coords",
+  "views": 744.9,
+  "qid": "Q1800",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "koh-pha-ngan-thailand": {
+  "title": "Ko Pha-ngan",
+  "asked": "Ko Pha-ngan",
+  "how": "v1 title+coords",
+  "views": 136.6,
+  "qid": "Q1069922",
+  "types": "island",
+  "distKm": 1,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "koh-phi-phi-th": {
+  "title": "Phi Phi Islands",
+  "asked": "Phi Phi Islands",
+  "how": "v1 title+coords",
+  "views": 276.3,
+  "qid": "Q511957",
+  "types": "archipelago",
+  "distKm": 2,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "kolkata-india": {
+  "title": "Kolkata",
+  "asked": "Kolkata",
+  "how": "v1 title+coords",
+  "views": 2331.5,
+  "qid": "Q1348",
+  "types": "megacity; metropolis; state capital; largest city; municipal corporation of West Bengal",
+  "distKm": 1,
+  "flags": []
+ },
+ "kolwezi-cd": {
+  "title": "Kolwezi",
+  "asked": "Kolwezi",
+  "how": "v1 title+coords",
+  "views": 64.4,
+  "qid": "Q271404",
+  "types": "official city of the Democratic Republic of the Congo",
+  "distKm": 0,
+  "flags": [
+   "POP Kolwezi 790248 views 64.4"
+  ]
+ },
+ "konya": {
+  "title": "Konya",
+  "asked": "Konya",
+  "how": "v1 title+coords",
+  "views": 383.9,
+  "qid": "Q79857",
+  "types": "city; big city; metropolitan municipality",
+  "distKm": 1,
+  "flags": []
+ },
+ "krasnodar-ru": {
+  "title": "Krasnodar",
+  "asked": "Krasnodar",
+  "how": "v1 title+coords",
+  "views": 477.5,
+  "qid": "Q3646",
+  "types": "capital city; metropolis; million city; former national capital",
+  "distKm": 2,
+  "flags": []
+ },
+ "krasnoyarsk-ru": {
+  "title": "Krasnoyarsk",
+  "asked": "Krasnoyarsk",
+  "how": "v1 title+coords",
+  "views": 633.1,
+  "qid": "Q919",
+  "types": "city or town; big city; city/town in Russia",
+  "distKm": 5,
+  "flags": []
+ },
+ "kuala-lumpur-malaysia": {
+  "title": "Kuala Lumpur",
+  "asked": "Kuala Lumpur",
+  "how": "v1 title+coords",
+  "views": 2210.2,
+  "qid": "Q1865",
+  "types": "city; federal capital; federal territory of Malaysia; big city; global city; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "kumasi-ghana": {
+  "title": "Kumasi",
+  "asked": "Kumasi",
+  "how": "v1 title+coords",
+  "views": 254.2,
+  "qid": "Q182059",
+  "types": "city; human settlement; metropolitan area; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "kunming-cn": {
+  "title": "Kunming",
+  "asked": "Kunming",
+  "how": "v1 title+coords",
+  "views": 558.2,
+  "qid": "Q182852",
+  "types": "big city; prefecture-level city of China",
+  "distKm": 1,
+  "flags": []
+ },
+ "kurashiki": {
+  "title": "Kurashiki",
+  "asked": "Kurashiki",
+  "how": "v1 title+coords",
+  "views": 82.0,
+  "qid": "Q467487",
+  "types": "big city; core city of Japan",
+  "distKm": 1,
+  "flags": []
+ },
+ "kyiv-ukraine": {
+  "title": "Kyiv",
+  "asked": "Kyiv",
+  "how": "v1 title+coords",
+  "views": 1873.3,
+  "qid": "Q1899",
+  "types": "city or town; city in Ukraine; tourist destination; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "kyoto-japan": {
+  "title": "Kyoto",
+  "asked": "Kyoto",
+  "how": "v1 title+coords",
+  "views": 1719.1,
+  "qid": "Q34600",
+  "types": "college town; city designated by government ordinance; city of Japan; tourist destination; big city; prefectural capital of Japan; city for international conferences and tourism; former national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "lagos": {
+  "title": "Lagos",
+  "asked": "Lagos",
+  "how": "v1 title+coords",
+  "views": 1965.1,
+  "qid": "Q8673",
+  "types": "city; megacity; big city; metropolitan area; port city; former national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "lahore": {
+  "title": "Lahore",
+  "asked": "Lahore",
+  "how": "v1 title+coords",
+  "views": 1563.9,
+  "qid": "Q11739",
+  "types": "city; administrative territorial entity; megacity; border city; state capital; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "lanzhou-cn": {
+  "title": "Lanzhou",
+  "asked": "Lanzhou",
+  "how": "v1 title+coords",
+  "views": 382.8,
+  "qid": "Q183584",
+  "types": "city; big city; state capital; prefecture-level city of China",
+  "distKm": 1,
+  "flags": []
+ },
+ "las-vegas-usa": {
+  "title": "Las Vegas",
+  "asked": "Las Vegas",
+  "how": "v1 title+coords",
+  "views": 3050.3,
+  "qid": "Q23768",
+  "types": "county seat; city in the United States; tourist destination; big city; college town",
+  "distKm": 0,
+  "flags": []
+ },
+ "leh-india": {
+  "title": "Leh",
+  "asked": "Leh",
+  "how": "v1 title+coords",
+  "views": 500.1,
+  "qid": "Q230818",
+  "types": "city; state capital; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "leipzig-germany": {
+  "title": "Leipzig",
+  "asked": "Leipzig",
+  "how": "v1 title+coords",
+  "views": 1230.5,
+  "qid": "Q2079",
+  "types": "city; major regional center; big city; urban municipality in Germany; urban district in Saxony",
+  "distKm": 0,
+  "flags": []
+ },
+ "leptis-magna": {
+  "title": "Leptis Magna",
+  "asked": "Leptis Magna",
+  "how": "v1 title+coords",
+  "views": 240.0,
+  "qid": "Q191504",
+  "types": "archaeological site; emporium; ancient city; Roman city",
+  "distKm": 0,
+  "flags": []
+ },
+ "libreville-ga": {
+  "title": "Libreville",
+  "asked": "Libreville",
+  "how": "v1 title+coords",
+  "views": 275.0,
+  "qid": "Q3825",
+  "types": "city",
+  "distKm": 2,
+  "flags": []
+ },
+ "lilongwe-mw": {
+  "title": "Lilongwe",
+  "asked": "Lilongwe",
+  "how": "v1 title+coords",
+  "views": 242.6,
+  "qid": "Q3876",
+  "types": "city; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "lisbon-portugal": {
+  "title": "Lisbon",
+  "asked": "Lisbon",
+  "how": "v1 title+coords",
+  "views": 2020.8,
+  "qid": "Q597",
+  "types": "city of Portugal; national capital; large city",
+  "distKm": 1,
+  "flags": []
+ },
+ "liverpool-england": {
+  "title": "Liverpool",
+  "asked": "Liverpool",
+  "how": "v1 title+coords",
+  "views": 2408.7,
+  "qid": "Q24826",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "lo-manthang-nepal": {
+  "title": "Lomanthang Rural Municipality",
+  "asked": "Lo Manthang",
+  "how": "hand",
+  "views": 28.3,
+  "qid": "Q2603964",
+  "types": "village; ward of Nepal; rural municipality of Nepal",
+  "distKm": 0,
+  "flags": []
+ },
+ "loch-ness": {
+  "title": "Loch Ness",
+  "asked": "Loch Ness",
+  "how": "v1 title+coords",
+  "views": 828.6,
+  "qid": "Q49650",
+  "types": "lake",
+  "distKm": 10,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "lome-tg": {
+  "title": "Lomé",
+  "asked": "Lomé",
+  "how": "v1 title+coords",
+  "views": 245.4,
+  "qid": "Q3792",
+  "types": "city; border city; big city; port city",
+  "distKm": 1,
+  "flags": []
+ },
+ "london-uk": {
+  "title": "London",
+  "asked": "London",
+  "how": "v1 title+coords",
+  "views": 7807.5,
+  "qid": "Q84",
+  "types": "city; metropolis; financial center; global city; political territorial entity; megalopolis; national capital; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "longyearbyen-svalbard": {
+  "title": "Longyearbyen",
+  "asked": "Longyearbyen",
+  "how": "v1 title+coords",
+  "views": 860.5,
+  "qid": "Q25923",
+  "types": "town; administrative centre; unincorporated area",
+  "distKm": 1,
+  "flags": []
+ },
+ "los-angeles-usa": {
+  "title": "Los Angeles",
+  "asked": "Los Angeles",
+  "how": "v1 title+coords",
+  "views": 7017.4,
+  "qid": "Q65",
+  "types": "charter city",
+  "distKm": 1,
+  "flags": []
+ },
+ "louisville-usa": {
+  "title": "Louisville, Kentucky",
+  "asked": "Louisville, Kentucky",
+  "how": "v1 title+coords",
+  "views": 1528.7,
+  "qid": "Q43668",
+  "types": "county seat; city in the United States; big city; consolidated city-county",
+  "distKm": 1,
+  "flags": []
+ },
+ "luanda-angola": {
+  "title": "Luanda",
+  "asked": "Luanda",
+  "how": "v1 title+coords",
+  "views": 727.9,
+  "qid": "Q3897",
+  "types": "city; big city; port city; national capital",
+  "distKm": 3,
+  "flags": []
+ },
+ "luang-prabang-laos": {
+  "title": "Luang Prabang",
+  "asked": "Luang Prabang",
+  "how": "v1 title+coords",
+  "views": 305.9,
+  "qid": "Q190165",
+  "types": "city; district of Laos",
+  "distKm": 0,
+  "flags": []
+ },
+ "lubumbashi-cd": {
+  "title": "Lubumbashi",
+  "asked": "Lubumbashi",
+  "how": "v1 title+coords",
+  "views": 260.0,
+  "qid": "Q187593",
+  "types": "big city; official city of the Democratic Republic of the Congo",
+  "distKm": 1,
+  "flags": []
+ },
+ "lucerne-ch": {
+  "title": "Lucerne",
+  "asked": "Lucerne",
+  "how": "v1 title+coords",
+  "views": 628.7,
+  "qid": "Q4191",
+  "types": "municipality of Switzerland; human settlement; cantonal capital of Switzerland; city of Switzerland",
+  "distKm": 1,
+  "flags": []
+ },
+ "lucknow-in": {
+  "title": "Lucknow",
+  "asked": "Lucknow",
+  "how": "v1 title+coords",
+  "views": 1109.4,
+  "qid": "Q47916",
+  "types": "big city; largest city; state capital",
+  "distKm": 3,
+  "flags": []
+ },
+ "luoyang-cn": {
+  "title": "Luoyang",
+  "asked": "Luoyang",
+  "how": "v1 title+coords",
+  "views": 540.0,
+  "qid": "Q187136",
+  "types": "prefecture-level city of China; big city; former capital",
+  "distKm": 6,
+  "flags": []
+ },
+ "lusaka": {
+  "title": "Lusaka",
+  "asked": "Lusaka",
+  "how": "v1 title+coords",
+  "views": 386.0,
+  "qid": "Q3881",
+  "types": "city; big city; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "luxembourg-city": {
+  "title": "Luxembourg City",
+  "asked": "Luxembourg City",
+  "how": "v1 title+coords",
+  "views": 701.0,
+  "qid": "Q1842",
+  "types": "city; capital city; big city; municipality of Luxembourg; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "luxor-egypt": {
+  "title": "Luxor",
+  "asked": "Luxor",
+  "how": "v1 title+coords",
+  "views": 607.6,
+  "qid": "Q130514",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "lviv-ua": {
+  "title": "Lviv",
+  "asked": "Lviv",
+  "how": "v1 title+coords",
+  "views": 913.1,
+  "qid": "Q36036",
+  "types": "city in Ukraine; Magdeburg rights",
+  "distKm": 1,
+  "flags": []
+ },
+ "macapa-br": {
+  "title": "Macapá",
+  "asked": "Macapá",
+  "how": "v1 title+coords",
+  "views": 99.6,
+  "qid": "Q180215",
+  "types": "big city; municipality of Brazil",
+  "distKm": 4,
+  "flags": [
+   "POP Macapá 512902 views 99.6"
+  ]
+ },
+ "macau": {
+  "title": "Macau",
+  "asked": "Macau",
+  "how": "v1 title+coords",
+  "views": 3954.1,
+  "qid": "Q14773",
+  "types": "city-state; dependent territory; human settlement; special administrative region of China; tourist destination; big city; customs territory of China",
+  "distKm": 0,
+  "flags": []
+ },
+ "maceio-br": {
+  "title": "Maceió",
+  "asked": "Maceió",
+  "how": "v1 title+coords",
+  "views": 121.3,
+  "qid": "Q168888",
+  "types": "municipality of Brazil",
+  "distKm": 0,
+  "flags": [
+   "POP Maceió 1031597 views 121.3"
+  ]
+ },
+ "madrid-spain": {
+  "title": "Madrid",
+  "asked": "Madrid",
+  "how": "v1 title+coords",
+  "views": 2630.9,
+  "qid": "Q2807",
+  "types": "municipality of Spain",
+  "distKm": 0,
+  "flags": []
+ },
+ "madurai-in": {
+  "title": "Madurai",
+  "asked": "Madurai",
+  "how": "v1 title+coords",
+  "views": 469.5,
+  "qid": "Q228405",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "maiduguri-ng": {
+  "title": "Maiduguri",
+  "asked": "Maiduguri",
+  "how": "v1 title+coords",
+  "views": 127.4,
+  "qid": "Q221436",
+  "types": "big city",
+  "distKm": 1,
+  "flags": [
+   "POP Maiduguri 1110000 views 127.4"
+  ]
+ },
+ "majuro-marshall-islands": {
+  "title": "Majuro",
+  "asked": "Majuro",
+  "how": "v1 title+coords",
+  "views": 308.0,
+  "qid": "Q12919",
+  "types": "city; administrative territorial entity",
+  "distKm": 13,
+  "flags": []
+ },
+ "makassar-id": {
+  "title": "Makassar",
+  "asked": "Makassar",
+  "how": "v1 title+coords",
+  "views": 246.1,
+  "qid": "Q14634",
+  "types": "city of Indonesia",
+  "distKm": 3,
+  "flags": []
+ },
+ "makhachkala-ru": {
+  "title": "Makhachkala",
+  "asked": "Makhachkala",
+  "how": "v1 title+coords",
+  "views": 767.8,
+  "qid": "Q5168",
+  "types": "city; big city; port city",
+  "distKm": 1,
+  "flags": []
+ },
+ "male-maldives": {
+  "title": "Malé",
+  "asked": "Malé",
+  "how": "v1 title+coords",
+  "views": 720.3,
+  "qid": "Q9347",
+  "types": "city; big city; first-level administrative division; largest city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "managua-ni": {
+  "title": "Managua",
+  "asked": "Managua",
+  "how": "v1 title+coords",
+  "views": 328.7,
+  "qid": "Q3274",
+  "types": "municipality of Nicaragua",
+  "distKm": 0,
+  "flags": []
+ },
+ "manaus-br": {
+  "title": "Manaus",
+  "asked": "Manaus",
+  "how": "v1 title+coords",
+  "views": 721.2,
+  "qid": "Q40236",
+  "types": "big city; municipality of Brazil",
+  "distKm": 2,
+  "flags": []
+ },
+ "manchester-england": {
+  "title": "Manchester",
+  "asked": "Manchester",
+  "how": "v1 title+coords",
+  "views": 2798.6,
+  "qid": "Q18125",
+  "types": "unparished area; city status in the United Kingdom; civil parish",
+  "distKm": 0,
+  "flags": []
+ },
+ "mandalay": {
+  "title": "Mandalay",
+  "asked": "Mandalay",
+  "how": "v1 title+coords",
+  "views": 289.4,
+  "qid": "Q185518",
+  "types": "city; big city; town in Myanmar",
+  "distKm": 1,
+  "flags": []
+ },
+ "manila-philippines": {
+  "title": "Manila",
+  "asked": "Manila",
+  "how": "v1 title+coords",
+  "views": 1848.8,
+  "qid": "Q1461",
+  "types": "megacity; metropolis; big city; highly urbanized city; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "maputo-mozambique": {
+  "title": "Maputo",
+  "asked": "Maputo",
+  "how": "v1 title+coords",
+  "views": 442.8,
+  "qid": "Q3889",
+  "types": "city; big city; port city; municipality of Mozambique",
+  "distKm": 1,
+  "flags": []
+ },
+ "mar-del-plata-ar": {
+  "title": "Mar del Plata",
+  "asked": "Mar del Plata",
+  "how": "v1 title+coords",
+  "views": 277.0,
+  "qid": "Q52607",
+  "types": "big city; seat of government; locality; city of Argentina",
+  "distKm": 1,
+  "flags": []
+ },
+ "maracaibo-ve": {
+  "title": "Maracaibo",
+  "asked": "Maracaibo",
+  "how": "v1 title+coords",
+  "views": 261.2,
+  "qid": "Q171632",
+  "types": "city; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "marrakech-morocco": {
+  "title": "Marrakesh",
+  "asked": "Marrakesh",
+  "how": "v1 title+coords",
+  "views": 1195.1,
+  "qid": "Q101625",
+  "types": "big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "marseille-fr": {
+  "title": "Marseille",
+  "asked": "Marseille",
+  "how": "v1 title+coords",
+  "views": 1778.5,
+  "qid": "Q23482",
+  "types": "commune of France",
+  "distKm": 1,
+  "flags": []
+ },
+ "mashhad-ir": {
+  "title": "Mashhad",
+  "asked": "Mashhad",
+  "how": "v1 title+coords",
+  "views": 951.7,
+  "qid": "Q121157",
+  "types": "city of Iran",
+  "distKm": 6,
+  "flags": []
+ },
+ "matera-sassi": {
+  "title": "Matera",
+  "asked": "Matera",
+  "how": "hand",
+  "views": 693.0,
+  "qid": "Q13616",
+  "types": "comune of Italy",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "mazatlan-mx": {
+  "title": "Mazatlán",
+  "asked": "Mazatlán",
+  "how": "v1 title+coords",
+  "views": 316.4,
+  "qid": "Q40194",
+  "types": "city; big city; locality of Mexico",
+  "distKm": 1,
+  "flags": []
+ },
+ "mbuji-mayi-cd": {
+  "title": "Mbuji-Mayi",
+  "asked": "Mbuji-Mayi",
+  "how": "v1 title+coords",
+  "views": 79.8,
+  "qid": "Q319660",
+  "types": "official city of the Democratic Republic of the Congo",
+  "distKm": 2,
+  "flags": [
+   "POP Mbuji-Mayi 2101332 views 79.8"
+  ]
+ },
+ "mecca-saudi-arabia": {
+  "title": "Mecca",
+  "asked": "Mecca",
+  "how": "v1 title+coords",
+  "views": 2940.4,
+  "qid": "Q5806",
+  "types": "human settlement; holy city; holy city of Islam",
+  "distKm": 5,
+  "flags": []
+ },
+ "medan-id": {
+  "title": "Medan",
+  "asked": "Medan",
+  "how": "v1 title+coords",
+  "views": 291.6,
+  "qid": "Q5972",
+  "types": "city of Indonesia",
+  "distKm": 1,
+  "flags": []
+ },
+ "medina-saudi-arabia": {
+  "title": "Medina",
+  "asked": "Medina",
+  "how": "v1 title+coords",
+  "views": 1276.5,
+  "qid": "Q35484",
+  "types": "big city; holy city of Islam",
+  "distKm": 7,
+  "flags": []
+ },
+ "melbourne-australia": {
+  "title": "Melbourne",
+  "asked": "Melbourne",
+  "how": "v1 title+coords",
+  "views": 3080.9,
+  "qid": "Q3141",
+  "types": "city; metropolis; metropolitan area; big city; state capital; region of Victoria; financial center",
+  "distKm": 0,
+  "flags": []
+ },
+ "memphis-us": {
+  "title": "Memphis, Tennessee",
+  "asked": "Memphis, Tennessee",
+  "how": "v1 title+coords",
+  "views": 1890.0,
+  "qid": "Q16563",
+  "types": "county seat; city in the United States; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "mendoza-argentina": {
+  "title": "Mendoza, Argentina",
+  "asked": "Mendoza, Argentina",
+  "how": "v1 title+coords",
+  "views": 325.0,
+  "qid": "Q44237",
+  "types": "municipality; big city; city of Argentina",
+  "distKm": 0,
+  "flags": []
+ },
+ "merida-mx": {
+  "title": "Mérida, Yucatán",
+  "asked": "Mérida, Yucatán",
+  "how": "v1 title+coords",
+  "views": 511.8,
+  "qid": "Q165204",
+  "types": "city; big city; locality of Mexico",
+  "distKm": 0,
+  "flags": []
+ },
+ "meteora-greece": {
+  "title": "Meteora",
+  "asked": "Meteora",
+  "how": "v1 title+coords",
+  "views": 538.6,
+  "qid": "Q3125051",
+  "types": "rock formation; monastic community",
+  "distKm": 1,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "mexicali-mx": {
+  "title": "Mexicali",
+  "asked": "Mexicali",
+  "how": "v1 title+coords",
+  "views": 364.8,
+  "qid": "Q199440",
+  "types": "border city; big city; locality of Mexico",
+  "distKm": 4,
+  "flags": []
+ },
+ "mexico-city-mexico": {
+  "title": "Mexico City",
+  "asked": "Mexico City",
+  "how": "v1 title+coords",
+  "views": 4250.4,
+  "qid": "Q1489",
+  "types": "city; megacity; metropolis; federal capital; primate city; big city; largest city; federative entity of Mexico",
+  "distKm": 0,
+  "flags": []
+ },
+ "miami-usa": {
+  "title": "Miami",
+  "asked": "Miami",
+  "how": "v1 title+coords",
+  "views": 3039.2,
+  "qid": "Q8652",
+  "types": "city in the United States",
+  "distKm": 1,
+  "flags": []
+ },
+ "milan-it": {
+  "title": "Milan",
+  "asked": "Milan",
+  "how": "v1 title+coords",
+  "views": 3086.1,
+  "qid": "Q490",
+  "types": "city; metropolis; big city; chef-lieu; comune of Italy; Italian city-state",
+  "distKm": 0,
+  "flags": []
+ },
+ "milwaukee": {
+  "title": "Milwaukee",
+  "asked": "Milwaukee",
+  "how": "v1 title+coords",
+  "views": 2314.4,
+  "qid": "Q37836",
+  "types": "county seat; big city; first-class city",
+  "distKm": 0,
+  "flags": []
+ },
+ "minneapolis-usa": {
+  "title": "Minneapolis",
+  "asked": "Minneapolis",
+  "how": "v1 title+coords",
+  "views": 2910.7,
+  "qid": "Q36091",
+  "types": "county seat; big city; city in the United States",
+  "distKm": 1,
+  "flags": []
+ },
+ "minsk-by": {
+  "title": "Minsk",
+  "asked": "Minsk",
+  "how": "v1 title+coords",
+  "views": 1162.4,
+  "qid": "Q2280",
+  "types": "big city; first-level administrative division; city or town; administrative territorial entity of Belarus",
+  "distKm": 1,
+  "flags": []
+ },
+ "mississauga-ca": {
+  "title": "Mississauga",
+  "asked": "Mississauga",
+  "how": "v1 title+coords",
+  "views": 802.7,
+  "qid": "Q50816",
+  "types": "city; big city; lower-tier municipality of Ontario",
+  "distKm": 2,
+  "flags": []
+ },
+ "mogadishu-so": {
+  "title": "Mogadishu",
+  "asked": "Mogadishu",
+  "how": "v1 title+coords",
+  "views": 1288.2,
+  "qid": "Q2449",
+  "types": "city; federal capital; port city; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "mombasa-kenya": {
+  "title": "Mombasa",
+  "asked": "Mombasa",
+  "how": "v1 title+coords",
+  "views": 688.1,
+  "qid": "Q225641",
+  "types": "city; big city; port city",
+  "distKm": 1,
+  "flags": []
+ },
+ "monaco": {
+  "title": "Monaco",
+  "asked": "Monaco",
+  "how": "v1 title+coords",
+  "views": 6895.4,
+  "qid": "Q235",
+  "types": "country; city-state; principality; unitary state; border city; sovereign state",
+  "distKm": 0,
+  "flags": []
+ },
+ "monrovia-lr": {
+  "title": "Monrovia",
+  "asked": "Monrovia",
+  "how": "v1 title+coords",
+  "views": 703.4,
+  "qid": "Q3748",
+  "types": "city; administrative territorial entity; big city; port city",
+  "distKm": 2,
+  "flags": []
+ },
+ "monschau-d34-79": {
+  "title": "Monschau",
+  "asked": "Monschau",
+  "how": "v1 title+coords",
+  "views": 81.9,
+  "qid": "Q200783",
+  "types": "urban municipality in Germany",
+  "distKm": 1,
+  "flags": []
+ },
+ "monterrey-mexico": {
+  "title": "Monterrey",
+  "asked": "Monterrey",
+  "how": "v1 title+coords",
+  "views": 1171.1,
+  "qid": "Q81033",
+  "types": "city; big city; locality of Mexico; locality",
+  "distKm": 0,
+  "flags": []
+ },
+ "montreal-canada": {
+  "title": "Montreal",
+  "asked": "Montreal",
+  "how": "v1 title+coords",
+  "views": 3230.3,
+  "qid": "Q340",
+  "types": "metropolis; college town; city or town of Quebec; territory outside RCM in Quebec",
+  "distKm": 1,
+  "flags": []
+ },
+ "morelia-mx": {
+  "title": "Morelia",
+  "asked": "Morelia",
+  "how": "v1 title+coords",
+  "views": 209.3,
+  "qid": "Q200252",
+  "types": "locality of Mexico",
+  "distKm": 8,
+  "flags": []
+ },
+ "moscow-russia": {
+  "title": "Moscow",
+  "asked": "Moscow",
+  "how": "v1 title+coords",
+  "views": 3052.4,
+  "qid": "Q649",
+  "types": "federal subject of Russia; megacity; federal city of Russia; big city; largest city; capital of Russia; city or town",
+  "distKm": 0,
+  "flags": []
+ },
+ "mosul-iq": {
+  "title": "Mosul",
+  "asked": "Mosul",
+  "how": "v1 title+coords",
+  "views": 641.1,
+  "qid": "Q83317",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "multan-pk": {
+  "title": "Multan",
+  "asked": "Multan",
+  "how": "v1 title+coords",
+  "views": 429.8,
+  "qid": "Q185453",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "mumbai-india": {
+  "title": "Mumbai",
+  "asked": "Mumbai",
+  "how": "v1 title+coords",
+  "views": 3920.2,
+  "qid": "Q1156",
+  "types": "city; metropolis; megacity; business cluster; state capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "munich-germany": {
+  "title": "Munich",
+  "asked": "Munich",
+  "how": "v1 title+coords",
+  "views": 2408.9,
+  "qid": "Q1726",
+  "types": "metropolis; district capital; residenz; college town; financial center; local government in Germany; big city; urban municipality in Germany; urban district of Bavaria",
+  "distKm": 1,
+  "flags": []
+ },
+ "murano-d34-55": {
+  "title": "Murano",
+  "asked": "Murano",
+  "how": "v1 title+coords",
+  "views": 140.7,
+  "qid": "Q52437",
+  "types": "island; locality",
+  "distKm": 0,
+  "flags": []
+ },
+ "muscat": {
+  "title": "Muscat",
+  "asked": "Muscat",
+  "how": "v1 title+coords",
+  "views": 1145.2,
+  "qid": "Q3826",
+  "types": "big city; province of Oman; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "mwanza-tz": {
+  "title": "Mwanza",
+  "asked": "Mwanza",
+  "how": "v1 title+coords",
+  "views": 50.5,
+  "qid": "Q110218",
+  "types": "city; big city; port city",
+  "distKm": 0,
+  "flags": [
+   "POP Mwanza 1104521 views 50.5"
+  ]
+ },
+ "mykonos-gr": {
+  "title": "Mykonos",
+  "asked": "Mykonos",
+  "how": "v1 title+coords",
+  "views": 466.1,
+  "qid": "Q190210",
+  "types": "island",
+  "distKm": 3,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "n-djamena-td": {
+  "title": "N'Djamena",
+  "asked": "N'Djamena",
+  "how": "v1 title+coords",
+  "views": 394.9,
+  "qid": "Q3659",
+  "types": "city; border city; province of Chad; big city; special statute region of Chad",
+  "distKm": 0,
+  "flags": []
+ },
+ "nagasaki-atomic-bombing": {
+  "title": "Nagasaki",
+  "asked": "Nagasaki",
+  "how": "v1 title+coords",
+  "views": 858.4,
+  "qid": "Q38234",
+  "types": "city of Japan",
+  "distKm": 3,
+  "flags": []
+ },
+ "nagoya-jp": {
+  "title": "Nagoya",
+  "asked": "Nagoya",
+  "how": "v1 title+coords",
+  "views": 1010.3,
+  "qid": "Q11751",
+  "types": "megacity; city of Japan; city designated by government ordinance; port city; city for international conferences and tourism; prefectural capital of Japan",
+  "distKm": 1,
+  "flags": []
+ },
+ "nagpur-in": {
+  "title": "Nagpur",
+  "asked": "Nagpur",
+  "how": "hand",
+  "views": 631.2,
+  "qid": "Q1513",
+  "types": "city; big city",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "nahuel-huapi-civic-centre": {
+  "title": "Bariloche",
+  "asked": "Bariloche",
+  "how": "v1 title+coords",
+  "views": 445.1,
+  "qid": "Q47772",
+  "types": "municipality; big city; city of Argentina",
+  "distKm": 2,
+  "flags": []
+ },
+ "nairobi-kenya": {
+  "title": "Nairobi",
+  "asked": "Nairobi",
+  "how": "v1 title+coords",
+  "views": 1298.5,
+  "qid": "Q3870",
+  "types": "big city; administrative territorial entity of Kenya",
+  "distKm": 1,
+  "flags": []
+ },
+ "najaf": {
+  "title": "Najaf",
+  "asked": "Najaf",
+  "how": "v1 title+coords",
+  "views": 427.0,
+  "qid": "Q168193",
+  "types": "city; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "nampula-mz": {
+  "title": "Nampula",
+  "asked": "Nampula",
+  "how": "v1 title+coords",
+  "views": 49.8,
+  "qid": "Q323801",
+  "types": "city; big city; municipality of Mozambique",
+  "distKm": 0,
+  "flags": [
+   "POP Nampula 770379 views 49.8"
+  ]
+ },
+ "nanjing-cn": {
+  "title": "Nanjing",
+  "asked": "Nanjing",
+  "how": "v1 title+coords",
+  "views": 1440.4,
+  "qid": "Q16666",
+  "types": "city; sub-province-level division; prefecture-level city of China; direct-administered municipality; big city; former capital; provincial capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "nanning-cn": {
+  "title": "Nanning",
+  "asked": "Nanning",
+  "how": "v1 title+coords",
+  "views": 237.0,
+  "qid": "Q179608",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "nanortalik-greenland": {
+  "title": "Nanortalik",
+  "asked": "Nanortalik",
+  "how": "v1 title+coords",
+  "views": 54.8,
+  "qid": "Q855324",
+  "types": "town",
+  "distKm": 0,
+  "flags": []
+ },
+ "naples-italy": {
+  "title": "Naples",
+  "asked": "Naples",
+  "how": "v1 title+coords",
+  "views": 2076.3,
+  "qid": "Q2634",
+  "types": "city; big city; comune of Italy",
+  "distKm": 2,
+  "flags": []
+ },
+ "nara": {
+  "title": "Nara (city)",
+  "asked": "Nara (city)",
+  "how": "v1 title+coords",
+  "views": 358.3,
+  "qid": "Q169134",
+  "types": "city of Japan; core city of Japan; tourist destination; big city; city for international conferences and tourism; prefectural capital of Japan",
+  "distKm": 0,
+  "flags": []
+ },
+ "nashik-in": {
+  "title": "Nashik",
+  "asked": "Nashik",
+  "how": "v1 title+coords",
+  "views": 391.1,
+  "qid": "Q200235",
+  "types": "big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "nashville-usa": {
+  "title": "Nashville, Tennessee",
+  "asked": "Nashville, Tennessee",
+  "how": "v1 title+coords",
+  "views": 2663.9,
+  "qid": "Q23197",
+  "types": "county seat; city in the United States; big city; consolidated city-county",
+  "distKm": 1,
+  "flags": []
+ },
+ "natal-br": {
+  "title": "Natal, Rio Grande do Norte",
+  "asked": "Natal, Rio Grande do Norte",
+  "how": "v1 title+coords",
+  "views": 152.6,
+  "qid": "Q131620",
+  "types": "municipality of Brazil; big city",
+  "distKm": 2,
+  "flags": [
+   "POP Natal 896708 views 152.6"
+  ]
+ },
+ "nay-pyi-taw": {
+  "title": "Naypyidaw",
+  "asked": "Naypyidaw",
+  "how": "v1 title+coords",
+  "views": 599.4,
+  "qid": "Q37400",
+  "types": "city; big city; planned national capital; town in Myanmar",
+  "distKm": 2,
+  "flags": []
+ },
+ "nazareth": {
+  "title": "Nazareth",
+  "asked": "Nazareth",
+  "how": "v1 title+coords",
+  "views": 1224.5,
+  "qid": "Q430776",
+  "types": "city; holy city of Christianity",
+  "distKm": 0,
+  "flags": []
+ },
+ "new-orleans-usa": {
+  "title": "New Orleans",
+  "asked": "New Orleans",
+  "how": "v1 title+coords",
+  "views": 2939.0,
+  "qid": "Q34404",
+  "types": "big city; city in the United States; consolidated city-county",
+  "distKm": 3,
+  "flags": []
+ },
+ "new-york-usa": {
+  "title": "New York City",
+  "asked": "New York City",
+  "how": "v1 title+coords",
+  "views": 13491.8,
+  "qid": "Q60",
+  "types": "city; global city; megacity; metropolis; big city; city in the United States; port city; largest city; city in the state of New York",
+  "distKm": 0,
+  "flags": []
+ },
+ "ngerulmud-palau": {
+  "title": "Ngerulmud",
+  "asked": "Ngerulmud",
+  "how": "v1 title+coords",
+  "views": 406.9,
+  "qid": "Q515229",
+  "types": "city; human settlement",
+  "distKm": 0,
+  "flags": []
+ },
+ "niagara-on-the-lake": {
+  "title": "Niagara-on-the-Lake",
+  "asked": "Niagara-on-the-Lake",
+  "how": "v1 title+coords",
+  "views": 164.6,
+  "qid": "Q448372",
+  "types": "town; lower-tier municipality of Ontario",
+  "distKm": 0,
+  "flags": []
+ },
+ "niamey-ne": {
+  "title": "Niamey",
+  "asked": "Niamey",
+  "how": "v1 title+coords",
+  "views": 339.7,
+  "qid": "Q3674",
+  "types": "city; big city; administrative territorial entity of Niger; first-level administrative division",
+  "distKm": 0,
+  "flags": []
+ },
+ "nice": {
+  "title": "Nice",
+  "asked": "Nice",
+  "how": "v1 title+coords",
+  "views": 1378.6,
+  "qid": "Q33959",
+  "types": "commune of France; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "niigata": {
+  "title": "Niigata (city)",
+  "asked": "Niigata (city)",
+  "how": "hand",
+  "views": 237.2,
+  "qid": "Q179691",
+  "types": "city of Japan; city designated by government ordinance; big city; prefectural capital of Japan",
+  "distKm": 1,
+  "flags": []
+ },
+ "nimes": {
+  "title": "Nîmes",
+  "asked": "Nîmes",
+  "how": "v1 title+coords",
+  "views": 390.0,
+  "qid": "Q42807",
+  "types": "big city; commune of France",
+  "distKm": 0,
+  "flags": []
+ },
+ "ningbo-cn": {
+  "title": "Ningbo",
+  "asked": "Ningbo",
+  "how": "v1 title+coords",
+  "views": 440.3,
+  "qid": "Q42780",
+  "types": "city; human settlement; sub-province-level division; big city; prefecture-level city of China; port city; city specifically designated in the state plan",
+  "distKm": 8,
+  "flags": []
+ },
+ "niue-alofi": {
+  "title": "Alofi",
+  "asked": "Alofi",
+  "how": "v1 title+coords",
+  "views": 118.7,
+  "qid": "Q30966",
+  "types": "town",
+  "distKm": 0,
+  "flags": []
+ },
+ "nizhniy-novgorod-ru": {
+  "title": "Nizhny Novgorod",
+  "asked": "Nizhny Novgorod",
+  "how": "v1 title+coords",
+  "views": 701.7,
+  "qid": "Q891",
+  "types": "big city; City of oblast significance; city or town",
+  "distKm": 0,
+  "flags": []
+ },
+ "nouakchott-mr": {
+  "title": "Nouakchott",
+  "asked": "Nouakchott",
+  "how": "v1 title+coords",
+  "views": 508.2,
+  "qid": "Q3688",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "noumea-new-caledonia": {
+  "title": "Nouméa",
+  "asked": "Nouméa",
+  "how": "v1 title+coords",
+  "views": 281.2,
+  "qid": "Q9733",
+  "types": "big city; commune of New Caledonia",
+  "distKm": 0,
+  "flags": []
+ },
+ "novosibirsk-ru": {
+  "title": "Novosibirsk",
+  "asked": "Novosibirsk",
+  "how": "v1 title+coords",
+  "views": 1077.6,
+  "qid": "Q883",
+  "types": "big city; city/town in Russia; city or town",
+  "distKm": 3,
+  "flags": []
+ },
+ "novovolynsk": {
+  "title": "Novovolynsk",
+  "asked": "Novovolynsk",
+  "how": "v1 title+coords",
+  "views": 10.6,
+  "qid": "Q591719",
+  "types": "city of regional significance of Ukraine; city in Ukraine",
+  "distKm": 1,
+  "flags": []
+ },
+ "nuku-alofa-tonga": {
+  "title": "Nukuʻalofa",
+  "asked": "Nukuʻalofa",
+  "how": "v1 title+coords",
+  "views": 239.3,
+  "qid": "Q38834",
+  "types": "city",
+  "distKm": 1,
+  "flags": []
+ },
+ "nuremberg": {
+  "title": "Nuremberg",
+  "asked": "Nuremberg",
+  "how": "v1 title+coords",
+  "views": 2274.3,
+  "qid": "Q2090",
+  "types": "big city; urban municipality in Germany; urban district of Bavaria",
+  "distKm": 0,
+  "flags": []
+ },
+ "nuuk-greenland": {
+  "title": "Nuuk",
+  "asked": "Nuuk",
+  "how": "v1 title+coords",
+  "views": 1962.5,
+  "qid": "Q226",
+  "types": "city; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "oaxaca-mexico": {
+  "title": "Oaxaca City",
+  "asked": "Oaxaca City",
+  "how": "hand",
+  "views": 379.4,
+  "qid": "Q131429",
+  "types": "locality of Mexico",
+  "distKm": 1,
+  "flags": []
+ },
+ "odesa-ua": {
+  "title": "Odesa",
+  "asked": "Odesa",
+  "how": "hand",
+  "views": 1021.4,
+  "qid": "Q1874",
+  "types": "city in Ukraine",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "odz-pl": {
+  "title": "Łódź",
+  "asked": "Łódź",
+  "how": "v1 title+coords",
+  "views": 648.0,
+  "qid": "Q580",
+  "types": "city; city with powiat rights in Poland; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "oita": {
+  "title": "Ōita (city)",
+  "asked": "Ōita (city)",
+  "how": "hand",
+  "views": 80.0,
+  "qid": "Q199609",
+  "types": "city of Japan; core city of Japan; big city; prefectural capital of Japan",
+  "distKm": 1,
+  "flags": []
+ },
+ "olympia-greece": {
+  "title": "Olympia, Greece",
+  "asked": "Olympia, Greece",
+  "how": "v1 title+coords",
+  "views": 473.6,
+  "qid": "Q38888",
+  "types": "polis; hieron; Ancient Greek archaeological site; Samian Ware Discovery Site; organized archaeological site",
+  "distKm": 0,
+  "flags": []
+ },
+ "omaha": {
+  "title": "Omaha, Nebraska",
+  "asked": "Omaha, Nebraska",
+  "how": "v1 title+coords",
+  "views": 1449.3,
+  "qid": "Q43199",
+  "types": "county seat; big city; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "omdurman-sd": {
+  "title": "Omdurman",
+  "asked": "Omdurman",
+  "how": "v1 title+coords",
+  "views": 149.1,
+  "qid": "Q180921",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": [
+   "POP Omdurman 1849659 views 149.1"
+  ]
+ },
+ "omsk-ru": {
+  "title": "Omsk",
+  "asked": "Omsk",
+  "how": "v1 title+coords",
+  "views": 480.1,
+  "qid": "Q898",
+  "types": "big city; city/town in Russia; city or town",
+  "distKm": 1,
+  "flags": []
+ },
+ "oran-dz": {
+  "title": "Oran",
+  "asked": "Oran",
+  "how": "v1 title+coords",
+  "views": 438.8,
+  "qid": "Q131818",
+  "types": "city; commune of Algeria; large city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "orlando": {
+  "title": "Orlando, Florida",
+  "asked": "Orlando, Florida",
+  "how": "v1 title+coords",
+  "views": 1994.0,
+  "qid": "Q49233",
+  "types": "big city; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "osaka-japan": {
+  "title": "Osaka",
+  "asked": "Osaka",
+  "how": "v1 title+coords",
+  "views": 1711.7,
+  "qid": "Q35765",
+  "types": "metropolis; port city; megacity; city for international conferences and tourism; city designated by government ordinance; city of Japan; former capital; prefectural capital of Japan",
+  "distKm": 0,
+  "flags": []
+ },
+ "oslo-norway": {
+  "title": "Oslo",
+  "asked": "Oslo",
+  "how": "v1 title+coords",
+  "views": 1782.2,
+  "qid": "Q585",
+  "types": "administrative centre; big city; largest city; national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "ostersund": {
+  "title": "Östersund",
+  "asked": "Östersund",
+  "how": "v1 title+coords",
+  "views": 140.4,
+  "qid": "Q26515",
+  "types": "urban area in Sweden",
+  "distKm": 0,
+  "flags": []
+ },
+ "ottawa-canada": {
+  "title": "Ottawa",
+  "asked": "Ottawa",
+  "how": "v1 title+coords",
+  "views": 2102.9,
+  "qid": "Q1930",
+  "types": "federal capital; big city; single-tier municipality; census subdivision in Canada; census division of Canada",
+  "distKm": 0,
+  "flags": []
+ },
+ "ouagadougou-burkina-faso": {
+  "title": "Ouagadougou",
+  "asked": "Ouagadougou",
+  "how": "v1 title+coords",
+  "views": 688.2,
+  "qid": "Q3777",
+  "types": "big city; locality; administrative territorial entity of a single country",
+  "distKm": 1,
+  "flags": []
+ },
+ "oxford-england": {
+  "title": "Oxford",
+  "asked": "Oxford",
+  "how": "v1 title+coords",
+  "views": 1320.5,
+  "qid": "Q34217",
+  "types": "city; college town; county town; unparished area",
+  "distKm": 0,
+  "flags": []
+ },
+ "oymyakon-russia": {
+  "title": "Oymyakon",
+  "asked": "Oymyakon",
+  "how": "v1 title+coords",
+  "views": 540.4,
+  "qid": "Q192098",
+  "types": "village",
+  "distKm": 0,
+  "flags": []
+ },
+ "padang": {
+  "title": "Padang",
+  "asked": "Padang",
+  "how": "v1 title+coords",
+  "views": 149.2,
+  "qid": "Q7253",
+  "types": "city of Indonesia",
+  "distKm": 0,
+  "flags": [
+   "POP Padang 942938 views 149.2"
+  ]
+ },
+ "palembang-id": {
+  "title": "Palembang",
+  "asked": "Palembang",
+  "how": "v1 title+coords",
+  "views": 226.1,
+  "qid": "Q8131",
+  "types": "city of Indonesia",
+  "distKm": 8,
+  "flags": []
+ },
+ "palikir-micronesia": {
+  "title": "Palikir",
+  "asked": "Palikir",
+  "how": "v1 title+coords",
+  "views": 201.3,
+  "qid": "Q42751",
+  "types": "city; federal capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "palma-de-mallorca": {
+  "title": "Palma de Mallorca",
+  "asked": "Palma de Mallorca",
+  "how": "v1 title+coords",
+  "views": 730.8,
+  "qid": "Q8826",
+  "types": "city; municipality of Spain; counties of the Balearic Islands",
+  "distKm": 0,
+  "flags": []
+ },
+ "panama-city": {
+  "title": "Panama City",
+  "asked": "Panama City",
+  "how": "v1 title+coords",
+  "views": 829.3,
+  "qid": "Q3306",
+  "types": "city; metropolitan area; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "papeete-tahiti": {
+  "title": "Papeete",
+  "asked": "Papeete",
+  "how": "v1 title+coords",
+  "views": 415.5,
+  "qid": "Q130800",
+  "types": "city; commune of French Polynesia",
+  "distKm": 2,
+  "flags": []
+ },
+ "paraty-historic-center": {
+  "title": "Paraty",
+  "asked": "Paraty",
+  "how": "v1 title+coords",
+  "views": 83.4,
+  "qid": "Q926729",
+  "types": "municipality of Brazil",
+  "distKm": 0,
+  "flags": []
+ },
+ "paris-france": {
+  "title": "Paris",
+  "asked": "Paris",
+  "how": "v1 title+coords",
+  "views": 5010.6,
+  "qid": "Q90",
+  "types": "metropolis; financial center; commune of France; global city; megalopolis; primate city; big city; tourist destination; college town; fashion capital; commercial capital city; territorial collectivity of France with special status; national capital; cultural capital; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "patna-in": {
+  "title": "Patna",
+  "asked": "Patna",
+  "how": "v1 title+coords",
+  "views": 529.6,
+  "qid": "Q80484",
+  "types": "city; big city; urban area; state capital; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "pereira-co": {
+  "title": "Pereira, Colombia",
+  "asked": "Pereira, Colombia",
+  "how": "v1 title+coords",
+  "views": 180.5,
+  "qid": "Q51111",
+  "types": "city of Colombia",
+  "distKm": 0,
+  "flags": []
+ },
+ "persepolis": {
+  "title": "Persepolis",
+  "asked": "Persepolis",
+  "how": "v1 title+coords",
+  "views": 1316.3,
+  "qid": "Q129072",
+  "types": "ancient city; architectural landmark; cultural property; archaeological site",
+  "distKm": 0,
+  "flags": []
+ },
+ "perth-australia": {
+  "title": "Perth",
+  "asked": "Perth",
+  "how": "v1 title+coords",
+  "views": 1950.8,
+  "qid": "Q3183",
+  "types": "city; big city",
+  "distKm": 7,
+  "flags": []
+ },
+ "peshawar-pk": {
+  "title": "Peshawar",
+  "asked": "Peshawar",
+  "how": "v1 title+coords",
+  "views": 857.1,
+  "qid": "Q1113311",
+  "types": "city; administrative territorial entity; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "petra-nabatean-treasury": {
+  "title": "Petra",
+  "asked": "Petra",
+  "how": "hand",
+  "views": 2541.7,
+  "qid": "Q5788",
+  "types": "city; archaeological site; ancient city",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "pevek-russia": {
+  "title": "Pevek",
+  "asked": "Pevek",
+  "how": "v1 title+coords",
+  "views": 74.5,
+  "qid": "Q178105",
+  "types": "city or town; administrative divisions of Russia",
+  "distKm": 1,
+  "flags": []
+ },
+ "philadelphia-usa": {
+  "title": "Philadelphia",
+  "asked": "Philadelphia",
+  "how": "v1 title+coords",
+  "views": 4044.6,
+  "qid": "Q1345",
+  "types": "county seat; city of Pennsylvania; consolidated city-county; home rule municipality of Pennsylvania",
+  "distKm": 0,
+  "flags": []
+ },
+ "phnom-penh-cambodia": {
+  "title": "Phnom Penh",
+  "asked": "Phnom Penh",
+  "how": "v1 title+coords",
+  "views": 964.0,
+  "qid": "Q1850",
+  "types": "city; big city; provincial municipality of Cambodia; largest city",
+  "distKm": 2,
+  "flags": []
+ },
+ "phoenix-usa": {
+  "title": "Phoenix, Arizona",
+  "asked": "Phoenix, Arizona",
+  "how": "v1 title+coords",
+  "views": 2352.8,
+  "qid": "Q16556",
+  "types": "county seat; big city; city in Arizona",
+  "distKm": 0,
+  "flags": []
+ },
+ "phuket-thailand": {
+  "title": "Phuket province",
+  "asked": "Phuket province",
+  "how": "v1 title+coords",
+  "views": 379.2,
+  "qid": "Q182565",
+  "types": "province of Thailand",
+  "distKm": 1,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "pittsburgh": {
+  "title": "Pittsburgh",
+  "asked": "Pittsburgh",
+  "how": "v1 title+coords",
+  "views": 2449.1,
+  "qid": "Q1342",
+  "types": "county seat; city of Pennsylvania; home rule municipality of Pennsylvania; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "piura-pe": {
+  "title": "Piura",
+  "asked": "Piura",
+  "how": "v1 title+coords",
+  "views": 76.0,
+  "qid": "Q223966",
+  "types": "city; big city",
+  "distKm": 3,
+  "flags": [
+   "POP Piura 630000 views 76.0"
+  ]
+ },
+ "playa-del-carmen": {
+  "title": "Playa del Carmen",
+  "asked": "Playa del Carmen",
+  "how": "v1 title+coords",
+  "views": 278.3,
+  "qid": "Q989988",
+  "types": "locality of Mexico",
+  "distKm": 0,
+  "flags": []
+ },
+ "pointe-noire-cg": {
+  "title": "Pointe-Noire",
+  "asked": "Pointe-Noire",
+  "how": "hand",
+  "views": 84.8,
+  "qid": "Q223920",
+  "types": "city; big city; commune of the Republic of the Congo",
+  "distKm": null,
+  "flags": [
+   "DIST None",
+   "POP Pointe-Noire 1032000 views 84.8"
+  ]
+ },
+ "polonnaruwa-sri-lanka": {
+  "title": "Polonnaruwa",
+  "asked": "Polonnaruwa",
+  "how": "v1 title+coords",
+  "views": 107.6,
+  "qid": "Q394443",
+  "types": "human settlement",
+  "distKm": 21,
+  "flags": []
+ },
+ "port-arthur": {
+  "title": "Port Arthur, Tasmania",
+  "asked": "Port Arthur, Tasmania",
+  "how": "v1 title+coords",
+  "views": 295.0,
+  "qid": "Q999109",
+  "types": "village; suburb/locality of Tasmania",
+  "distKm": 0,
+  "flags": []
+ },
+ "port-au-prince-ht": {
+  "title": "Port-au-Prince",
+  "asked": "Port-au-Prince",
+  "how": "v1 title+coords",
+  "views": 709.6,
+  "qid": "Q34261",
+  "types": "big city; commune of Haiti; city or town",
+  "distKm": 1,
+  "flags": []
+ },
+ "port-harcourt-ng": {
+  "title": "Port Harcourt",
+  "asked": "Port Harcourt",
+  "how": "v1 title+coords",
+  "views": 276.1,
+  "qid": "Q217432",
+  "types": "big city; port city",
+  "distKm": 6,
+  "flags": []
+ },
+ "port-moresby-papua-new-guinea": {
+  "title": "Port Moresby",
+  "asked": "Port Moresby",
+  "how": "v1 title+coords",
+  "views": 757.4,
+  "qid": "Q36526",
+  "types": "big city; port city; administrative territorial entity of Papua New Guinea; city or town",
+  "distKm": 5,
+  "flags": []
+ },
+ "port-said-eg": {
+  "title": "Port Said",
+  "asked": "Port Said",
+  "how": "v1 title+coords",
+  "views": 241.2,
+  "qid": "Q134509",
+  "types": "city; big city; port city",
+  "distKm": 1,
+  "flags": []
+ },
+ "port-sudan": {
+  "title": "Port Sudan",
+  "asked": "Port Sudan",
+  "how": "v1 title+coords",
+  "views": 188.5,
+  "qid": "Q208718",
+  "types": "big city; port city",
+  "distKm": 2,
+  "flags": []
+ },
+ "port-vila-vanuatu": {
+  "title": "Port Vila",
+  "asked": "Port Vila",
+  "how": "v1 title+coords",
+  "views": 193.8,
+  "qid": "Q37806",
+  "types": "city; largest city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "portland-oregon-usa": {
+  "title": "Portland, Oregon",
+  "asked": "Portland, Oregon",
+  "how": "hand",
+  "views": 2569.3,
+  "qid": "Q6106",
+  "types": "county seat; big city; city of Oregon",
+  "distKm": 1,
+  "flags": []
+ },
+ "porto-alegre-br": {
+  "title": "Porto Alegre",
+  "asked": "Porto Alegre",
+  "how": "v1 title+coords",
+  "views": 516.0,
+  "qid": "Q40269",
+  "types": "big city; port city; municipality of Brazil",
+  "distKm": 0,
+  "flags": []
+ },
+ "porto-portugal": {
+  "title": "Porto",
+  "asked": "Porto",
+  "how": "v1 title+coords",
+  "views": 1135.5,
+  "qid": "Q36433",
+  "types": "big city; municipality of Portugal",
+  "distKm": 2,
+  "flags": []
+ },
+ "porto-velho-br": {
+  "title": "Porto Velho",
+  "asked": "Porto Velho",
+  "how": "v1 title+coords",
+  "views": 68.1,
+  "qid": "Q172512",
+  "types": "border city; big city; municipality of Brazil",
+  "distKm": 0,
+  "flags": [
+   "POP Porto Velho 548952 views 68.1"
+  ]
+ },
+ "prague-czech-republic": {
+  "title": "Prague",
+  "asked": "Prague",
+  "how": "v1 title+coords",
+  "views": 3341.9,
+  "qid": "Q1085",
+  "types": "region of the Czech Republic; electoral unit; district of the Czech Republic; municipality of the Czech Republic; capital of region; tourist destination; municipality with town privileges in the Czech Republic; administrative district of Czech municipality with expanded powers; administrative district of Czech municipality with authorized municipal office; national capital; Czech municipality with expanded powers; municipality with authorized municipal office; district town; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "prayagraj": {
+  "title": "Prayagraj",
+  "asked": "Prayagraj",
+  "how": "v1 title+coords",
+  "views": 854.1,
+  "qid": "Q162442",
+  "types": "city",
+  "distKm": 1,
+  "flags": []
+ },
+ "pretoria": {
+  "title": "Pretoria",
+  "asked": "Pretoria",
+  "how": "v1 title+coords",
+  "views": 1300.0,
+  "qid": "Q3926",
+  "types": "administrative territorial entity; big city; administrative centre; executive capital; administrative capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "pristina-xk": {
+  "title": "Pristina",
+  "asked": "Pristina",
+  "how": "v1 title+coords",
+  "views": 802.3,
+  "qid": "Q25270",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "pucioasa": {
+  "title": "Pucioasa",
+  "asked": "Pucioasa",
+  "how": "v1 title+coords",
+  "views": 6.6,
+  "qid": "Q589880",
+  "types": "town in Romania",
+  "distKm": 0,
+  "flags": []
+ },
+ "puebla-mexico": {
+  "title": "Puebla (city)",
+  "asked": "Puebla (city)",
+  "how": "hand",
+  "views": 365.2,
+  "qid": "Q125293",
+  "types": "locality of Mexico",
+  "distKm": 3,
+  "flags": []
+ },
+ "puerto-lempira": {
+  "title": "Puerto Lempira",
+  "asked": "Puerto Lempira",
+  "how": "v1 title+coords",
+  "views": 12.1,
+  "qid": "Q2075665",
+  "types": "city; municipality of Honduras",
+  "distKm": 1,
+  "flags": []
+ },
+ "pune-in": {
+  "title": "Pune",
+  "asked": "Pune",
+  "how": "v1 title+coords",
+  "views": 1166.5,
+  "qid": "Q1538",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "pyongyang-north-korea": {
+  "title": "Pyongyang",
+  "asked": "Pyongyang",
+  "how": "v1 title+coords",
+  "views": 1441.2,
+  "qid": "Q18808",
+  "types": "city; direct-controlled municipality; big city; first-level administrative division; largest city",
+  "distKm": 3,
+  "flags": []
+ },
+ "qaqortoq-greenland": {
+  "title": "Qaqortoq",
+  "asked": "Qaqortoq",
+  "how": "v1 title+coords",
+  "views": 143.4,
+  "qid": "Q221203",
+  "types": "human settlement",
+  "distKm": 0,
+  "flags": []
+ },
+ "qingdao-cn": {
+  "title": "Qingdao",
+  "asked": "Qingdao",
+  "how": "v1 title+coords",
+  "views": 784.4,
+  "qid": "Q170322",
+  "types": "sub-province-level division; prefecture-level city of China; big city; city specifically designated in the state plan",
+  "distKm": 0,
+  "flags": []
+ },
+ "qom": {
+  "title": "Qom",
+  "asked": "Qom",
+  "how": "v1 title+coords",
+  "views": 645.9,
+  "qid": "Q170573",
+  "types": "city of Iran",
+  "distKm": 0,
+  "flags": []
+ },
+ "quebec-city-canada": {
+  "title": "Quebec City",
+  "asked": "Quebec City",
+  "how": "v1 title+coords",
+  "views": 1365.4,
+  "qid": "Q2145",
+  "types": "big city; city or town of Quebec; territory outside RCM in Quebec",
+  "distKm": 0,
+  "flags": []
+ },
+ "quetta-pk": {
+  "title": "Quetta",
+  "asked": "Quetta",
+  "how": "v1 title+coords",
+  "views": 582.5,
+  "qid": "Q185458",
+  "types": "city",
+  "distKm": 2,
+  "flags": []
+ },
+ "quezon-city-ph": {
+  "title": "Quezon City",
+  "asked": "Quezon City",
+  "how": "v1 title+coords",
+  "views": 912.5,
+  "qid": "Q1475",
+  "types": "planned community; largest city; highly urbanized city",
+  "distKm": 0,
+  "flags": []
+ },
+ "quito": {
+  "title": "Quito",
+  "asked": "Quito",
+  "how": "v1 title+coords",
+  "views": 920.3,
+  "qid": "Q2900",
+  "types": "city",
+  "distKm": 2,
+  "flags": []
+ },
+ "rabat-morocco": {
+  "title": "Rabat",
+  "asked": "Rabat",
+  "how": "v1 title+coords",
+  "views": 958.1,
+  "qid": "Q3551",
+  "types": "city; big city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "rajshahi": {
+  "title": "Rajshahi",
+  "asked": "Rajshahi",
+  "how": "v1 title+coords",
+  "views": 135.8,
+  "qid": "Q322155",
+  "types": "city; divisional district",
+  "distKm": 0,
+  "flags": [
+   "POP Rajshahi 763580 views 135.8"
+  ]
+ },
+ "raleigh-usa": {
+  "title": "Raleigh, North Carolina",
+  "asked": "Raleigh, North Carolina",
+  "how": "v1 title+coords",
+  "views": 1431.2,
+  "qid": "Q41087",
+  "types": "county seat; big city; city of North Carolina",
+  "distKm": 14,
+  "flags": []
+ },
+ "recife-marco-zero": {
+  "title": "Recife",
+  "asked": "Recife",
+  "how": "v1 title+coords",
+  "views": 532.3,
+  "qid": "Q48344",
+  "types": "city; municipality of Brazil",
+  "distKm": 3,
+  "flags": []
+ },
+ "reykjavik-iceland": {
+  "title": "Reykjavík",
+  "asked": "Reykjavík",
+  "how": "v1 title+coords",
+  "views": 1829.4,
+  "qid": "Q1764",
+  "types": "city; capital city; big city; port city; national capital; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "riga-old-town-d34-14": {
+  "title": "Riga",
+  "asked": "Riga",
+  "how": "v1 title+coords",
+  "views": 1182.4,
+  "qid": "Q1773",
+  "types": "Hanseatic city; big city; state city of Latvia",
+  "distKm": 0,
+  "flags": []
+ },
+ "rimini": {
+  "title": "Rimini",
+  "asked": "Rimini",
+  "how": "v1 title+coords",
+  "views": 398.9,
+  "qid": "Q13369",
+  "types": "city; comune of Italy; tourist destination; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "rio-de-janeiro-brazil": {
+  "title": "Rio de Janeiro",
+  "asked": "Rio de Janeiro",
+  "how": "v1 title+coords",
+  "views": 2640.7,
+  "qid": "Q8678",
+  "types": "megacity; big city; former national capital; municipality of Brazil",
+  "distKm": 3,
+  "flags": []
+ },
+ "riyadh": {
+  "title": "Riyadh",
+  "asked": "Riyadh",
+  "how": "v1 title+coords",
+  "views": 2133.0,
+  "qid": "Q3692",
+  "types": "human settlement; national capital; city in Saudi Arabia",
+  "distKm": 6,
+  "flags": []
+ },
+ "rome-italy": {
+  "title": "Rome",
+  "asked": "Rome",
+  "how": "v1 title+coords",
+  "views": 3886.7,
+  "qid": "Q220",
+  "types": "metropolis; border city; tourist destination; comune of Italy; big city; college town; abolished municipality in Italy; largest city; national capital",
+  "distKm": 2,
+  "flags": []
+ },
+ "rosario-ar": {
+  "title": "Rosario",
+  "asked": "Rosario",
+  "how": "v1 title+coords",
+  "views": 1043.3,
+  "qid": "Q52535",
+  "types": "municipality of Argentina; city of Argentina",
+  "distKm": 1,
+  "flags": []
+ },
+ "rostov-on-don-ru": {
+  "title": "Rostov-on-Don",
+  "asked": "Rostov-on-Don",
+  "how": "v1 title+coords",
+  "views": 473.3,
+  "qid": "Q908",
+  "types": "million city; City of oblast significance; city or town",
+  "distKm": 0,
+  "flags": []
+ },
+ "roswell-ufo-incident": {
+  "title": "Roswell, New Mexico",
+  "asked": "Roswell, New Mexico",
+  "how": "v1 geosearch",
+  "views": 408.7,
+  "qid": "Q33561",
+  "types": "county seat; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "rothenburg-ob-der-tauber-germany": {
+  "title": "Rothenburg ob der Tauber",
+  "asked": "Rothenburg ob der Tauber",
+  "how": "v1 title+coords",
+  "views": 387.2,
+  "qid": "Q153494",
+  "types": "Greater district town; urban municipality in Germany",
+  "distKm": 1,
+  "flags": []
+ },
+ "sabha": {
+  "title": "Sabha, Libya",
+  "asked": "Sabha, Libya",
+  "how": "v1 title+coords",
+  "views": 139.4,
+  "qid": "Q208389",
+  "types": "town; big city; municipality of Libya",
+  "distKm": 0,
+  "flags": []
+ },
+ "sacramento-usa": {
+  "title": "Sacramento, California",
+  "asked": "Sacramento, California",
+  "how": "v1 title+coords",
+  "views": 1646.9,
+  "qid": "Q18013",
+  "types": "county seat; big city; city in the United States; charter city",
+  "distKm": 0,
+  "flags": []
+ },
+ "saguenay": {
+  "title": "Saguenay, Quebec",
+  "asked": "Saguenay, Quebec",
+  "how": "v1 geosearch",
+  "views": 412.8,
+  "qid": "Q139229",
+  "types": "big city; equivalent territory; territory outside RCM in Quebec; city or town of Quebec",
+  "distKm": 0,
+  "flags": []
+ },
+ "saint-petersburg-russia": {
+  "title": "Saint Petersburg",
+  "asked": "Saint Petersburg",
+  "how": "v1 title+coords",
+  "views": 3051.5,
+  "qid": "Q656",
+  "types": "federal subject of Russia; federal city of Russia; metropolis; big city; judicial capital; city or town; former national capital; cultural capital",
+  "distKm": 3,
+  "flags": []
+ },
+ "salt-lake-city": {
+  "title": "Salt Lake City",
+  "asked": "Salt Lake City",
+  "how": "v1 title+coords",
+  "views": 2182.5,
+  "qid": "Q23337",
+  "types": "county seat; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "salta-ar": {
+  "title": "Salta",
+  "asked": "Salta",
+  "how": "v1 title+coords",
+  "views": 154.3,
+  "qid": "Q36307",
+  "types": "city of Argentina",
+  "distKm": 3,
+  "flags": [
+   "POP Salta 520683 views 154.3"
+  ]
+ },
+ "salvador-br": {
+  "title": "Salvador, Bahia",
+  "asked": "Salvador, Bahia",
+  "how": "v1 title+coords",
+  "views": 585.1,
+  "qid": "Q36947",
+  "types": "municipality of Brazil; metropolitan region",
+  "distKm": 2,
+  "flags": []
+ },
+ "salvador-pelourinho": {
+  "title": "Historic Center of Salvador",
+  "asked": "Historic Center of Salvador",
+  "how": "v1 title+coords",
+  "views": 20.5,
+  "qid": "Q5572706",
+  "types": "old town; architectural ensemble; historic site; urban ensemble",
+  "distKm": 1,
+  "flags": [
+   "POP Salvador 2711840 views 20.5"
+  ]
+ },
+ "salzburg-austria": {
+  "title": "Salzburg",
+  "asked": "Salzburg",
+  "how": "v1 title+coords",
+  "views": 1151.4,
+  "qid": "Q34713",
+  "types": "big city; municipality of Austria; district of Austria; statutory city of Austria; place with town rights and privileges",
+  "distKm": 1,
+  "flags": []
+ },
+ "samara-ru": {
+  "title": "Samara",
+  "asked": "Samara",
+  "how": "v1 title+coords",
+  "views": 451.4,
+  "qid": "Q894",
+  "types": "big city; city/town in Russia; city or town",
+  "distKm": 1,
+  "flags": []
+ },
+ "samarinda": {
+  "title": "Samarinda",
+  "asked": "Samarinda",
+  "how": "v1 title+coords",
+  "views": 101.3,
+  "qid": "Q14499",
+  "types": "city of Indonesia",
+  "distKm": 1,
+  "flags": [
+   "POP Samarinda 865306 views 101.3"
+  ]
+ },
+ "samarkand-uz": {
+  "title": "Samarkand",
+  "asked": "Samarkand",
+  "how": "v1 title+coords",
+  "views": 1300.1,
+  "qid": "Q5753",
+  "types": "administrative territorial entity; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "san-antonio-usa": {
+  "title": "San Antonio",
+  "asked": "San Antonio",
+  "how": "v1 title+coords",
+  "views": 1764.7,
+  "qid": "Q975",
+  "types": "city in the United States; big city; county seat",
+  "distKm": 0,
+  "flags": []
+ },
+ "san-diego-usa": {
+  "title": "San Diego",
+  "asked": "San Diego",
+  "how": "v1 title+coords",
+  "views": 2263.7,
+  "qid": "Q16552",
+  "types": "county seat; big city; border city; city in the United States; charter city",
+  "distKm": 0,
+  "flags": []
+ },
+ "san-francisco-usa": {
+  "title": "San Francisco",
+  "asked": "San Francisco",
+  "how": "v1 title+coords",
+  "views": 3964.0,
+  "qid": "Q62",
+  "types": "city in the United States; big city; charter city and county; sanctuary city",
+  "distKm": 0,
+  "flags": []
+ },
+ "san-gimignano-d34-52": {
+  "title": "San Gimignano",
+  "asked": "San Gimignano",
+  "how": "v1 title+coords",
+  "views": 387.6,
+  "qid": "Q91413",
+  "types": "comune of Italy",
+  "distKm": 0,
+  "flags": []
+ },
+ "san-jose": {
+  "title": "San Jose, California",
+  "asked": "San Jose, California",
+  "how": "v1 title+coords",
+  "views": 1575.3,
+  "qid": "Q16553",
+  "types": "county seat; big city; charter city",
+  "distKm": 1,
+  "flags": []
+ },
+ "san-juan": {
+  "title": "San Juan, Puerto Rico",
+  "asked": "San Juan, Puerto Rico",
+  "how": "v1 title+coords",
+  "views": 1183.6,
+  "qid": "Q41211",
+  "types": "municipality of Puerto Rico; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "san-luis-potosi-mx": {
+  "title": "San Luis Potosí (city)",
+  "asked": "San Luis Potosí (city)",
+  "how": "hand",
+  "views": 136.2,
+  "qid": "Q204271",
+  "types": "city; big city; locality of Mexico",
+  "distKm": null,
+  "flags": [
+   "DIST None",
+   "POP San Luis Potosí 722772 views 136.2"
+  ]
+ },
+ "san-miguel-de-tucuman-ar": {
+  "title": "San Miguel de Tucumán",
+  "asked": "San Miguel de Tucumán",
+  "how": "v1 title+coords",
+  "views": 118.0,
+  "qid": "Q44255",
+  "types": "city of Argentina",
+  "distKm": 1,
+  "flags": [
+   "POP San Miguel de Tucumán 548866 views 118.0"
+  ]
+ },
+ "san-pedro-sula-hn": {
+  "title": "San Pedro Sula",
+  "asked": "San Pedro Sula",
+  "how": "v1 title+coords",
+  "views": 150.8,
+  "qid": "Q274584",
+  "types": "big city; municipality of Honduras",
+  "distKm": 1,
+  "flags": [
+   "POP San Pedro Sula 801259 views 150.8"
+  ]
+ },
+ "san-salvador-sv": {
+  "title": "San Salvador",
+  "asked": "San Salvador",
+  "how": "v1 title+coords",
+  "views": 508.0,
+  "qid": "Q3110",
+  "types": "administrative territorial entity; big city; district of El Salvador",
+  "distKm": 1,
+  "flags": []
+ },
+ "sanaa-ye": {
+  "title": "Sanaa",
+  "asked": "Sanaa",
+  "how": "v1 title+coords",
+  "views": 877.0,
+  "qid": "Q2471",
+  "types": "city; national capital; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "santa-cruz-de-la-sierra-bo": {
+  "title": "Santa Cruz de la Sierra",
+  "asked": "Santa Cruz de la Sierra",
+  "how": "v1 title+coords",
+  "views": 382.6,
+  "qid": "Q170688",
+  "types": "city; big city; metropolis; million city; largest city",
+  "distKm": 2,
+  "flags": []
+ },
+ "santa-fe": {
+  "title": "Santa Fe, New Mexico",
+  "asked": "Santa Fe, New Mexico",
+  "how": "v1 geosearch",
+  "views": 1379.6,
+  "qid": "Q38555",
+  "types": "county seat; city in the United States; tourist city",
+  "distKm": 0,
+  "flags": []
+ },
+ "santa-marta-co": {
+  "title": "Santa Marta",
+  "asked": "Santa Marta",
+  "how": "v1 title+coords",
+  "views": 195.2,
+  "qid": "Q209016",
+  "types": "big city; district of Colombia; city of Colombia",
+  "distKm": 1,
+  "flags": []
+ },
+ "santiago": {
+  "title": "Santiago",
+  "asked": "Santiago",
+  "how": "v1 title+coords",
+  "views": 1355.7,
+  "qid": "Q2887",
+  "types": "global city; city in Chile; largest city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "santiago-de-queretaro-mx": {
+  "title": "Querétaro (city)",
+  "asked": "Querétaro (city)",
+  "how": "v1 title+coords",
+  "views": 177.2,
+  "qid": "Q173121",
+  "types": "city; locality of Mexico; largest city",
+  "distKm": 0,
+  "flags": [
+   "POP Santiago de Querétaro 1594212 views 177.2"
+  ]
+ },
+ "santo-domingo-de-los-colorados-ec": {
+  "title": "Santo Domingo, Ecuador",
+  "asked": "Santo Domingo, Ecuador",
+  "how": "v1 title+coords",
+  "views": 57.3,
+  "qid": "Q1015654",
+  "types": "city in Ecuador",
+  "distKm": 0,
+  "flags": []
+ },
+ "santo-domingo-do": {
+  "title": "Santo Domingo",
+  "asked": "Santo Domingo",
+  "how": "v1 title+coords",
+  "views": 997.1,
+  "qid": "Q34820",
+  "types": "city; big city",
+  "distKm": 5,
+  "flags": []
+ },
+ "santorini-gr": {
+  "title": "Santorini",
+  "asked": "Santorini",
+  "how": "v1 title+coords",
+  "views": 1110.2,
+  "qid": "Q129296",
+  "types": "island; tourist destination",
+  "distKm": 0,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "sao-luis-br": {
+  "title": "São Luís, Maranhão",
+  "asked": "São Luís, Maranhão",
+  "how": "v1 title+coords",
+  "views": 140.3,
+  "qid": "Q28441",
+  "types": "municipality of Brazil; big city",
+  "distKm": 0,
+  "flags": [
+   "POP São Luís 917237 views 140.3"
+  ]
+ },
+ "sao-paulo-br": {
+  "title": "São Paulo",
+  "asked": "São Paulo",
+  "how": "v1 title+coords",
+  "views": 2341.5,
+  "qid": "Q174",
+  "types": "city; megacity; big city; municipality of Brazil; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "sapporo-japan": {
+  "title": "Sapporo",
+  "asked": "Sapporo",
+  "how": "v1 title+coords",
+  "views": 1094.3,
+  "qid": "Q37951",
+  "types": "city of Japan; big city; city designated by government ordinance; city for international conferences and tourism; prefectural capital of Japan",
+  "distKm": 0,
+  "flags": []
+ },
+ "sarajevo-ba": {
+  "title": "Sarajevo",
+  "asked": "Sarajevo",
+  "how": "v1 title+coords",
+  "views": 1949.1,
+  "qid": "Q11194",
+  "types": "city; federal capital; city of Bosnia and Herzegovina; big city",
+  "distKm": 5,
+  "flags": []
+ },
+ "savannah": {
+  "title": "Savannah, Georgia",
+  "asked": "Savannah, Georgia",
+  "how": "v1 geosearch",
+  "views": 1438.7,
+  "qid": "Q83813",
+  "types": "county seat; big city; city in the United States; municipality of Georgia",
+  "distKm": 0,
+  "flags": []
+ },
+ "seattle-usa": {
+  "title": "Seattle",
+  "asked": "Seattle",
+  "how": "v1 title+coords",
+  "views": 4021.4,
+  "qid": "Q5083",
+  "types": "county seat; big city; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "semarang-id": {
+  "title": "Semarang",
+  "asked": "Semarang",
+  "how": "v1 title+coords",
+  "views": 187.0,
+  "qid": "Q11025",
+  "types": "city of Indonesia",
+  "distKm": 0,
+  "flags": [
+   "POP Semarang 1694740 views 187.0"
+  ]
+ },
+ "sendai": {
+  "title": "Sendai",
+  "asked": "Sendai",
+  "how": "v1 title+coords",
+  "views": 491.4,
+  "qid": "Q46747",
+  "types": "city designated by government ordinance; college town; Forest City; prefectural capital of Japan; city for international conferences and tourism; educational town",
+  "distKm": 0,
+  "flags": []
+ },
+ "seoul-south-korea": {
+  "title": "Seoul",
+  "asked": "Seoul",
+  "how": "v1 title+coords",
+  "views": 2347.9,
+  "qid": "Q8684",
+  "types": "city; metropolis; megacity; national capital; Special City of Korea; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "seville-spain": {
+  "title": "Seville",
+  "asked": "Seville",
+  "how": "v1 title+coords",
+  "views": 1805.0,
+  "qid": "Q8717",
+  "types": "municipality of Spain",
+  "distKm": 1,
+  "flags": []
+ },
+ "shanghai-china": {
+  "title": "Shanghai",
+  "asked": "Shanghai",
+  "how": "v1 title+coords",
+  "views": 3262.3,
+  "qid": "Q8686",
+  "types": "metropolis; megacity; national central city; global city; big city; direct-administered municipality; Economic and Technological Development Zone; port city; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "sharjah-ae": {
+  "title": "Sharjah",
+  "asked": "Sharjah",
+  "how": "v1 title+coords",
+  "views": 637.4,
+  "qid": "Q289693",
+  "types": "city; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "sheffield-gb": {
+  "title": "Sheffield",
+  "asked": "Sheffield",
+  "how": "v1 title+coords",
+  "views": 1264.6,
+  "qid": "Q42448",
+  "types": "city; big city; unparished area",
+  "distKm": 0,
+  "flags": []
+ },
+ "shenyang-cn": {
+  "title": "Shenyang",
+  "asked": "Shenyang",
+  "how": "v1 title+coords",
+  "views": 656.4,
+  "qid": "Q11720",
+  "types": "sub-province-level division; prefecture-level city of China; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "shenzhen-cn": {
+  "title": "Shenzhen",
+  "asked": "Shenzhen",
+  "how": "v1 title+coords",
+  "views": 1985.8,
+  "qid": "Q15174",
+  "types": "city; megacity; global city; sub-province-level division; special economic zone; prefecture-level city of China; big city; city specifically designated in the state plan",
+  "distKm": 1,
+  "flags": []
+ },
+ "shigatse-tibet": {
+  "title": "Shigatse",
+  "asked": "Shigatse",
+  "how": "hand",
+  "views": 167.0,
+  "qid": "Q1211183",
+  "types": "prefecture-level city of China; big city",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "shiraz": {
+  "title": "Shiraz",
+  "asked": "Shiraz",
+  "how": "v1 title+coords",
+  "views": 512.2,
+  "qid": "Q6397066",
+  "types": "city of Iran",
+  "distKm": 1,
+  "flags": []
+ },
+ "shymkent": {
+  "title": "Shymkent",
+  "asked": "Shymkent",
+  "how": "v1 title+coords",
+  "views": 178.4,
+  "qid": "Q485496",
+  "types": "city; big city; city of republican significance",
+  "distKm": 1,
+  "flags": [
+   "POP Shymkent 1200000 views 178.4"
+  ]
+ },
+ "siem-reap-cambodia": {
+  "title": "Siem Reap",
+  "asked": "Siem Reap",
+  "how": "v1 title+coords",
+  "views": 370.5,
+  "qid": "Q11711",
+  "types": "big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "silkeborg": {
+  "title": "Silkeborg",
+  "asked": "Silkeborg",
+  "how": "v1 title+coords",
+  "views": 76.5,
+  "qid": "Q21180",
+  "types": "city",
+  "distKm": 2,
+  "flags": []
+ },
+ "singapore": {
+  "title": "Singapore",
+  "asked": "Singapore",
+  "how": "v1 title+coords",
+  "views": 11202.9,
+  "qid": "Q334",
+  "types": "country; island country; global city; city-state; port city; border city; big city; sovereign state; national capital",
+  "distKm": 8,
+  "flags": []
+ },
+ "skellig-michael-ireland": {
+  "title": "Skellig Michael",
+  "asked": "Skellig Michael",
+  "how": "v1 title+coords",
+  "views": 334.6,
+  "qid": "Q207193",
+  "types": "island",
+  "distKm": 0,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "sofia-bulgaria": {
+  "title": "Sofia",
+  "asked": "Sofia",
+  "how": "v1 title+coords",
+  "views": 1379.7,
+  "qid": "Q472",
+  "types": "metropolis; municipality seat; oblast seat; largest city; seat of government; city in Bulgaria",
+  "distKm": 1,
+  "flags": []
+ },
+ "soweto-za": {
+  "title": "Soweto",
+  "asked": "Soweto",
+  "how": "v1 title+coords",
+  "views": 414.8,
+  "qid": "Q217426",
+  "types": "city; South African township",
+  "distKm": 0,
+  "flags": []
+ },
+ "srinagar": {
+  "title": "Srinagar",
+  "asked": "Srinagar",
+  "how": "v1 title+coords",
+  "views": 575.7,
+  "qid": "Q170115",
+  "types": "big city; state capital; largest city",
+  "distKm": 2,
+  "flags": []
+ },
+ "st-johns-canada": {
+  "title": "St. John's, Newfoundland and Labrador",
+  "asked": "St. John's, Newfoundland and Labrador",
+  "how": "v1 title+coords",
+  "views": 1088.6,
+  "qid": "Q2082",
+  "types": "big city; city in Newfoundland and Labrador",
+  "distKm": 0,
+  "flags": []
+ },
+ "st-louis-usa": {
+  "title": "St. Louis",
+  "asked": "St. Louis",
+  "how": "v1 title+coords",
+  "views": 2530.6,
+  "qid": "Q38022",
+  "types": "independent city in the United States; big city; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "stari-most": {
+  "title": "Stari Most",
+  "asked": "Stari Most",
+  "how": "v1 wikidata-search",
+  "views": 263.6,
+  "qid": "Q188528",
+  "types": "bridge; deck arch bridge; stone bridge; ottoman bridge; heritage designation",
+  "distKm": null,
+  "flags": [
+   "NOT-SETTLEMENT",
+   "DIST None"
+  ]
+ },
+ "stockholm-sweden": {
+  "title": "Stockholm",
+  "asked": "Stockholm",
+  "how": "v1 title+coords",
+  "views": 2036.0,
+  "qid": "Q1754",
+  "types": "city; Hanseatic city; big city; port city; national capital; largest city",
+  "distKm": 0,
+  "flags": []
+ },
+ "strasbourg-france": {
+  "title": "Strasbourg",
+  "asked": "Strasbourg",
+  "how": "v1 title+coords",
+  "views": 1680.0,
+  "qid": "Q6602",
+  "types": "big city; border city; commune of France",
+  "distKm": 1,
+  "flags": []
+ },
+ "stuttgart-de": {
+  "title": "Stuttgart",
+  "asked": "Stuttgart",
+  "how": "v1 title+coords",
+  "views": 1220.7,
+  "qid": "Q1022",
+  "types": "major regional center; City district in Baden-Württemberg; financial center; state capital in Germany; urban municipality in Germany; Option municipality; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "suez-eg": {
+  "title": "Suez",
+  "asked": "Suez",
+  "how": "v1 title+coords",
+  "views": 151.5,
+  "qid": "Q134514",
+  "types": "city; big city; kism; port city",
+  "distKm": 2,
+  "flags": [
+   "POP Suez 699541 views 151.5"
+  ]
+ },
+ "sulaymaniyah": {
+  "title": "Sulaymaniyah",
+  "asked": "Sulaymaniyah",
+  "how": "v1 title+coords",
+  "views": 266.5,
+  "qid": "Q191204",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "surabaya-id": {
+  "title": "Surabaya",
+  "asked": "Surabaya",
+  "how": "v1 title+coords",
+  "views": 465.3,
+  "qid": "Q11462",
+  "types": "city of Indonesia",
+  "distKm": 1,
+  "flags": []
+ },
+ "surat-in": {
+  "title": "Surat",
+  "asked": "Surat",
+  "how": "v1 title+coords",
+  "views": 500.1,
+  "qid": "Q4629",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "surrey-ca": {
+  "title": "Surrey, British Columbia",
+  "asked": "Surrey, British Columbia",
+  "how": "v1 title+coords",
+  "views": 416.0,
+  "qid": "Q390583",
+  "types": "big city; city in British Columbia",
+  "distKm": 9,
+  "flags": []
+ },
+ "suva-fiji": {
+  "title": "Suva",
+  "asked": "Suva",
+  "how": "v1 title+coords",
+  "views": 369.4,
+  "qid": "Q38807",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "suwon": {
+  "title": "Suwon",
+  "asked": "Suwon",
+  "how": "v1 title+coords",
+  "views": 252.7,
+  "qid": "Q20714",
+  "types": "big city; special-status city; list of capitals in South Korea; city of South Korea",
+  "distKm": 3,
+  "flags": []
+ },
+ "suzhou-cn": {
+  "title": "Suzhou",
+  "asked": "Suzhou",
+  "how": "hand",
+  "views": 646.7,
+  "qid": "Q42622",
+  "types": "big city; prefecture-level city of China",
+  "distKm": 2,
+  "flags": []
+ },
+ "sydney-australia": {
+  "title": "Sydney",
+  "asked": "Sydney",
+  "how": "v1 title+coords",
+  "views": 3203.2,
+  "qid": "Q3130",
+  "types": "city; global city; metropolis; big city; state capital; largest city; financial center",
+  "distKm": 0,
+  "flags": []
+ },
+ "tabriz-ir": {
+  "title": "Tabriz",
+  "asked": "Tabriz",
+  "how": "v1 title+coords",
+  "views": 566.2,
+  "qid": "Q80053",
+  "types": "city of Iran",
+  "distKm": 2,
+  "flags": []
+ },
+ "taichung-tw": {
+  "title": "Taichung",
+  "asked": "Taichung",
+  "how": "v1 title+coords",
+  "views": 294.1,
+  "qid": "Q245023",
+  "types": "city; big city; special municipality",
+  "distKm": 1,
+  "flags": []
+ },
+ "tainan-tw": {
+  "title": "Tainan",
+  "asked": "Tainan",
+  "how": "v1 title+coords",
+  "views": 293.7,
+  "qid": "Q140631",
+  "types": "city; big city; special municipality",
+  "distKm": 3,
+  "flags": []
+ },
+ "taipei": {
+  "title": "Taipei",
+  "asked": "Taipei",
+  "how": "v1 title+coords",
+  "views": 1783.3,
+  "qid": "Q1867",
+  "types": "city; enclave; special municipality; Capital of the Republic of China; big city; national capital",
+  "distKm": 4,
+  "flags": []
+ },
+ "taiz": {
+  "title": "Taiz",
+  "asked": "Taiz",
+  "how": "hand",
+  "views": 156.7,
+  "qid": "Q466216",
+  "types": "Ta'izz Governorate; big city",
+  "distKm": null,
+  "flags": [
+   "DIST None",
+   "POP Taiz 940600 views 156.7"
+  ]
+ },
+ "takeo": {
+  "title": "Doun Kaev (town)",
+  "asked": "Doun Kaev (town)",
+  "how": "hand",
+  "views": 7.4,
+  "qid": "Q1195207",
+  "types": "city",
+  "distKm": null,
+  "flags": [
+   "DIST None",
+   "POP Takeo 843931 views 7.4"
+  ]
+ },
+ "tallinn-estonia": {
+  "title": "Tallinn",
+  "asked": "Tallinn",
+  "how": "v1 title+coords",
+  "views": 1336.1,
+  "qid": "Q1770",
+  "types": "Hanseatic city; big city; port city; tourist destination; city",
+  "distKm": 0,
+  "flags": []
+ },
+ "tambacounda": {
+  "title": "Tambacounda",
+  "asked": "Tambacounda",
+  "how": "v1 title+coords",
+  "views": 16.2,
+  "qid": "Q977305",
+  "types": "city; commune of Senegal",
+  "distKm": 0,
+  "flags": []
+ },
+ "tampa-usa": {
+  "title": "Tampa, Florida",
+  "asked": "Tampa, Florida",
+  "how": "v1 title+coords",
+  "views": 1388.3,
+  "qid": "Q49255",
+  "types": "big city; county seat; city in the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "tangier-ma": {
+  "title": "Tangier",
+  "asked": "Tangier",
+  "how": "v1 title+coords",
+  "views": 1050.7,
+  "qid": "Q126148",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "tarawa-kiribati": {
+  "title": "Tarawa",
+  "asked": "Tarawa",
+  "how": "v1 title+coords",
+  "views": 546.1,
+  "qid": "Q2486",
+  "types": "town; atoll; human settlement; reef island",
+  "distKm": 3,
+  "flags": []
+ },
+ "tarkwa": {
+  "title": "Tarkwa",
+  "asked": "Tarkwa",
+  "how": "v1 title+coords",
+  "views": 20.2,
+  "qid": "Q995439",
+  "types": "city; human settlement",
+  "distKm": 1,
+  "flags": []
+ },
+ "tashkent": {
+  "title": "Tashkent",
+  "asked": "Tashkent",
+  "how": "v1 title+coords",
+  "views": 1437.1,
+  "qid": "Q269",
+  "types": "city; capital city; administrative territorial entity of Uzbekistan; first-level administrative division",
+  "distKm": 7,
+  "flags": []
+ },
+ "tbilisi": {
+  "title": "Tbilisi",
+  "asked": "Tbilisi",
+  "how": "v1 title+coords",
+  "views": 1529.2,
+  "qid": "Q994",
+  "types": "city; administrative territorial entity; Mkhare; big city; national capital; self-governing city of Georgia",
+  "distKm": 5,
+  "flags": []
+ },
+ "tegucigalpa-hn": {
+  "title": "Tegucigalpa",
+  "asked": "Tegucigalpa",
+  "how": "v1 title+coords",
+  "views": 486.6,
+  "qid": "Q3238",
+  "types": "administrative territorial entity; big city; largest city",
+  "distKm": 3,
+  "flags": []
+ },
+ "tehran": {
+  "title": "Tehran",
+  "asked": "Tehran",
+  "how": "v1 title+coords",
+  "views": 2693.2,
+  "qid": "Q3616",
+  "types": "megacity; global city; city of Iran; national capital",
+  "distKm": 3,
+  "flags": []
+ },
+ "tel-aviv": {
+  "title": "Tel Aviv",
+  "asked": "Tel Aviv",
+  "how": "v1 title+coords",
+  "views": 2475.3,
+  "qid": "Q33935",
+  "types": "city; city council; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "the-hague-nl": {
+  "title": "The Hague",
+  "asked": "The Hague",
+  "how": "v1 title+coords",
+  "views": 2526.4,
+  "qid": "Q36600",
+  "types": "city; cadastral populated place in the Netherlands; municipality of the Netherlands; place with town rights and privileges",
+  "distKm": 1,
+  "flags": []
+ },
+ "thessaloniki-gr": {
+  "title": "Thessaloniki",
+  "asked": "Thessaloniki",
+  "how": "v1 title+coords",
+  "views": 1822.7,
+  "qid": "Q17151",
+  "types": "port city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "thimphu-bhutan": {
+  "title": "Thimphu",
+  "asked": "Thimphu",
+  "how": "v1 title+coords",
+  "views": 439.1,
+  "qid": "Q9270",
+  "types": "city; administrative territorial entity; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "tianjin-cn": {
+  "title": "Tianjin",
+  "asked": "Tianjin",
+  "how": "v1 title+coords",
+  "views": 1034.5,
+  "qid": "Q11736",
+  "types": "city; megacity; national central city; port city; Economic and Technological Development Zone; direct-administered municipality; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "tijuana": {
+  "title": "Tijuana",
+  "asked": "Tijuana",
+  "how": "v1 title+coords",
+  "views": 833.3,
+  "qid": "Q124739",
+  "types": "city; locality of Mexico; city in Mexico",
+  "distKm": 4,
+  "flags": []
+ },
+ "tiksi-russia": {
+  "title": "Tiksi",
+  "asked": "Tiksi",
+  "how": "v1 title+coords",
+  "views": 101.0,
+  "qid": "Q500895",
+  "types": "administrative divisions of Russia; port settlement; urban-type settlement in Russia",
+  "distKm": 1,
+  "flags": []
+ },
+ "timbuktu-mali": {
+  "title": "Timbuktu",
+  "asked": "Timbuktu",
+  "how": "v1 title+coords",
+  "views": 1425.7,
+  "qid": "Q9427",
+  "types": "city; urban area",
+  "distKm": 1,
+  "flags": []
+ },
+ "tokyo-japan": {
+  "title": "Tokyo",
+  "asked": "Tokyo",
+  "how": "v1 title+coords",
+  "views": 4649.6,
+  "qid": "Q1490",
+  "types": "prefecture of Japan; megacity; metropolis; global city; capital of Japan; tourist destination; financial center; big city; largest city; metropolitan prefecture",
+  "distKm": 4,
+  "flags": []
+ },
+ "toledo-d34-62": {
+  "title": "Toledo, Spain",
+  "asked": "Toledo, Spain",
+  "how": "v1 title+coords",
+  "views": 745.6,
+  "qid": "Q5836",
+  "types": "municipality of Spain",
+  "distKm": 1,
+  "flags": []
+ },
+ "tomsk-ru": {
+  "title": "Tomsk",
+  "asked": "Tomsk",
+  "how": "v1 title+coords",
+  "views": 237.0,
+  "qid": "Q976",
+  "types": "city or town; big city; City of oblast significance",
+  "distKm": 1,
+  "flags": []
+ },
+ "toronto": {
+  "title": "Toronto",
+  "asked": "Toronto",
+  "how": "v1 title+coords",
+  "views": 4334.0,
+  "qid": "Q172",
+  "types": "city; financial center; big city; single-tier municipality; census division of Canada; provincial or territorial capital city in Canada; largest city",
+  "distKm": 6,
+  "flags": []
+ },
+ "touba-sn": {
+  "title": "Touba",
+  "asked": "Touba",
+  "how": "v1 title+coords",
+  "views": 42.8,
+  "qid": "Q657072",
+  "types": "city",
+  "distKm": 1,
+  "flags": [
+   "POP Touba 1120824 views 42.8"
+  ]
+ },
+ "toulouse-france": {
+  "title": "Toulouse",
+  "asked": "Toulouse",
+  "how": "v1 title+coords",
+  "views": 1095.2,
+  "qid": "Q7880",
+  "types": "big city; college town; commune of France",
+  "distKm": 0,
+  "flags": []
+ },
+ "tripoli-libya": {
+  "title": "Tripoli, Libya",
+  "asked": "Tripoli, Libya",
+  "how": "v1 title+coords",
+  "views": 898.9,
+  "qid": "Q3579",
+  "types": "city; port city; big city; national capital; municipality of Libya",
+  "distKm": 0,
+  "flags": []
+ },
+ "trolltunga": {
+  "title": "Trolltunga",
+  "asked": "Trolltunga",
+  "how": "v1 title+coords",
+  "views": 114.4,
+  "qid": "Q1512593",
+  "types": "rock",
+  "distKm": 1,
+  "flags": [
+   "NOT-SETTLEMENT"
+  ]
+ },
+ "tromso-norway": {
+  "title": "Tromsø",
+  "asked": "Tromsø",
+  "how": "v1 title+coords",
+  "views": 736.7,
+  "qid": "Q42328401",
+  "types": "city; port city",
+  "distKm": 0,
+  "flags": []
+ },
+ "troy": {
+  "title": "Troy",
+  "asked": "Troy",
+  "how": "v1 title+coords",
+  "views": 5575.3,
+  "qid": "Q22647",
+  "types": "city-state; polis; settlement site; Bronze Age settlement",
+  "distKm": 0,
+  "flags": []
+ },
+ "trujillo-pe": {
+  "title": "Trujillo, Peru",
+  "asked": "Trujillo, Peru",
+  "how": "v1 title+coords",
+  "views": 119.0,
+  "qid": "Q214173",
+  "types": "big city",
+  "distKm": 0,
+  "flags": [
+   "POP Trujillo 1067700 views 119.0"
+  ]
+ },
+ "tucson-usa": {
+  "title": "Tucson, Arizona",
+  "asked": "Tucson, Arizona",
+  "how": "v1 title+coords",
+  "views": 1603.3,
+  "qid": "Q18575",
+  "types": "county seat; city in the United States; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "tunis-tunisia": {
+  "title": "Tunis",
+  "asked": "Tunis",
+  "how": "v1 title+coords",
+  "views": 747.3,
+  "qid": "Q3572",
+  "types": "big city; municipality of Tunisia",
+  "distKm": 0,
+  "flags": []
+ },
+ "turin-italy": {
+  "title": "Turin",
+  "asked": "Turin",
+  "how": "v1 title+coords",
+  "views": 1618.3,
+  "qid": "Q495",
+  "types": "big city; comune of Italy",
+  "distKm": 1,
+  "flags": []
+ },
+ "udaipur-india": {
+  "title": "Udaipur",
+  "asked": "Udaipur",
+  "how": "v1 title+coords",
+  "views": 507.7,
+  "qid": "Q200340",
+  "types": "big city; town in India",
+  "distKm": 3,
+  "flags": []
+ },
+ "ulaanbaatar-mongolia": {
+  "title": "Ulaanbaatar",
+  "asked": "Ulaanbaatar",
+  "how": "v1 title+coords",
+  "views": 1567.1,
+  "qid": "Q23430",
+  "types": "capital city; largest city; first-level administrative division",
+  "distKm": 4,
+  "flags": []
+ },
+ "ulsan": {
+  "title": "Ulsan",
+  "asked": "Ulsan",
+  "how": "v1 title+coords",
+  "views": 311.9,
+  "qid": "Q41278",
+  "types": "city; human settlement; metropolitan city of South Korea; big city; port city",
+  "distKm": 1,
+  "flags": []
+ },
+ "urumqi-cn": {
+  "title": "Ürümqi",
+  "asked": "Ürümqi",
+  "how": "v1 title+coords",
+  "views": 825.9,
+  "qid": "Q16959",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "ushuaia-end-of-world-sign": {
+  "title": "Ushuaia",
+  "asked": "Ushuaia",
+  "how": "v1 title+coords",
+  "views": 906.1,
+  "qid": "Q44254",
+  "types": "city; municipality; city of Argentina",
+  "distKm": 0,
+  "flags": []
+ },
+ "vaduz-liechtenstein": {
+  "title": "Vaduz",
+  "asked": "Vaduz",
+  "how": "v1 title+coords",
+  "views": 442.0,
+  "qid": "Q1844",
+  "types": "border city; national capital; municipality of Liechtenstein",
+  "distKm": 0,
+  "flags": []
+ },
+ "vagator": {
+  "title": "Vagator Beach",
+  "asked": "Vagator Beach",
+  "how": "v2 hand-corrected title",
+  "views": 11.4,
+  "qid": "Q3553247",
+  "types": "beach",
+  "distKm": null,
+  "flags": [
+   "NOT-SETTLEMENT",
+   "DIST None"
+  ]
+ },
+ "valencia-es": {
+  "title": "Valencia",
+  "asked": "Valencia",
+  "how": "v1 title+coords",
+  "views": 1645.1,
+  "qid": "Q8818",
+  "types": "municipality of Spain; municipality of the Valencian Community",
+  "distKm": 1,
+  "flags": []
+ },
+ "valletta": {
+  "title": "Valletta",
+  "asked": "Valletta",
+  "how": "v1 title+coords",
+  "views": 873.7,
+  "qid": "Q23800",
+  "types": "city; local council of Malta",
+  "distKm": 0,
+  "flags": []
+ },
+ "valparaiso-ascensor-artilleria": {
+  "title": "Valparaíso",
+  "asked": "Valparaíso",
+  "how": "v1 title+coords",
+  "views": 415.6,
+  "qid": "Q33986",
+  "types": "big city; port city; city in Chile; legislature",
+  "distKm": 2,
+  "flags": []
+ },
+ "van-turkey": {
+  "title": "Van, Turkey",
+  "asked": "Van, Turkey",
+  "how": "v1 title+coords",
+  "views": 389.9,
+  "qid": "Q83061",
+  "types": "city; big city; metropolitan municipality in Turkey",
+  "distKm": 3,
+  "flags": []
+ },
+ "vancouver-canada": {
+  "title": "Vancouver",
+  "asked": "Vancouver",
+  "how": "v1 title+coords",
+  "views": 3323.0,
+  "qid": "Q24639",
+  "types": "city in British Columbia; municipal government; big city; border city",
+  "distKm": 2,
+  "flags": []
+ },
+ "varanasi": {
+  "title": "Varanasi",
+  "asked": "Varanasi",
+  "how": "v1 title+coords",
+  "views": 1482.9,
+  "qid": "Q79980",
+  "types": "city; holy city",
+  "distKm": 0,
+  "flags": []
+ },
+ "venice-italy": {
+  "title": "Venice",
+  "asked": "Venice",
+  "how": "v1 title+coords",
+  "views": 2848.9,
+  "qid": "Q641",
+  "types": "city; comune of Italy; big city; port city; Italian city-state; carfree city",
+  "distKm": 2,
+  "flags": []
+ },
+ "veracruz-mx": {
+  "title": "Veracruz (city)",
+  "asked": "Veracruz (city)",
+  "how": "v1 geosearch",
+  "views": 245.4,
+  "qid": "Q173270",
+  "types": "city; big city; locality of Mexico; port city",
+  "distKm": 2,
+  "flags": []
+ },
+ "victoria": {
+  "title": "Victoria, British Columbia",
+  "asked": "Victoria, British Columbia",
+  "how": "v1 title+coords",
+  "views": 1248.2,
+  "qid": "Q2132",
+  "types": "big city; city in British Columbia",
+  "distKm": 0,
+  "flags": []
+ },
+ "vienna-austria": {
+  "title": "Vienna",
+  "asked": "Vienna",
+  "how": "v1 title+coords",
+  "views": 3193.0,
+  "qid": "Q1741",
+  "types": "city-state; enclave; district of Austria; metropolis; place with town rights and privileges; largest city; federal capital; federal state of Austria; statutory city of Austria; municipality of Austria",
+  "distKm": 0,
+  "flags": []
+ },
+ "vientiane": {
+  "title": "Vientiane",
+  "asked": "Vientiane",
+  "how": "v1 title+coords",
+  "views": 600.4,
+  "qid": "Q9326",
+  "types": "border city; big city; conurbation; largest city; urban area",
+  "distKm": 4,
+  "flags": []
+ },
+ "vilnius-old-town-d34-15": {
+  "title": "Vilnius",
+  "asked": "Vilnius",
+  "how": "v1 title+coords",
+  "views": 1199.8,
+  "qid": "Q216",
+  "types": "city; big city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "vinh": {
+  "title": "Vinh",
+  "asked": "Vinh",
+  "how": "v1 title+coords",
+  "views": 52.2,
+  "qid": "Q33428",
+  "types": "city; provincial city of Vietnam",
+  "distKm": 3,
+  "flags": [
+   "POP Vinh 790000 views 52.2"
+  ]
+ },
+ "visakhapatnam": {
+  "title": "Visakhapatnam",
+  "asked": "Visakhapatnam",
+  "how": "v1 title+coords",
+  "views": 798.6,
+  "qid": "Q200016",
+  "types": "metropolis",
+  "distKm": 10,
+  "flags": []
+ },
+ "vladivostok-russia": {
+  "title": "Vladivostok",
+  "asked": "Vladivostok",
+  "how": "v1 title+coords",
+  "views": 1351.9,
+  "qid": "Q959",
+  "types": "city; city/town in Russia",
+  "distKm": 3,
+  "flags": []
+ },
+ "volgograd-ru": {
+  "title": "Volgograd",
+  "asked": "Volgograd",
+  "how": "v1 title+coords",
+  "views": 1186.7,
+  "qid": "Q914",
+  "types": "city or town; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "waikiki": {
+  "title": "Waikīkī",
+  "asked": "Waikīkī",
+  "how": "v1 title+coords",
+  "views": 195.4,
+  "qid": "Q254861",
+  "types": "beach; neighborhood",
+  "distKm": 0,
+  "flags": []
+ },
+ "warsaw-poland": {
+  "title": "Warsaw",
+  "asked": "Warsaw",
+  "how": "v1 title+coords",
+  "views": 2181.8,
+  "qid": "Q270",
+  "types": "city; administrative territorial entity; metropolis; seat of government; largest city; national capital; big city; city with powiat rights in Poland; tourist destination",
+  "distKm": 0,
+  "flags": []
+ },
+ "washington-dc-usa": {
+  "title": "Washington, D.C.",
+  "asked": "Washington, D.C.",
+  "how": "v1 title+coords",
+  "views": 6931.7,
+  "qid": "Q61",
+  "types": "human settlement; federal capital; big city; city in the United States; planned national capital; political city",
+  "distKm": 2,
+  "flags": []
+ },
+ "wellington-new-zealand": {
+  "title": "Wellington",
+  "asked": "Wellington",
+  "how": "v1 title+coords",
+  "views": 1396.0,
+  "qid": "Q23661",
+  "types": "urban area; big city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "whitehorse-yukon": {
+  "title": "Whitehorse",
+  "asked": "Whitehorse",
+  "how": "v1 title+coords",
+  "views": 878.0,
+  "qid": "Q2055",
+  "types": "city; provincial or territorial capital city in Canada",
+  "distKm": 0,
+  "flags": []
+ },
+ "windhoek-namibia": {
+  "title": "Windhoek",
+  "asked": "Windhoek",
+  "how": "v1 title+coords",
+  "views": 757.7,
+  "qid": "Q3935",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "winnipeg-ca": {
+  "title": "Winnipeg",
+  "asked": "Winnipeg",
+  "how": "v1 title+coords",
+  "views": 1533.7,
+  "qid": "Q2135",
+  "types": "big city; city in Canada",
+  "distKm": 1,
+  "flags": []
+ },
+ "wrocaw-pl": {
+  "title": "Wrocław",
+  "asked": "Wrocław",
+  "how": "v1 title+coords",
+  "views": 1325.1,
+  "qid": "Q1799",
+  "types": "city with powiat rights in Poland",
+  "distKm": 1,
+  "flags": []
+ },
+ "wuhan-cn": {
+  "title": "Wuhan",
+  "asked": "Wuhan",
+  "how": "v1 title+coords",
+  "views": 957.9,
+  "qid": "Q11746",
+  "types": "sub-province-level division; prefecture-level city of China; human settlement; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "xiamen-cn": {
+  "title": "Xiamen",
+  "asked": "Xiamen",
+  "how": "v1 title+coords",
+  "views": 566.6,
+  "qid": "Q68744",
+  "types": "prefecture-level city of China; sub-province-level division; big city; city specifically designated in the state plan",
+  "distKm": 1,
+  "flags": []
+ },
+ "xian-china": {
+  "title": "Xi'an",
+  "asked": "Xi'an",
+  "how": "v1 title+coords",
+  "views": 1261.9,
+  "qid": "Q5826",
+  "types": "megacity; sub-province-level division; prefecture-level city of China; big city; ancient city; former capital; provincial capital",
+  "distKm": 9,
+  "flags": []
+ },
+ "xining-cn": {
+  "title": "Xining",
+  "asked": "Xining",
+  "how": "v1 title+coords",
+  "views": 230.8,
+  "qid": "Q69060",
+  "types": "city; prefecture-level city of China; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "yangon": {
+  "title": "Yangon",
+  "asked": "Yangon",
+  "how": "v1 title+coords",
+  "views": 799.4,
+  "qid": "Q37995",
+  "types": "city; big city; state capital; largest city; town in Myanmar",
+  "distKm": 1,
+  "flags": []
+ },
+ "yantai-cn": {
+  "title": "Yantai",
+  "asked": "Yantai",
+  "how": "v1 title+coords",
+  "views": 151.1,
+  "qid": "Q210493",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 1,
+  "flags": [
+   "POP Yantai 7102100 views 151.1"
+  ]
+ },
+ "yaounde-cm": {
+  "title": "Yaoundé",
+  "asked": "Yaoundé",
+  "how": "v1 title+coords",
+  "views": 426.6,
+  "qid": "Q3808",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "yaren-nauru": {
+  "title": "Yaren",
+  "asked": "Yaren",
+  "how": "v1 title+coords",
+  "views": 130.9,
+  "qid": "Q31026",
+  "types": "town; district of Nauru; de facto national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "yaroslavl-ru": {
+  "title": "Yaroslavl",
+  "asked": "Yaroslavl",
+  "how": "v1 title+coords",
+  "views": 241.5,
+  "qid": "Q2423",
+  "types": "city of oblast significance; city or town; big city; urban okrug in Russia",
+  "distKm": 1,
+  "flags": []
+ },
+ "yazd": {
+  "title": "Yazd",
+  "asked": "Yazd",
+  "how": "v1 title+coords",
+  "views": 272.1,
+  "qid": "Q182394",
+  "types": "big city; city of Iran",
+  "distKm": 3,
+  "flags": []
+ },
+ "yekaterinburg-ru": {
+  "title": "Yekaterinburg",
+  "asked": "Yekaterinburg",
+  "how": "v1 title+coords",
+  "views": 1214.3,
+  "qid": "Q887",
+  "types": "big city; city/town in Russia",
+  "distKm": 2,
+  "flags": []
+ },
+ "yellowknife-nwt": {
+  "title": "Yellowknife",
+  "asked": "Yellowknife",
+  "how": "v1 title+coords",
+  "views": 936.8,
+  "qid": "Q2061",
+  "types": "city; municipality",
+  "distKm": 0,
+  "flags": []
+ },
+ "yerevan": {
+  "title": "Yerevan",
+  "asked": "Yerevan",
+  "how": "v1 title+coords",
+  "views": 1224.0,
+  "qid": "Q1953",
+  "types": "big city; first-level administrative division; city or town in Armenia",
+  "distKm": 0,
+  "flags": []
+ },
+ "yichang-cn": {
+  "title": "Yichang",
+  "asked": "Yichang",
+  "how": "v1 title+coords",
+  "views": 78.2,
+  "qid": "Q71266",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 3,
+  "flags": [
+   "POP Yichang 1350150 views 78.2"
+  ]
+ },
+ "yokohama-jp": {
+  "title": "Yokohama",
+  "asked": "Yokohama",
+  "how": "v1 title+coords",
+  "views": 1015.0,
+  "qid": "Q38283",
+  "types": "city of Japan; satellite city; commuter town; city designated by government ordinance; port city; prefectural capital of Japan",
+  "distKm": 2,
+  "flags": []
+ },
+ "zagreb-croatia": {
+  "title": "Zagreb",
+  "asked": "Zagreb",
+  "how": "v1 title+coords",
+  "views": 1168.6,
+  "qid": "Q1435",
+  "types": "big city; town in Croatia",
+  "distKm": 0,
+  "flags": []
+ },
+ "zajecar": {
+  "title": "Zaječar",
+  "asked": "Zaječar",
+  "how": "v1 title+coords",
+  "views": 43.4,
+  "qid": "Q144495",
+  "types": "human settlement; cadastral municipality of Serbia; Serbian city",
+  "distKm": 3,
+  "flags": []
+ },
+ "zamboanga": {
+  "title": "Zamboanga City",
+  "asked": "Zamboanga City",
+  "how": "v1 title+coords",
+  "views": 455.0,
+  "qid": "Q1629",
+  "types": "highly urbanized city",
+  "distKm": 1,
+  "flags": []
+ },
+ "zanzibar-city-tanzania": {
+  "title": "Zanzibar City",
+  "asked": "Zanzibar City",
+  "how": "v1 title+coords",
+  "views": 315.1,
+  "qid": "Q2222874",
+  "types": "city; administrative territorial entity; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "zaragoza-es": {
+  "title": "Zaragoza",
+  "asked": "Zaragoza",
+  "how": "v1 title+coords",
+  "views": 880.3,
+  "qid": "Q10305",
+  "types": "municipality of Spain",
+  "distKm": 1,
+  "flags": []
+ },
+ "zaranj": {
+  "title": "Zaranj",
+  "asked": "Zaranj",
+  "how": "v1 title+coords",
+  "views": 53.5,
+  "qid": "Q475802",
+  "types": "city; border city",
+  "distKm": 0,
+  "flags": []
+ },
+ "zermatt-ch": {
+  "title": "Zermatt",
+  "asked": "Zermatt",
+  "how": "v1 title+coords",
+  "views": 402.9,
+  "qid": "Q27494",
+  "types": "municipality of Switzerland; city of Switzerland; carfree city",
+  "distKm": 0,
+  "flags": []
+ },
+ "zhengzhou-cn": {
+  "title": "Zhengzhou",
+  "asked": "Zhengzhou",
+  "how": "v1 title+coords",
+  "views": 429.6,
+  "qid": "Q30340",
+  "types": "prefecture-level city of China; big city",
+  "distKm": 3,
+  "flags": []
+ },
+ "zurich-switzerland": {
+  "title": "Zurich",
+  "asked": "Zurich",
+  "how": "v1 title+coords",
+  "views": 1436.0,
+  "qid": "Q72",
+  "types": "municipality of Switzerland; college town; largest city; cantonal capital of Switzerland",
+  "distKm": 0,
+  "flags": []
+ },
+ "bogota-colombia": {
+  "title": "Bogotá",
+  "asked": "Bogotá",
+  "how": "v2 auto",
+  "views": 1546.8,
+  "qid": "Q2841",
+  "types": "capital district or territory; human settlement; direct-controlled municipality; municipality of Colombia; largest city; big city; first-level administrative division",
+  "distKm": 0,
+  "flags": []
+ },
+ "tirana-albania": {
+  "title": "Tirana",
+  "asked": "Tirana",
+  "how": "v2 auto",
+  "views": 898.2,
+  "qid": "Q19689",
+  "types": "city; capital city; human settlement; large city",
+  "distKm": 0,
+  "flags": []
+ },
+ "andorra-la-vella-andorra": {
+  "title": "Andorra la Vella",
+  "asked": "Andorra la Vella",
+  "how": "v2 auto",
+  "views": 350.4,
+  "qid": "Q1863",
+  "types": "city; border city; settlement of Andorra; national capital",
+  "distKm": 2,
+  "flags": []
+ },
+ "st-johns-antigua-and-barbuda": {
+  "title": "St. John's, Antigua and Barbuda",
+  "asked": "St. John's, Antigua and Barbuda",
+  "how": "v2 auto",
+  "views": 252.7,
+  "qid": "Q36262",
+  "types": "city",
+  "distKm": 1,
+  "flags": []
+ },
+ "nassau-bahamas": {
+  "title": "Nassau, Bahamas",
+  "asked": "Nassau, Bahamas",
+  "how": "v2 auto",
+  "views": 989.3,
+  "qid": "Q2467",
+  "types": "city; capital city; administrative territorial entity; transport infrastructure; big city",
+  "distKm": 4,
+  "flags": []
+ },
+ "manama-bahrain": {
+  "title": "Manama",
+  "asked": "Manama",
+  "how": "v2 auto",
+  "views": 529.7,
+  "qid": "Q3882",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "bridgetown-barbados": {
+  "title": "Bridgetown",
+  "asked": "Bridgetown",
+  "how": "v2 auto",
+  "views": 386.7,
+  "qid": "Q36168",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "bandar-seri-begawan-brunei": {
+  "title": "Bandar Seri Begawan",
+  "asked": "Bandar Seri Begawan",
+  "how": "v2 auto",
+  "views": 386.6,
+  "qid": "Q9279",
+  "types": "capital city; municipality",
+  "distKm": 1,
+  "flags": []
+ },
+ "praia-cabo-verde": {
+  "title": "Praia",
+  "asked": "Praia",
+  "how": "v2 auto",
+  "views": 787.3,
+  "qid": "Q3751",
+  "types": "city; big city",
+  "distKm": 2,
+  "flags": []
+ },
+ "moroni-comoros": {
+  "title": "Moroni, Comoros",
+  "asked": "Moroni, Comoros",
+  "how": "v2 auto",
+  "views": 232.2,
+  "qid": "Q3901",
+  "types": "city; big city; federal capital; human settlement",
+  "distKm": 2,
+  "flags": []
+ },
+ "san-jose-costa-rica": {
+  "title": "San José, Costa Rica",
+  "asked": "San José, Costa Rica",
+  "how": "v2 auto",
+  "views": 490.3,
+  "qid": "Q3070",
+  "types": "city; administrative territorial entity; big city; largest city",
+  "distKm": 1,
+  "flags": []
+ },
+ "nicosia-cyprus": {
+  "title": "Nicosia",
+  "asked": "Nicosia",
+  "how": "v2 auto",
+  "views": 943.9,
+  "qid": "Q3856",
+  "types": "big city; city in Cyprus; town divided by border",
+  "distKm": 2,
+  "flags": []
+ },
+ "djibouti-city-djibouti": {
+  "title": "Djibouti City",
+  "asked": "Djibouti City",
+  "how": "hand",
+  "views": 211.2,
+  "qid": "Q3604",
+  "types": "city; port city; big city; first-level administrative division",
+  "distKm": 2,
+  "flags": []
+ },
+ "roseau-dominica": {
+  "title": "Roseau",
+  "asked": "Roseau",
+  "how": "v2 auto",
+  "views": 143.8,
+  "qid": "Q36281",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "malabo-equatorial-guinea": {
+  "title": "Malabo",
+  "asked": "Malabo",
+  "how": "v2 auto",
+  "views": 384.4,
+  "qid": "Q3818",
+  "types": "city; capital city; big city; port city; former national capital",
+  "distKm": 1,
+  "flags": []
+ },
+ "mbabane-eswatini": {
+  "title": "Mbabane",
+  "asked": "Mbabane",
+  "how": "v2 auto",
+  "views": 309.3,
+  "qid": "Q3904",
+  "types": "city",
+  "distKm": 1,
+  "flags": []
+ },
+ "banjul-gambia": {
+  "title": "Banjul",
+  "asked": "Banjul",
+  "how": "v2 auto",
+  "views": 297.3,
+  "qid": "Q3726",
+  "types": "city; region of the Gambia",
+  "distKm": 0,
+  "flags": []
+ },
+ "st-georges-grenada": {
+  "title": "St. George's, Grenada",
+  "asked": "St. George's, Grenada",
+  "how": "v2 auto",
+  "views": 194.9,
+  "qid": "Q41547",
+  "types": "city",
+  "distKm": 1,
+  "flags": []
+ },
+ "bissau-guinea-bissau": {
+  "title": "Bissau",
+  "asked": "Bissau",
+  "how": "v2 auto",
+  "views": 244.3,
+  "qid": "Q3739",
+  "types": "city; administrative territorial entity; big city",
+  "distKm": 4,
+  "flags": []
+ },
+ "georgetown-guyana": {
+  "title": "Georgetown, Guyana",
+  "asked": "Georgetown, Guyana",
+  "how": "v2 auto",
+  "views": 661.7,
+  "qid": "Q10717",
+  "types": "city; port city; largest city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "kuwait-city-kuwait": {
+  "title": "Kuwait City",
+  "asked": "Kuwait City",
+  "how": "v2 auto",
+  "views": 564.0,
+  "qid": "Q35178",
+  "types": "city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "maseru-lesotho": {
+  "title": "Maseru",
+  "asked": "Maseru",
+  "how": "v2 auto",
+  "views": 233.9,
+  "qid": "Q3909",
+  "types": "city; border city; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "port-louis-mauritius": {
+  "title": "Port Louis",
+  "asked": "Port Louis",
+  "how": "v2 auto",
+  "views": 363.9,
+  "qid": "Q3929",
+  "types": "city; big city; port city; first-level administrative division",
+  "distKm": 1,
+  "flags": []
+ },
+ "podgorica-montenegro": {
+  "title": "Podgorica",
+  "asked": "Podgorica",
+  "how": "v2 auto",
+  "views": 597.7,
+  "qid": "Q23564",
+  "types": "city; big city; first-level administrative division",
+  "distKm": 1,
+  "flags": []
+ },
+ "skopje-north-macedonia": {
+  "title": "Skopje",
+  "asked": "Skopje",
+  "how": "v2 auto",
+  "views": 971.9,
+  "qid": "Q384",
+  "types": "capital city; big city; tourist destination",
+  "distKm": 0,
+  "flags": []
+ },
+ "basseterre-st-kitts-and-nevis": {
+  "title": "Basseterre",
+  "asked": "Basseterre",
+  "how": "v2 auto",
+  "views": 239.0,
+  "qid": "Q41295",
+  "types": "city; federal capital",
+  "distKm": 2,
+  "flags": []
+ },
+ "kingstown-st-vincent-and-grenadines": {
+  "title": "Kingstown",
+  "asked": "Kingstown",
+  "how": "v2 auto",
+  "views": 128.2,
+  "qid": "Q41474",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "san-marino-san-marino": {
+  "title": "City of San Marino",
+  "asked": "City of San Marino",
+  "how": "hand",
+  "views": 185.6,
+  "qid": "Q1848",
+  "types": "city; border city; municipality of San Marino",
+  "distKm": 1,
+  "flags": []
+ },
+ "sao-tome-sao-tome-and-principe": {
+  "title": "São Tomé",
+  "asked": "São Tomé",
+  "how": "v2 auto",
+  "views": 312.1,
+  "qid": "Q3932",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "victoria-seychelles": {
+  "title": "Victoria, Seychelles",
+  "asked": "Victoria, Seychelles",
+  "how": "v2 auto",
+  "views": 327.7,
+  "qid": "Q3940",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "juba-south-sudan": {
+  "title": "Juba",
+  "asked": "Juba",
+  "how": "v2 auto",
+  "views": 466.2,
+  "qid": "Q1947",
+  "types": "city; federal capital; administrative territorial entity; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "paramaribo-suriname": {
+  "title": "Paramaribo",
+  "asked": "Paramaribo",
+  "how": "v2 auto",
+  "views": 511.6,
+  "qid": "Q3001",
+  "types": "city; administrative territorial entity; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "port-of-spain-trinidad-and-tobago": {
+  "title": "Port of Spain",
+  "asked": "Port of Spain",
+  "how": "v2 auto",
+  "views": 678.7,
+  "qid": "Q39178",
+  "types": "city; political territorial entity; regional corporation or municipality of Trinidad and Tobago",
+  "distKm": 2,
+  "flags": []
+ },
+ "montevideo-uruguay": {
+  "title": "Montevideo",
+  "asked": "Montevideo",
+  "how": "v2 auto",
+  "views": 1162.5,
+  "qid": "Q1335",
+  "types": "million city; largest city; national capital; primate city",
+  "distKm": 2,
+  "flags": []
+ },
+ "belmopan-bz": {
+  "title": "Belmopan",
+  "asked": "Belmopan",
+  "how": "v2 auto",
+  "views": 239.5,
+  "qid": "Q3043",
+  "types": "city; human settlement",
+  "distKm": 1,
+  "flags": []
+ },
+ "castries-lc": {
+  "title": "Castries",
+  "asked": "Castries",
+  "how": "v2 auto",
+  "views": 162.5,
+  "qid": "Q41699",
+  "types": "city; town",
+  "distKm": 0,
+  "flags": []
+ },
+ "funchal-pt": {
+  "title": "Funchal",
+  "asked": "Funchal",
+  "how": "v2 auto",
+  "views": 1009.3,
+  "qid": "Q25444",
+  "types": "municipality of Portugal",
+  "distKm": 1,
+  "flags": []
+ },
+ "gdansk-pl": {
+  "title": "Gdańsk",
+  "asked": "Gdańsk",
+  "how": "v2 auto",
+  "views": 1424.0,
+  "qid": "Q1792",
+  "types": "Hanseatic city; big city; port city; city with powiat rights in Poland",
+  "distKm": 0,
+  "flags": []
+ },
+ "krakow-pl": {
+  "title": "Kraków",
+  "asked": "Kraków",
+  "how": "v2 hand-corrected title (country-name/accent collision)",
+  "views": 1492.1,
+  "qid": "Q31487",
+  "types": "tourist destination; big city; city or town; place with town rights and privileges; city with powiat rights in Poland",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "stavanger-no": {
+  "title": "Stavanger",
+  "asked": "Stavanger",
+  "how": "v2 auto",
+  "views": 499.9,
+  "qid": "Q25416",
+  "types": "municipality of Norway",
+  "distKm": 0,
+  "flags": []
+ },
+ "ljubljana-si": {
+  "title": "Ljubljana",
+  "asked": "Ljubljana",
+  "how": "v2 auto",
+  "views": 1402.9,
+  "qid": "Q437",
+  "types": "city; big city; largest city; national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "sucre-bolivia": {
+  "title": "Sucre",
+  "asked": "Sucre",
+  "how": "v2 auto",
+  "views": 355.7,
+  "qid": "Q2907",
+  "types": "city; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "gitega-burundi": {
+  "title": "Gitega",
+  "asked": "Gitega",
+  "how": "v2 auto",
+  "views": 183.5,
+  "qid": "Q167551",
+  "types": "city",
+  "distKm": 0,
+  "flags": []
+ },
+ "yamoussoukro-ivory-coast": {
+  "title": "Yamoussoukro",
+  "asked": "Yamoussoukro",
+  "how": "v2 auto",
+  "views": 367.2,
+  "qid": "Q3768",
+  "types": "big city; commune of Ivory Coast",
+  "distKm": 0,
+  "flags": []
+ },
+ "ramallah-palestine": {
+  "title": "Ramallah",
+  "asked": "Ramallah",
+  "how": "v2 hand-corrected title (country-name/accent collision)",
+  "views": 760.4,
+  "qid": "Q158119",
+  "types": "city; de facto national capital; Municipality of Palestine type A",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "lima-peru": {
+  "title": "Lima",
+  "asked": "Lima",
+  "how": "v2 auto",
+  "views": 1290.1,
+  "qid": "Q2868",
+  "types": "city; administrative territorial entity; megacity; largest city; big city; geographical feature",
+  "distKm": 2,
+  "flags": []
+ },
+ "sri-jayawardenepura-kotte": {
+  "title": "Sri Jayawardenepura Kotte",
+  "asked": "Sri Jayawardenepura Kotte",
+  "how": "v2 auto",
+  "views": 335.3,
+  "qid": "Q41963",
+  "types": "de jure national capital",
+  "distKm": 0,
+  "flags": []
+ },
+ "bern-switzerland": {
+  "title": "Bern",
+  "asked": "Bern",
+  "how": "v2 auto",
+  "views": 973.5,
+  "qid": "Q70",
+  "types": "city; administrative territorial entity; municipality of Switzerland; big city; college town; cantonal capital of Switzerland; city of Switzerland; federal capital; federal city",
+  "distKm": 0,
+  "flags": []
+ },
+ "ashgabat-turkmenistan": {
+  "title": "Ashgabat",
+  "asked": "Ashgabat",
+  "how": "v2 auto",
+  "views": 750.4,
+  "qid": "Q23438",
+  "types": "city of Turkmenistan; administrative territorial entity of Turkmenistan; big city; first-level administrative division",
+  "distKm": 0,
+  "flags": []
+ },
+ "vatican-city": {
+  "title": "Vatican City",
+  "asked": "Vatican City",
+  "how": "v2 auto",
+  "views": 3988.3,
+  "qid": "Q237",
+  "types": "country; landlocked country; city-state; enclave; urban area; tourist destination; sovereign state; confessional state; religious complex; sacerdotal state; successor state; institutional complex",
+  "distKm": 0,
+  "flags": []
+ }
+}

@@ -1,0 +1,14 @@
+243 parameter combinations
+paris-france           {1: 231, 2: 12}
+houston-usa            {2: 81, 3: 81, 4: 18, 5: 63}
+seattle-usa            {2: 69, 3: 111, 4: 63}
+portland-oregon-usa    {3: 108, 4: 54, 6: 72, 7: 9}
+nagpur-in              {3: 60, 4: 183}
+hanoi-vietnam          {5: 162, 6: 81}
+bamako                 {7: 162, 8: 81}
+honolulu-usa           {6: 36, 7: 72, 8: 54, 9: 81}
+alice-springs          {7: 81, 8: 162}
+abala                  {8: 9, 9: 153, 10: 81}
+funafuti-tuvalu        {10: 243}
+nuuk-greenland         {1: 54, 2: 189}
+tristan-da-cunha       {3: 12, 4: 135, 5: 15, 7: 81}
