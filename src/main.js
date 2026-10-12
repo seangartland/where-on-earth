@@ -6129,10 +6129,10 @@ expeditionPicker.addEventListener('click', (event) => {
 // and on each filter change; images lazy-load so a full 986-card passport only
 // fetches what scrolls into view.
 const DIFFICULTY_BANDS = [
-  { key: 'easy', label: 'Easy', min: 1, max: 3 },
-  { key: 'medium', label: 'Medium', min: 4, max: 6 },
-  { key: 'hard', label: 'Hard', min: 7, max: 8 },
-  { key: 'expert', label: 'Expert', min: 9, max: 10 },
+  { key: 'common', label: 'Common', min: 1, max: 3 },
+  { key: 'uncommon', label: 'Uncommon', min: 4, max: 6 },
+  { key: 'rare', label: 'Rare', min: 7, max: 8 },
+  { key: 'legendary', label: 'Legendary', min: 9, max: 10 },
 ];
 const FLAG_RE = /[\u{1F1E6}-\u{1F1FF}]{2}/u;
 const AUDIT_FLAGS_KEY = 'where-on-earth-audit-flags';
@@ -6444,7 +6444,7 @@ passportScreen.innerHTML = `
       </div>
       <div class="pp-filters" data-pp="filters" hidden>
         <select data-pp="continent" aria-label="Filter by continent" hidden><option value="">All continents</option></select>
-        <select data-pp="band" aria-label="Filter by difficulty"><option value="">All difficulties</option></select>
+        <select data-pp="band" aria-label="Filter by rarity"><option value="">All rarities</option></select>
         <select data-pp="sort" aria-label="Sort by">
           <option value="atlas">Atlas</option>
           <option value="recent">Most recent</option>
@@ -6834,7 +6834,7 @@ passportShareScreen.addEventListener('click', (event) => { if (event.target === 
 
 
 ppEls.continent.append(...CONTINENT_ORDER.map((name) => new Option(name, name)));
-ppEls.band.append(...DIFFICULTY_BANDS.map((b) => new Option(`${b.label} (${b.min}–${b.max})`, b.key)));
+ppEls.band.append(...DIFFICULTY_BANDS.map((b) => new Option(b.label, b.key)));
 
 let ppAll = []; // every location for the open page (passportAllEntries()), filtered client-side
 
@@ -7682,8 +7682,6 @@ postcardStyle.textContent = `
 .ppd-front .prox-badge i { font-size: 14px; }
 .ppd-topline { display: flex; align-items: center; gap: 10px; min-height: 29px; margin-bottom: 10px; padding-right: 38px; padding-left: 3px; }
 .ppd-rarity { flex: none; }
-.ppd-difficulty { display: flex; align-items: center; gap: 7px; color: #9fa9bb; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.ppd-difficulty strong { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #566074; border-radius: 50%; background: #242a3b; color: #fff; font-size: 13px; letter-spacing: 0; }
 .ppd-front { position: relative; }
 .ppd-front .pp-photo { aspect-ratio: 16 / 9; border-radius: 15px; }
 .ppd-front .pp-photo::after { font-size: 44px; }
@@ -7727,7 +7725,7 @@ postcardScreen.innerHTML = `
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
-    <div class="ppd-topline"><span class="ppd-rarity" data-ppd="rarity"></span><span class="ppd-difficulty">Difficulty <strong data-ppd="difficulty"></strong></span></div>
+    <div class="ppd-topline"><span class="ppd-rarity" data-ppd="rarity"></span></div>
     <div class="ppd-front">
       <div class="pp-photo" data-ppd="photo"></div>
     </div>
@@ -7770,7 +7768,6 @@ function fillPostcard(entry) {
   // Unearned cards still advertise their rarity in the detail view.
   ppdEls.card.classList.add(`rarity-${rarity}`);
   ppdEls.rarity.textContent = rarity.toUpperCase();
-  ppdEls.difficulty.textContent = String(item.difficulty || 5);
   ppdEls.photo.replaceChildren();
   if (item.image) {
     const img = document.createElement('img');
