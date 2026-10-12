@@ -7055,18 +7055,32 @@ function ppGroupHead(name, text, onCollapse) {
 
 function renderPassportJump() {
   if (!ppDexGroups.length) { ppEls.jump.replaceChildren(); return; }
-  ppEls.jump.replaceChildren(...ppDexGroups.map(({ section, name, head }) => {
+  ppEls.jump.replaceChildren(...ppDexGroups.map((group) => {
+    const { section, name, head } = group;
     const chip = document.createElement('button');
     chip.type = 'button';
     const total = section.querySelectorAll('.pp-slot').length;
     const visited = section.querySelectorAll('.pp-slot:not(.is-mystery)').length;
     chip.textContent = `${name} ${visited}/${total}`;
+    group.chipEl = chip;
     chip.addEventListener('click', () => {
       head.ppExpand();
       section.scrollIntoView({ block: 'start' });
     });
     return chip;
   }));
+}
+
+function ppFilteredGroupCount(name) {
+  const band = ppEls.band.value;
+  return ppDexLis.filter(({ li, entry }) => {
+    const statusMatch = ppStatus === 'all'
+      ? li.dataset.status !== 'unvisited'
+      : li.dataset.status === ppStatus;
+    return (entry.continent || 'Other') === name
+      && statusMatch
+      && (!band || entry.band === band);
+  }).length;
 }
 
 // Build once per open (or per sort change): every slot renders once, kept in
@@ -7140,8 +7154,13 @@ function applyPassportFilters() {
     li.hidden = !show;
     if (show) shown += 1;
   }
-  for (const { section } of ppDexGroups) {
+  for (const group of ppDexGroups) {
+    const { section, name, head, chipEl } = group;
     section.hidden = ![...section.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
+    const total = section.querySelectorAll('.pp-slot').length;
+    const count = ppFilteredGroupCount(name);
+    head.querySelector('.pp-group-head-text').textContent = `${name} · ${count.toLocaleString()}/${total.toLocaleString()}`;
+    if (chipEl) chipEl.textContent = `${name} ${count.toLocaleString()}/${total.toLocaleString()}`;
   }
   const filtered = ppStatus !== 'all' || band || continent;
   ppEls.subrow.hidden = !filtered;
