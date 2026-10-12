@@ -4360,7 +4360,7 @@ function scoreEmoji(base) {
 }
 
 const COUNTRY_FLAGS = {
-  Scotland: '🏴', England: '🏴', 'Northern Ireland': '🇬🇧', Wales: '🏴',
+  Scotland: '🏴󐁧󐁢󐁳󐁣󐁴󐁿', England: '🏴󐁧󐁢󐁥󐁮󐁧󐁿', 'Northern Ireland': '🇬🇧', Wales: '🏴󐁧󐁢󐁷󐁬󐁳󐁿',
   'International Waters': '🌊', Uruguay: '🇺🇾', 'United States': '🇺🇸',
   Suriname: '🇸🇷', Botswana: '🇧🇼', Guyana: '🇬🇾', Ukraine: '🇺🇦',
   Comoros: '🇰🇲', Niue: '🇳🇺', 'Cape Verde': '🇨🇻', Latvia: '🇱🇻',
