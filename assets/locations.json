@@ -866,7 +866,7 @@
     "lat": 10.96854,
     "lng": -74.78132,
     "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Las_Cabezas_de_San_Juan_PR_Fajardo_IMG_2385_Laguna_Grande.JPG/500px-Las_Cabezas_de_San_Juan_PR_Fajardo_IMG_2385_Laguna_Grande.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Panor%C3%A1mica_general_de_Barranquilla.JPG/500px-Panor%C3%A1mica_general_de_Barranquilla.JPG",
     "country": "Colombia",
     "continent": "South America",
     "sets": [],
@@ -1559,7 +1559,7 @@
     "lat": 53.8,
     "lng": -2.23333,
     "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Burnley_Montage.jpg/500px-Burnley_Montage.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/The_%27Old_Red_Lion%27%2C_Burnley%2C_Lancashire_-_geograph.org.uk_-_545717.jpg/500px-The_%27Old_Red_Lion%27%2C_Burnley%2C_Lancashire_-_545717.jpg",
     "country": "England",
     "continent": "Europe",
     "sets": [],
@@ -2638,23 +2638,6 @@
     "category": "city"
   },
   {
-    "id": "dettifoss",
-    "clue": "Dettifoss, Iceland 🇮🇸",
-    "fact": "Dettifoss plunges 11 metres in two steps on the Jökulsá river, and in summer the canyon fills with a permanent grey drizzle of mist.",
-    "lat": 65.8145,
-    "lng": -16.3853,
-    "difficulty": 5,
-    "short": "Dettifoss",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Dettifoss_TimBekaert.JPG/500px-Dettifoss_TimBekaert.JPG",
-    "country": "Iceland",
-    "continent": "Europe",
-    "sets": [
-      "Waterfalls"
-    ],
-    "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "dhaka",
     "short": "Dhaka",
     "clue": "Dhaka, Bangladesh 🇧🇩",
@@ -3268,24 +3251,6 @@
     "category": "city"
   },
   {
-    "id": "geirangerfjord-no",
-    "short": "Geirangerfjord",
-    "clue": "Geirangerfjord, Norway 🇳🇴",
-    "fact": "This UNESCO-listed arm of the Storfjorden is lined with waterfalls like the Seven Sisters, and abandoned cliffside farms cling to ledges hundreds of metres above the water.",
-    "lat": 62.1049,
-    "lng": 7.0943,
-    "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Geirangerfjord_.jpg/500px-Geirangerfjord_.jpg",
-    "country": "Norway",
-    "continent": "Europe",
-    "sets": [
-      "Nordic Coast",
-      "Fjords & Glaciers"
-    ],
-    "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
-    "category": "city"
-  },
-  {
     "id": "geneva",
     "short": "Geneva",
     "fact": "This lakeside city hosts the European headquarters of the United Nations and gave its name to the Geneva Conventions.",
@@ -3315,21 +3280,6 @@
       "Colonial Towns"
     ],
     "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
-    "id": "geysir-d34-42",
-    "short": "Geysir",
-    "clue": "Geysir, Iceland 🇮🇸",
-    "fact": "Famous geothermal area.",
-    "lat": 64.312,
-    "lng": -20.3,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Erupting_geysir.jpg/500px-Erupting_geysir.jpg",
-    "country": "Iceland",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
     "category": "city"
   },
   {
@@ -3370,7 +3320,7 @@
     "lat": 30.00944,
     "lng": 31.20861,
     "difficulty": 4,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Grand_Egyptian_Museum.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Giza_Corniche.jpg/500px-Giza_Corniche.jpg",
     "country": "Egypt",
     "continent": "Africa",
     "sets": [],
@@ -3513,21 +3463,6 @@
     "category": "city"
   },
   {
-    "id": "guggenheim-bilbao",
-    "short": "Guggenheim Bilbao",
-    "clue": "Guggenheim Bilbao, Spain 🇪🇸",
-    "fact": "The Guggenheim Museum Bilbao is renowned for its innovative titanium-clad architecture.",
-    "lat": 43.2687,
-    "lng": -2.934,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Museo_Guggenheim%2C_Bilbao_%2831273245344%29.jpg/500px-Museo_Guggenheim%2C_Bilbao_%2831273245344%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Spain",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F2·A1·K0·C1·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "guilin-cn",
     "short": "Guilin",
     "clue": "Guilin, China 🇨🇳",
@@ -3540,23 +3475,6 @@
     "continent": "Asia",
     "sets": [],
     "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-    "category": "city"
-  },
-  {
-    "id": "gullfoss",
-    "short": "Gullfoss",
-    "clue": "Gullfoss, Iceland 🇮🇸",
-    "fact": "A local farmer's daughter, Sigríður Tómasdóttir, is credited with fighting plans to dam it for hydroelectric power.",
-    "lat": 64.3271,
-    "lng": -20.1199,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Gullfoss_from_the_Air_%28cropped%29.jpg/500px-Gullfoss_from_the_Air_%28cropped%29.jpg",
-    "country": "Iceland",
-    "continent": "Europe",
-    "sets": [
-      "Waterfalls"
-    ],
-    "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
     "category": "city"
   },
   {
@@ -3617,21 +3535,6 @@
     "continent": "North America",
     "sets": [],
     "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
-    "id": "hallgrímskirkja-d34-40",
-    "short": "Hallgrímskirkja",
-    "clue": "Hallgrímskirkja, Iceland 🇮🇸",
-    "fact": "Iceland's largest church.",
-    "lat": 64.142,
-    "lng": -21.9266,
-    "difficulty": 4,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Hallgrimskirkja_mai_2026.jpg/500px-Hallgrimskirkja_mai_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Iceland",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
     "category": "city"
   },
   {
@@ -4892,21 +4795,6 @@
     "category": "city"
   },
   {
-    "id": "kirkjufell-iceland",
-    "clue": "Kirkjufell, Iceland 🇮🇸",
-    "fact": "Kirkjufell means misty mountain, and the dark stripes on its flank are stacked layers of basalt lavafalls, frozen like the pages of a book.",
-    "lat": 64.9416,
-    "lng": -23.3066,
-    "difficulty": 5,
-    "short": "Kirkjufell",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Kirkjufell_in_Iceland.jpg/500px-Kirkjufell_in_Iceland.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Iceland",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "kirkuk",
     "short": "Kirkuk",
     "clue": "Kirkuk, Iraq 🇮🇶",
@@ -4914,7 +4802,7 @@
     "lat": 35.46806,
     "lng": 44.39222,
     "difficulty": 5,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Top_views_of_the_Citadel_Market%2C_Kirkuk_01.jpg/500px-Top_views_of_the_Citadel_Market%2C_Kirkuk_01.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Kirkuk_City.jpg/500px-Kirkuk_City.jpg",
     "country": "Iraq",
     "continent": "Asia",
     "sets": [],
@@ -4964,24 +4852,6 @@
     "continent": "Africa",
     "sets": [],
     "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
-    "id": "kjeragbolten",
-    "short": "Kjeragbolten",
-    "clue": "Kjeragbolten, Norway 🇳🇴",
-    "fact": "People pose at the edge of a 984 m drop under the stone, which broke from the mountain in an Ice Age landslide and landed there by chance.",
-    "lat": 58.9769,
-    "lng": 6.7269,
-    "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Kjerakbolten_Freddy_Fish.jpg/500px-Kjerakbolten_Freddy_Fish.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Norway",
-    "continent": "Europe",
-    "sets": [
-      "Nordic Coast",
-      "Fjords & Glaciers"
-    ],
-    "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
     "category": "city"
   },
   {
@@ -5385,21 +5255,6 @@
     "category": "city"
   },
   {
-    "id": "little-mermaid-dk",
-    "short": "The Little Mermaid",
-    "clue": "The Little Mermaid, Denmark 🇩🇰",
-    "fact": "The small bronze honoring Hans Christian Andersen's tale has been beheaded twice by vandals since 1913.",
-    "lat": 55.6929,
-    "lng": 12.5993,
-    "difficulty": 4,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Petite_sir%C3%A8ne_de_Copenhague_%28conforme_%C3%A0_la_loi_danoise%29.JPG/500px-Petite_sir%C3%A8ne_de_Copenhague_%28conforme_%C3%A0_la_loi_danoise%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Denmark",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-    "category": "city"
-  },
-  {
     "id": "liverpool-england",
     "clue": "Liverpool, England",
     "fact": "Liverpool's docks handled more world trade than any other port for most of the nineteenth century, and its band scene gave the world four of the Beatles.",
@@ -5574,21 +5429,6 @@
     "category": "city"
   },
   {
-    "id": "lucca-walls-d34-50",
-    "short": "Lucca Walls",
-    "clue": "Lucca Walls, Italy 🇮🇹",
-    "fact": "Intact Renaissance city walls.",
-    "lat": 43.8429,
-    "lng": 10.5027,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/LuccaWallsDetail.JPG/500px-LuccaWallsDetail.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Italy",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F2·A1·K0·C1·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "lucerne-ch",
     "short": "Lucerne",
     "clue": "Lucerne, Switzerland 🇨🇭",
@@ -5694,21 +5534,6 @@
     "sets": [],
     "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
     "category": "city"
-  },
-  {
-    "id": "lyon-france",
-    "short": "Lyon",
-    "clue": "Lyon, France 🇫🇷",
-    "fact": "Founded by the Romans as Lugdunum where the Rhône meets the Saône, it later became Europe's silk-weaving capital.",
-    "lat": 45.764,
-    "lng": 4.8357,
-    "difficulty": 3,
-    "category": "city",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Lyon-part-dieu-2023.jpg/500px-Lyon-part-dieu-2023.jpg",
-    "country": "France",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F1·A1·K0·C0·S0 → 3"
   },
   {
     "id": "macapa-br",
@@ -6038,21 +5863,6 @@
     "category": "city"
   },
   {
-    "id": "mata-utu-wallis",
-    "clue": "Mata-Utu, France 🇫🇷",
-    "fact": "Mata-Utu is the capital of Wallis and Futuna, perched on a small island in the lagoon of Wallis.",
-    "lat": -13.2833,
-    "lng": -176.1833,
-    "difficulty": 8,
-    "short": "Mata-Utu",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-    "country": "France",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-    "category": "city"
-  },
-  {
     "id": "matera-sassi",
     "clue": "Matera, Italy 🇮🇹",
     "fact": "Matera's cisterns under St Peter's Cave hold a cardinal's hat, a papal tiara and a belt preserved in a single drop of water that has not evaporated since the 1300s.",
@@ -6374,38 +6184,6 @@
     "category": "city"
   },
   {
-    "id": "mohenjo-daro",
-    "clue": "Mohenjo-daro, Pakistan 🇵🇰",
-    "fact": "The Indus metropolis on this mound was abandoned with no sign of warfare, and its drains were laid so carefully that a thousand years of traffic found no need for repairs.",
-    "lat": 27.3298,
-    "lng": 68.1278,
-    "difficulty": 5,
-    "short": "Mohenjo-daro",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Mohenjodaro_-_view_of_the_stupa_mound.JPG/500px-Mohenjodaro_-_view_of_the_stupa_mound.JPG",
-    "country": "Pakistan",
-    "continent": "Asia",
-    "sets": [
-      "Ancient Ruins"
-    ],
-    "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
-    "id": "mole-antonelliana-d34-56",
-    "short": "Mole Antonelliana",
-    "clue": "Mole Antonelliana, Italy 🇮🇹",
-    "fact": "Iconic dome building.",
-    "lat": 45.0696,
-    "lng": 7.6931,
-    "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/2026-06-10-Mole-Antonelliana.jpg/500px-2026-06-10-Mole-Antonelliana.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Italy",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F3·A1·K0·C1·S0 → 6",
-    "category": "city"
-  },
-  {
     "id": "mombasa-kenya",
     "clue": "Mombasa, Kenya 🇰🇪",
     "fact": "Kenya's oldest and second-largest city, an important port on the Indian Ocean.",
@@ -6543,23 +6321,6 @@
     "category": "city"
   },
   {
-    "id": "mt-orohena",
-    "clue": "Mt Orohena, France 🇫🇷",
-    "fact": "Mount Orohena is French Polynesia's highest peak at 2,241 meters, shrouded in cloud most of the year.",
-    "lat": -17.6256,
-    "lng": -149.4753,
-    "difficulty": 8,
-    "short": "Mt Orohena",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-    "country": "France",
-    "continent": "Europe",
-    "sets": [
-      "Pacific Islands"
-    ],
-    "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-    "category": "city"
-  },
-  {
     "id": "multan-pk",
     "short": "Multan",
     "clue": "Multan, Pakistan 🇵🇰",
@@ -6662,7 +6423,7 @@
     "lng": 25.3289,
     "difficulty": 5,
     "category": "city",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/2011_Dimos_Mykonou.png/500px-2011_Dimos_Mykonou.png",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Little_Venice_with_a_view_of_the_ferry_terminal_in_Mykonos%2C_Greece_-_50661522178.jpg/500px-Little_Venice_with_a_view_of_the_ferry_terminal_in_Mykonos%2C_Greece_-_50661522178.jpg",
     "country": "Greece",
     "continent": "Europe",
     "sets": [
@@ -7254,7 +7015,7 @@
     "lat": 46.48572,
     "lng": 30.74383,
     "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Odesa_2021-11-30_2.jpg/500px-Odesa_2021-11-30_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Odessa_panorama.jpg/500px-Odessa_panorama.jpg",
     "country": "Ukraine",
     "continent": "Europe",
     "sets": [
@@ -7571,21 +7332,6 @@
     "category": "city"
   },
   {
-    "id": "pantheon-rome",
-    "clue": "Pantheon, Italy 🇮🇹",
-    "fact": "The Panthe's oculus is one 43-metre hole cut in the dome and the only light the interior gets, so rain falls straight onto the marble floor.",
-    "lat": 41.8986,
-    "lng": 12.4769,
-    "difficulty": 2,
-    "short": "Pantheon",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Pantheon_Rom_1_cropped.jpg/500px-Pantheon_Rom_1_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Italy",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F1·A1·K0·C0·S0 → 2 (neighbor rome-italy)",
-    "category": "city"
-  },
-  {
     "id": "papeete-tahiti",
     "short": "Papeete",
     "clue": "Papeete, French Polynesia 🇵🇫",
@@ -7803,21 +7549,6 @@
     "continent": "Asia",
     "sets": [],
     "difficultyWhy": "F3·A2·K0·C0·S0 → 6"
-  },
-  {
-    "id": "piazza-del-campo-d34-51",
-    "short": "Piazza del Campo",
-    "clue": "Piazza del Campo, Italy 🇮🇹",
-    "fact": "Shell-shaped medieval square.",
-    "lat": 43.3188,
-    "lng": 11.3307,
-    "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Siena5.jpg/500px-Siena5.jpg",
-    "country": "Italy",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-    "category": "city"
   },
   {
     "id": "pittsburgh",
@@ -8426,7 +8157,7 @@
     "lat": 44.05755,
     "lng": 12.56528,
     "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Rimini_Montage.jpg/500px-Rimini_Montage.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/08_b_piazza_cavour_pan_301.jpg/500px-08_b_piazza_cavour_pan_301.jpg",
     "country": "Italy",
     "continent": "Europe",
     "sets": [],
@@ -9364,23 +9095,6 @@
     "category": "city"
   },
   {
-    "id": "skógafoss-d34-43",
-    "short": "Skógafoss",
-    "clue": "Skógafoss, Iceland 🇮🇸",
-    "fact": "Iconic 60m waterfall.",
-    "lat": 63.532,
-    "lng": -19.511,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/2008-05-24_35_Sk%C3%B3gafoss.jpg/500px-2008-05-24_35_Sk%C3%B3gafoss.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Iceland",
-    "continent": "Europe",
-    "sets": [
-      "Waterfalls"
-    ],
-    "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "sofia-bulgaria",
     "clue": "Sofia, Bulgaria 🇧🇬",
     "fact": "Sofia stands on a cluster of mineral springs, and the Romans of Serdica heated their city and their baths with water drawn from the same springs.",
@@ -9936,21 +9650,6 @@
     "category": "city"
   },
   {
-    "id": "thanh-hoa",
-    "short": "Thanh Hóa",
-    "clue": "Thanh Hóa, Vietnam 🇻🇳",
-    "fact": "Thanh Hóa is a Vietnamese city near the stone Hồ Dynasty Citadel, a UNESCO World Heritage Site.",
-    "lat": 19.8,
-    "lng": 105.76667,
-    "difficulty": 8,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-    "country": "Vietnam",
-    "continent": "Asia",
-    "sets": [],
-    "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
-    "category": "city"
-  },
-  {
     "id": "the-hague-nl",
     "short": "The Hague",
     "clue": "The Hague, Netherlands 🇳🇱",
@@ -10347,23 +10046,6 @@
     "category": "city"
   },
   {
-    "id": "uluru",
-    "clue": "Uluru, Australia 🇦🇺",
-    "category": "city",
-    "lat": -25.3444,
-    "lng": 131.0369,
-    "fact": "This 348-metre sandstone monolith in the Northern Territory is sacred to the Anangu, who have lived around it for tens of thousands of years.",
-    "difficulty": 5,
-    "short": "Uluru",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/ULURU.jpg/500px-ULURU.jpg",
-    "country": "Australia",
-    "continent": "Oceania",
-    "sets": [
-      "History Was Here"
-    ],
-    "difficultyWhy": "F1·A3·K0·C0·S0 → 5"
-  },
-  {
     "id": "urumqi-cn",
     "short": "Ürümqi",
     "clue": "Ürümqi, China 🇨🇳",
@@ -10520,23 +10202,6 @@
       "Great Rivers"
     ],
     "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
-    "id": "vatnajökull-d34-44",
-    "short": "Vatnajökull",
-    "clue": "Vatnajökull, Iceland 🇮🇸",
-    "fact": "Europe's largest glacier.",
-    "lat": 64.4,
-    "lng": -16.8,
-    "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Brei%C3%B0amerkurj%C3%B6kull_glacier%2C_Iceland%2C_20240719_1427_2618.jpg/500px-Brei%C3%B0amerkurj%C3%B6kull_glacier%2C_Iceland%2C_20240719_1427_2618.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Iceland",
-    "continent": "Europe",
-    "sets": [
-      "Fjords & Glaciers"
-    ],
-    "difficultyWhy": "F4·A0·K0·C0·S1 → 6",
     "category": "city"
   },
   {
@@ -11049,21 +10714,6 @@
     "continent": "Asia",
     "sets": [],
     "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
-    "id": "york-minster-d34-3",
-    "short": "York Minster",
-    "clue": "York Minster, England",
-    "fact": "Largest medieval Gothic cathedral in Northern Europe.",
-    "lat": 53.9626,
-    "lng": -1.0815,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/York_Minster_Nave_2%2C_Nth_Yorkshire%2C_UK_-_Diliff.jpg/500px-York_Minster_Nave_2%2C_Nth_Yorkshire%2C_UK_-_Diliff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "England",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
     "category": "city"
   },
   {
