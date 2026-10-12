@@ -7636,5 +7636,177 @@
   "types": "country; landlocked country; city-state; enclave; urban area; tourist destination; sovereign state; confessional state; religious complex; sacerdotal state; successor state; institutional complex",
   "distKm": 0,
   "flags": []
+ },
+ "barcelona-spain": {
+  "title": "Barcelona",
+  "asked": "Barcelona",
+  "how": "hand",
+  "views": 3240.2,
+  "qid": "Q1492",
+  "types": "city; municipality of Catalonia",
+  "distKm": 2,
+  "flags": []
+ },
+ "hyderabad-india": {
+  "title": "Hyderabad",
+  "asked": "Hyderabad",
+  "how": "hand",
+  "views": 2483.0,
+  "qid": "Q1361",
+  "types": "megacity; largest city; Category:Indian capital cities; state capital",
+  "distKm": 3,
+  "flags": []
+ },
+ "medellin-co": {
+  "title": "Medellín",
+  "asked": "Medellín",
+  "how": "hand",
+  "views": 1175.6,
+  "qid": "Q48278",
+  "types": "city; big city; municipality of Colombia; district of Colombia",
+  "distKm": 3,
+  "flags": []
+ },
+ "cusco-peru": {
+  "title": "Cusco",
+  "asked": "Cusco",
+  "how": "hand",
+  "views": 919.5,
+  "qid": "Q5582862",
+  "types": "city; urban area; big city; historic district",
+  "distKm": 2,
+  "flags": []
+ },
+ "la-paz-bolivia": {
+  "title": "La Paz",
+  "asked": "La Paz",
+  "how": "hand",
+  "views": 917.1,
+  "qid": "Q1491",
+  "types": "administrative territorial entity; big city; metropolis; seat of government",
+  "distKm": 2,
+  "flags": []
+ },
+ "fortaleza-br": {
+  "title": "Fortaleza",
+  "asked": "Fortaleza",
+  "how": "hand",
+  "views": 342.9,
+  "qid": "Q43463",
+  "types": "city; municipality of Brazil",
+  "distKm": 2,
+  "flags": []
+ },
+ "yogyakarta-id": {
+  "title": "Yogyakarta",
+  "asked": "Yogyakarta",
+  "how": "hand",
+  "views": 378.4,
+  "qid": "Q7568",
+  "types": "city of Indonesia",
+  "distKm": 0,
+  "flags": []
+ },
+ "gyeongju-kr": {
+  "title": "Gyeongju",
+  "asked": "Gyeongju",
+  "how": "hand",
+  "views": 367.0,
+  "qid": "Q42097",
+  "types": "big city; city of South Korea",
+  "distKm": 1,
+  "flags": []
+ },
+ "boise-usa": {
+  "title": "Boise, Idaho",
+  "asked": "Boise, Idaho",
+  "how": "hand",
+  "views": 1164.0,
+  "qid": "Q35775",
+  "types": "city in the United States; big city; state or insular area capital of the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "oklahoma-city-usa": {
+  "title": "Oklahoma City",
+  "asked": "Oklahoma City",
+  "how": "hand",
+  "views": 1418.3,
+  "qid": "Q34863",
+  "types": "county seat; city in the United States; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "des-moines-usa": {
+  "title": "Des Moines, Iowa",
+  "asked": "Des Moines, Iowa",
+  "how": "hand",
+  "views": 1164.0,
+  "qid": "Q39709",
+  "types": "county seat; city in the United States; big city",
+  "distKm": null,
+  "flags": [
+   "DIST None"
+  ]
+ },
+ "little-rock-usa": {
+  "title": "Little Rock, Arkansas",
+  "asked": "Little Rock, Arkansas",
+  "how": "hand",
+  "views": 933.0,
+  "qid": "Q33405",
+  "types": "county seat; city in the United States; big city; state or insular area capital of the United States",
+  "distKm": 0,
+  "flags": []
+ },
+ "buffalo-usa": {
+  "title": "Buffalo, New York",
+  "asked": "Buffalo, New York",
+  "how": "hand",
+  "views": 1859.2,
+  "qid": "Q40435",
+  "types": "border city; big city; city in the state of New York",
+  "distKm": 0,
+  "flags": []
+ },
+ "juneau-usa": {
+  "title": "Juneau, Alaska",
+  "asked": "Juneau, Alaska",
+  "how": "hand",
+  "views": 1321.0,
+  "qid": "Q29445",
+  "types": "city in the United States; consolidated city-county",
+  "distKm": 0,
+  "flags": []
+ },
+ "spokane-usa": {
+  "title": "Spokane, Washington",
+  "asked": "Spokane, Washington",
+  "how": "hand",
+  "views": 1293.1,
+  "qid": "Q187805",
+  "types": "county seat; city in the United States; big city",
+  "distKm": 0,
+  "flags": []
+ },
+ "providence-usa": {
+  "title": "Providence, Rhode Island",
+  "asked": "Providence, Rhode Island",
+  "how": "hand",
+  "views": 1406.1,
+  "qid": "Q18383",
+  "types": "county seat; city in the United States; big city",
+  "distKm": 1,
+  "flags": []
+ },
+ "lyon-france": {
+  "title": "Lyon",
+  "asked": "Lyon",
+  "how": "hand",
+  "views": 1424.7,
+  "qid": "Q456",
+  "types": "commune of France; college town; big city; commune of France with specific status",
+  "distKm": 0,
+  "flags": []
  }
 }

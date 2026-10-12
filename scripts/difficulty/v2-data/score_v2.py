@@ -32,7 +32,9 @@ UNIT = {'albuquerque-usa': 'US/NM', 'anchorage-usa': 'US/AK', 'tampa-usa': 'US/F
         'portland-oregon-usa': 'US/OR', 'columbus': 'US/OH', 'roswell-ufo-incident': 'US/NM', 'jacksonville': 'US/FL',
         'denpasar-indonesia': 'ID/02', 'kochi-india': 'IN/13', 'st-johns-canada': 'CA/05', 'ilulissat-greenland': 'GL',
         'nuuk-greenland': 'GL', 'san-juan': 'PR', 'noumea-new-caledonia': 'NC', 'papeete-tahiti': 'PF',
-        'hong-kong': None, 'macau': None, 'longyearbyen-svalbard': None, 'jerusalem': 'IL'}
+        'hong-kong': None, 'macau': None, 'longyearbyen-svalbard': None, 'jerusalem': 'IL',
+        'boise-usa': 'US/ID', 'oklahoma-city-usa': 'US/OK', 'des-moines-usa': 'US/IA', 'little-rock-usa': 'US/AR',
+        'buffalo-usa': 'US/NY', 'juneau-usa': 'US/AK', 'spokane-usa': 'US/WA', 'providence-usa': 'US/RI'}
 
 ci = {}
 for l in open('countryInfo.txt', encoding='utf-8'):

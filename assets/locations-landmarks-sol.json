@@ -13212,21 +13212,6 @@
     "category": "city"
   },
   {
-    "id": "lyon-france",
-    "short": "Lyon",
-    "clue": "Lyon, France 🇫🇷",
-    "fact": "Founded by the Romans as Lugdunum where the Rhône meets the Saône, it later became Europe's silk-weaving capital.",
-    "lat": 45.764,
-    "lng": 4.8357,
-    "difficulty": 3,
-    "category": "city",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Lyon-part-dieu-2023.jpg/500px-Lyon-part-dieu-2023.jpg",
-    "country": "France",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F1·A1·K0·C0·S0 → 3"
-  },
-  {
     "id": "mata-utu-wallis",
     "clue": "Mata-Utu, France 🇫🇷",
     "fact": "Mata-Utu is the capital of Wallis and Futuna, perched on a small island in the lagoon of Wallis.",
