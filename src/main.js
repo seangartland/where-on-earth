@@ -7996,7 +7996,7 @@ passport = readPassport();
 
 locationsP.then((data) => {
   locations = data;
-  if (AUDIT_MODE) removeOrphanedAuditFlags();
+  if (AUDIT_MODE) { removeOrphanedAuditFlags(); if (!localStorage.getItem("where-on-earth-flags-wiped-v1")) { auditFlags = {}; try { localStorage.removeItem(AUDIT_FLAGS_KEY); localStorage.setItem("where-on-earth-flags-wiped-v1", "1"); } catch (e) {} } }
   locationIndex = null;
   countryIndex = buildCountryIndex();
   loadDaily();
