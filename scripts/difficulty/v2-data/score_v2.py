@@ -18,7 +18,7 @@ KNOWN_KM = (20, 100)       # ESTIMATE: miss when the player knows the city: 20 k
 FLOOR_KM = 100             # ESTIMATE: best-case miss when guessing from the clue's country/unit alone
 K_FLOOR = 800              # ESTIMATE: minimum region-scale miss when the country can't be placed
 TARGET = [5, 8, 11, 13, 14, 14, 12, 10, 8, 5]
-CUTS = [3.7, 6.4, 9.6, 15.2, 24.3, 44.5, 78.9, 112.9, 201.7]   # framework §2, frozen 2026-10-12. Never re-cut.
+CUTS = [4.7, 7.0, 9.6, 15.2, 24.3, 44.5, 78.9, 112.9, 201.7]   # framework §2, frozen 2026-10-12; cuts 1-2 re-cut once per growth addendum (Sean-approved 2026-10-12). Never re-cut.
 
 # Districts known through their parent city (framework §7.8; Sean: "consider overrides", judgment delegated).
 # Rule: a district whose clue names only the district takes its parent city's fame when the district is the

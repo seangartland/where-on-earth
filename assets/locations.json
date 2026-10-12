@@ -280,13 +280,13 @@
     "fact": "It hosts the world's largest hot-air balloon festival each October and was the setting for Breaking Bad.",
     "lat": 35.0844,
     "lng": -106.6504,
-    "difficulty": 2,
+    "difficulty": 1,
     "category": "city",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Albuquerque%2C_New_Mexico_skyline.jpg/500px-Albuquerque%2C_New_Mexico_skyline.jpg",
     "country": "United States",
     "continent": "North America",
     "sets": [],
-    "difficultyWhy": "p.95·fb54·K0·iso374 → 4.2 → 2"
+    "difficultyWhy": "p.95·fb54·K0·iso374 → 4.2 → 1"
   },
   {
     "id": "aleppo-sy",
@@ -1007,11 +1007,11 @@
     "lng": -5.93,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Custom_House%2C_River_Lagan%2C_Belfast.jpg/3840px-Custom_House%2C_River_Lagan%2C_Belfast.jpg",
     "clue": "Belfast, Northern Ireland",
-    "difficulty": 2,
+    "difficulty": 1,
     "country": "Northern Ireland",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.94·fb21·K0·iso142 → 4.6 → 2",
+    "difficultyWhy": "p.94·fb21·K0·iso142 → 4.6 → 1",
     "category": "city"
   },
   {
@@ -1053,12 +1053,12 @@
     "fact": "Bengaluru is India's 'Silicon Valley' and capital of Karnataka, known for its pleasant plateau climate, parks, and craft-beer pubs.",
     "lat": 12.97194,
     "lng": 77.59369,
-    "difficulty": 3,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/View_from_Visvesvaraya_Industrial_and_Technological_Museum_%282025%29_02.jpg/500px-View_from_Visvesvaraya_Industrial_and_Technological_Museum_%282025%29_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "India",
     "continent": "Asia",
     "sets": [],
-    "difficultyWhy": "p.98·fb901·K0·iso202 → 6.5 → 3",
+    "difficultyWhy": "p.98·fb901·K0·iso202 → 6.5 → 2",
     "category": "city"
   },
   {
@@ -1435,13 +1435,13 @@
     "fact": "Bucharest's Palace of the Parliament, at 3,700 tonnes the heaviest building ever constructed, towers over an old town it would flatten in an afternoon.",
     "lat": 44.4268,
     "lng": 26.1025,
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "Bucharest",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Bucharest_University_Square_%28cropped%29.jpg/500px-Bucharest_University_Square_%28cropped%29.jpg",
     "country": "Romania",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.88·fb118·K0·iso295 → 6.6 → 3",
+    "difficultyWhy": "p.88·fb118·K0·iso295 → 6.6 → 2",
     "category": "city"
   },
   {
@@ -1466,13 +1466,13 @@
     "lat": -34.6037,
     "lng": -58.3816,
     "fact": "Argentina's capital earned the nickname 'Paris of South America' for its European-style boulevards and architecture.",
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Buenos Aires",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Puerto_Madero%2C_Buenos_Aires_%2840689219792%29_%28cropped%29.jpg/500px-Puerto_Madero%2C_Buenos_Aires_%2840689219792%29_%28cropped%29.jpg",
     "country": "Argentina",
     "continent": "South America",
     "sets": [],
-    "difficultyWhy": "p.99·fb319·K0·iso203 → 3.7 → 2"
+    "difficultyWhy": "p.99·fb319·K0·iso203 → 3.7 → 1"
   },
   {
     "id": "bujumbura-bi",
@@ -1776,12 +1776,12 @@
     "fact": "Caracas is Venezuela's capital and sits in a mountain valley overlooked by El Ávila National Park, where Simón Bolívar was born.",
     "lat": 10.48801,
     "lng": -66.87919,
-    "difficulty": 3,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Caracas_desde_el_%C3%A1vila.jpg/500px-Caracas_desde_el_%C3%A1vila.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "Venezuela",
     "continent": "South America",
     "sets": [],
-    "difficultyWhy": "p.89·fb125·K0·iso128 → 6.4 → 3",
+    "difficultyWhy": "p.89·fb125·K0·iso128 → 6.4 → 2",
     "category": "city"
   },
   {
@@ -1806,13 +1806,13 @@
     "fact": "Wales's capital was a small town until the 19th century, when it became one of the world's busiest coal-exporting ports.",
     "lat": 51.4816,
     "lng": -3.1791,
-    "difficulty": 3,
+    "difficulty": 2,
     "category": "city",
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cardiff%20skyline%20from%20Windsor%20Road%20railway%20bridge.jpg?width=500",
     "country": "Wales",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.87·fb47·K0·iso142 → 6.5 → 3"
+    "difficultyWhy": "p.87·fb47·K0·iso142 → 6.5 → 2"
   },
   {
     "id": "cartagena",
@@ -2021,12 +2021,12 @@
     "fact": "Chicago is the birthplace of the skyscraper and is famous for deep-dish pizza and its blues music.",
     "lat": 41.85003,
     "lng": -87.65005,
-    "difficulty": 2,
+    "difficulty": 1,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Chicago_River_ferry_b.jpg/500px-Chicago_River_ferry_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "United States",
     "continent": "North America",
     "sets": [],
-    "difficultyWhy": "p.99·fb603·K0·iso704 → 4.3 → 2",
+    "difficultyWhy": "p.99·fb603·K0·iso704 → 4.3 → 1",
     "category": "city"
   },
   {
@@ -2425,7 +2425,7 @@
     "fact": "Damascus is often called the oldest continuously inhabited city in the world, with layers of settlement stacked directly beneath its modern streets.",
     "lat": 33.5138,
     "lng": 36.2765,
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "Damascus",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Damascus%2C_Syria%2C_Panoramic_view_of_Damascus.jpg/500px-Damascus%2C_Syria%2C_Panoramic_view_of_Damascus.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "Syria",
@@ -2433,7 +2433,7 @@
     "sets": [
       "Middle East"
     ],
-    "difficultyWhy": "p.93·fb197·K0·iso83 → 6.4 → 3",
+    "difficultyWhy": "p.93·fb197·K0·iso83 → 6.4 → 2",
     "category": "city"
   },
   {
@@ -3104,12 +3104,12 @@
     "fact": "Frankfurt is the home of the European Central Bank and the birthplace of Goethe, with a skyline nicknamed 'Mainhattan'.",
     "lat": 50.11552,
     "lng": 8.68417,
-    "difficulty": 3,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Skyline_Frankfurt_am_Main_2015.jpg/500px-Skyline_Frankfurt_am_Main_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "country": "Germany",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.90·fb144·K0·iso153 → 6.4 → 3",
+    "difficultyWhy": "p.90·fb144·K0·iso153 → 6.4 → 2",
     "category": "city"
   },
   {
@@ -3213,11 +3213,11 @@
     "lng": 6.146944,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Geneve_2005_001_Ork.ch.jpg/500px-Geneve_2005_001_Ork.ch.jpg",
     "clue": "Geneva, Switzerland 🇨🇭",
-    "difficulty": 3,
+    "difficulty": 2,
     "country": "Switzerland",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.91·fb168·K0·iso250 → 6.8 → 3",
+    "difficultyWhy": "p.91·fb168·K0·iso250 → 6.8 → 2",
     "category": "city"
   },
   {
@@ -4123,7 +4123,7 @@
     "lat": -6.2088,
     "lng": 106.8456,
     "fact": "Indonesia's capital is sinking so fast that the country is building an entirely new capital, Nusantara, on Borneo.",
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Jakarta",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Jakarta.jpg/500px-Jakarta.jpg",
     "country": "Indonesia",
@@ -4131,7 +4131,7 @@
     "sets": [
       "Megacities"
     ],
-    "difficultyWhy": "p.99·fb339·K0·iso16 → 3.7 → 2"
+    "difficultyWhy": "p.99·fb339·K0·iso16 → 3.7 → 1"
   },
   {
     "id": "jeddah-sa",
@@ -4490,7 +4490,7 @@
     "fact": "The Kumari Ghar still houses the living goddess Kumari, who in modern times has never once left the palace during her lifetime.",
     "lat": 27.7172,
     "lng": 85.324,
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "Kathmandu",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Kathmandu-Durbar_Square-06-Mahavishnu-Kuh-Vishnu-Pratapamalla-Jagannath-2007-gje.jpg/500px-Kathmandu-Durbar_Square-06-Mahavishnu-Kuh-Vishnu-Pratapamalla-Jagannath-2007-gje.jpg",
     "country": "Nepal",
@@ -4498,7 +4498,7 @@
     "sets": [
       "Himalaya"
     ],
-    "difficultyWhy": "p.86·fb61·K0·iso237 → 6.6 → 3",
+    "difficultyWhy": "p.86·fb61·K0·iso237 → 6.6 → 2",
     "category": "city"
   },
   {
@@ -4922,13 +4922,13 @@
     "fact": "Its Petronas Towers held the record for world's tallest buildings from 1998 to 2004, and the city's name simply means the muddy confluence where two rivers meet.",
     "lat": 3.139,
     "lng": 101.6869,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Kuala Lumpur",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Bukit_Bintang_junction_in_2024_2.jpg/500px-Bukit_Bintang_junction_in_2024_2.jpg",
     "country": "Malaysia",
     "continent": "Asia",
     "sets": [],
-    "difficultyWhy": "p.96·fb187·K0·iso293 → 4.6 → 2",
+    "difficultyWhy": "p.96·fb187·K0·iso293 → 4.6 → 1",
     "category": "city"
   },
   {
@@ -5155,13 +5155,13 @@
     "fact": "Lisbon is the westernmost capital of the European Union, so every sunset there is the last sunset of the EU.",
     "lat": 38.7223,
     "lng": -9.1393,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Lisbon",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Lisboa837.png/500px-Lisboa837.png",
     "country": "Portugal",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.94·fb79·K0·iso442 → 4.5 → 2",
+    "difficultyWhy": "p.94·fb79·K0·iso442 → 4.5 → 1",
     "category": "city"
   },
   {
@@ -5170,13 +5170,13 @@
     "fact": "Liverpool's docks handled more world trade than any other port for most of the nineteenth century, and its band scene gave the world four of the Beatles.",
     "lat": 53.4084,
     "lng": -2.9916,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Liverpool",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Pier_Head%2C_Liverpool_-_geograph.org.uk_-_3059094.jpg/500px-Pier_Head%2C_Liverpool_-_geograph.org.uk_-_3059094.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "England",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.98·fb184·K0·iso126 → 3.7 → 2",
+    "difficultyWhy": "p.98·fb184·K0·iso126 → 3.7 → 1",
     "category": "city"
   },
   {
@@ -5823,7 +5823,7 @@
     "fact": "More than 1.8 million pilgrims circle the Kaaba counter-clockwise five times each Hajj season, inside the largest mosque complex in the world.",
     "lat": 21.3891,
     "lng": 39.8579,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Mecca",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Great_Mosque_of_Mecca1.jpg/500px-Great_Mosque_of_Mecca1.jpg",
     "country": "Saudi Arabia",
@@ -5831,7 +5831,7 @@
     "sets": [
       "Middle East"
     ],
-    "difficultyWhy": "p.99·fb419·K0·iso70 → 3.9 → 2",
+    "difficultyWhy": "p.99·fb419·K0·iso70 → 3.9 → 1",
     "category": "city"
   },
   {
@@ -5870,13 +5870,13 @@
     "fact": "Melbourne was briefly Australia's capital from 1901 to 1927 before Canberra took over.",
     "lat": -37.8136,
     "lng": 144.9631,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Melbourne",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Melbourne_skyline_sor.jpg/500px-Melbourne_skyline_sor.jpg",
     "country": "Australia",
     "continent": "Oceania",
     "sets": [],
-    "difficultyWhy": "p.99·fb428·K0·iso654 → 3.9 → 2",
+    "difficultyWhy": "p.99·fb428·K0·iso654 → 3.9 → 1",
     "category": "city"
   },
   {
@@ -5995,13 +5995,13 @@
     "fact": "Italy's fashion and finance capital is home to Leonardo da Vinci's The Last Supper, painted on a convent refectory wall.",
     "lat": 45.4642,
     "lng": 9.19,
-    "difficulty": 2,
+    "difficulty": 1,
     "category": "city",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Milan_Cathedral_from_Piazza_del_Duomo.jpg/500px-Milan_Cathedral_from_Piazza_del_Duomo.jpg",
     "country": "Italy",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.99·fb380·K0·iso348 → 3.8 → 2"
+    "difficultyWhy": "p.99·fb380·K0·iso348 → 3.8 → 1"
   },
   {
     "id": "milwaukee",
@@ -6024,13 +6024,13 @@
     "fact": "Minneapolis is known for its extensive park system, lakes, and as a hub for the arts and finance.",
     "lat": 44.9778,
     "lng": -93.265,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Minneapolis",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Minneapolis_Skyline_looking_south.jpg/500px-Minneapolis_Skyline_looking_south.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "United States",
     "continent": "North America",
     "sets": [],
-    "difficultyWhy": "p.99·fb688·K0·iso571 → 4.5 → 2",
+    "difficultyWhy": "p.99·fb688·K0·iso571 → 4.5 → 1",
     "category": "city"
   },
   {
@@ -6237,7 +6237,7 @@
     "lat": 19.076,
     "lng": 72.8777,
     "fact": "India's port city, formerly Bombay, grew out of seven islands joined together in the 19th century.",
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Mumbai",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg/500px-Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg",
     "country": "India",
@@ -6245,7 +6245,7 @@
     "sets": [
       "Port Cities"
     ],
-    "difficultyWhy": "p.99·fb612·K0·iso15 → 4.3 → 2"
+    "difficultyWhy": "p.99·fb612·K0·iso15 → 4.3 → 1"
   },
   {
     "id": "munich-germany",
@@ -6253,13 +6253,13 @@
     "fact": "Munich's oldest beer rules date to 1487, and Hofbrauhaus has been brewing to them without interruption since 1589.",
     "lat": 48.1351,
     "lng": 11.582,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Munich",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/500px-Stadtbild_M%C3%BCnchen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "Germany",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.98·fb375·K0·iso300 → 4.5 → 2",
+    "difficultyWhy": "p.98·fb375·K0·iso300 → 4.5 → 1",
     "category": "city"
   },
   {
@@ -6531,13 +6531,13 @@
     "fact": "Nashville is known as Music City and is the heart of country music in the United States.",
     "lat": 36.1627,
     "lng": -86.7816,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Nashville",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nashville%2C_Tennessee_%28cropped%29.jpg/500px-Nashville%2C_Tennessee_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "United States",
     "continent": "North America",
     "sets": [],
-    "difficultyWhy": "p.99·fb663·K0·iso637 → 4.4 → 2",
+    "difficultyWhy": "p.99·fb663·K0·iso637 → 4.4 → 1",
     "category": "city"
   },
   {
@@ -6609,7 +6609,7 @@
     "lat": 40.7128,
     "lng": -74.006,
     "fact": "The most populous city in the United States, fused from five boroughs at the mouth of the Hudson.",
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "New York City",
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20New%20York%20City%20Skyline%20at%20Dusk.jpg?width=500",
     "country": "United States",
@@ -6617,7 +6617,7 @@
     "sets": [
       "Megacities"
     ],
-    "difficultyWhy": "p.99·fb1679·K0·iso19 → 6.6 → 3"
+    "difficultyWhy": "p.99·fb1679·K0·iso19 → 6.6 → 2"
   },
   {
     "id": "ngerulmud-palau",
@@ -6848,11 +6848,11 @@
     "lng": 11.0775,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/N%C3%BCrnberger_Burg_im_Herbst_2013.jpg/3840px-N%C3%BCrnberger_Burg_im_Herbst_2013.jpg",
     "clue": "Nuremberg, Germany 🇩🇪",
-    "difficulty": 2,
+    "difficulty": 1,
     "country": "Germany",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.97·fb225·K0·iso151 → 4.6 → 2",
+    "difficultyWhy": "p.97·fb225·K0·iso151 → 4.6 → 1",
     "category": "city"
   },
   {
@@ -7374,13 +7374,13 @@
     "fact": "Philadelphia is known as the birthplace of the United States, where the Declaration of Independence was adopted.",
     "lat": 39.9526,
     "lng": -75.1652,
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "Philadelphia",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Philadelphia_skyline_20240528_%28cropped_2-1%29.jpg/500px-Philadelphia_skyline_20240528_%28cropped_2-1%29.jpg",
     "country": "United States",
     "continent": "North America",
     "sets": [],
-    "difficultyWhy": "p.99·fb1581·K0·iso129 → 6.4 → 3",
+    "difficultyWhy": "p.99·fb1581·K0·iso129 → 6.4 → 2",
     "category": "city"
   },
   {
@@ -7438,11 +7438,11 @@
     "lng": -79.976389,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg/500px-Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg",
     "clue": "Pittsburgh, United States 🇺🇸",
-    "difficulty": 3,
+    "difficulty": 2,
     "country": "United States",
     "continent": "North America",
     "sets": [],
-    "difficultyWhy": "p.99·fb1174·K0·iso366 → 6.8 → 3",
+    "difficultyWhy": "p.99·fb1174·K0·iso366 → 6.8 → 2",
     "category": "city"
   },
   {
@@ -7803,7 +7803,7 @@
     "lat": 39.0392,
     "lng": 125.7625,
     "fact": "North Korea's capital was almost entirely rebuilt after the Korean War, with wide boulevards designed around monumental architecture.",
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "Pyongyang",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/960px-The_Arch_of_Triumph_%2811360607534%29.jpg",
     "country": "North Korea",
@@ -7811,7 +7811,7 @@
     "sets": [
       "Capital Cities"
     ],
-    "difficultyWhy": "p.87·fb85·K0·iso180 → 6.5 → 3"
+    "difficultyWhy": "p.87·fb85·K0·iso180 → 6.5 → 2"
   },
   {
     "id": "qaqortoq-greenland",
@@ -8034,13 +8034,13 @@
     "lat": -22.9068,
     "lng": -43.1729,
     "fact": "Brazil's capital until 1960, it sits in a granite bay ringed by steep forested peaks.",
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Rio de Janeiro",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Cidade_Maravilhosa.jpg/500px-Cidade_Maravilhosa.jpg",
     "country": "Brazil",
     "continent": "South America",
     "sets": [],
-    "difficultyWhy": "p.99·fb653·K0·iso341 → 4.4 → 2"
+    "difficultyWhy": "p.99·fb653·K0·iso341 → 4.4 → 1"
   },
   {
     "id": "riyadh",
@@ -8529,12 +8529,12 @@
     "fact": "Santiago is Chile's capital, where you can ski in the Andes and visit Pacific beaches on the same day.",
     "lat": -33.45694,
     "lng": -70.64827,
-    "difficulty": 3,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Palacio_de_La_Moneda_-_miguelreflex.jpg/500px-Palacio_de_La_Moneda_-_miguelreflex.jpg",
     "country": "Chile",
     "continent": "South America",
     "sets": [],
-    "difficultyWhy": "p.85·fb58·K0·iso648 → 6.8 → 3",
+    "difficultyWhy": "p.85·fb58·K0·iso648 → 6.8 → 2",
     "category": "city"
   },
   {
@@ -8624,14 +8624,14 @@
     "fact": "São Paulo is the largest city in the Southern Hemisphere and has the largest Japanese diaspora community outside Japan.",
     "lat": -23.5475,
     "lng": -46.63611,
-    "difficulty": 3,
+    "difficulty": 2,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Marginal_Pinheiros_e_Jockey_Club.jpg/500px-Marginal_Pinheiros_e_Jockey_Club.jpg",
     "country": "Brazil",
     "continent": "South America",
     "sets": [
       "Megacities"
     ],
-    "difficultyWhy": "p.98·fb669·K0·iso84 → 6.7 → 3",
+    "difficultyWhy": "p.98·fb669·K0·iso84 → 6.7 → 2",
     "category": "city"
   },
   {
@@ -8731,13 +8731,13 @@
     "lat": 37.5665,
     "lng": 126.978,
     "fact": "South Korea's capital sits on the Han River and is home to roughly a fifth of the country's population.",
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Seoul",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg/500px-%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg",
     "country": "South Korea",
     "continent": "Asia",
     "sets": [],
-    "difficultyWhy": "p.98·fb120·K0·iso16 → 3.7 → 2"
+    "difficultyWhy": "p.98·fb120·K0·iso16 → 3.7 → 1"
   },
   {
     "id": "seville-spain",
@@ -8761,7 +8761,7 @@
     "lat": 31.2304,
     "lng": 121.4737,
     "fact": "China's largest city sits on the Yangtze River Delta and hosts one of the world's busiest container ports.",
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Shanghai",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg",
     "country": "China",
@@ -8769,7 +8769,7 @@
     "sets": [
       "Port Cities"
     ],
-    "difficultyWhy": "p.99·fb693·K0·iso16 → 4.5 → 2"
+    "difficultyWhy": "p.99·fb693·K0·iso16 → 4.5 → 1"
   },
   {
     "id": "sharjah-ae",
@@ -9192,13 +9192,13 @@
     "lat": -33.8688,
     "lng": 151.2093,
     "fact": "Australia's most populous city is built around the drowned river valley of Port Jackson.",
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Sydney",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg/500px-Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg",
     "country": "Australia",
     "continent": "Oceania",
     "sets": [],
-    "difficultyWhy": "p.99·fb567·K0·iso713 → 4.2 → 2"
+    "difficultyWhy": "p.99·fb567·K0·iso713 → 4.2 → 1"
   },
   {
     "id": "tabriz-ir",
@@ -9298,13 +9298,13 @@
     "fact": "Tallinn's Old Town is a walled Hanseatic city left so intact that its town hall square doubles as an ice rink every winter.",
     "lat": 59.437,
     "lng": 24.7536,
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "Tallinn",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Raekoja_plats_at_night.jpg/500px-Raekoja_plats_at_night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "Estonia",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.85·fb29·K0·iso317 → 6.9 → 3",
+    "difficultyWhy": "p.85·fb29·K0·iso317 → 6.9 → 2",
     "category": "city"
   },
   {
@@ -9728,13 +9728,13 @@
     "lng": 26.238889,
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Walls_of_Troy_%282%29.jpg/500px-Walls_of_Troy_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "clue": "Troy, Turkey 🇹🇷",
-    "difficulty": 2,
+    "difficulty": 1,
     "country": "Turkey",
     "continent": "Asia",
     "sets": [
       "Ancient Ruins"
     ],
-    "difficultyWhy": "p.99·fb504·K0·iso188 → 4.1 → 2",
+    "difficultyWhy": "p.99·fb504·K0·iso188 → 4.1 → 1",
     "category": "city"
   },
   {
@@ -9819,7 +9819,7 @@
     "lat": 47.8864,
     "lng": 106.9057,
     "fact": "The coldest national capital on Earth, it began as a mobile Buddhist monastic center before settling permanently in 1778.",
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "Ulaanbaatar",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/UB_downtown.jpg/500px-UB_downtown.jpg",
     "country": "Mongolia",
@@ -9827,7 +9827,7 @@
     "sets": [
       "Capital Cities"
     ],
-    "difficultyWhy": "p.89·fb117·K0·iso795 → 6.4 → 3"
+    "difficultyWhy": "p.89·fb117·K0·iso795 → 6.4 → 2"
   },
   {
     "id": "ulsan",
@@ -10159,13 +10159,13 @@
     "fact": "After 1944 the Nazis blew up about 85% of Warsaw and left it standing in ruins, so almost everything you see today was rebuilt brick by brick.",
     "lat": 52.2297,
     "lng": 21.0122,
-    "difficulty": 2,
+    "difficulty": 1,
     "short": "Warsaw",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Aleja_Niepdleglosci_Warsaw_2022_aerial_%28cropped%29.jpg/500px-Aleja_Niepdleglosci_Warsaw_2022_aerial_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "Poland",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.96·fb128·K0·iso475 → 4.3 → 2",
+    "difficultyWhy": "p.96·fb128·K0·iso475 → 4.3 → 1",
     "category": "city"
   },
   {
@@ -10630,13 +10630,13 @@
     "fact": "Zurich ranks as the most expensive city on earth by cost of living, and its Bahnhofstrasse was lit by electric lamps before almost any other street in Europe.",
     "lat": 47.3769,
     "lng": 8.5417,
-    "difficulty": 3,
+    "difficulty": 2,
     "short": "Zurich",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Altstadt_Z%C3%BCrich_2015.jpg/500px-Altstadt_Z%C3%BCrich_2015.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "country": "Switzerland",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.87·fb56·K0·iso218 → 6.5 → 3",
+    "difficultyWhy": "p.87·fb56·K0·iso218 → 6.5 → 2",
     "category": "city"
   },
   {
@@ -11248,8 +11248,8 @@
     "lng": 14.51,
     "country": "Slovenia",
     "continent": "Europe",
-    "difficulty": 3,
-    "difficultyWhy": "p.86·fb27·K0·iso278 → 6.6 → 3",
+    "difficulty": 2,
+    "difficultyWhy": "p.86·fb27·K0·iso278 → 6.6 → 2",
     "category": "city",
     "sets": [],
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Ljubljana_city_view_%2811330196463%29.jpg/500px-Ljubljana_city_view_%2811330196463%29.jpg"

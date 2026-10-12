@@ -397,7 +397,7 @@
  },
  "albuquerque-usa": {
   "id": "albuquerque-usa",
-  "clue": "Albuquerque, New Mexico 🇺🇸",
+  "clue": "Albuquerque, New Mexico, United States 🇺🇸",
   "country": "United States",
   "views": 2119.6,
   "viewsSrc": "Albuquerque, New Mexico",
@@ -414,8 +414,8 @@
   "loss": 4.2,
   "cur": 2,
   "curWhy": "p.95·fb54·K0·iso374 → 4.2 → 2",
-  "D": 2,
-  "why": "p.95·fb54·K0·iso374 → 4.2 → 2"
+  "D": 1,
+  "why": "p.95·fb54·K0·iso374 → 4.2 → 1"
  },
  "aleppo-sy": {
   "id": "aleppo-sy",
@@ -595,7 +595,7 @@
  },
  "anchorage-usa": {
   "id": "anchorage-usa",
-  "clue": "Anchorage, Alaska 🇺🇸",
+  "clue": "Anchorage, Alaska, United States 🇺🇸",
   "country": "United States",
   "views": 1834.8,
   "viewsSrc": "Anchorage, Alaska",
@@ -1448,8 +1448,8 @@
   "loss": 4.6,
   "cur": 2,
   "curWhy": "p.94·fb21·K0·iso142 → 4.6 → 2",
-  "D": 2,
-  "why": "p.94·fb21·K0·iso142 → 4.6 → 2"
+  "D": 1,
+  "why": "p.94·fb21·K0·iso142 → 4.6 → 1"
  },
  "belgrade": {
   "id": "belgrade",
@@ -1514,8 +1514,8 @@
   "loss": 6.5,
   "cur": 3,
   "curWhy": "p.98·fb901·K0·iso202 → 6.5 → 3",
-  "D": 3,
-  "why": "p.98·fb901·K0·iso202 → 6.5 → 3"
+  "D": 2,
+  "why": "p.98·fb901·K0·iso202 → 6.5 → 2"
  },
  "benghazi-ly": {
   "id": "benghazi-ly",
@@ -1979,28 +1979,6 @@
   "D": 2,
   "why": "p.92·fb140·K0·iso124 → 5.7 → 2"
  },
- "brooklyn-us": {
-  "id": "brooklyn-us",
-  "clue": "Brooklyn, United States 🇺🇸",
-  "country": "United States",
-  "views": 8389.1,
-  "viewsSrc": "Brooklyn",
-  "p": 0.99,
-  "K": 0,
-  "dFb": 1683,
-  "centre": [
-   38.79,
-   -93.53
-  ],
-  "d1M": 23,
-  "known": 21,
-  "missU": 1683,
-  "loss": 6.6,
-  "cur": 3,
-  "curWhy": "p.99·fb1683·K0·iso23 → 6.6 → 3",
-  "D": 3,
-  "why": "p.99·fb1683·K0·iso23 → 6.6 → 3"
- },
  "bruges-belgium": {
   "id": "bruges-belgium",
   "clue": "Bruges, Belgium 🇧🇪",
@@ -2086,8 +2064,8 @@
   "loss": 6.6,
   "cur": 3,
   "curWhy": "p.88·fb118·K0·iso295 → 6.6 → 3",
-  "D": 3,
-  "why": "p.88·fb118·K0·iso295 → 6.6 → 3"
+  "D": 2,
+  "why": "p.88·fb118·K0·iso295 → 6.6 → 2"
  },
  "budapest-hungary": {
   "id": "budapest-hungary",
@@ -2130,8 +2108,8 @@
   "loss": 3.7,
   "cur": 2,
   "curWhy": "p.99·fb319·K0·iso203 → 3.7 → 2",
-  "D": 2,
-  "why": "p.99·fb319·K0·iso203 → 3.7 → 2"
+  "D": 1,
+  "why": "p.99·fb319·K0·iso203 → 3.7 → 1"
  },
  "bujumbura-bi": {
   "id": "bujumbura-bi",
@@ -2570,8 +2548,8 @@
   "loss": 6.4,
   "cur": 3,
   "curWhy": "p.89·fb125·K0·iso128 → 6.4 → 3",
-  "D": 3,
-  "why": "p.89·fb125·K0·iso128 → 6.4 → 3"
+  "D": 2,
+  "why": "p.89·fb125·K0·iso128 → 6.4 → 2"
  },
  "carcassonne-cite": {
   "id": "carcassonne-cite",
@@ -2614,8 +2592,8 @@
   "loss": 6.5,
   "cur": 3,
   "curWhy": "p.87·fb47·K0·iso142 → 6.5 → 3",
-  "D": 3,
-  "why": "p.87·fb47·K0·iso142 → 6.5 → 3"
+  "D": 2,
+  "why": "p.87·fb47·K0·iso142 → 6.5 → 2"
  },
  "cartagena": {
   "id": "cartagena",
@@ -2726,28 +2704,6 @@
   "curWhy": "p.49·fb145·K0·iso142 → 18.7 → 5",
   "D": 5,
   "why": "p.49·fb145·K0·iso142 → 18.7 → 5"
- },
- "champs-elysees-paris": {
-  "id": "champs-elysees-paris",
-  "clue": "Champs-Élysées, France 🇫🇷",
-  "country": "France",
-  "views": 804.9,
-  "viewsSrc": "Champs-Élysées",
-  "p": 0.74,
-  "K": 0,
-  "dFb": 179,
-  "centre": [
-   47.3,
-   2.91
-  ],
-  "d1M": 264,
-  "known": 41,
-  "missU": 179,
-  "loss": 13.8,
-  "cur": 4,
-  "curWhy": "p.74·fb179·K0·iso264 → 13.8 → 4",
-  "D": 4,
-  "why": "p.74·fb179·K0·iso264 → 13.8 → 4"
  },
  "changsha": {
   "id": "changsha",
@@ -2944,8 +2900,8 @@
   "loss": 4.3,
   "cur": 2,
   "curWhy": "p.99·fb603·K0·iso704 → 4.3 → 2",
-  "D": 2,
-  "why": "p.99·fb603·K0·iso704 → 4.3 → 2"
+  "D": 1,
+  "why": "p.99·fb603·K0·iso704 → 4.3 → 1"
  },
  "chiclayo-pe": {
   "id": "chiclayo-pe",
@@ -3321,28 +3277,6 @@
   "D": 8,
   "why": "p.54·fb143·K1·iso108 → 85.6 → 8"
  },
- "coyoacan-mx": {
-  "id": "coyoacan-mx",
-  "clue": "Coyoacán, Mexico 🇲🇽",
-  "country": "Mexico",
-  "views": 275.1,
-  "viewsSrc": "Coyoacán",
-  "p": 0.5,
-  "K": 0,
-  "dFb": 294,
-  "centre": [
-   21.67,
-   -100.52
-  ],
-  "d1M": 17,
-  "known": 60,
-  "missU": 294,
-  "loss": 34.8,
-  "cur": 6,
-  "curWhy": "p.50·fb294·K0·iso17 → 34.8 → 6",
-  "D": 6,
-  "why": "p.50·fb294·K0·iso17 → 34.8 → 6"
- },
  "cucuta-co": {
   "id": "cucuta-co",
   "clue": "Cúcuta, Colombia 🇨🇴",
@@ -3560,8 +3494,8 @@
   "loss": 6.4,
   "cur": 3,
   "curWhy": "p.93·fb197·K0·iso83 → 6.4 → 3",
-  "D": 3,
-  "why": "p.93·fb197·K0·iso83 → 6.4 → 3"
+  "D": 2,
+  "why": "p.93·fb197·K0·iso83 → 6.4 → 2"
  },
  "dammam-sa": {
   "id": "dammam-sa",
@@ -4528,8 +4462,8 @@
   "loss": 6.4,
   "cur": 3,
   "curWhy": "p.90·fb144·K0·iso153 → 6.4 → 3",
-  "D": 3,
-  "why": "p.90·fb144·K0·iso153 → 6.4 → 3"
+  "D": 2,
+  "why": "p.90·fb144·K0·iso153 → 6.4 → 2"
  },
  "freetown-sl": {
   "id": "freetown-sl",
@@ -4682,8 +4616,8 @@
   "loss": 6.8,
   "cur": 3,
   "curWhy": "p.91·fb168·K0·iso250 → 6.8 → 3",
-  "D": 3,
-  "why": "p.91·fb168·K0·iso250 → 6.8 → 3"
+  "D": 2,
+  "why": "p.91·fb168·K0·iso250 → 6.8 → 2"
  },
  "george-town-malaysia": {
   "id": "george-town-malaysia",
@@ -5980,8 +5914,8 @@
   "loss": 3.7,
   "cur": 2,
   "curWhy": "p.99·fb339·K0·iso16 → 3.7 → 2",
-  "D": 2,
-  "why": "p.99·fb339·K0·iso16 → 3.7 → 2"
+  "D": 1,
+  "why": "p.99·fb339·K0·iso16 → 3.7 → 1"
  },
  "jeddah-sa": {
   "id": "jeddah-sa",
@@ -6508,8 +6442,8 @@
   "loss": 6.6,
   "cur": 3,
   "curWhy": "p.86·fb61·K0·iso237 → 6.6 → 3",
-  "D": 3,
-  "why": "p.86·fb61·K0·iso237 → 6.6 → 3"
+  "D": 2,
+  "why": "p.86·fb61·K0·iso237 → 6.6 → 2"
  },
  "kayseri": {
   "id": "kayseri",
@@ -7124,8 +7058,8 @@
   "loss": 4.6,
   "cur": 2,
   "curWhy": "p.96·fb187·K0·iso293 → 4.6 → 2",
-  "D": 2,
-  "why": "p.96·fb187·K0·iso293 → 4.6 → 2"
+  "D": 1,
+  "why": "p.96·fb187·K0·iso293 → 4.6 → 1"
  },
  "kumasi-ghana": {
   "id": "kumasi-ghana",
@@ -7454,8 +7388,8 @@
   "loss": 4.5,
   "cur": 2,
   "curWhy": "p.94·fb79·K0·iso442 → 4.5 → 2",
-  "D": 2,
-  "why": "p.94·fb79·K0·iso442 → 4.5 → 2"
+  "D": 1,
+  "why": "p.94·fb79·K0·iso442 → 4.5 → 1"
  },
  "liverpool-england": {
   "id": "liverpool-england",
@@ -7476,8 +7410,8 @@
   "loss": 3.7,
   "cur": 2,
   "curWhy": "p.98·fb184·K0·iso126 → 3.7 → 2",
-  "D": 2,
-  "why": "p.98·fb184·K0·iso126 → 3.7 → 2"
+  "D": 1,
+  "why": "p.98·fb184·K0·iso126 → 3.7 → 1"
  },
  "lo-manthang-nepal": {
   "id": "lo-manthang-nepal",
@@ -8400,8 +8334,8 @@
   "loss": 3.9,
   "cur": 2,
   "curWhy": "p.99·fb419·K0·iso70 → 3.9 → 2",
-  "D": 2,
-  "why": "p.99·fb419·K0·iso70 → 3.9 → 2"
+  "D": 1,
+  "why": "p.99·fb419·K0·iso70 → 3.9 → 1"
  },
  "medan-id": {
   "id": "medan-id",
@@ -8466,8 +8400,8 @@
   "loss": 3.9,
   "cur": 2,
   "curWhy": "p.99·fb428·K0·iso654 → 3.9 → 2",
-  "D": 2,
-  "why": "p.99·fb428·K0·iso654 → 3.9 → 2"
+  "D": 1,
+  "why": "p.99·fb428·K0·iso654 → 3.9 → 1"
  },
  "memphis-us": {
   "id": "memphis-us",
@@ -8642,8 +8576,8 @@
   "loss": 3.8,
   "cur": 2,
   "curWhy": "p.99·fb380·K0·iso348 → 3.8 → 2",
-  "D": 2,
-  "why": "p.99·fb380·K0·iso348 → 3.8 → 2"
+  "D": 1,
+  "why": "p.99·fb380·K0·iso348 → 3.8 → 1"
  },
  "milwaukee": {
   "id": "milwaukee",
@@ -8686,8 +8620,8 @@
   "loss": 4.5,
   "cur": 2,
   "curWhy": "p.99·fb688·K0·iso571 → 4.5 → 2",
-  "D": 2,
-  "why": "p.99·fb688·K0·iso571 → 4.5 → 2"
+  "D": 1,
+  "why": "p.99·fb688·K0·iso571 → 4.5 → 1"
  },
  "minsk-by": {
   "id": "minsk-by",
@@ -8994,8 +8928,8 @@
   "loss": 4.3,
   "cur": 2,
   "curWhy": "p.99·fb612·K0·iso15 → 4.3 → 2",
-  "D": 2,
-  "why": "p.99·fb612·K0·iso15 → 4.3 → 2"
+  "D": 1,
+  "why": "p.99·fb612·K0·iso15 → 4.3 → 1"
  },
  "munich-germany": {
   "id": "munich-germany",
@@ -9016,30 +8950,8 @@
   "loss": 4.5,
   "cur": 2,
   "curWhy": "p.98·fb375·K0·iso300 → 4.5 → 2",
-  "D": 2,
-  "why": "p.98·fb375·K0·iso300 → 4.5 → 2"
- },
- "murano-d34-55": {
-  "id": "murano-d34-55",
-  "clue": "Murano, Italy 🇮🇹",
-  "country": "Italy",
-  "views": 140.7,
-  "viewsSrc": "Murano",
-  "p": 0.35,
-  "K": 0,
-  "dFb": 301,
-  "centre": [
-   42.76,
-   12.09
-  ],
-  "d1M": 247,
-  "known": 72,
-  "missU": 301,
-  "loss": 43.9,
-  "cur": 6,
-  "curWhy": "p.35·fb301·K0·iso247 → 43.9 → 6",
-  "D": 6,
-  "why": "p.35·fb301·K0·iso247 → 43.9 → 6"
+  "D": 1,
+  "why": "p.98·fb375·K0·iso300 → 4.5 → 1"
  },
  "muscat": {
   "id": "muscat",
@@ -9434,8 +9346,8 @@
   "loss": 4.4,
   "cur": 2,
   "curWhy": "p.99·fb663·K0·iso637 → 4.4 → 2",
-  "D": 2,
-  "why": "p.99·fb663·K0·iso637 → 4.4 → 2"
+  "D": 1,
+  "why": "p.99·fb663·K0·iso637 → 4.4 → 1"
  },
  "natal-br": {
   "id": "natal-br",
@@ -9544,8 +9456,8 @@
   "loss": 6.6,
   "cur": 3,
   "curWhy": "p.99·fb1679·K0·iso19 → 6.6 → 3",
-  "D": 3,
-  "why": "p.99·fb1679·K0·iso19 → 6.6 → 3"
+  "D": 2,
+  "why": "p.99·fb1679·K0·iso19 → 6.6 → 2"
  },
  "ngerulmud-palau": {
   "id": "ngerulmud-palau",
@@ -9564,8 +9476,8 @@
   "known": 53,
   "missU": 1990,
   "loss": 176.0,
-  "cur": 10,
-  "curWhy": "p.58·fb14916·K2·iso995 → 419.2 → 10",
+  "cur": 9,
+  "curWhy": "p.58·fb0·K2·iso995 → 176.0 → 9",
   "D": 9,
   "why": "p.58·fb0·K2·iso995 → 176.0 → 9"
  },
@@ -9703,7 +9615,7 @@
  },
  "niue-alofi": {
   "id": "niue-alofi",
-  "clue": "Alofi, Niue, Niue",
+  "clue": "Alofi, Niue 🇳🇺",
   "country": "Niue",
   "views": 118.7,
   "viewsSrc": "Alofi",
@@ -9874,8 +9786,8 @@
   "loss": 4.6,
   "cur": 2,
   "curWhy": "p.97·fb225·K0·iso151 → 4.6 → 2",
-  "D": 2,
-  "why": "p.97·fb225·K0·iso151 → 4.6 → 2"
+  "D": 1,
+  "why": "p.97·fb225·K0·iso151 → 4.6 → 1"
  },
  "nuuk-greenland": {
   "id": "nuuk-greenland",
@@ -9989,7 +9901,7 @@
  },
  "olympia-greece": {
   "id": "olympia-greece",
-  "clue": "Olympia, Greece, Greece 🇬🇷",
+  "clue": "Olympia, Greece 🇬🇷",
   "country": "Greece",
   "views": 473.6,
   "viewsSrc": "Olympia, Greece",
@@ -10622,8 +10534,8 @@
   "loss": 6.4,
   "cur": 3,
   "curWhy": "p.99·fb1581·K0·iso129 → 6.4 → 3",
-  "D": 3,
-  "why": "p.99·fb1581·K0·iso129 → 6.4 → 3"
+  "D": 2,
+  "why": "p.99·fb1581·K0·iso129 → 6.4 → 2"
  },
  "phnom-penh-cambodia": {
   "id": "phnom-penh-cambodia",
@@ -10710,8 +10622,8 @@
   "loss": 6.8,
   "cur": 3,
   "curWhy": "p.99·fb1174·K0·iso366 → 6.8 → 3",
-  "D": 3,
-  "why": "p.99·fb1174·K0·iso366 → 6.8 → 3"
+  "D": 2,
+  "why": "p.99·fb1174·K0·iso366 → 6.8 → 2"
  },
  "piura-pe": {
   "id": "piura-pe",
@@ -11238,8 +11150,8 @@
   "loss": 6.5,
   "cur": 3,
   "curWhy": "p.87·fb85·K0·iso180 → 6.5 → 3",
-  "D": 3,
-  "why": "p.87·fb85·K0·iso180 → 6.5 → 3"
+  "D": 2,
+  "why": "p.87·fb85·K0·iso180 → 6.5 → 2"
  },
  "qaqortoq-greenland": {
   "id": "qaqortoq-greenland",
@@ -11568,8 +11480,8 @@
   "loss": 4.4,
   "cur": 2,
   "curWhy": "p.99·fb653·K0·iso341 → 4.4 → 2",
-  "D": 2,
-  "why": "p.99·fb653·K0·iso341 → 4.4 → 2"
+  "D": 1,
+  "why": "p.99·fb653·K0·iso341 → 4.4 → 1"
  },
  "riyadh": {
   "id": "riyadh",
@@ -11856,28 +11768,6 @@
   "curWhy": "p.66·fb937·K0·iso475 → 72.7 → 7",
   "D": 7,
   "why": "p.66·fb937·K0·iso475 → 72.7 → 7"
- },
- "salvador-pelourinho": {
-  "id": "salvador-pelourinho",
-  "clue": "Pelourinho, Brazil 🇧🇷",
-  "country": "Brazil",
-  "views": 585.1,
-  "viewsSrc": "Salvador, Bahia (parent; own 'Historic Center of Salvador' 20.5)",
-  "p": 0.66,
-  "K": 0,
-  "dFb": 936,
-  "centre": [
-   -17.58,
-   -45.81
-  ],
-  "d1M": 476,
-  "known": 47,
-  "missU": 936,
-  "loss": 72.6,
-  "cur": 7,
-  "curWhy": "p.66(via Salvador)·fb936·K0·iso476 → 72.6 → 7",
-  "D": 7,
-  "why": "p.66(via Salvador)·fb936·K0·iso476 → 72.6 → 7"
  },
  "salzburg-austria": {
   "id": "salzburg-austria",
@@ -12294,8 +12184,8 @@
   "loss": 6.8,
   "cur": 3,
   "curWhy": "p.85·fb58·K0·iso648 → 6.8 → 3",
-  "D": 3,
-  "why": "p.85·fb58·K0·iso648 → 6.8 → 3"
+  "D": 2,
+  "why": "p.85·fb58·K0·iso648 → 6.8 → 2"
  },
  "santiago-de-queretaro-mx": {
   "id": "santiago-de-queretaro-mx",
@@ -12426,8 +12316,8 @@
   "loss": 6.7,
   "cur": 3,
   "curWhy": "p.98·fb669·K0·iso84 → 6.7 → 3",
-  "D": 3,
-  "why": "p.98·fb669·K0·iso84 → 6.7 → 3"
+  "D": 2,
+  "why": "p.98·fb669·K0·iso84 → 6.7 → 2"
  },
  "sapporo-japan": {
   "id": "sapporo-japan",
@@ -12580,8 +12470,8 @@
   "loss": 3.7,
   "cur": 2,
   "curWhy": "p.98·fb120·K0·iso16 → 3.7 → 2",
-  "D": 2,
-  "why": "p.98·fb120·K0·iso16 → 3.7 → 2"
+  "D": 1,
+  "why": "p.98·fb120·K0·iso16 → 3.7 → 1"
  },
  "seville-spain": {
   "id": "seville-spain",
@@ -12624,8 +12514,8 @@
   "loss": 4.5,
   "cur": 2,
   "curWhy": "p.99·fb693·K0·iso16 → 4.5 → 2",
-  "D": 2,
-  "why": "p.99·fb693·K0·iso16 → 4.5 → 2"
+  "D": 1,
+  "why": "p.99·fb693·K0·iso16 → 4.5 → 1"
  },
  "sharjah-ae": {
   "id": "sharjah-ae",
@@ -12890,28 +12780,6 @@
   "curWhy": "p.86·fb130·K0·iso296 → 7.6 → 3",
   "D": 3,
   "why": "p.86·fb130·K0·iso296 → 7.6 → 3"
- },
- "soweto-za": {
-  "id": "soweto-za",
-  "clue": "Soweto, South Africa 🇿🇦",
-  "country": "South Africa",
-  "views": 414.8,
-  "viewsSrc": "Soweto",
-  "p": 0.59,
-  "K": 0,
-  "dFb": 251,
-  "centre": [
-   -28.4,
-   27.04
-  ],
-  "d1M": 20,
-  "known": 53,
-  "missU": 251,
-  "loss": 25.6,
-  "cur": 6,
-  "curWhy": "p.59·fb251·K0·iso20 → 25.6 → 6",
-  "D": 6,
-  "why": "p.59·fb251·K0·iso20 → 25.6 → 6"
  },
  "srinagar": {
   "id": "srinagar",
@@ -13262,8 +13130,8 @@
   "loss": 4.2,
   "cur": 2,
   "curWhy": "p.99·fb567·K0·iso713 → 4.2 → 2",
-  "D": 2,
-  "why": "p.99·fb567·K0·iso713 → 4.2 → 2"
+  "D": 1,
+  "why": "p.99·fb567·K0·iso713 → 4.2 → 1"
  },
  "tabriz-ir": {
   "id": "tabriz-ir",
@@ -13416,8 +13284,8 @@
   "loss": 6.9,
   "cur": 3,
   "curWhy": "p.85·fb29·K0·iso317 → 6.9 → 3",
-  "D": 3,
-  "why": "p.85·fb29·K0·iso317 → 6.9 → 3"
+  "D": 2,
+  "why": "p.85·fb29·K0·iso317 → 6.9 → 2"
  },
  "tambacounda": {
   "id": "tambacounda",
@@ -13443,7 +13311,7 @@
  },
  "tampa-usa": {
   "id": "tampa-usa",
-  "clue": "Tampa, Florida 🇺🇸",
+  "clue": "Tampa, Florida, United States 🇺🇸",
   "country": "United States",
   "views": 1388.3,
   "viewsSrc": "Tampa, Florida",
@@ -14010,8 +13878,8 @@
   "loss": 4.1,
   "cur": 2,
   "curWhy": "p.99·fb504·K0·iso188 → 4.1 → 2",
-  "D": 2,
-  "why": "p.99·fb504·K0·iso188 → 4.1 → 2"
+  "D": 1,
+  "why": "p.99·fb504·K0·iso188 → 4.1 → 1"
  },
  "trujillo-pe": {
   "id": "trujillo-pe",
@@ -14037,7 +13905,7 @@
  },
  "tucson-usa": {
   "id": "tucson-usa",
-  "clue": "Tucson, Arizona 🇺🇸",
+  "clue": "Tucson, Arizona, United States 🇺🇸",
   "country": "United States",
   "views": 1603.3,
   "viewsSrc": "Tucson, Arizona",
@@ -14142,8 +14010,8 @@
   "loss": 6.4,
   "cur": 3,
   "curWhy": "p.89·fb117·K0·iso795 → 6.4 → 3",
-  "D": 3,
-  "why": "p.89·fb117·K0·iso795 → 6.4 → 3"
+  "D": 2,
+  "why": "p.89·fb117·K0·iso795 → 6.4 → 2"
  },
  "ulsan": {
   "id": "ulsan",
@@ -14607,28 +14475,6 @@
   "D": 6,
   "why": "p.82·fb999·K0·iso393 → 42.5 → 6"
  },
- "waikiki": {
-  "id": "waikiki",
-  "clue": "Waikiki, United States 🇺🇸",
-  "country": "United States",
-  "views": 1746.9,
-  "viewsSrc": "Honolulu (parent; own 'Waikīkī' 195.4)",
-  "p": 0.91,
-  "K": 0,
-  "dFb": 6356,
-  "centre": [
-   38.79,
-   -93.53
-  ],
-  "d1M": 4119,
-  "known": 27,
-  "missU": 6356,
-  "loss": 81.3,
-  "cur": 8,
-  "curWhy": "p.91(via Honolulu)·fb6356·K0·iso4119 → 81.3 → 8",
-  "D": 8,
-  "why": "p.91(via Honolulu)·fb6356·K0·iso4119 → 81.3 → 8"
- },
  "warsaw-poland": {
   "id": "warsaw-poland",
   "clue": "Warsaw, Poland 🇵🇱",
@@ -14648,8 +14494,8 @@
   "loss": 4.3,
   "cur": 2,
   "curWhy": "p.96·fb128·K0·iso475 → 4.3 → 2",
-  "D": 2,
-  "why": "p.96·fb128·K0·iso475 → 4.3 → 2"
+  "D": 1,
+  "why": "p.96·fb128·K0·iso475 → 4.3 → 1"
  },
  "washington-dc-usa": {
   "id": "washington-dc-usa",
@@ -15308,8 +15154,8 @@
   "loss": 6.5,
   "cur": 3,
   "curWhy": "p.87·fb56·K0·iso218 → 6.5 → 3",
-  "D": 3,
-  "why": "p.87·fb56·K0·iso218 → 6.5 → 3"
+  "D": 2,
+  "why": "p.87·fb56·K0·iso218 → 6.5 → 2"
  },
  "bogota-colombia": {
   "id": "bogota-colombia",
@@ -16210,8 +16056,8 @@
   "loss": 6.6,
   "cur": 3,
   "curWhy": "p.86·fb27·K0·iso278 → 6.6 → 3",
-  "D": 3,
-  "why": "p.86·fb27·K0·iso278 → 6.6 → 3"
+  "D": 2,
+  "why": "p.86·fb27·K0·iso278 → 6.6 → 2"
  },
  "sucre-bolivia": {
   "id": "sucre-bolivia",
@@ -16322,28 +16168,6 @@
   "curWhy": "p.84·fb117·K0·iso488 → 7.6 → 3",
   "D": 3,
   "why": "p.84·fb117·K0·iso488 → 7.6 → 3"
- },
- "sri-jayawardenepura-kotte": {
-  "id": "sri-jayawardenepura-kotte",
-  "clue": "Sri Jayawardenepura Kotte, Sri Lanka 🇱🇰",
-  "country": "Sri Lanka",
-  "views": 335.3,
-  "viewsSrc": "Sri Jayawardenepura Kotte",
-  "p": 0.54,
-  "K": 0,
-  "dFb": 55,
-  "centre": [
-   7.25,
-   80.25
-  ],
-  "d1M": 316,
-  "known": 57,
-  "missU": 100,
-  "loss": 13.3,
-  "cur": 4,
-  "curWhy": "p.54·fb55·K0·iso316 → 13.3 → 4",
-  "D": 4,
-  "why": "p.54·fb55·K0·iso316 → 13.3 → 4"
  },
  "bern-switzerland": {
   "id": "bern-switzerland",
