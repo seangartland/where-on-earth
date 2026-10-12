@@ -14221,21 +14221,6 @@
     "category": "city"
   },
   {
-    "id": "sacre-coeur-fr",
-    "short": "Sacré-Cœur",
-    "clue": "Sacré-Cœur, France 🇫🇷",
-    "fact": "The white basilica crowns Montmartre, and its travertine stone releases calcite when it rains, so it stays bright white.",
-    "lat": 48.8867,
-    "lng": 2.3431,
-    "difficulty": 2,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Le_sacre_coeur.jpg/500px-Le_sacre_coeur.jpg",
-    "country": "France",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor paris-france)",
-    "category": "city"
-  },
-  {
     "id": "sadr-city",
     "short": "Sadr City",
     "clue": "Sadr City, Iraq 🇮🇶",
@@ -19781,7 +19766,7 @@
     "short": "Skopje",
     "clue": "Skopje, North Macedonia 🇲🇰",
     "fact": "A massive earthquake leveled much of Skopje in 1963, and decades later the government responded with 'Skopje 2014,' a controversial building spree that covered downtown in neoclassical facades and dozens of new statues.",
-    "lat": 42.0,
+    "lat": 42,
     "lng": 21.4333,
     "difficulty": 4,
     "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
