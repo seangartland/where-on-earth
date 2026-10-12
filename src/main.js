@@ -13,7 +13,9 @@ if (window.__boot) window.__boot('3D engine loaded');
 // before anything reads storage; the fetch below skips the HTTP cache so a
 // stale locations.json can't rebuild the old set.
 const RESET_DAILY = new URLSearchParams(location.search).get('reset') === 'daily';
-const AUDIT_MODE = new URLSearchParams(location.search).get('audit') === '1';
+// Audit mode retired 2026-10-12 (Sean): code preserved, flip to true to reinstate ?audit=1.
+const AUDIT_AVAILABLE = false;
+const AUDIT_MODE = AUDIT_AVAILABLE && new URLSearchParams(location.search).get('audit') === '1';
 if (RESET_DAILY) {
   try { localStorage.removeItem('where-on-earth-v1'); } catch (error) { console.error('[reset] daily', error); }
   history.replaceState(null, '', location.pathname + location.hash);

@@ -13526,5 +13526,20 @@
     "category": "city",
     "continent": "Asia",
     "sets": []
+  },
+  {
+    "id": "abala",
+    "short": "Abala",
+    "clue": "Abala, Niger 🇳🇪",
+    "fact": "Abala is a town in Niger's Tillabéri Region, near the border with Mali.",
+    "lat": 14.9369,
+    "lng": 3.4336,
+    "difficulty": 9,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
+    "country": "Niger",
+    "continent": "Africa",
+    "sets": [],
+    "difficultyWhy": "p.00·fb199·K1·iso213 → 177.3 → 9",
+    "category": "city"
   }
 ]
