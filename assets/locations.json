@@ -366,21 +366,6 @@
     "category": "city"
   },
   {
-    "id": "ambunti-sepik",
-    "clue": "Ambunti, Papua New Guinea 🇵🇬",
-    "fact": "Ambunti is a cultural center along the Sepik River, renowned for its traditional wood carvings and crocodile culture.",
-    "lat": -4.2147,
-    "lng": 142.8425,
-    "difficulty": 9,
-    "short": "Ambunti",
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sepik_River_IMG_2117.jpg",
-    "country": "Papua New Guinea",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-    "category": "city"
-  },
-  {
     "id": "amman-jordan",
     "clue": "Amman, Jordan 🇯🇴",
     "fact": "Amman's downtown sits seven levels below today's street, where a Roman theatre cut for 6,000 spectators was carved straight into the hillside above it.",
@@ -641,21 +626,6 @@
       "Great Rivers"
     ],
     "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
-    "id": "atafu-loto",
-    "short": "Atafu",
-    "clue": "Atafu, New Zealand 🇳🇿",
-    "fact": "Atafu is the northernmost atoll of Tokelau and one of the world's most remote permanently inhabited atolls.",
-    "lat": -8.5514,
-    "lng": -172.5152,
-    "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Atafu.jpg/500px-Atafu.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "New Zealand",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F4·A2·K0·C1·S1 → 9",
     "category": "city"
   },
   {
@@ -958,7 +928,7 @@
     "lat": 1.14937,
     "lng": 104.02491,
     "difficulty": 5,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Welcome_to_Batam.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Batam%2C%20Indonesia%20%28Unsplash%29.jpg?width=500",
     "country": "Indonesia",
     "continent": "Asia",
     "sets": [],
@@ -1467,7 +1437,7 @@
     "lat": 7.125,
     "lng": -73.11895,
     "difficulty": 7,
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Catedral_de_Sal_de_Zipaquira.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bucaramanga%20cityscape.jpg?width=500",
     "country": "Colombia",
     "continent": "South America",
     "sets": [],
@@ -3907,7 +3877,7 @@
     "lat": 29.08874,
     "lng": -110.96677,
     "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Hermosillo_Collage.jpg/500px-Hermosillo_Collage.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Skyline%20Hermosillo.jpg?width=500",
     "country": "Mexico",
     "continent": "North America",
     "sets": [],
@@ -4098,23 +4068,6 @@
     "continent": "Asia",
     "sets": [],
     "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
-    "id": "hunga-tonga-2022-eruption",
-    "short": "Hunga Tonga–Hunga Ha'apai",
-    "clue": "Hunga Tonga–Hunga Haʻapai, Tonga 🇹🇴",
-    "fact": "The eruption generated a towering plume, a Pacific-wide tsunami, and atmospheric waves detected globally. Much of the young volcanic island was destroyed.",
-    "lat": -20.536,
-    "lng": -175.382,
-    "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/ISS-66_Atmospheric_plume_from_2022_Hunga_Tonga_eruption_-_edited.jpg/500px-ISS-66_Atmospheric_plume_from_2022_Hunga_Tonga_eruption_-_edited.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Tonga",
-    "continent": "Oceania",
-    "sets": [
-      "Volcanoes"
-    ],
-    "difficultyWhy": "F3·A0·K2·C0·S0 → 6",
     "category": "city"
   },
   {
@@ -4954,21 +4907,6 @@
     "category": "city"
   },
   {
-    "id": "kiriwina-trobriands",
-    "clue": "Kiriwina, Papua New Guinea 🇵🇬",
-    "fact": "Kiriwina in the Trobriand Islands is famous for its complex kula exchange system studied by Bronislaw Malinowski.",
-    "lat": -8.5542,
-    "lng": 151.0817,
-    "difficulty": 9,
-    "short": "Kiriwina",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Karta_PG_Trobriand_isl.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "country": "Papua New Guinea",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-    "category": "city"
-  },
-  {
     "id": "kirkenes-norway",
     "short": "Kirkenes",
     "clue": "Kirkenes, Norway 🇳🇴",
@@ -5008,7 +4946,7 @@
     "lat": 35.46806,
     "lng": 44.39222,
     "difficulty": 5,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Kirkuk_citadel.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kirkuk%20Qaysariyya%20Bazaar%20%281855%29%2C%20Kirkuk%2C%20Iraq%2004.jpg?width=500",
     "country": "Iraq",
     "continent": "Asia",
     "sets": [],
@@ -5643,7 +5581,7 @@
     "fact": "Sprawled across Southern California, it's home to the Hollywood film industry and over 80 miles of coastline.",
     "difficulty": 3,
     "short": "Los Angeles",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Hollywood_sign_%288485145044%29.jpg/500px-Hollywood_sign_%288485145044%29.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Skyscraper%20Los%20Angeles%20Downtown%202013.jpg?width=500",
     "country": "United States",
     "continent": "North America",
     "sets": [],
@@ -6068,21 +6006,6 @@
     "category": "city"
   },
   {
-    "id": "manihiki-oma",
-    "short": "Manihiki",
-    "clue": "Manihiki, Cook Islands 🇨🇰",
-    "fact": "Manihiki Atoll in the Cook Islands is famous for its black pearl farming industry.",
-    "lat": -10.4247,
-    "lng": -161.0144,
-    "difficulty": 10,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Manihiki_Aerial.jpg/500px-Manihiki_Aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Cook Islands",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F5·A2·K2·C1·S1 → 10",
-    "category": "city"
-  },
-  {
     "id": "manila-philippines",
     "clue": "Manila, Philippines 🇵🇭",
     "fact": "Intramuros, the walled Spanish city built around the Pasig River, was so badly destroyed in 1945 that only one of its original gates, San Luis, still stands.",
@@ -6219,21 +6142,6 @@
     "continent": "Europe",
     "sets": [],
     "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
-    "id": "mauna-kea",
-    "clue": "Mauna Kea, United States 🇺🇸",
-    "fact": "Mauna Kea is the world's tallest mountain from base to summit, rising over 10,200 meters from the ocean floor.",
-    "lat": 19.8207,
-    "lng": -155.4681,
-    "difficulty": 6,
-    "short": "Mauna Kea",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Mauna_Kea_from_the_ocean.jpg/500px-Mauna_Kea_from_the_ocean.jpg",
-    "country": "United States",
-    "continent": "North America",
-    "sets": [],
-    "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
     "category": "city"
   },
   {
@@ -6413,7 +6321,7 @@
     "lat": 32.62781,
     "lng": -115.45446,
     "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/MexicaliMontage.jpg/500px-MexicaliMontage.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mexicali%2C%20Baja%20California%20%28153234%29.jpg?width=500",
     "country": "Mexico",
     "continent": "North America",
     "sets": [],
@@ -7019,21 +6927,6 @@
     "continent": "Europe",
     "sets": [],
     "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-    "category": "city"
-  },
-  {
-    "id": "nanumea-tuvalu",
-    "short": "Nanumea, Tuvalu",
-    "clue": "Nanumea, Tuvalu, Tuvalu 🇹🇻",
-    "fact": "Nanumea is a remote northern atoll of Tuvalu known for its traditional Polynesian navigation history.",
-    "lat": -5.6554,
-    "lng": 176.115,
-    "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Nanumea_2022.png/500px-Nanumea_2022.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Tuvalu",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F5·A0·K2·C0·S1 → 9",
     "category": "city"
   },
   {
@@ -7770,21 +7663,6 @@
     "category": "city"
   },
   {
-    "id": "pangai-haapai",
-    "clue": "Pangai, Tonga 🇹🇴",
-    "fact": "Pangai is the administrative center of Ha'apai, a stunning archipelago of coral islands in Tonga.",
-    "lat": -19.8047,
-    "lng": -174.3475,
-    "difficulty": 9,
-    "short": "Pangai",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Haapai.jpg",
-    "country": "Tonga",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F5·A0·K2·C1·S0 → 9",
-    "category": "city"
-  },
-  {
     "id": "pantheon-rome",
     "clue": "Pantheon, Italy 🇮🇹",
     "fact": "The Panthe's oculus is one 43-metre hole cut in the dome and the only light the interior gets, so rain falls straight onto the marble floor.",
@@ -7859,21 +7737,6 @@
     "continent": "Asia",
     "sets": [],
     "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
-    "id": "pavuvu-russells",
-    "clue": "Pavuvu, Solomon Islands 🇸🇧",
-    "fact": "Pavuvu was a major U.S. Marine staging base during the Guadalcanal Campaign in World War II.",
-    "lat": -9.05,
-    "lng": 159.2,
-    "difficulty": 9,
-    "short": "Pavuvu",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Pavuvu_Island%2C_Russell_Islands%2C_Sentinel-2.jpg/500px-Pavuvu_Island%2C_Russell_Islands%2C_Sentinel-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Solomon Islands",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F4·A1·K2·C1·S0 → 9",
     "category": "city"
   },
   {
@@ -8101,7 +7964,7 @@
     "lat": 20.6274,
     "lng": -87.07987,
     "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/PlayadelCarmen3.png/500px-PlayadelCarmen3.png",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20of%20Playa%20del%20Carmen%2C%20Mexico%20%2828708057347%29.jpg?width=500",
     "country": "Mexico",
     "continent": "North America",
     "sets": [],
@@ -8387,21 +8250,6 @@
     "category": "city"
   },
   {
-    "id": "pucara-de-tilcara",
-    "short": "Pucara de Tilcara",
-    "clue": "Pucara de Tilcara, Argentina 🇦🇷",
-    "fact": "This reconstructed pre-Hispanic hilltop settlement overlooks Argentina's Quebrada de Humahuaca. Its position controlled movement through the valley.",
-    "lat": -23.5882,
-    "lng": -65.402,
-    "difficulty": 10,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Pucar%C3%A1_de_Tilcara_01.JPG/500px-Pucar%C3%A1_de_Tilcara_01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Argentina",
-    "continent": "South America",
-    "sets": [],
-    "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-    "category": "city"
-  },
-  {
     "id": "pucioasa",
     "short": "Pucioasa",
     "clue": "Pucioasa, Romania 🇷🇴",
@@ -8459,21 +8307,6 @@
     "continent": "North America",
     "sets": [],
     "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
-    "category": "city"
-  },
-  {
-    "id": "pukapuka-village",
-    "short": "Pukapuka Village",
-    "clue": "Pukapuka Village, Cook Islands 🇨🇰",
-    "fact": "Pukapuka Atoll is known for its distinct dialect and traditional Polynesian way of life.",
-    "lat": -10.8517,
-    "lng": -165.8367,
-    "difficulty": 10,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Pukapuka_Islet.jpg/500px-Pukapuka_Islet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Cook Islands",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F3·A2·K2·C1·S1 → 10",
     "category": "city"
   },
   {
@@ -8576,7 +8409,7 @@
     "lat": 30.18414,
     "lng": 67.00141,
     "difficulty": 5,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Quetta_cantt.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Quettaa%20Pakistan%2C%20View%202008%20..jpg?width=500",
     "country": "Pakistan",
     "continent": "Asia",
     "sets": [],
@@ -9280,38 +9113,6 @@
     "category": "city"
   },
   {
-    "id": "santiago-de-cuba-cu",
-    "short": "Santiago de Cuba",
-    "clue": "Santiago de Cuba, Cuba 🇨🇺",
-    "fact": "Santiago de Cuba is the birthplace of son music and the city where Fidel Castro launched the revolution in 1953.",
-    "lat": 20.02287,
-    "lng": -75.82171,
-    "difficulty": 5,
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Citadelle_Laferri%C3%A8re.jpg",
-    "country": "Cuba",
-    "continent": "North America",
-    "sets": [
-      "Caribbean"
-    ],
-    "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
-    "id": "santiago-de-los-caballeros-do",
-    "short": "Santiago de los Caballeros",
-    "clue": "Santiago de los Caballeros, Dominican Republic 🇩🇴",
-    "fact": "Santiago de los Caballeros is the Dominican Republic's second city, the heart of its cigar industry and merengue típico music.",
-    "lat": 19.45036,
-    "lng": -70.69085,
-    "difficulty": 5,
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Citadelle_Laferri%C3%A8re.jpg",
-    "country": "Dominican Republic",
-    "continent": "North America",
-    "sets": [],
-    "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "santiago-de-queretaro-mx",
     "short": "Santiago de Querétaro",
     "clue": "Santiago de Querétaro, Mexico 🇲🇽",
@@ -9526,23 +9327,6 @@
     "continent": "Europe",
     "sets": [],
     "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
-    "category": "city"
-  },
-  {
-    "id": "sewell-mining-stairways",
-    "short": "Sewell Mining Town",
-    "clue": "Sewell Mining Town, Chile 🇨🇱",
-    "fact": "Founded to serve a vast underground copper mine, the settlement once housed more than 15,000 residents.",
-    "lat": -34.084444,
-    "lng": -70.3825,
-    "difficulty": 9,
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sewell_Chile.jpg",
-    "country": "Chile",
-    "continent": "South America",
-    "sets": [
-      "Mining Towns"
-    ],
-    "difficultyWhy": "F5·A3·K0·C0·S0 → 9",
     "category": "city"
   },
   {
@@ -10088,21 +9872,6 @@
     "category": "city"
   },
   {
-    "id": "tabuaeran",
-    "short": "Tabuaeran, Kiribati",
-    "clue": "Tabuaeran, Kiribati, Kiribati 🇰🇮",
-    "fact": "Tabuaeran (Fanning Island) in Kiribati is known for its abundant birdlife and coconut plantations.",
-    "lat": 3.8667,
-    "lng": -159.3567,
-    "difficulty": 8,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Tabuaeran_Kiribati.jpg/500px-Tabuaeran_Kiribati.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Kiribati",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F4·A0·K2·C0·S1 → 8",
-    "category": "city"
-  },
-  {
     "id": "taichung-tw",
     "short": "Taichung",
     "clue": "Taichung, Taiwan 🇹🇼",
@@ -10170,7 +9939,7 @@
     "lat": 10.99081,
     "lng": 104.78498,
     "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Ta_Prohm_%28Takeo%29.JPG/500px-Ta_Prohm_%28Takeo%29.JPG",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Takeo%20Psar%20Nat.JPG?width=500",
     "country": "Cambodia",
     "continent": "Asia",
     "sets": [],
@@ -10351,23 +10120,6 @@
     "category": "city"
   },
   {
-    "id": "teotihuacan",
-    "short": "Teotihuacan",
-    "clue": "Teotihuacan, Mexico 🇲🇽",
-    "fact": "It was the largest city in the Americas for centuries, then was burned and abandoned, and no records of its builders survive.",
-    "lat": 19.6925,
-    "lng": -98.8438,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/ZA77_Teotihuac%C3%A1n_edo_de_mex_Herberto_de_la_rosa.jpg/500px-ZA77_Teotihuac%C3%A1n_edo_de_mex_Herberto_de_la_rosa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Mexico",
-    "continent": "North America",
-    "sets": [
-      "Ancient Ruins"
-    ],
-    "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "tepui-auyan",
     "short": "Auyan-tepui",
     "clue": "Auyan-tepui, Venezuela 🇻🇪",
@@ -10380,21 +10132,6 @@
     "continent": "South America",
     "sets": [],
     "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
-    "category": "city"
-  },
-  {
-    "id": "teraina",
-    "short": "Teraina, Kiribati",
-    "clue": "Teraina, Kiribati, Kiribati 🇰🇮",
-    "fact": "Teraina (Washington Island) is one of Kiribati's Line Islands with a small population and rich marine life.",
-    "lat": 4.6878,
-    "lng": -160.3742,
-    "difficulty": 9,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-    "country": "Kiribati",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F5·A0·K2·C0·S1 → 9",
     "category": "city"
   },
   {
@@ -11568,7 +11305,7 @@
     "lat": 6.91028,
     "lng": 122.07389,
     "difficulty": 6,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Zamboanga_City_Hall_%26_Rizal_Park%2C_Mar_2026.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Zamboanga%20City%20from%20Garden%20Orchid%20Hotel.jpg?width=500",
     "country": "Philippines",
     "continent": "Asia",
     "sets": [],
