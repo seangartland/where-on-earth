@@ -1,0 +1,79 @@
+[
+ {
+  "id": "giants-causeway",
+  "clue": "Giant's Causeway, Northern Ireland",
+  "fact": "The Giant's Causeway's columns are lava joints formed as molten rock cooled some 50 million years ago, and Irish legend says a giant built the road across them to Scotland.",
+  "lat": 55.2389,
+  "lng": -6.5111,
+  "difficulty": 3,
+  "short": "Giant's Causeway",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Causeway-code_poet-4.jpg/500px-Causeway-code_poet-4.jpg",
+  "country": "Northern Ireland",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
+  "category": "city"
+ },
+ {
+  "id": "grand-place-d34-1",
+  "short": "Grand Place",
+  "clue": "Grand Place, Belgium 🇧🇪",
+  "fact": "UNESCO World Heritage square with ornate guildhalls.",
+  "lat": 50.8467,
+  "lng": 4.3525,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/500px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Belgium",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
+  "category": "city"
+ },
+ {
+  "id": "merlion-singapore",
+  "short": "Merlion",
+  "clue": "Merlion, Singapore 🇸🇬",
+  "fact": "The Merlion is Singapore's iconic statue with a lion's head and fish body.",
+  "lat": 1.2868,
+  "lng": 103.8545,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Singapore_Skyline_2019-10.jpg/500px-Singapore_Skyline_2019-10.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Singapore",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "F3·A0·K0·C1·S0 → 4 (neighbor singapore)",
+  "category": "city"
+ },
+ {
+  "id": "port-of-rotterdam-d34-9",
+  "short": "Port of Rotterdam",
+  "clue": "Port of Rotterdam, Netherlands 🇳🇱",
+  "fact": "Europe's largest seaport.",
+  "lat": 51.9244,
+  "lng": 4.4777,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Port_of_Rotterdam_logo_%28light-blue%29.svg/500px-Port_of_Rotterdam_logo_%28light-blue%29.svg.png",
+  "country": "Netherlands",
+  "continent": "Europe",
+  "sets": [
+   "Port Cities"
+  ],
+  "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
+  "category": "city"
+ },
+ {
+  "id": "tepui-auyan",
+  "short": "Auyan-tepui",
+  "clue": "Auyan-tepui, Venezuela 🇻🇪",
+  "fact": "Auyan-tepui is a massive tepui in Venezuela known for Angel Falls, the worlds highest uninterrupted waterfall.",
+  "lat": 5.9028,
+  "lng": -62.5361,
+  "difficulty": 8,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
+  "country": "Venezuela",
+  "continent": "South America",
+  "sets": [],
+  "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
+  "category": "city"
+ }
+]
