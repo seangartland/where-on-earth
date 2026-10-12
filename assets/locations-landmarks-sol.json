@@ -12479,5 +12479,99 @@
     ],
     "difficultyWhy": "F4·A1·K2·C1·S0 → 9",
     "category": "city"
+  },
+  {
+    "id": "east-london",
+    "short": "East London",
+    "clue": "East London, South Africa 🇿🇦",
+    "fact": "East London is South Africa's only river port, and its museum displays the first living coelacanth found in 1938.",
+    "lat": -33.01529,
+    "lng": 27.91162,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/East_London%2C_Union_of_South_Africa.jpg/500px-East_London%2C_Union_of_South_Africa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "country": "South Africa",
+    "continent": "Africa",
+    "sets": [],
+    "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
+    "category": "city"
+  },
+  {
+    "id": "forbidden-city-beijing",
+    "clue": "Forbidden City, China 🇨🇳",
+    "fact": "Ming and Qing emperors lived inside these walls from 1420 to 1924, and the surviving complex still covers 72 hectares across some 980 buildings.",
+    "lat": 39.9163,
+    "lng": 116.3972,
+    "difficulty": 2,
+    "short": "Forbidden City",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Forbidden_City_-_View_from_Coal_Hill.jpg/500px-The_Forbidden_City_-_View_from_Coal_Hill.jpg",
+    "country": "China",
+    "continent": "Asia",
+    "sets": [],
+    "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor beijing-china)",
+    "category": "city"
+  },
+  {
+    "id": "hegra-qasr-al-farid",
+    "short": "Hegra",
+    "clue": "Hegra, Saudi Arabia 🇸🇦",
+    "fact": "Hegra was the Nabataeans' major southern city and became Saudi Arabia's first UNESCO World Heritage Site in 2008.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg/500px-Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg",
+    "lat": 26.7914,
+    "lng": 37.9515,
+    "difficulty": 6,
+    "country": "Saudi Arabia",
+    "continent": "Asia",
+    "sets": [],
+    "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
+    "category": "city"
+  },
+  {
+    "id": "pietermaritzburg-za",
+    "short": "Pietermaritzburg",
+    "clue": "Pietermaritzburg, South Africa 🇿🇦",
+    "fact": "Pietermaritzburg is where a young Gandhi was thrown off a train in 1893, an event that shaped his activism.",
+    "lat": -29.61679,
+    "lng": 30.39278,
+    "difficulty": 6,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Pietermaritzburg_1966.jpg/500px-Pietermaritzburg_1966.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "country": "South Africa",
+    "continent": "Africa",
+    "sets": [],
+    "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
+    "category": "city"
+  },
+  {
+    "id": "tabas",
+    "short": "Tabas",
+    "clue": "Tabas, Iran 🇮🇷",
+    "fact": "Tabas is a desert oasis town in eastern Iran known for its palm groves and its historic gardens.",
+    "lat": 33.59586,
+    "lng": 56.92437,
+    "difficulty": 8,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Tabas%2C_Iran.jpg/500px-Tabas%2C_Iran.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "country": "Iran",
+    "continent": "Asia",
+    "sets": [
+      "Desert Cities"
+    ],
+    "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
+    "category": "city"
+  },
+  {
+    "id": "tigers-nest",
+    "short": "Paro Taktsang (Tiger's Nest)",
+    "clue": "Paro Taktsang (Tiger's Nest), Bhutan 🇧🇹",
+    "fact": "The building appears to be on the cliff face with no visible support, and the walls inside are decorated with painted tiger claws.",
+    "lat": 27.433,
+    "lng": 89.414,
+    "difficulty": 4,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Paro_Taktsang%2C_Bhutan_%28edited%29.jpg/500px-Paro_Taktsang%2C_Bhutan_%28edited%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "country": "Bhutan",
+    "continent": "Asia",
+    "sets": [
+      "Himalaya"
+    ],
+    "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
+    "category": "city"
   }
 ]
