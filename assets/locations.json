@@ -548,21 +548,6 @@
     "category": "city"
   },
   {
-    "id": "arc-de-triomphe-paris",
-    "short": "Arc de Triomphe",
-    "clue": "Arc de Triomphe, France 🇫🇷",
-    "fact": "The Arc de Triomphe honors those who fought and died for France in the French Revolution and Napoleonic Wars.",
-    "lat": 48.8738,
-    "lng": 2.295,
-    "difficulty": 2,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Arc_de_Triomphe_-_Ao%C3%BBt_2026.jpg/500px-Arc_de_Triomphe_-_Ao%C3%BBt_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "France",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F1·A1·K0·C1·S0 → 2 (neighbor paris-france)",
-    "category": "city"
-  },
-  {
     "id": "armenia",
     "short": "Armenia",
     "clue": "Armenia, El Salvador 🇸🇻",
@@ -6083,21 +6068,6 @@
     "category": "city"
   },
   {
-    "id": "london-eye-gb",
-    "short": "London Eye",
-    "clue": "London Eye, England",
-    "fact": "Built as a temporary attraction for the millennium, the giant wheel on the South Bank proved so popular it never came down.",
-    "lat": 51.5033,
-    "lng": -0.1196,
-    "difficulty": 2,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/London-Eye-2009.JPG/500px-London-Eye-2009.JPG",
-    "country": "England",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor london-uk)",
-    "category": "city"
-  },
-  {
     "id": "london-uk",
     "clue": "London, England",
     "category": "city",
@@ -6607,21 +6577,6 @@
       "Megacities"
     ],
     "difficultyWhy": "F1·A2·K0·C0·S0 → 3 (relief)",
-    "category": "city"
-  },
-  {
-    "id": "manneken-pis-be",
-    "short": "Manneken Pis",
-    "clue": "Manneken Pis, Belgium 🇧🇪",
-    "fact": "The tiny bronze boy owns a wardrobe of over 1,000 costumes, changed several times a week.",
-    "lat": 50.845,
-    "lng": 4.35,
-    "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Bruxelles_Manneken_Pis_cropped.jpg/500px-Bruxelles_Manneken_Pis_cropped.jpg",
-    "country": "Belgium",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
     "category": "city"
   },
   {
@@ -8098,21 +8053,6 @@
     "category": "city"
   },
   {
-    "id": "old-trafford",
-    "short": "Old Trafford",
-    "clue": "Old Trafford, England",
-    "fact": "Bobby Charlton nicknamed it the 'Theatre of Dreams'. It was bombed in 1941 and not reopened until 1949.",
-    "lat": 53.4631,
-    "lng": -2.2913,
-    "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/2023_07_31_arne_mueseler_00060-Verbessert-RR_%2853106651455%29.jpg/500px-2023_07_31_arne_mueseler_00060-Verbessert-RR_%2853106651455%29.jpg",
-    "country": "England",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F2·A1·K0·C0·S0 → 3 (neighbor manchester-england)",
-    "category": "city"
-  },
-  {
     "id": "olympia-greece",
     "short": "Olympia, Greece",
     "fact": "Olympia, Greece is a town in Elis, Greece.",
@@ -9566,21 +9506,6 @@
     "category": "city"
   },
   {
-    "id": "roman-baths-bath",
-    "short": "Roman Baths, Bath",
-    "clue": "Roman Baths, Bath, England",
-    "fact": "Hot water from the same spring still fills the Great Bath, and the site lends the English city of Bath its name.",
-    "lat": 51.3811,
-    "lng": -2.359,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Roman_Baths_in_Bath_Spa%2C_England_-_July_2006.jpg/500px-Roman_Baths_in_Bath_Spa%2C_England_-_July_2006.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "England",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "rome-italy",
     "clue": "Rome, Italy 🇮🇹",
     "category": "city",
@@ -10265,23 +10190,6 @@
     "continent": "Europe",
     "sets": [],
     "difficultyWhy": "F1·A0·K0·C0·S0 → 2",
-    "category": "city"
-  },
-  {
-    "id": "sarajevo-baščaršija-d34-26",
-    "short": "Sarajevo Baščaršija",
-    "clue": "Sarajevo Baščaršija, Bosnia and Herzegovina 🇧🇦",
-    "fact": "Ottoman-era old bazaar.",
-    "lat": 43.8587,
-    "lng": 18.43,
-    "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/500px-Sarajevo_Bascarsija_from_Trebevic.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Bosnia and Herzegovina",
-    "continent": "Europe",
-    "sets": [
-      "Balkans"
-    ],
-    "difficultyWhy": "F1·A0·K0·C1·S0 → 3",
     "category": "city"
   },
   {
