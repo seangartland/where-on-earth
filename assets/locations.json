@@ -276,7 +276,7 @@
   {
     "id": "albuquerque-usa",
     "short": "Albuquerque",
-    "clue": "Albuquerque, New Mexico 🇺🇸",
+    "clue": "Albuquerque, New Mexico, United States 🇺🇸",
     "fact": "It hosts the world's largest hot-air balloon festival each October and was the setting for Breaking Bad.",
     "lat": 35.0844,
     "lng": -106.6504,
@@ -413,7 +413,7 @@
   {
     "id": "anchorage-usa",
     "short": "Anchorage",
-    "clue": "Anchorage, Alaska 🇺🇸",
+    "clue": "Anchorage, Alaska, United States 🇺🇸",
     "fact": "Alaska's largest city is home to about 40% of the state's population and is a major cargo stop on flights between Asia and North America.",
     "lat": 61.2181,
     "lng": -149.9003,
@@ -1385,21 +1385,6 @@
     "category": "city"
   },
   {
-    "id": "brooklyn-us",
-    "short": "Brooklyn",
-    "clue": "Brooklyn, United States 🇺🇸",
-    "fact": "Brooklyn would be one of the largest cities in the US if it were independent, and it was its own city until it joined New York in 1898.",
-    "lat": 40.6501,
-    "lng": -73.94958,
-    "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Brooklyn_skyline.jpg/500px-Brooklyn_skyline.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "United States",
-    "continent": "North America",
-    "sets": [],
-    "difficultyWhy": "p.99·fb1683·K0·iso23 → 6.6 → 3",
-    "category": "city"
-  },
-  {
     "id": "bruges-belgium",
     "clue": "Bruges, Belgium 🇧🇪",
     "fact": "Bruges' canals were dug deep enough for merchant ships to unload at the market squares themselves, making it the busiest trading port in northern Europe.",
@@ -1910,21 +1895,6 @@
     "category": "city"
   },
   {
-    "id": "champs-elysees-paris",
-    "short": "Champs-Élysées",
-    "clue": "Champs-Élysées, France 🇫🇷",
-    "fact": "The Champs-Élysées is one of the world's most famous avenues in Paris.",
-    "lat": 48.8658,
-    "lng": 2.3176,
-    "difficulty": 4,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Avenue_des_Champs-%C3%89lys%C3%A9es_July_24%2C_2009_N1.jpg/500px-Avenue_des_Champs-%C3%89lys%C3%A9es_July_24%2C_2009_N1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "France",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "p.74·fb179·K0·iso264 → 13.8 → 4",
-    "category": "city"
-  },
-  {
     "id": "changsha",
     "short": "Changsha",
     "clue": "Changsha, China 🇨🇳",
@@ -2312,21 +2282,6 @@
     "continent": "Africa",
     "sets": [],
     "difficultyWhy": "p.54·fb143·K1·iso108 → 85.6 → 8",
-    "category": "city"
-  },
-  {
-    "id": "coyoacan-mx",
-    "short": "Coyoacán",
-    "clue": "Coyoacán, Mexico 🇲🇽",
-    "fact": "Coyoacán is a leafy Mexico City borough where Frida Kahlo's Blue House stands.",
-    "lat": 19.3467,
-    "lng": -99.16174,
-    "difficulty": 6,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/JardinCentenarioCoyoacan.JPG/500px-JardinCentenarioCoyoacan.JPG",
-    "country": "Mexico",
-    "continent": "North America",
-    "sets": [],
-    "difficultyWhy": "p.50·fb294·K0·iso17 → 34.8 → 6",
     "category": "city"
   },
   {
@@ -6308,21 +6263,6 @@
     "category": "city"
   },
   {
-    "id": "murano-d34-55",
-    "short": "Murano",
-    "clue": "Murano, Italy 🇮🇹",
-    "fact": "Famous for glassmaking.",
-    "lat": 45.456,
-    "lng": 12.352,
-    "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Murano_sunset.JPG/500px-Murano_sunset.JPG",
-    "country": "Italy",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "p.35·fb301·K0·iso247 → 43.9 → 6",
-    "category": "city"
-  },
-  {
     "id": "muscat",
     "short": "Muscat",
     "fact": "This port between rugged mountains and the sea has been a trading crossroads for more than two millennia.",
@@ -9016,21 +8956,6 @@
     "category": "city"
   },
   {
-    "id": "soweto-za",
-    "short": "Soweto",
-    "clue": "Soweto, South Africa 🇿🇦",
-    "fact": "Soweto is the Johannesburg township where Nelson Mandela and Desmond Tutu both lived on the same street, Vilakazi Street.",
-    "lat": -26.26781,
-    "lng": 27.85849,
-    "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Soweto-003.jpg/500px-Soweto-003.jpg",
-    "country": "South Africa",
-    "continent": "Africa",
-    "sets": [],
-    "difficultyWhy": "p.59·fb251·K0·iso20 → 25.6 → 6",
-    "category": "city"
-  },
-  {
     "id": "srinagar",
     "short": "Srinagar",
     "clue": "Srinagar, India 🇮🇳",
@@ -9400,7 +9325,7 @@
   {
     "id": "tampa-usa",
     "short": "Tampa",
-    "clue": "Tampa, Florida 🇺🇸",
+    "clue": "Tampa, Florida, United States 🇺🇸",
     "fact": "Its Ybor City district was built by Cuban and Spanish immigrants and once rolled hundreds of millions of cigars a year.",
     "lat": 27.9506,
     "lng": -82.4572,
@@ -9830,7 +9755,7 @@
   {
     "id": "tucson-usa",
     "short": "Tucson",
-    "clue": "Tucson, Arizona 🇺🇸",
+    "clue": "Tucson, Arizona, United States 🇺🇸",
     "fact": "Ringed by the giant saguaro cacti of the Sonoran Desert, it also has an aircraft boneyard holding thousands of retired military planes.",
     "lat": 32.2226,
     "lng": -110.9747,
@@ -11402,21 +11327,6 @@
     "country": "Peru",
     "category": "city",
     "continent": "South America",
-    "sets": []
-  },
-  {
-    "id": "sri-jayawardenepura-kotte",
-    "short": "Sri Jayawardenepura Kotte",
-    "clue": "Sri Jayawardenepura Kotte, Sri Lanka 🇱🇰",
-    "fact": "Sri Lanka's Parliament sits on an island in Diyawanna Oya lake, in a building designed by architect Geoffrey Bawa and opened in 1982. Kotte was already a royal capital in the 15th century.",
-    "lat": 6.9108,
-    "lng": 79.8878,
-    "difficulty": 4,
-    "difficultyWhy": "p.54·fb55·K0·iso316 → 13.3 → 4",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/New_Sri_Lankan_Parliament_in_Kotte.jpg/500px-New_Sri_Lankan_Parliament_in_Kotte.jpg",
-    "country": "Sri Lanka",
-    "category": "city",
-    "continent": "Asia",
     "sets": []
   },
   {
