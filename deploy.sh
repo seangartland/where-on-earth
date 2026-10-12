@@ -16,6 +16,16 @@ if [ -n "$IGNORED_RUNTIME" ]; then
   exit 1
 fi
 
+# Daily pins: record what production serves for every in-play date (plus the
+# next) and substitute dropped locations, then commit assets/daily-pins.json.
+# Must run before the copy below so the committed pins ship. Fails closed if
+# production cannot be read. See docs/daily-mechanism-rec-opus.md.
+echo "Pinning in-play daily games from production..."
+if ! node "$SCRIPT_DIR/scripts/pin-daily.mjs"; then
+  echo "❌ Daily pin step failed; deploy aborted (today's game could change)."
+  exit 1
+fi
+
 echo "Building deploy directory..."
 rm -rf "$DEPLOY_DIR"
 mkdir -p "$DEPLOY_DIR"

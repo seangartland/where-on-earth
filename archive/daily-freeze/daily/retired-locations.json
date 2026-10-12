@@ -1,0 +1,116 @@
+{
+  "v": 1,
+  "note": "Locations an archived daily game served that were later removed from locations.json. Replay resolves IDs here; build-daily-schedule.mjs validates against it. Append only.",
+  "locations": {
+    "battle-of-waterloo": {
+      "id": "battle-of-waterloo",
+      "clue": "Where was the Battle of Waterloo fought in 1815?",
+      "category": "moment",
+      "lat": 50.6808,
+      "lng": 4.4074,
+      "fact": "Napoleon's last battle ended the French advance; the Lion's Mound on the battlefield marks the spot where the Prince of Orange was found wounded.",
+      "difficulty": 9,
+      "short": "Battle of Waterloo"
+    },
+    "casablanca-morocco": {
+      "id": "casablanca-morocco",
+      "clue": "Casablanca, Morocco 🇲🇦",
+      "category": "city",
+      "lat": 33.5731,
+      "lng": -7.5898,
+      "fact": "Morocco's largest city is home to the Hassan II Mosque, whose minaret is one of the tallest religious structures in the world.",
+      "difficulty": 5,
+      "short": "Casablanca"
+    },
+    "great-barrier-reef": {
+      "id": "great-barrier-reef",
+      "clue": "Where is the world's largest coral reef system?",
+      "category": "moment",
+      "lat": -18.2871,
+      "lng": 147.6992,
+      "fact": "Stretching over 2,300 kilometers off Australia's coast, it's the largest living structure on Earth and visible from space.",
+      "difficulty": 2,
+      "short": "Great Barrier Reef"
+    },
+    "la-rinconada-peru": {
+      "id": "la-rinconada-peru",
+      "clue": "Where is the highest permanent human settlement on Earth?",
+      "category": "moment",
+      "lat": -14.6676,
+      "lng": -70.6303,
+      "fact": "This Peruvian gold-mining town sits above 5,100 meters in the Andes, where the air holds about half the oxygen found at sea level.",
+      "difficulty": 10,
+      "short": "La Rinconada"
+    },
+    "mcmurdo-station": {
+      "id": "mcmurdo-station",
+      "clue": "Where is the largest research station on the coldest continent?",
+      "category": "moment",
+      "lat": -77.8419,
+      "lng": 166.6863,
+      "fact": "This US Antarctic base sits on volcanic rock and can swell to over 1,000 people in the austral summer.",
+      "difficulty": 10,
+      "short": "McMurdo Station"
+    },
+    "point-nemo": {
+      "id": "point-nemo",
+      "clue": "Where is the point in the ocean farthest from any land?",
+      "category": "moment",
+      "lat": -48.8767,
+      "lng": -123.3933,
+      "fact": "Named after Jules Verne's submarine captain, this spot in the South Pacific is so remote that astronauts in orbit are sometimes the closest humans to it.",
+      "difficulty": 9,
+      "short": "Point Nemo"
+    },
+    "quito-ecuador": {
+      "id": "quito-ecuador",
+      "clue": "Quito, Ecuador 🇪🇨",
+      "category": "city",
+      "lat": -0.1807,
+      "lng": -78.4678,
+      "fact": "Ecuador's capital sits in an Andean valley almost exactly on the equator, at an elevation of nearly 2,850 meters.",
+      "difficulty": 6,
+      "short": "Quito"
+    },
+    "santiago-chile": {
+      "id": "santiago-chile",
+      "clue": "Santiago, Chile 🇨🇱",
+      "category": "city",
+      "lat": -33.4489,
+      "lng": -70.6693,
+      "fact": "Chile's capital sits in a valley ringed by the Andes, close enough that snow-capped peaks loom over the skyline.",
+      "difficulty": 5,
+      "short": "Santiago"
+    },
+    "toronto-canada": {
+      "id": "toronto-canada",
+      "clue": "Toronto, Canada 🇨🇦",
+      "category": "city",
+      "lat": 43.6532,
+      "lng": -79.3832,
+      "fact": "Canada's largest city rises beside Lake Ontario and is marked by the CN Tower, once the world's tallest freestanding structure.",
+      "difficulty": 3,
+      "short": "Toronto"
+    },
+    "brooklyn-us": {
+      "id": "brooklyn-us",
+      "clue": "Brooklyn, United States 🇺🇸",
+      "category": "city",
+      "lat": 40.6501,
+      "lng": -73.94958,
+      "fact": "Brooklyn would be one of the largest cities in the US if it were independent, and it was its own city until it joined New York in 1898.",
+      "difficulty": 3,
+      "short": "Brooklyn"
+    },
+    "soweto-za": {
+      "id": "soweto-za",
+      "clue": "Soweto, South Africa 🇿🇦",
+      "category": "city",
+      "lat": -26.26781,
+      "lng": 27.85849,
+      "fact": "Soweto is the Johannesburg township where Nelson Mandela and Desmond Tutu both lived on the same street, Vilakazi Street.",
+      "difficulty": 6,
+      "short": "Soweto"
+    }
+  }
+}

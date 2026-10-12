@@ -4,7 +4,7 @@ import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { feature as topoFeature } from 'topojson-client';
-import { dailyIds, isLandmark, isPlayableLocation, monthKey } from './daily.js';
+import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from './daily.js';
 
 if (window.__boot) window.__boot('3D engine loaded');
 
@@ -1388,6 +1388,7 @@ const LOAD = {
   coast: { url: 'assets/world-10m.topo.json', size: 1681949 },
   lakes: { url: 'assets/lakes-10m.topo.json', size: 726015 },
   rivers: { url: 'assets/rivers-10m-scalerank.topo.json', size: 1782934 },
+  pins: { url: 'assets/daily-pins.json', size: 18 },
 };
 for (const entry of Object.values(LOAD)) { entry.loaded = 0; entry.done = false; entry.built = false; }
 
@@ -1593,6 +1594,11 @@ const criticalBytesP = Promise.allSettled([landP, islandsP, locationsP]);
 // consumed at the bottom of the file; mark handled so a failure there doesn't
 // also raise an unhandled-rejection banner
 locationsP.catch(() => {});
+// Pinned daily games (deploy.sh records every in-play date before shipping).
+// Required like locations.json: computing a pinned date instead could change
+// a game players have already seen.
+const pinsP = loadJSON(LOAD.pins, RESET_DAILY ? { cache: 'reload' } : undefined);
+pinsP.catch(() => {});
 
 // Critical: the land fill (with OSM islands) is all a round needs on the globe.
 async function loadLand() {
@@ -3120,6 +3126,7 @@ function resetFlyoverExtras() {
 }
 
 let locations = [];
+let dailyPins = {};
 let daily = null;
 let selected = [];
 let gameMode = 'start';
@@ -3173,17 +3180,25 @@ function saveDaily() {
   writeJSON(GAME_KEY, daily);
 }
 
+// A pinned date plays its pin (with any dropped location substituted, see
+// resolvePinnedIds); every other date is computed from today's pool.
+function dailyGame(date) {
+  const pinned = dailyPins[date];
+  const ids = Array.isArray(pinned) ? resolvePinnedIds(date, pinned, locations) : null;
+  return ids || dailyIds(date, locations);
+}
+
 function loadDaily() {
   const date = localDateKey();
   const saved = readJSON(GAME_KEY);
   daily = saved && saved.date === date && Array.isArray(saved.ids)
     ? saved
-    : { date, ids: dailyIds(date, locations), round: 0, results: [], complete: false };
+    : { date, ids: dailyGame(date), round: 0, results: [], complete: false };
   daily.round = clamp(Number(daily.round) || 0, 0, 4);
   daily.results = Array.isArray(daily.results) ? daily.results.slice(0, 5) : [];
   selected = daily.ids.map((id) => locations.find((item) => item.id === id)).filter((item) => isPlayableLocation(item) && !isLandmark(item));
   if (selected.length !== 5) {
-    daily = { date, ids: dailyIds(date, locations), round: 0, results: [], complete: false };
+    daily = { date, ids: dailyGame(date), round: 0, results: [], complete: false };
     selected = daily.ids.map((id) => locations.find((item) => item.id === id));
   }
   saveDaily();
@@ -8018,8 +8033,9 @@ ppdEls.share.addEventListener('click', async () => {
 
 passport = readPassport();
 
-locationsP.then((data) => {
+Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   locations = data;
+  dailyPins = pinsData?.pins || {};
   if (AUDIT_MODE) { removeOrphanedAuditFlags(); if (!localStorage.getItem("where-on-earth-flags-wiped-v1")) { auditFlags = {}; try { localStorage.removeItem(AUDIT_FLAGS_KEY); localStorage.setItem("where-on-earth-flags-wiped-v1", "1"); } catch (e) {} } }
   locationIndex = null;
   countryIndex = buildCountryIndex();
