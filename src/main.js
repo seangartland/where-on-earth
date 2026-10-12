@@ -6135,6 +6135,29 @@ const DIFFICULTY_BANDS = [
   { key: 'expert', label: 'Expert', min: 9, max: 10 },
 ];
 const FLAG_RE = /[\u{1F1E6}-\u{1F1FF}]{2}/u;
+const AUDIT_FLAGS_KEY = 'where-on-earth-audit-flags';
+const AUDIT_FLAG_TYPES = ['image', 'city'];
+const AUDIT_FLAG_LABELS = { image: 'wrong image', city: 'not a city' };
+const AUDIT_FLAG_EMOJIS = { image: '🔴', city: '🟡' };
+let auditFlags = {};
+try {
+  const savedFlags = JSON.parse(localStorage.getItem(AUDIT_FLAGS_KEY) || '{}');
+  if (savedFlags && typeof savedFlags === 'object' && !Array.isArray(savedFlags)) {
+    auditFlags = Object.fromEntries(Object.entries(savedFlags).filter(([, type]) => AUDIT_FLAG_TYPES.includes(type)));
+  }
+} catch (error) { storageError('Read failed', AUDIT_FLAGS_KEY, error); }
+
+function saveAuditFlags() {
+  safeSetItem(AUDIT_FLAGS_KEY, JSON.stringify(auditFlags));
+}
+
+function nextAuditFlag(id) {
+  const current = auditFlags[id];
+  if (!current) return 'image';
+  if (current === 'image') return 'city';
+  delete auditFlags[id];
+  return null;
+}
 
 function difficultyBand(item) {
   const band = DIFFICULTY_BANDS.find((b) => item.difficulty >= b.min && item.difficulty <= b.max);
@@ -6225,7 +6248,14 @@ passportPageStyle.textContent = `
 .passport-entry:disabled { opacity: .4; }
 .pp-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; }
 .pp-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
-.pp-audit-banner { margin: 0 0 8px; padding: 5px 8px; border: 1px solid rgba(255,209,102,.45); border-radius: 999px; background: rgba(255,209,102,.1); color: #ffd166; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
+.pp-audit-banner { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; flex-wrap: wrap; margin: 0 0 8px; padding: 5px 8px; border: 1px solid rgba(255,209,102,.45); border-radius: 999px; background: rgba(255,209,102,.1); color: #ffd166; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
+.pp-audit-flags-button { min-height: 24px; padding: 1px 8px; border: 1px solid rgba(255,209,102,.55); border-radius: 999px; background: rgba(8,14,32,.45); color: #ffe29a; font: inherit; font-size: 10px; font-weight: 850; cursor: pointer; text-transform: none; }
+.pp-audit-flags-panel { flex: 1 0 100%; max-height: 220px; overflow: auto; padding: 8px 4px 2px; border-top: 1px solid rgba(255,209,102,.2); color: rgba(255,244,207,.8); font-size: 11px; letter-spacing: normal; text-align: left; text-transform: none; }
+.pp-audit-flags-panel ul { margin: 0; padding-left: 18px; }
+.pp-audit-flags-panel li { margin: 3px 0; }
+.pp-audit-flags-actions { display: flex; justify-content: flex-end; margin-bottom: 4px; }
+.pp-audit-flags-actions button { padding: 3px 8px; border: 1px solid rgba(255,209,102,.4); border-radius: 999px; background: transparent; color: #ffe29a; font: inherit; font-size: 10px; font-weight: 800; cursor: pointer; }
+.pp-audit-flags-status { min-height: 1.2em; margin: 4px 0 0; color: rgba(255,244,207,.62); font-size: 10px; text-align: center; }
 .pp-header-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; padding-right: 40px; }
 .pp-header-row h2 { flex: 1; text-align: left !important; font-size: 19px !important; }
 .pp-header-actions { display: flex; flex-shrink: 0; gap: 8px; }
@@ -6272,6 +6302,11 @@ passportPageStyle.textContent = `
 .pp-slot { position: relative; min-width: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-slot-photo { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 2px solid var(--rarity, rgba(214,220,232,.16)); background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
 .pp-slot-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.pp-audit-flag { position: absolute; z-index: 4; left: 3px; top: 3px; display: grid; place-items: center; width: 27px; height: 27px; padding: 0; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; background: rgba(8,14,32,.84); font-size: 14px; line-height: 1; cursor: pointer; filter: drop-shadow(0 1px 2px rgba(0,0,0,.6)); }
+.pp-audit-flag:active { transform: scale(.92); }
+.pp-audit-flag-dot { position: absolute; right: -2px; bottom: -2px; display: grid; place-items: center; width: 13px; height: 13px; border: 1px solid rgba(8,14,32,.9); border-radius: 50%; background: transparent; font-size: 9px; line-height: 1; }
+.pp-audit-flag[data-flag="image"] .pp-audit-flag-dot { background: #ef4444; }
+.pp-audit-flag[data-flag="city"] .pp-audit-flag-dot { background: #facc15; }
 .pp-slot-score { position: absolute; z-index: 2; top: 5px; right: 5px; box-sizing: border-box; height: 18px; padding: 1px 5px; border: 0; border-radius: 999px; background: rgba(8,14,32,.82); color: #e6f0ff; font-size: 9px; font-weight: 800; font-variant-numeric: tabular-nums; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
 .pp-slot-score[data-tier="bullseye"] { border: 1.5px solid #ffd166; background: rgba(8,14,32,.88); color: #ffd166; }
 .pp-slot-score[data-tier="pinpoint"] { background: #e9b23c; color: #2b1d00; }
@@ -6478,10 +6513,52 @@ const ppEls = {
   countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
 };
 if (AUDIT_MODE) {
-  const banner = document.createElement('p');
+  const banner = document.createElement('div');
   banner.className = 'pp-audit-banner';
-  banner.textContent = 'AUDIT MODE · all places revealed for review';
+  const bannerText = document.createElement('span');
+  bannerText.textContent = 'AUDIT MODE · all places revealed for review';
+  const flagsButton = document.createElement('button');
+  flagsButton.type = 'button';
+  flagsButton.className = 'pp-audit-flags-button';
+  flagsButton.dataset.pp = 'audit-flags';
+  const flagsPanel = document.createElement('div');
+  flagsPanel.className = 'pp-audit-flags-panel';
+  flagsPanel.hidden = true;
+  flagsPanel.innerHTML = '<div class="pp-audit-flags-actions"><button type="button" data-audit-export>Export</button></div><ul data-audit-list></ul><p class="pp-audit-flags-status" data-audit-status role="status"></p>';
+  banner.append(bannerText, flagsButton, flagsPanel);
   ppEls.progress.before(banner);
+
+  const flagsList = flagsPanel.querySelector('[data-audit-list]');
+  const exportButton = flagsPanel.querySelector('[data-audit-export]');
+  const flagsStatus = flagsPanel.querySelector('[data-audit-status]');
+  const renderAuditFlags = () => {
+    const entries = Object.entries(auditFlags);
+    flagsButton.textContent = `Flags (${entries.length})`;
+    flagsList.replaceChildren(...entries.map(([id, type]) => {
+      const item = document.createElement('li');
+      const location = passportLocation(id);
+      item.textContent = `${id} · ${location?.short || location?.clue || 'Unknown location'} · ${AUDIT_FLAG_EMOJIS[type]} ${AUDIT_FLAG_LABELS[type]}`;
+      return item;
+    }));
+    if (!entries.length) {
+      flagsList.append(Object.assign(document.createElement('li'), { textContent: 'No flagged locations yet.' }));
+    }
+  };
+  flagsButton.addEventListener('click', () => {
+    flagsPanel.hidden = !flagsPanel.hidden;
+    if (!flagsPanel.hidden) renderAuditFlags();
+  });
+  exportButton.addEventListener('click', async () => {
+    const text = Object.keys(auditFlags).join('\n');
+    try {
+      await navigator.clipboard.writeText(text);
+      flagsStatus.textContent = text ? 'Flagged IDs copied.' : 'No flagged IDs to export.';
+    } catch (error) {
+      flagsStatus.textContent = 'Copy is unavailable on this browser.';
+    }
+  });
+  window.__renderAuditFlags = renderAuditFlags;
+  renderAuditFlags();
 }
 // Passport collection share card. It is created here rather than in index.html so
 // it stays next to the passport data and can reuse passportEntries() directly.
@@ -6798,6 +6875,36 @@ function passportSlot(entry) {
   return li;
 }
 
+function addAuditFlagButton(photo, entry) {
+  if (!AUDIT_MODE) return;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'pp-audit-flag';
+  button.textContent = '🚩';
+  button.setAttribute('aria-label', 'Flag location for review');
+  const dot = document.createElement('span');
+  dot.className = 'pp-audit-flag-dot';
+  dot.setAttribute('aria-hidden', 'true');
+  button.append(dot);
+  const update = () => {
+    const type = auditFlags[entry.item.id];
+    button.dataset.flag = type || '';
+    dot.textContent = type ? AUDIT_FLAG_EMOJIS[type] : '';
+    button.setAttribute('aria-label', type ? `Flagged ${AUDIT_FLAG_LABELS[type]}. Tap to change.` : 'Flag location for review');
+  };
+  button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const type = nextAuditFlag(entry.item.id);
+    if (type) auditFlags[entry.item.id] = type;
+    saveAuditFlags();
+    update();
+    window.__renderAuditFlags?.();
+  });
+  button.addEventListener('keydown', (event) => event.stopPropagation());
+  update();
+  photo.append(button);
+}
+
 function passportSlotFace(entry, pillText, { flagForPlaceholder = true, scoreTier = '', showProxBadge = true } = {}) {
   const photo = document.createElement('div');
   photo.className = 'pp-slot-photo';
@@ -6824,6 +6931,7 @@ function passportSlotFace(entry, pillText, { flagForPlaceholder = true, scoreTie
     score.textContent = pillText;
     photo.append(score);
   }
+  addAuditFlagButton(photo, entry);
   const flag = flagForLocation(entry.item);
   const name = document.createElement('p');
   name.className = 'pp-slot-name';
