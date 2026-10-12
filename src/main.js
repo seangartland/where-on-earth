@@ -6569,7 +6569,12 @@ if (AUDIT_MODE) {
     renderAuditFlags();
   });
   exportButton.addEventListener('click', async () => {
-    const text = Object.keys(auditFlags).join('\n');
+    const byType = { image: [], city: [] };
+    Object.entries(auditFlags).forEach(([id, type]) => { if (byType[type]) byType[type].push(id); });
+    const sections = [];
+    if (byType.image.length) sections.push('Wrong image:\n' + byType.image.join('\n'));
+    if (byType.city.length) sections.push('Not a city:\n' + byType.city.join('\n'));
+    const text = sections.join('\n\n');
     try {
       await navigator.clipboard.writeText(text);
       flagsStatus.textContent = text ? 'Flagged IDs copied.' : 'No flagged IDs to export.';
