@@ -6356,7 +6356,6 @@ passportPageStyle.textContent = `
 .pp-meta { min-height: 12px; margin: 4px 2px 0; color: #a8b0c3; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .pp-meta span { white-space: nowrap; }
 .pp-tier-date { color: rgba(193,224,250,.66); font-weight: 650; }
-.pp-note { margin: 18px 0 0; color: rgba(193,224,250,.42); font-size: 11px; line-height: 1.5; text-align: center; }
 body.game-passport #hud { opacity: 0; }
 @media (max-width: 360px) {
   .pp-dex { gap: 8px 6px; }
@@ -6423,7 +6422,7 @@ passportScreen.innerHTML = `
         <p class="pp-shown" data-pp="shown"></p>
       </div>
       <div class="pp-dex-wrap" data-pp="dex"></div>
-      <p class="pp-note" data-pp="note">Land within 150 km to earn a postcard in full colour, within 25 km for gold. Black-and-white cards come back in Endless once you’ve seen everywhere. Earlier stamps leave distance and date blank.</p>
+
     </div>
     <div data-pp="countries-view" hidden>
       <div data-pp="country-list">
@@ -6468,7 +6467,6 @@ const ppEls = {
   subrow: passportScreen.querySelector('[data-pp="subrow"]'),
   shown: passportScreen.querySelector('[data-pp="shown"]'),
   dex: passportScreen.querySelector('[data-pp="dex"]'),
-  note: passportScreen.querySelector('[data-pp="note"]'),
   collections: passportScreen.querySelector('[data-pp="collections"]'),
   countryList: passportScreen.querySelector('[data-pp="country-list"]'),
   countryDetail: passportScreen.querySelector('[data-pp="country-detail"]'),
