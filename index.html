@@ -299,6 +299,8 @@
       if (d) { d.hidden = false; d.textContent += m + '\n'; }
     };
     window.addEventListener('error', function (e) {
+      // Broken <img> loads reach this capture listener with no message; each image has its own fallback.
+      if (e.target && e.target.tagName === 'IMG') return;
       window.__showErr('ERR: ' + (e.message || 'unknown') + ' @ ' + String(e.filename || '').split('/').pop());
     }, true);
     window.addEventListener('unhandledrejection', function (e) {
