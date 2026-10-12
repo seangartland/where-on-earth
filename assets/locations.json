@@ -1176,7 +1176,7 @@
     "lng": -2.935,
     "difficulty": 3,
     "short": "Bilbao",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Collage_de_Bilbao%2C_Pa%C3%ADs_Vasco%2C_Espa%C3%B1a.png/500px-Collage_de_Bilbao%2C_Pa%C3%ADs_Vasco%2C_Espa%C3%B1a.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Cityscape_-_Bilbao%2C_Spain_-_panoramio_%281%29.jpg/500px-Cityscape_-_Bilbao%2C_Spain_-_panoramio_%281%29.jpg",
     "country": "Spain",
     "continent": "Europe",
     "sets": [],
@@ -2352,7 +2352,7 @@
     "lat": -15.59611,
     "lng": -56.09667,
     "difficulty": 8,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Porto_Jofre.JPG/500px-Porto_Jofre.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Cuiaba3.jpg/500px-Cuiaba3.jpg",
     "country": "Brazil",
     "continent": "South America",
     "sets": [],
@@ -3223,23 +3223,6 @@
     "difficultyWhy": "F3·A0·K2·C0·S0 → 6"
   },
   {
-    "id": "funchal-old-town-d34-78",
-    "short": "Funchal Old Town",
-    "clue": "Funchal, Madeira, Portugal 🇵🇹",
-    "fact": "Historic center of Madeira.",
-    "lat": 32.6669,
-    "lng": -16.924,
-    "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Zona_Velha_do_Funchal%2C_Funchal%2C_Madeira_-_IMG_1148.jpg/500px-Zona_Velha_do_Funchal%2C_Funchal%2C_Madeira_-_IMG_1148.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Portugal",
-    "continent": "Europe",
-    "sets": [
-      "Colonial Towns"
-    ],
-    "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
     "id": "gaborone",
     "short": "Gaborone",
     "fact": "A small administrative settlement grew into one of Africa’s fastest-developing capitals after independence in 1966.",
@@ -3282,21 +3265,6 @@
     "continent": "Asia",
     "sets": [],
     "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
-    "id": "gdansk-old-town-d34-16",
-    "short": "Gdansk Old Town",
-    "clue": "Gdansk Old Town, Poland 🇵🇱",
-    "fact": "Historic port city rebuilt after WWII.",
-    "lat": 54.352,
-    "lng": 18.6466,
-    "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Poland%2C_Gdansk%2C_Old_Town%2C_City_Tower_150501-48.jpg/500px-Poland%2C_Gdansk%2C_Old_Town%2C_City_Tower_150501-48.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Poland",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
     "category": "city"
   },
   {
@@ -4109,7 +4077,7 @@
     "lng": 1.4206,
     "difficulty": 7,
     "category": "city",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Ibiza_flag.svg/500px-Ibiza_flag.svg.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Eivissa_-_Dalt_Vila_from_Airplane.jpg/500px-Eivissa_-_Dalt_Vila_from_Airplane.jpg",
     "country": "Spain",
     "continent": "Europe",
     "sets": [
@@ -4251,7 +4219,7 @@
     "lat": 57.3,
     "lng": -6.35,
     "difficulty": 5,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Flag_of_the_Isle_of_Skye.svg/500px-Flag_of_the_Isle_of_Skye.svg.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Quiraing%2C_Isle_of_Skye.jpg/500px-Quiraing%2C_Isle_of_Skye.jpg",
     "country": "Scotland",
     "continent": "Europe",
     "sets": [],
@@ -4390,7 +4358,7 @@
     "lat": -2.8,
     "lng": -40.5,
     "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Jericoacoara_%282007%29_02.jpg/500px-Jericoacoara_%282007%29_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Dunas_Jericoacoara.jpg/500px-Dunas_Jericoacoara.jpg",
     "country": "Brazil",
     "continent": "South America",
     "sets": [],
@@ -4999,21 +4967,6 @@
     "category": "city"
   },
   {
-    "id": "kizhi-pogost",
-    "clue": "Kizhi Pogost, Russia 🇷🇺",
-    "fact": "The log walls of Kizhi's Church of the Transfiguration held no nails at all, a fact confirmed only in 1990 when a rescue restoration finally let them put some in.",
-    "lat": 62.0693,
-    "lng": 35.227,
-    "difficulty": 8,
-    "short": "Kizhi Pogost",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Kizhi_06-2017_img08_Pogost_view.jpg/500px-Kizhi_06-2017_img08_Pogost_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Russia",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-    "category": "city"
-  },
-  {
     "id": "kjeragbolten",
     "short": "Kjeragbolten",
     "clue": "Kjeragbolten, Norway 🇳🇴",
@@ -5136,21 +5089,6 @@
     "continent": "Asia",
     "sets": [],
     "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
-    "id": "krakow-old-town-d34-10",
-    "short": "Krakow Old Town",
-    "clue": "Krakow Old Town, Poland 🇵🇱",
-    "fact": "UNESCO medieval old town square.",
-    "lat": 50.0614,
-    "lng": 19.9372,
-    "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Old_Town%2C_southern_part_near_Wawel_Castle%2C_2025%2C_bird%27s_eye_view%2C_Krak%C3%B3w%2C_Poland.jpg/500px-Old_Town%2C_southern_part_near_Wawel_Castle%2C_2025%2C_bird%27s_eye_view%2C_Krak%C3%B3w%2C_Poland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Poland",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
     "category": "city"
   },
   {
@@ -5474,21 +5412,6 @@
     "continent": "Europe",
     "sets": [],
     "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
-    "category": "city"
-  },
-  {
-    "id": "ljubljana-old-town-d34-29",
-    "short": "Ljubljana Old Town",
-    "clue": "Ljubljana Old Town, Slovenia 🇸🇮",
-    "fact": "Car-free historic center.",
-    "lat": 46.0511,
-    "lng": 14.5051,
-    "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Ljubljana_Old_Town%2C_Slovenia_%28Old_Camera%29_%2832857239603%29.jpg/500px-Ljubljana_Old_Town%2C_Slovenia_%28Old_Camera%29_%2832857239603%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "country": "Slovenia",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F1·A0·K0·C1·S0 → 3",
     "category": "city"
   },
   {
@@ -6620,21 +6543,6 @@
     "category": "city"
   },
   {
-    "id": "mt-ngauruhoe",
-    "clue": "Mt Ngauruhoe, New Zealand 🇳🇿",
-    "fact": "Mount Ngauruhoe starred as Mount Doom in the Lord of the Rings films and is an active stratovolcano.",
-    "lat": -39.1568,
-    "lng": 175.6321,
-    "difficulty": 8,
-    "short": "Mt Ngauruhoe",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Le_Ngauruhoe_et_le_Ruapehu_vus_du_sommet_du_Tongariro.jpg/500px-Le_Ngauruhoe_et_le_Ruapehu_vus_du_sommet_du_Tongariro.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "New Zealand",
-    "continent": "Oceania",
-    "sets": [],
-    "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-    "category": "city"
-  },
-  {
     "id": "mt-orohena",
     "clue": "Mt Orohena, France 🇫🇷",
     "fact": "Mount Orohena is French Polynesia's highest peak at 2,241 meters, shrouded in cloud most of the year.",
@@ -7755,21 +7663,6 @@
     "category": "city"
   },
   {
-    "id": "peros-banhos",
-    "short": "Peros Banhos",
-    "clue": "Peros Banhos, United Kingdom 🇸🇭",
-    "fact": "Peros Banhos is one of the largest atolls in the Chagos Archipelago, now uninhabited after 1973.",
-    "lat": -5.4167,
-    "lng": 71.85,
-    "difficulty": 10,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-    "country": "United Kingdom",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F4·A2·K2·C1·S0 → 10",
-    "category": "city"
-  },
-  {
     "id": "persepolis",
     "clue": "Persepolis, Iran 🇮🇷",
     "fact": "This ceremonial capital of the Achaemenid empire was burned by Alexander in 330 BC, yet its gate, treasury columns and audience-hall stairs survive almost intact.",
@@ -7949,7 +7842,7 @@
     "lat": -5.18192,
     "lng": -80.65715,
     "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Punta_Veleros_2.jpg/1280px-Punta_Veleros_2.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Piura_desde_el_aire.jpg/500px-Piura_desde_el_aire.jpg",
     "country": "Peru",
     "continent": "South America",
     "sets": [],
@@ -8280,21 +8173,6 @@
     "category": "city"
   },
   {
-    "id": "puente-nuevo-d34-66",
-    "short": "Puente Nuevo",
-    "clue": "Puente Nuevo, Spain 🇪🇸",
-    "fact": "Dramatic bridge over gorge.",
-    "lat": 36.742,
-    "lng": -5.1664,
-    "difficulty": 6,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Punte_Nuevo_Bridge%2C_Ronda_-_Spain.jpg/500px-Punte_Nuevo_Bridge%2C_Ronda_-_Spain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Spain",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-    "category": "city"
-  },
-  {
     "id": "puerto-lempira",
     "short": "Puerto Lempira",
     "clue": "Puerto Lempira, Honduras 🇭🇳",
@@ -8491,21 +8369,6 @@
     "continent": "North America",
     "sets": [],
     "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
-    "id": "real-alcázar-of-seville-d34-64",
-    "short": "Real Alcázar of Seville",
-    "clue": "Real Alcázar of Seville, Spain 🇪🇸",
-    "fact": "Moorish royal palace.",
-    "lat": 37.3831,
-    "lng": -5.9931,
-    "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Sevilla-2-2_%2848040287512%29-edit.jpg/500px-Sevilla-2-2_%2848040287512%29-edit.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Spain",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
     "category": "city"
   },
   {
@@ -8710,21 +8573,6 @@
     "continent": "North America",
     "sets": [],
     "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-    "category": "city"
-  },
-  {
-    "id": "sagrada-familia",
-    "clue": "Sagrada Familia, Spain 🇪🇸",
-    "fact": "Gaudi's Sagrada Familia has been under construction since 1882, and his plaster model of it was photographed from a reconnaissance aeroplane in 1926.",
-    "lat": 41.4036,
-    "lng": 2.1744,
-    "difficulty": 2,
-    "short": "Sagrada Familia",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Spain",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F0·A1·K0·C0·S0 → 2",
     "category": "city"
   },
   {
@@ -9626,38 +9474,6 @@
     "difficultyWhy": "F3·A0·K0·C0·S0 → 4"
   },
   {
-    "id": "stavanger-old-town-d34-39",
-    "short": "Stavanger Old Town",
-    "clue": "Stavanger Old Town, Norway 🇳🇴",
-    "fact": "Historic timber buildings.",
-    "lat": 58.9699,
-    "lng": 5.732,
-    "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Breiavatnet_-_Stavanger%2C_Norway_2021-08-01_%2802%29.jpg/500px-Breiavatnet_-_Stavanger%2C_Norway_2021-08-01_%2802%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Norway",
-    "continent": "Europe",
-    "sets": [
-      "Nordic Coast"
-    ],
-    "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
-    "category": "city"
-  },
-  {
-    "id": "stockholm-old-town-d34-33",
-    "short": "Stockholm Old Town",
-    "clue": "Stockholm Old Town, Sweden 🇸🇪",
-    "fact": "Medieval island old town.",
-    "lat": 59.3253,
-    "lng": 18.0709,
-    "difficulty": 4,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Gamla_stan_September_2014_01.jpg/500px-Gamla_stan_September_2014_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "country": "Sweden",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F1·A2·K0·C0·S0 → 4",
-    "category": "city"
-  },
-  {
     "id": "stockholm-sweden",
     "clue": "Stockholm, Sweden 🇸🇪",
     "fact": "Stockholm is spread across fourteen islands stitched together by around thirty bridges, which is why it is called the Venice of the North.",
@@ -9670,21 +9486,6 @@
     "continent": "Europe",
     "sets": [],
     "difficultyWhy": "F1·A2·K0·C0·S0 → 3 (relief)",
-    "category": "city"
-  },
-  {
-    "id": "stone-of-destiny",
-    "clue": "Stone of Destiny, Scotland",
-    "fact": "English undergraduates carried the Stone of Destiny off from Scone Abbey on Christmas Day 1950, and it now sits in Edinburgh Castle.",
-    "lat": 56.4195,
-    "lng": -3.219,
-    "difficulty": 7,
-    "short": "Stone of Destiny",
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Stone_of_Destiny_-_geograph.org.uk_-_94666.jpg",
-    "country": "Scotland",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
     "category": "city"
   },
   {
@@ -10377,7 +10178,7 @@
     "fact": "This South Atlantic island's main settlement, Edinburgh of the Seven Seas, lies about 2,400 kilometers from the nearest other inhabited land.",
     "difficulty": 8,
     "short": "Tristan da Cunha",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Tristan_da_Cunha.svg/500px-Flag_of_Tristan_da_Cunha.svg.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Tristan_da_Cunha_ASTER.jpg/500px-Tristan_da_Cunha_ASTER.jpg",
     "country": "United Kingdom",
     "continent": "Europe",
     "sets": [
@@ -11288,7 +11089,7 @@
     "lat": 43.90358,
     "lng": 22.26405,
     "difficulty": 6,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/El_Castillo%2C_Chichen_Itza.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/%C5%BDelezni%C4%8Dka_stanica_u_Zaje%C4%8Daru_01.jpg/500px-%C5%BDelezni%C4%8Dka_stanica_u_Zaje%C4%8Daru_01.jpg",
     "country": "Serbia",
     "continent": "Europe",
     "sets": [
@@ -11328,21 +11129,6 @@
       "Colonial Towns"
     ],
     "difficultyWhy": "F3·A2·K0·C1·S0 → 7"
-  },
-  {
-    "id": "zaporizhzhya-ua",
-    "short": "Zaporizhzhya",
-    "clue": "Zaporizhzhya, Ukraine 🇺🇦",
-    "fact": "Zaporizhzhia is home to Khortytsia, the Dnieper island that was the stronghold of the Zaporozhian Cossacks.",
-    "lat": 47.85167,
-    "lng": 35.11714,
-    "difficulty": 5,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-    "country": "Ukraine",
-    "continent": "Europe",
-    "sets": [],
-    "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-    "category": "city"
   },
   {
     "id": "zaragoza-es",
@@ -11960,5 +11746,80 @@
     "continent": "North America",
     "sets": [],
     "category": "city"
+  },
+  {
+    "id": "funchal-pt",
+    "short": "Funchal",
+    "clue": "Funchal, Portugal 🇵🇹",
+    "fact": "Funchal is the capital of Madeira and sits on the island's sunny south coast. Its steep streets descend toward a busy Atlantic harbor.",
+    "lat": 32.65,
+    "lng": -16.91,
+    "country": "Portugal",
+    "continent": "Europe",
+    "difficulty": 5,
+    "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
+    "category": "city",
+    "sets": [],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Funchal-city-view-1.jpg/500px-Funchal-city-view-1.jpg"
+  },
+  {
+    "id": "gdansk-pl",
+    "short": "Gdansk",
+    "clue": "Gdansk, Poland 🇵🇱",
+    "fact": "Gdansk is a historic Baltic port whose Main Town was rebuilt after the devastation of World War II. It is also the birthplace of the Solidarity movement.",
+    "lat": 54.35,
+    "lng": 18.65,
+    "country": "Poland",
+    "continent": "Europe",
+    "difficulty": 5,
+    "difficultyWhy": "F2·A2·K1·C0·S0 → 5",
+    "category": "city",
+    "sets": [],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Gdansk_Downtown_%28airview%29.jpg/500px-Gdansk_Downtown_%28airview%29.jpg"
+  },
+  {
+    "id": "krakow-pl",
+    "short": "Krakow",
+    "clue": "Krakow, Poland 🇵🇱",
+    "fact": "Krakow was Poland's royal capital until 1596 and remains one of the country's leading cultural and academic centers. Its Main Market Square is one of Europe's largest medieval squares.",
+    "lat": 50.06,
+    "lng": 19.94,
+    "country": "Poland",
+    "continent": "Europe",
+    "difficulty": 5,
+    "difficultyWhy": "F2·A2·K1·C0·S0 → 5",
+    "category": "city",
+    "sets": [],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Krakow_2024_109_Old_Town_Hall_Tower_View.jpg/500px-Krakow_2024_109_Old_Town_Hall_Tower_View.jpg"
+  },
+  {
+    "id": "stavanger-no",
+    "short": "Stavanger",
+    "clue": "Stavanger, Norway 🇳🇴",
+    "fact": "Stavanger is a port city on Norway's southwest coast and a gateway to the Lysefjord and Preikestolen. It grew from a historic fishing and canning center into Norway's petroleum capital.",
+    "lat": 58.97,
+    "lng": 5.73,
+    "country": "Norway",
+    "continent": "Europe",
+    "difficulty": 5,
+    "difficultyWhy": "F2·A2·K1·C0·S0 → 5",
+    "category": "city",
+    "sets": [],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Breiavatnet_-_Stavanger%2C_Norway_2021-08-01_%2802%29.jpg/500px-Breiavatnet_-_Stavanger%2C_Norway_2021-08-01_%2802%29.jpg"
+  },
+  {
+    "id": "ljubljana-si",
+    "short": "Ljubljana",
+    "clue": "Ljubljana, Slovenia 🇸🇮",
+    "fact": "Ljubljana is Slovenia's capital, centered on the Ljubljanica River beneath a hilltop medieval castle. Its compact center is known for bridges, riverside cafés, and car-free streets.",
+    "lat": 46.05,
+    "lng": 14.51,
+    "country": "Slovenia",
+    "continent": "Europe",
+    "difficulty": 5,
+    "difficultyWhy": "F2·A2·K1·C0·S0 → 5",
+    "category": "city",
+    "sets": [],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Ljubljana_city_view_%2811330196463%29.jpg/500px-Ljubljana_city_view_%2811330196463%29.jpg"
   }
 ]
