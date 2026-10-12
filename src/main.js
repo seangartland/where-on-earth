@@ -13,6 +13,7 @@ if (window.__boot) window.__boot('3D engine loaded');
 // before anything reads storage; the fetch below skips the HTTP cache so a
 // stale locations.json can't rebuild the old set.
 const RESET_DAILY = new URLSearchParams(location.search).get('reset') === 'daily';
+const AUDIT_MODE = new URLSearchParams(location.search).get('audit') === '1';
 if (RESET_DAILY) {
   try { localStorage.removeItem('where-on-earth-v1'); } catch (error) { console.error('[reset] daily', error); }
   history.replaceState(null, '', location.pathname + location.hash);
@@ -6150,12 +6151,12 @@ function buildPassportEntry(item, age) {
   const meta = passport.meta[item.id] || {};
   return {
     item,
-    visited: isVisited(item.id),
+    visited: AUDIT_MODE || isVisited(item.id),
     country: countryKey(item),
     best: meta.b ?? passport.visits[item.id],
     km: meta.d,
     first: meta.f,
-    earned: meta.e || 0,
+    earned: AUDIT_MODE ? EARN_NEAR : (meta.e || 0),
     tierDates: [null, meta.eb1 || ((meta.e || 0) === EARN_NEAR ? meta.ea : undefined), meta.eb2, meta.eb3],
     // Timestamped visits are always newer than legacy ones, which fall back to
     // their place in the recency order (and to the very end if that was capped).
@@ -6224,6 +6225,7 @@ passportPageStyle.textContent = `
 .passport-entry:disabled { opacity: .4; }
 .pp-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; }
 .pp-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
+.pp-audit-banner { margin: 0 0 8px; padding: 5px 8px; border: 1px solid rgba(255,209,102,.45); border-radius: 999px; background: rgba(255,209,102,.1); color: #ffd166; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .pp-header-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; padding-right: 40px; }
 .pp-header-row h2 { flex: 1; text-align: left !important; font-size: 19px !important; }
 .pp-header-actions { display: flex; flex-shrink: 0; gap: 8px; }
@@ -6477,6 +6479,12 @@ const ppEls = {
   countryHead: passportScreen.querySelector('[data-pp="country-head"]'),
   countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
 };
+if (AUDIT_MODE) {
+  const banner = document.createElement('p');
+  banner.className = 'pp-audit-banner';
+  banner.textContent = 'AUDIT MODE · all places revealed for review';
+  ppEls.progress.before(banner);
+}
 // Passport collection share card. It is created here rather than in index.html so
 // it stays next to the passport data and can reuse passportEntries() directly.
 const PASSPORT_SHARE_URL = new URL('/', location.href).href;
@@ -7054,10 +7062,10 @@ function countryProgress(key) {
   let cover = null;
   let coverRank = -1;
   for (const item of country.items) {
-    if (!isVisited(item.id)) continue;
+    if (!AUDIT_MODE && !isVisited(item.id)) continue;
     visited += 1;
     const meta = passport.meta[item.id] || {};
-    if (meta.e) earned += 1;
+    if (AUDIT_MODE || meta.e) earned += 1;
     if (!hasRealPhoto(item)) continue;
     const rank = (meta.e || 0) * 2000 + (meta.b ?? passport.visits[item.id] ?? 0);
     if (rank > coverRank) { cover = { item, earned: meta.e || 0 }; coverRank = rank; }
