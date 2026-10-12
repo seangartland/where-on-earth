@@ -6151,6 +6151,14 @@ function saveAuditFlags() {
   safeSetItem(AUDIT_FLAGS_KEY, JSON.stringify(auditFlags));
 }
 
+function removeOrphanedAuditFlags() {
+  const validIds = new Set(locations.map((item) => item.id));
+  const cleanedFlags = Object.fromEntries(Object.entries(auditFlags).filter(([id]) => validIds.has(id)));
+  if (Object.keys(cleanedFlags).length === Object.keys(auditFlags).length) return;
+  auditFlags = cleanedFlags;
+  saveAuditFlags();
+}
+
 function nextAuditFlag(id) {
   const current = auditFlags[id];
   if (!current) return 'image';
@@ -6524,11 +6532,12 @@ if (AUDIT_MODE) {
   const flagsPanel = document.createElement('div');
   flagsPanel.className = 'pp-audit-flags-panel';
   flagsPanel.hidden = true;
-  flagsPanel.innerHTML = '<div class="pp-audit-flags-actions"><button type="button" data-audit-export>Export</button></div><ul data-audit-list></ul><p class="pp-audit-flags-status" data-audit-status role="status"></p>';
+  flagsPanel.innerHTML = '<div class="pp-audit-flags-actions"><button type="button" data-audit-clear>Clear all</button><button type="button" data-audit-export>Export</button></div><ul data-audit-list></ul><p class="pp-audit-flags-status" data-audit-status role="status"></p>';
   banner.append(bannerText, flagsButton, flagsPanel);
   ppEls.progress.before(banner);
 
   const flagsList = flagsPanel.querySelector('[data-audit-list]');
+  const clearButton = flagsPanel.querySelector('[data-audit-clear]');
   const exportButton = flagsPanel.querySelector('[data-audit-export]');
   const flagsStatus = flagsPanel.querySelector('[data-audit-status]');
   const renderAuditFlags = () => {
@@ -6547,6 +6556,17 @@ if (AUDIT_MODE) {
   flagsButton.addEventListener('click', () => {
     flagsPanel.hidden = !flagsPanel.hidden;
     if (!flagsPanel.hidden) renderAuditFlags();
+  });
+  clearButton.addEventListener('click', () => {
+    if (!window.confirm('Clear all audit flags?')) return;
+    auditFlags = {};
+    try {
+      localStorage.removeItem(AUDIT_FLAGS_KEY);
+      flagsStatus.textContent = 'All flags cleared.';
+    } catch (error) {
+      storageError('Clear failed', AUDIT_FLAGS_KEY, error);
+    }
+    renderAuditFlags();
   });
   exportButton.addEventListener('click', async () => {
     const text = Object.keys(auditFlags).join('\n');
@@ -7976,6 +7996,7 @@ passport = readPassport();
 
 locationsP.then((data) => {
   locations = data;
+  if (AUDIT_MODE) removeOrphanedAuditFlags();
   locationIndex = null;
   countryIndex = buildCountryIndex();
   loadDaily();
@@ -7988,6 +8009,7 @@ locationsP.then((data) => {
   updateExpeditionEntry();
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
+  window.__renderAuditFlags?.();
   if (window.__boot) window.__boot('locations loaded');
   loadJobDone('critical', 'locations');
 }).catch((err) => {
