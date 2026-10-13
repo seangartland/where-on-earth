@@ -6236,7 +6236,6 @@ const EARN_BULLSEYE = 2; // < BULLSEYE_KM: gold Bullseye badge
 const EARN_PINPOINT = 3; // < PINPOINT_KM: gold Pinpoint badge
 const EARN_NAMES = ['seen', 'near', 'bullseye', 'pinpoint'];
 const PROX_CLASSES = ['', 'prox-postcard', 'prox-bullseye', 'prox-pinpoint'];
-const RARITY_CLASSES = ['rarity-common', 'rarity-uncommon', 'rarity-rare', 'rarity-legendary'];
 
 function earnForKm(km) {
   // Passport and flyover tiers must share the exact, unrounded boundary check.
@@ -6247,24 +6246,10 @@ function earnForKm(km) {
   }[flyoverTier(km)] || 0;
 }
 
-// Rarity is the card-frame colour, from the location's difficulty.
-function rarityFor(difficulty) {
-  const d = Number(difficulty) || 5;
-  if (d >= 9) return 'legendary';
-  if (d >= 7) return 'rare';
-  if (d >= 4) return 'uncommon';
-  return 'common';
-}
-
-const RARITY_HEX = { common: '#9aa6bb', uncommon: '#4fcf8a', rare: '#6c8cff', legendary: '#c77dff' };
-
-// Every location carries its rarity frame. Accuracy never touches that frame:
-// Bullseye/Pinpoint show only as a gold badge (setProxBadge).
+// Accuracy tiers add their earned frame; location difficulty has no card visual.
 function applyCardTier(el, item, earned) {
-  el.classList.remove(...RARITY_CLASSES, ...PROX_CLASSES.filter(Boolean));
+  el.classList.remove(...PROX_CLASSES.filter(Boolean));
   if (!item) return;
-  const rarityClass = `rarity-${rarityFor(item?.difficulty)}`;
-  el.classList.add(rarityClass);
   if (earned) el.classList.add(PROX_CLASSES[earned]);
 }
 
@@ -6896,8 +6881,7 @@ passportPageStyle.textContent = `
 .pp-slot-name { margin: 4px 1px 0; overflow: hidden; color: #eef2ff; font-size: 10px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .pp-slot[data-earn="seen"] .pp-slot-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .pp-slot[data-earn="seen"] .pp-slot-name { color: #8992a8; }
-/* Mystery: a neutral border (not the rarity frame) until the place is visited,
-   same as Collections (Sean, 2026-10-11). */
+/* Mystery cards keep the same neutral frame used by visited cards. */
 .pp-slot.is-mystery { cursor: default; }
 .pp-slot.is-mystery .pp-slot-photo { border-color: rgba(214,220,232,.16); }
 .pp-slot.is-mystery .pp-slot-name { color: rgba(214,220,232,.4); letter-spacing: .1em; text-align: center; }
@@ -6965,9 +6949,8 @@ passportPageStyle.textContent = `
 .pp-stamp small { display: block; margin-top: 2px; font-size: 10px; font-weight: 800; letter-spacing: .08em; opacity: .9; text-align: center; }
 .pp-stamp[data-tier="gold"] { color: #ffd166; text-shadow: 0 0 10px rgba(255,209,102,.45); }
 .pp-stamp[data-tier="cyan"] { color: #67e8ff; }
-/* Earned tiers. The border is rarity only (style.css); bullseye and pinpoint add
-   just the gold .prox-badge on the photo. Seen cards are the same postcard in
-   black and white, with a nudge to come back for it. */
+/* Earned tiers add the gold .prox-badge on the photo. Seen cards are the same
+   postcard in black and white, with a nudge to come back for it. */
 .pp-post[data-earn="seen"] { background: #151923; }
 .pp-post[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .pp-post[data-earn="seen"] .pp-name { color: #8992a8; }
@@ -7393,7 +7376,6 @@ function passportShareImage(stats) {
   }));
   const drawTile = (entry, img, x) => {
     if (!entry) return mystery(x);
-    const rarity = rarityFor(entry.item.difficulty);
     ctx.fillStyle = '#1b2c5a'; ctx.fillRect(x, 316, 336, 224);
     if (img) {
       const scale = Math.max(336 / img.width, 224 / img.height);
@@ -7403,7 +7385,6 @@ function passportShareImage(stats) {
       ctx.fillStyle = '#1b2c5a'; ctx.fillRect(x, 316, 336, 224);
       ctx.fillStyle = 'rgba(255,255,255,.95)'; ctx.font = '96px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(flagForLocation(entry.item), x + 168, 460); ctx.textAlign = 'left';
     }
-    ctx.strokeStyle = RARITY_HEX[rarity]; ctx.lineWidth = 4; ctx.strokeRect(x + 2, 318, 332, 220);
     ctx.fillStyle = 'rgba(8,14,32,.78)'; ctx.roundRect(x + 218, 328, 106, 38, 18); ctx.fill();
     ctx.fillStyle = '#e6f0ff'; ctx.font = '800 22px system-ui, sans-serif'; ctx.fillText(formatShareKm(entry.km), x + 230, 354);
     ctx.fillStyle = '#eef2ff'; ctx.font = '800 28px system-ui, sans-serif';
@@ -8336,8 +8317,6 @@ postcardStyle.textContent = `
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-front .prox-badge { top: 10px; left: 10px; gap: 5px; height: 26px; padding: 0 11px 0 8px; font-size: 11px; box-shadow: 0 2px 8px rgba(0,0,0,.55); }
 .ppd-front .prox-badge i { font-size: 14px; }
-.ppd-topline { display: flex; align-items: center; gap: 10px; min-height: 29px; margin-bottom: 10px; padding-right: 38px; padding-left: 3px; }
-.ppd-rarity { flex: none; }
 .ppd-front { position: relative; }
 .ppd-front .pp-photo { aspect-ratio: 16 / 9; border-radius: 15px; }
 .ppd-front .pp-photo::after { font-size: 44px; }
@@ -8381,7 +8360,6 @@ postcardScreen.innerHTML = `
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
-    <div class="ppd-topline"><span class="ppd-rarity" data-ppd="rarity"></span></div>
     <div class="ppd-front">
       <div class="pp-photo" data-ppd="photo"></div>
     </div>
@@ -8418,12 +8396,8 @@ function tierDateKey(timestamp) {
 function fillPostcard(entry) {
   const { item } = entry;
   const earn = EARN_NAMES[entry.earned] || 'seen';
-  const rarity = rarityFor(item.difficulty);
   ppdEls.card.dataset.earn = earn;
   applyCardTier(ppdEls.card, item, entry.earned);
-  // Unearned cards still advertise their rarity in the detail view.
-  ppdEls.card.classList.add(`rarity-${rarity}`);
-  ppdEls.rarity.textContent = rarity.toUpperCase();
   ppdEls.photo.replaceChildren();
   if (item.image) {
     const img = document.createElement('img');
