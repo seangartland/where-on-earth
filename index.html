@@ -74,7 +74,7 @@
   <style>
     .mode-buttons {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
       width: min(100%, 354px);
       max-width: calc(100vw - 32px);
@@ -200,6 +200,7 @@
         <button id="play-button" type="button"><span class="mode-name">Daily</span><small class="mode-desc">5 places, once a day</small></button>
         <button id="endless-button" type="button" hidden><span class="mode-name">Endless</span><small class="mode-desc">Play nonstop</small></button>
         <button id="survival-button" type="button"><span class="mode-name">Survival</span><small class="mode-desc">Stay within 150 km</small></button>
+        <button id="borders-button" type="button"><span class="mode-name">Borders</span><small class="mode-desc">Tap the country</small></button>
         <button id="expeditions-button" type="button" hidden><span class="mode-name">Expeditions</span><small class="mode-desc">Themed journeys</small></button>
       </div>
       <p id="start-streak" class="streak"></p>
@@ -269,11 +270,11 @@
     <section id="survival-results-screen" class="screen results-screen" hidden>
       <div class="survival-results-card glass">
         <button id="survival-home" class="home-nav-btn finished-home-nav" type="button" aria-label="Back to home">×</button>
-        <p class="eyebrow">Survival run over</p>
+        <p id="survival-result-eyebrow" class="eyebrow">Survival run over</p>
         <h2 id="survival-result-title">0 rounds survived</h2>
-        <p class="survival-summary">One miss over 150 km ends the run.</p>
+        <p id="survival-result-summary" class="survival-summary">One miss over 150 km ends the run.</p>
         <div class="survival-best-card">
-          <div><strong id="survival-final-streak">0</strong><span>Survived</span></div>
+          <div><strong id="survival-final-streak">0</strong><span id="survival-final-label">Survived</span></div>
           <div><strong id="survival-best-streak">0</strong><span>Best streak</span></div>
         </div>
         <div class="survival-result-actions">

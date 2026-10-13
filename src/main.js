@@ -161,7 +161,8 @@ const damp = (current, target, lambda, dt) => current + (target - current) * (1 
 const canvas = document.getElementById('globe');
 const hud = document.getElementById('hud');
 
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+// stencil: the reveal's country outline blends each pixel once (see buildCountryOutline)
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, stencil: true, powerPreference: 'high-performance' });
 renderer.setClearColor(0x020409, 1);
 const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
 renderer.setPixelRatio(pixelRatio);
@@ -1391,6 +1392,9 @@ const LOAD = {
   lakes: { url: 'assets/lakes-10m.topo.json', size: 726015 },
   rivers: { url: 'assets/rivers-10m-scalerank.topo.json', size: 1782934 },
   pins: { url: 'assets/daily-pins.json', size: 18 },
+  // Lazy, in no load phase: the reveal outline and Borders mode (see "Country outlines")
+  countries: { url: 'assets/country-outlines.topo.json', size: 1211450 },
+  countryBands: { url: 'assets/country-bands.json', size: 2855 },
 };
 for (const entry of Object.values(LOAD)) { entry.loaded = 0; entry.done = false; entry.built = false; }
 
@@ -1697,6 +1701,289 @@ function startDetail() {
     .finally(() => loadJobDone('detail', 'detail'));
 }
 satReady.then((satOn) => { if (!satOn || mapLab.on) startDetail(); });
+
+// ---------------------------------------------------------------------------
+// Country outlines (docs/country-outlines-plan-opus.md): the answer country's
+// border on every reveal, and the tap geometry for Borders mode. Only the
+// answer's border is ever drawn, never a second country's (Sean's rule).
+// country-outlines.topo.json (build/make-country-outlines.mjs) holds 261 Natural
+// Earth units; topo.keys maps each game key to its units, topo.cut lists the
+// antimeridian seam arcs (hit-test only, never stroked). Lazy: fetched at low
+// priority once the critical bytes are in, decoded on idle, in no load phase.
+// ---------------------------------------------------------------------------
+const whenIdle = (fn) => (window.requestIdleCallback ? requestIdleCallback(fn, { timeout: 2000 }) : setTimeout(fn, 0));
+let countryData = null; // { arcs, cut, units, keys, keyOf }
+let countryBands = null; // { key: band 1-10 }, build/make-country-bands.py
+const countryGeoms = new Map();
+
+function decodeCountries(topo) {
+  const { scale, translate } = topo.transform;
+  const k = 1 / scale[0];
+  const tx = Math.round(translate[0] * k);
+  const ty = Math.round(translate[1] * k);
+  const arcs = topo.arcs.map((arc) => {
+    let x = 0;
+    let y = 0;
+    return arc.map(([dx, dy]) => [((x += dx) + tx) / k, ((y += dy) + ty) / k]);
+  });
+  const keyOf = new Map();
+  for (const [key, ids] of Object.entries(topo.keys)) for (const id of ids) keyOf.set(id, key);
+  const units = topo.objects.data.geometries.map((g) => {
+    const polys = (g.type === 'Polygon' ? [g.arcs] : g.arcs).map((poly) => poly.map((refs) => {
+      const pts = [];
+      for (const i of refs) {
+        const arc = i >= 0 ? arcs[i] : arcs[~i].slice().reverse();
+        for (let j = pts.length ? 1 : 0; j < arc.length; j++) pts.push(arc[j]);
+      }
+      return { refs, pts, box: ringBox(pts), ext: ringExtent(pts) };
+    }));
+    return { id: g.id, name: g.properties.name, polys, box: mergeBoxes(polys.map((p) => p[0].box)) };
+  });
+  return { arcs, cut: new Set(topo.cut), units, keys: topo.keys, keyOf };
+}
+
+function ringBox(pts) {
+  const b = [Infinity, Infinity, -Infinity, -Infinity];
+  for (const [x, y] of pts) {
+    if (x < b[0]) b[0] = x;
+    if (y < b[1]) b[1] = y;
+    if (x > b[2]) b[2] = x;
+    if (y > b[3]) b[3] = y;
+  }
+  return b;
+}
+
+function mergeBoxes(boxes) {
+  return boxes.reduce((m, b) => [Math.min(m[0], b[0]), Math.min(m[1], b[1]), Math.max(m[2], b[2]), Math.max(m[3], b[3])],
+    [Infinity, Infinity, -Infinity, -Infinity]);
+}
+
+// A game key's merged geometry: its member units' polygons, and the arcs to
+// stroke (minus seams, and minus borders between members such as
+// Somalia/Somaliland, which appear once in each member).
+function countryGeom(key) {
+  if (!countryData || !countryData.keys[key]) return null;
+  let geom = countryGeoms.get(key);
+  if (geom) return geom;
+  const units = countryData.keys[key].map((id) => countryData.units.find((u) => u.id === id));
+  const uses = new Map();
+  for (const u of units) for (const poly of u.polys) for (const r of poly) for (const i of r.refs) {
+    const a = i >= 0 ? i : ~i;
+    uses.set(a, (uses.get(a) || 0) + 1);
+  }
+  const rings = units.flatMap((u) => u.polys.flat());
+  const box = mergeBoxes(units.map((u) => u.box));
+  const diagKm = distanceKm({ lat: box[1], lng: box[0] }, { lat: box[3], lng: box[2] });
+  geom = { key, units, rings, box, diagKm, skip: (a) => countryData.cut.has(a) || uses.get(a) > 1 };
+  countryGeoms.set(key, geom);
+  return geom;
+}
+
+// Stroke polylines for a key. Rings under MIN_ISLAND are skipped like the
+// coast's, except near the anchor (the answer, or the tap) and for countries
+// that are all small rings (Tuvalu, Nauru), which draw in full.
+function countryLines(geom, anchor) {
+  const allSmall = geom.rings.every((r) => r.ext < MIN_ISLAND);
+  const near = (b) => anchor && anchor.lng > b[0] - 0.5 && anchor.lng < b[2] + 0.5 && anchor.lat > b[1] - 0.5 && anchor.lat < b[3] + 0.5;
+  const lines = [];
+  for (const r of geom.rings) {
+    if (!allSmall && r.ext < MIN_ISLAND && !near(r.box)) continue;
+    let line = null;
+    for (const i of r.refs) {
+      const a = i >= 0 ? i : ~i;
+      if (geom.skip(a)) { line = null; continue; }
+      const arc = i >= 0 ? countryData.arcs[a] : countryData.arcs[a].slice().reverse();
+      if (!line) lines.push((line = [arc[0]]));
+      for (let j = 1; j < arc.length; j++) line.push(arc[j]);
+    }
+  }
+  return lines;
+}
+
+// Soft cyan glow under a crisp core, like the classic coast glow under its
+// line, but on its own materials so satellite never hides it (it is not in
+// outlineMaterials). depthTest on: Russia's far side must not show through.
+// Independent segments overlap at every vertex, which beads a transparent
+// line; the stencil lets each layer blend a pixel once.
+const COUNTRY_LAYERS = [
+  { color: ANSWER_COLOR, width: 5, opacity: 0.22, ref: 1 },
+  { color: '#b9f7ff', width: 1.6, opacity: 1, ref: 2 },
+];
+let countryOutline = null; // { group, mats, geom, reveal }
+let countryOutlineWant = null; // { key, anchor, fade } until the data lands
+
+function buildCountryOutline(lines) {
+  const radius = 1.002;
+  const pos = [];
+  const a = new THREE.Vector3();
+  const b = new THREE.Vector3();
+  const p = new THREE.Vector3();
+  const q = new THREE.Vector3();
+  for (const line of lines) {
+    for (let i = 1; i < line.length; i++) {
+      latLngToVec3(line[i - 1][1], line[i - 1][0], 1, a);
+      latLngToVec3(line[i][1], line[i][0], 1, b);
+      const steps = Math.max(1, Math.ceil(a.angleTo(b) / (1.2 * DEG)));
+      p.copy(a).multiplyScalar(radius);
+      for (let k = 1; k <= steps; k++) {
+        q.copy(a).lerp(b, k / steps).normalize().multiplyScalar(radius);
+        pos.push(p.x, p.y, p.z, q.x, q.y, q.z);
+        p.copy(q);
+      }
+    }
+  }
+  const geo = new LineSegmentsGeometry();
+  geo.setPositions(pos);
+  const group = new THREE.Group();
+  const mats = COUNTRY_LAYERS.map((layer, i) => {
+    const mat = new LineMaterial({
+      color: layer.color,
+      linewidth: layer.width,
+      transparent: true,
+      opacity: 0,
+      depthWrite: false,
+      stencilWrite: true,
+      stencilRef: layer.ref,
+      stencilFunc: THREE.NotEqualStencilFunc,
+      stencilZPass: THREE.ReplaceStencilOp,
+    });
+    mat.resolution.set(viewW, viewH);
+    mat.userData.baseOpacity = layer.opacity;
+    const mesh = new LineSegments2(geo, mat);
+    mesh.renderOrder = 5;
+    mesh.userData.radius = radius;
+    outlineMeshes.push(mesh);
+    group.add(mesh);
+    return mat;
+  });
+  return { group, mats, geo };
+}
+
+function placeCountryOutline({ key, anchor, fade }) {
+  clearCountryOutline();
+  const geom = countryGeom(key);
+  if (!geom) return;
+  const built = buildCountryOutline(countryLines(geom, anchor));
+  countryOutline = { ...built, geom, reveal: fade ? 0 : 1 };
+  globe.add(built.group);
+  updateCountryOutline(0);
+}
+
+// Show the answer country's outline: fading in on the 1.1 s outline clock, or
+// at once for a static or restored reveal. Before the data lands the reveal
+// plays without it, and it fades in when it arrives.
+function showCountryOutline(key, anchor, fade) {
+  countryOutlineWant = { key, anchor: anchor && { lat: anchor.lat, lng: anchor.lng }, fade };
+  if (countryData) placeCountryOutline(countryOutlineWant);
+}
+
+function clearCountryOutline() {
+  countryOutlineWant = null;
+  if (!countryOutline) return;
+  globe.remove(countryOutline.group);
+  for (const mesh of countryOutline.group.children) outlineMeshes.splice(outlineMeshes.indexOf(mesh), 1);
+  countryOutline.geo.dispose();
+  countryOutline.mats.forEach((m) => m.dispose());
+  countryOutline = null;
+}
+
+const _cornerA = new THREE.Vector3();
+const _cornerB = new THREE.Vector3();
+function updateCountryOutline(dt) {
+  const o = countryOutline;
+  if (!o) return;
+  if (o.reveal < 1) o.reveal = Math.min(1, o.reveal + dt / 1.1);
+  const ease = 1 - Math.pow(1 - o.reveal, 3);
+  o.mats.forEach((m) => { m.opacity = ease * m.userData.baseOpacity; });
+  // Under 12 css px across, an outline is a squiggle under the pin: hide it.
+  // Only small countries can get there (2,000 km spans 29 px at the widest framing).
+  if (o.geom.diagKm < 2000) {
+    const b = o.geom.box;
+    const pa = projectToScreen(latLngToVec3(b[1], b[0], 1, _cornerA), _cornerA);
+    const pb = projectToScreen(latLngToVec3(b[3], b[2], 1, _cornerB), _cornerB);
+    o.group.visible = Math.hypot(pa.x - pb.x, pa.y - pb.y) >= 12;
+  }
+}
+
+const countriesP = criticalBytesP
+  .then(() => loadJSON(LOAD.countries, { priority: 'low' }))
+  .then((topo) => new Promise((resolve) => whenIdle(() => resolve(decodeCountries(topo)))))
+  .then((data) => {
+    countryData = data;
+    if (countryOutlineWant) placeCountryOutline({ ...countryOutlineWant, fade: true });
+  });
+countriesP.catch((err) => console.error('[outlines] failed to load', err));
+const countryBandsP = criticalBytesP
+  .then(() => loadJSON(LOAD.countryBands, { priority: 'low' }))
+  .then((data) => { countryBands = data.bands; });
+countryBandsP.catch((err) => console.error('[outlines] failed to load bands', err));
+
+// Borders mode hit test (plan §3.2), on the game key's merged units.
+function pointInRing(lng, lat, pts) {
+  let inside = false;
+  for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+    const [xi, yi] = pts[i];
+    const [xj, yj] = pts[j];
+    if ((yi > lat) !== (yj > lat) && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}
+
+const inBox = (b, lng, lat, pad = 0) => lng >= b[0] - pad && lng <= b[2] + pad && lat >= b[1] - pad && lat <= b[3] + pad;
+
+function inUnit(u, lng, lat) {
+  if (!inBox(u.box, lng, lat)) return false;
+  return u.polys.some((poly) => inBox(poly[0].box, lng, lat) && pointInRing(lng, lat, poly[0].pts)
+    && !poly.slice(1).some((hole) => pointInRing(lng, lat, hole.pts)));
+}
+
+// Nearest point of the key's border to p, great-circle km. With maxKm, rings
+// whose box (padded by maxKm) misses p are skipped.
+function nearestBorder(geom, p, maxKm = Infinity) {
+  const pad = Number.isFinite(maxKm) ? maxKm / (111.32 * Math.max(0.05, Math.cos(p.lat * DEG))) : 0;
+  const c = Math.cos(p.lat * DEG);
+  const wrap = (d) => (d > 180 ? d - 360 : d < -180 ? d + 360 : d);
+  let best = { km: Infinity, lat: 0, lng: 0 };
+  for (const r of geom.rings) {
+    if (pad && !inBox(r.box, p.lng, p.lat, pad)) continue;
+    const { pts } = r;
+    for (let i = 1; i < pts.length; i++) {
+      // closest point on the segment in a local equirectangular frame around p
+      const ax = wrap(pts[i - 1][0] - p.lng) * c, ay = pts[i - 1][1] - p.lat;
+      const bx = wrap(pts[i][0] - p.lng) * c, by = pts[i][1] - p.lat;
+      const dx = bx - ax, dy = by - ay;
+      const len = dx * dx + dy * dy;
+      const t = len ? clamp(-(ax * dx + ay * dy) / len, 0, 1) : 0;
+      const q = { lat: p.lat + ay + dy * t, lng: p.lng + (ax + dx * t) / c };
+      const km = distanceKm(p, q);
+      if (km < best.km) best = { km, lat: q.lat, lng: q.lng };
+    }
+  }
+  return best;
+}
+
+const SMALL_TARGET_KM = 30;
+// -> { hit, near: nearest border point, km to it, tapped: unit name or null (ocean) }
+function bordersHit(key, p, tolKm) {
+  const geom = countryGeom(key);
+  const own = geom.units.find((u) => inUnit(u, p.lng, p.lat));
+  if (own) return { hit: true, km: 0, near: null, ring: ringAt(geom, p), tapped: null };
+  const near = nearestBorder(geom, p);
+  const hit = { hit: true, km: near.km, near, ring: null, tapped: null };
+  if (geom.diagKm < SMALL_TARGET_KM && near.km <= tolKm) return hit; // the Vatican sits inside Italy
+  const other = countryData.units.find((u) => !geom.units.includes(u) && inUnit(u, p.lng, p.lat));
+  if (other) {
+    const key2 = countryData.keyOf.get(other.id);
+    const tapped = !key2 || key2 === other.name ? other.name : `${other.name} (${key2})`;
+    return { hit: false, km: near.km, near, tapped };
+  }
+  if (near.km <= tolKm) return hit; // coast, atoll, or a sliver lost to simplification
+  return { hit: false, km: near.km, near, tapped: null };
+}
+
+function ringAt(geom, p) {
+  return geom.rings.find((r) => inBox(r.box, p.lng, p.lat) && pointInRing(p.lng, p.lat, r.pts)) || null;
+}
 
 // Rivers/lakes density lab (?maplab). Rebuilds the lake-shore and river
 // outline layers on the live globe at the requested density. Only wired up
@@ -2171,6 +2458,7 @@ function resize() {
   targetDist = clamp(targetDist, MIN_DIST, maxDist);
   outlineMaterials.forEach((m) => m.resolution.set(viewW, viewH));
   if (answerLineMaterial) answerLineMaterial.resolution.set(viewW, viewH);
+  if (countryOutline) countryOutline.mats.forEach((m) => m.resolution.set(viewW, viewH));
 }
 window.addEventListener('resize', resize);
 // The canvas box can change without a window resize (iOS toolbar, rotation settle).
@@ -3270,6 +3558,7 @@ function clearReveal() {
   resetFlyoverExtras();
   correctPin.release();
   answerLine.visible = false;
+  clearCountryOutline();
   revealView = null;
   for (const pin of pins) pin.release();
   activePin = -1;
@@ -3291,6 +3580,15 @@ function showRound() {
     gameEls.number.textContent = `${expeditionRun.expedition.emoji || '🧭'} ${expeditionRun.expedition.theme} · ${expeditionRun.index + 1}/${total}`;
     gameEls.weight.style.display = 'none';
     gameEls.dailyDate.hidden = true;
+  } else if (borders.active) {
+    // Survival's restyle; the clue is the country name and flag
+    document.body.classList.add('survival', 'borders');
+    gameEls.number.textContent = `Round ${borders.round}  Difficulty ${bordersBand()}/10`;
+    gameEls.weight.style.display = 'none';
+    gameEls.survivalStreak.textContent = borders.round === 1
+      ? 'One miss ends the run'
+      : `🔥 ${borders.found} survived`;
+    gameEls.dailyDate.hidden = true;
   } else if (survival.active) {
     document.body.classList.add('survival');
     gameEls.number.textContent = `Round ${survival.round}  Difficulty ${survivalBand()}/10`;
@@ -3311,7 +3609,11 @@ function showRound() {
     gameEls.dailyDate.textContent = formatDailyDate(daily.date);
     gameEls.dailyDate.hidden = false;
   }
-  gameEls.clue.textContent = item.clue;
+  if (borders.active) {
+    const name = document.createElement('strong');
+    name.textContent = borders.key;
+    gameEls.clue.replaceChildren('Tap ', name, ` ${countryFlag(borders.key)}`);
+  } else gameEls.clue.textContent = item.clue;
   setGuessHint('Tap the globe to place your pin');
 }
 
@@ -3363,6 +3665,7 @@ function placeRevealVisual(guess, answer) {
   correctPin.drop(b);
   answerLine.visible = true;
   frameRevealPoints(a, b);
+  showCountryOutline(countryKey(answer), answer, false);
   return { a, b };
 }
 
@@ -3871,6 +4174,9 @@ function watchAnswerLanding(anim) {
 function startPullback(anim) {
   anim.pullbackStarted = true;
   anim.pullbackAt = anim.elapsed;
+  // The answer's country fades in as the map plays alone, not at touchdown,
+  // where it would compete with the postcard pop.
+  showCountryOutline(countryKey(currentItem()), currentItem(), true);
   travelHead.visible = false;
   setCameraNear(0.05);
   setCameraFov(FOV);
@@ -4554,6 +4860,7 @@ function syncDailyButton() {
 }
 
 function startGame() {
+  borders.active = false;
   expeditionRun.active = false;
   survival.active = false;
   endless.active = false;
@@ -4571,7 +4878,10 @@ function nextRound() {
   // before the flyover finished, the toast should not appear in the new round.
   window.__pendingEarn = null;
   document.querySelector('.earn-toast')?.remove();
-  if (survival.active) {
+  if (borders.active) {
+    if (borders.missed) showBordersGameOver();
+    else bordersGo();
+  } else if (survival.active) {
     if (survival.missed) showRunHaul(showSurvivalGameOver, 'See run');
     else survivalGo();
   } else if (expeditionRun.active) {
@@ -4612,7 +4922,7 @@ async function shareResult() {
   }
 }
 
-window.addEventListener('pin', (event) => revealGuess(event.detail));
+window.addEventListener('pin', (event) => (borders.active ? revealBorders(event.detail) : revealGuess(event.detail)));
 gameEls.play.addEventListener('click', startGame);
 gameEls.next.addEventListener('click', nextRound);
 gameEls.share.addEventListener('click', shareResult);
@@ -4654,6 +4964,7 @@ function formatCountdown(ms) {
 
 // Back to the start screen with today's fresh daily loaded.
 function openNewDaily() {
+  borders.active = false;
   survival.active = false;
   endless.active = false;
   loadDaily();
@@ -4700,6 +5011,7 @@ nextGame.addEventListener('click', () => { if (nextGame.classList.contains('read
 const endless = { active: false, item: null, bag: [], count: 0 };
 
 function currentItem() {
+  if (borders.active) return null; // Borders asks for a country, not a location
   return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : selected[daily.round];
 }
 
@@ -4730,6 +5042,7 @@ function endlessGo(item) {
   if (!item) return;
   expeditionRun.active = false;
   survival.active = false;
+  borders.active = false;
   endless.active = true;
   endless.item = item;
   endless.count += 1;
@@ -4741,6 +5054,7 @@ function endlessNext() {
 }
 
 function goHome() {
+  borders.active = false;
   survival.active = false;
   endless.active = false;
   expeditionRun.active = false;
@@ -4841,7 +5155,7 @@ async function confirmGoHome() {
   }
   // Daily is the default game while no alternate mode is active. Its state is
   // persisted after each round, so returning home does not discard progress.
-  const isDailyGame = !endless.active && !survival.active && !expeditionRun.active;
+  const isDailyGame = !endless.active && !survival.active && !expeditionRun.active && !borders.active;
   const message = isDailyGame
     ? 'Your progress is saved. You can continue later.'
     : 'Your current game progress will be lost.';
@@ -4942,7 +5256,9 @@ function startSurvival() {
   if (!locations.length) return;
   expeditionRun.active = false;
   endless.active = false;
+  borders.active = false;
   survival.active = true;
+  runResultsMode = 'survival';
   survival.item = null;
   survival.round = 0;
   survival.survived = 0;
@@ -4961,13 +5277,188 @@ function showSurvivalGameOver() {
   document.body.className = 'game-results survival';
   const count = survival.survived;
   const best = saveSurvivalBest(count);
+  setRunResultsCopy('Survival run over', 'One miss over 150 km ends the run.', 'Survived');
   gameEls.survivalResultTitle.textContent = `${count} ${count === 1 ? 'round' : 'rounds'} survived`;
   gameEls.survivalFinalStreak.textContent = count.toLocaleString();
   gameEls.survivalBestStreak.textContent = best.toLocaleString();
 }
 
 gameEls.survivalEntry.addEventListener('click', startSurvival);
-gameEls.survivalAgain.addEventListener('click', startSurvival);
+gameEls.survivalAgain.addEventListener('click', () => (runResultsMode === 'borders' ? startBorders() : startSurvival()));
+
+// Survival and Borders share the run-over screen.
+let runResultsMode = 'survival';
+function setRunResultsCopy(eyebrow, summary, label) {
+  document.getElementById('survival-result-eyebrow').textContent = eyebrow;
+  document.getElementById('survival-result-summary').textContent = summary;
+  document.getElementById('survival-final-label').textContent = label;
+}
+
+// ---------------------------------------------------------------------------
+// Borders mode: tap the named country (docs/country-outlines-plan-opus.md §3).
+// Survival's climb (difficulty 1-10, repeating) over per-country bands, with a
+// bag per band so no country repeats within a run. One miss ends the run. It
+// earns nothing in the Passport: there is no location to earn.
+// ---------------------------------------------------------------------------
+const BORDERS_BEST_KEY = 'where-on-earth-countries-best-v1';
+const BORDERS_TAP_PX = 20; // tap tolerance, as REVIEW_LINE_HIT
+const BORDERS_TAP_MAX_KM = 50; // so zooming out can't make 20 px cover 1,000 km
+const borders = { active: false, key: null, round: 0, found: 0, missed: false, bags: new Map() };
+const bordersEntry = document.getElementById('borders-button');
+
+function bordersBest() {
+  try {
+    return Math.max(0, Number.parseInt(localStorage.getItem(BORDERS_BEST_KEY), 10) || 0);
+  } catch {
+    return 0;
+  }
+}
+
+function saveBordersBest(value) {
+  const best = Math.max(bordersBest(), value);
+  safeSetItem(BORDERS_BEST_KEY, String(best));
+  return best;
+}
+
+function bordersBand() {
+  return ((borders.round - 1) % 10) + 1;
+}
+
+// A key's flag: its most common clue flag (Denmark's places include Greenland's).
+let countryFlags = null;
+function countryFlag(key) {
+  if (!countryFlags) {
+    const counts = new Map();
+    for (const item of locations) {
+      const tally = counts.get(item.country) || new Map();
+      const flag = flagForLocation(item);
+      tally.set(flag, (tally.get(flag) || 0) + 1);
+      counts.set(item.country, tally);
+    }
+    countryFlags = new Map([...counts].map(([k, tally]) => [k, COUNTRY_FLAGS[k] || [...tally].sort((a, b) => b[1] - a[1])[0][0]]));
+  }
+  return countryFlags.get(key) || '🌍';
+}
+
+function syncBordersEntry() {
+  bordersEntry.disabled = !(countryData && countryBands && locations.length);
+}
+
+// Draw without replacement within the band. An exhausted band ends the run,
+// so a country can never repeat during one run.
+function bordersPick() {
+  const band = bordersBand();
+  let bag = borders.bags.get(band);
+  if (!bag) {
+    bag = Object.keys(countryBands).filter((k) => countryBands[k] === band && countryData.keys[k]);
+    borders.bags.set(band, bag);
+  }
+  return bag.length ? bag.splice(Math.floor(Math.random() * bag.length), 1)[0] : null;
+}
+
+function bordersGo() {
+  borders.round += 1;
+  borders.key = bordersPick();
+  borders.missed = false;
+  if (!borders.key) {
+    borders.round -= 1;
+    showBordersGameOver();
+    return;
+  }
+  showRound();
+}
+
+function startBorders() {
+  if (!countryData || !countryBands || !locations.length) return;
+  expeditionRun.active = false;
+  endless.active = false;
+  survival.active = false;
+  borders.active = true;
+  borders.round = 0;
+  borders.found = 0;
+  borders.missed = false;
+  borders.bags.clear();
+  runResultsMode = 'borders';
+  bordersGo();
+}
+
+// Static reveal (no flyover, rounds stay fast). Only the target's outline is
+// drawn, never the tapped country's: the pin, route and pill say where the tap
+// landed.
+function revealBorders(tap) {
+  if (gameMode !== 'guess') return;
+  const key = borders.key;
+  const kmPerPx = radPerPx() * 6371.0088; // at the screen centre, where the player zoomed to tap
+  const res = bordersHit(key, tap, Math.min(BORDERS_TAP_PX * kmPerPx, BORDERS_TAP_MAX_KM));
+  borders.missed = !res.hit;
+  if (res.hit) {
+    borders.found += 1;
+    saveBordersBest(borders.found);
+  }
+  gameMode = 'reveal';
+  window.__canGuess = false;
+  const headerFrom = gameEls.header.offsetHeight;
+  document.body.className = `game-reveal survival borders${borders.missed ? ' survival-miss' : ''}`;
+  gameEls.hint.textContent = '';
+  const km = Math.round(res.km);
+  const name = `${key} ${countryFlag(key)}`;
+  gameEls.revealName.textContent = name;
+  gameEls.peekName.textContent = name;
+  gameEls.distance.textContent = borders.missed ? `${km.toLocaleString()} km` : '';
+  gameEls.mult.style.display = 'none';
+  gameEls.fact.textContent = !borders.missed ? `Found ${key}.`
+    : `You tapped ${res.tapped || 'the ocean'}, ${km.toLocaleString()} km from ${key}.`;
+  setThumb(gameEls.thumb, null);
+  setThumb(gameEls.peekThumb, null);
+  peekSlot.hidden = true;
+  gameEls.survivalStreak.textContent = borders.missed
+    ? `Run ended · ${borders.found} survived`
+    : `🔥 ${borders.found} survived`;
+  gameEls.score.textContent = borders.missed ? '✗ Run over' : `🔥 ${borders.found}`;
+  const pill = gameEls.revealPill;
+  pill.classList.remove('safe', 'miss');
+  pill.textContent = !borders.missed ? `✓ ${key}` : res.tapped ? `✗ That's ${res.tapped}` : '✗ Ocean';
+  pill.classList.add(borders.missed ? 'miss' : 'safe');
+  gameEls.next.textContent = borders.missed ? 'See run' : 'Keep going';
+  if (headerFrom > REVEAL_HEADER_H) collapseRoundHeader(headerFrom);
+
+  const a = latLngToVec3(tap.lat, tap.lng);
+  if (activePin >= 0) pins[activePin].drop(a);
+  if (borders.missed) {
+    // the route runs from the tap to the nearest point of the target's border
+    const { b } = buildAnswerPath(tap, res.near);
+    correctPin.drop(b);
+    answerLine.visible = true;
+    frameRevealPoints(a, b);
+    showCountryOutline(key, res.near, true);
+    startRevealBeat(a, b, true);
+  } else {
+    const box = res.ring && res.ring.box;
+    const anchor = res.near || (box ? { lng: (box[0] + box[2]) / 2, lat: (box[1] + box[3]) / 2 } : tap);
+    const b = latLngToVec3(anchor.lat, anchor.lng);
+    frameRevealPoints(a, b);
+    showCountryOutline(key, tap, true);
+    startRevealBeat(a, b, false);
+  }
+}
+
+function showBordersGameOver() {
+  clearReveal();
+  hideScreens();
+  gameMode = 'survival-results';
+  window.__canGuess = false;
+  gameEls.survivalResults.hidden = false;
+  document.body.className = 'game-results survival borders';
+  const count = borders.found;
+  const best = saveBordersBest(count);
+  setRunResultsCopy('Borders run over', 'One miss ends the run.', 'Found');
+  gameEls.survivalResultTitle.textContent = `${count} ${count === 1 ? 'country' : 'countries'} found`;
+  gameEls.survivalFinalStreak.textContent = count.toLocaleString();
+  gameEls.survivalBestStreak.textContent = best.toLocaleString();
+}
+
+bordersEntry.addEventListener('click', startBorders);
+Promise.all([countriesP, countryBandsP]).then(syncBordersEntry, () => {});
 
 // ---------------------------------------------------------------------------
 // Post-game review: all five rounds on the globe, tap one to reopen its recap
@@ -6123,6 +6614,7 @@ function startExpedition(id) {
   expeditionPicker.hidden = true;
   survival.active = false;
   endless.active = false;
+  borders.active = false;
   expeditionRun.active = true;
   expeditionRun.expedition = expedition;
   expeditionRun.index = index;
@@ -8048,6 +8540,7 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   gameEls.play.disabled = false;
   endlessEls.entry.disabled = false;
   gameEls.survivalEntry.disabled = false;
+  syncBordersEntry();
   updateExpeditionEntry();
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
@@ -8071,6 +8564,7 @@ getJSON('assets/expeditions.json').then((data) => {
 gameEls.play.disabled = true;
 endlessEls.entry.disabled = true;
 gameEls.survivalEntry.disabled = true;
+bordersEntry.disabled = true;
 gameEls.expeditionsEntry.disabled = true;
 passportEntry.disabled = true;
 collectionsEntry.disabled = true;
@@ -8081,15 +8575,18 @@ window.__game = {
   next: nextRound,
   survival: startSurvival,
   survivalAgain: startSurvival,
+  borders: startBorders,
+  bordersHit,
   guess(lat, lng) {
     if (gameMode !== 'guess') throw new Error('A guess is not currently expected');
     activePin = (activePin + 1) % pins.length;
     pins[activePin].drop(latLngToVec3(lat, lng));
-    revealGuess({ lat, lng });
+    if (borders.active) revealBorders({ lat, lng });
+    else revealGuess({ lat, lng });
   },
   get state() {
     const item = gameMode === 'guess' || gameMode === 'reveal' ? currentItem() : null;
-    return { mode: gameMode, daily: JSON.parse(JSON.stringify(daily)), selected: selected.map((x) => ({ ...x })), item: item && item.id, survival: { ...survival, item: survival.item && survival.item.id } };
+    return { mode: gameMode, daily: JSON.parse(JSON.stringify(daily)), selected: selected.map((x) => ({ ...x })), item: item && item.id, survival: { ...survival, item: survival.item && survival.item.id }, borders: { ...borders, bags: undefined } };
   },
   distanceKm,
   scoreGuess,
@@ -8166,6 +8663,7 @@ function frame() {
     }
   }
   updateSatellite(dt);
+  updateCountryOutline(dt);
 
   // Keep roughly the same screen footprint, then add a restrained boost in
   // unusually wide reveal framings so the badge/checkmark do not disappear.
