@@ -11,6 +11,13 @@ of the run, then shares the closest three. Tap the Country uses its found count
 and the target country retained when the run ends; it does not invent distance
 results. No score, earning, or Passport logic changed.
 
+Classic Survival's result screen, share headline, and `places visited` line now
+all use its survived-round count, excluding the run-ending miss. Its run haul
+was already survived-only: postcards require a guess under 150 km, while the
+ending miss is over 150 km. Tap the Country was also already survived-only;
+`found` increments only on a successful tap, and both its results and share use
+that value.
+
 ## Literal share-text examples
 
 Daily:
@@ -40,13 +47,13 @@ Reykjavik: 8 km
 Nairobi: 31 km
 Cusco: 74 km
 
-8 places visited
+7 places visited
 
 https://where-on.earth #WhereOnEarth
 ```
 
-The eight visited places include the final guess that ended this seven-round
-run.
+The final guess that ended this seven-round run is not included in places
+visited.
 
 Survival: Tap the Country:
 

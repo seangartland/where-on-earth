@@ -5335,7 +5335,7 @@ function survivalShareText() {
     headline: `${count.toLocaleString()} ${count === 1 ? 'round' : 'rounds'} survived`,
     streak: survivalBest(),
     guesses: closestGuessLines(survival.results, survival.results.map((entry) => entry.item)),
-    visited: survival.results.length,
+    visited: count,
   });
 }
 
