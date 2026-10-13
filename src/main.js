@@ -4782,7 +4782,7 @@ function shareText() {
     const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
     return `${base} ${scoreEmoji(base)}`;
   });
-  return `Where on Earth?\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}\n\nCan you beat me?\nhttps://where-on.earth`;
+  return `https://where-on.earth\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}`;
 }
 
 function postcardSummaryOutcomes() {
