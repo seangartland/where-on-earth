@@ -13541,5 +13541,35 @@
     "sets": [],
     "difficultyWhy": "p.00·fb199·K1·iso213 → 177.3 → 9",
     "category": "city"
+  },
+  {
+    "id": "riga-old-town-d34-14",
+    "short": "Riga Old Town",
+    "clue": "Riga Old Town, Latvia",
+    "fact": "UNESCO site with Art Nouveau architecture.",
+    "lat": 56.9496,
+    "lng": 24.1052,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Views_from_St._Peter%27s_Church_Spire%2C_Riga_20180808-2.jpg/500px-Views_from_St._Peter%27s_Church_Spire%2C_Riga_20180808-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "country": "Latvia",
+    "continent": "Europe",
+    "sets": [],
+    "difficultyWhy": "p.82·fb11·K0·iso403 → 7.6 → 3",
+    "category": "city"
+  },
+  {
+    "id": "vilnius-old-town-d34-15",
+    "short": "Vilnius Old Town",
+    "clue": "Vilnius Old Town, Lithuania 🇱🇹",
+    "fact": "Largest medieval old town in Eastern Europe.",
+    "lat": 54.6872,
+    "lng": 25.2797,
+    "difficulty": 3,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Vilnius_old_town_by_Augustas_Didzgalvis.jpg/500px-Vilnius_old_town_by_Augustas_Didzgalvis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "country": "Lithuania",
+    "continent": "Europe",
+    "sets": [],
+    "difficultyWhy": "p.83·fb81·K0·iso172 → 7.5 → 3",
+    "category": "city"
   }
 ]
