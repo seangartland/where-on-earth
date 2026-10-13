@@ -5990,7 +5990,7 @@ document.head.appendChild(statsStyle);
 
 const statsEntry = document.createElement('button');
 statsEntry.className = 'stats-entry';
-statsEntry.textContent = '📊 Stats';
+statsEntry.textContent = 'Stats';
 statsEntry.setAttribute('aria-haspopup', 'dialog');
 gameEls.startStreak.after(statsEntry);
 
@@ -6972,7 +6972,7 @@ document.head.appendChild(passportPageStyle);
 
 const passportEntry = document.createElement('button');
 passportEntry.className = 'passport-entry';
-passportEntry.textContent = '🛂 Passport';
+passportEntry.textContent = 'Passport';
 passportEntry.setAttribute('aria-haspopup', 'dialog');
 const collectionsEntry = document.createElement('button');
 collectionsEntry.className = 'passport-entry';
