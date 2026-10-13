@@ -7493,15 +7493,15 @@ function passportSlot(entry) {
   const earn = EARN_NAMES[entry.earned] || 'seen';
   const tier = entry.earned >= EARN_PINPOINT ? 'pinpoint' : entry.earned >= EARN_BULLSEYE ? 'bullseye' : 'ordinary';
   const tierLabel = tier[0].toUpperCase() + tier.slice(1);
-  const hasDistance = entry.earned >= EARN_BULLSEYE && Number.isFinite(entry.km);
-  const pillText = hasDistance ? formatShareKm(entry.km) : entry.best;
+  const hasDistance = Number.isFinite(entry.km);
+  const pillText = hasDistance ? formatShareKm(entry.km) : null;
   li.dataset.earn = earn;
   applyCardTier(li, entry.item, entry.earned);
   li.append(...passportSlotFace(entry, pillText, { scoreTier: tier }));
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
-  li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${tierLabel}, ${pillText}${hasDistance ? '' : ' score'}`);
+  li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${tierLabel}${hasDistance ? `, ${pillText}` : ''}`);
   li.addEventListener('click', () => openPostcard(entry, li));
   li.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
