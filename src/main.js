@@ -6974,6 +6974,7 @@ const collectionsEntry = document.createElement('button');
 collectionsEntry.className = 'passport-entry';
 collectionsEntry.textContent = '🛡 Collections';
 collectionsEntry.setAttribute('aria-haspopup', 'dialog');
+collectionsEntry.hidden = true; // Temporarily hide Collections without removing its navigation wiring.
 const homeLinks = document.createElement('div');
 homeLinks.className = 'home-links';
 statsEntry.before(homeLinks);
@@ -6988,7 +6989,7 @@ passportScreen.innerHTML = `
     <div class="pp-header-row">
       <h2 id="pp-title">Your passport</h2>
       <div class="pp-header-actions">
-        <button class="pp-share-icon" data-pp="collections" aria-label="View collections">🛡</button>
+        <button class="pp-share-icon" data-pp="collections" aria-label="View collections" hidden>🛡</button>
         <button class="pp-share-icon" data-pps="share" aria-label="Share my passport">↗</button>
       </div>
     </div>
