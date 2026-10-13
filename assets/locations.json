@@ -14431,12 +14431,12 @@
     "fact": "A Roman amphitheatre big enough for around 15,000 spectators lay buried under houses in Durrës until it was rediscovered in 1966.",
     "lat": 41.32355,
     "lng": 19.45469,
-    "difficulty": 1,
+    "difficulty": 4,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/0559_Durr%C3%ABs.jpg/500px-0559_Durr%C3%ABs.jpg",
     "country": "Albania",
     "continent": "Europe",
     "sets": [],
-    "difficultyWhy": "p.99·fb36·K0·iso354 → 3.2 → 1",
+    "difficultyWhy": "p.54·fb36·K0·iso354 → 13.4 → 4",
     "category": "city"
   },
   {

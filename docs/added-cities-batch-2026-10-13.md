@@ -23,7 +23,7 @@ dataset, HEAD 200 on all 27 URLs, banned-phrase scan, codepoint check.
 | Trieste | Italy | 5 | Aarhus | Denmark | 4 |
 | Coventry | England | 3 | Guwahati | India | 8 |
 | Leicester | England | 3 | Mysuru | India | 8 |
-| Durrës | Albania | 1 (see flag) | Vilnius | Lithuania | 3 |
+| Durrës | Albania | 4 (see note) | Vilnius | Lithuania | 3 |
 | Entebbe | Uganda | 9 | Riga | Latvia | 3 |
 | Guanajuato | Mexico | 5 | Hanover | Germany | 4 |
 | Cologne | Germany | 2 | Ipoh | Malaysia | 6 |
@@ -72,13 +72,15 @@ are the ones this batch adds to that backlog.
 
 ## Exceptions and flags
 
-- **Durrës level 1 is spike-driven (kept, Sean's call available).** Its
-  12-month mean pageviews are 4,052/day, but the median month is 331/day:
-  two months drew ~928k and ~456k views against a typical ~10k/month
-  (max/median 92.2). Scored with the same mean input the frozen pipeline
-  used for the whole dataset, it lands at p.99 → level 1. A median-based
-  input would put it around level 3. Not hand-adjusted; flagging per the
-  suspicious-results rule.
+- **Durrës level: shipped at 1, corrected to 4 at Sean's direction
+  (2026-10-13).** Its 12-month mean pageviews are 4,052/day, but the median
+  month is 331/day: two months drew ~928k and ~456k views against a typical
+  ~10k/month (max/median 92.2), and the mean input produced p.99 → level 1.
+  Sean's call: "def not level 1, I've never heard of it." Re-scored with the
+  scorer's own machinery (score_batch.py override) fed the median month
+  (330.9/day): p.54 → loss 13.4 → **level 4**. Geography inputs unchanged.
+  The frozen pipeline itself is untouched; this is a one-entry input
+  correction for a spike-contaminated mean.
 - Weaker but rule-compliant photos: Mysuru (misty boulevard; the only
   no-credit city photo), Cologne (distant skyline behind a motorway),
   Timișoara (rooftops with satellite dishes).
