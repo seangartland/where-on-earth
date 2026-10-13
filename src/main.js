@@ -2700,6 +2700,8 @@ const gameEls = {
   survivalResultTitle: document.getElementById('survival-result-title'),
   survivalFinalStreak: document.getElementById('survival-final-streak'),
   survivalBestStreak: document.getElementById('survival-best-streak'),
+  survivalShare: document.getElementById('survival-share'),
+  survivalShareStatus: document.getElementById('survival-share-status'),
   survivalAgain: document.getElementById('survival-again'),
   survivalHome: document.getElementById('survival-home'),
   expeditionsEntry: document.getElementById('expeditions-button'),
@@ -4532,6 +4534,7 @@ function revealGuess(guess, restoring = false) {
   if (!restoring && survival.active) {
     survival.lastDistance = km;
     survival.missed = kmExact > SURVIVAL_LIMIT_KM;
+    survival.results.push({ item: answer, distance: km });
     if (!survival.missed) {
       survival.survived += 1;
       saveSurvivalBest(survival.survived);
@@ -4749,14 +4752,40 @@ function postcardSummaryCard(result, item) {
   return card;
 }
 
+const SHARE_URL = 'https://where-on.earth';
+const SHARE_HASHTAG = '#WhereOnEarth';
+
+function closestGuessLines(results, items) {
+  return results
+    .map((result, index) => ({ result, item: items[index] }))
+    .filter(({ result, item }) => item && Number.isFinite(result.distance))
+    .sort((a, b) => a.result.distance - b.result.distance)
+    .slice(0, 3)
+    .map(({ result, item }) => `${item.short || item.clue}: ${result.distance.toLocaleString()} km`);
+}
+
+function formatGameShare({ title, headline, streak, streakLabel = 'Best streak', guesses = [], visited, missed }) {
+  const lines = [`Where on Earth? — ${title}`, headline];
+  if (streak != null) lines.push(`${streakLabel}: ${streak.toLocaleString()}`);
+  if (guesses.length) lines.push('', ...guesses);
+  if (visited != null) lines.push('', `${visited.toLocaleString()} places visited`);
+  if (missed) lines.push(`Missed: ${missed}`);
+  lines.push('', `${SHARE_URL} ${SHARE_HASHTAG}`);
+  return lines.join('\n');
+}
+
 function shareText() {
   const dateStr = new Date(`${daily.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const total = daily.results.reduce((sum, result) => sum + result.score, 0);
-  const lines = daily.results.map((result, index) => {
-    const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
-    return `${base} ${scoreEmoji(base)}`;
+  const streak = readJSON(STREAK_KEY);
+  return formatGameShare({
+    title: 'Daily',
+    headline: `${dateStr} · Final Score: ${total.toLocaleString()}`,
+    streak: Math.max(0, Number(streak?.count) || 0),
+    streakLabel: 'Day streak',
+    guesses: closestGuessLines(daily.results, selected),
+    visited: daily.results.length,
   });
-  return `Where on Earth?\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}\n\nCan you beat me?\nhttps://where-on.earth`;
 }
 
 function postcardSummaryOutcomes() {
@@ -4904,8 +4933,7 @@ function nextRound() {
   }
 }
 
-async function shareResult() {
-  const text = shareText();
+async function shareResult(text = shareText(), button = gameEls.share, status = gameEls.status) {
   try {
     if (navigator.share) {
       await navigator.share({ text });
@@ -4916,17 +4944,17 @@ async function shareResult() {
   }
   try {
     await navigator.clipboard.writeText(text);
-    gameEls.share.textContent = 'Copied';
-    gameEls.status.textContent = 'Result copied to clipboard';
+    button.textContent = 'Copied';
+    status.textContent = 'Result copied to clipboard';
   } catch {
-    gameEls.status.textContent = 'Could not copy this result';
+    status.textContent = 'Could not copy this result';
   }
 }
 
 window.addEventListener('pin', (event) => (borders.active ? revealBorders(event.detail) : revealGuess(event.detail)));
 gameEls.play.addEventListener('click', startGame);
 gameEls.next.addEventListener('click', nextRound);
-gameEls.share.addEventListener('click', shareResult);
+gameEls.share.addEventListener('click', () => shareResult());
 // Finished-game close controls are wired via the .home-nav-btn delegation below.
 
 // ---------------------------------------------------------------------------
@@ -5211,6 +5239,7 @@ const survival = {
   survived: 0,
   lastDistance: null,
   missed: false,
+  results: [],
 };
 
 function survivalBest() {
@@ -5265,6 +5294,7 @@ function startSurvival() {
   survival.survived = 0;
   survival.lastDistance = null;
   survival.missed = false;
+  survival.results.length = 0;
   runHaul.length = 0;
   survivalGo();
 }
@@ -5282,10 +5312,38 @@ function showSurvivalGameOver() {
   gameEls.survivalResultTitle.textContent = `${count} ${count === 1 ? 'round' : 'rounds'} survived`;
   gameEls.survivalFinalStreak.textContent = count.toLocaleString();
   gameEls.survivalBestStreak.textContent = best.toLocaleString();
+  gameEls.survivalShare.textContent = 'Share result';
+  gameEls.survivalShareStatus.textContent = '';
 }
 
 gameEls.survivalEntry.addEventListener('click', startSurvival);
 gameEls.survivalAgain.addEventListener('click', () => (runResultsMode === 'borders' ? startBorders() : startSurvival()));
+
+function survivalShareText() {
+  if (runResultsMode === 'borders') {
+    const found = borders.found;
+    return formatGameShare({
+      title: 'Survival: Tap the Country',
+      headline: `${found.toLocaleString()} ${found === 1 ? 'country' : 'countries'} found`,
+      streak: bordersBest(),
+      missed: borders.missed ? borders.key : null,
+    });
+  }
+  const count = survival.survived;
+  return formatGameShare({
+    title: 'Survival',
+    headline: `${count.toLocaleString()} ${count === 1 ? 'round' : 'rounds'} survived`,
+    streak: survivalBest(),
+    guesses: closestGuessLines(survival.results, survival.results.map((entry) => entry.item)),
+    visited: survival.results.length,
+  });
+}
+
+gameEls.survivalShare.addEventListener('click', () => shareResult(
+  survivalShareText(),
+  gameEls.survivalShare,
+  gameEls.survivalShareStatus,
+));
 
 // Survival and Borders share the run-over screen.
 let runResultsMode = 'survival';
@@ -5456,6 +5514,8 @@ function showBordersGameOver() {
   gameEls.survivalResultTitle.textContent = `${count} ${count === 1 ? 'country' : 'countries'} found`;
   gameEls.survivalFinalStreak.textContent = count.toLocaleString();
   gameEls.survivalBestStreak.textContent = best.toLocaleString();
+  gameEls.survivalShare.textContent = 'Share result';
+  gameEls.survivalShareStatus.textContent = '';
 }
 
 bordersEntry.addEventListener('click', startBorders);
