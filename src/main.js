@@ -3585,7 +3585,7 @@ function showRound() {
   } else if (borders.active) {
     // Survival's restyle; the clue is the country name and flag
     document.body.classList.add('survival', 'borders');
-    gameEls.number.textContent = `Round ${borders.round}  Difficulty ${borders.band}/10`;
+    gameEls.number.textContent = `Round ${borders.round}  Streak ${borders.found}`;
     gameEls.weight.style.display = 'none';
     gameEls.survivalStreak.textContent = borders.round === 1
       ? 'One miss ends the run'
@@ -3594,7 +3594,7 @@ function showRound() {
     gameEls.dailyDate.hidden = false;
   } else if (survival.active) {
     document.body.classList.add('survival');
-    gameEls.number.textContent = `Round ${survival.round}  Difficulty ${survival.band}/10`;
+    gameEls.number.textContent = `Round ${survival.round}  Streak ${survival.survived}`;
     gameEls.weight.style.display = 'none';
     gameEls.survivalStreak.textContent = survival.round === 1
       ? 'One miss over 150 km ends the run'
@@ -4539,6 +4539,7 @@ function revealGuess(guess, restoring = false) {
       survival.survived += 1;
       saveSurvivalBest(survival.survived);
     }
+    gameEls.number.textContent = `Round ${survival.round}  Streak ${survival.survived}`;
   }
   gameMode = 'reveal';
   window.__canGuess = false;
@@ -5462,6 +5463,7 @@ function revealBorders(tap) {
     borders.found += 1;
     saveBordersBest(borders.found);
   }
+  gameEls.number.textContent = `Round ${borders.round}  Streak ${borders.found}`;
   gameMode = 'reveal';
   window.__canGuess = false;
   const headerFrom = gameEls.header.offsetHeight;
