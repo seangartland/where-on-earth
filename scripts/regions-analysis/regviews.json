@@ -1,0 +1,2409 @@
+{
+ "AD.07": {
+  "title": null
+ },
+ "AE.01": {
+  "title": "Emirate of Abu Dhabi",
+  "views": 619.3
+ },
+ "AE.02": {
+  "title": "Emirate of Ajman",
+  "views": 265.5
+ },
+ "AE.03": {
+  "title": "Emirate of Dubai",
+  "views": 647.0
+ },
+ "AE.06": {
+  "title": "Emirate of Sharjah",
+  "views": 398.4
+ },
+ "AF.13": {
+  "title": "Kabul Province",
+  "views": 72.5
+ },
+ "AF.19": {
+  "title": "Nimruz Province",
+  "views": 61.5
+ },
+ "AF.23": {
+  "title": "Kandahar Province",
+  "views": 120.8
+ },
+ "AG.04": {
+  "title": "Saint John, Antigua and Barbuda",
+  "views": 21.8
+ },
+ "AL.50": {
+  "title": "Tirana County",
+  "views": 53.6
+ },
+ "AM.11": {
+  "title": "Yerevan",
+  "views": 1224.0
+ },
+ "AO.20": {
+  "title": "Luanda Province",
+  "views": 34.7
+ },
+ "AR.01": {
+  "title": "Buenos Aires Province",
+  "views": 334.0
+ },
+ "AR.05": {
+  "title": "Córdoba Province, Argentina",
+  "views": 126.9
+ },
+ "AR.07": {
+  "title": null
+ },
+ "AR.13": {
+  "title": "Mendoza Province",
+  "views": 118.7
+ },
+ "AR.16": {
+  "title": "Río Negro Province",
+  "views": 107.8
+ },
+ "AR.17": {
+  "title": "Salta Province",
+  "views": 84.5
+ },
+ "AR.21": {
+  "title": "Santa Fe Province",
+  "views": 187.7
+ },
+ "AR.23": {
+  "title": "Tierra del Fuego Province, Argentina",
+  "views": 306.6
+ },
+ "AR.24": {
+  "title": "Tucumán Province",
+  "views": 107.0
+ },
+ "AT.04": {
+  "title": "Upper Austria",
+  "views": 229.6
+ },
+ "AT.05": {
+  "title": "Salzburg (state)",
+  "views": 151.1
+ },
+ "AT.07": {
+  "title": "Tyrol (state)",
+  "views": 305.8
+ },
+ "AT.09": {
+  "title": null
+ },
+ "AU.01": {
+  "title": "Australian Capital Territory",
+  "views": 738.5
+ },
+ "AU.02": {
+  "title": "New South Wales",
+  "views": 1830.1
+ },
+ "AU.03": {
+  "title": "Northern Territory",
+  "views": 931.7
+ },
+ "AU.04": {
+  "title": "Queensland",
+  "views": 1535.0
+ },
+ "AU.05": {
+  "title": "South Australia",
+  "views": 884.4
+ },
+ "AU.06": {
+  "title": "Tasmania",
+  "views": 2584.3
+ },
+ "AU.07": {
+  "title": "Victoria (state)",
+  "views": 897.9
+ },
+ "AU.08": {
+  "title": "Western Australia",
+  "views": 1180.8
+ },
+ "AZ.09": {
+  "title": "Baku",
+  "views": 1540.1
+ },
+ "BA.01": {
+  "title": "Federation of Bosnia and Herzegovina",
+  "views": 593.7
+ },
+ "BB.08": {
+  "title": "Saint Michael, Barbados",
+  "views": 405.8
+ },
+ "BD.81": {
+  "title": "Dhaka Division",
+  "views": 121.8
+ },
+ "BD.82": {
+  "title": "Khulna Division",
+  "views": 101.3
+ },
+ "BD.83": {
+  "title": "Rajshahi Division",
+  "views": 78.6
+ },
+ "BD.84": {
+  "title": "Chittagong Division",
+  "views": 157.5
+ },
+ "BE.BRU": {
+  "title": "Brussels",
+  "views": 1840.8
+ },
+ "BE.VLG": {
+  "title": "Flanders",
+  "views": 1104.6
+ },
+ "BF.03": {
+  "title": "Kadiogo Region",
+  "views": 1.0
+ },
+ "BF.09": {
+  "title": "Guiriko Region",
+  "views": 0.9
+ },
+ "BG.42": {
+  "title": "Sofia City Province",
+  "views": 42.7
+ },
+ "BH.16": {
+  "title": "Capital Governorate, Bahrain",
+  "views": 25.6
+ },
+ "BI.13": {
+  "title": "Gitega Province",
+  "views": 11.1
+ },
+ "BI.24": {
+  "title": "Bujumbura Mairie Province",
+  "views": 6.4
+ },
+ "BJ.14": {
+  "title": "Littoral (Benin)",
+  "views": 4.9
+ },
+ "BN.02": {
+  "title": "Brunei–Muara District",
+  "views": 20.2
+ },
+ "BO.01": {
+  "title": "Chuquisaca Department",
+  "views": 30.0
+ },
+ "BO.02": {
+  "title": "Cochabamba Department",
+  "views": 39.6
+ },
+ "BO.04": {
+  "title": "La Paz Department (Bolivia)",
+  "views": 46.9
+ },
+ "BO.08": {
+  "title": "Santa Cruz Department",
+  "views": 22.2
+ },
+ "BR.02": {
+  "title": "Alagoas",
+  "views": 184.5
+ },
+ "BR.03": {
+  "title": "Amapá",
+  "views": 183.7
+ },
+ "BR.04": {
+  "title": "Amazonas (Brazilian state)",
+  "views": 323.1
+ },
+ "BR.05": {
+  "title": "Bahia",
+  "views": 467.4
+ },
+ "BR.06": {
+  "title": "Ceará",
+  "views": 161.1
+ },
+ "BR.07": {
+  "title": "Federal District (Brazil)",
+  "views": 190.1
+ },
+ "BR.11": {
+  "title": "Mato Grosso do Sul",
+  "views": 153.1
+ },
+ "BR.13": {
+  "title": "Maranhão",
+  "views": 189.1
+ },
+ "BR.14": {
+  "title": "Mato Grosso",
+  "views": 267.0
+ },
+ "BR.15": {
+  "title": "Minas Gerais",
+  "views": 613.1
+ },
+ "BR.16": {
+  "title": "Pará",
+  "views": 238.0
+ },
+ "BR.17": {
+  "title": "Paraíba",
+  "views": 122.7
+ },
+ "BR.18": {
+  "title": "Paraná (state)",
+  "views": 312.1
+ },
+ "BR.21": {
+  "title": "Rio de Janeiro (state)",
+  "views": 351.9
+ },
+ "BR.22": {
+  "title": "Rio Grande do Norte",
+  "views": 114.8
+ },
+ "BR.23": {
+  "title": "Rio Grande do Sul",
+  "views": 496.0
+ },
+ "BR.24": {
+  "title": "Rondônia",
+  "views": 179.4
+ },
+ "BR.26": {
+  "title": "Santa Catarina (state)",
+  "views": 389.0
+ },
+ "BR.27": {
+  "title": "São Paulo (state)",
+  "views": 613.3
+ },
+ "BR.29": {
+  "title": "Goiás",
+  "views": 185.9
+ },
+ "BR.30": {
+  "title": "Pernambuco",
+  "views": 282.6
+ },
+ "BS.23": {
+  "title": null
+ },
+ "BT.20": {
+  "title": "Thimphu District",
+  "views": 25.5
+ },
+ "BW.14": {
+  "title": null
+ },
+ "BY.04": {
+  "title": "Minsk",
+  "views": 1162.4
+ },
+ "BZ.02": {
+  "title": "Cayo District",
+  "views": 31.2
+ },
+ "CA.01": {
+  "title": "Alberta",
+  "views": 2502.3
+ },
+ "CA.02": {
+  "title": "British Columbia",
+  "views": 2592.2
+ },
+ "CA.03": {
+  "title": "Manitoba",
+  "views": 1279.8
+ },
+ "CA.05": {
+  "title": "Newfoundland and Labrador",
+  "views": 2361.5
+ },
+ "CA.07": {
+  "title": "Nova Scotia",
+  "views": 2566.4
+ },
+ "CA.08": {
+  "title": "Ontario",
+  "views": 2877.1
+ },
+ "CA.10": {
+  "title": "Quebec",
+  "views": 3134.9
+ },
+ "CA.12": {
+  "title": "Yukon",
+  "views": 1508.7
+ },
+ "CA.13": {
+  "title": "Northwest Territories",
+  "views": 1179.9
+ },
+ "CD.04": {
+  "title": "Kasaï-Oriental (former province)",
+  "views": 4.1
+ },
+ "CD.06": {
+  "title": "Kinshasa (commune)",
+  "views": 8.8
+ },
+ "CD.12": {
+  "title": "South Kivu",
+  "views": 77.1
+ },
+ "CD.14": {
+  "title": "Haut-Katanga Province",
+  "views": 40.7
+ },
+ "CD.30": {
+  "title": "Tshopo",
+  "views": 30.3
+ },
+ "CF.18": {
+  "title": "Bangui",
+  "views": 443.8
+ },
+ "CG.12": {
+  "title": null
+ },
+ "CG.15": {
+  "title": null
+ },
+ "CH.BE": {
+  "title": "Canton of Bern",
+  "views": 235.4
+ },
+ "CH.BS": {
+  "title": "Basel-Stadt",
+  "views": 91.4
+ },
+ "CH.GE": {
+  "title": "Canton of Geneva",
+  "views": 220.9
+ },
+ "CH.LU": {
+  "title": "Canton of Lucerne",
+  "views": 81.3
+ },
+ "CH.VS": {
+  "title": "Valais",
+  "views": 387.1
+ },
+ "CH.ZH": {
+  "title": "Canton of Zurich",
+  "views": 157.5
+ },
+ "CI.81": {
+  "title": "Lacs District",
+  "views": 5.0
+ },
+ "CI.90": {
+  "title": "Vallée du Bandama District",
+  "views": 5.5
+ },
+ "CI.93": {
+  "title": null
+ },
+ "CK.11695425": {
+  "title": null
+ },
+ "CL.01": {
+  "title": "Valparaíso Region",
+  "views": 82.7
+ },
+ "CL.12": {
+  "title": "Santiago Metropolitan Region",
+  "views": 109.1
+ },
+ "CM.05": {
+  "title": "Littoral Region (Cameroon)",
+  "views": 27.5
+ },
+ "CM.11": {
+  "title": "Centre Region (Cameroon)",
+  "views": 19.9
+ },
+ "CN.02": {
+  "title": "Zhejiang",
+  "views": 778.0
+ },
+ "CN.04": {
+  "title": "Jiangsu",
+  "views": 710.3
+ },
+ "CN.06": {
+  "title": "Qinghai",
+  "views": 513.9
+ },
+ "CN.07": {
+  "title": "Fujian",
+  "views": 870.2
+ },
+ "CN.08": {
+  "title": "Heilongjiang",
+  "views": 525.1
+ },
+ "CN.09": {
+  "title": "Henan",
+  "views": 630.3
+ },
+ "CN.11": {
+  "title": "Hunan",
+  "views": 609.9
+ },
+ "CN.12": {
+  "title": "Hubei",
+  "views": 459.3
+ },
+ "CN.13": {
+  "title": "Xinjiang",
+  "views": 2165.0
+ },
+ "CN.14": {
+  "title": "Tibet Autonomous Region",
+  "views": 1397.0
+ },
+ "CN.15": {
+  "title": "Gansu",
+  "views": 596.9
+ },
+ "CN.16": {
+  "title": "Guangxi",
+  "views": 754.8
+ },
+ "CN.19": {
+  "title": "Liaoning",
+  "views": 464.4
+ },
+ "CN.20": {
+  "title": "Inner Mongolia",
+  "views": 1014.0
+ },
+ "CN.22": {
+  "title": null
+ },
+ "CN.23": {
+  "title": "Shanghai",
+  "views": 3262.3
+ },
+ "CN.24": {
+  "title": "Shanxi",
+  "views": 466.3
+ },
+ "CN.25": {
+  "title": "Shandong",
+  "views": 813.2
+ },
+ "CN.26": {
+  "title": "Shaanxi",
+  "views": 573.8
+ },
+ "CN.28": {
+  "title": "Tianjin",
+  "views": 1034.5
+ },
+ "CN.29": {
+  "title": "Yunnan",
+  "views": 1061.8
+ },
+ "CN.30": {
+  "title": "Guangdong",
+  "views": 1578.1
+ },
+ "CN.31": {
+  "title": "Hainan",
+  "views": 949.0
+ },
+ "CN.32": {
+  "title": "Sichuan",
+  "views": 1072.7
+ },
+ "CN.33": {
+  "title": "Chongqing",
+  "views": 3409.5
+ },
+ "CO.02": {
+  "title": "Antioquia Department",
+  "views": 244.9
+ },
+ "CO.04": {
+  "title": "Atlántico Department",
+  "views": 43.1
+ },
+ "CO.21": {
+  "title": "Norte de Santander Department",
+  "views": 41.9
+ },
+ "CO.24": {
+  "title": "Risaralda Department",
+  "views": 34.7
+ },
+ "CO.26": {
+  "title": "Santander Department",
+  "views": 73.3
+ },
+ "CO.29": {
+  "title": "Valle del Cauca Department",
+  "views": 98.5
+ },
+ "CO.34": {
+  "title": null
+ },
+ "CO.35": {
+  "title": "Bolívar Department",
+  "views": 51.2
+ },
+ "CO.38": {
+  "title": "Magdalena Department",
+  "views": 37.8
+ },
+ "CR.08": {
+  "title": "San José Province",
+  "views": 29.8
+ },
+ "CU.02": {
+  "title": "La Habana Province",
+  "views": 45.1
+ },
+ "CV.14": {
+  "title": "Praia, Cape Verde (municipality)",
+  "views": 37.2
+ },
+ "CZ.52": {
+  "title": null
+ },
+ "CZ.79": {
+  "title": "South Bohemian Region",
+  "views": 64.9
+ },
+ "DE.01": {
+  "title": "Baden-Württemberg",
+  "views": 1423.2
+ },
+ "DE.02": {
+  "title": "Bavaria",
+  "views": 2483.1
+ },
+ "DE.04": {
+  "title": null
+ },
+ "DE.05": {
+  "title": "Hesse",
+  "views": 876.5
+ },
+ "DE.07": {
+  "title": "North Rhine-Westphalia",
+  "views": 1413.9
+ },
+ "DE.13": {
+  "title": "Saxony",
+  "views": 1074.0
+ },
+ "DE.16": {
+  "title": "Berlin",
+  "views": 4583.1
+ },
+ "DJ.07": {
+  "title": "Djibouti Region",
+  "views": 9.8
+ },
+ "DK.17": {
+  "title": "Capital Region of Denmark",
+  "views": 135.6
+ },
+ "DK.18": {
+  "title": "Central Denmark Region",
+  "views": 67.5
+ },
+ "DM.04": {
+  "title": "Saint George Parish, Dominica",
+  "views": 6.1
+ },
+ "DO.34": {
+  "title": "Distrito Nacional",
+  "views": 36.8
+ },
+ "DZ.01": {
+  "title": "Algiers Province",
+  "views": 44.8
+ },
+ "DZ.09": {
+  "title": "Oran Province",
+  "views": 22.3
+ },
+ "EC.10": {
+  "title": "Guayas Province",
+  "views": 44.7
+ },
+ "EC.18": {
+  "title": "Pichincha Province",
+  "views": 43.4
+ },
+ "EC.26": {
+  "title": "Santo Domingo de los Tsáchilas Province",
+  "views": 17.6
+ },
+ "EE.01": {
+  "title": "Harju County",
+  "views": 79.8
+ },
+ "EG.06": {
+  "title": "Alexandria Governorate",
+  "views": 67.3
+ },
+ "EG.08": {
+  "title": "Giza Governorate",
+  "views": 83.7
+ },
+ "EG.11": {
+  "title": "Cairo Governorate",
+  "views": 112.3
+ },
+ "EG.15": {
+  "title": "Suez Governorate",
+  "views": 53.8
+ },
+ "EG.16": {
+  "title": "Aswan Governorate",
+  "views": 44.4
+ },
+ "EG.19": {
+  "title": "Port Said Governorate",
+  "views": 51.7
+ },
+ "EG.28": {
+  "title": "Luxor Governorate",
+  "views": 43.5
+ },
+ "ER.05": {
+  "title": "Central region (Eritrea)",
+  "views": 7.8
+ },
+ "ES.07": {
+  "title": "Balearic Islands",
+  "views": 1044.1
+ },
+ "ES.29": {
+  "title": "Community of Madrid",
+  "views": 411.5
+ },
+ "ES.51": {
+  "title": "Andalusia",
+  "views": 1943.1
+ },
+ "ES.52": {
+  "title": "Aragon",
+  "views": 648.5
+ },
+ "ES.54": {
+  "title": "Castilla–La Mancha",
+  "views": 254.5
+ },
+ "ES.56": {
+  "title": "Catalonia",
+  "views": 2367.5
+ },
+ "ES.59": {
+  "title": "Basque Country (autonomous community)",
+  "views": 1506.3
+ },
+ "ES.60": {
+  "title": "Valencian Community",
+  "views": 556.3
+ },
+ "ET.44": {
+  "title": "Addis Ababa",
+  "views": 1634.9
+ },
+ "ET.52": {
+  "title": "Somali Region",
+  "views": 242.3
+ },
+ "FI.01": {
+  "title": "Uusimaa",
+  "views": 163.6
+ },
+ "FI.13": {
+  "title": "Central Finland",
+  "views": 41.9
+ },
+ "FJ.01": {
+  "title": "Central Division, Fiji",
+  "views": 10.2
+ },
+ "FM.02": {
+  "title": "Pohnpei State",
+  "views": 94.3
+ },
+ "FR.11": {
+  "title": "Île-de-France",
+  "views": 954.7
+ },
+ "FR.32": {
+  "title": "Hauts-de-France",
+  "views": 342.7
+ },
+ "FR.44": {
+  "title": "Grand Est",
+  "views": 385.6
+ },
+ "FR.75": {
+  "title": "Nouvelle-Aquitaine",
+  "views": 432.1
+ },
+ "FR.76": {
+  "title": "Occitania (administrative region)",
+  "views": 499.6
+ },
+ "FR.84": {
+  "title": "Auvergne-Rhône-Alpes",
+  "views": 478.7
+ },
+ "FR.93": {
+  "title": "Provence-Alpes-Côte d'Azur",
+  "views": 545.5
+ },
+ "GA.01": {
+  "title": "Estuaire Province",
+  "views": 21.2
+ },
+ "GB.ENG": {
+  "title": "England",
+  "views": 7910.8
+ },
+ "GB.NIR": {
+  "title": "Northern Ireland",
+  "views": 4456.9
+ },
+ "GB.SCT": {
+  "title": "Scotland",
+  "views": 5963.2
+ },
+ "GB.WLS": {
+  "title": "Wales",
+  "views": 4100.7
+ },
+ "GD.03": {
+  "title": "Saint George Parish, Grenada",
+  "views": 16.9
+ },
+ "GE.51": {
+  "title": "Tbilisi",
+  "views": 1529.2
+ },
+ "GH.01": {
+  "title": "Greater Accra Region",
+  "views": 79.5
+ },
+ "GH.02": {
+  "title": "Ashanti Region",
+  "views": 138.6
+ },
+ "GH.09": {
+  "title": "Western Region (Ghana)",
+  "views": 25.9
+ },
+ "GL.07": {
+  "title": "Sermersooq",
+  "views": 158.5
+ },
+ "GM.01": {
+  "title": null
+ },
+ "GN.04": {
+  "title": null
+ },
+ "GQ.04": {
+  "title": "Bioko Norte",
+  "views": 19.2
+ },
+ "GR.ESYE12": {
+  "title": "Central Macedonia",
+  "views": 153.1
+ },
+ "GR.ESYE14": {
+  "title": "Thessaly",
+  "views": 492.1
+ },
+ "GR.ESYE23": {
+  "title": "Western Greece",
+  "views": 56.9
+ },
+ "GR.ESYE31": {
+  "title": "Attica (region)",
+  "views": 207.3
+ },
+ "GR.ESYE42": {
+  "title": "South Aegean",
+  "views": 92.6
+ },
+ "GT.07": {
+  "title": "Guatemala Department",
+  "views": 26.8
+ },
+ "GW.11": {
+  "title": "Bissau",
+  "views": 244.3
+ },
+ "GY.12": {
+  "title": "Demerara-Mahaica",
+  "views": 43.7
+ },
+ "HK.KYT": {
+  "title": "Yau Tsim Mong District",
+  "views": 35.7
+ },
+ "HN.06": {
+  "title": "Cortés Department",
+  "views": 22.3
+ },
+ "HN.08": {
+  "title": "Francisco Morazán Department",
+  "views": 30.7
+ },
+ "HR.03": {
+  "title": "Dubrovnik-Neretva County",
+  "views": 56.4
+ },
+ "HR.21": {
+  "title": null
+ },
+ "HT.11": {
+  "title": "Ouest (department)",
+  "views": 38.4
+ },
+ "HU.05": {
+  "title": null
+ },
+ "ID.02": {
+  "title": "Bali",
+  "views": 3269.2
+ },
+ "ID.04": {
+  "title": "Jakarta",
+  "views": 3085.7
+ },
+ "ID.07": {
+  "title": "Central Java",
+  "views": 159.4
+ },
+ "ID.08": {
+  "title": "East Java",
+  "views": 183.5
+ },
+ "ID.10": {
+  "title": "Special Region of Yogyakarta",
+  "views": 201.4
+ },
+ "ID.14": {
+  "title": "East Kalimantan",
+  "views": 121.7
+ },
+ "ID.24": {
+  "title": "West Sumatra",
+  "views": 116.4
+ },
+ "ID.26": {
+  "title": "North Sumatra",
+  "views": 181.8
+ },
+ "ID.30": {
+  "title": "West Java",
+  "views": 219.4
+ },
+ "ID.32": {
+  "title": "South Sumatra",
+  "views": 76.4
+ },
+ "ID.37": {
+  "title": "Riau",
+  "views": 138.6
+ },
+ "ID.38": {
+  "title": "South Sulawesi",
+  "views": 108.3
+ },
+ "IE.C": {
+  "title": "Connacht",
+  "views": 588.5
+ },
+ "IE.L": {
+  "title": "Leinster",
+  "views": 449.4
+ },
+ "IE.M": {
+  "title": "Munster",
+  "views": 559.1
+ },
+ "IL.03": {
+  "title": "Northern District (Israel)",
+  "views": 178.7
+ },
+ "IL.05": {
+  "title": "Tel Aviv District",
+  "views": 126.0
+ },
+ "IL.06": {
+  "title": "Jerusalem District",
+  "views": 86.4
+ },
+ "IN.02": {
+  "title": "Andhra Pradesh",
+  "views": 2656.9
+ },
+ "IN.07": {
+  "title": "National Capital Territory of Delhi",
+  "views": 24.0
+ },
+ "IN.09": {
+  "title": "Gujarat",
+  "views": 2231.8
+ },
+ "IN.12": {
+  "title": "Jammu and Kashmir (state)",
+  "views": 337.4
+ },
+ "IN.13": {
+  "title": "Kerala",
+  "views": 4001.1
+ },
+ "IN.16": {
+  "title": "Maharashtra",
+  "views": 2766.1
+ },
+ "IN.19": {
+  "title": "Karnataka",
+  "views": 2336.4
+ },
+ "IN.23": {
+  "title": "Punjab, India",
+  "views": 1806.4
+ },
+ "IN.24": {
+  "title": "Rajasthan",
+  "views": 2159.9
+ },
+ "IN.25": {
+  "title": "Tamil Nadu",
+  "views": 3558.7
+ },
+ "IN.28": {
+  "title": "West Bengal",
+  "views": 3024.9
+ },
+ "IN.33": {
+  "title": "Goa",
+  "views": 2326.0
+ },
+ "IN.34": {
+  "title": "Bihar",
+  "views": 2118.6
+ },
+ "IN.36": {
+  "title": "Uttar Pradesh",
+  "views": 3141.5
+ },
+ "IN.40": {
+  "title": "Telangana",
+  "views": 1759.0
+ },
+ "IN.41": {
+  "title": "Ladakh",
+  "views": 1658.1
+ },
+ "IQ.02": {
+  "title": "Basra Governorate",
+  "views": 85.2
+ },
+ "IQ.05": {
+  "title": "Sulaymaniyah Governorate",
+  "views": 76.2
+ },
+ "IQ.07": {
+  "title": "Baghdad Governorate",
+  "views": 67.7
+ },
+ "IQ.11": {
+  "title": "Erbil Governorate",
+  "views": 80.8
+ },
+ "IQ.12": {
+  "title": "Karbala Governorate",
+  "views": 30.0
+ },
+ "IQ.13": {
+  "title": "Kirkuk Governorate",
+  "views": 79.0
+ },
+ "IQ.15": {
+  "title": "Nineveh Governorate",
+  "views": 205.9
+ },
+ "IQ.17": {
+  "title": "Najaf Governorate",
+  "views": 30.0
+ },
+ "IR.07": {
+  "title": "Fars province",
+  "views": 287.8
+ },
+ "IR.15": {
+  "title": "Khuzestan province",
+  "views": 452.8
+ },
+ "IR.26": {
+  "title": "Tehran province",
+  "views": 117.7
+ },
+ "IR.28": {
+  "title": "Isfahan province",
+  "views": 100.6
+ },
+ "IR.33": {
+  "title": "East Azerbaijan province",
+  "views": 160.6
+ },
+ "IR.39": {
+  "title": "Qom province",
+  "views": 44.9
+ },
+ "IR.40": {
+  "title": "Yazd province",
+  "views": 46.8
+ },
+ "IR.42": {
+  "title": "Razavi Khorasan province",
+  "views": 115.5
+ },
+ "IS.39": {
+  "title": "Capital Region (Iceland)",
+  "views": 89.5
+ },
+ "IT.02": {
+  "title": "Basilicata",
+  "views": 423.1
+ },
+ "IT.04": {
+  "title": "Campania",
+  "views": 1018.3
+ },
+ "IT.05": {
+  "title": "Emilia-Romagna",
+  "views": 839.6
+ },
+ "IT.07": {
+  "title": "Lazio",
+  "views": 769.4
+ },
+ "IT.09": {
+  "title": "Lombardy",
+  "views": 1342.4
+ },
+ "IT.12": {
+  "title": "Piedmont",
+  "views": 916.8
+ },
+ "IT.13": {
+  "title": "Apulia",
+  "views": 979.8
+ },
+ "IT.14": {
+  "title": "Sardinia",
+  "views": 2146.9
+ },
+ "IT.16": {
+  "title": "Tuscany",
+  "views": 1252.4
+ },
+ "IT.20": {
+  "title": "Veneto",
+  "views": 835.2
+ },
+ "JM.17": {
+  "title": "Kingston Parish",
+  "views": 22.9
+ },
+ "JO.16": {
+  "title": "Amman Governorate",
+  "views": 30.4
+ },
+ "JO.19": {
+  "title": "Ma'an Governorate",
+  "views": 38.2
+ },
+ "JO.22": {
+  "title": "Jerash Governorate",
+  "views": 13.7
+ },
+ "JP.01": {
+  "title": "Aichi Prefecture",
+  "views": 485.1
+ },
+ "JP.07": {
+  "title": "Fukuoka Prefecture",
+  "views": 241.6
+ },
+ "JP.11": {
+  "title": "Hiroshima Prefecture",
+  "views": 162.4
+ },
+ "JP.12": {
+  "title": "Hokkaido Prefecture",
+  "views": 8.9
+ },
+ "JP.13": {
+  "title": "Hyōgo Prefecture",
+  "views": 348.1
+ },
+ "JP.19": {
+  "title": "Kanagawa Prefecture",
+  "views": 621.7
+ },
+ "JP.22": {
+  "title": "Kyoto Prefecture",
+  "views": 222.5
+ },
+ "JP.24": {
+  "title": "Miyagi Prefecture",
+  "views": 265.0
+ },
+ "JP.27": {
+  "title": "Nagasaki Prefecture",
+  "views": 169.4
+ },
+ "JP.28": {
+  "title": "Nara Prefecture",
+  "views": 291.4
+ },
+ "JP.29": {
+  "title": "Niigata Prefecture",
+  "views": 198.1
+ },
+ "JP.30": {
+  "title": "Ōita Prefecture",
+  "views": 120.3
+ },
+ "JP.31": {
+  "title": "Okayama Prefecture",
+  "views": 158.2
+ },
+ "JP.32": {
+  "title": "Osaka Prefecture",
+  "views": 290.0
+ },
+ "JP.37": {
+  "title": "Shizuoka Prefecture",
+  "views": 345.6
+ },
+ "JP.40": {
+  "title": "Tokyo",
+  "views": 4649.6
+ },
+ "KE.05": {
+  "title": "Nairobi City County",
+  "views": 58.1
+ },
+ "KE.20": {
+  "title": "Kakamega County",
+  "views": 26.0
+ },
+ "KE.23": {
+  "title": "Kilifi County",
+  "views": 33.2
+ },
+ "KE.33": {
+  "title": "Mandera County",
+  "views": 32.1
+ },
+ "KG.01": {
+  "title": "Bishkek",
+  "views": 774.3
+ },
+ "KH.19": {
+  "title": "Takéo province",
+  "views": 27.8
+ },
+ "KH.22": {
+  "title": "Phnom Penh",
+  "views": 964.0
+ },
+ "KH.24": {
+  "title": "Siem Reap province",
+  "views": 47.1
+ },
+ "KI.01": {
+  "title": "Gilbert Islands",
+  "views": 211.7
+ },
+ "KM.02": {
+  "title": "Grande Comore",
+  "views": 83.0
+ },
+ "KN.03": {
+  "title": "Saint George Basseterre Parish",
+  "views": 7.1
+ },
+ "KP.12": {
+  "title": "Pyongyang",
+  "views": 1441.2
+ },
+ "KR.01": {
+  "title": "Jeju Province",
+  "views": 276.7
+ },
+ "KR.10": {
+  "title": "Busan",
+  "views": 1059.9
+ },
+ "KR.11": {
+  "title": null
+ },
+ "KR.12": {
+  "title": "Incheon",
+  "views": 541.6
+ },
+ "KR.13": {
+  "title": "Gyeonggi Province",
+  "views": 367.2
+ },
+ "KR.14": {
+  "title": "North Gyeongsang Province",
+  "views": 130.5
+ },
+ "KR.15": {
+  "title": "Daegu",
+  "views": 487.5
+ },
+ "KR.18": {
+  "title": "Gwangju",
+  "views": 389.1
+ },
+ "KR.19": {
+  "title": "Daejeon",
+  "views": 359.2
+ },
+ "KR.21": {
+  "title": "Ulsan",
+  "views": 311.9
+ },
+ "KW.02": {
+  "title": "Capital Governorate (Kuwait)",
+  "views": 28.9
+ },
+ "KZ.02": {
+  "title": null
+ },
+ "KZ.05": {
+  "title": null
+ },
+ "KZ.12": {
+  "title": "Karaganda Region",
+  "views": 47.9
+ },
+ "KZ.1537272": {
+  "title": null
+ },
+ "LA.17": {
+  "title": "Luang Prabang province",
+  "views": 27.1
+ },
+ "LA.24": {
+  "title": "Vientiane Prefecture",
+  "views": 30.5
+ },
+ "LB.04": {
+  "title": "Beirut Governorate",
+  "views": 50.6
+ },
+ "LC.03": {
+  "title": "Castries District",
+  "views": 4.4
+ },
+ "LI.11": {
+  "title": "Vaduz",
+  "views": 442.0
+ },
+ "LK.36": {
+  "title": "Western Province, Sri Lanka",
+  "views": 81.5
+ },
+ "LR.14": {
+  "title": "Montserrado County",
+  "views": 71.8
+ },
+ "LS.14": {
+  "title": "Maseru District",
+  "views": 16.3
+ },
+ "LT.65": {
+  "title": "Vilnius County",
+  "views": 47.8
+ },
+ "LU.LU": {
+  "title": "Canton of Luxembourg",
+  "views": 8.4
+ },
+ "LV.25": {
+  "title": "Riga district",
+  "views": 3.1
+ },
+ "LY.69": {
+  "title": "Benghazi District",
+  "views": 3.7
+ },
+ "LY.75": {
+  "title": "Sabha District",
+  "views": 7.5
+ },
+ "LY.77": {
+  "title": "Tripoli District, Libya",
+  "views": 17.5
+ },
+ "LY.82": {
+  "title": "Murqub District",
+  "views": 7.8
+ },
+ "MA.01": {
+  "title": null
+ },
+ "MA.03": {
+  "title": null
+ },
+ "MA.04": {
+  "title": null
+ },
+ "MA.06": {
+  "title": null
+ },
+ "MA.07": {
+  "title": null
+ },
+ "MA.09": {
+  "title": null
+ },
+ "MC.00": {
+  "title": null
+ },
+ "MD.57": {
+  "title": null
+ },
+ "ME.16": {
+  "title": "Podgorica Capital City",
+  "views": 21.0
+ },
+ "MG.11": {
+  "title": "Analamanga",
+  "views": 30.0
+ },
+ "MH.190": {
+  "title": null
+ },
+ "MK.F6": {
+  "title": null
+ },
+ "ML.01": {
+  "title": "Bamako",
+  "views": 524.7
+ },
+ "ML.08": {
+  "title": "Tombouctou Region",
+  "views": 51.4
+ },
+ "MM.08": {
+  "title": "Mandalay Region",
+  "views": 51.7
+ },
+ "MM.17": {
+  "title": "Yangon Region",
+  "views": 62.1
+ },
+ "MN.15": {
+  "title": "Övörkhangai Province",
+  "views": 39.2
+ },
+ "MN.20": {
+  "title": null
+ },
+ "MT.60": {
+  "title": "Valletta",
+  "views": 873.7
+ },
+ "MU.18": {
+  "title": "Port Louis District",
+  "views": 15.1
+ },
+ "MV.38": {
+  "title": "Kaafu Atoll",
+  "views": 41.0
+ },
+ "MW.C": {
+  "title": "Central Region, Malawi",
+  "views": 10.7
+ },
+ "MW.S": {
+  "title": "Southern Region, Malawi",
+  "views": 15.5
+ },
+ "MX.02": {
+  "title": "Baja California",
+  "views": 1044.0
+ },
+ "MX.06": {
+  "title": "Chihuahua (state)",
+  "views": 650.9
+ },
+ "MX.09": {
+  "title": "Mexico City",
+  "views": 4250.4
+ },
+ "MX.12": {
+  "title": "Guerrero",
+  "views": 305.6
+ },
+ "MX.14": {
+  "title": "Jalisco",
+  "views": 1062.5
+ },
+ "MX.16": {
+  "title": "Michoacán",
+  "views": 600.6
+ },
+ "MX.19": {
+  "title": "Nuevo León",
+  "views": 469.7
+ },
+ "MX.20": {
+  "title": "Oaxaca",
+  "views": 863.6
+ },
+ "MX.21": {
+  "title": "Puebla",
+  "views": 364.8
+ },
+ "MX.22": {
+  "title": "Querétaro",
+  "views": 320.3
+ },
+ "MX.23": {
+  "title": "Quintana Roo",
+  "views": 451.6
+ },
+ "MX.24": {
+  "title": "San Luis Potosí",
+  "views": 245.4
+ },
+ "MX.25": {
+  "title": "Sinaloa",
+  "views": 680.0
+ },
+ "MX.26": {
+  "title": "Sonora",
+  "views": 553.6
+ },
+ "MX.30": {
+  "title": "Veracruz",
+  "views": 513.7
+ },
+ "MX.31": {
+  "title": "Yucatán",
+  "views": 457.0
+ },
+ "MY.01": {
+  "title": "Johor",
+  "views": 587.0
+ },
+ "MY.09": {
+  "title": "Penang",
+  "views": 803.2
+ },
+ "MY.14": {
+  "title": null
+ },
+ "MZ.05": {
+  "title": "Sofala Province",
+  "views": 32.1
+ },
+ "MZ.06": {
+  "title": "Nampula Province",
+  "views": 32.2
+ },
+ "MZ.11": {
+  "title": null
+ },
+ "NA.21": {
+  "title": "Khomas Region",
+  "views": 35.7
+ },
+ "NC.02": {
+  "title": "South Province, New Caledonia",
+  "views": 16.1
+ },
+ "NE.01": {
+  "title": "Agadez Region",
+  "views": 46.8
+ },
+ "NE.08": {
+  "title": null
+ },
+ "NG.05": {
+  "title": "Lagos State",
+  "views": 279.8
+ },
+ "NG.11": {
+  "title": "Federal Capital Territory (Nigeria)",
+  "views": 113.9
+ },
+ "NG.23": {
+  "title": "Kaduna State",
+  "views": 150.1
+ },
+ "NG.27": {
+  "title": "Borno State",
+  "views": 210.2
+ },
+ "NG.29": {
+  "title": "Kano State",
+  "views": 254.2
+ },
+ "NG.32": {
+  "title": "Oyo State",
+  "views": 160.1
+ },
+ "NG.37": {
+  "title": "Edo State",
+  "views": 237.5
+ },
+ "NG.47": {
+  "title": "Enugu State",
+  "views": 138.6
+ },
+ "NG.49": {
+  "title": "Plateau State",
+  "views": 135.7
+ },
+ "NG.50": {
+  "title": "Rivers State",
+  "views": 149.8
+ },
+ "NI.10": {
+  "title": "Managua Department",
+  "views": 14.2
+ },
+ "NL.07": {
+  "title": "North Holland",
+  "views": 296.4
+ },
+ "NL.11": {
+  "title": "South Holland",
+  "views": 310.2
+ },
+ "NO.05": {
+  "title": "Finnmark",
+  "views": 357.5
+ },
+ "NO.12": {
+  "title": null
+ },
+ "NO.14": {
+  "title": "Rogaland",
+  "views": 152.8
+ },
+ "NO.18": {
+  "title": "Troms",
+  "views": 146.6
+ },
+ "NO.46": {
+  "title": "Vestland",
+  "views": 124.5
+ },
+ "NP.3": {
+  "title": null
+ },
+ "NP.4": {
+  "title": null
+ },
+ "NR.14": {
+  "title": "Yaren",
+  "views": 130.9
+ },
+ "NZ.E7": {
+  "title": "Auckland Region",
+  "views": 135.1
+ },
+ "NZ.F7": {
+  "title": "Otago",
+  "views": 236.6
+ },
+ "NZ.G2": {
+  "title": "Wellington Region",
+  "views": 89.2
+ },
+ "OM.06": {
+  "title": "Muscat Governorate",
+  "views": 34.0
+ },
+ "PA.08": {
+  "title": "Panamá Province",
+  "views": 35.9
+ },
+ "PE.08": {
+  "title": "Department of Cusco",
+  "views": 24.5
+ },
+ "PE.13": {
+  "title": "Department of La Libertad",
+  "views": 25.9
+ },
+ "PE.14": {
+  "title": "Department of Lambayeque",
+  "views": 16.2
+ },
+ "PE.20": {
+  "title": "Department of Piura",
+  "views": 16.4
+ },
+ "PE.LMA": {
+  "title": "Lima province",
+  "views": 22.9
+ },
+ "PF.01": {
+  "title": "Windward Islands (Society Islands)",
+  "views": 56.0
+ },
+ "PG.20": {
+  "title": "National Capital District (Papua New Guinea)",
+  "views": 28.8
+ },
+ "PH.03": {
+  "title": "Central Luzon",
+  "views": 224.0
+ },
+ "PH.07": {
+  "title": "Central Visayas",
+  "views": 117.7
+ },
+ "PH.09": {
+  "title": "Zamboanga Peninsula",
+  "views": 196.8
+ },
+ "PH.11": {
+  "title": "Davao Region",
+  "views": 180.9
+ },
+ "PH.NCR": {
+  "title": "Metro Manila",
+  "views": 977.5
+ },
+ "PK.02": {
+  "title": "Balochistan, Pakistan",
+  "views": 2067.3
+ },
+ "PK.03": {
+  "title": "Khyber Pakhtunkhwa",
+  "views": 1236.1
+ },
+ "PK.04": {
+  "title": "Punjab, Pakistan",
+  "views": 1110.5
+ },
+ "PK.05": {
+  "title": "Sindh",
+  "views": 1041.2
+ },
+ "PK.08": {
+  "title": "Islamabad Capital Territory",
+  "views": 177.9
+ },
+ "PL.72": {
+  "title": "Lower Silesian Voivodeship",
+  "views": 175.5
+ },
+ "PL.74": {
+  "title": "Łódź Voivodeship",
+  "views": 86.8
+ },
+ "PL.77": {
+  "title": "Lesser Poland Voivodeship",
+  "views": 191.1
+ },
+ "PL.78": {
+  "title": "Masovian Voivodeship",
+  "views": 242.6
+ },
+ "PL.82": {
+  "title": "Pomeranian Voivodeship",
+  "views": 207.4
+ },
+ "PR.127": {
+  "title": "Old San Juan",
+  "views": 115.0
+ },
+ "PS.WE": {
+  "title": "West Bank",
+  "views": 2374.3
+ },
+ "PT.10": {
+  "title": "Madeira",
+  "views": 6825.7
+ },
+ "PT.14": {
+  "title": "Lisbon District",
+  "views": 49.8
+ },
+ "PT.17": {
+  "title": "Porto District",
+  "views": 39.2
+ },
+ "PW.07": {
+  "title": "Melekeok",
+  "views": 44.4
+ },
+ "PY.22": {
+  "title": null
+ },
+ "QA.01": {
+  "title": "Doha (municipality)",
+  "views": 31.6
+ },
+ "RO.10": {
+  "title": null
+ },
+ "RO.16": {
+  "title": "Dâmbovița County",
+  "views": 34.7
+ },
+ "RS.SE": {
+  "title": "Central Serbia",
+  "views": 21.9
+ },
+ "RU.17": {
+  "title": "Dagestan",
+  "views": 3412.7
+ },
+ "RU.20": {
+  "title": "Irkutsk Oblast",
+  "views": 224.7
+ },
+ "RU.30": {
+  "title": "Khabarovsk Krai",
+  "views": 278.3
+ },
+ "RU.38": {
+  "title": "Krasnodar Krai",
+  "views": 438.4
+ },
+ "RU.48": {
+  "title": "Moscow",
+  "views": 3052.4
+ },
+ "RU.51": {
+  "title": "Nizhny Novgorod Oblast",
+  "views": 138.7
+ },
+ "RU.53": {
+  "title": "Novosibirsk Oblast",
+  "views": 146.0
+ },
+ "RU.54": {
+  "title": "Omsk Oblast",
+  "views": 110.7
+ },
+ "RU.59": {
+  "title": "Primorsky Krai",
+  "views": 437.0
+ },
+ "RU.61": {
+  "title": "Rostov Oblast",
+  "views": 243.8
+ },
+ "RU.63": {
+  "title": "Sakha Republic",
+  "views": 1465.7
+ },
+ "RU.65": {
+  "title": "Samara Oblast",
+  "views": 161.5
+ },
+ "RU.66": {
+  "title": "Saint Petersburg",
+  "views": 3051.5
+ },
+ "RU.71": {
+  "title": "Sverdlovsk Oblast",
+  "views": 267.3
+ },
+ "RU.73": {
+  "title": "Tatarstan",
+  "views": 1118.9
+ },
+ "RU.75": {
+  "title": "Tomsk Oblast",
+  "views": 106.0
+ },
+ "RU.84": {
+  "title": "Volgograd Oblast",
+  "views": 155.4
+ },
+ "RU.88": {
+  "title": "Yaroslavl Oblast",
+  "views": 90.6
+ },
+ "RU.91": {
+  "title": "Krasnoyarsk Krai",
+  "views": 449.5
+ },
+ "RW.12": {
+  "title": "Kigali",
+  "views": 555.0
+ },
+ "SA.05": {
+  "title": "Medina Province, Saudi Arabia",
+  "views": 53.0
+ },
+ "SA.06": {
+  "title": "Eastern Province, Saudi Arabia",
+  "views": 231.1
+ },
+ "SA.10": {
+  "title": "Riyadh Province",
+  "views": 149.0
+ },
+ "SA.14": {
+  "title": "Mecca Province",
+  "views": 166.7
+ },
+ "SA.15": {
+  "title": "Northern Borders Province",
+  "views": 50.0
+ },
+ "SB.14": {
+  "title": null
+ },
+ "SC.26": {
+  "title": "English River, Seychelles",
+  "views": 2.8
+ },
+ "SD.29": {
+  "title": "Khartoum State",
+  "views": 37.0
+ },
+ "SD.36": {
+  "title": "Red Sea State",
+  "views": 28.7
+ },
+ "SE.07": {
+  "title": "Jämtland County",
+  "views": 68.0
+ },
+ "SE.26": {
+  "title": "Stockholm County",
+  "views": 155.6
+ },
+ "SI.61": {
+  "title": "Urban Municipality of Ljubljana",
+  "views": 16.6
+ },
+ "SK.02": {
+  "title": "Bratislava Region",
+  "views": 56.3
+ },
+ "SL.04": {
+  "title": "Western Area",
+  "views": 13.8
+ },
+ "SM.07": {
+  "title": "City of San Marino",
+  "views": 185.6
+ },
+ "SN.01": {
+  "title": "Dakar region",
+  "views": 9.9
+ },
+ "SN.03": {
+  "title": "Diourbel region",
+  "views": 2.9
+ },
+ "SN.05": {
+  "title": "Tambacounda region",
+  "views": 4.2
+ },
+ "SO.02": {
+  "title": "Banaadir",
+  "views": 75.4
+ },
+ "SR.16": {
+  "title": "Paramaribo District",
+  "views": 19.4
+ },
+ "SS.01": {
+  "title": "Central Equatoria",
+  "views": 41.9
+ },
+ "ST.02": {
+  "title": "São Tomé Province",
+  "views": 0.3
+ },
+ "SV.10": {
+  "title": "San Salvador Department",
+  "views": 23.8
+ },
+ "SV.13": {
+  "title": "Sonsonate Department",
+  "views": 12.3
+ },
+ "SY.09": {
+  "title": "Aleppo Governorate",
+  "views": 109.3
+ },
+ "SY.11": {
+  "title": "Homs Governorate",
+  "views": 57.0
+ },
+ "SY.13": {
+  "title": "Damascus Governorate",
+  "views": 46.1
+ },
+ "SZ.01": {
+  "title": "Hhohho Region",
+  "views": 22.6
+ },
+ "TD.21": {
+  "title": null
+ },
+ "TG.24": {
+  "title": "Maritime Region, Togo",
+  "views": 10.9
+ },
+ "TH.02": {
+  "title": "Chiang Mai province",
+  "views": 89.0
+ },
+ "TH.40": {
+  "title": "Bangkok",
+  "views": 2627.9
+ },
+ "TH.60": {
+  "title": "Surat Thani province",
+  "views": 37.5
+ },
+ "TH.61": {
+  "title": "Phang Nga province",
+  "views": 53.3
+ },
+ "TH.62": {
+  "title": "Phuket province",
+  "views": 379.2
+ },
+ "TJ.04": {
+  "title": null
+ },
+ "TL.DI": {
+  "title": "Dili Municipality",
+  "views": 17.6
+ },
+ "TM.04": {
+  "title": "Lebap Region",
+  "views": 21.5
+ },
+ "TM.S": {
+  "title": "Ashgabat",
+  "views": 750.4
+ },
+ "TN.36": {
+  "title": "Tunis Governorate",
+  "views": 29.9
+ },
+ "TO.02": {
+  "title": null
+ },
+ "TR.07": {
+  "title": "Antalya Province",
+  "views": 109.3
+ },
+ "TR.16": {
+  "title": "Bursa Province",
+  "views": 60.4
+ },
+ "TR.17": {
+  "title": "Çanakkale Province",
+  "views": 349.7
+ },
+ "TR.21": {
+  "title": "Diyarbakır Province",
+  "views": 49.6
+ },
+ "TR.25": {
+  "title": "Erzurum Province",
+  "views": 69.8
+ },
+ "TR.34": {
+  "title": "Istanbul",
+  "views": 3667.6
+ },
+ "TR.35": {
+  "title": "İzmir Province",
+  "views": 100.8
+ },
+ "TR.38": {
+  "title": "Kayseri Province",
+  "views": 40.9
+ },
+ "TR.65": {
+  "title": "Van Province",
+  "views": 75.2
+ },
+ "TR.68": {
+  "title": "Ankara Province",
+  "views": 74.1
+ },
+ "TR.71": {
+  "title": "Konya Province",
+  "views": 56.0
+ },
+ "TR.83": {
+  "title": "Gaziantep Province",
+  "views": 62.2
+ },
+ "TT.05": {
+  "title": null
+ },
+ "TV.FUN": {
+  "title": null
+ },
+ "TW.02": {
+  "title": "Kaohsiung",
+  "views": 520.3
+ },
+ "TW.04": {
+  "title": "Taiwan (Republic of China province)",
+  "views": 48.9
+ },
+ "TZ.03": {
+  "title": "Dodoma Region",
+  "views": 31.1
+ },
+ "TZ.12": {
+  "title": "Mwanza Region",
+  "views": 52.0
+ },
+ "TZ.23": {
+  "title": "Dar es Salaam Region",
+  "views": 58.4
+ },
+ "TZ.25": {
+  "title": "Mjini Magharibi Region",
+  "views": 27.9
+ },
+ "TZ.26": {
+  "title": "Arusha Region",
+  "views": 46.0
+ },
+ "UA.04": {
+  "title": "Dnipropetrovsk Oblast",
+  "views": 277.5
+ },
+ "UA.05": {
+  "title": "Donetsk Oblast",
+  "views": 510.7
+ },
+ "UA.07": {
+  "title": "Kharkiv Oblast",
+  "views": 167.3
+ },
+ "UA.12": {
+  "title": null
+ },
+ "UA.15": {
+  "title": "Lviv Oblast",
+  "views": 151.1
+ },
+ "UA.17": {
+  "title": "Odesa Oblast",
+  "views": 185.8
+ },
+ "UA.24": {
+  "title": "Volyn Oblast",
+  "views": 101.4
+ },
+ "UG.C": {
+  "title": "Central Region, Uganda",
+  "views": 31.2
+ },
+ "US.AK": {
+  "title": "Alaska",
+  "views": 4875.5
+ },
+ "US.AR": {
+  "title": "Arkansas",
+  "views": 1946.4
+ },
+ "US.AZ": {
+  "title": "Arizona",
+  "views": 2567.5
+ },
+ "US.CA": {
+  "title": "California",
+  "views": 7283.0
+ },
+ "US.CO": {
+  "title": "Colorado",
+  "views": 2646.5
+ },
+ "US.DC": {
+  "title": "District of Columbia",
+  "views": 292.9
+ },
+ "US.FL": {
+  "title": "Florida",
+  "views": 3994.8
+ },
+ "US.GA": {
+  "title": "Georgia (U.S. state)",
+  "views": 3078.1
+ },
+ "US.HI": {
+  "title": "Hawaii",
+  "views": 7821.1
+ },
+ "US.IA": {
+  "title": "Iowa",
+  "views": 1863.7
+ },
+ "US.ID": {
+  "title": "Idaho",
+  "views": 1827.2
+ },
+ "US.IL": {
+  "title": "Illinois",
+  "views": 2571.1
+ },
+ "US.IN": {
+  "title": "Indiana",
+  "views": 2258.9
+ },
+ "US.KY": {
+  "title": "Kentucky",
+  "views": 2181.4
+ },
+ "US.LA": {
+  "title": "Louisiana",
+  "views": 2440.9
+ },
+ "US.MA": {
+  "title": "Massachusetts",
+  "views": 3497.9
+ },
+ "US.MD": {
+  "title": "Maryland",
+  "views": 2554.0
+ },
+ "US.MI": {
+  "title": "Michigan",
+  "views": 2935.0
+ },
+ "US.MN": {
+  "title": "Minnesota",
+  "views": 3896.3
+ },
+ "US.MO": {
+  "title": "Missouri",
+  "views": 2687.3
+ },
+ "US.NC": {
+  "title": "North Carolina",
+  "views": 3051.9
+ },
+ "US.NE": {
+  "title": "Nebraska",
+  "views": 1775.2
+ },
+ "US.NM": {
+  "title": "New Mexico",
+  "views": 2767.2
+ },
+ "US.NV": {
+  "title": "Nevada",
+  "views": 1928.9
+ },
+ "US.NY": {
+  "title": "New York (state)",
+  "views": 4060.9
+ },
+ "US.OH": {
+  "title": "Ohio",
+  "views": 3017.4
+ },
+ "US.OK": {
+  "title": "Oklahoma",
+  "views": 2444.3
+ },
+ "US.OR": {
+  "title": "Oregon",
+  "views": 2298.6
+ },
+ "US.PA": {
+  "title": "Pennsylvania",
+  "views": 3835.0
+ },
+ "US.RI": {
+  "title": "Rhode Island",
+  "views": 2541.3
+ },
+ "US.SC": {
+  "title": "South Carolina",
+  "views": 2051.9
+ },
+ "US.TN": {
+  "title": "Tennessee",
+  "views": 2568.8
+ },
+ "US.TX": {
+  "title": "Texas",
+  "views": 5165.9
+ },
+ "US.UT": {
+  "title": "Utah",
+  "views": 2615.2
+ },
+ "US.WA": {
+  "title": "Washington (state)",
+  "views": 3142.1
+ },
+ "US.WI": {
+  "title": "Wisconsin",
+  "views": 2566.7
+ },
+ "UY.10": {
+  "title": "Montevideo Department",
+  "views": 36.5
+ },
+ "UZ.02": {
+  "title": "Bukhara Region",
+  "views": 39.4
+ },
+ "UZ.05": {
+  "title": "Khorazm Region",
+  "views": 49.7
+ },
+ "UZ.10": {
+  "title": "Samarkand Region",
+  "views": 25.8
+ },
+ "UZ.13": {
+  "title": "Tashkent",
+  "views": 1437.1
+ },
+ "VC.04": {
+  "title": "Saint George Parish, Saint Vincent and the Grenadines",
+  "views": 6.5
+ },
+ "VE.06": {
+  "title": "Bolívar (state)",
+  "views": 73.6
+ },
+ "VE.13": {
+  "title": "Lara (state)",
+  "views": 29.0
+ },
+ "VE.23": {
+  "title": "Zulia",
+  "views": 99.2
+ },
+ "VE.25": {
+  "title": "Capital District (Venezuela)",
+  "views": 51.8
+ },
+ "VN.01": {
+  "title": null
+ },
+ "VN.31": {
+  "title": null
+ },
+ "VN.40": {
+  "title": "Nghệ An province",
+  "views": 50.0
+ },
+ "VN.46": {
+  "title": "Huế",
+  "views": 443.7
+ },
+ "VN.48": {
+  "title": null
+ },
+ "VN.79": {
+  "title": null
+ },
+ "VN.92": {
+  "title": null
+ },
+ "VU.18": {
+  "title": "Shefa Province",
+  "views": 15.7
+ },
+ "WS.10": {
+  "title": "Tuamasaga",
+  "views": 12.4
+ },
+ "XK.10097360": {
+  "title": "District of Pristina",
+  "views": 21.9
+ },
+ "YE.02": {
+  "title": "Aden Governorate",
+  "views": 44.8
+ },
+ "YE.23": {
+  "title": "Ibb Governorate",
+  "views": 21.2
+ },
+ "YE.25": {
+  "title": "Taiz Governorate",
+  "views": 70.9
+ },
+ "YE.26": {
+  "title": "Amanat al-Asimah Governorate",
+  "views": 0.2
+ },
+ "ZA.02": {
+  "title": "KwaZulu-Natal",
+  "views": 672.2
+ },
+ "ZA.05": {
+  "title": "Eastern Cape",
+  "views": 368.8
+ },
+ "ZA.06": {
+  "title": "Gauteng",
+  "views": 700.7
+ },
+ "ZA.11": {
+  "title": "Western Cape",
+  "views": 545.7
+ },
+ "ZM.08": {
+  "title": "Copperbelt Province",
+  "views": 51.9
+ },
+ "ZM.09": {
+  "title": "Lusaka Province",
+  "views": 25.2
+ },
+ "ZW.09": {
+  "title": null
+ },
+ "ZW.10": {
+  "title": "Harare Province",
+  "views": 26.6
+ }
+}

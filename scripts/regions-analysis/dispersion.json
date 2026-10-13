@@ -1,0 +1,1416 @@
+{
+ "Afghanistan": {
+  "cc": "AF",
+  "cities": 55,
+  "gnA1": 28,
+  "dCountry": 206,
+  "dRegion": 7
+ },
+ "Albania": {
+  "cc": "AL",
+  "cities": 25,
+  "gnA1": 12,
+  "dCountry": 48,
+  "dRegion": 8
+ },
+ "Algeria": {
+  "cc": "DZ",
+  "cities": 295,
+  "gnA1": 53,
+  "dCountry": 254,
+  "dRegion": 16
+ },
+ "Andorra": {
+  "cc": "AD",
+  "cities": 2,
+  "gnA1": 2,
+  "dCountry": 1,
+  "dRegion": 0
+ },
+ "Angola": {
+  "cc": "AO",
+  "cities": 133,
+  "gnA1": 18,
+  "dCountry": 269,
+  "dRegion": 30
+ },
+ "Antigua and Barbuda": {
+  "cc": "AG",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Argentina": {
+  "cc": "AR",
+  "cities": 329,
+  "gnA1": 24,
+  "dCountry": 493,
+  "dRegion": 95
+ },
+ "Armenia": {
+  "cc": "AM",
+  "cities": 29,
+  "gnA1": 10,
+  "dCountry": 18,
+  "dRegion": 4
+ },
+ "Australia": {
+  "cc": "AU",
+  "cities": 313,
+  "gnA1": 8,
+  "dCountry": 872,
+  "dRegion": 68
+ },
+ "Austria": {
+  "cc": "AT",
+  "cities": 66,
+  "gnA1": 9,
+  "dCountry": 106,
+  "dRegion": 5
+ },
+ "Azerbaijan": {
+  "cc": "AZ",
+  "cities": 65,
+  "gnA1": 44,
+  "dCountry": 106,
+  "dRegion": 2
+ },
+ "Bahamas": {
+  "cc": "BS",
+  "cities": 4,
+  "gnA1": 2,
+  "dCountry": 75,
+  "dRegion": 1
+ },
+ "Bahrain": {
+  "cc": "BH",
+  "cities": 8,
+  "gnA1": 4,
+  "dCountry": 8,
+  "dRegion": 2
+ },
+ "Bangladesh": {
+  "cc": "BD",
+  "cities": 139,
+  "gnA1": 8,
+  "dCountry": 95,
+  "dRegion": 31
+ },
+ "Barbados": {
+  "cc": "BB",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Belarus": {
+  "cc": "BY",
+  "cities": 56,
+  "gnA1": 7,
+  "dCountry": 149,
+  "dRegion": 46
+ },
+ "Belgium": {
+  "cc": "BE",
+  "cities": 223,
+  "gnA1": 3,
+  "dCountry": 43,
+  "dRegion": 35
+ },
+ "Belize": {
+  "cc": "BZ",
+  "cities": 5,
+  "gnA1": 3,
+  "dCountry": 45,
+  "dRegion": 15
+ },
+ "Benin": {
+  "cc": "BJ",
+  "cities": 66,
+  "gnA1": 12,
+  "dCountry": 166,
+  "dRegion": 23
+ },
+ "Bhutan": {
+  "cc": "BT",
+  "cities": 4,
+  "gnA1": 4,
+  "dCountry": 31,
+  "dRegion": 0
+ },
+ "Bolivia": {
+  "cc": "BO",
+  "cities": 39,
+  "gnA1": 9,
+  "dCountry": 242,
+  "dRegion": 22
+ },
+ "Bosnia and Herzegovina": {
+  "cc": "BA",
+  "cities": 23,
+  "gnA1": 3,
+  "dCountry": 70,
+  "dRegion": 57
+ },
+ "Botswana": {
+  "cc": "BW",
+  "cities": 25,
+  "gnA1": 12,
+  "dCountry": 195,
+  "dRegion": 26
+ },
+ "Brazil": {
+  "cc": "BR",
+  "cities": 2377,
+  "gnA1": 27,
+  "dCountry": 969,
+  "dRegion": 140
+ },
+ "Brunei": {
+  "cc": "BN",
+  "cities": 7,
+  "gnA1": 3,
+  "dCountry": 27,
+  "dRegion": 9
+ },
+ "Bulgaria": {
+  "cc": "BG",
+  "cities": 56,
+  "gnA1": 28,
+  "dCountry": 135,
+  "dRegion": 7
+ },
+ "Burkina Faso": {
+  "cc": "BF",
+  "cities": 74,
+  "gnA1": 13,
+  "dCountry": 140,
+  "dRegion": 21
+ },
+ "Burundi": {
+  "cc": "BI",
+  "cities": 14,
+  "gnA1": 11,
+  "dCountry": 33,
+  "dRegion": 2
+ },
+ "Cabo Verde": {
+  "cc": "CV",
+  "cities": 4,
+  "gnA1": 4,
+  "dCountry": 119,
+  "dRegion": 0
+ },
+ "Cambodia": {
+  "cc": "KH",
+  "cities": 46,
+  "gnA1": 24,
+  "dCountry": 94,
+  "dRegion": 4
+ },
+ "Cameroon": {
+  "cc": "CM",
+  "cities": 87,
+  "gnA1": 10,
+  "dCountry": 253,
+  "dRegion": 42
+ },
+ "Canada": {
+  "cc": "CA",
+  "cities": 512,
+  "gnA1": 12,
+  "dCountry": 1334,
+  "dRegion": 102
+ },
+ "Central African Republic": {
+  "cc": "CF",
+  "cities": 33,
+  "gnA1": 19,
+  "dCountry": 169,
+  "dRegion": 15
+ },
+ "Chad": {
+  "cc": "TD",
+  "cities": 46,
+  "gnA1": 22,
+  "dCountry": 280,
+  "dRegion": 18
+ },
+ "Chile": {
+  "cc": "CL",
+  "cities": 147,
+  "gnA1": 16,
+  "dCountry": 305,
+  "dRegion": 24
+ },
+ "China": {
+  "cc": "CN",
+  "cities": 2122,
+  "gnA1": 32,
+  "dCountry": 852,
+  "dRegion": 122
+ },
+ "Colombia": {
+  "cc": "CO",
+  "cities": 319,
+  "gnA1": 32,
+  "dCountry": 279,
+  "dRegion": 29
+ },
+ "Comoros": {
+  "cc": "KM",
+  "cities": 3,
+  "gnA1": 3,
+  "dCountry": 54,
+  "dRegion": 0
+ },
+ "Congo": {
+  "cc": "CG",
+  "cities": 23,
+  "gnA1": 9,
+  "dCountry": 198,
+  "dRegion": 8
+ },
+ "Cook Islands": {
+  "cc": "CK",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Costa Rica": {
+  "cc": "CR",
+  "cities": 41,
+  "gnA1": 7,
+  "dCountry": 34,
+  "dRegion": 14
+ },
+ "Croatia": {
+  "cc": "HR",
+  "cities": 26,
+  "gnA1": 18,
+  "dCountry": 110,
+  "dRegion": 2
+ },
+ "Cuba": {
+  "cc": "CU",
+  "cities": 140,
+  "gnA1": 16,
+  "dCountry": 269,
+  "dRegion": 17
+ },
+ "Cyprus": {
+  "cc": "CY",
+  "cities": 15,
+  "gnA1": 6,
+  "dCountry": 34,
+  "dRegion": 4
+ },
+ "Czech Republic": {
+  "cc": "CZ",
+  "cities": 123,
+  "gnA1": 14,
+  "dCountry": 112,
+  "dRegion": 13
+ },
+ "Côte d'Ivoire": {
+  "cc": "CI",
+  "cities": 183,
+  "gnA1": 13,
+  "dCountry": 173,
+  "dRegion": 30
+ },
+ "DR Congo": {
+  "cc": "CD",
+  "cities": 114,
+  "gnA1": 26,
+  "dCountry": 650,
+  "dRegion": 33
+ },
+ "Denmark": {
+  "cc": "DK",
+  "cities": 67,
+  "gnA1": 5,
+  "dCountry": 88,
+  "dRegion": 21
+ },
+ "Djibouti": {
+  "cc": "DJ",
+  "cities": 7,
+  "gnA1": 6,
+  "dCountry": 10,
+  "dRegion": 2
+ },
+ "Dominica": {
+  "cc": "DM",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Dominican Republic": {
+  "cc": "DO",
+  "cities": 50,
+  "gnA1": 28,
+  "dCountry": 65,
+  "dRegion": 4
+ },
+ "Ecuador": {
+  "cc": "EC",
+  "cities": 71,
+  "gnA1": 23,
+  "dCountry": 143,
+  "dRegion": 10
+ },
+ "Egypt": {
+  "cc": "EG",
+  "cities": 241,
+  "gnA1": 28,
+  "dCountry": 135,
+  "dRegion": 13
+ },
+ "El Salvador": {
+  "cc": "SV",
+  "cities": 35,
+  "gnA1": 14,
+  "dCountry": 35,
+  "dRegion": 4
+ },
+ "England": {
+  "cc": "GB",
+  "cities": 747,
+  "gnA1": 1,
+  "dCountry": 130,
+  "dRegion": 130
+ },
+ "Equatorial Guinea": {
+  "cc": "GQ",
+  "cities": 6,
+  "gnA1": 5,
+  "dCountry": 130,
+  "dRegion": 3
+ },
+ "Eritrea": {
+  "cc": "ER",
+  "cities": 8,
+  "gnA1": 6,
+  "dCountry": 54,
+  "dRegion": 8
+ },
+ "Estonia": {
+  "cc": "EE",
+  "cities": 15,
+  "gnA1": 5,
+  "dCountry": 51,
+  "dRegion": 4
+ },
+ "Eswatini": {
+  "cc": "SZ",
+  "cities": 3,
+  "gnA1": 2,
+  "dCountry": 15,
+  "dRegion": 1
+ },
+ "Ethiopia": {
+  "cc": "ET",
+  "cities": 233,
+  "gnA1": 15,
+  "dCountry": 264,
+  "dRegion": 100
+ },
+ "Fiji": {
+  "cc": "FJ",
+  "cities": 7,
+  "gnA1": 3,
+  "dCountry": 68,
+  "dRegion": 9
+ },
+ "Finland": {
+  "cc": "FI",
+  "cities": 102,
+  "gnA1": 18,
+  "dCountry": 154,
+  "dRegion": 16
+ },
+ "France": {
+  "cc": "FR",
+  "cities": 692,
+  "gnA1": 13,
+  "dCountry": 282,
+  "dRegion": 47
+ },
+ "Gabon": {
+  "cc": "GA",
+  "cities": 15,
+  "gnA1": 9,
+  "dCountry": 162,
+  "dRegion": 9
+ },
+ "Gambia": {
+  "cc": "GM",
+  "cities": 33,
+  "gnA1": 5,
+  "dCountry": 20,
+  "dRegion": 9
+ },
+ "Georgia": {
+  "cc": "GE",
+  "cities": 17,
+  "gnA1": 9,
+  "dCountry": 106,
+  "dRegion": 4
+ },
+ "Germany": {
+  "cc": "DE",
+  "cities": 1140,
+  "gnA1": 16,
+  "dCountry": 228,
+  "dRegion": 48
+ },
+ "Ghana": {
+  "cc": "GH",
+  "cities": 102,
+  "gnA1": 16,
+  "dCountry": 146,
+  "dRegion": 20
+ },
+ "Greece": {
+  "cc": "GR",
+  "cities": 118,
+  "gnA1": 13,
+  "dCountry": 146,
+  "dRegion": 18
+ },
+ "Grenada": {
+  "cc": "GD",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Guatemala": {
+  "cc": "GT",
+  "cities": 102,
+  "gnA1": 22,
+  "dCountry": 62,
+  "dRegion": 12
+ },
+ "Guinea": {
+  "cc": "GN",
+  "cities": 47,
+  "gnA1": 8,
+  "dCountry": 160,
+  "dRegion": 25
+ },
+ "Guinea-Bissau": {
+  "cc": "GW",
+  "cities": 15,
+  "gnA1": 3,
+  "dCountry": 25,
+  "dRegion": 2
+ },
+ "Guyana": {
+  "cc": "GY",
+  "cities": 3,
+  "gnA1": 3,
+  "dCountry": 34,
+  "dRegion": 0
+ },
+ "Haiti": {
+  "cc": "HT",
+  "cities": 32,
+  "gnA1": 10,
+  "dCountry": 51,
+  "dRegion": 10
+ },
+ "Honduras": {
+  "cc": "HN",
+  "cities": 65,
+  "gnA1": 16,
+  "dCountry": 105,
+  "dRegion": 16
+ },
+ "Hungary": {
+  "cc": "HU",
+  "cities": 141,
+  "gnA1": 21,
+  "dCountry": 55,
+  "dRegion": 10
+ },
+ "Iceland": {
+  "cc": "IS",
+  "cities": 6,
+  "gnA1": 3,
+  "dCountry": 37,
+  "dRegion": 2
+ },
+ "India": {
+  "cc": "IN",
+  "cities": 3780,
+  "gnA1": 35,
+  "dCountry": 779,
+  "dRegion": 152
+ },
+ "Indonesia": {
+  "cc": "ID",
+  "cities": 448,
+  "gnA1": 38,
+  "dCountry": 679,
+  "dRegion": 63
+ },
+ "Iran": {
+  "cc": "IR",
+  "cities": 428,
+  "gnA1": 31,
+  "dCountry": 386,
+  "dRegion": 48
+ },
+ "Iraq": {
+  "cc": "IQ",
+  "cities": 105,
+  "gnA1": 19,
+  "dCountry": 200,
+  "dRegion": 16
+ },
+ "Ireland": {
+  "cc": "IE",
+  "cities": 43,
+  "gnA1": 4,
+  "dCountry": 74,
+  "dRegion": 24
+ },
+ "Israel": {
+  "cc": "IL",
+  "cities": 106,
+  "gnA1": 7,
+  "dCountry": 43,
+  "dRegion": 15
+ },
+ "Italy": {
+  "cc": "IT",
+  "cities": 661,
+  "gnA1": 20,
+  "dCountry": 327,
+  "dRegion": 39
+ },
+ "Jamaica": {
+  "cc": "JM",
+  "cities": 13,
+  "gnA1": 8,
+  "dCountry": 20,
+  "dRegion": 1
+ },
+ "Japan": {
+  "cc": "JP",
+  "cities": 1300,
+  "gnA1": 47,
+  "dCountry": 312,
+  "dRegion": 23
+ },
+ "Jordan": {
+  "cc": "JO",
+  "cities": 34,
+  "gnA1": 12,
+  "dCountry": 35,
+  "dRegion": 9
+ },
+ "Kazakhstan": {
+  "cc": "KZ",
+  "cities": 84,
+  "gnA1": 21,
+  "dCountry": 686,
+  "dRegion": 35
+ },
+ "Kenya": {
+  "cc": "KE",
+  "cities": 123,
+  "gnA1": 46,
+  "dCountry": 177,
+  "dRegion": 11
+ },
+ "Kiribati": {
+  "cc": "KI",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Kosovo": {
+  "cc": "XK",
+  "cities": 21,
+  "gnA1": 7,
+  "dCountry": 33,
+  "dRegion": 8
+ },
+ "Kuwait": {
+  "cc": "KW",
+  "cities": 18,
+  "gnA1": 6,
+  "dCountry": 14,
+  "dRegion": 2
+ },
+ "Kyrgyzstan": {
+  "cc": "KG",
+  "cities": 32,
+  "gnA1": 8,
+  "dCountry": 159,
+  "dRegion": 23
+ },
+ "Laos": {
+  "cc": "LA",
+  "cities": 18,
+  "gnA1": 14,
+  "dCountry": 161,
+  "dRegion": 2
+ },
+ "Latvia": {
+  "cc": "LV",
+  "cities": 15,
+  "gnA1": 14,
+  "dCountry": 48,
+  "dRegion": 0
+ },
+ "Lebanon": {
+  "cc": "LB",
+  "cities": 18,
+  "gnA1": 7,
+  "dCountry": 18,
+  "dRegion": 4
+ },
+ "Lesotho": {
+  "cc": "LS",
+  "cities": 11,
+  "gnA1": 9,
+  "dCountry": 46,
+  "dRegion": 2
+ },
+ "Liberia": {
+  "cc": "LR",
+  "cities": 16,
+  "gnA1": 10,
+  "dCountry": 78,
+  "dRegion": 3
+ },
+ "Libya": {
+  "cc": "LY",
+  "cities": 59,
+  "gnA1": 21,
+  "dCountry": 327,
+  "dRegion": 12
+ },
+ "Liechtenstein": {
+  "cc": "LI",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Lithuania": {
+  "cc": "LT",
+  "cities": 36,
+  "gnA1": 10,
+  "dCountry": 85,
+  "dRegion": 6
+ },
+ "Luxembourg": {
+  "cc": "LU",
+  "cities": 3,
+  "gnA1": 2,
+  "dCountry": 8,
+  "dRegion": 1
+ },
+ "Madagascar": {
+  "cc": "MG",
+  "cities": 106,
+  "gnA1": 23,
+  "dCountry": 272,
+  "dRegion": 39
+ },
+ "Malawi": {
+  "cc": "MW",
+  "cities": 23,
+  "gnA1": 3,
+  "dCountry": 154,
+  "dRegion": 34
+ },
+ "Malaysia": {
+  "cc": "MY",
+  "cities": 355,
+  "gnA1": 16,
+  "dCountry": 347,
+  "dRegion": 39
+ },
+ "Maldives": {
+  "cc": "MV",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Mali": {
+  "cc": "ML",
+  "cities": 60,
+  "gnA1": 10,
+  "dCountry": 183,
+  "dRegion": 37
+ },
+ "Malta": {
+  "cc": "MT",
+  "cities": 7,
+  "gnA1": 7,
+  "dCountry": 4,
+  "dRegion": 0
+ },
+ "Marshall Islands": {
+  "cc": "MH",
+  "cities": 2,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Mauritania": {
+  "cc": "MR",
+  "cities": 26,
+  "gnA1": 14,
+  "dCountry": 263,
+  "dRegion": 15
+ },
+ "Mauritius": {
+  "cc": "MU",
+  "cities": 14,
+  "gnA1": 8,
+  "dCountry": 10,
+  "dRegion": 3
+ },
+ "Mexico": {
+  "cc": "MX",
+  "cities": 643,
+  "gnA1": 32,
+  "dCountry": 517,
+  "dRegion": 55
+ },
+ "Micronesia": {
+  "cc": "FM",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Moldova": {
+  "cc": "MD",
+  "cities": 22,
+  "gnA1": 16,
+  "dCountry": 48,
+  "dRegion": 8
+ },
+ "Monaco": {
+  "cc": "MC",
+  "cities": 2,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Mongolia": {
+  "cc": "MN",
+  "cities": 24,
+  "gnA1": 20,
+  "dCountry": 251,
+  "dRegion": 7
+ },
+ "Montenegro": {
+  "cc": "ME",
+  "cities": 8,
+  "gnA1": 8,
+  "dCountry": 27,
+  "dRegion": 0
+ },
+ "Morocco": {
+  "cc": "MA",
+  "cities": 180,
+  "gnA1": 11,
+  "dCountry": 192,
+  "dRegion": 37
+ },
+ "Mozambique": {
+  "cc": "MZ",
+  "cities": 66,
+  "gnA1": 11,
+  "dCountry": 564,
+  "dRegion": 47
+ },
+ "Myanmar": {
+  "cc": "MM",
+  "cities": 178,
+  "gnA1": 15,
+  "dCountry": 280,
+  "dRegion": 51
+ },
+ "Namibia": {
+  "cc": "NA",
+  "cities": 19,
+  "gnA1": 11,
+  "dCountry": 277,
+  "dRegion": 22
+ },
+ "Nauru": {
+  "cc": "NR",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Nepal": {
+  "cc": "NP",
+  "cities": 46,
+  "gnA1": 7,
+  "dCountry": 145,
+  "dRegion": 34
+ },
+ "Netherlands": {
+  "cc": "NL",
+  "cities": 252,
+  "gnA1": 12,
+  "dCountry": 61,
+  "dRegion": 18
+ },
+ "New Zealand": {
+  "cc": "NZ",
+  "cities": 58,
+  "gnA1": 15,
+  "dCountry": 279,
+  "dRegion": 12
+ },
+ "Nicaragua": {
+  "cc": "NI",
+  "cities": 37,
+  "gnA1": 16,
+  "dCountry": 67,
+  "dRegion": 9
+ },
+ "Niger": {
+  "cc": "NE",
+  "cities": 42,
+  "gnA1": 8,
+  "dCountry": 329,
+  "dRegion": 38
+ },
+ "Nigeria": {
+  "cc": "NG",
+  "cities": 270,
+  "gnA1": 37,
+  "dCountry": 329,
+  "dRegion": 21
+ },
+ "Niue": {
+  "cc": "NU",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "North Korea": {
+  "cc": "KP",
+  "cities": 97,
+  "gnA1": 13,
+  "dCountry": 147,
+  "dRegion": 23
+ },
+ "North Macedonia": {
+  "cc": "MK",
+  "cities": 38,
+  "gnA1": 31,
+  "dCountry": 46,
+  "dRegion": 1
+ },
+ "Northern Ireland": {
+  "cc": "GB",
+  "cities": 18,
+  "gnA1": 1,
+  "dCountry": 35,
+  "dRegion": 35
+ },
+ "Norway": {
+  "cc": "NO",
+  "cities": 42,
+  "gnA1": 15,
+  "dCountry": 209,
+  "dRegion": 10
+ },
+ "Oman": {
+  "cc": "OM",
+  "cities": 28,
+  "gnA1": 10,
+  "dCountry": 127,
+  "dRegion": 19
+ },
+ "Pakistan": {
+  "cc": "PK",
+  "cities": 372,
+  "gnA1": 7,
+  "dCountry": 385,
+  "dRegion": 131
+ },
+ "Palau": {
+  "cc": "PW",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Palestine": {
+  "cc": "PS",
+  "cities": 45,
+  "gnA1": 2,
+  "dCountry": 46,
+  "dRegion": 19
+ },
+ "Panama": {
+  "cc": "PA",
+  "cities": 27,
+  "gnA1": 7,
+  "dCountry": 61,
+  "dRegion": 6
+ },
+ "Papua New Guinea": {
+  "cc": "PG",
+  "cities": 13,
+  "gnA1": 12,
+  "dCountry": 303,
+  "dRegion": 3
+ },
+ "Paraguay": {
+  "cc": "PY",
+  "cities": 30,
+  "gnA1": 14,
+  "dCountry": 88,
+  "dRegion": 5
+ },
+ "Peru": {
+  "cc": "PE",
+  "cities": 140,
+  "gnA1": 26,
+  "dCountry": 356,
+  "dRegion": 17
+ },
+ "Philippines": {
+  "cc": "PH",
+  "cities": 530,
+  "gnA1": 17,
+  "dCountry": 372,
+  "dRegion": 40
+ },
+ "Poland": {
+  "cc": "PL",
+  "cities": 363,
+  "gnA1": 16,
+  "dCountry": 188,
+  "dRegion": 32
+ },
+ "Portugal": {
+  "cc": "PT",
+  "cities": 179,
+  "gnA1": 20,
+  "dCountry": 168,
+  "dRegion": 11
+ },
+ "Qatar": {
+  "cc": "QA",
+  "cities": 26,
+  "gnA1": 7,
+  "dCountry": 10,
+  "dRegion": 3
+ },
+ "Romania": {
+  "cc": "RO",
+  "cities": 134,
+  "gnA1": 42,
+  "dCountry": 169,
+  "dRegion": 11
+ },
+ "Russia": {
+  "cc": "RU",
+  "cities": 1108,
+  "gnA1": 83,
+  "dCountry": 1224,
+  "dRegion": 64
+ },
+ "Rwanda": {
+  "cc": "RW",
+  "cities": 45,
+  "gnA1": 5,
+  "dCountry": 50,
+  "dRegion": 20
+ },
+ "Saint Kitts and Nevis": {
+  "cc": "KN",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Saint Lucia": {
+  "cc": "LC",
+  "cities": 2,
+  "gnA1": 2,
+  "dCountry": 5,
+  "dRegion": 0
+ },
+ "Saint Vincent and the Grenadines": {
+  "cc": "VC",
+  "cities": 2,
+  "gnA1": 1,
+  "dCountry": 2,
+  "dRegion": 2
+ },
+ "Samoa": {
+  "cc": "WS",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "San Marino": {
+  "cc": "SM",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Sao Tome and Principe": {
+  "cc": "ST",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Saudi Arabia": {
+  "cc": "SA",
+  "cities": 98,
+  "gnA1": 13,
+  "dCountry": 498,
+  "dRegion": 52
+ },
+ "Scotland": {
+  "cc": "GB",
+  "cities": 60,
+  "gnA1": 1,
+  "dCountry": 55,
+  "dRegion": 55
+ },
+ "Senegal": {
+  "cc": "SN",
+  "cities": 71,
+  "gnA1": 14,
+  "dCountry": 94,
+  "dRegion": 15
+ },
+ "Serbia": {
+  "cc": "RS",
+  "cities": 51,
+  "gnA1": 2,
+  "dCountry": 83,
+  "dRegion": 74
+ },
+ "Seychelles": {
+  "cc": "SC",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Sierra Leone": {
+  "cc": "SL",
+  "cities": 14,
+  "gnA1": 5,
+  "dCountry": 101,
+  "dRegion": 15
+ },
+ "Singapore": {
+  "cc": "SG",
+  "cities": 65,
+  "gnA1": 7,
+  "dCountry": 7,
+  "dRegion": 4
+ },
+ "Slovakia": {
+  "cc": "SK",
+  "cities": 61,
+  "gnA1": 8,
+  "dCountry": 113,
+  "dRegion": 19
+ },
+ "Slovenia": {
+  "cc": "SI",
+  "cities": 9,
+  "gnA1": 9,
+  "dCountry": 44,
+  "dRegion": 0
+ },
+ "Solomon Islands": {
+  "cc": "SB",
+  "cities": 7,
+  "gnA1": 2,
+  "dCountry": 3,
+  "dRegion": 3
+ },
+ "Somalia": {
+  "cc": "SO",
+  "cities": 42,
+  "gnA1": 17,
+  "dCountry": 440,
+  "dRegion": 27
+ },
+ "South Africa": {
+  "cc": "ZA",
+  "cities": 307,
+  "gnA1": 9,
+  "dCountry": 420,
+  "dRegion": 61
+ },
+ "South Korea": {
+  "cc": "KR",
+  "cities": 147,
+  "gnA1": 17,
+  "dCountry": 132,
+  "dRegion": 15
+ },
+ "South Sudan": {
+  "cc": "SS",
+  "cities": 16,
+  "gnA1": 10,
+  "dCountry": 305,
+  "dRegion": 38
+ },
+ "Spain": {
+  "cc": "ES",
+  "cities": 736,
+  "gnA1": 19,
+  "dCountry": 359,
+  "dRegion": 42
+ },
+ "Sri Lanka": {
+  "cc": "LK",
+  "cities": 60,
+  "gnA1": 9,
+  "dCountry": 100,
+  "dRegion": 24
+ },
+ "Sudan": {
+  "cc": "SD",
+  "cities": 76,
+  "gnA1": 18,
+  "dCountry": 353,
+  "dRegion": 25
+ },
+ "Suriname": {
+  "cc": "SR",
+  "cities": 12,
+  "gnA1": 2,
+  "dCountry": 5,
+  "dRegion": 4
+ },
+ "Sweden": {
+  "cc": "SE",
+  "cities": 111,
+  "gnA1": 21,
+  "dCountry": 213,
+  "dRegion": 18
+ },
+ "Switzerland": {
+  "cc": "CH",
+  "cities": 95,
+  "gnA1": 20,
+  "dCountry": 78,
+  "dRegion": 8
+ },
+ "Syria": {
+  "cc": "SY",
+  "cities": 89,
+  "gnA1": 14,
+  "dCountry": 161,
+  "dRegion": 15
+ },
+ "Taiwan": {
+  "cc": "TW",
+  "cities": 67,
+  "gnA1": 4,
+  "dCountry": 104,
+  "dRegion": 61
+ },
+ "Tajikistan": {
+  "cc": "TJ",
+  "cities": 31,
+  "gnA1": 5,
+  "dCountry": 123,
+  "dRegion": 40
+ },
+ "Tanzania": {
+  "cc": "TZ",
+  "cities": 228,
+  "gnA1": 31,
+  "dCountry": 393,
+  "dRegion": 29
+ },
+ "Thailand": {
+  "cc": "TH",
+  "cities": 330,
+  "gnA1": 76,
+  "dCountry": 151,
+  "dRegion": 13
+ },
+ "Timor-Leste": {
+  "cc": "TL",
+  "cities": 10,
+  "gnA1": 8,
+  "dCountry": 42,
+  "dRegion": 2
+ },
+ "Togo": {
+  "cc": "TG",
+  "cities": 20,
+  "gnA1": 5,
+  "dCountry": 113,
+  "dRegion": 11
+ },
+ "Tonga": {
+  "cc": "TO",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Trinidad and Tobago": {
+  "cc": "TT",
+  "cities": 14,
+  "gnA1": 11,
+  "dCountry": 25,
+  "dRegion": 1
+ },
+ "Tunisia": {
+  "cc": "TN",
+  "cities": 130,
+  "gnA1": 24,
+  "dCountry": 123,
+  "dRegion": 11
+ },
+ "Turkey": {
+  "cc": "TR",
+  "cities": 432,
+  "gnA1": 81,
+  "dCountry": 374,
+  "dRegion": 14
+ },
+ "Turkmenistan": {
+  "cc": "TM",
+  "cities": 36,
+  "gnA1": 6,
+  "dCountry": 254,
+  "dRegion": 44
+ },
+ "Tuvalu": {
+  "cc": "TV",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Uganda": {
+  "cc": "UG",
+  "cities": 141,
+  "gnA1": 4,
+  "dCountry": 123,
+  "dRegion": 54
+ },
+ "Ukraine": {
+  "cc": "UA",
+  "cities": 401,
+  "gnA1": 27,
+  "dCountry": 315,
+  "dRegion": 31
+ },
+ "United Arab Emirates": {
+  "cc": "AE",
+  "cities": 63,
+  "gnA1": 7,
+  "dCountry": 51,
+  "dRegion": 20
+ },
+ "United States": {
+  "cc": "US",
+  "cities": 3408,
+  "gnA1": 51,
+  "dCountry": 1502,
+  "dRegion": 137
+ },
+ "Uruguay": {
+  "cc": "UY",
+  "cities": 31,
+  "gnA1": 19,
+  "dCountry": 138,
+  "dRegion": 4
+ },
+ "Uzbekistan": {
+  "cc": "UZ",
+  "cities": 112,
+  "gnA1": 14,
+  "dCountry": 250,
+  "dRegion": 24
+ },
+ "Vanuatu": {
+  "cc": "VU",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Vatican City": {
+  "cc": "VA",
+  "cities": 1,
+  "gnA1": 1,
+  "dCountry": 0,
+  "dRegion": 0
+ },
+ "Venezuela": {
+  "cc": "VE",
+  "cities": 216,
+  "gnA1": 24,
+  "dCountry": 268,
+  "dRegion": 31
+ },
+ "Vietnam": {
+  "cc": "VN",
+  "cities": 313,
+  "gnA1": 35,
+  "dCountry": 529,
+  "dRegion": 18
+ },
+ "Wales": {
+  "cc": "GB",
+  "cities": 41,
+  "gnA1": 1,
+  "dCountry": 60,
+  "dRegion": 60
+ },
+ "Yemen": {
+  "cc": "YE",
+  "cities": 25,
+  "gnA1": 17,
+  "dCountry": 162,
+  "dRegion": 3
+ },
+ "Zambia": {
+  "cc": "ZM",
+  "cities": 77,
+  "gnA1": 10,
+  "dCountry": 242,
+  "dRegion": 48
+ },
+ "Zimbabwe": {
+  "cc": "ZW",
+  "cities": 31,
+  "gnA1": 10,
+  "dCountry": 152,
+  "dRegion": 22
+ }
+}

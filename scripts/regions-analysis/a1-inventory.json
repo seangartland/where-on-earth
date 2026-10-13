@@ -1,0 +1,3118 @@
+{
+ "ARG": {
+  "n": 24,
+  "types": [
+   [
+    "Province",
+    21
+   ],
+   [
+    "Federal District",
+    2
+   ],
+   [
+    "National Territory",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "URY": {
+  "n": 19,
+  "types": [
+   [
+    "Department",
+    19
+   ]
+  ],
+  "regions": 0
+ },
+ "IDN": {
+  "n": 33,
+  "types": [
+   [
+    "Province",
+    30
+   ],
+   [
+    "Special district",
+    1
+   ],
+   [
+    "Special region",
+    1
+   ],
+   [
+    "Autonomous Province",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "MYS": {
+  "n": 16,
+  "types": [
+   [
+    "State",
+    13
+   ],
+   [
+    "Federal Territory",
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "CHL": {
+  "n": 16,
+  "types": [
+   [
+    "Region",
+    16
+   ]
+  ],
+  "regions": 0
+ },
+ "BOL": {
+  "n": 9,
+  "types": [
+   [
+    "Department",
+    9
+   ]
+  ],
+  "regions": 0
+ },
+ "PER": {
+  "n": 26,
+  "types": [
+   [
+    "Department",
+    24
+   ],
+   [
+    "Captial District",
+    1
+   ],
+   [
+    "Departamento",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "ESB": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "CYP": {
+  "n": 5,
+  "types": [
+   [
+    "District",
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "IND": {
+  "n": 36,
+  "types": [
+   [
+    "State",
+    26
+   ],
+   [
+    "Union Territory",
+    9
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 6
+ },
+ "CHN": {
+  "n": 32,
+  "types": [
+   [
+    "Province",
+    22
+   ],
+   [
+    "Autonomous Region",
+    5
+   ],
+   [
+    "Municipality",
+    4
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 6
+ },
+ "ISR": {
+  "n": 6,
+  "types": [
+   [
+    "District",
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "PSX": {
+  "n": 2,
+  "types": [
+   [
+    null,
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "LBN": {
+  "n": 6,
+  "types": [
+   [
+    "Province",
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "ETH": {
+  "n": 11,
+  "types": [
+   [
+    "Administrative State",
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "SDS": {
+  "n": 10,
+  "types": [
+   [
+    "State",
+    10
+   ]
+  ],
+  "regions": 3
+ },
+ "SOM": {
+  "n": 13,
+  "types": [
+   [
+    "Region",
+    13
+   ]
+  ],
+  "regions": 0
+ },
+ "KEN": {
+  "n": 8,
+  "types": [
+   [
+    "Province",
+    6
+   ],
+   [
+    "National Capital Area",
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "MWI": {
+  "n": 28,
+  "types": [
+   [
+    "District",
+    28
+   ]
+  ],
+  "regions": 3
+ },
+ "TZA": {
+  "n": 30,
+  "types": [
+   [
+    "Region",
+    30
+   ]
+  ],
+  "regions": 0
+ },
+ "SYR": {
+  "n": 15,
+  "types": [
+   [
+    "Province",
+    14
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "SOL": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "FRA": {
+  "n": 101,
+  "types": [
+   [
+    "Metropolitan department",
+    96
+   ],
+   [
+    "Overseas department",
+    5
+   ]
+  ],
+  "regions": 18
+ },
+ "SUR": {
+  "n": 10,
+  "types": [
+   [
+    "District",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "GUY": {
+  "n": 10,
+  "types": [
+   [
+    "Region",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "KOR": {
+  "n": 17,
+  "types": [
+   [
+    "Metropolitan City",
+    8
+   ],
+   [
+    "Province",
+    7
+   ],
+   [
+    "Capital Metropolitan City",
+    1
+   ],
+   [
+    "Special self-governing city",
+    1
+   ]
+  ],
+  "regions": 1
+ },
+ "PRK": {
+  "n": 11,
+  "types": [
+   [
+    "Province",
+    10
+   ],
+   [
+    "Special City",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "MAR": {
+  "n": 16,
+  "types": [
+   [
+    "Region",
+    16
+   ]
+  ],
+  "regions": 0
+ },
+ "SAH": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "CRI": {
+  "n": 7,
+  "types": [
+   [
+    "Province",
+    7
+   ]
+  ],
+  "regions": 0
+ },
+ "NIC": {
+  "n": 17,
+  "types": [
+   [
+    "Department",
+    15
+   ],
+   [
+    "Autonomous Region",
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "COG": {
+  "n": 12,
+  "types": [
+   [
+    "Region",
+    12
+   ]
+  ],
+  "regions": 0
+ },
+ "COD": {
+  "n": 11,
+  "types": [
+   [
+    "Province",
+    10
+   ],
+   [
+    "Neutral City",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "BTN": {
+  "n": 20,
+  "types": [
+   [
+    "District",
+    20
+   ]
+  ],
+  "regions": 4
+ },
+ "UKR": {
+  "n": 25,
+  "types": [
+   [
+    "Region",
+    23
+   ],
+   [
+    null,
+    1
+   ],
+   [
+    "Municipality",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "BLR": {
+  "n": 7,
+  "types": [
+   [
+    "Region",
+    6
+   ],
+   [
+    "Municipality",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "NAM": {
+  "n": 13,
+  "types": [
+   [
+    "Region",
+    13
+   ]
+  ],
+  "regions": 0
+ },
+ "ZAF": {
+  "n": 9,
+  "types": [
+   [
+    "Province",
+    9
+   ]
+  ],
+  "regions": 0
+ },
+ "MAF": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "SXM": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "ARE": {
+  "n": 9,
+  "types": [
+   [
+    "Emirate",
+    9
+   ]
+  ],
+  "regions": 0
+ },
+ "OMN": {
+  "n": 11,
+  "types": [
+   [
+    "Region",
+    7
+   ],
+   [
+    "Province",
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "UZB": {
+  "n": 14,
+  "types": [
+   [
+    "Region",
+    13
+   ],
+   [
+    "Automonous Region",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "KAZ": {
+  "n": 16,
+  "types": [
+   [
+    "Region",
+    14
+   ],
+   [
+    "City",
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "TJK": {
+  "n": 5,
+  "types": [
+   [
+    "Region",
+    4
+   ],
+   [
+    "Independent City",
+    1
+   ]
+  ],
+  "regions": 4
+ },
+ "LTU": {
+  "n": 10,
+  "types": [
+   [
+    "County",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "BRA": {
+  "n": 27,
+  "types": [
+   [
+    "State",
+    26
+   ],
+   [
+    "Federal District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "MNG": {
+  "n": 22,
+  "types": [
+   [
+    "Province",
+    18
+   ],
+   [
+    "Municipality",
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "RUS": {
+  "n": 86,
+  "types": [
+   [
+    "Region",
+    48
+   ],
+   [
+    "Republic",
+    20
+   ],
+   [
+    "Territory",
+    7
+   ],
+   [
+    "Autonomous Province",
+    5
+   ],
+   [
+    "Federal City",
+    3
+   ],
+   [
+    "Autonomous Region",
+    1
+   ],
+   [
+    "Autonomous Republic",
+    1
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 6
+ },
+ "CZE": {
+  "n": 14,
+  "types": [
+   [
+    "Region",
+    14
+   ]
+  ],
+  "regions": 0
+ },
+ "DEU": {
+  "n": 16,
+  "types": [
+   [
+    "State",
+    16
+   ]
+  ],
+  "regions": 0
+ },
+ "EST": {
+  "n": 15,
+  "types": [
+   [
+    "County",
+    14
+   ],
+   [
+    "Municipality",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "LVA": {
+  "n": 119,
+  "types": [
+   [
+    "Municipality",
+    110
+   ],
+   [
+    "Republican City",
+    9
+   ]
+  ],
+  "regions": 5
+ },
+ "NOR": {
+  "n": 21,
+  "types": [
+   [
+    "County",
+    19
+   ],
+   [
+    "Territory",
+    1
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "SWE": {
+  "n": 21,
+  "types": [
+   [
+    "County",
+    21
+   ]
+  ],
+  "regions": 0
+ },
+ "FIN": {
+  "n": 18,
+  "types": [
+   [
+    "Province",
+    14
+   ],
+   [
+    "Region",
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "VNM": {
+  "n": 63,
+  "types": [
+   [
+    "Province",
+    52
+   ],
+   [
+    "Region",
+    9
+   ],
+   [
+    "City|Municipality|Thanh Pho",
+    2
+   ]
+  ],
+  "regions": 9
+ },
+ "KHM": {
+  "n": 24,
+  "types": [
+   [
+    "Province",
+    21
+   ],
+   [
+    "Municipality",
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "LUX": {
+  "n": 3,
+  "types": [
+   [
+    "District",
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "BEL": {
+  "n": 11,
+  "types": [
+   [
+    "Province",
+    10
+   ],
+   [
+    "Capital Region",
+    1
+   ]
+  ],
+  "regions": 3
+ },
+ "GEO": {
+  "n": 12,
+  "types": [
+   [
+    "Region",
+    9
+   ],
+   [
+    "Autonomous Republic",
+    2
+   ],
+   [
+    "Independent City",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "MKD": {
+  "n": 84,
+  "types": [
+   [
+    "Statistical Region",
+    72
+   ],
+   [
+    "Municipality",
+    12
+   ]
+  ],
+  "regions": 9
+ },
+ "ALB": {
+  "n": 12,
+  "types": [
+   [
+    "County",
+    12
+   ]
+  ],
+  "regions": 0
+ },
+ "AZE": {
+  "n": 78,
+  "types": [
+   [
+    "District",
+    67
+   ],
+   [
+    "Municipality",
+    11
+   ]
+  ],
+  "regions": 10
+ },
+ "KOS": {
+  "n": 30,
+  "types": [
+   [
+    "District",
+    30
+   ]
+  ],
+  "regions": 7
+ },
+ "TUR": {
+  "n": 81,
+  "types": [
+   [
+    "Province",
+    81
+   ]
+  ],
+  "regions": 0
+ },
+ "ESP": {
+  "n": 52,
+  "types": [
+   [
+    "Autonomous Community",
+    50
+   ],
+   [
+    "Autonomous City",
+    2
+   ]
+  ],
+  "regions": 19
+ },
+ "LAO": {
+  "n": 17,
+  "types": [
+   [
+    "Province",
+    16
+   ],
+   [
+    "Municipality|Prefecture",
+    1
+   ]
+  ],
+  "regions": 1
+ },
+ "KGZ": {
+  "n": 8,
+  "types": [
+   [
+    "Region",
+    8
+   ]
+  ],
+  "regions": 0
+ },
+ "ARM": {
+  "n": 11,
+  "types": [
+   [
+    "Province",
+    10
+   ],
+   [
+    "City",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "DNK": {
+  "n": 5,
+  "types": [
+   [
+    "Region",
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "LBY": {
+  "n": 22,
+  "types": [
+   [
+    "Municipality|Governarate",
+    22
+   ]
+  ],
+  "regions": 0
+ },
+ "TUN": {
+  "n": 23,
+  "types": [
+   [
+    "Governorate",
+    23
+   ]
+  ],
+  "regions": 0
+ },
+ "ROU": {
+  "n": 42,
+  "types": [
+   [
+    "County",
+    41
+   ],
+   [
+    "City",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "HUN": {
+  "n": 43,
+  "types": [
+   [
+    "Urban county",
+    23
+   ],
+   [
+    "County",
+    19
+   ],
+   [
+    "Capital City",
+    1
+   ]
+  ],
+  "regions": 7
+ },
+ "SVK": {
+  "n": 8,
+  "types": [
+   [
+    "Region",
+    8
+   ]
+  ],
+  "regions": 0
+ },
+ "POL": {
+  "n": 16,
+  "types": [
+   [
+    "Voivodeship|Province",
+    16
+   ]
+  ],
+  "regions": 0
+ },
+ "IRL": {
+  "n": 34,
+  "types": [
+   [
+    "County",
+    29
+   ],
+   [
+    "City",
+    4
+   ],
+   [
+    "Administrative County",
+    1
+   ]
+  ],
+  "regions": 8
+ },
+ "NIR": {
+  "n": 26,
+  "types": [
+   [
+    "District",
+    24
+   ],
+   [
+    "London Borough (city)",
+    1
+   ],
+   [
+    "Province",
+    1
+   ]
+  ],
+  "regions": 1
+ },
+ "GRC": {
+  "n": 14,
+  "types": [
+   [
+    "Region",
+    13
+   ],
+   [
+    "Autonomous Monastic State",
+    1
+   ]
+  ],
+  "regions": 2
+ },
+ "ZMB": {
+  "n": 10,
+  "types": [
+   [
+    "Province",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "SLE": {
+  "n": 4,
+  "types": [
+   [
+    "Province",
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "GIN": {
+  "n": 34,
+  "types": [
+   [
+    "Prefecture",
+    33
+   ],
+   [
+    "Administrative Zone",
+    1
+   ]
+  ],
+  "regions": 8
+ },
+ "LBR": {
+  "n": 15,
+  "types": [
+   [
+    "County",
+    15
+   ]
+  ],
+  "regions": 0
+ },
+ "CAF": {
+  "n": 17,
+  "types": [
+   [
+    "Prefecture",
+    14
+   ],
+   [
+    "Economic Prefecture",
+    2
+   ],
+   [
+    "Autonomous Commune",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "SDN": {
+  "n": 17,
+  "types": [
+   [
+    "State",
+    15
+   ],
+   [
+    "Region",
+    2
+   ]
+  ],
+  "regions": 6
+ },
+ "DJI": {
+  "n": 6,
+  "types": [
+   [
+    "Region",
+    5
+   ],
+   [
+    "City",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "ERI": {
+  "n": 6,
+  "types": [
+   [
+    "Region",
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "AUT": {
+  "n": 9,
+  "types": [
+   [
+    "State",
+    9
+   ]
+  ],
+  "regions": 0
+ },
+ "IRQ": {
+  "n": 18,
+  "types": [
+   [
+    "Province",
+    18
+   ]
+  ],
+  "regions": 2
+ },
+ "ITA": {
+  "n": 110,
+  "types": [
+   [
+    "Province",
+    110
+   ]
+  ],
+  "regions": 20
+ },
+ "CHE": {
+  "n": 26,
+  "types": [
+   [
+    "Canton",
+    26
+   ]
+  ],
+  "regions": 0
+ },
+ "IRN": {
+  "n": 31,
+  "types": [
+   [
+    "Province",
+    31
+   ]
+  ],
+  "regions": 0
+ },
+ "NLD": {
+  "n": 15,
+  "types": [
+   [
+    "Province",
+    12
+   ],
+   [
+    "Special Municipality",
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "LIE": {
+  "n": 11,
+  "types": [
+   [
+    null,
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "CIV": {
+  "n": 19,
+  "types": [
+   [
+    "Department",
+    12
+   ],
+   [
+    "Region",
+    7
+   ]
+  ],
+  "regions": 0
+ },
+ "SRB": {
+  "n": 25,
+  "types": [
+   [
+    "District",
+    24
+   ],
+   [
+    "City",
+    1
+   ]
+  ],
+  "regions": 11
+ },
+ "MLI": {
+  "n": 9,
+  "types": [
+   [
+    "Region",
+    8
+   ],
+   [
+    "District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "SEN": {
+  "n": 14,
+  "types": [
+   [
+    "Region",
+    14
+   ]
+  ],
+  "regions": 0
+ },
+ "NGA": {
+  "n": 37,
+  "types": [
+   [
+    "State",
+    37
+   ]
+  ],
+  "regions": 0
+ },
+ "BEN": {
+  "n": 12,
+  "types": [
+   [
+    "Department",
+    12
+   ]
+  ],
+  "regions": 0
+ },
+ "AGO": {
+  "n": 18,
+  "types": [
+   [
+    "Province",
+    18
+   ]
+  ],
+  "regions": 0
+ },
+ "HRV": {
+  "n": 21,
+  "types": [
+   [
+    "County",
+    20
+   ],
+   [
+    "City",
+    1
+   ]
+  ],
+  "regions": 1
+ },
+ "SVN": {
+  "n": 193,
+  "types": [
+   [
+    "Commune|Municipality",
+    181
+   ],
+   [
+    "Statistical Region",
+    12
+   ]
+  ],
+  "regions": 12
+ },
+ "QAT": {
+  "n": 7,
+  "types": [
+   [
+    "Municipality",
+    7
+   ]
+  ],
+  "regions": 0
+ },
+ "SAU": {
+  "n": 13,
+  "types": [
+   [
+    "Region",
+    13
+   ]
+  ],
+  "regions": 0
+ },
+ "BWA": {
+  "n": 15,
+  "types": [
+   [
+    "District",
+    9
+   ],
+   [
+    "Town",
+    3
+   ],
+   [
+    "City",
+    2
+   ],
+   [
+    "Township",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "ZWE": {
+  "n": 10,
+  "types": [
+   [
+    "Province",
+    8
+   ],
+   [
+    "City",
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "PAK": {
+  "n": 8,
+  "types": [
+   [
+    "Province",
+    4
+   ],
+   [
+    "Centrally Administered Area",
+    2
+   ],
+   [
+    "Territory",
+    1
+   ],
+   [
+    "Capital Territory",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "BGR": {
+  "n": 28,
+  "types": [
+   [
+    "Province",
+    28
+   ]
+  ],
+  "regions": 0
+ },
+ "THA": {
+  "n": 77,
+  "types": [
+   [
+    "Province",
+    77
+   ]
+  ],
+  "regions": 6
+ },
+ "SMR": {
+  "n": 9,
+  "types": [
+   [
+    null,
+    9
+   ]
+  ],
+  "regions": 0
+ },
+ "HTI": {
+  "n": 10,
+  "types": [
+   [
+    "Department",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "DOM": {
+  "n": 32,
+  "types": [
+   [
+    "Province",
+    31
+   ],
+   [
+    "National District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "TCD": {
+  "n": 22,
+  "types": [
+   [
+    "Prefecture",
+    18
+   ],
+   [
+    "Préfecture",
+    3
+   ],
+   [
+    "Capital",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "KWT": {
+  "n": 6,
+  "types": [
+   [
+    "Province",
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "SLV": {
+  "n": 14,
+  "types": [
+   [
+    "Department",
+    14
+   ]
+  ],
+  "regions": 0
+ },
+ "GTM": {
+  "n": 22,
+  "types": [
+   [
+    "Department",
+    22
+   ]
+  ],
+  "regions": 0
+ },
+ "TLS": {
+  "n": 13,
+  "types": [
+   [
+    "District|Regencies",
+    13
+   ]
+  ],
+  "regions": 0
+ },
+ "BRN": {
+  "n": 4,
+  "types": [
+   [
+    "District",
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "MCO": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "DZA": {
+  "n": 48,
+  "types": [
+   [
+    "Province",
+    48
+   ]
+  ],
+  "regions": 0
+ },
+ "MOZ": {
+  "n": 11,
+  "types": [
+   [
+    "Province",
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "SWZ": {
+  "n": 4,
+  "types": [
+   [
+    "District",
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "BDI": {
+  "n": 17,
+  "types": [
+   [
+    "Province",
+    17
+   ]
+  ],
+  "regions": 0
+ },
+ "RWA": {
+  "n": 5,
+  "types": [
+   [
+    "Province",
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "MMR": {
+  "n": 14,
+  "types": [
+   [
+    "State",
+    7
+   ],
+   [
+    "Division",
+    7
+   ]
+  ],
+  "regions": 0
+ },
+ "BGD": {
+  "n": 7,
+  "types": [
+   [
+    "Division",
+    7
+   ]
+  ],
+  "regions": 0
+ },
+ "AND": {
+  "n": 7,
+  "types": [
+   [
+    null,
+    7
+   ]
+  ],
+  "regions": 0
+ },
+ "AFG": {
+  "n": 34,
+  "types": [
+   [
+    "Province",
+    34
+   ]
+  ],
+  "regions": 0
+ },
+ "MNE": {
+  "n": 21,
+  "types": [
+   [
+    "Municipality",
+    21
+   ]
+  ],
+  "regions": 0
+ },
+ "BIH": {
+  "n": 18,
+  "types": [
+   [
+    "Canton",
+    10
+   ],
+   [
+    null,
+    8
+   ]
+  ],
+  "regions": 2
+ },
+ "UGA": {
+  "n": 112,
+  "types": [
+   [
+    "District",
+    88
+   ],
+   [
+    "County",
+    24
+   ]
+  ],
+  "regions": 4
+ },
+ "USG": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "CUB": {
+  "n": 16,
+  "types": [
+   [
+    "Province",
+    15
+   ],
+   [
+    "Special Municipality",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "HND": {
+  "n": 18,
+  "types": [
+   [
+    "Department",
+    18
+   ]
+  ],
+  "regions": 0
+ },
+ "ECU": {
+  "n": 24,
+  "types": [
+   [
+    "Province",
+    24
+   ]
+  ],
+  "regions": 0
+ },
+ "COL": {
+  "n": 34,
+  "types": [
+   [
+    "Department",
+    23
+   ],
+   [
+    "Commissiary",
+    5
+   ],
+   [
+    "Intendancy",
+    4
+   ],
+   [
+    null,
+    1
+   ],
+   [
+    "Federal District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "PRY": {
+  "n": 18,
+  "types": [
+   [
+    "Department",
+    17
+   ],
+   [
+    "Capital District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "PRT": {
+  "n": 20,
+  "types": [
+   [
+    "District",
+    18
+   ],
+   [
+    "Autonomous region",
+    2
+   ]
+  ],
+  "regions": 6
+ },
+ "MDA": {
+  "n": 40,
+  "types": [
+   [
+    "District",
+    35
+   ],
+   [
+    "City",
+    3
+   ],
+   [
+    "Territorial Unit",
+    1
+   ],
+   [
+    "Autonomous Territory",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "TKM": {
+  "n": 5,
+  "types": [
+   [
+    "Province",
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "JOR": {
+  "n": 12,
+  "types": [
+   [
+    "Province",
+    12
+   ]
+  ],
+  "regions": 0
+ },
+ "NPL": {
+  "n": 14,
+  "types": [
+   [
+    "Administrative Zone",
+    9
+   ],
+   [
+    "District",
+    5
+   ]
+  ],
+  "regions": 5
+ },
+ "LSO": {
+  "n": 10,
+  "types": [
+   [
+    "District",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "CMR": {
+  "n": 10,
+  "types": [
+   [
+    "Province",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "GAB": {
+  "n": 9,
+  "types": [
+   [
+    "Province",
+    9
+   ]
+  ],
+  "regions": 0
+ },
+ "NER": {
+  "n": 8,
+  "types": [
+   [
+    "Department",
+    7
+   ],
+   [
+    "Capital District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "BFA": {
+  "n": 45,
+  "types": [
+   [
+    "Province",
+    45
+   ]
+  ],
+  "regions": 13
+ },
+ "TGO": {
+  "n": 5,
+  "types": [
+   [
+    "Region",
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "GHA": {
+  "n": 10,
+  "types": [
+   [
+    "Region",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "GNB": {
+  "n": 9,
+  "types": [
+   [
+    "Region",
+    8
+   ],
+   [
+    "Autonomous Sector",
+    1
+   ]
+  ],
+  "regions": 4
+ },
+ "GIB": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "USA": {
+  "n": 51,
+  "types": [
+   [
+    "State",
+    50
+   ],
+   [
+    "Federal District",
+    1
+   ]
+  ],
+  "regions": 4
+ },
+ "CAN": {
+  "n": 13,
+  "types": [
+   [
+    "Province",
+    10
+   ],
+   [
+    "Territory",
+    3
+   ]
+  ],
+  "regions": 3
+ },
+ "MEX": {
+  "n": 33,
+  "types": [
+   [
+    "State",
+    31
+   ],
+   [
+    null,
+    1
+   ],
+   [
+    "Federal District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "BLZ": {
+  "n": 6,
+  "types": [
+   [
+    "District",
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "PAN": {
+  "n": 12,
+  "types": [
+   [
+    "Province",
+    9
+   ],
+   [
+    "Indigenous Territory",
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "VEN": {
+  "n": 26,
+  "types": [
+   [
+    "State",
+    23
+   ],
+   [
+    "Federal Dependency",
+    1
+   ],
+   [
+    null,
+    1
+   ],
+   [
+    "Capital District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "PNG": {
+  "n": 20,
+  "types": [
+   [
+    "Province",
+    20
+   ]
+  ],
+  "regions": 0
+ },
+ "EGY": {
+  "n": 27,
+  "types": [
+   [
+    "Governorate",
+    27
+   ]
+  ],
+  "regions": 0
+ },
+ "YEM": {
+  "n": 21,
+  "types": [
+   [
+    "Governorate",
+    21
+   ]
+  ],
+  "regions": 0
+ },
+ "MRT": {
+  "n": 13,
+  "types": [
+   [
+    "Region",
+    12
+   ],
+   [
+    "District",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "GNQ": {
+  "n": 7,
+  "types": [
+   [
+    "Province",
+    7
+   ]
+  ],
+  "regions": 0
+ },
+ "GMB": {
+  "n": 6,
+  "types": [
+   [
+    "Division",
+    5
+   ],
+   [
+    "Independent City",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "HKG": {
+  "n": 18,
+  "types": [
+   [
+    null,
+    18
+   ]
+  ],
+  "regions": 3
+ },
+ "VAT": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "CYN": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "KAS": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "KAB": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "WSB": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "WLS": {
+  "n": 22,
+  "types": [
+   [
+    "Unitary Authority (wales)",
+    21
+   ],
+   [
+    "Principality",
+    1
+   ]
+  ],
+  "regions": 2
+ },
+ "ENG": {
+  "n": 152,
+  "types": [
+   [
+    "Unitary Authority",
+    50
+   ],
+   [
+    "Metropolitan Borough",
+    36
+   ],
+   [
+    "London Borough",
+    28
+   ],
+   [
+    "Administrative County",
+    26
+   ],
+   [
+    "Unitary Single-Tier County",
+    6
+   ],
+   [
+    "London Borough (royal)",
+    3
+   ],
+   [
+    "London Borough (city)",
+    1
+   ],
+   [
+    "City Corporation",
+    1
+   ],
+   [
+    "Kingdom",
+    1
+   ]
+  ],
+  "regions": 9
+ },
+ "SCT": {
+  "n": 32,
+  "types": [
+   [
+    "Unitary District",
+    26
+   ],
+   [
+    "Unitary District (city)",
+    5
+   ],
+   [
+    "Island Area",
+    1
+   ]
+  ],
+  "regions": 4
+ },
+ "ATA": {
+  "n": 2,
+  "types": [
+   [
+    null,
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "NZL": {
+  "n": 24,
+  "types": [
+   [
+    "Regional Council",
+    11
+   ],
+   [
+    null,
+    7
+   ],
+   [
+    "Unitary Authority",
+    5
+   ],
+   [
+    "Special Island Authority",
+    1
+   ]
+  ],
+  "regions": 4
+ },
+ "NCL": {
+  "n": 3,
+  "types": [
+   [
+    "Province",
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "AUS": {
+  "n": 11,
+  "types": [
+   [
+    "State",
+    6
+   ],
+   [
+    "Territory",
+    4
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "MDG": {
+  "n": 22,
+  "types": [
+   [
+    "Autonomous Province",
+    22
+   ]
+  ],
+  "regions": 0
+ },
+ "PHL": {
+  "n": 118,
+  "types": [
+   [
+    "Province",
+    80
+   ],
+   [
+    "Highly Urbanized City",
+    32
+   ],
+   [
+    "Independent Component City",
+    5
+   ],
+   [
+    "Independent Municipality",
+    1
+   ]
+  ],
+  "regions": 17
+ },
+ "LKA": {
+  "n": 25,
+  "types": [
+   [
+    "District",
+    25
+   ]
+  ],
+  "regions": 9
+ },
+ "CUW": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "ABW": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "BHS": {
+  "n": 30,
+  "types": [
+   [
+    "District",
+    29
+   ],
+   [
+    "Capital",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "TCA": {
+  "n": 6,
+  "types": [
+   [
+    null,
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "TWN": {
+  "n": 21,
+  "types": [
+   [
+    "County",
+    13
+   ],
+   [
+    "Special Municipality",
+    5
+   ],
+   [
+    "Provincial City",
+    3
+   ]
+  ],
+  "regions": 3
+ },
+ "JPN": {
+  "n": 47,
+  "types": [
+   [
+    "Prefecture",
+    43
+   ],
+   [
+    "Urban Prefecture",
+    2
+   ],
+   [
+    "Metropolis",
+    1
+   ],
+   [
+    "Circuit",
+    1
+   ]
+  ],
+  "regions": 9
+ },
+ "SPM": {
+  "n": 2,
+  "types": [
+   [
+    "Commune",
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "ISL": {
+  "n": 9,
+  "types": [
+   [
+    "Region",
+    8
+   ],
+   [
+    "Independent Town",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "GRL": {
+  "n": 6,
+  "types": [
+   [
+    null,
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "PCN": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "PYF": {
+  "n": 5,
+  "types": [
+   [
+    null,
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "ATF": {
+  "n": 4,
+  "types": [
+   [
+    null,
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "SYC": {
+  "n": 26,
+  "types": [
+   [
+    null,
+    26
+   ]
+  ],
+  "regions": 0
+ },
+ "KIR": {
+  "n": 2,
+  "types": [
+   [
+    null,
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "MHL": {
+  "n": 2,
+  "types": [
+   [
+    null,
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "TTO": {
+  "n": 16,
+  "types": [
+   [
+    "Region",
+    11
+   ],
+   [
+    "City",
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "GRD": {
+  "n": 7,
+  "types": [
+   [
+    "Parish",
+    6
+   ],
+   [
+    "Dependency",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "VCT": {
+  "n": 6,
+  "types": [
+   [
+    "Parish",
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "BRB": {
+  "n": 11,
+  "types": [
+   [
+    "Parish",
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "LCA": {
+  "n": 11,
+  "types": [
+   [
+    "Quarter",
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "DMA": {
+  "n": 10,
+  "types": [
+   [
+    "Parish",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "UMI": {
+  "n": 8,
+  "types": [
+   [
+    null,
+    8
+   ]
+  ],
+  "regions": 0
+ },
+ "MSR": {
+  "n": 3,
+  "types": [
+   [
+    "Parish",
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "ATG": {
+  "n": 8,
+  "types": [
+   [
+    "Parish",
+    6
+   ],
+   [
+    "Dependency",
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "KNA": {
+  "n": 14,
+  "types": [
+   [
+    "Parish",
+    14
+   ]
+  ],
+  "regions": 2
+ },
+ "VIR": {
+  "n": 3,
+  "types": [
+   [
+    null,
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "BLM": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "PRI": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "AIA": {
+  "n": 15,
+  "types": [
+   [
+    "District",
+    14
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "VGB": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "JAM": {
+  "n": 14,
+  "types": [
+   [
+    "Parish",
+    14
+   ]
+  ],
+  "regions": 0
+ },
+ "CYM": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "BMU": {
+  "n": 11,
+  "types": [
+   [
+    null,
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "HMD": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "SHN": {
+  "n": 3,
+  "types": [
+   [
+    null,
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "MUS": {
+  "n": 16,
+  "types": [
+   [
+    "District",
+    8
+   ],
+   [
+    "City",
+    6
+   ],
+   [
+    "Dependency",
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "COM": {
+  "n": 3,
+  "types": [
+   [
+    null,
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "STP": {
+  "n": 2,
+  "types": [
+   [
+    null,
+    2
+   ]
+  ],
+  "regions": 0
+ },
+ "CPV": {
+  "n": 22,
+  "types": [
+   [
+    null,
+    22
+   ]
+  ],
+  "regions": 2
+ },
+ "MLT": {
+  "n": 68,
+  "types": [
+   [
+    null,
+    68
+   ]
+  ],
+  "regions": 3
+ },
+ "JEY": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "GGY": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "IMN": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "ALD": {
+  "n": 11,
+  "types": [
+   [
+    null,
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "FRO": {
+  "n": 1,
+  "types": [
+   [
+    "Region",
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "IOA": {
+  "n": 2,
+  "types": [
+   [
+    "Province",
+    1
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "IOT": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "SGP": {
+  "n": 5,
+  "types": [
+   [
+    null,
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "NFK": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "COK": {
+  "n": 11,
+  "types": [
+   [
+    null,
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "FJI": {
+  "n": 5,
+  "types": [
+   [
+    "Division",
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "TON": {
+  "n": 5,
+  "types": [
+   [
+    null,
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "WLF": {
+  "n": 3,
+  "types": [
+   [
+    null,
+    3
+   ]
+  ],
+  "regions": 0
+ },
+ "WSM": {
+  "n": 11,
+  "types": [
+   [
+    null,
+    11
+   ]
+  ],
+  "regions": 0
+ },
+ "SLB": {
+  "n": 10,
+  "types": [
+   [
+    "Province",
+    10
+   ]
+  ],
+  "regions": 0
+ },
+ "TUV": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "MDV": {
+  "n": 21,
+  "types": [
+   [
+    "Atoll",
+    19
+   ],
+   [
+    "City",
+    1
+   ],
+   [
+    "Capital",
+    1
+   ]
+  ],
+  "regions": 8
+ },
+ "NRU": {
+  "n": 14,
+  "types": [
+   [
+    null,
+    14
+   ]
+  ],
+  "regions": 0
+ },
+ "FSM": {
+  "n": 4,
+  "types": [
+   [
+    null,
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "SGS": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "FLK": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "VUT": {
+  "n": 6,
+  "types": [
+   [
+    "Province",
+    6
+   ]
+  ],
+  "regions": 0
+ },
+ "NIU": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "ASM": {
+  "n": 5,
+  "types": [
+   [
+    null,
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "PLW": {
+  "n": 16,
+  "types": [
+   [
+    null,
+    16
+   ]
+  ],
+  "regions": 0
+ },
+ "GUM": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "MNP": {
+  "n": 4,
+  "types": [
+   [
+    null,
+    4
+   ]
+  ],
+  "regions": 0
+ },
+ "BHR": {
+  "n": 5,
+  "types": [
+   [
+    "Governorate",
+    5
+   ]
+  ],
+  "regions": 0
+ },
+ "CSI": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "PGA": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "CLP": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "MAC": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ },
+ "ATC": {
+  "n": 1,
+  "types": [
+   [
+    null,
+    1
+   ]
+  ],
+  "regions": 0
+ }
+}
