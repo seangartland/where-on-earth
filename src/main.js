@@ -6799,15 +6799,13 @@ passportPageStyle.textContent = `
 .pp-filters-btn { flex: none; min-height: 36px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; touch-action: manipulation; white-space: nowrap; }
 .pp-filters-btn[aria-expanded="true"], .pp-filters-btn.has-active { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
 .pp-badge { margin-left: 3px; color: #ffc76a; font-size: 11px; }
-.pp-toolbar-close { display: grid; flex: none; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: rgba(157,211,255,.08); color: #e8f3ff; font: inherit; font-size: 20px; line-height: 1; opacity: 0; pointer-events: none; transition: opacity .15s ease-out; }
+.pp-toolbar-close { display: grid; flex: none; place-items: center; width: 32px; height: 32px; margin-left: auto; padding: 0; border: 0; border-radius: 50%; background: rgba(157,211,255,.08); color: #e8f3ff; font: inherit; font-size: 20px; line-height: 1; opacity: 0; pointer-events: none; transition: opacity .15s ease-out; }
 .pp-toolbar.is-stuck .pp-toolbar-close { opacity: 1; pointer-events: auto; }
 .pp-status { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
 .pp-status button { min-height: 36px; padding: 0 2px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 750; cursor: pointer; touch-action: manipulation; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pp-status button[aria-pressed="true"] { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
 .pp-filters { position: absolute; z-index: 4; top: 100%; left: 14px; right: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 6px; padding: 10px; border: 1px solid rgba(157,211,255,.18); border-radius: 14px; background: #111a30; box-shadow: 0 14px 32px rgba(0,0,0,.48); opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none; transition: opacity .12s ease-out, transform .12s ease-out, visibility 0s linear .12s; }
 .pp-filters.is-open { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; transition-duration: .16s; transition-delay: 0s; }
-.pp-jump { display: flex; flex: 1 1 auto; min-width: 0; gap: 6px; padding-bottom: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.pp-jump button { flex: none; min-height: 30px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 10px; font-weight: 750; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
 .pp-filters select, .pp-country-sort { appearance: none; -webkit-appearance: none; min-height: 36px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
 .pp-filters select option { background: #0b1430; color: #ece4ff; }
 .pp-shown { grid-column: 1 / -1; margin: 0; color: rgba(193,224,250,.45); font-size: 11px; text-align: center; }
@@ -6962,7 +6960,6 @@ passportScreen.innerHTML = `
       <div class="pp-stick-sentinel" data-pp="places-sentinel"></div>
       <div class="pp-toolbar" data-pp="toolbar">
         <button type="button" class="pp-filters-btn" data-pp="filters-toggle" aria-expanded="false" aria-controls="pp-filters" aria-label="Filters, none active">Filters <b class="pp-badge" data-pp="badge" hidden></b></button>
-        <div class="pp-jump" data-pp="jump"></div>
         <button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button>
         <div class="pp-filters" id="pp-filters" data-pp="filters" aria-hidden="true">
         <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
@@ -7028,7 +7025,6 @@ const ppEls = {
   continent: passportScreen.querySelector('[data-pp="continent"]'),
   band: passportScreen.querySelector('[data-pp="band"]'),
   sort: passportScreen.querySelector('[data-pp="sort"]'),
-  jump: passportScreen.querySelector('[data-pp="jump"]'),
   shown: passportScreen.querySelector('[data-pp="shown"]'),
   empty: passportScreen.querySelector('[data-pp="empty"]'),
   dex: passportScreen.querySelector('[data-pp="dex"]'),
@@ -7601,32 +7597,8 @@ function ppGroupHead(name, text, onCollapse) {
     e.preventDefault();
     toggle();
   });
-  head.ppExpand = () => {
-    if (!ppCollapsedContinents.has(name)) return;
-    ppCollapsedContinents.delete(name);
-    savePpCollapsedContinents();
-    apply(false);
-  };
   apply(ppCollapsedContinents.has(name));
   return head;
-}
-
-function renderPassportJump() {
-  if (!ppDexGroups.length) { ppEls.jump.replaceChildren(); return; }
-  ppEls.jump.replaceChildren(...ppDexGroups.map((group) => {
-    const { section, name, head } = group;
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    const total = section.querySelectorAll('.pp-slot').length;
-    const visited = section.querySelectorAll('.pp-slot:not(.is-mystery)').length;
-    chip.textContent = `${name} ${visited}/${total}`;
-    group.chipEl = chip;
-    chip.addEventListener('click', () => {
-      head.ppExpand();
-      section.scrollIntoView({ block: 'start' });
-    });
-    return chip;
-  }));
 }
 
 function ppFilteredGroupCount(name) {
@@ -7696,7 +7668,6 @@ function renderPassportDex() {
     }
   }
   ppEls.dex.replaceChildren(frag);
-  renderPassportJump();
   applyPassportFilters();
 }
 
@@ -7713,12 +7684,11 @@ function applyPassportFilters() {
     if (show) shown += 1;
   }
   for (const group of ppDexGroups) {
-    const { section, name, head, chipEl } = group;
+    const { section, name, head } = group;
     section.hidden = ![...section.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
     const total = section.querySelectorAll('.pp-slot').length;
     const count = ppFilteredGroupCount(name);
     head.querySelector('.pp-group-head-text').textContent = `${name} · ${count.toLocaleString()}/${total.toLocaleString()}`;
-    if (chipEl) chipEl.textContent = `${name} ${count.toLocaleString()}/${total.toLocaleString()}`;
   }
   const filtered = ppStatus !== 'all' || band || continent;
   ppEls.shown.textContent = filtered
