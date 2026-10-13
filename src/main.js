@@ -6763,7 +6763,7 @@ passportPageStyle.textContent = `
 .passport-entry { min-height: 44px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
-.pp-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; }
+.pp-card { --pp-toolbar-h: 44px; position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; } /* Keep clip: overflow:hidden breaks sticky descendants. */
 .pp-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
 .pp-audit-banner { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; flex-wrap: wrap; margin: 0 0 8px; padding: 5px 8px; border: 1px solid rgba(255,209,102,.45); border-radius: 999px; background: rgba(255,209,102,.1); color: #ffd166; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .pp-audit-flags-button { min-height: 24px; padding: 1px 8px; border: 1px solid rgba(255,209,102,.55); border-radius: 999px; background: rgba(8,14,32,.45); color: #ffe29a; font: inherit; font-size: 10px; font-weight: 850; cursor: pointer; text-transform: none; }
@@ -6791,25 +6791,31 @@ passportPageStyle.textContent = `
 .pp-tabs { display: flex; gap: 6px; margin-top: 8px; }
 .pp-tabs button { flex: 1 1 0; min-height: 34px; border: 1px solid rgba(157,211,255,.18); border-radius: 11px; background: rgba(157,211,255,.05); color: rgba(193,224,250,.62); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
 .pp-tabs button[aria-selected="true"] { border-color: rgba(103,232,255,.5); background: rgba(103,232,255,.1); color: #c9f6ff; }
-.pp-status-row { display: flex; align-items: stretch; gap: 5px; margin-top: 8px; }
-.pp-status { flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
-.pp-status button { min-height: 44px; padding: 0 2px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 750; cursor: pointer; touch-action: manipulation; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-stick-sentinel { height: 1px; margin-top: 7px; }
+.pp-toolbar { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 6px; box-sizing: border-box; height: var(--pp-toolbar-h); margin: -1px -14px 0; padding: 4px 14px; background: #0b1120; }
+.pp-toolbar.is-stuck { box-shadow: 0 1px rgba(157,211,255,.14), 0 8px 18px rgba(0,0,0,.22); }
+.pp-toolbar.is-stuck::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: calc(env(safe-area-inset-top, 0px) + 18px); background: #0b1120; }
+.pp-filters-btn { flex: none; min-height: 36px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; touch-action: manipulation; white-space: nowrap; }
+.pp-filters-btn[aria-expanded="true"], .pp-filters-btn.has-active { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
+.pp-badge { margin-left: 3px; color: #ffc76a; font-size: 11px; }
+.pp-toolbar-close { display: grid; flex: none; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: rgba(157,211,255,.08); color: #e8f3ff; font: inherit; font-size: 20px; line-height: 1; opacity: 0; pointer-events: none; transition: opacity .15s ease-out; }
+.pp-toolbar.is-stuck .pp-toolbar-close { opacity: 1; pointer-events: auto; }
+.pp-status { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+.pp-status button { min-height: 36px; padding: 0 2px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 750; cursor: pointer; touch-action: manipulation; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pp-status button[aria-pressed="true"] { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
-.pp-filters-toggle { flex: none; width: 44px; min-height: 44px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 16px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
-.pp-filters-toggle[aria-expanded="true"] { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
-.pp-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
-.pp-jump { display: flex; gap: 6px; margin-top: 8px; padding-bottom: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.pp-filters { position: absolute; z-index: 4; top: 100%; left: 14px; right: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 6px; padding: 10px; border: 1px solid rgba(157,211,255,.18); border-radius: 14px; background: #111a30; box-shadow: 0 14px 32px rgba(0,0,0,.48); opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none; transition: opacity .12s ease-out, transform .12s ease-out, visibility 0s linear .12s; }
+.pp-filters.is-open { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; transition-duration: .16s; transition-delay: 0s; }
+.pp-jump { display: flex; flex: 1 1 auto; min-width: 0; gap: 6px; padding-bottom: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .pp-jump button { flex: none; min-height: 30px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 10px; font-weight: 750; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
-.pp-subrow { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
-.pp-shown { margin: 0; color: rgba(193,224,250,.45); font-size: 11px; }
-.pp-filters select { appearance: none; -webkit-appearance: none; min-height: 44px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
+.pp-filters select, .pp-country-sort { appearance: none; -webkit-appearance: none; min-height: 36px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
 .pp-filters select option { background: #0b1430; color: #ece4ff; }
-.pp-shown { margin: 10px 0 0; color: rgba(193,224,250,.45); font-size: 11px; text-align: center; }
+.pp-shown { grid-column: 1 / -1; margin: 0; color: rgba(193,224,250,.45); font-size: 11px; text-align: center; }
+.pp-empty { margin: 18px 0; color: rgba(193,224,250,.55); font-size: 12px; text-align: center; }
 /* Dex grid: every slot renders once per open; filters toggle [hidden] instead
    of rebuilding, so only a sort change rebuilds the DOM (see renderPassportDex). */
-.pp-dex-wrap { margin-top: 10px; }
-.pp-group { content-visibility: auto; contain-intrinsic-size: auto 900px; }
-.pp-group-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
+.pp-dex-wrap { margin-top: 0; }
+.pp-group { content-visibility: auto; contain-intrinsic-size: auto 900px; scroll-margin-top: var(--pp-toolbar-h); }
+.pp-group-head { position: sticky; top: var(--pp-toolbar-h); z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
 .pp-group-head:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pp-group-head::after { content: ''; flex: none; width: 6px; height: 6px; margin: -3px 3px 0 0; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
 .pp-group-head[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(225deg); }
@@ -6836,8 +6842,9 @@ passportPageStyle.textContent = `
 .pp-slot.is-mystery .pp-slot-photo { border-color: rgba(214,220,232,.16); }
 .pp-slot.is-mystery .pp-slot-name { color: rgba(214,220,232,.4); letter-spacing: .1em; text-align: center; }
 /* Countries tab */
-.pp-country-summary { margin: 10px 2px 0; color: rgba(193,224,250,.55); font-size: 12px; font-weight: 700; text-align: center; }
-.pp-country-sort { margin-top: 8px; }
+.pp-country-summary { flex: 1; min-width: 0; margin: 0; overflow: hidden; color: rgba(193,224,250,.55); font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.pp-country-sort { flex: none; width: 126px; }
+.pp-country-toolbar .collections-back { min-height: 36px; }
 /* Country cards: same grid and size as .pp-slot, but read as a *stack* of
    postcards (offset card edges behind), with a neutral frame instead of rarity,
    a flag chip and a progress strip. Never carries a prox badge or score pill.
@@ -6912,7 +6919,8 @@ body.game-passport #hud { opacity: 0; }
 @media (max-width: 360px) {
   .pp-dex { gap: 8px 6px; }
   .pp-stamp { width: 36px; height: 36px; font-size: 13px; }
-}`;
+}
+@media (prefers-reduced-motion: reduce) { .pp-filters { transform: none; } }`;
 document.head.appendChild(passportPageStyle);
 
 const passportEntry = document.createElement('button');
@@ -6950,16 +6958,18 @@ passportScreen.innerHTML = `
       <button type="button" role="tab" data-view="countries" aria-selected="false">Countries</button>
     </div>
     <div data-pp="places-view">
-      <div class="pp-status-row">
+      <div class="pp-stick-sentinel" data-pp="places-sentinel"></div>
+      <div class="pp-toolbar" data-pp="toolbar">
+        <button type="button" class="pp-filters-btn" data-pp="filters-toggle" aria-expanded="false" aria-controls="pp-filters" aria-label="Filters, none active">Filters <b class="pp-badge" data-pp="badge" hidden></b></button>
+        <div class="pp-jump" data-pp="jump"></div>
+        <button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button>
+        <div class="pp-filters" id="pp-filters" data-pp="filters" aria-hidden="true">
         <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
           <button type="button" data-status="all" aria-pressed="true">All</button>
           <button type="button" data-status="earned" aria-pressed="false">Earned</button>
           <button type="button" data-status="seen" aria-pressed="false">Seen</button>
           <button type="button" data-status="unvisited" aria-pressed="false">Unvisited</button>
         </div>
-        <button type="button" class="pp-filters-toggle" data-pp="filters-toggle" aria-expanded="false" aria-label="More filters">⋯</button>
-      </div>
-      <div class="pp-filters" data-pp="filters" hidden>
         <select data-pp="continent" aria-label="Filter by continent" hidden><option value="">All continents</option></select>
         <select data-pp="band" aria-label="Filter by rarity"><option value="">All rarities</option></select>
         <select data-pp="sort" aria-label="Sort by">
@@ -6968,27 +6978,28 @@ passportScreen.innerHTML = `
           <option value="distance">Closest guess</option>
           <option value="name">Name A-Z</option>
         </select>
-      </div>
-      <div class="pp-jump" data-pp="jump"></div>
-      <div class="pp-subrow" data-pp="subrow">
         <p class="pp-shown" data-pp="shown"></p>
       </div>
+      </div>
+      <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
       <div class="pp-dex-wrap" data-pp="dex"></div>
 
     </div>
     <div data-pp="countries-view" hidden>
       <div data-pp="country-list">
-        <p class="pp-country-summary" data-pp="country-summary"></p>
-        <select class="pp-country-sort" data-pp="country-sort" aria-label="Sort countries">
+        <div class="pp-stick-sentinel" data-pp="country-list-sentinel"></div>
+        <div class="pp-toolbar pp-country-toolbar"><p class="pp-country-summary" data-pp="country-summary"></p>
+          <select class="pp-country-sort" data-pp="country-sort" aria-label="Sort countries">
           <option value="earned">Most earned</option>
           <option value="closest">Closest to complete</option>
           <option value="alpha">A–Z</option>
           <option value="continent">By continent</option>
-        </select>
+          </select><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
         <div data-pp="country-list-body"></div>
       </div>
       <div data-pp="country-detail" hidden>
-        <button class="collections-back" type="button" data-pp="country-back">‹ Countries</button>
+        <div class="pp-stick-sentinel" data-pp="country-detail-sentinel"></div>
+        <div class="pp-toolbar pp-country-toolbar"><button class="collections-back" type="button" data-pp="country-back">‹ Countries</button><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
         <div class="pp-country-head" data-pp="country-head"></div>
         <ul class="pp-dex pp-country-dex" data-pp="country-dex"></ul>
       </div>
@@ -7012,12 +7023,13 @@ const ppEls = {
   status: passportScreen.querySelector('[data-pp="status"]'),
   filters: passportScreen.querySelector('[data-pp="filters"]'),
   filtersToggle: passportScreen.querySelector('[data-pp="filters-toggle"]'),
+  badge: passportScreen.querySelector('[data-pp="badge"]'),
   continent: passportScreen.querySelector('[data-pp="continent"]'),
   band: passportScreen.querySelector('[data-pp="band"]'),
   sort: passportScreen.querySelector('[data-pp="sort"]'),
   jump: passportScreen.querySelector('[data-pp="jump"]'),
-  subrow: passportScreen.querySelector('[data-pp="subrow"]'),
   shown: passportScreen.querySelector('[data-pp="shown"]'),
+  empty: passportScreen.querySelector('[data-pp="empty"]'),
   dex: passportScreen.querySelector('[data-pp="dex"]'),
   collections: passportScreen.querySelector('[data-pp="collections"]'),
   countryList: passportScreen.querySelector('[data-pp="country-list"]'),
@@ -7029,6 +7041,42 @@ const ppEls = {
   countryHead: passportScreen.querySelector('[data-pp="country-head"]'),
   countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
 };
+let ppFilterOpenTop = 0;
+let ppFilterScrollFrame = 0;
+
+function closePassportFilters() {
+  if (ppEls.filtersToggle.getAttribute('aria-expanded') !== 'true') return;
+  ppEls.filtersToggle.setAttribute('aria-expanded', 'false');
+  ppEls.filters.setAttribute('aria-hidden', 'true');
+  ppEls.filters.classList.remove('is-open');
+  passportScreen.removeEventListener('scroll', onPassportFilterScroll);
+}
+
+function onPassportFilterScroll() {
+  if (ppFilterScrollFrame) return;
+  ppFilterScrollFrame = requestAnimationFrame(() => {
+    ppFilterScrollFrame = 0;
+    const top = passportScreen.scrollTop;
+    if (top < ppFilterOpenTop) ppFilterOpenTop = top;
+    else if (top - ppFilterOpenTop > 24) closePassportFilters();
+  });
+}
+
+function openPassportFilters() {
+  ppEls.filtersToggle.setAttribute('aria-expanded', 'true');
+  ppEls.filters.setAttribute('aria-hidden', 'false');
+  ppEls.filters.classList.add('is-open');
+  ppFilterOpenTop = passportScreen.scrollTop;
+  passportScreen.addEventListener('scroll', onPassportFilterScroll, { passive: true });
+}
+
+const ppStickyObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const toolbar = entry.target.nextElementSibling;
+    toolbar?.classList.toggle('is-stuck', !entry.isIntersecting && entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0));
+  });
+}, { root: passportScreen, threshold: 0 });
+passportScreen.querySelectorAll('.pp-stick-sentinel').forEach((sentinel) => ppStickyObserver.observe(sentinel));
 if (AUDIT_MODE) {
   const banner = document.createElement('div');
   banner.className = 'pp-audit-banner';
@@ -7672,10 +7720,15 @@ function applyPassportFilters() {
     if (chipEl) chipEl.textContent = `${name} ${count.toLocaleString()}/${total.toLocaleString()}`;
   }
   const filtered = ppStatus !== 'all' || band || continent;
-  ppEls.subrow.hidden = !filtered;
   ppEls.shown.textContent = filtered
     ? (shown ? `${shown.toLocaleString()} of ${ppAll.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
-    : '';
+    : `${ppAll.length.toLocaleString()} places`;
+  ppEls.empty.hidden = shown !== 0;
+  const active = Number(ppStatus !== 'all') + Number(Boolean(band)) + Number(Boolean(continent));
+  ppEls.badge.hidden = active === 0;
+  ppEls.badge.textContent = active ? `•${active}` : '';
+  ppEls.filtersToggle.classList.toggle('has-active', active > 0);
+  ppEls.filtersToggle.setAttribute('aria-label', active ? `Filters, ${active} active` : 'Filters, none active');
 }
 
 function renderPassportPage() {
@@ -7871,6 +7924,7 @@ let ppActiveCountry = null;
 let ppCountryListScroll = 0;
 
 function setPassportView(view) {
+  closePassportFilters();
   ppView = view;
   safeSetItem(PP_VIEW_KEY, view);
   ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.view === view)));
@@ -7895,6 +7949,7 @@ function openPassport() {
 }
 
 function closePassport(refocus = true) {
+  closePassportFilters();
   passportScreen.hidden = true;
   gameEls.start.hidden = false;
   document.body.className = 'game-start';
@@ -7913,15 +7968,28 @@ ppEls.status.querySelectorAll('button').forEach((btn) => {
     safeSetItem(PP_STATUS_KEY, ppStatus);
     ppEls.status.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
     applyPassportFilters();
+    if (ppEls.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck')) passportScreen.scrollTop = passportScreen.querySelector('[data-pp="places-sentinel"]').offsetTop;
   });
 });
-ppEls.continent.addEventListener('change', applyPassportFilters);
-ppEls.band.addEventListener('change', applyPassportFilters);
-ppEls.sort.addEventListener('change', renderPassportDex);
+const applyPassportControlFilter = () => {
+  applyPassportFilters();
+  if (ppEls.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck')) passportScreen.scrollTop = passportScreen.querySelector('[data-pp="places-sentinel"]').offsetTop;
+};
+ppEls.continent.addEventListener('change', applyPassportControlFilter);
+ppEls.band.addEventListener('change', applyPassportControlFilter);
+ppEls.sort.addEventListener('change', () => {
+  const wasStuck = ppEls.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck');
+  renderPassportDex();
+  if (wasStuck) passportScreen.scrollTop = passportScreen.querySelector('[data-pp="places-sentinel"]').offsetTop;
+});
 ppEls.filtersToggle.addEventListener('click', () => {
   const expanded = ppEls.filtersToggle.getAttribute('aria-expanded') === 'true';
-  ppEls.filtersToggle.setAttribute('aria-expanded', String(!expanded));
-  ppEls.filters.hidden = expanded;
+  if (expanded) closePassportFilters(); else openPassportFilters();
+});
+passportScreen.querySelectorAll('.pp-toolbar-close').forEach((button) => button.addEventListener('click', () => closePassport()));
+document.addEventListener('pointerdown', (event) => {
+  if (ppEls.filtersToggle.getAttribute('aria-expanded') !== 'true') return;
+  if (!ppEls.filters.contains(event.target) && !ppEls.filtersToggle.closest('.pp-toolbar').contains(event.target)) closePassportFilters();
 });
 ppEls.countrySort.addEventListener('change', renderCountryList);
 ppEls.countryBack.addEventListener('click', closeCountryDetail);
@@ -7930,6 +7998,7 @@ passportScreen.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape' || passportScreen.hidden) return;
+  if (ppEls.filtersToggle.getAttribute('aria-expanded') === 'true') { closePassportFilters(); return; }
   if (ppView === 'countries' && ppActiveCountry) closeCountryDetail();
   else closePassport();
 });
