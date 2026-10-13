@@ -4687,7 +4687,10 @@ function scoreEmoji(base) {
 }
 
 const COUNTRY_FLAGS = {
-  Scotland: '🏴󐁧󐁢󐁳󐁣󐁴󐁿', England: '🏴󐁧󐁢󐁥󐁮󐁧󐁿', 'Northern Ireland': '🇬🇧', Wales: '🏴󐁧󐁢󐁷󐁬󐁳󐁿',
+  Scotland: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}',
+  England: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}',
+  'Northern Ireland': '🇬🇧',
+  Wales: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}',
   'International Waters': '🌊', Uruguay: '🇺🇾', 'United States': '🇺🇸',
   Suriname: '🇸🇷', Botswana: '🇧🇼', Guyana: '🇬🇾', Ukraine: '🇺🇦',
   Comoros: '🇰🇲', Niue: '🇳🇺', 'Cape Verde': '🇨🇻', Latvia: '🇱🇻',
@@ -7390,8 +7393,14 @@ function passportShareImage(stats) {
     ctx.fillStyle = 'rgba(8,14,32,.78)'; ctx.roundRect(x + 218, 328, 106, 38, 18); ctx.fill();
     ctx.fillStyle = '#e6f0ff'; ctx.font = '800 22px system-ui, sans-serif'; ctx.fillText(formatShareKm(entry.km), x + 230, 354);
     ctx.fillStyle = '#eef2ff'; ctx.font = '800 28px system-ui, sans-serif';
-    let name = `${entry.item.short || entry.item.clue} ${flagForLocation(entry.item)}`;
-    while (ctx.measureText(name).width > 336 && name.length > 1) name = `${name.slice(0, -2)}…`;
+    const flag = flagForLocation(entry.item);
+    const labelText = entry.item.short || entry.item.clue;
+    const label = Array.from(labelText);
+    let name = `${labelText} ${flag}`;
+    if (ctx.measureText(name).width > 336) {
+      while (ctx.measureText(`${label.join('')}… ${flag}`).width > 336 && label.length > 1) label.pop();
+      name = `${label.join('')}… ${flag}`;
+    }
     ctx.fillText(name, x, 580);
   };
   return loads.then((images) => {
