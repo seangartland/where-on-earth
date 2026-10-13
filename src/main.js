@@ -8600,7 +8600,7 @@ const SHARE_LABEL = '📮 Share this postcard';
 
 function postcardShareText(entry) {
   const place = entry.item.short || (entry.item.clue || '').replace(FLAG_RE, '').trim();
-  return `I got within ${Math.round(entry.km).toLocaleString()} km of ${place} on Where on Earth! Can you beat me? ${HOME_URL}`;
+  return `I got within ${Math.round(entry.km).toLocaleString()} km of ${place} on Where on Earth! ${HOME_URL}`;
 }
 
 let ppdCopiedTimer = 0;
