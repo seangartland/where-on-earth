@@ -5326,11 +5326,12 @@ function survivalShareText() {
     });
   }
   const count = survival.survived;
+  const survivedResults = survival.results.slice(0, count);
   return formatGameShare({
     title: 'Survival',
     headline: `${count.toLocaleString()} ${count === 1 ? 'round' : 'rounds'} survived`,
     streak: survivalBest(),
-    guesses: closestGuessLines(survival.results, survival.results.map((entry) => entry.item)),
+    guesses: closestGuessLines(survivedResults, survivedResults.map((entry) => entry.item)),
     visited: count,
   });
 }
