@@ -3588,7 +3588,8 @@ function showRound() {
     gameEls.survivalStreak.textContent = borders.round === 1
       ? 'One miss ends the run'
       : `🔥 ${borders.found} survived`;
-    gameEls.dailyDate.hidden = true;
+    gameEls.dailyDate.textContent = 'Survival: Tap the Country';
+    gameEls.dailyDate.hidden = false;
   } else if (survival.active) {
     document.body.classList.add('survival');
     gameEls.number.textContent = `Round ${survival.round}  Difficulty ${survivalBand()}/10`;
@@ -4855,7 +4856,7 @@ function showResults() {
 
 function syncDailyButton() {
   const played = daily && daily.complete && daily.date === localDateKey();
-  gameEls.play.querySelector('.mode-desc').textContent = played ? '✓ Played · see results' : '5 places, once a day';
+  gameEls.play.querySelector('.mode-desc').textContent = played ? '✓ See results' : '5 places daily';
   gameEls.play.classList.toggle('played', Boolean(played));
 }
 
@@ -5451,7 +5452,7 @@ function showBordersGameOver() {
   document.body.className = 'game-results survival borders';
   const count = borders.found;
   const best = saveBordersBest(count);
-  setRunResultsCopy('Borders run over', 'One miss ends the run.', 'Found');
+  setRunResultsCopy('Survival: Tap the Country run over', 'One miss ends the run.', 'Found');
   gameEls.survivalResultTitle.textContent = `${count} ${count === 1 ? 'country' : 'countries'} found`;
   gameEls.survivalFinalStreak.textContent = count.toLocaleString();
   gameEls.survivalBestStreak.textContent = best.toLocaleString();
@@ -6427,7 +6428,7 @@ passportStyle.textContent = `
 /* A plain scrim, not backdrop-filter: a blurred panel over the live WebGL canvas
    starves the software compositor (the stats overlay needed a frozen loop for the
    same reason) and the dots show through the tint anyway. */
-.passport { width: 100%; max-width: 330px; margin: 18px 0 24px; padding: 12px 14px 13px; border-radius: 20px; border: 1px solid rgba(157,211,255,.14); background: rgba(4,10,24,.5); }
+.passport { box-sizing: border-box; width: min(100%, 330px); max-width: 330px; margin: 18px 0 24px; padding: 12px 14px 13px; border-radius: 20px; border: 1px solid rgba(157,211,255,.14); background: rgba(4,10,24,.5); }
 .passport[hidden] { display: none; }
 .passport-count { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; font-weight: 700; }
 .passport-earned { color: #ffd166; }

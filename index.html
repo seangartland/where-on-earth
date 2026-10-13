@@ -84,9 +84,9 @@
     .mode-buttons > button {
       width: 100%;
       min-width: 0;
-      min-height: 54px;
+      min-height: 62px;
       margin: 0;
-      padding: 0 10px;
+      padding: 0 8px;
       border: 1px solid rgba(196,168,255,.45);
       border-radius: 999px;
       background: rgba(150,110,255,.14);
@@ -107,8 +107,20 @@
       line-height: 1.15;
     }
     .mode-buttons .mode-name,
-    .mode-buttons .mode-desc { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
-    .mode-buttons .mode-desc { font-size: 11px; font-weight: 650; opacity: .72; }
+    .mode-buttons .mode-desc { max-width: 100%; overflow: hidden; }
+    .mode-buttons .mode-name { text-overflow: ellipsis; }
+    .mode-buttons .mode-desc {
+      display: -webkit-box;
+      font-size: 11px;
+      font-weight: 650;
+      line-height: 1.1;
+      opacity: .72;
+      overflow: hidden;
+      text-overflow: clip;
+      white-space: normal;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
     .mode-buttons > button:active { transform: scale(.98); }
     .mode-buttons > button[hidden] { display: none; }
     .mode-buttons > button:disabled { opacity: .45; cursor: progress; }
@@ -197,10 +209,10 @@
       <h1>Where on Earth?</h1>
       <p class="how-to">Find five places. Spin the globe, zoom in, tap to place your pin, then lock it in.</p>
       <div class="mode-buttons" aria-label="Game modes">
-        <button id="play-button" type="button"><span class="mode-name">Daily</span><small class="mode-desc">5 places, once a day</small></button>
+        <button id="play-button" type="button"><span class="mode-name">Daily</span><small class="mode-desc">5 places daily</small></button>
         <button id="endless-button" type="button" hidden><span class="mode-name">Endless</span><small class="mode-desc">Play nonstop</small></button>
-        <button id="survival-button" type="button"><span class="mode-name">Survival</span><small class="mode-desc">Stay within 150 km</small></button>
-        <button id="borders-button" type="button"><span class="mode-name">Borders</span><small class="mode-desc">Tap the country</small></button>
+        <button id="survival-button" type="button"><span class="mode-name">Survival</span><small class="mode-desc">Within 150 km</small></button>
+        <button id="borders-button" type="button"><span class="mode-name">Survival:</span><small class="mode-desc">Tap the Country</small></button>
         <button id="expeditions-button" type="button" hidden><span class="mode-name">Expeditions</span><small class="mode-desc">Themed journeys</small></button>
       </div>
       <p id="start-streak" class="streak"></p>
