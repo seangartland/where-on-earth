@@ -4721,7 +4721,6 @@ function postcardSummaryCard(result, item) {
     img.addEventListener('error', () => img.remove(), { once: true });
     photo.append(img);
   }
-  setProxBadge(photo, outcome.tier);
   const flag = flagForLocation(item);
   const name = document.createElement('p');
   name.className = 'pp-name';
@@ -4730,10 +4729,7 @@ function postcardSummaryCard(result, item) {
   meta.className = 'pp-meta';
   const distanceText = postcardDistance(result, outcome);
   if (outcome.kind === 'upgrade') {
-    const tier = document.createElement('span');
-    tier.className = 'postcard-summary-tier';
-    tier.textContent = `↑ ${outcome.tier === EARN_PINPOINT ? 'Pinpoint' : 'Bullseye'}`;
-    meta.append(tier, ` • ${distanceText}`);
+    meta.textContent = `Upgraded • ${distanceText}`;
   } else {
     meta.textContent = `New • ${distanceText}`;
   }
