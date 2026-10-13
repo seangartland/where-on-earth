@@ -3585,7 +3585,7 @@ function showRound() {
   } else if (borders.active) {
     // Survival's restyle; the clue is the country name and flag
     document.body.classList.add('survival', 'borders');
-    gameEls.number.textContent = `Round ${borders.round}  Difficulty ${bordersBand()}/10`;
+    gameEls.number.textContent = `Round ${borders.round}  Difficulty ${borders.band}/10`;
     gameEls.weight.style.display = 'none';
     gameEls.survivalStreak.textContent = borders.round === 1
       ? 'One miss ends the run'
@@ -3594,7 +3594,7 @@ function showRound() {
     gameEls.dailyDate.hidden = false;
   } else if (survival.active) {
     document.body.classList.add('survival');
-    gameEls.number.textContent = `Round ${survival.round}  Difficulty ${survivalBand()}/10`;
+    gameEls.number.textContent = `Round ${survival.round}  Difficulty ${survival.band}/10`;
     gameEls.weight.style.display = 'none';
     gameEls.survivalStreak.textContent = survival.round === 1
       ? 'One miss over 150 km ends the run'
@@ -5227,14 +5227,15 @@ endlessEntry.addEventListener('click', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Survival mode: difficulty climbs 1-10 and repeats; one miss over 150 km ends
-// the run
+// Survival mode: each round draws a random difficulty band; one miss over 150
+// km ends the run
 // ---------------------------------------------------------------------------
 const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
 const SURVIVAL_LIMIT_KM = 150;
 const survival = {
   active: false,
   item: null,
+  band: null,
   round: 0,
   survived: 0,
   lastDistance: null,
@@ -5256,15 +5257,17 @@ function saveSurvivalBest(value) {
   return best;
 }
 
-function survivalBand() {
-  return ((survival.round - 1) % 10) + 1;
+function randomDifficultyBand() {
+  return Math.floor(Math.random() * 10) + 1;
 }
 
 // Independent uniform draw from the requested band. There is intentionally no
 // bag, collection weighting, or repeat prevention in Survival.
 function survivalPick() {
-  const band = survivalBand();
-  const choices = locations.filter((item) => isPlayableLocation(item) && !isLandmark(item) && Number(item.difficulty) === band);
+  survival.band = randomDifficultyBand();
+  const playable = locations.filter((item) => isPlayableLocation(item) && !isLandmark(item));
+  const bandChoices = playable.filter((item) => Number(item.difficulty) === survival.band);
+  const choices = bandChoices.length ? bandChoices : playable;
   if (!choices.length) return null;
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -5290,6 +5293,7 @@ function startSurvival() {
   survival.active = true;
   runResultsMode = 'survival';
   survival.item = null;
+  survival.band = null;
   survival.round = 0;
   survival.survived = 0;
   survival.lastDistance = null;
@@ -5355,14 +5359,15 @@ function setRunResultsCopy(eyebrow, summary, label) {
 
 // ---------------------------------------------------------------------------
 // Borders mode: tap the named country (docs/country-outlines-plan-opus.md §3).
-// Survival's climb (difficulty 1-10, repeating) over per-country bands, with a
-// bag per band so no country repeats within a run. One miss ends the run. It
-// earns nothing in the Passport: there is no location to earn.
+// Each round draws a random difficulty band. Per-band bags ensure no country
+// repeats within a run; an exhausted draw falls back to another nonempty bag.
+// One miss ends the run. It earns nothing in the Passport: there is no location
+// to earn.
 // ---------------------------------------------------------------------------
 const BORDERS_BEST_KEY = 'where-on-earth-countries-best-v1';
 const BORDERS_TAP_PX = 20; // tap tolerance, as REVIEW_LINE_HIT
 const BORDERS_TAP_MAX_KM = 50; // so zooming out can't make 20 px cover 1,000 km
-const borders = { active: false, key: null, round: 0, found: 0, missed: false, bags: new Map() };
+const borders = { active: false, key: null, band: null, round: 0, found: 0, missed: false, bags: new Map() };
 const bordersEntry = document.getElementById('borders-button');
 
 function bordersBest() {
@@ -5377,10 +5382,6 @@ function saveBordersBest(value) {
   const best = Math.max(bordersBest(), value);
   safeSetItem(BORDERS_BEST_KEY, String(best));
   return best;
-}
-
-function bordersBand() {
-  return ((borders.round - 1) % 10) + 1;
 }
 
 // A key's flag: its most common clue flag (Denmark's places include Greenland's).
@@ -5403,16 +5404,22 @@ function syncBordersEntry() {
   bordersEntry.disabled = !(countryData && countryBands && locations.length);
 }
 
-// Draw without replacement within the band. An exhausted band ends the run,
-// so a country can never repeat during one run.
+// Draw without replacement within the band. If the random band is exhausted,
+// use another nonempty band; only exhausting every bag ends the run.
 function bordersPick() {
-  const band = bordersBand();
-  let bag = borders.bags.get(band);
-  if (!bag) {
-    bag = Object.keys(countryBands).filter((k) => countryBands[k] === band && countryData.keys[k]);
-    borders.bags.set(band, bag);
+  const drawnBand = randomDifficultyBand();
+  for (let band = 1; band <= 10; band += 1) {
+    if (!borders.bags.has(band)) {
+      borders.bags.set(band, Object.keys(countryBands).filter((k) => countryBands[k] === band && countryData.keys[k]));
+    }
   }
-  return bag.length ? bag.splice(Math.floor(Math.random() * bag.length), 1)[0] : null;
+  const availableBands = [...borders.bags].filter(([, bag]) => bag.length).map(([band]) => band);
+  if (!availableBands.length) return null;
+  borders.band = borders.bags.get(drawnBand).length
+    ? drawnBand
+    : availableBands[Math.floor(Math.random() * availableBands.length)];
+  const bag = borders.bags.get(borders.band);
+  return bag.splice(Math.floor(Math.random() * bag.length), 1)[0];
 }
 
 function bordersGo() {
@@ -5436,6 +5443,7 @@ function startBorders() {
   borders.round = 0;
   borders.found = 0;
   borders.missed = false;
+  borders.band = null;
   borders.bags.clear();
   runResultsMode = 'borders';
   bordersGo();
