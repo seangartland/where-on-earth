@@ -54,6 +54,10 @@ Method: I measured category and image counts from `assets/locations.json` and re
 - **Builds on:** The shipped country geometry (`country-outlines.topo.json`) and hit testing, the Survival: Tap the Country run structure, and the existing classic blue style. The real work is masking the satellite texture per country on the globe as countries fall.
 - **Watch:** Countries never repeat within a run, so the blackout is progression and identity rather than a scoring change. One second-order effect to playtest: removing a found country's satellite detail also removes orientation context for neighbouring unfound countries, which may quietly raise difficulty late in a run.
 
+### 7. Collections revisit (Sean, 2026-10-12)
+- **State:** Collections is HIDDEN as of 2026-10-12: the home-screen button and the Passport shield button carry `hidden`; all Collections rendering, state, and wiring remain in the code, so reinstating is removing two attributes.
+- **Revisit when:** the expanded location list has landed (the Oct 13 city batches take the dataset from 754 toward 812). Reconsider what Collections should be with the larger list before unhiding, rather than restoring it unchanged by default.
+
 ### Also cheap (not on the original list)
 - **Themed Endless from existing `sets`:** small. The tags already exist (Volcanoes 14, Castles 11, Ancient Ruins 12, Sacred Sites 12…), so this is a picker over data already on hand. Good filler between bigger releases.
 
