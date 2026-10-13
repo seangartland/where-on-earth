@@ -4649,7 +4649,7 @@ function applyThumbState(thumb, item, earned, visited) {
   thumb.classList.toggle('seen-no-postcard', showGrayscale);
   thumb.classList.toggle('no-postcard', showGrayscale);
   applyCardTier(thumb, item, earned);
-  setProxBadge(thumb.parentElement, earned, thumb === gameEls.peekThumb ? 'compact' : '');
+  thumb.parentElement.querySelector(':scope > .prox-badge')?.remove();
 }
 
 function setRevealThumbState(item, visited, earned) {
@@ -6895,7 +6895,7 @@ passportPageStyle.textContent = `
 .pp-audit-flag-dot { position: absolute; right: -2px; bottom: -2px; display: grid; place-items: center; width: 13px; height: 13px; border: 1px solid rgba(8,14,32,.9); border-radius: 50%; background: transparent; font-size: 9px; line-height: 1; }
 .pp-audit-flag[data-flag="image"] .pp-audit-flag-dot { background: #ef4444; }
 .pp-audit-flag[data-flag="city"] .pp-audit-flag-dot { background: #facc15; }
-.pp-slot-score { position: absolute; z-index: 2; top: 5px; right: 5px; box-sizing: border-box; height: 18px; padding: 1px 5px; border: 0; border-radius: 999px; background: rgba(8,14,32,.82); color: #e6f0ff; font-size: 9px; font-weight: 800; font-variant-numeric: tabular-nums; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
+.pp-slot-score { position: absolute; z-index: 2; top: 5px; right: 5px; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 3px 6px; border: 1px solid transparent; border-radius: 999px; background: rgba(8,14,32,.82); color: #e6f0ff; font-size: 9px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
 .pp-slot-score[data-tier="bullseye"] { border: 1.5px solid #ffd166; background: rgba(8,14,32,.88); color: #ffd166; }
 .pp-slot-score[data-tier="pinpoint"] { background: #e9b23c; color: #2b1d00; }
 .pp-slot-name { margin: 4px 1px 0; overflow: hidden; color: #eef2ff; font-size: 10px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
@@ -7411,10 +7411,6 @@ function passportShareImage(stats) {
     ctx.strokeStyle = RARITY_HEX[rarity]; ctx.lineWidth = 4; ctx.strokeRect(x + 2, 318, 332, 220);
     ctx.fillStyle = 'rgba(8,14,32,.78)'; ctx.roundRect(x + 218, 328, 106, 38, 18); ctx.fill();
     ctx.fillStyle = '#e6f0ff'; ctx.font = '800 22px system-ui, sans-serif'; ctx.fillText(formatShareKm(entry.km), x + 230, 354);
-    if (entry.earned >= EARN_BULLSEYE) {
-      const badge = entry.earned >= EARN_PINPOINT ? '📍 PINPOINT' : '🎯 BULLSEYE';
-      ctx.fillStyle = '#ffdc7a'; ctx.roundRect(x + 12, 328, 170, 38, 18); ctx.fill(); ctx.fillStyle = '#2b1d00'; ctx.font = '900 18px system-ui, sans-serif'; ctx.fillText(badge, x + 22, 354);
-    }
     ctx.fillStyle = '#eef2ff'; ctx.font = '800 28px system-ui, sans-serif';
     let name = `${entry.item.short || entry.item.clue} ${flagForLocation(entry.item)}`;
     while (ctx.measureText(name).width > 336 && name.length > 1) name = `${name.slice(0, -2)}…`;
@@ -7506,7 +7502,7 @@ function passportSlot(entry) {
   const pillText = hasDistance ? formatShareKm(entry.km) : entry.best;
   li.dataset.earn = earn;
   applyCardTier(li, entry.item, entry.earned);
-  li.append(...passportSlotFace(entry, pillText, { scoreTier: tier, showProxBadge: false }));
+  li.append(...passportSlotFace(entry, pillText, { scoreTier: tier }));
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
@@ -7550,7 +7546,7 @@ function addAuditFlagButton(photo, entry) {
   photo.append(button);
 }
 
-function passportSlotFace(entry, pillText, { flagForPlaceholder = true, scoreTier = '', showProxBadge = true } = {}) {
+function passportSlotFace(entry, pillText, { flagForPlaceholder = true, scoreTier = '' } = {}) {
   const photo = document.createElement('div');
   photo.className = 'pp-slot-photo';
   if (hasRealPhoto(entry.item) || !flagForPlaceholder) {
@@ -7568,7 +7564,6 @@ function passportSlotFace(entry, pillText, { flagForPlaceholder = true, scoreTie
       className: 'pps-flag', textContent: flagForLocation(entry.item),
     }));
   }
-  if (showProxBadge) setProxBadge(photo, entry.earned, 'compact');
   if (pillText != null) {
     const score = document.createElement('span');
     score.className = 'pp-slot-score';
@@ -7603,13 +7598,20 @@ const PP_FLAT_COMPARE = {
   recent: (a, b) => b.recency - a.recency,
 };
 const PP_STATUS_KEY = 'where-on-earth-passport-status';
-const PP_STATUSES = new Set(['all', 'earned', 'seen', 'unvisited']);
-let ppStatus = 'all';
+const PP_STATUSES = new Set(['earned', 'seen', 'unvisited']);
+const ppStatuses = new Set();
 try {
   const savedStatus = localStorage.getItem(PP_STATUS_KEY);
-  if (PP_STATUSES.has(savedStatus)) ppStatus = savedStatus;
+  const savedStatuses = savedStatus?.startsWith('[') ? JSON.parse(savedStatus) : [savedStatus];
+  savedStatuses.filter((status) => PP_STATUSES.has(status)).forEach((status) => ppStatuses.add(status));
 } catch (error) { storageError('Read failed', PP_STATUS_KEY, error); }
-ppEls.status.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.status === ppStatus)));
+function syncPpStatusButtons() {
+  ppEls.status.querySelectorAll('button').forEach((button) => {
+    const active = button.dataset.status === 'all' ? ppStatuses.size === 0 : ppStatuses.has(button.dataset.status);
+    button.setAttribute('aria-pressed', String(active));
+  });
+}
+syncPpStatusButtons();
 
 let ppDexGroups = []; // atlas sort only: [{ section, name, head }]
 let ppDexLis = []; // every rendered slot: [{ li, entry }]
@@ -7670,9 +7672,7 @@ function ppGroupHead(name, text, onCollapse) {
 function ppFilteredGroupCount(name) {
   const band = ppEls.band.value;
   return ppDexLis.filter(({ li, entry }) => {
-    const statusMatch = ppStatus === 'all'
-      ? li.dataset.status !== 'unvisited'
-      : li.dataset.status === ppStatus;
+    const statusMatch = ppStatuses.size === 0 || ppStatuses.has(li.dataset.status);
     return (entry.continent || 'Other') === name
       && statusMatch
       && (!band || entry.band === band);
@@ -7743,7 +7743,7 @@ function applyPassportFilters() {
   const continent = ppEls.continent.hidden ? '' : ppEls.continent.value;
   let shown = 0;
   for (const { li, entry } of ppDexLis) {
-    const show = (ppStatus === 'all' || li.dataset.status === ppStatus)
+    const show = (ppStatuses.size === 0 || ppStatuses.has(li.dataset.status))
       && (!band || entry.band === band)
       && (!continent || li.dataset.continent === continent);
     li.hidden = !show;
@@ -7756,12 +7756,12 @@ function applyPassportFilters() {
     const count = ppFilteredGroupCount(name);
     head.querySelector('.pp-group-head-text').textContent = `${name} · ${count.toLocaleString()}/${total.toLocaleString()}`;
   }
-  const filtered = ppStatus !== 'all' || band || continent;
+  const filtered = ppStatuses.size > 0 || band || continent;
   ppEls.shown.textContent = filtered
     ? (shown ? `${shown.toLocaleString()} of ${ppAll.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
     : `${ppAll.length.toLocaleString()} places`;
   ppEls.empty.hidden = shown !== 0;
-  const active = Number(ppStatus !== 'all') + Number(Boolean(band)) + Number(Boolean(continent));
+  const active = ppStatuses.size + Number(Boolean(band)) + Number(Boolean(continent));
   ppEls.badge.hidden = active === 0;
   ppEls.badge.textContent = active ? `•${active}` : '';
   ppEls.filtersToggle.classList.toggle('has-active', active > 0);
@@ -8001,9 +8001,12 @@ ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => {
 });
 ppEls.status.querySelectorAll('button').forEach((btn) => {
   btn.addEventListener('click', () => {
-    ppStatus = btn.dataset.status;
-    safeSetItem(PP_STATUS_KEY, ppStatus);
-    ppEls.status.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    const status = btn.dataset.status;
+    if (status === 'all') ppStatuses.clear();
+    else if (ppStatuses.has(status)) ppStatuses.delete(status);
+    else ppStatuses.add(status);
+    safeSetItem(PP_STATUS_KEY, JSON.stringify([...ppStatuses]));
+    syncPpStatusButtons();
     applyPassportFilters();
     if (ppEls.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck')) passportScreen.scrollTop = passportScreen.querySelector('[data-pp="places-sentinel"]').offsetTop;
   });
@@ -8242,7 +8245,6 @@ function renderCollectionDetail(set) {
       img.decoding = 'async';
       img.addEventListener('error', () => img.remove(), { once: true });
       photo.append(img);
-      setProxBadge(photo, tier, 'compact');
     }
     const name = document.createElement('p');
     name.className = 'collection-card-name';
@@ -8436,7 +8438,6 @@ function fillPostcard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     ppdEls.photo.append(img);
   }
-  setProxBadge(ppdEls.photo, entry.earned, 'large');
   ppdEls.from.textContent = `Postcard from ${entry.continent || 'Earth'}`;
   const flag = (item.clue || '').match(FLAG_RE);
   const short = item.short || item.clue || '';
