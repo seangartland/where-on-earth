@@ -6745,7 +6745,7 @@ function buildPassportEntry(item, age) {
     km: meta.d,
     first: meta.f,
     earned: AUDIT_MODE ? EARN_NEAR : (meta.e || 0),
-    tierDates: [null, meta.eb1 || ((meta.e || 0) === EARN_NEAR ? meta.ea : undefined), meta.eb2, meta.eb3],
+    earnedAt: meta.ea,
     // Timestamped visits are always newer than legacy ones, which fall back to
     // their place in the recency order (and to the very end if that was capped).
     recency: meta.t ?? (age?.has(item.id) ? age.get(item.id) : -1),
@@ -8241,8 +8241,8 @@ function renderCollectionDetail(set) {
       const entry = {
         item,
         earned: tier,
+        earnedAt: meta.ea,
         continent: continentOf(item),
-        tierDates: [null, meta.eb1 || (tier === EARN_NEAR ? meta.ea : undefined), meta.eb2, meta.eb3],
         best: meta.b,
         km: meta.d,
         first: meta.f,
@@ -8333,9 +8333,6 @@ postcardStyle.textContent = `
 .ppd-history { display: grid; gap: 5px; margin: 13px 0 0; color: #818da2; font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 .ppd-history-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
 .ppd-history-row strong { min-width: 0; color: #c8cfdb; font-weight: 750; text-align: right; white-space: nowrap; }
-.ppd-history-row.upgrade > span { color: #d1a943; }
-.ppd-history-row .same-day-full { display: inline; }
-.ppd-history-row .same-day-short { display: none; }
 .ppd-history[hidden] { display: none; }
 .ppd-fact { margin: 14px 0 0; padding: 0 0 14px; border-bottom: 1px solid #303748; color: #c2c8d4; font-family: Georgia, serif; font-size: 13px; line-height: 1.52; }
 .ppd-fact::before { content: 'DID YOU KNOW?'; display: block; margin-bottom: 5px; color: var(--ppd-accent); font-family: Inter, sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .15em; }
@@ -8348,11 +8345,7 @@ postcardStyle.textContent = `
 .ppd-share { display: block; width: 100%; min-height: 45px; margin: 13px 0 0; padding: 0 16px; border: 1px solid #4b566b; border-radius: 12px; background: #252d40; color: #fff; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; }
 .ppd-share:active { transform: scale(.98); }
 .ppd-share:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
-.ppd-share[hidden] { display: none; }
-@media (max-width: 390px) {
-  .ppd-history-row[data-same-day="true"] .same-day-full { display: none; }
-  .ppd-history-row[data-same-day="true"] .same-day-short { display: inline; }
-}`;
+.ppd-share[hidden] { display: none; }`;
 document.head.appendChild(postcardStyle);
 
 const postcardScreen = document.createElement('section');
@@ -8419,34 +8412,20 @@ function fillPostcard(entry) {
   ppdEls.fact.textContent = item.fact || '';
   ppdEls.fact.hidden = !item.fact;
   ppdEls.history.replaceChildren();
-  const firstDate = entry.first || '';
-  const tierDate = entry.earned ? tierDateKey(entry.tierDates[entry.earned]) : '';
-  const tierLabel = { 1: 'Postcard earned', 2: 'Bullseye', 3: 'Pinpoint' }[entry.earned];
-  const addHistoryRow = (label, date, upgrade = false, sameDay = false) => {
+  const historyDate = entry.earned ? tierDateKey(entry.earnedAt) : entry.first || '';
+  const addHistoryRow = (label, date) => {
     if (!date) return;
     const row = document.createElement('div');
-    row.className = `ppd-history-row${upgrade ? ' upgrade' : ''}`;
+    row.className = 'ppd-history-row';
     const labelEl = document.createElement('span');
     labelEl.textContent = label;
-    if (upgrade && sameDay && entry.earned === EARN_BULLSEYE) {
-      const fullLabel = document.createElement('span');
-      fullLabel.className = 'same-day-full';
-      fullLabel.textContent = label;
-      const shortLabel = document.createElement('span');
-      shortLabel.className = 'same-day-short';
-      shortLabel.textContent = 'Bullseye · Same day';
-      labelEl.textContent = '';
-      labelEl.append(fullLabel, shortLabel);
-      row.dataset.sameDay = 'true';
-    }
     const dateEl = document.createElement('strong');
     dateEl.textContent = longDate(date);
     row.append(labelEl, dateEl);
     ppdEls.history.append(row);
   };
-  addHistoryRow('First visited', firstDate);
-  addHistoryRow(tierLabel, tierDate, true, firstDate === tierDate);
-  ppdEls.history.hidden = !firstDate && !tierDate;
+  addHistoryRow(entry.earned ? 'Postcard earned' : 'First visited', historyDate);
+  ppdEls.history.hidden = !historyDate;
   const cells = [
     ['Best score', `${entry.best}<small> /1000</small>`],
     ['Closest guess', Number.isFinite(entry.km) ? `${entry.km.toLocaleString()}<small> km</small>` : ''],
