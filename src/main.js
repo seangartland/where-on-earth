@@ -4778,15 +4778,11 @@ function formatGameShare({ title, headline, streak, streakLabel = 'Best streak',
 function shareText() {
   const dateStr = new Date(`${daily.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const total = daily.results.reduce((sum, result) => sum + result.score, 0);
-  const streak = readJSON(STREAK_KEY);
-  return formatGameShare({
-    title: 'Daily',
-    headline: `${dateStr} · Final Score: ${total.toLocaleString()}`,
-    streak: Math.max(0, Number(streak?.count) || 0),
-    streakLabel: 'Day streak',
-    guesses: closestGuessLines(daily.results, selected),
-    visited: daily.results.length,
+  const lines = daily.results.map((result, index) => {
+    const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
+    return `${base} ${scoreEmoji(base)}`;
   });
+  return `Where on Earth?\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}\n\nCan you beat me?\nhttps://where-on.earth`;
 }
 
 function postcardSummaryOutcomes() {
