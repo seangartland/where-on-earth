@@ -9,6 +9,16 @@
       "source": "/pvp/join/",
       "destination": "/",
       "permanent": false
+    },
+    {
+      "source": "/pvp/group/join",
+      "destination": "/?from=group",
+      "permanent": false
+    },
+    {
+      "source": "/pvp/group/join/",
+      "destination": "/?from=group",
+      "permanent": false
     }
   ],
   "rewrites": [
