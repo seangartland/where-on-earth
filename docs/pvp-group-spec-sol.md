@@ -10,6 +10,8 @@ The mode is asynchronous. Players do not need to be online together. A participa
 
 SPEC CHOICE: use `Open Challenge` in product copy until Sean selects the final name.
 
+DECIDED (Sean, 2026-10-14): the name is **Open Challenge**. The remaining SPEC CHOICE defaults in this document stand as written.
+
 SPEC CHOICE: allow at most 50 distinct participants per challenge, including the creator. The limit is enforced atomically by the challenge Durable Object.
 
 SPEC CHOICE: accept new participants until the fixed seven-day expiry or until the creator closes entries early. Closing entries does not stop accepted participants from finishing before expiry.
