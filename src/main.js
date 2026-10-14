@@ -2702,6 +2702,8 @@ const gameEls = {
   resultStreak: document.getElementById('result-streak'),
   travelDistance: document.getElementById('travel-distance'),
   survivalEntry: document.getElementById('survival-button'),
+  survivalHub: document.getElementById('survival-hub'),
+  survivalHubEntry: document.getElementById('survival-hub-button'),
   survivalStreak: document.getElementById('survival-streak'),
   survivalResults: document.getElementById('survival-results-screen'),
   survivalResultTitle: document.getElementById('survival-result-title'),
@@ -3559,6 +3561,7 @@ var pvpScreenEls = []; // set once the PvP screens are built
 function hideScreens() {
   gameEls.start.hidden = gameEls.round.hidden = gameEls.postcardSummaryScreen.hidden = gameEls.results.hidden = true;
   gameEls.survivalResults.hidden = true;
+  gameEls.survivalHub.hidden = true;
   reviewEls.screen.hidden = true;
   if (statsScreenEl) statsScreenEl.hidden = true;
   if (settingsScreenEl) settingsScreenEl.hidden = true;
@@ -5803,6 +5806,35 @@ blackoutPicker.addEventListener('click', (event) => {
     startBorders(scope);
   } else if (event.target === blackoutPicker) goHome();
 });
+
+// Survival hub: the one home entry for the three Survival modes. Its rows are
+// the mode entries above (survival, borders, blackout buttons), so each keeps
+// its own click handler; hideScreens closes the hub on the way out.
+function blackoutBestSummary() {
+  if (blackoutEntry.disabled) return '';
+  let top = null;
+  for (const scope of blackoutScopes()) {
+    const best = Math.min(blackoutBest(scope), scope.keys.length);
+    if (best && (!top || best / scope.keys.length > top.best / top.total)) top = { label: scope.label, best, total: scope.keys.length };
+  }
+  return top ? `Best ${top.label} ${top.best}/${top.total}` : '';
+}
+
+function showSurvivalHub() {
+  clearReveal();
+  hideScreens();
+  gameMode = 'survival-hub';
+  window.__canGuess = false;
+  const streak = (best) => (best ? `Best streak ${best.toLocaleString()}` : '');
+  const hub = gameEls.survivalHub;
+  hub.querySelector('[data-hub-best="survival"]').textContent = streak(survivalBest());
+  hub.querySelector('[data-hub-best="borders"]').textContent = streak(bordersBest());
+  hub.querySelector('[data-hub-best="blackout"]').textContent = blackoutBestSummary();
+  hub.hidden = false;
+}
+
+gameEls.survivalHubEntry.addEventListener('click', showSurvivalHub);
+gameEls.survivalHub.addEventListener('click', (event) => { if (event.target === gameEls.survivalHub) goHome(); });
 
 function showBlackoutGameOver() {
   clearReveal();
