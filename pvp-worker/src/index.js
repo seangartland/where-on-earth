@@ -1,5 +1,6 @@
 import { CATALOG, CATALOG_VERSION } from "./catalog.js";
 import { scoreCoordinates } from "./scoring.js";
+export { GroupChallengeRoom } from "./group-room.js";
 
 const RULES = { version: 1, rounds: 5, roundSeconds: 20, graceMilliseconds: 2000, maximumScore: 5000 };
 const WEEK = 7 * 86400000;
@@ -80,6 +81,7 @@ async function rateLimit(request, env, action, limit, seconds, extra = "") {
   if (!result.allowed) throw new ApiError(429, "RATE_LIMITED", "Too many requests. Try again later.", { retryAfter: result.retryAfter });
 }
 function matchStub(env, matchId) { try { return env.MATCHES.get(env.MATCHES.idFromString(matchId)); } catch { throw new ApiError(404, "MATCH_NOT_FOUND", "Match not found."); } }
+function groupStub(env, challengeId) { try { return env.GROUPS.get(env.GROUPS.idFromString(challengeId)); } catch { throw new ApiError(404, "CHALLENGE_NOT_FOUND", "Challenge not found."); } }
 function chooseLocations(excluded = []) {
   const usedCountries = new Set(); const chosen = []; let countryFallback = false;
   for (const low of [1, 3, 5, 7, 9]) {
@@ -94,6 +96,7 @@ function chooseLocations(excluded = []) {
   return { locations: chosen, countryFallback };
 }
 function shareUrl(env, inviteToken) { return `${(env.GAME_ORIGIN || "https://www.where-on.earth").replace(/\/$/, "")}/pvp/join#invite=${inviteToken}`; }
+function groupShareUrl(env, inviteToken) { return `${(env.GAME_ORIGIN || "https://www.where-on.earth").replace(/\/$/, "")}/pvp/group/join#invite=${inviteToken}`; }
 
 export class PlayerRecords {
   constructor(ctx, env) {
@@ -107,6 +110,10 @@ export class PlayerRecords {
     sql.exec("CREATE TABLE IF NOT EXISTS open_matches (player_id TEXT NOT NULL, match_id TEXT PRIMARY KEY, expires_at INTEGER NOT NULL)");
     sql.exec("CREATE TABLE IF NOT EXISTS rate_limits (bucket TEXT PRIMARY KEY, count INTEGER NOT NULL, reset_at INTEGER NOT NULL, strikes INTEGER NOT NULL)");
     sql.exec("CREATE TABLE IF NOT EXISTS invitation_tombstones (credential_hash TEXT PRIMARY KEY, kind TEXT NOT NULL, match_id TEXT NOT NULL, terminal_status TEXT NOT NULL, purge_at INTEGER NOT NULL)");
+    sql.exec("CREATE TABLE IF NOT EXISTS open_groups (player_id TEXT NOT NULL, challenge_id TEXT PRIMARY KEY, expires_at INTEGER NOT NULL)");
+    sql.exec("CREATE TABLE IF NOT EXISTS group_invitations (credential_hash TEXT PRIMARY KEY, credential_kind TEXT NOT NULL, challenge_id TEXT NOT NULL, expires_at INTEGER NOT NULL)");
+    sql.exec("CREATE TABLE IF NOT EXISTS group_invitation_tombstones (credential_hash TEXT PRIMARY KEY, credential_kind TEXT NOT NULL, challenge_id TEXT NOT NULL, terminal_status TEXT NOT NULL, purge_at INTEGER NOT NULL)");
+    sql.exec("CREATE TABLE IF NOT EXISTS group_memberships (player_id TEXT NOT NULL, challenge_id TEXT NOT NULL, role TEXT NOT NULL, summary TEXT NOT NULL, last_activity_at INTEGER NOT NULL, PRIMARY KEY (player_id, challenge_id))");
   }
   async fetch(request) {
     try {
@@ -127,13 +134,43 @@ export class PlayerRecords {
       if (url.pathname === "/reserve") {
         let openCount;
         this.ctx.storage.transactionSync(() => {
-          sql.exec("DELETE FROM open_matches WHERE expires_at <= ?", now);
-          openCount = sql.exec("SELECT COUNT(*) count FROM open_matches WHERE player_id = ?", data.playerId).toArray()[0].count;
+          sql.exec("DELETE FROM open_matches WHERE expires_at <= ?", now); sql.exec("DELETE FROM open_groups WHERE expires_at <= ?", now);
+          openCount = sql.exec("SELECT (SELECT COUNT(*) FROM open_matches WHERE player_id = ?) + (SELECT COUNT(*) FROM open_groups WHERE player_id = ?) count", data.playerId, data.playerId).toArray()[0].count;
           if (openCount >= 3) return;
           sql.exec("INSERT INTO open_matches VALUES (?, ?, ?)", data.playerId, data.matchId, data.expiresAt);
           sql.exec("INSERT INTO invitations VALUES (?, 'TOKEN', ?, ?), (?, 'CODE', ?, ?)", data.inviteHash, data.matchId, data.expiresAt, data.joinCode, data.matchId, data.expiresAt);
         });
         if (openCount >= 3) throw new ApiError(429, "OPEN_CHALLENGE_CAP", "You already have 3 open challenges.", { limit: 3, openCount }); return json({ openCount: openCount + 1 });
+      }
+      if (url.pathname === "/group-reserve") {
+        let openCount; let duplicate = false;
+        this.ctx.storage.transactionSync(() => {
+          sql.exec("DELETE FROM open_matches WHERE expires_at <= ?", now); sql.exec("DELETE FROM open_groups WHERE expires_at <= ?", now);
+          if (sql.exec("SELECT challenge_id FROM open_groups WHERE challenge_id = ?", data.challengeId).toArray()[0]) { duplicate = true; return; }
+          openCount = sql.exec("SELECT (SELECT COUNT(*) FROM open_matches WHERE player_id = ?) + (SELECT COUNT(*) FROM open_groups WHERE player_id = ?) count", data.playerId, data.playerId).toArray()[0].count;
+          if (openCount >= 3) return;
+          sql.exec("INSERT INTO open_groups VALUES (?, ?, ?)", data.playerId, data.challengeId, data.expiresAt);
+          sql.exec("INSERT INTO group_invitations VALUES (?, 'TOKEN', ?, ?), (?, 'CODE', ?, ?)", data.inviteHash, data.challengeId, data.expiresAt, data.joinCode, data.challengeId, data.expiresAt);
+        });
+        if (openCount >= 3) throw new ApiError(429, "OPEN_CHALLENGE_CAP", "You already have 3 open challenges.", { limit: 3, openCount }); return json({ openCount: duplicate ? undefined : openCount + 1, duplicate });
+      }
+      if (url.pathname === "/group-resolve-invite") {
+        sql.exec("DELETE FROM group_invitation_tombstones WHERE purge_at <= ?", now);
+        const row = sql.exec("SELECT challenge_id, expires_at FROM group_invitations WHERE credential_hash = ? AND credential_kind = ?", data.credential, data.kind).toArray()[0];
+        if (!row) { const dead = sql.exec("SELECT challenge_id, terminal_status FROM group_invitation_tombstones WHERE credential_hash = ? AND credential_kind = ?", data.credential, data.kind).toArray()[0]; if (dead) return json({ challengeId: dead.challenge_id, terminalStatus: dead.terminal_status }); throw new ApiError(404, "INVITATION_NOT_FOUND", "Invitation not found."); }
+        return json({ challengeId: row.challenge_id, expired: now >= row.expires_at });
+      }
+      if (url.pathname === "/group-release") {
+        this.ctx.storage.transactionSync(() => {
+          if (data.terminalStatus) sql.exec("INSERT OR REPLACE INTO group_invitation_tombstones SELECT credential_hash, credential_kind, challenge_id, ?, ? FROM group_invitations WHERE challenge_id = ?", data.terminalStatus, now + WEEK, data.challengeId);
+          sql.exec("DELETE FROM open_groups WHERE challenge_id = ?", data.challengeId); sql.exec("DELETE FROM group_invitations WHERE challenge_id = ?", data.challengeId);
+        }); return json({ ok: true });
+      }
+      if (url.pathname === "/group-membership-upsert") { sql.exec("INSERT OR REPLACE INTO group_memberships VALUES (?, ?, ?, ?, ?)", data.playerId, data.challengeId, data.role, JSON.stringify(data.summary), data.lastActivityAt); return json({ ok: true }); }
+      if (url.pathname === "/group-membership-remove") { sql.exec("DELETE FROM group_memberships WHERE challenge_id = ?", data.challengeId); return json({ ok: true }); }
+      if (url.pathname === "/group-list") {
+        const scope = data.scope === "created" ? "AND role = 'CREATOR'" : ""; const rows = sql.exec(`SELECT summary, last_activity_at FROM group_memberships WHERE player_id = ? ${scope} AND (last_activity_at < ? OR (last_activity_at = ? AND challenge_id < ?)) ORDER BY last_activity_at DESC, challenge_id DESC LIMIT ?`, data.playerId, data.beforeTime, data.beforeTime, data.beforeId, data.limit + 1).toArray();
+        const page = rows.slice(0, data.limit); const last = page.at(-1); return json({ challenges: page.map((row) => JSON.parse(row.summary)), nextCursor: rows.length > data.limit ? `${last.last_activity_at}:${JSON.parse(last.summary).challengeId}` : null });
       }
       if (url.pathname === "/consume-invite") { sql.exec("DELETE FROM invitations WHERE match_id = ?", data.matchId); return json({ ok: true }); }
       if (url.pathname === "/release") {
@@ -280,6 +317,17 @@ async function createMatch(env, auth, name, rematch = {}) {
   return { matchId, status: "OPEN", role: "CHALLENGER", joinCode: code, shareUrl: shareUrl(env, inviteToken), rules: RULES, catalogVersion: CATALOG_VERSION, createdAt: now, expiresAt, ...(rematch.rematchOf ? { rematchOf: rematch.rematchOf, series: rematch.series } : {}) };
 }
 
+async function createGroup(env, auth, name) {
+  const id = env.GROUPS.newUniqueId(); const challengeId = id.toString(); const inviteToken = random(32); const inviteHash = await hmac(env.INVITE_KEY || env.SERVER_SECRET, inviteToken); const code = joinCode(); const now = Date.now(); const expiresAt = now + WEEK; const selected = chooseLocations();
+  const stub = env.GROUPS.get(id);
+  try {
+    await internal(stub, "/init", { challengeId, catalogVersion: CATALOG_VERSION, createdAt: now, expiresAt, joinCode: code, inviteHash, locations: selected.locations, countryFallback: selected.countryFallback, creator: { playerId: auth.playerId, tokenHash: auth.tokenHash, displayName: name } });
+    await internal(recordStub(env), "/group-reserve", { playerId: auth.playerId, challengeId, expiresAt, inviteHash, joinCode: code });
+    await internal(stub, "/reserved");
+  } catch (error) { await internal(recordStub(env), "/group-release", { challengeId }).catch(() => {}); throw error; }
+  return { challengeId, status: "OPEN", role: "CREATOR", joinCode: code, shareUrl: groupShareUrl(env, inviteToken), rules: { ...RULES, participantCap: 50 }, catalogVersion: CATALOG_VERSION, createdAt: now, expiresAt };
+}
+
 export default {
   async fetch(request, env) {
     const origin = allowedOrigin(request, env); const cors = corsHeaders(origin || null);
@@ -287,6 +335,21 @@ export default {
       if (origin === false) throw new ApiError(403, "ORIGIN_NOT_ALLOWED", "This origin is not allowed."); if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors }); const url = new URL(request.url);
       if (url.pathname === "/health" && request.method === "GET") return json({ ok: true, service: "woe-pvp", apiVersion: 1 }, 200, cors);
       if (url.pathname === "/v1/players" && request.method === "POST") { await rateLimit(request, env, "players", 10, 3600); const data = await body(request, ["displayName"], ["displayName"]); const name = displayName(data.displayName); const playerId = `plr_${random(18)}`; const playerToken = random(32); const createdAt = Date.now(); await internal(recordStub(env), "/player", { playerId, tokenHash: await authHash(env, playerToken), createdAt, displayName: name }); return json({ playerId, playerToken, displayName: name, createdAt }, 201, cors); }
+      if (url.pathname === "/v1/group-challenges" && request.method === "POST") { if (env.PVP_ENABLED === "0") throw new ApiError(503, "SERVICE_DISABLED", "Challenge creation is temporarily disabled."); const auth = await authenticate(request, env); await rateLimit(request, env, "group-create", 10, 3600, auth.playerId); const data = await body(request, ["displayName", "clientVersion"], ["displayName", "clientVersion"]); const name = displayName(data.displayName); if (typeof data.clientVersion !== "string" || !data.clientVersion || data.clientVersion.length > 64) throw new ApiError(400, "INVALID_REQUEST", "clientVersion is required."); await internal(recordStub(env), "/name", { playerId: auth.playerId, displayName: name }); return json(await createGroup(env, auth, name), 201, cors); }
+      if (url.pathname === "/v1/group-invitations/inspect" && request.method === "POST") { const data = await body(request, ["inviteToken", "joinCode"]); if (!!data.inviteToken === !!data.joinCode) throw new ApiError(400, "INVALID_REQUEST", "Supply exactly one invitation credential."); const kind = data.inviteToken ? "TOKEN" : "CODE"; const credential = kind === "TOKEN" ? await hmac(env.INVITE_KEY || env.SERVER_SECRET, data.inviteToken) : String(data.joinCode).toUpperCase(); await rateLimit(request, env, "group-inspect", 12, 60, credential); const found = await internal(recordStub(env), "/group-resolve-invite", { kind, credential }); if (found.expired || found.terminalStatus === "EXPIRED") throw new ApiError(410, "INVITATION_EXPIRED", "The invitation has expired."); return json(await internal(groupStub(env, found.challengeId), "/invite-preview"), 200, cors); }
+      if (url.pathname === "/v1/group-challenges" && request.method === "GET") { const auth = await authenticate(request, env); await rateLimit(request, env, "group-list", 60, 60, auth.playerId); const scope = url.searchParams.get("scope") || "mine"; if (!['mine', 'created'].includes(scope)) throw new ApiError(400, "INVALID_REQUEST", "scope must be mine or created."); const limitText = url.searchParams.get("limit") || "20"; const limit = Number(limitText); if (!Number.isInteger(limit) || limit < 1 || limit > 20) throw new ApiError(400, "INVALID_REQUEST", "limit must be 1 through 20."); let beforeTime = Number.MAX_SAFE_INTEGER, beforeId = "~"; const cursor = url.searchParams.get("cursor"); if (cursor) { try { const parsed = JSON.parse(atob(cursor.replaceAll("-", "+").replaceAll("_", "/"))); beforeTime = parsed[0]; beforeId = parsed[1]; } catch { throw new ApiError(400, "INVALID_CURSOR", "Cursor is invalid."); } if (!Number.isSafeInteger(beforeTime) || typeof beforeId !== "string") throw new ApiError(400, "INVALID_CURSOR", "Cursor is invalid."); } const result = await internal(recordStub(env), "/group-list", { playerId: auth.playerId, scope, limit, beforeTime, beforeId }); if (result.nextCursor) { const [time, ...id] = result.nextCursor.split(":"); result.nextCursor = btoa(JSON.stringify([Number(time), id.join(":")])).replaceAll("+", "-").replaceAll("/", "_").replaceAll("=", ""); } return json(result, 200, cors); }
+      const groupJoin = url.pathname.match(/^\/v1\/group-challenges\/([^/]+)\/join$/);
+      if (groupJoin && request.method === "POST") { const auth = await authenticate(request, env); const data = await body(request, ["inviteToken", "joinCode", "displayName", "clientVersion"], ["displayName", "clientVersion"]); if (typeof data.clientVersion !== "string" || !data.clientVersion || data.clientVersion.length > 64) throw new ApiError(400, "INVALID_REQUEST", "clientVersion is required."); if (!!data.inviteToken === !!data.joinCode) throw new ApiError(400, "INVALID_REQUEST", "Supply exactly one invitation credential."); const kind = data.inviteToken ? "TOKEN" : "CODE"; const credential = kind === "TOKEN" ? await hmac(env.INVITE_KEY || env.SERVER_SECRET, data.inviteToken) : String(data.joinCode).toUpperCase(); await rateLimit(request, env, "group-join", 12, 60, credential); let found; try { found = await internal(recordStub(env), "/group-resolve-invite", { kind, credential }); } catch (error) { if (!(error instanceof ApiError) || error.code !== "INVITATION_NOT_FOUND") throw error; } if (found && found.challengeId !== groupJoin[1]) throw new ApiError(404, "INVITATION_NOT_FOUND", "Invitation not found."); const name = displayName(data.displayName); const result = await internal(groupStub(env, groupJoin[1]), "/join", { auth, kind, credential, displayName: name }); await internal(recordStub(env), "/name", { playerId: auth.playerId, displayName: name }); return json(result, 200, cors); }
+      const groupState = url.pathname.match(/^\/v1\/group-challenges\/([^/]+)$/);
+      if (groupState && request.method === "GET") { const auth = await authenticate(request, env); await rateLimit(request, env, "group-state", 120, 60, auth.playerId); return json(await internal(groupStub(env, groupState[1]), "/state", { auth }), 200, cors); }
+      const groupStart = url.pathname.match(/^\/v1\/group-challenges\/([^/]+)\/rounds\/(\d+)\/start$/);
+      if (groupStart && request.method === "POST") { const auth = await authenticate(request, env); await rateLimit(request, env, "group-start", 20, 60, auth.playerId); await body(request, []); return json(await internal(groupStub(env, groupStart[1]), `/start/${groupStart[2]}`, { auth }), 200, cors); }
+      const groupSubmit = url.pathname.match(/^\/v1\/group-challenges\/([^/]+)\/rounds\/(\d+)\/submission$/);
+      if (groupSubmit && request.method === "PUT") { const auth = await authenticate(request, env); await rateLimit(request, env, "group-submission", 30, 60, auth.playerId); const data = await body(request, ["submissionId", "guess"], ["submissionId", "guess"]); return json(await internal(groupStub(env, groupSubmit[1]), `/submission/${groupSubmit[2]}`, { auth, ...data }), 200, cors); }
+      const groupResults = url.pathname.match(/^\/v1\/group-challenges\/([^/]+)\/rounds\/(\d+)\/results$/);
+      if (groupResults && request.method === "GET") { const auth = await authenticate(request, env); await rateLimit(request, env, "group-results", 60, 60, auth.playerId); const limit = url.searchParams.get("limit") || "25"; const cursor = url.searchParams.get("cursor") || null; return json(await internal(groupStub(env, groupResults[1]), `/results/${groupResults[2]}`, { auth, limit, cursor }), 200, cors); }
+      const groupClose = url.pathname.match(/^\/v1\/group-challenges\/([^/]+)\/close$/);
+      if (groupClose && request.method === "POST") { const auth = await authenticate(request, env); await rateLimit(request, env, "group-close", 10, 60, auth.playerId); await body(request, []); return json(await internal(groupStub(env, groupClose[1]), "/close", { auth }), 200, cors); }
       if (url.pathname === "/v1/matches" && request.method === "POST") { if (env.PVP_ENABLED === "0") throw new ApiError(503, "SERVICE_DISABLED", "Challenge creation is temporarily disabled."); const auth = await authenticate(request, env); await rateLimit(request, env, "create", 10, 3600, auth.playerId); const data = await body(request, ["displayName", "clientVersion"], ["displayName", "clientVersion"]); const name = displayName(data.displayName); if (typeof data.clientVersion !== "string" || !data.clientVersion || data.clientVersion.length > 64) throw new ApiError(400, "INVALID_REQUEST", "clientVersion is required."); await internal(recordStub(env), "/name", { playerId: auth.playerId, displayName: name }); return json(await createMatch(env, auth, name), 201, cors); }
       if (url.pathname === "/v1/invitations/inspect" && request.method === "POST") { const data = await body(request, ["inviteToken", "joinCode"]); if (!!data.inviteToken === !!data.joinCode) throw new ApiError(400, "INVALID_REQUEST", "Supply exactly one invitation credential."); const kind = data.inviteToken ? "TOKEN" : "CODE"; const credential = kind === "TOKEN" ? await hmac(env.INVITE_KEY || env.SERVER_SECRET, data.inviteToken) : String(data.joinCode).toUpperCase(); await rateLimit(request, env, "inspect", 12, 60, credential); const found = await internal(recordStub(env), "/resolve-invite", { kind, credential }); if (found.expired || found.terminalStatus === "EXPIRED") throw new ApiError(410, "INVITATION_EXPIRED", "The invitation has expired."); if (found.terminalStatus) throw new ApiError(404, "INVITATION_NOT_FOUND", "Invitation not found."); return json(await internal(matchStub(env, found.matchId), "/invite-preview"), 200, cors); }
       const join = url.pathname.match(/^\/v1\/matches\/([^/]+)\/join$/);

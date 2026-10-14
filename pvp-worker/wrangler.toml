@@ -15,6 +15,15 @@ class_name = "MatchRoom"
 name = "RECORDS"
 class_name = "PlayerRecords"
 
+[[durable_objects.bindings]]
+name = "GROUPS"
+class_name = "GroupChallengeRoom"
+
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["MatchRoom", "PlayerRecords"]
+
+[[migrations]]
+# Deployment API transition: old_tag v1, new_tag v2.
+tag = "v2"
+new_sqlite_classes = ["GroupChallengeRoom"]
