@@ -94,7 +94,15 @@ button { font: inherit; }
 .settings-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 26px 18px 20px; border-radius: 24px; }
 .settings-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
 .settings-close { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 28px; line-height: 1; cursor: pointer; touch-action: manipulation; }
-.settings-main { margin-top: 22px; }
+.settings-main { display: flex; flex-direction: column; gap: 22px; margin-top: 22px; }
+.settings-main[hidden] { display: none; }
+.settings-group { margin: 0; padding: 0; border: 0; }
+.settings-group legend { margin-bottom: 10px; color: #f5fbff; font-size: 15px; font-weight: 800; }
+.settings-segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border: 1px solid rgba(157,211,255,.18); border-radius: 14px; background: rgba(5,12,29,.52); }
+.settings-segmented button { min-height: 42px; padding: 0 12px; border: 0; border-radius: 10px; background: transparent; color: rgba(220,239,255,.68); font-size: 14px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.settings-segmented button[aria-pressed="true"] { background: rgba(119,202,255,.2); color: #f5fbff; box-shadow: inset 0 0 0 1px rgba(157,211,255,.2), 0 4px 12px rgba(0,0,0,.2); }
+.settings-segmented button:active { transform: scale(.98); }
+.settings-segmented button:focus-visible { outline: 2px solid rgba(127,210,244,.8); outline-offset: 1px; }
 .settings-reset { width: 100%; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; background: #e5484d; color: #fff; font-size: 15px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 18px rgba(229,72,77,.28); touch-action: manipulation; }
 .settings-reset:active { transform: scale(.98); }
 .settings-confirm { margin-top: 22px; }

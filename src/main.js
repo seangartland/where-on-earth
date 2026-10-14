@@ -2654,6 +2654,7 @@ const HISTORY_KEY = 'where-on-earth-history-v1';
 const PASSPORT_KEY = 'where-on-earth-passport-v1';
 const MUTE_KEY = 'where-on-earth-muted';
 const EXPEDITION_KEY = 'where-on-earth-expedition-v1';
+const REVEAL_VIEW_KEY = 'where-on-earth-reveal-view';
 const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY]);
 const WEIGHTS = [1, 1, 2, 3, 3];
 const gameEls = {
@@ -2734,6 +2735,7 @@ travelHead.scale.setScalar(0.0008);
 globe.add(travelHead);
 
 let travelAnimation = null;
+let northUpRevealToken = 0;
 
 // ---------------------------------------------------------------------------
 // Flyover extras: accuracy tiers, synthesized sound, photo postcard
@@ -2941,6 +2943,14 @@ function migrateStorage() {
 }
 
 migrateStorage();
+
+let revealViewPreference = 'flyover';
+try {
+  const savedRevealView = localStorage.getItem(REVEAL_VIEW_KEY);
+  if (savedRevealView === 'flyover' || savedRevealView === 'north-up') revealViewPreference = savedRevealView;
+} catch (error) {
+  storageError('Read failed', REVEAL_VIEW_KEY, error);
+}
 
 const audio = {
   ctx: null,
@@ -3552,6 +3562,7 @@ function hideScreens() {
 
 function clearReveal() {
   travelAnimation = null;
+  northUpRevealToken += 1;
   travelHead.visible = false;
   setCameraNear(0.05);
   gameEls.travelDistance.getAnimations().forEach((a) => a.cancel());
@@ -3671,7 +3682,41 @@ function placeRevealVisual(guess, answer) {
   return { a, b };
 }
 
+function beginNorthUpReveal(guess, answer, km, newlyEarned, tier) {
+  const { a, b } = buildAnswerPath(guess, answer);
+  if (activePin >= 0) pins[activePin].drop(a);
+  if (tier === 'bullseye' || tier === 'pinpoint') correctPin.setColor(GOLD_COLOR, '#fff6d8');
+  correctPin.drop(b);
+  answerLine.visible = true;
+  gameEls.distance.textContent = `${km.toLocaleString()} km`;
+  preparePostcard(answer, newlyEarned);
+  frameNorthUpRevealPoints(a, b);
+  showCountryOutline(countryKey(answer), answer, true);
+  startRevealBeat(a, b, tier !== 'bullseye');
+  const token = ++northUpRevealToken;
+  const watchLanding = () => {
+    if (token !== northUpRevealToken || gameMode !== 'reveal') return;
+    if (correctPin.t < LAND_T) {
+      requestAnimationFrame(watchLanding);
+      return;
+    }
+    if (tier === 'bullseye' || tier === 'pinpoint') {
+      audio.thump(1.7);
+      audio.chime();
+    } else {
+      audio.thump();
+      if (tier === 'blowout') audio.bwomp();
+    }
+    postcardLanded(b);
+  };
+  requestAnimationFrame(watchLanding);
+}
+
 function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km)) {
+  if (revealViewPreference === 'north-up') {
+    beginNorthUpReveal(guess, answer, km, newlyEarned, tier);
+    return;
+  }
   const path = buildAnswerPath(guess, answer);
   const flight = travelFlightProfile(km);
   answerLine.visible = false;
@@ -3714,6 +3759,10 @@ function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km
 // Bullseye: no flight. Snap-zoom onto the answer, drop a gold pin, roll a
 // shockwave across the surface in slow motion, stamp it, then the usual pullback.
 function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km)) {
+  if (revealViewPreference === 'north-up') {
+    beginNorthUpReveal(guess, answer, km, newlyEarned, tier);
+    return;
+  }
   const path = buildAnswerPath(guess, answer);
   answerLine.visible = false;
   correctPin.root.visible = false;
@@ -4449,6 +4498,27 @@ function frameRevealPoints(a, b, strip = revealStrip()) {
   vYaw = vPitch = autoSpin = 0;
 }
 
+// North-up reveals preserve the player's pitch and rotate only around the
+// globe's polar axis. Distance still changes as needed to keep both pins in view.
+function frameNorthUpRevealPoints(a, b, strip = revealStrip()) {
+  const { safeTop, safeBottom } = strip;
+  const safeY = (safeTop + safeBottom) / 2;
+  const safeRadius = Math.max(40, Math.min(viewW / 2 - 28, safeY - safeTop, safeBottom - safeY));
+  const separation = a.angleTo(b);
+  const halfAngle = Math.min(84 * DEG, separation / 2 + 4 * DEG);
+  const screenSlope = (safeRadius / (viewH / 2)) * Math.tan((FOV / 2) * DEG);
+  const screenFit = Math.cos(halfAngle) + Math.sin(halfAngle) / Math.max(screenSlope, 0.02);
+  const horizonFit = halfAngle < Math.PI / 2 ? 1 / Math.max(Math.cos(halfAngle), 0.04) : 14;
+  targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
+
+  const midpoint = a.clone().add(b);
+  if (midpoint.lengthSq() < 1e-8) midpoint.copy(a).cross(_UP);
+  midpoint.normalize();
+  const targetYaw = nearAngle(Math.atan2(-midpoint.x, midpoint.z), yaw);
+  revealView = { yaw: targetYaw, pitch };
+  vYaw = vPitch = autoSpin = 0;
+}
+
 // The view frameRevealPoints picked, re-solved at the load-time pitch: yaw
 // centres the route midpoint horizontally and the distance backs off until
 // both pins sit in the safe strip, clear of the horizon. Routes too far from
@@ -4624,7 +4694,18 @@ function revealGuess(guess, restoring = false) {
   } else if (animate) beginTravelReveal(guess, answer, km, newlyEarned, tier);
   else {
     revealThumbCurrent();
-    const { a, b } = placeRevealVisual(guess, answer);
+    let a;
+    let b;
+    if (revealViewPreference === 'north-up') {
+      ({ a, b } = buildAnswerPath(guess, answer));
+      if (activePin >= 0) pins[activePin].drop(a);
+      correctPin.drop(b);
+      answerLine.visible = true;
+      frameNorthUpRevealPoints(a, b);
+      showCountryOutline(countryKey(answer), answer, false);
+    } else {
+      ({ a, b } = placeRevealVisual(guess, answer));
+    }
     gameEls.distance.textContent = `${km.toLocaleString()} km`;
     if (restoring) {
       // Coming back to a finished round: no beat to replay.
@@ -6111,6 +6192,13 @@ settingsScreen.innerHTML = `
     <button class="settings-close" aria-label="Close settings">×</button>
     <h2 id="settings-title">Settings</h2>
     <div class="settings-main">
+      <fieldset class="settings-group">
+        <legend>Reveal view</legend>
+        <div class="settings-segmented">
+          <button type="button" data-reveal-view="flyover" aria-pressed="true">Flyover</button>
+          <button type="button" data-reveal-view="north-up" aria-pressed="false">North-up</button>
+        </div>
+      </fieldset>
       <button class="settings-reset" type="button">Reset all data</button>
     </div>
     <div class="settings-confirm" hidden>
@@ -6133,7 +6221,21 @@ const settingsEls = {
   reset: settingsScreen.querySelector('.settings-reset'),
   danger: settingsScreen.querySelector('.settings-danger'),
   cancel: settingsScreen.querySelector('.settings-cancel'),
+  revealViews: [...settingsScreen.querySelectorAll('[data-reveal-view]')],
 };
+
+function syncRevealViewSetting() {
+  settingsEls.revealViews.forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.revealView === revealViewPreference));
+  });
+}
+
+settingsEls.revealViews.forEach((button) => button.addEventListener('click', () => {
+  revealViewPreference = button.dataset.revealView;
+  safeSetItem(REVEAL_VIEW_KEY, revealViewPreference);
+  syncRevealViewSetting();
+}));
+syncRevealViewSetting();
 
 function openSettings() {
   settingsEls.main.hidden = false;
