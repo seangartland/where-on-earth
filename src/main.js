@@ -6218,7 +6218,7 @@ function bandIndex(total) {
 
 function bandLabel(index) {
   const start = index === 0 ? 0 : BAND_EDGES[index - 1];
-  const end = index === BAND_EDGES.length ? 1000 : BAND_EDGES[index] - 1;
+  const end = index === BAND_EDGES.length ? 10000 : BAND_EDGES[index] - 1;
   return `${start}–${end}`;
 }
 
@@ -6275,20 +6275,19 @@ statsStyle.textContent = `
 .stats-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 26px 18px 20px; border-radius: 24px; }
 .stats-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
 .stats-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
-.stat { padding: 13px 10px 12px; border: 1px solid rgba(157,211,255,.16); border-radius: 16px; background: rgba(157,211,255,.06); text-align: center; }
+.stat { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 92px; padding: 14px 10px; border: 1px solid rgba(157,211,255,.16); border-radius: 16px; background: rgba(157,211,255,.06); text-align: center; }
 .stat b { display: block; font-size: 30px; line-height: 1.05; font-weight: 800; font-variant-numeric: tabular-nums; color: #ffc76a; text-shadow: 0 0 22px rgba(255,199,106,.28); }
 .stat span { display: block; margin-top: 5px; color: rgba(193,224,250,.62); font-size: 10px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .stat.cool b { color: #67e8ff; text-shadow: 0 0 22px rgba(103,232,255,.28); }
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-.stats-grid .stat { text-align: left; }
 .stats-grid .stat b { font-size: 25px; }
-.stat small { display: block; margin-top: 3px; color: rgba(193,224,250,.42); font-size: 10px; letter-spacing: .06em; text-transform: none; }
+.stat small { display: block; margin-top: 4px; color: rgba(193,224,250,.42); font-size: 10px; letter-spacing: .06em; text-transform: none; }
 .stats-head { margin: 24px 0 10px; color: #77caff; font-size: 11px; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
-.stats-dist { display: grid; grid-template-columns: 56px 1fr; gap: 10px; align-items: center; }
+.stats-dist { display: grid; grid-template-columns: 76px 1fr; padding: 0; gap: 10px; align-items: center; }
 .stats-dist li { display: contents; }
-.stats-band { color: rgba(193,224,250,.58); font-size: 11px; font-variant-numeric: tabular-nums; }
+.stats-band { white-space: nowrap; text-align: left; color: rgba(193,224,250,.58); font-size: 11px; font-variant-numeric: tabular-nums; }
 .stats-track { position: relative; height: 24px; border-radius: 7px; background: rgba(157,211,255,.07); overflow: hidden; }
-.stats-fill { position: absolute; top: 0; right: 0; bottom: 0; border-radius: 7px; transition: width .35s ease-out; }
+.stats-fill { position: absolute; top: 0; left: 0; bottom: 0; border-radius: 7px; transition: width .35s ease-out; }
 .stats-count { position: absolute; top: 50%; right: 9px; transform: translateY(-50%); color: #f5fbff; font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
 .stats-dist li.today .stats-band { color: #ffc76a; font-weight: 800; }
 .stats-dist li.today .stats-track { box-shadow: 0 0 0 1px rgba(255,199,106,.6); }
@@ -6318,7 +6317,7 @@ statsScreen.innerHTML = `
     <button class="stats-close" aria-label="Close stats">×</button>
     <h2 id="stats-title">Your stats</h2>
     <div class="stats-hero">
-      <div class="stat"><b data-stats="streak">0</b><span>🔥 day streak</span></div>
+      <div class="stat"><b data-stats="streak">0</b><span>Day streak</span></div>
       <div class="stat cool"><b data-stats="longest">0</b><span>Longest streak</span></div>
     </div>
     <div class="stats-grid">
