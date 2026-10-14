@@ -64,3 +64,31 @@ From the list itself, the top 3 are Collections, Landmarks (as practice), then C
 - **Shelve: Nature mode.** It needs the most scoring work for the smallest pool, and its main home (Endless) is off. Revisit only if Endless returns or a nature expedition proves there is demand.
 - **Shelve: Photo-first as a standalone mode.** First confirm what the live game shows before the guess. If it is still wanted, fold it into the landmark pack as a later nameless variant, after a guessability audit.
 - **Keep but defer: Country Blackout.** It is a good idea with a good share image, but it is aimed at a secondary mode. Do it after the subscription exists.
+
+## Addendum (2026-10-13): the Passport counterpoint and why Collections was hidden
+
+Author: Claude Opus 5.5, in this run. Method: I took Sean's two facts as given and measured the set tags myself in `assets/locations.json` and `assets/locations-landmarks-sol.json`. The Collections screen builds its sets from the `sets` field on active locations (`buildCollectionSets`, `main.js:8226`).
+
+What I measured:
+- Only 144 of the 805 active cities carry any set tag. 25 of the 36 sets have any active member, and most have between 1 and 9. The largest is Capital Cities with 18. Lakes, African Safari and Southeast Asia have 1 each.
+- 11 sets have no active members at all. Wonders of the World, Antarctic Outposts, Andes, Volcanoes, Sacred Sites, Waterfalls, Fjords & Glaciers, Canyons & Gorges, Mountains, Pacific Islands and Castles exist only in the landmark file. That file's 143 tagged entries are where the sets are deepest (History Was Here 32, Antarctic Outposts 13, Andes 10).
+
+**Verdict: I concede the pick. Collections does not rank first.**
+
+My argument rested on "you are missing 4 postcards in Japan." Sean is right that the Passport Countries tab already does this. The only new part was the link to past dailies, and that is a marker on the existing country detail, not a feature of its own. Fact 2 removes what was left. With the active pool cities-only, the sets are thin, and the best ones point at content nobody can play. My retention claim also fails on these numbers: with 5 Daily cities a day from 805, a 6-city set takes about 161 days to be dealt in full. That is not a daily goal.
+
+**What survives of Collections:** themed sets as the progress layer of the landmark pack. Wonders of the World, Ancient Ruins, Antarctic Outposts, History Was Here and Volcanoes are good collections, but each one needs landmark content in play. They should ship with that content, as each themed expedition's completion tracker, and never before it. The Collections screen and its code can be reused for this, but it should stay hidden as a standalone home screen.
+
+**Revised top pick: the Landmark practice pack via Expeditions, with its themed collections built in.**
+- Subscription conversion: the strongest. Practice depth is one of Sean's three paid drivers. 909 photographed landmarks are the most recognizable content the game owns, and they are not in the Daily or PvP. That makes them a clean thing to sell.
+- Retention: moderate to strong. My earlier objection was that a pack without a progress layer is a one-weekend novelty. Pack-scoped collections solve that, and they are small enough to finish (5 to 32 items), unlike the city sets.
+- Acquisition: moderate. A landmark photo is a better share image than a city skyline, but PvP challenge links still carry acquisition.
+- Effort (estimate, not measured): medium. Same long pole as before: a clue pass, image checks on the 909, and Sean deciding whether landmarks earn Passport postcards. That decision now belongs to this item and no longer blocks Collections.
+
+**Revised sequence:**
+0. Pin backfill before the next pool-changing deploy. Unchanged.
+1. Landmark practice pack via Expeditions, with collections such as Wonders of the World, Ancient Ruins and Antarctic Outposts as each pack's progress. A ladder lane can start the data audit while PvP is in spec.
+2. Daily archive replay and subscription, with a small "dealt on 2026-10-xx" marker on missing cities in the Passport country detail that links to the archive day. This is the part of my Collections idea that still holds, and it goes on the Passport.
+3. Country Blackout. Unchanged: good polish with a good share image, after the subscription exists.
+
+Collections as a standalone screen moves to "keep hidden." Bring it back only if a cities-only theme set proves worth having on its own, and none of the current 25 does.
