@@ -7386,7 +7386,7 @@ function renderPvpList() {
     pvpEl('p', { className: 'eyebrow', text: 'Your challenges' }),
     pvpStore.matches.length ? pvpEl('div', { className: 'expedition-list' }, pvpStore.matches.map(pvpMatchRow))
       : pvpEl('p', { className: 'pvp-empty', text: 'No challenges yet. Create one and send the link to a friend.' }),
-    pvpUi.listError ? pvpEl('p', { className: 'pvp-status error', text: pvpUi.listError }) : null,
+    ...(pvpUi.listError ? [pvpEl('p', { className: 'pvp-status error', text: pvpUi.listError })] : []),
     pvpEl('p', { className: 'eyebrow', text: 'Your open challenges' }),
     pvpUi.groupItems?.length ? pvpEl('div', { className: 'expedition-list' }, pvpUi.groupItems.filter((item) => item.role === 'CREATOR').map(pvpGroupRow))
       : pvpEl('p', { className: 'pvp-empty', text: 'No Open Challenges created yet.' }),
