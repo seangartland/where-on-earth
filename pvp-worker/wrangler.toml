@@ -1,0 +1,20 @@
+name = "woe-pvp"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Durable Objects, SQLite-backed (the only kind the Workers Free plan allows).
+# MatchRoom: one instance per match, holds that match's state, expires with it.
+# PlayerRecords: persistent store for pair records (your W/L against one
+# specific player) and display names, keyed by player token. Written when a
+# match completes, so records survive match expiry. See README.md.
+[[durable_objects.bindings]]
+name = "MATCHES"
+class_name = "MatchRoom"
+
+[[durable_objects.bindings]]
+name = "RECORDS"
+class_name = "PlayerRecords"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["MatchRoom", "PlayerRecords"]
