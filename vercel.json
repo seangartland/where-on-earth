@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/pvp/join",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/pvp/join/",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/lib/:ver/:path*",

@@ -7248,7 +7248,6 @@ function renderPvpHome() {
           pvpUi.editingName = false;
           pvpUi.status = '';
           renderPvpHome();
-          if (pvp.pendingInvite) openPvpJoin(pvp.pendingInvite);
         } catch (error) {
           pvpSetStatus(pvpMessage(error), true);
         } finally {
@@ -7277,15 +7276,21 @@ function renderPvpHome() {
     ));
   }
   blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
-  if (pvpHasIdentity()) {
-    const list = pvpEl('div', { className: 'expedition-list' }, pvpStore.matches.map(pvpMatchRow));
-    blocks.push(pvpEl('div', { className: 'pvp-block' },
-      pvpEl('p', { className: 'eyebrow', text: 'Your challenges' }),
-      pvpStore.matches.length ? list : pvpEl('p', { className: 'pvp-empty', text: 'No challenges yet. Create one and send the link to a friend.' }),
-      pvpUi.listError ? pvpEl('p', { className: 'pvp-status error', text: pvpUi.listError }) : null,
-    ));
-  }
+  if (pvpHasIdentity()) blocks.push(pvpUi.listBlock);
+  renderPvpList();
   pvpHomeBody.replaceChildren(...blocks);
+}
+
+// The list re-renders on its own as state reads land, so typing in the fields
+// above it is never wiped.
+pvpUi.listBlock = pvpEl('div', { className: 'pvp-block' });
+function renderPvpList() {
+  pvpUi.listBlock.replaceChildren(
+    pvpEl('p', { className: 'eyebrow', text: 'Your challenges' }),
+    pvpStore.matches.length ? pvpEl('div', { className: 'expedition-list' }, pvpStore.matches.map(pvpMatchRow))
+      : pvpEl('p', { className: 'pvp-empty', text: 'No challenges yet. Create one and send the link to a friend.' }),
+    pvpUi.listError ? pvpEl('p', { className: 'pvp-status error', text: pvpUi.listError }) : null,
+  );
 }
 
 // Read every remembered match in parallel. A purged match (404) is forgotten;
@@ -7309,7 +7314,7 @@ async function refreshPvpList() {
   }));
   savePvp();
   if (unreachable) pvpUi.listError = 'Could not reach the challenge service. Your challenges will load when you are back online.';
-  if (!pvpHome.hidden) renderPvpHome();
+  renderPvpList();
 }
 
 function showPvpHome(status = '', error = false) {
@@ -7321,6 +7326,8 @@ function showPvpHome(status = '', error = false) {
   pvpUi.status = status;
   pvpUi.statusError = error;
   pvpUi.editingName = false;
+  pvpHome.querySelector('h2').textContent = 'Challenge a friend';
+  pvpHome.querySelector('h2 + p').textContent = 'Five places, 20 seconds each. Highest total out of 5,000 wins.';
   renderPvpHome();
   pvpHome.hidden = false;
   refreshPvpList();
@@ -7530,9 +7537,119 @@ function pvpLeave() {
   pvp.active = false;
 }
 
+// Join: an invite link (#invite=<token>, see /pvp/join in vercel.json) or a
+// typed code is inspected, shown, then claimed for this device's identity.
+const PVP_INVITE_KEY = 'where-on-earth-pvp-invite';
+const pvpLinkInvite = (() => {
+  const m = location.hash.match(/^#invite=([A-Za-z0-9_-]{16,})$/);
+  try {
+    if (m) {
+      // Survives the index.html version-check reload, which may land after this.
+      sessionStorage.setItem(PVP_INVITE_KEY, m[1]);
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    return m ? m[1] : sessionStorage.getItem(PVP_INVITE_KEY);
+  } catch {
+    return m ? m[1] : null;
+  }
+})();
+
+function pvpForgetLinkInvite() {
+  try { sessionStorage.removeItem(PVP_INVITE_KEY); } catch { /* private mode */ }
+}
+
+function renderPvpJoin() {
+  const invite = pvpUi.invite;
+  const blocks = [];
+  if (invite) {
+    const name = invite.challenger.displayName;
+    const label = name === pvpStore.displayName ? `${name} ${invite.challenger.displaySuffix}` : name;
+    const expires = new Date(invite.expiresAt).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+    pvpHome.querySelector('h2').textContent = `${label} challenged you`;
+    pvpHome.querySelector('h2 + p').textContent = `Five places, 20 seconds each. Highest total out of 5,000 wins. Open until ${expires}.`;
+    if (!pvpHasIdentity() || pvpUi.editingName) {
+      blocks.push(pvpNameBlock({ submitLabel: pvpHasIdentity() ? 'Save' : 'Accept', onSubmit: (picked) => (pvpHasIdentity() ? pvpRename(picked, renderPvpJoin) : pvpAccept(picked)) }));
+    } else {
+      blocks.push(pvpEl('div', { className: 'pvp-block pvp-who' },
+        pvpEl('span', {}, 'Playing as ', pvpEl('b', { text: pvpStore.displayName })),
+        pvpEl('button', { type: 'button', className: 'text-button', text: 'Change name', onclick: () => { pvpUi.editingName = true; renderPvpJoin(); } }),
+      ));
+      blocks.push(pvpEl('div', { className: 'pvp-block' }, pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: 'Accept challenge', onclick: () => pvpAccept() })));
+    }
+  } else {
+    pvpHome.querySelector('h2').textContent = 'Challenge';
+    pvpHome.querySelector('h2 + p').textContent = pvpUi.statusError ? '' : 'Loading the challenge...';
+  }
+  blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
+  blocks.push(pvpEl('div', { className: 'pvp-actions' }, pvpEl('button', { type: 'button', className: 'text-button', text: invite ? 'Not now' : 'Back to challenges', onclick: () => { pvpForgetLinkInvite(); showPvpHome(); } })));
+  pvpHomeBody.replaceChildren(...blocks);
+}
+
+async function pvpRename(name, rerender) {
+  await pvpEnsureIdentity(name);
+  pvpUi.editingName = false;
+  pvpUi.status = '';
+  rerender();
+}
+
+async function openPvpJoin(credential) {
+  pvpLeave();
+  clearReveal();
+  hideScreens();
+  gameMode = 'pvp-join';
+  window.__canGuess = false;
+  pvp.joinCredential = credential;
+  pvpUi.invite = null;
+  pvpUi.editingName = false;
+  pvpUi.status = '';
+  pvpUi.statusError = false;
+  renderPvpJoin();
+  pvpHome.hidden = false;
+  try {
+    const invite = await pvpApi('/v1/invitations/inspect', { method: 'POST', body: credential, auth: false });
+    if (gameMode !== 'pvp-join' || pvp.joinCredential !== credential) return;
+    if (pvpMatchEntry(invite.matchId)) {
+      // Our own challenge (or one already joined here): just open it.
+      pvpForgetLinkInvite();
+      showPvpMatch(invite.matchId);
+      return;
+    }
+    pvpUi.invite = invite;
+  } catch (error) {
+    if (gameMode !== 'pvp-join') return;
+    pvpForgetLinkInvite();
+    pvpUi.status = pvpMessage(error);
+    pvpUi.statusError = true;
+  }
+  renderPvpJoin();
+}
+
+async function pvpAccept(name = pvpStore.displayName) {
+  const invite = pvpUi.invite;
+  if (!invite || pvpUi.busy) return;
+  pvpUi.busy = true;
+  pvpSetStatus('Joining...');
+  try {
+    await pvpEnsureIdentity(name);
+    await pvpApi(`/v1/matches/${invite.matchId}/join`, { method: 'POST', body: { ...pvp.joinCredential, displayName: pvpStore.displayName, clientVersion: PVP_CLIENT_VERSION } });
+    pvpRememberMatch({ matchId: invite.matchId, role: 'INVITEE', createdAt: Date.now() });
+    pvpForgetLinkInvite();
+    pvpUi.busy = false;
+    showPvpMatch(invite.matchId);
+  } catch (error) {
+    pvpUi.busy = false;
+    if (error.code === 'SELF_CHALLENGE' && pvpMatchEntry(invite.matchId)) {
+      showPvpMatch(invite.matchId);
+      return;
+    }
+    if (error.code !== 'NETWORK' && error.code !== 'RATE_LIMITED' && error.code !== 'INVALID_DISPLAY_NAME') pvpForgetLinkInvite();
+    if (pvpHasIdentity()) renderPvpJoin();
+    pvpSetStatus(pvpMessage(error), true);
+  }
+}
+
 // Filled in with match play below.
 function pvpPlay() {}
-function openPvpJoin() {}
 
 pvpHome.addEventListener('click', (event) => {
   const row = event.target.closest('[data-pvp-match]');
@@ -9470,6 +9587,7 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
   document.getElementById('pvp-button').disabled = false;
+  if (pvpLinkInvite) openPvpJoin({ inviteToken: pvpLinkInvite });
   window.__renderAuditFlags?.();
   if (window.__boot) window.__boot('locations loaded');
   loadJobDone('critical', 'locations');
