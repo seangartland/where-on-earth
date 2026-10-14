@@ -3554,6 +3554,7 @@ var statsScreenEl = null; // set once the stats overlay is built
 var settingsScreenEl = null; // set once the settings overlay is built
 var passportScreenEl = null; // set once the passport page is built
 var collectionsScreenEl = null; // set once the collections page is built
+var pvpScreenEls = []; // set once the PvP screens are built
 
 function hideScreens() {
   gameEls.start.hidden = gameEls.round.hidden = gameEls.postcardSummaryScreen.hidden = gameEls.results.hidden = true;
@@ -3563,6 +3564,7 @@ function hideScreens() {
   if (settingsScreenEl) settingsScreenEl.hidden = true;
   if (passportScreenEl) passportScreenEl.hidden = true;
   if (collectionsScreenEl) collectionsScreenEl.hidden = true;
+  for (const el of pvpScreenEls) el.hidden = true;
   document.body.className = '';
 }
 
@@ -5120,9 +5122,13 @@ nextGame.addEventListener('click', () => { if (nextGame.classList.contains('read
 // Endless mode: unscored random locations from the full pool
 // ---------------------------------------------------------------------------
 const endless = { active: false, item: null, bag: [], count: 0 };
+// PvP challenge play (section below). item is the server-issued prompt until the
+// guess is accepted, then the server answer.
+const pvp = { active: false, matchId: null, round: 0, item: null, result: null };
 
 function currentItem() {
   if (borders.active) return null; // Borders asks for a country, not a location
+  if (pvp.active) return pvp.item;
   return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : selected[daily.round];
 }
 
@@ -5171,6 +5177,7 @@ function goHome() {
   expeditionRun.active = false;
   expeditionPicker.hidden = true;
   blackoutPicker.hidden = true;
+  pvpLeave();
   window.__pendingEarn = null;
   document.querySelector('.earn-toast')?.remove();
   clearReveal();
@@ -6983,6 +6990,555 @@ expeditionPicker.addEventListener('click', (event) => {
   if (choice) startExpedition(choice.dataset.expeditionId);
   else if (event.target === expeditionPicker) goHome();
 });
+
+// ---------------------------------------------------------------------------
+// PvP challenges: async five-round matches against one friend, run by the
+// woe-pvp Worker (docs/pvp-tech-spec-sol.md; pvp-worker/src/index.js is the
+// contract). The server owns locations, deadlines and scores. Identity is a
+// device-local playerId + token; nothing here touches Daily, streaks or history.
+// ---------------------------------------------------------------------------
+const PVP_API = 'https://woe-pvp.gartland-79.workers.dev';
+const PVP_KEY = 'where-on-earth-pvp-v1';
+const PVP_CLIENT_VERSION = '2026.10.13';
+const PVP_MATCH_LIMIT = 30; // remembered matches, newest first
+
+class PvpError extends Error {
+  constructor(code, message, status = 0, details = null) {
+    super(message);
+    Object.assign(this, { code, status, details });
+  }
+}
+
+let pvpStore = (() => {
+  const saved = readJSON(PVP_KEY);
+  const store = saved && typeof saved === 'object' ? saved : {};
+  return {
+    playerId: typeof store.playerId === 'string' ? store.playerId : null,
+    playerToken: typeof store.playerToken === 'string' ? store.playerToken : null,
+    displayName: typeof store.displayName === 'string' ? store.displayName : '',
+    matches: Array.isArray(store.matches) ? store.matches.filter((m) => m && typeof m.matchId === 'string') : [],
+  };
+})();
+
+function savePvp() {
+  pvpStore.matches = pvpStore.matches.slice(0, PVP_MATCH_LIMIT);
+  writeJSON(PVP_KEY, pvpStore);
+}
+
+const pvpHasIdentity = () => Boolean(pvpStore.playerId && pvpStore.playerToken);
+const pvpMatchEntry = (matchId) => pvpStore.matches.find((m) => m.matchId === matchId) || null;
+
+function pvpRememberMatch(entry) {
+  const existing = pvpMatchEntry(entry.matchId);
+  if (existing) Object.assign(existing, entry);
+  else pvpStore.matches.unshift({ visited: [], ...entry });
+  savePvp();
+}
+
+async function pvpApi(path, { method = 'GET', body, auth = true } = {}) {
+  const headers = {};
+  if (body !== undefined) headers['content-type'] = 'application/json';
+  if (auth) headers.authorization = `Bearer ${pvpStore.playerToken}`;
+  let response;
+  try {
+    response = await fetch(PVP_API + path, { method, headers, body: body === undefined ? undefined : JSON.stringify(body), cache: 'no-store' });
+  } catch {
+    throw new PvpError('NETWORK', 'Could not reach the challenge service. Check your connection and try again.');
+  }
+  let data = null;
+  try { data = await response.json(); } catch { /* empty or non-JSON body */ }
+  if (!response.ok) {
+    const error = data && data.error;
+    throw new PvpError(error?.code || `HTTP_${response.status}`, error?.message || 'The challenge service had a problem. Try again.', response.status, error?.details || null);
+  }
+  return data;
+}
+
+// Plain copy for the errors a player can actually hit; anything else uses the
+// Worker's own message.
+const PVP_MESSAGES = {
+  OPEN_CHALLENGE_CAP: 'You have 3 open challenges. Finish one or let it expire before starting another. They are listed below.',
+  RATE_LIMITED: 'Too many tries. Wait a minute and try again.',
+  SERVICE_DISABLED: 'New challenges are paused right now. Try again later.',
+  UNAUTHORIZED: 'This device is no longer recognized by the challenge service.',
+  INVITATION_NOT_FOUND: 'This challenge is no longer available.',
+  INVITATION_EXPIRED: 'This challenge has expired.',
+  MATCH_EXPIRED: 'This challenge has expired.',
+  MATCH_ABANDONED: 'This challenge was ended.',
+  MATCH_NOT_FOUND: 'This challenge is no longer available.',
+  SEAT_TAKEN: 'Someone else already accepted this challenge.',
+  SELF_CHALLENGE: 'This is your own challenge. Send the link to a friend.',
+  INVALID_DISPLAY_NAME: 'That name cannot be used. Try letters and numbers, up to 24 characters.',
+  REMATCH_PENDING: 'A rematch is being set up. Try again in a moment.',
+};
+const pvpMessage = (error) => PVP_MESSAGES[error?.code] || error?.message || 'Something went wrong. Try again.';
+
+function pvpCleanName(value) {
+  const name = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!name) return { error: 'Enter a name first.' };
+  if ([...name].length > 24) return { error: 'Use 24 characters or fewer.' };
+  if (/[<>\p{Cc}‪-‮⁦-⁩]/u.test(name)) return { error: 'That name cannot be used. Try letters and numbers.' };
+  return { name };
+}
+
+// First PvP entry creates the identity; later name changes only relabel future
+// matches (the Worker snapshots a name when a seat is created or claimed).
+async function pvpEnsureIdentity(name) {
+  if (pvpHasIdentity()) {
+    if (name && name !== pvpStore.displayName) {
+      pvpStore.displayName = name;
+      savePvp();
+    }
+    return;
+  }
+  const created = await pvpApi('/v1/players', { method: 'POST', body: { displayName: name }, auth: false });
+  pvpStore.playerId = created.playerId;
+  pvpStore.playerToken = created.playerToken;
+  pvpStore.displayName = created.displayName;
+  savePvp();
+}
+
+// Small DOM builder: every player-supplied string goes in as text, never markup.
+function pvpEl(tag, props = {}, ...children) {
+  const el = document.createElement(tag);
+  for (const [key, value] of Object.entries(props)) {
+    if (value == null || value === false) continue;
+    if (key === 'className') el.className = value;
+    else if (key === 'text') el.textContent = value;
+    else if (key.startsWith('on')) el.addEventListener(key.slice(2), value);
+    else if (key in el && typeof value !== 'string') el[key] = value;
+    else el.setAttribute(key, value === true ? '' : value);
+  }
+  el.append(...children.flat().filter((child) => child != null && child !== false));
+  return el;
+}
+
+const pvpStyle = document.createElement('style');
+pvpStyle.textContent = `
+.pvp-panel .pvp-block { margin: 0 0 16px; }
+.pvp-panel .eyebrow { margin: 0 0 8px; }
+.pvp-field { display: flex; gap: 8px; }
+.pvp-field input { flex: 1; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; border: 1px solid rgba(157,211,255,.22); border-radius: 14px; background: rgba(157,211,255,.08); color: #f3f9ff; font: inherit; font-size: 16px; }
+.pvp-field input::placeholder { color: rgba(193,224,250,.45); }
+.pvp-field input.pvp-code { text-transform: uppercase; letter-spacing: .18em; font-weight: 800; }
+.pvp-field .primary, .pvp-panel .pvp-wide, .pvp-actions .primary { min-width: 0; min-height: 48px; padding: 0 18px; font-size: 15px; }
+.pvp-panel .pvp-wide, .pvp-actions .primary { width: 100%; }
+.pvp-actions { display: grid; gap: 10px; margin: 14px 0 0; }
+.pvp-note { margin: 8px 0 0; color: rgba(193,224,250,.62); font-size: 12px; line-height: 1.4; }
+.pvp-who { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; color: rgba(224,240,255,.86); font-size: 15px; }
+.pvp-who b { color: #f3f9ff; }
+.pvp-status { min-height: 18px; margin: 10px 0 0; color: #8bd9ff; font-size: 13px; line-height: 1.4; }
+.pvp-status.error { color: #ff9db4; }
+.pvp-status:empty { display: none; }
+.expedition-choice .pvp-progress { min-width: 30px; color: #ffc76a; font-size: 15px; font-weight: 800; text-align: center; }
+.pvp-code-big { margin: 4px 0 0; color: #f3f9ff; font-size: 30px; font-weight: 850; letter-spacing: .22em; text-align: center; font-variant-numeric: tabular-nums; }
+.pvp-empty { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; }`;
+document.head.appendChild(pvpStyle);
+
+// Home: identity, create, join by code, and the remembered match list. Same
+// overlay panel and choice rows as the Expeditions and Blackout pickers.
+const pvpHome = document.createElement('section');
+pvpHome.className = 'expedition-picker';
+pvpHome.hidden = true;
+pvpHome.innerHTML = `<div class="expedition-panel pvp-panel" role="dialog" aria-modal="true" aria-labelledby="pvp-heading">
+  <h2 id="pvp-heading">Challenge a friend</h2>
+  <p>Five places, 20 seconds each. Highest total out of 5,000 wins.</p>
+  <div class="pvp-body"></div>
+</div>`;
+document.body.appendChild(pvpHome);
+const pvpHomeClose = createHomeButton();
+pvpHomeClose.classList.add('finished-home-nav'); // nothing in progress to confirm
+pvpHome.querySelector('.expedition-panel').prepend(pvpHomeClose);
+const pvpHomeBody = pvpHome.querySelector('.pvp-body');
+pvpHome.addEventListener('click', (event) => { if (event.target === pvpHome) goHome(); });
+pvpScreenEls.push(pvpHome);
+
+const pvpUi = { editingName: false, status: '', statusError: false, states: new Map(), listError: '', busy: false };
+
+function pvpSetStatus(text, error = false) {
+  pvpUi.status = text;
+  pvpUi.statusError = error;
+  for (const node of document.querySelectorAll('.pvp-status[role="status"]')) {
+    if (node.closest('[hidden]')) continue;
+    node.textContent = text;
+    node.classList.toggle('error', error);
+  }
+}
+
+function pvpNameBlock({ submitLabel, onSubmit }) {
+  const input = pvpEl('input', { type: 'text', maxLength: 24, autocomplete: 'nickname', enterkeyhint: 'done', placeholder: 'Your name', 'aria-label': 'Your name', value: pvpStore.displayName });
+  const submit = async () => {
+    const { name, error } = pvpCleanName(input.value);
+    if (error) { pvpSetStatus(error, true); input.focus(); return; }
+    await onSubmit(name);
+  };
+  input.addEventListener('keydown', (event) => { if (event.key === 'Enter') submit(); });
+  return pvpEl('div', { className: 'pvp-block' },
+    pvpEl('p', { className: 'eyebrow', text: 'Your name' }),
+    pvpEl('div', { className: 'pvp-field' }, input, pvpEl('button', { type: 'button', className: 'primary', text: submitLabel, onclick: submit })),
+    pvpEl('p', { className: 'pvp-note', text: 'Your name and challenges live on this device only. Clearing site data or switching browsers starts a fresh identity.' }),
+  );
+}
+
+const PVP_STATUS_LABELS = {
+  'your-turn': 'Your turn',
+  'their-turn': 'Their turn',
+  waiting: 'Waiting for opponent',
+  completed: 'Completed',
+  expired: 'Expired',
+  ended: 'Ended',
+};
+
+// One plain status per match, from a state read.
+function pvpStatusKey(state) {
+  if (!state) return null;
+  if (state.status === 'COMPLETED') return 'completed';
+  if (state.status === 'EXPIRED') return 'expired';
+  if (state.status === 'ABANDONED') return 'ended';
+  if (state.viewer?.nextRound) return 'your-turn';
+  return state.status === 'OPEN' ? 'waiting' : 'their-turn';
+}
+
+const pvpOpponent = (state) => state?.players?.find((p) => p.role !== state.role) || null;
+const pvpMe = (state) => state?.players?.find((p) => p.role === state.role) || null;
+
+function pvpOpponentLabel(state) {
+  const opponent = pvpOpponent(state);
+  if (!opponent) return null;
+  const me = pvpMe(state);
+  // Same names read as one person; the stable suffix tells them apart.
+  return me && me.displayName === opponent.displayName ? `${opponent.displayName} ${opponent.displaySuffix}` : opponent.displayName;
+}
+
+function pvpResultLine(state) {
+  const result = state.result;
+  if (!result) return '';
+  if (result.winnerRole === 'TIE') return `Tied at ${result.totals[0].total.toLocaleString()}`;
+  const won = result.winnerRole === state.role;
+  return `${won ? 'Won' : 'Lost'} by ${result.margin.toLocaleString()}`;
+}
+
+function pvpMatchRow(entry) {
+  const state = pvpUi.states.get(entry.matchId);
+  const key = pvpStatusKey(state);
+  const opponent = pvpOpponentLabel(state);
+  const title = opponent ? `vs ${opponent}` : entry.role === 'CHALLENGER' ? 'Open challenge' : 'Challenge';
+  let detail = state ? PVP_STATUS_LABELS[key] : state === null ? 'Could not load' : 'Loading';
+  if (key === 'completed') detail = `${detail} · ${pvpResultLine(state)}`;
+  else if (key === 'waiting' && entry.joinCode) detail = `${detail} · Code ${entry.joinCode}`;
+  const played = state?.viewer && Number.isFinite(state.viewer.nextRound) ? state.viewer.nextRound - 1 : state?.status === 'COMPLETED' || key === 'their-turn' || key === 'waiting' ? 5 : null;
+  return pvpEl('button', { type: 'button', className: 'expedition-choice', 'data-pvp-match': entry.matchId },
+    pvpEl('span', { className: 'pvp-progress', text: played == null ? '' : `${played}/5` }),
+    pvpEl('span', {}, pvpEl('strong', { text: title }), pvpEl('small', { text: detail })),
+    pvpEl('span', { className: 'badge', text: '›' }),
+  );
+}
+
+function renderPvpHome() {
+  const blocks = [];
+  if (!pvpHasIdentity() || pvpUi.editingName) {
+    blocks.push(pvpNameBlock({
+      submitLabel: pvpHasIdentity() ? 'Save' : 'Continue',
+      onSubmit: async (name) => {
+        if (pvpUi.busy) return;
+        pvpUi.busy = true;
+        pvpSetStatus(pvpHasIdentity() ? '' : 'Setting up...');
+        try {
+          await pvpEnsureIdentity(name);
+          pvpUi.editingName = false;
+          pvpUi.status = '';
+          renderPvpHome();
+          if (pvp.pendingInvite) openPvpJoin(pvp.pendingInvite);
+        } catch (error) {
+          pvpSetStatus(pvpMessage(error), true);
+        } finally {
+          pvpUi.busy = false;
+        }
+      },
+    }));
+  } else {
+    blocks.push(pvpEl('div', { className: 'pvp-block pvp-who' },
+      pvpEl('span', {}, 'Playing as ', pvpEl('b', { text: pvpStore.displayName })),
+      pvpEl('button', { type: 'button', className: 'text-button', text: 'Change name', onclick: () => { pvpUi.editingName = true; renderPvpHome(); } }),
+    ));
+    blocks.push(pvpEl('div', { className: 'pvp-block' },
+      pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: 'Create a challenge', onclick: pvpCreate }),
+    ));
+    const code = pvpEl('input', { type: 'text', className: 'pvp-code', maxLength: 6, autocomplete: 'off', autocapitalize: 'characters', spellcheck: false, enterkeyhint: 'go', placeholder: 'Code', 'aria-label': 'Six character join code' });
+    const join = () => {
+      const value = code.value.trim().toUpperCase();
+      if (!/^[A-Z0-9]{6}$/.test(value)) { pvpSetStatus('Join codes are 6 letters and numbers.', true); code.focus(); return; }
+      openPvpJoin({ joinCode: value });
+    };
+    code.addEventListener('keydown', (event) => { if (event.key === 'Enter') join(); });
+    blocks.push(pvpEl('div', { className: 'pvp-block' },
+      pvpEl('p', { className: 'eyebrow', text: 'Have a code?' }),
+      pvpEl('div', { className: 'pvp-field' }, code, pvpEl('button', { type: 'button', className: 'primary', text: 'Join', onclick: join })),
+    ));
+  }
+  blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
+  if (pvpHasIdentity()) {
+    const list = pvpEl('div', { className: 'expedition-list' }, pvpStore.matches.map(pvpMatchRow));
+    blocks.push(pvpEl('div', { className: 'pvp-block' },
+      pvpEl('p', { className: 'eyebrow', text: 'Your challenges' }),
+      pvpStore.matches.length ? list : pvpEl('p', { className: 'pvp-empty', text: 'No challenges yet. Create one and send the link to a friend.' }),
+      pvpUi.listError ? pvpEl('p', { className: 'pvp-status error', text: pvpUi.listError }) : null,
+    ));
+  }
+  pvpHomeBody.replaceChildren(...blocks);
+}
+
+// Read every remembered match in parallel. A purged match (404) is forgotten;
+// a network failure keeps the row and says so.
+async function refreshPvpList() {
+  if (!pvpHasIdentity() || !pvpStore.matches.length) return;
+  pvpUi.listError = '';
+  let unreachable = false;
+  await Promise.all(pvpStore.matches.map(async (entry) => {
+    try {
+      pvpUi.states.set(entry.matchId, await pvpApi(`/v1/matches/${entry.matchId}`));
+    } catch (error) {
+      if (error.code === 'MATCH_NOT_FOUND' || error.code === 'FORBIDDEN') {
+        pvpStore.matches = pvpStore.matches.filter((m) => m.matchId !== entry.matchId);
+        pvpUi.states.delete(entry.matchId);
+      } else {
+        pvpUi.states.set(entry.matchId, null);
+        if (error.code === 'NETWORK') unreachable = true;
+      }
+    }
+  }));
+  savePvp();
+  if (unreachable) pvpUi.listError = 'Could not reach the challenge service. Your challenges will load when you are back online.';
+  if (!pvpHome.hidden) renderPvpHome();
+}
+
+function showPvpHome(status = '', error = false) {
+  pvpLeave();
+  clearReveal();
+  hideScreens();
+  gameMode = 'pvp-home';
+  window.__canGuess = false;
+  pvpUi.status = status;
+  pvpUi.statusError = error;
+  pvpUi.editingName = false;
+  renderPvpHome();
+  pvpHome.hidden = false;
+  refreshPvpList();
+}
+
+async function pvpCreate() {
+  if (pvpUi.busy) return;
+  pvpUi.busy = true;
+  pvpSetStatus('Creating your challenge...');
+  try {
+    const created = await pvpApi('/v1/matches', { method: 'POST', body: { displayName: pvpStore.displayName, clientVersion: PVP_CLIENT_VERSION } });
+    pvpRememberMatch({ matchId: created.matchId, role: 'CHALLENGER', shareUrl: created.shareUrl, joinCode: created.joinCode, createdAt: created.createdAt });
+    pvpUi.busy = false;
+    showPvpMatch(created.matchId, { justCreated: true });
+  } catch (error) {
+    pvpUi.busy = false;
+    pvpSetStatus(pvpMessage(error), true);
+    if (error.code === 'OPEN_CHALLENGE_CAP') refreshPvpList();
+  }
+}
+
+// Match screen: status, totals, the round-by-round comparison, invite sharing,
+// pair record and the next action. The results screen's card and breakdown list.
+const pvpMatchScreen = document.createElement('section');
+pvpMatchScreen.className = 'screen results-screen';
+pvpMatchScreen.hidden = true;
+pvpMatchScreen.innerHTML = '<div class="results-card glass pvp-match-card"><button class="home-nav-btn finished-home-nav" type="button" aria-label="Go home">×</button><div class="pvp-match-body"></div></div>';
+gameEls.survivalResults.after(pvpMatchScreen);
+const pvpMatchBody = pvpMatchScreen.querySelector('.pvp-match-body');
+pvpScreenEls.push(pvpMatchScreen);
+const pvpView = { matchId: null, state: null, record: undefined, loadError: '' };
+
+function pvpRoundPoints(result) {
+  if (!result) return '?';
+  return result.score.toLocaleString();
+}
+
+function pvpBreakdown(state) {
+  const rows = (state.rounds || []).map((round) => {
+    const answer = round.answer;
+    let place = 'Not played yet';
+    if (round.viewerResult) place = `${answer?.short || answer?.clue || `Round ${round.round}`}${round.viewerResult.outcome === 'TIMEOUT' ? ' (timed out)' : ''}`;
+    else if (round.state === 'STARTED') place = 'In progress';
+    return pvpEl('li', {},
+      pvpEl('b', { text: String(round.round) }),
+      pvpEl('span', { className: 'place', text: place }),
+      round.viewerResult ? pvpEl('span', { className: 'result-metrics' },
+        pvpEl('span', { className: 'points', text: pvpRoundPoints(round.viewerResult) }),
+        pvpEl('span', { className: 'distance', text: `vs ${pvpRoundPoints(round.opponentResult)}` })) : null,
+    );
+  });
+  if (!rows.length) return null;
+  return pvpEl('section', { className: 'round-breakdown' },
+    pvpEl('h2', { text: 'Round by round · You vs them' }),
+    pvpEl('ol', { className: 'pvp-breakdown' }, rows));
+}
+
+function pvpRecordLine() {
+  const data = pvpView.record;
+  if (data === undefined) return null;
+  const record = data?.record;
+  const text = !record ? 'Your first finished match against this player.'
+    : `Head to head: ${record.played} played · ${record.wins} ${record.wins === 1 ? 'win' : 'wins'} · ${record.losses} ${record.losses === 1 ? 'loss' : 'losses'}${record.ties ? ` · ${record.ties} ${record.ties === 1 ? 'tie' : 'ties'}` : ''}`;
+  return pvpEl('p', { className: 'pvp-note pvp-record', text });
+}
+
+async function pvpShareInvite(entry, button) {
+  const text = `${pvpStore.displayName} challenged you on Where on Earth? Five places, 20 seconds each. Join code ${entry.joinCode}`;
+  try {
+    if (navigator.share) {
+      await navigator.share({ text, url: entry.shareUrl });
+      return;
+    }
+  } catch (err) {
+    if (err && err.name === 'AbortError') return;
+  }
+  pvpCopyInvite(entry, button);
+}
+
+async function pvpCopyInvite(entry, button) {
+  try {
+    await navigator.clipboard.writeText(entry.shareUrl);
+    button.textContent = 'Link copied';
+    pvpSetStatus('Invite link copied. Paste it to a friend.');
+  } catch {
+    window.prompt('Copy this link to share:', entry.shareUrl); // no clipboard (insecure context, denied)
+  }
+}
+
+function renderPvpMatch() {
+  const state = pvpView.state;
+  const entry = pvpMatchEntry(pvpView.matchId);
+  const blocks = [];
+  const header = (title, lede) => pvpEl('header', { className: 'postcard-summary-header' },
+    pvpEl('p', { className: 'eyebrow', text: 'Challenge' }),
+    pvpEl('h2', { text: title }),
+    lede ? pvpEl('p', { className: 'postcard-summary-lede', text: lede }) : null);
+  if (!state) {
+    blocks.push(header(pvpView.loadError ? 'Could not load' : 'Loading...', pvpView.loadError));
+    if (pvpView.loadError) blocks.push(pvpEl('div', { className: 'pvp-actions' }, pvpEl('button', { type: 'button', className: 'primary', text: 'Try again', onclick: loadPvpMatch })));
+  } else {
+    const key = pvpStatusKey(state);
+    const opponent = pvpOpponentLabel(state);
+    const oppName = opponent || 'Your opponent';
+    const me = pvpMe(state);
+    const opp = pvpOpponent(state);
+    const next = state.viewer?.nextRound;
+    if (key === 'completed') {
+      const { winnerRole, margin } = state.result;
+      blocks.push(header(winnerRole === 'TIE' ? 'Tied' : winnerRole === state.role ? 'You won' : `${oppName} won`,
+        winnerRole === 'TIE' ? 'Same total. Totals are out of 5,000.' : `${winnerRole === state.role ? 'Won' : 'Lost'} by ${margin.toLocaleString()} ${margin === 1 ? 'point' : 'points'}. Totals are out of 5,000.`));
+    } else if (key === 'expired') {
+      blocks.push(header('Expired', 'Time ran out before both players finished. It does not count toward your record.'));
+    } else if (key === 'ended') {
+      blocks.push(header('Ended', 'This challenge was ended early. It does not count toward your record.'));
+    } else if (key === 'your-turn') {
+      blocks.push(header('Your turn', `Round ${next} of 5 is next. Each round gives you 20 seconds, and the timer starts when you tap play.${state.status === 'OPEN' ? ' Nobody has joined yet, so you can play now and your friend can play later.' : ''}`));
+    } else if (key === 'waiting') {
+      blocks.push(header('Waiting for opponent', 'You have played all five rounds. Send the link or code so a friend can play the same places.'));
+    } else {
+      blocks.push(header('Their turn', `You have played all five rounds. ${oppName} has played ${opp?.resolvedRounds ?? 0} of 5.`));
+    }
+    if (me?.visibleTotal != null || state.viewer?.total != null) {
+      const myTotal = state.result ? state.result.totals.find((t) => t.role === state.role).total : state.viewer.total;
+      const oppTotal = state.result ? state.result.totals.find((t) => t.role !== state.role).total : null;
+      blocks.push(pvpEl('div', { className: 'survival-best-card' },
+        pvpEl('div', {}, pvpEl('strong', { text: myTotal.toLocaleString() }), pvpEl('span', { text: state.result ? 'You' : 'You so far' })),
+        pvpEl('div', {}, pvpEl('strong', { text: oppTotal != null ? oppTotal.toLocaleString() : opp ? `${opp.resolvedRounds ?? 0}/5` : '0/5' }),
+          pvpEl('span', { text: oppTotal != null ? oppName : `${opponent || 'Opponent'} played` })),
+      ));
+    }
+    if (state.status === 'OPEN' && state.role === 'CHALLENGER' && entry?.shareUrl) {
+      const share = pvpEl('button', { type: 'button', className: 'primary', text: 'Share invite link', onclick: (event) => pvpShareInvite(entry, event.currentTarget) });
+      const copy = pvpEl('button', { type: 'button', className: 'text-button', text: 'Copy link', onclick: (event) => pvpCopyInvite(entry, event.currentTarget) });
+      blocks.push(pvpEl('div', { className: 'pvp-block pvp-invite' },
+        pvpEl('p', { className: 'eyebrow', text: 'Join code' }),
+        pvpEl('p', { className: 'pvp-code-big', text: entry.joinCode }),
+        pvpEl('div', { className: 'pvp-actions' }, share, copy)));
+    }
+    blocks.push(pvpRecordLine());
+    blocks.push(pvpBreakdown(state));
+    const actions = [];
+    if (next && !['COMPLETED', 'EXPIRED', 'ABANDONED'].includes(state.status)) {
+      actions.push(pvpEl('button', { type: 'button', className: 'primary', text: `Play round ${next}`, onclick: () => pvpPlay(next) }));
+    }
+    blocks.push(pvpEl('div', { className: 'pvp-actions' }, actions));
+  }
+  blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
+  blocks.push(pvpEl('div', { className: 'pvp-actions' }, pvpEl('button', { type: 'button', className: 'text-button', text: 'All challenges', onclick: () => showPvpHome() })));
+  pvpMatchBody.replaceChildren(...blocks.filter(Boolean));
+}
+
+async function pvpLoadRecord(state) {
+  const opponent = pvpOpponent(state);
+  if (!opponent || pvpView.record !== undefined) return;
+  try {
+    const data = await pvpApi(`/v1/records/${encodeURIComponent(opponent.playerId)}`);
+    if (pvpView.state !== state) return;
+    pvpView.record = data;
+    renderPvpMatch();
+  } catch { /* the record line is optional; the match still shows */ }
+}
+
+async function loadPvpMatch() {
+  const matchId = pvpView.matchId;
+  pvpView.loadError = '';
+  try {
+    const state = await pvpApi(`/v1/matches/${matchId}`);
+    if (pvpView.matchId !== matchId || pvpMatchScreen.hidden) return;
+    pvpUi.states.set(matchId, state);
+    pvpView.state = state;
+    renderPvpMatch();
+    pvpLoadRecord(state);
+  } catch (error) {
+    if (pvpView.matchId !== matchId) return;
+    if (error.code === 'MATCH_NOT_FOUND') {
+      pvpStore.matches = pvpStore.matches.filter((m) => m.matchId !== matchId);
+      savePvp();
+    }
+    if (pvpView.state) pvpSetStatus(pvpMessage(error), true);
+    else {
+      pvpView.loadError = pvpMessage(error);
+      renderPvpMatch();
+    }
+  }
+}
+
+function showPvpMatch(matchId, { justCreated = false } = {}) {
+  pvpLeave();
+  clearReveal();
+  hideScreens();
+  gameMode = 'pvp-match';
+  window.__canGuess = false;
+  if (pvpView.matchId !== matchId) pvpView.record = undefined;
+  pvpView.matchId = matchId;
+  pvpView.state = pvpUi.states.get(matchId) || null;
+  pvpUi.status = justCreated ? 'Challenge created. Share the link or code, then play your five rounds.' : '';
+  pvpUi.statusError = false;
+  pvpMatchScreen.hidden = false;
+  document.body.classList.add('game-results');
+  renderPvpMatch();
+  loadPvpMatch();
+}
+
+// Leaving PvP play: stop timers and polling; the server keeps every deadline.
+function pvpLeave() {
+  pvp.active = false;
+}
+
+// Filled in with match play below.
+function pvpPlay() {}
+function openPvpJoin() {}
+
+pvpHome.addEventListener('click', (event) => {
+  const row = event.target.closest('[data-pvp-match]');
+  if (row) showPvpMatch(row.dataset.pvpMatch);
+});
+document.getElementById('pvp-button').addEventListener('click', () => showPvpHome());
 
 // ---------------------------------------------------------------------------
 // Passport page: the full collection as postcards, opened beside Stats
@@ -8913,6 +9469,7 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   updateExpeditionEntry();
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
+  document.getElementById('pvp-button').disabled = false;
   window.__renderAuditFlags?.();
   if (window.__boot) window.__boot('locations loaded');
   loadJobDone('critical', 'locations');
