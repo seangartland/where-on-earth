@@ -50,6 +50,7 @@ Method: I measured category and image counts from `assets/locations.json` and re
 
 ### 6. Country Blackout: medium (Sean's idea, 2026-10-12)
 - **What it is:** Survival: Tap the Country (shipped 2026-10-12 as item #5) with a progressive map transformation. Each time a country is guessed correctly, that country is blacked out on the globe: its satellite imagery is removed and only the blue stylized map (the classic view's rendering) shows there. The globe visibly fills in as the run advances.
+- **Scope variants (Sean, 2026-10-13):** offer the mode as full world and by continent. A continent run (Europe, Asia, Africa, and so on) is a finishable goal; the full-world run is the marathon version.
 - **Why players want it:** The map itself becomes the scoreboard. Progress you can see, a strong run identity, and a natural share image: a half-blacked-out globe says how far you got without any numbers.
 - **Builds on:** The shipped country geometry (`country-outlines.topo.json`) and hit testing, the Survival: Tap the Country run structure, and the existing classic blue style. The real work is masking the satellite texture per country on the globe as countries fall.
 - **Watch:** Countries never repeat within a run, so the blackout is progression and identity rather than a scoring change. One second-order effect to playtest: removing a found country's satellite detail also removes orientation context for neighbouring unfound countries, which may quietly raise difficulty late in a run.
