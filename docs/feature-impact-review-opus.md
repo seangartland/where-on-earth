@@ -92,3 +92,35 @@ My argument rested on "you are missing 4 postcards in Japan." Sean is right that
 3. Country Blackout. Unchanged: good polish with a good share image, after the subscription exists.
 
 Collections as a standalone screen moves to "keep hidden." Bring it back only if a cities-only theme set proves worth having on its own, and none of the current 25 does.
+
+## Addendum 2 (2026-10-13): are landmarks practice?
+
+Author: Claude Opus 5.5 (model ID `claude-opus-5-5`), in this run, no delegation. Method: I read the Expeditions code (`main.js:6660-6785`, the reveal path at `main.js:4596-4645`, the next-round path at `main.js:4993-5002`) and `assets/expeditions.json`. I also cross-checked every expedition `locationId` against `assets/locations.json` and `assets/locations-landmarks-sol.json`, and counted the landmark file's `sets` and `category` fields with a script. Everything listed under "What I measured" is measured. The recommendations are my judgment.
+
+What I measured:
+- **Expeditions draw only from the active pool.** `expeditionLocations()` looks up ids in `locations` (loaded from `locations.json`, `main.js:8699`) and drops any id it can't find. A run is a fixed sequence of up to 7 stops played in order. It is unscored (`oneOff`, `main.js:4601`), it resumes at the last stop reached, and it ends with the run haul and a 🏅 badge in the picker. Progress means stops reached, not accuracy.
+- **Expeditions already earn postcards.** `recordVisit(..., !endless.active)` gives an earn to every mode except Endless, so Expeditions earn exactly what Daily and Survival earn.
+- **Two of the four shipped expeditions are already landmark content, and today they are dead.** Ancient Wonders: 6 of 7 ids are in the landmark file and 0 are in the active pool. Volcano Week: 4 of 7 are in the landmark file, and none of the 7 are in the active pool. Both get filtered out of the picker without any message. Island Hopping plays 4 of its 7 stops. Only Capital Cities plays in full.
+- **The Passport can only show active cities.** Passport entries resolve ids against `locations.json` and skip anything else as "retired" (`main.js:6498`, `main.js:6871`). A landmark postcard earned today would be stored and then never shown.
+- **The landmark file:** 909 entries, all `category: "city"` (the field carries no information), and difficulty 2 to 10 with the bulk at 6 to 9. 143 entries carry `sets`. Nine sets have 7 or more members: History Was Here 32, Antarctic Outposts 13, Andes 10, Pacific Islands 8, Arctic Circle 8, Ancient Ruins 8, Southeast Asia 7, Wonders of the World 7, Mountains 7. The other 766 entries have no theme tag.
+
+**Is Sean right? Yes. "Practice" is the wrong frame, and I withdraw it.** In MapTap, practice is worth paying for because it rehearses the same geography that the daily and the paid game test. Landmarks appear in no Daily, no Survival and no PvP round, so playing them improves nothing the game measures. Practice for what? There is no answer. I took "practice depth" from Sean's list of drivers and applied it to content it doesn't fit.
+
+**Recommendation: landmarks are Expeditions content, framed as collecting famous places. They are not a new mode and not a variant of an existing mode.**
+- The code already reached this decision. Two of the four expeditions were written against landmark ids, and only the data loading is missing. Expeditions also already provide the picker, ordered stops, resume, postcard earning, the run haul and a completion badge. A new mode would repeat all of that and add a fifth home entry.
+- Not a Survival variant: Survival's appeal is one streak number, and mixing in landmark difficulty changes what that number means.
+- **Why a player opens it a second time:** an unfinished, visible set ("Ancient Ruins 5/8") plus photo postcards of places they have heard of. Completion is the hook. That means a finished expedition gives little reason to replay, so the second, third and tenth opens depend on new expeditions arriving. The data supports about 9 seven-stop expeditions from existing tags. Going further needs a theme-tagging pass over the 766 untagged entries. A steady release rhythm (Volcano Week's name already suggests a weekly cadence) is part of the design, not an extra.
+
+**What landmark play earns: postcards and expedition completion, both of which the code already does, plus one rule.**
+- Postcards: yes, on the existing earn curve. This needs the Passport to resolve ids from both files. Without that, earned landmark postcards disappear.
+- Keep landmarks out of the Passport's country completion counts. Show them in their own landmark shelf. Country totals should stay city-only so that "missing 4 in Japan" and a future "dealt on 2026-10-xx" archive link still mean something. A landmark can never be dealt in a Daily, so counting it toward a country would create gaps that the archive can't fill.
+- Themed collections: the expedition is the collection. Wonders of the World, Ancient Ruins, Antarctic Outposts and the others each become one expedition, and finishing it earns the badge. Don't build a separate Collections screen. Keep it hidden, as Addendum 1 concluded. If Sean later wants completion to mean more than reaching the end, use postcard tiers within the expedition as the quality layer rather than changing what counts as complete.
+- Subscription: without the practice argument, landmarks are content, not a paid driver. A reasonable split is some expeditions free and new releases in the subscription, but that is a weaker sell than the archive and should not lead the pitch.
+
+**Sequence correction:**
+0. Pin backfill. Its priority is unchanged. I did not check in this run whether it has shipped.
+1. Country Blackout. Sean ordered it and it is in progress.
+2. **Landmark expeditions, delivered as two slices.** Slice A is small: load the landmark file for expedition lookups, let the Passport resolve landmark ids on a separate shelf, and revive Ancient Wonders and Volcano Week. That fixes two expeditions that already ship broken. Slice B is the medium work: a clue pass (some names give away the country), an image check, and new expeditions from the nine sets with 7 or more members. It stays at step 2 for a different reason than before. It is retention content for free players while the archive builds history, not a practice library for subscribers.
+3. Daily archive replay plus subscription. Unchanged. It still sells a thin library before roughly mid-January 2027.
+
+Effort figures remain estimates. Nothing here was built or timed.
