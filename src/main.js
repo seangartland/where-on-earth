@@ -5144,7 +5144,7 @@ nextGame.addEventListener('click', () => { if (nextGame.classList.contains('read
 const endless = { active: false, item: null, bag: [], count: 0 };
 // PvP challenge play (section below). item is the server-issued prompt until the
 // guess is accepted, then the server answer.
-const pvp = { active: false, matchId: null, round: 0, item: null, result: null };
+const pvp = { active: false, matchId: null, challengeId: null, group: false, round: 0, item: null, result: null };
 
 function currentItem() {
   if (borders.active) return null; // Borders asks for a country, not a location
@@ -7057,7 +7057,7 @@ expeditionPicker.addEventListener('click', (event) => {
 // ---------------------------------------------------------------------------
 const PVP_API = 'https://woe-pvp.gartland-79.workers.dev';
 const PVP_KEY = 'where-on-earth-pvp-v1';
-const PVP_CLIENT_VERSION = '2026.10.13';
+const PVP_CLIENT_VERSION = '2026.10.14';
 const PVP_MATCH_LIMIT = 30; // remembered matches, newest first
 
 class PvpError extends Error {
@@ -7075,21 +7075,31 @@ let pvpStore = (() => {
     playerToken: typeof store.playerToken === 'string' ? store.playerToken : null,
     displayName: typeof store.displayName === 'string' ? store.displayName : '',
     matches: Array.isArray(store.matches) ? store.matches.filter((m) => m && typeof m.matchId === 'string') : [],
+    groups: Array.isArray(store.groups) ? store.groups.filter((g) => g && typeof g.challengeId === 'string') : [],
   };
 })();
 
 function savePvp() {
   pvpStore.matches = pvpStore.matches.slice(0, PVP_MATCH_LIMIT);
+  pvpStore.groups = pvpStore.groups.slice(0, PVP_MATCH_LIMIT);
   writeJSON(PVP_KEY, pvpStore);
 }
 
 const pvpHasIdentity = () => Boolean(pvpStore.playerId && pvpStore.playerToken);
 const pvpMatchEntry = (matchId) => pvpStore.matches.find((m) => m.matchId === matchId) || null;
+const pvpGroupEntry = (challengeId) => pvpStore.groups.find((g) => g.challengeId === challengeId) || null;
 
 function pvpRememberMatch(entry) {
   const existing = pvpMatchEntry(entry.matchId);
   if (existing) Object.assign(existing, entry);
   else pvpStore.matches.unshift({ visited: [], ...entry });
+  savePvp();
+}
+
+function pvpRememberGroup(entry) {
+  const existing = pvpGroupEntry(entry.challengeId);
+  if (existing) Object.assign(existing, entry);
+  else pvpStore.groups.unshift(entry);
   savePvp();
 }
 
@@ -7130,6 +7140,11 @@ const PVP_MESSAGES = {
   REMATCH_PENDING: 'A rematch is being set up. Try again in a moment.',
   REMATCH_EXISTS: 'A rematch for this match has already started.',
   MATCH_NOT_COMPLETED: 'Rematches open once both players finish.',
+  CHALLENGE_EXPIRED: 'This Open Challenge has expired.',
+  CHALLENGE_NOT_FOUND: 'This Open Challenge is no longer available.',
+  CHALLENGE_FULL: 'This Open Challenge is full.',
+  ENTRIES_CLOSED: 'Entries are closed for this Open Challenge.',
+  CREATOR_ONLY: 'Only the creator can close entries.',
 };
 const pvpMessage = (error) => PVP_MESSAGES[error?.code] || error?.message || 'Something went wrong. Try again.';
 
@@ -7192,7 +7207,21 @@ pvpStyle.textContent = `
 .pvp-status:empty { display: none; }
 .expedition-choice .pvp-progress { min-width: 30px; color: #ffc76a; font-size: 15px; font-weight: 800; text-align: center; }
 .pvp-code-big { margin: 4px 0 0; color: #f3f9ff; font-size: 30px; font-weight: 850; letter-spacing: .22em; text-align: center; font-variant-numeric: tabular-nums; }
-.pvp-empty { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; }`;
+.pvp-empty { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; }
+.pvp-format-card { margin-bottom: 12px; padding: 14px; border-radius: 16px; background: rgba(157,211,255,.06); }
+.pvp-format-card h3 { margin: 0 0 4px; color: #f3f9ff; font-size: 17px; }
+.pvp-format-card > p { margin: 0 0 12px; color: rgba(193,224,250,.68); font-size: 13px; line-height: 1.4; }
+.pvp-board { margin: 12px 0 0; }
+.pvp-board-list { margin: 0; padding: 0; list-style: none; }
+.pvp-board-list li { display: grid; grid-template-columns: 32px minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 42px; border-bottom: 1px solid rgba(173,216,255,.11); }
+.pvp-board-list b { overflow: hidden; color: #f3f9ff; text-overflow: ellipsis; white-space: nowrap; }
+.pvp-board-list small { color: rgba(193,224,250,.62); }
+.pvp-board-rank { color: #ffc76a; font-weight: 850; text-align: center; }
+.pvp-board-score { color: #ffc76a; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pvp-me { background: rgba(103,232,255,.07); }
+.pvp-standings { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(173,216,255,.11); }
+.pvp-confirm { padding: 12px; border-radius: 14px; background: rgba(255,157,180,.08); }
+.pvp-confirm p { margin: 0 0 10px; color: rgba(224,240,255,.86); font-size: 13px; }`;
 document.head.appendChild(pvpStyle);
 
 // Home: identity, create, join by code, and the remembered match list. Same
@@ -7320,8 +7349,15 @@ function renderPvpHome() {
       pvpEl('span', {}, 'Playing as ', pvpEl('b', { text: pvpStore.displayName })),
       pvpEl('button', { type: 'button', className: 'text-button', text: 'Change name', onclick: () => { pvpUi.editingName = true; renderPvpHome(); } }),
     ));
-    blocks.push(pvpEl('div', { className: 'pvp-block' },
+    blocks.push(pvpEl('div', { className: 'pvp-format-card' },
+      pvpEl('h3', { text: 'Direct challenge' }),
+      pvpEl('p', { text: 'Five places against one friend.' }),
       pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: 'Create a challenge', onclick: pvpCreate }),
+    ));
+    blocks.push(pvpEl('div', { className: 'pvp-format-card' },
+      pvpEl('h3', { text: 'Open Challenge' }),
+      pvpEl('p', { text: 'One link, one map set, up to 50 players.' }),
+      pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: 'Create an Open Challenge', onclick: pvpGroupCreate }),
     ));
     const code = pvpEl('input', { type: 'text', className: 'pvp-code', maxLength: 6, autocomplete: 'off', autocapitalize: 'characters', spellcheck: false, enterkeyhint: 'go', placeholder: 'Code', 'aria-label': 'Six character join code' });
     const join = () => {
@@ -7350,13 +7386,28 @@ function renderPvpList() {
     pvpStore.matches.length ? pvpEl('div', { className: 'expedition-list' }, pvpStore.matches.map(pvpMatchRow))
       : pvpEl('p', { className: 'pvp-empty', text: 'No challenges yet. Create one and send the link to a friend.' }),
     pvpUi.listError ? pvpEl('p', { className: 'pvp-status error', text: pvpUi.listError }) : null,
+    pvpEl('p', { className: 'eyebrow', text: 'Your open challenges' }),
+    pvpUi.groupItems?.length ? pvpEl('div', { className: 'expedition-list' }, pvpUi.groupItems.filter((item) => item.role === 'CREATOR').map(pvpGroupRow))
+      : pvpEl('p', { className: 'pvp-empty', text: 'No Open Challenges created yet.' }),
+    pvpEl('p', { className: 'eyebrow', text: 'Challenges you joined' }),
+    pvpUi.groupItems?.some((item) => item.role !== 'CREATOR') ? pvpEl('div', { className: 'expedition-list' }, pvpUi.groupItems.filter((item) => item.role !== 'CREATOR').map(pvpGroupRow))
+      : pvpEl('p', { className: 'pvp-empty', text: 'No joined Open Challenges yet.' }),
+  );
+}
+
+function pvpGroupRow(item) {
+  const progress = item.progress === 'FINISHED' ? 'Finished' : item.progress === 'PLAYING' ? 'In progress' : item.status === 'EXPIRED' ? 'Expired' : 'Not started';
+  return pvpEl('button', { type: 'button', className: 'expedition-choice', 'data-pvp-group': item.challengeId },
+    pvpEl('span', { className: 'pvp-progress', text: item.progress === 'FINISHED' ? `#${item.rank || '-'}` : `${item.total || 0}` }),
+    pvpEl('span', {}, pvpEl('strong', { text: item.creator?.displayName || 'Open Challenge' }), pvpEl('small', { text: `${progress} · ${item.participantCount} player${item.participantCount === 1 ? '' : 's'}` })),
+    pvpEl('span', { className: 'badge', text: '›' }),
   );
 }
 
 // Read every remembered match in parallel. A purged match (404) is forgotten;
 // a network failure keeps the row and says so.
 async function refreshPvpList() {
-  if (!pvpHasIdentity() || !pvpStore.matches.length) return;
+  if (!pvpHasIdentity()) return;
   pvpUi.listError = '';
   let unreachable = false;
   await Promise.all(pvpStore.matches.map(async (entry) => {
@@ -7372,6 +7423,22 @@ async function refreshPvpList() {
       }
     }
   }));
+  try {
+    const items = [];
+    let cursor = null;
+    do {
+      const query = new URLSearchParams({ scope: 'mine', limit: '20' });
+      if (cursor) query.set('cursor', cursor);
+      const groups = await pvpApi(`/v1/group-challenges?${query}`);
+      items.push(...(groups.challenges || []));
+      cursor = groups.nextCursor;
+    } while (cursor);
+    pvpUi.groupItems = items;
+    for (const item of pvpUi.groupItems) pvpRememberGroup({ challengeId: item.challengeId, role: item.role, createdAt: item.createdAt });
+  } catch (error) {
+    if (error.code === 'NETWORK') unreachable = true;
+    else pvpUi.listError = pvpMessage(error);
+  }
   savePvp();
   if (unreachable) pvpUi.listError = 'Could not reach the challenge service. Your challenges will load when you are back online.';
   renderPvpList();
@@ -7406,6 +7473,21 @@ async function pvpCreate() {
     pvpUi.busy = false;
     pvpSetStatus(pvpMessage(error), true);
     if (error.code === 'OPEN_CHALLENGE_CAP') refreshPvpList();
+  }
+}
+
+async function pvpGroupCreate() {
+  if (pvpUi.busy) return;
+  pvpUi.busy = true;
+  pvpSetStatus('Creating your Open Challenge...');
+  try {
+    const created = await pvpApi('/v1/group-challenges', { method: 'POST', body: { displayName: pvpStore.displayName, clientVersion: PVP_CLIENT_VERSION } });
+    pvpRememberGroup({ challengeId: created.challengeId, role: 'CREATOR', shareUrl: created.shareUrl, joinCode: created.joinCode, createdAt: created.createdAt });
+    pvpUi.busy = false;
+    showPvpGroup(created.challengeId, { justCreated: true });
+  } catch (error) {
+    pvpUi.busy = false;
+    pvpSetStatus(pvpMessage(error), true);
   }
 }
 
@@ -7670,6 +7752,7 @@ function showPvpMatch(matchId, { justCreated = false } = {}) {
 // Join: an invite link (#invite=<token>, see /pvp/join in vercel.json) or a
 // typed code is inspected, shown, then claimed for this device's identity.
 const PVP_INVITE_KEY = 'where-on-earth-pvp-invite';
+const pvpLinkIsGroup = new URLSearchParams(location.search).get('from') === 'group';
 const pvpLinkInvite = (() => {
   const m = location.hash.match(/^#invite=([A-Za-z0-9_-]{16,})$/);
   try {
@@ -7747,6 +7830,10 @@ async function openPvpJoin(credential) {
     pvpUi.invite = invite;
   } catch (error) {
     if (gameMode !== 'pvp-join') return;
+    if (error.code === 'INVITATION_NOT_FOUND') {
+      openPvpGroupJoin(credential);
+      return;
+    }
     pvpForgetLinkInvite();
     pvpUi.status = pvpMessage(error);
     pvpUi.statusError = true;
@@ -7778,6 +7865,194 @@ async function pvpAccept(name = pvpStore.displayName) {
   }
 }
 
+// Open Challenge lobby, join and leaderboard. It has its own navigation and
+// data, while play below continues to use the same globe/reveal screen as H2H.
+const pvpGroupScreen = document.createElement('section');
+pvpGroupScreen.className = 'screen results-screen';
+pvpGroupScreen.hidden = true;
+pvpGroupScreen.innerHTML = '<div class="results-card glass pvp-match-card"><button class="home-nav-btn finished-home-nav" type="button" aria-label="Go home">×</button><div class="pvp-group-body"></div></div>';
+pvpMatchScreen.after(pvpGroupScreen);
+pvpGroupScreen.querySelector('.home-nav-btn').addEventListener('click', () => showPvpHome());
+const pvpGroupBody = pvpGroupScreen.querySelector('.pvp-group-body');
+pvpScreenEls.push(pvpGroupScreen);
+const pvpGroupView = { challengeId: null, state: null, loadError: '', pollTimer: 0, confirmingClose: false };
+
+function pvpPlayerLabel(player, board) {
+  const same = [...(board.finishers || []), ...(board.inProgress || [])].filter((row) => row.displayName === player.displayName).length > 1;
+  return same ? `${player.displayName} ${player.displaySuffix}` : player.displayName;
+}
+
+function pvpLeaderboard(state, final = false) {
+  const board = state.leaderboard || { finishers: [], inProgress: [] };
+  const list = (rows, finished) => pvpEl('ol', { className: 'pvp-board-list' }, rows.map((row) => pvpEl('li', { className: row.playerId === pvpStore.playerId ? 'pvp-me' : '' },
+    pvpEl('span', { className: 'pvp-board-rank', text: finished ? String(row.rank) : '-' }),
+    pvpEl('b', { text: `${pvpPlayerLabel(row, board)}${row.role === 'CREATOR' ? ' · Creator' : ''}` }),
+    pvpEl('span', { className: 'pvp-board-score', text: finished ? `${row.total.toLocaleString()} / 5,000` : `${row.total.toLocaleString()} · ${row.resolvedRounds}/5` }),
+  )));
+  return pvpEl('section', { className: 'pvp-board' },
+    pvpEl('p', { className: 'eyebrow', text: final ? 'Final leaderboard' : 'Leaderboard' }),
+    board.finishers.length ? list(board.finishers, true) : pvpEl('p', { className: 'pvp-empty', text: 'No finishers yet.' }),
+    board.inProgress.length ? pvpEl('div', {}, pvpEl('p', { className: 'eyebrow', text: 'In progress' }), list(board.inProgress, false)) : null,
+  );
+}
+
+function pvpGroupShareText(state) {
+  const me = state.leaderboard.finishers.find((row) => row.playerId === pvpStore.playerId);
+  const players = state.entries.participantCount;
+  return `Open Challenge\n${me ? `I placed ${me.rank} of ${players}` : `I scored ${state.viewer.total.toLocaleString()} with ${players} players`}\n${state.viewer.total.toLocaleString()} out of 5,000\nhttps://www.where-on.earth`;
+}
+
+async function pvpShareGroupInvite(entry, button) {
+  const text = `${pvpStore.displayName} opened an Open Challenge on Where on Earth? Five places, 20 seconds each. Join code ${entry.joinCode}`;
+  try {
+    if (navigator.share) { await navigator.share({ text, url: entry.shareUrl }); return; }
+  } catch (error) { if (error?.name === 'AbortError') return; }
+  pvpCopyGroupInvite(entry, button);
+}
+
+async function pvpCopyGroupInvite(entry, button) {
+  try {
+    await navigator.clipboard.writeText(entry.shareUrl);
+    button.textContent = 'Link copied';
+    pvpSetStatus('Invite link copied. Paste it to your group.');
+  } catch {
+    try {
+      await navigator.clipboard.writeText(entry.joinCode);
+      button.textContent = 'Code copied';
+      pvpSetStatus('The 6-character join code was copied.');
+    } catch { window.prompt('Copy this 6-character join code:', entry.joinCode); }
+  }
+}
+
+function renderPvpGroup() {
+  const state = pvpGroupView.state;
+  const entry = pvpGroupEntry(pvpGroupView.challengeId);
+  const blocks = [pvpEl('header', { className: 'postcard-summary-header' }, pvpEl('p', { className: 'eyebrow', text: 'Open Challenge' }), pvpEl('h2', { text: state?.viewer?.progress === 'FINISHED' ? 'Challenge complete' : 'Open Challenge' }))];
+  if (!state) {
+    blocks.push(pvpEl('p', { className: `pvp-status${pvpGroupView.loadError ? ' error' : ''}`, text: pvpGroupView.loadError || 'Loading...' }));
+    if (pvpGroupView.loadError) blocks.push(pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: 'Try again', onclick: loadPvpGroup }));
+  } else {
+    const expires = new Date(state.expiresAt).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+    const count = state.entries.participantCount;
+    blocks.push(pvpEl('p', { className: 'postcard-summary-lede', text: `${count} of ${state.entries.participantCap} players · ${state.entries.open ? `Open until ${expires}` : state.status === 'EXPIRED' ? 'Expired' : 'Entries closed'}` }));
+    if (entry?.shareUrl && state.entries.open) {
+      blocks.push(pvpEl('div', { className: 'pvp-block pvp-invite' },
+        pvpEl('p', { className: 'eyebrow', text: 'Reusable join code' }),
+        pvpEl('p', { className: 'pvp-code-big', text: entry.joinCode }),
+        pvpEl('div', { className: 'pvp-actions' },
+          pvpEl('button', { type: 'button', className: 'primary', text: 'Share invite link', onclick: (event) => pvpShareGroupInvite(entry, event.currentTarget) }),
+          pvpEl('button', { type: 'button', className: 'text-button', text: 'Copy link', onclick: (event) => pvpCopyGroupInvite(entry, event.currentTarget) }))));
+    }
+    blocks.push(pvpLeaderboard(state, state.viewer.progress === 'FINISHED'));
+    if (state.viewer.progress === 'FINISHED') {
+      const me = state.leaderboard.finishers.find((row) => row.playerId === pvpStore.playerId);
+      if (me) blocks.push(pvpEl('p', { className: 'postcard-summary-lede', text: `You placed ${me.rank} of ${count} with ${me.total.toLocaleString()} out of 5,000.` }));
+      blocks.push(pvpEl('div', { className: 'pvp-actions' },
+        pvpEl('button', { type: 'button', className: 'primary', text: 'Share result', onclick: (event) => shareResult(pvpGroupShareText(state), event.currentTarget, pvpGroupBody.querySelector('.pvp-status')) }),
+        pvpEl('button', { type: 'button', className: 'primary', text: 'New Open Challenge', onclick: pvpGroupCreate })));
+    } else if (state.viewer.nextRound && state.status !== 'EXPIRED') {
+      const row = state.rounds.find((round) => round.round === state.viewer.nextRound);
+      blocks.push(pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: `${row?.state === 'STARTED' ? 'Resume' : 'Start'} round ${state.viewer.nextRound}`, onclick: () => pvpPlayGroup(state.viewer.nextRound) }));
+    }
+    if (state.role === 'CREATOR' && state.entries.open) {
+      blocks.push(pvpGroupView.confirmingClose ? pvpEl('div', { className: 'pvp-confirm' },
+        pvpEl('p', { text: 'Close entries? Everyone already joined can still finish.' }),
+        pvpEl('div', { className: 'pvp-actions' }, pvpEl('button', { type: 'button', className: 'primary', text: 'Close entries', onclick: pvpCloseGroup }), pvpEl('button', { type: 'button', className: 'text-button', text: 'Cancel', onclick: () => { pvpGroupView.confirmingClose = false; renderPvpGroup(); } })))
+        : pvpEl('button', { type: 'button', className: 'text-button', text: 'Close entries', onclick: () => { pvpGroupView.confirmingClose = true; renderPvpGroup(); } }));
+    }
+  }
+  blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
+  blocks.push(pvpEl('button', { type: 'button', className: 'text-button', text: 'All challenges', onclick: () => showPvpHome() }));
+  pvpGroupBody.replaceChildren(...blocks.filter(Boolean));
+}
+
+async function loadPvpGroup() {
+  const challengeId = pvpGroupView.challengeId;
+  try {
+    const state = await pvpApi(`/v1/group-challenges/${challengeId}`);
+    if (pvpGroupView.challengeId !== challengeId || pvpGroupScreen.hidden) return;
+    pvpGroupView.state = state;
+    pvpGroupView.loadError = '';
+    renderPvpGroup();
+    clearTimeout(pvpGroupView.pollTimer);
+    if (state.status !== 'EXPIRED') pvpGroupView.pollTimer = setTimeout(loadPvpGroup, 10000);
+  } catch (error) {
+    pvpGroupView.loadError = pvpMessage(error);
+    renderPvpGroup();
+  }
+}
+
+function showPvpGroup(challengeId, { justCreated = false } = {}) {
+  pvpLeave();
+  clearReveal();
+  hideScreens();
+  gameMode = 'pvp-group';
+  window.__canGuess = false;
+  clearTimeout(pvpGroupView.pollTimer);
+  Object.assign(pvpGroupView, { challengeId, state: null, loadError: '', confirmingClose: false });
+  pvpUi.status = justCreated ? 'Open Challenge created. Share the link or code, then play when you are ready.' : '';
+  pvpUi.statusError = false;
+  pvpGroupScreen.hidden = false;
+  document.body.classList.add('game-results');
+  renderPvpGroup();
+  loadPvpGroup();
+}
+
+async function pvpCloseGroup() {
+  try {
+    await pvpApi(`/v1/group-challenges/${pvpGroupView.challengeId}/close`, { method: 'POST', body: {} });
+    pvpGroupView.confirmingClose = false;
+    pvpSetStatus('Entries closed. Everyone already joined can still finish.');
+    loadPvpGroup();
+  } catch (error) { pvpSetStatus(pvpMessage(error), true); }
+}
+
+function renderPvpGroupJoin() {
+  const invite = pvpUi.groupInvite;
+  const blocks = [];
+  pvpHome.querySelector('h2').textContent = 'Group challenge';
+  if (invite) {
+    const creator = invite.creator.displayName === pvpStore.displayName ? `${invite.creator.displayName} ${invite.creator.displaySuffix}` : invite.creator.displayName;
+    const expires = new Date(invite.expiresAt).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+    pvpHome.querySelector('h2 + p').textContent = `${creator}'s Open Challenge · ${invite.participantCount} of ${invite.participantCap} players · Open until ${expires}.`;
+    if (!invite.unavailable && (!pvpHasIdentity() || pvpUi.editingName)) blocks.push(pvpNameBlock({ submitLabel: pvpHasIdentity() ? 'Save' : 'Join', onSubmit: (name) => pvpGroupAccept(name) }));
+    else if (!invite.unavailable) blocks.push(pvpEl('div', { className: 'pvp-actions' }, pvpEl('button', { type: 'button', className: 'primary', text: 'Join Open Challenge', onclick: () => pvpGroupAccept() })));
+  } else pvpHome.querySelector('h2 + p').textContent = pvpUi.statusError ? '' : 'Loading the Open Challenge...';
+  blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
+  blocks.push(pvpEl('button', { type: 'button', className: 'text-button', text: 'Back to challenges', onclick: () => { pvpForgetLinkInvite(); showPvpHome(); } }));
+  pvpHomeBody.replaceChildren(...blocks);
+}
+
+async function openPvpGroupJoin(credential) {
+  pvpLeave(); clearReveal(); hideScreens(); gameMode = 'pvp-group-join'; window.__canGuess = false;
+  pvp.joinCredential = credential; pvpUi.groupInvite = null; pvpUi.editingName = false; pvpUi.status = ''; pvpUi.statusError = false;
+  renderPvpGroupJoin(); pvpHome.hidden = false;
+  try {
+    const invite = await pvpApi('/v1/group-invitations/inspect', { method: 'POST', body: credential, auth: false });
+    if (gameMode !== 'pvp-group-join') return;
+    if (pvpGroupEntry(invite.challengeId)) { pvpForgetLinkInvite(); showPvpGroup(invite.challengeId); return; }
+    pvpUi.groupInvite = invite;
+  } catch (error) {
+    pvpUi.status = pvpMessage(error); pvpUi.statusError = true;
+    if (['ENTRIES_CLOSED', 'CHALLENGE_FULL'].includes(error.code) && error.details?.challengeId) pvpUi.groupInvite = { ...error.details, unavailable: true };
+    if (error.code !== 'NETWORK') pvpForgetLinkInvite();
+  }
+  renderPvpGroupJoin();
+}
+
+async function pvpGroupAccept(name = pvpStore.displayName) {
+  const invite = pvpUi.groupInvite;
+  if (!invite || pvpUi.busy) return;
+  pvpUi.busy = true; pvpSetStatus('Joining...');
+  try {
+    const cleaned = pvpCleanName(name); if (cleaned.error) throw new PvpError('INVALID_DISPLAY_NAME', cleaned.error);
+    await pvpEnsureIdentity(cleaned.name);
+    const joined = await pvpApi(`/v1/group-challenges/${invite.challengeId}/join`, { method: 'POST', body: { ...pvp.joinCredential, displayName: pvpStore.displayName, clientVersion: PVP_CLIENT_VERSION } });
+    pvpRememberGroup({ challengeId: invite.challengeId, role: joined.role, createdAt: Date.now() });
+    pvpForgetLinkInvite(); pvpUi.busy = false; showPvpGroup(invite.challengeId);
+  } catch (error) { pvpUi.busy = false; pvpSetStatus(pvpMessage(error), true); renderPvpGroupJoin(); }
+}
+
 // ---------------------------------------------------------------------------
 // PvP match play: the shared round screen, globe and Lock in flow. Rounds start
 // on the server; the countdown runs on the server deadline mapped onto the
@@ -7786,11 +8061,17 @@ async function pvpAccept(name = pvpStore.displayName) {
 const pvpVs = document.createElement('span');
 pvpVs.className = 'pvp-vs';
 gameEls.peekBar.querySelector('.peek-text').append(pvpVs);
+const pvpRoundStandings = document.createElement('div');
+pvpRoundStandings.className = 'pvp-standings';
+pvpRoundStandings.hidden = true;
+gameEls.peekBar.append(pvpRoundStandings);
 pvpStyle.textContent += `
 .pvp-vs { display: none; overflow: hidden; color: rgba(193,224,250,.82); font-size: 14px; font-weight: 700; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 body.pvp .pvp-vs { display: block; }
 body.pvp #reveal-card .score-math { display: none; }
-body.pvp .round-meta #round-weight { font-variant-numeric: tabular-nums; }`;
+body.pvp .round-meta #round-weight { font-variant-numeric: tabular-nums; }
+.pvp-round-row { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; color: rgba(224,240,255,.86); font-size: 12px; }
+.pvp-round-row span:last-child { color: #ffc76a; font-weight: 800; }`;
 
 function pvpSubmissionId() {
   if (crypto.randomUUID) return crypto.randomUUID();
@@ -7809,6 +8090,8 @@ function pvpStopTimers() {
 function pvpLeave() {
   pvpStopTimers();
   pvp.active = false;
+  pvpRoundStandings.hidden = true;
+  pvpRoundStandings.replaceChildren();
 }
 
 async function pvpPlay(round, matchId = pvpView.matchId) {
@@ -7836,7 +8119,9 @@ function pvpBeginRound(matchId, start) {
   const now = performance.now();
   Object.assign(pvp, {
     active: true,
+    group: false,
     matchId,
+    challengeId: null,
     round: start.round,
     item: { ...start.location }, // id, short, clue: no photo before the guess
     state: pvpUi.states.get(matchId) || null,
@@ -7853,6 +8138,23 @@ function pvpBeginRound(matchId, start) {
   showRound();
   pvpTick();
   pvp.timer = setInterval(pvpTick, 200);
+}
+
+async function pvpPlayGroup(round, challengeId = pvpGroupView.challengeId) {
+  if (pvpUi.busy) return;
+  pvpUi.busy = true;
+  try {
+    const start = await pvpApi(`/v1/group-challenges/${challengeId}/rounds/${round}/start`, { method: 'POST', body: {} });
+    pvpBeginGroupRound(challengeId, start);
+  } catch (error) {
+    showPvpGroup(challengeId);
+    pvpSetStatus(pvpMessage(error), true);
+  } finally { pvpUi.busy = false; gameEls.next.disabled = false; }
+}
+
+function pvpBeginGroupRound(challengeId, start) {
+  pvpBeginRound(challengeId, start);
+  Object.assign(pvp, { group: true, challengeId, matchId: null, state: pvpGroupView.state });
 }
 
 function pvpTick() {
@@ -7878,13 +8180,14 @@ async function pvpSubmit(guess) {
   pvp.submitting = true;
   window.__canGuess = false;
   setGuessHint('Locking in...');
-  const { matchId, round } = pvp;
+  const { matchId, challengeId, round } = pvp;
   try {
-    const res = await pvpApi(`/v1/matches/${matchId}/rounds/${round}/submission`, { method: 'PUT', body: { submissionId: pvp.submissionId, guess: { lat: guess.lat, lng: guess.lng } } });
-    if (!pvp.active || pvp.matchId !== matchId || pvp.round !== round) return;
+    const path = pvp.group ? `/v1/group-challenges/${challengeId}/rounds/${round}/submission` : `/v1/matches/${matchId}/rounds/${round}/submission`;
+    const res = await pvpApi(path, { method: 'PUT', body: { submissionId: pvp.submissionId, guess: { lat: guess.lat, lng: guess.lng } } });
+    if (!pvp.active || (pvp.group ? pvp.challengeId !== challengeId : pvp.matchId !== matchId) || pvp.round !== round) return;
     pvpShowResult({ round, answer: res.answer, viewerResult: { outcome: 'SUBMITTED', ...res.viewerResult }, opponentResult: res.opponentResult }, res.result || null);
   } catch (error) {
-    if (!pvp.active || pvp.matchId !== matchId || pvp.round !== round) return;
+    if (!pvp.active || (pvp.group ? pvp.challengeId !== challengeId : pvp.matchId !== matchId) || pvp.round !== round) return;
     if (error.code === 'ROUND_LATE' || error.code === 'ROUND_ALREADY_RESOLVED') {
       pvpResolveFromState();
       return;
@@ -7911,7 +8214,7 @@ function pvpShowResult(row, result) {
   pvp.reveal = row.viewerResult;
   pvp.opponent = row.opponentResult || null;
   pvp.result = result;
-  const entry = pvpMatchEntry(pvp.matchId);
+  const entry = pvp.group ? pvpGroupEntry(pvp.challengeId) : pvpMatchEntry(pvp.matchId);
   const fresh = Boolean(entry) && !(entry.visited || []).includes(row.round);
   if (fresh) {
     entry.visited = [...(entry.visited || []), row.round];
@@ -7923,7 +8226,32 @@ function pvpShowResult(row, result) {
     revealGuess(row.viewerResult.guess, gameMode !== 'guess');
     pvp.recordVisit = false;
   }
-  pvpPollOpponent();
+  if (pvp.group) pvpLoadRoundStandings();
+  else pvpPollOpponent();
+}
+
+async function pvpLoadRoundStandings() {
+  const { challengeId, round } = pvp;
+  const rows = [];
+  let cursor = null;
+  try {
+    do {
+      const query = new URLSearchParams({ limit: '25' });
+      if (cursor) query.set('cursor', cursor);
+      const page = await pvpApi(`/v1/group-challenges/${challengeId}/rounds/${round}/results?${query}`);
+      rows.push(...(page.participantResults || []));
+      cursor = page.nextCursor;
+    } while (cursor);
+    if (!pvp.active || !pvp.group || pvp.challengeId !== challengeId || pvp.round !== round) return;
+    const all = [{ displayName: 'You', result: pvp.reveal }, ...rows];
+    pvpRoundStandings.replaceChildren(pvpEl('p', { className: 'eyebrow', text: `Round ${round} standings` }), ...all.sort((a, b) => (b.result?.score || 0) - (a.result?.score || 0)).map((row) => pvpEl('div', { className: 'pvp-round-row' },
+      pvpEl('span', { text: row.displayName }),
+      pvpEl('span', { text: row.result?.outcome === 'TIMEOUT' ? 'Out of time · 0' : `${row.result.distanceKm.toLocaleString()} km · ${row.result.score}` }),
+    )));
+    pvpRoundStandings.hidden = false;
+  } catch (error) {
+    if (error.code !== 'ROUND_NOT_UNLOCKED') console.error('[pvp] round standings', error);
+  }
 }
 
 // The server resolved the round as a timeout: the answer, no guess, zero.
@@ -7961,6 +8289,7 @@ function pvpRevealTimeout(answer) {
 }
 
 function pvpRenderVs() {
+  if (pvp.group) { pvpVs.textContent = 'Open Challenge'; return; }
   const name = pvpOpponentLabel(pvp.state);
   const o = pvp.opponent;
   if (o) {
@@ -7995,10 +8324,10 @@ function pvpPollOpponent() {
 // materializes the server timeout, then the round reveals from it.
 async function pvpResolveFromState(attempt = 0) {
   if (!pvp.active) return;
-  const { matchId, round } = pvp;
+  const { matchId, challengeId, round } = pvp;
   try {
-    const state = await pvpApi(`/v1/matches/${matchId}`);
-    if (!pvp.active || pvp.matchId !== matchId || pvp.round !== round || gameMode !== 'guess') return;
+    const state = await pvpApi(pvp.group ? `/v1/group-challenges/${challengeId}` : `/v1/matches/${matchId}`);
+    if (!pvp.active || (pvp.group ? pvp.challengeId !== challengeId : pvp.matchId !== matchId) || pvp.round !== round || gameMode !== 'guess') return;
     pvp.state = state;
     pvpUi.states.set(matchId, state);
     const row = state.rounds.find((r) => r.round === round);
@@ -8007,27 +8336,32 @@ async function pvpResolveFromState(attempt = 0) {
       return;
     }
     if (['COMPLETED', 'EXPIRED', 'ABANDONED'].includes(state.status)) {
-      showPvpMatch(matchId);
+      if (pvp.group) showPvpGroup(challengeId); else showPvpMatch(matchId);
       return;
     }
   } catch (error) {
     if (attempt >= 4) {
-      showPvpMatch(matchId);
+      if (pvp.group) showPvpGroup(challengeId); else showPvpMatch(matchId);
       pvpSetStatus(pvpMessage(error), true);
       return;
     }
   }
-  if (attempt >= 4) showPvpMatch(matchId);
+  if (attempt >= 4) pvp.group ? showPvpGroup(challengeId) : showPvpMatch(matchId);
   else pvp.resolveTimer = setTimeout(() => pvpResolveFromState(attempt + 1), 1500);
 }
 
 function pvpNext() {
-  const { matchId, round } = pvp;
-  if (pvp.result || round >= 5) showPvpMatch(matchId);
+  const { matchId, challengeId, round } = pvp;
+  if (pvp.group) {
+    if (round >= 5) showPvpGroup(challengeId);
+    else pvpPlayGroup(round + 1, challengeId);
+  } else if (pvp.result || round >= 5) showPvpMatch(matchId);
   else pvpPlay(round + 1, matchId);
 }
 
 pvpHome.addEventListener('click', (event) => {
+  const group = event.target.closest('[data-pvp-group]');
+  if (group) { showPvpGroup(group.dataset.pvpGroup); return; }
   const row = event.target.closest('[data-pvp-match]');
   if (row) showPvpMatch(row.dataset.pvpMatch);
 });
@@ -9960,7 +10294,7 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
   document.getElementById('pvp-button').disabled = false;
-  if (pvpLinkInvite) openPvpJoin({ inviteToken: pvpLinkInvite });
+  if (pvpLinkInvite) (pvpLinkIsGroup ? openPvpGroupJoin : openPvpJoin)({ inviteToken: pvpLinkInvite });
   window.__renderAuditFlags?.();
   if (window.__boot) window.__boot('locations loaded');
   loadJobDone('critical', 'locations');
