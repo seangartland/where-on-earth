@@ -7062,7 +7062,7 @@ function pvpRememberMatch(entry) {
   savePvp();
 }
 
-async function pvpApi(path, { method = 'GET', body, auth = true } = {}) {
+async function pvpApi(path, { method = 'GET', body, auth = true, withStatus = false } = {}) {
   const headers = {};
   if (body !== undefined) headers['content-type'] = 'application/json';
   if (auth) headers.authorization = `Bearer ${pvpStore.playerToken}`;
@@ -7078,7 +7078,7 @@ async function pvpApi(path, { method = 'GET', body, auth = true } = {}) {
     const error = data && data.error;
     throw new PvpError(error?.code || `HTTP_${response.status}`, error?.message || 'The challenge service had a problem. Try again.', response.status, error?.details || null);
   }
-  return data;
+  return withStatus ? { status: response.status, data } : data;
 }
 
 // Plain copy for the errors a player can actually hit; anything else uses the
@@ -7097,6 +7097,8 @@ const PVP_MESSAGES = {
   SELF_CHALLENGE: 'This is your own challenge. Send the link to a friend.',
   INVALID_DISPLAY_NAME: 'That name cannot be used. Try letters and numbers, up to 24 characters.',
   REMATCH_PENDING: 'A rematch is being set up. Try again in a moment.',
+  REMATCH_EXISTS: 'A rematch for this match has already started.',
+  MATCH_NOT_COMPLETED: 'Rematches open once both players finish.',
 };
 const pvpMessage = (error) => PVP_MESSAGES[error?.code] || error?.message || 'Something went wrong. Try again.';
 
@@ -7497,6 +7499,10 @@ function renderPvpMatch() {
     blocks.push(pvpRecordLine());
     blocks.push(pvpBreakdown(state));
     const actions = [];
+    if (key === 'completed') {
+      actions.push(pvpEl('button', { type: 'button', className: 'primary', text: 'Rematch', onclick: () => pvpRematch(state) }));
+      actions.push(pvpEl('button', { type: 'button', className: 'primary', text: 'Share result', onclick: (event) => shareResult(pvpShareText(state), event.currentTarget, pvpMatchBody.querySelector('.pvp-status')) }));
+    }
     if (next && !['COMPLETED', 'EXPIRED', 'ABANDONED'].includes(state.status)) {
       const started = state.rounds?.find((r) => r.round === next)?.state === 'STARTED';
       actions.push(pvpEl('button', { type: 'button', className: 'primary', text: `${started ? 'Resume' : 'Play'} round ${next}`, onclick: () => pvpPlay(next) }));
@@ -7506,6 +7512,64 @@ function renderPvpMatch() {
   blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
   blocks.push(pvpEl('div', { className: 'pvp-actions' }, pvpEl('button', { type: 'button', className: 'text-button', text: 'All challenges', onclick: () => showPvpHome() })));
   pvpMatchBody.replaceChildren(...blocks.filter(Boolean));
+}
+
+// The game's share format: who won, both totals, then each round.
+function pvpShareText(state) {
+  const { totals, winnerRole, margin } = state.result;
+  const myName = pvpMe(state)?.displayName || 'Me';
+  const oppName = pvpOpponentLabel(state) || 'Opponent';
+  const mine = totals.find((t) => t.role === state.role).total;
+  const theirs = totals.find((t) => t.role !== state.role).total;
+  const winner = winnerRole === state.role ? myName : oppName;
+  return formatGameShare({
+    title: 'Challenge',
+    titleSep: ' · ',
+    headline: winnerRole === 'TIE' ? `${myName} and ${oppName} tied` : `${winner} won by ${margin.toLocaleString()}`,
+    guesses: [
+      `${myName} ${mine.toLocaleString()} vs ${oppName} ${theirs.toLocaleString()}`,
+      ...state.rounds.map((r) => `Round ${r.round}: ${r.viewerResult?.score ?? 0} vs ${r.opponentResult?.score ?? 0}`),
+    ],
+  });
+}
+
+// One canonical rematch per finished match: the first request creates it (ours
+// to share); a later request by the other player gets that same match back and
+// joins it with its invite.
+async function pvpRematch(state) {
+  if (pvpUi.busy) return;
+  pvpUi.busy = true;
+  pvpSetStatus('Setting up a rematch...');
+  try {
+    const { status, data } = await pvpApi(`/v1/matches/${state.matchId}/rematches`, { method: 'POST', body: { displayName: pvpStore.displayName, clientVersion: PVP_CLIENT_VERSION }, withStatus: true });
+    const label = data.series?.label === 'Decider' ? 'Decider' : 'Rematch';
+    if (pvpMatchEntry(data.matchId)) {
+      pvpUi.busy = false;
+      showPvpMatch(data.matchId);
+      return;
+    }
+    if (status === 201) {
+      pvpRememberMatch({ matchId: data.matchId, role: 'CHALLENGER', shareUrl: data.shareUrl, joinCode: data.joinCode, createdAt: data.createdAt, rematchOf: state.matchId });
+      pvpUi.busy = false;
+      showPvpMatch(data.matchId, { justCreated: true });
+      pvpSetStatus(`${label} created. Send the link or code to ${pvpOpponentLabel(state) || 'your opponent'}, then play your five rounds.`);
+      return;
+    }
+    const inviteToken = data.shareUrl?.split('#invite=')[1];
+    if (!inviteToken) throw new PvpError('REMATCH_EXISTS', PVP_MESSAGES.REMATCH_EXISTS);
+    await pvpApi(`/v1/matches/${data.matchId}/join`, { method: 'POST', body: { inviteToken, displayName: pvpStore.displayName, clientVersion: PVP_CLIENT_VERSION } });
+    pvpRememberMatch({ matchId: data.matchId, role: 'INVITEE', createdAt: Date.now(), rematchOf: state.matchId });
+    pvpUi.busy = false;
+    showPvpMatch(data.matchId);
+    pvpSetStatus(`You joined ${pvpOpponentLabel(state) || 'your opponent'}'s ${label.toLowerCase()}.`);
+  } catch (error) {
+    pvpUi.busy = false;
+    if (error.code === 'REMATCH_EXISTS' && pvpMatchEntry(error.details?.matchId)) {
+      showPvpMatch(error.details.matchId);
+      return;
+    }
+    pvpSetStatus(pvpMessage(error), true);
+  }
 }
 
 async function pvpLoadRecord(state, retry = true) {
