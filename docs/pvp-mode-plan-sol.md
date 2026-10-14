@@ -260,3 +260,14 @@ Live reconnect recommendation: allow one reconnect to the same round while its o
 9. **Notifications: APPROVED as recommended (Sean, 2026-10-13).** None beyond share links and in-app status for the MVP.
 
 All nine decisions are settled. The next artifact is a technical specification for the match state machine, HTTP contract, data retention, and client integration points. It should still precede any implementation.
+
+## Scaling and exit path for player records (Sean's concern, 2026-10-13)
+
+Sean flagged that pair-keyed records grow combinatorially as the player base grows, and asked for a plan to move that store off Workers when it outgrows the free tier. The honest shape of the problem:
+
+- Pair rows only ever exist for pairs who have actually played each other, and each row is a few hundred bytes, so raw storage is not the wall (the free 5 GB holds millions of records).
+- The real walls are the free plan's 100,000 requests/day shared across everything, and one records object serializing every write through a single instance.
+- Step 1, still on Cloudflare: shard records per player (keyed by player token, one row per opponent, in D1 or per-player objects). Writes spread across players instead of funneling through one object, and growth stays linear in matches actually played.
+- Step 2, off Workers (the exit Sean asked for): the client only speaks HTTP to a versioned contract, so the backend is replaceable without a client rewrite. Target is a small SQLite or Postgres service on Sean's own hardware (the Pi already runs cloudflared, which can expose it through a tunnel with no open ports) or a cheap VPS. Migration is a table export (SQLite out, SQLite in) plus an endpoint cutover.
+- Move triggers: sustained volume above roughly 1,000 matches/day, record writes becoming a latency problem, or the free request quota being hit more than once in a week.
+- The MVP ships with the simple pair-records object anyway. At launch volumes it is nowhere near any of these walls, and the contract-first design is what keeps the exit cheap.
