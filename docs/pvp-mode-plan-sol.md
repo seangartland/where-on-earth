@@ -256,7 +256,7 @@ Live reconnect recommendation: allow one reconnect to the same round while its o
 5. **Photo finish: REJECTED.** No photo-finish label and no threshold effect. Close matches are just close.
 6. **Passport: DECIDED.** PvP does not earn postcards. (Visit recording stays at the plan's default, recorded visits, unless Sean says otherwise.)
 7. **Free cap: APPROVED.** Three open challenges for free players; subscriber enforcement deferred until server-verifiable subscriptions exist.
-8. **Photo and catalog: RESOLVED.** The live game presents the photo before the guess (the plan's code read was wrong on this point), and the authoritative catalog is the 811 locations deployed 2026-10-13.
+8. **Photo and catalog: RESOLVED, corrected 2026-10-13.** PvP rounds display the location name and clue only; the photo appears at the reveal, matching the existing game (Sean confirmed 2026-10-13). The earlier wording claiming the photo shows before the guess was wrong; the plan's original code read was right. Authoritative catalog: 805 active locations as of the 2026-10-13 evening removal deploy.
 9. **Notifications: APPROVED as recommended (Sean, 2026-10-13).** None beyond share links and in-app status for the MVP.
 
 All nine decisions are settled. The next artifact is a technical specification for the match state machine, HTTP contract, data retention, and client integration points. It should still precede any implementation.

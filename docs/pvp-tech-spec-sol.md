@@ -666,7 +666,7 @@ Do not redesign the UI. Add integration at these existing boundaries:
 - Persist `playerId`, `playerToken`, display name, recent opponent public IDs, and active match IDs in local storage. Persist no invitation secret after a seat is successfully claimed unless the creator still needs the share URL.
 - On page load or refresh, read the match state first. If a round is `STARTED`, restore it against the original server deadline. If it timed out while the page was gone, reveal the server-created zero and continue.
 
-The live production behavior shows the photo before the guess. PvP uses that behavior unchanged.
+PvP rounds display the location name and clue only; the photo appears at the reveal, matching the existing game (Sean, 2026-10-13; this corrects an earlier wrong claim that the photo shows before the guess). Round payloads and presentation in this spec are read with that rule: no photo before the guess.
 
 ## 13. Abuse, privacy, and edge cases
 
