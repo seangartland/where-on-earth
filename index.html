@@ -74,7 +74,7 @@
   <style>
     .mode-buttons {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
       width: min(100%, 354px);
       max-width: calc(100vw - 32px);
@@ -165,6 +165,7 @@
     }
     .survival-results-card .eyebrow { margin: 0 0 8px; color: #cdb6ff; }
     .survival-results-card h2 { margin: 0; color: #fff; font-size: 36px; line-height: 1.08; }
+    body.blackout-complete .survival-results-card h2 { color: #ffd166; }
     .survival-results-card .survival-summary { margin: 9px 0 22px; color: rgba(226, 218, 246, .76); }
     .survival-best-card {
       display: grid;
@@ -213,6 +214,7 @@
         <button id="endless-button" type="button" hidden><span class="mode-name">Endless</span><small class="mode-desc">Play nonstop</small></button>
         <button id="survival-button" type="button"><span class="mode-name">Survival</span><small class="mode-desc">Within 150 km</small></button>
         <button id="borders-button" type="button"><span class="mode-name">Survival:</span><small class="mode-desc">Tap the Country</small></button>
+        <button id="blackout-button" type="button" disabled><span class="mode-name">Survival:</span><small class="mode-desc">Country Blackout</small></button>
         <button id="expeditions-button" type="button" hidden><span class="mode-name">Expeditions</span><small class="mode-desc">Themed journeys</small></button>
       </div>
       <p id="start-streak" class="streak"></p>
