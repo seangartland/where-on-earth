@@ -7057,7 +7057,8 @@ expeditionPicker.addEventListener('click', (event) => {
 // ---------------------------------------------------------------------------
 const PVP_API = 'https://woe-pvp.gartland-79.workers.dev';
 const PVP_KEY = 'where-on-earth-pvp-v1';
-const PVP_CLIENT_VERSION = '2026.10.14';
+const PVP_CLIENT_VERSION = '2026.10.13';
+const PVP_GROUP_CLIENT_VERSION = '2026.10.14';
 const PVP_MATCH_LIMIT = 30; // remembered matches, newest first
 
 class PvpError extends Error {
@@ -7481,7 +7482,7 @@ async function pvpGroupCreate() {
   pvpUi.busy = true;
   pvpSetStatus('Creating your Open Challenge...');
   try {
-    const created = await pvpApi('/v1/group-challenges', { method: 'POST', body: { displayName: pvpStore.displayName, clientVersion: PVP_CLIENT_VERSION } });
+    const created = await pvpApi('/v1/group-challenges', { method: 'POST', body: { displayName: pvpStore.displayName, clientVersion: PVP_GROUP_CLIENT_VERSION } });
     pvpRememberGroup({ challengeId: created.challengeId, role: 'CREATOR', shareUrl: created.shareUrl, joinCode: created.joinCode, createdAt: created.createdAt });
     pvpUi.busy = false;
     showPvpGroup(created.challengeId, { justCreated: true });
@@ -8047,7 +8048,7 @@ async function pvpGroupAccept(name = pvpStore.displayName) {
   try {
     const cleaned = pvpCleanName(name); if (cleaned.error) throw new PvpError('INVALID_DISPLAY_NAME', cleaned.error);
     await pvpEnsureIdentity(cleaned.name);
-    const joined = await pvpApi(`/v1/group-challenges/${invite.challengeId}/join`, { method: 'POST', body: { ...pvp.joinCredential, displayName: pvpStore.displayName, clientVersion: PVP_CLIENT_VERSION } });
+    const joined = await pvpApi(`/v1/group-challenges/${invite.challengeId}/join`, { method: 'POST', body: { ...pvp.joinCredential, displayName: pvpStore.displayName, clientVersion: PVP_GROUP_CLIENT_VERSION } });
     pvpRememberGroup({ challengeId: invite.challengeId, role: joined.role, createdAt: Date.now() });
     pvpForgetLinkInvite(); pvpUi.busy = false; showPvpGroup(invite.challengeId);
   } catch (error) { pvpUi.busy = false; pvpSetStatus(pvpMessage(error), true); renderPvpGroupJoin(); }
