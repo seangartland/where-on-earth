@@ -56,6 +56,7 @@ Method: I measured category and image counts from `assets/locations.json` and re
 
 ### 7. Collections revisit (Sean, 2026-10-12)
 - **State:** Collections is HIDDEN as of 2026-10-12: the home-screen button and the Passport shield button carry `hidden`; all Collections rendering, state, and wiring remain in the code, so reinstating is removing two attributes.
+- **Why hidden (Sean, 2026-10-13):** many of the collections were based on locations deferred to other modes (landmarks, lakes, and other non-city content), so with a cities-only active set they pointed at content that is not in active play.
 - **Revisit when:** the expanded location list has landed (the Oct 13 city batches take the dataset from 754 toward 812). Reconsider what Collections should be with the larger list before unhiding, rather than restoring it unchanged by default.
 
 ### Also cheap (not on the original list)
