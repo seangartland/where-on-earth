@@ -261,6 +261,10 @@ Live reconnect recommendation: allow one reconnect to the same round while its o
 
 All nine decisions are settled. The next artifact is a technical specification for the match state machine, HTTP contract, data retention, and client integration points. It should still precede any implementation.
 
+## Progressive reveal: APPROVED (Sean, 2026-10-13)
+
+PvP shows the opponent's per-round result as the match unfolds, not just a total at the end. In async play this is asymmetric by construction: the invited player sees the challenger's distance and score for each round right after locking their own guess for that round, so the head-to-head builds round by round. The challenger gets the same reveal when they open the completed match. The technical spec encodes the exact reveal timing per role.
+
 ## Scaling and exit path for player records (Sean's concern, 2026-10-13)
 
 Sean flagged that pair-keyed records grow combinatorially as the player base grows, and asked for a plan to move that store off Workers when it outgrows the free tier. The honest shape of the problem:
