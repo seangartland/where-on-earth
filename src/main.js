@@ -7209,9 +7209,26 @@ pvpStyle.textContent = `
 .expedition-choice .pvp-progress { min-width: 30px; color: #ffc76a; font-size: 15px; font-weight: 800; text-align: center; }
 .pvp-code-big { margin: 4px 0 0; color: #f3f9ff; font-size: 30px; font-weight: 850; letter-spacing: .22em; text-align: center; font-variant-numeric: tabular-nums; }
 .pvp-empty { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; }
-.pvp-format-card { margin-bottom: 12px; padding: 14px; border-radius: 16px; background: rgba(157,211,255,.06); }
-.pvp-format-card h3 { margin: 0 0 4px; color: #f3f9ff; font-size: 17px; }
-.pvp-format-card > p { margin: 0 0 12px; color: rgba(193,224,250,.68); font-size: 13px; line-height: 1.4; }
+.pvp-format-card { margin-bottom: 8px; padding: 9px 14px 10px; border: 1px solid rgba(157,211,255,.18); border-radius: 16px; background: rgba(157,211,255,.07); }
+.pvp-format-card h3 { margin: 0; color: #f3f9ff; font-size: 16px; line-height: 1.25; }
+.pvp-format-card > p { margin: 2px 0 8px; color: rgba(193,224,250,.62); font-size: 13px; line-height: 1.35; }
+.pvp-format-card .pvp-wide { min-height: 40px; }
+/* Home fits one phone screen: compact header rows, and when the lists run
+   long they scroll inside the panel so create and join stay in reach. */
+.pvp-panel:has(.pvp-lists) { display: flex; flex-direction: column; max-height: calc(100dvh - 36px); overflow: hidden; }
+.pvp-panel:has(.pvp-lists) > p { margin-bottom: 12px; }
+.pvp-panel:has(.pvp-lists) .pvp-body { display: flex; flex-direction: column; min-height: 0; }
+.pvp-panel:has(.pvp-lists) .pvp-body > * { flex-shrink: 0; }
+.pvp-panel:has(.pvp-lists) .pvp-who { margin-bottom: 10px; align-items: center; }
+.pvp-panel:has(.pvp-lists) .pvp-who .text-button { margin: 0; padding: 2px 0; }
+.pvp-panel .pvp-join { margin: 4px 0 10px; }
+.pvp-panel .pvp-join .eyebrow, .pvp-lists .eyebrow { margin-bottom: 6px; }
+.pvp-join .pvp-field input, .pvp-join .pvp-field .primary { min-height: 42px; }
+.pvp-panel .pvp-body > .pvp-lists { flex: 0 1 auto; min-height: 0; margin: 0; overflow-y: auto; overscroll-behavior: contain; }
+.pvp-lists .eyebrow:not(:first-child) { margin-top: 8px; }
+.pvp-lists .expedition-list { gap: 8px; }
+.pvp-lists .expedition-choice { gap: 10px; padding: 10px 12px; }
+.pvp-lists .expedition-choice small { margin-top: 2px; font-size: 13px; }
 .pvp-board { margin: 12px 0 0; }
 .pvp-board-list { margin: 0; padding: 0; list-style: none; }
 .pvp-board-list li { display: grid; grid-template-columns: 32px minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 42px; border-bottom: 1px solid rgba(173,216,255,.11); }
@@ -7367,7 +7384,7 @@ function renderPvpHome() {
       openPvpJoin({ joinCode: value });
     };
     code.addEventListener('keydown', (event) => { if (event.key === 'Enter') join(); });
-    blocks.push(pvpEl('div', { className: 'pvp-block' },
+    blocks.push(pvpEl('div', { className: 'pvp-block pvp-join' },
       pvpEl('p', { className: 'eyebrow', text: 'Have a code?' }),
       pvpEl('div', { className: 'pvp-field' }, code, pvpEl('button', { type: 'button', className: 'primary', text: 'Join', onclick: join })),
     ));
@@ -7380,7 +7397,7 @@ function renderPvpHome() {
 
 // The list re-renders on its own as state reads land, so typing in the fields
 // above it is never wiped.
-pvpUi.listBlock = pvpEl('div', { className: 'pvp-block' });
+pvpUi.listBlock = pvpEl('div', { className: 'pvp-block pvp-lists' });
 function renderPvpList() {
   pvpUi.listBlock.replaceChildren(
     pvpEl('p', { className: 'eyebrow', text: 'Your challenges' }),
