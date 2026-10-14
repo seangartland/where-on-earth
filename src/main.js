@@ -3595,7 +3595,12 @@ function showRound() {
   gameEls.round.hidden = false;
   document.body.classList.add('game-round');
   const item = currentItem();
-  if (expeditionRun.active) {
+  if (pvp.active) {
+    document.body.classList.add('pvp');
+    gameEls.number.textContent = `Round ${pvp.round} of 5`;
+    gameEls.weight.style.display = ''; // the countdown, see pvpTick
+    gameEls.dailyDate.hidden = true;
+  } else if (expeditionRun.active) {
     document.body.classList.add('expedition-mode');
     const total = expeditionLocations(expeditionRun.expedition).length;
     gameEls.number.textContent = `${expeditionRun.expedition.emoji || '🧭'} ${expeditionRun.expedition.theme} · ${expeditionRun.index + 1}/${total}`;
@@ -4604,9 +4609,12 @@ function revealGuess(guess, restoring = false) {
   if (gameMode !== 'guess' && !restoring) return;
   const answer = currentItem();
   const kmExact = distanceKm(guess, answer);
-  const km = Math.round(kmExact);
-  const base = Math.round(distanceScore(kmExact));
-  const oneOff = survival.active || endless.active || expeditionRun.active; // unscored, outside the daily
+  // PvP shows the server's accepted distance and score; the local exact
+  // distance only picks the flyover tier.
+  const pvpScored = pvp.active ? pvp.reveal : null;
+  const km = pvpScored ? pvpScored.distanceKm : Math.round(kmExact);
+  const base = pvpScored ? pvpScored.score : Math.round(distanceScore(kmExact));
+  const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active; // outside the daily
   const score = oneOff ? 0 : scoreGuess(kmExact, daily.round);
   if (!restoring && survival.active) {
     survival.lastDistance = km;
@@ -4621,7 +4629,8 @@ function revealGuess(guess, restoring = false) {
   gameMode = 'reveal';
   window.__canGuess = false;
   const headerFrom = gameEls.header.offsetHeight;
-  document.body.className = expeditionRun.active ? 'game-reveal expedition-mode'
+  document.body.className = pvp.active ? 'game-reveal pvp'
+    : expeditionRun.active ? 'game-reveal expedition-mode'
     : survival.active
     ? `game-reveal survival${survival.missed ? ' survival-miss' : ''}`
     : endless.active ? 'game-reveal endless' : 'game-reveal';
@@ -4631,8 +4640,10 @@ function revealGuess(guess, restoring = false) {
   // with the thumbnail the player already had, then a new unlock can land in it.
   const wasVisited = Object.hasOwn(passport.visits, answer.id);
   const previousEarn = passport.meta[answer.id]?.e || 0;
-  // Endless earns visits only; postcards come from daily and survival.
-  const newlyEarned = !restoring ? recordVisit(answer.id, base, kmExact, !endless.active) : 0; // exact, so earning matches the flyover tier
+  // Endless and PvP earn visits only; postcards come from daily and survival.
+  // PvP records each accepted round once (pvp.recordVisit), never on a replay.
+  const record = pvp.active ? pvp.recordVisit : !restoring;
+  const newlyEarned = record ? recordVisit(answer.id, base, pvpScored ? pvpScored.distanceKm : kmExact, !endless.active && !pvp.active) : 0; // exact, so earning matches the flyover tier
   if (!restoring && !oneOff) {
     daily.results[daily.round] = {
       guess,
@@ -4678,6 +4689,11 @@ function revealGuess(guess, restoring = false) {
     pill.textContent = survival.missed ? '✗ Over 150 km' : '✓ Survived';
     pill.classList.add(survival.missed ? 'miss' : 'safe');
     gameEls.next.textContent = survival.missed ? 'See run' : 'Keep going';
+  } else if (pvp.active) {
+    gameEls.score.textContent = `+${base}`;
+    pill.textContent = `+${base}`;
+    gameEls.next.textContent = pvp.result || pvp.round >= 5 ? 'Results' : 'Next';
+    pvpRenderVs();
   } else {
     // Endless is unscored: no pill, and the peek bar shows just the distance.
     gameEls.score.textContent = endless.active ? '' : `+${score}`;
@@ -5008,7 +5024,8 @@ function nextRound() {
       expeditionRun.item = expeditionLocation(expeditionRun.expedition, expeditionRun.index);
       showRound();
     }
-  } else if (endless.active) endlessNext();
+  } else if (pvp.active) pvpNext();
+  else if (endless.active) endlessNext();
   else if (daily.round >= 4) showPostcardSummary();
   else {
     daily.round += 1;
@@ -5035,7 +5052,7 @@ async function shareResult(text = shareText(), button = gameEls.share, status = 
   }
 }
 
-window.addEventListener('pin', (event) => (borders.active ? revealBorders(event.detail) : revealGuess(event.detail)));
+window.addEventListener('pin', (event) => (borders.active ? revealBorders(event.detail) : pvp.active ? pvpSubmit(event.detail) : revealGuess(event.detail)));
 gameEls.play.addEventListener('click', startGame);
 gameEls.next.addEventListener('click', nextRound);
 gameEls.share.addEventListener('click', () => shareResult());
@@ -5265,6 +5282,16 @@ async function confirmGoHome() {
   // Don't confirm if no game is in progress
   if (gameMode === 'start') {
     goHome();
+    return;
+  }
+  // PvP: the server clock keeps running in a live round; a reveal is saved.
+  if (pvp.active) {
+    if (gameMode !== 'guess' || await showConfirmModal({
+      title: 'Leave this round?',
+      message: 'The 20 second timer keeps running. A round you do not lock in scores 0.',
+      confirmLabel: 'Leave round',
+      cancelLabel: 'Keep playing',
+    })) goHome();
     return;
   }
   // Don't confirm if game is complete (on results page); nothing to lose
@@ -7471,7 +7498,8 @@ function renderPvpMatch() {
     blocks.push(pvpBreakdown(state));
     const actions = [];
     if (next && !['COMPLETED', 'EXPIRED', 'ABANDONED'].includes(state.status)) {
-      actions.push(pvpEl('button', { type: 'button', className: 'primary', text: `Play round ${next}`, onclick: () => pvpPlay(next) }));
+      const started = state.rounds?.find((r) => r.round === next)?.state === 'STARTED';
+      actions.push(pvpEl('button', { type: 'button', className: 'primary', text: `${started ? 'Resume' : 'Play'} round ${next}`, onclick: () => pvpPlay(next) }));
     }
     blocks.push(pvpEl('div', { className: 'pvp-actions' }, actions));
   }
@@ -7480,14 +7508,18 @@ function renderPvpMatch() {
   pvpMatchBody.replaceChildren(...blocks.filter(Boolean));
 }
 
-async function pvpLoadRecord(state) {
+async function pvpLoadRecord(state, retry = true) {
   const opponent = pvpOpponent(state);
-  if (!opponent || pvpView.record !== undefined) return;
+  if (!opponent) return;
   try {
     const data = await pvpApi(`/v1/records/${encodeURIComponent(opponent.playerId)}`);
     if (pvpView.state !== state) return;
     pvpView.record = data;
     renderPvpMatch();
+    // The pair record is written just after completion; catch up once if it lags.
+    if (retry && state.status === 'COMPLETED' && data.record?.lastMatchId !== state.matchId) {
+      setTimeout(() => { if (pvpView.state === state) pvpLoadRecord(state, false); }, 2500);
+    }
   } catch { /* the record line is optional; the match still shows */ }
 }
 
@@ -7521,7 +7553,7 @@ function showPvpMatch(matchId, { justCreated = false } = {}) {
   hideScreens();
   gameMode = 'pvp-match';
   window.__canGuess = false;
-  if (pvpView.matchId !== matchId) pvpView.record = undefined;
+  pvpView.record = undefined;
   pvpView.matchId = matchId;
   pvpView.state = pvpUi.states.get(matchId) || null;
   pvpUi.status = justCreated ? 'Challenge created. Share the link or code, then play your five rounds.' : '';
@@ -7532,10 +7564,6 @@ function showPvpMatch(matchId, { justCreated = false } = {}) {
   loadPvpMatch();
 }
 
-// Leaving PvP play: stop timers and polling; the server keeps every deadline.
-function pvpLeave() {
-  pvp.active = false;
-}
 
 // Join: an invite link (#invite=<token>, see /pvp/join in vercel.json) or a
 // typed code is inspected, shown, then claimed for this device's identity.
@@ -7648,8 +7676,254 @@ async function pvpAccept(name = pvpStore.displayName) {
   }
 }
 
-// Filled in with match play below.
-function pvpPlay() {}
+// ---------------------------------------------------------------------------
+// PvP match play: the shared round screen, globe and Lock in flow. Rounds start
+// on the server; the countdown runs on the server deadline mapped onto the
+// monotonic clock (deadlineAt - serverNow), so device clock skew never matters.
+// ---------------------------------------------------------------------------
+const pvpVs = document.createElement('span');
+pvpVs.className = 'pvp-vs';
+gameEls.peekBar.querySelector('.peek-text').append(pvpVs);
+pvpStyle.textContent += `
+.pvp-vs { display: none; overflow: hidden; color: rgba(193,224,250,.82); font-size: 14px; font-weight: 700; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+body.pvp .pvp-vs { display: block; }
+body.pvp #reveal-card .score-math { display: none; }
+body.pvp .round-meta #round-weight { font-variant-numeric: tabular-nums; }`;
+
+function pvpSubmissionId() {
+  if (crypto.randomUUID) return crypto.randomUUID();
+  return [...crypto.getRandomValues(new Uint8Array(16))].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+function pvpStopTimers() {
+  clearInterval(pvp.timer);
+  clearTimeout(pvp.pollTimer);
+  clearTimeout(pvp.resolveTimer);
+  pvp.timer = pvp.pollTimer = pvp.resolveTimer = 0;
+  gameEls.weight.style.color = '';
+}
+
+// Leaving PvP play: stop timers and polling; the server keeps every deadline.
+function pvpLeave() {
+  pvpStopTimers();
+  pvp.active = false;
+}
+
+async function pvpPlay(round, matchId = pvpView.matchId) {
+  if (pvpUi.busy) return;
+  pvpUi.busy = true;
+  if (gameMode === 'reveal') {
+    gameEls.next.disabled = true;
+    gameEls.next.textContent = 'Starting...';
+  } else pvpSetStatus('Starting round...');
+  try {
+    const start = await pvpApi(`/v1/matches/${matchId}/rounds/${round}/start`, { method: 'POST', body: {} });
+    pvpBeginRound(matchId, start);
+  } catch (error) {
+    const stale = error.code === 'ROUND_ALREADY_RESOLVED' || error.code === 'ROUND_SEQUENCE';
+    showPvpMatch(matchId);
+    pvpSetStatus(stale ? 'That round has already finished. Here is the latest.' : pvpMessage(error), !stale);
+  } finally {
+    pvpUi.busy = false;
+    gameEls.next.disabled = false;
+  }
+}
+
+function pvpBeginRound(matchId, start) {
+  pvpLeave();
+  const now = performance.now();
+  Object.assign(pvp, {
+    active: true,
+    matchId,
+    round: start.round,
+    item: { ...start.location }, // id, short, clue: no photo before the guess
+    state: pvpUi.states.get(matchId) || null,
+    deadline: now + (start.deadlineAt - start.serverNow),
+    acceptUntil: now + (start.acceptUntil - start.serverNow),
+    submissionId: pvpSubmissionId(),
+    submitting: false,
+    timedOut: false,
+    reveal: null,
+    opponent: null,
+    result: null,
+    recordVisit: false,
+  });
+  showRound();
+  pvpTick();
+  pvp.timer = setInterval(pvpTick, 200);
+}
+
+function pvpTick() {
+  if (!pvp.active || gameMode !== 'guess') return pvpStopTimers();
+  const left = pvp.deadline - performance.now();
+  gameEls.weight.textContent = left > 0 ? `${Math.ceil(left / 1000)}s left` : 'Time is up';
+  gameEls.weight.style.color = left <= 5000 ? '#ffc76a' : '';
+  if (left > 0 || pvp.timedOut) return;
+  // Visible zero: no new guesses. A lock-in already in flight may still land in
+  // the server's grace window; otherwise read the server-made timeout.
+  pvp.timedOut = true;
+  clearInterval(pvp.timer);
+  if (pvp.submitting) return;
+  window.__canGuess = false;
+  clearPendingGuess();
+  setGuessHint('Time is up', true);
+  pvp.resolveTimer = setTimeout(pvpResolveFromState, Math.max(0, pvp.acceptUntil - performance.now()) + 600);
+}
+
+async function pvpSubmit(guess) {
+  if (!pvp.active || gameMode !== 'guess' || pvp.submitting) return;
+  if (performance.now() > pvp.acceptUntil) return;
+  pvp.submitting = true;
+  window.__canGuess = false;
+  setGuessHint('Locking in...');
+  const { matchId, round } = pvp;
+  try {
+    const res = await pvpApi(`/v1/matches/${matchId}/rounds/${round}/submission`, { method: 'PUT', body: { submissionId: pvp.submissionId, guess: { lat: guess.lat, lng: guess.lng } } });
+    if (!pvp.active || pvp.matchId !== matchId || pvp.round !== round) return;
+    pvpShowResult({ round, answer: res.answer, viewerResult: { outcome: 'SUBMITTED', ...res.viewerResult }, opponentResult: res.opponentResult }, res.result || null);
+  } catch (error) {
+    if (!pvp.active || pvp.matchId !== matchId || pvp.round !== round) return;
+    if (error.code === 'ROUND_LATE' || error.code === 'ROUND_ALREADY_RESOLVED') {
+      pvpResolveFromState();
+      return;
+    }
+    if (pvp.timedOut || performance.now() > pvp.acceptUntil) {
+      pvpResolveFromState();
+      return;
+    }
+    // Same submissionId on retry, so a request that did land is not doubled.
+    window.__canGuess = true;
+    pendingGuess = guess;
+    showLockButton();
+    setGuessHint(pvpMessage(error), true);
+  } finally {
+    pvp.submitting = false;
+  }
+}
+
+// A round row (submission response or state read) onto the existing reveal.
+function pvpShowResult(row, result) {
+  pvpStopTimers();
+  const local = locations.find((item) => item.id === row.answer.id);
+  pvp.item = { ...local, ...row.answer }; // server coordinates win
+  pvp.reveal = row.viewerResult;
+  pvp.opponent = row.opponentResult || null;
+  pvp.result = result;
+  const entry = pvpMatchEntry(pvp.matchId);
+  const fresh = Boolean(entry) && !(entry.visited || []).includes(row.round);
+  if (fresh) {
+    entry.visited = [...(entry.visited || []), row.round];
+    savePvp();
+  }
+  if (row.viewerResult.outcome === 'TIMEOUT') pvpRevealTimeout(pvp.item);
+  else {
+    pvp.recordVisit = fresh;
+    revealGuess(row.viewerResult.guess, gameMode !== 'guess');
+    pvp.recordVisit = false;
+  }
+  pvpPollOpponent();
+}
+
+// The server resolved the round as a timeout: the answer, no guess, zero.
+function pvpRevealTimeout(answer) {
+  gameMode = 'reveal';
+  window.__canGuess = false;
+  clearPendingGuess();
+  const headerFrom = gameEls.header.offsetHeight;
+  document.body.className = 'game-reveal pvp';
+  gameEls.hint.textContent = '';
+  const placeName = answer.clue || answer.short;
+  gameEls.revealName.textContent = placeName;
+  gameEls.peekName.textContent = placeName;
+  gameEls.fact.textContent = answer.fact || '';
+  setThumb(gameEls.thumb, answer.image);
+  setThumb(gameEls.peekThumb, answer.image);
+  peekSlot.hidden = !answer.image;
+  setRevealThumbState(answer, isVisited(answer.id), passport.meta[answer.id]?.e || 0);
+  gameEls.mult.style.display = 'none';
+  gameEls.score.textContent = '0';
+  gameEls.distance.textContent = 'Out of time';
+  gameEls.revealPill.classList.remove('safe', 'miss');
+  gameEls.revealPill.classList.add('miss');
+  gameEls.revealPill.textContent = 'Out of time · 0';
+  gameEls.next.textContent = pvp.result || pvp.round >= 5 ? 'Results' : 'Next';
+  pvpRenderVs();
+  if (headerFrom > REVEAL_HEADER_H) collapseRoundHeader(headerFrom);
+  if (activePin >= 0) pins[activePin].release();
+  activePin = -1;
+  const b = latLngToVec3(answer.lat, answer.lng);
+  correctPin.drop(b);
+  frameRevealPoints(b, b);
+  showCountryOutline(countryKey(answer), answer, false);
+  startRevealBeat(b, b, false);
+}
+
+function pvpRenderVs() {
+  const name = pvpOpponentLabel(pvp.state);
+  const o = pvp.opponent;
+  if (o) {
+    pvpVs.textContent = o.outcome === 'TIMEOUT' ? `${name || 'Opponent'}: out of time, 0`
+      : `${name || 'Opponent'}: +${o.score} · ${o.distanceKm.toLocaleString()} km`;
+  } else pvpVs.textContent = name ? `Waiting for ${name} to play this round` : 'Waiting for someone to join';
+}
+
+// While the reveal is open and the opponent has not played this round yet,
+// re-read the match until the comparison appears or the match ends.
+function pvpPollOpponent() {
+  clearTimeout(pvp.pollTimer);
+  if (!pvp.active || pvp.opponent || pvp.result) return;
+  const { matchId, round } = pvp;
+  pvp.pollTimer = setTimeout(async () => {
+    try {
+      const state = await pvpApi(`/v1/matches/${matchId}`);
+      if (!pvp.active || pvp.matchId !== matchId || pvp.round !== round || gameMode !== 'reveal') return;
+      pvp.state = state;
+      pvpUi.states.set(matchId, state);
+      pvp.opponent = state.rounds.find((r) => r.round === round)?.opponentResult || null;
+      pvp.result = state.result;
+      pvpRenderVs();
+      if (pvp.result) gameEls.next.textContent = 'Results';
+      if (['EXPIRED', 'ABANDONED'].includes(state.status)) return;
+    } catch { /* offline for a moment: keep waiting */ }
+    pvpPollOpponent();
+  }, 5000);
+}
+
+// After the visible zero (or a refused late lock-in): the state read
+// materializes the server timeout, then the round reveals from it.
+async function pvpResolveFromState(attempt = 0) {
+  if (!pvp.active) return;
+  const { matchId, round } = pvp;
+  try {
+    const state = await pvpApi(`/v1/matches/${matchId}`);
+    if (!pvp.active || pvp.matchId !== matchId || pvp.round !== round || gameMode !== 'guess') return;
+    pvp.state = state;
+    pvpUi.states.set(matchId, state);
+    const row = state.rounds.find((r) => r.round === round);
+    if (row?.viewerResult) {
+      pvpShowResult(row, state.result);
+      return;
+    }
+    if (['COMPLETED', 'EXPIRED', 'ABANDONED'].includes(state.status)) {
+      showPvpMatch(matchId);
+      return;
+    }
+  } catch (error) {
+    if (attempt >= 4) {
+      showPvpMatch(matchId);
+      pvpSetStatus(pvpMessage(error), true);
+      return;
+    }
+  }
+  if (attempt >= 4) showPvpMatch(matchId);
+  else pvp.resolveTimer = setTimeout(() => pvpResolveFromState(attempt + 1), 1500);
+}
+
+function pvpNext() {
+  const { matchId, round } = pvp;
+  if (pvp.result || round >= 5) showPvpMatch(matchId);
+  else pvpPlay(round + 1, matchId);
+}
 
 pvpHome.addEventListener('click', (event) => {
   const row = event.target.closest('[data-pvp-match]');
@@ -9626,6 +9900,7 @@ window.__game = {
     activePin = (activePin + 1) % pins.length;
     pins[activePin].drop(latLngToVec3(lat, lng));
     if (borders.active) revealBorders({ lat, lng });
+    else if (pvp.active) pvpSubmit({ lat, lng });
     else revealGuess({ lat, lng });
   },
   get state() {
