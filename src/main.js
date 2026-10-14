@@ -4579,7 +4579,7 @@ function showEarnToast(answer, tier) {
   document.head.appendChild(style);
   const toast = document.createElement('div');
   toast.className = 'earn-toast';
-  const tierLabel = tier === EARN_PINPOINT ? '📍 Pinpoint!' : tier === EARN_BULLSEYE ? '🎯 Bullseye!' : '🎉 New postcard earned!';
+  const tierLabel = tier === EARN_PINPOINT ? '📍 Pinpoint!' : tier === EARN_BULLSEYE ? '🎯 Bullseye!' : 'New postcard earned!';
   toast.innerHTML = `
     <img src="${answer.image || ''}" alt="">
     <div class="earn-toast-text">${tierLabel}<small>${answer.clue || answer.short || ''}</small></div>
@@ -4684,8 +4684,8 @@ function revealGuess(guess, restoring = false) {
   } else if (survival.active) {
     gameEls.survivalStreak.textContent = survival.missed
       ? `Run ended · ${survival.survived} survived`
-      : `🔥 ${survival.survived} survived`;
-    gameEls.score.textContent = survival.missed ? '✗ Run over' : `🔥 ${survival.survived}`;
+      : `${survival.survived} survived`;
+    gameEls.score.textContent = survival.missed ? '✗ Run over' : `${survival.survived}`;
     pill.textContent = survival.missed ? '✗ Over 150 km' : '✓ Survived';
     pill.classList.add(survival.missed ? 'miss' : 'safe');
     gameEls.next.textContent = survival.missed ? 'See run' : 'Keep going';
@@ -5615,8 +5615,8 @@ function revealBorders(tap) {
   peekSlot.hidden = true;
   gameEls.survivalStreak.textContent = borders.missed
     ? `Run ended · ${borders.found} survived`
-    : `🔥 ${borders.found} survived`;
-  gameEls.score.textContent = borders.missed ? '✗ Run over' : `🔥 ${borders.found}`;
+    : `${borders.found} survived`;
+  gameEls.score.textContent = borders.missed ? '✗ Run over' : `${borders.found}`;
   const pill = gameEls.revealPill;
   pill.classList.remove('safe', 'miss');
   pill.textContent = !borders.missed ? `✓ ${key}` : res.tapped ? `✗ That's ${res.tapped}` : '✗ Ocean';
@@ -8521,7 +8521,6 @@ passportShareStyle.textContent = `
 .pps-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .pps-kicker { margin: 0; color: #8fdfff; font-size: 10px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
 .pps-card h3 { margin: 4px 0 0; font-size: 22px; line-height: 1; letter-spacing: -.035em; }
-.pps-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 2px dashed #ffd166; border-radius: 50%; color: #ffd166; font-size: 21px; transform: rotate(9deg); box-shadow: 0 0 16px rgba(255,209,102,.18); }
 .pps-progress { position: relative; margin-top: 12px; }
 .pps-visited { margin: 0 0 6px; color: rgba(218,229,255,.72); font-size: 12px; font-weight: 750; }
 .pps-visited b { color: #67e8ff; font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; }
@@ -8560,7 +8559,7 @@ passportShareScreen.setAttribute('aria-modal', 'true');
 passportShareScreen.setAttribute('aria-labelledby', 'pps-title');
 passportShareScreen.innerHTML = `
   <article class="pps-card">
-    <div class="pps-top"><div><p class="pps-kicker">Where on Earth</p><h3 id="pps-title">My passport</h3></div><span class="pps-mark" aria-hidden="true">🛂</span></div>
+    <div class="pps-top"><div><p class="pps-kicker">Where on Earth</p><h3 id="pps-title">My passport</h3></div></div>
     <div class="pps-progress">
       <p class="pps-visited"><b data-pps="visited">0</b> of <span data-pps="total">0</span> places visited</p>
       <div class="pp-bar" aria-hidden="true"><i class="pp-bar-seen" data-pps="barSeen"></i><i class="pp-bar-earned" data-pps="barEarned"></i></div>
@@ -8660,8 +8659,6 @@ function passportShareImage(stats) {
   ctx.fillStyle = '#f7f8ff';
   ctx.font = '900 58px system-ui, sans-serif';
   ctx.fillText('My passport', 72, 150);
-  ctx.font = '54px system-ui, sans-serif';
-  ctx.fillText('🛂', 1040, 112);
   ctx.fillStyle = 'rgba(218,229,255,.72)';
   ctx.font = '800 24px system-ui, sans-serif';
   ctx.fillText('of ' + stats.total.toLocaleString() + ' places visited', 72 + ctx.measureText(stats.visited.toLocaleString()).width + 12, 212);
@@ -9880,7 +9877,7 @@ window.addEventListener('keydown', (e) => {
 // playable round, so friends land on the daily.
 // ---------------------------------------------------------------------------
 const HOME_URL = 'https://where-on.earth';
-const SHARE_LABEL = '📮 Share this postcard';
+const SHARE_LABEL = 'Share this postcard';
 
 function postcardShareText(entry) {
   const place = entry.item.short || (entry.item.clue || '').replace(FLAG_RE, '').trim();
