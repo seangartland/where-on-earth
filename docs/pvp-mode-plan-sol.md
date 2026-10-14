@@ -247,4 +247,16 @@ Live reconnect recommendation: allow one reconnect to the same round while its o
 8. Resolve whether production PvP presents a photo before the guess and which deployed catalog count/version is authoritative.
 9. Decide whether the MVP needs notifications beyond share links and in-app status. Email or push would materially expand identity, consent, and infrastructure scope and is not recommended for the first release.
 
-If Sean approves those nine decisions, the next artifact should be a technical specification for the match state machine, HTTP contract, data retention, and client integration points. It should still precede any implementation.
+## Decisions recorded (Sean, 2026-10-13)
+
+1. **Format: APPROVED.** Async unrated direct challenges as the MVP, live direct duels deferred to phase 2.
+2. **Infrastructure: OPEN.** Sean's question stands: names and a running win/loss record cannot be kept durably without a backend. That is the argument for the Worker + Durable Objects service; awaiting his yes.
+3. **Scoring (five unweighted rounds, total out of 5,000): OPEN.**
+4. **Timer and expiry: DECIDED.** 20 seconds per round (Sean, replacing the proposed 60). Seven-day match expiry approved. A started round that times out scores zero (bundled in the question Sean answered; recorded as carried unless he objects).
+5. **Photo finish: REJECTED.** No photo-finish label and no threshold effect. Close matches are just close.
+6. **Passport: DECIDED.** PvP does not earn postcards. (Visit recording stays at the plan's default, recorded visits, unless Sean says otherwise.)
+7. **Free cap: APPROVED.** Three open challenges for free players; subscriber enforcement deferred until server-verifiable subscriptions exist.
+8. **Photo and catalog: RESOLVED.** The live game presents the photo before the guess (the plan's code read was wrong on this point), and the authoritative catalog is the 811 locations deployed 2026-10-13.
+9. **Notifications: OPEN.** Plan recommends none beyond share links and in-app status for the MVP.
+
+Still open: 2, 3, 9. Once those land, the next artifact is a technical specification for the match state machine, HTTP contract, data retention, and client integration points. It should still precede any implementation.
