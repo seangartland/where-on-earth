@@ -23,28 +23,30 @@ allow 100,000 requests/day and 5 GB storage. At roughly 25-50 requests per
 async match, that is on the order of 2,000-4,000 matches a day before the
 $5/month paid plan matters.
 
-## Setup (one time, needs Sean)
+## Setup status (done 2026-10-13)
 
-1. A Cloudflare account on the Free plan: https://dash.cloudflare.com/sign-up
-   No card required. (Skip if one already exists.)
-2. An API token so deploys can run from the CLI here:
-   Cloudflare dashboard → My Profile → API Tokens → Create Token → use the
-   "Edit Cloudflare Workers" template → Continue → Create. Save the token
-   through the secure vault link Harry provides (never in chat or in the
-   repo).
-3. Harry then runs, from this directory:
-   - `npm install` (installs wrangler locally)
-   - `CLOUDFLARE_API_TOKEN=<from vault> npx wrangler whoami` (auth check)
-   - `npx wrangler deploy` (creates the Worker at
-     `woe-pvp.<account>.workers.dev` and the two Durable Object classes)
-
-## Local checks that need no account
-
-- `npm run check` bundles the Worker with `wrangler deploy --dry-run` and
-  catches config and syntax errors offline.
+- Cloudflare account: `3175d54f309e86780e7ac66426d099c4`
+  ("Gartland.79@gmail.com's Account").
+- An account API token from the "Edit Cloudflare Workers" template (named
+  "where-on-earth-pvp") is stored in the Secure Vault as the
+  `custom.cloudflare` connector credential. Never in chat or in the repo.
+- Wrangler's OAuth browser flow does not complete in this VM environment
+  (the localhost callback never lands), so deploys go through the API
+  helper instead:
+  `python3 ~/workspace/custom-connectors/custom.cloudflare/bin/cf_api.py deploy`
+  then, once only,
+  `python3 ~/workspace/custom-connectors/custom.cloudflare/bin/cf_api.py enable-subdomain`
+- Live: https://woe-pvp.gartland-79.workers.dev (workers.dev subdomain
+  `gartland-79`). Verified 2026-10-13: `/health` answers, and a match
+  create/read round trip against the MatchRoom Durable Object returns the
+  stored state.
+- Verify the token any time with `cf_api.py verify`. It checks the ACCOUNT
+  verify endpoint, because this is an account token (the user-level verify
+  endpoint rejects account tokens even when they are valid).
 
 ## Status
 
-Scaffold only (2026-10-13). Routes and storage classes are real but minimal;
-the match state machine, auth tokens for players, and the client integration
-get their own technical spec before implementation, per the plan.
+Scaffold deployed (2026-10-13). Routes and storage classes are real but
+minimal; the match state machine, auth tokens for players, and the client
+integration get their own technical spec before implementation, per the
+plan.
