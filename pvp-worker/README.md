@@ -7,8 +7,8 @@ static site cannot keep honestly.
 
 ## What runs where
 
-- **Worker** (`src/index.js`): HTTP entry point. Routes: `GET /health`,
-  `POST /matches`, `GET /matches/:id`. Everything else 404s.
+- **Worker** (`src/index.js`): the complete `/v1` identity, invitation, match,
+  round, rematch, and pair-record API from `../docs/pvp-tech-spec-sol.md`.
 - **MatchRoom** (Durable Object, SQLite): one instance per match. Holds that
   match's state and expires with it (matches expire after 7 days per the
   plan).
@@ -44,9 +44,18 @@ $5/month paid plan matters.
   verify endpoint, because this is an account token (the user-level verify
   endpoint rejects account tokens even when they are valid).
 
-## Status
+## Build and configuration
 
-Scaffold deployed (2026-10-13). Routes and storage classes are real but
-minimal; the match state machine, auth tokens for players, and the client
-integration get their own technical spec before implementation, per the
-plan.
+Run `npm run build:catalog` after changing `../assets/locations.json`. The
+generated `src/catalog.js` is checked in and pins the canonical SHA-256 catalog
+version used by newly created matches. Run `npm run test:scoring` for the fixed
+production parity vectors and `npm run check` for a Wrangler dry-run bundle.
+
+Deployment requires a secret `SERVER_SECRET`. Separate `PLAYER_TOKEN_KEY`,
+`INVITE_KEY`, `PAIR_KEY`, and `RATE_LIMIT_KEY` secrets override that fallback.
+`GAME_ORIGIN` controls the share-link origin. `ALLOWED_ORIGINS` is an optional
+comma-separated addition to the built-in production origins; the literal
+`https://*.vercel.app` entry enables preview origins.
+
+The full async PvP worker was implemented on 2026-10-13. Deployment and live
+smoke tests are intentionally handled separately by the orchestrator.
