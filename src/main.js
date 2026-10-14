@@ -7594,9 +7594,16 @@ async function loadPvpMatch() {
     const state = await pvpApi(`/v1/matches/${matchId}`);
     if (pvpView.matchId !== matchId || pvpMatchScreen.hidden) return;
     pvpUi.states.set(matchId, state);
+    const finished = state.status === 'COMPLETED' && pvpView.state && pvpView.state.status !== 'COMPLETED';
     pvpView.state = state;
     renderPvpMatch();
     pvpLoadRecord(state);
+    if (finished) pvpSetStatus(`${pvpOpponentLabel(state) || 'Your opponent'} finished. Here is the result.`);
+    // Waiting on the other player: keep the screen current until it completes.
+    clearTimeout(pvpView.pollTimer);
+    if (['their-turn', 'waiting'].includes(pvpStatusKey(state))) {
+      pvpView.pollTimer = setTimeout(() => { if (pvpView.matchId === matchId && !pvpMatchScreen.hidden) loadPvpMatch(); }, 10000);
+    }
   } catch (error) {
     if (pvpView.matchId !== matchId) return;
     if (error.code === 'MATCH_NOT_FOUND') {
