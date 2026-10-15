@@ -1,0 +1,156 @@
+{
+ "mount-fuji": {
+  "id": "mount-fuji",
+  "clue": "Mount Fuji, Japan 🇯🇵",
+  "country": "Japan",
+  "views": 2033.6,
+  "viewsSrc": "Mount Fuji",
+  "p": 0.94,
+  "K": 0,
+  "dFb": 140,
+  "centre": [
+   35.57,
+   137.2
+  ],
+  "d1M": 84,
+  "known": 24,
+  "missU": 140,
+  "loss": 4.9,
+  "cur": 0,
+  "curWhy": "",
+  "D": 2,
+  "why": "p.94·fb140·K0·iso84 → 4.9 → 2"
+ },
+ "mount-vesuvius": {
+  "id": "mount-vesuvius",
+  "clue": "Mount Vesuvius, Italy 🇮🇹",
+  "country": "Italy",
+  "views": 1879.8,
+  "viewsSrc": "Mount Vesuvius",
+  "p": 0.93,
+  "K": 0,
+  "dFb": 290,
+  "centre": [
+   42.76,
+   12.09
+  ],
+  "d1M": 199,
+  "known": 26,
+  "missU": 290,
+  "loss": 7.9,
+  "cur": 0,
+  "curWhy": "",
+  "D": 3,
+  "why": "p.93·fb290·K0·iso199 → 7.9 → 3"
+ },
+ "mount-pinatubo": {
+  "id": "mount-pinatubo",
+  "clue": "Mount Pinatubo, Philippines 🇵🇭",
+  "country": "Philippines",
+  "views": 537.0,
+  "viewsSrc": "Mount Pinatubo",
+  "p": 0.65,
+  "K": 0,
+  "dFb": 370,
+  "centre": [
+   12.39,
+   122.27
+  ],
+  "d1M": 86,
+  "known": 48,
+  "missU": 370,
+  "loss": 32.0,
+  "cur": 0,
+  "curWhy": "",
+  "D": 6,
+  "why": "p.65·fb370·K0·iso86 → 32.0 → 6"
+ },
+ "colosseum-rome": {
+  "id": "colosseum-rome",
+  "clue": "Colosseum, Italy 🇮🇹",
+  "country": "Italy",
+  "views": 3357.1,
+  "viewsSrc": "Colosseum",
+  "p": 0.99,
+  "K": 0,
+  "dFb": 102,
+  "centre": [
+   42.76,
+   12.09
+  ],
+  "d1M": 478,
+  "known": 21,
+  "missU": 102,
+  "loss": 3.2,
+  "cur": 0,
+  "curWhy": "",
+  "D": 1,
+  "why": "p.99·fb102·K0·iso478 → 3.2 → 1"
+ },
+ "easter-island": {
+  "id": "easter-island",
+  "clue": "Easter Island, Chile 🇨🇱",
+  "country": "Chile",
+  "views": 2528.9,
+  "viewsSrc": "Easter Island",
+  "p": 0.99,
+  "K": 0,
+  "dFb": 3711,
+  "centre": [
+   -33.73,
+   -71.18
+  ],
+  "d1M": 3751,
+  "known": 21,
+  "missU": 3711,
+  "loss": 9.6,
+  "cur": 0,
+  "curWhy": "",
+  "D": 4,
+  "why": "p.99·fb3711·K0·iso3751 → 9.6 → 4"
+ },
+ "galapagos-islands": {
+  "id": "galapagos-islands",
+  "clue": "Galápagos Islands, Ecuador 🇪🇨",
+  "country": "Ecuador",
+  "views": 2035.2,
+  "viewsSrc": "Galápagos Islands",
+  "p": 0.94,
+  "K": 0,
+  "dFb": 1255,
+  "centre": [
+   -1.4,
+   -79.29
+  ],
+  "d1M": 1197,
+  "known": 24,
+  "missU": 1255,
+  "loss": 18.6,
+  "cur": 0,
+  "curWhy": "",
+  "D": 5,
+  "why": "p.94·fb1255·K0·iso1197 → 18.6 → 5"
+ },
+ "lord-howe-island": {
+  "id": "lord-howe-island",
+  "clue": "Lord Howe Island, Australia 🇦🇺",
+  "country": "Australia",
+  "views": 449.2,
+  "viewsSrc": "Lord Howe Island",
+  "p": 0.61,
+  "K": 0,
+  "dFb": 1337,
+  "centre": [
+   -33.96,
+   145.06
+  ],
+  "d1M": 741,
+  "known": 52,
+  "missU": 1337,
+  "loss": 117.9,
+  "cur": 0,
+  "curWhy": "",
+  "D": 9,
+  "why": "p.61·fb1337·K0·iso741 → 117.9 → 9"
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "mount-fuji": {
+  "title": "Mount Fuji",
+  "months": 12,
+  "mean": 2033.6,
+  "median": 2044.2
+ },
+ "mount-vesuvius": {
+  "title": "Mount Vesuvius",
+  "months": 12,
+  "mean": 1879.8,
+  "median": 1813.2
+ },
+ "mount-pinatubo": {
+  "title": "Mount Pinatubo",
+  "months": 12,
+  "mean": 537.0,
+  "median": 519.6
+ },
+ "colosseum-rome": {
+  "title": "Colosseum",
+  "months": 12,
+  "mean": 3357.1,
+  "median": 3340.0
+ },
+ "easter-island": {
+  "title": "Easter Island",
+  "months": 12,
+  "mean": 2528.9,
+  "median": 2537.0
+ },
+ "galapagos-islands": {
+  "title": "Galápagos Islands",
+  "months": 12,
+  "mean": 2035.2,
+  "median": 1955.3
+ },
+ "lord-howe-island": {
+  "title": "Lord Howe Island",
+  "months": 12,
+  "mean": 449.2,
+  "median": 435.1
+ },
+ "cotopaxi-refuge": {
+  "title": "Cotopaxi",
+  "months": 12,
+  "mean": 348.4,
+  "median": 338.0
+ },
+ "pyramids-of-giza": {
+  "title": "Giza pyramid complex",
+  "months": 12,
+  "mean": 862.9,
+  "median": 779.2
+ }
+}

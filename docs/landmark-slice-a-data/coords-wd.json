@@ -1,0 +1,137 @@
+{
+ "mount-fuji": {
+  "title": "Mount Fuji",
+  "qid": "Q39231",
+  "enwiki": [
+   35.36083333,
+   138.7275
+  ],
+  "p625": [
+   [
+    35.36055555555556,
+    138.7275
+   ]
+  ],
+  "disamb": false
+ },
+ "mount-vesuvius": {
+  "title": "Mount Vesuvius",
+  "qid": "Q524",
+  "enwiki": [
+   40.82138889,
+   14.42611111
+  ],
+  "p625": [
+   [
+    40.82261,
+    14.42919
+   ]
+  ],
+  "disamb": false
+ },
+ "mount-pinatubo": {
+  "title": "Mount Pinatubo",
+  "qid": "Q1451",
+  "enwiki": [
+   15.14166667,
+   120.35
+  ],
+  "p625": [
+   [
+    15.13,
+    120.35
+   ]
+  ],
+  "disamb": false
+ },
+ "colosseum-rome": {
+  "title": "Colosseum",
+  "qid": "Q10285",
+  "enwiki": [
+   41.8903,
+   12.4922
+  ],
+  "p625": [
+   [
+    41.890277777778,
+    12.492222222222
+   ]
+  ],
+  "disamb": false
+ },
+ "easter-island": {
+  "title": "Easter Island",
+  "qid": "Q14452",
+  "enwiki": [
+   -27.12,
+   -109.35
+  ],
+  "p625": [
+   [
+    -27.12,
+    -109.35
+   ]
+  ],
+  "disamb": false
+ },
+ "galapagos-islands": {
+  "title": "Galápagos Islands",
+  "qid": "Q38095",
+  "enwiki": [
+   -0.5,
+   -90.5
+  ],
+  "p625": [
+   [
+    -0.66666666666667,
+    -90.55
+   ]
+  ],
+  "disamb": false
+ },
+ "lord-howe-island": {
+  "title": "Lord Howe Island",
+  "qid": "Q104784",
+  "enwiki": [
+   -31.55416667,
+   159.085
+  ],
+  "p625": [
+   [
+    -31.55,
+    159.08333333333
+   ]
+  ],
+  "disamb": false
+ },
+ "cotopaxi-refuge": {
+  "title": "Cotopaxi",
+  "qid": "Q181476",
+  "enwiki": [
+   -0.68055556,
+   -78.43777778
+  ],
+  "p625": [
+   [
+    -0.68055555555556,
+    -78.437777777778
+   ]
+  ],
+  "disamb": false
+ },
+ "pyramids-of-giza": {
+  "title": "Giza pyramid complex",
+  "qid": "Q12508",
+  "enwiki": [
+   29.97611111,
+   31.13277778
+  ],
+  "p625": [
+   [
+    29.976111,
+    31.132778
+   ]
+  ],
+  "disamb": false
+ }
+}

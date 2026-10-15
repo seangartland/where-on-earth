@@ -1330,7 +1330,7 @@
   "lat": -0.6805,
   "lng": -78.4374,
   "difficulty": 6,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/RefugioJoseRivasCotopaxi.jpg/500px-RefugioJoseRivasCotopaxi.jpg",
   "country": "Ecuador",
   "sets": [
    "Andes"
@@ -3377,7 +3377,7 @@
   "fact": "The Great Pyramid was the tallest man-made structure on Earth for nearly 3,800 years after its completion around 2560 BC.",
   "difficulty": 5,
   "short": "Pyramids of Giza",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Great_Pyramid_%28Pyramid_of_Cheops_Khufu%29%2C_Giza%2C_GG%2C_EGY_%2840936203693%29.jpg/500px-Great_Pyramid_%28Pyramid_of_Cheops_Khufu%29%2C_Giza%2C_GG%2C_EGY_%2840936203693%29.jpg",
   "country": "Egypt",
   "sets": [
    "History Was Here",
@@ -13688,6 +13688,129 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "p.00·fb776·K0·iso325 → 166.6 → 9",
+  "category": "city"
+ },
+ {
+  "id": "mount-fuji",
+  "short": "Mount Fuji",
+  "clue": "Mount Fuji, Japan 🇯🇵",
+  "fact": "Japan's highest peak last erupted in 1707, when the Hōei eruption dusted Edo, roughly 100 km away, with volcanic ash.",
+  "lat": 35.3606,
+  "lng": 138.7275,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Mount_Fuji_from_Mount_Tonmaku_%282026-01-31%29.jpg/500px-Mount_Fuji_from_Mount_Tonmaku_%282026-01-31%29.jpg",
+  "country": "Japan",
+  "continent": "Asia",
+  "sets": [
+   "Volcanoes",
+   "Mountains"
+  ],
+  "difficultyWhy": "p.94·fb140·K0·iso84 → 4.9 → 2",
+  "category": "city"
+ },
+ {
+  "id": "mount-vesuvius",
+  "short": "Mount Vesuvius",
+  "clue": "Mount Vesuvius, Italy 🇮🇹",
+  "fact": "Its AD 79 eruption buried Pompeii and Herculaneum, and its most recent eruption, in 1944, wrecked dozens of Allied bombers parked at a nearby airfield.",
+  "lat": 40.8226,
+  "lng": 14.4292,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Mount_Vesuvius_from_Pompeii2.jpg/500px-Mount_Vesuvius_from_Pompeii2.jpg",
+  "country": "Italy",
+  "continent": "Europe",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.93·fb290·K0·iso199 → 7.9 → 3",
+  "category": "city"
+ },
+ {
+  "id": "mount-pinatubo",
+  "short": "Mount Pinatubo",
+  "clue": "Mount Pinatubo, Philippines 🇵🇭",
+  "fact": "Its 1991 eruption was the second largest of the 20th century, and the sulfur it blasted into the stratosphere cooled the planet by about 0.5 °C.",
+  "lat": 15.1446,
+  "lng": 120.3491,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Lake_Pinatubo_in_January%2C_2009.jpg/500px-Lake_Pinatubo_in_January%2C_2009.jpg",
+  "country": "Philippines",
+  "continent": "Asia",
+  "sets": [
+   "Volcanoes",
+   "Southeast Asia"
+  ],
+  "difficultyWhy": "p.65·fb370·K0·iso86 → 32.0 → 6",
+  "category": "city"
+ },
+ {
+  "id": "colosseum-rome",
+  "short": "Colosseum",
+  "clue": "Colosseum, Italy 🇮🇹",
+  "fact": "Opened in AD 80 under Emperor Titus, the amphitheatre held an estimated 50,000 spectators for gladiator fights and wild animal hunts.",
+  "lat": 41.8903,
+  "lng": 12.4922,
+  "difficulty": 1,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Colosseum%2C_Rome.jpg/500px-Colosseum%2C_Rome.jpg",
+  "country": "Italy",
+  "continent": "Europe",
+  "sets": [
+   "History Was Here",
+   "Wonders of the World",
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.99·fb102·K0·iso478 → 3.2 → 1",
+  "category": "city"
+ },
+ {
+  "id": "easter-island",
+  "short": "Easter Island",
+  "clue": "Easter Island, Chile 🇨🇱",
+  "fact": "Dutch explorer Jacob Roggeveen named it for the day he landed, Easter Sunday 1722. The island lies more than 3,500 km from mainland Chile.",
+  "lat": -27.12,
+  "lng": -109.35,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Easterstatues.jpg/500px-Easterstatues.jpg",
+  "country": "Chile",
+  "continent": "South America",
+  "sets": [
+   "Pacific Islands"
+  ],
+  "difficultyWhy": "p.99·fb3711·K0·iso3751 → 9.6 → 4",
+  "category": "city"
+ },
+ {
+  "id": "galapagos-islands",
+  "short": "Galápagos Islands",
+  "clue": "Galápagos Islands, Ecuador 🇪🇨",
+  "fact": "Charles Darwin's 1835 visit aboard HMS Beagle, and the islands' finches and giant tortoises, helped shape his theory of evolution by natural selection.",
+  "lat": -0.6667,
+  "lng": -90.55,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Pinnacle_rock_at_Bartoleme_Island.jpg/500px-Pinnacle_rock_at_Bartoleme_Island.jpg",
+  "country": "Ecuador",
+  "continent": "South America",
+  "sets": [
+   "Pacific Islands"
+  ],
+  "difficultyWhy": "p.94·fb1255·K0·iso1197 → 18.6 → 5",
+  "category": "city"
+ },
+ {
+  "id": "lord-howe-island",
+  "short": "Lord Howe Island",
+  "clue": "Lord Howe Island, Australia 🇦🇺",
+  "fact": "Only 400 tourists may stay on the island at once, and nearby Ball's Pyramid is the tallest volcanic sea stack in the world.",
+  "lat": -31.55,
+  "lng": 159.0833,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Lord_Howe_Lagoon_-_panoramio.jpg/500px-Lord_Howe_Lagoon_-_panoramio.jpg",
+  "country": "Australia",
+  "continent": "Oceania",
+  "sets": [
+   "Pacific Islands"
+  ],
+  "difficultyWhy": "p.61·fb1337·K0·iso741 → 117.9 → 9",
   "category": "city"
  }
 ]

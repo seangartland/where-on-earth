@@ -1,0 +1,74 @@
+{
+ "mount-fuji": {
+  "osm": "node/714354378",
+  "cls": "natural=volcano",
+  "lat": 35.3628384,
+  "lng": 138.7307677,
+  "name": "Mount Fuji, Oyama, Sunto County, Shizuoka Prefecture, Japan",
+  "dWd": 0.39
+ },
+ "mount-vesuvius": {
+  "osm": "node/4693682411",
+  "cls": "natural=volcano",
+  "lat": 40.8213963,
+  "lng": 14.4261967,
+  "name": "Mount Vesuvius, Trecase, Naples, Campania, 80040, Italy",
+  "dWd": 0.29
+ },
+ "mount-pinatubo": {
+  "osm": "node/319478140",
+  "cls": "natural=volcano",
+  "lat": 15.1445564,
+  "lng": 120.3490617,
+  "name": "Mount Pinatubo, Zambales, Central Luzon, Philippines",
+  "dWd": 1.62
+ },
+ "colosseum-rome": {
+  "osm": "relation/1834818",
+  "cls": "historic=archaeological_site",
+  "lat": 41.8902572,
+  "lng": 12.4923841,
+  "name": "Colosseum, Piazza del Colosseo, Celio, Municipio Roma I, Rome, Roma Capitale, Lazio, 00184, Italy",
+  "dWd": 0.01
+ },
+ "easter-island": {
+  "osm": "relation/3538209",
+  "cls": "place=island",
+  "lat": -27.1259317,
+  "lng": -109.3495887,
+  "name": "Easter Island, Easter Island Province, Valparaiso Region, 2770000, Chile",
+  "dWd": 0.66
+ },
+ "galapagos-islands": {
+  "osm": "relation/7283808",
+  "cls": "place=archipelago",
+  "lat": -0.628815,
+  "lng": -90.3638752,
+  "name": "Galapagos Islands, Galápagos, Ecuador",
+  "dWd": 21.12
+ },
+ "lord-howe-island": {
+  "osm": "relation/269570",
+  "cls": "place=island",
+  "lat": -31.5543099,
+  "lng": 159.0859655,
+  "name": "Lord Howe Island, New South Wales, 2898, Australia",
+  "dWd": 0.54
+ },
+ "cotopaxi-refuge": {
+  "osm": "way/31471592",
+  "cls": "natural=glacier",
+  "lat": -0.6861246,
+  "lng": -78.4314617,
+  "name": "Volcán Cotopaxi, Machachi, Pichincha, Ecuador",
+  "dWd": 0.94
+ },
+ "pyramids-of-giza": {
+  "osm": "way/73227488",
+  "cls": "natural=sand",
+  "lat": 29.9707813,
+  "lng": 31.1242335,
+  "name": "Giza Pyramids, Giza, Aj Jiza, Egypt",
+  "dWd": 1.01
+ }
+}

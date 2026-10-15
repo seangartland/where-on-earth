@@ -1,0 +1,125 @@
+[
+ {
+  "id": "mount-fuji",
+  "short": "Mount Fuji",
+  "clue": "Mount Fuji, Japan 🇯🇵",
+  "fact": "Japan's highest peak last erupted in 1707, when the Hōei eruption dusted Edo, roughly 100 km away, with volcanic ash.",
+  "lat": 35.3606,
+  "lng": 138.7275,
+  "difficulty": null,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Mount_Fuji_from_Mount_Tonmaku_%282026-01-31%29.jpg/500px-Mount_Fuji_from_Mount_Tonmaku_%282026-01-31%29.jpg",
+  "country": "Japan",
+  "continent": "Asia",
+  "sets": [
+   "Volcanoes",
+   "Mountains"
+  ],
+  "difficultyWhy": null,
+  "category": "city"
+ },
+ {
+  "id": "mount-vesuvius",
+  "short": "Mount Vesuvius",
+  "clue": "Mount Vesuvius, Italy 🇮🇹",
+  "fact": "Its AD 79 eruption buried Pompeii and Herculaneum, and its most recent eruption, in 1944, wrecked dozens of Allied bombers parked at a nearby airfield.",
+  "lat": 40.8226,
+  "lng": 14.4292,
+  "difficulty": null,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Mount_Vesuvius_from_Pompeii2.jpg/500px-Mount_Vesuvius_from_Pompeii2.jpg",
+  "country": "Italy",
+  "continent": "Europe",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": null,
+  "category": "city"
+ },
+ {
+  "id": "mount-pinatubo",
+  "short": "Mount Pinatubo",
+  "clue": "Mount Pinatubo, Philippines 🇵🇭",
+  "fact": "Its 1991 eruption was the second largest of the 20th century, and the sulfur it blasted into the stratosphere cooled the planet by about 0.5 °C.",
+  "lat": 15.1446,
+  "lng": 120.3491,
+  "difficulty": null,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Lake_Pinatubo_in_January%2C_2009.jpg/500px-Lake_Pinatubo_in_January%2C_2009.jpg",
+  "country": "Philippines",
+  "continent": "Asia",
+  "sets": [
+   "Volcanoes",
+   "Southeast Asia"
+  ],
+  "difficultyWhy": null,
+  "category": "city"
+ },
+ {
+  "id": "colosseum-rome",
+  "short": "Colosseum",
+  "clue": "Colosseum, Italy 🇮🇹",
+  "fact": "Opened in AD 80 under Emperor Titus, the amphitheatre held an estimated 50,000 spectators for gladiator fights and wild animal hunts.",
+  "lat": 41.8903,
+  "lng": 12.4922,
+  "difficulty": null,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Colosseum%2C_Rome.jpg/500px-Colosseum%2C_Rome.jpg",
+  "country": "Italy",
+  "continent": "Europe",
+  "sets": [
+   "History Was Here",
+   "Wonders of the World",
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": null,
+  "category": "city"
+ },
+ {
+  "id": "easter-island",
+  "short": "Easter Island",
+  "clue": "Easter Island, Chile 🇨🇱",
+  "fact": "Dutch explorer Jacob Roggeveen named it for the day he landed, Easter Sunday 1722. The island lies more than 3,500 km from mainland Chile.",
+  "lat": -27.12,
+  "lng": -109.35,
+  "difficulty": null,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Easterstatues.jpg/500px-Easterstatues.jpg",
+  "country": "Chile",
+  "continent": "South America",
+  "sets": [
+   "Pacific Islands"
+  ],
+  "difficultyWhy": null,
+  "category": "city"
+ },
+ {
+  "id": "galapagos-islands",
+  "short": "Galápagos Islands",
+  "clue": "Galápagos Islands, Ecuador 🇪🇨",
+  "fact": "Charles Darwin's 1835 visit aboard HMS Beagle, and the islands' finches and giant tortoises, helped shape his theory of evolution by natural selection.",
+  "lat": -0.6667,
+  "lng": -90.55,
+  "difficulty": null,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Pinnacle_rock_at_Bartoleme_Island.jpg/500px-Pinnacle_rock_at_Bartoleme_Island.jpg",
+  "country": "Ecuador",
+  "continent": "South America",
+  "sets": [
+   "Pacific Islands"
+  ],
+  "difficultyWhy": null,
+  "category": "city"
+ },
+ {
+  "id": "lord-howe-island",
+  "short": "Lord Howe Island",
+  "clue": "Lord Howe Island, Australia 🇦🇺",
+  "fact": "Only 400 tourists may stay on the island at once, and nearby Ball's Pyramid is the tallest volcanic sea stack in the world.",
+  "lat": -31.55,
+  "lng": 159.0833,
+  "difficulty": null,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Lord_Howe_Lagoon_-_panoramio.jpg/500px-Lord_Howe_Lagoon_-_panoramio.jpg",
+  "country": "Australia",
+  "continent": "Oceania",
+  "sets": [
+   "Pacific Islands"
+  ],
+  "difficultyWhy": null,
+  "category": "city"
+ }
+]
