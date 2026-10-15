@@ -85,13 +85,16 @@ echo "Asset versions: content-based (unchanged files keep cached URLs)"
 # below, so the entry's hash covers its submodules' versions.
 node "$SCRIPT_DIR/scripts/version-modules.mjs" "$DEPLOY_DIR/src"
 
-# Version main.js and style.css by content hash. Must run AFTER the asset
-# loop: that rewrites main.js, and hashing it first would let an asset-only
-# change ship under the old immutable main.js URL (stale assets forever).
+# Version main.js and every src/styles/*.css by content hash. Must run AFTER
+# the asset loop: that rewrites main.js, and hashing it first would let an
+# asset-only change ship under the old immutable main.js URL (stale assets forever).
 MAIN_JS_HASH=$(version_file "$DEPLOY_DIR/src/main.js")
-STYLE_CSS_HASH=$(version_file "$DEPLOY_DIR/src/style.css")
 sed -i -E "s|main\.js\?v=[^\"]*|main.js?v=$MAIN_JS_HASH|g" "$DEPLOY_DIR/index.html"
-sed -i -E "s|style\.css\?v=[^\"]*|style.css?v=$STYLE_CSS_HASH|g" "$DEPLOY_DIR/index.html"
+for css_file in "$DEPLOY_DIR"/src/styles/*.css; do
+  base=$(basename "$css_file")
+  hash=$(version_file "$css_file")
+  sed -i -E "s|styles/$base\?v=[^\"]*|styles/$base?v=$hash|g" "$DEPLOY_DIR/index.html"
+done
 
 # Stamp app-version for cache-buster (content-based: only changes when HTML changes)
 # Hash the HTML after asset versioning but before stamping (exclude the version meta itself)

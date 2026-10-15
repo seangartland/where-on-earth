@@ -41,7 +41,7 @@
   <meta name="twitter:description" content="A daily geography game. 5 rounds, tap the globe, beat your friends." />
   <meta name="twitter:image" content="https://where-on.earth/assets/og-v3.png" />
   <title>Where on Earth? - Daily Geography Game</title>
-  <link rel="stylesheet" href="src/style.css?v=20261007a" />
+  <link rel="stylesheet" href="src/styles/game.css?v=dev" />
   <script type="importmap">
     {
       "imports": {
@@ -71,133 +71,8 @@
     }
     #err[hidden] { display: none; }
   </style>
-  <style>
-    .mode-buttons {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      width: min(100%, 354px);
-      max-width: calc(100vw - 32px);
-      box-sizing: border-box;
-      margin: 20px auto 0;
-    }
-    .mode-buttons > button {
-      width: 100%;
-      min-width: 0;
-      min-height: 62px;
-      margin: 0;
-      padding: 0 8px;
-      border: 1px solid rgba(196,168,255,.45);
-      border-radius: 999px;
-      background: rgba(150,110,255,.14);
-      color: #e9e0ff;
-      font: inherit;
-      font-size: 14px;
-      font-weight: 750;
-      cursor: pointer;
-      touch-action: manipulation;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1px;
-      line-height: 1.15;
-    }
-    .mode-buttons .mode-name,
-    .mode-buttons .mode-desc { max-width: 100%; overflow: hidden; }
-    .mode-buttons .mode-name { text-overflow: ellipsis; }
-    .mode-buttons .mode-desc {
-      display: -webkit-box;
-      font-size: 11px;
-      font-weight: 650;
-      line-height: 1.1;
-      opacity: .72;
-      overflow: hidden;
-      text-overflow: clip;
-      white-space: normal;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-    .mode-buttons > button:active { transform: scale(.98); }
-    .mode-buttons > button[hidden] { display: none; }
-    .mode-buttons > button:disabled { opacity: .45; cursor: progress; }
-    .mode-buttons > button:disabled:active { transform: none; }
-    #play-button { background: linear-gradient(135deg, #ffd166, #ff9f6a); border: 0; color: #21152f; font-weight: 800; }
-    /* Daily takes the full first row so Survival and Challenge pair below it. */
-    #play-button { grid-column: 1 / -1; }
-
-    /* Survival hub rows: the shared picker row without the emoji column. */
-    #survival-hub .expedition-choice { grid-template-columns: 1fr auto; }
-    #survival-hub .expedition-choice:disabled { opacity: .45; cursor: progress; }
-    #survival-hub .expedition-choice small:empty { display: none; }
-
-    .survival-streak {
-      display: none;
-      margin: 10px 0 0;
-      color: #f6edff;
-      font-size: 17px;
-      font-weight: 850;
-      letter-spacing: .01em;
-      text-shadow: 0 0 20px rgba(170, 120, 255, .48);
-    }
-    body.survival .survival-streak { display: block; }
-    body.survival .round-header,
-    body.survival #reveal-card,
-    body.endless .round-header,
-    body.endless #reveal-card {
-      border-color: rgba(196, 168, 255, .52);
-      background: rgba(22, 10, 42, .88);
-    }
-    body.survival .round-meta span:first-child,
-    body.endless .round-meta span:first-child { color: #d7c4ff; }
-    body.survival #reveal-card .score-math,
-    body.endless #reveal-card .score-math { display: none; }
-    body.survival #next-button {
-      background: linear-gradient(135deg, #8057e8, #a06cff);
-    }
-    body.survival.survival-miss #next-button {
-      background: linear-gradient(135deg, #bd496d, #8b3158);
-    }
-
-    .survival-results-card {
-      width: min(100%, 354px);
-      max-width: calc(100vw - 32px);
-      box-sizing: border-box;
-      margin: 0 auto;
-      padding: 26px 22px 22px;
-      text-align: center;
-    }
-    .survival-results-card .eyebrow { margin: 0 0 8px; color: #cdb6ff; }
-    .survival-results-card h2 { margin: 0; color: #fff; font-size: 36px; line-height: 1.08; }
-    body.blackout-complete .survival-results-card h2 { color: #ffd166; }
-    .survival-results-card .survival-summary { margin: 9px 0 22px; color: rgba(226, 218, 246, .76); }
-    .survival-best-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin: 0 0 22px;
-    }
-    .survival-best-card div {
-      padding: 14px 8px;
-      border: 1px solid rgba(196, 168, 255, .22);
-      border-radius: 15px;
-      background: rgba(151, 105, 255, .09);
-    }
-    .survival-best-card strong { display: block; color: #fff; font-size: 28px; line-height: 1; }
-    .survival-best-card span { display: block; margin-top: 5px; color: rgba(218, 205, 245, .65); font-size: 11px; font-weight: 750; text-transform: uppercase; letter-spacing: .08em; }
-    .survival-result-actions { display: grid; gap: 10px; }
-    .survival-result-actions button { width: 100%; margin: 0; min-height: 52px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
-    .survival-result-actions .primary { border: 0; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #21152f; }
-
-    @media (max-width: 360px) {
-      .mode-buttons { gap: 6px; }
-      .mode-buttons > button { padding-inline: 7px; font-size: 13px; }
-      .mode-buttons .mode-desc { font-size: 10px; }
-    }
-  </style>
+  <link rel="stylesheet" href="src/styles/flyover.css?v=dev" />
+  <link rel="stylesheet" href="src/styles/pvp.css?v=dev" />
 </head>
 <body>
   <div id="boot" class="pending">

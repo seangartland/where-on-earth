@@ -3123,32 +3123,6 @@ const audio = {
   window.addEventListener(type, () => audio.unlock(), { capture: true, passive: true }),
 );
 
-const flyoverStyle = document.createElement('style');
-flyoverStyle.textContent = `
-.mute-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin: -15px -6px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(193,224,250,.72); cursor: pointer; pointer-events: auto; touch-action: manipulation; }
-.mute-toggle svg { width: 18px; height: 18px; }
-.mute-toggle .waves { transition: opacity .15s; }
-.mute-toggle.muted .waves { opacity: 0; }
-.mute-toggle .slash { opacity: 0; transition: opacity .15s; }
-.mute-toggle.muted .slash { opacity: 1; }
-.start-screen .mute-toggle { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 12px); right: 12px; width: 44px; height: 44px; margin: 0; }
-#travel-distance.suspense span { color: #ffe6a8; animation: suspense-tick .55s ease-in-out infinite; }
-@keyframes suspense-tick { 50% { transform: scale(1.06); } }
-#travel-distance.deadpan { border-color: rgba(255,255,255,.22); box-shadow: none; }
-#travel-distance.deadpan span { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-weight: 600; letter-spacing: -.02em; }
-#travel-distance.deadpan small { text-transform: none; letter-spacing: .02em; font-size: 12px; font-weight: 600; }
-.bullseye-stamp { position: fixed; z-index: 13; left: 50%; top: 66%; margin: 0; padding: 10px 18px 8px; border: 3px solid #ffd45e; border-radius: 14px; color: #ffd45e; font-size: 22px; font-weight: 900; letter-spacing: .12em; text-align: center; text-shadow: 0 0 18px rgba(255,212,94,.55); box-shadow: 0 0 28px rgba(255,212,94,.25), inset 0 0 18px rgba(255,212,94,.15); background: rgba(20,14,2,.55); pointer-events: none; transform: translate(-50%, -50%) rotate(-9deg); }
-.bullseye-stamp b { display: block; font-size: 44px; line-height: 1; letter-spacing: 0; }
-.bullseye-stamp[hidden], .postcard[hidden] { display: none; }
-.postcard { position: fixed; z-index: 13; left: 0; top: 0; margin: 0; width: 212px; box-sizing: border-box; padding: 8px 8px 0; border-radius: 3px; background: #fbf8f1; box-shadow: 0 14px 34px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.3); pointer-events: none; will-change: transform, opacity; }
-.postcard img { display: block; width: 100%; height: 124px; object-fit: cover; object-position: center 20%; background: #d9d4c8; }
-.thumb-slot.waiting::before { content: ""; position: absolute; inset: 2px 0; box-sizing: border-box; border: 1.5px dashed rgba(193,224,250,.42); border-radius: 10px; background: rgba(193,224,250,.05); }
-.thumb-slot.waiting img { opacity: 0; }
-.peek-slot.waiting::before { inset: 0; }
-.postcard p { margin: 0; height: 34px; overflow: hidden; color: #1d2633; font: 600 15px/34px "Marker Felt", "Bradley Hand", "Segoe Print", cursive; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
-body.bullseye #reveal-card { border-color: rgba(255,212,94,.5); }`;
-document.head.appendChild(flyoverStyle);
-
 const MUTE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="none"/><path class="waves" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="slash" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>';
 const muteButtons = [gameEls.start, gameEls.round.querySelector('.round-meta')].map((parent) => {
   const button = document.createElement('button');
@@ -3841,7 +3815,7 @@ function fadeElement(el, show, duration, delay = 0) {
 const REVEAL_BEAT_MS = 1500;
 const SHEET_SLIDE_MS = 380;
 const SHEET_PEEK_H = 80;
-const REVEAL_HEADER_H = 52; // the collapsed one-line header, see style.css
+const REVEAL_HEADER_H = 52; // the collapsed one-line header, see styles/game.css
 let sheetTimer = 0;
 let lineLabel = null; // { mid, a, b } globe-local, while the label is on
 
@@ -5065,18 +5039,6 @@ gameEls.share.addEventListener('click', () => shareResult());
 // Next-daily countdown: one game per day, shown on the results and review
 // screens in place of a replay
 // ---------------------------------------------------------------------------
-const countdownStyle = document.createElement('style');
-countdownStyle.textContent = `
-.next-game { margin: 16px 0 0; padding: 14px 16px 12px; border: 1px solid rgba(119,202,255,.22); border-radius: 16px; background: linear-gradient(180deg, rgba(119,202,255,.1), rgba(119,202,255,.03)); text-align: center; }
-.next-game .eyebrow { margin: 0 0 4px; }
-.next-game-time { display: block; color: #f3f9ff; font-size: 34px; font-weight: 800; line-height: 1.1; letter-spacing: .02em; font-variant-numeric: tabular-nums; text-shadow: 0 0 24px rgba(119,202,255,.35); }
-.next-game-sub { margin: 4px 0 0; color: rgba(193,224,250,.6); font-size: 12px; }
-.next-game.ready { cursor: pointer; border-color: rgba(255,199,106,.5); background: rgba(255,199,106,.1); }
-.next-game.ready .next-game-time { color: #ffc76a; font-size: 24px; }
-.review-countdown { min-height: 40px; display: inline-flex; align-items: center; padding: 0 12px; border: 1px solid rgba(119,202,255,.22); border-radius: 999px; color: #cfe9ff; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.review-countdown.ready { color: #ffc76a; border-color: rgba(255,199,106,.5); cursor: pointer; }`;
-document.head.appendChild(countdownStyle);
-
 const nextGame = document.createElement('div');
 nextGame.className = 'next-game';
 nextGame.innerHTML = '<p class="eyebrow">Next game in</p><span class="next-game-time" role="timer">--:--:--</span><p class="next-game-sub">Five new places at midnight</p>';
@@ -6625,7 +6587,7 @@ function applyCardTier(el, item, earned) {
   if (earned) el.classList.add(PROX_CLASSES[earned]);
 }
 
-// The one accuracy badge every surface uses (styles: .prox-badge in style.css).
+// The one accuracy badge every surface uses (styles: .prox-badge in styles/game.css).
 // host must be positioned; size is '' (icon + label), 'compact' (icon) or 'large'.
 const PROX_BADGES = { [EARN_BULLSEYE]: ['🎯', 'Bullseye'], [EARN_PINPOINT]: ['📍', 'Pinpoint'] };
 function setProxBadge(host, earned, size = '') {
@@ -7188,59 +7150,6 @@ function pvpEl(tag, props = {}, ...children) {
   el.append(...children.flat().filter((child) => child != null && child !== false));
   return el;
 }
-
-const pvpStyle = document.createElement('style');
-pvpStyle.textContent = `
-.pvp-panel .pvp-block { margin: 0 0 16px; }
-.pvp-panel .eyebrow { margin: 0 0 8px; }
-.pvp-field { display: flex; gap: 8px; }
-.pvp-field input { flex: 1; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; border: 1px solid rgba(157,211,255,.22); border-radius: 14px; background: rgba(157,211,255,.08); color: #f3f9ff; font: inherit; font-size: 16px; }
-.pvp-field input::placeholder { color: rgba(193,224,250,.45); }
-.pvp-field input.pvp-code { text-transform: uppercase; letter-spacing: .18em; font-weight: 800; }
-.pvp-field .primary, .pvp-panel .pvp-wide, .pvp-actions .primary { min-width: 0; min-height: 48px; padding: 0 18px; font-size: 15px; }
-.pvp-panel .pvp-wide, .pvp-actions .primary { width: 100%; }
-.pvp-actions { display: grid; gap: 10px; margin: 14px 0 0; }
-.pvp-note { margin: 8px 0 0; color: rgba(193,224,250,.62); font-size: 12px; line-height: 1.4; }
-.pvp-who { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; color: rgba(224,240,255,.86); font-size: 15px; }
-.pvp-who b { color: #f3f9ff; }
-.pvp-status { min-height: 18px; margin: 10px 0 0; color: #8bd9ff; font-size: 13px; line-height: 1.4; }
-.pvp-status.error { color: #ff9db4; }
-.pvp-status:empty { display: none; }
-.expedition-choice .pvp-progress { min-width: 30px; color: #ffc76a; font-size: 15px; font-weight: 800; text-align: center; }
-.pvp-code-big { margin: 4px 0 0; color: #f3f9ff; font-size: 30px; font-weight: 850; letter-spacing: .22em; text-align: center; font-variant-numeric: tabular-nums; }
-.pvp-empty { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; }
-.pvp-format-card { margin-bottom: 8px; padding: 9px 14px 10px; border: 1px solid rgba(157,211,255,.18); border-radius: 16px; background: rgba(157,211,255,.07); }
-.pvp-format-card h3 { margin: 0; color: #f3f9ff; font-size: 16px; line-height: 1.25; }
-.pvp-format-card > p { margin: 2px 0 8px; color: rgba(193,224,250,.62); font-size: 13px; line-height: 1.35; }
-.pvp-format-card .pvp-wide { min-height: 40px; }
-/* Home fits one phone screen: compact header rows, and when the lists run
-   long they scroll inside the panel so create and join stay in reach. */
-.pvp-panel:has(.pvp-lists) { display: flex; flex-direction: column; max-height: calc(100dvh - 36px); overflow: hidden; }
-.pvp-panel:has(.pvp-lists) > p { margin-bottom: 12px; }
-.pvp-panel:has(.pvp-lists) .pvp-body { display: flex; flex-direction: column; min-height: 0; }
-.pvp-panel:has(.pvp-lists) .pvp-body > * { flex-shrink: 0; }
-.pvp-panel:has(.pvp-lists) .pvp-who { margin-bottom: 10px; align-items: center; }
-.pvp-panel:has(.pvp-lists) .pvp-who .text-button { margin: 0; padding: 2px 0; }
-.pvp-panel .pvp-join { margin: 4px 0 10px; }
-.pvp-panel .pvp-join .eyebrow, .pvp-lists .eyebrow { margin-bottom: 6px; }
-.pvp-join .pvp-field input, .pvp-join .pvp-field .primary { min-height: 42px; }
-.pvp-panel .pvp-body > .pvp-lists { flex: 0 1 auto; min-height: 0; margin: 0; overflow-y: auto; overscroll-behavior: contain; }
-.pvp-lists .eyebrow:not(:first-child) { margin-top: 8px; }
-.pvp-lists .expedition-list { gap: 8px; }
-.pvp-lists .expedition-choice { gap: 10px; padding: 10px 12px; }
-.pvp-lists .expedition-choice small { margin-top: 2px; font-size: 13px; }
-.pvp-board { margin: 12px 0 0; }
-.pvp-board-list { margin: 0; padding: 0; list-style: none; }
-.pvp-board-list li { display: grid; grid-template-columns: 32px minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 42px; border-bottom: 1px solid rgba(173,216,255,.11); }
-.pvp-board-list b { overflow: hidden; color: #f3f9ff; text-overflow: ellipsis; white-space: nowrap; }
-.pvp-board-list small { color: rgba(193,224,250,.62); }
-.pvp-board-rank { color: #ffc76a; font-weight: 850; text-align: center; }
-.pvp-board-score { color: #ffc76a; font-weight: 800; font-variant-numeric: tabular-nums; }
-.pvp-me { background: rgba(103,232,255,.07); }
-.pvp-standings { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(173,216,255,.11); }
-.pvp-confirm { padding: 12px; border-radius: 14px; background: rgba(255,157,180,.08); }
-.pvp-confirm p { margin: 0 0 10px; color: rgba(224,240,255,.86); font-size: 13px; }`;
-document.head.appendChild(pvpStyle);
 
 // Home: identity, create, join by code, and the remembered match list. Same
 // overlay panel and choice rows as the Expeditions and Blackout pickers.
@@ -8085,13 +7994,6 @@ const pvpRoundStandings = document.createElement('div');
 pvpRoundStandings.className = 'pvp-standings';
 pvpRoundStandings.hidden = true;
 gameEls.peekBar.append(pvpRoundStandings);
-pvpStyle.textContent += `
-.pvp-vs { display: none; overflow: hidden; color: rgba(193,224,250,.82); font-size: 14px; font-weight: 700; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
-body.pvp .pvp-vs { display: block; }
-body.pvp #reveal-card .score-math { display: none; }
-body.pvp .round-meta #round-weight { font-variant-numeric: tabular-nums; }
-.pvp-round-row { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; color: rgba(224,240,255,.86); font-size: 12px; }
-.pvp-round-row span:last-child { color: #ffc76a; font-weight: 800; }`;
 
 function pvpSubmissionId() {
   if (crypto.randomUUID) return crypto.randomUUID();
