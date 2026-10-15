@@ -66,17 +66,22 @@ version_file() {
   sha256sum "$1" | cut -c1-12
 }
 
-# Version asset JSON URLs by content hash
+# Version asset JSON URLs by content hash. The asset manifest can live in any
+# module under src/ (e.g. src/globe/surface.js), not just main.js, so apply
+# both seds to every .js file under src/, recursively.
+mapfile -t DEPLOY_JS_FILES < <(find "$DEPLOY_DIR/src" -name '*.js')
 for json_file in "$DEPLOY_DIR"/assets/*.json; do
   [ -f "$json_file" ] || continue
   base=$(basename "$json_file")
   hash=$(version_file "$json_file")
-  # Replace in main.js: assets/<base> or assets/<base>?v=xxx
-  sed -i -E "s|(assets/$base)(\?v=[^\"']*)?|\1?v=$hash|g" "$DEPLOY_DIR/src/main.js"
-  # Restamp the loader's decoded-size denominator (LOAD in main.js) so the
-  # progress bar never drifts after an asset rebuild
   size=$(stat -c %s "$json_file")
-  sed -i -E "s|(url: 'assets/$base\?v=$hash', size: )[0-9]+|\1$size|" "$DEPLOY_DIR/src/main.js"
+  for js_file in "${DEPLOY_JS_FILES[@]}"; do
+    # Replace: assets/<base> or assets/<base>?v=xxx
+    sed -i -E "s|(assets/$base)(\?v=[^\"']*)?|\1?v=$hash|g" "$js_file"
+    # Restamp the loader's decoded-size denominator (LOAD manifest) so the
+    # progress bar never drifts after an asset rebuild
+    sed -i -E "s|(url: 'assets/$base\?v=$hash', size: )[0-9]+|\1$size|" "$js_file"
+  done
 done
 echo "Asset versions: content-based (unchanged files keep cached URLs)"
 

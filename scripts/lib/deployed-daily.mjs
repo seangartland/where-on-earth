@@ -25,10 +25,11 @@ function extractDecl(src, name) {
 }
 
 // Selection source for a deployed build. Post-cutover builds import
-// ./daily.js, whose source must then be passed in as dailyJs.
+// daily.js (directly from main.js, or transitively through a submodule such
+// as modes/daily-game.js), whose source the caller must detect and pass in
+// as dailyJs.
 export function selectionSource(mainJs, dailyJs) {
-  if (/from '\.\/daily\.js/.test(mainJs)) {
-    if (!dailyJs) throw new Error('main.js imports ./daily.js but no daily.js source was given');
+  if (dailyJs) {
     return dailyJs.replace(/^export /gm, '');
   }
   const parts = DECLS.map((name) => extractDecl(mainJs, name)).filter(Boolean);

@@ -18,6 +18,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
+import { dirname as posixDirname, join as posixJoin } from 'node:path/posix';
 import { fileURLToPath } from 'node:url';
 import { resolvePinnedIds } from '../src/daily.js';
 import { selectionSource, runSelection } from './lib/deployed-daily.mjs';
@@ -47,6 +48,34 @@ async function getText(path) {
   }
   if (!res.ok) fail(`cannot read production (${url}): HTTP ${res.status}`);
   return res.text();
+}
+
+// Relative-import specifiers in deployed module text, static or dynamic:
+// './x.js' or '../a/b.js', optionally carrying a '?v=hash' from
+// version-modules.mjs.
+const IMPORT_RE = /\bfrom\s+['"](\.{1,2}\/[^'"?]+\.js)(?:\?[^'"]*)?['"]|\bimport\(\s*['"](\.{1,2}\/[^'"?]+\.js)(?:\?[^'"]*)?['"]\s*\)/g;
+
+// Fetch every module `entryPath` imports, transitively, resolving each
+// relative specifier against the importing module's own path (not just
+// main.js: an asset manifest or a daily.js import can live in any submodule).
+// Returns a map of module path (no query string) -> source text, entry included.
+async function fetchModuleGraph(entryPath, entryText) {
+  const key = entryPath.replace(/\?.*$/, '');
+  const graph = new Map([[key, entryText]]);
+  const queue = [[key, entryText]];
+  while (queue.length) {
+    const [path, text] = queue.shift();
+    const dir = posixDirname(path);
+    for (const m of text.matchAll(IMPORT_RE)) {
+      const spec = m[1] || m[2];
+      const target = posixJoin(dir, spec);
+      if (graph.has(target)) continue;
+      const modText = await getText(target);
+      graph.set(target, modText);
+      queue.push([target, modText]);
+    }
+  }
+  return graph;
 }
 
 const utcDate = (ms) => new Date(ms).toISOString().slice(0, 10);
@@ -81,16 +110,21 @@ const html = await getText('/');
 const mainPath = html.match(/src\/main\.js(\?v=[^"']*)?/)?.[0];
 if (!mainPath) fail('production index.html has no src/main.js script tag');
 const mainJs = await getText(mainPath);
-const dailyJs = /from '\.\/daily\.js/.test(mainJs) ? await getText('src/daily.js') : null;
-const locPath = mainJs.match(/assets\/locations\.json(\?v=[^"']*)?/)?.[0];
-if (!locPath) fail('production main.js has no assets/locations.json URL');
+// The asset manifest and the daily.js import can live in any module main.js
+// pulls in (e.g. src/globe/surface.js holds the manifest, src/modes/daily-game.js
+// holds the daily.js import), so search the whole deployed module graph.
+const graph = await fetchModuleGraph(mainPath, mainJs);
+const graphText = [...graph.values()].join('\n');
+const dailyJs = /from ['"]\.{1,2}\/daily\.js/.test(graphText) ? await getText('src/daily.js') : null;
+const locPath = graphText.match(/assets\/locations\.json(\?v=[^"']*)?/)?.[0];
+if (!locPath) fail('production module graph has no assets/locations.json URL');
 let livePool;
 try {
   livePool = JSON.parse(await getText(locPath));
 } catch (err) {
   fail(`production ${locPath} is not valid JSON: ${err.message}`);
 }
-const livePinsPath = mainJs.match(/assets\/daily-pins\.json(\?v=[^"']*)?/)?.[0];
+const livePinsPath = graphText.match(/assets\/daily-pins\.json(\?v=[^"']*)?/)?.[0];
 const livePins = livePinsPath ? JSON.parse(await getText(livePinsPath)).pins || {} : {};
 
 const computed = runSelection(selectionSource(mainJs, dailyJs), livePool, dates, 'UTC');
