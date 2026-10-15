@@ -26,6 +26,7 @@ import {
   expeditionRun, expeditionPicker, initExpeditions, expeditionsLoaded, updateExpeditionEntry, completeExpeditionRound,
   expeditionRoundHeader, expeditionRevealCard, expeditionNext,
 } from './modes/expeditions.js';
+import { endless, endlessEls, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
 import { initStats, recordHistory } from './meta/stats.js';
 import {
   initPassportHome, initPassport, syncPassport, auditFlagsLocationsLoaded, passportEntryFor, countryIndex, buildCountryIndex,
@@ -3610,10 +3611,7 @@ function showRound() {
   } else if (survival.active) {
     survivalRoundHeader();
   } else if (endless.active) {
-    document.body.classList.add('endless');
-    gameEls.number.textContent = `Endless · #${endless.count}`;
-    gameEls.weight.style.display = 'none';
-    gameEls.dailyDate.hidden = true;
+    endlessRoundHeader();
   } else {
     gameEls.number.textContent = `Round ${daily.round + 1} of 5`;
     gameEls.weight.textContent = `${WEIGHTS[daily.round]}× points`;
@@ -5088,7 +5086,6 @@ const modeHost = {
   get countryIndex() { return countryIndex; },
   get CONTINENT_ORDER() { return CONTINENT_ORDER; },
   get activePin() { return activePin; },
-  get endless() { return endless; },
   get blackoutEntry() { return blackoutEntry; },
   COUNTRY_FLAGS,
   ISLAND_BLOB_TEXELS,
@@ -5106,6 +5103,7 @@ const modeHost = {
   survival,
   borders,
   expeditionRun,
+  endless,
   EXPEDITION_KEY,
   clamp,
   readJSON,
@@ -5147,9 +5145,10 @@ const modeHost = {
 };
 
 // ---------------------------------------------------------------------------
-// Endless mode: unscored random locations from the full pool
+// Endless mode (QUARANTINED: disabled, kept intact) lives in
+// src/modes/endless.js.
 // ---------------------------------------------------------------------------
-const endless = { active: false, item: null, bag: [], count: 0 };
+initEndless(modeHost);
 // PvP challenge play (section below). item is the server-issued prompt until the
 // guess is accepted, then the server answer.
 const pvp = { active: false, matchId: null, challengeId: null, group: false, round: 0, item: null, result: null };
@@ -5158,44 +5157,6 @@ function currentItem() {
   if (borders.active) return null; // Borders asks for a country, not a location
   if (pvp.active) return pvp.item;
   return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : selected[daily.round];
-}
-
-// Endless reuses the survival mode restyle (index.html).
-// Endless button is now in HTML (mode-buttons div), just get the reference
-const endlessEntry = document.getElementById('endless-button');
-
-const endlessEls = { entry: endlessEntry };
-
-// Pure random: every guess picks from all playable image-backed locations.
-// Repeats are expected; dailies are the way to see new places.
-function endlessPick() {
-  const all = locations.filter((item) => isPlayableLocation(item) && !isLandmark(item));
-  // Keep track of recent picks to avoid repeats (last 50)
-  if (!endless.recent) endless.recent = [];
-  let pick = all[Math.floor(Math.random() * all.length)];
-  let guard = 0;
-  while (endless.recent.includes(pick.id) && guard++ < 20) {
-    pick = all[Math.floor(Math.random() * all.length)];
-  }
-  endless.recent.push(pick.id);
-  if (endless.recent.length > 50) endless.recent.shift();
-  endless.item = pick;
-  return pick;
-}
-
-function endlessGo(item) {
-  if (!item) return;
-  expeditionRun.active = false;
-  survival.active = false;
-  borders.active = false;
-  endless.active = true;
-  endless.item = item;
-  endless.count += 1;
-  showRound();
-}
-
-function endlessNext() {
-  endlessGo(endlessPick());
 }
 
 function goHome() {
@@ -5347,12 +5308,6 @@ document.querySelectorAll('.home-nav-btn').forEach((button) => {
 
 // Lives inside the clue card, so it never costs the globe a row.
 gameEls.header.prepend(createHomeButton());
-
-endlessEntry.addEventListener('click', () => {
-  if (!locations.length) return;
-  endless.count = 0;
-  endlessNext();
-});
 
 // ---------------------------------------------------------------------------
 // Survival (classic), the shared run-over screen and the Survival hub live in
