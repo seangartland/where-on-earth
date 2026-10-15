@@ -54,7 +54,7 @@ import {
 } from './modes/blackout.js';
 import {
   expeditionRun, expeditionPicker, initExpeditions, expeditionsLoaded, updateExpeditionEntry, completeExpeditionRound,
-  expeditionRoundHeader, expeditionRevealCard, expeditionNext,
+  expeditionLandmarks, expeditionRoundHeader, expeditionRevealCard, expeditionNext,
 } from './modes/expeditions.js';
 import { endless, endlessEls, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
 import { AUDIT_MODE, initAudit, auditFlagsLocationsLoaded, addAuditFlagButton, mountAuditBanner } from './modes/audit.js';
@@ -537,6 +537,7 @@ const passportHost = {
   isVisited,
   localDateKey,
   passportLocation,
+  landmarkShelf: expeditionLandmarks,
   safeSetItem,
   storageError,
   tierOf,

@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
-// Passport: the start-screen passport summary, the Passport page (Places and
-// Countries tabs), Collections, the postcard detail view, the passport share
+// Passport: the start-screen passport summary, the Passport page (Places,
+// Countries and Landmarks tabs), Collections, the postcard detail view, the passport share
 // card and the postcard share.
 //
 // Moved out of main.js in refactor Phase 3. The passport store itself
@@ -844,6 +844,22 @@ function closeCountryDetail() {
   passportScreen.scrollTop = ppCountryListScroll;
 }
 
+// The Landmarks shelf: Expeditions' landmark stops (host.landmarkShelf), apart
+// from Places and Countries so a landmark never counts toward a country or
+// continent total. Same slots and mystery cards as the city dex.
+function renderLandmarkShelf() {
+  const age = new Map(host.passport.order.map((id, i) => [id, i]));
+  const entries = host.landmarkShelf().map((item) => buildPassportEntry(item, age));
+  const visited = entries.filter((e) => e.visited).length;
+  const earned = entries.filter((e) => e.earned).length;
+  ppEls.landmarkSummary.textContent = `${earned} of ${entries.length} landmark postcards · ${visited} visited`;
+  ppEls.landmarkDex.replaceChildren(...entries.map((entry) => {
+    const li = passportSlot(entry);
+    ppTagSlot(li, entry);
+    return li;
+  }));
+}
+
 const PP_VIEW_KEY = 'where-on-earth-passport-view';
 let ppView = 'places';
 let ppActiveCountry = null;
@@ -852,10 +868,13 @@ let ppCountryListScroll = 0;
 function setPassportView(view) {
   closePassportFilters();
   ppView = view;
-  host.safeSetItem(PP_VIEW_KEY, view);
+  // The saved view stays places or countries: no new stored value for the shelf.
+  if (view !== 'landmarks') host.safeSetItem(PP_VIEW_KEY, view);
   ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.view === view)));
   ppEls.placesView.hidden = view !== 'places';
   ppEls.countriesView.hidden = view !== 'countries';
+  ppEls.landmarksView.hidden = view !== 'landmarks';
+  if (view === 'landmarks') renderLandmarkShelf();
   if (view !== 'countries') return;
   if (!countryIndex) buildCountryIndex();
   if (ppActiveCountry) renderCountryDetail(ppActiveCountry);
@@ -1518,6 +1537,7 @@ body.game-passport #hud { opacity: 0; }
     <div class="pp-tabs" role="tablist" data-pp="tabs">
       <button type="button" role="tab" data-view="places" aria-selected="true">Places</button>
       <button type="button" role="tab" data-view="countries" aria-selected="false">Countries</button>
+      <button type="button" role="tab" data-view="landmarks" aria-selected="false">Landmarks</button>
     </div>
     <div data-pp="places-view">
       <div class="pp-stick-sentinel" data-pp="places-sentinel"></div>
@@ -1565,6 +1585,11 @@ body.game-passport #hud { opacity: 0; }
         <ul class="pp-dex pp-country-dex" data-pp="country-dex"></ul>
       </div>
     </div>
+    <div data-pp="landmarks-view" hidden>
+      <div class="pp-stick-sentinel" data-pp="landmarks-sentinel"></div>
+      <div class="pp-toolbar pp-country-toolbar"><p class="pp-country-summary" data-pp="landmark-summary"></p><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
+      <ul class="pp-dex pp-country-dex" data-pp="landmark-dex"></ul>
+    </div>
   </div>`;
   document.getElementById('game').appendChild(passportScreen);
   host.passportScreenEl = passportScreen;
@@ -1600,6 +1625,9 @@ body.game-passport #hud { opacity: 0; }
     countryBack: passportScreen.querySelector('[data-pp="country-back"]'),
     countryHead: passportScreen.querySelector('[data-pp="country-head"]'),
     countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
+    landmarksView: passportScreen.querySelector('[data-pp="landmarks-view"]'),
+    landmarkSummary: passportScreen.querySelector('[data-pp="landmark-summary"]'),
+    landmarkDex: passportScreen.querySelector('[data-pp="landmark-dex"]'),
   };
 
   ppStickyObserver = new IntersectionObserver((entries) => {
