@@ -60,6 +60,10 @@ export class GroupChallengeRoom {
     if (state.status !== "EXPIRED") { times.push(state.expiresAt); if (state.participants[0]?.rounds) for (const player of state.participants) for (const round of player.rounds) if (round.acceptUntil && !round.result) times.push(round.acceptUntil + 1); }
     if (state.purgeAt) times.push(state.purgeAt); const future = times.filter((time) => time > Date.now()); if (future.length) await this.ctx.storage.setAlarm(Math.min(...future));
   }
+  async releaseSlot(state) {
+    if (state.slotReleased) return;
+    try { await internal(recordStub(this.env), "/group-release-slot", { challengeId: state.challengeId }); state.slotReleased = true; this.save(state); } catch {}
+  }
   async expire(state, now) {
     if (state.status === "EXPIRED") return false;
     state.status = "EXPIRED"; state.expiredAt = now; state.purgeAt = state.expiresAt + WEEK; state.lastActivityAt = now;
@@ -103,10 +107,10 @@ export class GroupChallengeRoom {
       const auth = data.auth; if (!auth) throw new ApiError(401, "UNAUTHORIZED", "Authentication is required.");
       if (url.pathname === "/join") {
         const existing = state.participants.find((player) => player.playerId === auth.playerId);
-        if (existing) { if (existing.tokenHash && existing.tokenHash !== auth.tokenHash) throw new ApiError(401, "UNAUTHORIZED", "A valid player token is required."); return json({ challengeId: state.challengeId, status: state.status, role: existing.role, joinedAt: existing.joinedAt, expiresAt: state.expiresAt }); }
+        if (existing) { if (existing.tokenHash && existing.tokenHash !== auth.tokenHash) throw new ApiError(401, "UNAUTHORIZED", "A valid player token is required."); if (existing.role !== "CREATOR" && state.status === "OPEN") await this.releaseSlot(state); return json({ challengeId: state.challengeId, status: state.status, role: existing.role, joinedAt: existing.joinedAt, expiresAt: state.expiresAt }); }
         if (state.status === "EXPIRED") throw new ApiError(410, "CHALLENGE_EXPIRED", "The challenge has expired."); if (state.status !== "OPEN") throw new ApiError(409, "ENTRIES_CLOSED", "Entries are closed."); if (state.participants.length >= PARTICIPANT_CAP) throw new ApiError(409, "CHALLENGE_FULL", "The challenge is full.");
         if ((data.kind === "TOKEN" && data.credential !== state.inviteHash) || (data.kind === "CODE" && data.credential !== state.joinCode)) throw new ApiError(404, "INVITATION_NOT_FOUND", "Invitation not found.");
-        const joinedAt = Date.now(); state.participants.push({ playerId: auth.playerId, tokenHash: auth.tokenHash, displayName: data.displayName, displaySuffix: auth.playerId.replace(/[^A-Za-z0-9]/g, "").slice(-3).toUpperCase(), role: "PARTICIPANT", joinedAt, rounds: emptyRounds(), finishedAt: null }); state.lastActivityAt = joinedAt; this.save(state); await this.syncMemberships(state); return json({ challengeId: state.challengeId, status: state.status, role: "PARTICIPANT", joinedAt, expiresAt: state.expiresAt });
+        const joinedAt = Date.now(); state.participants.push({ playerId: auth.playerId, tokenHash: auth.tokenHash, displayName: data.displayName, displaySuffix: auth.playerId.replace(/[^A-Za-z0-9]/g, "").slice(-3).toUpperCase(), role: "PARTICIPANT", joinedAt, rounds: emptyRounds(), finishedAt: null }); state.lastActivityAt = joinedAt; this.save(state); await this.releaseSlot(state); await this.syncMemberships(state); return json({ challengeId: state.challengeId, status: state.status, role: "PARTICIPANT", joinedAt, expiresAt: state.expiresAt });
       }
       const player = this.participant(state, auth);
       if (url.pathname === "/state") return json(this.stateView(state, player));

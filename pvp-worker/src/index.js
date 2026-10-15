@@ -166,13 +166,16 @@ export class PlayerRecords {
           sql.exec("DELETE FROM open_groups WHERE challenge_id = ?", data.challengeId); sql.exec("DELETE FROM group_invitations WHERE challenge_id = ?", data.challengeId);
         }); return json({ ok: true });
       }
+      // First non-creator join frees the creator's slot but keeps the invitations so others can still join.
+      if (url.pathname === "/group-release-slot") { sql.exec("DELETE FROM open_groups WHERE challenge_id = ?", data.challengeId); return json({ ok: true }); }
       if (url.pathname === "/group-membership-upsert") { sql.exec("INSERT OR REPLACE INTO group_memberships VALUES (?, ?, ?, ?, ?)", data.playerId, data.challengeId, data.role, JSON.stringify(data.summary), data.lastActivityAt); return json({ ok: true }); }
       if (url.pathname === "/group-membership-remove") { sql.exec("DELETE FROM group_memberships WHERE challenge_id = ?", data.challengeId); return json({ ok: true }); }
       if (url.pathname === "/group-list") {
         const scope = data.scope === "created" ? "AND role = 'CREATOR'" : ""; const rows = sql.exec(`SELECT summary, last_activity_at FROM group_memberships WHERE player_id = ? ${scope} AND (last_activity_at < ? OR (last_activity_at = ? AND challenge_id < ?)) ORDER BY last_activity_at DESC, challenge_id DESC LIMIT ?`, data.playerId, data.beforeTime, data.beforeTime, data.beforeId, data.limit + 1).toArray();
         const page = rows.slice(0, data.limit); const last = page.at(-1); return json({ challenges: page.map((row) => JSON.parse(row.summary)), nextCursor: rows.length > data.limit ? `${last.last_activity_at}:${JSON.parse(last.summary).challengeId}` : null });
       }
-      if (url.pathname === "/consume-invite") { sql.exec("DELETE FROM invitations WHERE match_id = ?", data.matchId); return json({ ok: true }); }
+      // Joining frees the creator's open-challenge slot. Row deletes are idempotent, so later releases on completion, abandon or expiry are no-ops.
+      if (url.pathname === "/consume-invite") { this.ctx.storage.transactionSync(() => { sql.exec("DELETE FROM invitations WHERE match_id = ?", data.matchId); sql.exec("DELETE FROM open_matches WHERE match_id = ?", data.matchId); }); return json({ ok: true }); }
       if (url.pathname === "/release") {
         this.ctx.storage.transactionSync(() => {
           if (data.terminalStatus) sql.exec("INSERT OR REPLACE INTO invitation_tombstones SELECT credential_hash, kind, match_id, ?, ? FROM invitations WHERE match_id = ?", data.terminalStatus, now + WEEK, data.matchId);
@@ -261,7 +264,7 @@ export class MatchRoom {
       const auth = data.auth; if (!auth) throw new ApiError(401, "UNAUTHORIZED", "Authentication is required.");
       if (url.pathname === "/join") {
         if (state.status === "EXPIRED") throw new ApiError(410, "MATCH_EXPIRED", "The match has expired."); if (state.status === "ABANDONED") throw new ApiError(410, "MATCH_ABANDONED", "The match was abandoned."); if (auth.playerId === state.players[0].playerId) throw new ApiError(409, "SELF_CHALLENGE", "You cannot join your own challenge.");
-        if (state.players[1]) { if (state.players[1].playerId !== auth.playerId || state.players[1].tokenHash !== auth.tokenHash) throw new ApiError(409, "SEAT_TAKEN", "The invitee seat is already taken."); return json({ matchId: state.matchId, status: "ACTIVE", role: "INVITEE", joinedAt: state.players[1].joinedAt, expiresAt: state.expiresAt }); }
+        if (state.players[1]) { if (state.players[1].playerId !== auth.playerId || state.players[1].tokenHash !== auth.tokenHash) throw new ApiError(409, "SEAT_TAKEN", "The invitee seat is already taken."); await internal(recordStub(this.env), "/consume-invite", { matchId: state.matchId }).catch(() => {}); return json({ matchId: state.matchId, status: "ACTIVE", role: "INVITEE", joinedAt: state.players[1].joinedAt, expiresAt: state.expiresAt }); }
         if ((data.kind === "TOKEN" && data.credential !== state.inviteHash) || (data.kind === "CODE" && data.credential !== state.joinCode)) throw new ApiError(404, "INVITATION_NOT_FOUND", "Invitation not found.");
         state.players.push({ ...auth, displayName: data.displayName, role: "INVITEE", joinedAt: Date.now(), rounds: emptyRounds() }); state.status = "ACTIVE"; delete state.inviteHash; delete state.joinCode; this.save(state); await internal(recordStub(this.env), "/consume-invite", { matchId: state.matchId });
         if (state.rematchOf) await internal(matchStub(this.env, state.rematchOf), "/rematch-claimed", { auth }).catch(() => {});
