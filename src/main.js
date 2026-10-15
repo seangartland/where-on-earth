@@ -7917,7 +7917,9 @@ function pvpLeaderboard(state, final = false) {
 function pvpGroupShareText(state) {
   const me = state.leaderboard.finishers.find((row) => row.playerId === pvpStore.playerId);
   const players = state.entries.participantCount;
-  return `Open Challenge\n${me ? `I placed ${me.rank} of ${players}` : `I scored ${state.viewer.total.toLocaleString()} with ${players} players`}\n${state.viewer.total.toLocaleString()} out of 5,000\nhttps://www.where-on.earth`;
+  // While entries are open, share the group join link so readers can still enter (spec section 7).
+  const link = (state.entries.open && pvpGroupEntry(state.challengeId)?.shareUrl) || 'https://www.where-on.earth';
+  return `Open Challenge\n${me ? `I placed ${me.rank} of ${players}` : `I scored ${state.viewer.total.toLocaleString()} with ${players} players`}\n${state.viewer.total.toLocaleString()} out of 5,000\n${link}`;
 }
 
 async function pvpShareGroupInvite(entry, button) {
