@@ -144,9 +144,9 @@ export function shareText() {
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
   const lines = state.daily.results.map((result, index) => {
     const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
-    return `${base} ${scoreEmoji(base)}`;
+    return WEIGHTS[index] > 1 ? `${base.toLocaleString()} (x${WEIGHTS[index]})` : `${base.toLocaleString()}`;
   });
-  return `www.where-on.earth\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}`;
+  return `I scored ${total.toLocaleString()} on www.where-on.earth\n${dateStr}\n${lines.join('\n')}`;
 }
 
 export function postcardSummaryOutcomes() {
