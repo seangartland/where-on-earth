@@ -69,3 +69,9 @@ Method: I measured category and image counts from `assets/locations.json` and re
 3. **Nature mode.** Do the extent-aware scoring together with it, or the lakes and islands will feel unfair. That scoring work also helps any future area-based mode.
 
 Borders and country-survival come after these. Borders on their own are a reasonable mid-size polish item. Country-survival has the highest effort and adds the most new data dependencies.
+
+### 8. Bring back large area features with extent-aware scoring (Sean, 2026-10-15)
+- **State:** Lakes and the other large area features left the playable pool in the 2026-10-11 non-city purge and never entered the landmarks bank (the bank today has no true lakes). Nine area entries in the bank (Black Forest, Great Ocean Road, Suez Canal, Dead Sea, Danube Delta, Bering Strait, and friends) carry a hand-set `extentKm`, but no code reads it: they score from a single center pin like everything else.
+- **The idea (Sean):** bring the area features back as landmark content, gated on extent-aware scoring. A guess inside the feature's extent counts as 0 km; a guess outside is measured to the nearest point on the border, not to the center pin. With the data on hand the border is the `extentKm` circle (distance = pin distance minus extentKm, floored at 0); true shoreline or boundary polygons would be the exact but heavier version.
+- **Touches:** the shared distance path, so the change must be a no-op for entries without extent data (all 805 cities, every existing pin and Daily unaffected). Everything derived from distance moves with it: the displayed km, the score, postcard earning at 150 km, Bullseye and Pinpoint.
+- **Needs before building:** extent figures for each returning feature, reveal copy for an inside-the-feature guess, and a call on radius versus polygons. Not scheduled; the natural home is alongside Slice B or the Nature mode work in recommendation 3 above.
