@@ -22,6 +22,10 @@ import {
   blackoutEntry, blackoutPicker, initBlackout, syncBlackoutMask, resetBlackout, saveBlackoutBest, blackoutFill, blackoutComplete,
   blackoutProgressText, blackoutBestSummary, showBlackoutGameOver, blackoutShareText,
 } from './modes/blackout.js';
+import {
+  expeditionRun, expeditionPicker, initExpeditions, expeditionsLoaded, updateExpeditionEntry, completeExpeditionRound,
+  expeditionRoundHeader, expeditionRevealCard, expeditionNext,
+} from './modes/expeditions.js';
 import { initStats, recordHistory } from './meta/stats.js';
 import {
   initPassportHome, initPassport, syncPassport, auditFlagsLocationsLoaded, passportEntryFor, countryIndex, buildCountryIndex,
@@ -3600,11 +3604,7 @@ function showRound() {
     gameEls.weight.style.display = ''; // the countdown, see pvpTick
     gameEls.dailyDate.hidden = true;
   } else if (expeditionRun.active) {
-    document.body.classList.add('expedition-mode');
-    const total = expeditionLocations(expeditionRun.expedition).length;
-    gameEls.number.textContent = `${expeditionRun.expedition.emoji || '🧭'} ${expeditionRun.expedition.theme} · ${expeditionRun.index + 1}/${total}`;
-    gameEls.weight.style.display = 'none';
-    gameEls.dailyDate.hidden = true;
+    expeditionRoundHeader();
   } else if (borders.active) {
     bordersRoundHeader();
   } else if (survival.active) {
@@ -4649,12 +4649,7 @@ function revealGuess(guess, restoring = false) {
   const pill = gameEls.revealPill;
   pill.classList.remove('safe', 'miss');
   if (expeditionRun.active) {
-    const total = expeditionLocations(expeditionRun.expedition).length;
-    const finished = expeditionRun.index + 1 >= total;
-    gameEls.score.textContent = `${expeditionRun.index + 1}/${total}`;
-    pill.textContent = finished ? '🏅 Expedition complete!' : `${expeditionRun.index + 1}/${total} complete`;
-    pill.classList.add('safe');
-    gameEls.next.textContent = finished ? 'See badge' : 'Next stop';
+    expeditionRevealCard(pill);
   } else if (survival.active) {
     survivalRevealCard(pill);
   } else if (pvp.active) {
@@ -4978,17 +4973,8 @@ function nextRound() {
   document.querySelector('.earn-toast')?.remove();
   if (borders.active) bordersNext();
   else if (survival.active) survivalNext();
-  else if (expeditionRun.active) {
-    if (expeditionRun.index + 1 >= expeditionLocations(expeditionRun.expedition).length) {
-      const { id } = expeditionRun.expedition;
-      showRunHaul(() => showExpeditionPicker(id), 'See badge');
-    }
-    else {
-      expeditionRun.index += 1;
-      expeditionRun.item = expeditionLocation(expeditionRun.expedition, expeditionRun.index);
-      showRound();
-    }
-  } else if (pvp.active) pvpNext();
+  else if (expeditionRun.active) expeditionNext();
+  else if (pvp.active) pvpNext();
   else if (endless.active) endlessNext();
   else if (daily.round >= 4) showPostcardSummary();
   else {
@@ -5103,7 +5089,6 @@ const modeHost = {
   get CONTINENT_ORDER() { return CONTINENT_ORDER; },
   get activePin() { return activePin; },
   get endless() { return endless; },
-  get expeditionRun() { return expeditionRun; },
   get blackoutEntry() { return blackoutEntry; },
   COUNTRY_FLAGS,
   ISLAND_BLOB_TEXELS,
@@ -5120,6 +5105,11 @@ const modeHost = {
   countryBandsP,
   survival,
   borders,
+  expeditionRun,
+  EXPEDITION_KEY,
+  clamp,
+  readJSON,
+  writeJSON,
   safeSetItem,
   showRound,
   showRunHaul,
@@ -6082,12 +6072,10 @@ const passportHost = {
 initPassportHome(passportHost);
 
 // ---------------------------------------------------------------------------
-// Expeditions: player-selected, ordered seven-stop challenges. Progress is
-// independent for every theme and only advances while that expedition is active.
+// Expeditions (picker, progress, the round variant) live in
+// src/modes/expeditions.js. Their picker styles, shared with the Blackout
+// picker and the Survival hub, stay injected here in their original order.
 // ---------------------------------------------------------------------------
-let expeditions = [];
-let expeditionState = { progress: {} };
-const expeditionRun = { active: false, expedition: null, item: null, index: 0 };
 
 const expeditionStyle = document.createElement('style');
 expeditionStyle.textContent = `
@@ -6108,106 +6096,7 @@ body.expedition-mode #reveal-card .score-math { display: none; }
 body.expedition-mode .round-meta span:first-child { color: #ffd166; }`;
 document.head.appendChild(expeditionStyle);
 
-const expeditionPicker = document.createElement('section');
-expeditionPicker.className = 'expedition-picker';
-expeditionPicker.hidden = true;
-expeditionPicker.innerHTML = `<div class="expedition-panel" role="dialog" aria-modal="true" aria-labelledby="expedition-heading">
-  <h2 id="expedition-heading">Choose an expedition</h2>
-  <p>Hand-picked stops, played in order.</p>
-  <div class="expedition-list"></div>
-</div>`;
-document.body.appendChild(expeditionPicker);
-expeditionPicker.querySelector('.expedition-panel').prepend(createHomeButton());
-const expeditionList = expeditionPicker.querySelector('.expedition-list');
-
-function loadExpeditionState() {
-  const saved = readJSON(EXPEDITION_KEY);
-  expeditionState = saved && saved.progress && typeof saved.progress === 'object' ? saved : { progress: {} };
-}
-
-function expeditionProgress(expedition) {
-  const saved = expeditionState.progress[expedition.id] || {};
-  const total = expeditionLocations(expedition).length;
-  const completed = clamp(Number(saved.completed) || 0, 0, total);
-  return { completed, complete: completed >= total };
-}
-
-function expeditionLocations(expedition) {
-  return expedition.locationIds
-    .map((id) => locations.find((item) => item.id === id))
-    .filter(isPlayableLocation);
-}
-
-function expeditionLocation(expedition, index) {
-  return expeditionLocations(expedition)[index];
-}
-
-function updateExpeditionEntry() {
-  gameEls.expeditionsEntry.disabled = !expeditions.some((expedition) => expeditionLocations(expedition).length);
-}
-
-function completeExpeditionRound() {
-  const expedition = expeditionRun.expedition;
-  const progress = expeditionProgress(expedition);
-  progress.completed = Math.max(progress.completed, expeditionRun.index + 1);
-  progress.complete = progress.completed >= expeditionLocations(expedition).length;
-  expeditionState.progress[expedition.id] = progress;
-  writeJSON(EXPEDITION_KEY, expeditionState);
-}
-
-function renderExpeditionPicker(highlightId = '') {
-  expeditionList.replaceChildren(...expeditions.filter((expedition) => expeditionLocations(expedition).length).map((expedition) => {
-    const progress = expeditionProgress(expedition);
-    const total = expeditionLocations(expedition).length;
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'expedition-choice';
-    button.dataset.expeditionId = expedition.id;
-    if (expedition.id === highlightId) button.dataset.justCompleted = 'true';
-    button.innerHTML = `<span class="emoji"></span><span><strong></strong><small></small></span><span class="badge"></span>`;
-    button.querySelector('.emoji').textContent = expedition.emoji || '🧭';
-    button.querySelector('strong').textContent = expedition.theme;
-    button.querySelector('small').textContent = progress.complete ? `${total}/${total} completed · Replay` : `${progress.completed}/${total} completed`;
-    button.querySelector('.badge').textContent = progress.complete ? '🏅' : '›';
-    return button;
-  }));
-}
-
-function showExpeditionPicker(highlightId = '') {
-  expeditionRun.active = false;
-  clearReveal();
-  hideScreens();
-  gameMode = 'expeditions';
-  window.__canGuess = false;
-  renderExpeditionPicker(highlightId);
-  expeditionPicker.hidden = false;
-}
-
-function startExpedition(id) {
-  const expedition = expeditions.find((item) => item.id === id);
-  if (!expedition) return;
-  const progress = expeditionProgress(expedition);
-  const index = progress.complete ? 0 : progress.completed;
-  const item = expeditionLocation(expedition, index);
-  if (!item) return;
-  expeditionPicker.hidden = true;
-  survival.active = false;
-  endless.active = false;
-  borders.active = false;
-  expeditionRun.active = true;
-  expeditionRun.expedition = expedition;
-  expeditionRun.index = index;
-  expeditionRun.item = item;
-  runHaul.length = 0;
-  showRound();
-}
-
-gameEls.expeditionsEntry.addEventListener('click', () => showExpeditionPicker());
-expeditionPicker.addEventListener('click', (event) => {
-  const choice = event.target.closest('[data-expedition-id]');
-  if (choice) startExpedition(choice.dataset.expeditionId);
-  else if (event.target === expeditionPicker) goHome();
-});
+initExpeditions(modeHost);
 
 // ---------------------------------------------------------------------------
 // PvP challenges live in src/pvp/ (api, home, h2h, group, play). They reach
@@ -6316,11 +6205,7 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   if (window.__showErr) window.__showErr('LOCATIONS: ' + err.message);
   loadJobDone('critical', 'locations');
 });
-getJSON('assets/expeditions.json').then((data) => {
-  expeditions = Array.isArray(data) ? data : [];
-  loadExpeditionState();
-  updateExpeditionEntry();
-}).catch((err) => {
+getJSON('assets/expeditions.json').then(expeditionsLoaded).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('EXPEDITIONS: ' + err.message);
 });
