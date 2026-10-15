@@ -17,7 +17,8 @@ if [ -n "$IGNORED_RUNTIME" ]; then
 fi
 
 # Daily pins: record what production serves for every in-play date (plus the
-# next) and substitute dropped locations, then commit assets/daily-pins.json.
+# next), backfill any unpinned date from the earliest existing pin up to that
+# window, and substitute dropped locations, then commit assets/daily-pins.json.
 # Must run before the copy below so the committed pins ship. Fails closed if
 # production cannot be read. See docs/daily-mechanism-rec-opus.md.
 echo "Pinning in-play daily games from production..."

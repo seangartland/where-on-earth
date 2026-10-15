@@ -4,7 +4,9 @@
 //   1. reads what live production serves for every date in play anywhere
 //      (UTC-12 .. UTC+14) plus the next date, by running production's own
 //      selection code on production's own locations.json (or its pin, if any);
-//   2. pins each of those dates that is not already pinned (never overwrites);
+//   2. pins each of those dates that is not already pinned (never overwrites),
+//      and backfills every unpinned date from the earliest existing pin up to
+//      the window, so a skipped deploy cannot leave a past day unrecorded;
 //   3. for every pinned date, replaces only the slots whose location is gone
 //      from the working-tree locations.json being deployed (resolvePinnedIds);
 //   4. writes assets/daily-pins.json and commits it, if anything changed.
@@ -58,9 +60,22 @@ function windowDates(now) {
   return dates;
 }
 
+// Backfill: every date from the earliest existing pin up to the window start.
+// Dates before the earliest pin predate the pin system and stay out of scope.
+function backfillDates(pinnedDates, windowStart) {
+  const H = 3600 * 1000;
+  const dates = [];
+  const earliest = [...pinnedDates].sort()[0];
+  if (!earliest) return dates;
+  for (let t = Date.parse(earliest); t < Date.parse(windowStart); t += 24 * H) dates.push(utcDate(t));
+  return dates;
+}
+
 // --- 1. What live production serves for each window date -------------------
 const now = Date.now();
-const dates = windowDates(now);
+const file = JSON.parse(readFileSync(pinsPath, 'utf8'));
+const windowed = windowDates(now);
+const dates = [...backfillDates(Object.keys(file.pins || {}), windowed[0]), ...windowed];
 
 const html = await getText('/');
 const mainPath = html.match(/src\/main\.js(\?v=[^"']*)?/)?.[0];
@@ -89,8 +104,7 @@ for (const d of dates) {
   if (missing.length) fail(`production's game for ${d} has ids missing from production's own pool: ${missing.join(', ')}`);
 }
 
-// --- 2. Pin window dates that are not pinned yet -----------------------------
-const file = JSON.parse(readFileSync(pinsPath, 'utf8'));
+// --- 2. Pin window (and backfill) dates that are not pinned yet -------------
 const pins = { ...(file.pins || {}) };
 const added = [];
 for (const d of dates) {
@@ -114,7 +128,8 @@ for (const d of Object.keys(pins)) {
 
 // --- Report -----------------------------------------------------------------
 console.log(`Production: ${PROD} (${mainPath}, ${locPath}, ${livePool.length} locations, ${livePinsPath ? `pins ${livePinsPath}` : 'no pins file'})`);
-console.log(`In-play window at ${new Date(now).toISOString()}: ${dates.join(', ')}`);
+console.log(`In-play window at ${new Date(now).toISOString()}: ${windowed.join(', ')}`);
+if (dates.length > windowed.length) console.log(`Backfill range: ${dates[0]} .. ${windowed[0]} (exclusive)`);
 for (const d of dates) console.log(`  ${d}  ${pins[d].join(', ')}${added.includes(d) ? '  (new pin)' : '  (already pinned)'}`);
 for (const s of subs) console.log(`  substituted ${s}`);
 
