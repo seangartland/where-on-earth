@@ -11,6 +11,17 @@ import { initPvpH2h, openPvpJoin } from './pvp/h2h.js';
 import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
 import { formatKm } from './core/format.js';
+import {
+  survival, initSurvival, startSurvival, survivalRoundHeader, survivalRecordGuess, survivalRevealCard, survivalNext,
+} from './modes/survival.js';
+import {
+  borders, bordersEntry, initTapCountry, startBorders, revealBorders, bordersBest, bordersShareText, syncBordersEntry,
+  bordersRoundHeader, bordersClue, bordersNext,
+} from './modes/tap-country.js';
+import {
+  blackoutEntry, blackoutPicker, initBlackout, syncBlackoutMask, resetBlackout, saveBlackoutBest, blackoutFill, blackoutComplete,
+  blackoutProgressText, blackoutBestSummary, showBlackoutGameOver, blackoutShareText,
+} from './modes/blackout.js';
 import { initStats, recordHistory } from './meta/stats.js';
 import {
   initPassportHome, initPassport, syncPassport, auditFlagsLocationsLoaded, passportEntryFor, countryIndex, buildCountryIndex,
@@ -3595,22 +3606,9 @@ function showRound() {
     gameEls.weight.style.display = 'none';
     gameEls.dailyDate.hidden = true;
   } else if (borders.active) {
-    // Survival's restyle; the clue is the country name and flag
-    document.body.classList.add('survival', 'borders');
-    gameEls.number.textContent = borders.scope ? blackoutProgressText() : `Streak ${borders.found}`;
-    gameEls.weight.style.display = 'none';
-    gameEls.survivalStreak.textContent = borders.round === 1
-      ? 'One miss ends the run · Tap the globe to place your pin'
-      : '';
-    gameEls.dailyDate.hidden = true;
+    bordersRoundHeader();
   } else if (survival.active) {
-    document.body.classList.add('survival');
-    gameEls.number.textContent = `Streak ${survival.survived}`;
-    gameEls.weight.style.display = 'none';
-    gameEls.survivalStreak.textContent = survival.round === 1
-      ? 'One miss over 150 km ends the run · Tap the globe to place your pin'
-      : '';
-    gameEls.dailyDate.hidden = true;
+    survivalRoundHeader();
   } else if (endless.active) {
     document.body.classList.add('endless');
     gameEls.number.textContent = `Endless · #${endless.count}`;
@@ -3623,11 +3621,8 @@ function showRound() {
     gameEls.dailyDate.textContent = formatDailyDate(daily.date);
     gameEls.dailyDate.hidden = false;
   }
-  if (borders.active) {
-    const name = document.createElement('strong');
-    name.textContent = borders.key;
-    gameEls.clue.replaceChildren('Tap ', name, ` ${countryFlag(borders.key)}`);
-  } else gameEls.clue.textContent = item.clue;
+  if (borders.active) bordersClue();
+  else gameEls.clue.textContent = item.clue;
   setGuessHint(borders.active || survival.active ? '' : 'Tap the globe to place your pin');
 }
 
@@ -4604,16 +4599,7 @@ function revealGuess(guess, restoring = false) {
   const base = pvpScored ? pvpScored.score : Math.round(distanceScore(kmExact));
   const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active; // outside the daily
   const score = oneOff ? 0 : scoreGuess(kmExact, daily.round);
-  if (!restoring && survival.active) {
-    survival.lastDistance = km;
-    survival.missed = kmExact > SURVIVAL_LIMIT_KM;
-    survival.results.push({ item: answer, distance: km });
-    if (!survival.missed) {
-      survival.survived += 1;
-      saveSurvivalBest(survival.survived);
-    }
-    gameEls.number.textContent = `Streak ${survival.survived}`;
-  }
+  if (!restoring && survival.active) survivalRecordGuess(answer, km, kmExact);
   gameMode = 'reveal';
   window.__canGuess = false;
   const headerFrom = gameEls.header.offsetHeight;
@@ -4670,13 +4656,7 @@ function revealGuess(guess, restoring = false) {
     pill.classList.add('safe');
     gameEls.next.textContent = finished ? 'See badge' : 'Next stop';
   } else if (survival.active) {
-    gameEls.survivalStreak.textContent = survival.missed
-      ? `Run ended · ${survival.survived} survived`
-      : `${survival.survived} survived`;
-    gameEls.score.textContent = survival.missed ? '✗ Run over' : `${survival.survived}`;
-    pill.textContent = survival.missed ? '✗ Over 150 km' : '✓ Survived';
-    pill.classList.add(survival.missed ? 'miss' : 'safe');
-    gameEls.next.textContent = survival.missed ? 'See run' : 'Keep going';
+    survivalRevealCard(pill);
   } else if (pvp.active) {
     gameEls.score.textContent = `+${base}`;
     pill.textContent = `+${base}`;
@@ -4996,13 +4976,9 @@ function nextRound() {
   // before the flyover finished, the toast should not appear in the new round.
   window.__pendingEarn = null;
   document.querySelector('.earn-toast')?.remove();
-  if (borders.active) {
-    if (borders.missed) showBordersGameOver();
-    else bordersGo();
-  } else if (survival.active) {
-    if (survival.missed) showRunHaul(showSurvivalGameOver, 'See run');
-    else survivalGo();
-  } else if (expeditionRun.active) {
+  if (borders.active) bordersNext();
+  else if (survival.active) survivalNext();
+  else if (expeditionRun.active) {
     if (expeditionRun.index + 1 >= expeditionLocations(expeditionRun.expedition).length) {
       const { id } = expeditionRun.expedition;
       showRunHaul(() => showExpeditionPicker(id), 'See badge');
@@ -5111,6 +5087,75 @@ function tickCountdown() {
 setInterval(tickCountdown, 1000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) tickCountdown(); });
 nextGame.addEventListener('click', () => { if (nextGame.classList.contains('ready')) openNewDaily(); });
+// ---------------------------------------------------------------------------
+// Game modes live in src/modes/. They reach main.js only through modeHost:
+// the round screen and reveal seams, shared game state, and each other's
+// entry points, so no mode module imports main.js. Getters cover state that
+// is reassigned, or declared further down this file.
+// ---------------------------------------------------------------------------
+const modeHost = {
+  get gameMode() { return gameMode; },
+  set gameMode(value) { gameMode = value; },
+  get locations() { return locations; },
+  get countryData() { return countryData; },
+  get countryBands() { return countryBands; },
+  get countryIndex() { return countryIndex; },
+  get CONTINENT_ORDER() { return CONTINENT_ORDER; },
+  get activePin() { return activePin; },
+  get endless() { return endless; },
+  get expeditionRun() { return expeditionRun; },
+  get blackoutEntry() { return blackoutEntry; },
+  COUNTRY_FLAGS,
+  ISLAND_BLOB_TEXELS,
+  REVEAL_HEADER_H,
+  gameEls,
+  peekSlot,
+  pins,
+  correctPin,
+  answerLine,
+  renderer,
+  globeMat,
+  runHaul,
+  countriesP,
+  countryBandsP,
+  survival,
+  borders,
+  safeSetItem,
+  showRound,
+  showRunHaul,
+  clearReveal,
+  hideScreens,
+  goHome,
+  createHomeButton,
+  formatGameShare,
+  closestGuessLines,
+  shareResult,
+  flagForLocation,
+  radPerPx,
+  bordersHit,
+  setThumb,
+  collapseRoundHeader,
+  latLngToVec3,
+  buildAnswerPath,
+  frameRevealPoints,
+  showCountryOutline,
+  startRevealBeat,
+  countryGeom,
+  addToPath,
+  unwrap,
+  startBorders,
+  bordersBest,
+  bordersShareText,
+  resetBlackout,
+  saveBlackoutBest,
+  blackoutFill,
+  blackoutComplete,
+  blackoutProgressText,
+  blackoutBestSummary,
+  showBlackoutGameOver,
+  blackoutShareText,
+};
+
 // ---------------------------------------------------------------------------
 // Endless mode: unscored random locations from the full pool
 // ---------------------------------------------------------------------------
@@ -5320,532 +5365,22 @@ endlessEntry.addEventListener('click', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Survival mode: each round draws a random difficulty band; one miss over 150
-// km ends the run
+// Survival (classic), the shared run-over screen and the Survival hub live in
+// src/modes/survival.js.
 // ---------------------------------------------------------------------------
-const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
-const SURVIVAL_LIMIT_KM = 150;
-const survival = {
-  active: false,
-  item: null,
-  band: null,
-  round: 0,
-  survived: 0,
-  lastDistance: null,
-  missed: false,
-  results: [],
-};
-
-function survivalBest() {
-  try {
-    return Math.max(0, Number.parseInt(localStorage.getItem(SURVIVAL_BEST_KEY), 10) || 0);
-  } catch {
-    return 0;
-  }
-}
-
-function saveSurvivalBest(value) {
-  const best = Math.max(survivalBest(), value);
-  safeSetItem(SURVIVAL_BEST_KEY, String(best));
-  return best;
-}
-
-function randomDifficultyBand() {
-  return Math.floor(Math.random() * 10) + 1;
-}
-
-// Independent uniform draw from the requested band. There is intentionally no
-// bag, collection weighting, or repeat prevention in Survival.
-function survivalPick() {
-  survival.band = randomDifficultyBand();
-  const playable = locations.filter((item) => isPlayableLocation(item) && !isLandmark(item));
-  const bandChoices = playable.filter((item) => Number(item.difficulty) === survival.band);
-  const choices = bandChoices.length ? bandChoices : playable;
-  if (!choices.length) return null;
-  return choices[Math.floor(Math.random() * choices.length)];
-}
-
-function survivalGo() {
-  survival.round += 1;
-  survival.item = survivalPick();
-  survival.lastDistance = null;
-  survival.missed = false;
-  if (!survival.item) {
-    survival.round -= 1;
-    showRunHaul(showSurvivalGameOver, 'See run');
-    return;
-  }
-  showRound();
-}
-
-function startSurvival() {
-  if (!locations.length) return;
-  expeditionRun.active = false;
-  endless.active = false;
-  borders.active = false;
-  survival.active = true;
-  runResultsMode = 'survival';
-  survival.item = null;
-  survival.band = null;
-  survival.round = 0;
-  survival.survived = 0;
-  survival.lastDistance = null;
-  survival.missed = false;
-  survival.results.length = 0;
-  runHaul.length = 0;
-  survivalGo();
-}
-
-function showSurvivalGameOver() {
-  clearReveal();
-  hideScreens();
-  gameMode = 'survival-results';
-  window.__canGuess = false;
-  gameEls.survivalResults.hidden = false;
-  document.body.className = 'game-results survival';
-  const count = survival.survived;
-  const best = saveSurvivalBest(count);
-  setRunResultsCopy('Survival run over', 'One miss over 150 km ends the run.', 'Survived');
-  gameEls.survivalResultTitle.textContent = `${count} ${count === 1 ? 'round' : 'rounds'} survived`;
-  gameEls.survivalFinalStreak.textContent = count.toLocaleString();
-  gameEls.survivalBestStreak.textContent = best.toLocaleString();
-  gameEls.survivalShare.textContent = 'Share result';
-  gameEls.survivalShareStatus.textContent = '';
-}
-
-gameEls.survivalEntry.addEventListener('click', startSurvival);
-gameEls.survivalAgain.addEventListener('click', () => {
-  if (runResultsMode === 'blackout') startBorders(borders.scope);
-  else if (runResultsMode === 'borders') startBorders();
-  else startSurvival();
-});
-
-function survivalShareText() {
-  if (runResultsMode === 'blackout') return blackoutShareText();
-  if (runResultsMode === 'borders') {
-    const found = borders.found;
-    return formatGameShare({
-      title: 'Survival: Tap the Country',
-      headline: `${found.toLocaleString()} ${found === 1 ? 'country' : 'countries'} found`,
-      streak: bordersBest(),
-      missed: borders.missed ? borders.key : null,
-    });
-  }
-  const count = survival.survived;
-  const survivedResults = survival.results.slice(0, count);
-  return formatGameShare({
-    title: 'Survival',
-    headline: `${count.toLocaleString()} ${count === 1 ? 'round' : 'rounds'} survived`,
-    streak: survivalBest(),
-    guesses: closestGuessLines(survivedResults, survivedResults.map((entry) => entry.item)),
-    visited: count,
-  });
-}
-
-gameEls.survivalShare.addEventListener('click', () => shareResult(
-  survivalShareText(),
-  gameEls.survivalShare,
-  gameEls.survivalShareStatus,
-));
-
-// Survival and Borders share the run-over screen.
-let runResultsMode = 'survival';
-function setRunResultsCopy(eyebrow, summary, label) {
-  document.getElementById('survival-result-eyebrow').textContent = eyebrow;
-  document.getElementById('survival-result-summary').textContent = summary;
-  document.getElementById('survival-final-label').textContent = label;
-}
+initSurvival(modeHost);
 
 // ---------------------------------------------------------------------------
-// Borders mode: tap the named country (docs/country-outlines-plan-opus.md §3).
-// Each round draws a random difficulty band. Per-band bags ensure no country
-// repeats within a run; an exhausted draw falls back to another nonempty bag.
-// One miss ends the run. It earns nothing in the Passport: there is no location
-// to earn.
+// Survival: Tap the Country (the run, its tap reveal and share text) lives in
+// src/modes/tap-country.js.
 // ---------------------------------------------------------------------------
-const BORDERS_BEST_KEY = 'where-on-earth-countries-best-v1';
-const BORDERS_TAP_PX = 20; // tap tolerance, as REVIEW_LINE_HIT
-const BORDERS_TAP_MAX_KM = 50; // so zooming out can't make 20 px cover 1,000 km
-// scope/pool: Country Blackout's continent or world (see below); null in Tap the Country
-const borders = { active: false, key: null, band: null, round: 0, found: 0, missed: false, bags: new Map(), scope: null, pool: null };
-const bordersEntry = document.getElementById('borders-button');
-
-function bordersBest() {
-  try {
-    return Math.max(0, Number.parseInt(localStorage.getItem(BORDERS_BEST_KEY), 10) || 0);
-  } catch {
-    return 0;
-  }
-}
-
-function saveBordersBest(value) {
-  const best = Math.max(bordersBest(), value);
-  safeSetItem(BORDERS_BEST_KEY, String(best));
-  return best;
-}
-
-// A key's flag: its most common clue flag (Denmark's places include Greenland's).
-let countryFlags = null;
-function countryFlag(key) {
-  if (!countryFlags) {
-    const counts = new Map();
-    for (const item of locations) {
-      const tally = counts.get(item.country) || new Map();
-      const flag = flagForLocation(item);
-      tally.set(flag, (tally.get(flag) || 0) + 1);
-      counts.set(item.country, tally);
-    }
-    countryFlags = new Map([...counts].map(([k, tally]) => [k, COUNTRY_FLAGS[k] || [...tally].sort((a, b) => b[1] - a[1])[0][0]]));
-  }
-  return countryFlags.get(key) || '🌍';
-}
-
-function syncBordersEntry() {
-  bordersEntry.disabled = !(countryData && countryBands && locations.length);
-  blackoutEntry.disabled = bordersEntry.disabled;
-}
-
-// Draw without replacement within the band. If the random band is exhausted,
-// use another nonempty band; only exhausting every bag ends the run.
-function bordersPick() {
-  const drawnBand = randomDifficultyBand();
-  for (let band = 1; band <= 10; band += 1) {
-    if (!borders.bags.has(band)) {
-      borders.bags.set(band, Object.keys(countryBands).filter((k) => countryBands[k] === band && countryData.keys[k]
-        && (!borders.pool || borders.pool.has(k))));
-    }
-  }
-  const availableBands = [...borders.bags].filter(([, bag]) => bag.length).map(([band]) => band);
-  if (!availableBands.length) return null;
-  borders.band = borders.bags.get(drawnBand).length
-    ? drawnBand
-    : availableBands[Math.floor(Math.random() * availableBands.length)];
-  const bag = borders.bags.get(borders.band);
-  return bag.splice(Math.floor(Math.random() * bag.length), 1)[0];
-}
-
-function bordersGo() {
-  borders.round += 1;
-  borders.key = bordersPick();
-  borders.missed = false;
-  if (!borders.key) {
-    borders.round -= 1;
-    showBordersGameOver();
-    return;
-  }
-  showRound();
-}
-
-function startBorders(scope = null) {
-  if (!countryData || !countryBands || !locations.length) return;
-  expeditionRun.active = false;
-  endless.active = false;
-  survival.active = false;
-  borders.active = true;
-  borders.round = 0;
-  borders.found = 0;
-  borders.missed = false;
-  borders.band = null;
-  borders.bags.clear();
-  borders.scope = scope;
-  borders.pool = scope && new Set(scope.keys);
-  runResultsMode = scope ? 'blackout' : 'borders';
-  if (scope) resetBlackout();
-  bordersGo();
-}
-
-// Static reveal (no flyover, rounds stay fast). Only the target's outline is
-// drawn, never the tapped country's: the pin, route and pill say where the tap
-// landed.
-function revealBorders(tap) {
-  if (gameMode !== 'guess') return;
-  const key = borders.key;
-  const kmPerPx = radPerPx() * 6371.0088; // at the screen centre, where the player zoomed to tap
-  const res = bordersHit(key, tap, Math.min(BORDERS_TAP_PX * kmPerPx, BORDERS_TAP_MAX_KM));
-  borders.missed = !res.hit;
-  if (res.hit) {
-    borders.found += 1;
-    if (borders.scope) {
-      saveBlackoutBest(borders.scope, borders.found);
-      blackoutFill(key);
-    } else saveBordersBest(borders.found);
-  }
-  const complete = blackoutComplete();
-  gameEls.number.textContent = borders.scope ? blackoutProgressText() : `Streak ${borders.found}`;
-  gameMode = 'reveal';
-  window.__canGuess = false;
-  const headerFrom = gameEls.header.offsetHeight;
-  document.body.className = `game-reveal survival borders${borders.missed ? ' survival-miss' : ''}`;
-  gameEls.hint.textContent = '';
-  const km = Math.round(res.km);
-  const name = `${key} ${countryFlag(key)}`;
-  gameEls.revealName.textContent = name;
-  gameEls.peekName.textContent = name;
-  gameEls.distance.textContent = borders.missed ? formatKm(km) : '';
-  gameEls.mult.style.display = 'none';
-  gameEls.fact.textContent = complete ? `Found ${key}. That's every country in ${borders.scope.place}.`
-    : !borders.missed ? `Found ${key}.`
-    : `You tapped ${res.tapped || 'the ocean'}, ${km.toLocaleString()} km from ${key}.`;
-  setThumb(gameEls.thumb, null);
-  setThumb(gameEls.peekThumb, null);
-  peekSlot.hidden = true;
-  gameEls.survivalStreak.textContent = borders.missed
-    ? `Run ended · ${borders.found} survived`
-    : `${borders.found} survived`;
-  gameEls.score.textContent = borders.missed ? '✗ Run over' : `${borders.found}`;
-  const pill = gameEls.revealPill;
-  pill.classList.remove('safe', 'miss');
-  pill.textContent = !borders.missed ? `✓ ${key}` : res.tapped ? `✗ That's ${res.tapped}` : '✗ Ocean';
-  pill.classList.add(borders.missed ? 'miss' : 'safe');
-  gameEls.next.textContent = borders.missed || complete ? 'See run' : 'Keep going';
-  if (headerFrom > REVEAL_HEADER_H) collapseRoundHeader(headerFrom);
-
-  const a = latLngToVec3(tap.lat, tap.lng);
-  if (activePin >= 0) pins[activePin].drop(a);
-  if (borders.missed) {
-    // the route runs from the tap to the nearest point of the target's border
-    const { b } = buildAnswerPath(tap, res.near);
-    correctPin.drop(b);
-    answerLine.visible = true;
-    frameRevealPoints(a, b);
-    showCountryOutline(key, res.near, true);
-    startRevealBeat(a, b, true);
-  } else {
-    const box = res.ring && res.ring.box;
-    const anchor = res.near || (box ? { lng: (box[0] + box[2]) / 2, lat: (box[1] + box[3]) / 2 } : tap);
-    const b = latLngToVec3(anchor.lat, anchor.lng);
-    frameRevealPoints(a, b);
-    showCountryOutline(key, tap, true);
-    startRevealBeat(a, b, false);
-  }
-}
-
-function showBordersGameOver() {
-  if (borders.scope) {
-    showBlackoutGameOver();
-    return;
-  }
-  clearReveal();
-  hideScreens();
-  gameMode = 'survival-results';
-  window.__canGuess = false;
-  gameEls.survivalResults.hidden = false;
-  document.body.className = 'game-results survival borders';
-  const count = borders.found;
-  const best = saveBordersBest(count);
-  setRunResultsCopy('Survival: Tap the Country run over', 'One miss ends the run.', 'Found');
-  gameEls.survivalResultTitle.textContent = `${count} ${count === 1 ? 'country' : 'countries'} found`;
-  gameEls.survivalFinalStreak.textContent = count.toLocaleString();
-  gameEls.survivalBestStreak.textContent = best.toLocaleString();
-  gameEls.survivalShare.textContent = 'Share result';
-  gameEls.survivalShareStatus.textContent = '';
-}
-
-bordersEntry.addEventListener('click', () => startBorders());
-Promise.all([countriesP, countryBandsP]).then(syncBordersEntry, () => {});
+initTapCountry(modeHost);
 
 // ---------------------------------------------------------------------------
-// Country Blackout: Tap the Country's run (borders above, with borders.scope
-// set) over one scope, the whole world or one continent. Each found country
-// drops its satellite imagery for the classic map, so the globe fills in as
-// the run goes. The mask is an equirectangular canvas on the globe's UVs, laid
-// out like the land texture: white where found. The globe shader scales the
-// satellite mix by (1 - mask), so it holds through rotation, zoom and the
-// detail insets, and it never draws a border.
+// Country Blackout (mask canvas, scope picker, results and share text) lives
+// in src/modes/blackout.js; the Survival hub's listeners are in survival.js.
 // ---------------------------------------------------------------------------
-const BLACKOUT_BEST_KEY = 'where-on-earth-blackout-best-v1';
-const BLACKOUT_MIN_COUNTRIES = 10; // smaller scopes aren't a real run
-const BLACKOUT_EMOJI = { Africa: '🌍', Europe: '🌍', Asia: '🌏', Oceania: '🌏', 'North America': '🌎', 'South America': '🌎' };
-const blackoutEntry = document.getElementById('blackout-button');
-let blackoutTex = null;
-
-// Scopes on the game's own continent assignments (the Passport's countryIndex).
-function blackoutScopes() {
-  const keys = Object.keys(countryBands).filter((k) => countryData.keys[k]);
-  const scopes = [{ id: 'world', label: 'Full World', place: 'the world', done: 'World', emoji: '🌐', keys }];
-  for (const name of CONTINENT_ORDER) {
-    const inScope = keys.filter((k) => countryIndex && countryIndex.get(k)?.continent === name);
-    if (inScope.length < BLACKOUT_MIN_COUNTRIES) continue;
-    scopes.push({ id: name.toLowerCase().replace(/ /g, '-'), label: name, place: name, done: name, emoji: BLACKOUT_EMOJI[name] || '🌐', keys: inScope });
-  }
-  return scopes;
-}
-
-function blackoutBest(scope) {
-  try {
-    return Math.max(0, Number.parseInt(localStorage.getItem(`${BLACKOUT_BEST_KEY}-${scope.id}`), 10) || 0);
-  } catch {
-    return 0;
-  }
-}
-
-function saveBlackoutBest(scope, value) {
-  const best = Math.max(blackoutBest(scope), value);
-  safeSetItem(`${BLACKOUT_BEST_KEY}-${scope.id}`, String(best));
-  return best;
-}
-
-const blackoutComplete = () => Boolean(borders.scope && !borders.missed && borders.found === borders.scope.keys.length);
-const blackoutProgressText = () => `Streak ${borders.found} · ${borders.found}/${borders.scope.keys.length} found`;
-
-function resetBlackout() {
-  if (!blackoutTex) {
-    const W = renderer.capabilities.maxTextureSize >= 4096 ? 4096 : 2048; // as the land texture
-    const cv = document.createElement('canvas');
-    cv.width = W;
-    cv.height = W / 2;
-    blackoutTex = new THREE.CanvasTexture(cv);
-    blackoutTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    blackoutTex.minFilter = THREE.LinearMipmapLinearFilter;
-    blackoutTex.generateMipmaps = true;
-    globeMat.uniforms.uBlackout.value = blackoutTex;
-  }
-  const cv = blackoutTex.image;
-  const ctx = cv.getContext('2d');
-  ctx.fillStyle = '#000';
-  ctx.fillRect(0, 0, cv.width, cv.height);
-  blackoutTex.needsUpdate = true;
-}
-
-// Paint a found country into the mask: every ring of its units, holes kept
-// (evenodd), plus a thin stroke so microstates still show as a dot.
-function blackoutFill(key) {
-  const geom = countryGeom(key);
-  if (!geom || !blackoutTex) return;
-  const cv = blackoutTex.image;
-  const ctx = cv.getContext('2d');
-  const path = new Path2D();
-  for (const ring of geom.rings) addToPath(path, unwrap(ring.pts), cv.width, cv.height, true);
-  ctx.fillStyle = ctx.strokeStyle = '#fff';
-  ctx.fill(path, 'evenodd');
-  ctx.lineJoin = 'round';
-  ctx.lineWidth = ISLAND_BLOB_TEXELS * (cv.width / 4096);
-  ctx.stroke(path);
-  blackoutTex.needsUpdate = true;
-}
-
-// The filled map shows for the run and its result screen, never elsewhere.
-function syncBlackoutMask() {
-  const on = runResultsMode === 'blackout' && (borders.active || gameMode === 'survival-results');
-  globeMat.uniforms.uBlackoutMix.value = on ? 1 : 0;
-}
-
-// Scope picker: the Expeditions picker's shared panel and choice styles.
-const blackoutPicker = document.createElement('section');
-blackoutPicker.className = 'expedition-picker';
-blackoutPicker.hidden = true;
-blackoutPicker.innerHTML = `<div class="expedition-panel" role="dialog" aria-modal="true" aria-labelledby="blackout-heading">
-  <h2 id="blackout-heading">Country Blackout</h2>
-  <p>Every country you find turns blue. One miss ends the run.</p>
-  <div class="expedition-list"></div>
-</div>`;
-document.body.appendChild(blackoutPicker);
-blackoutPicker.querySelector('.expedition-panel').prepend(createHomeButton());
-const blackoutList = blackoutPicker.querySelector('.expedition-list');
-let blackoutScopeList = [];
-
-function showBlackoutPicker() {
-  if (!countryData || !countryBands || !locations.length) return;
-  clearReveal();
-  hideScreens();
-  gameMode = 'blackout-scope';
-  window.__canGuess = false;
-  blackoutScopeList = blackoutScopes();
-  blackoutList.replaceChildren(...blackoutScopeList.map((scope) => {
-    const total = scope.keys.length;
-    const best = blackoutBest(scope);
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'expedition-choice';
-    button.dataset.blackoutScope = scope.id;
-    button.innerHTML = `<span class="emoji"></span><span><strong></strong><small></small></span><span class="badge"></span>`;
-    button.querySelector('.emoji').textContent = scope.emoji;
-    button.querySelector('strong').textContent = scope.label;
-    button.querySelector('small').textContent = best >= total ? `${total}/${total} found · Replay`
-      : best ? `${total} countries · Best ${best}/${total}` : `${total} countries`;
-    button.querySelector('.badge').textContent = best >= total ? '🏅' : '›';
-    return button;
-  }));
-  blackoutPicker.hidden = false;
-}
-
-blackoutEntry.addEventListener('click', showBlackoutPicker);
-blackoutPicker.addEventListener('click', (event) => {
-  const choice = event.target.closest('[data-blackout-scope]');
-  if (choice) {
-    const scope = blackoutScopeList.find((s) => s.id === choice.dataset.blackoutScope);
-    if (!scope) return;
-    blackoutPicker.hidden = true;
-    startBorders(scope);
-  } else if (event.target === blackoutPicker) goHome();
-});
-
-// Survival hub: the one home entry for the three Survival modes. Its rows are
-// the mode entries above (survival, borders, blackout buttons), so each keeps
-// its own click handler; hideScreens closes the hub on the way out.
-function blackoutBestSummary() {
-  if (blackoutEntry.disabled) return '';
-  let top = null;
-  for (const scope of blackoutScopes()) {
-    const best = Math.min(blackoutBest(scope), scope.keys.length);
-    if (best && (!top || best / scope.keys.length > top.best / top.total)) top = { label: scope.label, best, total: scope.keys.length };
-  }
-  return top ? `Best ${top.label} ${top.best}/${top.total}` : '';
-}
-
-function showSurvivalHub() {
-  clearReveal();
-  hideScreens();
-  gameMode = 'survival-hub';
-  window.__canGuess = false;
-  const streak = (best) => (best ? `Best streak ${best.toLocaleString()}` : '');
-  const hub = gameEls.survivalHub;
-  hub.querySelector('[data-hub-best="survival"]').textContent = streak(survivalBest());
-  hub.querySelector('[data-hub-best="borders"]').textContent = streak(bordersBest());
-  hub.querySelector('[data-hub-best="blackout"]').textContent = blackoutBestSummary();
-  hub.hidden = false;
-}
-
-gameEls.survivalHubEntry.addEventListener('click', showSurvivalHub);
-gameEls.survivalHub.addEventListener('click', (event) => { if (event.target === gameEls.survivalHub) goHome(); });
-
-function showBlackoutGameOver() {
-  clearReveal();
-  hideScreens();
-  gameMode = 'survival-results';
-  window.__canGuess = false;
-  gameEls.survivalResults.hidden = false;
-  const { scope, found } = borders;
-  const total = scope.keys.length;
-  const complete = blackoutComplete();
-  document.body.className = `game-results survival borders blackout${complete ? ' blackout-complete' : ''}`;
-  const best = saveBlackoutBest(scope, found);
-  if (complete) {
-    setRunResultsCopy(`Country Blackout: ${scope.label}`, `Every country in ${scope.place}, found in one run without a miss.`, 'Found');
-    gameEls.survivalResultTitle.textContent = `🏅 ${scope.done} complete`;
-  } else {
-    setRunResultsCopy(`Country Blackout: ${scope.label}`, 'One miss ends the run.', 'Found');
-    gameEls.survivalResultTitle.textContent = `${found} of ${total} ${total === 1 ? 'country' : 'countries'} found`;
-  }
-  gameEls.survivalFinalStreak.textContent = `${found}/${total}`;
-  gameEls.survivalBestStreak.textContent = `${best}/${total}`;
-  gameEls.survivalShare.textContent = 'Share result';
-  gameEls.survivalShareStatus.textContent = '';
-}
-
-// Only found countries count: the run-ending miss is named, never counted.
-function blackoutShareText() {
-  const { scope, found } = borders;
-  const total = scope.keys.length;
-  return formatGameShare({
-    title: `Country Blackout: ${scope.label}`,
-    titleSep: ' · ',
-    headline: blackoutComplete() ? `${scope.done} complete: all ${total} countries found` : `${found} of ${total} countries found`,
-    streak: blackoutBest(scope),
-    streakLabel: 'Best',
-    missed: borders.missed ? borders.key : null,
-  });
-}
+initBlackout(modeHost);
 
 // ---------------------------------------------------------------------------
 // Post-game review: all five rounds on the globe, tap one to reopen its recap
