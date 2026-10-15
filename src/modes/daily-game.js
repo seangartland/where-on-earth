@@ -146,7 +146,7 @@ export function shareText() {
     const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
     return `${base} ${scoreEmoji(base)}`;
   });
-  return `https://where-on.earth\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}`;
+  return `www.where-on.earth\n${dateStr}\n\nFinal Score: ${total}\n\n${lines.join('\n')}`;
 }
 
 export function postcardSummaryOutcomes() {

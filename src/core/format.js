@@ -42,7 +42,7 @@ export function flagForLocation(item) {
   return item.clue?.match(/\p{Regional_Indicator}{2}/u)?.[0] || COUNTRY_FLAGS[item.country] || '🌍';
 }
 
-export const SHARE_URL = 'https://where-on.earth';
+export const SHARE_URL = 'www.where-on.earth';
 export const SHARE_HASHTAG = '#WhereOnEarth';
 
 export function closestGuessLines(results, items) {
