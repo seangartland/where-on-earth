@@ -27,9 +27,10 @@ import {
   expeditionRoundHeader, expeditionRevealCard, expeditionNext,
 } from './modes/expeditions.js';
 import { endless, endlessEls, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
+import { AUDIT_MODE, initAudit, auditFlagsLocationsLoaded, addAuditFlagButton, mountAuditBanner } from './modes/audit.js';
 import { initStats, recordHistory } from './meta/stats.js';
 import {
-  initPassportHome, initPassport, syncPassport, auditFlagsLocationsLoaded, passportEntryFor, countryIndex, buildCountryIndex,
+  initPassportHome, initPassport, syncPassport, passportEntryFor, countryIndex, buildCountryIndex,
   passportEntry, collectionsEntry, openPostcard, postcardShareText,
 } from './meta/passport.js';
 
@@ -40,9 +41,7 @@ if (window.__boot) window.__boot('3D engine loaded');
 // before anything reads storage; the fetch below skips the HTTP cache so a
 // stale locations.json can't rebuild the old set.
 const RESET_DAILY = new URLSearchParams(location.search).get('reset') === 'daily';
-// Audit mode retired 2026-10-12 (Sean): code preserved, flip to true to reinstate ?audit=1.
-const AUDIT_AVAILABLE = false;
-const AUDIT_MODE = AUDIT_AVAILABLE && new URLSearchParams(location.search).get('audit') === '1';
+// Audit mode (retired 2026-10-12, QUARANTINED) and its flag: src/modes/audit.js.
 if (RESET_DAILY) {
   try { localStorage.removeItem('where-on-earth-v1'); } catch (error) { console.error('[reset] daily', error); }
   history.replaceState(null, '', location.pathname + location.hash);
@@ -6023,6 +6022,8 @@ const passportHost = {
   safeSetItem,
   storageError,
   tierOf,
+  addAuditFlagButton,
+  mountAuditBanner,
 };
 initPassportHome(passportHost);
 
@@ -6128,6 +6129,7 @@ function pvpRevealTimeout(answer) {
 // rows (Sean, 2026-10-11) — this is just the one place that name is read from.
 function countryKey(item) { return item.country; }
 
+initAudit(passportHost);
 initPassport(passportHost);
 
 passport = readPassport();
