@@ -80,6 +80,11 @@ for json_file in "$DEPLOY_DIR"/assets/*.json; do
 done
 echo "Asset versions: content-based (unchanged files keep cached URLs)"
 
+# Version every src/ module's relative import URLs by content hash. Must run
+# after the asset loop (it rewrites main.js) and before main.js is hashed
+# below, so the entry's hash covers its submodules' versions.
+node "$SCRIPT_DIR/scripts/version-modules.mjs" "$DEPLOY_DIR/src"
+
 # Version main.js and style.css by content hash. Must run AFTER the asset
 # loop: that rewrites main.js, and hashing it first would let an asset-only
 # change ship under the old immutable main.js URL (stale assets forever).
