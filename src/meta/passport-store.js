@@ -101,6 +101,20 @@ export function passportLocation(id) {
   return locationIndex.get(id);
 }
 
+// Landmarks are collectible content inside Expeditions only. They stay out of
+// state.locations, so the Daily, the other modes and every country or
+// continent total never see them; a stop resolves through findLocation().
+let landmarkIndex = null;
+export function landmarkLocation(id) {
+  if (!landmarkIndex && state.landmarks) landmarkIndex = new Map(state.landmarks.map((item) => [item.id, item]));
+  return landmarkIndex?.get(id);
+}
+
+// The one location lookup for gameplay: cities first, then landmarks.
+export function findLocation(id) {
+  return passportLocation(id) || landmarkLocation(id);
+}
+
 // The one "have we been here" predicate (passport, dex grid and collections all
 // share it). Older visits recorded before passport.meta shipped still count.
 export function isVisited(id) { return Object.hasOwn(state.passport.visits, id); }

@@ -27,6 +27,7 @@ export const state = {
   // Game: the current screen or phase, the location list, today's daily.
   gameMode: 'start',
   locations: [],
+  landmarks: null, // assets/locations-landmarks-sol.json once loaded: Expeditions stops only, never in `locations`
   dailyPins: {},
   daily: null,
   selected: [],

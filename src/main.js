@@ -65,7 +65,7 @@ import {
 import { initStats, recordHistory } from './meta/stats.js';
 import {
   initPassportStore, readPassport, recordVisit, applyCardTier, isVisited, tierOf, continentOf, passportLocation,
-  buildPassportDots, resetLocationIndex, passportDots, passportDirty, CONTINENT_ORDER,
+  findLocation, buildPassportDots, resetLocationIndex, passportDots, passportDirty, CONTINENT_ORDER,
 } from './meta/passport-store.js';
 import {
   initPassportHome, initPassport, syncPassport, passportEntryFor, countryIndex, buildCountryIndex,
@@ -211,6 +211,8 @@ const modeHost = {
   get gameMode() { return state.gameMode; },
   set gameMode(value) { state.gameMode = value; },
   get locations() { return state.locations; },
+  get landmarks() { return state.landmarks; },
+  findLocation,
   get countryData() { return countryData; },
   get countryBands() { return countryBands; },
   get countryIndex() { return countryIndex; },
@@ -643,6 +645,14 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
 getJSON('assets/expeditions.json').then(expeditionsLoaded).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('EXPEDITIONS: ' + err.message);
+});
+// Landmarks: Expeditions stops and the Passport's Landmarks shelf only (state.js).
+getJSON('assets/locations-landmarks-sol.json').then((data) => {
+  state.landmarks = Array.isArray(data) ? data : [];
+  updateExpeditionEntry();
+}).catch((err) => {
+  gameEls.expeditionsEntry.disabled = true;
+  if (window.__showErr) window.__showErr('LANDMARKS: ' + err.message);
 });
 gameEls.play.disabled = true;
 endlessEls.entry.disabled = true;

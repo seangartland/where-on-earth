@@ -31,7 +31,7 @@ function expeditionProgress(expedition) {
 
 function expeditionLocations(expedition) {
   return expedition.locationIds
-    .map((id) => host.locations.find((item) => item.id === id))
+    .map((id) => host.findLocation(id))
     .filter(isPlayableLocation);
 }
 
@@ -39,8 +39,11 @@ function expeditionLocation(expedition, index) {
   return expeditionLocations(expedition)[index];
 }
 
+// Stops resolve against both the cities and the landmarks file, so the entry
+// stays disabled until both have loaded (a half-loaded list would skew progress).
 export function updateExpeditionEntry() {
-  host.gameEls.expeditionsEntry.disabled = !expeditions.some((expedition) => expeditionLocations(expedition).length);
+  host.gameEls.expeditionsEntry.disabled = !host.locations.length || !host.landmarks
+    || !expeditions.some((expedition) => expeditionLocations(expedition).length);
 }
 
 export function completeExpeditionRound() {
