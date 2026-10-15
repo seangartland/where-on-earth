@@ -89,7 +89,40 @@ Every one of the 24 likely-miss pins now sits under 5 km from its chosen anchor 
 
 ### Check (i): reverse geocode of every moved pin
 
-All 29 reverse-geocode into the same city [measured, Nominatim zoom 18; full text in the gate output section]. Three answers name a district instead of the city in the `city` field but the address is in the city: tashkent (Yunusabad district, Kashgar mahalla, postcode 100000 Tashkent), xian-china (Lianhu District, Xi'an), ciudad-guayana-ve (Municipio Caroni, which is Ciudad Guayana).
+All 29 reverse-geocode into the same city [measured, Nominatim zoom 18, via `scripts/pin-audit.py --ids <the 29> --reverse`]:
+
+```
+  algiers: Algiers | L'Institut National de la Propriété Industrielle - INAPI, 24, Rue Larbi Ben M'Hidi, Ali Boumendjel, Emir Abdelkader, Alger-Centre, Algiers, Sidi M'Hamed District, Algiers, 16000, Algeria
+  astana-kz: Astana | 34/2, Saraishyq Street, Esil district, Astana, 010000, Kazakhstan
+  baku: Baku | Mərkəzi Univermaq, 6, Azerbaijan Avenue, Yasamal Raion, Baku, 1005, Azerbaijan
+  brasilia-br: Brasília | Eixo Rodoviário, Setor Bancário Sul, Brasília, Plano Piloto, Federal District, Central-West Region, 70077-900, Brazil
+  cartagena: Cartagena | India Catalina, Avenida Pedro de Heredia, La Matuna, Cartagena, Dique, Bolívar, RAP Caribe, 472000, Colombia
+  ciudad-guayana-ve: Parroquia Dalla Costa | Puente Caroní, Avenida Guayana, Parroquia Dalla Costa, Municipio Caroní, Bolivar State, 8051, Venezuela
+  dubai: Deira | Emirates NBD, Al Maktoum Hospital Road, Naif, Deira, Dubai Emirate, United Arab Emirates
+  fatehpur-sikri: Fatehpur Sikri | Fatehpur Sikri, Kiraoli, Agra, Uttar Pradesh, 283110, India
+  hangzhou: Shangcheng District | 中河高架路, 岳王路社区, Hubin, Shangcheng District, Hangzhou City, Zhejiang, 310009, China
+  ho-chi-minh-city-vn: Ho Chi Minh City | Le Loi Street, Khu phố 5, Saigon, Ho Chi Minh City, 71016, Vietnam
+  ibiza-es: Ibiza | 17, Passeig de Vara de Rey, s'Alamera, Ibiza, Balearic Islands, 07800, Spain
+  khartoum: Khartoum | Al Baladia Street, Khartoum, Al Khartum State, 10934, Sudan
+  kinshasa-dr-congo: Gare | Gare, Gombe, Kinshasa, Democratic Republic of the Congo
+  majuro-marshall-islands: Majuro | Capitol Loop, Delap, Delap-Uliga-Darrit, Majuro, Ratak Chain, 96060, Marshall Islands
+  manaus-br: Manaus | Rua Silva Ramos, Centro, Manaus, Amazonas, North Region, 69000-000, Brazil
+  medina-saudi-arabia: Medina | Guiding the lost, Kind Fahd Road, Badaah, Medina, Al Madinah Al Munawwarah, Medina Province, 41419, Saudi Arabia
+  muscat: Muscat | Block 182, Muscat, Muscat Province, Muscat Governorate, 940, Oman
+  palembang-id: Palembang | 01, Ilir Timur I, Palembang, South Sumatra, 30124, Indonesia
+  polonnaruwa-sri-lanka: Polonnaruwa | Polonnaruwa, Polonnaruwa District, North Central Province, 51000, Sri Lanka
+  riyadh: Riyadh | Al Baraqeya, الفوطة, Al Futah, Riyadh, Riyadh governorate, Riyadh Region, 12643, Saudi Arabia
+  san-juan: San Juan | La Perla, Viejo San Juan, San Juan, Puerto Rico, 00901, United States
+  singapore: Singapore | North Bridge Road, City Hall, Civic District, Downtown Core, Central Region, Singapore, 179104, Singapore
+  surrey-ca: Surrey | Central City Shopping Centre, 10153, King George Boulevard, City Centre, Surrey, Metro Vancouver Regional District, British Columbia, V3T 2W4, Canada
+  tashkent: Kashgar mahalla | Square, Yunusabad district, Kashgar mahalla, 100000, Uzbekistan
+  tokyo-japan: Chiyoda | Brooklyn Roasting Company Tokyo International Forum, 1, Marunouchi 3, Marunouchi, Chiyoda, Tokyo, 100-0005, Japan
+  toronto: Toronto | Simon Apartments, 32, Grenville Street, Bay-Cloverhill, Toronto Centre, Toronto, Ontario, M5G 2J3, Canada
+  visakhapatnam: Visakhapatnam | Old Head Post Office Road, Soldier Peta, Old Post Office Area, Visakhapatnam, Visakhapatnam Urban, Visakhapatnam District, Andhra Pradesh, 530001, India
+  xian-china: Lianhu District | Bell Tower Roundabout, 社会路社区, Beiyuanmen, Lianhu District, Xi'an, Shaanxi, 710001, China
+  bogota-colombia: Bogota | Carrera 19, UPZs de Bogotá, Localidad Los Mártires, Bogota, Bogota, Capital District, RAP (Especial) Central, 111411, Colombia
+```
+ Three answers name a district instead of the city in the `city` field but the address is in the city: tashkent (Yunusabad district, Kashgar mahalla, postcode 100000 Tashkent), xian-china (Lianhu District, Xi'an), ciudad-guayana-ve (Municipio Caroni, which is Ciudad Guayana).
 
 ### Check (ii): nearest other entry
 
