@@ -33,6 +33,10 @@ export const REVEAL_VIEW_KEY = 'where-on-earth-reveal-view';
 export const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY]);
 export const WEIGHTS = [1, 1, 2, 3, 3];
 
+// ?reset=daily (main.js drops today's saved game and strips the query; the
+// boot fetches then skip the HTTP cache).
+export const RESET_DAILY = new URLSearchParams(location.search).get('reset') === 'daily';
+
 // Flyover accuracy tiers (exact, unrounded km).
 export const PINPOINT_KM = 5;
 export const BULLSEYE_KM = 25;
