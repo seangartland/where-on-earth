@@ -10,7 +10,19 @@ import { initPvpHome, pvpLinkInvite, pvpLinkIsGroup } from './pvp/home.js';
 import { initPvpH2h, openPvpJoin } from './pvp/h2h.js';
 import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
-import { formatKm } from './core/format.js';
+import {
+  DEG, FOV, ATMO_RADIUS, MIN_DIST, SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, MAX_SPIN, TAP_MAX_MS, GUESS_TAP_MAX_MS, LOCK_ARM_MS,
+  TAP_MAX_MOVE, AUTO_SPIN, GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, EXPEDITION_KEY, REVEAL_VIEW_KEY, WEIGHTS,
+  flyoverTier, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES,
+} from './core/config.js';
+import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
+import { storageError, safeSetItem, migrateStorage, readJSON, writeJSON } from './core/storage.js';
+import { audio, initAudio } from './core/audio.js';
+import { fadeElement, setThumb, createHomeButton, showConfirmModal, initConfirmModal } from './core/dom.js';
+import {
+  formatKm, localDateKey, formatDailyDate, COUNTRY_FLAGS, flagForLocation, closestGuessLines, formatGameShare, countryKey,
+} from './core/format.js';
+import { state } from './core/state.js';
 import {
   survival, initSurvival, startSurvival, survivalRoundHeader, survivalRecordGuess, survivalRevealCard, survivalNext,
 } from './modes/survival.js';
@@ -81,27 +93,11 @@ if (RESET_DAILY) {
 // ---------------------------------------------------------------------------
 // Config
 // ---------------------------------------------------------------------------
-const DEG = Math.PI / 180;
-const FOV = 36;
-const ATMO_RADIUS = 1.17;
-// Player zoom floor: ~190 km above the surface, ~0.17 km per css px on a
-// 390 px phone, enough to see Robben Island or Alcatraz as a shape.
-const MIN_DIST = 1.24;
-// Scripted cameras (bullseye snap, flight, reveal framing) keep the closest
-// framing they were tuned at; only the player's own zoom goes deeper.
-const SCENE_MIN_DIST = 1.32;
-const PITCH_LIMIT = 75 * DEG; // look down at the poles, never flip north-down
-const FRICTION = 2.1; // velocity decay per second (exponential)
-const MAX_SPIN = 7; // rad/s
-const TAP_MAX_MS = 350;
-const GUESS_TAP_MAX_MS = 700; // a careful placement tap may linger longer than a review tap
-const LOCK_ARM_MS = 350; // the Lock in button ignores taps this soon after it appears
 
 // Guessing is two steps: tap the globe to place (or move) the pin, then press
 // Lock in. The button sits in a fixed spot in the thumb zone, away from the
 // pin, so the finger never hides the placement and a stray tap can't confirm.
 const lockButton = document.getElementById('lock-button');
-let pendingGuess = null; // { lat, lng } of the placed, unconfirmed pin
 let lockArmedAt = 0;
 
 function setGuessHint(text, nudge = false) {
@@ -118,7 +114,7 @@ function showLockButton() {
 }
 
 function clearPendingGuess() {
-  pendingGuess = null;
+  state.pendingGuess = null;
   lockButton.hidden = true;
   document.body.classList.remove('has-guess');
 }
@@ -151,15 +147,13 @@ function nearTopUI(x, y) {
 }
 
 lockButton.addEventListener('click', () => {
-  if (!pendingGuess || !window.__canGuess || gameMode !== 'guess') return;
+  if (!state.pendingGuess || !window.__canGuess || state.gameMode !== 'guess') return;
   if (performance.now() < lockArmedAt) return; // the tail of a double tap on the globe
-  const guess = pendingGuess;
+  const guess = state.pendingGuess;
   clearPendingGuess();
   if (navigator.vibrate) navigator.vibrate(20);
   window.dispatchEvent(new CustomEvent('pin', { detail: { ...guess, confirmed: true } }));
 });
-const TAP_MAX_MOVE = 8; // css px
-const AUTO_SPIN = 0.045; // rad/s idle drift
 const PIN_COLOR = new THREE.Color('#ffb54a');
 const ANSWER_COLOR = new THREE.Color('#67e8ff');
 
@@ -177,9 +171,6 @@ function vec3ToLatLng(v) {
   if (lng < -180) lng += 360;
   return { lat: Math.asin(n.y) / DEG, lng };
 }
-
-const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-const damp = (current, target, lambda, dt) => current + (target - current) * (1 - Math.exp(-lambda * dt));
 
 // ---------------------------------------------------------------------------
 // Renderer / scene
@@ -995,7 +986,7 @@ function insetWindowAt(view, z) {
 function pickInsetWindow() {
   const view = sampleInsetView();
   if (!view) return { view, want: null };
-  const mpp = ((dist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / viewH;
+  const mpp = ((state.dist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / state.viewH;
   let z = Math.ceil(Math.log2((156543.03 * Math.cos(view.lat)) / (mpp * INSET_Q)));
   z = clamp(z, INSET_MIN_Z, satProvider.maxZ);
   if (inset.slow) z = Math.max(INSET_MIN_Z, z - 1);
@@ -1282,12 +1273,12 @@ function updateInsets(dt) {
   let speed = 0;
   let zoomRate = 0;
   if (inset.hasPrev && dt > 0) {
-    const dYaw = (yaw - inset.prevYaw) * Math.cos(pitch);
-    speed = Math.hypot(dYaw, pitch - inset.prevPitch) / dt / radPerPx();
-    zoomRate = Math.abs(Math.log((dist - 1) / (inset.prevDist - 1))) / dt;
+    const dYaw = (state.yaw - inset.prevYaw) * Math.cos(state.pitch);
+    speed = Math.hypot(dYaw, state.pitch - inset.prevPitch) / dt / radPerPx();
+    zoomRate = Math.abs(Math.log((state.dist - 1) / (inset.prevDist - 1))) / dt;
   }
-  inset.prevYaw = yaw; inset.prevPitch = pitch; inset.prevDist = dist; inset.hasPrev = true;
-  const easing = Math.abs(Math.log((targetDist - 1) / (dist - 1))) > 0.01;
+  inset.prevYaw = state.yaw; inset.prevPitch = state.pitch; inset.prevDist = state.dist; inset.hasPrev = true;
+  const easing = Math.abs(Math.log((state.targetDist - 1) / (state.dist - 1))) > 0.01;
   const fast = pointers.size > 0 || speed > INSET_FAST_PX_S || zoomRate > 0.4;
   const still = !fast && !easing && speed < INSET_STILL_PX_S && zoomRate < 0.03;
   if (!still) inset.stillSince = -1;
@@ -1879,7 +1870,7 @@ function buildCountryOutline(lines) {
       stencilFunc: THREE.NotEqualStencilFunc,
       stencilZPass: THREE.ReplaceStencilOp,
     });
-    mat.resolution.set(viewW, viewH);
+    mat.resolution.set(state.viewW, state.viewH);
     mat.userData.baseOpacity = layer.opacity;
     const mesh = new LineSegments2(geo, mat);
     mesh.renderOrder = 5;
@@ -2350,11 +2341,10 @@ const pins = [new Pin(), new Pin()];
 pins.forEach((p) => globe.add(p.root));
 const correctPin = new Pin({ color: ANSWER_COLOR, badge: answerBadgeTex, answer: true });
 globe.add(correctPin.root);
-let activePin = -1;
 
 // Client (CSS px) point -> NDC, relative to the canvas's own box.
 function clientToNdc(clientX, clientY, out) {
-  return out.set(((clientX - viewLeft) / viewW) * 2 - 1, -((clientY - viewTop) / viewH) * 2 + 1);
+  return out.set(((clientX - viewLeft) / state.viewW) * 2 - 1, -((clientY - viewTop) / state.viewH) * 2 + 1);
 }
 
 // Globe-local unit normal under a screen point, or null off the globe.
@@ -2373,11 +2363,11 @@ function placeGuessPin(clientX, clientY) {
   if (!window.__canGuess) return;
   const normal = globeNormalAt(clientX, clientY);
   if (!normal) return; // tapped space, not the globe
-  if (activePin >= 0) pins[activePin].release();
-  activePin = (activePin + 1) % pins.length;
-  pins[activePin].drop(normal);
+  if (state.activePin >= 0) pins[state.activePin].release();
+  state.activePin = (state.activePin + 1) % pins.length;
+  pins[state.activePin].drop(normal);
   if (navigator.vibrate) navigator.vibrate(8);
-  pendingGuess = vec3ToLatLng(normal);
+  state.pendingGuess = vec3ToLatLng(normal);
   showLockButton();
   setGuessHint('Tap elsewhere to move it, or lock it in');
 }
@@ -2385,11 +2375,6 @@ function placeGuessPin(clientX, clientY) {
 // ---------------------------------------------------------------------------
 // View state and interaction
 // ---------------------------------------------------------------------------
-let viewW = 1;
-let viewH = 1;
-let fitDist = 3;
-let maxDist = 4.5;
-
 // Desktop-globe model: orientation = RX(pitch) * RY(yaw). The polar axis in
 // world space is RX(pitch) * (0,1,0), which does not depend on yaw, so the
 // globe spins without limit about its own axis and that axis never precesses.
@@ -2397,18 +2382,13 @@ let maxDist = 4.5;
 // so you can look down at the poles but north never flips past the top.
 // Start centred on lat 20, lng 10, drifting in from a wider view.
 const _home = latLngToVec3(20, 10);
-let yaw = Math.atan2(-_home.x, _home.z); // yaw facing lng 10
+state.yaw = Math.atan2(-_home.x, _home.z); // yaw facing lng 10
 const HOME_PITCH = 20 * DEG; // load-time tilt; the flyover pullback settles back to it
-let pitch = HOME_PITCH;
-let vYaw = 0.75;
-let vPitch = 0;
+state.pitch = HOME_PITCH;
 const _UP = new THREE.Vector3(0, 1, 0);
 const _RIGHT = new THREE.Vector3(1, 0, 0);
 const _qy = new THREE.Quaternion();
 const _qx = new THREE.Quaternion();
-let dist = 6;
-let targetDist = 3;
-let revealView = null;
 
 function setGlobeQuaternion(target, y, p) {
   _qy.setFromAxisAngle(_UP, y);
@@ -2443,21 +2423,21 @@ function solveGrab(L, clientX, clientY) {
   const alpha = Math.atan2(_D.z, _D.y);
   const c = L.y / Math.max(R, 1e-6);
   const spread = Math.acos(clamp(c, -1, 1));
-  const p1 = nearAngle(alpha + spread, pitch);
-  const p2 = nearAngle(alpha - spread, pitch);
-  const p = Math.abs(p1 - pitch) < Math.abs(p2 - pitch) ? p1 : p2;
+  const p1 = nearAngle(alpha + spread, state.pitch);
+  const p2 = nearAngle(alpha - spread, state.pitch);
+  const p = Math.abs(p1 - state.pitch) < Math.abs(p2 - state.pitch) ? p1 : p2;
   if (Math.abs(p) > PITCH_LIMIT) return null;
   const cp = Math.cos(p);
   const sp = Math.sin(p);
   const mx = _D.x;
   const mz = -_D.y * sp + _D.z * cp; // z-row of RX(-p) D
-  pitch = p;
-  yaw = nearAngle(Math.atan2(mx, mz) - Math.atan2(L.x, L.z), yaw);
+  state.pitch = p;
+  state.yaw = nearAngle(Math.atan2(mx, mz) - Math.atan2(L.x, L.z), state.yaw);
   return Math.abs(c) <= 1;
 }
 
 function computeFit() {
-  const aspect = viewW / viewH;
+  const aspect = state.viewW / state.viewH;
   const vHalf = (FOV / 2) * DEG;
   const hHalf = Math.atan(Math.tan(vHalf) * aspect);
   const half = Math.min(vHalf, hHalf);
@@ -2475,22 +2455,22 @@ function resize() {
   const r = canvas.getBoundingClientRect();
   viewLeft = r.left;
   viewTop = r.top;
-  viewW = Math.max(1, r.width || window.innerWidth);
-  viewH = Math.max(1, r.height || window.innerHeight);
-  renderer.setSize(viewW, viewH, false);
-  camera.aspect = viewW / viewH;
+  state.viewW = Math.max(1, r.width || window.innerWidth);
+  state.viewH = Math.max(1, r.height || window.innerHeight);
+  renderer.setSize(state.viewW, state.viewH, false);
+  camera.aspect = state.viewW / state.viewH;
   camera.updateProjectionMatrix();
-  const firstRun = fitDist === 3 && dist === 6;
-  fitDist = computeFit();
-  maxDist = fitDist * 1.55;
+  const firstRun = state.fitDist === 3 && state.dist === 6;
+  state.fitDist = computeFit();
+  state.maxDist = state.fitDist * 1.55;
   if (firstRun) {
-    targetDist = fitDist;
-    dist = fitDist * 1.45;
+    state.targetDist = state.fitDist;
+    state.dist = state.fitDist * 1.45;
   }
-  targetDist = clamp(targetDist, MIN_DIST, maxDist);
-  outlineMaterials.forEach((m) => m.resolution.set(viewW, viewH));
-  if (answerLineMaterial) answerLineMaterial.resolution.set(viewW, viewH);
-  if (countryOutline) countryOutline.mats.forEach((m) => m.resolution.set(viewW, viewH));
+  state.targetDist = clamp(state.targetDist, MIN_DIST, state.maxDist);
+  outlineMaterials.forEach((m) => m.resolution.set(state.viewW, state.viewH));
+  if (answerLineMaterial) answerLineMaterial.resolution.set(state.viewW, state.viewH);
+  if (countryOutline) countryOutline.mats.forEach((m) => m.resolution.set(state.viewW, state.viewH));
 }
 window.addEventListener('resize', resize);
 // The canvas box can change without a window resize (iOS toolbar, rotation settle).
@@ -2498,12 +2478,12 @@ if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
 resize();
 
 // radians of rotation per css pixel so the surface tracks the finger
-const radPerPx = () => (2 * (dist - 1) * Math.tan((FOV / 2) * DEG)) / viewH;
+const radPerPx = () => (2 * (state.dist - 1) * Math.tan((FOV / 2) * DEG)) / state.viewH;
 
 // Zoom scales altitude, not distance from the centre: map scale goes with
 // altitude, so a pinch or wheel notch feels the same at any depth instead of
 // slamming through the last few hundred km near MIN_DIST.
-const zoomTo = (from, factor) => clamp(1 + (from - 1) * factor, MIN_DIST, maxDist);
+const zoomTo = (from, factor) => clamp(1 + (from - 1) * factor, MIN_DIST, state.maxDist);
 
 const pointers = new Map();
 let samples = []; // recent {t, yaw, pitch} while dragging, for release velocity
@@ -2512,12 +2492,11 @@ let pinch = null;
 let grab = null; // globe-local point held under the finger centroid
 let grabWorld = null; // the same point in world space, or null off the globe
 let dragAt = null; // centroid already applied to the view
-let lastInteraction = -1;
 let interacted = false;
 const _inv = new THREE.Quaternion();
 
 function markInteraction() {
-  lastInteraction = performance.now();
+  state.lastInteraction = performance.now();
   if (!interacted) {
     interacted = true;
     hud.classList.add('dim');
@@ -2542,7 +2521,7 @@ function grabAt(x, y) {
   dragAt = { x, y };
   const hit = sphereHit(x, y, new THREE.Vector3());
   grabWorld = hit && hit.clone();
-  setGlobeQuaternion(globe, yaw, pitch);
+  setGlobeQuaternion(globe, state.yaw, state.pitch);
   grab = hit && hit.applyQuaternion(_inv.copy(globe.quaternion).invert());
   if (grab && Math.hypot(grab.x, grab.z) < 0.09) grab = null;
 }
@@ -2557,17 +2536,17 @@ function grabAt(x, y) {
 // jitter the yaw between directions.
 function screenDrag(c) {
   const k = radPerPx();
-  const g = grabWorld ? Math.cos(pitch) * grabWorld.z - Math.sin(pitch) * grabWorld.y : 1;
-  yaw += ((c.x - dragAt.x) * k * g) / Math.max(g * g, 0.35 * 0.35);
-  pitch = clamp(pitch + (c.y - dragAt.y) * k, -PITCH_LIMIT, PITCH_LIMIT);
+  const g = grabWorld ? Math.cos(state.pitch) * grabWorld.z - Math.sin(state.pitch) * grabWorld.y : 1;
+  state.yaw += ((c.x - dragAt.x) * k * g) / Math.max(g * g, 0.35 * 0.35);
+  state.pitch = clamp(state.pitch + (c.y - dragAt.y) * k, -PITCH_LIMIT, PITCH_LIMIT);
   grabAt(c.x, c.y);
 }
 
 function resetAnchor() {
   const c = centroid();
   grabAt(c.x, c.y);
-  samples = [{ t: performance.now(), yaw, pitch }];
-  pinch = pointers.size >= 2 ? { span: pinchSpan(), dist: targetDist } : null;
+  samples = [{ t: performance.now(), yaw: state.yaw, pitch: state.pitch }];
+  pinch = pointers.size >= 2 ? { span: pinchSpan(), dist: state.targetDist } : null;
 }
 
 // Move the view so the grabbed point follows the finger centroid. Runs on
@@ -2576,7 +2555,7 @@ function applyDrag() {
   const c = centroid();
   // At the limit the exact solve can still hold a point by whirling yaw about
   // the nearby pole, so stay on screen deltas until the drag tilts back off it.
-  if (grab && Math.abs(pitch) < PITCH_LIMIT) {
+  if (grab && Math.abs(state.pitch) < PITCH_LIMIT) {
     const held = solveGrab(grab, c.x, c.y);
     if (held === null) screenDrag(c); // past the pitch limit
     else if (!held) grabAt(c.x, c.y); // hit a limit: re-grab so reversing responds at once
@@ -2588,7 +2567,7 @@ function applyDrag() {
 
 function recordSample() {
   const now = performance.now();
-  samples.push({ t: now, yaw, pitch });
+  samples.push({ t: now, yaw: state.yaw, pitch: state.pitch });
   while (samples.length > 2 && now - samples[0].t > 90) samples.shift();
 }
 
@@ -2596,9 +2575,9 @@ canvas.addEventListener('pointerdown', (e) => {
   if (e.pointerType === 'mouse' && e.button !== 0) return;
   canvas.setPointerCapture(e.pointerId);
   pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-  revealView = null; // the reveal starts framed, but remains freely explorable
-  vYaw = vPitch = 0; // grab stops the spin, and the idle drift with it
-  autoSpin = 0;
+  state.revealView = null; // the reveal starts framed, but remains freely explorable
+  state.vYaw = state.vPitch = 0; // grab stops the spin, and the idle drift with it
+  state.autoSpin = 0;
   tap = pointers.size === 1 ? { x: e.clientX, y: e.clientY, t: performance.now() } : null;
   resetAnchor();
   canvas.classList.add('dragging');
@@ -2616,9 +2595,9 @@ canvas.addEventListener('pointermove', (e) => {
   if (pinch && pointers.size >= 2) {
     const span = Math.max(pinchSpan(), 1);
     const want = 1 + (pinch.dist - 1) * (pinch.span / span);
-    targetDist = clamp(want, MIN_DIST, maxDist);
+    state.targetDist = clamp(want, MIN_DIST, state.maxDist);
     // Past a limit, re-base so reversing the pinch responds immediately.
-    if (targetDist !== want) pinch = { span, dist: targetDist };
+    if (state.targetDist !== want) pinch = { span, dist: state.targetDist };
   }
 
   applyDrag();
@@ -2633,18 +2612,18 @@ function endPointer(e) {
 
   if (pointers.size === 0) {
     canvas.classList.remove('dragging');
-    if (tap && e.type === 'pointerup' && gameMode === 'guess' && now - tap.t < GUESS_TAP_MAX_MS) {
+    if (tap && e.type === 'pointerup' && state.gameMode === 'guess' && now - tap.t < GUESS_TAP_MAX_MS) {
       if (!nearLockButton(e.clientX, e.clientY) && !nearTopUI(e.clientX, e.clientY)) placeGuessPin(e.clientX, e.clientY);
     } else if (tap && e.type === 'pointerup' && now - tap.t < TAP_MAX_MS) {
-      if (gameMode === 'review') pickReviewRound(e.clientX, e.clientY);
+      if (state.gameMode === 'review') pickReviewRound(e.clientX, e.clientY);
     } else if (samples.length >= 2) {
       // fling: carry the view's own angular velocity over the last ~90 ms
       const last = samples[samples.length - 1];
       const first = samples[0];
       const dt = (last.t - first.t) / 1000;
       if (now - last.t < 60 && dt > 0.008) {
-        vYaw = clamp((last.yaw - first.yaw) / dt, -MAX_SPIN, MAX_SPIN);
-        vPitch = clamp((last.pitch - first.pitch) / dt, -MAX_SPIN, MAX_SPIN);
+        state.vYaw = clamp((last.yaw - first.yaw) / dt, -MAX_SPIN, MAX_SPIN);
+        state.vPitch = clamp((last.pitch - first.pitch) / dt, -MAX_SPIN, MAX_SPIN);
       }
     }
     tap = null;
@@ -2666,7 +2645,7 @@ canvas.addEventListener(
   (e) => {
     e.preventDefault();
     const unit = e.deltaMode === 1 ? 0.05 : e.ctrlKey ? 0.012 : 0.0015;
-    targetDist = zoomTo(targetDist, Math.exp(e.deltaY * unit));
+    state.targetDist = zoomTo(state.targetDist, Math.exp(e.deltaY * unit));
     markInteraction();
   },
   { passive: false }
@@ -2679,16 +2658,6 @@ canvas.addEventListener(
 // ---------------------------------------------------------------------------
 // Daily game
 // ---------------------------------------------------------------------------
-const STORAGE_VERSION = 1;
-const GAME_KEY = 'where-on-earth-v1';
-const STREAK_KEY = 'where-on-earth-streak-v1';
-const HISTORY_KEY = 'where-on-earth-history-v1';
-const PASSPORT_KEY = 'where-on-earth-passport-v1';
-const MUTE_KEY = 'where-on-earth-muted';
-const EXPEDITION_KEY = 'where-on-earth-expedition-v1';
-const REVEAL_VIEW_KEY = 'where-on-earth-reveal-view';
-const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY]);
-const WEIGHTS = [1, 1, 2, 3, 3];
 const gameEls = {
   start: document.getElementById('start-screen'),
   round: document.getElementById('round-screen'),
@@ -2750,7 +2719,7 @@ answerLineMaterial = new LineMaterial({
   depthTest: false,
   depthWrite: false,
 });
-answerLineMaterial.resolution.set(viewW, viewH);
+answerLineMaterial.resolution.set(state.viewW, state.viewH);
 const answerLine = new LineSegments2(new LineGeometry(), answerLineMaterial);
 answerLine.visible = false;
 answerLine.renderOrder = 6;
@@ -2774,21 +2743,8 @@ let northUpRevealToken = 0;
 // ---------------------------------------------------------------------------
 // Flyover extras: accuracy tiers, synthesized sound, photo postcard
 // ---------------------------------------------------------------------------
-const PINPOINT_KM = 5;
-const BULLSEYE_KM = 25;
-const NEAR_KM = 150;
-const BLOWOUT_KM = 8000;
 const GOLD_COLOR = new THREE.Color('#ffd45e');
 const DEADPAN_LINES = ['away.', 'away. Bold.', 'away. Different continent.', 'away. Still on Earth, though.', 'away. Noted.'];
-
-function flyoverTier(km) {
-  if (km < PINPOINT_KM) return 'pinpoint';
-  if (km < BULLSEYE_KM) return 'bullseye';
-  if (km < NEAR_KM) return 'near';
-  if (km > BLOWOUT_KM) return 'blowout';
-  return 'normal';
-}
-
 // Slow motion for the bullseye landing: scales the pins' (and shockwave's)
 // clock only; the camera and DOM keep real time.
 let timeScale = 1;
@@ -2829,325 +2785,16 @@ shockwave.visible = false;
 shockwave.renderOrder = 3;
 globe.add(shockwave);
 
-// Web Audio, everything synthesized. iOS only lets a context start inside a
-// user gesture, so it is created (and re-resumed after interruptions) on taps.
-// Keep the audio session category "ambient" (Safari 16.4+): it respects the
-// ring/silent switch and, critically, never interrupts or ducks whatever the
-// player is already listening to (music, a podcast). The tradeoff is the
-// game goes silent with the ring/silent switch on, which is the right
-// tradeoff — this is a secondary SFX layer, not the player's primary audio.
-function storageError(message, key, error) {
-  console.error(`[storage] ${message}: ${key}`, error || '');
-}
-
-function corruptBackupKey(key) {
-  return `${key}.corrupt-backup`;
-}
-
-function preserveCorruptStorage(key, raw, error) {
-  storageError('Corrupt JSON preserved; refusing to overwrite', key, error);
-  const backupKey = corruptBackupKey(key);
-  try {
-    // Never destroy an earlier recovery copy. If another corrupt value is seen,
-    // leave the first backup intact and keep the current raw value at its key.
-    if (localStorage.getItem(backupKey) === null) localStorage.setItem(backupKey, raw);
-  } catch (backupError) {
-    storageError('Could not create corrupt backup', backupKey, backupError);
-  }
-}
-
-function storedDataSize(key, value) {
-  if (value == null) return 0;
-  if (key === PASSPORT_KEY) {
-    if (!value || typeof value !== 'object' || Array.isArray(value)) return 0;
-    const visits = value.visits && typeof value.visits === 'object' ? Object.keys(value.visits).length : 0;
-    const meta = value.meta && typeof value.meta === 'object' ? Object.keys(value.meta).length : 0;
-    const order = Array.isArray(value.order) ? value.order.length : 0;
-    return Math.max(visits, meta, order);
-  }
-  if (key === HISTORY_KEY) {
-    const entries = Array.isArray(value) ? value : value && value.entries;
-    return Array.isArray(entries) ? entries.length : 0;
-  }
-  if (Array.isArray(value)) return value.length;
-  if (typeof value === 'object') {
-    return Object.keys(value).filter((field) => field !== '_v').length;
-  }
-  return String(value).length;
-}
-
-function safeSetItem(key, rawValue) {
-  let oldRaw = null;
-  try {
-    oldRaw = localStorage.getItem(key);
-    if (!VERSIONED_KEYS.has(key)) {
-      localStorage.setItem(key, rawValue);
-      return true;
-    }
-
-    let next;
-    try {
-      next = JSON.parse(rawValue);
-    } catch (error) {
-      storageError('Refusing non-JSON write to versioned key', key, error);
-      return false;
-    }
-
-    if (oldRaw !== null) {
-      let previous;
-      try {
-        previous = JSON.parse(oldRaw);
-      } catch (error) {
-        preserveCorruptStorage(key, oldRaw, error);
-        return false;
-      }
-
-      const oldSize = storedDataSize(key, previous);
-      const nextSize = storedDataSize(key, next);
-      if (next == null || (oldSize > 0 && nextSize === 0)) {
-        storageError('Refusing suspicious empty write', key);
-        return false;
-      }
-      if (key === PASSPORT_KEY && nextSize < oldSize) {
-        storageError(`Refusing passport write that shrinks from ${oldSize} to ${nextSize} entries`, key);
-        return false;
-      }
-    }
-
-    localStorage.setItem(key, rawValue);
-    return true;
-  } catch (error) {
-    storageError('Write failed', key, error);
-    return false;
-  }
-}
-
-function migrateValue(key, value) {
-  // Every case spreads/copies old data first. Future rename migrations must do
-  // the same: add the new field while retaining the old field.
-  if (key === HISTORY_KEY) {
-    if (Array.isArray(value)) return { _v: STORAGE_VERSION, entries: value };
-    return { ...value, _v: STORAGE_VERSION, entries: Array.isArray(value.entries) ? value.entries : [] };
-  }
-  if (key === MUTE_KEY) {
-    // The legacy raw strings `1` and `0` parse as JSON numbers.
-    if (value === 1 || value === 0 || value === '1' || value === '0' || typeof value === 'boolean') {
-      return { _v: STORAGE_VERSION, muted: value === 1 || value === '1' || value === true };
-    }
-    return { ...value, _v: STORAGE_VERSION, muted: Boolean(value && value.muted) };
-  }
-  if (!value || typeof value !== 'object' || Array.isArray(value)) return value;
-  return { ...value, _v: STORAGE_VERSION };
-}
-
-function migrateStorage() {
-  for (const key of VERSIONED_KEYS) {
-    let raw;
-    try {
-      raw = localStorage.getItem(key);
-    } catch (error) {
-      storageError('Read failed during migration', key, error);
-      continue;
-    }
-    if (raw === null) continue;
-
-    let value;
-    try {
-      value = JSON.parse(raw);
-    } catch (error) {
-      preserveCorruptStorage(key, raw, error);
-      continue;
-    }
-
-    const version = value && typeof value === 'object' && Number.isInteger(value._v) ? value._v : 0;
-    if (version > STORAGE_VERSION) {
-      storageError(`Stored schema v${version} is newer than supported v${STORAGE_VERSION}; leaving untouched`, key);
-      continue;
-    }
-    if (version === STORAGE_VERSION) continue;
-
-    let migrated = value;
-    for (let from = version; from < STORAGE_VERSION; from += 1) {
-      // Add future step migrations here, keyed by `from`. They must copy the
-      // prior object and add fields; never delete a legacy field.
-      if (from === 0) migrated = migrateValue(key, migrated);
-    }
-    safeSetItem(key, JSON.stringify(migrated));
-  }
-}
-
 migrateStorage();
 
-let revealViewPreference = 'flyover';
 try {
   const savedRevealView = localStorage.getItem(REVEAL_VIEW_KEY);
-  if (savedRevealView === 'flyover' || savedRevealView === 'north-up') revealViewPreference = savedRevealView;
+  if (savedRevealView === 'flyover' || savedRevealView === 'north-up') state.revealViewPreference = savedRevealView;
 } catch (error) {
   storageError('Read failed', REVEAL_VIEW_KEY, error);
 }
 
-const audio = {
-  ctx: null,
-  master: null,
-  noise: null,
-  whoosh: null,
-  muted: Boolean(readJSON(MUTE_KEY)?.muted),
-
-  syncSession() {
-    const session = navigator.audioSession;
-    if (session && session.type !== 'ambient') {
-      try { session.type = 'ambient'; } catch (err) { /* older WebKit: read-only */ }
-    }
-  },
-
-  unlock() {
-    this.syncSession(); // before the context exists, so it starts in the right category
-    if (!this.ctx) {
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (!Ctx) return;
-      this.ctx = new Ctx();
-      this.master = this.ctx.createGain();
-      this.master.gain.value = this.muted ? 0 : 0.8;
-      this.master.connect(this.ctx.destination);
-      const len = this.ctx.sampleRate;
-      this.noise = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
-      const data = this.noise.getChannelData(0);
-      for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
-      // A silent one-sample blip is what actually unlocks output on older iOS.
-      const blip = this.ctx.createBufferSource();
-      blip.buffer = this.ctx.createBuffer(1, 1, this.ctx.sampleRate);
-      blip.connect(this.ctx.destination);
-      blip.start();
-    }
-    if (this.ctx.state !== 'running') this.ctx.resume();
-  },
-
-  live() {
-    return this.ctx && this.ctx.state === 'running' && !this.muted;
-  },
-
-  setMuted(muted) {
-    this.muted = muted;
-    writeJSON(MUTE_KEY, muted);
-    if (this.master) this.master.gain.setTargetAtTime(muted ? 0 : 0.8, this.ctx.currentTime, 0.03);
-    this.syncSession();
-    if (muted) this.whooshStop();
-  },
-
-  whooshStart() {
-    if (!this.live() || this.whoosh) return;
-    const src = this.ctx.createBufferSource();
-    src.buffer = this.noise;
-    src.loop = true;
-    const filter = this.ctx.createBiquadFilter();
-    filter.type = 'bandpass';
-    filter.frequency.value = 240;
-    filter.Q.value = 1.4;
-    const gain = this.ctx.createGain();
-    gain.gain.value = 0;
-    src.connect(filter).connect(gain).connect(this.master);
-    src.start();
-    this.whoosh = { src, filter, gain };
-  },
-
-  // level 0..1 is how hard the air is rushing (volume), speed 0..1 how fast
-  // the ground is going by (pitch).
-  whooshSet(level, speed) {
-    if (!this.whoosh) return;
-    const now = this.ctx.currentTime;
-    this.whoosh.filter.frequency.setTargetAtTime(220 + 2600 * speed * speed, now, 0.06);
-    this.whoosh.src.playbackRate.setTargetAtTime(0.7 + 0.6 * speed, now, 0.06);
-    this.whoosh.gain.gain.setTargetAtTime(0.32 * level, now, 0.06);
-  },
-
-  whooshStop() {
-    if (!this.whoosh) return;
-    const { src, gain } = this.whoosh;
-    const now = this.ctx.currentTime;
-    gain.gain.cancelScheduledValues(now);
-    gain.gain.setTargetAtTime(0, now, 0.1);
-    src.stop(now + 0.6);
-    this.whoosh = null;
-  },
-
-  tone(type, from, to, start, dur, peak, filterHz = 0) {
-    const osc = this.ctx.createOscillator();
-    osc.type = type;
-    osc.frequency.setValueAtTime(from, start);
-    osc.frequency.exponentialRampToValueAtTime(to, start + dur);
-    const gain = this.ctx.createGain();
-    gain.gain.setValueAtTime(0.0001, start);
-    gain.gain.exponentialRampToValueAtTime(peak, start + 0.012);
-    gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
-    let node = osc.connect(gain);
-    if (filterHz) {
-      const lp = this.ctx.createBiquadFilter();
-      lp.type = 'lowpass';
-      lp.frequency.value = filterHz;
-      node = node.connect(lp);
-    }
-    node.connect(this.master);
-    osc.start(start);
-    osc.stop(start + dur + 0.05);
-  },
-
-  // Deep body thump plus a short filtered-noise contact click. slow > 1
-  // stretches and lowers it for the bullseye slow motion.
-  thump(slow = 1) {
-    if (!this.live()) return;
-    const now = this.ctx.currentTime;
-    this.tone('sine', 120 / slow, 36 / slow, now, 0.45 * slow, 0.95);
-    const click = this.ctx.createBufferSource();
-    click.buffer = this.noise;
-    const lp = this.ctx.createBiquadFilter();
-    lp.type = 'lowpass';
-    lp.frequency.value = 900 / slow;
-    const gain = this.ctx.createGain();
-    gain.gain.setValueAtTime(0.5, now);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.07 * slow);
-    click.connect(lp).connect(gain).connect(this.master);
-    click.start(now);
-    click.stop(now + 0.1 * slow);
-  },
-
-  chime() {
-    if (!this.live()) return;
-    const now = this.ctx.currentTime + 0.05;
-    this.tone('sine', 1046.5, 1046.5, now, 1.3, 0.14);
-    this.tone('sine', 1568, 1568, now + 0.09, 1.2, 0.1);
-    this.tone('triangle', 2093, 2093, now + 0.18, 0.9, 0.05);
-  },
-
-  // Paper-on-glass tick as the postcard drops into its slot.
-  tick() {
-    if (!this.live()) return;
-    const now = this.ctx.currentTime;
-    const click = this.ctx.createBufferSource();
-    click.buffer = this.noise;
-    const hp = this.ctx.createBiquadFilter();
-    hp.type = 'bandpass';
-    hp.frequency.value = 3200;
-    hp.Q.value = 0.9;
-    const gain = this.ctx.createGain();
-    gain.gain.setValueAtTime(0.35, now);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.03);
-    click.connect(hp).connect(gain).connect(this.master);
-    click.start(now, Math.random() * 0.5);
-    click.stop(now + 0.04);
-    this.tone('triangle', 1900, 1500, now, 0.06, 0.06);
-  },
-
-  // Deadpan two-note "wah wah" for a blowout.
-  bwomp() {
-    if (!this.live()) return;
-    const now = this.ctx.currentTime + 0.25;
-    this.tone('square', 233, 220, now, 0.32, 0.07, 700);
-    this.tone('square', 208, 150, now + 0.36, 0.7, 0.07, 600);
-  },
-};
-['pointerdown', 'touchend', 'click', 'keydown'].forEach((type) =>
-  window.addEventListener(type, () => audio.unlock(), { capture: true, passive: true }),
-);
+initAudio();
 
 const MUTE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="none"/><path class="waves" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="slash" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>';
 const muteButtons = [gameEls.start, gameEls.round.querySelector('.round-meta')].map((parent) => {
@@ -3332,13 +2979,13 @@ function popPostcard() {
   run.popAt = performance.now();
   postcardImg.src = postcardPhoto.src;
   const v = run.b.clone().multiplyScalar(1.02).applyQuaternion(globe.quaternion).project(camera);
-  const fromX = ((v.x + 1) / 2) * viewW;
-  const fromY = ((1 - v.y) / 2) * viewH;
+  const fromX = ((v.x + 1) / 2) * state.viewW;
+  const fromY = ((1 - v.y) / 2) * state.viewH;
   // Hold it in the band below the reveal framing (where the sheet will rise),
   // so it never covers the pins while the map has the stage, and clear of the
   // distance pill at the very bottom.
-  const x = viewW / 2;
-  const y = Math.min(viewH - 96 - POSTCARD_H / 2, Math.max(revealStrip().safeBottom + POSTCARD_H / 2 + 10, viewH * 0.72));
+  const x = state.viewW / 2;
+  const y = Math.min(state.viewH - 96 - POSTCARD_H / 2, Math.max(revealStrip().safeBottom + POSTCARD_H / 2 + 10, state.viewH * 0.72));
   run.x = x - POSTCARD_W / 2;
   run.y = y - POSTCARD_H / 2;
   postcard.hidden = false;
@@ -3435,92 +3082,32 @@ function resetFlyoverExtras() {
   pill.querySelector('small').textContent = 'away';
 }
 
-let locations = [];
-let dailyPins = {};
-let daily = null;
-let selected = [];
-let gameMode = 'start';
-
-function localDateKey(date = new Date()) {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
-}
-
-// dateKey is the same YYYY-MM-DD shape used as the daily-archive.json keys.
-function formatDailyDate(dateKey) {
-  return new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-  });
-}
-
-function readJSON(key) {
-  let raw;
-  try {
-    raw = localStorage.getItem(key);
-    if (raw === null) return null;
-    const value = JSON.parse(raw);
-    // Preserve existing call-site behavior while history is stored in a
-    // versioned object wrapper.
-    return key === HISTORY_KEY && value && !Array.isArray(value) ? value.entries : value;
-  } catch (error) {
-    if (raw != null) preserveCorruptStorage(key, raw, error);
-    else storageError('Read failed', key, error);
-    return null;
-  }
-}
-
-function versionedValue(key, value) {
-  if (key === HISTORY_KEY) return { _v: STORAGE_VERSION, entries: value };
-  if (key === MUTE_KEY) return { _v: STORAGE_VERSION, muted: Boolean(value) };
-  if (value && typeof value === 'object' && !Array.isArray(value)) {
-    return { ...value, _v: STORAGE_VERSION };
-  }
-  return value;
-}
-
-function writeJSON(key, value) {
-  return safeSetItem(key, JSON.stringify(versionedValue(key, value)));
-}
-
 function saveDaily() {
-  writeJSON(GAME_KEY, daily);
+  writeJSON(GAME_KEY, state.daily);
 }
 
 // A pinned date plays its pin (with any dropped location substituted, see
 // resolvePinnedIds); every other date is computed from today's pool.
 function dailyGame(date) {
-  const pinned = dailyPins[date];
-  const ids = Array.isArray(pinned) ? resolvePinnedIds(date, pinned, locations) : null;
-  return ids || dailyIds(date, locations);
+  const pinned = state.dailyPins[date];
+  const ids = Array.isArray(pinned) ? resolvePinnedIds(date, pinned, state.locations) : null;
+  return ids || dailyIds(date, state.locations);
 }
 
 function loadDaily() {
   const date = localDateKey();
   const saved = readJSON(GAME_KEY);
-  daily = saved && saved.date === date && Array.isArray(saved.ids)
+  state.daily = saved && saved.date === date && Array.isArray(saved.ids)
     ? saved
     : { date, ids: dailyGame(date), round: 0, results: [], complete: false };
-  daily.round = clamp(Number(daily.round) || 0, 0, 4);
-  daily.results = Array.isArray(daily.results) ? daily.results.slice(0, 5) : [];
-  selected = daily.ids.map((id) => locations.find((item) => item.id === id)).filter((item) => isPlayableLocation(item) && !isLandmark(item));
-  if (selected.length !== 5) {
-    daily = { date, ids: dailyGame(date), round: 0, results: [], complete: false };
-    selected = daily.ids.map((id) => locations.find((item) => item.id === id));
+  state.daily.round = clamp(Number(state.daily.round) || 0, 0, 4);
+  state.daily.results = Array.isArray(state.daily.results) ? state.daily.results.slice(0, 5) : [];
+  state.selected = state.daily.ids.map((id) => state.locations.find((item) => item.id === id)).filter((item) => isPlayableLocation(item) && !isLandmark(item));
+  if (state.selected.length !== 5) {
+    state.daily = { date, ids: dailyGame(date), round: 0, results: [], complete: false };
+    state.selected = state.daily.ids.map((id) => state.locations.find((item) => item.id === id));
   }
   saveDaily();
-}
-
-function distanceKm(a, b) {
-  const p1 = a.lat * DEG;
-  const p2 = b.lat * DEG;
-  const dp = (b.lat - a.lat) * DEG;
-  const dl = (b.lng - a.lng) * DEG;
-  const h = Math.sin(dp / 2) ** 2 + Math.cos(p1) * Math.cos(p2) * Math.sin(dl / 2) ** 2;
-  return 6371.0088 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(Math.max(0, 1 - h)));
 }
 
 // Stretched-exponential: near-perfect under ~10km, matches MapTap's generous
@@ -3543,19 +3130,15 @@ function streakText() {
 
 function finishStreak() {
   const existing = readJSON(STREAK_KEY);
-  if (existing && existing.last === daily.date) return existing.count || 1;
-  const today = new Date(`${daily.date}T12:00:00`);
+  if (existing && existing.last === state.daily.date) return existing.count || 1;
+  const today = new Date(`${state.daily.date}T12:00:00`);
   const yesterday = new Date(today);
   yesterday.setDate(today.getDate() - 1);
   const count = existing && existing.last === localDateKey(yesterday) ? (existing.count || 0) + 1 : 1;
-  writeJSON(STREAK_KEY, { last: daily.date, count });
+  writeJSON(STREAK_KEY, { last: state.daily.date, count });
   return count;
 }
 
-var statsScreenEl = null; // set once the stats overlay is built
-var settingsScreenEl = null; // set once the settings overlay is built
-var passportScreenEl = null; // set once the passport page is built
-var collectionsScreenEl = null; // set once the collections page is built
 var pvpScreenEls = []; // set once the PvP screens are built
 
 function hideScreens() {
@@ -3563,10 +3146,10 @@ function hideScreens() {
   gameEls.survivalResults.hidden = true;
   gameEls.survivalHub.hidden = true;
   reviewEls.screen.hidden = true;
-  if (statsScreenEl) statsScreenEl.hidden = true;
-  if (settingsScreenEl) settingsScreenEl.hidden = true;
-  if (passportScreenEl) passportScreenEl.hidden = true;
-  if (collectionsScreenEl) collectionsScreenEl.hidden = true;
+  if (state.statsScreenEl) state.statsScreenEl.hidden = true;
+  if (state.settingsScreenEl) state.settingsScreenEl.hidden = true;
+  if (state.passportScreenEl) state.passportScreenEl.hidden = true;
+  if (state.collectionsScreenEl) state.collectionsScreenEl.hidden = true;
   for (const el of pvpScreenEls) el.hidden = true;
   document.body.className = '';
 }
@@ -3583,9 +3166,9 @@ function clearReveal() {
   correctPin.release();
   answerLine.visible = false;
   clearCountryOutline();
-  revealView = null;
+  state.revealView = null;
   for (const pin of pins) pin.release();
-  activePin = -1;
+  state.activePin = -1;
   clearPendingGuess();
   hideReviewVisuals();
 }
@@ -3593,7 +3176,7 @@ function clearReveal() {
 function showRound() {
   clearReveal();
   hideScreens();
-  gameMode = 'guess';
+  state.gameMode = 'guess';
   window.__canGuess = true;
   gameEls.round.hidden = false;
   document.body.classList.add('game-round');
@@ -3612,10 +3195,10 @@ function showRound() {
   } else if (endless.active) {
     endlessRoundHeader();
   } else {
-    gameEls.number.textContent = `Round ${daily.round + 1} of 5`;
-    gameEls.weight.textContent = `${WEIGHTS[daily.round]}× points`;
-    gameEls.weight.style.display = WEIGHTS[daily.round] > 1 ? '' : 'none';
-    gameEls.dailyDate.textContent = formatDailyDate(daily.date);
+    gameEls.number.textContent = `Round ${state.daily.round + 1} of 5`;
+    gameEls.weight.textContent = `${WEIGHTS[state.daily.round]}× points`;
+    gameEls.weight.style.display = WEIGHTS[state.daily.round] > 1 ? '' : 'none';
+    gameEls.dailyDate.textContent = formatDailyDate(state.daily.date);
     gameEls.dailyDate.hidden = false;
   }
   if (borders.active) bordersClue();
@@ -3667,7 +3250,7 @@ function buildAnswerPath(guess, answer) {
 
 function placeRevealVisual(guess, answer) {
   const { a, b } = buildAnswerPath(guess, answer);
-  if (activePin >= 0) pins[activePin].drop(a);
+  if (state.activePin >= 0) pins[state.activePin].drop(a);
   correctPin.drop(b);
   answerLine.visible = true;
   frameRevealPoints(a, b);
@@ -3677,7 +3260,7 @@ function placeRevealVisual(guess, answer) {
 
 function beginNorthUpReveal(guess, answer, km, newlyEarned, tier) {
   const { a, b } = buildAnswerPath(guess, answer);
-  if (activePin >= 0) pins[activePin].drop(a);
+  if (state.activePin >= 0) pins[state.activePin].drop(a);
   if (tier === 'bullseye' || tier === 'pinpoint') correctPin.setColor(GOLD_COLOR, '#fff6d8');
   correctPin.drop(b);
   answerLine.visible = true;
@@ -3688,7 +3271,7 @@ function beginNorthUpReveal(guess, answer, km, newlyEarned, tier) {
   startRevealBeat(a, b, tier !== 'bullseye');
   const token = ++northUpRevealToken;
   const watchLanding = () => {
-    if (token !== northUpRevealToken || gameMode !== 'reveal') return;
+    if (token !== northUpRevealToken || state.gameMode !== 'reveal') return;
     if (correctPin.t < LAND_T) {
       requestAnimationFrame(watchLanding);
       return;
@@ -3706,7 +3289,7 @@ function beginNorthUpReveal(guess, answer, km, newlyEarned, tier) {
 }
 
 function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km)) {
-  if (revealViewPreference === 'north-up') {
+  if (state.revealViewPreference === 'north-up') {
     beginNorthUpReveal(guess, answer, km, newlyEarned, tier);
     return;
   }
@@ -3738,7 +3321,7 @@ function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km
     lastT: 0,
     elapsed: 0,
     answerDropped: false,
-    startDist: dist,
+    startDist: state.dist,
     pullbackStarted: false,
     pinBlend: 0,
     flyRef: null,
@@ -3746,13 +3329,13 @@ function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km
   // The close flight camera sits ~0.1 above the ground; the default 0.05 near
   // plane sliced through the surface at the bottom of the frame and at the pin.
   setCameraNear(0.005);
-  vYaw = vPitch = autoSpin = 0;
+  state.vYaw = state.vPitch = state.autoSpin = 0;
 }
 
 // Bullseye: no flight. Snap-zoom onto the answer, drop a gold pin, roll a
 // shockwave across the surface in slow motion, stamp it, then the usual pullback.
 function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km)) {
-  if (revealViewPreference === 'north-up') {
+  if (state.revealViewPreference === 'north-up') {
     beginNorthUpReveal(guess, answer, km, newlyEarned, tier);
     return;
   }
@@ -3770,12 +3353,12 @@ function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyoverTier(
     // selected in revealGuess; `km` is rounded only for display.
     tier,
     elapsed: 0,
-    startDist: dist,
+    startDist: state.dist,
     answerDropped: false,
     pullbackStarted: false,
     pinBlend: 0,
   };
-  vYaw = vPitch = autoSpin = 0;
+  state.vYaw = state.vPitch = state.autoSpin = 0;
 }
 
 let cameraNearBase = 0.05;
@@ -3786,7 +3369,7 @@ function setCameraNear(near) {
 // Deep player zoom sits ~0.03 above the surface, inside the 0.05 near plane:
 // pull the plane in with altitude so it never slices the globe.
 function applyCameraNear() {
-  const near = Math.min(cameraNearBase, Math.max((dist - 1) * 0.5, 0.002));
+  const near = Math.min(cameraNearBase, Math.max((state.dist - 1) * 0.5, 0.002));
   if (camera.near === near) return;
   camera.near = near;
   camera.updateProjectionMatrix();
@@ -3798,15 +3381,6 @@ function setCameraFov(fov) {
   if (camera.fov === fov) return;
   camera.fov = fov;
   camera.updateProjectionMatrix();
-}
-
-function fadeElement(el, show, duration, delay = 0) {
-  el.getAnimations().forEach((a) => a.cancel());
-  const fade = el.animate(
-    [{ opacity: show ? 0 : 1 }, { opacity: show ? 1 : 0 }],
-    { duration, delay, easing: 'ease-out', fill: 'backwards' },
-  );
-  if (!show) fade.onfinish = () => { el.hidden = true; };
 }
 
 // ---------------------------------------------------------------------------
@@ -3840,7 +3414,7 @@ function startRevealBeat(a, b, showLabel = true) {
 function showRevealSheet(animate) {
   clearTimeout(sheetTimer);
   sheetTimer = 0;
-  if (gameMode !== 'reveal') return;
+  if (state.gameMode !== 'reveal') return;
   const sheet = gameEls.reveal;
   sheet.getAnimations().forEach((a) => a.cancel());
   sheet.hidden = false;
@@ -3888,8 +3462,8 @@ function collapseRoundHeader(fromHeight) {
 // (and most of the expanded sheet) never sits on a pin.
 function revealStrip() {
   const top = gameEls.header.getBoundingClientRect().top || 14;
-  const safeTop = Math.min(viewH * 0.36, top + REVEAL_HEADER_H + 40);
-  const safeBottom = Math.max(safeTop + 120, Math.min(viewH * 0.6, viewH - SHEET_PEEK_H - 24));
+  const safeTop = Math.min(state.viewH * 0.36, top + REVEAL_HEADER_H + 40);
+  const safeBottom = Math.max(safeTop + 120, Math.min(state.viewH * 0.6, state.viewH - SHEET_PEEK_H - 24));
   return { safeTop, safeBottom };
 }
 
@@ -3915,7 +3489,7 @@ function projectToScreen(local, out) {
   _labelW.copy(local).applyQuaternion(globe.quaternion);
   const facing = _labelW.dot(camera.position) > _labelW.lengthSq() + 0.02; // in front of the limb
   out.copy(_labelW).project(camera);
-  return { x: ((out.x + 1) / 2) * viewW, y: ((1 - out.y) / 2) * viewH, facing };
+  return { x: ((out.x + 1) / 2) * state.viewW, y: ((1 - out.y) / 2) * state.viewH, facing };
 }
 
 // The lowest screen y the label may reach: the top of the reveal sheet (live,
@@ -3923,7 +3497,7 @@ function projectToScreen(local, out) {
 // when it is out over the label's column (padded for its tilt and pop lift).
 function lineLabelFloor(x, w) {
   const gap = 8;
-  let floor = viewH - gap;
+  let floor = state.viewH - gap;
   if (!gameEls.reveal.hidden) floor = Math.min(floor, gameEls.reveal.getBoundingClientRect().top - gap);
   const run = postcardRun;
   if (!postcard.hidden && run && run.y != null && x < run.x + POSTCARD_W + 12 && x + w > run.x - 12) {
@@ -3938,7 +3512,7 @@ function updateLineLabel() {
   if (!lineLabel) return;
   const el = gameEls.lineDistance;
   const m = projectToScreen(lineLabel.mid, _labelS);
-  const onScreen = m.facing && m.x > 0 && m.x < viewW && m.y > 0 && m.y < viewH;
+  const onScreen = m.facing && m.x > 0 && m.x < state.viewW && m.y > 0 && m.y < state.viewH;
   if (!onScreen) {
     el.hidden = true;
     return;
@@ -3960,7 +3534,7 @@ function updateLineLabel() {
   }
   const w = el.offsetWidth || 80;
   const h = el.offsetHeight || 26;
-  const x = clamp(m.x + ox - w / 2, 8, viewW - w - 8);
+  const x = clamp(m.x + ox - w / 2, 8, state.viewW - w - 8);
   let y = m.y + oy - 14;
   // Never let the sheet or the held postcard cover the distance: rise above them.
   const floor = lineLabelFloor(x, w);
@@ -4016,10 +3590,8 @@ function travelView(point) {
 
 function followTravelPoint(point, lambda = 12) {
   const view = travelView(point);
-  revealView = { yaw: nearAngle(view.yaw, yaw), pitch: view.pitch, lambda };
+  state.revealView = { yaw: nearAngle(view.yaw, state.yaw), pitch: view.pitch, lambda };
 }
-
-const smoothstep = (t) => t * t * (3 - 2 * t);
 
 // Trapezoidal velocity: ease in over the first and out over the last
 // TRAVEL_RAMP of the leg, constant cruise between. The old linear progress
@@ -4173,7 +3745,7 @@ function travelPinScale(pin, base) {
   const w = travelAnimation ? travelAnimation.pinBlend : 0;
   if (!(w > 0) || !pin.root.visible) return base;
   _pinW.set(0, 1, 0).applyQuaternion(pin.root.quaternion).applyQuaternion(globe.quaternion);
-  const close = clamp(camera.position.distanceTo(_pinW) / Math.max(fitDist - 1, 0.1), 0.01, 6);
+  const close = clamp(camera.position.distanceTo(_pinW) / Math.max(state.fitDist - 1, 0.1), 0.01, 6);
   return THREE.MathUtils.lerp(base, close, w);
 }
 
@@ -4225,15 +3797,15 @@ function startPullback(anim) {
   setCameraNear(0.05);
   setCameraFov(FOV);
   audio.whooshStop();
-  anim.pullbackDist = dist;
-  anim.pullbackFrom = { yaw, pitch };
+  anim.pullbackDist = state.dist;
+  anim.pullbackFrom = { yaw: state.yaw, pitch: state.pitch };
   frameRevealPoints(anim.a, anim.b);
   // Settle on the load-time tilt (north up, 20 deg toward the viewer) rather
   // than whatever pitch centred the route; the existing yaw/pitch ease below
   // carries the globe there during the pullback, so there is no extra turn.
-  anim.pullbackTo = homeRevealView(anim.a, anim.b, revealView);
-  targetDist = anim.pullbackTo.dist;
-  anim.finalDist = targetDist;
+  anim.pullbackTo = homeRevealView(anim.a, anim.b, state.revealView);
+  state.targetDist = anim.pullbackTo.dist;
+  anim.finalDist = state.targetDist;
   // Hand the distance over from the flight pill to the label riding the
   // route; the sheet follows once the map has had its beat.
   if (!gameEls.travelDistance.hidden) fadeElement(gameEls.travelDistance, false, 200);
@@ -4244,22 +3816,22 @@ function startPullback(anim) {
 function updatePullback(anim, pullbackDuration = 1.0) {
   const since = anim.elapsed - anim.pullbackAt;
   const pullbackT = smoothstep(clamp(since / pullbackDuration, 0, 1));
-  targetDist = anim.pullbackDist + (anim.finalDist - anim.pullbackDist) * pullbackT;
+  state.targetDist = anim.pullbackDist + (anim.finalDist - anim.pullbackDist) * pullbackT;
   anim.pinBlend = Math.min(anim.pinBlend, 1 - pullbackT);
   // Ease the view across instead of retargeting the damper in one step, which
   // started the globe turning at full speed (a visible kick on long routes).
   // A touch during the pullback hands the view to the player.
   if (pointers.size > 0) anim.viewFree = true;
   if (!anim.viewFree) {
-    revealView = {
+    state.revealView = {
       yaw: THREE.MathUtils.lerp(anim.pullbackFrom.yaw, anim.pullbackTo.yaw, pullbackT),
       pitch: THREE.MathUtils.lerp(anim.pullbackFrom.pitch, anim.pullbackTo.pitch, pullbackT),
       lambda: 14,
     };
   }
   if (since >= pullbackDuration) {
-    targetDist = anim.finalDist;
-    if (!anim.viewFree) revealView = anim.pullbackTo;
+    state.targetDist = anim.finalDist;
+    if (!anim.viewFree) state.revealView = anim.pullbackTo;
     travelAnimation = null;
   }
 }
@@ -4275,7 +3847,7 @@ function updateBullseyeAnimation(anim, dt) {
   }
   // Snap: a fast damper straight down onto the answer, a quick rising zip.
   followTravelPoint(anim.b, 14);
-  if (!anim.landed) targetDist = Math.max(SCENE_MIN_DIST, 1.42);
+  if (!anim.landed) state.targetDist = Math.max(SCENE_MIN_DIST, 1.42);
   const zip = clamp((anim.elapsed - zoomStart) / 0.45, 0, 1);
   audio.whooshSet(Math.sin(Math.PI * zip) * 0.8, 0.3 + 0.7 * zip);
   if (zip >= 1) audio.whooshStop();
@@ -4295,7 +3867,7 @@ function updateBullseyeAnimation(anim, dt) {
     // Stamp the empty map above the pins: the postcard pops into the band
     // below them at the same moment and would bury it there.
     const v = anim.b.clone().multiplyScalar(1.02).applyQuaternion(globe.quaternion).project(camera);
-    const pinY = ((1 - v.y) / 2) * viewH;
+    const pinY = ((1 - v.y) / 2) * state.viewH;
     const headerBottom = gameEls.header.getBoundingClientRect().bottom || 60;
     bullseyeStamp.style.top = `${Math.max(headerBottom + 80, pinY - 140)}px`;
     setAccuracyStamp(anim.tier);
@@ -4311,7 +3883,7 @@ function updateBullseyeAnimation(anim, dt) {
   // Drop into slow motion on impact and ease back to full speed.
   timeScale = since < slowFor ? 0.3 : THREE.MathUtils.lerp(0.3, 1, smoothstep(clamp((since - slowFor) / 0.4, 0, 1)));
   // A slow push-in while time is stretched.
-  targetDist = Math.max(SCENE_MIN_DIST, 1.42 - 0.05 * smoothstep(clamp(since / slowFor, 0, 1)));
+  state.targetDist = Math.max(SCENE_MIN_DIST, 1.42 - 0.05 * smoothstep(clamp(since / slowFor, 0, 1)));
   anim.wave += (dt * timeScale) / 0.9;
   shockwaveMat.uniforms.uP.value = Math.min(anim.wave, 1);
   shockwaveMat.uniforms.uRadius.value = 0.3 * anim.pinScale;
@@ -4354,7 +3926,7 @@ function updateTravelAnimation(dt, pinScale) {
   if (anim.elapsed < flyStart) {
     const diveT = smoothstep(clamp((anim.elapsed - diveStart) / diveDuration, 0, 1));
     followTravelPoint(anim.a, 10);
-    targetDist = anim.startDist + (flyDist - anim.startDist) * diveT;
+    state.targetDist = anim.startDist + (flyDist - anim.startDist) * diveT;
     anim.pinBlend = diveT;
     placeTravelCamera(anim, 0, diveT);
     audio.whooshStart();
@@ -4382,17 +3954,17 @@ function updateTravelAnimation(dt, pinScale) {
     if (!anim.flightViews) {
       const from = travelView(anim.a);
       const to = travelView(anim.b);
-      from.yaw = nearAngle(from.yaw, yaw);
+      from.yaw = nearAngle(from.yaw, state.yaw);
       to.yaw = nearAngle(to.yaw, from.yaw);
       anim.flightViews = { from, to };
     }
     const { from, to } = anim.flightViews;
-    revealView = {
+    state.revealView = {
       yaw: THREE.MathUtils.lerp(from.yaw, to.yaw, travelT),
       pitch: THREE.MathUtils.lerp(from.pitch, to.pitch, travelT),
       lambda: 10,
     };
-    targetDist = flyDist;
+    state.targetDist = flyDist;
     anim.pinBlend = 1;
     // Whoosh: volume follows the progress velocity (relative to cruise), pitch
     // the real ground speed, so a blowout screams and a near miss sighs.
@@ -4431,7 +4003,7 @@ function updateTravelAnimation(dt, pinScale) {
   if (anim.elapsed < pullbackStart) {
     const arriveT = smoothstep(clamp((anim.elapsed - arriveStart) / arriveBlend, 0, 1));
     followTravelPoint(anim.b, 10);
-    targetDist = flyDist + (arriveDist - flyDist) * arriveT;
+    state.targetDist = flyDist + (arriveDist - flyDist) * arriveT;
     placeTravelCamera(anim, 1, 1 - arriveT);
     // Shrink the head into the landing pin instead of blinking it out.
     const shrink = 1 - clamp((anim.elapsed - arriveStart) / 0.18, 0, 1);
@@ -4451,20 +4023,20 @@ function updateTravelAnimation(dt, pinScale) {
 function safeStrip(headerEl, cardEl) {
   const header = headerEl.getBoundingClientRect();
   const card = cardEl.getBoundingClientRect();
-  const safeTop = Math.min(viewH * 0.42, header.bottom + 18);
+  const safeTop = Math.min(state.viewH * 0.42, header.bottom + 18);
   return { safeTop, safeBottom: Math.max(safeTop + 80, card.top - 18) };
 }
 
 function frameRevealPoints(a, b, strip = revealStrip()) {
   const { safeTop, safeBottom } = strip;
   const safeY = (safeTop + safeBottom) / 2;
-  const safeRadius = Math.max(40, Math.min(viewW / 2 - 28, safeY - safeTop, safeBottom - safeY));
+  const safeRadius = Math.max(40, Math.min(state.viewW / 2 - 28, safeY - safeTop, safeBottom - safeY));
   const separation = a.angleTo(b);
   const halfAngle = Math.min(84 * DEG, separation / 2 + 4 * DEG);
-  const screenSlope = (safeRadius / (viewH / 2)) * Math.tan((FOV / 2) * DEG);
+  const screenSlope = (safeRadius / (state.viewH / 2)) * Math.tan((FOV / 2) * DEG);
   const screenFit = Math.cos(halfAngle) + Math.sin(halfAngle) / Math.max(screenSlope, 0.02);
   const horizonFit = halfAngle < Math.PI / 2 ? 1 / Math.max(Math.cos(halfAngle), 0.04) : 14;
-  targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
+  state.targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
 
   // Slerp's halfway point is simply the normalized vector sum, except for the
   // vanishingly rare antipodal case where a stable perpendicular is used.
@@ -4474,21 +4046,21 @@ function frameRevealPoints(a, b, strip = revealStrip()) {
 
   // Aim that midpoint at the safe area's vertical centre rather than beneath
   // the result card. This is the same two-axis solve used by globe dragging.
-  const ndcY = 1 - (safeY / viewH) * 2;
+  const ndcY = 1 - (safeY / state.viewH) * 2;
   const rayDir = new THREE.Vector3(0, ndcY * Math.tan((FOV / 2) * DEG), -1).normalize();
-  const ray = new THREE.Ray(new THREE.Vector3(0, 0, targetDist), rayDir);
+  const ray = new THREE.Ray(new THREE.Vector3(0, 0, state.targetDist), rayDir);
   const target = ray.intersectSphere(_unitSphere, new THREE.Vector3()) || new THREE.Vector3(0, 0, 1);
   const R = Math.hypot(target.y, target.z);
   const alpha = Math.atan2(target.z, target.y);
   const spread = Math.acos(clamp(midpoint.y / Math.max(R, 1e-6), -1, 1));
-  const candidates = [alpha + spread, alpha - spread].map((p) => clamp(nearAngle(p, pitch), -PITCH_LIMIT, PITCH_LIMIT));
-  const targetPitch = candidates.reduce((best, p) => Math.abs(p - pitch) < Math.abs(best - pitch) ? p : best);
+  const candidates = [alpha + spread, alpha - spread].map((p) => clamp(nearAngle(p, state.pitch), -PITCH_LIMIT, PITCH_LIMIT));
+  const targetPitch = candidates.reduce((best, p) => Math.abs(p - state.pitch) < Math.abs(best - state.pitch) ? p : best);
   const cp = Math.cos(targetPitch), sp = Math.sin(targetPitch);
   const mx = target.x;
   const mz = -target.y * sp + target.z * cp;
-  const targetYaw = nearAngle(Math.atan2(mx, mz) - Math.atan2(midpoint.x, midpoint.z), yaw);
-  revealView = { yaw: targetYaw, pitch: targetPitch };
-  vYaw = vPitch = autoSpin = 0;
+  const targetYaw = nearAngle(Math.atan2(mx, mz) - Math.atan2(midpoint.x, midpoint.z), state.yaw);
+  state.revealView = { yaw: targetYaw, pitch: targetPitch };
+  state.vYaw = state.vPitch = state.autoSpin = 0;
 }
 
 // North-up reveals preserve the player's pitch and rotate only around the
@@ -4496,20 +4068,20 @@ function frameRevealPoints(a, b, strip = revealStrip()) {
 function frameNorthUpRevealPoints(a, b, strip = revealStrip()) {
   const { safeTop, safeBottom } = strip;
   const safeY = (safeTop + safeBottom) / 2;
-  const safeRadius = Math.max(40, Math.min(viewW / 2 - 28, safeY - safeTop, safeBottom - safeY));
+  const safeRadius = Math.max(40, Math.min(state.viewW / 2 - 28, safeY - safeTop, safeBottom - safeY));
   const separation = a.angleTo(b);
   const halfAngle = Math.min(84 * DEG, separation / 2 + 4 * DEG);
-  const screenSlope = (safeRadius / (viewH / 2)) * Math.tan((FOV / 2) * DEG);
+  const screenSlope = (safeRadius / (state.viewH / 2)) * Math.tan((FOV / 2) * DEG);
   const screenFit = Math.cos(halfAngle) + Math.sin(halfAngle) / Math.max(screenSlope, 0.02);
   const horizonFit = halfAngle < Math.PI / 2 ? 1 / Math.max(Math.cos(halfAngle), 0.04) : 14;
-  targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
+  state.targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
 
   const midpoint = a.clone().add(b);
   if (midpoint.lengthSq() < 1e-8) midpoint.copy(a).cross(_UP);
   midpoint.normalize();
-  const targetYaw = nearAngle(Math.atan2(-midpoint.x, midpoint.z), yaw);
-  revealView = { yaw: targetYaw, pitch };
-  vYaw = vPitch = autoSpin = 0;
+  const targetYaw = nearAngle(Math.atan2(-midpoint.x, midpoint.z), state.yaw);
+  state.revealView = { yaw: targetYaw, pitch: state.pitch };
+  state.vYaw = state.vPitch = state.autoSpin = 0;
 }
 
 // The view frameRevealPoints picked, re-solved at the load-time pitch: yaw
@@ -4519,7 +4091,7 @@ function frameNorthUpRevealPoints(a, b, strip = revealStrip()) {
 function homeRevealView(a, b, solved) {
   const { safeTop, safeBottom } = revealStrip();
   const tanV = Math.tan((FOV / 2) * DEG);
-  const aspect = viewW / viewH;
+  const aspect = state.viewW / state.viewH;
   const midpoint = a.clone().add(b);
   if (midpoint.lengthSq() < 1e-8) midpoint.copy(a).cross(_UP);
   midpoint.normalize();
@@ -4530,18 +4102,18 @@ function homeRevealView(a, b, solved) {
     p.copy(point).applyQuaternion(probe.quaternion);
     const depth = d - p.z;
     if ((d * p.z - 1) / Math.hypot(p.x, p.y, depth) < 0.25) return false; // near or past the limb
-    const sx = (0.5 + p.x / (depth * tanV * aspect) / 2) * viewW;
-    const sy = (0.5 - p.y / (depth * tanV) / 2) * viewH;
-    return sx > 28 && sx < viewW - 28 && sy > safeTop + 36 && sy < safeBottom - 10; // pin heads stand above the point
+    const sx = (0.5 + p.x / (depth * tanV * aspect) / 2) * state.viewW;
+    const sy = (0.5 - p.y / (depth * tanV) / 2) * state.viewH;
+    return sx > 28 && sx < state.viewW - 28 && sy > safeTop + 36 && sy < safeBottom - 10; // pin heads stand above the point
   });
   for (let k = 0; k <= 1; k += 0.25) {
     const tryPitch = THREE.MathUtils.lerp(HOME_PITCH, solved.pitch, k);
     setGlobeQuaternion(probe, y, tryPitch);
-    for (let d = targetDist; d <= Math.min(14, targetDist * 1.3); d *= 1.04) {
+    for (let d = state.targetDist; d <= Math.min(14, state.targetDist * 1.3); d *= 1.04) {
       if (fits(d)) return { yaw: y, pitch: tryPitch, dist: d };
     }
   }
-  return { ...solved, dist: targetDist };
+  return { ...solved, dist: state.targetDist };
 }
 
 // Compact earn toast: appears after the flyover completes, doesn't block the globe.
@@ -4586,7 +4158,7 @@ function postcardRoundOutcome(previousEarn, newlyEarned) {
 }
 
 function revealGuess(guess, restoring = false) {
-  if (gameMode !== 'guess' && !restoring) return;
+  if (state.gameMode !== 'guess' && !restoring) return;
   const answer = currentItem();
   const kmExact = distanceKm(guess, answer);
   // PvP shows the server's accepted distance and score; the local exact
@@ -4595,9 +4167,9 @@ function revealGuess(guess, restoring = false) {
   const km = pvpScored ? pvpScored.distanceKm : Math.round(kmExact);
   const base = pvpScored ? pvpScored.score : Math.round(distanceScore(kmExact));
   const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active; // outside the daily
-  const score = oneOff ? 0 : scoreGuess(kmExact, daily.round);
+  const score = oneOff ? 0 : scoreGuess(kmExact, state.daily.round);
   if (!restoring && survival.active) survivalRecordGuess(answer, km, kmExact);
-  gameMode = 'reveal';
+  state.gameMode = 'reveal';
   window.__canGuess = false;
   const headerFrom = gameEls.header.offsetHeight;
   document.body.className = pvp.active ? 'game-reveal pvp'
@@ -4609,14 +4181,14 @@ function revealGuess(guess, restoring = false) {
   gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : formatKm(km);
   // Capture the passport state before this guess changes it. The reveal starts
   // with the thumbnail the player already had, then a new unlock can land in it.
-  const wasVisited = Object.hasOwn(passport.visits, answer.id);
-  const previousEarn = passport.meta[answer.id]?.e || 0;
+  const wasVisited = Object.hasOwn(state.passport.visits, answer.id);
+  const previousEarn = state.passport.meta[answer.id]?.e || 0;
   // Endless and PvP earn visits only; postcards come from daily and survival.
   // PvP records each accepted round once (pvp.recordVisit), never on a replay.
   const record = pvp.active ? pvp.recordVisit : !restoring;
   const newlyEarned = record ? recordVisit(answer.id, base, pvpScored ? pvpScored.distanceKm : kmExact, !endless.active && !pvp.active) : 0; // exact, so earning matches the flyover tier
   if (!restoring && !oneOff) {
-    daily.results[daily.round] = {
+    state.daily.results[state.daily.round] = {
       guess,
       distance: km,
       score,
@@ -4631,7 +4203,7 @@ function revealGuess(guess, restoring = false) {
     if (postcard.kind !== 'miss') runHaul.push({ result: { distance: km, distanceExact: kmExact, postcard }, item: answer });
   }
   if (!restoring && expeditionRun.active) completeExpeditionRound();
-  const weight = oneOff ? 1 : WEIGHTS[daily.round];
+  const weight = oneOff ? 1 : WEIGHTS[state.daily.round];
   gameEls.baseScore.textContent = base;
   gameEls.mult.textContent = `×${weight.toFixed(1)}`;
   gameEls.mult.style.display = oneOff ? 'none' : '';
@@ -4658,7 +4230,7 @@ function revealGuess(guess, restoring = false) {
     // Endless is unscored: no pill, and the peek bar shows just the distance.
     gameEls.score.textContent = endless.active ? '' : `+${score}`;
     pill.textContent = endless.active ? '' : `+${score}`;
-    gameEls.next.textContent = endless.active ? 'Next' : daily.round === 4 ? 'Results' : 'Next';
+    gameEls.next.textContent = endless.active ? 'Next' : state.daily.round === 4 ? 'Results' : 'Next';
   }
   if (!restoring && headerFrom > REVEAL_HEADER_H) collapseRoundHeader(headerFrom);
   const tier = flyoverTier(kmExact);
@@ -4680,9 +4252,9 @@ function revealGuess(guess, restoring = false) {
     revealThumbCurrent();
     let a;
     let b;
-    if (revealViewPreference === 'north-up') {
+    if (state.revealViewPreference === 'north-up') {
       ({ a, b } = buildAnswerPath(guess, answer));
-      if (activePin >= 0) pins[activePin].drop(a);
+      if (state.activePin >= 0) pins[state.activePin].drop(a);
       correctPin.drop(b);
       answerLine.visible = true;
       frameNorthUpRevealPoints(a, b);
@@ -4697,13 +4269,6 @@ function revealGuess(guess, restoring = false) {
       showRevealSheet(false);
     } else startRevealBeat(a, b, tier !== 'bullseye');
   }
-}
-
-// Drop the old src when there's no image, so a previous round's photo can't linger.
-function setThumb(img, url) {
-  if (url) img.src = url;
-  else img.removeAttribute('src');
-  img.hidden = !url;
 }
 
 // Centralized thumbnail state update: applies earn tier and grayscale in one place.
@@ -4729,13 +4294,13 @@ function getThumbEarn(item) {
   if (!item) return 0;
   // Endless never earns postcards (visits only, by design)
   if (endless.active) return 0;
-  return passport.meta[item.id]?.e || 0;
+  return state.passport.meta[item.id]?.e || 0;
 }
 
 function revealThumbCurrent() {
   const item = currentItem();
   const earned = getThumbEarn(item);
-  const visited = Object.hasOwn(passport.visits, item.id);
+  const visited = Object.hasOwn(state.passport.visits, item.id);
   peekSlot.classList.remove('mystery');
   for (const thumb of [gameEls.thumb, gameEls.peekThumb]) {
     applyThumbState(thumb, item, earned, visited);
@@ -4749,21 +4314,6 @@ function scoreEmoji(base) {
   if (base >= 400) return '🙂';
   if (base >= 1) return '😅';
   return '🥶';
-}
-
-const COUNTRY_FLAGS = {
-  Scotland: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}',
-  England: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}',
-  'Northern Ireland': '🇬🇧',
-  Wales: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}',
-  'International Waters': '🌊', Uruguay: '🇺🇾', 'United States': '🇺🇸',
-  Suriname: '🇸🇷', Botswana: '🇧🇼', Guyana: '🇬🇾', Ukraine: '🇺🇦',
-  Comoros: '🇰🇲', Niue: '🇳🇺', 'Cape Verde': '🇨🇻', Latvia: '🇱🇻',
-  'Vatican City': '🇻🇦', Lesotho: '🇱🇸', Brunei: '🇧🇳',
-};
-
-function flagForLocation(item) {
-  return item.clue?.match(/\p{Regional_Indicator}{2}/u)?.[0] || COUNTRY_FLAGS[item.country] || '🌍';
 }
 
 function postcardDistance(result, outcome) {
@@ -4816,32 +4366,10 @@ function postcardSummaryCard(result, item) {
   return card;
 }
 
-const SHARE_URL = 'https://where-on.earth';
-const SHARE_HASHTAG = '#WhereOnEarth';
-
-function closestGuessLines(results, items) {
-  return results
-    .map((result, index) => ({ result, item: items[index] }))
-    .filter(({ result, item }) => item && Number.isFinite(result.distance))
-    .sort((a, b) => a.result.distance - b.result.distance)
-    .slice(0, 3)
-    .map(({ result, item }) => `${item.short || item.clue}: ${result.distance.toLocaleString()} km`);
-}
-
-function formatGameShare({ title, titleSep = ' — ', headline, streak, streakLabel = 'Best streak', guesses = [], visited, missed }) {
-  const lines = [`Where on Earth?${titleSep}${title}`, headline];
-  if (streak != null) lines.push(`${streakLabel}: ${streak.toLocaleString()}`);
-  if (guesses.length) lines.push('', ...guesses);
-  if (visited != null) lines.push('', `${visited.toLocaleString()} places visited`);
-  if (missed) lines.push(`Missed: ${missed}`);
-  lines.push('', `${SHARE_URL} ${SHARE_HASHTAG}`);
-  return lines.join('\n');
-}
-
 function shareText() {
-  const dateStr = new Date(`${daily.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-  const total = daily.results.reduce((sum, result) => sum + result.score, 0);
-  const lines = daily.results.map((result, index) => {
+  const dateStr = new Date(`${state.daily.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
+  const lines = state.daily.results.map((result, index) => {
     const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
     return `${base} ${scoreEmoji(base)}`;
   });
@@ -4849,8 +4377,8 @@ function shareText() {
 }
 
 function postcardSummaryOutcomes() {
-  return daily.results
-    .map((result, index) => ({ result, item: selected[index] }))
+  return state.daily.results
+    .map((result, index) => ({ result, item: state.selected[index] }))
     .filter(({ result }) => ['new', 'upgrade'].includes(result.postcard?.kind));
 }
 
@@ -4878,7 +4406,7 @@ function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next = showRe
   gameEls.postcardSummaryContinue.textContent = nextLabel;
   clearReveal();
   hideScreens();
-  gameMode = 'postcard-summary';
+  state.gameMode = 'postcard-summary';
   window.__canGuess = false;
   gameEls.postcardSummaryScreen.hidden = false;
   document.body.classList.add('game-results');
@@ -4902,18 +4430,18 @@ function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next = showRe
 function showResults() {
   clearReveal();
   hideScreens();
-  gameMode = 'results';
+  state.gameMode = 'results';
   window.__canGuess = false;
   gameEls.results.hidden = false;
   document.body.classList.add('game-results');
-  daily.complete = true;
+  state.daily.complete = true;
   saveDaily();
   const streak = finishStreak();
   recordHistory();
-  const total = daily.results.reduce((sum, result) => sum + result.score, 0);
+  const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
   gameEls.resultStreak.textContent = `🔥 ${streak} day streak`;
-  gameEls.resultsBreakdown.replaceChildren(...daily.results.map((result, i) => {
+  gameEls.resultsBreakdown.replaceChildren(...state.daily.results.map((result, i) => {
     const round = document.createElement('li');
     const number = document.createElement('b');
     const place = document.createElement('span');
@@ -4921,7 +4449,7 @@ function showResults() {
     const points = document.createElement('span');
     const distance = document.createElement('span');
 
-    const item = selected[i];
+    const item = state.selected[i];
     const city = item?.short || item?.clue || 'Unknown location';
     const country = item?.country || '';
     const flag = item ? flagForLocation(item) : '🌍';
@@ -4944,7 +4472,7 @@ function showResults() {
 }
 
 function syncDailyButton() {
-  const played = daily && daily.complete && daily.date === localDateKey();
+  const played = state.daily && state.daily.complete && state.daily.date === localDateKey();
   gameEls.play.querySelector('.mode-desc').textContent = played ? '✓ See results' : '5 places daily';
   gameEls.play.classList.toggle('played', Boolean(played));
 }
@@ -4954,16 +4482,16 @@ function startGame() {
   expeditionRun.active = false;
   survival.active = false;
   endless.active = false;
-  if (daily.date !== localDateKey()) loadDaily(); // page left open past midnight
-  if (daily.complete && daily.results.length === 5) showResults();
-  else if (daily.results[daily.round]) {
+  if (state.daily.date !== localDateKey()) loadDaily(); // page left open past midnight
+  if (state.daily.complete && state.daily.results.length === 5) showResults();
+  else if (state.daily.results[state.daily.round]) {
     showRound();
-    revealGuess(daily.results[daily.round].guess, true);
+    revealGuess(state.daily.results[state.daily.round].guess, true);
   } else showRound();
 }
 
 function nextRound() {
-  if (gameMode !== 'reveal') return;
+  if (state.gameMode !== 'reveal') return;
   // Clear any pending earn toast from the previous round; if the user moved on
   // before the flyover finished, the toast should not appear in the new round.
   window.__pendingEarn = null;
@@ -4973,9 +4501,9 @@ function nextRound() {
   else if (expeditionRun.active) expeditionNext();
   else if (pvp.active) pvpNext();
   else if (endless.active) endlessNext();
-  else if (daily.round >= 4) showPostcardSummary();
+  else if (state.daily.round >= 4) showPostcardSummary();
   else {
-    daily.round += 1;
+    state.daily.round += 1;
     saveDaily();
     showRound();
   }
@@ -5035,7 +4563,7 @@ function openNewDaily() {
   loadDaily();
   clearReveal();
   hideScreens();
-  gameMode = 'start';
+  state.gameMode = 'start';
   gameEls.start.hidden = false;
   gameEls.startStreak.textContent = streakText();
   syncPassport();
@@ -5048,15 +4576,15 @@ function tickCountdown() {
   const today = localDateKey();
   const rolled = today !== countdownDay;
   countdownDay = today;
-  if (!daily) return;
+  if (!state.daily) return;
   // Midnight passed while idle on a finished or not-yet-started daily: refresh.
   // Mid-round and endless play are left alone; startGame() catches up later.
-  if (rolled && !endless.active && ['start', 'results', 'review'].includes(gameMode)) {
+  if (rolled && !endless.active && ['start', 'results', 'review'].includes(state.gameMode)) {
     openNewDaily();
     return;
   }
   // Finished yesterday's game after midnight: today's is already waiting.
-  const ready = daily.date !== today;
+  const ready = state.daily.date !== today;
   const time = ready ? 'New game ready' : formatCountdown(msToMidnight());
   nextGame.classList.toggle('ready', ready);
   nextGame.firstElementChild.hidden = ready;
@@ -5077,14 +4605,14 @@ nextGame.addEventListener('click', () => { if (nextGame.classList.contains('read
 // is reassigned, or declared further down this file.
 // ---------------------------------------------------------------------------
 const modeHost = {
-  get gameMode() { return gameMode; },
-  set gameMode(value) { gameMode = value; },
-  get locations() { return locations; },
+  get gameMode() { return state.gameMode; },
+  set gameMode(value) { state.gameMode = value; },
+  get locations() { return state.locations; },
   get countryData() { return countryData; },
   get countryBands() { return countryBands; },
   get countryIndex() { return countryIndex; },
   get CONTINENT_ORDER() { return CONTINENT_ORDER; },
-  get activePin() { return activePin; },
+  get activePin() { return state.activePin; },
   get blackoutEntry() { return blackoutEntry; },
   COUNTRY_FLAGS,
   ISLAND_BLOB_TEXELS,
@@ -5155,7 +4683,7 @@ const pvp = { active: false, matchId: null, challengeId: null, group: false, rou
 function currentItem() {
   if (borders.active) return null; // Borders asks for a country, not a location
   if (pvp.active) return pvp.item;
-  return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : selected[daily.round];
+  return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : state.selected[state.daily.round];
 }
 
 function goHome() {
@@ -5170,94 +4698,26 @@ function goHome() {
   document.querySelector('.earn-toast')?.remove();
   clearReveal();
   hideScreens();
-  gameMode = 'start';
+  state.gameMode = 'start';
   gameEls.start.hidden = false;
   document.body.className = 'game-start';
   window.__canGuess = false;
-  targetDist = 3;
+  state.targetDist = 3;
   syncPassport();
   syncDailyButton();
 }
 
-function createHomeButton() {
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'home-nav-btn';
-  button.setAttribute('aria-label', 'Go home');
-  button.textContent = '×';
-  // Click handled by document-level delegation above
-  return button;
-}
-
-let confirmModal;
-let confirmModalResolve;
-let confirmModalReturnFocus;
-
-function showConfirmModal({ title, message, confirmLabel, cancelLabel }) {
-  if (!confirmModal) {
-    confirmModal = document.createElement('section');
-    confirmModal.className = 'confirm-modal';
-    confirmModal.hidden = true;
-    confirmModal.innerHTML = `
-      <div class="confirm-modal__card glass" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title" aria-describedby="confirm-modal-message">
-        <h2 class="confirm-modal__title" id="confirm-modal-title"></h2>
-        <p class="confirm-modal__message" id="confirm-modal-message"></p>
-        <div class="confirm-modal__actions">
-          <button class="confirm-modal__cancel" type="button"></button>
-          <button class="confirm-modal__confirm" type="button"></button>
-        </div>
-      </div>`;
-    document.getElementById('game').appendChild(confirmModal);
-
-    confirmModal.addEventListener('click', (event) => {
-      if (event.target === confirmModal) closeConfirmModal(false);
-    });
-    confirmModal.querySelector('.confirm-modal__cancel').addEventListener('click', () => closeConfirmModal(false));
-    confirmModal.querySelector('.confirm-modal__confirm').addEventListener('click', () => closeConfirmModal(true));
-  }
-
-  // A single shared dialog prevents competing confirmation layers.
-  if (!confirmModal.hidden) return Promise.resolve(false);
-
-  confirmModal.querySelector('.confirm-modal__title').textContent = title;
-  confirmModal.querySelector('.confirm-modal__message').textContent = message;
-  confirmModal.querySelector('.confirm-modal__confirm').textContent = confirmLabel;
-  confirmModal.querySelector('.confirm-modal__cancel').textContent = cancelLabel;
-  confirmModalReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-  confirmModal.hidden = false;
-  confirmModal.querySelector('.confirm-modal__cancel').focus();
-
-  return new Promise((resolve) => {
-    confirmModalResolve = resolve;
-  });
-}
-
-function closeConfirmModal(confirmed) {
-  if (!confirmModal || confirmModal.hidden) return;
-  confirmModal.hidden = true;
-  const resolve = confirmModalResolve;
-  confirmModalResolve = null;
-  resolve?.(confirmed);
-  confirmModalReturnFocus?.focus();
-  confirmModalReturnFocus = null;
-}
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && confirmModal && !confirmModal.hidden) {
-    event.preventDefault();
-    closeConfirmModal(false);
-  }
-});
+initConfirmModal();
 
 async function confirmGoHome() {
   // Don't confirm if no game is in progress
-  if (gameMode === 'start') {
+  if (state.gameMode === 'start') {
     goHome();
     return;
   }
   // PvP: the server clock keeps running in a live round; a reveal is saved.
   if (pvp.active) {
-    if (gameMode !== 'guess' || await showConfirmModal({
+    if (state.gameMode !== 'guess' || await showConfirmModal({
       title: 'Leave this round?',
       message: 'The 20 second timer keeps running. A round you do not lock in scores 0.',
       confirmLabel: 'Leave round',
@@ -5266,7 +4726,7 @@ async function confirmGoHome() {
     return;
   }
   // Don't confirm if game is complete (on results page); nothing to lose
-  if (daily.complete || (typeof endless !== 'undefined' && endless.complete)) {
+  if (state.daily.complete || (typeof endless !== 'undefined' && endless.complete)) {
     goHome();
     return;
   }
@@ -5379,7 +4839,7 @@ document.head.appendChild(reviewStyle);
 const resultScore = gameEls.total.closest('.result-score');
 const resultsTitle = document.createElement('p');
 resultsTitle.className = 'results-title';
-resultsTitle.textContent = daily ? "TODAY'S RESULT" : 'SCORE';
+resultsTitle.textContent = state.daily ? "TODAY'S RESULT" : 'SCORE';
 resultScore.firstChild.textContent = '';
 resultScore.before(resultsTitle);
 
@@ -5435,21 +4895,21 @@ const reviewRounds = Array.from({ length: 5 }, (_, i) => {
     opacity: 0.75,
     depthWrite: false, // depth-tested (unlike the reveal line) so far-side routes hide behind the globe
   });
-  material.resolution.set(viewW, viewH);
+  material.resolution.set(state.viewW, state.viewH);
   const line = new LineSegments2(new LineGeometry(), material);
   line.visible = false;
   line.renderOrder = 6;
   globe.add(guess.root, answer.root, line);
   return { guess, answer, line, points: [], dim: 1 };
 });
-window.addEventListener('resize', () => reviewRounds.forEach((r) => r.line.material.resolution.set(viewW, viewH)));
+window.addEventListener('resize', () => reviewRounds.forEach((r) => r.line.material.resolution.set(state.viewW, state.viewH)));
 let reviewOpen = -1;
 
 function showReviewVisuals() {
   reviewRounds.forEach((r, i) => {
-    const result = daily.results[i];
+    const result = state.daily.results[i];
     const a = latLngToVec3(result.guess.lat, result.guess.lng);
-    const b = latLngToVec3(selected[i].lat, selected[i].lng);
+    const b = latLngToVec3(state.selected[i].lat, state.selected[i].lng);
     const angle = a.angleTo(b);
     const axis = routeAxis(a, b);
     const count = Math.max(16, Math.ceil(angle / DEG));
@@ -5488,19 +4948,19 @@ function setReviewDim(r, dim) {
 }
 
 function enterReview(focus = -1) {
-  if (daily.results.length !== 5) return;
+  if (state.daily.results.length !== 5) return;
   clearReveal();
   hideScreens();
-  gameMode = 'review';
+  state.gameMode = 'review';
   window.__canGuess = false;
   document.body.classList.add('game-review');
   reviewEls.screen.hidden = false;
   reviewEls.card.hidden = true;
-  const total = daily.results.reduce((sum, result) => sum + result.score, 0);
+  const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
   reviewEls.hint.textContent = `${total} pts · tap pins`;
   tickCountdown();
   showReviewVisuals();
-  vYaw = vPitch = autoSpin = 0;
+  state.vYaw = state.vPitch = state.autoSpin = 0;
   if (focus >= 0) {
     openRecap(focus);
     return;
@@ -5510,14 +4970,14 @@ function enterReview(focus = -1) {
   for (const r of reviewRounds) centre.add(r.a).add(r.b);
   if (centre.lengthSq() > 1e-4) {
     const view = travelView(centre);
-    revealView = { yaw: nearAngle(view.yaw, yaw), pitch: clamp(view.pitch, -60 * DEG, 60 * DEG) };
+    state.revealView = { yaw: nearAngle(view.yaw, state.yaw), pitch: clamp(view.pitch, -60 * DEG, 60 * DEG) };
   }
-  targetDist = clamp(fitDist * 1.05, MIN_DIST, maxDist);
+  state.targetDist = clamp(state.fitDist * 1.05, MIN_DIST, state.maxDist);
 }
 
 function openRecap(i) {
-  const result = daily.results[i];
-  const item = selected[i];
+  const result = state.daily.results[i];
+  const item = state.selected[i];
   const r = reviewRounds[i];
   reviewOpen = i;
   reviewEls.tag.textContent = `Round ${i + 1} of 5`;
@@ -5545,14 +5005,14 @@ function closeRecap() {
 const _rv = new THREE.Vector3();
 function reviewFacing(local) {
   _rv.copy(local).applyQuaternion(globe.quaternion);
-  return (_rv.z * dist - 1) / Math.hypot(_rv.x, _rv.y, dist - _rv.z);
+  return (_rv.z * state.dist - 1) / Math.hypot(_rv.x, _rv.y, state.dist - _rv.z);
 }
 
 function updateReview(dt, scale) {
   for (const r of reviewRounds) {
     for (const pin of [r.guess, r.answer]) {
       if (pin.state === 'idle') continue;
-      pin.update(dt, elapsed, scale * REVIEW_PIN_SCALE);
+      pin.update(dt, state.elapsed, scale * REVIEW_PIN_SCALE);
       if (pin.state === 'idle') continue;
       pin.badge.scale.multiplyScalar(1 / REVIEW_PIN_SCALE); // smaller pins, but numbers stay readable
       // badge sprites ignore depth, so fade them out as their pin rounds the limb
@@ -5566,7 +5026,7 @@ function updateReview(dt, scale) {
 const _rp = new THREE.Vector3();
 function screenOf(world) {
   _rp.copy(world).project(camera);
-  return [((_rp.x + 1) / 2) * viewW, ((1 - _rp.y) / 2) * viewH];
+  return [((_rp.x + 1) / 2) * state.viewW, ((1 - _rp.y) / 2) * state.viewH];
 }
 
 function segmentDist(px, py, [ax, ay], [bx, by]) {
@@ -5631,8 +5091,8 @@ const statsHost = {
   HISTORY_KEY,
   WEIGHTS,
   gameEls,
-  get daily() { return daily; },
-  set statsScreenEl(value) { statsScreenEl = value; },
+  get daily() { return state.daily; },
+  set statsScreenEl(value) { state.statsScreenEl = value; },
   readJSON,
   writeJSON,
   syncPassport,
@@ -5672,7 +5132,7 @@ settingsScreen.innerHTML = `
     </div>
   </div>`;
 document.getElementById('game').appendChild(settingsScreen);
-settingsScreenEl = settingsScreen;
+state.settingsScreenEl = settingsScreen;
 
 const settingsEls = {
   screen: settingsScreen,
@@ -5688,13 +5148,13 @@ const settingsEls = {
 
 function syncRevealViewSetting() {
   settingsEls.revealViews.forEach((button) => {
-    button.setAttribute('aria-pressed', String(button.dataset.revealView === revealViewPreference));
+    button.setAttribute('aria-pressed', String(button.dataset.revealView === state.revealViewPreference));
   });
 }
 
 settingsEls.revealViews.forEach((button) => button.addEventListener('click', () => {
-  revealViewPreference = button.dataset.revealView;
-  safeSetItem(REVEAL_VIEW_KEY, revealViewPreference);
+  state.revealViewPreference = button.dataset.revealView;
+  safeSetItem(REVEAL_VIEW_KEY, state.revealViewPreference);
   syncRevealViewSetting();
 }));
 syncRevealViewSetting();
@@ -5789,10 +5249,6 @@ function continentOf(item) {
 // only exists for visits logged after the Passport page shipped, older ones lack it.
 // e is the best flyover tier landed there. Stored best distances are also used to
 // migrate newly introduced tiers upward; an earned tier is never downgraded.
-const EARN_NEAR = 1; // < NEAR_KM: full-colour postcard
-const EARN_BULLSEYE = 2; // < BULLSEYE_KM: gold Bullseye badge
-const EARN_PINPOINT = 3; // < PINPOINT_KM: gold Pinpoint badge
-const EARN_NAMES = ['seen', 'near', 'bullseye', 'pinpoint'];
 const PROX_CLASSES = ['', 'prox-postcard', 'prox-bullseye', 'prox-pinpoint'];
 
 function earnForKm(km) {
@@ -5825,18 +5281,17 @@ function setProxBadge(host, earned, size = '') {
   el.innerHTML = `<i aria-hidden="true">${badge[0]}</i><b aria-hidden="true">${badge[1]}</b>`;
   if (!old) host.append(el);
 }
-let passport = { visits: {}, order: [], meta: {} };
 let passportDirty = true; // dots need rebuilding before the next start screen
 let locationIndex = null; // built lazily; locations arrive after this section runs
 
 function passportLocation(id) {
-  if (!locationIndex) locationIndex = new Map(locations.map((item) => [item.id, item]));
+  if (!locationIndex) locationIndex = new Map(state.locations.map((item) => [item.id, item]));
   return locationIndex.get(id);
 }
 
 // The one "have we been here" predicate (passport, dex grid and collections all
 // share it). Older visits recorded before passport.meta shipped still count.
-function isVisited(id) { return Object.hasOwn(passport.visits, id); }
+function isVisited(id) { return Object.hasOwn(state.passport.visits, id); }
 
 function tierOf(base) {
   if (base >= PASSPORT_GOLD) return 'gold';
@@ -5905,10 +5360,10 @@ function recordVisit(id, base, km, canEarn = true) {
   if (!id || !Number.isFinite(base)) return 0;
   const score = clamp(Math.round(base), 0, 1000);
   // Keep a visit logged before meta existed undated: its real first visit is unknown.
-  const legacy = id in passport.visits && !passport.meta[id];
-  const prev = passport.meta[id] || {};
+  const legacy = id in state.passport.visits && !state.passport.meta[id];
+  const prev = state.passport.meta[id] || {};
   const prevEarned = prev.e || 0;
-  const entry = { b: Math.max(score, prev.b ?? (legacy ? passport.visits[id] : 0)), t: Date.now() };
+  const entry = { b: Math.max(score, prev.b ?? (legacy ? state.passport.visits[id] : 0)), t: Date.now() };
   const kms = [km, prev.d].filter(Number.isFinite);
   if (kms.length) entry.d = Math.round(Math.min(...kms));
   if (prev.f || !legacy) entry.f = prev.f || localDateKey();
@@ -5924,13 +5379,13 @@ function recordVisit(id, base, km, canEarn = true) {
   else if (prev.eb2) entry.eb2 = prev.eb2;
   if (earned >= 3 && prevEarned < 3 && !prev.eb3) entry.eb3 = Date.now();
   else if (prev.eb3) entry.eb3 = prev.eb3;
-  passport.meta[id] = entry;
-  passport.visits[id] = score;
-  const at = passport.order.indexOf(id);
-  if (at !== -1) passport.order.splice(at, 1);
-  passport.order.push(id);
-  if (passport.order.length > PASSPORT_ORDER_LIMIT) passport.order = passport.order.slice(-PASSPORT_ORDER_LIMIT);
-  writeJSON(PASSPORT_KEY, { v: 2, visits: passport.visits, order: passport.order, meta: passport.meta });
+  state.passport.meta[id] = entry;
+  state.passport.visits[id] = score;
+  const at = state.passport.order.indexOf(id);
+  if (at !== -1) state.passport.order.splice(at, 1);
+  state.passport.order.push(id);
+  if (state.passport.order.length > PASSPORT_ORDER_LIMIT) state.passport.order = state.passport.order.slice(-PASSPORT_ORDER_LIMIT);
+  writeJSON(PASSPORT_KEY, { v: 2, visits: state.passport.visits, order: state.passport.order, meta: state.passport.meta });
   passportDirty = true;
   // Return newly earned tier (0 if not newly earned)
   return earned > prevEarned ? earned : 0;
@@ -5976,8 +5431,8 @@ window.__passportDots = passportDots; // test hook: the start-screen dot cloud
 
 const _dotVec = new THREE.Vector3();
 function buildPassportDots() {
-  const spots = passport.order
-    .map((id) => ({ item: passportLocation(id), base: passport.visits[id] }))
+  const spots = state.passport.order
+    .map((id) => ({ item: passportLocation(id), base: state.passport.visits[id] }))
     .filter((spot) => spot.item)
     .slice(-PASSPORT_DOT_LIMIT);
   const positions = new Float32Array(spots.length * 3);
@@ -6006,11 +5461,11 @@ const passportHost = {
   EARN_PINPOINT,
   EARN_NAMES,
   gameEls,
-  get locations() { return locations; },
-  get passport() { return passport; },
+  get locations() { return state.locations; },
+  get passport() { return state.passport; },
   get passportDirty() { return passportDirty; },
-  set passportScreenEl(value) { passportScreenEl = value; },
-  set collectionsScreenEl(value) { collectionsScreenEl = value; },
+  set passportScreenEl(value) { state.passportScreenEl = value; },
+  set collectionsScreenEl(value) { state.collectionsScreenEl = value; },
   applyCardTier,
   buildPassportDots,
   continentOf,
@@ -6060,10 +5515,10 @@ initExpeditions(modeHost);
 // (including the PvP timeout reveal below) stay here.
 // ---------------------------------------------------------------------------
 const pvpHost = {
-  get gameMode() { return gameMode; },
-  set gameMode(value) { gameMode = value; },
-  set pendingGuess(value) { pendingGuess = value; },
-  get locations() { return locations; },
+  get gameMode() { return state.gameMode; },
+  set gameMode(value) { state.gameMode = value; },
+  set pendingGuess(value) { state.pendingGuess = value; },
+  get locations() { return state.locations; },
   pvp,
   gameEls,
   pvpScreenEls,
@@ -6090,7 +5545,7 @@ initPvpPlay(pvpHost);
 
 // The server resolved the round as a timeout: the answer, no guess, zero.
 function pvpRevealTimeout(answer) {
-  gameMode = 'reveal';
+  state.gameMode = 'reveal';
   window.__canGuess = false;
   clearPendingGuess();
   const headerFrom = gameEls.header.offsetHeight;
@@ -6103,7 +5558,7 @@ function pvpRevealTimeout(answer) {
   setThumb(gameEls.thumb, answer.image);
   setThumb(gameEls.peekThumb, answer.image);
   peekSlot.hidden = !answer.image;
-  setRevealThumbState(answer, isVisited(answer.id), passport.meta[answer.id]?.e || 0);
+  setRevealThumbState(answer, isVisited(answer.id), state.passport.meta[answer.id]?.e || 0);
   gameEls.mult.style.display = 'none';
   gameEls.score.textContent = '0';
   gameEls.distance.textContent = 'Out of time';
@@ -6113,8 +5568,8 @@ function pvpRevealTimeout(answer) {
   gameEls.next.textContent = pvp.result || pvp.round >= 5 ? 'Results' : 'Next';
   pvpRenderVs();
   if (headerFrom > REVEAL_HEADER_H) collapseRoundHeader(headerFrom);
-  if (activePin >= 0) pins[activePin].release();
-  activePin = -1;
+  if (state.activePin >= 0) pins[state.activePin].release();
+  state.activePin = -1;
   const b = latLngToVec3(answer.lat, answer.lng);
   correctPin.drop(b);
   frameRevealPoints(b, b);
@@ -6125,18 +5580,14 @@ function pvpRevealTimeout(answer) {
 // ---------------------------------------------------------------------------
 // Passport page, Collections, postcard detail and shares: src/meta/passport.js
 // ---------------------------------------------------------------------------
-// England/Scotland/Wales/Northern Ireland/United Kingdom stay five separate
-// rows (Sean, 2026-10-11) — this is just the one place that name is read from.
-function countryKey(item) { return item.country; }
-
 initAudit(passportHost);
 initPassport(passportHost);
 
-passport = readPassport();
+state.passport = readPassport();
 
 Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
-  locations = data;
-  dailyPins = pinsData?.pins || {};
+  state.locations = data;
+  state.dailyPins = pinsData?.pins || {};
   auditFlagsLocationsLoaded();
   locationIndex = null;
   buildCountryIndex();
@@ -6183,16 +5634,16 @@ window.__game = {
   borders: startBorders,
   bordersHit,
   guess(lat, lng) {
-    if (gameMode !== 'guess') throw new Error('A guess is not currently expected');
-    activePin = (activePin + 1) % pins.length;
-    pins[activePin].drop(latLngToVec3(lat, lng));
+    if (state.gameMode !== 'guess') throw new Error('A guess is not currently expected');
+    state.activePin = (state.activePin + 1) % pins.length;
+    pins[state.activePin].drop(latLngToVec3(lat, lng));
     if (borders.active) revealBorders({ lat, lng });
     else if (pvp.active) pvpSubmit({ lat, lng });
     else revealGuess({ lat, lng });
   },
   get state() {
-    const item = gameMode === 'guess' || gameMode === 'reveal' ? currentItem() : null;
-    return { mode: gameMode, daily: JSON.parse(JSON.stringify(daily)), selected: selected.map((x) => ({ ...x })), item: item && item.id, survival: { ...survival, item: survival.item && survival.item.id }, borders: { ...borders, bags: undefined } };
+    const item = state.gameMode === 'guess' || state.gameMode === 'reveal' ? currentItem() : null;
+    return { mode: state.gameMode, daily: JSON.parse(JSON.stringify(state.daily)), selected: state.selected.map((x) => ({ ...x })), item: item && item.id, survival: { ...survival, item: survival.item && survival.item.id }, borders: { ...borders, bags: undefined } };
   },
   distanceKm,
   scoreGuess,
@@ -6203,57 +5654,55 @@ window.__game = {
 // Loop
 // ---------------------------------------------------------------------------
 const clock = new THREE.Clock();
-let elapsed = 0;
-let autoSpin = AUTO_SPIN;
 
 function frame() {
   const dt = Math.min(clock.getDelta(), 1 / 20);
-  elapsed += dt;
+  state.elapsed += dt;
 
   if (pointers.size === 0) {
-    if (revealView) {
-      yaw = damp(yaw, revealView.yaw, revealView.lambda || 4.8, dt);
-      pitch = damp(pitch, revealView.pitch, revealView.lambda || 4.8, dt);
+    if (state.revealView) {
+      state.yaw = damp(state.yaw, state.revealView.yaw, state.revealView.lambda || 4.8, dt);
+      state.pitch = damp(state.pitch, state.revealView.pitch, state.revealView.lambda || 4.8, dt);
     }
-    yaw += vYaw * dt;
-    pitch += vPitch * dt;
-    if (Math.abs(pitch) > PITCH_LIMIT) {
-      pitch = clamp(pitch, -PITCH_LIMIT, PITCH_LIMIT);
-      vPitch = 0;
+    state.yaw += state.vYaw * dt;
+    state.pitch += state.vPitch * dt;
+    if (Math.abs(state.pitch) > PITCH_LIMIT) {
+      state.pitch = clamp(state.pitch, -PITCH_LIMIT, PITCH_LIMIT);
+      state.vPitch = 0;
     }
     const decay = Math.exp(-FRICTION * dt);
-    vYaw *= decay;
-    vPitch *= decay;
+    state.vYaw *= decay;
+    state.vPitch *= decay;
 
     // gentle idle drift until a pin is placed; cut on touch, eases back in
     // after a 7 s pause (any fling has long decayed by then)
-    const idle = lastInteraction < 0 || performance.now() - lastInteraction > 7000;
-    autoSpin = damp(autoSpin, idle && activePin < 0 && gameMode !== 'review' ? AUTO_SPIN : 0, 0.8, dt);
-    yaw += autoSpin * dt;
+    const idle = state.lastInteraction < 0 || performance.now() - state.lastInteraction > 7000;
+    state.autoSpin = damp(state.autoSpin, idle && state.activePin < 0 && state.gameMode !== 'review' ? AUTO_SPIN : 0, 0.8, dt);
+    state.yaw += state.autoSpin * dt;
   }
 
   // Ease altitude in log space: map scale goes with altitude, so equal
   // ratios take equal time whether zooming in or out, deep or wide.
   // While pinching, fingers drive zoom directly with no damper tail.
-  if (pinch) dist = targetDist;
-  else dist = 1 + Math.exp(damp(Math.log(dist - 1), Math.log(targetDist - 1), 9, dt));
+  if (pinch) state.dist = state.targetDist;
+  else state.dist = 1 + Math.exp(damp(Math.log(state.dist - 1), Math.log(state.targetDist - 1), 9, dt));
   applyCameraNear();
   // Outlines float 0.002 above the globe so they never sink into its facets.
   // Near the ground that lift shows as parallax against the fill and pins, so
   // it shrinks with altitude (floor clears the 160x100 sphere's ~0.0003 sag).
-  const outlineLift = clamp((dist - 1) * 0.006, 0.0004, 0.002);
+  const outlineLift = clamp((state.dist - 1) * 0.006, 0.0004, 0.002);
   for (const m of outlineMeshes) m.scale.setScalar((1 + outlineLift) / m.userData.radius);
-  camera.position.set(0, 0, dist);
+  camera.position.set(0, 0, state.dist);
   camera.up.set(0, 1, 0);
   camera.lookAt(0, 0, 0);
   camera.updateMatrixWorld();
   if (pointers.size > 0) applyDrag();
 
-  setGlobeQuaternion(globe, yaw, pitch);
+  setGlobeQuaternion(globe, state.yaw, state.pitch);
   // parallax: same yaw/pitch model scaled down (a slerp toward the globe
   // quaternion takes the short way round and flips the sky at yaw = 180 deg)
-  setGlobeQuaternion(stars, yaw * 0.12, pitch * 0.12);
-  stars.material.uniforms.uTime.value = elapsed;
+  setGlobeQuaternion(stars, state.yaw * 0.12, state.pitch * 0.12);
+  stars.material.uniforms.uTime.value = state.elapsed;
 
   if (landLoaded && landReveal < 1) {
     landReveal = Math.min(1, landReveal + dt / 1.1);
@@ -6274,17 +5723,17 @@ function frame() {
 
   // Keep roughly the same screen footprint, then add a restrained boost in
   // unusually wide reveal framings so the badge/checkmark do not disappear.
-  const screenScale = (dist - 1) / Math.max(fitDist - 1, 0.1);
-  const farT = smoothstep(clamp((dist - fitDist) / Math.max(14 - fitDist, 0.1), 0, 1));
+  const screenScale = (state.dist - 1) / Math.max(state.fitDist - 1, 0.1);
+  const farT = smoothstep(clamp((state.dist - state.fitDist) / Math.max(14 - state.fitDist, 0.1), 0, 1));
   // Below SCENE_MIN_DIST the floor shrinks with altitude: pins hold the screen
   // size they had there instead of ballooning over the coast at deep zoom.
-  const pinFloor = 0.22 * Math.min(1, (dist - 1) / (SCENE_MIN_DIST - 1));
+  const pinFloor = 0.22 * Math.min(1, (state.dist - 1) / (SCENE_MIN_DIST - 1));
   const pinScale = clamp(screenScale * (1 + 0.28 * farT), pinFloor, 6);
   // Runs before the pins so they can be sized for this frame's flight camera.
   updateTravelAnimation(dt, pinScale);
   const pinDt = dt * timeScale; // bullseye slow motion
-  pins.forEach((p) => p.update(pinDt, elapsed, travelPinScale(p, pinScale)));
-  correctPin.update(pinDt, elapsed, travelPinScale(correctPin, pinScale));
+  pins.forEach((p) => p.update(pinDt, state.elapsed, travelPinScale(p, pinScale)));
+  correctPin.update(pinDt, state.elapsed, travelPinScale(correctPin, pinScale));
   updateReview(dt, pinScale);
   updateLineLabel();
   passportDots.visible = false; // disabled: no dots on landing page
@@ -6301,18 +5750,18 @@ window.__audio = audio; // test hook: context state, live whoosh
 // test hook: read the view, or pin it for screenshots
 window.__view = {
   globe,
-  get yaw() { return yaw; },
-  get pitch() { return pitch; },
-  set(y, p) { yaw = y; pitch = p; vYaw = vPitch = autoSpin = 0; lastInteraction = performance.now() + 1e9; },
-  get dist() { return dist; },
-  zoom(d) { dist = targetDist = d; },
+  get yaw() { return state.yaw; },
+  get pitch() { return state.pitch; },
+  set(y, p) { state.yaw = y; state.pitch = p; state.vYaw = state.vPitch = state.autoSpin = 0; state.lastInteraction = performance.now() + 1e9; },
+  get dist() { return state.dist; },
+  zoom(d) { state.dist = state.targetDist = d; },
   pick(x, y) { // globe-local point under a screen point
     const h = sphereHit(x, y, new THREE.Vector3());
     return h && h.applyQuaternion(globe.quaternion.clone().invert()).toArray();
   },
   project(l) { // screen position of a globe-local point
     const v = new THREE.Vector3().fromArray(l).applyQuaternion(globe.quaternion).project(camera);
-    return [((v.x + 1) / 2) * viewW, ((1 - v.y) / 2) * viewH];
+    return [((v.x + 1) / 2) * state.viewW, ((1 - v.y) / 2) * state.viewH];
   },
 };
 requestAnimationFrame(() => {
