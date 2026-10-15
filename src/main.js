@@ -10,6 +10,7 @@ import { initPvpHome, pvpLinkInvite, pvpLinkIsGroup } from './pvp/home.js';
 import { initPvpH2h, openPvpJoin } from './pvp/h2h.js';
 import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
+import { formatKm } from './core/format.js';
 import { initStats, recordHistory } from './meta/stats.js';
 import {
   initPassportHome, initPassport, syncPassport, auditFlagsLocationsLoaded, passportEntryFor, countryIndex, buildCountryIndex,
@@ -3688,7 +3689,7 @@ function beginNorthUpReveal(guess, answer, km, newlyEarned, tier) {
   if (tier === 'bullseye' || tier === 'pinpoint') correctPin.setColor(GOLD_COLOR, '#fff6d8');
   correctPin.drop(b);
   answerLine.visible = true;
-  gameEls.distance.textContent = `${km.toLocaleString()} km`;
+  gameEls.distance.textContent = formatKm(km);
   preparePostcard(answer, newlyEarned);
   frameNorthUpRevealPoints(a, b);
   showCountryOutline(countryKey(answer), answer, true);
@@ -3723,7 +3724,7 @@ function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km
   answerLine.geometry.instanceCount = 0;
   correctPin.root.visible = false;
   correctPin.state = 'idle';
-  gameEls.distance.textContent = `${km.toLocaleString()} km`;
+  gameEls.distance.textContent = formatKm(km);
   gameEls.travelDistance.querySelector('span').textContent = '0 km';
   gameEls.travelDistance.hidden = true;
   preparePostcard(answer, newlyEarned);
@@ -3768,7 +3769,7 @@ function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyoverTier(
   correctPin.root.visible = false;
   correctPin.state = 'idle';
   correctPin.setColor(GOLD_COLOR, '#fff6d8');
-  gameEls.distance.textContent = `${km.toLocaleString()} km`;
+  gameEls.distance.textContent = formatKm(km);
   preparePostcard(answer, newlyEarned);
   travelAnimation = {
     ...path,
@@ -4414,7 +4415,7 @@ function updateTravelAnimation(dt, pinScale) {
     sizeTravelHead();
     // Same progress as the head (the old ease-out counter ran ~35% ahead of
     // the marker mid-flight).
-    gameEls.travelDistance.querySelector('span').textContent = `${Math.round(anim.km * travelT).toLocaleString()} km`;
+    gameEls.travelDistance.querySelector('span').textContent = formatKm(Math.round(anim.km * travelT));
     if (anim.tier === 'near') gameEls.travelDistance.classList.toggle('suspense', travelU > 0.45);
     return;
   }
@@ -4424,7 +4425,7 @@ function updateTravelAnimation(dt, pinScale) {
     setCameraFov(FOV);
     audio.whooshStop();
     const pill = gameEls.travelDistance;
-    pill.querySelector('span').textContent = `${anim.km.toLocaleString()} km`;
+    pill.querySelector('span').textContent = formatKm(anim.km);
     pill.classList.remove('suspense');
     if (anim.tier === 'blowout') {
       pill.classList.add('deadpan');
@@ -4622,7 +4623,7 @@ function revealGuess(guess, restoring = false) {
     ? `game-reveal survival${survival.missed ? ' survival-miss' : ''}`
     : endless.active ? 'game-reveal endless' : 'game-reveal';
   gameEls.hint.textContent = '';
-  gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : `${km.toLocaleString()} km`;
+  gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : formatKm(km);
   // Capture the passport state before this guess changes it. The reveal starts
   // with the thumbnail the player already had, then a new unlock can land in it.
   const wasVisited = Object.hasOwn(passport.visits, answer.id);
@@ -4717,7 +4718,7 @@ function revealGuess(guess, restoring = false) {
     } else {
       ({ a, b } = placeRevealVisual(guess, answer));
     }
-    gameEls.distance.textContent = `${km.toLocaleString()} km`;
+    gameEls.distance.textContent = formatKm(km);
     if (restoring) {
       // Coming back to a finished round: no beat to replay.
       showLineLabel(a, b);
@@ -4962,7 +4963,7 @@ function showResults() {
     points.className = 'points';
     points.textContent = rawScore.toLocaleString();
     distance.className = 'distance';
-    distance.textContent = `${result.distance.toLocaleString()} km`;
+    distance.textContent = formatKm(result.distance);
     metrics.append(points, distance);
     round.append(number, place, metrics);
     return round;
@@ -5580,7 +5581,7 @@ function revealBorders(tap) {
   const name = `${key} ${countryFlag(key)}`;
   gameEls.revealName.textContent = name;
   gameEls.peekName.textContent = name;
-  gameEls.distance.textContent = borders.missed ? `${km.toLocaleString()} km` : '';
+  gameEls.distance.textContent = borders.missed ? formatKm(km) : '';
   gameEls.mult.style.display = 'none';
   gameEls.fact.textContent = complete ? `Found ${key}. That's every country in ${borders.scope.place}.`
     : !borders.missed ? `Found ${key}.`
@@ -6042,7 +6043,7 @@ function openRecap(i) {
   reviewOpen = i;
   reviewEls.tag.textContent = `Round ${i + 1} of 5`;
   reviewEls.name.textContent = item.clue;
-  reviewEls.distance.textContent = `${result.distance.toLocaleString()} km`;
+  reviewEls.distance.textContent = formatKm(result.distance);
   reviewEls.base.textContent = result.base ?? Math.round((result.score * 10) / WEIGHTS[i]);
   reviewEls.mult.textContent = `×${WEIGHTS[i] / 10}`;
   reviewEls.mult.style.display = WEIGHTS[i] > 1 ? '' : 'none';

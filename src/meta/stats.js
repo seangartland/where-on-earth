@@ -11,6 +11,7 @@
 // initStats(statsHost) at the spot the section used to run, so the Stats
 // button and overlay are built in the same order as before.
 // ---------------------------------------------------------------------------
+import { formatKm } from '../core/format.js';
 
 let host = null;
 const HISTORY_LIMIT = 365;
@@ -146,7 +147,7 @@ function renderStats() {
   setStat('games', stats.games.toLocaleString());
   setStat('average', stats.games ? stats.average.toLocaleString() : '');
   setStat('best', stats.games ? stats.bestTotal.toLocaleString() : '');
-  setStat('distance', stats.games ? `${stats.averageDistance.toLocaleString()} km` : '');
+  setStat('distance', stats.games ? formatKm(stats.averageDistance) : '');
   const sub = statsScreen.querySelector('[data-stats="games-sub"]');
   sub.textContent = stats.games ? `since ${shortDate(stats.first)}` : 'no games logged yet';
 
