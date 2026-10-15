@@ -1,12 +1,16 @@
 // ---------------------------------------------------------------------------
 // The globe's renderer and scene (refactor Phase 5): the WebGL renderer,
 // camera and globe group, the deep-space backdrop, the starfield and the
-// atmosphere shell, plus the lat/lng <-> vector helpers every globe module
-// shares. main.js calls initScene() and initAtmosphere() at the spots these
-// sections used to run, so objects are built in the same order as before.
+// atmosphere shell, plus what every globe module shares: the lat/lng <->
+// vector helpers, the canvas pointer set, the drag rate and the screen
+// projection. main.js calls initScene() and initAtmosphere() at the spots
+// these sections used to run, so objects are built in the same order as
+// before. Globe modules import downward only (scene, surface, outlines, pin,
+// reveal), so deploy-time module versioning can settle.
 // ---------------------------------------------------------------------------
 import * as THREE from 'three';
 import { DEG, FOV, ATMO_RADIUS } from '../core/config.js';
+import { state } from '../core/state.js';
 
 export const PIN_COLOR = new THREE.Color('#ffb54a');
 export const ANSWER_COLOR = new THREE.Color('#67e8ff');
@@ -35,6 +39,22 @@ export function setGlobeQuaternion(target, y, p) {
   _qy.setFromAxisAngle(_UP, y);
   _qx.setFromAxisAngle(_RIGHT, p);
   return target.quaternion.multiplyQuaternions(_qx, _qy);
+}
+
+// Active pointers on the canvas (pin.js input); the insets and the reveal
+// check whether a finger is down.
+export const pointers = new Map();
+
+// radians of rotation per css pixel so the surface tracks the finger
+export const radPerPx = () => (2 * (state.dist - 1) * Math.tan((FOV / 2) * DEG)) / state.viewH;
+
+// Screen position of a globe-local point, and whether it faces the camera.
+const _labelW = new THREE.Vector3();
+export function projectToScreen(local, out) {
+  _labelW.copy(local).applyQuaternion(globe.quaternion);
+  const facing = _labelW.dot(camera.position) > _labelW.lengthSq() + 0.02; // in front of the limb
+  out.copy(_labelW).project(camera);
+  return { x: ((out.x + 1) / 2) * state.viewW, y: ((1 - out.y) / 2) * state.viewH, facing };
 }
 
 export let canvas;

@@ -16,9 +16,9 @@ import { state } from '../core/state.js';
 import { audio } from '../core/audio.js';
 import { fadeElement } from '../core/dom.js';
 import { formatKm, countryKey } from '../core/format.js';
-import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe } from './scene.js';
+import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe, pointers, projectToScreen } from './scene.js';
 import { showCountryOutline, clearCountryOutline } from './outlines.js';
-import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle, _unitSphere, pointers } from './pin.js';
+import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle, _unitSphere } from './pin.js';
 
 let host = null;
 let gameEls = null;
@@ -578,14 +578,7 @@ export function hideLineLabel() {
   gameEls.lineDistance.hidden = true;
 }
 
-export const _labelW = new THREE.Vector3();
 export const _labelS = new THREE.Vector3();
-export function projectToScreen(local, out) {
-  _labelW.copy(local).applyQuaternion(globe.quaternion);
-  const facing = _labelW.dot(camera.position) > _labelW.lengthSq() + 0.02; // in front of the limb
-  out.copy(_labelW).project(camera);
-  return { x: ((out.x + 1) / 2) * state.viewW, y: ((1 - out.y) / 2) * state.viewH, facing };
-}
 
 // The lowest screen y the label may reach: the top of the reveal sheet (live,
 // so it follows the slide-in and the expand), and the postcard's held spot

@@ -3,16 +3,17 @@
 // guess pin, and the drag, fling, pinch and wheel model of the globe view.
 // initPin(host) builds the pins and wires the input at the spot these
 // sections used to run. The host supplies the Lock in button and the
-// post-game review's tap target, which live above the globe.
+// post-game review's tap target, which live above the globe, and the reveal
+// and outline line materials that resize() keeps at the canvas resolution.
 // ---------------------------------------------------------------------------
 import * as THREE from 'three';
 import { DEG, FOV, MIN_DIST, PITCH_LIMIT, MAX_SPIN, TAP_MAX_MS, GUESS_TAP_MAX_MS, TAP_MAX_MOVE } from '../core/config.js';
 import { clamp } from '../core/math.js';
 import { state } from '../core/state.js';
-import { PIN_COLOR, ANSWER_COLOR, latLngToVec3, vec3ToLatLng, setGlobeQuaternion, canvas, hud, renderer, camera, globe } from './scene.js';
+import {
+  PIN_COLOR, ANSWER_COLOR, latLngToVec3, vec3ToLatLng, setGlobeQuaternion, canvas, hud, renderer, camera, globe, pointers, radPerPx,
+} from './scene.js';
 import { outlineMaterials } from './surface.js';
-import { countryOutline } from './outlines.js';
-import { answerLineMaterial } from './reveal.js';
 
 let host = null;
 let guessBadgeTex;
@@ -378,19 +379,15 @@ export function resize() {
   }
   state.targetDist = clamp(state.targetDist, MIN_DIST, state.maxDist);
   outlineMaterials.forEach((m) => m.resolution.set(state.viewW, state.viewH));
-  if (answerLineMaterial) answerLineMaterial.resolution.set(state.viewW, state.viewH);
-  if (countryOutline) countryOutline.mats.forEach((m) => m.resolution.set(state.viewW, state.viewH));
+  if (host.answerLineMaterial) host.answerLineMaterial.resolution.set(state.viewW, state.viewH);
+  if (host.countryOutline) host.countryOutline.mats.forEach((m) => m.resolution.set(state.viewW, state.viewH));
 }
-
-// radians of rotation per css pixel so the surface tracks the finger
-export const radPerPx = () => (2 * (state.dist - 1) * Math.tan((FOV / 2) * DEG)) / state.viewH;
 
 // Zoom scales altitude, not distance from the centre: map scale goes with
 // altitude, so a pinch or wheel notch feels the same at any depth instead of
 // slamming through the last few hundred km near MIN_DIST.
 const zoomTo = (from, factor) => clamp(1 + (from - 1) * factor, MIN_DIST, state.maxDist);
 
-export const pointers = new Map();
 let samples = []; // recent {t, yaw, pitch} while dragging, for release velocity
 let tap = null;
 export let pinch = null;

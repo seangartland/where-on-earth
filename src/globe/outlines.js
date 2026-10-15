@@ -10,9 +10,8 @@ import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { DEG } from '../core/config.js';
 import { clamp, distanceKm } from '../core/math.js';
 import { state } from '../core/state.js';
-import { ANSWER_COLOR, latLngToVec3, globe } from './scene.js';
+import { ANSWER_COLOR, latLngToVec3, globe, projectToScreen } from './scene.js';
 import { MIN_ISLAND, ringExtent, outlineMeshes, LOAD, loadJSON, criticalBytesP } from './surface.js';
-import { projectToScreen } from './reveal.js';
 
 // ---------------------------------------------------------------------------
 // Country outlines (docs/country-outlines-plan-opus.md): the answer country's

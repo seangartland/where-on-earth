@@ -1,0 +1,372 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  color: #cfe6ff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+#globe {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  outline: none;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: grab;
+}
+
+#globe.ready {
+  opacity: 1;
+}
+
+#globe.dragging {
+  cursor: grabbing;
+}
+
+#hud {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 26px);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  color: rgba(196, 226, 255, 0.62);
+  text-shadow: 0 0 12px rgba(90, 180, 255, 0.45);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 1.2s ease 0.6s, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s, color 0.8s ease;
+}
+
+button { font: inherit; }
+.screen { position: fixed; inset: 0; z-index: 10; }
+.screen[hidden] { display: none; }
+.glass { background: rgba(5, 12, 29, .82); border: 1px solid rgba(157, 211, 255, .22); box-shadow: 0 18px 60px rgba(0, 0, 0, .35), inset 0 1px rgba(255,255,255,.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+
+/* Shared confirmation layer: sized from the 390px layout, with full-width touch targets. */
+.confirm-modal { position: fixed; z-index: 110; inset: 0; display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: calc(env(safe-area-inset-top, 0px) + 20px) 16px calc(env(safe-area-inset-bottom, 0px) + 20px); background: rgba(2, 4, 9, .7); }
+.confirm-modal[hidden] { display: none; }
+.confirm-modal__card { box-sizing: border-box; width: min(100%, 390px); padding: 24px 18px 18px; border-radius: 22px; text-align: center; }
+.confirm-modal__title { margin: 0; color: #f5fbff; font-size: 21px; line-height: 1.2; letter-spacing: -.02em; }
+.confirm-modal__message { margin: 12px 0 0; color: rgba(224, 240, 255, .82); font-size: 15px; line-height: 1.5; }
+.confirm-modal__actions { display: flex; flex-direction: column-reverse; gap: 10px; margin-top: 22px; }
+.confirm-modal__confirm, .confirm-modal__cancel { width: 100%; min-height: 48px; padding: 0 18px; border-radius: 14px; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.confirm-modal__confirm { border: 0; background: #e5484d; color: #fff; box-shadow: 0 6px 18px rgba(229, 72, 77, .28); }
+.confirm-modal__cancel { border: 1px solid rgba(157, 211, 255, .22); background: rgba(157, 211, 255, .08); color: #dcefff; }
+.confirm-modal__confirm:active, .confirm-modal__cancel:active { transform: scale(.98); }
+.confirm-modal__confirm:focus-visible, .confirm-modal__cancel:focus-visible { outline: 2px solid rgba(127, 210, 244, .8); outline-offset: 2px; }
+
+/* Postcard detail is sized from the 390px mobile layout first. */
+.ppd { --ppd-screen-gutter: 12px; --ppd-control-inset: 6px; }
+@media (min-width: 391px) {
+  .ppd { --ppd-screen-gutter: 16px; }
+}
+
+/* A compact X with a full 44px tap target. Static buttons may retain fallback text,
+   so the glyph is supplied as a background and their text is visually hidden. */
+.home-nav-btn { position: fixed; z-index: 95; top: calc(env(safe-area-inset-top, 0px) + 6px); right: 6px; width: 44px; height: 44px; padding: 0; margin: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 28px; line-height: 1; cursor: pointer; touch-action: manipulation; pointer-events: auto; }
+.home-nav-btn:active { transform: scale(.9); background-color: rgba(157,211,255,.12); }
+.home-nav-btn:focus-visible { outline: 2px solid rgba(127,210,244,.65); outline-offset: -5px; }
+
+/* Settings: gear entry top-right on the home screen opens a modal over the start card */
+.settings-entry { position: fixed; z-index: 95; top: calc(env(safe-area-inset-top, 0px) + 12px); right: 12px; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; margin: 0; border: 1px solid rgba(157, 211, 255, .22); border-radius: 50%; background-color: rgba(5, 12, 29, .78); box-shadow: 0 6px 18px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.05); color: #cfe6ff; font-size: 20px; line-height: 1; cursor: pointer; pointer-events: auto; touch-action: manipulation; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.settings-entry:active { transform: scale(.92); background-color: rgba(5, 12, 29, .92); }
+.settings-entry:focus-visible { box-shadow: 0 6px 18px rgba(0,0,0,.32), 0 0 0 2px rgba(127,210,244,.5); }
+.settings-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px); background: rgba(2,4,9,.68); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.settings-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 26px 18px 20px; border-radius: 24px; }
+.settings-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
+.settings-close { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 28px; line-height: 1; cursor: pointer; touch-action: manipulation; }
+.settings-main { margin-top: 22px; }
+.settings-reset { width: 100%; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; background: #e5484d; color: #fff; font-size: 15px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 18px rgba(229,72,77,.28); touch-action: manipulation; }
+.settings-reset:active { transform: scale(.98); }
+.settings-confirm { margin-top: 22px; }
+.settings-confirm p { margin: 0; color: rgba(224,240,255,.82); font-size: 14px; line-height: 1.5; text-align: center; }
+.settings-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.settings-danger, .settings-cancel { width: 100%; min-height: 48px; padding: 0 18px; border-radius: 14px; font-size: 15px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.settings-danger { border: 0; background: #e5484d; color: #fff; box-shadow: 0 6px 18px rgba(229,72,77,.28); }
+.settings-danger:active, .settings-cancel:active { transform: scale(.98); }
+.settings-cancel { border: 1px solid rgba(157, 211, 255, .22); background: rgba(157,211,255,.08); color: #dcefff; }
+body.game-settings #hud { opacity: 0; }
+.start-screen { display: flex; box-sizing: border-box; flex-direction: column; align-items: center; justify-content: safe center; overflow-y: auto; padding: calc(env(safe-area-inset-top, 0px) + 16px) 28px calc(env(safe-area-inset-bottom, 0px) + 28px); text-align: center; background: linear-gradient(180deg, rgba(2,4,9,.12), rgba(2,4,9,.56)); }
+.eyebrow { margin: 0 0 10px; color: #77caff; font-size: 11px; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
+h1 { max-width: 330px; margin: 0; color: #f1f8ff; font-size: clamp(46px, 15vw, 68px); line-height: .9; letter-spacing: -.065em; text-shadow: 0 0 30px rgba(77,176,255,.35); }
+.how-to { max-width: 310px; margin: 24px 0 28px; color: rgba(218,237,255,.78); font-size: 15px; line-height: 1.5; }
+.primary { min-width: 172px; min-height: 52px; padding: 0 24px; border: 0; border-radius: 999px; background: #ecf7ff; color: #071426; font-weight: 800; cursor: pointer; box-shadow: 0 8px 28px rgba(89,185,255,.28); touch-action: manipulation; }
+.primary:active { transform: scale(.98); }
+.streak { min-height: 20px; margin: 18px 0 0; color: #ffc76a; font-size: 13px; font-weight: 700; }
+/* Returning players: the passport card replaces the how-to and carries the streak. */
+.start-screen.has-passport .how-to, .start-screen.has-passport .streak { display: none; }
+.map-credit { position: absolute; left: 12px; right: 12px; bottom: calc(env(safe-area-inset-bottom, 0px) + 8px); margin: 0; color: rgba(218,237,255,.4); font-size: 10px; line-height: 1.4; }
+.map-credit a { color: inherit; }
+.round-screen { pointer-events: none; }
+.round-header { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 12px); left: 12px; right: 12px; box-sizing: border-box; min-height: 56px; padding: 7px 52px 8px 12px; border-radius: 18px; text-align: left; }
+/* Home sits in the card's top-right corner; the transparent outer area preserves a 44px target. */
+.round-header .home-nav-btn { position: absolute; top: 6px; right: 5px; left: auto; z-index: auto; display: block; }
+.round-header .home-nav-btn:active { transform: scale(.94); background-color: rgba(157,211,255,.16); }
+.round-meta { display: flex; align-items: center; gap: 8px; min-height: 18px; color: rgba(193,224,250,.67); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+.round-meta span:last-child { color: #ffc76a; }
+.round-meta .mute-toggle { order: 1; margin: -9px -6px -9px auto; }
+.daily-date { margin: 1px 0 0; color: rgba(193,224,250,.5); font-size: 11px; font-weight: 650; letter-spacing: .02em; }
+.daily-date[hidden] { display: none; }
+.round-header .survival-streak { margin: 2px 0 0; font-size: 15px; }
+.round-header h2 { margin: 3px 0 1px; color: #f3f9ff; font-size: 19px; line-height: 1.2; letter-spacing: -.02em; }
+#guess-hint { margin: 0; color: rgba(193,224,250,.58); font-size: 12px; }
+.reveal-card { position: absolute; left: 14px; right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); box-sizing: border-box; padding: 17px; border-radius: 20px; pointer-events: auto; }
+.score-line { display: flex; align-items: center; justify-content: space-between; }
+.score-line div { color: #fff; font-size: 22px; font-weight: 800; }
+.score-line small { display: block; color: rgba(193,224,250,.56); font-size: 10px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+.score-line strong { color: #ffc76a; font-size: 28px; }
+.score-math { display: flex; align-items: baseline; gap: 9px; }
+.score-math .base { color: #fff; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.score-math .base b { font-size: 22px; font-weight: 800; }
+.score-math .mult { color: rgba(193,224,250,.62); font-size: 15px; font-weight: 700; }
+.reveal-card .primary { width: 100%; min-height: 48px; }
+
+/* Reveal: the clue header collapses to the place name, a score pill floats
+   under it while the map plays alone, then the bottom sheet peeks up. */
+.reveal-name { display: none; margin: 0; overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; letter-spacing: -.01em; line-height: 22px; text-overflow: ellipsis; white-space: nowrap; }
+body.game-reveal .round-header { display: flex; align-items: center; justify-content: center; min-height: 0; height: 52px; padding: 0 56px; overflow: hidden; text-align: center; }
+body.game-reveal .round-header > :not(.reveal-name):not(.home-nav-btn) { display: none; }
+body.game-reveal .round-header .home-nav-btn { top: 4px; right: 4px; }
+body.game-reveal .reveal-name { display: block; }
+.reveal-pill { position: absolute; z-index: 1; top: calc(env(safe-area-inset-top, 0px) + 74px); left: 50%; margin: 0; padding: 6px 14px 5px; border: 1px solid rgba(255,199,106,.38); border-radius: 999px; background: rgba(5,12,29,.74); color: #ffc76a; font-size: 15px; font-weight: 850; letter-spacing: -.01em; white-space: nowrap; transform: translateX(-50%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.reveal-pill[hidden] { display: none; }
+.reveal-pill.safe { border-color: rgba(120,230,170,.4); color: #8ef0b8; }
+.reveal-pill.miss { border-color: rgba(255,120,150,.4); color: #ff9db4; }
+
+.reveal-sheet { position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding-bottom: env(safe-area-inset-bottom, 0px); border-width: 1px 0 0; border-radius: 20px 20px 0 0; pointer-events: auto; touch-action: none; }
+.reveal-sheet[hidden] { display: none; }
+.peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 94px; padding: 16px 14px 10px; cursor: pointer; outline: none; }
+.peek-bar[aria-expanded="true"] { align-items: center; height: auto; min-height: 94px; padding-top: 20px; padding-bottom: 12px; }
+.peek-bar:focus-visible { box-shadow: inset 0 0 0 2px rgba(127,210,244,.5); border-radius: 20px 20px 0 0; }
+.peek-grip { position: absolute; top: 6px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: rgba(193,224,250,.32); transition: background .2s; }
+.reveal-sheet.expanded .peek-grip { background: rgba(193,224,250,.55); }
+.peek-slot { position: relative; flex: none; width: 52px; height: 52px; }
+.peek-slot[hidden] { display: none; }
+#peek-thumb { display: block; box-sizing: border-box; width: 52px; height: 52px; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 10px; object-fit: cover; object-position: center 20%; }
+.peek-bar[aria-expanded="true"] .peek-slot { display: none; }
+.peek-slot.mystery::before { content: ""; position: absolute; inset: 0; box-sizing: border-box; border: 1.5px dashed rgba(193,224,250,.55); border-radius: 10px; background: rgba(193,224,250,.05); }
+.peek-slot.mystery #peek-thumb { visibility: hidden; }
+#peek-thumb.seen-no-postcard, #place-thumb.seen-no-postcard { filter: grayscale(1); opacity: 0.7; }
+#peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint,
+#place-thumb.prox-postcard, #place-thumb.prox-bullseye, #place-thumb.prox-pinpoint { filter: none; opacity: 1; }
+/* Rarity belongs to the card frame. Gold is reserved for accuracy, so a great
+   guess can sit on top of any rarity without replacing that signal. */
+.rarity-common { --rarity: #9aa6bb; --rarity-bg: rgba(154,166,187,.14); --rarity-border: rgba(154,166,187,.52); }
+.rarity-uncommon { --rarity: #4fcf8a; --rarity-bg: rgba(79,207,138,.14); --rarity-border: rgba(79,207,138,.52); }
+.rarity-rare { --rarity: #6c8cff; --rarity-bg: rgba(108,140,255,.16); --rarity-border: rgba(108,140,255,.56); }
+.rarity-legendary { --rarity: #c77dff; --rarity-bg: rgba(199,125,255,.16); --rarity-border: rgba(199,125,255,.56); }
+.ppd-rarity { display: inline-flex; align-items: center; box-sizing: border-box; padding: 3px 9px; border: 1px solid var(--rarity-border, rgba(154,166,187,.52)); border-radius: 999px; background: var(--rarity-bg, rgba(154,166,187,.14)); color: var(--rarity, #9aa6bb); font-size: 9.5px; font-weight: 800; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+/* Accuracy badge (setProxBadge): a small gold chip pinned inside the photo, clear
+   of the rarity frame, so Bullseye/Pinpoint never recolours or glows the border.
+   Compact hosts show the icon only; the postcard modal gets the large version. */
+.prox-badge { position: absolute; z-index: 3; top: 5px; left: 5px; display: inline-flex; align-items: center; gap: 3px; box-sizing: border-box; height: 18px; padding: 0 6px 0 4px; border-radius: 999px; background: linear-gradient(180deg, #ffdc7a, #e9b23c); box-shadow: 0 1px 3px rgba(0,0,0,.5); color: #2b1d00; font-size: 10px; font-weight: 900; line-height: 1; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
+.prox-badge i { font-size: 10px; font-style: normal; letter-spacing: 0; }
+.prox-badge.compact { gap: 0; width: 18px; padding: 0; justify-content: center; }
+.prox-badge.compact b { display: none; }
+.thumb-slot.waiting .prox-badge, .peek-slot.mystery .prox-badge, .thumb-slot:has(> img[hidden]) .prox-badge { display: none; }
+/* Proximity badge must overlay the thumbnail corner, never wrap into layout */
+.peek-slot, .thumb-slot { position: relative; overflow: visible; }
+.peek-slot > .prox-badge, .thumb-slot > .prox-badge { position: absolute; top: 4px; left: 4px; margin: 0; transform: none; }
+.peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
+.peek-name { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.peek-bar[aria-expanded="true"] .peek-text { align-self: center; }
+.peek-bar[aria-expanded="true"] .peek-name { overflow: visible; font-size: 17px; line-height: 1.3; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; }
+.peek-stats { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+.peek-score { color: #ffc76a; font-size: 25px; font-weight: 850; letter-spacing: -.03em; line-height: 1; }
+.peek-score:empty { display: none; }
+body.survival .peek-score { color: #8ef0b8; }
+body.survival-miss .peek-score { color: #ff9db4; }
+.peek-distance { color: rgba(193,224,250,.7); font-size: 13px; font-weight: 650; }
+.peek-text .score-math { display: flex; align-items: baseline; gap: 7px; min-width: 0; color: rgba(193,224,250,.8); line-height: 1.2; white-space: nowrap; }
+.peek-text .score-math .base { font-size: 15px; }
+.peek-text .score-math .base b { font-size: 15px; }
+.peek-text .score-math .mult { color: #bfe7ff; font-size: 15px; }
+.peek-bar .peek-next { flex: none; min-width: 0; min-height: 44px; padding: 0 18px; font-size: 15px; }
+.peek-bar[aria-expanded="true"] .peek-next { align-self: center; padding: 0 14px; }
+.sheet-content { max-height: 0; overflow: hidden; transition: max-height .32s cubic-bezier(.2,.8,.2,1); }
+.reveal-sheet.expanded .sheet-content { max-height: 320px; }
+.sheet-inner { padding: 0 14px 14px; }
+#place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 10px; object-fit: cover; object-position: center 20%; }
+#place-thumb[hidden] { display: none; }
+#fact { margin: 10px 0 0; color: rgba(224,240,255,.8); font-size: 13px; line-height: 1.45; }
+
+/* z-index 10: after the .screen sections in the DOM, so above the reveal sheet; below .ppd (11) and the postcard (13). */
+.line-distance { position: fixed; z-index: 10; left: 0; top: 0; padding: 4px 10px 3px; border: 1px solid rgba(185,247,255,.5); border-radius: 999px; background: rgba(4,12,28,.8); color: #f4fdff; font-size: 14px; font-weight: 800; letter-spacing: -.01em; white-space: nowrap; pointer-events: none; will-change: transform; box-shadow: 0 0 16px rgba(70,205,255,.2); }
+.line-distance[hidden] { display: none; }
+.results-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px); background: rgba(2,4,9,.42); pointer-events: auto; }
+.results-card, .survival-results-card { position: relative; }
+.results-card { box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 20px 14px 18px; border-radius: 24px; text-align: left; }
+.results-card .home-nav-btn, .survival-results-card .home-nav-btn { position: absolute; top: 5px; right: 5px; }
+.postcard-summary-header { position: relative; padding: 3px 48px 15px 2px; }
+.postcard-summary-header .eyebrow { margin-bottom: 6px; }
+.postcard-summary-header h2 { margin: 0; color: #f5fbff; font-size: 29px; line-height: 1.05; letter-spacing: -.045em; }
+.postcard-summary-lede { min-height: 18px; margin: 7px 0 0; color: rgba(198,226,250,.57); font-size: 13px; line-height: 1.4; }
+.postcard-summary-list { display: grid; gap: 9px; }
+.postcard-summary-card { position: relative; display: grid; grid-template-columns: 88px minmax(0, 1fr); min-height: 108px; overflow: hidden; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 17px; background: rgba(5,12,29,.82); box-shadow: 0 12px 36px rgba(0,0,0,.26), inset 0 1px rgba(255,255,255,.05); }
+.postcard-summary-photo { width: 88px; height: 108px; background: rgba(193,224,250,.08); object-fit: cover; object-position: center 20%; }
+.postcard-summary-photo.unavailable { opacity: .25; }
+.postcard-summary-copy { min-width: 0; padding: 12px 12px 11px 13px; }
+.postcard-summary-topline { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 6px; }
+.postcard-summary-badge { display: inline-flex; align-items: center; min-height: 20px; padding: 0 8px; border-radius: 999px; font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.postcard-summary-distance { color: rgba(198,226,250,.66); font-size: 11px; font-weight: 750; white-space: nowrap; }
+.postcard-summary-place { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 800; line-height: 1.15; letter-spacing: -.02em; text-overflow: ellipsis; white-space: nowrap; }
+.postcard-summary-country { margin-top: 3px; overflow: hidden; color: rgba(198,226,250,.58); font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.postcard-summary-tier { color: #ffd477; }
+.postcard-summary-card.new .postcard-summary-badge { border: 1px solid rgba(119,202,255,.45); background: rgba(119,202,255,.14); color: #8bd9ff; }
+.postcard-summary-card.upgrade .postcard-summary-badge { border: 1px solid rgba(245,196,81,.5); background: rgba(245,196,81,.13); color: #ffd477; }
+.postcard-summary-card.upgrade .postcard-summary-distance { color: #ffd477; }
+.postcard-summary-counts { display: flex; justify-content: center; gap: 13px; margin: 16px 0 12px; color: rgba(198,226,250,.6); font-size: 11px; font-weight: 750; }
+.postcard-summary-counts b { color: #f5fbff; font-size: 14px; }
+.postcard-summary-separator { color: rgba(198,226,250,.35); }
+.postcard-summary-continue { display: block; width: min(100%, 300px); margin: 0 auto; }
+.result-score { margin: 0 0 10px; color: rgba(198,226,250,.58); font-size: 12px; font-weight: 700; text-align: center; }
+.result-score b { color: #ffc76a; font-size: 18px; }
+.result-score span { font-size: 11px; }
+.results-card .streak { margin: 0 0 12px; text-align: center; }
+.round-breakdown { margin: 16px 0 10px; }
+.round-breakdown h2 { margin: 0 0 6px; color: rgba(198,226,250,.58); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+#results-breakdown { margin: 0; padding: 0; list-style: none; }
+#results-breakdown li { display: flex; align-items: center; min-width: 0; gap: 7px; padding: 9px 0; border-bottom: 1px solid rgba(173,216,255,.11); font-size: 15px; }
+#results-breakdown li > b { flex: 0 0 18px; color: rgba(198,226,250,.58); font-size: 12px; }
+#results-breakdown .place { min-width: 0; overflow: hidden; color: rgba(225,240,255,.92); text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+#results-breakdown .result-separator { flex: 0 0 auto; color: rgba(193,224,250,.42); }
+#results-breakdown .result-metrics { display: inline-flex; flex: 0 0 auto; align-items: baseline; gap: 6px; white-space: nowrap; }
+#results-breakdown .points { color: #ffc76a; font-size: 14px; font-weight: 800; }
+#results-breakdown .distance { color: rgba(193,224,250,.62); font-size: 12px; font-weight: 600; }
+.results-actions { position: relative; }
+.results-actions .primary { width: 100%; }
+.text-button { background: none; border: none; color: rgba(193,224,250,.55); font: 13px/1.4 system-ui, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 8px; margin-top: 4px; }
+#share-status { min-height: 16px; margin: 8px 0 0; color: #8bd9ff; font-size: 11px; }
+body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0; }
+
+@media (max-height: 700px) {
+  .round-header { padding: 6px 52px 7px 12px; }
+  .round-header h2 { font-size: 18px; }
+  .reveal-card { padding: 13px 16px; }
+  .peek-bar { height: 72px; padding-top: 8px; padding-bottom: 6px; }
+  .peek-slot, #peek-thumb { width: 46px; height: 46px; }
+  #fact { margin: 8px 0 0; }
+  .results-card { padding-top: 18px; }
+  .postcard-summary-list { gap: 7px; }
+  .postcard-summary-card { min-height: 100px; height: auto; }
+  .postcard-summary-photo { min-height: 100px; height: 100px; }
+  .postcard-summary-copy { padding-top: 9px; padding-bottom: 8px; }
+  .postcard-summary-counts { margin: 11px 0 9px; }
+}
+
+#hud.ready {
+  opacity: 1;
+  transform: none;
+}
+
+#hud.dim {
+  color: rgba(196, 226, 255, 0.38);
+}
+
+#travel-distance {
+  position: fixed;
+  z-index: 12;
+  left: 50%;
+  bottom: 24px;
+  min-width: 120px;
+  padding: 8px 16px 7px;
+  border: 1px solid rgba(103, 232, 255, .28);
+  border-radius: 14px;
+  background: rgba(4, 12, 28, .68);
+  box-shadow: 0 0 24px rgba(70, 205, 255, .16);
+  color: #f4fdff;
+  text-align: center;
+  pointer-events: none;
+  transform: translateX(-50%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+#travel-distance[hidden] { display: none; }
+#travel-distance span { display: block; font-size: clamp(24px, 7vw, 36px); font-weight: 850; letter-spacing: -.04em; }
+#travel-distance small { display: block; color: rgba(193, 235, 250, .66); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+
+/* Hold-to-confirm: target ticks at the press point, loupe floating above the thumb */
+
+/* Lock in: fixed in the thumb zone, clear of the pin, so the finger never hides
+   the placement. Fades in un-tappable for a beat (LOCK_ARM_MS) so a double tap
+   on the globe can't confirm by accident. */
+.lock-button { position: absolute; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 22px); min-width: 220px; min-height: 54px; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #1b1230; font-size: 17px; letter-spacing: -.01em; box-shadow: 0 8px 28px rgba(255,159,106,.35), 0 2px 8px rgba(0,0,0,.4); pointer-events: auto; transform: translateX(-50%); animation: lock-in .35s ease-out both; }
+.lock-button[hidden] { display: none; }
+.lock-button:active { transform: translateX(-50%) scale(.96); }
+@keyframes lock-in { from { opacity: 0; transform: translateX(-50%) translateY(12px); } to { opacity: 1; transform: translateX(-50%); } }
+body.has-guess #hud { opacity: 0; }
+
+/* Collection locations stay completely secret until passport metadata records
+   a visit. No image is mounted beneath these placeholders. */
+.collection-thumb.mystery,
+.collection-card.mystery .photo {
+  background: radial-gradient(circle at 50% 38%, #172033, #080b12 72%);
+}
+
+.collection-thumb.mystery::after,
+.collection-card.mystery .photo::after {
+  content: '?';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(214, 220, 232, .42);
+  font-weight: 850;
+}
+
+.collection-thumb.mystery::after { font-size: 12px; }
+.collection-card.mystery .photo::after { font-size: 28px; }
+.collection-card.mystery { border-color: rgba(214, 220, 232, .09); background: #0d121d; }
+.collection-card.mystery .collection-card-name { color: rgba(214, 220, 232, .42); letter-spacing: .12em; }
+
+/* Loading: full boot screen until the land fill is on the globe, then a slim
+   pill on the start screen for the rest (coast, lakes, rivers, locations). */
+.load-bar { position: relative; overflow: hidden; height: 6px; border-radius: 999px; background: rgba(127, 210, 244, .14); box-shadow: inset 0 0 0 1px rgba(157, 211, 255, .08); }
+.load-fill { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, #3f9fe0, #7fd2f4); box-shadow: 0 0 12px rgba(127, 210, 244, .55); transform: scaleX(0); transform-origin: left center; transition: transform .35s cubic-bezier(.22, 1, .36, 1); }
+#boot.pending .load-fill { width: 34%; transform: none; animation: load-slide 1.3s ease-in-out infinite; }
+@keyframes load-slide { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+
+#boot { transition: opacity .5s ease; }
+#boot.done { opacity: 0; pointer-events: none; }
+.boot-orb { position: relative; width: 72px; height: 72px; margin: 0 0 22px; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #1d3f73 0%, #0b1a3a 52%, #050a19 100%); box-shadow: 0 0 0 1px rgba(127, 210, 244, .35), 0 0 34px rgba(77, 176, 255, .32), inset -8px -10px 18px rgba(0, 0, 0, .5); animation: boot-breathe 2.4s ease-in-out infinite; }
+.boot-orb::after { content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 2px solid transparent; border-top-color: rgba(127, 210, 244, .75); animation: boot-spin 1.1s linear infinite; }
+@keyframes boot-spin { to { transform: rotate(360deg); } }
+@keyframes boot-breathe { 50% { box-shadow: 0 0 0 1px rgba(127, 210, 244, .5), 0 0 46px rgba(77, 176, 255, .45), inset -8px -10px 18px rgba(0, 0, 0, .5); } }
+#boot .boot-title { margin: 0; color: #f1f8ff; font-size: 34px; font-weight: 800; line-height: 1; letter-spacing: -.045em; text-shadow: 0 0 30px rgba(77, 176, 255, .35); }
+#boot .boot-stage { min-height: 20px; margin: 18px 0 12px; color: rgba(218, 237, 255, .82); font-size: 14px; font-weight: 600; }
+#boot .load-bar { width: min(240px, calc(100vw - 80px)); }
+#boot .boot-meta { display: flex; justify-content: space-between; width: min(240px, calc(100vw - 80px)); min-height: 16px; margin: 8px 0 0; color: rgba(193, 224, 250, .55); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.load-pill { position: fixed; z-index: 11; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 46px); box-sizing: border-box; width: min(280px, calc(100vw - 48px)); padding: 8px 14px 10px; border: 1px solid rgba(157, 211, 255, .18); border-radius: 14px; background: rgba(5, 12, 29, .72); box-shadow: 0 8px 28px rgba(0, 0, 0, .3); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); pointer-events: none; opacity: 0; visibility: hidden; transform: translate(-50%, 6px); transition: opacity .4s ease, transform .4s ease, visibility 0s linear .4s; }
+/* delayed fade-in: a load that finishes within ~0.4 s never shows the pill */
+.load-pill.on { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .5s ease .4s, transform .5s cubic-bezier(.22, 1, .36, 1) .4s, visibility 0s; }
+body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s linear .2s; }
+.load-pill-row { display: flex; justify-content: space-between; gap: 10px; margin: 0 0 7px; color: rgba(218, 237, 255, .8); font-size: 12px; font-weight: 600; white-space: nowrap; }
+.load-pill-row .load-mb { color: rgba(193, 224, 250, .5); font-variant-numeric: tabular-nums; }
+.load-pill .load-bar { height: 4px; }
+.load-pill.done .load-fill { background: linear-gradient(90deg, #4fcf8a, #8ee6b4); box-shadow: 0 0 12px rgba(79, 207, 138, .5); }
+@media (max-height: 620px) {
+  .load-pill { bottom: calc(env(safe-area-inset-bottom, 0px) + 36px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .boot-orb, .boot-orb::after, #boot.pending .load-fill { animation: none; }
+}

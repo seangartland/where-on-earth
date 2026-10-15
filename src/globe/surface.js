@@ -13,8 +13,7 @@ import { feature as topoFeature } from 'topojson-client';
 import { DEG, FOV, RESET_DAILY } from '../core/config.js';
 import { clamp, smoothstep } from '../core/math.js';
 import { state } from '../core/state.js';
-import { latLngToVec3, canvas, renderer, camera, globe } from './scene.js';
-import { pointers, radPerPx } from './pin.js';
+import { latLngToVec3, canvas, renderer, camera, globe, pointers, radPerPx } from './scene.js';
 
 let blankTex;
 export let globeMat;

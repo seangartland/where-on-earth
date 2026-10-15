@@ -16,6 +16,7 @@ import { localDateKey, COUNTRY_FLAGS, flagForLocation, closestGuessLines, format
 import { state } from './core/state.js';
 import {
   ANSWER_COLOR, latLngToVec3, setGlobeQuaternion, canvas, hud, renderer, scene, camera, globe, stars, initScene, initAtmosphere,
+  pointers, radPerPx,
 } from './globe/scene.js';
 import {
   globeMat, initGlobeSurface, initImagery, initAssets, updateSatellite, updateLandReveal, outlineMaterials, outlineMeshes,
@@ -23,13 +24,13 @@ import {
 } from './globe/surface.js';
 import {
   initOutlines, countryData, countryBands, countriesP, countryBandsP, countryGeom, bordersHit, showCountryOutline,
-  updateCountryOutline,
+  updateCountryOutline, countryOutline,
 } from './globe/outlines.js';
 import {
-  initPin, Pin, makeBadgeTexture, pins, correctPin, pointers, pinch, applyDrag, radPerPx, sphereHit, nearAngle,
+  initPin, Pin, makeBadgeTexture, pins, correctPin, pinch, applyDrag, sphereHit, nearAngle,
 } from './globe/pin.js';
 import {
-  initReveal, answerLine, peekSlot, timeScale, clearReveal, buildAnswerPath, placeRevealVisual, frameRevealPoints,
+  initReveal, answerLine, answerLineMaterial, peekSlot, timeScale, clearReveal, buildAnswerPath, placeRevealVisual, frameRevealPoints,
   frameNorthUpRevealPoints, showRevealSheet, showLineLabel, startRevealBeat, collapseRoundHeader, REVEAL_HEADER_H,
   beginBullseyeReveal, beginTravelReveal, whenPostcardDone, travelView, routeAxis, routeRadius, safeStrip, applyCameraNear,
   updateTravelAnimation, travelPinScale, updateLineLabel,
@@ -124,8 +125,13 @@ initAssets();
 initOutlines();
 
 // Pins and the view's input. The Lock in button and the review's tap target
-// live above the globe, so pin.js reaches them through this host.
-const pinHost = { showLockButton, setGuessHint, nearLockButton, nearTopUI, pickReviewRound };
+// live above the globe, so pin.js reaches them through this host, along with
+// the reveal and outline line materials its resize() keeps sharp.
+const pinHost = {
+  showLockButton, setGuessHint, nearLockButton, nearTopUI, pickReviewRound,
+  get answerLineMaterial() { return answerLineMaterial; },
+  get countryOutline() { return countryOutline; },
+};
 initPin(pinHost);
 
 // The reveal reaches the round screen only through this host.
