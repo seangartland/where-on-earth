@@ -265,7 +265,7 @@ export function revealGuess(guess, restoring = false) {
   if (!restoring && expeditionRun.active) completeExpeditionRound();
   const weight = oneOff ? 1 : WEIGHTS[state.daily.round];
   gameEls.baseScore.textContent = base;
-  gameEls.mult.textContent = `×${weight.toFixed(1)}`;
+  gameEls.mult.textContent = `×${weight}`;
   gameEls.mult.style.display = oneOff ? 'none' : '';
   const placeName = answer.clue || answer.short;
   gameEls.revealName.textContent = placeName;
