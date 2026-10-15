@@ -1,0 +1,466 @@
+{
+ "muscat": {
+  "new": [
+   23.61313,
+   58.59302
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.23 km)",
+  "old": [
+   23.588889,
+   58.408333
+  ],
+  "move_km": 19.01,
+  "nn": [
+   "al-ain-city",
+   295.0
+  ]
+ },
+ "visakhapatnam": {
+  "new": [
+   17.69372,
+   83.29218
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.04 km)",
+  "old": [
+   17.68009,
+   83.20161
+  ],
+  "move_km": 9.71,
+  "nn": [
+   "hyderabad-india",
+   513.9
+  ]
+ },
+ "ho-chi-minh-city-vn": {
+  "new": [
+   10.77556,
+   106.70194
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   10.82302,
+   106.62965
+  ],
+  "move_km": 9.5,
+  "nn": [
+   "can-tho-vn",
+   129.3
+  ]
+ },
+ "xian-china": {
+  "new": [
+   34.26106,
+   108.94228
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.02 km)",
+  "old": [
+   34.3416,
+   108.9398
+  ],
+  "move_km": 8.96,
+  "nn": [
+   "luoyang-cn",
+   323.6
+  ]
+ },
+ "palembang-id": {
+  "new": [
+   -2.98608,
+   104.76065
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 1.04 km)",
+  "old": [
+   -2.91673,
+   104.7458
+  ],
+  "move_km": 7.89,
+  "nn": [
+   "jakarta-indonesia",
+   426.4
+  ]
+ },
+ "tashkent": {
+  "new": [
+   41.31172,
+   69.27922
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.16 km)",
+  "old": [
+   41.26465,
+   69.21627
+  ],
+  "move_km": 7.42,
+  "nn": [
+   "shymkent",
+   114.1
+  ]
+ },
+ "medina-saudi-arabia": {
+  "new": [
+   24.47058,
+   39.61056
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.17 km)",
+  "old": [
+   24.5247,
+   39.5692
+  ],
+  "move_km": 7.33,
+  "nn": [
+   "jeddah-sa",
+   334.2
+  ]
+ },
+ "riyadh": {
+  "new": [
+   24.63862,
+   46.71551
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.12 km)",
+  "old": [
+   24.68773,
+   46.72185
+  ],
+  "move_km": 5.5,
+  "nn": [
+   "dammam-sa",
+   394.2
+  ]
+ },
+ "brasilia-br": {
+  "new": [
+   -15.79394,
+   -47.88279
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.01 km)",
+  "old": [
+   -15.77972,
+   -47.92972
+  ],
+  "move_km": 5.26,
+  "nn": [
+   "goiania-br",
+   176.4
+  ]
+ },
+ "algiers": {
+  "new": [
+   36.77466,
+   3.05873
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.38 km)",
+  "old": [
+   36.73225,
+   3.08746
+  ],
+  "move_km": 5.37,
+  "nn": [
+   "ibiza-es",
+   276.9
+  ]
+ },
+ "majuro-marshall-islands": {
+  "new": [
+   7.0914,
+   171.38092
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.18 km)",
+  "old": [
+   7.0667,
+   171.2667
+  ],
+  "move_km": 12.9,
+  "nn": [
+   "tarawa-kiribati",
+   664.8
+  ]
+ },
+ "surrey-ca": {
+  "new": [
+   49.1873,
+   -122.84957
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 0.89 km)",
+  "old": [
+   49.10635,
+   -122.82509
+  ],
+  "move_km": 9.18,
+  "nn": [
+   "vancouver-canada",
+   22.4
+  ]
+ },
+ "toronto": {
+  "new": [
+   43.66188,
+   -79.3853
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 1.88 km)",
+  "old": [
+   43.70643,
+   -79.39864
+  ],
+  "move_km": 5.07,
+  "nn": [
+   "mississauga-ca",
+   23.8
+  ]
+ },
+ "baku": {
+  "new": [
+   40.37112,
+   49.83399
+  ],
+  "src": "midpoint of Wikidata P625 and QID-matched OSM place node (agree within 1.01 km)",
+  "old": [
+   40.37767,
+   49.89201
+  ],
+  "move_km": 4.97,
+  "nn": [
+   "makhachkala-ru",
+   348.7
+  ]
+ },
+ "ibiza-es": {
+  "new": [
+   38.90883,
+   1.43296
+  ],
+  "src": "GeoNames row id 2516479 (Ibiza Town, PPLA3)",
+  "old": [
+   38.9067,
+   1.4206
+  ],
+  "move_km": 1.1,
+  "nn": [
+   "palma-de-mallorca",
+   127.8
+  ]
+ },
+ "dubai": {
+  "new": [
+   25.26972,
+   55.30944
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   25.07725,
+   55.30927
+  ],
+  "move_km": 21.4,
+  "nn": [
+   "sharjah-ae",
+   12.6
+  ]
+ },
+ "bogota-colombia": {
+  "new": [
+   4.60971,
+   -74.08175
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   4.7111,
+   -74.0722
+  ],
+  "move_km": 11.32,
+  "nn": [
+   "pereira-co",
+   180.2
+  ]
+ },
+ "fatehpur-sikri": {
+  "new": [
+   27.09111,
+   77.66111
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   27.1909,
+   77.67
+  ],
+  "move_km": 11.13,
+  "nn": [
+   "agra-in",
+   36.6
+  ]
+ },
+ "san-juan": {
+  "new": [
+   18.46528,
+   -66.11667
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   18.406389,
+   -66.063889
+  ],
+  "move_km": 8.6,
+  "nn": [
+   "basseterre-st-kitts-and-nevis",
+   382.2
+  ]
+ },
+ "kinshasa-dr-congo": {
+  "new": [
+   -4.3197,
+   15.34242
+  ],
+  "src": "QID-matched OSM place node",
+  "old": [
+   -4.4419,
+   15.2663
+  ],
+  "move_km": 16.0,
+  "nn": [
+   "brazzaville-cg",
+   8.9
+  ]
+ },
+ "astana-kz": {
+  "new": [
+   51.13333,
+   71.43333
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   51.1801,
+   71.44598
+  ],
+  "move_km": 5.27,
+  "nn": [
+   "karagandy",
+   189.4
+  ]
+ },
+ "ciudad-guayana-ve": {
+  "new": [
+   8.32238,
+   -62.68966
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   8.35122,
+   -62.64102
+  ],
+  "move_km": 6.24,
+  "nn": [
+   "port-of-spain-trinidad-and-tobago",
+   290.2
+  ]
+ },
+ "khartoum": {
+  "new": [
+   15.60308,
+   32.52654
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   15.55177,
+   32.53241
+  ],
+  "move_km": 5.74,
+  "nn": [
+   "omdurman-sd",
+   7.0
+  ]
+ },
+ "manaus-br": {
+  "new": [
+   -3.11889,
+   -60.02167
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   -3.10194,
+   -60.025
+  ],
+  "move_km": 1.92,
+  "nn": [
+   "porto-velho-br",
+   760.2
+  ]
+ },
+ "hangzhou": {
+  "new": [
+   30.25,
+   120.1675
+  ],
+  "src": "Wikidata P625",
+  "old": [
+   30.29365,
+   120.16142
+  ],
+  "move_km": 4.89,
+  "nn": [
+   "suzhou-cn",
+   124.1
+  ]
+ },
+ "tokyo-japan": {
+  "new": [
+   35.67686,
+   139.76389
+  ],
+  "src": "QID-matched OSM place node",
+  "old": [
+   35.6762,
+   139.6503
+  ],
+  "move_km": 10.26,
+  "nn": [
+   "yokohama-jp",
+   29.0
+  ]
+ },
+ "cartagena": {
+  "new": [
+   10.42656,
+   -75.54417
+  ],
+  "src": "QID-matched OSM place node",
+  "old": [
+   10.39817,
+   -75.49328
+  ],
+  "move_km": 6.4,
+  "nn": [
+   "barranquilla-co",
+   102.9
+  ]
+ },
+ "polonnaruwa-sri-lanka": {
+  "new": [
+   7.93965,
+   81.00274
+  ],
+  "src": "GeoNames row (P1566 id 1229901)",
+  "old": [
+   7.7409,
+   81.0184
+  ],
+  "move_km": 22.17,
+  "nn": [
+   "colombo-sri-lanka",
+   168.9
+  ]
+ },
+ "singapore": {
+  "new": [
+   1.28967,
+   103.85007
+  ],
+  "src": "GeoNames row (name match within 50 km of Wikidata point, id 1880252)",
+  "old": [
+   1.3521,
+   103.8198
+  ],
+  "move_km": 7.71,
+  "nn": [
+   "johor-bahru",
+   22.1
+  ]
+ }
+}
