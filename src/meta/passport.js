@@ -185,14 +185,23 @@ let homeLinks;
 let passportScreen;
 
 let ppEls;
+// The Places and Landmarks tabs share one filter system: each is a dex with its
+// own controls, slots and filter state (see ppDex()).
+let ppPlaces;
+let ppLandmarks;
 let ppFilterOpenTop = 0;
 let ppFilterScrollFrame = 0;
 
+function ppOpenFiltersDex() {
+  return [ppPlaces, ppLandmarks].find((dex) => dex.els.filtersToggle.getAttribute('aria-expanded') === 'true');
+}
+
 function closePassportFilters() {
-  if (ppEls.filtersToggle.getAttribute('aria-expanded') !== 'true') return;
-  ppEls.filtersToggle.setAttribute('aria-expanded', 'false');
-  ppEls.filters.setAttribute('aria-hidden', 'true');
-  ppEls.filters.classList.remove('is-open');
+  const dex = ppOpenFiltersDex();
+  if (!dex) return;
+  dex.els.filtersToggle.setAttribute('aria-expanded', 'false');
+  dex.els.filters.setAttribute('aria-hidden', 'true');
+  dex.els.filters.classList.remove('is-open');
   passportScreen.removeEventListener('scroll', onPassportFilterScroll);
 }
 
@@ -206,10 +215,10 @@ function onPassportFilterScroll() {
   });
 }
 
-function openPassportFilters() {
-  ppEls.filtersToggle.setAttribute('aria-expanded', 'true');
-  ppEls.filters.setAttribute('aria-hidden', 'false');
-  ppEls.filters.classList.add('is-open');
+function openPassportFilters(dex) {
+  dex.els.filtersToggle.setAttribute('aria-expanded', 'true');
+  dex.els.filters.setAttribute('aria-hidden', 'false');
+  dex.els.filters.classList.add('is-open');
   ppFilterOpenTop = passportScreen.scrollTop;
   passportScreen.addEventListener('scroll', onPassportFilterScroll, { passive: true });
 }
@@ -416,8 +425,6 @@ function closePassportShare() {
   passportShareButton.focus();
 }
 
-let ppAll = []; // every location for the open page (passportAllEntries()), filtered client-side
-
 // One template, cloned for every mystery slot: mysteries never mount an <img>
 // and look identical, so building 1,000+ of them is cheap (3 nodes each).
 let ppMysteryTemplate;
@@ -497,16 +504,56 @@ const PP_FLAT_COMPARE = {
 };
 const PP_STATUS_KEY = 'where-on-earth-passport-status';
 const PP_STATUSES = new Set(['earned', 'seen', 'unvisited']);
-const ppStatuses = new Set();
-function syncPpStatusButtons() {
-  ppEls.status.querySelectorAll('button').forEach((button) => {
-    const active = button.dataset.status === 'all' ? ppStatuses.size === 0 : ppStatuses.has(button.dataset.status);
+
+// One filterable dex per tab. `view` is the tab's container; `names` maps the
+// dex body and group controls to their data-pp names in it. `statusKey` is
+// Places only: the Landmarks tab keeps its filters in memory (no new key).
+function ppDex(view, { noun, sentinel, dex, groupControls, statusKey = null }) {
+  const q = (name) => view.querySelector(`[data-pp="${name}"]`);
+  return {
+    els: {
+      filters: q('filters'), filtersToggle: q('filters-toggle'), badge: q('badge'), status: q('status'),
+      continent: q('continent'), band: q('band'), sort: q('sort'), shown: q('shown'), empty: q('empty'),
+      dex: q(dex), groupControls: q(groupControls), sentinel: q(sentinel),
+    },
+    noun,
+    statusKey,
+    statuses: new Set(),
+    all: [], // every entry for the open tab, filtered client-side
+    groups: [], // atlas sort only: [{ section, name, head }]
+    lis: [], // every rendered slot: [{ li, entry }]
+  };
+}
+
+// The Filters toggle, toolbar close and filter panel, shared by both dex tabs.
+function ppFilterControls(id) {
+  return `<button type="button" class="pp-filters-btn" data-pp="filters-toggle" aria-expanded="false" aria-controls="${id}" aria-label="Filters, none active">Filters <b class="pp-badge" data-pp="badge" hidden></b></button>
+        <button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button>
+        <div class="pp-filters" id="${id}" data-pp="filters" aria-hidden="true">
+        <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
+          <button type="button" data-status="all" aria-pressed="true">All</button>
+          <button type="button" data-status="earned" aria-pressed="false">Earned</button>
+          <button type="button" data-status="seen" aria-pressed="false">Seen</button>
+          <button type="button" data-status="unvisited" aria-pressed="false">Unvisited</button>
+        </div>
+        <select data-pp="continent" aria-label="Filter by continent" hidden><option value="">All continents</option></select>
+        <select data-pp="band" aria-label="Filter by rarity"><option value="">All rarities</option></select>
+        <select data-pp="sort" aria-label="Sort by">
+          <option value="atlas">Atlas</option>
+          <option value="recent">Most recent</option>
+          <option value="distance">Closest guess</option>
+          <option value="name">Name A-Z</option>
+        </select>
+        <p class="pp-shown" data-pp="shown"></p>
+      </div>`;
+}
+
+function syncPpStatusButtons(dex) {
+  dex.els.status.querySelectorAll('button').forEach((button) => {
+    const active = button.dataset.status === 'all' ? dex.statuses.size === 0 : dex.statuses.has(button.dataset.status);
     button.setAttribute('aria-pressed', String(active));
   });
 }
-
-let ppDexGroups = []; // atlas sort only: [{ section, name, head }]
-let ppDexLis = []; // every rendered slot: [{ li, entry }]
 
 const PP_COLLAPSED_KEY = 'where-on-earth-collapsed-continents';
 const ppCollapsedContinents = new Set();
@@ -569,10 +616,10 @@ function setPpGroupsCollapsed(container, collapsed) {
   savePpCollapsedContinents();
 }
 
-function ppFilteredGroupCount(name) {
-  const band = ppEls.band.value;
-  return ppDexLis.filter(({ li, entry }) => {
-    const statusMatch = ppStatuses.size === 0 || ppStatuses.has(li.dataset.status);
+function ppFilteredGroupCount(dex, name) {
+  const band = dex.els.band.value;
+  return dex.lis.filter(({ li, entry }) => {
+    const statusMatch = dex.statuses.size === 0 || dex.statuses.has(li.dataset.status);
     return (entry.continent || 'Other') === name
       && statusMatch
       && (!band || entry.band === band);
@@ -580,18 +627,18 @@ function ppFilteredGroupCount(name) {
 }
 
 // Build once per open (or per sort change): every slot renders once, kept in
-// ppDexLis so status/band/continent filter changes only toggle [hidden]
+// dex.lis so status/band/continent filter changes only toggle [hidden]
 // (docs/passport-redesign-opus.md §2d).
-function renderPassportDex() {
-  const sort = ppEls.sort.value;
+function renderPassportDex(dex) {
+  const sort = dex.els.sort.value;
   const atlas = sort === 'atlas';
-  ppEls.continent.hidden = atlas;
-  ppDexGroups = [];
-  ppDexLis = [];
+  dex.els.continent.hidden = atlas;
+  dex.groups = [];
+  dex.lis = [];
   const frag = document.createDocumentFragment();
   if (atlas) {
     const byContinent = new Map();
-    for (const entry of ppAll) {
+    for (const entry of dex.all) {
       const key = entry.continent || 'Other';
       if (!byContinent.has(key)) byContinent.set(key, []);
       byContinent.get(key).push(entry);
@@ -608,17 +655,17 @@ function renderPassportDex() {
       ul.append(...items.map((entry) => {
         const li = passportSlot(entry);
         ppTagSlot(li, entry);
-        ppDexLis.push({ li, entry });
+        dex.lis.push({ li, entry });
         return li;
       }));
       const head = ppGroupHead(name, ppGroupHeadText(name, items), (collapsed) => { ul.hidden = collapsed; });
       section.append(head, ul);
       frag.append(section);
-      ppDexGroups.push({ section, name, head });
+      dex.groups.push({ section, name, head });
     }
   } else {
-    const visited = ppAll.filter((e) => e.visited).sort(PP_FLAT_COMPARE[sort] || PP_FLAT_COMPARE.recent);
-    const mysteries = ppAll.filter((e) => !e.visited).sort(ppAtlasCompare);
+    const visited = dex.all.filter((e) => e.visited).sort(PP_FLAT_COMPARE[sort] || PP_FLAT_COMPARE.recent);
+    const mysteries = dex.all.filter((e) => !e.visited).sort(ppAtlasCompare);
     const ordered = [...visited, ...mysteries];
     const CHUNK = 60;
     for (let i = 0; i < ordered.length; i += CHUNK) {
@@ -627,51 +674,51 @@ function renderPassportDex() {
       ul.append(...ordered.slice(i, i + CHUNK).map((entry) => {
         const li = passportSlot(entry);
         ppTagSlot(li, entry);
-        ppDexLis.push({ li, entry });
+        dex.lis.push({ li, entry });
         return li;
       }));
       frag.append(ul);
     }
   }
-  ppEls.dex.replaceChildren(frag);
-  ppEls.placesGroupControls.hidden = !atlas || ppDexGroups.length === 0;
-  applyPassportFilters();
+  dex.els.dex.replaceChildren(frag);
+  dex.els.groupControls.hidden = !atlas || dex.groups.length === 0;
+  applyPassportFilters(dex);
 }
 
 // Toggle-only pass: status/band/continent changes never rebuild the dex.
-function applyPassportFilters() {
-  const band = ppEls.band.value;
-  const continent = ppEls.continent.hidden ? '' : ppEls.continent.value;
+function applyPassportFilters(dex) {
+  const band = dex.els.band.value;
+  const continent = dex.els.continent.hidden ? '' : dex.els.continent.value;
   let shown = 0;
-  for (const { li, entry } of ppDexLis) {
-    const show = (ppStatuses.size === 0 || ppStatuses.has(li.dataset.status))
+  for (const { li, entry } of dex.lis) {
+    const show = (dex.statuses.size === 0 || dex.statuses.has(li.dataset.status))
       && (!band || entry.band === band)
       && (!continent || li.dataset.continent === continent);
     li.hidden = !show;
     if (show) shown += 1;
   }
-  for (const group of ppDexGroups) {
+  for (const group of dex.groups) {
     const { section, name, head } = group;
     section.hidden = ![...section.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
     const total = section.querySelectorAll('.pp-slot').length;
-    const count = ppFilteredGroupCount(name);
+    const count = ppFilteredGroupCount(dex, name);
     head.querySelector('.pp-group-head-text').textContent = `${name} · ${count.toLocaleString()}/${total.toLocaleString()}`;
   }
-  const filtered = ppStatuses.size > 0 || band || continent;
-  ppEls.shown.textContent = filtered
-    ? (shown ? `${shown.toLocaleString()} of ${ppAll.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
-    : `${ppAll.length.toLocaleString()} places`;
-  ppEls.empty.hidden = shown !== 0;
-  const active = ppStatuses.size + Number(Boolean(band)) + Number(Boolean(continent));
-  ppEls.badge.hidden = active === 0;
-  ppEls.badge.textContent = active ? `•${active}` : '';
-  ppEls.filtersToggle.classList.toggle('has-active', active > 0);
-  ppEls.filtersToggle.setAttribute('aria-label', active ? `Filters, ${active} active` : 'Filters, none active');
+  const filtered = dex.statuses.size > 0 || band || continent;
+  dex.els.shown.textContent = filtered
+    ? (shown ? `${shown.toLocaleString()} of ${dex.all.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
+    : `${dex.all.length.toLocaleString()} ${dex.noun}`;
+  dex.els.empty.hidden = shown !== 0;
+  const active = dex.statuses.size + Number(Boolean(band)) + Number(Boolean(continent));
+  dex.els.badge.hidden = active === 0;
+  dex.els.badge.textContent = active ? `•${active}` : '';
+  dex.els.filtersToggle.classList.toggle('has-active', active > 0);
+  dex.els.filtersToggle.setAttribute('aria-label', active ? `Filters, ${active} active` : 'Filters, none active');
 }
 
 function renderPassportPage() {
   const visited = passportEntries(); // visited only, for the header stats and share card
-  ppAll = passportAllEntries(); // every location, for the dex grid
+  ppPlaces.all = passportAllEntries(); // every location, for the dex grid
   const total = host.locations.length;
   const found = visited.length;
   ppEls.found.textContent = found.toLocaleString();
@@ -686,7 +733,7 @@ function renderPassportPage() {
   ppEls.bar.setAttribute('aria-valuenow', String(earned));
   ppEls.fill.style.width = `${total ? (found / total) * 100 : 0}%`;
   ppEls.earnFill.style.width = `${total ? (earned / total) * 100 : 0}%`;
-  renderPassportDex();
+  renderPassportDex(ppPlaces);
 }
 
 // ---------------------------------------------------------------------------
@@ -855,7 +902,7 @@ function closeCountryDetail() {
 
 // The Landmarks shelf: the curated landmark pool (host.landmarkShelf), apart
 // from Places and Countries so a landmark never counts toward a country or
-// continent total. Same slots and mystery cards as the city dex.
+// continent total. Same slots, mystery cards and filters as the city dex.
 function renderLandmarkShelf() {
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
   // Audit mode previews the whole landmarks bank, not just expedition stops.
@@ -864,11 +911,15 @@ function renderLandmarkShelf() {
   const visited = entries.filter((e) => e.visited).length;
   const earned = entries.filter((e) => e.earned).length;
   ppEls.landmarkSummary.textContent = `${earned} of ${entries.length} landmark postcards · ${visited} visited`;
-  ppEls.landmarkDex.replaceChildren(...entries.map((entry) => {
-    const li = passportSlot(entry);
-    ppTagSlot(li, entry);
-    return li;
-  }));
+  ppLandmarks.all = entries;
+  // Continent choices come from the shelf itself (the curated pool has no
+  // Antarctica stop; the audit bank does).
+  const { continent } = ppLandmarks.els;
+  const picked = continent.value;
+  const present = host.CONTINENT_ORDER.filter((name) => entries.some((e) => e.continent === name));
+  continent.replaceChildren(new Option('All continents', ''), ...present.map((name) => new Option(name, name)));
+  continent.value = present.includes(picked) ? picked : '';
+  renderPassportDex(ppLandmarks);
 }
 
 const PP_VIEW_KEY = 'where-on-earth-passport-view';
@@ -912,10 +963,10 @@ function closePassport(refocus = true) {
   syncPassport();
   if (refocus) passportEntry.focus();
 }
-const applyPassportControlFilter = () => {
-  applyPassportFilters();
-  if (ppEls.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck')) passportScreen.scrollTop = passportScreen.querySelector('[data-pp="places-sentinel"]').offsetTop;
-};
+// After a filter change in a stuck toolbar, land back at the top of the dex.
+function ppScrollToDexTop(dex, wasStuck = dex.els.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck')) {
+  if (wasStuck) passportScreen.scrollTop = dex.els.sentinel.offsetTop;
+}
 
 // ---------------------------------------------------------------------------
 // Collections: the 36 themed sets attached to locations.json. A postcard is
@@ -1642,25 +1693,7 @@ body.game-passport #hud { opacity: 0; }
     <div data-pp="places-view">
       <div class="pp-stick-sentinel" data-pp="places-sentinel"></div>
       <div class="pp-toolbar" data-pp="toolbar">
-        <button type="button" class="pp-filters-btn" data-pp="filters-toggle" aria-expanded="false" aria-controls="pp-filters" aria-label="Filters, none active">Filters <b class="pp-badge" data-pp="badge" hidden></b></button>
-        <button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button>
-        <div class="pp-filters" id="pp-filters" data-pp="filters" aria-hidden="true">
-        <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
-          <button type="button" data-status="all" aria-pressed="true">All</button>
-          <button type="button" data-status="earned" aria-pressed="false">Earned</button>
-          <button type="button" data-status="seen" aria-pressed="false">Seen</button>
-          <button type="button" data-status="unvisited" aria-pressed="false">Unvisited</button>
-        </div>
-        <select data-pp="continent" aria-label="Filter by continent" hidden><option value="">All continents</option></select>
-        <select data-pp="band" aria-label="Filter by rarity"><option value="">All rarities</option></select>
-        <select data-pp="sort" aria-label="Sort by">
-          <option value="atlas">Atlas</option>
-          <option value="recent">Most recent</option>
-          <option value="distance">Closest guess</option>
-          <option value="name">Name A-Z</option>
-        </select>
-        <p class="pp-shown" data-pp="shown"></p>
-      </div>
+        ${ppFilterControls('pp-filters')}
       </div>
       <div class="pp-group-controls" data-pp="places-group-controls">
         <button type="button" class="pp-filters-btn" data-group-action="expand">Expand all</button>
@@ -1695,8 +1728,15 @@ body.game-passport #hud { opacity: 0; }
     </div>
     <div data-pp="landmarks-view" hidden>
       <div class="pp-stick-sentinel" data-pp="landmarks-sentinel"></div>
-      <div class="pp-toolbar pp-country-toolbar"><p class="pp-country-summary" data-pp="landmark-summary"></p><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
-      <ul class="pp-dex pp-country-dex" data-pp="landmark-dex" data-pp-list></ul>
+      <div class="pp-toolbar pp-country-toolbar"><p class="pp-country-summary" data-pp="landmark-summary"></p>
+        ${ppFilterControls('pp-landmark-filters')}
+      </div>
+      <div class="pp-group-controls" data-pp="landmark-group-controls">
+        <button type="button" class="pp-filters-btn" data-group-action="expand">Expand all</button>
+        <button type="button" class="pp-filters-btn" data-group-action="collapse">Collapse all</button>
+      </div>
+      <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
+      <div class="pp-dex-wrap" data-pp="landmark-dex" data-pp-list></div>
     </div>
   </div>`;
   document.getElementById('game').appendChild(passportScreen);
@@ -1714,17 +1754,6 @@ body.game-passport #hud { opacity: 0; }
     tabs: passportScreen.querySelector('[data-pp="tabs"]'),
     placesView: passportScreen.querySelector('[data-pp="places-view"]'),
     countriesView: passportScreen.querySelector('[data-pp="countries-view"]'),
-    status: passportScreen.querySelector('[data-pp="status"]'),
-    filters: passportScreen.querySelector('[data-pp="filters"]'),
-    filtersToggle: passportScreen.querySelector('[data-pp="filters-toggle"]'),
-    badge: passportScreen.querySelector('[data-pp="badge"]'),
-    continent: passportScreen.querySelector('[data-pp="continent"]'),
-    band: passportScreen.querySelector('[data-pp="band"]'),
-    sort: passportScreen.querySelector('[data-pp="sort"]'),
-    shown: passportScreen.querySelector('[data-pp="shown"]'),
-    empty: passportScreen.querySelector('[data-pp="empty"]'),
-    dex: passportScreen.querySelector('[data-pp="dex"]'),
-    placesGroupControls: passportScreen.querySelector('[data-pp="places-group-controls"]'),
     collections: passportScreen.querySelector('[data-pp="collections"]'),
     countryList: passportScreen.querySelector('[data-pp="country-list"]'),
     countryDetail: passportScreen.querySelector('[data-pp="country-detail"]'),
@@ -1737,8 +1766,9 @@ body.game-passport #hud { opacity: 0; }
     countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
     landmarksView: passportScreen.querySelector('[data-pp="landmarks-view"]'),
     landmarkSummary: passportScreen.querySelector('[data-pp="landmark-summary"]'),
-    landmarkDex: passportScreen.querySelector('[data-pp="landmark-dex"]'),
   };
+  ppPlaces = ppDex(ppEls.placesView, { noun: 'places', sentinel: 'places-sentinel', dex: 'dex', groupControls: 'places-group-controls', statusKey: PP_STATUS_KEY });
+  ppLandmarks = ppDex(ppEls.landmarksView, { noun: 'landmarks', sentinel: 'landmarks-sentinel', dex: 'landmark-dex', groupControls: 'landmark-group-controls' });
 
   ppStickyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1825,8 +1855,8 @@ body.game-passport #hud { opacity: 0; }
   passportShareScreen.addEventListener('click', (event) => { if (event.target === passportShareScreen) closePassportShare(); });
 
 
-  ppEls.continent.append(...host.CONTINENT_ORDER.map((name) => new Option(name, name)));
-  ppEls.band.append(...DIFFICULTY_BANDS.map((b) => new Option(b.label, b.key)));
+  ppPlaces.els.continent.append(...host.CONTINENT_ORDER.map((name) => new Option(name, name)));
+  for (const dex of [ppPlaces, ppLandmarks]) dex.els.band.append(...DIFFICULTY_BANDS.map((b) => new Option(b.label, b.key)));
 
   ppMysteryTemplate = document.createElement('li');
   ppMysteryTemplate.className = 'pp-slot is-mystery';
@@ -1838,9 +1868,9 @@ body.game-passport #hud { opacity: 0; }
   try {
     const savedStatus = localStorage.getItem(PP_STATUS_KEY);
     const savedStatuses = savedStatus?.startsWith('[') ? JSON.parse(savedStatus) : [savedStatus];
-    savedStatuses.filter((status) => PP_STATUSES.has(status)).forEach((status) => ppStatuses.add(status));
+    savedStatuses.filter((status) => PP_STATUSES.has(status)).forEach((status) => ppPlaces.statuses.add(status));
   } catch (error) { host.storageError('Read failed', PP_STATUS_KEY, error); }
-  syncPpStatusButtons();
+  syncPpStatusButtons(ppPlaces);
   try {
     const raw = localStorage.getItem(PP_COLLAPSED_KEY);
     if (raw) JSON.parse(raw).forEach((name) => ppCollapsedContinents.add(name));
@@ -1855,39 +1885,46 @@ body.game-passport #hud { opacity: 0; }
   ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => {
     tab.addEventListener('click', () => setPassportView(tab.dataset.view));
   });
-  ppEls.status.querySelectorAll('button').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const status = btn.dataset.status;
-      if (status === 'all') ppStatuses.clear();
-      else if (ppStatuses.has(status)) ppStatuses.delete(status);
-      else ppStatuses.add(status);
-      host.safeSetItem(PP_STATUS_KEY, JSON.stringify([...ppStatuses]));
-      syncPpStatusButtons();
-      applyPassportFilters();
-      if (ppEls.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck')) passportScreen.scrollTop = passportScreen.querySelector('[data-pp="places-sentinel"]').offsetTop;
+  for (const dex of [ppPlaces, ppLandmarks]) {
+    dex.els.status.querySelectorAll('button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const status = btn.dataset.status;
+        if (status === 'all') dex.statuses.clear();
+        else if (dex.statuses.has(status)) dex.statuses.delete(status);
+        else dex.statuses.add(status);
+        if (dex.statusKey) host.safeSetItem(dex.statusKey, JSON.stringify([...dex.statuses]));
+        syncPpStatusButtons(dex);
+        applyPassportFilters(dex);
+        ppScrollToDexTop(dex);
+      });
     });
-  });
-  ppEls.continent.addEventListener('change', applyPassportControlFilter);
-  ppEls.band.addEventListener('change', applyPassportControlFilter);
-  ppEls.sort.addEventListener('change', () => {
-    const wasStuck = ppEls.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck');
-    renderPassportDex();
-    if (wasStuck) passportScreen.scrollTop = passportScreen.querySelector('[data-pp="places-sentinel"]').offsetTop;
-  });
-  ppEls.filtersToggle.addEventListener('click', () => {
-    const expanded = ppEls.filtersToggle.getAttribute('aria-expanded') === 'true';
-    if (expanded) closePassportFilters(); else openPassportFilters();
-  });
+    const applyControlFilter = () => {
+      applyPassportFilters(dex);
+      ppScrollToDexTop(dex);
+    };
+    dex.els.continent.addEventListener('change', applyControlFilter);
+    dex.els.band.addEventListener('change', applyControlFilter);
+    dex.els.sort.addEventListener('change', () => {
+      const wasStuck = dex.els.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck');
+      renderPassportDex(dex);
+      ppScrollToDexTop(dex, wasStuck);
+    });
+    dex.els.filtersToggle.addEventListener('click', () => {
+      const expanded = dex.els.filtersToggle.getAttribute('aria-expanded') === 'true';
+      if (expanded) closePassportFilters(); else openPassportFilters(dex);
+    });
+    dex.els.groupControls.addEventListener('click', (event) => {
+      const action = event.target.closest('[data-group-action]')?.dataset.groupAction;
+      if (action) setPpGroupsCollapsed(dex.els.dex, action === 'collapse');
+    });
+  }
   passportScreen.querySelectorAll('.pp-toolbar-close').forEach((button) => button.addEventListener('click', () => closePassport()));
   document.addEventListener('pointerdown', (event) => {
-    if (ppEls.filtersToggle.getAttribute('aria-expanded') !== 'true') return;
-    if (!ppEls.filters.contains(event.target) && !ppEls.filtersToggle.closest('.pp-toolbar').contains(event.target)) closePassportFilters();
+    const dex = ppOpenFiltersDex();
+    if (!dex) return;
+    if (!dex.els.filters.contains(event.target) && !dex.els.filtersToggle.closest('.pp-toolbar').contains(event.target)) closePassportFilters();
   });
   ppEls.countrySort.addEventListener('change', renderCountryList);
-  ppEls.placesGroupControls.addEventListener('click', (event) => {
-    const action = event.target.closest('[data-group-action]')?.dataset.groupAction;
-    if (action) setPpGroupsCollapsed(ppEls.dex, action === 'collapse');
-  });
   ppEls.countryGroupControls.addEventListener('click', (event) => {
     const action = event.target.closest('[data-group-action]')?.dataset.groupAction;
     if (action) setPpGroupsCollapsed(ppEls.countryListBody, action === 'collapse');
@@ -1898,7 +1935,7 @@ body.game-passport #hud { opacity: 0; }
   });
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape' || passportScreen.hidden) return;
-    if (ppEls.filtersToggle.getAttribute('aria-expanded') === 'true') { closePassportFilters(); return; }
+    if (ppOpenFiltersDex()) { closePassportFilters(); return; }
     if (ppView === 'countries' && ppActiveCountry) closeCountryDetail();
     else closePassport();
   });
