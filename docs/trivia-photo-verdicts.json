@@ -684,9 +684,9 @@
   "entries": [
    "gurudongmar-lake"
   ],
-  "verified": "gurudongmar-lake",
-  "method": "F",
-  "note": "COORD: photo GPS 1060 km from entry pin"
+  "verified": null,
+  "method": "M",
+  "note": "real Gurudongmar Lake in Sikkim (photo GPS), but the entry pin sits 1060 km away in Ladakh/Himachal and its fact text describes Nanda Devi and the Bhagirathi valley; entry data is garbled, flagged for follow-up"
  },
  {
   "n": 63,
@@ -1149,7 +1149,7 @@
   ],
   "verified": "wartburg-castle",
   "method": "F",
-  "note": "COORD: photo GPS 28 km from entry pin"
+  "note": "photo correct; entry pin is 28 km south of the castle, flagged for pin follow-up"
  },
  {
   "n": 105,
@@ -1218,7 +1218,7 @@
   ],
   "verified": null,
   "method": "V",
-  "pending": true
+  "note": "Funchal marina and hotel zone from Quinta Vigia; the old town is not identifiable"
  },
  {
   "n": 111,
@@ -1344,9 +1344,9 @@
    "cesky-krumlov-castle",
    "silkeborg"
   ],
-  "verified": null,
+  "verified": "cesky-krumlov-castle",
   "method": "V",
-  "pending": true
+  "note": "town centre with the castle tower prominent"
  },
  {
   "n": 123,
@@ -1376,9 +1376,9 @@
   "entries": [
    "cape-point"
   ],
-  "verified": null,
+  "verified": "cape-point",
   "method": "V",
-  "pending": true
+  "note": "Cape Point lighthouse on its headland"
  },
  {
   "n": 126,
@@ -2076,7 +2076,7 @@
   ],
   "verified": null,
   "method": "V",
-  "pending": true
+  "note": "Marsh supermarket logo, not a place; entries Troy Ohio barcode scan, Mandalay"
  },
  {
   "n": 188,
@@ -2235,9 +2235,8 @@
    "valdivia-earthquake-epicenter"
   ],
   "verified": null,
-  "method": "F",
-  "pending": true,
-  "note": "Valdivia damage photo; check pin vs Valdivia"
+  "method": "M",
+  "note": "1960 damage in Valdivia city, about 185 km from the epicenter pin"
  },
  {
   "n": 203,
@@ -2345,7 +2344,7 @@
   ],
   "verified": null,
   "method": "V",
-  "pending": true
+  "note": "generic country road in Tolima, no identifiable place; entries Armero, Ibague, Pereira"
  },
  {
   "n": 211,
@@ -2818,9 +2817,9 @@
   "entries": [
    "gjirokaster-fortress-albania"
   ],
-  "verified": null,
+  "verified": "gjirokaster-fortress-albania",
   "method": "V",
-  "pending": true
+  "note": "town panorama from the fortress wall, GPS 0 km from pin"
  },
  {
   "n": 255,
@@ -4405,5 +4404,3657 @@
   "verified": null,
   "method": "F",
   "note": "Gombe, Kinshasa; entry Pointe-Noire"
+ },
+ {
+  "n": 377,
+  "file": "\"Eine_beeindruckende_Festung\"._09.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/%22Eine_beeindruckende_Festung%22._09.jpg/500px-%22Eine_beeindruckende_Festung%22._09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "sale-ma",
+   "algiers"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Kasbah of the Udayas, Rabat; entries Sale, Algiers"
+ },
+ {
+  "n": 378,
+  "file": "Djenne_great_mud_mosque.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Djenne_great_mud_mosque.jpg/500px-Djenne_great_mud_mosque.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "bobo-dioulasso-bf"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Great Mosque of Djenne; entry Bobo-Dioulasso"
+ },
+ {
+  "n": 379,
+  "file": "Crowne_Plaza,_Harare.png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Crowne_Plaza%2C_Harare.png/500px-Crowne_Plaza%2C_Harare.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "blantyre-mw",
+   "beira-mz"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Crowne Plaza, Harare; entries Blantyre, Beira"
+ },
+ {
+  "n": 380,
+  "file": "Luanda_2025_focused_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Luanda_2025_focused_%28cropped%29.jpg/500px-Luanda_2025_focused_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "mulenvos-ao",
+   "viana-ao",
+   "kikolo-ao",
+   "maianga-ao",
+   "camama-ao",
+   "golfe-ao",
+   "hoji-ya-henda-ao",
+   "baku",
+   "cartagena"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Luanda Bay, central Luanda; entries are outer Luanda districts plus Baku, Cartagena, none shown identifiably"
+ },
+ {
+  "n": 381,
+  "file": "Durban_from_the_Balcony_(Dennis_Sylvester_Hurd)_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Durban_from_the_Balcony_%28Dennis_Sylvester_Hurd%29_1.jpg/500px-Durban_from_the_Balcony_%28Dennis_Sylvester_Hurd%29_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "pietermaritzburg-za"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Durban; entry Pietermaritzburg"
+ },
+ {
+  "n": 382,
+  "file": "Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg/500px-Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg",
+  "entries": [
+   "oran-dz"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Alhambra, Granada; entry Oran"
+ },
+ {
+  "n": 383,
+  "file": "Fortaleza_de_São_Sebastião_-_detail.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Fortaleza_de_S%C3%A3o_Sebasti%C3%A3o_-_detail.jpg",
+  "entries": [
+   "nampula-mz",
+   "goyang-si"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Fort Sao Sebastiao, Mozambique Island; entries Nampula, Goyang-si"
+ },
+ {
+  "n": 384,
+  "file": "Kondoa_mchoro_mwambani_2012_Tamino.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Kondoa_mchoro_mwambani_2012_Tamino.jpg/500px-Kondoa_mchoro_mwambani_2012_Tamino.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "dodoma-tz"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Kondoa rock art; entry Dodoma city"
+ },
+ {
+  "n": 385,
+  "file": "Boulders_Beach_Suedafrika.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Boulders_Beach_Suedafrika.jpg/500px-Boulders_Beach_Suedafrika.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "benghazi-ly"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Boulders Beach, South Africa; entry Benghazi"
+ },
+ {
+  "n": 386,
+  "file": "Lagos-centre-from-executive-lounge-Continental-hotel-2026-IMG_7970.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Lagos-centre-from-executive-lounge-Continental-hotel-2026-IMG_7970.jpg/500px-Lagos-centre-from-executive-lounge-Continental-hotel-2026-IMG_7970.jpg",
+  "entries": [
+   "abeokuta-ng",
+   "agege-ng",
+   "cotonou-bj",
+   "east-london"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Lagos Island; entries Abeokuta, Agege, Cotonou, East London"
+ },
+ {
+  "n": 387,
+  "file": "Marokko0112_(retouched).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Marokko0112_%28retouched%29.jpg/500px-Marokko0112_%28retouched%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "agadir-ma",
+   "playa-del-carmen",
+   "niksar"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Koutoubia, Marrakesh; entries Agadir, Playa del Carmen, Niksar"
+ },
+ {
+  "n": 388,
+  "file": "Vilnius_old_town_by_Augustas_Didzgalvis.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Vilnius_old_town_by_Augustas_Didzgalvis.jpg/500px-Vilnius_old_town_by_Augustas_Didzgalvis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "minsk-by"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Vilnius; entry Minsk"
+ },
+ {
+  "n": 389,
+  "file": "Будинок_з_химерами,_серпень_2019.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg/500px-%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "kharkiv-ua",
+   "dnipro-ua",
+   "donetsk-ua",
+   "zaporizhzhya-ua",
+   "kryvyy-rih-ua",
+   "la-gloria"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "House with Chimeras, Kyiv; entries Kharkiv etc"
+ },
+ {
+  "n": 390,
+  "file": "Museum_of_Oxford_(5652685943).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Museum_of_Oxford_%285652685943%29.jpg/500px-Museum_of_Oxford_%285652685943%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "birmingham-gb",
+   "lapu-lapu-city"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Oxford Town Hall; entries Birmingham, Lapu-Lapu City"
+ },
+ {
+  "n": 391,
+  "file": "Bucharest_-_Palace_of_the_Parliament_(2024)_(2).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/1/18/Bucharest_-_Palace_of_the_Parliament_%282024%29_%282%29.jpg/500px-Bucharest_-_Palace_of_the_Parliament_%282024%29_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "odesa-ua"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Palace of the Parliament, Bucharest; entry Odesa"
+ },
+ {
+  "n": 392,
+  "file": "Abbey_of_Montserrat_02.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Abbey_of_Montserrat_02.jpg/500px-Abbey_of_Montserrat_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "valencia-es",
+   "zaragoza-es",
+   "ahvaz"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Montserrat Abbey; entries Valencia, Zaragoza, Ahvaz"
+ },
+ {
+  "n": 393,
+  "file": "Krakow_Rynek_Glowny_panorama_2.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Krakow_Rynek_Glowny_panorama_2.jpg/500px-Krakow_Rynek_Glowny_panorama_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "lviv-ua"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Krakow Main Square; entry Lviv"
+ },
+ {
+  "n": 394,
+  "file": "Tanbaly.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Tanbaly.jpg/500px-Tanbaly.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "barnaul-ru"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Tamgaly, Kazakhstan; entry Barnaul"
+ },
+ {
+  "n": 395,
+  "file": "UB_downtown.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/UB_downtown.jpg/500px-UB_downtown.jpg",
+  "entries": [
+   "irkutsk-ru",
+   "pretoria"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Ulaanbaatar; entries Irkutsk, Pretoria"
+ },
+ {
+  "n": 396,
+  "file": "Saint_Basil's_Cathedral_and_the_Red_Square.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg/500px-Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg",
+  "entries": [
+   "yaroslavl-ru",
+   "loniya"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Red Square, Moscow; entries Yaroslavl, Loniya"
+ },
+ {
+  "n": 397,
+  "file": "View_of_Tbilisi_from_Tabori_Church_2023-10-08-2.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/View_of_Tbilisi_from_Tabori_Church_2023-10-08-2.jpg/500px-View_of_Tbilisi_from_Tabori_Church_2023-10-08-2.jpg",
+  "entries": [
+   "makhachkala-ru"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Tbilisi; entry Makhachkala"
+ },
+ {
+  "n": 398,
+  "file": "Panoramic_view_over_central_Sofia_and_the_Vitosha_Mountain_2017-10-08.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Panoramic_view_over_central_Sofia_and_the_Vitosha_Mountain_2017-10-08.jpg/500px-Panoramic_view_over_central_Sofia_and_the_Vitosha_Mountain_2017-10-08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "pristina-xk",
+   "rangpur"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Sofia; entries Pristina, Rangpur"
+ },
+ {
+  "n": 399,
+  "file": "Sobrevuelos_CDMX_HJ2A4913_(25514321687)_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/500px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg",
+  "entries": [
+   "ecatepec-de-morelos-mx",
+   "santiago-de-queretaro-mx",
+   "gustavo-adolfo-madero-mx",
+   "ciudad-nezahualcoyotl-mx",
+   "naucalpan-de-juarez-mx",
+   "tlalnepantla-mx",
+   "cuautitlan-izcalli-mx",
+   "ciudad-lopez-mateos-mx",
+   "azcapotzalco-mx",
+   "iztacalco-mx",
+   "miguel-hidalgo-mx",
+   "ad-dawahy",
+   "sardhana"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "generic aerial of Mexico City; entries are boroughs and metro cities, none identifiable"
+ },
+ {
+  "n": 400,
+  "file": "Panorámica_Guadalajara_desde_edificio_Bansi_hacia_norte_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg/500px-Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "leon-de-los-aldama-mx",
+   "san-luis-potosi-mx",
+   "aguascalientes-mx",
+   "tlaquepaque-mx",
+   "victoria-de-durango-mx",
+   "mazatlan-mx",
+   "irapuato-mx",
+   "columbus",
+   "horishni-plavni"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Guadalajara looking north; entries Tlaquepaque (separate municipality) and others"
+ },
+ {
+  "n": 401,
+  "file": "Carlsbad_Interior_Formations.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Carlsbad_Interior_Formations.jpg/500px-Carlsbad_Interior_Formations.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "ciudad-juarez-mx"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Carlsbad Caverns, New Mexico; entry Ciudad Juarez"
+ },
+ {
+  "n": 402,
+  "file": "Dzilam_de_Bravo,_Yucatán_(04).JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Dzilam_de_Bravo%2C_Yucat%C3%A1n_%2804%29.JPG/500px-Dzilam_de_Bravo%2C_Yucat%C3%A1n_%2804%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "merida-mx"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Dzilam de Bravo; entry Merida"
+ },
+ {
+  "n": 403,
+  "file": "Templo_Tijuana_Mexico_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Templo_Tijuana_Mexico_%28cropped%29.jpg/500px-Templo_Tijuana_Mexico_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "mexicali-mx",
+   "ensenada-mx",
+   "poblacion-san-felipe"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Tijuana temple; entries Mexicali, Ensenada, San Felipe"
+ },
+ {
+  "n": 404,
+  "file": "SarahLake.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/SarahLake.jpg/500px-SarahLake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "winnipeg-ca",
+   "hargeysa"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Sarah Lake, Quetico, Ontario; entries Winnipeg, Hargeysa"
+ },
+ {
+  "n": 405,
+  "file": "View_of_Monterrey_(2015).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "torreon-mx",
+   "saltillo-mx",
+   "guadalupe-mx",
+   "reynosa-mx",
+   "heroica-matamoros-mx",
+   "ciudad-apodaca-mx",
+   "ciudad-general-escobedo-mx",
+   "nuevo-laredo-mx",
+   "san-nicolas-de-los-garza-mx",
+   "lusaka",
+   "qingyang",
+   "pyryatyn"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Monterrey; entries are metro municipalities and unrelated cities"
+ },
+ {
+  "n": 406,
+  "file": "CN_Tower_logo.png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/CN_Tower_logo.png/500px-CN_Tower_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "mississauga-ca",
+   "brampton-ca",
+   "hamilton-ca"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "CN Tower logo, not a photo; entries Mississauga, Brampton, Hamilton"
+ },
+ {
+  "n": 407,
+  "file": "Skyline_of_Vancouver,_Canada.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Skyline_of_Vancouver%2C_Canada.jpg/500px-Skyline_of_Vancouver%2C_Canada.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "surrey-ca"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Vancouver; entry Surrey"
+ },
+ {
+  "n": 408,
+  "file": "Montreal,_Quebec_skyline.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Montreal%2C_Quebec_skyline.jpg/500px-Montreal%2C_Quebec_skyline.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "laval-ca"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Montreal; entry Laval"
+ },
+ {
+  "n": 409,
+  "file": "Mexico-Popocatepetl.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Mexico-Popocatepetl.jpg/500px-Mexico-Popocatepetl.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "veracruz-mx",
+   "xalapa-de-enriquez-mx"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Popocatepetl; entries Veracruz, Xalapa"
+ },
+ {
+  "n": 410,
+  "file": "Mt_Pinatubo_trekking_-_panoramio_(5).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Mt_Pinatubo_trekking_-_panoramio_%285%29.jpg/3840px-Mt_Pinatubo_trekking_-_panoramio_%285%29.jpg",
+  "entries": [
+   "mount-pinatubo"
+  ],
+  "verified": "mount-pinatubo",
+  "method": "F"
+ },
+ {
+  "n": 411,
+  "file": "Geneve_2005_001_Ork.ch.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Geneve_2005_001_Ork.ch.jpg",
+  "entries": [
+   "geneva"
+  ],
+  "verified": "geneva",
+  "method": "F"
+ },
+ {
+  "n": 412,
+  "file": "Al_Alam_Palace.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Al_Alam_Palace.jpg/3840px-Al_Alam_Palace.jpg",
+  "entries": [
+   "muscat"
+  ],
+  "verified": "muscat",
+  "method": "F",
+  "note": "Al Alam Palace, Muscat"
+ },
+ {
+  "n": 413,
+  "file": "KAGAGAHAN_RIJANI.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/KAGAGAHAN_RIJANI.jpg",
+  "entries": [
+   "mount-rinjani"
+  ],
+  "verified": "mount-rinjani",
+  "method": "M",
+  "note": "garbled filename; description names Rinjani from Sembalun"
+ },
+ {
+  "n": 414,
+  "file": "Macau_Skyline_(157820121).jpeg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Macau_Skyline_%28157820121%29.jpeg",
+  "entries": [
+   "macau"
+  ],
+  "verified": "macau",
+  "method": "F"
+ },
+ {
+  "n": 415,
+  "file": "2009-0825-GreatOceanRoadsign.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/2009-0825-GreatOceanRoadsign.jpg",
+  "entries": [
+   "great-ocean-road"
+  ],
+  "verified": "great-ocean-road",
+  "method": "F",
+  "note": "Great Ocean Road arch and sign"
+ },
+ {
+  "n": 416,
+  "file": "Tōdai-ji_Kon-dō.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg",
+  "entries": [
+   "nara"
+  ],
+  "verified": "nara",
+  "method": "F",
+  "note": "Todai-ji, Nara"
+ },
+ {
+  "n": 417,
+  "file": "Gold_Coast_skyline_(Unsplash).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Gold_Coast_skyline_%28Unsplash%29.jpg/3840px-Gold_Coast_skyline_%28Unsplash%29.jpg",
+  "entries": [
+   "gold-coast"
+  ],
+  "verified": "gold-coast",
+  "method": "F"
+ },
+ {
+  "n": 418,
+  "file": "Great_Blue_Hole.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Great_Blue_Hole.jpg",
+  "entries": [
+   "great-blue-hole"
+  ],
+  "verified": "great-blue-hole",
+  "method": "F"
+ },
+ {
+  "n": 419,
+  "file": "Iss016e019375.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Iss016e019375.jpg",
+  "entries": [
+   "suez-canal"
+  ],
+  "verified": "suez-canal",
+  "method": "M",
+  "note": "ISS id filename; description names Port of Suez at the canal's southern entrance"
+ },
+ {
+  "n": 420,
+  "file": "Efmo_View_from_Fire_Point.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Efmo_View_from_Fire_Point.jpg",
+  "entries": [
+   "mississippi-river"
+  ],
+  "verified": "mississippi-river",
+  "method": "M",
+  "note": "opaque filename; description names the Mississippi at Effigy Mounds"
+ },
+ {
+  "n": 421,
+  "file": "Mt_erebus.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mt_erebus.jpg",
+  "entries": [
+   "mount-erebus"
+  ],
+  "verified": "mount-erebus",
+  "method": "F"
+ },
+ {
+  "n": 422,
+  "file": "Lake_Titicaca_ESA22522896.jpeg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lake_Titicaca_ESA22522896.jpeg",
+  "entries": [
+   "lake-titicaca"
+  ],
+  "verified": "lake-titicaca",
+  "method": "F"
+ },
+ {
+  "n": 423,
+  "file": "High_West_and_Victoria_Peak_from_Victoria_Gap_(crop1).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/High_West_and_Victoria_Peak_from_Victoria_Gap_%28crop1%29.jpg",
+  "entries": [
+   "victoria-peak"
+  ],
+  "verified": "victoria-peak",
+  "method": "F"
+ },
+ {
+  "n": 424,
+  "file": "Sarona_CBD_01_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Sarona_CBD_01_%28cropped%29.jpg/3840px-Sarona_CBD_01_%28cropped%29.jpg",
+  "entries": [
+   "tel-aviv"
+  ],
+  "verified": "tel-aviv",
+  "method": "F"
+ },
+ {
+  "n": 425,
+  "file": "Luxembourg_Grand_Ducal_Palace_01.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Luxembourg_Grand_Ducal_Palace_01.jpg/3840px-Luxembourg_Grand_Ducal_Palace_01.jpg",
+  "entries": [
+   "luxembourg-city"
+  ],
+  "verified": "luxembourg-city",
+  "method": "F"
+ },
+ {
+  "n": 426,
+  "file": "St_Sebastian_Curtain_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/St_Sebastian_Curtain_%28cropped%29.jpg/3840px-St_Sebastian_Curtain_%28cropped%29.jpg",
+  "entries": [
+   "valletta"
+  ],
+  "verified": "valletta",
+  "method": "M",
+  "note": "St Sebastian Curtain; categories place it in Valletta"
+ },
+ {
+  "n": 427,
+  "file": "Custom_House,_River_Lagan,_Belfast.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Custom_House%2C_River_Lagan%2C_Belfast.jpg/3840px-Custom_House%2C_River_Lagan%2C_Belfast.jpg",
+  "entries": [
+   "belfast"
+  ],
+  "verified": "belfast",
+  "method": "F"
+ },
+ {
+  "n": 428,
+  "file": "Kathedrale_von_Palma.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Kathedrale_von_Palma.jpg/3840px-Kathedrale_von_Palma.jpg",
+  "entries": [
+   "palma-de-mallorca"
+  ],
+  "verified": "palma-de-mallorca",
+  "method": "F"
+ },
+ {
+  "n": 429,
+  "file": "Franz_josef_Glacier_LC0250.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Franz_josef_Glacier_LC0250.jpg",
+  "entries": [
+   "franz-josef-glacier"
+  ],
+  "verified": "franz-josef-glacier",
+  "method": "F"
+ },
+ {
+  "n": 430,
+  "file": "Promenade_des_Anglais_Nice_IMG_1255.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Promenade_des_Anglais_Nice_IMG_1255.jpg/3840px-Promenade_des_Anglais_Nice_IMG_1255.jpg",
+  "entries": [
+   "nice"
+  ],
+  "verified": "nice",
+  "method": "F"
+ },
+ {
+  "n": 431,
+  "file": "Panorama_von_Monaco-La_Turbie.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Panorama_von_Monaco-La_Turbie.jpg",
+  "entries": [
+   "monaco"
+  ],
+  "verified": "monaco",
+  "method": "F"
+ },
+ {
+  "n": 432,
+  "file": "Nürnberger_Burg_im_Herbst_2013.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/N%C3%BCrnberger_Burg_im_Herbst_2013.jpg/3840px-N%C3%BCrnberger_Burg_im_Herbst_2013.jpg",
+  "entries": [
+   "nuremberg"
+  ],
+  "verified": "nuremberg",
+  "method": "F"
+ },
+ {
+  "n": 433,
+  "file": "Bering_Strait.jpeg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bering_Strait.jpeg",
+  "entries": [
+   "bering-strait"
+  ],
+  "verified": "bering-strait",
+  "method": "F"
+ },
+ {
+  "n": 434,
+  "file": "2013_Old_San_Juan_01.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/2013_Old_San_Juan_01.JPG/3840px-2013_Old_San_Juan_01.JPG",
+  "entries": [
+   "san-juan"
+  ],
+  "verified": "san-juan",
+  "method": "F",
+  "note": "Old San Juan, Puerto Rico"
+ },
+ {
+  "n": 435,
+  "file": "STS059-238-074_Strait_of_Gibraltar.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/STS059-238-074_Strait_of_Gibraltar.jpg/3840px-STS059-238-074_Strait_of_Gibraltar.jpg",
+  "entries": [
+   "strait-of-gibraltar"
+  ],
+  "verified": "strait-of-gibraltar",
+  "method": "F"
+ },
+ {
+  "n": 436,
+  "file": "Orlando,_Florida_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Orlando%2C_Florida_%28cropped%29.jpg/3840px-Orlando%2C_Florida_%28cropped%29.jpg",
+  "entries": [
+   "orlando"
+  ],
+  "verified": "orlando",
+  "method": "F"
+ },
+ {
+  "n": 437,
+  "file": "Fell's_Point_Aerial_2022.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Fell%27s_Point_Aerial_2022.jpg",
+  "entries": [
+   "baltimore"
+  ],
+  "verified": "baltimore",
+  "method": "F"
+ },
+ {
+  "n": 438,
+  "file": "Ascending_the_Duquesne_Incline.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Ascending_the_Duquesne_Incline.jpg/3840px-Ascending_the_Duquesne_Incline.jpg",
+  "entries": [
+   "pittsburgh"
+  ],
+  "verified": "pittsburgh",
+  "method": "M",
+  "note": "Duquesne Incline; categories and GPS place it in Pittsburgh"
+ },
+ {
+  "n": 439,
+  "file": "Kansas_City_-_Downtown_-_panoramio_(15).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Kansas_City_-_Downtown_-_panoramio_%2815%29.jpg",
+  "entries": [
+   "kansas-city"
+  ],
+  "verified": "kansas-city",
+  "method": "F"
+ },
+ {
+  "n": 440,
+  "file": "Downtown_Cincinnati_viewed_from_Devou_Park_(cropped).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Downtown_Cincinnati_viewed_from_Devou_Park_%28cropped%29.jpg/3840px-Downtown_Cincinnati_viewed_from_Devou_Park_%28cropped%29.jpg",
+  "entries": [
+   "cincinnati"
+  ],
+  "verified": "cincinnati",
+  "method": "F"
+ },
+ {
+  "n": 441,
+  "file": "Milwaukee_Skyline_w_New_NW_Mutual_Building_2025_by_Isaac_Rowlett.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Milwaukee_Skyline_w_New_NW_Mutual_Building_2025_by_Isaac_Rowlett.jpg",
+  "entries": [
+   "milwaukee"
+  ],
+  "verified": "milwaukee",
+  "method": "F"
+ },
+ {
+  "n": 442,
+  "file": "SLC_Skyline_2024.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/SLC_Skyline_2024.jpg",
+  "entries": [
+   "salt-lake-city"
+  ],
+  "verified": "salt-lake-city",
+  "method": "F"
+ },
+ {
+  "n": 443,
+  "file": "Palace_of_the_Governors.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Palace_of_the_Governors.jpg/3840px-Palace_of_the_Governors.jpg",
+  "entries": [
+   "santa-fe"
+  ],
+  "verified": "santa-fe",
+  "method": "M",
+  "note": "Palace of the Governors; description names Santa Fe"
+ },
+ {
+  "n": 444,
+  "file": "Savannah.tif",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Savannah.tif/lossy-page1-3840px-Savannah.tif.jpg",
+  "entries": [
+   "savannah"
+  ],
+  "verified": "savannah",
+  "method": "F"
+ },
+ {
+  "n": 445,
+  "file": "East_Battery_Street_Charleston_Aug2010.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/East_Battery_Street_Charleston_Aug2010.jpg",
+  "entries": [
+   "charleston"
+  ],
+  "verified": "charleston",
+  "method": "F",
+  "note": "South Carolina, GPS 5 km from pin"
+ },
+ {
+  "n": 446,
+  "file": "Southernmost_point_buoy,_NE_view.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Southernmost_point_buoy%2C_NE_view.jpg/3840px-Southernmost_point_buoy%2C_NE_view.jpg",
+  "entries": [
+   "key-west"
+  ],
+  "verified": "key-west",
+  "method": "F"
+ },
+ {
+  "n": 447,
+  "file": "Victoria_BC,_Canada_(Johnson_Street)_-_panoramio.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Victoria_BC%2C_Canada_%28Johnson_Street%29_-_panoramio.jpg",
+  "entries": [
+   "victoria"
+  ],
+  "verified": "victoria",
+  "method": "F",
+  "note": "Victoria BC, GPS 0 km from pin"
+ },
+ {
+  "n": 448,
+  "file": "Missouri_River_in_2021_01.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Missouri_River_in_2021_01.jpg",
+  "entries": [
+   "missouri-river"
+  ],
+  "verified": "missouri-river",
+  "method": "F",
+  "note": "upper Missouri River Breaks; the river itself"
+ },
+ {
+  "n": 449,
+  "file": "Town_of_Banff_viewed_from_Sulphur_Mountain.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Town_of_Banff_viewed_from_Sulphur_Mountain.jpg/3840px-Town_of_Banff_viewed_from_Sulphur_Mountain.jpg",
+  "entries": [
+   "banff"
+  ],
+  "verified": "banff",
+  "method": "F"
+ },
+ {
+  "n": 450,
+  "file": "DarwinOct172024_02.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/DarwinOct172024_02.jpg/3840px-DarwinOct172024_02.jpg",
+  "entries": [
+   "darwin"
+  ],
+  "verified": "darwin",
+  "method": "F"
+ },
+ {
+  "n": 451,
+  "file": "Alice_Springs,_2015_(01).JPG",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Alice_Springs%2C_2015_%2801%29.JPG",
+  "entries": [
+   "alice-springs"
+  ],
+  "verified": "alice-springs",
+  "method": "F"
+ },
+ {
+  "n": 452,
+  "file": "Cairns_(Queensland)_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cairns_%28Queensland%29_%28cropped%29.jpg/3840px-Cairns_%28Queensland%29_%28cropped%29.jpg",
+  "entries": [
+   "cairns"
+  ],
+  "verified": "cairns",
+  "method": "F"
+ },
+ {
+  "n": 453,
+  "file": "Horseshoe_Bend_13_February_2023.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Horseshoe_Bend_13_February_2023.jpg/3840px-Horseshoe_Bend_13_February_2023.jpg",
+  "entries": [
+   "colorado-river"
+  ],
+  "verified": "colorado-river",
+  "method": "M",
+  "note": "Horseshoe Bend; description names the Colorado River"
+ },
+ {
+  "n": 454,
+  "file": "Mount_Elbert_and_Surrounding_Sawatch_Range,_Colorado_(9179291029).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Mount_Elbert_and_Surrounding_Sawatch_Range%2C_Colorado_%289179291029%29.jpg/3840px-Mount_Elbert_and_Surrounding_Sawatch_Range%2C_Colorado_%289179291029%29.jpg",
+  "entries": [
+   "rocky-mountains"
+  ],
+  "verified": "rocky-mountains",
+  "method": "M",
+  "note": "Mount Elbert; description names the Rocky Mountains"
+ },
+ {
+  "n": 455,
+  "file": "Caspian_Sea_from_orbit.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Caspian_Sea_from_orbit.jpg",
+  "entries": [
+   "caspian-sea"
+  ],
+  "verified": "caspian-sea",
+  "method": "F"
+ },
+ {
+  "n": 456,
+  "file": "Mt_Etna_and_Catania1.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Mt_Etna_and_Catania1.jpg",
+  "entries": [
+   "mount-etna"
+  ],
+  "verified": "mount-etna",
+  "method": "F"
+ },
+ {
+  "n": 457,
+  "file": "Il_cratere_del_Vulcano_-_panoramio.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Il_cratere_del_Vulcano_-_panoramio.jpg",
+  "entries": [
+   "mount-vesuvius"
+  ],
+  "verified": "mount-vesuvius",
+  "method": "M",
+  "note": "Italian filename; categories Vesuvius from Naples"
+ },
+ {
+  "n": 458,
+  "file": "Mont_Blanc_Aiguille.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Mont_Blanc_Aiguille.jpg",
+  "entries": [
+   "mont-blanc"
+  ],
+  "verified": "mont-blanc",
+  "method": "F"
+ },
+ {
+  "n": 459,
+  "file": "Jungfrau03.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Jungfrau03.jpg",
+  "entries": [
+   "jungfrau"
+  ],
+  "verified": "jungfrau",
+  "method": "F"
+ },
+ {
+  "n": 460,
+  "file": "Sentiero_del_Viandante_DSC_6340_(14020554463).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Sentiero_del_Viandante_DSC_6340_%2814020554463%29.jpg",
+  "entries": [
+   "lake-como"
+  ],
+  "verified": "lake-como",
+  "method": "M",
+  "note": "trail id filename; categories Lake Como"
+ },
+ {
+  "n": 461,
+  "file": "Cliffs-Of-Moher-OBriens-From-South.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Cliffs-Of-Moher-OBriens-From-South.JPG/3840px-Cliffs-Of-Moher-OBriens-From-South.JPG",
+  "entries": [
+   "cliffs-of-moher"
+  ],
+  "verified": "cliffs-of-moher",
+  "method": "F"
+ },
+ {
+  "n": 462,
+  "file": "Snowdon_massif.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Snowdon_massif.jpg",
+  "entries": [
+   "snowdon"
+  ],
+  "verified": "snowdon",
+  "method": "F"
+ },
+ {
+  "n": 463,
+  "file": "BenNevis2005.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/BenNevis2005.jpg",
+  "entries": [
+   "ben-nevis"
+  ],
+  "verified": "ben-nevis",
+  "method": "F"
+ },
+ {
+  "n": 464,
+  "file": "Blick_vom_Hohfelsen.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Blick_vom_Hohfelsen.jpg/3840px-Blick_vom_Hohfelsen.jpg",
+  "entries": [
+   "black-forest"
+  ],
+  "verified": "black-forest",
+  "method": "M",
+  "note": "Hohfelsen view; categories Northern Black Forest"
+ },
+ {
+  "n": 465,
+  "file": "SBB_RABe_514_DTZ_Rheinfall.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/SBB_RABe_514_DTZ_Rheinfall.jpg/3840px-SBB_RABe_514_DTZ_Rheinfall.jpg",
+  "entries": [
+   "rhine-falls"
+  ],
+  "verified": "rhine-falls",
+  "method": "F"
+ },
+ {
+  "n": 466,
+  "file": "Danube_Delta_ESA23450088.jpeg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Danube_Delta_ESA23450088.jpeg/3840px-Danube_Delta_ESA23450088.jpeg",
+  "entries": [
+   "danube-delta"
+  ],
+  "verified": "danube-delta",
+  "method": "F"
+ },
+ {
+  "n": 467,
+  "file": "Lake_Ohrid,_Macedonia-Albania_viewed_from_a_NASA_satellite.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Lake_Ohrid%2C_Macedonia-Albania_viewed_from_a_NASA_satellite.jpg",
+  "entries": [
+   "lake-ohrid"
+  ],
+  "verified": "lake-ohrid",
+  "method": "F"
+ },
+ {
+  "n": 468,
+  "file": "Mount_Ararat_and_the_Yerevan_skyline.jpg",
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Ararat_and_the_Yerevan_skyline.jpg?width=800",
+  "entries": [
+   "mount-ararat"
+  ],
+  "verified": "mount-ararat",
+  "method": "F"
+ },
+ {
+  "n": 469,
+  "file": "Amazon_River_ESA387332.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Amazon_River_ESA387332.jpg",
+  "entries": [
+   "amazon-river"
+  ],
+  "verified": "amazon-river",
+  "method": "F"
+ },
+ {
+  "n": 470,
+  "file": "Aerial_view_of_the_Congo_River_near_Kisangani.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Aerial_view_of_the_Congo_River_near_Kisangani.jpg/3840px-Aerial_view_of_the_Congo_River_near_Kisangani.jpg",
+  "entries": [
+   "congo-river"
+  ],
+  "verified": "congo-river",
+  "method": "F"
+ },
+ {
+  "n": 471,
+  "file": "STS51G-034-0012_Lake_Tanganyika_June1985.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/STS51G-034-0012_Lake_Tanganyika_June1985.jpg/3840px-STS51G-034-0012_Lake_Tanganyika_June1985.jpg",
+  "entries": [
+   "lake-tanganyika"
+  ],
+  "verified": "lake-tanganyika",
+  "method": "F"
+ },
+ {
+  "n": 472,
+  "file": "Okavango_Delta,_Botswana1.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Okavango_Delta%2C_Botswana1.jpg",
+  "entries": [
+   "okavango-delta"
+  ],
+  "verified": "okavango-delta",
+  "method": "F"
+ },
+ {
+  "n": 473,
+  "file": "Mount_Nemrut_-_East_Terrace_(4961323529).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Mount_Nemrut_-_East_Terrace_%284961323529%29.jpg/3840px-Mount_Nemrut_-_East_Terrace_%284961323529%29.jpg",
+  "entries": [
+   "mount-nemrut"
+  ],
+  "verified": "mount-nemrut",
+  "method": "F"
+ },
+ {
+  "n": 474,
+  "file": "Baikal.A2001296.0420.250m-NASA.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Baikal.A2001296.0420.250m-NASA.jpg",
+  "entries": [
+   "lake-baikal"
+  ],
+  "verified": "lake-baikal",
+  "method": "F"
+ },
+ {
+  "n": 475,
+  "file": "20140516阿蘇山広域.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg/3840px-20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg",
+  "entries": [
+   "mount-aso"
+  ],
+  "verified": "mount-aso",
+  "method": "M",
+  "note": "Japanese filename; categories Mount Aso"
+ },
+ {
+  "n": 476,
+  "file": "Jeju_Island.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Jeju_Island.jpg",
+  "entries": [
+   "jeju-island"
+  ],
+  "verified": "jeju-island",
+  "method": "F"
+ },
+ {
+  "n": 477,
+  "file": "Gobi_Desert.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Gobi_Desert.jpg",
+  "entries": [
+   "gobi-desert"
+  ],
+  "verified": "gobi-desert",
+  "method": "F"
+ },
+ {
+  "n": 478,
+  "file": "Kailash_north.JPG",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Kailash_north.JPG",
+  "entries": [
+   "mount-kailash"
+  ],
+  "verified": "mount-kailash",
+  "method": "F"
+ },
+ {
+  "n": 479,
+  "file": "981012-Damavand-South-IMG_9861-2.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/981012-Damavand-South-IMG_9861-2.jpg",
+  "entries": [
+   "mount-damavand"
+  ],
+  "verified": "mount-damavand",
+  "method": "F"
+ },
+ {
+  "n": 480,
+  "file": "AralSea1989_2014.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/AralSea1989_2014.jpg",
+  "entries": [
+   "aral-sea"
+  ],
+  "verified": "aral-sea",
+  "method": "F"
+ },
+ {
+  "n": 481,
+  "file": "Zion_angels_landing_view.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Zion_angels_landing_view.jpg",
+  "entries": [
+   "zion-national-park"
+  ],
+  "verified": "zion-national-park",
+  "method": "F"
+ },
+ {
+  "n": 482,
+  "file": "General_Sherman_Tree_in_Sequoia_National_Park_-_June_2022.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/General_Sherman_Tree_in_Sequoia_National_Park_-_June_2022.jpg",
+  "entries": [
+   "sequoia-national-park"
+  ],
+  "verified": "sequoia-national-park",
+  "method": "F",
+  "note": "General Sherman Tree"
+ },
+ {
+  "n": 483,
+  "file": "Redwood_National_Park,_fog_in_the_forest.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Redwood_National_Park%2C_fog_in_the_forest.jpg",
+  "entries": [
+   "redwood-national-and-state-parks"
+  ],
+  "verified": "redwood-national-and-state-parks",
+  "method": "F"
+ },
+ {
+  "n": 484,
+  "file": "Rocky_Mountain_National_Park_in_September_2011_-_Glacier_Gorge_from_Bear_Lake.JPG",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Rocky_Mountain_National_Park_in_September_2011_-_Glacier_Gorge_from_Bear_Lake.JPG",
+  "entries": [
+   "rocky-mountain-national-park"
+  ],
+  "verified": "rocky-mountain-national-park",
+  "method": "F"
+ },
+ {
+  "n": 485,
+  "file": "Mountain_Goat_at_Hidden_Lake.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Mountain_Goat_at_Hidden_Lake.jpg/3840px-Mountain_Goat_at_Hidden_Lake.jpg",
+  "entries": [
+   "glacier-national-park"
+  ],
+  "verified": "glacier-national-park",
+  "method": "M",
+  "note": "Hidden Lake; description names Glacier National Park"
+ },
+ {
+  "n": 486,
+  "file": "Sunset_over_the_River_of_Grass,_NPSphoto,_G.Gardner_(9255157507).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Sunset_over_the_River_of_Grass%2C_NPSphoto%2C_G.Gardner_%289255157507%29.jpg/3840px-Sunset_over_the_River_of_Grass%2C_NPSphoto%2C_G.Gardner_%289255157507%29.jpg",
+  "entries": [
+   "everglades-national-park"
+  ],
+  "verified": "everglades-national-park",
+  "method": "M",
+  "note": "River of Grass; categories Everglades"
+ },
+ {
+  "n": 487,
+  "file": "Acadia_National_Park_02.JPG",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Acadia_National_Park_02.JPG",
+  "entries": [
+   "acadia-national-park"
+  ],
+  "verified": "acadia-national-park",
+  "method": "F"
+ },
+ {
+  "n": 488,
+  "file": "Joshua_Tree_-_Cyclops_+_Potato_Head_-_Sunrise.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Joshua_Tree_-_Cyclops_%2B_Potato_Head_-_Sunrise.jpg/3840px-Joshua_Tree_-_Cyclops_%2B_Potato_Head_-_Sunrise.jpg",
+  "entries": [
+   "joshua-tree-national-park"
+  ],
+  "verified": "joshua-tree-national-park",
+  "method": "F"
+ },
+ {
+  "n": 489,
+  "file": "Mesquite_Sand_Dunes_in_Death_Valley.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Mesquite_Sand_Dunes_in_Death_Valley.jpg",
+  "entries": [
+   "death-valley-national-park"
+  ],
+  "verified": "death-valley-national-park",
+  "method": "F"
+ },
+ {
+  "n": 490,
+  "file": "Tahoe_North_Shore_from_the_East_Shore.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tahoe_North_Shore_from_the_East_Shore.jpg/3840px-Tahoe_North_Shore_from_the_East_Shore.jpg",
+  "entries": [
+   "lake-tahoe"
+  ],
+  "verified": "lake-tahoe",
+  "method": "F"
+ },
+ {
+  "n": 491,
+  "file": "Rainier20200906.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Rainier20200906.jpg/3840px-Rainier20200906.jpg",
+  "entries": [
+   "mount-rainier"
+  ],
+  "verified": "mount-rainier",
+  "method": "F"
+ },
+ {
+  "n": 492,
+  "file": "Wonder_Lake_and_Denali.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Wonder_Lake_and_Denali.jpg",
+  "entries": [
+   "denali"
+  ],
+  "verified": "denali",
+  "method": "F"
+ },
+ {
+  "n": 493,
+  "file": "Crater_Lake_winter_pano2.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Crater_Lake_winter_pano2.jpg/3840px-Crater_Lake_winter_pano2.jpg",
+  "entries": [
+   "crater-lake"
+  ],
+  "verified": "crater-lake",
+  "method": "F"
+ },
+ {
+  "n": 494,
+  "file": "Moraine_Lake_17092005.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Moraine_Lake_17092005.jpg",
+  "entries": [
+   "banff-national-park"
+  ],
+  "verified": "banff-national-park",
+  "method": "M",
+  "note": "Moraine Lake; description names Banff National Park"
+ },
+ {
+  "n": 495,
+  "file": "Mount_Andromeda_at_dusk,_Jasper_National_Park,_Alberta,_Canada.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Mount_Andromeda_at_dusk%2C_Jasper_National_Park%2C_Alberta%2C_Canada.jpg/3840px-Mount_Andromeda_at_dusk%2C_Jasper_National_Park%2C_Alberta%2C_Canada.jpg",
+  "entries": [
+   "jasper-national-park"
+  ],
+  "verified": "jasper-national-park",
+  "method": "F"
+ },
+ {
+  "n": 496,
+  "file": "U.S._Route_1,_Florida_Keys.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/U.S._Route_1%2C_Florida_Keys.jpg/3840px-U.S._Route_1%2C_Florida_Keys.jpg",
+  "entries": [
+   "florida-keys"
+  ],
+  "verified": "florida-keys",
+  "method": "F"
+ },
+ {
+  "n": 497,
+  "file": "White_Crest_Beach_Wellfleet.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/White_Crest_Beach_Wellfleet.jpg/3840px-White_Crest_Beach_Wellfleet.jpg",
+  "entries": [
+   "cape-cod"
+  ],
+  "verified": "cape-cod",
+  "method": "M",
+  "note": "White Crest Beach, Wellfleet; categories Cape Cod National Seashore"
+ },
+ {
+  "n": 498,
+  "file": "NCOuterBanks-EO.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/NCOuterBanks-EO.jpg",
+  "entries": [
+   "outer-banks"
+  ],
+  "verified": "outer-banks",
+  "method": "F"
+ },
+ {
+  "n": 499,
+  "file": "Vineyards_of_Napa_Valley_panorama.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Vineyards_of_Napa_Valley_panorama.jpg",
+  "entries": [
+   "napa-valley-ava"
+  ],
+  "verified": "napa-valley-ava",
+  "method": "F"
+ },
+ {
+  "n": 500,
+  "file": "City_of_Waikiki_view.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/City_of_Waikiki_view.jpg/3840px-City_of_Waikiki_view.jpg",
+  "entries": [
+   "waikiki"
+  ],
+  "verified": "waikiki",
+  "method": "F"
+ },
+ {
+  "n": 501,
+  "file": "NaPali_overlook_Kalalau_Valley.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/NaPali_overlook_Kalalau_Valley.jpg",
+  "entries": [
+   "na-pali-coast-state-park"
+  ],
+  "verified": "na-pali-coast-state-park",
+  "method": "F"
+ },
+ {
+  "n": 502,
+  "file": "USA_Tour_2019_P095_Graceland.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/USA_Tour_2019_P095_Graceland.jpg/3840px-USA_Tour_2019_P095_Graceland.jpg",
+  "entries": [
+   "graceland"
+  ],
+  "verified": "graceland",
+  "method": "F"
+ },
+ {
+  "n": 503,
+  "file": "131023-F-PR861-033_Hanscom_participates_in_World_Series_pregame_events.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/131023-F-PR861-033_Hanscom_participates_in_World_Series_pregame_events.jpg",
+  "entries": [
+   "fenway-park"
+  ],
+  "verified": "fenway-park",
+  "method": "M",
+  "note": "Air Force id filename; description names Fenway Park"
+ },
+ {
+  "n": 504,
+  "file": "Wrigley_Field_in_line_with_sign.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Wrigley_Field_in_line_with_sign.jpg",
+  "entries": [
+   "wrigley-field"
+  ],
+  "verified": "wrigley-field",
+  "method": "F"
+ },
+ {
+  "n": 505,
+  "file": "London_Wembley.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/London_Wembley.jpg/3840px-London_Wembley.jpg",
+  "entries": [
+   "wembley-stadium"
+  ],
+  "verified": "wembley-stadium",
+  "method": "F"
+ },
+ {
+  "n": 506,
+  "file": "Indianapolis-motor-speedway-1848561.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Indianapolis-motor-speedway-1848561.jpg",
+  "entries": [
+   "indianapolis-motor-speedway"
+  ],
+  "verified": "indianapolis-motor-speedway",
+  "method": "F"
+ },
+ {
+  "n": 507,
+  "file": "Daytona_International_Speedway.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Daytona_International_Speedway.jpg",
+  "entries": [
+   "daytona-international-speedway"
+  ],
+  "verified": "daytona-international-speedway",
+  "method": "F"
+ },
+ {
+  "n": 508,
+  "file": "AugustaNationalMastersLogoFlowers.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/AugustaNationalMastersLogoFlowers.jpg",
+  "entries": [
+   "augusta-national-golf-club"
+  ],
+  "verified": "augusta-national-golf-club",
+  "method": "F"
+ },
+ {
+  "n": 509,
+  "file": "Churchill_Downs_-_Louisville_Kentucky.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Churchill_Downs_-_Louisville_Kentucky.jpg",
+  "entries": [
+   "churchill-downs"
+  ],
+  "verified": "churchill-downs",
+  "method": "F"
+ },
+ {
+  "n": 510,
+  "file": "Sentinel-Homey.png",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Sentinel-Homey.png",
+  "entries": [
+   "area-51"
+  ],
+  "verified": "area-51",
+  "method": "M",
+  "note": "Homey Airport; categories Area 51"
+ },
+ {
+  "n": 511,
+  "file": "West_Face_of_Mansion,_Mount_Vernon,_Near_Alexandria,_Virginia_(2731038734).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/West_Face_of_Mansion%2C_Mount_Vernon%2C_Near_Alexandria%2C_Virginia_%282731038734%29.jpg",
+  "entries": [
+   "mount-vernon"
+  ],
+  "verified": "mount-vernon",
+  "method": "F"
+ },
+ {
+  "n": 512,
+  "file": "Monticello_reflected.JPG",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Monticello_reflected.JPG",
+  "entries": [
+   "monticello"
+  ],
+  "verified": "monticello",
+  "method": "F"
+ },
+ {
+  "n": 513,
+  "file": "Grand_Canyon_of_the_Yellowstone_Lower_Falls_(95819p).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Grand_Canyon_of_the_Yellowstone_Lower_Falls_%2895819p%29.jpg/3840px-Grand_Canyon_of_the_Yellowstone_Lower_Falls_%2895819p%29.jpg",
+  "entries": [
+   "yellowstone-national-park"
+  ],
+  "verified": "yellowstone-national-park",
+  "method": "F"
+ },
+ {
+  "n": 514,
+  "file": "Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_(15351915006).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_%2815351915006%29.jpg/3840px-Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_%2815351915006%29.jpg",
+  "entries": [
+   "central-park"
+  ],
+  "verified": "central-park",
+  "method": "F"
+ },
+ {
+  "n": 515,
+  "file": "PersianGulf_vue_satellite_du_golfe_persique.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/PersianGulf_vue_satellite_du_golfe_persique.jpg/3840px-PersianGulf_vue_satellite_du_golfe_persique.jpg",
+  "entries": [
+   "persian-gulf"
+  ],
+  "verified": "persian-gulf",
+  "method": "F"
+ },
+ {
+  "n": 516,
+  "file": "Ocean_drive_day_2009j.JPG",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ocean_drive_day_2009j.JPG/3840px-Ocean_drive_day_2009j.JPG",
+  "entries": [
+   "south-beach"
+  ],
+  "verified": "south-beach",
+  "method": "M",
+  "note": "Ocean Drive; description names South Beach"
+ },
+ {
+  "n": 517,
+  "file": "Beverly_Wilshire_Hotel_(15676919512).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Beverly_Wilshire_Hotel_%2815676919512%29.jpg",
+  "entries": [
+   "beverly-hills"
+  ],
+  "verified": "beverly-hills",
+  "method": "M",
+  "note": "Beverly Wilshire Hotel, GPS 1 km from pin"
+ },
+ {
+  "n": 518,
+  "file": "Santa_monica_pier_entrance_evening.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Santa_monica_pier_entrance_evening.jpg",
+  "entries": [
+   "santa-monica-pier"
+  ],
+  "verified": "santa-monica-pier",
+  "method": "F"
+ },
+ {
+  "n": 519,
+  "file": "2018_Mall_of_America_01.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/2018_Mall_of_America_01.jpg/3840px-2018_Mall_of_America_01.jpg",
+  "entries": [
+   "mall-of-america"
+  ],
+  "verified": "mall-of-america",
+  "method": "F"
+ },
+ {
+  "n": 520,
+  "file": "Mumbai_03-2016_30_Gateway_of_India.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg",
+  "entries": [
+   "gateway-of-india"
+  ],
+  "verified": "gateway-of-india",
+  "method": "F"
+ },
+ {
+  "n": 521,
+  "file": "LotusDelhi.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/LotusDelhi.jpg",
+  "entries": [
+   "lotus-temple"
+  ],
+  "verified": "lotus-temple",
+  "method": "F"
+ },
+ {
+  "n": 522,
+  "file": "Burj_Al_Arab,_Dubai.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Burj_Al_Arab%2C_Dubai.jpg",
+  "entries": [
+   "burj-al-arab"
+  ],
+  "verified": "burj-al-arab",
+  "method": "F"
+ },
+ {
+  "n": 523,
+  "file": "Artificial_Archipelagos,_Dubai,_United_Arab_Emirates_ISS022-E-024940_lrg_(cropped).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Artificial_Archipelagos%2C_Dubai%2C_United_Arab_Emirates_ISS022-E-024940_lrg_%28cropped%29.jpg",
+  "entries": [
+   "palm-jumeirah"
+  ],
+  "verified": "palm-jumeirah",
+  "method": "M",
+  "note": "ISS image of Dubai's islands; categories Palm Jumeirah"
+ },
+ {
+  "n": 524,
+  "file": "Kinneret_cropped.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Kinneret_cropped.jpg/3840px-Kinneret_cropped.jpg",
+  "entries": [
+   "sea-of-galilee"
+  ],
+  "verified": "sea-of-galilee",
+  "method": "M",
+  "note": "Kinneret"
+ },
+ {
+  "n": 525,
+  "file": "Church_of_the_Nativity_(7703592746).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Church_of_the_Nativity_%287703592746%29.jpg/3840px-Church_of_the_Nativity_%287703592746%29.jpg",
+  "entries": [
+   "bethlehem"
+  ],
+  "verified": "bethlehem",
+  "method": "M",
+  "note": "Church of the Nativity, Bethlehem"
+ },
+ {
+  "n": 526,
+  "file": "Nazareth_Panorama_Dafna_Tal_IMOT_(14532097313).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Nazareth_Panorama_Dafna_Tal_IMOT_%2814532097313%29.jpg",
+  "entries": [
+   "nazareth"
+  ],
+  "verified": "nazareth",
+  "method": "F"
+ },
+ {
+  "n": 527,
+  "file": "Walls_of_Troy_(2).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Walls_of_Troy_%282%29.jpg",
+  "entries": [
+   "troy"
+  ],
+  "verified": "troy",
+  "method": "F"
+ },
+ {
+  "n": 528,
+  "file": "Ephesus_Celsus_Library_Façade.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Ephesus_Celsus_Library_Fa%C3%A7ade.jpg/3840px-Ephesus_Celsus_Library_Fa%C3%A7ade.jpg",
+  "entries": [
+   "ephesus"
+  ],
+  "verified": "ephesus",
+  "method": "F"
+ },
+ {
+  "n": 529,
+  "file": "Delphi,_Greece_-_panoramio.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Delphi%2C_Greece_-_panoramio.jpg",
+  "entries": [
+   "delphi"
+  ],
+  "verified": "delphi",
+  "method": "F"
+ },
+ {
+  "n": 530,
+  "file": "Ancient_Olympia,_Greece2.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Ancient_Olympia%2C_Greece2.jpg",
+  "entries": [
+   "olympia-greece"
+  ],
+  "verified": "olympia-greece",
+  "method": "F"
+ },
+ {
+  "n": 531,
+  "file": "Mt._Athos_(3939757657).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Mt._Athos_%283939757657%29.jpg",
+  "entries": [
+   "mount-athos"
+  ],
+  "verified": "mount-athos",
+  "method": "F"
+ },
+ {
+  "n": 532,
+  "file": "Knossos_R01.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Knossos_R01.jpg",
+  "entries": [
+   "knossos"
+  ],
+  "verified": "knossos",
+  "method": "F"
+ },
+ {
+  "n": 533,
+  "file": "Greece_Cape_Sounion_BW_2017-10-09_10-12-43.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Greece_Cape_Sounion_BW_2017-10-09_10-12-43.jpg/3840px-Greece_Cape_Sounion_BW_2017-10-09_10-12-43.jpg",
+  "entries": [
+   "temple-of-poseidon-at-sounion"
+  ],
+  "verified": "temple-of-poseidon-at-sounion",
+  "method": "F"
+ },
+ {
+  "n": 534,
+  "file": "La_Rocca_di_Manerba_del_Garda_con_l'isola_dei_Conigli.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg/3840px-La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg",
+  "entries": [
+   "lake-garda"
+  ],
+  "verified": "lake-garda",
+  "method": "M",
+  "note": "Rocca di Manerba; categories place it on Lake Garda"
+ },
+ {
+  "n": 535,
+  "file": "Lauerzersee.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lauerzersee.jpg",
+  "entries": [
+   "mount-rigi"
+  ],
+  "verified": "mount-rigi",
+  "method": "M",
+  "note": "Lake Lauerz with Rigi behind; categories Remote views of Rigi"
+ },
+ {
+  "n": 536,
+  "file": "Lascaux_painting.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg",
+  "entries": [
+   "lascaux"
+  ],
+  "verified": "lascaux",
+  "method": "F"
+ },
+ {
+  "n": 537,
+  "file": "Aerial_image_of_Château_de_Chambord_(view_from_the_southeast).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Aerial_image_of_Ch%C3%A2teau_de_Chambord_%28view_from_the_southeast%29.jpg",
+  "entries": [
+   "chateau-de-chambord"
+  ],
+  "verified": "chateau-de-chambord",
+  "method": "F"
+ },
+ {
+  "n": 538,
+  "file": "Château_de_Fontainebleau_(Fontainebleau)_edited_(1).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Ch%C3%A2teau_de_Fontainebleau_%28Fontainebleau%29_edited_%281%29.jpg/3840px-Ch%C3%A2teau_de_Fontainebleau_%28Fontainebleau%29_edited_%281%29.jpg",
+  "entries": [
+   "palace-of-fontainebleau"
+  ],
+  "verified": "palace-of-fontainebleau",
+  "method": "F"
+ },
+ {
+  "n": 539,
+  "file": "Normandy_American_Cemetery.png",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Normandy_American_Cemetery.png",
+  "entries": [
+   "normandy-american-cemetery-and-memorial"
+  ],
+  "verified": "normandy-american-cemetery-and-memorial",
+  "method": "F"
+ },
+ {
+  "n": 540,
+  "file": "White_Cliffs_of_Dover_02.JPG",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/White_Cliffs_of_Dover_02.JPG",
+  "entries": [
+   "white-cliffs-of-dover"
+  ],
+  "verified": "white-cliffs-of-dover",
+  "method": "F"
+ },
+ {
+  "n": 541,
+  "file": "Warwick_Castle_May_2016.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Warwick_Castle_May_2016.jpg/3840px-Warwick_Castle_May_2016.jpg",
+  "entries": [
+   "warwick-castle"
+  ],
+  "verified": "warwick-castle",
+  "method": "F"
+ },
+ {
+  "n": 542,
+  "file": "Tintagel_Castle_-_May_2026.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Tintagel_Castle_-_May_2026.jpg/3840px-Tintagel_Castle_-_May_2026.jpg",
+  "entries": [
+   "tintagel-castle"
+  ],
+  "verified": "tintagel-castle",
+  "method": "F"
+ },
+ {
+  "n": 543,
+  "file": "Hollyford_River_NZ_11.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Hollyford_River_NZ_11.jpg/3840px-Hollyford_River_NZ_11.jpg",
+  "entries": [
+   "fiordland-national-park"
+  ],
+  "verified": "fiordland-national-park",
+  "method": "M",
+  "note": "Hollyford River; description places it in Fiordland National Park"
+ },
+ {
+  "n": 544,
+  "file": "ISS-45_StoryOfWater,_Great_Barrier_Reef,_Australia.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/ISS-45_StoryOfWater%2C_Great_Barrier_Reef%2C_Australia.jpg",
+  "entries": [
+   "great-barrier-reef"
+  ],
+  "verified": "great-barrier-reef",
+  "method": "F"
+ },
+ {
+  "n": 545,
+  "file": "Daintree_Rainforest,_Queensland_(483855)_(9440811465).jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Daintree_Rainforest%2C_Queensland_%28483855%29_%289440811465%29.jpg/3840px-Daintree_Rainforest%2C_Queensland_%28483855%29_%289440811465%29.jpg",
+  "entries": [
+   "daintree-rainforest"
+  ],
+  "verified": "daintree-rainforest",
+  "method": "F"
+ },
+ {
+  "n": 546,
+  "file": "Flinders_Chase_National_Park_01.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Flinders_Chase_National_Park_01.jpg/3840px-Flinders_Chase_National_Park_01.jpg",
+  "entries": [
+   "kangaroo-island"
+  ],
+  "verified": "kangaroo-island",
+  "method": "M",
+  "note": "Flinders Chase; description places it on Kangaroo Island"
+ },
+ {
+  "n": 547,
+  "file": "Rottnest_Island.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Rottnest_Island.jpg",
+  "entries": [
+   "rottnest-island"
+  ],
+  "verified": "rottnest-island",
+  "method": "F",
+  "note": "satellite view of the island"
+ },
+ {
+  "n": 548,
+  "file": "Altstadt_Zürich_2015.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Altstadt_Z%C3%BCrich_2015.jpg/500px-Altstadt_Z%C3%BCrich_2015.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "lahore"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Zurich old town; entry Lahore"
+ },
+ {
+  "n": 549,
+  "file": "The_Battle_of_Bunker's_Hill_Bridgeman_Images.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/The_Battle_of_Bunker%27s_Hill_Bridgeman_Images.jpg/500px-The_Battle_of_Bunker%27s_Hill_Bridgeman_Images.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "delhi"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Trumbull painting of Bunker Hill, not a place; entry Delhi"
+ },
+ {
+  "n": 550,
+  "file": "2017_Aerial_view_Hoover_Dam_4774.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/2017_Aerial_view_Hoover_Dam_4774.jpg/500px-2017_Aerial_view_Hoover_Dam_4774.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "dhaka"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Hoover Dam; entry Dhaka"
+ },
+ {
+  "n": 551,
+  "file": "Adelaide_skyline,_December_2022_b.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Adelaide_skyline%2C_December_2022_b.jpg/500px-Adelaide_skyline%2C_December_2022_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "cairo"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Adelaide skyline; entry Cairo"
+ },
+ {
+  "n": 552,
+  "file": "Two_Lovers_Point_from_Tumon_Bay.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Two_Lovers_Point_from_Tumon_Bay.JPG/500px-Two_Lovers_Point_from_Tumon_Bay.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "taipei"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Two Lovers Point, Guam; entry Taipei"
+ },
+ {
+  "n": 553,
+  "file": "El_Chaltén.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/El_Chalt%C3%A9n.jpg/500px-El_Chalt%C3%A9n.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "tehran"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "El Chalten; entry Tehran"
+ },
+ {
+  "n": 554,
+  "file": "DomTorenUtrechtNederland.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/DomTorenUtrechtNederland.jpg/500px-DomTorenUtrechtNederland.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "dar-es-salaam"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Dom Tower, Utrecht; entry Dar es Salaam"
+ },
+ {
+  "n": 555,
+  "file": "Florence,_Italy_-_panoramio_(125).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Florence%2C_Italy_-_panoramio_%28125%29.jpg/500px-Florence%2C_Italy_-_panoramio_%28125%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "kano"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Florence; entry Kano"
+ },
+ {
+  "n": 556,
+  "file": "Valledelaluna-lapaz-bolivia.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Valledelaluna-lapaz-bolivia.jpg/500px-Valledelaluna-lapaz-bolivia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "riyadh"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Valle de la Luna, Bolivia; entry Riyadh"
+ },
+ {
+  "n": 557,
+  "file": "Downtown_Grise_Fiord.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Downtown_Grise_Fiord.jpg/500px-Downtown_Grise_Fiord.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "fuzhou"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Grise Fiord; entry Fuzhou"
+ },
+ {
+  "n": 558,
+  "file": "Caleta_Tortel_03.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Caleta_Tortel_03.JPG/500px-Caleta_Tortel_03.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "new-territories"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Caleta Tortel; entry New Territories"
+ },
+ {
+  "n": 559,
+  "file": "Reykjavík,_view_from_Hallgrímskirkja_(2).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Reykjav%C3%ADk%2C_view_from_Hallgr%C3%ADmskirkja_%282%29.jpg/500px-Reykjav%C3%ADk%2C_view_from_Hallgr%C3%ADmskirkja_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "havana"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Reykjavik; entry Havana"
+ },
+ {
+  "n": 560,
+  "file": "Chichen_Itza_3.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Chichen_Itza_3.jpg/500px-Chichen_Itza_3.jpg",
+  "entries": [
+   "depok"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Chichen Itza; entry Depok"
+ },
+ {
+  "n": 561,
+  "file": "Oymyakon_-_190228_DSC_5642.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Oymyakon_-_190228_DSC_5642.jpg/500px-Oymyakon_-_190228_DSC_5642.jpg",
+  "entries": [
+   "tashkent"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Oymyakon; entry Tashkent"
+ },
+ {
+  "n": 562,
+  "file": "Rome_Stele.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Rome_Stele.jpg/500px-Rome_Stele.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "almaty"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Rome Stele, Aksum; entry Almaty"
+ },
+ {
+  "n": 563,
+  "file": "Valley_of_the_Queens_by_Zureks.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Valley_of_the_Queens_by_Zureks.jpg/500px-Valley_of_the_Queens_by_Zureks.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "khartoum"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Valley of the Queens, Luxor; entry Khartoum"
+ },
+ {
+  "n": 564,
+  "file": "Salzburg_(48489551981).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Salzburg_%2848489551981%29.jpg/500px-Salzburg_%2848489551981%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "kampala"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Salzburg; entry Kampala"
+ },
+ {
+  "n": 565,
+  "file": "New_Orleans_from_the_Air_September_2019_-_Central_Business_District_Skyline_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/New_Orleans_from_the_Air_September_2019_-_Central_Business_District_Skyline_%28cropped%29.jpg/500px-New_Orleans_from_the_Air_September_2019_-_Central_Business_District_Skyline_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "konya"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "New Orleans; entry Konya"
+ },
+ {
+  "n": 566,
+  "file": "FortSumter2009.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/FortSumter2009.jpg/500px-FortSumter2009.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "gwangju"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Fort Sumter; entry Gwangju"
+ },
+ {
+  "n": 567,
+  "file": "Bondi_from_above.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Bondi_from_above.jpg/500px-Bondi_from_above.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "the-bronx"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Bondi Beach; entry The Bronx"
+ },
+ {
+  "n": 568,
+  "file": "Makapuu_Point_2.jpeg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Makapuu_Point_2.jpeg/500px-Makapuu_Point_2.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "antananarivo"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Makapuu Point, Oahu; entry Antananarivo"
+ },
+ {
+  "n": 569,
+  "file": "Chivay,_2023_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Chivay%2C_2023_%28cropped%29.jpg/500px-Chivay%2C_2023_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "antalya"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Chivay, Peru; entry Antalya"
+ },
+ {
+  "n": 570,
+  "file": "Milan_Cathedral_from_Piazza_del_Duomo.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Milan_Cathedral_from_Piazza_del_Duomo.jpg/500px-Milan_Cathedral_from_Piazza_del_Duomo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "shiraz"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Milan Cathedral; entry Shiraz"
+ },
+ {
+  "n": 571,
+  "file": "Ljubljana_Old_Town,_Slovenia_(Old_Camera)_(33286165680).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Ljubljana_Old_Town%2C_Slovenia_%28Old_Camera%29_%2833286165680%29.jpg/500px-Ljubljana_Old_Town%2C_Slovenia_%28Old_Camera%29_%2833286165680%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "dombivali"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Ljubljana; entry Dombivali"
+ },
+ {
+  "n": 572,
+  "file": "Universidade_de_Coimbra_-_panoramio.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Universidade_de_Coimbra_-_panoramio.jpg/1280px-Universidade_de_Coimbra_-_panoramio.jpg",
+  "entries": [
+   "suwon"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "University of Coimbra; entry Suwon"
+ },
+ {
+  "n": 573,
+  "file": "Baikonur_Cosmodrome_Soyuz_launch_pad.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Baikonur_Cosmodrome_Soyuz_launch_pad.jpg/500px-Baikonur_Cosmodrome_Soyuz_launch_pad.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "virar"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Baikonur Site 1; entry Virar"
+ },
+ {
+  "n": 574,
+  "file": "Vestmannaeyjar018.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Vestmannaeyjar018.JPG/500px-Vestmannaeyjar018.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "nowrangapur"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Heimaey, Iceland; entry Nowrangapur"
+ },
+ {
+  "n": 575,
+  "file": "Kiritimati-EO.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Kiritimati-EO.jpg/500px-Kiritimati-EO.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "karbala"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Kiritimati from orbit; entry Karbala"
+ },
+ {
+  "n": 576,
+  "file": "Antarctica_base(Japan)_English_ver.png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Antarctica_base%28Japan%29_English_ver.png/500px-Antarctica_base%28Japan%29_English_ver.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "sadr-city"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "map of Japanese Antarctic bases, not a photo; entry Sadr City"
+ },
+ {
+  "n": 577,
+  "file": "Museumsinsel_Berlin_Juli_2021_1_(cropped)_b.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Museumsinsel_Berlin_Juli_2021_1_%28cropped%29_b.jpg/500px-Museumsinsel_Berlin_Juli_2021_1_%28cropped%29_b.jpg",
+  "entries": [
+   "jinzhou"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Museum Island, Berlin; entry Jinzhou"
+ },
+ {
+  "n": 578,
+  "file": "Palikir_2025-Presidential2.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Palikir_2025-Presidential2.jpg/500px-Palikir_2025-Presidential2.jpg",
+  "entries": [
+   "jinhua"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Palikir, Micronesia; entry Jinhua"
+ },
+ {
+  "n": 579,
+  "file": "St_Joseph's_Catholic_Cathedral_(34895613805).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/St_Joseph%27s_Catholic_Cathedral_%2834895613805%29.jpg/500px-St_Joseph%27s_Catholic_Cathedral_%2834895613805%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "heshan"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "St Joseph's Cathedral, Dar es Salaam; entry Heshan"
+ },
+ {
+  "n": 580,
+  "file": "Ngorongoro-1001-2.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Ngorongoro-1001-2.jpg/500px-Ngorongoro-1001-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "jining"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Ngorongoro Crater; entry Jining"
+ },
+ {
+  "n": 581,
+  "file": "Sevilla_Cathedral_-_Southeast.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Sevilla_Cathedral_-_Southeast.jpg/500px-Sevilla_Cathedral_-_Southeast.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "dhanbad"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Seville Cathedral; entry Dhanbad"
+ },
+ {
+  "n": 582,
+  "file": "Two_Mittens_Predawn.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Two_Mittens_Predawn.jpg/500px-Two_Mittens_Predawn.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "vijayawada"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Mittens, Monument Valley; entry Vijayawada"
+ },
+ {
+  "n": 583,
+  "file": "Melbourne_skyline_sor.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Melbourne_skyline_sor.jpg/500px-Melbourne_skyline_sor.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "ranchi"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Melbourne skyline; entry Ranchi"
+ },
+ {
+  "n": 584,
+  "file": "Fire_Walking_(1234969885).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Fire_Walking_%281234969885%29.jpg/500px-Fire_Walking_%281234969885%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "jabalpur"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "fire walking in Sri Lanka, no identifiable place; entry Jabalpur"
+ },
+ {
+  "n": 585,
+  "file": "Cotopaxi_volcano_2008-06-27T1322.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Cotopaxi_volcano_2008-06-27T1322.jpg/500px-Cotopaxi_volcano_2008-06-27T1322.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "visakhapatnam"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Cotopaxi; entry Visakhapatnam"
+ },
+ {
+  "n": 586,
+  "file": "Kremlin_and_Red_Square.1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Kremlin_and_Red_Square.1.jpg/500px-Kremlin_and_Red_Square.1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "kirkuk"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Kremlin and Red Square; entry Kirkuk"
+ },
+ {
+  "n": 587,
+  "file": "Windsor_Castle_at_Sunset_-_Nov_2006.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Windsor_Castle_at_Sunset_-_Nov_2006.jpg/500px-Windsor_Castle_at_Sunset_-_Nov_2006.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "ashgabat"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Windsor Castle; entry Ashgabat"
+ },
+ {
+  "n": 588,
+  "file": "Lucca.city_walls01.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Lucca.city_walls01.jpg/500px-Lucca.city_walls01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "changwon"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Lucca city walls; entry Changwon"
+ },
+ {
+  "n": 589,
+  "file": "Khumbutse.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Khumbutse.jpg/500px-Khumbutse.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "fort-worth"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Khumbutse and Everest Base Camp; entry Fort Worth"
+ },
+ {
+  "n": 590,
+  "file": "Auyan_Tepui_01.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Auyan_Tepui_01.JPG/500px-Auyan_Tepui_01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "pest"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Auyan Tepui; entry Pest"
+ },
+ {
+  "n": 591,
+  "file": "Prince_Edward_Island,_South_Africa,_EO-1_ALI_satellite_image,_5_May_2009.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Prince_Edward_Island%2C_South_Africa%2C_EO-1_ALI_satellite_image%2C_5_May_2009.jpg/1280px-Prince_Edward_Island%2C_South_Africa%2C_EO-1_ALI_satellite_image%2C_5_May_2009.jpg",
+  "entries": [
+   "san-jose"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Prince Edward Island (South Africa); entry San Jose"
+ },
+ {
+  "n": 592,
+  "file": "Cliffs_of_Paracas,_Peru.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cliffs_of_Paracas%2C_Peru.jpg/500px-Cliffs_of_Paracas%2C_Peru.jpg",
+  "entries": [
+   "esenyurt"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Paracas cliffs, Peru; entry Esenyurt"
+ },
+ {
+  "n": 593,
+  "file": "Sydney_Opera_House_and_Harbour_Bridge_Dusk_(2)_2019-06-21.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg/500px-Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg",
+  "entries": [
+   "sialkot"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Sydney Opera House; entry Sialkot"
+ },
+ {
+  "n": 594,
+  "file": "Ittoqqortoormiit,_Greenland.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Ittoqqortoormiit%2C_Greenland.jpg/500px-Ittoqqortoormiit%2C_Greenland.jpg",
+  "entries": [
+   "abu-ghurayb"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Ittoqqortoormiit, Greenland; entry Abu Ghurayb"
+ },
+ {
+  "n": 595,
+  "file": "Hassan_II_mosque,_Casablanca_2.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/ce/Hassan_II_mosque%2C_Casablanca_2.jpg/500px-Hassan_II_mosque%2C_Casablanca_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "qom"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Hassan II Mosque, Casablanca; entry Qom"
+ },
+ {
+  "n": 596,
+  "file": "Cape_Verde_Pico_do_Fogo_b.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cape_Verde_Pico_do_Fogo_b.jpg/500px-Cape_Verde_Pico_do_Fogo_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "malang"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Pico do Fogo, Cape Verde; entry Malang"
+ },
+ {
+  "n": 597,
+  "file": "New_Abdali_2024.png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/New_Abdali_2024.png/500px-New_Abdali_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "indianapolis"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Abdali, Amman; entry Indianapolis"
+ },
+ {
+  "n": 598,
+  "file": "Raekoja_plats_at_night.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Raekoja_plats_at_night.jpg/500px-Raekoja_plats_at_night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "samarinda"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Town Hall Square, Tallinn; entry Samarinda"
+ },
+ {
+  "n": 599,
+  "file": "Dallas_Texas_skyline_from_Reunion_Tower_September_2025_(cropped).png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Dallas_Texas_skyline_from_Reunion_Tower_September_2025_%28cropped%29.png/500px-Dallas_Texas_skyline_from_Reunion_Tower_September_2025_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "arifwala"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Dallas skyline; entry Arifwala"
+ },
+ {
+  "n": 600,
+  "file": "Pueblo_Bonito_Aerial.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Pueblo_Bonito_Aerial.JPG/500px-Pueblo_Bonito_Aerial.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "pasig-city"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Pueblo Bonito, New Mexico; entry Pasig City"
+ },
+ {
+  "n": 601,
+  "file": "The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/500px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "cheongju-si"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Last Supper painting, not a place; entry Cheongju-si"
+ },
+ {
+  "n": 602,
+  "file": "San_Francisco_Maru_-_Mine_&_Shells.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/San_Francisco_Maru_-_Mine_%26_Shells.jpg/500px-San_Francisco_Maru_-_Mine_%26_Shells.jpg",
+  "entries": [
+   "bucheon-si"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "wreck interior, Truk Lagoon; entry Bucheon-si"
+ },
+ {
+  "n": 603,
+  "file": "Casa_de_la_moneda.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Casa_de_la_moneda.jpg/500px-Casa_de_la_moneda.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "thanh-hoa"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Casa de la Moneda, Potosi; entry Thanh Hoa"
+ },
+ {
+  "n": 604,
+  "file": "KamperveenStadion.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/KamperveenStadion.jpg/500px-KamperveenStadion.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "al-ain-city"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Kamperveen statue, Paramaribo; entry Al Ain City"
+ },
+ {
+  "n": 605,
+  "file": "Moscow_Kremlin_(8281675670).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Moscow_Kremlin_%288281675670%29.jpg/500px-Moscow_Kremlin_%288281675670%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "ulan-bator"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Moscow Kremlin; entry Ulan Bator"
+ },
+ {
+  "n": 606,
+  "file": "P037152-661920_-_Belgrade_fortress_stand_at_the_downtown_of_Belgrade.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/P037152-661920_-_Belgrade_fortress_stand_at_the_downtown_of_Belgrade.jpg/500px-P037152-661920_-_Belgrade_fortress_stand_at_the_downtown_of_Belgrade.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "takeo"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Belgrade Fortress; entry Takeo"
+ },
+ {
+  "n": 607,
+  "file": "Cambridge_Bay,_Nunavut_aerial_view.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Cambridge_Bay%2C_Nunavut_aerial_view.jpg/500px-Cambridge_Bay%2C_Nunavut_aerial_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "sakai"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Cambridge Bay, Nunavut; entry Sakai"
+ },
+ {
+  "n": 608,
+  "file": "Government_office_building.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Government_office_building.jpg/500px-Government_office_building.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "barcelona"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "government building, Funafuti; entry Barcelona"
+ },
+ {
+  "n": 609,
+  "file": "Davis_Station_November_2005.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Davis_Station_November_2005.jpg/500px-Davis_Station_November_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "petaling-jaya"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Davis Station, Antarctica; entry Petaling Jaya"
+ },
+ {
+  "n": 610,
+  "file": "Tour_Eiffel_Wikimedia_Commons_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg/500px-Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg",
+  "entries": [
+   "ichikawa"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Eiffel Tower; entry Ichikawa"
+ },
+ {
+  "n": 611,
+  "file": "2007_Sankore_Mosque_Timbuktu_02.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/2007_Sankore_Mosque_Timbuktu_02.jpg/500px-2007_Sankore_Mosque_Timbuktu_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "higashiosaka"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Sankore Mosque, Timbuktu; entry Higashiosaka"
+ },
+ {
+  "n": 612,
+  "file": "Varanasi,_India,_Ghats,_Cremation_ceremony_in_progress.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Varanasi%2C_India%2C_Ghats%2C_Cremation_ceremony_in_progress.jpg/500px-Varanasi%2C_India%2C_Ghats%2C_Cremation_ceremony_in_progress.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "pindi-bhattian"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Varanasi ghats; entry Pindi Bhattian"
+ },
+ {
+  "n": 613,
+  "file": "Spb_06-2017_img20_StMichael_Castle_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Spb_06-2017_img20_StMichael_Castle_%28cropped%29.jpg/500px-Spb_06-2017_img20_StMichael_Castle_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "pohang"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "St Michael's Castle, Saint Petersburg; entry Pohang"
+ },
+ {
+  "n": 614,
+  "file": "Chicago_River_ferry_b.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Chicago_River_ferry_b.jpg/500px-Chicago_River_ferry_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "ruiru"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Chicago River; entry Ruiru"
+ },
+ {
+  "n": 615,
+  "file": "Wall,_SD.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Wall%2C_SD.jpg/500px-Wall%2C_SD.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "belagavi"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Wall, South Dakota; entry Belagavi"
+ },
+ {
+  "n": 616,
+  "file": "Nashville,_Tennessee_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nashville%2C_Tennessee_%28cropped%29.jpg/500px-Nashville%2C_Tennessee_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "ajman"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Nashville; entry Ajman"
+ },
+ {
+  "n": 617,
+  "file": "Priroda_Aotearoe.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Priroda_Aotearoe.jpg/500px-Priroda_Aotearoe.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "jianshui"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Whakarewarewa, New Zealand; entry Jianshui"
+ },
+ {
+  "n": 618,
+  "file": "Buenos_Aires_(20234294752).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Buenos_Aires_%2820234294752%29.jpg/500px-Buenos_Aires_%2820234294752%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "sancaktepe"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Obelisk, Buenos Aires; entry Sancaktepe"
+ },
+ {
+  "n": 619,
+  "file": "Buckingham_Palace_London_Morning_2020_01_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Buckingham_Palace_London_Morning_2020_01_%28cropped%29.jpg/500px-Buckingham_Palace_London_Morning_2020_01_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "al-khusus"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Buckingham Palace; entry Al Khusus"
+ },
+ {
+  "n": 620,
+  "file": "Edinburgh_Castle_2000-1.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Edinburgh_Castle_2000-1.jpg/500px-Edinburgh_Castle_2000-1.jpg",
+  "entries": [
+   "jeju-city"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Edinburgh Castle; entry Jeju City"
+ },
+ {
+  "n": 621,
+  "file": "Aerial_view_-_Harbour_of_Genoa,_Italy_-_DSC01156.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Aerial_view_-_Harbour_of_Genoa%2C_Italy_-_DSC01156.JPG/500px-Aerial_view_-_Harbour_of_Genoa%2C_Italy_-_DSC01156.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "omaha"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Port of Genoa; entry Omaha"
+ },
+ {
+  "n": 622,
+  "file": "Lord_Howe_ISS006-E-5731.png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Lord_Howe_ISS006-E-5731.png/500px-Lord_Howe_ISS006-E-5731.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "vellore"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Lord Howe Island; entry Vellore"
+ },
+ {
+  "n": 623,
+  "file": "Nightingale_Island.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Nightingale_Island.jpg/500px-Nightingale_Island.jpg",
+  "entries": [
+   "donghe"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Nightingale Island; entry Donghe"
+ },
+ {
+  "n": 624,
+  "file": "Malecon_de_Ilo_-_panoramio.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Malecon_de_Ilo_-_panoramio.jpg/500px-Malecon_de_Ilo_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "kurashiki"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Ilo, Peru; entry Kurashiki"
+ },
+ {
+  "n": 625,
+  "file": "Skyscrapers_of_Shinjuku_2009_January.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/500px-Skyscrapers_of_Shinjuku_2009_January.jpg",
+  "entries": [
+   "oita"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Shinjuku, Tokyo; entry Oita"
+ },
+ {
+  "n": 626,
+  "file": "Imagen_de_los_canales_concéntricos_en_Ámsterdam.png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/500px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png",
+  "entries": [
+   "modinagar"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Amsterdam canals; entry Modinagar"
+ },
+ {
+  "n": 627,
+  "file": "Temple_de_Louxor_68.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Temple_de_Louxor_68.jpg/500px-Temple_de_Louxor_68.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "chishtian"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Karnak hypostyle hall; entry Chishtian"
+ },
+ {
+  "n": 628,
+  "file": "Nest_One_Tashkent.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f6/Nest_One_Tashkent.jpg/500px-Nest_One_Tashkent.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "santa-rita"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Tashkent City; entry Santa Rita"
+ },
+ {
+  "n": 629,
+  "file": "Panorama_Belgrad.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Panorama_Belgrad.jpg/500px-Panorama_Belgrad.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "hollywood"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Belgrade; entry Hollywood"
+ },
+ {
+  "n": 630,
+  "file": "Denver,_Colorado_skyline_(cropped_3x5).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Denver%2C_Colorado_skyline_%28cropped_3x5%29.jpg/500px-Denver%2C_Colorado_skyline_%28cropped_3x5%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "harunabad"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Denver; entry Harunabad"
+ },
+ {
+  "n": 631,
+  "file": "Gettysburgbattlefield.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Gettysburgbattlefield.jpg",
+  "entries": [
+   "shunan"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Gettysburg battlefield; entry Shunan"
+ },
+ {
+  "n": 632,
+  "file": "South_Tarawa_from_the_air.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/South_Tarawa_from_the_air.jpg/1280px-South_Tarawa_from_the_air.jpg",
+  "entries": [
+   "agadez"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "South Tarawa; entry Agadez"
+ },
+ {
+  "n": 633,
+  "file": "AST-01-039_Aituctaki_Atoll.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/AST-01-039_Aituctaki_Atoll.jpg/500px-AST-01-039_Aituctaki_Atoll.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "burnley"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Aitutaki Atoll from orbit; entry Burnley"
+ },
+ {
+  "n": 634,
+  "file": "Paramaribo_city_collage.png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Paramaribo_city_collage.png/500px-Paramaribo_city_collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "rehovot"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Paramaribo collage; entry Rehovot"
+ },
+ {
+  "n": 635,
+  "file": "Santa_Catalina_Monastery,_Arequipa_-_53032077180.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Santa_Catalina_Monastery%2C_Arequipa_-_53032077180.jpg/500px-Santa_Catalina_Monastery%2C_Arequipa_-_53032077180.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "watampone"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Santa Catalina Monastery, Arequipa; entry Watampone"
+ },
+ {
+  "n": 636,
+  "file": "Hunedoara_castle.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Hunedoara_castle.jpg/500px-Hunedoara_castle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "disuq"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Hunedoara Castle; entry Disuq"
+ },
+ {
+  "n": 637,
+  "file": "Punte_Nuevo_Bridge,_Ronda_-_Spain.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Punte_Nuevo_Bridge%2C_Ronda_-_Spain.jpg/500px-Punte_Nuevo_Bridge%2C_Ronda_-_Spain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "cagliari"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Puente Nuevo, Ronda; entry Cagliari"
+ },
+ {
+  "n": 638,
+  "file": "Arviat_Church_Centers_1995-06-30.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Arviat_Church_Centers_1995-06-30.jpg/500px-Arviat_Church_Centers_1995-06-30.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "berrechid"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "churches of Arviat, Nunavut; entry Berrechid"
+ },
+ {
+  "n": 639,
+  "file": "Palmerston_ISS006.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Palmerston_ISS006.jpg/500px-Palmerston_ISS006.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "queimados"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Palmerston Island from orbit; entry Queimados"
+ },
+ {
+  "n": 640,
+  "file": "EXISTING_CONDITIONS_FOR_PALMER_STATION.png",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/EXISTING_CONDITIONS_FOR_PALMER_STATION.png/500px-EXISTING_CONDITIONS_FOR_PALMER_STATION.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "tambacounda"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Palmer Station plan drawing; entry Tambacounda"
+ },
+ {
+  "n": 641,
+  "file": "Skyline_of_Beijing_CBD_with_B-5906_approaching_(20211016171955)_(1).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Skyline_of_Beijing_CBD_with_B-5906_approaching_%2820211016171955%29_%281%29.jpg/500px-Skyline_of_Beijing_CBD_with_B-5906_approaching_%2820211016171955%29_%281%29.jpg",
+  "entries": [
+   "arar"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Beijing CBD; entry Arar"
+ },
+ {
+  "n": 642,
+  "file": "Fes Medina Panoramic view.jpg",
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fes%20Medina%20Panoramic%20view.jpg?width=500",
+  "entries": [
+   "tama"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Fes medina; entry Tama"
+ },
+ {
+  "n": 643,
+  "file": "Oldupai-3.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Oldupai-3.jpg/500px-Oldupai-3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "rockford"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Olduvai Gorge; entry Rockford"
+ },
+ {
+  "n": 644,
+  "file": "Aleja_Niepdleglosci_Warsaw_2022_aerial_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Aleja_Niepdleglosci_Warsaw_2022_aerial_%28cropped%29.jpg/500px-Aleja_Niepdleglosci_Warsaw_2022_aerial_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "nimes"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Warsaw; entry Nimes"
+ },
+ {
+  "n": 645,
+  "file": "Aerial_image_of_Grand_Prismatic_Spring_(view_from_the_south).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Aerial_image_of_Grand_Prismatic_Spring_%28view_from_the_south%29.jpg/500px-Aerial_image_of_Grand_Prismatic_Spring_%28view_from_the_south%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "sao-rafael"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Grand Prismatic Spring; entry Sao Rafael"
+ },
+ {
+  "n": 646,
+  "file": "Detroit_Skyline_from_Windsor_2025-09-01.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Detroit_Skyline_from_Windsor_2025-09-01.jpg/500px-Detroit_Skyline_from_Windsor_2025-09-01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "sujiatun"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Detroit skyline; entry Sujiatun"
+ },
+ {
+  "n": 647,
+  "file": "Moeraki_Boulders.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Moeraki_Boulders.jpg/500px-Moeraki_Boulders.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "tabas"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Moeraki Boulders; entry Tabas"
+ },
+ {
+  "n": 648,
+  "file": "Eco_Nelson_2019.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Eco_Nelson_2019.jpg/500px-Eco_Nelson_2019.jpg",
+  "entries": [
+   "chatra"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Eco-Nelson station, Antarctica; entry Chatra"
+ },
+ {
+  "n": 649,
+  "file": "Pedra_de_Cucuí_-_panoramio.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Pedra_de_Cucu%C3%AD_-_panoramio.jpg/500px-Pedra_de_Cucu%C3%AD_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "cabiao"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Piedra del Cocuy, Rio Negro; entry Cabiao"
+ },
+ {
+  "n": 650,
+  "file": "TexasStateCapitol-2010-01.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/TexasStateCapitol-2010-01.JPG/500px-TexasStateCapitol-2010-01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "cerritos"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Texas State Capitol, Austin; entry Cerritos"
+ },
+ {
+  "n": 651,
+  "file": "Erupting_geysir.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Erupting_geysir.jpg/500px-Erupting_geysir.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "dhampur"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Great Geysir, Iceland; entry Dhampur"
+ },
+ {
+  "n": 652,
+  "file": "Kluane_Lake_YT_2005.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Kluane_Lake_YT_2005.jpg/500px-Kluane_Lake_YT_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "chahar-dangeh"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Kluane Lake, Yukon; entry Chahar Dangeh"
+ },
+ {
+  "n": 653,
+  "file": "Eagle_Islands_ISS006.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Eagle_Islands_ISS006.jpg/500px-Eagle_Islands_ISS006.jpg",
+  "entries": [
+   "sayanogorsk"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Eagle Islands, Chagos; entry Sayanogorsk"
+ },
+ {
+  "n": 654,
+  "file": "Manglares_en_el_maritorio_de_Bahía_Málaga,_Colombia.jpg",
+  "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Manglares_en_el_maritorio_de_Bah%C3%ADa_M%C3%A1laga%2C_Colombia.jpg",
+  "entries": [
+   "tarkwa"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Bahia Malaga mangroves, Colombia; entry Tarkwa"
+ },
+ {
+  "n": 655,
+  "file": "Historical_peninsula_and_modern_skyline_of_Istanbul.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Historical_peninsula_and_modern_skyline_of_Istanbul.jpg/500px-Historical_peninsula_and_modern_skyline_of_Istanbul.jpg",
+  "entries": [
+   "zaranj"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Istanbul historic peninsula; entry Zaranj"
+ },
+ {
+  "n": 656,
+  "file": "Casa_finance_city_6_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Casa_finance_city_6_%28cropped%29.jpg/500px-Casa_finance_city_6_%28cropped%29.jpg",
+  "entries": [
+   "neunkirchen"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Casablanca Finance City; entry Neunkirchen"
+ },
+ {
+  "n": 657,
+  "file": "Templo_funerario_de_Hatshepsut,_Luxor,_Egipto,_2022-04-03,_DD_13.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Templo_funerario_de_Hatshepsut%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_13.jpg/500px-Templo_funerario_de_Hatshepsut%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_13.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "nohar"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Temple of Hatshepsut, Luxor; entry Nohar"
+ },
+ {
+  "n": 658,
+  "file": "Zagreb_(29255640143).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Zagreb_%2829255640143%29.jpg/500px-Zagreb_%2829255640143%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "yeola"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Zagreb; entry Yeola"
+ },
+ {
+  "n": 659,
+  "file": "Vlkolinecslovakia001.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Vlkolinecslovakia001.jpg/500px-Vlkolinecslovakia001.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "ostersund"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Vlkolinec, Slovakia; entry Ostersund"
+ },
+ {
+  "n": 660,
+  "file": "Villa_Vizcaya_20110228.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Villa_Vizcaya_20110228.jpg/500px-Villa_Vizcaya_20110228.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "mbuguni"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Villa Vizcaya, Miami; entry Mbuguni"
+ },
+ {
+  "n": 661,
+  "file": "El_Castillo,_Chichen_Itza.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/El_Castillo%2C_Chichen_Itza.jpg",
+  "entries": [
+   "zajecar"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Chichen Itza; entry Zajecar"
+ },
+ {
+  "n": 662,
+  "file": "Royal_Palace,_Nuku'alofa,_Nov_18.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Royal_Palace%2C_Nuku%27alofa%2C_Nov_18.jpg/500px-Royal_Palace%2C_Nuku%27alofa%2C_Nov_18.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "kerkrade"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Royal Palace, Nuku'alofa; entry Kerkrade"
+ },
+ {
+  "n": 663,
+  "file": "Savusavu.jpg",
+  "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Savusavu.jpg",
+  "entries": [
+   "changdian"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Savusavu, Fiji; entry Changdian"
+ },
+ {
+  "n": 664,
+  "file": "Mitad_del_Mundo,_Quito,_Ecuador,_2015-07-22,_DD_15.JPG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Mitad_del_Mundo%2C_Quito%2C_Ecuador%2C_2015-07-22%2C_DD_15.JPG/500px-Mitad_del_Mundo%2C_Quito%2C_Ecuador%2C_2015-07-22%2C_DD_15.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "novovolynsk"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Mitad del Mundo, Quito; entry Novovolynsk"
+ },
+ {
+  "n": 665,
+  "file": "Panorama_of_Toledo_at_sunset._View_from_the_south.jpg",
+  "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Panorama_of_Toledo_at_sunset._View_from_the_south.jpg",
+  "entries": [
+   "chachoengsao"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Toledo, Spain; entry Chachoengsao"
+ },
+ {
+  "n": 666,
+  "file": "Barrow_Alaska.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Barrow_Alaska.jpg/500px-Barrow_Alaska.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "wharton"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Utqiagvik (Barrow), Alaska; entry Wharton"
+ },
+ {
+  "n": 667,
+  "file": "Pukapuka_Aerial_efs_1280.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Pukapuka_Aerial_efs_1280.jpg/500px-Pukapuka_Aerial_efs_1280.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "regenstauf"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Pukapuka Atoll; entry Regenstauf"
+ },
+ {
+  "n": 668,
+  "file": "Amundsen–Scott_South_Pole_Station_01.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Amundsen%E2%80%93Scott_South_Pole_Station_01.jpg/500px-Amundsen%E2%80%93Scott_South_Pole_Station_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "chakia"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Amundsen-Scott South Pole Station; entry Chakia"
+ },
+ {
+  "n": 669,
+  "file": "ULURU.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/ULURU.jpg/500px-ULURU.jpg",
+  "entries": [
+   "salinas-da-margarida"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Uluru; entry Salinas da Margarida"
+ },
+ {
+  "n": 670,
+  "file": "Temple_Mount_(Aerial_view,_2007)_07.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Temple_Mount_%28Aerial_view%2C_2007%29_07.jpg/500px-Temple_Mount_%28Aerial_view%2C_2007%29_07.jpg",
+  "entries": [
+   "qingshui"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Temple Mount, Jerusalem; entry Qingshui"
+ },
+ {
+  "n": 671,
+  "file": "Vientiane_-_Patuxai_-_0003.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/28/Vientiane_-_Patuxai_-_0003.jpg/500px-Vientiane_-_Patuxai_-_0003.jpg",
+  "entries": [
+   "vagator"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Patuxai, Vientiane; entry Vagator"
+ },
+ {
+  "n": 672,
+  "file": "Minaret_et_patio_de_la_mosquée_Zitouna_au_centre_de_la_Médina_de_Tunis.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Minaret_et_patio_de_la_mosqu%C3%A9e_Zitouna_au_centre_de_la_M%C3%A9dina_de_Tunis.jpg/500px-Minaret_et_patio_de_la_mosqu%C3%A9e_Zitouna_au_centre_de_la_M%C3%A9dina_de_Tunis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "cim"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Zitouna Mosque, Tunis; entry CIM"
+ },
+ {
+  "n": 673,
+  "file": "Bukit_Bintang_junction_in_2024_2.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Bukit_Bintang_junction_in_2024_2.jpg/500px-Bukit_Bintang_junction_in_2024_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "mukkudal"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Bukit Bintang, Kuala Lumpur; entry Mukkudal"
+ },
+ {
+  "n": 674,
+  "file": "Firenze_-_Piazzale_Michelangelo,_Firenze,_Italy_-_April_6,_2015_02.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Firenze_-_Piazzale_Michelangelo%2C_Firenze%2C_Italy_-_April_6%2C_2015_02.jpg/500px-Firenze_-_Piazzale_Michelangelo%2C_Firenze%2C_Italy_-_April_6%2C_2015_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "valle-de-guanape"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Florence from Piazzale Michelangelo; entry Valle de Guanape"
+ },
+ {
+  "n": 675,
+  "file": "Halifax_waterfront.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Halifax_waterfront.jpg",
+  "entries": [
+   "chingoli"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Halifax waterfront; entry Chingoli"
+ },
+ {
+  "n": 676,
+  "file": "Rock_stacks_in_Anapai_Bay.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Rock_stacks_in_Anapai_Bay.jpg/500px-Rock_stacks_in_Anapai_Bay.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "abala"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Anapai Bay, Abel Tasman; entry Abala"
+ },
+ {
+  "n": 677,
+  "file": "Port_Lockroy_1962.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Port_Lockroy_1962.jpg/500px-Port_Lockroy_1962.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "addlestone"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Port Lockroy, Antarctica; entry Addlestone"
+ },
+ {
+  "n": 678,
+  "file": "Catedral_desde_el_Lago_Nahuel_Huapi_-_panoramio.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Catedral_desde_el_Lago_Nahuel_Huapi_-_panoramio.jpg/500px-Catedral_desde_el_Lago_Nahuel_Huapi_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "songon"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Bariloche cathedral; entry Songon"
+ },
+ {
+  "n": 679,
+  "file": "Sous-préfecture_Saint-Laurent_du_Maroni.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Sous-pr%C3%A9fecture_Saint-Laurent_du_Maroni.jpg/500px-Sous-pr%C3%A9fecture_Saint-Laurent_du_Maroni.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "roncesvalles"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "sous-prefecture, Saint-Laurent-du-Maroni; entry Roncesvalles"
+ },
+ {
+  "n": 680,
+  "file": "2018_FCG_Headquarters_Building_2.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/2018_FCG_Headquarters_Building_2.jpg/500px-2018_FCG_Headquarters_Building_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "petersfield"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "FCG building, Odaiba, Tokyo; entry Petersfield"
+ },
+ {
+  "n": 681,
+  "file": "Nidaros_Cathedral,_Trondheim,_West_view_20150605_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Nidaros_Cathedral%2C_Trondheim%2C_West_view_20150605_1.jpg/500px-Nidaros_Cathedral%2C_Trondheim%2C_West_view_20150605_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "banissa"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Nidaros Cathedral, Trondheim; entry Banissa"
+ },
+ {
+  "n": 682,
+  "file": "Skellig_Michael03(js).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Skellig_Michael03%28js%29.jpg/500px-Skellig_Michael03%28js%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "tavros"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Skellig Michael; entry Tavros"
+ },
+ {
+  "n": 683,
+  "file": "Prambanan_Temple_Yogyakarta_Indonesia.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Prambanan_Temple_Yogyakarta_Indonesia.jpg/500px-Prambanan_Temple_Yogyakarta_Indonesia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "pucioasa"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Prambanan; entry Pucioasa"
+ },
+ {
+  "n": 684,
+  "file": "DG_Ariel_Plantation.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/DG_Ariel_Plantation.jpg/500px-DG_Ariel_Plantation.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "entries": [
+   "quynh-loi"
+  ],
+  "verified": null,
+  "method": "M",
+  "note": "Diego Garcia plantation; entry Quynh Loi"
+ },
+ {
+  "n": 685,
+  "file": "Isla_El_Porvenir.jpg",
+  "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Isla_El_Porvenir.jpg",
+  "entries": [
+   "novyi-buh"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Isla El Porvenir, Guna Yala; entry Novyi Buh"
+ },
+ {
+  "n": 686,
+  "file": "Dunkirk_26-29_May_1940_NYP68075.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Dunkirk_26-29_May_1940_NYP68075.jpg/500px-Dunkirk_26-29_May_1940_NYP68075.jpg",
+  "entries": [
+   "dunkirk-evacuation"
+  ],
+  "verified": "dunkirk-evacuation",
+  "method": "F",
+  "note": "troops on Dunkirk beach, 1940"
+ },
+ {
+  "n": 687,
+  "file": "Atomic_bombing_of_Japan.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Atomic_bombing_of_Japan.jpg/500px-Atomic_bombing_of_Japan.jpg",
+  "entries": [
+   "nagasaki-atomic-bombing"
+  ],
+  "verified": null,
+  "method": "V",
+  "note": "two-panel image of the Hiroshima and Nagasaki clouds from the air, no identifiable ground"
+ },
+ {
+  "n": 688,
+  "file": "London_Centre_Court_Wimbledon_(53284151591).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/London_Centre_Court_Wimbledon_%2853284151591%29.jpg/500px-London_Centre_Court_Wimbledon_%2853284151591%29.jpg",
+  "entries": [
+   "wimbledon-all-england-club"
+  ],
+  "verified": "wimbledon-all-england-club",
+  "method": "F"
+ },
+ {
+  "n": 689,
+  "file": "Robben_Island_-_Cape_Town,_South_Africa_(3883849594).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Robben_Island_-_Cape_Town%2C_South_Africa_%283883849594%29.jpg/500px-Robben_Island_-_Cape_Town%2C_South_Africa_%283883849594%29.jpg",
+  "entries": [
+   "robben-island"
+  ],
+  "verified": "robben-island",
+  "method": "F"
+ },
+ {
+  "n": 690,
+  "file": "Battleabbey-wyrdlight-0170.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Battleabbey-wyrdlight-0170.jpg/500px-Battleabbey-wyrdlight-0170.jpg",
+  "entries": [
+   "battle-of-hastings"
+  ],
+  "verified": "battle-of-hastings",
+  "method": "F",
+  "note": "Battle Abbey gatehouse on the battlefield, GPS 0 km from pin"
+ },
+ {
+  "n": 691,
+  "file": "RoswellNM.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/RoswellNM.jpg/500px-RoswellNM.jpg",
+  "entries": [
+   "roswell-ufo-incident"
+  ],
+  "verified": "roswell-ufo-incident",
+  "method": "F",
+  "note": "Roswell skyline, GPS 1 km from pin"
+ },
+ {
+  "n": 692,
+  "file": "Fukushima_Daiichi_04780015_(8388174045).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Fukushima_Daiichi_04780015_%288388174045%29.jpg/500px-Fukushima_Daiichi_04780015_%288388174045%29.jpg",
+  "entries": [
+   "fukushima-daiichi"
+  ],
+  "verified": "fukushima-daiichi",
+  "method": "F"
+ },
+ {
+  "n": 693,
+  "file": "Camp_Nou_aerial.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Camp_Nou_aerial.jpg/500px-Camp_Nou_aerial.jpg",
+  "entries": [
+   "camp-nou"
+  ],
+  "verified": "camp-nou",
+  "method": "F"
+ },
+ {
+  "n": 694,
+  "file": "2023_07_31_arne_mueseler_00060-Verbessert-RR_(53106651455).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/2023_07_31_arne_mueseler_00060-Verbessert-RR_%2853106651455%29.jpg/500px-2023_07_31_arne_mueseler_00060-Verbessert-RR_%2853106651455%29.jpg",
+  "entries": [
+   "old-trafford"
+  ],
+  "verified": "old-trafford",
+  "method": "V",
+  "note": "opaque filename; aerial view of the Old Trafford football ground"
+ },
+ {
+  "n": 695,
+  "file": "Beijing_China_Beijing-National-Stadium-01.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Beijing_China_Beijing-National-Stadium-01.jpg/500px-Beijing_China_Beijing-National-Stadium-01.jpg",
+  "entries": [
+   "birds-nest-beijing"
+  ],
+  "verified": "birds-nest-beijing",
+  "method": "F"
+ },
+ {
+  "n": 696,
+  "file": "Urquhart_Castle_Tower_House_2.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Urquhart_Castle_Tower_House_2.jpg/500px-Urquhart_Castle_Tower_House_2.jpg",
+  "entries": [
+   "urquhart-castle"
+  ],
+  "verified": "urquhart-castle",
+  "method": "F"
+ },
+ {
+  "n": 697,
+  "file": "08-130_Esclusas_de_Miraflores_(23).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/08-130_Esclusas_de_Miraflores_%2823%29.jpg/500px-08-130_Esclusas_de_Miraflores_%2823%29.jpg",
+  "entries": [
+   "miraflores-locks"
+  ],
+  "verified": "miraflores-locks",
+  "method": "M",
+  "note": "numbered filename; categories Miraflores Locks"
+ },
+ {
+  "n": 698,
+  "file": "ANZAC_Cove.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/ANZAC_Cove.jpg/500px-ANZAC_Cove.jpg",
+  "entries": [
+   "anzac-cove"
+  ],
+  "verified": "anzac-cove",
+  "method": "F"
+ },
+ {
+  "n": 699,
+  "file": "1_carcassonne_aerial_2016.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/1_carcassonne_aerial_2016.jpg/500px-1_carcassonne_aerial_2016.jpg",
+  "entries": [
+   "carcassonne-cite"
+  ],
+  "verified": "carcassonne-cite",
+  "method": "F"
+ },
+ {
+  "n": 700,
+  "file": "Blarney_Castle_Ireland.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Blarney_Castle_Ireland.jpg/500px-Blarney_Castle_Ireland.jpg",
+  "entries": [
+   "blarney-castle"
+  ],
+  "verified": "blarney-castle",
+  "method": "F"
+ },
+ {
+  "n": 701,
+  "file": "Le_Mans_2008_Rolling_start.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Le_Mans_2008_Rolling_start.jpg/500px-Le_Mans_2008_Rolling_start.jpg",
+  "entries": [
+   "le-mans-circuit"
+  ],
+  "verified": "le-mans-circuit",
+  "method": "F"
+ },
+ {
+  "n": 702,
+  "file": "Kalon-Ensemble_Buchara.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Kalon-Ensemble_Buchara.jpg/500px-Kalon-Ensemble_Buchara.jpg",
+  "entries": [
+   "bukhara-uzbekistan"
+  ],
+  "verified": "bukhara-uzbekistan",
+  "method": "F",
+  "note": "Kalon ensemble"
+ },
+ {
+  "n": 703,
+  "file": "Christ_Church_in_Windhoek,_Namibia.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Christ_Church_in_Windhoek%2C_Namibia.jpg/500px-Christ_Church_in_Windhoek%2C_Namibia.jpg",
+  "entries": [
+   "windhoek-namibia"
+  ],
+  "verified": "windhoek-namibia",
+  "method": "F"
+ },
+ {
+  "n": 704,
+  "file": "Mostar_Old_Town_Panorama_2007.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/500px-Mostar_Old_Town_Panorama_2007.jpg",
+  "entries": [
+   "stari-most"
+  ],
+  "verified": "stari-most",
+  "method": "F",
+  "note": "Mostar old town panorama with the Old Bridge"
+ },
+ {
+  "n": 705,
+  "file": "BRP_Lumbini_Mayadevi_temple.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/BRP_Lumbini_Mayadevi_temple.jpg/500px-BRP_Lumbini_Mayadevi_temple.jpg",
+  "entries": [
+   "lumbini-nepal"
+  ],
+  "verified": "lumbini-nepal",
+  "method": "F"
+ },
+ {
+  "n": 706,
+  "file": "Mahabodhitemple.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Mahabodhitemple.jpg/500px-Mahabodhitemple.jpg",
+  "entries": [
+   "bodh-gaya-india"
+  ],
+  "verified": "bodh-gaya-india",
+  "method": "F"
+ },
+ {
+  "n": 707,
+  "file": "Schlosskirche_Wittenberg_I.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Schlosskirche_Wittenberg_I.jpg/500px-Schlosskirche_Wittenberg_I.jpg",
+  "entries": [
+   "wittenberg-castle-church"
+  ],
+  "verified": "wittenberg-castle-church",
+  "method": "F"
+ },
+ {
+  "n": 708,
+  "file": "Panorama_with_buildings,_Dushanbe.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Panorama_with_buildings%2C_Dushanbe.jpg/500px-Panorama_with_buildings%2C_Dushanbe.jpg",
+  "entries": [
+   "dushanbe-tajikistan"
+  ],
+  "verified": "dushanbe-tajikistan",
+  "method": "F"
+ },
+ {
+  "n": 709,
+  "file": "View_over_Noumea.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/View_over_Noumea.jpg/500px-View_over_Noumea.jpg",
+  "entries": [
+   "noumea-new-caledonia"
+  ],
+  "verified": "noumea-new-caledonia",
+  "method": "F"
+ },
+ {
+  "n": 710,
+  "file": "Leonidas_Statue_01.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Leonidas_Statue_01.jpg/500px-Leonidas_Statue_01.jpg",
+  "entries": [
+   "thermopylae"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "cast of a Leonidas statue in a Munich museum, not Thermopylae"
+ },
+ {
+  "n": 711,
+  "file": "Gullfoss_from_the_Air_(cropped).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Gullfoss_from_the_Air_%28cropped%29.jpg/500px-Gullfoss_from_the_Air_%28cropped%29.jpg",
+  "entries": [
+   "gullfoss"
+  ],
+  "verified": "gullfoss",
+  "method": "F"
+ },
+ {
+  "n": 712,
+  "file": "RMS_Titanic_3_(cropped_to_ship).jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/RMS_Titanic_3_%28cropped_to_ship%29.jpg/500px-RMS_Titanic_3_%28cropped_to_ship%29.jpg",
+  "entries": [
+   "titanic-sinking"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "Titanic leaving Southampton; entry pin is the North Atlantic wreck site"
+ },
+ {
+  "n": 713,
+  "file": "Battle_of_Waterloo_1815.PNG",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Battle_of_Waterloo_1815.PNG/500px-Battle_of_Waterloo_1815.PNG",
+  "entries": [
+   "battle-of-waterloo"
+  ],
+  "verified": null,
+  "method": "F",
+  "note": "painting of the battle, artwork not a photo of the place"
  }
 ]

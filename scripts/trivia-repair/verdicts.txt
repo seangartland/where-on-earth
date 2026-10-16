@@ -60,7 +60,7 @@
 59|ak-baital-pass|F|
 60|lo-manthang-nepal|F|
 61|lothal-india|F|
-62|gurudongmar-lake|F|COORD: photo GPS 1060 km from entry pin
+62|-|M|real Gurudongmar Lake in Sikkim (photo GPS), but the entry pin sits 1060 km away in Ladakh/Himachal and its fact text describes Nanda Devi and the Bhagirathi valley; entry data is garbled, flagged for follow-up
 63|adams-bridge|F|
 64|versailles-palace|F|
 65|-|F|Pantheon of Paris, entry is the Rome Pantheon
@@ -102,13 +102,13 @@
 101|malbork-castle|F|
 102|newgrange|M|generic filename; description names Newgrange
 103|rock-of-cashel|F|
-104|wartburg-castle|F|COORD: photo GPS 28 km from entry pin
+104|wartburg-castle|F|photo correct; entry pin is 28 km south of the castle, flagged for pin follow-up
 105|housesteads-hadrians-wall|F|
 106|kizhi-pogost|F|
 107|-|F|lithograph of the battle, artwork not a photo of the place
 108|brasilia-national-congress|F|
 109|greek-theatre-of-taormina-d34-60|F|
-110|V?|V|
+110|-|V|Funchal marina and hotel zone from Quinta Vigia; the old town is not identifiable
 111|hohenzollern-castle|F|
 112|matterhorn-summit|F|
 113|zugspitze-summit|F|
@@ -120,10 +120,10 @@
 119|santiago-de-compostela-cathedral|M|filename ambiguous between Santiagos; description names Compostela
 120|roman-baths-bath|F|
 121|kotors-old-town|F|
-122|V?|V|
+122|cesky-krumlov-castle|V|town centre with the castle tower prominent
 123|kjeragbolten|F|
 124|trolltunga|F|
-125|V?|V|
+125|cape-point|V|Cape Point lighthouse on its headland
 126|-|F|elephant on a road, generic wildlife scene; Chief's Island not shown identifiably
 127|lake-manyara|F|
 128|hell-gate-national-park|F|
@@ -185,7 +185,7 @@
 184|edison-light-menlo-park|F|Edison Memorial Tower on the Menlo Park lab site
 185|-|F|sand sculpture of a film poster, not the Grand Cafe
 186|arpanet-first-message-ucla|F|
-187|V?|V|
+187|-|V|Marsh supermarket logo, not a place; entries Troy Ohio barcode scan, Mandalay
 188|first-atm-enfield|F|
 189|-|F|Niepce monument in the village, not the Le Gras house
 190|-|F|White Horse Tavern, New York; entry is Parliament Square, London
@@ -200,7 +200,7 @@
 199|lord-of-rings-hobbiton-film-set|F|
 200|-|F|magazine advert, not a place
 201|burning-man-first-baker-beach|F|
-202|C?|F|Valdivia damage photo; check pin vs Valdivia
+202|-|M|1960 damage in Valdivia city, about 185 km from the epicenter pin
 203|krakatoa-1883-eruption|F|Anak Krakatau inside the caldera
 204|tambora-1815-eruption|F|
 205|mount-st-helens-1980|M|abbreviated filename; categories name Mount St. Helens
@@ -208,7 +208,7 @@
 207|-|F|dashcam animation of the fireball, no identifiable place
 208|lituya-bay-megatsunami|F|
 209|hunga-tonga-2022-eruption|F|
-210|V?|V|
+210|-|V|generic country road in Tolima, no identifiable place; entries Armero, Ibague, Pereira
 211|barringer-meteor-impact|F|
 212|-|F|Dyatlov group memorial in a Yekaterinburg cemetery, not the pass
 213|roanoke-lost-colony|F|
@@ -252,7 +252,7 @@
 251|derawar-fort-pakistan|F|
 252|kuelap-fortress-peru|F|
 253|hegra-qasr-al-farid|F|
-254|V?|V|
+254|gjirokaster-fortress-albania|V|town panorama from the fortress wall, GPS 0 km from pin
 255|dallol-hydrothermal-field|F|
 256|sacsayhuaman-cusco|F|
 257|chand-baori-abhaneri|F|
@@ -375,3 +375,340 @@
 374|-|F|Thabana Ntlenyana; entry Gqeberha
 375|-|F|Rock of Gibraltar; entries Tangier, Sabha
 376|-|F|Gombe, Kinshasa; entry Pointe-Noire
+377|-|M|Kasbah of the Udayas, Rabat; entries Sale, Algiers
+378|-|F|Great Mosque of Djenne; entry Bobo-Dioulasso
+379|-|F|Crowne Plaza, Harare; entries Blantyre, Beira
+380|-|F|Luanda Bay, central Luanda; entries are outer Luanda districts plus Baku, Cartagena, none shown identifiably
+381|-|F|Durban; entry Pietermaritzburg
+382|-|F|Alhambra, Granada; entry Oran
+383|-|M|Fort Sao Sebastiao, Mozambique Island; entries Nampula, Goyang-si
+384|-|F|Kondoa rock art; entry Dodoma city
+385|-|F|Boulders Beach, South Africa; entry Benghazi
+386|-|F|Lagos Island; entries Abeokuta, Agege, Cotonou, East London
+387|-|M|Koutoubia, Marrakesh; entries Agadir, Playa del Carmen, Niksar
+388|-|F|Vilnius; entry Minsk
+389|-|M|House with Chimeras, Kyiv; entries Kharkiv etc
+390|-|F|Oxford Town Hall; entries Birmingham, Lapu-Lapu City
+391|-|F|Palace of the Parliament, Bucharest; entry Odesa
+392|-|F|Montserrat Abbey; entries Valencia, Zaragoza, Ahvaz
+393|-|F|Krakow Main Square; entry Lviv
+394|-|M|Tamgaly, Kazakhstan; entry Barnaul
+395|-|F|Ulaanbaatar; entries Irkutsk, Pretoria
+396|-|F|Red Square, Moscow; entries Yaroslavl, Loniya
+397|-|F|Tbilisi; entry Makhachkala
+398|-|F|Sofia; entries Pristina, Rangpur
+399|-|F|generic aerial of Mexico City; entries are boroughs and metro cities, none identifiable
+400|-|F|Guadalajara looking north; entries Tlaquepaque (separate municipality) and others
+401|-|F|Carlsbad Caverns, New Mexico; entry Ciudad Juarez
+402|-|F|Dzilam de Bravo; entry Merida
+403|-|F|Tijuana temple; entries Mexicali, Ensenada, San Felipe
+404|-|F|Sarah Lake, Quetico, Ontario; entries Winnipeg, Hargeysa
+405|-|F|Monterrey; entries are metro municipalities and unrelated cities
+406|-|F|CN Tower logo, not a photo; entries Mississauga, Brampton, Hamilton
+407|-|F|Vancouver; entry Surrey
+408|-|F|Montreal; entry Laval
+409|-|F|Popocatepetl; entries Veracruz, Xalapa
+410|mount-pinatubo|F|
+411|geneva|F|
+412|muscat|F|Al Alam Palace, Muscat
+413|mount-rinjani|M|garbled filename; description names Rinjani from Sembalun
+414|macau|F|
+415|great-ocean-road|F|Great Ocean Road arch and sign
+416|nara|F|Todai-ji, Nara
+417|gold-coast|F|
+418|great-blue-hole|F|
+419|suez-canal|M|ISS id filename; description names Port of Suez at the canal's southern entrance
+420|mississippi-river|M|opaque filename; description names the Mississippi at Effigy Mounds
+421|mount-erebus|F|
+422|lake-titicaca|F|
+423|victoria-peak|F|
+424|tel-aviv|F|
+425|luxembourg-city|F|
+426|valletta|M|St Sebastian Curtain; categories place it in Valletta
+427|belfast|F|
+428|palma-de-mallorca|F|
+429|franz-josef-glacier|F|
+430|nice|F|
+431|monaco|F|
+432|nuremberg|F|
+433|bering-strait|F|
+434|san-juan|F|Old San Juan, Puerto Rico
+435|strait-of-gibraltar|F|
+436|orlando|F|
+437|baltimore|F|
+438|pittsburgh|M|Duquesne Incline; categories and GPS place it in Pittsburgh
+439|kansas-city|F|
+440|cincinnati|F|
+441|milwaukee|F|
+442|salt-lake-city|F|
+443|santa-fe|M|Palace of the Governors; description names Santa Fe
+444|savannah|F|
+445|charleston|F|South Carolina, GPS 5 km from pin
+446|key-west|F|
+447|victoria|F|Victoria BC, GPS 0 km from pin
+448|missouri-river|F|upper Missouri River Breaks; the river itself
+449|banff|F|
+450|darwin|F|
+451|alice-springs|F|
+452|cairns|F|
+453|colorado-river|M|Horseshoe Bend; description names the Colorado River
+454|rocky-mountains|M|Mount Elbert; description names the Rocky Mountains
+455|caspian-sea|F|
+456|mount-etna|F|
+457|mount-vesuvius|M|Italian filename; categories Vesuvius from Naples
+458|mont-blanc|F|
+459|jungfrau|F|
+460|lake-como|M|trail id filename; categories Lake Como
+461|cliffs-of-moher|F|
+462|snowdon|F|
+463|ben-nevis|F|
+464|black-forest|M|Hohfelsen view; categories Northern Black Forest
+465|rhine-falls|F|
+466|danube-delta|F|
+467|lake-ohrid|F|
+468|mount-ararat|F|
+469|amazon-river|F|
+470|congo-river|F|
+471|lake-tanganyika|F|
+472|okavango-delta|F|
+473|mount-nemrut|F|
+474|lake-baikal|F|
+475|mount-aso|M|Japanese filename; categories Mount Aso
+476|jeju-island|F|
+477|gobi-desert|F|
+478|mount-kailash|F|
+479|mount-damavand|F|
+480|aral-sea|F|
+481|zion-national-park|F|
+482|sequoia-national-park|F|General Sherman Tree
+483|redwood-national-and-state-parks|F|
+484|rocky-mountain-national-park|F|
+485|glacier-national-park|M|Hidden Lake; description names Glacier National Park
+486|everglades-national-park|M|River of Grass; categories Everglades
+487|acadia-national-park|F|
+488|joshua-tree-national-park|F|
+489|death-valley-national-park|F|
+490|lake-tahoe|F|
+491|mount-rainier|F|
+492|denali|F|
+493|crater-lake|F|
+494|banff-national-park|M|Moraine Lake; description names Banff National Park
+495|jasper-national-park|F|
+496|florida-keys|F|
+497|cape-cod|M|White Crest Beach, Wellfleet; categories Cape Cod National Seashore
+498|outer-banks|F|
+499|napa-valley-ava|F|
+500|waikiki|F|
+501|na-pali-coast-state-park|F|
+502|graceland|F|
+503|fenway-park|M|Air Force id filename; description names Fenway Park
+504|wrigley-field|F|
+505|wembley-stadium|F|
+506|indianapolis-motor-speedway|F|
+507|daytona-international-speedway|F|
+508|augusta-national-golf-club|F|
+509|churchill-downs|F|
+510|area-51|M|Homey Airport; categories Area 51
+511|mount-vernon|F|
+512|monticello|F|
+513|yellowstone-national-park|F|
+514|central-park|F|
+515|persian-gulf|F|
+516|south-beach|M|Ocean Drive; description names South Beach
+517|beverly-hills|M|Beverly Wilshire Hotel, GPS 1 km from pin
+518|santa-monica-pier|F|
+519|mall-of-america|F|
+520|gateway-of-india|F|
+521|lotus-temple|F|
+522|burj-al-arab|F|
+523|palm-jumeirah|M|ISS image of Dubai's islands; categories Palm Jumeirah
+524|sea-of-galilee|M|Kinneret
+525|bethlehem|M|Church of the Nativity, Bethlehem
+526|nazareth|F|
+527|troy|F|
+528|ephesus|F|
+529|delphi|F|
+530|olympia-greece|F|
+531|mount-athos|F|
+532|knossos|F|
+533|temple-of-poseidon-at-sounion|F|
+534|lake-garda|M|Rocca di Manerba; categories place it on Lake Garda
+535|mount-rigi|M|Lake Lauerz with Rigi behind; categories Remote views of Rigi
+536|lascaux|F|
+537|chateau-de-chambord|F|
+538|palace-of-fontainebleau|F|
+539|normandy-american-cemetery-and-memorial|F|
+540|white-cliffs-of-dover|F|
+541|warwick-castle|F|
+542|tintagel-castle|F|
+543|fiordland-national-park|M|Hollyford River; description places it in Fiordland National Park
+544|great-barrier-reef|F|
+545|daintree-rainforest|F|
+546|kangaroo-island|M|Flinders Chase; description places it on Kangaroo Island
+547|rottnest-island|F|satellite view of the island
+548|-|F|Zurich old town; entry Lahore
+549|-|F|Trumbull painting of Bunker Hill, not a place; entry Delhi
+550|-|F|Hoover Dam; entry Dhaka
+551|-|F|Adelaide skyline; entry Cairo
+552|-|F|Two Lovers Point, Guam; entry Taipei
+553|-|F|El Chalten; entry Tehran
+554|-|F|Dom Tower, Utrecht; entry Dar es Salaam
+555|-|F|Florence; entry Kano
+556|-|F|Valle de la Luna, Bolivia; entry Riyadh
+557|-|F|Grise Fiord; entry Fuzhou
+558|-|F|Caleta Tortel; entry New Territories
+559|-|F|Reykjavik; entry Havana
+560|-|F|Chichen Itza; entry Depok
+561|-|F|Oymyakon; entry Tashkent
+562|-|M|Rome Stele, Aksum; entry Almaty
+563|-|F|Valley of the Queens, Luxor; entry Khartoum
+564|-|F|Salzburg; entry Kampala
+565|-|F|New Orleans; entry Konya
+566|-|F|Fort Sumter; entry Gwangju
+567|-|F|Bondi Beach; entry The Bronx
+568|-|F|Makapuu Point, Oahu; entry Antananarivo
+569|-|F|Chivay, Peru; entry Antalya
+570|-|F|Milan Cathedral; entry Shiraz
+571|-|F|Ljubljana; entry Dombivali
+572|-|F|University of Coimbra; entry Suwon
+573|-|F|Baikonur Site 1; entry Virar
+574|-|F|Heimaey, Iceland; entry Nowrangapur
+575|-|F|Kiritimati from orbit; entry Karbala
+576|-|F|map of Japanese Antarctic bases, not a photo; entry Sadr City
+577|-|F|Museum Island, Berlin; entry Jinzhou
+578|-|F|Palikir, Micronesia; entry Jinhua
+579|-|F|St Joseph's Cathedral, Dar es Salaam; entry Heshan
+580|-|F|Ngorongoro Crater; entry Jining
+581|-|F|Seville Cathedral; entry Dhanbad
+582|-|F|Mittens, Monument Valley; entry Vijayawada
+583|-|F|Melbourne skyline; entry Ranchi
+584|-|M|fire walking in Sri Lanka, no identifiable place; entry Jabalpur
+585|-|F|Cotopaxi; entry Visakhapatnam
+586|-|F|Kremlin and Red Square; entry Kirkuk
+587|-|F|Windsor Castle; entry Ashgabat
+588|-|F|Lucca city walls; entry Changwon
+589|-|F|Khumbutse and Everest Base Camp; entry Fort Worth
+590|-|F|Auyan Tepui; entry Pest
+591|-|F|Prince Edward Island (South Africa); entry San Jose
+592|-|F|Paracas cliffs, Peru; entry Esenyurt
+593|-|F|Sydney Opera House; entry Sialkot
+594|-|F|Ittoqqortoormiit, Greenland; entry Abu Ghurayb
+595|-|F|Hassan II Mosque, Casablanca; entry Qom
+596|-|F|Pico do Fogo, Cape Verde; entry Malang
+597|-|F|Abdali, Amman; entry Indianapolis
+598|-|F|Town Hall Square, Tallinn; entry Samarinda
+599|-|F|Dallas skyline; entry Arifwala
+600|-|F|Pueblo Bonito, New Mexico; entry Pasig City
+601|-|F|Last Supper painting, not a place; entry Cheongju-si
+602|-|F|wreck interior, Truk Lagoon; entry Bucheon-si
+603|-|M|Casa de la Moneda, Potosi; entry Thanh Hoa
+604|-|M|Kamperveen statue, Paramaribo; entry Al Ain City
+605|-|F|Moscow Kremlin; entry Ulan Bator
+606|-|F|Belgrade Fortress; entry Takeo
+607|-|F|Cambridge Bay, Nunavut; entry Sakai
+608|-|M|government building, Funafuti; entry Barcelona
+609|-|F|Davis Station, Antarctica; entry Petaling Jaya
+610|-|F|Eiffel Tower; entry Ichikawa
+611|-|F|Sankore Mosque, Timbuktu; entry Higashiosaka
+612|-|F|Varanasi ghats; entry Pindi Bhattian
+613|-|F|St Michael's Castle, Saint Petersburg; entry Pohang
+614|-|F|Chicago River; entry Ruiru
+615|-|F|Wall, South Dakota; entry Belagavi
+616|-|F|Nashville; entry Ajman
+617|-|M|Whakarewarewa, New Zealand; entry Jianshui
+618|-|F|Obelisk, Buenos Aires; entry Sancaktepe
+619|-|F|Buckingham Palace; entry Al Khusus
+620|-|F|Edinburgh Castle; entry Jeju City
+621|-|F|Port of Genoa; entry Omaha
+622|-|F|Lord Howe Island; entry Vellore
+623|-|F|Nightingale Island; entry Donghe
+624|-|F|Ilo, Peru; entry Kurashiki
+625|-|F|Shinjuku, Tokyo; entry Oita
+626|-|F|Amsterdam canals; entry Modinagar
+627|-|M|Karnak hypostyle hall; entry Chishtian
+628|-|M|Tashkent City; entry Santa Rita
+629|-|F|Belgrade; entry Hollywood
+630|-|F|Denver; entry Harunabad
+631|-|F|Gettysburg battlefield; entry Shunan
+632|-|F|South Tarawa; entry Agadez
+633|-|F|Aitutaki Atoll from orbit; entry Burnley
+634|-|F|Paramaribo collage; entry Rehovot
+635|-|F|Santa Catalina Monastery, Arequipa; entry Watampone
+636|-|F|Hunedoara Castle; entry Disuq
+637|-|F|Puente Nuevo, Ronda; entry Cagliari
+638|-|F|churches of Arviat, Nunavut; entry Berrechid
+639|-|M|Palmerston Island from orbit; entry Queimados
+640|-|M|Palmer Station plan drawing; entry Tambacounda
+641|-|F|Beijing CBD; entry Arar
+642|-|F|Fes medina; entry Tama
+643|-|F|Olduvai Gorge; entry Rockford
+644|-|F|Warsaw; entry Nimes
+645|-|F|Grand Prismatic Spring; entry Sao Rafael
+646|-|F|Detroit skyline; entry Sujiatun
+647|-|F|Moeraki Boulders; entry Tabas
+648|-|M|Eco-Nelson station, Antarctica; entry Chatra
+649|-|F|Piedra del Cocuy, Rio Negro; entry Cabiao
+650|-|F|Texas State Capitol, Austin; entry Cerritos
+651|-|F|Great Geysir, Iceland; entry Dhampur
+652|-|F|Kluane Lake, Yukon; entry Chahar Dangeh
+653|-|M|Eagle Islands, Chagos; entry Sayanogorsk
+654|-|F|Bahia Malaga mangroves, Colombia; entry Tarkwa
+655|-|F|Istanbul historic peninsula; entry Zaranj
+656|-|M|Casablanca Finance City; entry Neunkirchen
+657|-|F|Temple of Hatshepsut, Luxor; entry Nohar
+658|-|F|Zagreb; entry Yeola
+659|-|F|Vlkolinec, Slovakia; entry Ostersund
+660|-|M|Villa Vizcaya, Miami; entry Mbuguni
+661|-|F|Chichen Itza; entry Zajecar
+662|-|F|Royal Palace, Nuku'alofa; entry Kerkrade
+663|-|F|Savusavu, Fiji; entry Changdian
+664|-|F|Mitad del Mundo, Quito; entry Novovolynsk
+665|-|F|Toledo, Spain; entry Chachoengsao
+666|-|F|Utqiagvik (Barrow), Alaska; entry Wharton
+667|-|F|Pukapuka Atoll; entry Regenstauf
+668|-|F|Amundsen-Scott South Pole Station; entry Chakia
+669|-|F|Uluru; entry Salinas da Margarida
+670|-|F|Temple Mount, Jerusalem; entry Qingshui
+671|-|F|Patuxai, Vientiane; entry Vagator
+672|-|F|Zitouna Mosque, Tunis; entry CIM
+673|-|F|Bukit Bintang, Kuala Lumpur; entry Mukkudal
+674|-|F|Florence from Piazzale Michelangelo; entry Valle de Guanape
+675|-|F|Halifax waterfront; entry Chingoli
+676|-|F|Anapai Bay, Abel Tasman; entry Abala
+677|-|F|Port Lockroy, Antarctica; entry Addlestone
+678|-|F|Bariloche cathedral; entry Songon
+679|-|F|sous-prefecture, Saint-Laurent-du-Maroni; entry Roncesvalles
+680|-|F|FCG building, Odaiba, Tokyo; entry Petersfield
+681|-|F|Nidaros Cathedral, Trondheim; entry Banissa
+682|-|F|Skellig Michael; entry Tavros
+683|-|F|Prambanan; entry Pucioasa
+684|-|M|Diego Garcia plantation; entry Quynh Loi
+685|-|F|Isla El Porvenir, Guna Yala; entry Novyi Buh
+686|dunkirk-evacuation|F|troops on Dunkirk beach, 1940
+687|-|V|two-panel image of the Hiroshima and Nagasaki clouds from the air, no identifiable ground
+688|wimbledon-all-england-club|F|
+689|robben-island|F|
+690|battle-of-hastings|F|Battle Abbey gatehouse on the battlefield, GPS 0 km from pin
+691|roswell-ufo-incident|F|Roswell skyline, GPS 1 km from pin
+692|fukushima-daiichi|F|
+693|camp-nou|F|
+694|old-trafford|V|opaque filename; aerial view of the Old Trafford football ground
+695|birds-nest-beijing|F|
+696|urquhart-castle|F|
+697|miraflores-locks|M|numbered filename; categories Miraflores Locks
+698|anzac-cove|F|
+699|carcassonne-cite|F|
+700|blarney-castle|F|
+701|le-mans-circuit|F|
+702|bukhara-uzbekistan|F|Kalon ensemble
+703|windhoek-namibia|F|
+704|stari-most|F|Mostar old town panorama with the Old Bridge
+705|lumbini-nepal|F|
+706|bodh-gaya-india|F|
+707|wittenberg-castle-church|F|
+708|dushanbe-tajikistan|F|
+709|noumea-new-caledonia|F|
+710|-|F|cast of a Leonidas statue in a Munich museum, not Thermopylae
+711|gullfoss|F|
+712|-|F|Titanic leaving Southampton; entry pin is the North Atlantic wreck site
+713|-|F|painting of the battle, artwork not a photo of the place
