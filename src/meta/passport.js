@@ -849,7 +849,9 @@ function closeCountryDetail() {
 // continent total. Same slots and mystery cards as the city dex.
 function renderLandmarkShelf() {
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
-  const entries = host.landmarkShelf().map((item) => buildPassportEntry(item, age));
+  // Audit mode previews the whole landmarks bank, not just expedition stops.
+  const shelfItems = host.AUDIT_MODE && host.landmarks?.length ? host.landmarks : host.landmarkShelf();
+  const entries = shelfItems.map((item) => buildPassportEntry(item, age));
   const visited = entries.filter((e) => e.visited).length;
   const earned = entries.filter((e) => e.earned).length;
   ppEls.landmarkSummary.textContent = `${earned} of ${entries.length} landmark postcards · ${visited} visited`;

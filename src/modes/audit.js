@@ -8,8 +8,9 @@
 // (addAuditFlagButton, mountAuditBanner); its styles stay in the Passport's
 // stylesheet block (src/meta/passport.js), where they always applied.
 // ---------------------------------------------------------------------------
-// Audit mode retired 2026-10-12 (Sean): code preserved, flip to true to reinstate ?audit=1.
-const AUDIT_AVAILABLE = false;
+// Audit mode retired 2026-10-12 (Sean), reinstated 2026-10-15 (Sean) so the
+// full landmarks bank can be previewed in the Passport via ?audit=1.
+const AUDIT_AVAILABLE = true;
 export const AUDIT_MODE = AUDIT_AVAILABLE && new URLSearchParams(location.search).get('audit') === '1';
 
 let host = null;
@@ -24,7 +25,8 @@ function saveAuditFlags() {
 }
 
 function removeOrphanedAuditFlags() {
-  const validIds = new Set(host.locations.map((item) => item.id));
+  if (!host.landmarks) return; // landmarks still loading: never judge a flag orphaned yet
+  const validIds = new Set([...host.locations, ...host.landmarks].map((item) => item.id));
   const cleanedFlags = Object.fromEntries(Object.entries(auditFlags).filter(([id]) => validIds.has(id)));
   if (Object.keys(cleanedFlags).length === Object.keys(auditFlags).length) return;
   auditFlags = cleanedFlags;
@@ -102,7 +104,7 @@ export function mountAuditBanner(progressEl) {
     flagsButton.textContent = `Flags (${entries.length})`;
     flagsList.replaceChildren(...entries.map(([id, type]) => {
       const item = document.createElement('li');
-      const location = host.passportLocation(id);
+      const location = host.findLocation ? host.findLocation(id) : host.passportLocation(id);
       item.textContent = `${id} · ${location?.short || location?.clue || 'Unknown location'} · ${AUDIT_FLAG_EMOJIS[type]} ${AUDIT_FLAG_LABELS[type]}`;
       return item;
     }));

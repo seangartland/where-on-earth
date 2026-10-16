@@ -525,6 +525,8 @@ const passportHost = {
   EARN_NAMES,
   gameEls,
   get locations() { return state.locations; },
+  get landmarks() { return state.landmarks; },
+  findLocation,
   get passport() { return state.passport; },
   get passportDirty() { return passportDirty; },
   set passportScreenEl(value) { state.passportScreenEl = value; },
