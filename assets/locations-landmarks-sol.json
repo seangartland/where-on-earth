@@ -9,6 +9,7 @@
   "short": "Abu Simbel",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Ramsis%2C_Aswan_Governorate%2C_Egypt_-_panoramio.jpg/500px-Ramsis%2C_Aswan_Governorate%2C_Egypt_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Egypt",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
   "category": "city",
@@ -24,6 +25,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg/500px-1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg",
   "country": "Greece",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
   "category": "city",
@@ -55,6 +57,7 @@
   "short": "Aitutaki Lagoon",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Maina_Island%2C_Aitutaki_Lagoon%2C_Cook_Islands.jpg/500px-Maina_Island%2C_Aitutaki_Lagoon%2C_Cook_Islands.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Cook Islands",
+  "continent": "Oceania",
   "sets": [
    "Pacific Islands"
   ],
@@ -72,6 +75,7 @@
   "short": "Ak-Baital Pass",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Ak_Baital_Pass_2.jpg/500px-Ak_Baital_Pass_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Tajikistan",
+  "continent": "Asia",
   "sets": [
    "Silk Road"
   ],
@@ -89,6 +93,7 @@
   "short": "The Alamo",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Alamo_Mission%2C_San_Antonio%2C_Texas%2C_USA.jpg/500px-Alamo_Mission%2C_San_Antonio%2C_Texas%2C_USA.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C1·S0 → 6",
   "category": "city",
@@ -104,6 +109,7 @@
   "short": "Alcatraz",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Alcatraz_2021.jpg/500px-Alcatraz_2021.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 5 (neighbor san-francisco-usa)",
   "category": "city",
@@ -119,6 +125,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Alcazaba_de_M%C3%A1laga_overview.jpg/500px-Alcazaba_de_M%C3%A1laga_overview.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Spain",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C1·S0 → 7",
   "category": "city",
@@ -135,6 +142,7 @@
   "short": "Alert",
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Alert_Nunavut_432_pan_crop_15_%2833817848520%29.jpg",
   "country": "Canada",
+  "continent": "North America",
   "sets": [
    "History Was Here",
    "Arctic Circle"
@@ -153,6 +161,7 @@
   "short": "Alhambra",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg/500px-Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg",
   "country": "Spain",
+  "continent": "Europe",
   "sets": [
    "History Was Here"
   ],
@@ -169,6 +178,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Italy",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 3 (neighbor pompeii)",
   "extentKm": 30,
@@ -185,6 +195,7 @@
   "difficulty": 4,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/500px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Netherlands",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 4 (neighbor amsterdam-netherlands)",
   "category": "city",
@@ -200,6 +211,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Amundsen%E2%80%93Scott_South_Pole_Station_01.jpg/500px-Amundsen%E2%80%93Scott_South_Pole_Station_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -217,6 +229,7 @@
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Annapurna_Base_Camp%2C_Ghandruk%2C_Nepal.jpg/500px-Annapurna_Base_Camp%2C_Ghandruk%2C_Nepal.jpg",
   "country": "Nepal",
+  "continent": "Asia",
   "sets": [
    "Himalaya"
   ],
@@ -235,6 +248,7 @@
   "short": "Angkor Wat",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Angkor_Wat.jpg/500px-Angkor_Wat.jpg",
   "country": "Cambodia",
+  "continent": "Asia",
   "sets": [
    "History Was Here",
    "Southeast Asia"
@@ -252,6 +266,7 @@
   "short": "Anne Frank House",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Amsterdam_%28NL%29%2C_Anne-Frank-Huis_--_2015_--_7185.jpg/500px-Amsterdam_%28NL%29%2C_Anne-Frank-Huis_--_2015_--_7185.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Netherlands",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 3 (neighbor amsterdam-netherlands)",
   "category": "city",
@@ -268,6 +283,7 @@
   "category": "city",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/ANZAC_Cove.jpg/500px-ANZAC_Cove.jpg",
   "country": "Turkey",
+  "continent": "Asia",
   "sets": [
    "History Was Here"
   ],
@@ -284,6 +300,7 @@
   "clue": "Area 51, United States 🇺🇸",
   "difficulty": 5,
   "country": "United States",
+  "continent": "North America",
   "sets": [
    "US Road Trip"
   ],
@@ -301,6 +318,7 @@
   "difficulty": 3,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Boelter_Hall%2C_UCLA.jpg/500px-Boelter_Hall%2C_UCLA.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 3 (neighbor los-angeles-usa)",
   "category": "city",
@@ -316,6 +334,7 @@
   "difficulty": 4,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Brussels_-_Atomium.jpg",
   "country": "Belgium",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
   "category": "city",
@@ -331,6 +350,7 @@
   "clue": "Augusta National Golf Club, United States 🇺🇸",
   "difficulty": 6,
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -346,6 +366,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/TexasStateCapitol-2010-01.JPG/500px-TexasStateCapitol-2010-01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -361,6 +382,7 @@
   "short": "Avatiu Harbour",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Avatiu_Harbour%2C_Rarotonga_%28482134%29_%289449672405%29.jpg/500px-Avatiu_Harbour%2C_Rarotonga_%28482134%29_%289449672405%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Cook Islands",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A0·K2·C1·S0 → 9",
   "category": "city",
@@ -376,6 +398,7 @@
   "short": "Axum Obelisks",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Celebrate_The_Return_of_Axum_Obelisk_%28Detail%29_%283172365788%29.jpg/500px-Celebrate_The_Return_of_Axum_Obelisk_%28Detail%29_%283172365788%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Ethiopia",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
   "category": "city",
@@ -392,6 +415,7 @@
   "short": "Badaling",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Peking_Grosse_Mauer-20071019-RM-115708.jpg/500px-Peking_Grosse_Mauer-20071019-RM-115708.jpg",
   "country": "China",
+  "continent": "Asia",
   "sets": [
    "History Was Here",
    "Wonders of the World"
@@ -409,6 +433,7 @@
   "short": "Badlands Wall",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Badlands_Wall_-_Badlands_National_Park_(52643718369).jpg/500px-Badlands_Wall_-_Badlands_National_Park_(52643718369).jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S1 → 9",
   "category": "city",
@@ -424,6 +449,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Badwater_Basin_from_Dante%27s_View_Overlook.JPG/500px-Badwater_Basin_from_Dante%27s_View_Overlook.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
   "category": "city",
@@ -439,6 +465,7 @@
   "short": "Bagan",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Bagan%2C_Burma.jpg/500px-Bagan%2C_Burma.jpg",
   "country": "Myanmar",
+  "continent": "Asia",
   "sets": [
    "Southeast Asia"
   ],
@@ -456,6 +483,7 @@
   "short": "Balanced Rock",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Balanced_Rock_sunset.jpg/500px-Balanced_Rock_sunset.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
   "category": "city",
@@ -471,6 +499,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Banaue-terrace.JPG/500px-Banaue-terrace.JPG",
   "country": "Philippines",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -486,6 +515,7 @@
   "difficulty": 7,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Banteay_Chhmar_-_001_Facetower%2C_Samnang_Tasok_%288593129585%29.jpg",
   "country": "Cambodia",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
   "category": "city",
@@ -501,6 +531,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Meteor_Crater_-_Arizona.jpg/500px-Meteor_Crater_-_Arizona.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -517,6 +548,7 @@
   "category": "city",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/BattleNormannen.JPG/500px-BattleNormannen.JPG",
   "country": "England",
+  "continent": "Europe",
   "sets": [
    "History Was Here"
   ],
@@ -533,6 +565,7 @@
   "clue": "Ben Nevis, Scotland",
   "difficulty": 4,
   "country": "Scotland",
+  "continent": "Europe",
   "sets": [
    "Mountains"
   ],
@@ -550,6 +583,7 @@
   "short": "Ben Youssef Madrasa",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Coranic_School_%28106589859%29.jpeg/500px-Coranic_School_%28106589859%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Morocco",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -565,6 +599,7 @@
   "clue": "Bering Strait",
   "difficulty": 5,
   "country": "International Waters",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S1·G1 → 5",
   "extentKm": 45,
@@ -582,6 +617,7 @@
   "short": "Big Ben",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Elizabeth_Tower_and_the_north_front_of_the_Palace_of_Westminster%2C_London.jpg/500px-Elizabeth_Tower_and_the_north_front_of_the_Palace_of_Westminster%2C_London.jpg",
   "country": "England",
+  "continent": "Europe",
   "sets": [
    "History Was Here"
   ],
@@ -599,6 +635,7 @@
   "category": "city",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Lascar_Beijing_National_Stadium_(Bird's_nest)_(4496888772).jpg/500px-Lascar_Beijing_National_Stadium_(Bird's_nest)_(4496888772).jpg",
   "country": "China",
+  "continent": "Asia",
   "sets": [
    "History Was Here"
   ],
@@ -615,6 +652,7 @@
   "clue": "Black Forest, Germany 🇩🇪",
   "difficulty": 5,
   "country": "Germany",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S1 → 5",
   "extentKm": 80,
@@ -631,6 +669,7 @@
   "short": "Blue Lagoon",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Blue_Lagoon_Geothermal_pool_11.jpg/500px-Blue_Lagoon_Geothermal_pool_11.jpg",
   "country": "Iceland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
   "category": "city",
@@ -646,6 +685,7 @@
   "short": "Three Rondavels",
   "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/The_Three_Rondavels%2C_Blyde_River_Canyon.jpg",
   "country": "South Africa",
+  "continent": "Africa",
   "sets": [
    "Canyons & Gorges"
   ],
@@ -663,6 +703,7 @@
   "difficulty": 7,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Mahabodhi_temple.jpg/500px-Mahabodhi_temple.jpg",
   "country": "India",
+  "continent": "Asia",
   "sets": [
    "Sacred Sites"
   ],
@@ -680,6 +721,7 @@
   "short": "Bondi Beach",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Bondi_from_above.jpg/500px-Bondi_from_above.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Australia",
+  "continent": "Oceania",
   "sets": [
    "Beaches"
   ],
@@ -697,6 +739,7 @@
   "short": "Borobudur",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Borobudur-Nothwest-view.jpg/500px-Borobudur-Nothwest-view.jpg",
   "country": "Indonesia",
+  "continent": "Asia",
   "sets": [
    "Southeast Asia"
   ],
@@ -714,6 +757,7 @@
   "short": "Brandenburg Gate",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/500px-Brandenburger_Tor_abends.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Germany",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor berlin-germany)",
   "category": "city",
@@ -729,6 +773,7 @@
   "difficulty": 7,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Brasilia_National_Congress_Buildings.jpg/500px-Brasilia_National_Congress_Buildings.jpg",
   "country": "Brazil",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 7 (neighbor brasilia-br)",
   "category": "city",
@@ -744,6 +789,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Bryggen_Hanseatic_wharf_at_night_Bergen_Norway.jpg/500px-Bryggen_Hanseatic_wharf_at_night_Bergen_Norway.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Norway",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
   "category": "city",
@@ -759,6 +805,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Stone_Bridge%2C_Spanning_Bull_Run_%28Occoquan_River%29.jpg/500px-Stone_Bridge%2C_Spanning_Bull_Run_%28Occoquan_River%29.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -774,6 +821,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Bumthang-Tal_in_Bhutan.jpg/500px-Bumthang-Tal_in_Bhutan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Bhutan",
+  "continent": "Asia",
   "sets": [
    "Himalaya"
   ],
@@ -791,6 +839,7 @@
   "short": "Bunker Hill",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Bunker_Hill_Monument.jpg/500px-Bunker_Hill_Monument.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 7 (neighbor boston-usa)",
   "category": "city",
@@ -806,6 +855,7 @@
   "clue": "Burj Al Arab, United Arab Emirates 🇦🇪",
   "difficulty": 3,
   "country": "United Arab Emirates",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
   "category": "city",
@@ -821,6 +871,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Burj_Khalifa_%28worlds_tallest_building%29_and_the_Dubai_skyline_%2825781049892%29.jpg/500px-Burj_Khalifa_%28worlds_tallest_building%29_and_the_Dubai_skyline_%2825781049892%29.jpg",
   "country": "United Arab Emirates",
+  "continent": "Asia",
   "sets": [
    "Middle East"
   ],
@@ -838,6 +889,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/BakeBeachAtMidday.jpg/500px-BakeBeachAtMidday.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 6 (neighbor san-francisco-usa)",
   "category": "city",
@@ -853,6 +905,7 @@
   "short": "Byrd Station",
   "image": "https://upload.wikimedia.org/wikipedia/commons/b/be/Byrd_Station.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -870,6 +923,7 @@
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Cabo_Catoche_aerial.JPG/500px-Cabo_Catoche_aerial.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Mexico",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
   "category": "city",
@@ -885,6 +939,7 @@
   "difficulty": 9,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Manglares_en_el_maritorio_de_Bah%C3%ADa_M%C3%A1laga%2C_Colombia.jpg",
   "country": "Colombia",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
   "category": "city",
@@ -900,6 +955,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Faro_de_Cabo_Polonio%2C_Uruguay_01.jpg/500px-Faro_de_Cabo_Polonio%2C_Uruguay_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Uruguay",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A0·K0·C1·S0 → 7",
   "category": "city",
@@ -915,6 +971,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Mina_de_Chuquicamata%2C_Calama%2C_Chile%2C_2016-02-01%2C_DD_110-112_PAN.JPG/500px-Mina_de_Chuquicamata%2C_Calama%2C_Chile%2C_2016-02-01%2C_DD_110-112_PAN.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Chile",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -930,6 +987,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Camp_Nou_aerial.jpg/500px-Camp_Nou_aerial.jpg",
   "country": "Spain",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 2 (neighbor sagrada-familia)",
   "category": "city",
@@ -945,6 +1003,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/USCapitolRotunda.JPG/500px-USCapitolRotunda.JPG",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor washington-dc-usa)",
   "category": "city",
@@ -960,6 +1019,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Casey_Station_November_2005.jpg/500px-Casey_Station_November_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -975,6 +1035,7 @@
   "short": "Pueblo Bonito",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Pueblo_Bonito_Aerial.JPG/500px-Pueblo_Bonito_Aerial.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -990,6 +1051,7 @@
   "difficulty": 7,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
   "country": "United Kingdom",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A2·K2·C1·S0 → 7",
   "category": "city",
@@ -1006,6 +1068,7 @@
   "short": "Challenger Deep",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Challenger_Deep_Dive_071222_by_V_Vescovo_in_DSV_Limiting_Factor_-_Southern_Wall_of_Western_Pool.jpg/500px-Challenger_Deep_Dive_071222_by_V_Vescovo_in_DSV_Limiting_Factor_-_Southern_Wall_of_Western_Pool.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [
    "History Was Here"
   ],
@@ -1022,6 +1085,7 @@
   "short": "Champagne Pool",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/ChampagnePool-Wai-O-Tapu_rotated_MC.jpg/500px-ChampagnePool-Wai-O-Tapu_rotated_MC.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "New Zealand",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
   "category": "city",
@@ -1037,6 +1101,7 @@
   "difficulty": 7,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Champassak.-_Panorama_of_Vat_Phou_.jpg/500px-Champassak.-_Panorama_of_Vat_Phou_.jpg",
   "country": "Laos",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C1·S0 → 7",
   "category": "city",
@@ -1052,6 +1117,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Chan_chan_view1.jpg/500px-Chan_chan_view1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Peru",
+  "continent": "South America",
   "sets": [
    "Ancient Ruins"
   ],
@@ -1085,6 +1151,7 @@
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
   "country": "France",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
   "category": "city",
@@ -1100,6 +1167,7 @@
   "clue": "Château de Chambord, France 🇫🇷",
   "difficulty": 5,
   "country": "France",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
   "category": "city",
@@ -1115,6 +1183,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Ch%C3%A2teau_Frontenac_02.jpg/500px-Ch%C3%A2teau_Frontenac_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Canada",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
   "category": "city",
@@ -1130,6 +1199,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Chav%C3%ADn_de_Hu%C3%A1ntar_-_51149086708.jpg/500px-Chav%C3%ADn_de_Hu%C3%A1ntar_-_51149086708.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Peru",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -1145,6 +1215,7 @@
   "short": "Chernobyl",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Administrative_center%2C_Radiation_Control_%2811383715816%29.jpg/500px-Administrative_center%2C_Radiation_Control_%2811383715816%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Ukraine",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
   "category": "city",
@@ -1161,6 +1232,7 @@
   "short": "Chichen Itza",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Chichen_Itza_3.jpg/500px-Chichen_Itza_3.jpg",
   "country": "Mexico",
+  "continent": "North America",
   "sets": [
    "History Was Here",
    "Wonders of the World"
@@ -1178,6 +1250,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Chocolate_Hills_Bohol.JPG/500px-Chocolate_Hills_Bohol.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Philippines",
+  "continent": "Asia",
   "sets": [
    "Southeast Asia"
   ],
@@ -1196,6 +1269,7 @@
   "short": "Christ the Redeemer",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Christ_the_Redeemer_-_Cristo_Redentor.jpg/500px-Christ_the_Redeemer_-_Cristo_Redentor.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Brazil",
+  "continent": "South America",
   "sets": [
    "History Was Here",
    "Wonders of the World"
@@ -1214,6 +1288,7 @@
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Chrysler_Building_by_David_Shankbone_Retouched.jpg/500px-Chrysler_Building_by_David_Shankbone_Retouched.jpg",
   "category": "city",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
   "kind": "landmark"
@@ -1228,6 +1303,7 @@
   "short": "Chuuk Wrecks",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
   "country": "Micronesia",
+  "continent": "Oceania",
   "sets": [
    "Pacific Islands"
   ],
@@ -1245,6 +1321,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Cinderella_Castle%2C_Magic_Kingdom_%282026%29.jpg/500px-Cinderella_Castle%2C_Magic_Kingdom_%282026%29.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
   "category": "city",
@@ -1260,6 +1337,7 @@
   "clue": "Cliffs of Moher, Ireland 🇮🇪",
   "difficulty": 3,
   "country": "Ireland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
   "category": "city",
@@ -1275,6 +1353,7 @@
   "difficulty": 8,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
   "country": "Peru",
+  "continent": "South America",
   "sets": [
    "Andes",
    "Canyons & Gorges"
@@ -1293,6 +1372,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/ConcordiaFromTower.jpg/500px-ConcordiaFromTower.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -1311,6 +1391,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Copacabana_Beach_at_night%2C_Rio_de_Janeiro%2C_Brazil.jpg/500px-Copacabana_Beach_at_night%2C_Rio_de_Janeiro%2C_Brazil.jpg",
   "category": "city",
   "country": "Brazil",
+  "continent": "South America",
   "sets": [
    "Beaches"
   ],
@@ -1327,6 +1408,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Barranca_del_cobre_2.jpg/500px-Barranca_del_cobre_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Mexico",
+  "continent": "North America",
   "sets": [
    "Canyons & Gorges"
   ],
@@ -1344,6 +1426,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/RefugioJoseRivasCotopaxi.jpg/500px-RefugioJoseRivasCotopaxi.jpg",
   "country": "Ecuador",
+  "continent": "South America",
   "sets": [
    "Andes"
   ],
@@ -1361,6 +1444,7 @@
   "clue": "Daintree Rainforest, Australia 🇦🇺",
   "difficulty": 8,
   "country": "Australia",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "extentKm": 35,
@@ -1378,6 +1462,7 @@
   "short": "Danakil Depression",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Danakil_depression.jpg/500px-Danakil_depression.jpg",
   "country": "Ethiopia",
+  "continent": "Africa",
   "sets": [
    "History Was Here"
   ],
@@ -1394,6 +1479,7 @@
   "clue": "Danube Delta, Romania 🇷🇴",
   "difficulty": 6,
   "country": "Romania",
+  "continent": "Europe",
   "sets": [
    "Great Rivers"
   ],
@@ -1412,6 +1498,7 @@
   "short": "Darvaza Crater",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Darvasa_gas_crater_panorama_crop.jpg/500px-Darvasa_gas_crater_panorama_crop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Turkmenistan",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
   "category": "city",
@@ -1427,6 +1514,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Davis_Station_November_2005.jpg/500px-Davis_Station_November_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -1444,6 +1532,7 @@
   "clue": "Daytona International Speedway, United States 🇺🇸",
   "difficulty": 7,
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
   "category": "city",
@@ -1460,6 +1549,7 @@
   "short": "Dead Sea",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Dead_Sea_beach_00.JPG/500px-Dead_Sea_beach_00.JPG",
   "country": "Jordan",
+  "continent": "Asia",
   "sets": [
    "History Was Here",
    "Middle East"
@@ -1478,6 +1568,7 @@
   "short": "Delicate Arch",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -1493,6 +1584,7 @@
   "clue": "Delphi, Greece 🇬🇷",
   "difficulty": 4,
   "country": "Greece",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
   "category": "city",
@@ -1508,6 +1600,7 @@
   "clue": "Denali, United States 🇺🇸",
   "difficulty": 4,
   "country": "United States",
+  "continent": "North America",
   "sets": [
    "Mountains"
   ],
@@ -1525,6 +1618,7 @@
   "short": "Dholavira",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/DHOLAVIRA_SITE_%2824%29.jpg/500px-DHOLAVIRA_SITE_%2824%29.jpg",
   "country": "India",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
   "category": "city",
@@ -1540,6 +1634,7 @@
   "clue": "Disneyland, United States 🇺🇸",
   "difficulty": 6,
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C1·S0 → 6",
   "category": "city",
@@ -1555,6 +1650,7 @@
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Roslin_Institute.JPG/500px-Roslin_Institute.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Scotland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 5 (neighbor edinburgh-scotland)",
   "category": "city",
@@ -1570,6 +1666,7 @@
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Antarctica_base%28Japan%29_English_ver.png/500px-Antarctica_base%28Japan%29_English_ver.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
   "category": "city",
@@ -1585,6 +1682,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Jerusalem_DomeoftheRock_J65_%28cropped%29.JPG/500px-Jerusalem_DomeoftheRock_J65_%28cropped%29.JPG",
   "country": "Israel",
+  "continent": "Asia",
   "sets": [
    "Sacred Sites"
   ],
@@ -1602,6 +1700,7 @@
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%B4%D1%8F%D1%82%D0%BB%D0%BE%D0%B2%D1%86%D0%B0%D0%BC_%D0%BD%D0%B0_%D0%9C%D0%B8%D1%85%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%BC_%D0%BA%D0%BB%D0%B0%D0%B4%D0%B1%D0%B8%D1%89%D0%B5.jpg/500px-%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%B4%D1%8F%D1%82%D0%BB%D0%BE%D0%B2%D1%86%D0%B0%D0%BC_%D0%BD%D0%B0_%D0%9C%D0%B8%D1%85%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%BC_%D0%BA%D0%BB%D0%B0%D0%B4%D0%B1%D0%B8%D1%89%D0%B5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Russia",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
   "category": "city",
@@ -1617,6 +1716,7 @@
   "difficulty": 5,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eilean_Donan_Castle%2C_Scotland_-_Jan_2011.jpg",
   "country": "Scotland",
+  "continent": "Europe",
   "sets": [
    "Castles"
   ],
@@ -1634,6 +1734,7 @@
   "short": "El Castillo",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Templo_el_Castillo_-_Chichen_Itza-Yucatan-Mexico0222.jpg/500px-Templo_el_Castillo_-_Chichen_Itza-Yucatan-Mexico0222.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Mexico",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
   "category": "city",
@@ -1649,6 +1750,7 @@
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/G%C3%A9iseres_del_Tatio%2C_Atacama%2C_Chile%2C_2016-02-01%2C_DD_01-02_HDR.JPG/500px-G%C3%A9iseres_del_Tatio%2C_Atacama%2C_Chile%2C_2016-02-01%2C_DD_01-02_HDR.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Chile",
+  "continent": "South America",
   "sets": [
    "Andes"
   ],
@@ -1666,6 +1768,7 @@
   "short": "Flaming Cliffs",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Flaming_cliffs_5.jpg/500px-Flaming_cliffs_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Mongolia",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
   "category": "city",
@@ -1681,6 +1784,7 @@
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/St._Flannan%27s_Cell_and_Flannan_Isles_Lighthouse_-_geograph.org.uk_-_623920.jpg/500px-St._Flannan%27s_Cell_and_Flannan_Isles_Lighthouse_-_geograph.org.uk_-_623920.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Scotland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
   "category": "city",
@@ -1696,6 +1800,7 @@
   "short": "Jackson Square",
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/Jackson_Square_New_Orleans.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 7 (neighbor new-orleans-usa)",
   "category": "city",
@@ -1712,6 +1817,7 @@
   "category": "city",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Fukushima_I_NPP_1975.jpg/500px-Fukushima_I_NPP_1975.jpg",
   "country": "Japan",
+  "continent": "Asia",
   "sets": [
    "History Was Here"
   ],
@@ -1728,6 +1834,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Birla_HouseGandhi_Smriti%2C_New_Delhi.jpg/500px-Birla_HouseGandhi_Smriti%2C_New_Delhi.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "India",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 6 (neighbor delhi)",
   "category": "city",
@@ -1743,6 +1850,7 @@
   "short": "Gateway Arch",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/St_Louis_night_expblend_cropped.jpg/500px-St_Louis_night_expblend_cropped.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 5 (neighbor st-louis-usa)",
   "category": "city",
@@ -1758,6 +1866,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Woman_in_Genoa_harbor_%28Unsplash%29.jpg/500px-Woman_in_Genoa_harbor_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Italy",
+  "continent": "Europe",
   "sets": [
    "Port Cities"
   ],
@@ -1775,6 +1884,7 @@
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Cathedral%2C_Georgetown.jpg/500px-Cathedral%2C_Georgetown.jpg",
   "country": "Guyana",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S0 → 5",
   "category": "city",
@@ -1790,6 +1900,7 @@
   "short": "Gettysburg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Gettysburgbattlefield.jpg/500px-Gettysburgbattlefield.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
   "category": "city",
@@ -1805,6 +1916,7 @@
   "short": "Göbekli Tepe",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg/500px-G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Turkey",
+  "continent": "Asia",
   "sets": [
    "Ancient Ruins"
   ],
@@ -1822,6 +1934,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Avimimus_excavation.jpg/500px-Avimimus_excavation.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Mongolia",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -1837,6 +1950,7 @@
   "clue": "Gold Coast, Australia 🇦🇺",
   "difficulty": 6,
   "country": "Australia",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -1852,6 +1966,7 @@
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Stora_hamnkanalen_2025_01.jpg/500px-Stora_hamnkanalen_2025_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Sweden",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A2·K0·C1·S0 → 5",
   "category": "city",
@@ -1867,6 +1982,7 @@
   "clue": "Great Ocean Road, Australia 🇦🇺",
   "difficulty": 8,
   "country": "Australia",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "extentKm": 122,
@@ -1883,6 +1999,7 @@
   "short": "Great Sea Reef",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/ISS-45_StoryOfWater%2C_Great_Barrier_Reef%2C_Australia.jpg/500px-ISS-45_StoryOfWater%2C_Great_Barrier_Reef%2C_Australia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Fiji",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
   "category": "city",
@@ -1899,6 +2016,7 @@
   "short": "Great Sphinx",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Sphinx_with_the_third_pyramid.jpg/500px-Sphinx_with_the_third_pyramid.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Egypt",
+  "continent": "Africa",
   "sets": [
    "History Was Here"
   ],
@@ -1915,6 +2033,7 @@
   "short": "Gyeongbokgung",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg/500px-%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "South Korea",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
   "category": "city",
@@ -1930,6 +2049,7 @@
   "short": "Ha Long Bay",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Vietnam",
+  "continent": "Asia",
   "sets": [
    "Southeast Asia"
   ],
@@ -1947,6 +2067,7 @@
   "short": "Halemaʻumaʻu",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Halema%CA%BBuma%CA%BBu_crater2.jpg/500px-Halema%CA%BBuma%CA%BBu_crater2.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [
    "Volcanoes"
   ],
@@ -1964,6 +2085,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Halley_VI_Antarctic_Research_Station_-_Science_modules.jpg/500px-Halley_VI_Antarctic_Research_Station_-_Science_modules.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -1979,6 +2101,7 @@
   "short": "Harmony Point",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
   "category": "city",
@@ -1994,6 +2117,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Atlas_Experiment_CERN_%2810%29.JPG/500px-Atlas_Experiment_CERN_%2810%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Switzerland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A0·K0·C0·S0 → 2",
   "category": "city",
@@ -2009,6 +2133,7 @@
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Hindenburg_landing_May_6_1937.jpg/500px-Hindenburg_landing_May_6_1937.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
   "category": "city",
@@ -2024,6 +2149,7 @@
   "short": "Hohensalzburg",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Salzburg_-_Festung_Hohensalzburg.JPG/500px-Salzburg_-_Festung_Hohensalzburg.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Austria",
+  "continent": "Europe",
   "sets": [
    "The Alps"
   ],
@@ -2041,6 +2167,7 @@
   "difficulty": 6,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hoi_An_old_town_(44577949830).jpg/500px-Hoi_An_old_town_(44577949830).jpg",
   "country": "Vietnam",
+  "continent": "Asia",
   "sets": [
    "Colonial Towns",
    "Southeast Asia"
@@ -2059,6 +2186,7 @@
   "short": "Housesteads",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Housesteads_Roman_Fort_2014_02.jpg/500px-Housesteads_Roman_Fort_2014_02.jpg",
   "country": "England",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
   "category": "city",
@@ -2074,6 +2202,7 @@
   "difficulty": 9,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vista_Humberstone.jpg",
   "country": "Chile",
+  "continent": "South America",
   "sets": [
    "Mining Towns"
   ],
@@ -2091,6 +2220,7 @@
   "short": "Hungarian Parliament",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Hungarian_Parliament_Building_from_across_the_Danube%2C_2025-01-11.jpg/500px-Hungarian_Parliament_Building_from_across_the_Danube%2C_2025-01-11.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Hungary",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 2 (neighbor budapest-hungary)",
   "category": "city",
@@ -2106,6 +2236,7 @@
   "short": "Independence Hall",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Independence_Hall.jpg/500px-Independence_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 6 (neighbor philadelphia-usa)",
   "category": "city",
@@ -2121,6 +2252,7 @@
   "clue": "Indianapolis Motor Speedway, United States 🇺🇸",
   "difficulty": 6,
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -2136,6 +2268,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Sunset_at_Menemsha_Harbor.jpg/500px-Sunset_at_Menemsha_Harbor.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C0·S0 → 9",
   "category": "city",
@@ -2151,6 +2284,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dealey_Plaza_2003.jpg/500px-Dealey_Plaza_2003.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
   "category": "city",
@@ -2166,6 +2300,7 @@
   "short": "Jökulsárlón",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/J%C3%B6kuls%C3%A1rl%C3%B3n_lagoon_in_southeastern_Iceland.jpg/500px-J%C3%B6kuls%C3%A1rl%C3%B3n_lagoon_in_southeastern_Iceland.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Iceland",
+  "continent": "Europe",
   "sets": [
    "Fjords & Glaciers"
   ],
@@ -2183,6 +2318,7 @@
   "clue": "Jungfrau, Switzerland 🇨🇭",
   "difficulty": 5,
   "country": "Switzerland",
+  "continent": "Europe",
   "sets": [
    "Mountains"
   ],
@@ -2200,6 +2336,7 @@
   "difficulty": 4,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Chogori.jpg/500px-Chogori.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Pakistan",
+  "continent": "Asia",
   "sets": [
    "Himalaya"
   ],
@@ -2217,6 +2354,7 @@
   "difficulty": 9,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nourlangie_Rock_03.jpg",
   "country": "Australia",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S1 → 9",
   "category": "city",
@@ -2232,6 +2370,7 @@
   "short": "Kanyakumari",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Vivekananda_Rock_Memorial%2C_Kanyakumari.jpg/500px-Vivekananda_Rock_Memorial%2C_Kanyakumari.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "India",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
   "category": "city",
@@ -2247,6 +2386,7 @@
   "difficulty": 6,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kampala_Kasubi_Tombs.jpg",
   "country": "Uganda",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
   "category": "city",
@@ -2262,6 +2402,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/NASA_logo_%282023_colors%29.svg/500px-NASA_logo_%282023_colors%29.svg.png",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -2277,6 +2418,7 @@
   "short": "Kilwa Kisiwani",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Ruins_of_Kilwa_Kisiwani_and_Ruins_of_Songo_Mnara-108277.jpg/500px-Ruins_of_Kilwa_Kisiwani_and_Ruins_of_Songo_Mnara-108277.jpg",
   "country": "Tanzania",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -2292,6 +2434,7 @@
   "clue": "Knossos, Greece 🇬🇷",
   "difficulty": 4,
   "country": "Greece",
+  "continent": "Europe",
   "sets": [
    "Ancient Ruins",
    "Mediterranean Islands"
@@ -2310,6 +2453,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Kondoa_mchoro_mwambani_2012_Tamino.jpg/500px-Kondoa_mchoro_mwambani_2012_Tamino.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Tanzania",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
   "category": "city",
@@ -2325,6 +2469,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Plan_Centre_Spatial_Guyanais-en.svg/500px-Plan_Centre_Spatial_Guyanais-en.svg.png",
   "country": "France",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
   "category": "city",
@@ -2340,6 +2485,7 @@
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Anak_krakatau_sebelum_tsunami.jpg/500px-Anak_krakatau_sebelum_tsunami.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Indonesia",
+  "continent": "Asia",
   "sets": [
    "Volcanoes"
   ],
@@ -2357,6 +2503,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Moscow_Kremlin_%288281675670%29.jpg/500px-Moscow_Kremlin_%288281675670%29.jpg",
   "country": "Russia",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 3 (neighbor moscow-russia)",
   "category": "city",
@@ -2388,6 +2535,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Santuario_de_Las_Lajas%2C_Ipiales%2C_Colombia%2C_2015-07-21%2C_DD_26-27_HDR.JPG/500px-Santuario_de_Las_Lajas%2C_Ipiales%2C_Colombia%2C_2015-07-21%2C_DD_26-27_HDR.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Colombia",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
   "category": "city",
@@ -2403,6 +2551,7 @@
   "clue": "Lascaux, France 🇫🇷",
   "difficulty": 4,
   "country": "France",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
   "category": "city",
@@ -2418,6 +2567,7 @@
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Le_Mans_2008_Rolling_start.jpg/500px-Le_Mans_2008_Rolling_start.jpg",
   "country": "France",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
   "category": "city",
@@ -2433,6 +2583,7 @@
   "short": "Lifou Cliffs",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Lifou_falaises_Xodre.JPG/500px-Lifou_falaises_Xodre.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "France",
+  "continent": "Europe",
   "sets": [
    "Pacific Islands"
   ],
@@ -2450,6 +2601,7 @@
   "short": "Little Bighorn",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Little_Bighorn_Battlefield_National_Monument%2C_Montana_(4376e661-3010-41dd-b720-f26ff6494b28).jpg/500px-Little_Bighorn_Battlefield_National_Monument%2C_Montana_(4376e661-3010-41dd-b720-f26ff6494b28).jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "category": "city",
@@ -2465,6 +2617,7 @@
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Lituya_Bay_overview.jpg/500px-Lituya_Bay_overview.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
   "category": "city",
@@ -2480,6 +2633,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "China",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -2495,6 +2649,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/BRP_Lumbini_Mayadevi_temple.jpg/500px-BRP_Lumbini_Mayadevi_temple.jpg",
   "country": "Nepal",
+  "continent": "Asia",
   "sets": [
    "Sacred Sites"
   ],
@@ -2512,6 +2667,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/30_Rockefeller_Plaza_view_from_Empire_State_Building%2C_around_1_pm.jpg/500px-30_Rockefeller_Plaza_view_from_Empire_State_Building%2C_around_1_pm.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
   "category": "city",
@@ -2528,6 +2684,7 @@
   "short": "Machu Picchu",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Machu_Picchu%2C_2023_%28012%29.jpg/500px-Machu_Picchu%2C_2023_%28012%29.jpg",
   "country": "Peru",
+  "continent": "South America",
   "sets": [
    "History Was Here",
    "Wonders of the World",
@@ -2546,6 +2703,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/RunnymedeMagnacartaisle.jpg/500px-RunnymedeMagnacartaisle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "England",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
   "category": "city",
@@ -2561,6 +2719,7 @@
   "short": "Maheno Shipwreck",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Fraser_Island_shipwreck_of_Maheno_%28ship_1905%29_IGP4364.jpg/500px-Fraser_Island_shipwreck_of_Maheno_%28ship_1905%29_IGP4364.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Australia",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -2576,6 +2735,7 @@
   "clue": "Mall of America, United States 🇺🇸",
   "difficulty": 4,
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 4 (neighbor minneapolis-usa)",
   "category": "city",
@@ -2591,6 +2751,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Liliesleaf_hut1.jpg/500px-Liliesleaf_hut1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "South Africa",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 6 (neighbor johannesburg-south-africa)",
   "category": "city",
@@ -2606,6 +2767,7 @@
   "difficulty": 4,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Israel-2013-Aerial_21-Masada.jpg/500px-Israel-2013-Aerial_21-Masada.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Israel",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C1·S0 → 4",
   "category": "city",
@@ -2621,6 +2783,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Matterhorn_summit_%2822545964845%29.jpg/500px-Matterhorn_summit_%2822545964845%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Switzerland",
+  "continent": "Europe",
   "sets": [
    "Mountains"
   ],
@@ -2638,6 +2801,7 @@
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Mawson_from_Welch_Island_Dec_26_2008_pjs.jpg/500px-Mawson_from_Welch_Island_Dec_26_2008_pjs.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -2655,6 +2819,7 @@
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/View_of_McMurdo_Station_from_Hut_Point.jpeg/500px-View_of_McMurdo_Station_from_Hut_Point.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -2672,6 +2837,7 @@
   "difficulty": 6,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Vista_de_Plaza_Botero%2C_Palacio_de_la_Cultura%2C_Medellin%2C_Colombia%2C_2017-04-11.jpg/500px-Vista_de_Plaza_Botero%2C_Palacio_de_la_Cultura%2C_Medellin%2C_Colombia%2C_2017-04-11.jpg",
   "country": "Colombia",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
   "category": "city",
@@ -2687,6 +2853,7 @@
   "difficulty": 8,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/NipomoLocationOfMigrantMotherPhotoJan52025.jpg/500px-NipomoLocationOfMigrantMotherPhotoJan52025.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "category": "city",
@@ -2702,6 +2869,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/08-130_Esclusas_de_Miraflores_%2823%29.jpg/500px-08-130_Esclusas_de_Miraflores_%2823%29.jpg",
   "country": "Panama",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0·G1 → 6",
   "category": "city",
@@ -2717,6 +2885,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Rano_Raraku_01.jpg/500px-Rano_Raraku_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Chile",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0·G1 → 6 (neighbor easter-island)",
   "category": "city",
@@ -2732,6 +2901,7 @@
   "short": "Moeraki Boulders",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Moeraki_Boulders.jpg/500px-Moeraki_Boulders.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "New Zealand",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -2747,6 +2917,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/ZmbziRvr.jpg/500px-ZmbziRvr.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Zimbabwe",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C1·S1 → 9",
   "category": "city",
@@ -2762,6 +2933,7 @@
   "clue": "Mont Blanc, Italy 🇮🇹",
   "difficulty": 3,
   "country": "Italy",
+  "continent": "Europe",
   "sets": [
    "Mountains"
   ],
@@ -2780,6 +2952,7 @@
   "short": "Mont Saint-Michel",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Mont-Saint-Michel_vu_du_ciel.jpg/500px-Mont-Saint-Michel_vu_du_ciel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "France",
+  "continent": "Europe",
   "sets": [
    "History Was Here"
   ],
@@ -2796,6 +2969,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/SCOUT-O-RAMA_AT_FAIRGROUNDS_IN_MONTEREY_-_NARA_-_543162.jpg/500px-SCOUT-O-RAMA_AT_FAIRGROUNDS_IN_MONTEREY_-_NARA_-_543162.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -2811,6 +2985,7 @@
   "clue": "Monticello, United States 🇺🇸",
   "difficulty": 6,
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -2826,6 +3001,7 @@
   "short": "East Mitten Butte",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Monumentvalley3.jpg/500px-Monumentvalley3.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -2841,6 +3017,7 @@
   "short": "Kilimanjaro Summit",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Kibo_Summit%2C_Mount_Kilimanjaro%2C_Tanzania_%2830819102678%29.jpg/500px-Kibo_Summit%2C_Mount_Kilimanjaro%2C_Tanzania_%2830819102678%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Tanzania",
+  "continent": "Africa",
   "sets": [
    "African Safari"
   ],
@@ -2858,6 +3035,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Great_Wall_of_China_July_2006.JPG/500px-Great_Wall_of_China_July_2006.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "China",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F0·A3·K0·C0·S0 → 3",
   "category": "city",
@@ -2873,6 +3051,7 @@
   "short": "Nalanda",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg/500px-Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "India",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "category": "city",
@@ -2888,6 +3067,7 @@
   "short": "Nan Madol",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Nan_madol.jpg/500px-Nan_madol.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Micronesia",
+  "continent": "Oceania",
   "sets": [
    "Pacific Islands"
   ],
@@ -2905,6 +3085,7 @@
   "clue": "Napa Valley AVA, United States 🇺🇸",
   "difficulty": 9,
   "country": "United States",
+  "continent": "North America",
   "sets": [
    "Wine Country"
   ],
@@ -2923,6 +3104,7 @@
   "short": "Ness of Brodgar",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Ness_of_Brodgar_19_-_6.7.16.jpg/500px-Ness_of_Brodgar_19_-_6.7.16.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Scotland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
   "category": "city",
@@ -2938,6 +3120,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Neumayer_Station_Antarctica_2009-12_2.jpg/500px-Neumayer_Station_Antarctica_2009-12_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
@@ -2953,6 +3136,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Colonia_de_Sacramento.jpg/500px-Colonia_de_Sacramento.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Uruguay",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C1·S0 → 6",
   "category": "city",
@@ -2968,6 +3152,7 @@
   "short": "Newgrange",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Irelands_history.jpg/500px-Irelands_history.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Ireland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
   "category": "city",
@@ -2983,6 +3168,7 @@
   "short": "Ngorongoro Crater",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Ngorongoro-1001-2.jpg/500px-Ngorongoro-1001-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Tanzania",
+  "continent": "Africa",
   "sets": [
    "African Safari"
   ],
@@ -3000,6 +3186,7 @@
   "short": "Nourlangie Rock",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Kakadu_2488.jpg/500px-Kakadu_2488.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Australia",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
   "category": "city",
@@ -3015,6 +3202,7 @@
   "short": "Oivi Kokoda",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
   "country": "Papua New Guinea",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
   "category": "city",
@@ -3030,6 +3218,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Aerial_view_of_wetlands_in_Okefenokee.jpg/500px-Aerial_view_of_wetlands_in_Okefenokee.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S1 → 9",
   "category": "city",
@@ -3045,6 +3234,7 @@
   "short": "Olduvai Gorge",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Oldupai-3.jpg/500px-Oldupai-3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Tanzania",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -3060,6 +3250,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Conjunto_arquitet%C3%B4nico_e_urban%C3%ADstico_de_Ouro_Preto.JPG/500px-Conjunto_arquitet%C3%B4nico_e_urban%C3%ADstico_de_Ouro_Preto.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Brazil",
+  "continent": "South America",
   "sets": [
    "Colonial Towns"
   ],
@@ -3077,6 +3268,7 @@
   "clue": "Palm Jumeirah, United Arab Emirates 🇦🇪",
   "difficulty": 3,
   "country": "United Arab Emirates",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
   "category": "city",
@@ -3092,6 +3284,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/EXISTING_CONDITIONS_FOR_PALMER_STATION.png/500px-EXISTING_CONDITIONS_FOR_PALMER_STATION.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -3110,6 +3303,7 @@
   "short": "Pamukkale",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Pamukkale%2C_Denizli_2026_68.jpg/500px-Pamukkale%2C_Denizli_2026_68.jpg",
   "country": "Turkey",
+  "continent": "Asia",
   "sets": [
    "History Was Here"
   ],
@@ -3126,6 +3320,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Porto_Jofre.JPG/500px-Porto_Jofre.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Bolivia",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8 → evened to 9",
   "category": "city",
@@ -3141,6 +3336,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Peru_Candelabro_de_Paracas.jpg/500px-Peru_Candelabro_de_Paracas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Peru",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -3156,6 +3352,7 @@
   "difficulty": 4,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Paramaribo_city_collage.png/500px-Paramaribo_city_collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Suriname",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F2·A0·K1·C0·S0 → 4",
   "category": "city",
@@ -3171,6 +3368,7 @@
   "short": "Parliament Hill",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Ottawa_-_ON_-_Stadtansicht.jpg/500px-Ottawa_-_ON_-_Stadtansicht.jpg",
   "country": "Canada",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 8 (neighbor ottawa-canada)",
   "category": "city",
@@ -3186,6 +3384,7 @@
   "short": "USS Arizona",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Arizona_%28BB39%29_Port_Bow%2C_Underway_-_NARA_-_5900075_-_1930.jpg/500px-Arizona_%28BB39%29_Port_Bow%2C_Underway_-_NARA_-_5900075_-_1930.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
   "category": "city",
@@ -3202,6 +3401,7 @@
   "short": "Petra",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Petra_Jordan_BW_0.jpg/500px-Petra_Jordan_BW_0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Jordan",
+  "continent": "Asia",
   "sets": [
    "History Was Here",
    "Wonders of the World",
@@ -3220,6 +3420,7 @@
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Phongnhakebang6.jpg/500px-Phongnhakebang6.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Vietnam",
+  "continent": "Asia",
   "sets": [
    "Southeast Asia"
   ],
@@ -3237,6 +3438,7 @@
   "short": "Pico do Fogo",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cape_Verde_Pico_do_Fogo_b.jpg/500px-Cape_Verde_Pico_do_Fogo_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Cape Verde",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A0·K1·C1·S0 → 7",
   "category": "city",
@@ -3252,6 +3454,7 @@
   "difficulty": 8,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Ancient_City_of_Pingyao_%E5%B9%B3%E9%81%99%E5%8F%A4%E5%9F%8E_-_panoramio.jpg/500px-Ancient_City_of_Pingyao_%E5%B9%B3%E9%81%99%E5%8F%A4%E5%9F%8E_-_panoramio.jpg",
   "country": "China",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "category": "city",
@@ -3267,6 +3470,7 @@
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Approaching_Bounty_Bay_-_panoramio.jpg/500px-Approaching_Bounty_Bay_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "United Kingdom",
+  "continent": "Europe",
   "sets": [
    "Pacific Islands"
   ],
@@ -3285,6 +3489,7 @@
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Plaza_de_Espa%C3%B1a_%28Sevilla%29_-_01.jpg/500px-Plaza_de_Espa%C3%B1a_%28Sevilla%29_-_01.jpg",
   "category": "city",
   "country": "Spain",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
   "kind": "landmark"
@@ -3299,6 +3504,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Plaza_Mayor%2C_Salamanca.JPG/500px-Plaza_Mayor%2C_Salamanca.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Spain",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C1·S0 → 6",
   "category": "city",
@@ -3314,6 +3520,7 @@
   "short": "Plymouth Rock",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Plymouth_Rock%2C_Plymouth%2C_MA%2C_jjron_03.05.2012.jpg/500px-Plymouth_Rock%2C_Plymouth%2C_MA%2C_jjron_03.05.2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 7",
   "category": "city",
@@ -3329,6 +3536,7 @@
   "short": "Pohutu Geyser",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Pohutu_Geyser_erupting.jpg/500px-Pohutu_Geyser_erupting.jpg",
   "country": "New Zealand",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
   "category": "city",
@@ -3344,6 +3552,7 @@
   "short": "Pompeii",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Aerial_image_of_Pompeii_and_Mount_Vesuvius_%28view_from_the_southeast%29.jpg/500px-Aerial_image_of_Pompeii_and_Mount_Vesuvius_%28view_from_the_southeast%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Italy",
+  "continent": "Europe",
   "sets": [
    "Ancient Ruins"
   ],
@@ -3377,6 +3586,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg/500px-Museo_del_Prado_2016_%2825185969599%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Spain",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 3 (neighbor madrid-spain)",
   "category": "city",
@@ -3392,6 +3602,7 @@
   "short": "Pulpit Rock",
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Preikestolen-lysefjord-tunliweb.jpg",
   "country": "Norway",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
   "category": "city",
@@ -3407,6 +3618,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Montaje_Punta_Arenas.png/500px-Montaje_Punta_Arenas.png",
   "country": "Chile",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
   "category": "city",
@@ -3423,6 +3635,7 @@
   "short": "Pyramids of Giza",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Great_Pyramid_%28Pyramid_of_Cheops_Khufu%29%2C_Giza%2C_GG%2C_EGY_%2840936203693%29.jpg/500px-Great_Pyramid_%28Pyramid_of_Cheops_Khufu%29%2C_Giza%2C_GG%2C_EGY_%2840936203693%29.jpg",
   "country": "Egypt",
+  "continent": "Africa",
   "sets": [
    "History Was Here",
    "Wonders of the World"
@@ -3440,6 +3653,7 @@
   "short": "Queenstown Bay",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Queenstown_1_%288168013172%29.jpg/500px-Queenstown_1_%288168013172%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "New Zealand",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
   "category": "city",
@@ -3455,6 +3669,7 @@
   "difficulty": 7,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rani_ki_vav_02.jpg",
   "country": "India",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
   "category": "city",
@@ -3470,6 +3685,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Kremlin_and_Red_Square.1.jpg/500px-Kremlin_and_Red_Square.1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Russia",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 3 (neighbor moscow-russia)",
   "category": "city",
@@ -3485,6 +3701,7 @@
   "short": "Registan",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/RegistanSquare_Samarkand.jpg/500px-RegistanSquare_Samarkand.jpg",
   "country": "Uzbekistan",
+  "continent": "Asia",
   "sets": [
    "Silk Road"
   ],
@@ -3503,6 +3720,7 @@
   "short": "Richat Structure",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Richat_Structure_ISS030-E-12516.jpg/500px-Richat_Structure_ISS030-E-12516.jpg",
   "country": "Mauritania",
+  "continent": "Africa",
   "sets": [
    "History Was Here"
   ],
@@ -3519,6 +3737,7 @@
   "short": "Rock of Cashel",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Rock_of_Cashel_%2849163525453%29.jpg/500px-Rock_of_Cashel_%2849163525453%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Ireland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
   "category": "city",
@@ -3534,6 +3753,7 @@
   "difficulty": 4,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Rock_of_Gibraltar_South_View.jpg/500px-Rock_of_Gibraltar_South_View.jpg",
   "country": "United Kingdom",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S0 → 5 → evened to 4",
   "category": "city",
@@ -3567,6 +3787,7 @@
   "difficulty": 9,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Camp_de_la_transportation_saint_laurent_du_maroni.jpg/500px-Camp_de_la_transportation_saint_laurent_du_maroni.jpg",
   "country": "France",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
   "category": "city",
@@ -3582,6 +3803,7 @@
   "difficulty": 9,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/San_Ignacio_Min%C3%AD.jpg",
   "country": "Argentina",
+  "continent": "South America",
   "sets": [
    "Colonial Towns"
   ],
@@ -3599,6 +3821,7 @@
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Fatima_BW_2018-10-07_10-36-14.jpg/500px-Fatima_BW_2018-10-07_10-36-14.jpg",
   "country": "Portugal",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
   "category": "city",
@@ -3614,6 +3837,7 @@
   "clue": "Santa Monica Pier, United States 🇺🇸",
   "difficulty": 6,
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 6 (neighbor los-angeles-usa)",
   "category": "city",
@@ -3629,6 +3853,7 @@
   "short": "Savusavu Bay",
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Savusavu.jpg",
   "country": "Fiji",
+  "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
   "category": "city",
@@ -3644,6 +3869,7 @@
   "short": "Scott Hut",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Cape_Evans_Scott%27s_Hut.jpg/500px-Cape_Evans_Scott%27s_Hut.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -3661,6 +3887,7 @@
   "clue": "Sea of Galilee, Israel 🇮🇱",
   "difficulty": 3,
   "country": "Israel",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
   "category": "city",
@@ -3676,6 +3903,7 @@
   "short": "Shackleton Hut",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/CapeRoyds.jpg/500px-CapeRoyds.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -3693,6 +3921,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Shibuya_Crossing%2C_Aerial.jpg/500px-Shibuya_Crossing%2C_Aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Japan",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 3 (neighbor tokyo-japan)",
   "category": "city",
@@ -3708,6 +3937,7 @@
   "short": "Sigiriya",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/500px-Sigiriya_%28141688197%29.jpeg",
   "country": "Sri Lanka",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
   "category": "city",
@@ -3723,6 +3953,7 @@
   "clue": "Snowdon, Wales",
   "difficulty": 4,
   "country": "Wales",
+  "continent": "Europe",
   "sets": [
    "Mountains"
   ],
@@ -3740,6 +3971,7 @@
   "clue": "South Beach, United States 🇺🇸",
   "difficulty": 6,
   "country": "United States",
+  "continent": "North America",
   "sets": [
    "Beaches"
   ],
@@ -3757,6 +3989,7 @@
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Venice_Piazza_San_Marco%2C_Doge's_Palace.jpg/500px-Venice_Piazza_San_Marco%2C_Doge's_Palace.jpg",
   "country": "Italy",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C1·S0 → 5 (neighbor venice-italy)",
   "category": "city",
@@ -3772,6 +4005,7 @@
   "difficulty": 7,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Hotel-sididriss.jpg/500px-Hotel-sididriss.jpg",
   "country": "Tunisia",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
   "category": "city",
@@ -3788,6 +4022,7 @@
   "short": "Stonehenge",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/500px-Stonehenge2007_07_30.jpg",
   "country": "England",
+  "continent": "Europe",
   "sets": [
    "History Was Here"
   ],
@@ -3804,6 +4039,7 @@
   "clue": "Strait of Gibraltar",
   "difficulty": 5,
   "country": "International Waters",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S1·G1 → 5",
   "category": "city",
@@ -3819,6 +4055,7 @@
   "clue": "Suez Canal, Egypt 🇪🇬",
   "difficulty": 4,
   "country": "Egypt",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F1·A2·K0·C0·S1·G1 → 4",
   "extentKm": 97,
@@ -3835,6 +4072,7 @@
   "short": "Suicide Cliff",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/SUICIDE_CLIFF.jpg/500px-SUICIDE_CLIFF.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -3850,6 +4088,7 @@
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Showa_station_aerial_photography.jpg/500px-Showa_station_aerial_photography.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
   "category": "city",
@@ -3865,6 +4104,7 @@
   "difficulty": 9,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
   "country": "Kazakhstan",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
   "category": "city",
@@ -3880,6 +4120,7 @@
   "short": "Thabana Ntlenyana",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Thabana_Ntlenyana.jpeg/500px-Thabana_Ntlenyana.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Lesotho",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A0·K1·C1·S0 → 7",
   "category": "city",
@@ -3896,6 +4137,7 @@
   "category": "city",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Thermopylae_ancient_coastline_large.jpg/500px-Thermopylae_ancient_coastline_large.jpg",
   "country": "Greece",
+  "continent": "Europe",
   "sets": [
    "History Was Here"
   ],
@@ -3912,6 +4154,7 @@
   "short": "Thingvellir",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Thingvellir.jpg/500px-Thingvellir.jpg",
   "country": "Iceland",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
   "category": "city",
@@ -3928,6 +4171,7 @@
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Tiananmen_Square_%2854137047250%29.jpg/500px-Tiananmen_Square_%2854137047250%29.jpg",
   "category": "city",
   "country": "China",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 2 (neighbor beijing-china)",
   "kind": "landmark"
@@ -3942,6 +4186,7 @@
   "difficulty": 4,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Tikal_3.jpg/500px-Tikal_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Guatemala",
+  "continent": "North America",
   "sets": [
    "Ancient Ruins"
   ],
@@ -3959,6 +4204,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/500px-New_york_times_square-terabass.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 3 (neighbor new-york-usa)",
   "category": "city",
@@ -3974,6 +4220,7 @@
   "difficulty": 7,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Templo_de_Kalasasaya_%E2%80%94_Acceso_principal%2C_Tiwanaku%2C_Bolivia.jpg/500px-Templo_de_Kalasasaya_%E2%80%94_Acceso_principal%2C_Tiwanaku%2C_Bolivia.jpg",
   "country": "Bolivia",
+  "continent": "South America",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
   "category": "city",
@@ -3990,6 +4237,7 @@
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Trafalgar_Square%2C_London_2_-_Jun_2009.jpg/500px-Trafalgar_Square%2C_London_2_-_Jun_2009.jpg",
   "category": "city",
   "country": "England",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor london-uk)",
   "kind": "landmark"
@@ -4004,6 +4252,7 @@
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Lucent_HQ.gif/500px-Lucent_HQ.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
   "category": "city",
@@ -4019,6 +4268,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Trevi_Fountain_-_Roma.jpg/500px-Trevi_Fountain_-_Roma.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Italy",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C1·S0 → 2 (neighbor rome-italy)",
   "category": "city",
@@ -4034,6 +4284,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Salar_Uyuni_au01.jpg/500px-Salar_Uyuni_au01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Bolivia",
+  "continent": "South America",
   "sets": [
    "Andes"
   ],
@@ -4051,6 +4302,7 @@
   "short": "Valley of Kings",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Thebes%2C_Luxor%2C_Egypt%2C_Valley_of_the_Kings_from_above.jpg/500px-Thebes%2C_Luxor%2C_Egypt%2C_Valley_of_the_Kings_from_above.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Egypt",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
   "category": "city",
@@ -4066,6 +4318,7 @@
   "short": "Valley of Queens",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Valle_de_las_Reinas%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_17.jpg/500px-Valle_de_las_Reinas%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Egypt",
+  "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
   "category": "city",
@@ -4081,6 +4334,7 @@
   "difficulty": 6,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2025-05-25_Vardzia_9.jpg",
   "country": "Georgia",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
   "category": "city",
@@ -4096,6 +4350,7 @@
   "short": "Versailles",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_%28cropped%29.jpg/500px-Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "France",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 2 (neighbor paris-france)",
   "category": "city",
@@ -4111,6 +4366,7 @@
   "short": "Vlkolínec",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Vlkol%C3%ADnec%2C_Slovakia_002.jpg/500px-Vlkol%C3%ADnec%2C_Slovakia_002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Slovakia",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F5·A0·K0·C1·S0 → 7",
   "category": "city",
@@ -4127,6 +4383,7 @@
   "short": "Vostok Station",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Vostok_Station_2024.png/500px-Vostok_Station_2024.png",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "History Was Here",
    "Antarctic Outposts"
@@ -4144,6 +4401,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Wall_Street_%2855314253740%29.jpg/500px-Wall_Street_%2855314253740%29.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
   "category": "city",
@@ -4159,6 +4417,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Westernwall2.jpg/500px-Westernwall2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Israel",
+  "continent": "Asia",
   "sets": [
    "Sacred Sites"
   ],
@@ -4176,6 +4435,7 @@
   "short": "Whalers Bay",
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/7d/1_Deception_Island.jpg",
   "country": "Antarctica",
+  "continent": "Antarctica",
   "sets": [
    "Antarctic Outposts"
   ],
@@ -4193,6 +4453,7 @@
   "clue": "White Cliffs of Dover, England",
   "difficulty": 5,
   "country": "England",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
   "category": "city",
@@ -4208,6 +4469,7 @@
   "short": "White House",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/White_House_north_and_south_sides.jpg/500px-White_House_north_and_south_sides.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F0·A3·K0·C1·S0 → 2 (Icon)",
   "category": "city",
@@ -4223,6 +4485,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/London_Centre_Court_Wimbledon_%2853284151591%29.jpg/500px-London_Centre_Court_Wimbledon_%2853284151591%29.jpg",
   "country": "England",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 3 (neighbor london-uk)",
   "category": "city",
@@ -4239,6 +4502,7 @@
   "category": "city",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Schlosskirche_Wittenberg_I.jpg/500px-Schlosskirche_Wittenberg_I.jpg",
   "country": "Germany",
+  "continent": "Europe",
   "sets": [
    "History Was Here"
   ],
@@ -4255,6 +4519,7 @@
   "short": "Wounded Knee",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S1 → 10",
   "category": "city",
@@ -4270,6 +4535,7 @@
   "difficulty": 4,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/500px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Mexico",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 4 (neighbor mexico-city-mexico)",
   "category": "city",
@@ -4285,6 +4551,7 @@
   "difficulty": 6,
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yapahuwa_Rock_Fortress.jpg",
   "country": "Sri Lanka",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F5·A0·K0·C0·S0 → 6",
   "category": "city",
@@ -4300,6 +4567,7 @@
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg/500px-Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "category": "city",
@@ -4331,6 +4599,7 @@
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Zugspitze_summit.jpg/500px-Zugspitze_summit.jpg",
   "country": "Germany",
+  "continent": "Europe",
   "sets": [
    "Mountains"
   ],
@@ -4348,6 +4617,7 @@
   "short": "Empire State Building",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/500px-Empire_State_Building_%28aerial_view%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F0·A3·K0·C1·S0 → 2 (Icon)",
   "category": "city",
@@ -4363,6 +4633,7 @@
   "difficulty": 4,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Fuji_TV_Building_%40_Odaiba_%288993323619%29.jpg/500px-Fuji_TV_Building_%40_Odaiba_%288993323619%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Japan",
+  "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 4 (neighbor tokyo-japan)",
   "category": "city",
@@ -4378,6 +4649,7 @@
   "difficulty": 2,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/The_Pentagon%2C_Headquarters_of_the_US_Department_of_Defense_%28cropped2%29.jpg/500px-The_Pentagon%2C_Headquarters_of_the_US_Department_of_Defense_%28cropped2%29.jpg",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor washington-dc-usa)",
   "category": "city",
@@ -4393,6 +4665,7 @@
   "difficulty": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Reichstag_Berlin.jpg/500px-Reichstag_Berlin.jpg",
   "country": "Germany",
+  "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor berlin-germany)",
   "category": "city",
@@ -4408,6 +4681,7 @@
   "difficulty": 3,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Stonewall_Inn_5_pride_weekend_2016.jpg/500px-Stonewall_Inn_5_pride_weekend_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
+  "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 3 (neighbor new-york-usa)",
   "category": "city",
