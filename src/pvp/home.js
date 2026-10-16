@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
-// PvP Challenge home: identity, the Direct and Open Challenge cards, join by
-// code, and the remembered match and Open Challenge lists. Also the pieces the
+// PvP Challenge home: one create button (Open Challenge as a text button), join
+// by code, identity, and the merged list of remembered matches and Open Challenges. Also the pieces the
 // other PvP screens share: the element builder, the overlay panel the join
 // screens render into, UI state and the status line.
 //
@@ -39,7 +39,7 @@ export function pvpEl(tag, props = {}, ...children) {
 export let pvpHome = null;
 export let pvpHomeBody = null;
 
-export const pvpUi = { editingName: false, status: '', statusError: false, states: new Map(), listError: '', busy: false };
+export const pvpUi = { editingName: false, pendingCreate: null, showCode: false, capHit: false, status: '', statusError: false, states: new Map(), listError: '', busy: false };
 
 // Join: an invite link (#invite=<token>, see /pvp/join in vercel.json) or a
 // typed code is inspected, shown, then claimed for this device's identity.
@@ -68,6 +68,7 @@ export function initPvpHome(main) {
   // The list re-renders on its own as state reads land, so typing in the fields
   // above it is never wiped.
   pvpUi.listBlock = pvpEl('div', { className: 'pvp-block pvp-lists' });
+  pvpUi.createSlot = pvpEl('div', { className: 'pvp-block pvp-create' });
 
   pvpLinkIsGroup = new URLSearchParams(location.search).get('from') === 'group';
   pvpLinkInvite = (() => {
@@ -164,7 +165,7 @@ function pvpMatchRow(entry) {
   const state = pvpUi.states.get(entry.matchId);
   const key = pvpStatusKey(state);
   const opponent = pvpOpponentLabel(state);
-  const title = opponent ? `vs ${opponent}` : entry.role === 'CHALLENGER' ? 'Open challenge' : 'Challenge';
+  const title = opponent ? `vs ${opponent}` : entry.role === 'CHALLENGER' ? 'Waiting for a friend' : 'Challenge';
   let detail = state ? PVP_STATUS_LABELS[key] : state === null ? 'Could not load' : 'Loading';
   if (key === 'completed') detail = `${detail} · ${pvpResultLine(state)}`;
   else if (key === 'waiting' && entry.joinCode) detail = `${detail} · Code ${entry.joinCode}`;
@@ -176,42 +177,14 @@ function pvpMatchRow(entry) {
   );
 }
 
+const PVP_CAP_NOTE = 'You have 3 challenges open. A slot frees up when one is finished, expires, or you close entries on an Open Challenge.';
+
+// Order: the list (when it has rows), the create slot, the status line, the
+// code join (behind "Have a code?") and the identity footer.
 function renderPvpHome() {
-  const blocks = [];
-  if (!pvpHasIdentity() || pvpUi.editingName) {
-    blocks.push(pvpNameBlock({
-      submitLabel: pvpHasIdentity() ? 'Save' : 'Continue',
-      onSubmit: async (name) => {
-        if (pvpUi.busy) return;
-        pvpUi.busy = true;
-        pvpSetStatus(pvpHasIdentity() ? '' : 'Setting up...');
-        try {
-          await pvpEnsureIdentity(name);
-          pvpUi.editingName = false;
-          pvpUi.status = '';
-          renderPvpHome();
-        } catch (error) {
-          pvpSetStatus(pvpMessage(error), true);
-        } finally {
-          pvpUi.busy = false;
-        }
-      },
-    }));
-  } else {
-    blocks.push(pvpEl('div', { className: 'pvp-block pvp-who' },
-      pvpEl('span', {}, 'Playing as ', pvpEl('b', { text: pvpStore.displayName })),
-      pvpEl('button', { type: 'button', className: 'text-button', text: 'Change name', onclick: () => { pvpUi.editingName = true; renderPvpHome(); } }),
-    ));
-    blocks.push(pvpEl('div', { className: 'pvp-format-card' },
-      pvpEl('h3', { text: 'Direct challenge' }),
-      pvpEl('p', { text: 'Five places against one friend.' }),
-      pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: 'Create a challenge', onclick: pvpCreate }),
-    ));
-    blocks.push(pvpEl('div', { className: 'pvp-format-card' },
-      pvpEl('h3', { text: 'Open Challenge' }),
-      pvpEl('p', { text: 'One link, one map set, up to 50 players.' }),
-      pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: 'Create an Open Challenge', onclick: pvpGroupCreate }),
-    ));
+  const blocks = [pvpUi.listBlock, pvpUi.createSlot];
+  blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
+  if (pvpUi.showCode) {
     const code = pvpEl('input', { type: 'text', className: 'pvp-code', maxLength: 6, autocomplete: 'off', autocapitalize: 'characters', spellcheck: false, enterkeyhint: 'go', placeholder: 'Code', 'aria-label': 'Six character join code' });
     const join = () => {
       const value = code.value.trim().toUpperCase();
@@ -220,36 +193,110 @@ function renderPvpHome() {
     };
     code.addEventListener('keydown', (event) => { if (event.key === 'Enter') join(); });
     blocks.push(pvpEl('div', { className: 'pvp-block pvp-join' },
-      pvpEl('p', { className: 'eyebrow', text: 'Have a code?' }),
       pvpEl('div', { className: 'pvp-field' }, code, pvpEl('button', { type: 'button', className: 'primary', text: 'Join', onclick: join })),
     ));
   }
-  blocks.push(pvpEl('p', { className: `pvp-status${pvpUi.statusError ? ' error' : ''}`, role: 'status', text: pvpUi.status }));
-  if (pvpHasIdentity()) blocks.push(pvpUi.listBlock);
+  blocks.push(pvpEl('div', { className: 'pvp-block pvp-who pvp-footer' },
+    pvpUi.showCode ? null : pvpEl('button', { type: 'button', className: 'text-button', text: 'Have a code?', onclick: () => { pvpUi.showCode = true; renderPvpHome(); pvpHomeBody.querySelector('.pvp-code')?.focus(); } }),
+    pvpHasIdentity() ? pvpEl('span', {}, 'Playing as ', pvpEl('b', { text: pvpStore.displayName }), ' · ',
+      pvpEl('button', { type: 'button', className: 'text-button', text: 'Change name', onclick: () => { pvpUi.editingName = true; renderPvpHome(); } })) : null,
+  ));
+  renderPvpCreateSlot();
   renderPvpList();
   pvpHomeBody.replaceChildren(...blocks);
 }
 
+// The one primary action. Swapped for the name block when a create is tapped
+// with no identity (or on rename), and for the cap note at three open.
+function renderPvpCreateSlot() {
+  const slot = pvpUi.createSlot;
+  if (pvpUi.editingName || pvpUi.pendingCreate) {
+    slot.replaceChildren(pvpNameBlock({
+      submitLabel: pvpUi.editingName ? 'Save' : 'Create',
+      onSubmit: async (name) => {
+        if (pvpUi.busy) return;
+        pvpUi.busy = true;
+        pvpSetStatus(pvpHasIdentity() ? '' : 'Setting up...');
+        try {
+          await pvpEnsureIdentity(name);
+        } catch (error) {
+          pvpSetStatus(pvpMessage(error), true);
+          return;
+        } finally {
+          pvpUi.busy = false;
+        }
+        const create = pvpUi.pendingCreate;
+        pvpUi.editingName = false;
+        pvpUi.pendingCreate = null;
+        pvpUi.status = '';
+        renderPvpHome();
+        if (create) create();
+      },
+    }));
+  } else if (pvpUi.capHit || pvpOpenSlots() >= 3) {
+    slot.replaceChildren(pvpEl('p', { className: 'pvp-note', text: PVP_CAP_NOTE }));
+  } else {
+    const start = (create) => () => {
+      if (pvpHasIdentity()) { create(); return; }
+      pvpUi.pendingCreate = create;
+      pvpSetStatus('');
+      renderPvpCreateSlot();
+      slot.querySelector('input')?.focus();
+    };
+    slot.replaceChildren(
+      pvpEl('button', { type: 'button', className: 'primary pvp-wide', text: 'Challenge a friend', onclick: start(pvpCreate) }),
+      pvpEl('button', { type: 'button', className: 'text-button', text: 'Start an Open Challenge for a group', onclick: start(pvpGroupCreate) }),
+    );
+  }
+}
+
+// Slots the Worker holds against the shared cap of 3: a direct match you
+// created that nobody has joined yet (joining frees it), and an Open Challenge
+// you created that is still OPEN with no one else in it (the first join frees
+// it). Group list items carry status, the source of entries.open. A miss here
+// only under-counts; the server's OPEN_CHALLENGE_CAP stays the authority.
+function pvpOpenSlots() {
+  const now = Date.now();
+  const direct = pvpStore.matches.filter((entry) => {
+    const state = pvpUi.states.get(entry.matchId);
+    return entry.role === 'CHALLENGER' && state?.status === 'OPEN' && !(state.expiresAt <= now);
+  }).length;
+  const groups = (pvpUi.groupItems || []).filter((item) => item.role === 'CREATOR' && item.status === 'OPEN' && item.participantCount === 1 && !(item.expiresAt <= now)).length;
+  return direct + groups;
+}
+
+// One list: your turn, then waiting on others, then finished; newest first
+// within each. No header and no empty line when there is nothing to show.
+function pvpMatchOrder(entry) {
+  const key = pvpStatusKey(pvpUi.states.get(entry.matchId));
+  return key === 'your-turn' ? 0 : key === 'completed' || key === 'expired' || key === 'ended' ? 2 : 1;
+}
+
+function pvpGroupOrder(item) {
+  const over = item.status === 'EXPIRED' || item.status === 'SETTLED';
+  if (item.progress === 'FINISHED') return over ? 2 : 1;
+  return over ? 2 : 0;
+}
+
 function renderPvpList() {
+  const rows = [
+    ...pvpStore.matches.map((entry) => ({ order: pvpMatchOrder(entry), at: entry.createdAt, row: () => pvpMatchRow(entry) })),
+    ...(pvpUi.groupItems || []).map((item) => ({ order: pvpGroupOrder(item), at: item.createdAt, row: () => pvpGroupRow(item) })),
+  ].sort((a, b) => a.order - b.order || (new Date(b.at).getTime() || 0) - (new Date(a.at).getTime() || 0));
   pvpUi.listBlock.replaceChildren(
-    pvpEl('p', { className: 'eyebrow', text: 'Your challenges' }),
-    pvpStore.matches.length ? pvpEl('div', { className: 'expedition-list' }, pvpStore.matches.map(pvpMatchRow))
-      : pvpEl('p', { className: 'pvp-empty', text: 'No challenges yet. Create one and send the link to a friend.' }),
+    ...(rows.length ? [pvpEl('p', { className: 'eyebrow', text: 'Your games' }), pvpEl('div', { className: 'expedition-list' }, rows.map((r) => r.row()))] : []),
     ...(pvpUi.listError ? [pvpEl('p', { className: 'pvp-status error', text: pvpUi.listError })] : []),
-    pvpEl('p', { className: 'eyebrow', text: 'Your open challenges' }),
-    pvpUi.groupItems?.length ? pvpEl('div', { className: 'expedition-list' }, pvpUi.groupItems.filter((item) => item.role === 'CREATOR').map(pvpGroupRow))
-      : pvpEl('p', { className: 'pvp-empty', text: 'No Open Challenges created yet.' }),
-    pvpEl('p', { className: 'eyebrow', text: 'Challenges you joined' }),
-    pvpUi.groupItems?.some((item) => item.role !== 'CREATOR') ? pvpEl('div', { className: 'expedition-list' }, pvpUi.groupItems.filter((item) => item.role !== 'CREATOR').map(pvpGroupRow))
-      : pvpEl('p', { className: 'pvp-empty', text: 'No joined Open Challenges yet.' }),
   );
 }
 
 function pvpGroupRow(item) {
-  const progress = item.progress === 'FINISHED' ? 'Finished' : item.progress === 'PLAYING' ? 'In progress' : item.status === 'EXPIRED' ? 'Expired' : 'Not started';
+  const players = `${item.participantCount} player${item.participantCount === 1 ? '' : 's'}`;
+  const detail = item.progress === 'FINISHED' ? (item.rank ? `Finished · #${item.rank}` : 'Finished')
+    : item.status === 'EXPIRED' ? 'Expired'
+      : item.progress === 'PLAYING' ? `In progress · ${(item.total || 0).toLocaleString()}` : 'Not started';
   return pvpEl('button', { type: 'button', className: 'expedition-choice', 'data-pvp-group': item.challengeId },
-    pvpEl('span', { className: 'pvp-progress', text: item.progress === 'FINISHED' ? `#${item.rank || '-'}` : `${item.total || 0}` }),
-    pvpEl('span', {}, pvpEl('strong', { text: item.creator?.displayName || 'Open Challenge' }), pvpEl('small', { text: `${progress} · ${item.participantCount} player${item.participantCount === 1 ? '' : 's'}` })),
+    pvpEl('span', { className: 'pvp-progress', text: '' }),
+    pvpEl('span', {}, pvpEl('strong', { text: `Open Challenge · ${players}` }), pvpEl('small', { text: detail })),
     pvpEl('span', { className: 'badge', text: '›' }),
   );
 }
@@ -283,6 +330,7 @@ async function refreshPvpList() {
   savePvp();
   if (unreachable) pvpUi.listError = 'Could not reach the challenge service. Your challenges will load when you are back online.';
   renderPvpList();
+  if (!pvpUi.editingName && !pvpUi.pendingCreate) renderPvpCreateSlot();
 }
 
 export function showPvpHome(status = '', error = false) {
@@ -294,6 +342,9 @@ export function showPvpHome(status = '', error = false) {
   pvpUi.status = status;
   pvpUi.statusError = error;
   pvpUi.editingName = false;
+  pvpUi.pendingCreate = null;
+  pvpUi.showCode = false;
+  pvpUi.capHit = false;
   pvpHome.querySelector('h2').textContent = 'Challenge a friend';
   pvpHome.querySelector('h2 + p').textContent = 'Five places, 20 seconds each. Highest total out of 5,000 wins.';
   renderPvpHome();
@@ -312,8 +363,8 @@ async function pvpCreate() {
     pvpNav.showPvpMatch(created.matchId, { justCreated: true });
   } catch (error) {
     pvpUi.busy = false;
+    if (pvpCapHit(error)) return;
     pvpSetStatus(pvpMessage(error), true);
-    if (error.code === 'OPEN_CHALLENGE_CAP') refreshPvpList();
   }
 }
 
@@ -328,6 +379,18 @@ export async function pvpGroupCreate() {
     pvpNav.showPvpGroup(created.challengeId, { justCreated: true });
   } catch (error) {
     pvpUi.busy = false;
+    if (pvpCapHit(error)) return;
     pvpSetStatus(pvpMessage(error), true);
   }
+}
+
+// A server cap answer on the home sheet shows the cap note in the create slot,
+// not the status line. From other screens it stays a status message.
+function pvpCapHit(error) {
+  if (error.code !== 'OPEN_CHALLENGE_CAP' || pvpHome.hidden) return false;
+  pvpUi.capHit = true;
+  pvpSetStatus('');
+  renderPvpCreateSlot();
+  refreshPvpList();
+  return true;
 }
