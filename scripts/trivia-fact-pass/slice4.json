@@ -1,0 +1,448 @@
+{
+ "black-forest": {
+  "v": "KEEP",
+  "note": "checked against Black Forest"
+ },
+ "rhine-falls": {
+  "v": "FIX",
+  "fact": "Rhine Falls, on the High Rhine in Switzerland, is the most powerful waterfall in Europe.",
+  "note": "\"largest waterfall of Europe\" not supported (article: most powerful in Europe)"
+ },
+ "danube-delta": {
+  "v": "KEEP",
+  "note": "checked against Danube Delta"
+ },
+ "lake-ohrid": {
+  "v": "KEEP",
+  "note": "checked against Lake Ohrid"
+ },
+ "mount-ararat": {
+  "v": "KEEP",
+  "note": "checked against Mount Ararat"
+ },
+ "amazon-river": {
+  "v": "KEEP",
+  "note": "checked against Amazon River"
+ },
+ "congo-river": {
+  "v": "KEEP",
+  "note": "checked against Congo River"
+ },
+ "lake-tanganyika": {
+  "v": "KEEP",
+  "note": "checked against Lake Tanganyika"
+ },
+ "okavango-delta": {
+  "v": "KEEP",
+  "note": "checked against Okavango Delta"
+ },
+ "mount-nemrut": {
+  "v": "KEEP",
+  "note": "checked against Mount Nemrut"
+ },
+ "lake-baikal": {
+  "v": "KEEP",
+  "note": "checked against Lake Baikal"
+ },
+ "mount-aso": {
+  "v": "KEEP",
+  "note": "checked against Mount Aso"
+ },
+ "jeju-island": {
+  "v": "KEEP",
+  "note": "checked against Jeju Island"
+ },
+ "gobi-desert": {
+  "v": "KEEP",
+  "note": "checked against Gobi Desert"
+ },
+ "mount-kailash": {
+  "v": "KEEP",
+  "note": "checked against Mount Kailash"
+ },
+ "mount-damavand": {
+  "v": "KEEP",
+  "note": "checked against Mount Damavand"
+ },
+ "aral-sea": {
+  "v": "KEEP",
+  "note": "checked against Aral Sea"
+ },
+ "zion-national-park": {
+  "v": "KEEP",
+  "note": "checked against Zion National Park"
+ },
+ "sequoia-national-park": {
+  "v": "KEEP",
+  "note": "checked against Sequoia National Park"
+ },
+ "redwood-national-and-state-parks": {
+  "v": "KEEP",
+  "note": "checked against Redwood National and State Parks"
+ },
+ "rocky-mountain-national-park": {
+  "v": "KEEP",
+  "note": "checked against Rocky Mountain National Park"
+ },
+ "glacier-national-park": {
+  "v": "KEEP",
+  "note": "checked against Glacier National Park (U.S.)"
+ },
+ "everglades-national-park": {
+  "v": "KEEP",
+  "note": "checked against Everglades National Park"
+ },
+ "acadia-national-park": {
+  "v": "KEEP",
+  "note": "checked against Acadia National Park"
+ },
+ "joshua-tree-national-park": {
+  "v": "KEEP",
+  "note": "checked against Joshua Tree National Park"
+ },
+ "death-valley-national-park": {
+  "v": "KEEP",
+  "note": "checked against Death Valley National Park"
+ },
+ "lake-tahoe": {
+  "v": "KEEP",
+  "note": "checked against Lake Tahoe"
+ },
+ "mount-rainier": {
+  "v": "KEEP",
+  "note": "checked against Mount Rainier"
+ },
+ "denali": {
+  "v": "KEEP",
+  "note": "checked against Denali"
+ },
+ "crater-lake": {
+  "v": "KEEP",
+  "note": "checked against Crater Lake"
+ },
+ "banff-national-park": {
+  "v": "KEEP",
+  "note": "checked against Banff National Park"
+ },
+ "jasper-national-park": {
+  "v": "KEEP",
+  "note": "checked against Jasper National Park"
+ },
+ "florida-keys": {
+  "v": "KEEP",
+  "note": "checked against Florida Keys"
+ },
+ "cape-cod": {
+  "v": "KEEP",
+  "note": "checked against Cape Cod"
+ },
+ "outer-banks": {
+  "v": "KEEP",
+  "note": "checked against Outer Banks"
+ },
+ "napa-valley-ava": {
+  "v": "FIX",
+  "clue": "Which California valley, an American Viticultural Area with seventeen sub-AVAs, is the country's most famous wine region?",
+  "note": "named relative-compass item: \"north of San Francisco\" cut; fact kept"
+ },
+ "waikiki": {
+  "v": "KEEP",
+  "note": "checked against Waikīkī"
+ },
+ "na-pali-coast-state-park": {
+  "v": "KEEP",
+  "note": "checked against Nā Pali Coast State Park"
+ },
+ "graceland": {
+  "v": "KEEP",
+  "note": "checked against Graceland"
+ },
+ "fenway-park": {
+  "v": "KEEP",
+  "note": "checked against Fenway Park"
+ },
+ "wrigley-field": {
+  "v": "KEEP",
+  "note": "checked against Wrigley Field"
+ },
+ "wembley-stadium": {
+  "v": "KEEP",
+  "note": "checked against Wembley Stadium"
+ },
+ "indianapolis-motor-speedway": {
+  "v": "KEEP",
+  "note": "checked against Indianapolis Motor Speedway"
+ },
+ "daytona-international-speedway": {
+  "v": "KEEP",
+  "note": "checked against Daytona International Speedway"
+ },
+ "augusta-national-golf-club": {
+  "v": "KEEP",
+  "note": "checked against Augusta National Golf Club"
+ },
+ "churchill-downs": {
+  "v": "KEEP",
+  "note": "checked against Churchill Downs"
+ },
+ "area-51": {
+  "v": "KEEP",
+  "note": "checked against Area 51"
+ },
+ "mount-vernon": {
+  "v": "KEEP",
+  "note": "checked against Mount Vernon"
+ },
+ "monticello": {
+  "v": "KEEP",
+  "note": "checked against Monticello"
+ },
+ "yellowstone-national-park": {
+  "v": "KEEP",
+  "note": "checked against Yellowstone National Park"
+ },
+ "central-park": {
+  "v": "KEEP",
+  "note": "checked against Central Park"
+ },
+ "persian-gulf": {
+  "v": "KEEP",
+  "note": "checked against Persian Gulf"
+ },
+ "south-beach": {
+  "v": "KEEP",
+  "note": "checked against South Beach"
+ },
+ "beverly-hills": {
+  "v": "KEEP",
+  "note": "checked against Beverly Hills, California"
+ },
+ "santa-monica-pier": {
+  "v": "KEEP",
+  "note": "checked against Santa Monica Pier"
+ },
+ "mall-of-america": {
+  "v": "KEEP",
+  "note": "checked against Mall of America"
+ },
+ "gateway-of-india": {
+  "v": "KEEP",
+  "note": "checked against Gateway of India"
+ },
+ "lotus-temple": {
+  "v": "KEEP",
+  "note": "checked against Lotus Temple"
+ },
+ "burj-al-arab": {
+  "v": "KEEP",
+  "note": "checked against Burj Al Arab"
+ },
+ "palm-jumeirah": {
+  "v": "KEEP",
+  "note": "checked against Palm Jumeirah"
+ },
+ "sea-of-galilee": {
+  "v": "KEEP",
+  "note": "checked against Sea of Galilee"
+ },
+ "bethlehem": {
+  "v": "KEEP",
+  "note": "checked against Bethlehem"
+ },
+ "nazareth": {
+  "v": "KEEP",
+  "note": "checked against Nazareth"
+ },
+ "troy": {
+  "v": "KEEP",
+  "note": "checked against Troy"
+ },
+ "ephesus": {
+  "v": "KEEP",
+  "note": "checked against Ephesus"
+ },
+ "delphi": {
+  "v": "KEEP",
+  "note": "checked against Delphi"
+ },
+ "olympia-greece": {
+  "v": "KEEP",
+  "note": "checked against Olympia, Greece"
+ },
+ "mount-athos": {
+  "v": "KEEP",
+  "note": "checked against Mount Athos"
+ },
+ "knossos": {
+  "v": "KEEP",
+  "note": "checked against Knossos"
+ },
+ "temple-of-poseidon-at-sounion": {
+  "v": "KEEP",
+  "note": "checked against Temple of Poseidon, Sounion"
+ },
+ "lake-garda": {
+  "v": "KEEP",
+  "note": "checked against Lake Garda"
+ },
+ "mount-rigi": {
+  "v": "KEEP",
+  "note": "checked against Rigi"
+ },
+ "lascaux": {
+  "v": "KEEP",
+  "note": "checked against Lascaux"
+ },
+ "chateau-de-chambord": {
+  "v": "KEEP",
+  "note": "checked against Château de Chambord"
+ },
+ "palace-of-fontainebleau": {
+  "v": "FIX",
+  "clue": "Which royal palace set in a great forest is where Napoleon abdicated in 1814?",
+  "note": "named relative-compass item: \"southeast of Paris\" cut; fact kept"
+ },
+ "normandy-american-cemetery-and-memorial": {
+  "v": "KEEP",
+  "note": "checked against Normandy American Cemetery and Memorial"
+ },
+ "white-cliffs-of-dover": {
+  "v": "KEEP",
+  "note": "checked against White Cliffs of Dover"
+ },
+ "warwick-castle": {
+  "v": "KEEP",
+  "note": "checked against Warwick Castle"
+ },
+ "tintagel-castle": {
+  "v": "KEEP",
+  "note": "checked against Tintagel Castle"
+ },
+ "fiordland-national-park": {
+  "v": "KEEP",
+  "note": "checked against Fiordland National Park"
+ },
+ "great-barrier-reef": {
+  "v": "KEEP",
+  "note": "checked against Great Barrier Reef"
+ },
+ "daintree-rainforest": {
+  "v": "FIX",
+  "clue": "Which ancient rainforest meets the Great Barrier Reef at Cape Tribulation?",
+  "note": "named relative-compass item: \"north of Cairns\" cut; fact kept"
+ },
+ "kangaroo-island": {
+  "v": "KEEP",
+  "note": "checked against Kangaroo Island"
+ },
+ "rottnest-island": {
+  "v": "KEEP",
+  "note": "checked against Rottnest Island"
+ },
+ "dunkirk-evacuation": {
+  "v": "KEEP",
+  "note": "checked against Dunkirk + Dunkirk evacuation"
+ },
+ "wimbledon-all-england-club": {
+  "v": "KEEP",
+  "note": "checked against Wimbledon Championships"
+ },
+ "robben-island": {
+  "v": "KEEP",
+  "note": "checked against Robben Island"
+ },
+ "battle-of-hastings": {
+  "v": "FIX",
+  "fact": "The fight took place about 11 km from Hastings, at a site now named simply Battle, where William founded an abbey on the battlefield.",
+  "note": "article: about 7 mi (11 km) from Hastings; \"to atone\" not in the article"
+ },
+ "roswell-ufo-incident": {
+  "v": "KEEP",
+  "note": "checked against Roswell incident"
+ },
+ "fukushima-daiichi": {
+  "v": "KEEP",
+  "note": "checked against Fukushima Daiichi Nuclear Power Plant"
+ },
+ "camp-nou": {
+  "v": "FIX",
+  "fact": "It is Europe's largest football stadium, opened in 1957, and its rebuild is set to raise capacity to 105,000 seats.",
+  "note": "\"expanded to over 100,000 seats in its recent rebuild\" ahead of the source (renovation under way, planned capacity 105,000)"
+ },
+ "old-trafford": {
+  "v": "KEEP",
+  "note": "checked against Old Trafford"
+ },
+ "birds-nest-beijing": {
+  "v": "KEEP",
+  "note": "checked against Beijing National Stadium"
+ },
+ "urquhart-castle": {
+  "v": "FIX",
+  "fact": "Its defenders blew up the gatehouse in 1692 to keep it out of Jacobite hands, and the castle has been a ruin ever since.",
+  "note": "the gatehouse, not the whole castle, was blown up (castle partially destroyed in 1692)"
+ },
+ "miraflores-locks": {
+  "v": "FIX",
+  "fact": "Its locks lift ships about 16.5 metres in two stages, and a visitors centre gives a full view of the transits.",
+  "note": "\"most popular spot to watch transits\" unsupported"
+ },
+ "anzac-cove": {
+  "v": "KEEP",
+  "note": "checked against ANZAC Cove"
+ },
+ "carcassonne-cite": {
+  "v": "KEEP",
+  "note": "checked against Carcassonne + Cité de Carcassonne"
+ },
+ "blarney-castle": {
+  "v": "KEEP",
+  "note": "checked against Blarney Castle"
+ },
+ "le-mans-circuit": {
+  "v": "KEEP",
+  "note": "checked against Le Mans + Circuit de la Sarthe"
+ },
+ "bukhara-uzbekistan": {
+  "v": "FIX",
+  "fact": "For centuries it was a great center of Islamic learning, and its historic center of mosques and madrasas is a UNESCO World Heritage Site.",
+  "clue": "Which Silk Road city is known for the 45-metre Kalyan Minaret, said to have so impressed Genghis Khan that he spared it?",
+  "note": "\"hundreds of mosques and madrasas\" unsupported (numerous); clue said 47 m (Kalyan Minaret article: 45.6 m, 48 m with the point)"
+ },
+ "windhoek-namibia": {
+  "v": "KEEP",
+  "note": "checked against Windhoek + Christ Church, Windhoek"
+ },
+ "stari-most": {
+  "v": "FIX",
+  "fact": "Divers still leap from the Mostar bridge, 24 metres above the Neretva River, in an annual competition.",
+  "note": "\"21-metre arch\" wrong (bridge stands 24 m above the river)"
+ },
+ "lumbini-nepal": {
+  "v": "FIX",
+  "fact": "An inscribed pillar left by Emperor Ashoka in the 3rd century BCE marks the spot, near the Maya Devi Temple.",
+  "note": "249 BCE not stated in the Lumbini or pillar inscription articles (3rd century BCE, twenty years after his anointment)"
+ },
+ "bodh-gaya-india": {
+  "v": "KEEP",
+  "note": "checked against Bodh Gaya"
+ },
+ "wittenberg-castle-church": {
+  "v": "KEEP",
+  "note": "checked against Wittenberg"
+ },
+ "dushanbe-tajikistan": {
+  "v": "FIX",
+  "fact": "It was a small village until the Soviets made it a capital in the 1920s, naming it Stalinabad from 1929 to 1961.",
+  "note": "\"briefly\" wrong (Stalinabad for 32 years)"
+ },
+ "noumea-new-caledonia": {
+  "v": "FIX",
+  "fact": "It sits on Grande Terre in New Caledonia, whose soils hold about a quarter of the world's nickel resources.",
+  "note": "\"roughly a tenth\" contradicted (New Caledonia article: about 25%)"
+ },
+ "gullfoss": {
+  "v": "KEEP",
+  "note": "checked against Gullfoss"
+ }
+}

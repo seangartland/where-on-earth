@@ -2082,7 +2082,9 @@
  },
  "dunkirk-evacuation": {
   "title": "Dunkirk",
-  "extra": [],
+  "extra": [
+   "Dunkirk evacuation"
+  ],
   "km": 1
  },
  "wimbledon-all-england-club": {
@@ -2142,7 +2144,9 @@
  },
  "carcassonne-cite": {
   "title": "Carcassonne",
-  "extra": [],
+  "extra": [
+   "Cité de Carcassonne"
+  ],
   "km": 1
  },
  "blarney-castle": {
@@ -2152,17 +2156,23 @@
  },
  "le-mans-circuit": {
   "title": "Le Mans",
-  "extra": [],
+  "extra": [
+   "Circuit de la Sarthe"
+  ],
   "km": 6
  },
  "bukhara-uzbekistan": {
   "title": "Bukhara",
-  "extra": [],
+  "extra": [
+   "Kalyan Minaret"
+  ],
   "km": 3
  },
  "windhoek-namibia": {
   "title": "Windhoek",
-  "extra": [],
+  "extra": [
+   "Christ Church, Windhoek"
+  ],
   "km": 2
  },
  "stari-most": {
@@ -2172,7 +2182,9 @@
  },
  "lumbini-nepal": {
   "title": "Lumbini",
-  "extra": [],
+  "extra": [
+   "Lumbini pillar inscription"
+  ],
   "km": null
  },
  "bodh-gaya-india": {
@@ -2192,7 +2204,9 @@
  },
  "noumea-new-caledonia": {
   "title": "Nouméa",
-  "extra": [],
+  "extra": [
+   "New Caledonia"
+  ],
   "km": 0
  },
  "gullfoss": {
