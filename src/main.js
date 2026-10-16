@@ -69,7 +69,7 @@ import {
 } from './meta/passport-store.js';
 import {
   initPassportHome, initPassport, syncPassport, passportEntryFor, countryIndex, buildCountryIndex,
-  passportEntry, collectionsEntry, openPostcard, postcardShareText,
+  passportEntry, collectionsEntry, bindPostcard, postcardShareText,
 } from './meta/passport.js';
 
 if (window.__boot) window.__boot('3D engine loaded');
@@ -191,7 +191,7 @@ initRound(roundHost);
 // The Daily's screens (src/modes/daily-game.js) reach the globe and the
 // passport pages through this host.
 const dailyGameHost = {
-  applyCardTier, passportEntryFor, openPostcard, recordHistory, syncPassport, clearReveal, Pin,
+  applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin,
   makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera,
   frameRevealPoints, safeStrip, travelView, nearAngle,
 };

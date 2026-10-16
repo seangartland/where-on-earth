@@ -25,7 +25,7 @@ import { borders } from './tap-country.js';
 import { expeditionRun } from './expeditions.js';
 import { endless } from './endless.js';
 
-let applyCardTier, passportEntryFor, openPostcard, recordHistory, syncPassport, clearReveal, Pin;
+let applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin;
 let makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints;
 let safeStrip, travelView, nearAngle;
 let nextGame;
@@ -130,12 +130,7 @@ export function postcardSummaryCard(result, item) {
   card.setAttribute('role', 'button');
   card.setAttribute('aria-haspopup', 'dialog');
   card.setAttribute('aria-label', `Open postcard: ${name.textContent}`);
-  card.addEventListener('click', () => openPostcard(entry, card));
-  card.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    e.preventDefault();
-    openPostcard(entry, card);
-  });
+  bindPostcard(card, entry);
   return card;
 }
 
@@ -495,7 +490,7 @@ export function pickReviewRound(x, y) {
 // The play and share buttons. The share button passes the Daily text that
 // used to be shareResult's default.
 export function initDailyGame(main) {
-  ({ applyCardTier, passportEntryFor, openPostcard, recordHistory, syncPassport, clearReveal, Pin,
+  ({ applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin,
     makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints,
     safeStrip, travelView, nearAngle } = main);
   gameEls.play.addEventListener('click', startGame);

@@ -440,12 +440,7 @@ function passportSlot(entry) {
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
   li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${tierLabel}${hasDistance ? `, ${pillText}` : ''}`);
-  li.addEventListener('click', () => openPostcard(entry, li));
-  li.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    e.preventDefault();
-    openPostcard(entry, li);
-  });
+  bindPostcard(li, entry);
   return li;
 }
 
@@ -1024,6 +1019,7 @@ function renderCollectionDetail(set) {
   progress.innerHTML = `<div class="collection-progress-top"><b>${earned} / ${set.items.length}</b><span>${Math.round(earned / set.items.length * 100)}% collected</span></div><div class="collection-segments">${set.items.map((item) => `<i class="${collectionEarn(item) ? 'earned' : ''}"></i>`).join('')}</div>`;
   const grid = document.createElement('ol');
   grid.className = 'collection-grid';
+  grid.dataset.ppList = '';
   set.items.forEach((item, index) => {
     const tier = collectionEarn(item);
     const visited = collectionVisited(item);
@@ -1064,12 +1060,7 @@ function renderCollectionDetail(set) {
         km: meta.d,
         first: meta.f,
       };
-      card.addEventListener('click', () => openPostcard(entry, card));
-      card.addEventListener('keydown', (e) => {
-        if (e.key !== 'Enter' && e.key !== ' ') return;
-        e.preventDefault();
-        openPostcard(entry, card);
-      });
+      bindPostcard(card, entry);
     }
     grid.append(card);
   });
@@ -1208,10 +1199,97 @@ function postcardFlipFrame(source) {
 
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export function openPostcard(entry, source) {
+// Swipe navigation (docs/expeditions-rethink-opus.md, Proposal 1): every
+// openable card is registered here, and a swipe walks the [data-pp-list]
+// container it sits in, in DOM order, skipping anything under [hidden].
+// Mystery slots are never registered, so they are skipped too.
+const postcardEntries = new WeakMap();
+let ppdSiblings = null; // () => [{ entry, el }] for the list the card came from
+
+export function bindPostcard(el, entry) {
+  postcardEntries.set(el, entry);
+  el.addEventListener('click', () => openPostcard(entry, el));
+  el.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    openPostcard(entry, el);
+  });
+}
+
+// A function rather than an array, so filters, collapsed groups, or a re-sort
+// applied while the card is open are read fresh on every swipe.
+function postcardSiblings(source) {
+  const root = source.closest('[data-pp-list]');
+  if (!root) return null;
+  const shown = (el) => {
+    for (let node = el; node && node !== root; node = node.parentElement) if (node.hidden) return false;
+    return true;
+  };
+  return () => [...root.querySelectorAll('[role="button"]')]
+    .filter((el) => postcardEntries.has(el) && shown(el))
+    .map((el) => ({ entry: postcardEntries.get(el), el }));
+}
+
+// Where the open card sits in its list. A re-sort replaces the tiles, so fall
+// back to the place id and move the lifted state onto the new tile.
+function ppdLocate() {
+  const list = ppdSiblings ? ppdSiblings() : [];
+  let at = list.findIndex(({ el }) => el === ppdSource);
+  if (at < 0 && ppdEntry) at = list.findIndex(({ entry }) => entry.item.id === ppdEntry.item.id);
+  if (at >= 0 && list[at].el !== ppdSource) {
+    ppdSource?.classList.remove('pp-lifted');
+    ppdSource = list[at].el;
+    ppdSource.classList.add('pp-lifted');
+  }
+  return { list, at };
+}
+
+function syncPostcardNav({ list, at }) {
+  const many = list.length > 1;
+  ppdEls.pos.hidden = !many || at < 0;
+  if (many && at >= 0) ppdEls.pos.textContent = `${(at + 1).toLocaleString()} of ${list.length.toLocaleString()}`;
+  ppdEls.prev.hidden = !many;
+  ppdEls.next.hidden = !many;
+  ppdEls.prev.classList.toggle('is-end', at === 0);
+  ppdEls.next.classList.toggle('is-end', at === list.length - 1);
+}
+
+// dir 1 is the next card (swipe left), -1 the previous one. No wrap-around:
+// past either end the card nudges and stays put.
+function stepPostcard(dir) {
+  if (postcardScreen.hidden || ppdClosing) return;
+  const { list, at } = ppdLocate();
+  let next;
+  if (at >= 0) next = list[at + dir];
+  else if (ppdSource?.isConnected) {
+    // The open card was filtered out: step to its nearest shown neighbour.
+    const after = (el) => Boolean(ppdSource.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING);
+    next = dir > 0 ? list.find(({ el }) => after(el)) : list.findLast(({ el }) => !after(el));
+  } else next = dir > 0 ? list[0] : list[list.length - 1];
+  if (ppdOpening) {
+    ppdOpening.forEach((a) => a.finish());
+    ppdOpening = null;
+  }
+  if (!next) {
+    if (!reducedMotion()) ppdEls.card.animate([{ transform: 'none' }, { transform: `translateX(${-dir * 14}px)` }, { transform: 'none' }], { duration: 240, easing: 'ease-out' });
+    return;
+  }
+  fillPostcard(next.entry);
+  ppdSource?.classList.remove('pp-lifted');
+  ppdSource = next.el;
+  ppdSource.classList.add('pp-lifted');
+  ppdSource.scrollIntoView({ block: 'nearest' });
+  postcardScreen.scrollTop = 0;
+  syncPostcardNav(ppdLocate());
+  if (!reducedMotion()) ppdEls.card.animate([{ opacity: 0, transform: `translateX(${dir * 28}px)` }, { opacity: 1, transform: 'none' }], { duration: 180, easing: 'ease-out' });
+}
+
+export function openPostcard(entry, source, siblings = postcardSiblings(source)) {
   if (!postcardScreen.hidden) return;
   fillPostcard(entry);
   ppdSource = source;
+  ppdSiblings = siblings;
+  syncPostcardNav(ppdLocate());
   postcardScreen.hidden = false;
   postcardScreen.scrollTop = 0;
   // Restore stamp visibility (hidden on close to prevent FLIP glitch)
@@ -1234,6 +1312,7 @@ function hidePostcard(source) {
   postcardScreen.hidden = true;
   ppdClosing = false;
   ppdSource = null;
+  ppdSiblings = null;
   if (source) {
     source.classList.remove('pp-lifted');
     if (source.isConnected) source.focus({ preventScroll: true });
@@ -1243,6 +1322,7 @@ function hidePostcard(source) {
 function closePostcard() {
   if (ppdClosing || postcardScreen.hidden) return;
   ppdClosing = true;
+  if (!ppdSource?.isConnected) ppdLocate(); // re-sorted while open: land on the new tile
   const source = ppdSource;
   // Hide the modal stamp immediately so it doesn't glitch during the FLIP close animation
   if (ppdEls.stamp) ppdEls.stamp.style.opacity = '0';
@@ -1258,6 +1338,8 @@ function closePostcard() {
     });
     return;
   }
+  // A swipe slide or end nudge still running would skew the measured start.
+  ppdEls.card.getAnimations().forEach((a) => a.finish());
   const flip = reducedMotion() || !source?.isConnected ? null : postcardFlipFrame(source);
   const opts = { duration: flip ? 360 : 220, easing: flip ? PPD_EASE : 'ease-in', fill: 'forwards' };
   const anims = [
@@ -1565,7 +1647,7 @@ body.game-passport #hud { opacity: 0; }
       </div>
       </div>
       <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
-      <div class="pp-dex-wrap" data-pp="dex"></div>
+      <div class="pp-dex-wrap" data-pp="dex" data-pp-list></div>
 
     </div>
     <div data-pp="countries-view" hidden>
@@ -1584,13 +1666,13 @@ body.game-passport #hud { opacity: 0; }
         <div class="pp-stick-sentinel" data-pp="country-detail-sentinel"></div>
         <div class="pp-toolbar pp-country-toolbar"><button class="collections-back" type="button" data-pp="country-back">‹ Countries</button><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
         <div class="pp-country-head" data-pp="country-head"></div>
-        <ul class="pp-dex pp-country-dex" data-pp="country-dex"></ul>
+        <ul class="pp-dex pp-country-dex" data-pp="country-dex" data-pp-list></ul>
       </div>
     </div>
     <div data-pp="landmarks-view" hidden>
       <div class="pp-stick-sentinel" data-pp="landmarks-sentinel"></div>
       <div class="pp-toolbar pp-country-toolbar"><p class="pp-country-summary" data-pp="landmark-summary"></p><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
-      <ul class="pp-dex pp-country-dex" data-pp="landmark-dex"></ul>
+      <ul class="pp-dex pp-country-dex" data-pp="landmark-dex" data-pp-list></ul>
     </div>
   </div>`;
   document.getElementById('game').appendChild(passportScreen);
@@ -1884,7 +1966,7 @@ body.game-collections #hud { opacity: 0; }
   postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-.ppd-card { --ppd-accent: #d1a943; position: relative; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 2px solid var(--rarity, #3f485b); border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
+.ppd-card { --ppd-accent: #d1a943; position: relative; touch-action: pan-y; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 2px solid var(--rarity, #3f485b); border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-front .prox-badge { top: 10px; left: 10px; gap: 5px; height: 26px; padding: 0 11px 0 8px; font-size: 11px; box-shadow: 0 2px 8px rgba(0,0,0,.55); }
 .ppd-front .prox-badge i { font-size: 14px; }
@@ -1892,11 +1974,21 @@ body.game-collections #hud { opacity: 0; }
 .ppd-front .pp-photo { aspect-ratio: 16 / 9; border-radius: 15px; }
 .ppd-front .pp-photo::after { font-size: 44px; }
 .ppd-close { position: absolute; z-index: 3; top: var(--ppd-control-inset, 6px); right: var(--ppd-control-inset, 6px); width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
-.ppd-close::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(8,14,32,.72); color: #f5fbff; font-size: 22px; line-height: 1; }
+.ppd-close::before, .ppd-nav::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(8,14,32,.72); color: #f5fbff; font-size: 22px; line-height: 1; }
+/* Previous and next: the close button's circle, quieter, centred on the photo edges. */
+.ppd-nav { position: absolute; z-index: 3; top: 50%; width: 44px; height: 44px; margin-top: -22px; padding: 0; border: 0; background: none; cursor: pointer; opacity: .55; touch-action: manipulation; }
+.ppd-nav[data-dir="-1"] { left: 0; }
+.ppd-nav[data-dir="1"] { right: 0; }
+.ppd-nav[data-dir="-1"]::before { content: '‹'; padding-bottom: 3px; box-sizing: border-box; }
+.ppd-nav[data-dir="1"]::before { content: '›'; padding-bottom: 3px; box-sizing: border-box; }
+.ppd-nav.is-end { opacity: .2; }
+.ppd-nav[hidden] { display: none; }
 .ppd-close:focus-visible { outline: none; }
 .ppd-close:focus-visible::before { box-shadow: 0 0 0 2px #67e8ff; }
 .ppd-body { padding: 14px 2px 0; color: #f7f8fc; }
-.ppd-from { margin: 0; color: #8f9aaf; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+.ppd-from, .ppd-pos { margin: 0; color: #8f9aaf; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+.ppd-pos { position: absolute; top: 100%; left: 0; right: 0; padding-top: 7px; font-variant-numeric: tabular-nums; text-align: center; }
+.ppd-pos[hidden] { display: none; }
 .ppd-body h3 { margin: 4px 0 0; color: #f7f8fc; font-family: Georgia, serif; font-size: 27px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; overflow-wrap: anywhere; }
 .ppd-clue { margin: 4px 0 0; color: #8f9aaf; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .ppd-history { display: grid; gap: 5px; margin: 13px 0 0; color: #818da2; font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
@@ -1926,6 +2018,8 @@ body.game-collections #hud { opacity: 0; }
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
     <div class="ppd-front">
       <div class="pp-photo" data-ppd="photo"></div>
+      <button class="ppd-nav" data-dir="-1" aria-label="Previous postcard" tabindex="-1" data-ppd="prev"></button>
+      <button class="ppd-nav" data-dir="1" aria-label="Next postcard" tabindex="-1" data-ppd="next"></button>
     </div>
     <div class="ppd-body">
       <p class="ppd-from" data-ppd="from"></p>
@@ -1937,12 +2031,43 @@ body.game-collections #hud { opacity: 0; }
       <div class="ppd-history" data-ppd="history" aria-label="Visit history"></div>
       <button class="ppd-share" data-ppd="share"></button>
     </div>
+    <p class="ppd-pos" aria-live="polite" data-ppd="pos"></p>
   </article>`;
   document.getElementById('game').appendChild(postcardScreen);
 
   ppdEls = Object.fromEntries([...postcardScreen.querySelectorAll('[data-ppd]')].map((el) => [el.dataset.ppd, el]));
 
   ppdEls.close.addEventListener('click', closePostcard);
+  ppdEls.prev.addEventListener('click', () => stepPostcard(-1));
+  ppdEls.next.addEventListener('click', () => stepPostcard(1));
+  // Swipe: judged on pointerup only, so vertical scrolling (pan-y) and taps
+  // behave as before. Buttons and the 20px screen edges (iOS back swipe) never
+  // start one.
+  let swipe = null;
+  let swallowClickUntil = 0;
+  ppdEls.card.addEventListener('pointerdown', (e) => {
+    swipe = null;
+    if (!e.isPrimary || e.button > 0 || e.target.closest('button')) return;
+    if (e.clientX < 20 || e.clientX > window.innerWidth - 20) return;
+    swipe = { x: e.clientX, y: e.clientY, t: e.timeStamp, id: e.pointerId };
+  });
+  window.addEventListener('pointercancel', () => { swipe = null; });
+  window.addEventListener('pointerup', (e) => {
+    const start = swipe;
+    swipe = null;
+    if (!start || e.pointerId !== start.id || postcardScreen.hidden) return;
+    const dx = e.clientX - start.x;
+    const dy = e.clientY - start.y;
+    if (Math.abs(dx) < 48 || Math.abs(dx) < 1.5 * Math.abs(dy) || e.timeStamp - start.t >= 600) return;
+    // A swipe released over the scrim would otherwise close the card.
+    swallowClickUntil = e.timeStamp + 400;
+    stepPostcard(dx < 0 ? 1 : -1);
+  });
+  postcardScreen.addEventListener('click', (e) => {
+    if (e.timeStamp >= swallowClickUntil) return;
+    swallowClickUntil = 0;
+    e.stopImmediatePropagation();
+  }, true);
   postcardScreen.addEventListener('click', (e) => {
     if (e.target === postcardScreen || e.target === ppdEls.scrim) closePostcard();
   });
@@ -1953,6 +2078,9 @@ body.game-collections #hud { opacity: 0; }
     if (e.key === 'Escape') {
       e.stopPropagation();
       closePostcard();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      stepPostcard(e.key === 'ArrowRight' ? 1 : -1);
     } else if (e.key === 'Tab') {
       // Close and (when shown) share are the only controls; keep focus between them.
       e.preventDefault();
