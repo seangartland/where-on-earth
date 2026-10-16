@@ -123,6 +123,7 @@ function showSurvivalGameOver() {
 function survivalShareText() {
   if (runResultsMode === 'blackout') return host.blackoutShareText();
   if (runResultsMode === 'borders') return host.bordersShareText();
+  if (runResultsMode === 'trivia') return host.triviaShareText();
   if (source.shareText) return source.shareText();
   const count = survival.survived;
   const survivedResults = survival.results.slice(0, count);
@@ -135,13 +136,14 @@ function survivalShareText() {
   });
 }
 
-// Survival and Borders share the run-over screen.
+// Survival, Borders and Trivia share the run-over screen.
 export let runResultsMode = 'survival';
 export function setRunResultsMode(mode) { runResultsMode = mode; }
-export function setRunResultsCopy(eyebrow, summary, label) {
+export function setRunResultsCopy(eyebrow, summary, label, bestLabel = 'Best streak') {
   document.getElementById('survival-result-eyebrow').textContent = eyebrow;
   document.getElementById('survival-result-summary').textContent = summary;
   document.getElementById('survival-final-label').textContent = label;
+  document.getElementById('survival-best-label').textContent = bestLabel;
 }
 
 // Survival hub: the one home entry for the three Survival modes. Its rows are
@@ -210,6 +212,7 @@ export function initSurvival(main) {
   gameEls.survivalAgain.addEventListener('click', () => {
     if (runResultsMode === 'blackout') host.startBorders(host.borders.scope);
     else if (runResultsMode === 'borders') host.startBorders();
+    else if (runResultsMode === 'trivia') host.startTrivia();
     else startSurvival(source);
   });
 

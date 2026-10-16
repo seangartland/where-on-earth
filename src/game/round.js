@@ -21,6 +21,7 @@ let bordersRoundHeader, survivalRoundHeader, endlessRoundHeader, bordersClue, su
 let completeExpeditionRound, expeditionRevealCard, survivalRevealCard, bordersNext, survivalNext;
 let expeditionNext, endlessNext, revealBorders, pvpRenderVs, pvpNext, pvpSubmit, saveDaily, runHaul;
 let showPostcardSummary, recordVisit, applyCardTier, isVisited;
+let trivia, triviaRoundHeader, triviaRecordGuess, triviaNext;
 
 // Guessing is two steps: tap the globe to place (or move) the pin, then press
 // Lock in. The button sits in a fixed spot in the thumb zone, away from the
@@ -119,6 +120,7 @@ export const gameEls = {
   moreModesHub: document.getElementById('more-modes-hub'),
   moreModesEntry: document.getElementById('more-modes-button'),
   landmarksEntry: document.getElementById('landmarks-button'),
+  triviaEntry: document.getElementById('trivia-button'),
   survivalStreak: document.getElementById('survival-streak'),
   survivalResults: document.getElementById('survival-results-screen'),
   survivalResultTitle: document.getElementById('survival-result-title'),
@@ -128,6 +130,8 @@ export const gameEls = {
   survivalShareStatus: document.getElementById('survival-share-status'),
   survivalAgain: document.getElementById('survival-again'),
   survivalHome: document.getElementById('survival-home'),
+  runBreakdown: document.getElementById('run-breakdown'),
+  runBreakdownList: document.getElementById('run-results-breakdown'),
   expeditionsEntry: document.getElementById('expeditions-button'),
 };
 
@@ -136,6 +140,7 @@ export const pvpScreenEls = []; // set once the PvP screens are built
 export function hideScreens() {
   gameEls.start.hidden = gameEls.round.hidden = gameEls.postcardSummaryScreen.hidden = gameEls.results.hidden = true;
   gameEls.survivalResults.hidden = true;
+  gameEls.runBreakdown.hidden = true;
   gameEls.survivalHub.hidden = true;
   gameEls.moreModesHub.hidden = true;
   host.reviewEls.screen.hidden = true;
@@ -168,6 +173,8 @@ export function showRound() {
     survivalRoundHeader();
   } else if (endless.active) {
     endlessRoundHeader();
+  } else if (trivia.active) {
+    triviaRoundHeader();
   } else {
     gameEls.number.textContent = `Round ${state.daily.round + 1} of 5`;
     gameEls.weight.textContent = `${WEIGHTS[state.daily.round]}× points`;
@@ -230,9 +237,10 @@ export function revealGuess(guess, restoring = false) {
   const pvpScored = pvp.active ? pvp.reveal : null;
   const km = pvpScored ? pvpScored.distanceKm : Math.round(kmExact);
   const base = pvpScored ? pvpScored.score : Math.round(distanceScore(kmExact));
-  const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active; // outside the daily
+  const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active || trivia.active; // outside the daily
   const score = oneOff ? 0 : scoreGuess(kmExact, state.daily.round);
   if (!restoring && survival.active) survivalRecordGuess(answer, km, kmExact);
+  if (!restoring && trivia.active) triviaRecordGuess(km, base);
   state.gameMode = 'reveal';
   window.__canGuess = false;
   const headerFrom = gameEls.header.offsetHeight;
@@ -240,7 +248,8 @@ export function revealGuess(guess, restoring = false) {
     : expeditionRun.active ? 'game-reveal expedition-mode'
     : survival.active
     ? `game-reveal survival${survival.missed ? ' survival-miss' : ''}`
-    : endless.active ? 'game-reveal endless' : 'game-reveal';
+    : endless.active ? 'game-reveal endless'
+    : trivia.active ? 'game-reveal trivia' : 'game-reveal';
   gameEls.hint.textContent = '';
   gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : formatKm(km);
   // Capture the passport state before this guess changes it. The reveal starts
@@ -249,7 +258,8 @@ export function revealGuess(guess, restoring = false) {
   const previousEarn = state.passport.meta[answer.id]?.e || 0;
   // Endless and PvP earn visits only; postcards come from daily and survival.
   // PvP records each accepted round once (pvp.recordVisit), never on a replay.
-  const record = pvp.active ? pvp.recordVisit : !restoring;
+  // Trivia is score-only: it never records.
+  const record = pvp.active ? pvp.recordVisit : !restoring && !trivia.active;
   const newlyEarned = record ? recordVisit(answer.id, base, pvpScored ? pvpScored.distanceKm : kmExact, !endless.active && !pvp.active) : 0; // exact, so earning matches the flyover tier
   if (!restoring && !oneOff) {
     state.daily.results[state.daily.round] = {
@@ -271,7 +281,8 @@ export function revealGuess(guess, restoring = false) {
   gameEls.baseScore.textContent = base;
   gameEls.mult.textContent = `×${weight}`;
   gameEls.mult.style.display = oneOff ? 'none' : '';
-  const placeName = answer.clue || answer.short;
+  // A trivia entry's clue is the riddle; the reveal names the place.
+  const placeName = trivia.active ? answer.short : answer.clue || answer.short;
   gameEls.revealName.textContent = placeName;
   gameEls.peekName.textContent = placeName;
   gameEls.fact.textContent = answer.fact;
@@ -290,6 +301,10 @@ export function revealGuess(guess, restoring = false) {
     pill.textContent = `+${base}`;
     gameEls.next.textContent = pvp.result || pvp.round >= 5 ? 'Results' : 'Next';
     pvpRenderVs();
+  } else if (trivia.active) {
+    gameEls.score.textContent = `+${base}`;
+    pill.textContent = `+${base}`;
+    gameEls.next.textContent = trivia.round >= 5 ? 'Results' : 'Next';
   } else {
     // Endless is unscored: no pill, and the peek bar shows just the distance.
     gameEls.score.textContent = endless.active ? '' : `+${score}`;
@@ -382,6 +397,7 @@ export function nextRound() {
   else if (expeditionRun.active) expeditionNext();
   else if (pvp.active) pvpNext();
   else if (endless.active) endlessNext();
+  else if (trivia.active) triviaNext();
   else if (state.daily.round >= 4) showPostcardSummary();
   else {
     state.daily.round += 1;
@@ -397,6 +413,7 @@ export const pvp = { active: false, matchId: null, challengeId: null, group: fal
 export function currentItem() {
   if (borders.active) return null; // Borders asks for a country, not a location
   if (pvp.active) return pvp.item;
+  if (trivia.active) return trivia.item;
   return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : state.selected[state.daily.round];
 }
 
@@ -444,7 +461,8 @@ export function initRound(main) {
     bordersRoundHeader, survivalRoundHeader, endlessRoundHeader, bordersClue, survivalRecordGuess,
     completeExpeditionRound, expeditionRevealCard, survivalRevealCard, bordersNext, survivalNext,
     expeditionNext, endlessNext, revealBorders, pvpRenderVs, pvpNext, pvpSubmit, saveDaily, runHaul,
-    showPostcardSummary, recordVisit, applyCardTier, isVisited } = main);
+    showPostcardSummary, recordVisit, applyCardTier, isVisited, trivia, triviaRoundHeader, triviaRecordGuess,
+    triviaNext } = main);
   lockButton.addEventListener('click', () => {
     if (!state.pendingGuess || !window.__canGuess || state.gameMode !== 'guess') return;
     if (performance.now() < lockArmedAt) return; // the tail of a double tap on the globe

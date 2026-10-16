@@ -58,6 +58,9 @@ import {
 } from './modes/expeditions.js';
 import { endless, endlessEls, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
 import { initLandmarks, landmarkPool, syncLandmarksEntry } from './modes/landmarks.js';
+import {
+  trivia, initTrivia, startTrivia, triviaBankLoaded, triviaRoundHeader, triviaRecordGuess, triviaNext, triviaShareText,
+} from './modes/trivia.js';
 import { AUDIT_MODE, initAudit, auditFlagsLocationsLoaded, addAuditFlagButton, mountAuditBanner } from './modes/audit.js';
 import {
   initDailyGame, initDailyCountdown, initReview, loadDaily, saveDaily, streakText, syncDailyButton, startGame, runHaul,
@@ -185,6 +188,7 @@ const roundHost = {
   expeditionRevealCard, survivalRevealCard, bordersNext, survivalNext, expeditionNext, endlessNext,
   revealBorders, pvpRenderVs, pvpNext, pvpSubmit,
   saveDaily, runHaul, showPostcardSummary, recordVisit, applyCardTier, isVisited,
+  trivia, triviaRoundHeader, triviaRecordGuess, triviaNext,
   get reviewEls() { return reviewEls; },
 };
 initRound(roundHost);
@@ -275,6 +279,8 @@ const modeHost = {
   blackoutBestSummary,
   showBlackoutGameOver,
   blackoutShareText,
+  startTrivia,
+  triviaShareText,
 };
 
 // ---------------------------------------------------------------------------
@@ -288,6 +294,7 @@ function goHome() {
   survival.active = false;
   endless.active = false;
   expeditionRun.active = false;
+  trivia.active = false;
   expeditionPicker.hidden = true;
   blackoutPicker.hidden = true;
   pvpLeave();
@@ -329,7 +336,7 @@ async function confirmGoHome() {
   }
   // Daily is the default game while no alternate mode is active. Its state is
   // persisted after each round, so returning home does not discard progress.
-  const isDailyGame = !endless.active && !survival.active && !expeditionRun.active && !borders.active;
+  const isDailyGame = !endless.active && !survival.active && !expeditionRun.active && !borders.active && !trivia.active;
   const message = isDailyGame
     ? 'Your progress is saved. You can continue later.'
     : 'Your current game progress will be lost.';
@@ -388,6 +395,9 @@ initBlackout(modeHost);
 // pool) live in src/modes/landmarks.js.
 // ---------------------------------------------------------------------------
 initLandmarks(modeHost);
+
+// Trivia clues (the hub's second mode, score-only) lives in src/modes/trivia.js.
+initTrivia(modeHost);
 
 // Post-game review (src/modes/daily-game.js): all five rounds on the globe.
 initReview();
@@ -663,6 +673,10 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   gameEls.survivalEntry.disabled = true;
   if (window.__showErr) window.__showErr('LOCATIONS: ' + err.message);
   loadJobDone('critical', 'locations');
+});
+// Trivia targets come only from the self-contained trivia bank.
+getJSON('assets/trivia-bank.json').then(triviaBankLoaded).catch((err) => {
+  if (window.__showErr) window.__showErr('TRIVIA: ' + err.message);
 });
 getJSON('assets/expeditions.json').then(expeditionsLoaded).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;

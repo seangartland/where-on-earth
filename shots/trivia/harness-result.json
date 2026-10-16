@@ -1,0 +1,257 @@
+{
+  "passed": 27,
+  "of": 27,
+  "checks": {
+    "hubTriviaLive": true,
+    "hubPhotoComingSoon": true,
+    "hubOrder": true,
+    "fiveRounds": true,
+    "everyRoundClue": true,
+    "noNameBeforeGuess": true,
+    "noPhotoBeforeGuess": true,
+    "photoAtReveal": true,
+    "revealNamesPlace": true,
+    "targetsInBank": true,
+    "noRepeatTarget": true,
+    "bandSpread": true,
+    "lastNextIsResults": true,
+    "resultsTotal": true,
+    "resultsLines": true,
+    "bestKeyHolds": true,
+    "shareTrivia": true,
+    "passportUnchanged": true,
+    "onlyNewKey": true,
+    "hubShowsBest": true,
+    "playAgain": true,
+    "bestIsMax": true,
+    "leaveConfirm": true,
+    "landmarksScreenRestored": true,
+    "codeBankOnly": true,
+    "noPageErrors": true,
+    "noHorizontalScroll": true
+  },
+  "bankEntries": 1303,
+  "playable": 1282,
+  "before": {
+    "found": "0",
+    "total": "805",
+    "placesSlots": 805,
+    "placesOpen": 0,
+    "landmarkSummary": "0 of 332 landmark postcards · 0 visited",
+    "landmarkSlots": 332,
+    "landmarkOpen": 0
+  },
+  "passportBefore": null,
+  "keysBefore": [
+    "where-on-earth-passport-view",
+    "where-on-earth-v1"
+  ],
+  "hub": [
+    {
+      "id": "landmarks-button",
+      "text": "Landmarks / Famous places, one miss ends the run. / 332 landmarks / ›",
+      "disabled": false
+    },
+    {
+      "id": "trivia-button",
+      "text": "Trivia clues / Five clues, find each place. / 1,282 clues / ›",
+      "disabled": false
+    },
+    {
+      "id": "",
+      "text": "Photo mode / Coming soon",
+      "disabled": true
+    }
+  ],
+  "rounds": [
+    {
+      "id": "na-pali-coast-state-park",
+      "header": "Round 1 of 5",
+      "clue": "Which Kauai state park is known for sheer green sea cliffs reachable only by trail, boat, or air?",
+      "clueVisible": true,
+      "revealHidden": true,
+      "nameBeforeGuess": null,
+      "bankPhotoVisible": 0,
+      "inBank": true,
+      "difficulty": 2,
+      "clueMatches": true,
+      "nameShown": false,
+      "revealName": "Nā Pali Coast State Park",
+      "distance": "15,481 km",
+      "pill": "+5",
+      "next": "Next",
+      "thumbSrc": "https://upload.wikimedia.org/wikipedia/commons/7/7d/NaPali_overlook_Kalalau_Valley.jpg",
+      "photoShown": true,
+      "peekSrc": "https://upload.wikimedia.org/wikipedia/commons/7/7d/NaPali_overlook_Kalalau_Valley.jpg",
+      "photoIsEntry": true,
+      "nameIsShort": true
+    },
+    {
+      "id": "haikou",
+      "header": "Round 2 of 5",
+      "clue": "Which capital of Hainan island faces the mainland across the Qiongzhou Strait?",
+      "clueVisible": true,
+      "revealHidden": true,
+      "nameBeforeGuess": null,
+      "bankPhotoVisible": 0,
+      "inBank": true,
+      "difficulty": 3,
+      "clueMatches": true,
+      "nameShown": false,
+      "revealName": "Haikou",
+      "distance": "46 km",
+      "pill": "+993",
+      "next": "Next",
+      "thumbSrc": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg",
+      "photoShown": true,
+      "peekSrc": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg",
+      "photoIsEntry": true,
+      "nameIsShort": true
+    },
+    {
+      "id": "trolltunga",
+      "header": "Round 3 of 5",
+      "clue": "Where is the rock tongue jutting out over a mountain lake?",
+      "clueVisible": true,
+      "revealHidden": true,
+      "nameBeforeGuess": null,
+      "bankPhotoVisible": 0,
+      "inBank": true,
+      "difficulty": 5,
+      "clueMatches": true,
+      "nameShown": false,
+      "revealName": "Trolltunga",
+      "distance": "369 km",
+      "pill": "+924",
+      "next": "Next",
+      "thumbSrc": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Trolltunga_2017.jpg/500px-Trolltunga_2017.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "photoShown": true,
+      "peekSrc": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Trolltunga_2017.jpg/500px-Trolltunga_2017.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "photoIsEntry": true,
+      "nameIsShort": true
+    },
+    {
+      "id": "humberstone-saltpeter-works",
+      "header": "Round 4 of 5",
+      "clue": "Which abandoned industrial settlement preserves a theatre, company store, and rusting nitrate works in an exceptionally dry plain?",
+      "clueVisible": true,
+      "revealHidden": true,
+      "nameBeforeGuess": null,
+      "bankPhotoVisible": 0,
+      "inBank": true,
+      "difficulty": 8,
+      "clueMatches": true,
+      "nameShown": false,
+      "revealName": "Humberstone",
+      "distance": "1,639 km",
+      "pill": "+654",
+      "next": "Next",
+      "thumbSrc": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vista_Humberstone.jpg",
+      "photoShown": true,
+      "peekSrc": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vista_Humberstone.jpg",
+      "photoIsEntry": true,
+      "nameIsShort": true
+    },
+    {
+      "id": "yeola",
+      "header": "Round 5 of 5",
+      "clue": "Which Nashik district town is renowned for its Paithani silk saris?",
+      "clueVisible": true,
+      "revealHidden": true,
+      "nameBeforeGuess": null,
+      "bankPhotoVisible": 0,
+      "inBank": true,
+      "difficulty": 9,
+      "clueMatches": true,
+      "nameShown": false,
+      "revealName": "Yeola",
+      "distance": "3,912 km",
+      "pill": "+322",
+      "next": "Results",
+      "thumbSrc": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Zagreb_%2829255640143%29.jpg/500px-Zagreb_%2829255640143%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "photoShown": true,
+      "peekSrc": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Zagreb_%2829255640143%29.jpg/500px-Zagreb_%2829255640143%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "photoIsEntry": true,
+      "nameIsShort": true
+    }
+  ],
+  "results": {
+    "eyebrow": "Trivia",
+    "title": "2,898 / 5,000",
+    "summary": "Five clues, up to 1,000 points each.",
+    "final": "2,898",
+    "finalLabel": "Score",
+    "best": "2,898",
+    "bestLabel": "Best",
+    "lines": [
+      "1 Nā Pali Coast State Park 5 15,481 km",
+      "2 Haikou 993 46 km",
+      "3 Trolltunga 924 369 km",
+      "4 Humberstone 654 1,639 km",
+      "5 Yeola 322 3,912 km"
+    ],
+    "linePoints": [
+      5,
+      993,
+      924,
+      654,
+      322
+    ],
+    "breakdownVisible": true,
+    "bestKey": "2898",
+    "scrollW": 390,
+    "total": 2898
+  },
+  "share": "Where on Earth? · Trivia\n2,898 / 5,000\nBest: 2,898\n\nHaikou: 46 km\nTrolltunga: 369 km\nHumberstone: 1,639 km\n\nwww.where-on.earth #WhereOnEarth",
+  "after": {
+    "found": "0",
+    "total": "805",
+    "placesSlots": 805,
+    "placesOpen": 0,
+    "landmarkSummary": "0 of 332 landmark postcards · 0 visited",
+    "landmarkSlots": 332,
+    "landmarkOpen": 0
+  },
+  "passportAfter": null,
+  "keysAfter": [
+    "where-on-earth-best-trivia",
+    "where-on-earth-passport-view",
+    "where-on-earth-v1"
+  ],
+  "hubAfter": "1,282 clues · Best 2,898",
+  "playAgain": {
+    "id": "shijiazhuang-cn",
+    "header": "Round 1 of 5",
+    "clue": "Which Hebei capital is a rail hub near the ancient Zhaozhou Bridge and Zhengding’s historic temples?"
+  },
+  "bestAfterLowGame": "2898",
+  "leaveMessage": "Your current game progress will be lost.",
+  "landmarkRound": {
+    "survival": true,
+    "header": "Streak 0"
+  },
+  "landmarkResults": {
+    "eyebrow": "Landmark Survival run over",
+    "bestLabel": "Best streak",
+    "breakdownVisible": false
+  },
+  "code": {
+    "triviaImports": [
+      "import { setRunResultsCopy, setRunResultsMode } from './survival.js';",
+      "import { formatKm } from '../core/format.js';"
+    ],
+    "triviaRefs": [],
+    "bankLoad": [
+      "  trivia, initTrivia, startTrivia, triviaBankLoaded, triviaRoundHeader, triviaRecordGuess, triviaNext, triviaShareText,",
+      "getJSON('assets/trivia-bank.json').then(triviaBankLoaded).catch((err) => {"
+    ]
+  },
+  "errs": [],
+  "shots": [
+    "shots/trivia/01-hub.png",
+    "shots/trivia/02-clue-round.png",
+    "shots/trivia/03-clue-reveal.png",
+    "shots/trivia/04-results.png",
+    "shots/trivia/05-hub-best.png"
+  ]
+}

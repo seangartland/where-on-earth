@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------------------
 import { isPlayableLocation } from '../daily.js';
 import { survival, survivalBest, startSurvival } from './survival.js';
+import { triviaHubLine } from './trivia.js';
 
 let host = null;
 
@@ -66,6 +67,7 @@ function showMoreModesHub() {
   gameEls.moreModesHub.querySelector('[data-hub-best="landmarks"]').textContent = count
     ? `${count.toLocaleString()} landmarks${best ? ` · Best streak ${best.toLocaleString()}` : ''}`
     : '';
+  gameEls.moreModesHub.querySelector('[data-hub-best="trivia"]').textContent = triviaHubLine();
   gameEls.moreModesHub.hidden = false;
 }
 

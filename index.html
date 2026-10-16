@@ -171,8 +171,12 @@
         <p id="survival-result-summary" class="survival-summary">One miss over 150 km ends the run.</p>
         <div class="survival-best-card">
           <div><strong id="survival-final-streak">0</strong><span id="survival-final-label">Survived</span></div>
-          <div><strong id="survival-best-streak">0</strong><span>Best streak</span></div>
+          <div><strong id="survival-best-streak">0</strong><span id="survival-best-label">Best streak</span></div>
         </div>
+        <section id="run-breakdown" class="round-breakdown" aria-labelledby="run-breakdown-title" hidden>
+          <h2 id="run-breakdown-title">Round-by-round</h2>
+          <ol id="run-results-breakdown"></ol>
+        </section>
         <div class="survival-result-actions">
           <button id="survival-share" class="primary" type="button">Share result</button>
           <button id="survival-again" class="primary" type="button">Play again</button>
@@ -200,8 +204,8 @@
       <p>New ways to play. Pick a mode.</p>
       <div class="expedition-list">
         <button id="landmarks-button" class="expedition-choice" type="button" disabled><span><strong>Landmarks</strong><small>Famous places, one miss ends the run.</small><small data-hub-best="landmarks"></small></span><span class="badge">›</span></button>
+        <button id="trivia-button" class="expedition-choice" type="button" disabled><span><strong>Trivia clues</strong><small>Five clues, find each place.</small><small data-hub-best="trivia"></small></span><span class="badge">›</span></button>
         <button class="expedition-choice" type="button" disabled><span><strong>Photo mode</strong><small>Coming soon</small></span></button>
-        <button class="expedition-choice" type="button" disabled><span><strong>Trivia clues</strong><small>Coming soon</small></span></button>
       </div>
     </div>
   </section>
