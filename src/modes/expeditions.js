@@ -47,8 +47,13 @@ export function expeditionLandmarks() {
 }
 
 export function updateExpeditionEntry() {
-  host.gameEls.expeditionsEntry.disabled = !host.locations.length || !host.landmarks
-    || !expeditions.some((expedition) => expeditionLocations(expedition).length);
+  const ready = Boolean(host.locations.length && host.landmarks
+    && expeditions.some((expedition) => expeditionLocations(expedition).length));
+  // The button starts hidden in the markup so it never shows before it can be
+  // played; readiness is also what reveals it (previously nothing un-hid it,
+  // so the mode was unreachable from the home screen).
+  host.gameEls.expeditionsEntry.hidden = !ready;
+  host.gameEls.expeditionsEntry.disabled = !ready;
 }
 
 export function completeExpeditionRound() {
