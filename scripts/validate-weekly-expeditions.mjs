@@ -48,7 +48,7 @@ for (const route of routes) {
   for (const field of ['name', 'sub']) {
     const text = route?.[field];
     if (typeof text !== 'string' || !text.trim()) fail(`${rid}: missing ${field}`);
-    else if (text.includes('—')) fail(`${rid}: em dash in ${field}`);
+    else if (text.includes('\u2014')) fail(`${rid}: em dash in ${field}`);
   }
   const ids = Array.isArray(route?.locationIds) ? route.locationIds : [];
   if (ids.length !== STOPS) fail(`${rid}: ${ids.length} stops, expected ${STOPS}`);
