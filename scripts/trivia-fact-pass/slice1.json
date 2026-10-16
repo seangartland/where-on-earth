@@ -1,0 +1,541 @@
+{
+ "mount-fuji": {
+  "v": "KEEP",
+  "note": "last eruption 1707-08; one of the Three Holy Mountains"
+ },
+ "mount-kilimanjaro": {
+  "v": "KEEP",
+  "note": "highest free-standing mountain, 5,895 m"
+ },
+ "easter-island": {
+  "v": "FIX",
+  "fact": "The Rapa Nui people carved nearly 1,000 moai on this remote volcanic island between about 1100 and 1680 CE.",
+  "note": "was 'nearly 900 ... 13th to 16th centuries'; article: nearly 1,000 extant, carved 1100-1680 CE"
+ },
+ "mont-saint-michel": {
+  "v": "FIX",
+  "fact": "Medieval pilgrims crossed the bay's tidal flats on foot, and the sands around this Normandy island still endanger walkers who skip the 2014 bridge.",
+  "note": "'cut off at high tide' and 'faster than a person can run' unsupported; a bridge opened in 2014 and walkers on the sands face danger"
+ },
+ "neuschwanstein-castle": {
+  "v": "FIX",
+  "fact": "Bavarian King Ludwig II began it in 1869 as a private retreat and died in 1886, years before it was finished.",
+  "note": "was 'built it in the 1860s'; built 1869 to 1892, Ludwig died 1886"
+ },
+ "serengeti-tanzania": {
+  "v": "FIX",
+  "fact": "This Tanzanian ecosystem hosts one of the largest land animal migrations on Earth, a journey of about 800 kilometers.",
+  "note": "was 'the largest ... roughly 1,000 km'; article: one of the largest, 800 km"
+ },
+ "galapagos-islands": {
+  "v": "KEEP",
+  "note": "Darwin's 1835 Beagle visit; studies inspired natural selection"
+ },
+ "dead-sea": {
+  "v": "FIX",
+  "fact": "At about 440 meters below sea level, its shore is the lowest point on dry land on Earth.",
+  "note": "was 'roughly 430 m'; article: 439.78 m below sea level as of 2025"
+ },
+ "hagia-sophia": {
+  "v": "FIX",
+  "fact": "Completed in AD 537 as a Byzantine cathedral, it became the world's largest interior space and among the first to use a fully pendentive dome.",
+  "note": "'record for nearly a thousand years' unsupported; article supports largest interior space on completion"
+ },
+ "terracotta-army": {
+  "v": "KEEP",
+  "note": "found by well-digging farmers 1974; more than 8,000 soldiers"
+ },
+ "salar-de-uyuni": {
+  "v": "FIX",
+  "fact": "This Bolivian flat covers over 10,000 square kilometers, and the brine beneath its salt crust is exceptionally rich in lithium.",
+  "note": "'half the world's known lithium reserves' contradicted (article: Bolivia about 22% of known resources)"
+ },
+ "lalibela-ethiopia": {
+  "v": "FIX",
+  "fact": "According to tradition, Ethiopia's King Lalibela, who reigned about 1181 to 1221, ordered them built after a vision of Jerusalem.",
+  "note": "was '12th century'; his reign ran into the 13th; clue kept (scoriaceous basalt, 11 churches)"
+ },
+ "cappadocia-turkey": {
+  "v": "KEEP",
+  "note": "underground cities dug by Christians, cave churches, soft volcanic rock"
+ },
+ "plitvice-lakes": {
+  "v": "KEEP",
+  "note": "sixteen lakes; colours change with minerals, organisms, light, season"
+ },
+ "timbuktu-mali": {
+  "v": "KEEP",
+  "note": "14th-century rise under Mali Empire, scholarship, thousands of manuscripts"
+ },
+ "socotra-island": {
+  "v": "KEEP",
+  "note": "a third of plant life found nowhere else"
+ },
+ "pamukkale-turkey": {
+  "v": "KEEP",
+  "note": "travertine terraces from hot springs"
+ },
+ "danakil-depression": {
+  "v": "KEEP",
+  "note": "100 m below sea level; Erta Ale range"
+ },
+ "wadi-rum": {
+  "v": "KEEP",
+  "note": "Valley of the Moon; stood in for Mars (The Martian, Last Days on Mars)"
+ },
+ "richat-structure": {
+  "v": "KEEP",
+  "note": "40 km; impact hypothesis rejected after 1960s studies"
+ },
+ "tristan-da-cunha": {
+  "v": "FIX",
+  "fact": "This South Atlantic island, about 11 kilometers across, has a single settlement, Edinburgh of the Seven Seas, named for a visiting British prince.",
+  "note": "'2,400 km from the nearest other inhabited land' not in the article, and Gough Island (staffed weather station) is far closer"
+ },
+ "challenger-deep": {
+  "v": "KEEP",
+  "note": "deepest known point, nearly 11,000 m; 1,000+ atmospheres is general reference (about 1,086 bar)"
+ },
+ "mcmurdo-station": {
+  "v": "KEEP",
+  "note": "up to 1,200 residents; Ross Island (volcanic)"
+ },
+ "vostok-station": {
+  "v": "KEEP",
+  "note": "-89.2 C on 21 July 1983; Lake Vostok"
+ },
+ "pitcairn-island": {
+  "v": "KEEP",
+  "note": "about 40 inhabitants, many Bounty descendants"
+ },
+ "alert-nunavut": {
+  "v": "FIX",
+  "fact": "This Canadian Forces station sits just 817 kilometers from the North Pole, and the nearest Canadian city, Iqaluit, is 2,092 kilometers away.",
+  "note": "'closer to Russia's coast than to most of Canada' unsupported; article (Alert, Nunavut) gives Iqaluit 2,092 km"
+ },
+ "la-rinconada-peru": {
+  "v": "FIX",
+  "fact": "This Peruvian gold-mining town sits at about 5,000 meters in the Andes, where the air holds about half the oxygen found at sea level.",
+  "note": "was 'above 5,100 m'; article: 4,900 to 5,100 m, centre 5,000 m"
+ },
+ "bouvet-island": {
+  "v": "KEEP",
+  "note": "Queen Maud Land about 1,700 km south"
+ },
+ "forbidden-city-beijing": {
+  "v": "KEEP",
+  "note": "1420 to 1924; 72 ha; 980 surviving buildings"
+ },
+ "topkapi-palace": {
+  "v": "FIX",
+  "fact": "Its first court was known as the Court of the Janissaries, and its Privy Chamber keeps relics said to have belonged to the Prophet Muhammad.",
+  "note": "'Janissaries' bodies flung from the ramparts' unsupported; relics are in the Privy Chamber, not the harem"
+ },
+ "gyeongbokgung-palace": {
+  "v": "FIX",
+  "fact": "Burned down in 1592 and rebuilt from 1865, the palace has staged a reenactment of the Joseon changing of the guard since 2002.",
+  "note": "'still recreates the 15th-century ritual' unsupported; reenactment began 2002"
+ },
+ "mount-everest-summit": {
+  "v": "FIX",
+  "fact": "Its height of 8,848.86 m comes from a joint Nepalese and Chinese survey in 2020, after years of argument over whether to count the snow cap.",
+  "note": "'Nepal's maps show 8,586 m ... world's 14th' fabricated (8,586 m is Kangchenjunga)"
+ },
+ "borobudur": {
+  "v": "FIX",
+  "fact": "Built in the 8th to 9th century, it wraps 2,672 relief panels around nine stacked platforms, and it was abandoned around the time the Mataram capital moved east.",
+  "note": "'work stopped in 1006 when the volcano erupted and buried the site' unsupported; article: capital moved to East Java between 928 and 1006, likely period of abandonment"
+ },
+ "leshan-giant-buddha": {
+  "v": "FIX",
+  "fact": "Carved during the Tang dynasty and finished in 803, the figure has drainage channels hidden in its hair and body to carry rainwater away.",
+  "note": "'cut between 1001 and 1153', the Song damming story and the stone umbrella are fabricated; built 712 to 803"
+ },
+ "ha-long-bay": {
+  "v": "FIX",
+  "fact": "The bay's limestone towers have been shaped since the Miocene, and waves have cut notch caves with perfectly smooth, flat ceilings into their bases.",
+  "note": "fossil-fuel dating story fabricated"
+ },
+ "amber-fort-jaipur": {
+  "v": "FIX",
+  "fact": "Amber Fort overlooks Maota Lake, and its Sukh Niwas was cooled by breezes blowing over a water cascade inside the palace.",
+  "clue": "Where does a hilltop fort near Jaipur hold a mirror palace that glittered in candlelight?",
+  "note": "'one of the world's earliest formal gardens' unsupported; clue's '2,000 pieces of cut glass' unsupported (article: mirror mosaics, glittered under candlelight)"
+ },
+ "fushimi-inari-taisha": {
+  "v": "FIX",
+  "fact": "Each of its roughly 10,000 torii was donated by a Japanese business, and about 800 of them stand in rows to form the tunnel-like Senbon Torii.",
+  "note": "'every gate from a company, which is why the tunnels never end' overstated; article: roughly 10,000 donated by businesses, 800 in the Senbon Torii"
+ },
+ "registan-samarkand": {
+  "v": "FIX",
+  "fact": "The square's madrasas date from the 1400s to the 1600s, and the oldest was built from 1417 to 1420 by the astronomer-ruler Ulugh Beg.",
+  "note": "observatory did not stand beside the square; year-length claim overstated"
+ },
+ "mogao-caves-dunhuang": {
+  "v": "FIX",
+  "fact": "The Library Cave was walled up in the 11th century, and when it was found in 1900 it held up to 50,000 manuscripts.",
+  "note": "'sealed for a thousand years when sand blew in' fabricated"
+ },
+ "potala-palace-lhasa": {
+  "v": "FIX",
+  "fact": "The Fifth Dalai Lama began the present palace in 1645, and Chinese shells struck its windows during the 1959 Tibetan uprising.",
+  "note": "'fired in 1959 and rebuilt from the walls' fabricated; clue kept (13 stories, 3,700 m)"
+ },
+ "mount-kinabalu": {
+  "v": "FIX",
+  "fact": "At 4,095 m, Kinabalu's bare granite summit is one of the youngest granite intrusions exposed on Earth, and Pleistocene glaciers carved its slopes.",
+  "note": "'still-uplifting fault block' unsupported"
+ },
+ "sigiriya": {
+  "v": "FIX",
+  "fact": "The Lion Rock's frescoes of women survive near the Mirror Wall, where centuries-old graffiti speaks of 500 painted ladies.",
+  "note": "Indian 'cloud woman' twin fabricated"
+ },
+ "bagan-myanmar": {
+  "v": "FIX",
+  "fact": "Between the 11th and 13th centuries more than 10,000 temples, pagodas and monasteries rose on this plain, and the remains of over 2,300 survive.",
+  "note": "sandalwood donor slabs fabricated"
+ },
+ "darvaza-gas-crater": {
+  "v": "FIX",
+  "fact": "Soviet engineers are said to have lit this collapsed gas field in 1971 to burn off poisonous gas; the pit is 60 to 70 m across and still burns.",
+  "note": "'expecting it to burn out in weeks' unsupported; diameter 60 to 70 m"
+ },
+ "flaming-cliffs-bayanzag": {
+  "v": "FIX",
+  "fact": "Roy Chapman Andrews named the orange sandstone cliffs of Bayanzag in the 1920s, and the site is most famous for the first discovery of dinosaur eggs.",
+  "note": "'dinosaur skeletons in the 1920s' imprecise; known for first dinosaur eggs"
+ },
+ "lake-issyk-kul": {
+  "v": "FIX",
+  "fact": "At 1,607 m in Kyrgyzstan's Tian Shan, this saline lake is 182 kilometers long and the eighth-deepest lake in the world.",
+  "clue": "Where is the second-largest mountain lake in the world, which rarely freezes?",
+  "note": "fact fabricated (6,248 m, more water than Baikal, drained by a king); clue said 'second-longest alpine lake ... never freezes'"
+ },
+ "gobekli-tepe": {
+  "v": "FIX",
+  "fact": "Hunter-gatherers, not farmers, raised this hilltop of enclosures from around 9500 BC, which upset the idea that settled agriculture had to come first.",
+  "note": "deliberate burial claim dropped (not in the article, and disputed)"
+ },
+ "mohenjo-daro": {
+  "v": "FIX",
+  "fact": "The Indus metropolis on this mound was one of the world's earliest major cities, and by about 1700 BCE it had been abandoned for reasons still debated.",
+  "clue": "Where is a brick-built, bitumen-lined Great Bath in a city built some 4,500 years ago?",
+  "note": "drains 'never needed repairs' fabricated; clue said the city 'vanished 4,500 years ago' (built c. 2500 BCE, abandoned c. 1700 BCE)"
+ },
+ "persepolis": {
+  "v": "FIX",
+  "fact": "This ceremonial capital of the Achaemenid empire was burned by Alexander in 330 BC, and only its columns, stairways, doorways and parts of walls survived.",
+  "clue": "Where do stone reliefs of tribute bearers still climb the stairways of an empty royal terrace?",
+  "note": "'survive almost intact' overstated; '23 subject nations' not in Persepolis or Apadana articles"
+ },
+ "nalanda-bihar": {
+  "v": "FIX",
+  "fact": "This great monastery in Bihar drew scholars from across Asia, and its library supplied the Sanskrit texts that pilgrims like Xuanzang carried to East Asia.",
+  "clue": "Where did ancient India's most renowned Buddhist monastery teach monks from across Asia for centuries?",
+  "note": "clue's 'coin the decimal zero' and the al-Khwarizmi fact fabricated"
+ },
+ "fatehpur-sikri": {
+  "v": "FIX",
+  "fact": "The Mughal emperor's capital is usually said to have been left when its water supply failed, and its Buland Darwaza gate towers 46 m over the city.",
+  "note": "'tallest gateway in the world' unsupported; water failure is the usual reason given"
+ },
+ "polonnaruwa-sri-lanka": {
+  "v": "FIX",
+  "fact": "Sri Lanka's second ancient capital has the Galpota, a long stone inscription of King Nissanka Malla, and its ruins are a UNESCO World Heritage Site.",
+  "clue": "Where is a stone 'book' carved with a long inscription of King Nissanka Malla?",
+  "note": "lightning, toppling and elephant-shadow claims fabricated; '1,400 lines' and '8 m' not sourceable (Polonnaruwa, Nissanka Malla articles)"
+ },
+ "marco-polo-bridge": {
+  "v": "FIX",
+  "fact": "Japanese troops demanded entry to the walled town of Wanping beside this Beijing bridge to search for a missing soldier, and the refusal led to fighting.",
+  "clue": "Where did the opening shots of the Second Sino-Japanese War get fired in July 1937?",
+  "note": "clue said August (incident was 7 July 1937); 'refused entry to the bridge' and guardhouse memorial wrong"
+ },
+ "son-doong-vietnam": {
+  "v": "FIX",
+  "fact": "A local man found the entrance in 1990, but the largest known cave passage on Earth was not surveyed until a British expedition in 2009.",
+  "note": "1991 climber and Laos sinkhole fabricated; found by Ho Khanh 1990, BCRA expedition 2009"
+ },
+ "kharkhorin-mongolia": {
+  "v": "FIX",
+  "fact": "Near this Orkhon valley town lie the ruins of Karakorum, which served for a short time as the Mongol Empire's capital under Ogedei Khan.",
+  "clue": "Where are the ruins of the Mongol Empire's 13th-century capital, beside the Orkhon River?",
+  "note": "fact (city raised from Buddhist sculptures, abandoned after one summer) and clue (built with bricks from its own temples) fabricated; Erdene Zuu was later built from Karakorum's ruins, not the reverse"
+ },
+ "dholavira-india": {
+  "v": "FIX",
+  "fact": "Dholavira's excavators found a signboard about 3 m long bearing ten Indus script signs, at a city on Khadir Bet island in the Great Rann of Kutch.",
+  "clue": "Where did an Indus city on a desert island store its water in massive reservoirs?",
+  "note": "clue's 'older than Sumerian writing' false; water ring and Gulf of Kachchh location wrong (Great Rann of Kutch)"
+ },
+ "yolyn-am-mongolia": {
+  "v": "FIX",
+  "fact": "This gorge in the Gurvan Saikhan Mountains once kept its ice field all year, but today the ice tends to disappear by September.",
+  "clue": "Where does a narrow Gobi gorge named for the lammergeier hold an ice field several meters thick?",
+  "note": "clue (tyrannosaur nest of 22 eggs) and fact ('Flaming Wall' fossils) describe the Flaming Cliffs, not this ice gorge; rewritten from the Yolyn Am article"
+ },
+ "ak-baital-pass": {
+  "v": "FIX",
+  "fact": "At 4,655 m this pass in Tajikistan's Gorno-Badakhshan region is the highest point of the M41, the Pamir Highway.",
+  "clue": "Where does the Pamir Highway reach its highest point, in Tajikistan's high Pamirs?",
+  "note": "'road from Kashgar to Dushanbe' wrong and winter ice cliffs unsupported; clue implied the pass is on the Tajik-Kyrgyz border (it lies inside Tajikistan)"
+ },
+ "lo-manthang-nepal": {
+  "v": "FIX",
+  "fact": "This walled town was the capital of the Kingdom of Lo from its founding in 1380 by Ame Pal, and foreigners have been allowed in only since 1992.",
+  "note": "1951 Chinese princess marriage fabricated"
+ },
+ "lothal-india": {
+  "v": "FIX",
+  "fact": "This Indus town in Gujarat's Bhal region was a planned township, and marine microfossils found in its dock show that sea water once filled it.",
+  "clue": "Where did an Indus town build one of the world's earliest known docks?",
+  "note": "bricks 'stamped with the year they were fired' fabricated; clue's 'world's oldest known port' contested (article: Wadi al-Jarf is older)"
+ },
+ "adams-bridge": {
+  "v": "FIX",
+  "fact": "The 48 km chain of limestone shoals between India and Sri Lanka is, in the Ramayana, a bridge built by Rama's army to reach Lanka.",
+  "note": "was 80 km (article: 48 km); sonar survey claim fabricated"
+ },
+ "versailles-palace": {
+  "v": "FIX",
+  "fact": "Versailles' Hall of Mirrors was added from 1678 to 1681, and in June 1919 the Treaty of Versailles ending the First World War was signed there.",
+  "note": "fountains running every day on Machine de Marly water unsupported; 357-mirror count not in the article"
+ },
+ "st-peters-basilica": {
+  "v": "FIX",
+  "fact": "St Peter's dome rises 136.6 metres, and the basilica took 120 years to build, from 1506 until its dedication in 1626.",
+  "note": "'second only to Florence's Duomo' false; 'four popes and nearly three centuries' false (1506 to 1626)"
+ },
+ "cologne-cathedral": {
+  "v": "KEEP",
+  "note": "1248 to 1880 = 632 years; spires survived WWII bombing"
+ },
+ "brandenburg-gate": {
+  "v": "FIX",
+  "fact": "Napoleon used the Brandenburg Gate for a triumphal procession in 1806 and took its Quadriga to Paris, but it came back to Berlin in 1814.",
+  "note": "'did not come home until 1958' false (restored 1814)"
+ },
+ "tower-of-london": {
+  "v": "FIX",
+  "fact": "The Tower of London has served as a royal palace, armoury, treasury, menagerie and prison, and it still holds the Crown Jewels of England.",
+  "note": "ravens 'kept since the Wild Men' fabricated; 'palace for four centuries before becoming a prison' wrong (first prisoner by 1100)"
+ },
+ "st-basils-cathedral": {
+  "v": "FIX",
+  "fact": "St Basil's was named after a holy fool and not after Basil the Great, and it was built from 1555 to 1561 to mark the capture of Kazan and Astrakhan.",
+  "note": "was 'built in 1561' (built 1555 to 1561)"
+ },
+ "acropolis-athens": {
+  "v": "FIX",
+  "fact": "The Parthenon's columns swell subtly and its corner columns are slightly displaced, refinements built into the temple between 447 and 432 BC.",
+  "note": "'2.4% thicker ... 2,400 years' precision unsupported; Parthenon article: entasis, displaced corner columns, 447 to 432 BC"
+ },
+ "sagrada-familia": {
+  "v": "FIX",
+  "fact": "Construction of the Sagrada Familia began in 1882, and when Gaudi died in 1926 the basilica was only 15 to 25 percent complete.",
+  "note": "plaster model photographed from an aeroplane fabricated"
+ },
+ "anne-frank-house": {
+  "v": "FIX",
+  "fact": "Miep Gies and Bep Voskuijl saved Anne Frank's diary after the family's arrest in 1944, and it was published in 1947.",
+  "note": "named the wrong people (Fritz Frank, Gies Huber) and year (1942); Miep Gies article"
+ },
+ "hungarian-parliament": {
+  "v": "FIX",
+  "fact": "Designed by Imre Steindl in neo-Gothic style and opened in 1902, the building was chosen partly because it resembled London's Palace of Westminster.",
+  "clue": "Where does the neo-Gothic parliament with 691 rooms face the Danube?",
+  "note": "'sited to stare back at the emperor's palace' unsupported; clue said 691 statues (the building has 691 rooms)"
+ },
+ "hermitage-museum": {
+  "v": "FIX",
+  "fact": "The Hermitage grew from the 225 or 317 paintings Catherine the Great acquired from the merchant Gotzkowsky in 1764, and it opened to the public in 1852.",
+  "note": "'Dutch auctions' wrong (Gotzkowsky sale; sources give 225 or 317); 'no public entrance for decades' recast as opened 1852"
+ },
+ "wawel-castle": {
+  "v": "FIX",
+  "fact": "Wawel Castle was the residence of Poland's kings for centuries, and a fire-breathing metal dragon now stands by the river below it.",
+  "clue": "Where did Poland's kings live for centuries in a castle on a hill above the Vistula?",
+  "note": "dragon breathes fire 'twice a day' unsupported; clue's 'a royal dynasty for five hundred years' wrong (several dynasties)"
+ },
+ "charles-bridge-prague": {
+  "v": "FIX",
+  "fact": "Charles Bridge was the only way across the Vltava in Prague until 1841, and legend says its first stone was laid at 5:31 a.m. on 9 July 1357.",
+  "note": "'crowning saint is Saint Wenceslas' unsupported; 'five hundred years' overstated (1357 to 1841)"
+ },
+ "prague-astronomical-clock": {
+  "v": "FIX",
+  "fact": "Prague's astronomical clock has run since 1410, when it was made by clockmaker Mikuláš of Kadaň and astronomer Jan Šindel.",
+  "note": "zodiac disc 'turns once for the 365 days' wrong"
+ },
+ "dubrovnik-city-walls": {
+  "v": "FIX",
+  "fact": "Dubrovnik's walls run unbroken for about 1,940 metres around most of the old city and rise as high as 25 metres.",
+  "note": "UNESCO 'three centuries' wording and '300 metres across' unsupported"
+ },
+ "bran-castle": {
+  "v": "FIX",
+  "fact": "Bran Castle was built by the Saxons of Kronstadt from 1377, and it later served as a customs post on the pass between Transylvania and Wallachia.",
+  "note": "was 'raised in 1378 ... as a customs post'; privilege 1377, customs role later"
+ },
+ "pompeii": {
+  "v": "FIX",
+  "fact": "Pompeii's plaster casts were made by pouring plaster into the hollows that decomposed bodies left in the ash, a technique devised by Giuseppe Fiorelli.",
+  "note": "'figures still frozen mid-stride stand in their shops' unsupported"
+ },
+ "hohensalzburg-fortress": {
+  "v": "FIX",
+  "fact": "Construction of Hohensalzburg began in 1077 under Archbishop Gebhard, and later archbishops kept expanding it to protect their power.",
+  "clue": "Where does one of Europe's largest medieval castles watch over the rooftops of Mozart's birthplace?",
+  "note": "'finished in 1077' wrong (begun 1077); bell legend fabricated; clue's '50 rooms' unsupported"
+ },
+ "matera-sassi": {
+  "v": "FIX",
+  "fact": "Matera's Sassi grew from a prehistoric cave settlement, and in the 1950s the government moved most of their residents into new public housing.",
+  "clue": "Where were cave homes dug into a ravine's rock lived in from prehistory until the 1950s?",
+  "note": "cardinal's hat in a drop of water fabricated; clue's 'people still live ... trodden out of a tuff cliff' wrong (calcareous rock, residents relocated in the 1950s)"
+ },
+ "alberobello-trulli": {
+  "v": "FIX",
+  "fact": "Alberobello's trulli were built of dry stone without mortar because the counts who owned the land from 1481 wanted homes that were easy to demolish.",
+  "note": "council masons claim unsupported"
+ },
+ "ness-of-brodgar": {
+  "v": "FIX",
+  "fact": "Activity at the Ness of Brodgar dates from around 3500 BC, and by 2200 BC the complex had been closed down and partly dismantled.",
+  "clue": "Where in Orkney did a Neolithic complex of stone buildings stand between the Ring of Brodgar and the Stones of Stenness?",
+  "note": "fact (dug in the 3100s BC, walled up, left to rot) fabricated; clue's 'dozen houses deliberately buried' unsupported"
+ },
+ "giants-causeway": {
+  "v": "KEEP",
+  "note": "about 40,000 basalt columns, 50 to 60 million years old; legend of a giant's causeway"
+ },
+ "blue-lagoon-iceland": {
+  "v": "FIX",
+  "fact": "The Blue Lagoon is not a natural hot spring at all: its water is the runoff of the nearby Svartsengi geothermal power station.",
+  "note": "'kept hot so the plant's pipes never freeze' fabricated"
+ },
+ "strokkur-geyser": {
+  "v": "FIX",
+  "fact": "Strokkur erupts every six to ten minutes, and the famous Geysir, a larger geyser that erupts far more rarely, lies just 50 metres to the north.",
+  "note": "Geysir 'erupted just once in modern times, for four days in 2018' fabricated"
+ },
+ "jokulsarlon-glacier-lagoon": {
+  "v": "FIX",
+  "fact": "Jökulsárlón is fed by Breiðamerkurjökull, an outlet glacier of the Vatnajökull ice cap, whose blocks of ice about 30 m high calve into the lagoon.",
+  "clue": "Where do icebergs calve off a glacier into a lagoon and roll out to sea through its shallow mouth?",
+  "note": "'bergs sink and resurface' unsupported; clue's 'within the hour' unsupported"
+ },
+ "kirkjufell-iceland": {
+  "v": "FIX",
+  "fact": "Kirkjufell means Church Mountain, and it appeared in Game of Thrones as the arrowhead mountain seen north of the Wall.",
+  "clue": "Where does an arrowhead-shaped hill, said to be its country's most photographed mountain, rise on a peninsula's north coast?",
+  "note": "'means misty mountain' false (Church Mountain); clue's 'little red church' unsupported"
+ },
+ "preikestolen-pulpit-rock": {
+  "v": "FIX",
+  "fact": "Pulpit Rock is a steep cliff rising 604 metres above Lysefjorden, with an almost flat top about 25 metres square.",
+  "note": "quarrying brothers fabricated"
+ },
+ "lake-bled": {
+  "v": "FIX",
+  "fact": "Lake Bled surrounds a small island with a pilgrimage church, and since 1740 a few local families have held the right to row pilgrims across.",
+  "note": "'wade across ... since 1788' fabricated (oarsmen since 1740); 'only natural island' not in the article"
+ },
+ "mount-elbrus": {
+  "v": "FIX",
+  "fact": "Elbrus tops out at 5,642 metres on its western summit, and its two dormant volcanic domes flank a saddle at 5,416 metres.",
+  "note": "three-kilometre rubble saddle claim fabricated"
+ },
+ "dettifoss": {
+  "v": "FIX",
+  "fact": "Dettifoss is 100 metres wide and drops 44 metres into the Jökulsárgljúfur canyon on the glacier-fed Jökulsá á Fjöllum river.",
+  "clue": "Where does one of Europe's most powerful waterfalls drop into a canyon of spray?",
+  "note": "'plunges 11 metres in two steps' wrong (44 m); clue's 'Europe's most powerful' (article: reputed second after the Rhine Falls)"
+ },
+ "loch-ness": {
+  "v": "FIX",
+  "fact": "Loch Ness reaches 227 metres in depth, and the 1934 surgeon's photograph that fed the monster legend was exposed as a hoax using a toy submarine.",
+  "note": "'photograph of a flipper ... thought to be a duck' false; Loch Ness Monster article"
+ },
+ "thingvellir": {
+  "v": "KEEP",
+  "note": "Mid-Atlantic Ridge rift; Althing 930 to 1798"
+ },
+ "auschwitz-birkenau": {
+  "v": "FIX",
+  "fact": "Of the 1.3 million people sent to Auschwitz, 1.1 million were murdered, and from 1942 trains brought Jews from across Europe to Birkenau's gas chambers.",
+  "note": "railway siding 'laid by prisoners' unsupported"
+ },
+ "chernobyl-reactor-4": {
+  "v": "FIX",
+  "fact": "In November 2016 a giant steel arch, the New Safe Confinement, was slid over Chernobyl's destroyed fourth reactor in a move that took 15 days.",
+  "note": "'25,000-tonne ... single 36-hour operation' wrong (14 to 29 November 2016); New Safe Confinement article"
+ },
+ "stone-of-destiny": {
+  "v": "FIX",
+  "fact": "Four Scottish students took the Stone of Destiny from Westminster Abbey on Christmas Day 1950, and since 2024 it has been on display in Perth Museum.",
+  "note": "'English undergraduates ... from Scone Abbey' wrong; 'now sits in Edinburgh Castle' outdated (Perth Museum since March 2024)"
+ },
+ "malbork-castle": {
+  "v": "FIX",
+  "fact": "Malbork Castle, built by the Teutonic Knights, was sold to King Casimir IV of Poland in 1457 and then served as a Polish royal residence until 1772.",
+  "clue": "Where did the Teutonic Knights build the largest castle in the world by land area?",
+  "note": "the known case: never dismantled or moved; clue's 'taken apart brick by brick and rebuilt 250 kilometres away' fabricated"
+ },
+ "newgrange": {
+  "v": "FIX",
+  "fact": "Newgrange is aligned to the winter solstice sunrise, when light shines through the roof box above the entrance into the inner chamber.",
+  "note": "'each December afternoon' wrong (sunrise); light no longer reaches the back wall"
+ },
+ "rock-of-cashel": {
+  "v": "FIX",
+  "fact": "Legend says the rock landed here when St Patrick banished Satan from a cave in the Devil's Bit, a mountain 30 km to the north.",
+  "clue": "Where was Brian Boru crowned in 977, on a rock fortress a later king of Munster gave to the Church in 1101?",
+  "note": "legend garbled (devil exempting the town from hell); clue's 'kings crowned until 1101' and 'devil cracked' wrong"
+ },
+ "wartburg-castle": {
+  "v": "FIX",
+  "fact": "In Wartburg Castle Martin Luther translated the New Testament from Greek into German in just ten weeks, while hiding there as Junker Jörg in 1521 and 1522.",
+  "note": "'about a fortnight' wrong (ten weeks); 'made him a fugitive' wrong (already hiding after Worms)"
+ },
+ "housesteads-hadrians-wall": {
+  "v": "FIX",
+  "fact": "Housesteads was built in stone around AD 124, on top of the wall's foundations, after a change of plan added forts to Hadrian's Wall.",
+  "note": "'garrisoned from about AD 122' wrong (wall begun 122, fort about 124); rampart silhouette claim unsupported"
+ },
+ "kizhi-pogost": {
+  "v": "FIX",
+  "fact": "Kizhi's Church of the Transfiguration was built of wood with no nails except in its domes and roof, where about 180,000 nails hold 60,000 shingles.",
+  "note": "'confirmed only in 1990 ... let them put some in' fabricated"
+ },
+ "brasilia-national-congress": {
+  "v": "KEEP",
+  "note": "Niemeyer design; dome and bowl chambers, twin towers"
+ },
+ "greek-theatre-of-taormina-d34-60": {
+  "v": "KEEP",
+  "note": "ancient Greek theatre, Etna view (stub but true)"
+ },
+ "hohenzollern-castle": {
+  "v": "FIX",
+  "fact": "The present castle, the third on the site, was built between 1846 and 1867 as a family memorial, and none of the three German Emperors ever lived in it.",
+  "note": "'around 700 years old', Berlin evacuees and last emperor's residence all wrong"
+ },
+ "matterhorn-summit": {
+  "v": "FIX",
+  "fact": "The first ascent in 1865, led by Edward Whymper, ended in tragedy when four of the seven climbers fell during the descent.",
+  "note": "name 'from its horn-like shape' unsupported (dropped)"
+ },
+ "zugspitze-summit": {
+  "v": "FIX",
+  "fact": "At 2,962 m it is Germany's highest mountain, and the Austrian border runs over its western summit, where a border checkpoint once stood.",
+  "note": "'complete with a customs hut' outdated (checkpoint no longer staffed)"
+ },
+ "hallstatt": {
+  "v": "FIX",
+  "fact": "Salt mined here since the Bronze Age funded the Hallstatt culture, and the ossuary at St Michael's Chapel holds more than 1,200 skulls, 600 of them painted.",
+  "note": "'1847 ossuary with 6,000 skulls beneath the chapel' wrong (more than 1,200 skulls)"
+ }
+}

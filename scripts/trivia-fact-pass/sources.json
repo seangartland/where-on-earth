@@ -1,0 +1,2178 @@
+{
+ "mount-fuji": {
+  "title": "Mount Fuji",
+  "extra": [],
+  "km": 0
+ },
+ "mount-kilimanjaro": {
+  "title": "Mount Kilimanjaro",
+  "extra": [],
+  "km": null
+ },
+ "easter-island": {
+  "title": "Easter Island",
+  "extra": [],
+  "km": 6
+ },
+ "mont-saint-michel": {
+  "title": "Mont-Saint-Michel",
+  "extra": [],
+  "km": 0
+ },
+ "neuschwanstein-castle": {
+  "title": "Neuschwanstein Castle",
+  "extra": [],
+  "km": 0
+ },
+ "serengeti-tanzania": {
+  "title": "Serengeti",
+  "extra": [],
+  "km": 0
+ },
+ "galapagos-islands": {
+  "title": "Galápagos Islands",
+  "extra": [],
+  "km": 78
+ },
+ "dead-sea": {
+  "title": "Dead Sea",
+  "extra": [],
+  "km": null
+ },
+ "hagia-sophia": {
+  "title": "Hagia Sophia",
+  "extra": [],
+  "km": 0
+ },
+ "terracotta-army": {
+  "title": "Terracotta Army",
+  "extra": [],
+  "km": 1
+ },
+ "salar-de-uyuni": {
+  "title": "Salar de Uyuni",
+  "extra": [],
+  "km": 0
+ },
+ "lalibela-ethiopia": {
+  "title": "Lalibela",
+  "extra": [
+   "Rock-Hewn Churches, Lalibela"
+  ],
+  "km": 101
+ },
+ "cappadocia-turkey": {
+  "title": "Cappadocia",
+  "extra": [],
+  "km": 4
+ },
+ "plitvice-lakes": {
+  "title": "Plitvice Lakes National Park",
+  "extra": [],
+  "km": 3
+ },
+ "timbuktu-mali": {
+  "title": "Timbuktu",
+  "extra": [],
+  "km": 1
+ },
+ "socotra-island": {
+  "title": "Socotra",
+  "extra": [],
+  "km": 12
+ },
+ "pamukkale-turkey": {
+  "title": "Pamukkale",
+  "extra": [],
+  "km": 0
+ },
+ "danakil-depression": {
+  "title": "Danakil Depression",
+  "extra": [],
+  "km": 0
+ },
+ "wadi-rum": {
+  "title": "Wadi Rum",
+  "extra": [],
+  "km": 2
+ },
+ "richat-structure": {
+  "title": "Richat Structure",
+  "extra": [],
+  "km": 1
+ },
+ "tristan-da-cunha": {
+  "title": "Tristan da Cunha",
+  "extra": [],
+  "km": 6
+ },
+ "challenger-deep": {
+  "title": "Challenger Deep",
+  "extra": [],
+  "km": 43
+ },
+ "mcmurdo-station": {
+  "title": "McMurdo Station",
+  "extra": [],
+  "km": 1
+ },
+ "vostok-station": {
+  "title": "Vostok Station",
+  "extra": [],
+  "km": 0
+ },
+ "pitcairn-island": {
+  "title": "Pitcairn Island",
+  "extra": [],
+  "km": 1
+ },
+ "alert-nunavut": {
+  "title": "Alert, Nunavut",
+  "extra": [],
+  "km": 0
+ },
+ "la-rinconada-peru": {
+  "title": "La Rinconada, Peru",
+  "extra": [],
+  "km": 127
+ },
+ "bouvet-island": {
+  "title": "Bouvet Island",
+  "extra": [],
+  "km": 1
+ },
+ "forbidden-city-beijing": {
+  "title": "Forbidden City",
+  "extra": [],
+  "km": 1
+ },
+ "topkapi-palace": {
+  "title": "Topkapı Palace",
+  "extra": [],
+  "km": 0
+ },
+ "gyeongbokgung-palace": {
+  "title": "Gyeongbokgung",
+  "extra": [],
+  "km": 0
+ },
+ "mount-everest-summit": {
+  "title": "Mount Everest",
+  "extra": [],
+  "km": 0
+ },
+ "borobudur": {
+  "title": "Borobudur",
+  "extra": [],
+  "km": 0
+ },
+ "leshan-giant-buddha": {
+  "title": "Leshan Giant Buddha",
+  "extra": [],
+  "km": 2
+ },
+ "ha-long-bay": {
+  "title": "Hạ Long Bay",
+  "extra": [],
+  "km": 2
+ },
+ "amber-fort-jaipur": {
+  "title": "Amber Fort",
+  "extra": [],
+  "km": 0
+ },
+ "fushimi-inari-taisha": {
+  "title": "Fushimi Inari-taisha",
+  "extra": [],
+  "km": 0
+ },
+ "registan-samarkand": {
+  "title": "Registan",
+  "extra": [],
+  "km": 0
+ },
+ "mogao-caves-dunhuang": {
+  "title": "Mogao Caves",
+  "extra": [],
+  "km": 17
+ },
+ "potala-palace-lhasa": {
+  "title": "Potala Palace",
+  "extra": [],
+  "km": 0
+ },
+ "mount-kinabalu": {
+  "title": "Mount Kinabalu",
+  "extra": [],
+  "km": 13
+ },
+ "sigiriya": {
+  "title": "Sigiriya",
+  "extra": [],
+  "km": 0
+ },
+ "bagan-myanmar": {
+  "title": "Bagan",
+  "extra": [],
+  "km": 0
+ },
+ "darvaza-gas-crater": {
+  "title": "Darvaza gas crater",
+  "extra": [],
+  "km": 0
+ },
+ "flaming-cliffs-bayanzag": {
+  "title": "Flaming Cliffs",
+  "extra": [],
+  "km": 29
+ },
+ "lake-issyk-kul": {
+  "title": "Issyk-Kul",
+  "extra": [],
+  "km": 44
+ },
+ "gobekli-tepe": {
+  "title": "Göbekli Tepe",
+  "extra": [],
+  "km": 0
+ },
+ "mohenjo-daro": {
+  "title": "Mohenjo-daro",
+  "extra": [],
+  "km": 1
+ },
+ "persepolis": {
+  "title": "Persepolis",
+  "extra": [
+   "Apadana"
+  ],
+  "km": 0
+ },
+ "nalanda-bihar": {
+  "title": "Nalanda mahavihara",
+  "extra": [],
+  "km": null
+ },
+ "fatehpur-sikri": {
+  "title": "Fatehpur Sikri",
+  "extra": [],
+  "km": 11
+ },
+ "polonnaruwa-sri-lanka": {
+  "title": "Polonnaruwa",
+  "extra": [
+   "Nissanka Malla"
+  ],
+  "km": 21
+ },
+ "marco-polo-bridge": {
+  "title": "Marco Polo Bridge",
+  "extra": [
+   "Marco Polo Bridge incident"
+  ],
+  "km": 0
+ },
+ "son-doong-vietnam": {
+  "title": "Hang Sơn Đoòng",
+  "extra": [],
+  "km": 22
+ },
+ "kharkhorin-mongolia": {
+  "title": "Kharkhorin",
+  "extra": [],
+  "km": 0
+ },
+ "dholavira-india": {
+  "title": "Dholavira",
+  "extra": [],
+  "km": 0
+ },
+ "yolyn-am-mongolia": {
+  "title": "Yolyn Am",
+  "extra": [],
+  "km": 1
+ },
+ "ak-baital-pass": {
+  "title": "Ak-Baital Pass",
+  "extra": [],
+  "km": 32
+ },
+ "lo-manthang-nepal": {
+  "title": "Lomanthang Rural Municipality",
+  "extra": [],
+  "km": 0
+ },
+ "lothal-india": {
+  "title": "Lothal",
+  "extra": [],
+  "km": 0
+ },
+ "adams-bridge": {
+  "title": "Adam's Bridge",
+  "extra": [],
+  "km": 35
+ },
+ "versailles-palace": {
+  "title": "Palace of Versailles",
+  "extra": [],
+  "km": 0
+ },
+ "st-peters-basilica": {
+  "title": "St. Peter's Basilica",
+  "extra": [],
+  "km": 0
+ },
+ "cologne-cathedral": {
+  "title": "Cologne Cathedral",
+  "extra": [],
+  "km": 0
+ },
+ "brandenburg-gate": {
+  "title": "Brandenburg Gate",
+  "extra": [],
+  "km": 0
+ },
+ "tower-of-london": {
+  "title": "Tower of London",
+  "extra": [],
+  "km": 0
+ },
+ "st-basils-cathedral": {
+  "title": "Saint Basil's Cathedral",
+  "extra": [],
+  "km": 0
+ },
+ "acropolis-athens": {
+  "title": "Acropolis of Athens",
+  "extra": [
+   "Parthenon"
+  ],
+  "km": 0
+ },
+ "sagrada-familia": {
+  "title": "Sagrada Família",
+  "extra": [],
+  "km": 0
+ },
+ "anne-frank-house": {
+  "title": "Anne Frank House",
+  "extra": [
+   "Miep Gies"
+  ],
+  "km": 0
+ },
+ "hungarian-parliament": {
+  "title": "Hungarian Parliament Building",
+  "extra": [],
+  "km": 1
+ },
+ "hermitage-museum": {
+  "title": "Hermitage Museum",
+  "extra": [],
+  "km": 0
+ },
+ "wawel-castle": {
+  "title": "Wawel Castle",
+  "extra": [],
+  "km": 0
+ },
+ "charles-bridge-prague": {
+  "title": "Charles Bridge",
+  "extra": [],
+  "km": 0
+ },
+ "prague-astronomical-clock": {
+  "title": "Prague astronomical clock",
+  "extra": [],
+  "km": 0
+ },
+ "dubrovnik-city-walls": {
+  "title": "Walls of Dubrovnik",
+  "extra": [],
+  "km": null
+ },
+ "bran-castle": {
+  "title": "Bran Castle",
+  "extra": [],
+  "km": 0
+ },
+ "pompeii": {
+  "title": "Pompeii",
+  "extra": [],
+  "km": 0
+ },
+ "hohensalzburg-fortress": {
+  "title": "Hohensalzburg Fortress",
+  "extra": [],
+  "km": 0
+ },
+ "matera-sassi": {
+  "title": "Matera",
+  "extra": [],
+  "km": null
+ },
+ "alberobello-trulli": {
+  "title": "Alberobello",
+  "extra": [],
+  "km": null
+ },
+ "ness-of-brodgar": {
+  "title": "Ness of Brodgar",
+  "extra": [],
+  "km": 18
+ },
+ "giants-causeway": {
+  "title": "Giant's Causeway",
+  "extra": [],
+  "km": 0
+ },
+ "blue-lagoon-iceland": {
+  "title": "Blue Lagoon (geothermal spa)",
+  "extra": [],
+  "km": 0
+ },
+ "strokkur-geyser": {
+  "title": "Strokkur",
+  "extra": [],
+  "km": 0
+ },
+ "jokulsarlon-glacier-lagoon": {
+  "title": "Jökulsárlón",
+  "extra": [],
+  "km": 3
+ },
+ "kirkjufell-iceland": {
+  "title": "Kirkjufell",
+  "extra": [],
+  "km": 0
+ },
+ "preikestolen-pulpit-rock": {
+  "title": "Preikestolen",
+  "extra": [],
+  "km": 1
+ },
+ "lake-bled": {
+  "title": "Lake Bled",
+  "extra": [],
+  "km": 0
+ },
+ "mount-elbrus": {
+  "title": "Mount Elbrus",
+  "extra": [],
+  "km": 0
+ },
+ "dettifoss": {
+  "title": "Dettifoss",
+  "extra": [],
+  "km": 0
+ },
+ "loch-ness": {
+  "title": "Loch Ness",
+  "extra": [
+   "Loch Ness Monster"
+  ],
+  "km": 10
+ },
+ "thingvellir": {
+  "title": "Þingvellir",
+  "extra": [],
+  "km": 4
+ },
+ "auschwitz-birkenau": {
+  "title": "Auschwitz concentration camp",
+  "extra": [],
+  "km": 0
+ },
+ "chernobyl-reactor-4": {
+  "title": "Chernobyl",
+  "extra": [
+   "Chernobyl New Safe Confinement"
+  ],
+  "km": 0
+ },
+ "stone-of-destiny": {
+  "title": "Stone of Scone",
+  "extra": [],
+  "km": 13
+ },
+ "malbork-castle": {
+  "title": "Malbork Castle",
+  "extra": [],
+  "km": 6
+ },
+ "newgrange": {
+  "title": "Newgrange",
+  "extra": [],
+  "km": 0
+ },
+ "rock-of-cashel": {
+  "title": "Rock of Cashel",
+  "extra": [],
+  "km": 0
+ },
+ "wartburg-castle": {
+  "title": "Wartburg",
+  "extra": [],
+  "km": 28
+ },
+ "housesteads-hadrians-wall": {
+  "title": "Housesteads Roman Fort",
+  "extra": [],
+  "km": 10
+ },
+ "kizhi-pogost": {
+  "title": "Kizhi Pogost",
+  "extra": [],
+  "km": 0
+ },
+ "brasilia-national-congress": {
+  "title": "Brazilian National Congress",
+  "extra": [],
+  "km": 0
+ },
+ "greek-theatre-of-taormina-d34-60": {
+  "title": "Ancient theatre of Taormina",
+  "extra": [],
+  "km": 0
+ },
+ "hohenzollern-castle": {
+  "title": "Hohenzollern Castle",
+  "extra": [],
+  "km": 0
+ },
+ "matterhorn-summit": {
+  "title": "Matterhorn",
+  "extra": [],
+  "km": 0
+ },
+ "zugspitze-summit": {
+  "title": "Zugspitze",
+  "extra": [],
+  "km": 0
+ },
+ "hallstatt": {
+  "title": "Hallstatt",
+  "extra": [],
+  "km": 0
+ },
+ "manarola": {
+  "title": "Manarola",
+  "extra": [],
+  "km": 3
+ },
+ "alcazar-of-segovia": {
+  "title": "Alcázar of Segovia",
+  "extra": [],
+  "km": 0
+ },
+ "plaza-de-espana-seville": {
+  "title": "Plaza de España, Seville",
+  "extra": [],
+  "km": 2
+ },
+ "prado-museum": {
+  "title": "Museo del Prado",
+  "extra": [],
+  "km": 0
+ },
+ "santiago-de-compostela-cathedral": {
+  "title": "Santiago de Compostela Cathedral",
+  "extra": [],
+  "km": 0
+ },
+ "roman-baths-bath": {
+  "title": "Roman Baths (Bath)",
+  "extra": [],
+  "km": 0
+ },
+ "kotors-old-town": {
+  "title": "Kotor",
+  "extra": [],
+  "km": 1
+ },
+ "cesky-krumlov-castle": {
+  "title": "Český Krumlov Castle",
+  "extra": [],
+  "km": 0
+ },
+ "kjeragbolten": {
+  "title": "Kjeragbolten",
+  "extra": [],
+  "km": 10
+ },
+ "trolltunga": {
+  "title": "Trolltunga",
+  "extra": [],
+  "km": 1
+ },
+ "cape-point": {
+  "title": "Cape Point",
+  "extra": [],
+  "km": 7641
+ },
+ "lake-manyara": {
+  "title": "Lake Manyara",
+  "extra": [],
+  "km": 4
+ },
+ "hell-gate-national-park": {
+  "title": "Hell's Gate National Park",
+  "extra": [],
+  "km": 35
+ },
+ "sossusvlei": {
+  "title": "Sossusvlei",
+  "extra": [],
+  "km": 1
+ },
+ "fish-river-canyon": {
+  "title": "Fish River Canyon",
+  "extra": [],
+  "km": 35
+ },
+ "cape-coast-castle": {
+  "title": "Cape Coast Castle",
+  "extra": [],
+  "km": 1
+ },
+ "piton-de-la-fournaise": {
+  "title": "Piton de la Fournaise",
+  "extra": [],
+  "km": 1
+ },
+ "sensoji-temple": {
+  "title": "Sensō-ji",
+  "extra": [],
+  "km": 0
+ },
+ "kinkakuji": {
+  "title": "Kinkaku-ji",
+  "extra": [],
+  "km": 0
+ },
+ "himeji-castle": {
+  "title": "Himeji Castle",
+  "extra": [],
+  "km": 0
+ },
+ "itsukushima-shrine": {
+  "title": "Itsukushima Shrine",
+  "extra": [],
+  "km": null
+ },
+ "shuri-castle": {
+  "title": "Shuri Castle",
+  "extra": [],
+  "km": 4
+ },
+ "bulguksa": {
+  "title": "Bulguksa",
+  "extra": [],
+  "km": 0
+ },
+ "mutianyu": {
+  "title": "Mutianyu",
+  "extra": [],
+  "km": 1
+ },
+ "pingyao-ancient-city": {
+  "title": "Pingyao",
+  "extra": [],
+  "km": 2
+ },
+ "petronas-towers": {
+  "title": "Petronas Towers",
+  "extra": [],
+  "km": 0
+ },
+ "mount-bromo": {
+  "title": "Mount Bromo",
+  "extra": [],
+  "km": 0
+ },
+ "chocolate-hills": {
+  "title": "Chocolate Hills",
+  "extra": [],
+  "km": 28
+ },
+ "mayon-volcano": {
+  "title": "Mayon",
+  "extra": [],
+  "km": 0
+ },
+ "phong-nha-ke-bang": {
+  "title": "Phong Nha–Kẻ Bàng National Park",
+  "extra": [],
+  "km": 10
+ },
+ "hoi-an": {
+  "title": "Hội An",
+  "extra": [],
+  "km": null
+ },
+ "tigers-nest": {
+  "title": "Paro Taktsang",
+  "extra": [],
+  "km": 8
+ },
+ "konark-sun-temple": {
+  "title": "Konark Sun Temple",
+  "extra": [],
+  "km": 0
+ },
+ "sheikh-zayed-mosque": {
+  "title": "Sheikh Zayed Grand Mosque",
+  "extra": [],
+  "km": 0
+ },
+ "badshahi-mosque": {
+  "title": "Badshahi Mosque",
+  "extra": [],
+  "km": 0
+ },
+ "monument-valley": {
+  "title": "Monument Valley",
+  "extra": [],
+  "km": 7
+ },
+ "bryce-canyon": {
+  "title": "Bryce Canyon National Park",
+  "extra": [],
+  "km": 1
+ },
+ "yosemite-valley": {
+  "title": "Yosemite Valley",
+  "extra": [],
+  "km": 5
+ },
+ "brooklyn-bridge": {
+  "title": "Brooklyn Bridge",
+  "extra": [],
+  "km": 0
+ },
+ "kennedy-space-center": {
+  "title": "Kennedy Space Center",
+  "extra": [],
+  "km": 1
+ },
+ "badwater-basin": {
+  "title": "Badwater Basin",
+  "extra": [],
+  "km": 2
+ },
+ "okefenokee-swamp": {
+  "title": "Okefenokee Swamp",
+  "extra": [],
+  "km": 6
+ },
+ "chateau-frontenac": {
+  "title": "Château Frontenac",
+  "extra": [],
+  "km": 0
+ },
+ "teotihuacan": {
+  "title": "Teotihuacan",
+  "extra": [],
+  "km": 0
+ },
+ "copper-canyon": {
+  "title": "Copper Canyon",
+  "extra": [],
+  "km": 5
+ },
+ "tikal": {
+  "title": "Tikal",
+  "extra": [],
+  "km": 0
+ },
+ "pitons-of-saint-lucia": {
+  "title": "Pitons (Saint Lucia)",
+  "extra": [],
+  "km": 6
+ },
+ "jericoacoara": {
+  "title": "Jericoacoara Beach",
+  "extra": [],
+  "km": 1
+ },
+ "lencois-maranhenses": {
+  "title": "Lençóis Maranhenses National Park",
+  "extra": [],
+  "km": 6
+ },
+ "ciudad-perdida": {
+  "title": "Ciudad Perdida",
+  "extra": [],
+  "km": 186
+ },
+ "kakadu": {
+  "title": "Kakadu National Park",
+  "extra": [],
+  "km": 24
+ },
+ "three-sisters-blue-mountains": {
+  "title": "Three Sisters (Australia)",
+  "extra": [],
+  "km": null
+ },
+ "mount-kosciuszko": {
+  "title": "Mount Kosciuszko",
+  "extra": [],
+  "km": 35
+ },
+ "lake-tekapo": {
+  "title": "Lake Tekapo",
+  "extra": [],
+  "km": 14
+ },
+ "waitomo-caves": {
+  "title": "Waitomo",
+  "extra": [],
+  "km": 1
+ },
+ "penicillin-st-marys-london": {
+  "title": "St Mary's Hospital, London",
+  "extra": [],
+  "km": 0
+ },
+ "dna-cavendish-cambridge": {
+  "title": "Cavendish Laboratory",
+  "extra": [],
+  "km": 2
+ },
+ "chicago-pile-one-stagg-field": {
+  "title": "Nuclear Energy (sculpture)",
+  "extra": [],
+  "km": 0
+ },
+ "transistor-bell-labs-murray-hill": {
+  "title": "Murray Hill, New Jersey",
+  "extra": [],
+  "km": 1
+ },
+ "higgs-boson-cern-atlas": {
+  "title": "ATLAS experiment",
+  "extra": [],
+  "km": 0
+ },
+ "pulsar-discovery-mullard": {
+  "title": "Mullard Radio Astronomy Observatory",
+  "extra": [],
+  "km": 0
+ },
+ "dolly-cloning-roslin": {
+  "title": "Roslin Institute",
+  "extra": [],
+  "km": 0
+ },
+ "first-heart-transplant-groote-schuur": {
+  "title": "Groote Schuur Hospital",
+  "extra": [],
+  "km": 0
+ },
+ "first-powered-flight-kill-devil-hills": {
+  "title": "Wright Brothers National Memorial",
+  "extra": [],
+  "km": 0
+ },
+ "edison-light-menlo-park": {
+  "title": "Menlo Park, New Jersey",
+  "extra": [],
+  "km": 0
+ },
+ "arpanet-first-message-ucla": {
+  "title": "UCLA Samueli School of Engineering",
+  "extra": [],
+  "km": 0
+ },
+ "first-atm-enfield": {
+  "title": "Barclays Bank, Enfield",
+  "extra": [],
+  "km": 0
+ },
+ "woodstock-max-yasgur-farm": {
+  "title": "Bethel Woods Center for the Arts",
+  "extra": [],
+  "km": 1
+ },
+ "beatles-rooftop-concert": {
+  "title": "The Beatles' rooftop concert",
+  "extra": [],
+  "km": 0
+ },
+ "lunch-atop-skyscraper-rockefeller": {
+  "title": "30 Rockefeller Plaza",
+  "extra": [],
+  "km": 0
+ },
+ "tank-man-changan-avenue": {
+  "title": "Tank Man",
+  "extra": [],
+  "km": 0
+ },
+ "iwo-jima-flag-raising": {
+  "title": "Mount Suribachi",
+  "extra": [],
+  "km": 0
+ },
+ "jaws-menemsha-harbor": {
+  "title": "Menemsha, Massachusetts",
+  "extra": [],
+  "km": 0
+ },
+ "lord-of-rings-hobbiton-film-set": {
+  "title": "Hobbiton Movie Set",
+  "extra": [],
+  "km": 0
+ },
+ "burning-man-first-baker-beach": {
+  "title": "Baker Beach",
+  "extra": [],
+  "km": 0
+ },
+ "krakatoa-1883-eruption": {
+  "title": "Anak Krakatoa",
+  "extra": [],
+  "km": 0
+ },
+ "tambora-1815-eruption": {
+  "title": "Mount Tambora",
+  "extra": [],
+  "km": 1
+ },
+ "mount-st-helens-1980": {
+  "title": "2004–2008 volcanic activity of Mount St. Helens",
+  "extra": [],
+  "km": 1
+ },
+ "tunguska-event-epicenter": {
+  "title": "Tunguska event",
+  "extra": [],
+  "km": 2
+ },
+ "lituya-bay-megatsunami": {
+  "title": "Lituya Bay",
+  "extra": [],
+  "km": 1
+ },
+ "hunga-tonga-2022-eruption": {
+  "title": "Hunga Tonga–Hunga Haʻapai",
+  "extra": [],
+  "km": 1
+ },
+ "barringer-meteor-impact": {
+  "title": "Meteor Crater",
+  "extra": [],
+  "km": 0
+ },
+ "roanoke-lost-colony": {
+  "title": "Fort Raleigh National Historic Site",
+  "extra": [],
+  "km": 0
+ },
+ "flannan-isles-lighthouse-mystery": {
+  "title": "Flannan Isles Lighthouse",
+  "extra": [],
+  "km": 0
+ },
+ "hinterkaifeck-murders": {
+  "title": "Hinterkaifeck murders",
+  "extra": [],
+  "km": 0
+ },
+ "isdal-woman-discovery": {
+  "title": "Isdal Woman",
+  "extra": [],
+  "km": null
+ },
+ "miracle-on-ice-arena": {
+  "title": "Herb Brooks Arena",
+  "extra": [],
+  "km": 0
+ },
+ "hand-of-god-azteca": {
+  "title": "Estadio Azteca",
+  "extra": [],
+  "km": 0
+ },
+ "rumble-in-the-jungle": {
+  "title": "Stade Tata Raphaël",
+  "extra": [],
+  "km": 2
+ },
+ "first-four-minute-mile-iffley": {
+  "title": "Roger Bannister running track",
+  "extra": [],
+  "km": 1
+ },
+ "beamon-long-jump-1968": {
+  "title": "Estadio Olímpico Universitario",
+  "extra": [],
+  "km": 0
+ },
+ "secretariat-belmont-1973": {
+  "title": "Belmont Park",
+  "extra": [],
+  "km": 0
+ },
+ "golden-spike-promontory-summit": {
+  "title": "Golden Spike National Historical Park",
+  "extra": [],
+  "km": 0
+ },
+ "gagarin-launch-pad-one": {
+  "title": "Gagarin's Start",
+  "extra": [],
+  "km": 0
+ },
+ "lindbergh-spirit-st-louis-landing": {
+  "title": "Paris–Le Bourget Airport",
+  "extra": [],
+  "km": 1
+ },
+ "bloody-sunday-selma-bridge": {
+  "title": "Edmund Pettus Bridge",
+  "extra": [],
+  "km": 0
+ },
+ "magna-carta-runnymede": {
+  "title": "Runnymede",
+  "extra": [],
+  "km": 0
+ },
+ "lincoln-assassination-fords-theatre": {
+  "title": "Ford's Theatre",
+  "extra": [],
+  "km": 0
+ },
+ "jfk-assassination-dealey-plaza": {
+  "title": "Dealey Plaza",
+  "extra": [],
+  "km": 0
+ },
+ "mlk-assassination-lorraine-motel": {
+  "title": "National Civil Rights Museum",
+  "extra": [],
+  "km": 0
+ },
+ "gandhi-assassination-birla-house": {
+  "title": "Gandhi Smriti",
+  "extra": [],
+  "km": 0
+ },
+ "triangle-shirtwaist-fire": {
+  "title": "Triangle Shirtwaist Factory fire",
+  "extra": [],
+  "km": 0
+ },
+ "bhopal-gas-disaster-plant": {
+  "title": "Bhopal disaster",
+  "extra": [],
+  "km": 0
+ },
+ "hindenburg-lakehurst": {
+  "title": "Hindenburg disaster",
+  "extra": [],
+  "km": 0
+ },
+ "halifax-explosion-narrows": {
+  "title": "Halifax Explosion",
+  "extra": [],
+  "km": null
+ },
+ "stonewall-uprising": {
+  "title": "Stonewall Inn",
+  "extra": [],
+  "km": 0
+ },
+ "fall-of-berlin-wall-bornholmer": {
+  "title": "Bornholmer Straße border crossing",
+  "extra": [],
+  "km": 0
+ },
+ "mandela-rivonia-arrest-liliesleaf": {
+  "title": "Liliesleaf Farm",
+  "extra": [],
+  "km": 0
+ },
+ "munich-olympic-hostage-site": {
+  "title": "Munich massacre",
+  "extra": [],
+  "km": 0
+ },
+ "ali-olympic-cauldron-atlanta": {
+  "title": "Centennial Olympic Stadium",
+  "extra": [],
+  "km": 0
+ },
+ "freedom-speech-lincoln-memorial": {
+  "title": "Lincoln Memorial",
+  "extra": [],
+  "km": 0
+ },
+ "first-oscar-ceremony-roosevelt": {
+  "title": "Hollywood Roosevelt Hotel",
+  "extra": [],
+  "km": 0
+ },
+ "elvis-sun-studio-first-single": {
+  "title": "Sun Studio",
+  "extra": [],
+  "km": 0
+ },
+ "montgomery-bus-boycott-church": {
+  "title": "Holt Street Baptist Church",
+  "extra": [],
+  "km": 1
+ },
+ "bastei-bridge-germany": {
+  "title": "Bastei",
+  "extra": [],
+  "km": 0
+ },
+ "ait-benhaddou-ksar": {
+  "title": "Aït Benhaddou",
+  "extra": [],
+  "km": 0
+ },
+ "derawar-fort-pakistan": {
+  "title": "Derawar Fort",
+  "extra": [],
+  "km": 0
+ },
+ "kuelap-fortress-peru": {
+  "title": "Kuélap",
+  "extra": [],
+  "km": 1
+ },
+ "hegra-qasr-al-farid": {
+  "title": "Hegra",
+  "extra": [],
+  "km": 0
+ },
+ "gjirokaster-fortress-albania": {
+  "title": "Gjirokastër Fortress",
+  "extra": [],
+  "km": 0
+ },
+ "dallol-hydrothermal-field": {
+  "title": "Dallol (hydrothermal system)",
+  "extra": [],
+  "km": null
+ },
+ "sacsayhuaman-cusco": {
+  "title": "Sacsayhuamán",
+  "extra": [],
+  "km": 0
+ },
+ "chand-baori-abhaneri": {
+  "title": "Chand Baori",
+  "extra": [],
+  "km": 0
+ },
+ "predjama-castle-slovenia": {
+  "title": "Predjama Castle",
+  "extra": [],
+  "km": 0
+ },
+ "kailasa-temple-ellora": {
+  "title": "Kailasa Temple, Ellora",
+  "extra": [],
+  "km": 0
+ },
+ "pont-du-gard-aqueduct": {
+  "title": "Pont du Gard",
+  "extra": [],
+  "km": 0
+ },
+ "buzludzha-monument-bulgaria": {
+  "title": "Buzludzha monument",
+  "extra": [],
+  "km": null
+ },
+ "trakai-island-castle": {
+  "title": "Trakai Island Castle",
+  "extra": [],
+  "km": 0
+ },
+ "meteora-greece": {
+  "title": "Meteora",
+  "extra": [],
+  "km": 1
+ },
+ "zhangjiajie-national-forest-park": {
+  "title": "Zhangjiajie",
+  "extra": [],
+  "km": 24
+ },
+ "punakha-dzong-confluence": {
+  "title": "Punakha Dzong",
+  "extra": [],
+  "km": 0
+ },
+ "eilean-donan-tidal-castle": {
+  "title": "Eilean Donan",
+  "extra": [],
+  "km": 0
+ },
+ "atomium-iron-crystal": {
+  "title": "Atomium",
+  "extra": [],
+  "km": 0
+ },
+ "vardzia-cliff-monastery": {
+  "title": "Vardzia",
+  "extra": [],
+  "km": 0
+ },
+ "dunnottar-headland-fortress": {
+  "title": "Dunnottar Castle",
+  "extra": [],
+  "km": 0
+ },
+ "elmina-castle-gold-coast": {
+  "title": "Elmina Castle",
+  "extra": [],
+  "km": 0
+ },
+ "our-lady-peace-basilica": {
+  "title": "Basilica of Our Lady of Peace",
+  "extra": [],
+  "km": 0
+ },
+ "rani-ki-vav-stepwell": {
+  "title": "Rani ki Vav",
+  "extra": [],
+  "km": 0
+ },
+ "tatev-gorge-monastery": {
+  "title": "Tatev Monastery",
+  "extra": [],
+  "km": 0
+ },
+ "kasubi-royal-tombs": {
+  "title": "Kasubi Tombs",
+  "extra": [],
+  "km": 0
+ },
+ "zipaquira-salt-cathedral": {
+  "title": "Salt Cathedral of Zipaquirá",
+  "extra": [],
+  "km": 0
+ },
+ "citadelle-laferriere-mountaintop": {
+  "title": "Citadelle Laferrière",
+  "extra": [],
+  "km": 0
+ },
+ "brimstone-hill-fortress": {
+  "title": "Brimstone Hill Fortress National Park",
+  "extra": [],
+  "km": 0
+ },
+ "ani-cathedral-ruin": {
+  "title": "Cathedral of Ani",
+  "extra": [],
+  "km": 0
+ },
+ "larabanga-adobe-mosque": {
+  "title": "Larabanga Mosque",
+  "extra": [],
+  "km": 0
+ },
+ "katskhi-pillar-hermitage": {
+  "title": "Katskhi Pillar",
+  "extra": [],
+  "km": 0
+ },
+ "banteay-chhmar-face-towers": {
+  "title": "Banteay Chhmar",
+  "extra": [],
+  "km": 0
+ },
+ "khami-stone-terraces": {
+  "title": "Khami",
+  "extra": [],
+  "km": 5
+ },
+ "quilmes-hillside-ruins": {
+  "title": "Ruins of Quilmes",
+  "extra": [],
+  "km": 0
+ },
+ "humberstone-saltpeter-works": {
+  "title": "Humberstone and Santa Laura Saltpeter Works",
+  "extra": [],
+  "km": 1
+ },
+ "haamonga-trilithon": {
+  "title": "Haʻamonga ʻa Maui",
+  "extra": [],
+  "km": 0
+ },
+ "sewell-mining-stairways": {
+  "title": "Sewell, Chile",
+  "extra": [],
+  "km": 0
+ },
+ "san-ignacio-mini-mission": {
+  "title": "San Ignacio Miní",
+  "extra": [],
+  "km": 2
+ },
+ "larnach-castle-otago": {
+  "title": "Larnach Castle",
+  "extra": [],
+  "km": 0
+ },
+ "yapahuwa-rock-citadel": {
+  "title": "Yapahuwa",
+  "extra": [],
+  "km": 0
+ },
+ "xian-cn": {
+  "title": "Xi'an",
+  "extra": [],
+  "km": 1
+ },
+ "pudong-cn": {
+  "title": "Pudong",
+  "extra": [],
+  "km": 1
+ },
+ "salvador-br": {
+  "title": "Salvador, Bahia",
+  "extra": [],
+  "km": 2
+ },
+ "manaus-br": {
+  "title": "Manaus",
+  "extra": [],
+  "km": 2
+ },
+ "luoyang-cn": {
+  "title": "Luoyang",
+  "extra": [],
+  "km": 6
+ },
+ "madinah-sa": {
+  "title": "Medina",
+  "extra": [],
+  "km": 0
+ },
+ "trujillo-pe": {
+  "title": "Trujillo, Peru",
+  "extra": [],
+  "km": 0
+ },
+ "mount-pinatubo": {
+  "title": "Mount Pinatubo",
+  "extra": [],
+  "km": 0
+ },
+ "geneva": {
+  "title": "Geneva",
+  "extra": [],
+  "km": 0
+ },
+ "muscat": {
+  "title": "Muscat",
+  "extra": [],
+  "km": 0
+ },
+ "mount-rinjani": {
+  "title": "Mount Rinjani",
+  "extra": [],
+  "km": 0
+ },
+ "macau": {
+  "title": "Macau",
+  "extra": [],
+  "km": 0
+ },
+ "great-ocean-road": {
+  "title": "Great Ocean Road",
+  "extra": [],
+  "km": 0
+ },
+ "nara": {
+  "title": "Nara (city)",
+  "extra": [],
+  "km": 0
+ },
+ "gold-coast": {
+  "title": "Gold Coast, Queensland",
+  "extra": [],
+  "km": 0
+ },
+ "great-blue-hole": {
+  "title": "Great Blue Hole",
+  "extra": [],
+  "km": 0
+ },
+ "suez-canal": {
+  "title": "Suez Canal",
+  "extra": [],
+  "km": 0
+ },
+ "mississippi-river": {
+  "title": "Mississippi River",
+  "extra": [],
+  "km": 0
+ },
+ "mount-erebus": {
+  "title": "Mount Erebus",
+  "extra": [],
+  "km": 0
+ },
+ "lake-titicaca": {
+  "title": "Lake Titicaca",
+  "extra": [],
+  "km": 0
+ },
+ "victoria-peak": {
+  "title": "Victoria Peak",
+  "extra": [],
+  "km": 0
+ },
+ "tel-aviv": {
+  "title": "Tel Aviv",
+  "extra": [],
+  "km": 0
+ },
+ "luxembourg-city": {
+  "title": "Luxembourg City",
+  "extra": [],
+  "km": 0
+ },
+ "valletta": {
+  "title": "Valletta",
+  "extra": [],
+  "km": 0
+ },
+ "belfast": {
+  "title": "Belfast",
+  "extra": [],
+  "km": 0
+ },
+ "palma-de-mallorca": {
+  "title": "Palma de Mallorca",
+  "extra": [],
+  "km": 0
+ },
+ "franz-josef-glacier": {
+  "title": "Franz Josef Glacier",
+  "extra": [],
+  "km": 0
+ },
+ "nice": {
+  "title": "Nice",
+  "extra": [],
+  "km": 0
+ },
+ "monaco": {
+  "title": "Monaco",
+  "extra": [],
+  "km": 0
+ },
+ "nuremberg": {
+  "title": "Nuremberg",
+  "extra": [],
+  "km": 0
+ },
+ "bering-strait": {
+  "title": "Bering Strait",
+  "extra": [],
+  "km": 0
+ },
+ "san-juan": {
+  "title": "San Juan, Puerto Rico",
+  "extra": [],
+  "km": 0
+ },
+ "strait-of-gibraltar": {
+  "title": "Strait of Gibraltar",
+  "extra": [],
+  "km": 0
+ },
+ "orlando": {
+  "title": "Orlando, Florida",
+  "extra": [],
+  "km": 0
+ },
+ "baltimore": {
+  "title": "Baltimore",
+  "extra": [],
+  "km": 0
+ },
+ "pittsburgh": {
+  "title": "Pittsburgh",
+  "extra": [],
+  "km": 0
+ },
+ "kansas-city": {
+  "title": "Kansas City, Missouri",
+  "extra": [],
+  "km": 0
+ },
+ "cincinnati": {
+  "title": "Cincinnati",
+  "extra": [],
+  "km": 0
+ },
+ "milwaukee": {
+  "title": "Milwaukee",
+  "extra": [],
+  "km": 0
+ },
+ "salt-lake-city": {
+  "title": "Salt Lake City",
+  "extra": [],
+  "km": 0
+ },
+ "santa-fe": {
+  "title": "Santa Fe, New Mexico",
+  "extra": [],
+  "km": 0
+ },
+ "savannah": {
+  "title": "Savannah, Georgia",
+  "extra": [],
+  "km": 0
+ },
+ "charleston": {
+  "title": "Charleston, South Carolina",
+  "extra": [],
+  "km": 0
+ },
+ "key-west": {
+  "title": "Key West",
+  "extra": [],
+  "km": 0
+ },
+ "victoria": {
+  "title": "Victoria, British Columbia",
+  "extra": [],
+  "km": 0
+ },
+ "missouri-river": {
+  "title": "Missouri River",
+  "extra": [],
+  "km": 0
+ },
+ "banff": {
+  "title": "Banff, Alberta",
+  "extra": [],
+  "km": 0
+ },
+ "darwin": {
+  "title": "Darwin, Northern Territory",
+  "extra": [],
+  "km": 0
+ },
+ "alice-springs": {
+  "title": "Alice Springs",
+  "extra": [],
+  "km": 0
+ },
+ "cairns": {
+  "title": "Cairns",
+  "extra": [],
+  "km": 0
+ },
+ "colorado-river": {
+  "title": "Colorado River",
+  "extra": [],
+  "km": 0
+ },
+ "rocky-mountains": {
+  "title": "Rocky Mountains",
+  "extra": [],
+  "km": 0
+ },
+ "caspian-sea": {
+  "title": "Caspian Sea",
+  "extra": [],
+  "km": 0
+ },
+ "mount-etna": {
+  "title": "Mount Etna",
+  "extra": [],
+  "km": 0
+ },
+ "mount-vesuvius": {
+  "title": "Mount Vesuvius",
+  "extra": [],
+  "km": 0
+ },
+ "mont-blanc": {
+  "title": "Mont Blanc",
+  "extra": [],
+  "km": 0
+ },
+ "jungfrau": {
+  "title": "Jungfrau",
+  "extra": [],
+  "km": 0
+ },
+ "lake-como": {
+  "title": "Lake Como",
+  "extra": [],
+  "km": 0
+ },
+ "cliffs-of-moher": {
+  "title": "Cliffs of Moher",
+  "extra": [],
+  "km": 0
+ },
+ "snowdon": {
+  "title": "Snowdon",
+  "extra": [],
+  "km": 0
+ },
+ "ben-nevis": {
+  "title": "Ben Nevis",
+  "extra": [],
+  "km": 0
+ },
+ "black-forest": {
+  "title": "Black Forest",
+  "extra": [],
+  "km": 0
+ },
+ "rhine-falls": {
+  "title": "Rhine Falls",
+  "extra": [],
+  "km": 0
+ },
+ "danube-delta": {
+  "title": "Danube Delta",
+  "extra": [],
+  "km": 0
+ },
+ "lake-ohrid": {
+  "title": "Lake Ohrid",
+  "extra": [],
+  "km": 0
+ },
+ "mount-ararat": {
+  "title": "Mount Ararat",
+  "extra": [],
+  "km": 0
+ },
+ "amazon-river": {
+  "title": "Amazon River",
+  "extra": [],
+  "km": 0
+ },
+ "congo-river": {
+  "title": "Congo River",
+  "extra": [],
+  "km": 0
+ },
+ "lake-tanganyika": {
+  "title": "Lake Tanganyika",
+  "extra": [],
+  "km": 0
+ },
+ "okavango-delta": {
+  "title": "Okavango Delta",
+  "extra": [],
+  "km": 0
+ },
+ "mount-nemrut": {
+  "title": "Mount Nemrut",
+  "extra": [],
+  "km": 0
+ },
+ "lake-baikal": {
+  "title": "Lake Baikal",
+  "extra": [],
+  "km": 0
+ },
+ "mount-aso": {
+  "title": "Mount Aso",
+  "extra": [],
+  "km": 0
+ },
+ "jeju-island": {
+  "title": "Jeju Island",
+  "extra": [],
+  "km": 0
+ },
+ "gobi-desert": {
+  "title": "Gobi Desert",
+  "extra": [],
+  "km": 0
+ },
+ "mount-kailash": {
+  "title": "Mount Kailash",
+  "extra": [],
+  "km": 0
+ },
+ "mount-damavand": {
+  "title": "Mount Damavand",
+  "extra": [],
+  "km": 0
+ },
+ "aral-sea": {
+  "title": "Aral Sea",
+  "extra": [],
+  "km": 0
+ },
+ "zion-national-park": {
+  "title": "Zion National Park",
+  "extra": [],
+  "km": 0
+ },
+ "sequoia-national-park": {
+  "title": "Sequoia National Park",
+  "extra": [],
+  "km": 0
+ },
+ "redwood-national-and-state-parks": {
+  "title": "Redwood National and State Parks",
+  "extra": [],
+  "km": 0
+ },
+ "rocky-mountain-national-park": {
+  "title": "Rocky Mountain National Park",
+  "extra": [],
+  "km": 0
+ },
+ "glacier-national-park": {
+  "title": "Glacier National Park (U.S.)",
+  "extra": [],
+  "km": 0
+ },
+ "everglades-national-park": {
+  "title": "Everglades National Park",
+  "extra": [],
+  "km": 0
+ },
+ "acadia-national-park": {
+  "title": "Acadia National Park",
+  "extra": [],
+  "km": 0
+ },
+ "joshua-tree-national-park": {
+  "title": "Joshua Tree National Park",
+  "extra": [],
+  "km": 0
+ },
+ "death-valley-national-park": {
+  "title": "Death Valley National Park",
+  "extra": [],
+  "km": 0
+ },
+ "lake-tahoe": {
+  "title": "Lake Tahoe",
+  "extra": [],
+  "km": 0
+ },
+ "mount-rainier": {
+  "title": "Mount Rainier",
+  "extra": [],
+  "km": 0
+ },
+ "denali": {
+  "title": "Denali",
+  "extra": [],
+  "km": 0
+ },
+ "crater-lake": {
+  "title": "Crater Lake",
+  "extra": [],
+  "km": 0
+ },
+ "banff-national-park": {
+  "title": "Banff National Park",
+  "extra": [],
+  "km": 0
+ },
+ "jasper-national-park": {
+  "title": "Jasper National Park",
+  "extra": [],
+  "km": 0
+ },
+ "florida-keys": {
+  "title": "Florida Keys",
+  "extra": [],
+  "km": 0
+ },
+ "cape-cod": {
+  "title": "Cape Cod",
+  "extra": [],
+  "km": 0
+ },
+ "outer-banks": {
+  "title": "Outer Banks",
+  "extra": [],
+  "km": 0
+ },
+ "napa-valley-ava": {
+  "title": "Napa Valley AVA",
+  "extra": [],
+  "km": 0
+ },
+ "waikiki": {
+  "title": "Waikīkī",
+  "extra": [],
+  "km": 0
+ },
+ "na-pali-coast-state-park": {
+  "title": "Nā Pali Coast State Park",
+  "extra": [],
+  "km": 0
+ },
+ "graceland": {
+  "title": "Graceland",
+  "extra": [],
+  "km": 0
+ },
+ "fenway-park": {
+  "title": "Fenway Park",
+  "extra": [],
+  "km": 0
+ },
+ "wrigley-field": {
+  "title": "Wrigley Field",
+  "extra": [],
+  "km": 0
+ },
+ "wembley-stadium": {
+  "title": "Wembley Stadium",
+  "extra": [],
+  "km": 0
+ },
+ "indianapolis-motor-speedway": {
+  "title": "Indianapolis Motor Speedway",
+  "extra": [],
+  "km": 0
+ },
+ "daytona-international-speedway": {
+  "title": "Daytona International Speedway",
+  "extra": [],
+  "km": 0
+ },
+ "augusta-national-golf-club": {
+  "title": "Augusta National Golf Club",
+  "extra": [],
+  "km": 0
+ },
+ "churchill-downs": {
+  "title": "Churchill Downs",
+  "extra": [],
+  "km": 0
+ },
+ "area-51": {
+  "title": "Area 51",
+  "extra": [],
+  "km": 0
+ },
+ "mount-vernon": {
+  "title": "Mount Vernon",
+  "extra": [],
+  "km": 0
+ },
+ "monticello": {
+  "title": "Monticello",
+  "extra": [],
+  "km": 0
+ },
+ "yellowstone-national-park": {
+  "title": "Yellowstone National Park",
+  "extra": [],
+  "km": 0
+ },
+ "central-park": {
+  "title": "Central Park",
+  "extra": [],
+  "km": 0
+ },
+ "persian-gulf": {
+  "title": "Persian Gulf",
+  "extra": [],
+  "km": 0
+ },
+ "south-beach": {
+  "title": "South Beach",
+  "extra": [],
+  "km": 0
+ },
+ "beverly-hills": {
+  "title": "Beverly Hills, California",
+  "extra": [],
+  "km": 0
+ },
+ "santa-monica-pier": {
+  "title": "Santa Monica Pier",
+  "extra": [],
+  "km": 0
+ },
+ "mall-of-america": {
+  "title": "Mall of America",
+  "extra": [],
+  "km": 0
+ },
+ "gateway-of-india": {
+  "title": "Gateway of India",
+  "extra": [],
+  "km": 0
+ },
+ "lotus-temple": {
+  "title": "Lotus Temple",
+  "extra": [],
+  "km": 0
+ },
+ "burj-al-arab": {
+  "title": "Burj Al Arab",
+  "extra": [],
+  "km": 0
+ },
+ "palm-jumeirah": {
+  "title": "Palm Jumeirah",
+  "extra": [],
+  "km": 0
+ },
+ "sea-of-galilee": {
+  "title": "Sea of Galilee",
+  "extra": [],
+  "km": 0
+ },
+ "bethlehem": {
+  "title": "Bethlehem",
+  "extra": [],
+  "km": 0
+ },
+ "nazareth": {
+  "title": "Nazareth",
+  "extra": [],
+  "km": 0
+ },
+ "troy": {
+  "title": "Troy",
+  "extra": [],
+  "km": 0
+ },
+ "ephesus": {
+  "title": "Ephesus",
+  "extra": [],
+  "km": 0
+ },
+ "delphi": {
+  "title": "Delphi",
+  "extra": [],
+  "km": 0
+ },
+ "olympia-greece": {
+  "title": "Olympia, Greece",
+  "extra": [],
+  "km": 0
+ },
+ "mount-athos": {
+  "title": "Mount Athos",
+  "extra": [],
+  "km": 0
+ },
+ "knossos": {
+  "title": "Knossos",
+  "extra": [],
+  "km": 0
+ },
+ "temple-of-poseidon-at-sounion": {
+  "title": "Temple of Poseidon, Sounion",
+  "extra": [],
+  "km": 0
+ },
+ "lake-garda": {
+  "title": "Lake Garda",
+  "extra": [],
+  "km": 0
+ },
+ "mount-rigi": {
+  "title": "Rigi",
+  "extra": [],
+  "km": 0
+ },
+ "lascaux": {
+  "title": "Lascaux",
+  "extra": [],
+  "km": 0
+ },
+ "chateau-de-chambord": {
+  "title": "Château de Chambord",
+  "extra": [],
+  "km": 0
+ },
+ "palace-of-fontainebleau": {
+  "title": "Palace of Fontainebleau",
+  "extra": [],
+  "km": 0
+ },
+ "normandy-american-cemetery-and-memorial": {
+  "title": "Normandy American Cemetery and Memorial",
+  "extra": [],
+  "km": 0
+ },
+ "white-cliffs-of-dover": {
+  "title": "White Cliffs of Dover",
+  "extra": [],
+  "km": 0
+ },
+ "warwick-castle": {
+  "title": "Warwick Castle",
+  "extra": [],
+  "km": 0
+ },
+ "tintagel-castle": {
+  "title": "Tintagel Castle",
+  "extra": [],
+  "km": 0
+ },
+ "fiordland-national-park": {
+  "title": "Fiordland National Park",
+  "extra": [],
+  "km": 0
+ },
+ "great-barrier-reef": {
+  "title": "Great Barrier Reef",
+  "extra": [],
+  "km": 0
+ },
+ "daintree-rainforest": {
+  "title": "Daintree Rainforest",
+  "extra": [],
+  "km": 0
+ },
+ "kangaroo-island": {
+  "title": "Kangaroo Island",
+  "extra": [],
+  "km": 0
+ },
+ "rottnest-island": {
+  "title": "Rottnest Island",
+  "extra": [],
+  "km": 0
+ },
+ "dunkirk-evacuation": {
+  "title": "Dunkirk",
+  "extra": [],
+  "km": 1
+ },
+ "wimbledon-all-england-club": {
+  "title": "Wimbledon Championships",
+  "extra": [],
+  "km": null
+ },
+ "robben-island": {
+  "title": "Robben Island",
+  "extra": [],
+  "km": 0
+ },
+ "battle-of-hastings": {
+  "title": "Battle of Hastings",
+  "extra": [],
+  "km": null
+ },
+ "roswell-ufo-incident": {
+  "title": "Roswell incident",
+  "extra": [],
+  "km": 96
+ },
+ "fukushima-daiichi": {
+  "title": "Fukushima Daiichi Nuclear Power Plant",
+  "extra": [],
+  "km": 0
+ },
+ "camp-nou": {
+  "title": "Camp Nou",
+  "extra": [],
+  "km": 0
+ },
+ "old-trafford": {
+  "title": "Old Trafford",
+  "extra": [],
+  "km": 0
+ },
+ "birds-nest-beijing": {
+  "title": "Beijing National Stadium",
+  "extra": [],
+  "km": 1
+ },
+ "urquhart-castle": {
+  "title": "Urquhart Castle",
+  "extra": [],
+  "km": 0
+ },
+ "miraflores-locks": {
+  "title": "Miraflores (Panama)",
+  "extra": [],
+  "km": 0
+ },
+ "anzac-cove": {
+  "title": "ANZAC Cove",
+  "extra": [],
+  "km": 1
+ },
+ "carcassonne-cite": {
+  "title": "Carcassonne",
+  "extra": [],
+  "km": 1
+ },
+ "blarney-castle": {
+  "title": "Blarney Castle",
+  "extra": [],
+  "km": 0
+ },
+ "le-mans-circuit": {
+  "title": "Le Mans",
+  "extra": [],
+  "km": 6
+ },
+ "bukhara-uzbekistan": {
+  "title": "Bukhara",
+  "extra": [],
+  "km": 3
+ },
+ "windhoek-namibia": {
+  "title": "Windhoek",
+  "extra": [],
+  "km": 2
+ },
+ "stari-most": {
+  "title": "Stari Most",
+  "extra": [],
+  "km": null
+ },
+ "lumbini-nepal": {
+  "title": "Lumbini",
+  "extra": [],
+  "km": null
+ },
+ "bodh-gaya-india": {
+  "title": "Bodh Gaya",
+  "extra": [],
+  "km": 0
+ },
+ "wittenberg-castle-church": {
+  "title": "Wittenberg",
+  "extra": [],
+  "km": 0
+ },
+ "dushanbe-tajikistan": {
+  "title": "Dushanbe",
+  "extra": [],
+  "km": 3
+ },
+ "noumea-new-caledonia": {
+  "title": "Nouméa",
+  "extra": [],
+  "km": 0
+ },
+ "gullfoss": {
+  "title": "Gullfoss",
+  "extra": [],
+  "km": 0
+ }
+}
