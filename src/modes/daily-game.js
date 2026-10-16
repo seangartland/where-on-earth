@@ -155,8 +155,9 @@ export function postcardSummaryOutcomes() {
 export const runHaul = [];
 
 // Show the run's haul before moving on, then forget it so it can't show twice.
-export function showRunHaul(next, nextLabel) {
-  showPostcardSummary(runHaul.splice(0), next, nextLabel);
+// A note (a finished weekly expedition) shows the summary even with no haul.
+export function showRunHaul(next, nextLabel, note = '') {
+  showPostcardSummary(runHaul.splice(0), next, nextLabel, note);
 }
 
 export function postcardSummaryCounts(outcomes) {
@@ -168,8 +169,8 @@ export function postcardSummaryCounts(outcomes) {
 
 export let postcardSummaryNext = showResults;
 
-export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next = showResults, nextLabel = 'Continue to results') {
-  if (!outcomes.length) return next();
+export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next = showResults, nextLabel = 'Continue to results', note = '') {
+  if (!outcomes.length && !note) return next();
   postcardSummaryNext = next;
   gameEls.postcardSummaryContinue.textContent = nextLabel;
   clearReveal();
@@ -179,7 +180,7 @@ export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next =
   gameEls.postcardSummaryScreen.hidden = false;
   document.body.classList.add('game-results');
   const { new: newCount, upgrade: upgradeCount } = postcardSummaryCounts(outcomes);
-  gameEls.postcardSummaryLede.textContent = `${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
+  gameEls.postcardSummaryLede.textContent = `${note ? `${note} ` : ''}${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
   gameEls.breakdown.replaceChildren(...outcomes.map(({ result, item }) => postcardSummaryCard(result, item)));
   const countLabel = (count, label) => {
     const el = document.createElement('span');

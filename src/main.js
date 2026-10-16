@@ -54,7 +54,7 @@ import {
 } from './modes/blackout.js';
 import {
   expeditionRun, expeditionPicker, initExpeditions, expeditionsLoaded, updateExpeditionEntry, completeExpeditionRound,
-  expeditionRoundHeader, expeditionRevealCard, expeditionNext,
+  expeditionRoundHeader, expeditionRevealCard, expeditionNext, weeklyRoutesLoaded,
 } from './modes/expeditions.js';
 import { endless, endlessEls, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
 import { initLandmarks, landmarkPool, syncLandmarksEntry } from './modes/landmarks.js';
@@ -575,6 +575,17 @@ expeditionStyle.textContent = `
 .expedition-choice strong, .expedition-choice small { display: block; }
 .expedition-choice small { margin-top: 3px; color: rgba(193,224,250,.62); }
 .expedition-choice .badge { color: #ffd166; font-size: 20px; }
+.expedition-section { margin: 18px 0 8px; color: rgba(193,224,250,.68); font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.expedition-weekly-card { grid-template-columns: 1fr auto; border-color: rgba(255,209,102,.45); background: rgba(255,209,102,.08); }
+.expedition-weekly-card:disabled { cursor: default; }
+.expedition-choice .weekly-eyebrow { margin: 0 0 3px; color: #ffd166; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.weekly-dots { display: flex; gap: 6px; margin-top: 10px; }
+.weekly-dot { display: grid; place-items: center; width: 28px; height: 28px; box-sizing: border-box; border: 1.5px dashed rgba(157,211,255,.28); border-radius: 50%; color: rgba(193,224,250,.38); font-size: 11px; font-weight: 800; }
+.weekly-dot[data-state="played"] { border: 1.5px solid #ffd166; background: #ffd166; color: #1f1708; }
+.weekly-dot[data-state="open"] { border: 1.5px solid #67e8ff; color: #67e8ff; }
+.weekly-dot[data-today] { box-shadow: 0 0 0 2px rgba(103,232,255,.35); }
+.expedition-archive summary { cursor: pointer; }
+.expedition-archive-row { box-sizing: border-box; grid-template-columns: 1fr auto; cursor: default; }
 body.expedition-mode .round-header, body.expedition-mode #reveal-card { border-color: rgba(255,209,102,.45); background: rgba(31,23,8,.88); }
 body.expedition-mode #reveal-card .score-math { display: none; }
 body.expedition-mode .round-meta span:first-child { color: #ffd166; }`;
@@ -656,6 +667,9 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
 getJSON('assets/expeditions.json').then(expeditionsLoaded).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('EXPEDITIONS: ' + err.message);
+});
+getJSON('assets/weekly-expeditions.json').then(weeklyRoutesLoaded).catch((err) => {
+  if (window.__showErr) window.__showErr('WEEKLY: ' + err.message);
 });
 // Landmarks: Expeditions stops, Landmarks mode and the Passport's Landmarks shelf only (state.js).
 getJSON('assets/locations-landmarks-sol.json').then((data) => {

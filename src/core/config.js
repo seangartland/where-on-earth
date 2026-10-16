@@ -30,7 +30,8 @@ export const PASSPORT_KEY = 'where-on-earth-passport-v1';
 export const MUTE_KEY = 'where-on-earth-muted';
 export const EXPEDITION_KEY = 'where-on-earth-expedition-v1';
 export const REVEAL_VIEW_KEY = 'where-on-earth-reveal-view';
-export const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY]);
+export const WEEKLY_KEY = 'where-on-earth-weekly-v1';
+export const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY, WEEKLY_KEY]);
 export const WEIGHTS = [1, 1, 2, 3, 3];
 
 // ?reset=daily (main.js drops today's saved game and strips the query; the
