@@ -19,9 +19,10 @@ const BANDS = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]];
 let bank = [];
 export const trivia = { active: false, round: 0, item: null, picks: [], results: [] };
 
-// Playable: a 1 to 10 difficulty and a photo for the reveal.
+// Playable: a 1 to 10 difficulty and a photo for the reveal that was checked
+// to show the entry's place (photo: 'verified').
 const isPlayable = (entry) => Number.isInteger(entry.difficulty) && entry.difficulty >= 1 && entry.difficulty <= 10
-  && Boolean(entry.image);
+  && Boolean(entry.image) && entry.photo === 'verified';
 export function triviaBankLoaded(data) {
   bank = (Array.isArray(data) ? data : []).filter(isPlayable);
   host.gameEls.triviaEntry.disabled = !bank.length;

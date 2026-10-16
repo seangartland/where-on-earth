@@ -16,7 +16,7 @@ fs.mkdirSync(out, { recursive: true });
 const bankAll = JSON.parse(fs.readFileSync(DEMO + 'assets/trivia-bank.json', 'utf8'));
 const bankById = new Map(bankAll.map((x) => [x.id, x]));
 // Playable rule, restated from src/modes/trivia.js.
-const playable = bankAll.filter((x) => Number.isInteger(x.difficulty) && x.difficulty >= 1 && x.difficulty <= 10 && x.image);
+const playable = bankAll.filter((x) => Number.isInteger(x.difficulty) && x.difficulty >= 1 && x.difficulty <= 10 && x.image && x.photo === 'verified');
 const BANDS = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]];
 const bankImages = new Set(bankAll.map((x) => x.image).filter(Boolean));
 
@@ -193,6 +193,8 @@ checks.noPhotoBeforeGuess = rounds.every((r) => r.bankPhotoVisible === 0);
 checks.photoAtReveal = rounds.every((r) => r.photoShown && r.photoIsEntry);
 checks.revealNamesPlace = rounds.every((r) => r.nameIsShort);
 checks.targetsInBank = rounds.every((r) => r.inBank);
+// Only photo-verified entries may be drawn (docs/trivia-bank-repair-report.md).
+checks.targetsVerified = rounds.every((r) => bankById.get(r.id)?.photo === 'verified');
 checks.noRepeatTarget = new Set(rounds.map((r) => r.id)).size === 5;
 checks.bandSpread = rounds.every((r, i) => r.difficulty >= BANDS[i][0] && r.difficulty <= BANDS[i][1]);
 checks.lastNextIsResults = rounds[4].next === 'Results' && rounds.slice(0, 4).every((r) => r.next === 'Next');
