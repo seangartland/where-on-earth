@@ -30,11 +30,23 @@ console.log(`judged ${done.length}/${list.length} photos (pending ${out.length -
 if (process.argv.includes('--apply')) {
   if (done.length !== list.length) { console.error('refusing --apply: not every photo has a final verdict'); process.exit(1); }
   const bankUrl = here('../../assets/trivia-bank.json');
-  const raw = readFileSync(bankUrl, 'utf8');
-  const bank = JSON.parse(raw);
+  const lines = readFileSync(bankUrl, 'utf8').split('\n');
   const ok = new Set(done.filter((o) => o.verified).map((o) => o.verified));
+  // Textual insert (keeps every other byte, including number formatting like 125.0): the bank is
+  // 2-space JSON with one field per line, so add the flag as the last field of each verified entry.
+  let id = null;
   let n = 0;
-  for (const e of bank) if (ok.has(e.id)) { e.photo = 'verified'; n++; }
-  writeFileSync(bankUrl, JSON.stringify(bank, null, raw.includes('\n  ') ? 2 : raw.includes('\n ') ? 1 : 0) + (raw.endsWith('\n') ? '\n' : ''));
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^    "id": "(.*)",?$/);
+    if (m) id = m[1];
+    if (/^  },?$/.test(lines[i]) && ok.has(id) && !lines[i - 1].includes('"photo"')) {
+      lines[i - 1] += ',';
+      lines.splice(i, 0, '    "photo": "verified"');
+      i++;
+      n++;
+    }
+  }
+  writeFileSync(bankUrl, lines.join('\n'));
+  JSON.parse(lines.join('\n'));
   console.log(`flagged ${n} entries photo=verified`);
 }
