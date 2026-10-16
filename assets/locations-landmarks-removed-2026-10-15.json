@@ -7327,5 +7327,19 @@
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "category": "city"
+ },
+ {
+  "id": "auschwitz-birkenau",
+  "clue": "Auschwitz-Birkenau, Poland 🇵🇱",
+  "fact": "Auschwitz-Birkenau's electrified fences and guard towers stand on the site, and the camp's own railway siding was laid by prisoners forced to build it.",
+  "lat": 50.0343,
+  "lng": 19.1795,
+  "difficulty": 2,
+  "short": "Auschwitz-Birkenau",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
+  "country": "Poland",
+  "sets": [],
+  "difficultyWhy": "F0·A1·K0·C0·S0 → 2",
+  "category": "city"
  }
 ]
