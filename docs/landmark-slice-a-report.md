@@ -91,3 +91,22 @@ x2.0 (0f24468).
   (lakes and friends) with extent-aware scoring, a guess inside the extent
   counts as 0 km and outside guesses measure to the nearest border point. Nine
   bank entries already carry `extentKm`; nothing reads it yet.
+
+## Addendum (2026-10-15, 17:15 PDT): the entry button was unreachable
+
+Sean's phone check found the mode had no visible entry point: the Expeditions
+home button starts with the `hidden` attribute in index.html (since commit
+72eab6a) and no code ever removed it. `updateExpeditionEntry()` only managed
+`disabled`, so after load the button measured hidden=true, display:none, 0x0
+on the exact production code. The Slice A e2e harness had masked this by
+force-unhiding the button before clicking (its own comment documented the
+workaround), so gameplay verified while reachability did not.
+
+Fix (5c3a9d8): `updateExpeditionEntry()` now computes one readiness value and
+drives both `hidden` and `disabled` from it. The harness was corrected to
+click the real button and fail if it is not visible, and the full playthrough
+was re-run that way: 13 of 13 checks pass. The pp and baseline regression
+suites pass with the button visible; the home layout gains Expeditions beside
+Survival with Challenge wrapping to the next row. Deployed on its own as
+dpl_8ysZsdGEyAuX3qeii4kRQJTSBtZu (READY, alias 200); the served
+expeditions.js was confirmed to contain the fix.
