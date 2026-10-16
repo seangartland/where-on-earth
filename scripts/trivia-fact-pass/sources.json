@@ -612,7 +612,9 @@
  },
  "lake-manyara": {
   "title": "Lake Manyara",
-  "extra": [],
+  "extra": [
+   "Lake Manyara National Park"
+  ],
   "km": 4
  },
  "hell-gate-national-park": {
@@ -702,11 +704,13 @@
  },
  "phong-nha-ke-bang": {
   "title": "Phong Nha–Kẻ Bàng National Park",
-  "extra": [],
+  "extra": [
+   "Hang Sơn Đoòng"
+  ],
   "km": 10
  },
  "hoi-an": {
-  "title": "Hội An",
+  "title": "Hội An Old Town",
   "extra": [],
   "km": null
  },
@@ -792,7 +796,10 @@
  },
  "jericoacoara": {
   "title": "Jericoacoara Beach",
-  "extra": [],
+  "extra": [
+   "Jijoca de Jericoacoara",
+   "Jericoacoara National Park"
+  ],
   "km": 1
  },
  "lencois-maranhenses": {
@@ -827,7 +834,9 @@
  },
  "waitomo-caves": {
   "title": "Waitomo",
-  "extra": [],
+  "extra": [
+   "Arachnocampa luminosa"
+  ],
   "km": 1
  },
  "penicillin-st-marys-london": {
@@ -892,7 +901,9 @@
  },
  "woodstock-max-yasgur-farm": {
   "title": "Bethel Woods Center for the Arts",
-  "extra": [],
+  "extra": [
+   "Woodstock"
+  ],
   "km": 1
  },
  "beatles-rooftop-concert": {
@@ -917,7 +928,9 @@
  },
  "jaws-menemsha-harbor": {
   "title": "Menemsha, Massachusetts",
-  "extra": [],
+  "extra": [
+   "Jaws (film)"
+  ],
   "km": 0
  },
  "lord-of-rings-hobbiton-film-set": {
@@ -942,7 +955,9 @@
  },
  "mount-st-helens-1980": {
   "title": "2004–2008 volcanic activity of Mount St. Helens",
-  "extra": [],
+  "extra": [
+   "1980 eruption of Mount St. Helens"
+  ],
   "km": 1
  },
  "tunguska-event-epicenter": {
@@ -1007,12 +1022,17 @@
  },
  "beamon-long-jump-1968": {
   "title": "Estadio Olímpico Universitario",
-  "extra": [],
+  "extra": [
+   "Bob Beamon",
+   "Athletics at the 1968 Summer Olympics – Men's long jump"
+  ],
   "km": 0
  },
  "secretariat-belmont-1973": {
   "title": "Belmont Park",
-  "extra": [],
+  "extra": [
+   "Secretariat (horse)"
+  ],
   "km": 0
  },
  "golden-spike-promontory-summit": {

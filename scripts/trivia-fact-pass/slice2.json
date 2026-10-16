@@ -1,0 +1,500 @@
+{
+ "manarola": {
+  "v": "FIX",
+  "fact": "One of the five Cinque Terre villages, it has long lived by fishing and winemaking, and the cornerstone of its church of San Lorenzo dates from 1338.",
+  "note": "'353-step stairway' fabricated (353 is the population); Genoese fishermen and banknote claims unsupported"
+ },
+ "alcazar-of-segovia": {
+  "v": "FIX",
+  "fact": "First recorded in 1120, it got its sharp slate spires from King Philip II, who wanted it to echo the castles of central Europe.",
+  "clue": "Where is the castle whose Hall of the Galley is named for a ceiling shaped like an inverted ship's hull?",
+  "note": "'never finished' unsupported; spires were added by Philip II to echo central European castles, not shaped like galleons; the inverted-hull shape is the Hall of the Galley ceiling, not the turrets (clue was false)"
+ },
+ "plaza-de-espana-seville": {
+  "v": "FIX",
+  "fact": "Designed by Aníbal González for the 1929 Ibero-American Exposition, it is reached across a moat by four bridges representing Spain's ancient kingdoms.",
+  "note": "courting-alcove nickname story fabricated"
+ },
+ "prado-museum": {
+  "v": "FIX",
+  "fact": "Named for the meadow that once stood on the site, it opened in 1819 and holds some 7,600 paintings.",
+  "note": "prado means meadow, not oak grove; collection is about 7,600 paintings, not 8,600"
+ },
+ "santiago-de-compostela-cathedral": {
+  "v": "FIX",
+  "fact": "Reputedly built over the tomb of Saint James the Great, it marks the traditional end of the Way of St James pilgrimage route.",
+  "note": "'square is said to be where the apostle was beheaded' false (James was beheaded in Jerusalem); eight-person crew not in the article"
+ },
+ "roman-baths-bath": {
+  "v": "KEEP",
+  "note": "hot spring (46 C, 1,170,000 litres a day) feeds the site; Aquae Sulis gave the city its name"
+ },
+ "kotors-old-town": {
+  "v": "FIX",
+  "fact": "Its walls stretch for 4.5 km above the town, and in the 14th century its trade rivalled that of the Republic of Ragusa.",
+  "note": "'walls climb almost 1,200 m' wrong (walls run 4.5 km; fortress far lower); busiest-port claim recast to the article's Ragusa comparison"
+ },
+ "cesky-krumlov-castle": {
+  "v": "FIX",
+  "fact": "Its Baroque theatre of 1767 is among the best preserved in the world, and the castle is a UNESCO World Heritage Site.",
+  "clue": "Where is the Czech Republic's second-largest castle complex, set on a rocky headland above a bend in the Vltava?",
+  "note": "'one of the few still working' unsupported (article: best preserved); clue's trompe-l'oeil landscapes unsupported"
+ },
+ "kjeragbolten": {
+  "v": "FIX",
+  "fact": "People pose on this 5-cubic-metre boulder above a 984 m drop; a glacier left it, and the rebounding land wedged it in the crevice.",
+  "note": "'broke from the mountain in an Ice Age landslide' wrong (glacial deposit wedged by post-glacial rebound)"
+ },
+ "trolltunga": {
+  "v": "FIX",
+  "fact": "Formed in the last Ice Age when glacial water froze in its cracks and split off blocks, the tongue juts about 700 m above Ringedalsvatnet.",
+  "note": "rockfall formation and troll-lookout name story unsupported"
+ },
+ "cape-point": {
+  "v": "FIX",
+  "fact": "It is often wrongly called the meeting point of the Atlantic and Indian oceans; Cape Agulhas, about 150 km away, is Africa's southernmost point.",
+  "clue": "Where is the rocky promontory at the southeast corner of the Cape Peninsula?",
+  "note": "'cliffs mark the boundary between the oceans' is the misconception the article corrects; clue said southwestern tip (article: southeast corner)"
+ },
+ "lake-manyara": {
+  "v": "FIX",
+  "fact": "Thousands of flamingos feed along its edge in the wet season, and a spring-fed groundwater forest lines its western shore.",
+  "note": "'hundreds of tree-climbing lions' and baboon claim unsupported; clue kept (tree-climbing lions are the park's best-known feature)"
+ },
+ "hell-gate-national-park": {
+  "v": "FIX",
+  "fact": "Explorers Gustav Fischer and Joseph Thomson named it in 1883, and it is one of only two Kenyan national parks where visitors may hike and cycle.",
+  "clue": "Where is the wildlife park near Lake Naivasha named after a narrow break in its cliffs?",
+  "note": "1840 geologists story fabricated; walking among giraffes unsupported; clue said named after a gorge with hot springs (named after a narrow break in the cliffs)"
+ },
+ "sossusvlei": {
+  "v": "FIX",
+  "fact": "Its highest dune, Big Daddy, stands about 325 m, and the Tsauchab River floods the pan only in rare wet years.",
+  "clue": "Where are the towering red dunes of the Namib Desert around a white salt and clay pan?",
+  "note": "'a few times a century' contradicted (article: sometimes several years between floods); clue's gypsum trees wrong (salt and clay pan, dead camel thorn trees)"
+ },
+ "fish-river-canyon": {
+  "v": "FIX",
+  "fact": "Up to 27 km wide and in places almost 550 m deep, part of it lies in the Ai-Ais/Richtersveld Transfrontier Park.",
+  "note": "hominid footprints fabricated; depth garbled"
+ },
+ "cape-coast-castle": {
+  "v": "FIX",
+  "fact": "Its rock-cut dungeons could hold as many as a thousand enslaved people at a time awaiting ships in the Atlantic trade.",
+  "note": "gate inscription quote fabricated"
+ },
+ "piton-de-la-fournaise": {
+  "v": "FIX",
+  "fact": "One of the most active volcanoes on Earth, it has produced more than 150 recorded eruptions since the 17th century.",
+  "note": "'most recently adding hectares of new land' unsupported; clue true (non-unique wording is a repair-report follow-up, not a false statement)"
+ },
+ "sensoji-temple": {
+  "v": "FIX",
+  "fact": "Legend says two brothers fishing in the Sumida River found its statue of Kannon in 628, making it Tokyo's oldest temple.",
+  "note": "two brothers, not a fisherman; 'lantern is the emblem of Asakusa' unsupported"
+ },
+ "kinkakuji": {
+  "v": "FIX",
+  "fact": "A 22-year-old novice monk burned the pavilion down in 1950, and the present structure was rebuilt in 1955.",
+  "note": "monk was 22, not a teenager; rebuilt 1955, not three years later; 'golden turtle' name fabricated"
+ },
+ "himeji-castle": {
+  "v": "FIX",
+  "fact": "Its brilliant white plaster, used for its resistance to fire, earned it the nickname White Heron Castle.",
+  "note": "stepped gables hiding rooms unsupported; name comes from the white exterior, not curved walls"
+ },
+ "itsukushima-shrine": {
+  "v": "FIX",
+  "fact": "At high tide its torii appears to float, and a gate has stood here since 1168, though the present one dates to 1875.",
+  "note": "1875 is the gate's date, not the shrine's; 16 m not in the article"
+ },
+ "shuri-castle": {
+  "v": "FIX",
+  "fact": "Destroyed in the 1945 Battle of Okinawa and rebuilt from 1992, its main halls burned again in 2019 and are being reconstructed.",
+  "note": "pillar tombs for envoys fabricated; 2019 fire omitted"
+ },
+ "bulguksa": {
+  "v": "FIX",
+  "fact": "Begun in 751 under King Gyeongdeok, it holds six National Treasures, including the Dabotap and Seokgatap stone pagodas.",
+  "note": "751 was the start, not completion; wooden halls surviving the occupation fabricated"
+ },
+ "mutianyu": {
+  "v": "FIX",
+  "fact": "First built in the 6th century under the Northern Qi, this section is older than Badaling, and its present Ming wall rose over the earlier one.",
+  "clue": "Where is one of the best-preserved sections of the Great Wall, rebuilt under the Ming and crowded with watchtowers?",
+  "note": "5,400 m and sliding doorways unsupported (article: 22 watchtowers on 2,250 m); clue said 'the best-preserved Ming-dynasty section' (article: one of the best-preserved)"
+ },
+ "pingyao-ancient-city": {
+  "v": "FIX",
+  "fact": "Its Rishengchang, China's first draft bank, once handled almost half the country's silver trade before going bankrupt in 1914.",
+  "note": "'wall never taken' unsupported; bank did not operate 400 years (founded 1823, failed 1914)"
+ },
+ "petronas-towers": {
+  "v": "KEEP",
+  "note": "451.9 m; tallest 1998-2004; cross-section based on a Rub el Hizb"
+ },
+ "mount-bromo": {
+  "v": "FIX",
+  "fact": "Tenggerese Hindus throw offerings, including livestock, into its crater during the yearly Yadnya Kasada festival, and its name comes from Brahma.",
+  "note": "'in exchange for good harvests' unsupported (offerings to the mountain gods)"
+ },
+ "chocolate-hills": {
+  "v": "FIX",
+  "fact": "These grass-covered limestone cones turn chocolate-brown in the dry season, which gave them their name.",
+  "note": "'grew during earthquakes' contradicted (uplift then karst erosion); 2012 film-crew naming fabricated"
+ },
+ "mayon-volcano": {
+  "v": "FIX",
+  "fact": "Renowned for its near-symmetrical cone, it is the most active volcano in the Philippines, erupting over 52 times in the past 500 years.",
+  "note": "45-degree slopes fabricated; 47 eruptions wrong (over 52); 'one of the most active' understated"
+ },
+ "phong-nha-ke-bang": {
+  "v": "FIX",
+  "fact": "Sơn Đoòng, surveyed by British and Vietnamese explorers in 2009 and considered the world's largest cave, lies within the park.",
+  "note": "own jungle and weather system not in either cached article"
+ },
+ "hoi-an": {
+  "v": "FIX",
+  "fact": "It was a busy trading post from the 15th to the 19th century, and its wooden Japanese Bridge dates from the early 17th century.",
+  "note": "source Hội An Old Town; bridge built at the start of the 17th century, not the 16th"
+ },
+ "tigers-nest": {
+  "v": "FIX",
+  "fact": "Built in 1692 around a cave where Padmasambhava is said to have meditated, it is one of thirteen 'tiger lair' caves.",
+  "note": "painted tiger claws fabricated"
+ },
+ "konark-sun-temple": {
+  "v": "FIX",
+  "fact": "Its 24 carved stone wheels, each nearly 3.7 m across, work as sundials, while its great tower now lies in ruins.",
+  "note": "roof-as-sundial claim wrong (the wheels are the sundials)"
+ },
+ "sheikh-zayed-mosque": {
+  "v": "FIX",
+  "fact": "It can hold over 40,000 worshippers and has 82 domes, more than 1,000 columns and the world's largest hand-knotted carpet.",
+  "note": "'9,200 under the main dome, clad in 1,000 domes' garbled (main hall holds over 7,000; 82 domes)"
+ },
+ "badshahi-mosque": {
+  "v": "KEEP",
+  "note": "1671-73; courtyard holds 100,000; red sandstone with marble inlay"
+ },
+ "monument-valley": {
+  "v": "FIX",
+  "fact": "Its largest buttes rise about 300 m above the valley floor, and its Navajo name, Tsé Biiʼ Ndzisgaii, means valley of the rocks.",
+  "note": "volcanic ash walls and 'land of the tall pines' name fabricated"
+ },
+ "bryce-canyon": {
+  "v": "KEEP",
+  "note": "2,400-2,700 m; hoodoos eroded from river and lake bed sedimentary rock"
+ },
+ "yosemite-valley": {
+  "v": "FIX",
+  "fact": "Glaciers shaped this valley, and Lincoln granted it to California for public use in 1864, before it joined a national park in 1890.",
+  "note": "'a glacial river carved' wrong; 'first Yosemite National Park in the world was dedicated here in 1890' garbled"
+ },
+ "brooklyn-bridge": {
+  "v": "FIX",
+  "fact": "Its hybrid design mixes cable-stayed and suspension elements, and each main cable holds 5,282 parallel steel wires.",
+  "note": "5,434 wires wrong (5,282); 'once thought too daring' unsupported"
+ },
+ "kennedy-space-center": {
+  "v": "FIX",
+  "fact": "From 1969 to 1972 its Launch Complex 39 sent all six Apollo Moon landing missions aloft on the 111 m Saturn V.",
+  "note": "'Pad 39A sent every crewed moon mission' wrong (Apollo 10 used 39B); Saturn V is 111 m, not 120 m, and the monument claim is unsupported"
+ },
+ "badwater-basin": {
+  "v": "FIX",
+  "fact": "Rare storms flood its salt pan into a shallow temporary lake, and freeze-thaw and evaporation push the crust into hexagons.",
+  "note": "'120 m long and 1.6 km wide' fabricated"
+ },
+ "okefenokee-swamp": {
+  "v": "FIX",
+  "fact": "Often called the land of trembling earth, it is North America's largest blackwater swamp and a critical habitat for the Florida black bear.",
+  "clue": "Where is the 1,770-square-km peat swamp of Georgia and Florida, whose name likely comes from a Hitchiti word for bubbling water?",
+  "note": "dancing bears, 33 m and wild boar fabricated; clue said Choctaw (article: Hitchiti) and 1,780 km2 (177,000 ha)"
+ },
+ "chateau-frontenac": {
+  "v": "FIX",
+  "fact": "Opened by the Canadian Pacific Railway in 1893, it is named after Louis de Buade, Count of Frontenac, governor general of New France.",
+  "note": "'23rd-century chateau built by Frontenac' fabricated (site of the Château Saint-Louis)"
+ },
+ "teotihuacan": {
+  "v": "KEEP",
+  "note": "largest city in the Americas; monuments burned about 550 CE; builders' ethnicity debated, original name unknown"
+ },
+ "copper-canyon": {
+  "v": "FIX",
+  "fact": "The Tarahumara, or Rarámuri, are its traditional inhabitants, and the copper and green colour of its walls gave the canyons their name.",
+  "note": "Cheyenne fabricated"
+ },
+ "tikal": {
+  "v": "FIX",
+  "fact": "Its Temple IV rises 70 m to the top of its roof comb, and its carved wooden lintels record a date corresponding to 741 CE.",
+  "note": "65 m and 'tallest Maya structure ever built' wrong (70 m; Toniná and La Danta are taller); 2015 twin-pyramid radar find fabricated"
+ },
+ "pitons-of-saint-lucia": {
+  "v": "FIX",
+  "fact": "Gros Piton rises about 798 m and Petit Piton 743 m from the sea, linked by the Piton Mitan ridge.",
+  "clue": "Where are the twin volcanic spires rising beside a Caribbean bay, with sulphurous hot springs nearby?",
+  "note": "'over 2,500 m' wrong; football badge unsupported; clue's emerald crater lake not in the article (the complex has fumaroles and hot springs)"
+ },
+ "jericoacoara": {
+  "v": "FIX",
+  "fact": "Its name comes from a Tupi phrase meaning lair of the turtles, and electric street lighting is still forbidden in the village.",
+  "note": "Saint Jericho fabricated; westward dune migration unsupported"
+ },
+ "lencois-maranhenses": {
+  "v": "FIX",
+  "fact": "Rains from January to June fill the hollows between its dunes with freshwater lagoons up to 3 m deep, held in by rock beneath.",
+  "note": "'islands of sand and fishing lakes' unsupported"
+ },
+ "ciudad-perdida": {
+  "v": "FIX",
+  "fact": "The Tairona built it around 800 CE and fled in the 16th century, and local looters came upon it in 1972.",
+  "clue": "Where is the archaeological site reached by climbing 1,200 stone steps through the jungle of the Sierra Nevada de Santa Marta?",
+  "note": "'12th-16th centuries' wrong (about 800 CE); four-day trek not in the article"
+ },
+ "kakadu": {
+  "v": "FIX",
+  "fact": "Its name probably comes from a mispronunciation of Gaagudju, an Aboriginal language, and it holds more than 5,000 recorded art sites.",
+  "note": "1,400 archaeological sites not in the article (more than 5,000 art sites)"
+ },
+ "three-sisters-blue-mountains": {
+  "v": "FIX",
+  "fact": "Wind, rain and rivers eroded the sandstone into these pillars, and a popular legend tells of three sisters turned to stone by an elder.",
+  "clue": "Where are the three sandstone pinnacles on the escarpment above the Jamison Valley?",
+  "note": "fault erosion and ancient Aboriginal paintings unsupported; clue: named relative-compass item, 'west of Sydney' cut"
+ },
+ "mount-kosciuszko": {
+  "v": "FIX",
+  "fact": "At 2,228 m it tops the Main Range of the Snowy Mountains, and Australia's highest public toilet was built just below it in 2007.",
+  "clue": "Where is the highest mountain of mainland Australia?",
+  "note": "glaciated peak and August ski race unsupported; clue said highest in Australia (article: mainland Australia)"
+ },
+ "lake-tekapo": {
+  "v": "KEEP",
+  "note": "turquoise from glacial silt; Aoraki Mackenzie Dark Sky Reserve"
+ },
+ "waitomo-caves": {
+  "v": "FIX",
+  "fact": "Its glowworms are fungus gnat larvae that hang silk threads coated in sticky mucus from the ceiling to snare flying insects.",
+  "note": "'around 50,000' unsupported; source Waitomo plus Arachnocampa luminosa"
+ },
+ "penicillin-st-marys-london": {
+  "v": "KEEP",
+  "note": "1928; laboratory restored as a museum"
+ },
+ "dna-cavendish-cambridge": {
+  "v": "KEEP",
+  "note": "Watson and Crick at the Cavendish; Wilkins shared the 1962 Nobel"
+ },
+ "chicago-pile-one-stagg-field": {
+  "v": "KEEP",
+  "note": "December 2, 1942, under the west stands of Stagg Field; Moore sculpture"
+ },
+ "transistor-bell-labs-murray-hill": {
+  "v": "KEEP",
+  "note": "first working transistor demonstrated at Murray Hill 1947"
+ },
+ "higgs-boson-cern-atlas": {
+  "v": "KEEP",
+  "note": "ATLAS with CMS reported on July 4, 2012"
+ },
+ "pulsar-discovery-mullard": {
+  "v": "KEEP",
+  "note": "1967 discovery at the Cambridge observatory"
+ },
+ "dolly-cloning-roslin": {
+  "v": "KEEP",
+  "note": "1996, first mammal cloned from an adult cell"
+ },
+ "first-heart-transplant-groote-schuur": {
+  "v": "KEEP",
+  "note": "3 December 1967; old building houses the museum"
+ },
+ "first-powered-flight-kill-devil-hills": {
+  "v": "KEEP",
+  "note": "four flights from level ground near the hill on December 17, 1903"
+ },
+ "edison-light-menlo-park": {
+  "v": "KEEP",
+  "note": "memorial tower and museum dedicated 1938 near the lab site"
+ },
+ "arpanet-first-message-ucla": {
+  "v": "KEEP",
+  "note": "October 29, 1969, Kleinrock's team to Stanford"
+ },
+ "first-atm-enfield": {
+  "v": "KEEP",
+  "note": "Reg Varney, 27 June 1967; paper vouchers"
+ },
+ "woodstock-max-yasgur-farm": {
+  "v": "FIX",
+  "fact": "More than 460,000 people gathered on Max Yasgur's dairy farm near Bethel, about 60 miles from Woodstock itself. The hillside is now part of Bethel Woods Center for the Arts.",
+  "note": "Woodstock article: audience more than 460,000, farm 60 miles southwest of Woodstock (was 400,000 and 40 miles)"
+ },
+ "beatles-rooftop-concert": {
+  "v": "KEEP",
+  "note": "30 January 1969, unannounced, Apple headquarters"
+ },
+ "lunch-atop-skyscraper-rockefeller": {
+  "v": "KEEP",
+  "note": "September 20, 1932, 69th floor, publicity stunt"
+ },
+ "tank-man-changan-avenue": {
+  "v": "KEEP",
+  "note": "Chang'an Avenue, June 5, 1989; filmed from hotel rooms"
+ },
+ "iwo-jima-flag-raising": {
+  "v": "KEEP",
+  "note": "replacement (second) flag, Rosenthal photo"
+ },
+ "jaws-menemsha-harbor": {
+  "v": "FIX",
+  "fact": "Steven Spielberg shot the 1975 film mostly on Martha's Vineyard, and this Chilmark fishing village served as a backdrop for Amity Island.",
+  "clue": "Where is the fishing village used as a shooting backdrop for the fictional Amity Island in Jaws?",
+  "note": "'Menemsha's working harbor appeared as the Amity waterfront' and clue's 'many of the harbor scenes' overstate the sources (Menemsha article: shooting background for Amity Island)"
+ },
+ "lord-of-rings-hobbiton-film-set": {
+  "v": "KEEP",
+  "note": "Alexander farm, 1998 aerial search; rebuilt permanently for The Hobbit"
+ },
+ "burning-man-first-baker-beach": {
+  "v": "KEEP",
+  "note": "1986 at Baker Beach; later Black Rock Desert"
+ },
+ "krakatoa-1883-eruption": {
+  "v": "KEEP",
+  "note": "island lost about two-thirds of its mass; tsunamis"
+ },
+ "tambora-1815-eruption": {
+  "v": "KEEP",
+  "note": "largest eruption in recorded history; year without a summer"
+ },
+ "mount-st-helens-1980": {
+  "v": "FIX",
+  "fact": "A magnitude 5.1 earthquake triggered the collapse of the volcano's north flank on May 18, 1980. The eruption killed about 57 people and laid waste to hundreds of square miles.",
+  "note": "source 1980 eruption of Mount St. Helens: 57 deaths were the eruption's total, not the lateral blast's alone"
+ },
+ "tunguska-event-epicenter": {
+  "v": "KEEP",
+  "note": "airburst, no conventional crater; first expedition 1927"
+ },
+ "lituya-bay-megatsunami": {
+  "v": "KEEP",
+  "note": "524 m run-up; the Wagners on the Sunmore were killed"
+ },
+ "hunga-tonga-2022-eruption": {
+  "v": "KEEP",
+  "note": "58 km plume, tsunami to Japan and the Americas, islands reduced"
+ },
+ "barringer-meteor-impact": {
+  "v": "KEEP",
+  "note": "best-preserved meteorite crater; Barringer's mining search"
+ },
+ "roanoke-lost-colony": {
+  "v": "KEEP",
+  "note": "abandoned by 1590, no survivors found"
+ },
+ "flannan-isles-lighthouse-mystery": {
+  "v": "KEEP",
+  "note": "relief vessel arrived 26 December 1900 to find no keepers"
+ },
+ "hinterkaifeck-murders": {
+  "v": "KEEP",
+  "note": "perpetrator stayed several days, fed cattle; unsolved"
+ },
+ "isdal-woman-discovery": {
+  "v": "KEEP",
+  "note": "found by hikers in Isdalen, Bergen; false identities"
+ },
+ "miracle-on-ice-arena": {
+  "v": "KEEP",
+  "note": "4-3 over the Soviet Union, 1980 Lake Placid"
+ },
+ "hand-of-god-azteca": {
+  "v": "KEEP",
+  "note": "1986 quarter-final; Argentina won the final at the Azteca"
+ },
+ "rumble-in-the-jungle": {
+  "v": "KEEP",
+  "note": "October 30, 1974; Ali knocked out the unbeaten Foreman"
+ },
+ "first-four-minute-mile-iffley": {
+  "v": "KEEP",
+  "note": "3:59.4 on 6 May 1954; Chataway and Brasher pacemakers"
+ },
+ "beamon-long-jump-1968": {
+  "v": "FIX",
+  "fact": "Beamon exceeded the existing world record by 55 centimeters, forcing officials to use a tape measure because the optical measuring device could not reach the mark.",
+  "note": "'steel tape' unsupported (men's long jump 1968 article: a tape measure)"
+ },
+ "secretariat-belmont-1973": {
+  "v": "KEEP",
+  "note": "2:24, world record for 1.5 miles on dirt still stands"
+ },
+ "golden-spike-promontory-summit": {
+  "v": "KEEP",
+  "note": "May 10, 1869"
+ },
+ "gagarin-launch-pad-one": {
+  "v": "KEEP",
+  "note": "Site No. 1, Vostok 1"
+ },
+ "lindbergh-spirit-st-louis-landing": {
+  "v": "KEEP",
+  "note": "May 21, 1927 landing at Le Bourget"
+ },
+ "bloody-sunday-selma-bridge": {
+  "v": "KEEP",
+  "note": "March 7, 1965; televised images roused support"
+ },
+ "magna-carta-runnymede": {
+  "v": "KEEP",
+  "note": "water-meadow beside the Thames, 1215"
+ },
+ "lincoln-assassination-fords-theatre": {
+  "v": "KEEP",
+  "note": "April 14, 1865; died next day at the Petersen House"
+ },
+ "jfk-assassination-dealey-plaza": {
+  "v": "KEEP",
+  "note": "former Texas School Book Depository"
+ },
+ "mlk-assassination-lorraine-motel": {
+  "v": "KEEP",
+  "note": "Lorraine Motel inside the National Civil Rights Museum"
+ },
+ "gandhi-assassination-birla-house": {
+  "v": "KEEP",
+  "note": "30 January 1948 at Birla House"
+ },
+ "triangle-shirtwaist-fire": {
+  "v": "KEEP",
+  "note": "locked stairwell doors; safety legislation"
+ },
+ "bhopal-gas-disaster-plant": {
+  "v": "KEEP",
+  "note": "methyl isocyanate, Union Carbide India plant, 1984"
+ },
+ "hindenburg-lakehurst": {
+  "v": "FIX",
+  "fact": "The zeppelin burned at Lakehurst Naval Air Station in about half a minute, killing 35 aboard and one ground worker. Newsreel footage helped end the passenger-airship era.",
+  "note": "'34 seconds' is one of three reported times (32, 34 or 37)"
+ },
+ "halifax-explosion-narrows": {
+  "v": "KEEP",
+  "note": "Mont-Blanc and Imo; at least 1,782 killed"
+ },
+ "stonewall-uprising": {
+  "v": "KEEP",
+  "note": "1969 raid at 53 Christopher Street"
+ },
+ "fall-of-berlin-wall-bornholmer": {
+  "v": "KEEP",
+  "note": "first crossing opened; barrier raised without orders"
+ },
+ "mandela-rivonia-arrest-liliesleaf": {
+  "v": "KEEP",
+  "note": "11 July 1963 raid; documents incriminated Mandela"
+ }
+}
