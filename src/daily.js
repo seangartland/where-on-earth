@@ -24,10 +24,11 @@ export function isPlayableLocation(item) {
   return true;
 }
 
-// Non-city locations (landmarks, mountains, lakes, etc.) are tagged with a
-// category in locations.json and excluded from launch game modes. They stay
-// in the DB for future modes (e.g. landmarks mode, nature mode).
+// Entries in the landmarks file carry a `kind` (landmark, area, settlement)
+// and are excluded from launch game modes. Cities carry no kind, so they fall
+// through to the older `category` field (or the name check when it is missing).
 export function isLaunchExcluded(item) {
+  if (item?.kind) return item.kind !== 'city';
   const cat = item?.category;
   // Fall back to name matching for items missing the category field
   if (!cat) {

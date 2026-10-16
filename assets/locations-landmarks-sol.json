@@ -11,7 +11,8 @@
   "country": "Egypt",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "acropolis-athens-gr",
@@ -25,7 +26,8 @@
   "country": "Greece",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "ait-benhaddou-ksar",
@@ -40,7 +42,8 @@
   "country": "Morocco",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "aitutaki-lagoon",
@@ -56,7 +59,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "F4·A0·K2·C1·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "ak-baital-pass",
@@ -72,7 +76,8 @@
    "Silk Road"
   ],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "alamo-san-antonio",
@@ -86,7 +91,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "alcatraz-island",
@@ -100,7 +106,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 5 (neighbor san-francisco-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "alcazaba-of-malaga-d34-67",
@@ -114,7 +121,8 @@
   "country": "Spain",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "alert-nunavut",
@@ -131,7 +139,8 @@
    "History Was Here",
    "Arctic Circle"
   ],
-  "difficultyWhy": "F2·A2·K0·C0·S0 → 5"
+  "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
+  "kind": "landmark"
  },
  {
   "id": "alhambra-granada",
@@ -147,7 +156,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F1·A1·K0·C1·S0 → 4"
+  "difficultyWhy": "F1·A1·K0·C1·S0 → 4",
+  "kind": "landmark"
  },
  {
   "id": "amalfi-coast-d34-58",
@@ -162,7 +172,8 @@
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 3 (neighbor pompeii)",
   "extentKm": 30,
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "amsterdam-canals-d34-7",
@@ -176,7 +187,8 @@
   "country": "Netherlands",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 4 (neighbor amsterdam-netherlands)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "amundsen-scott-south",
@@ -192,7 +204,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "anapurna-base-camp-nepal",
@@ -208,7 +221,8 @@
    "Himalaya"
   ],
   "difficultyWhy": "F2·A1·K0·C1·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "angkor-wat",
@@ -225,7 +239,8 @@
    "History Was Here",
    "Southeast Asia"
   ],
-  "difficultyWhy": "F1·A1·K0·C1·S0 → 4"
+  "difficultyWhy": "F1·A1·K0·C1·S0 → 4",
+  "kind": "landmark"
  },
  {
   "id": "anne-frank-house",
@@ -239,7 +254,8 @@
   "country": "Netherlands",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 3 (neighbor amsterdam-netherlands)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "anzac-cove",
@@ -255,7 +271,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F4·A2·K0·C0·S0 → 7"
+  "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
+  "kind": "landmark"
  },
  {
   "id": "area-51",
@@ -271,7 +288,8 @@
    "US Road Trip"
   ],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "arpanet-first-message-ucla",
@@ -285,7 +303,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 3 (neighbor los-angeles-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "atomium-iron-crystal",
@@ -299,7 +318,8 @@
   "country": "Belgium",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "augusta-national-golf-club",
@@ -313,7 +333,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "austin-capitol-texas",
@@ -327,7 +348,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "avatiu-harbour",
@@ -341,7 +363,8 @@
   "country": "Cook Islands",
   "sets": [],
   "difficultyWhy": "F5·A0·K2·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "axum-obelisks",
@@ -355,7 +378,8 @@
   "country": "Ethiopia",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "badaling-great-wall",
@@ -372,7 +396,8 @@
    "History Was Here",
    "Wonders of the World"
   ],
-  "difficultyWhy": "F4·A3·K0·C1·S0 → 9"
+  "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
+  "kind": "landmark"
  },
  {
   "id": "badlands-national-park",
@@ -386,7 +411,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "badwater-basin",
@@ -400,7 +426,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "bagan-myanmar",
@@ -416,7 +443,8 @@
    "Southeast Asia"
   ],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "balanced-rock-utah",
@@ -430,7 +458,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "banaue-rice-terraces-ph",
@@ -444,7 +473,8 @@
   "country": "Philippines",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "banteay-chhmar-face-towers",
@@ -458,7 +488,8 @@
   "country": "Cambodia",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "barringer-meteor-impact",
@@ -472,7 +503,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "battle-of-hastings",
@@ -488,7 +520,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F4·A1·K0·C0·S0 → 6"
+  "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
+  "kind": "landmark"
  },
  {
   "id": "ben-nevis",
@@ -504,7 +537,8 @@
    "Mountains"
   ],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "ben-youssef-madrasa-marrakech",
@@ -518,7 +552,8 @@
   "country": "Morocco",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "bering-strait",
@@ -533,7 +568,8 @@
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S1·G1 → 5",
   "extentKm": 45,
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "big-ben",
@@ -549,7 +585,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F1·A1·K0·C1·S0 → 2 (neighbor london-uk)"
+  "difficultyWhy": "F1·A1·K0·C1·S0 → 2 (neighbor london-uk)",
+  "kind": "landmark"
  },
  {
   "id": "birds-nest-beijing",
@@ -565,7 +602,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F3·A3·K0·C0·S0 → 3 (neighbor beijing-china)"
+  "difficultyWhy": "F3·A3·K0·C0·S0 → 3 (neighbor beijing-china)",
+  "kind": "landmark"
  },
  {
   "id": "black-forest",
@@ -580,7 +618,8 @@
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S1 → 5",
   "extentKm": 80,
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "blue-lagoon-iceland",
@@ -594,7 +633,8 @@
   "country": "Iceland",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "blyde-river-canyon",
@@ -610,7 +650,8 @@
    "Canyons & Gorges"
   ],
   "difficultyWhy": "F5·A2·K0·C1·S1 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "bodh-gaya-india",
@@ -626,7 +667,8 @@
    "Sacred Sites"
   ],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "bondi-beach",
@@ -642,7 +684,8 @@
    "Beaches"
   ],
   "difficultyWhy": "F1·A3·K0·C1·S0 → 2 (neighbor sydney-australia)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "borobudur",
@@ -658,7 +701,8 @@
    "Southeast Asia"
   ],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "brandenburg-gate",
@@ -672,7 +716,8 @@
   "country": "Germany",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor berlin-germany)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "brasilia-national-congress",
@@ -686,7 +731,8 @@
   "country": "Brazil",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 7 (neighbor brasilia-br)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "bryggen-wharf-d34-36",
@@ -700,7 +746,8 @@
   "country": "Norway",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "bull-run",
@@ -714,7 +761,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "bumthang-valley-bhutan",
@@ -730,7 +778,8 @@
    "Himalaya"
   ],
   "difficultyWhy": "F5·A0·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "bunker-hill-monument",
@@ -744,7 +793,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 7 (neighbor boston-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "burj-al-arab",
@@ -758,7 +808,8 @@
   "country": "United Arab Emirates",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "burj-khalifa-dubai",
@@ -774,7 +825,8 @@
    "Middle East"
   ],
   "difficultyWhy": "F0·A0·K0·C1·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "burning-man-first-baker-beach",
@@ -788,7 +840,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 6 (neighbor san-francisco-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "byrd-station",
@@ -804,7 +857,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "cabo-catoche",
@@ -818,7 +872,8 @@
   "country": "Mexico",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "cabo-manglares",
@@ -832,7 +887,8 @@
   "country": "Colombia",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "cabo-polonia-lighthouse",
@@ -846,7 +902,8 @@
   "country": "Uruguay",
   "sets": [],
   "difficultyWhy": "F5·A0·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "calama-chuquicamata-viewpoint",
@@ -860,7 +917,8 @@
   "country": "Chile",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "camp-nou",
@@ -874,7 +932,8 @@
   "country": "Spain",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 2 (neighbor sagrada-familia)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "capitol-building-washington",
@@ -888,7 +947,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor washington-dc-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "casey-station",
@@ -902,7 +962,8 @@
   "country": "Antarctica",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chaco-canyon-pueblo-bonito",
@@ -916,7 +977,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chagos-diego-garcia-point",
@@ -930,7 +992,8 @@
   "country": "United Kingdom",
   "sets": [],
   "difficultyWhy": "F1·A2·K2·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "challenger-deep",
@@ -946,7 +1009,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F2·A2·K0·C1·S0 → 6"
+  "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
+  "kind": "landmark"
  },
  {
   "id": "champagne-pool",
@@ -960,7 +1024,8 @@
   "country": "New Zealand",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "champasak-laos",
@@ -974,7 +1039,8 @@
   "country": "Laos",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chan-chan-tshudi-palace",
@@ -990,7 +1056,8 @@
    "Ancient Ruins"
   ],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chand-baori-abhaneri",
@@ -1005,7 +1072,8 @@
   "country": "India",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "channel-swim-captain-webb",
@@ -1019,7 +1087,8 @@
   "country": "France",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chateau-de-chambord",
@@ -1033,7 +1102,8 @@
   "country": "France",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chateau-frontenac",
@@ -1047,7 +1117,8 @@
   "country": "Canada",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chavin-de-huantar",
@@ -1061,7 +1132,8 @@
   "country": "Peru",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chernobyl-reactor-4",
@@ -1075,7 +1147,8 @@
   "country": "Ukraine",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "chichen-itza",
@@ -1092,7 +1165,8 @@
    "History Was Here",
    "Wonders of the World"
   ],
-  "difficultyWhy": "F1·A3·K0·C1·S0 → 6"
+  "difficultyWhy": "F1·A3·K0·C1·S0 → 6",
+  "kind": "landmark"
  },
  {
   "id": "chocolate-hills",
@@ -1108,7 +1182,8 @@
    "Southeast Asia"
   ],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "christ-the-redeemer",
@@ -1125,7 +1200,8 @@
    "History Was Here",
    "Wonders of the World"
   ],
-  "difficultyWhy": "F1·A3·K0·C1·S0 → 4 (neighbor rio-de-janeiro-brazil)"
+  "difficultyWhy": "F1·A3·K0·C1·S0 → 4 (neighbor rio-de-janeiro-brazil)",
+  "kind": "landmark"
  },
  {
   "id": "chrysler-building-nyc",
@@ -1139,7 +1215,8 @@
   "category": "city",
   "country": "United States",
   "sets": [],
-  "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor new-york-usa)"
+  "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
+  "kind": "landmark"
  },
  {
   "id": "chuuk-wrecks",
@@ -1155,7 +1232,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "F3·A2·K2·C1·S1 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "cinderella-castle-us",
@@ -1169,7 +1247,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "cliffs-of-moher",
@@ -1183,7 +1262,8 @@
   "country": "Ireland",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "colca-canyon-condor-cross",
@@ -1200,7 +1280,8 @@
    "Canyons & Gorges"
   ],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "concordia-station",
@@ -1216,7 +1297,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "copacabana-beach-rio",
@@ -1232,7 +1314,8 @@
   "sets": [
    "Beaches"
   ],
-  "difficultyWhy": "F3·A3·K0·C0·S0 → 5 (neighbor rio-de-janeiro-brazil)"
+  "difficultyWhy": "F3·A3·K0·C0·S0 → 5 (neighbor rio-de-janeiro-brazil)",
+  "kind": "landmark"
  },
  {
   "id": "copper-canyon",
@@ -1248,7 +1331,8 @@
    "Canyons & Gorges"
   ],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "cotopaxi-refuge",
@@ -1264,7 +1348,8 @@
    "Andes"
   ],
   "difficultyWhy": "F3·A1·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "daintree-rainforest",
@@ -1279,7 +1364,8 @@
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "extentKm": 35,
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "danakil-depression",
@@ -1295,7 +1381,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F3·A2·K0·C0·S1 → 7"
+  "difficultyWhy": "F3·A2·K0·C0·S1 → 7",
+  "kind": "area"
  },
  {
   "id": "danube-delta",
@@ -1312,7 +1399,8 @@
   ],
   "difficultyWhy": "F3·A1·K0·C0·S1 → 6",
   "extentKm": 50,
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "darvaza-gas-crater",
@@ -1326,7 +1414,8 @@
   "country": "Turkmenistan",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "davis-station",
@@ -1342,7 +1431,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "daytona-international-speedway",
@@ -1356,7 +1446,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "dead-sea",
@@ -1374,7 +1465,8 @@
    "Middle East"
   ],
   "difficultyWhy": "F1·A0·K0·C0·S1 → 3",
-  "extentKm": 55
+  "extentKm": 55,
+  "kind": "area"
  },
  {
   "id": "delicate-arch-utah",
@@ -1388,7 +1480,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "delphi",
@@ -1402,7 +1495,8 @@
   "country": "Greece",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "denali",
@@ -1418,7 +1512,8 @@
    "Mountains"
   ],
   "difficultyWhy": "F1·A2·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "dholavira-india",
@@ -1432,7 +1527,8 @@
   "country": "India",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "disneyland",
@@ -1446,7 +1542,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "dolly-cloning-roslin",
@@ -1460,7 +1557,8 @@
   "country": "Scotland",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 5 (neighbor edinburgh-scotland)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "dome-fuji",
@@ -1474,7 +1572,8 @@
   "country": "Antarctica",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "dome-of-the-rock",
@@ -1490,7 +1589,8 @@
    "Sacred Sites"
   ],
   "difficultyWhy": "F1·A0·K0·C1·S0 → 2 (neighbor jerusalem)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "dyatlov-pass-tent-site",
@@ -1504,7 +1604,8 @@
   "country": "Russia",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "eilean-donan-tidal-castle",
@@ -1520,7 +1621,8 @@
    "Castles"
   ],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "el-castillo-chichen-itza",
@@ -1534,7 +1636,8 @@
   "country": "Mexico",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "el-tatio-geysers",
@@ -1550,7 +1653,8 @@
    "Andes"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "flaming-cliffs-bayanzag",
@@ -1564,7 +1668,8 @@
   "country": "Mongolia",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "flannan-isles-lighthouse-mystery",
@@ -1578,7 +1683,8 @@
   "country": "Scotland",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "french-quarter-nola",
@@ -1592,7 +1698,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 7 (neighbor new-orleans-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "fukushima-daiichi",
@@ -1608,7 +1715,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F3·A2·K0·C0·S0 → 6"
+  "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
+  "kind": "landmark"
  },
  {
   "id": "gandhi-assassination-birla-house",
@@ -1622,7 +1730,8 @@
   "country": "India",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 6 (neighbor delhi)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "gateway-arch-st-louis",
@@ -1636,7 +1745,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 5 (neighbor st-louis-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "genoa-harbor-d34-46",
@@ -1652,7 +1762,8 @@
    "Port Cities"
   ],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "georgetown-st-georges-cathedral",
@@ -1666,7 +1777,8 @@
   "country": "Guyana",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "gettysburg-battlefield",
@@ -1680,7 +1792,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "gobekli-tepe",
@@ -1696,7 +1809,8 @@
    "Ancient Ruins"
   ],
   "difficultyWhy": "F1·A2·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "gobi-desert-dinosaur-nemegt",
@@ -1710,7 +1824,8 @@
   "country": "Mongolia",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "gold-coast",
@@ -1724,7 +1839,8 @@
   "country": "Australia",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "gothenburg-canals-d34-34",
@@ -1738,7 +1854,8 @@
   "country": "Sweden",
   "sets": [],
   "difficultyWhy": "F1·A2·K0·C1·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "great-ocean-road",
@@ -1753,7 +1870,8 @@
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
   "extentKm": 122,
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "great-sea-reef",
@@ -1767,7 +1885,8 @@
   "country": "Fiji",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "great-sphinx-giza",
@@ -1783,7 +1902,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F2·A2·K0·C1·S0 → 5 (neighbor cairo)"
+  "difficultyWhy": "F2·A2·K0·C1·S0 → 5 (neighbor cairo)",
+  "kind": "landmark"
  },
  {
   "id": "gyeongbokgung-palace",
@@ -1797,7 +1917,8 @@
   "country": "South Korea",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "ha-long-bay",
@@ -1813,7 +1934,8 @@
    "Southeast Asia"
   ],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "halemaumau-crater",
@@ -1829,7 +1951,8 @@
    "Volcanoes"
   ],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "halley-station",
@@ -1843,7 +1966,8 @@
   "country": "Antarctica",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "harmony-point-nelson",
@@ -1857,7 +1981,8 @@
   "country": "Antarctica",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "higgs-boson-cern-atlas",
@@ -1871,7 +1996,8 @@
   "country": "Switzerland",
   "sets": [],
   "difficultyWhy": "F1·A0·K0·C0·S0 → 2",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "hindenburg-lakehurst",
@@ -1885,7 +2011,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "hohensalzburg-fortress",
@@ -1901,7 +2028,8 @@
    "The Alps"
   ],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "hoi-an",
@@ -1918,7 +2046,8 @@
    "Southeast Asia"
   ],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "housesteads-hadrians-wall",
@@ -1932,7 +2061,8 @@
   "country": "England",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "humberstone-saltpeter-works",
@@ -1948,7 +2078,8 @@
    "Mining Towns"
   ],
   "difficultyWhy": "F5·A3·K0·C0·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "hungarian-parliament",
@@ -1962,7 +2093,8 @@
   "country": "Hungary",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 2 (neighbor budapest-hungary)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "independence-hall",
@@ -1976,7 +2108,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 6 (neighbor philadelphia-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "indianapolis-motor-speedway",
@@ -1990,7 +2123,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "jaws-menemsha-harbor",
@@ -2004,7 +2138,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C0·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "jfk-assassination-dealey-plaza",
@@ -2018,7 +2153,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "jokulsarlon-glacier-lagoon",
@@ -2034,7 +2170,8 @@
    "Fjords & Glaciers"
   ],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "jungfrau",
@@ -2050,7 +2187,8 @@
    "Mountains"
   ],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "k2-base-camp-pakistan",
@@ -2066,7 +2204,8 @@
    "Himalaya"
   ],
   "difficultyWhy": "F0·A2·K0·C1·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kakadu",
@@ -2080,7 +2219,8 @@
   "country": "Australia",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "kanyakumari-india",
@@ -2094,7 +2234,8 @@
   "country": "India",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kasubi-royal-tombs",
@@ -2108,7 +2249,8 @@
   "country": "Uganda",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kennedy-space-center",
@@ -2122,7 +2264,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kilwa-kisiwani-ruins",
@@ -2136,7 +2279,8 @@
   "country": "Tanzania",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "knossos",
@@ -2153,7 +2297,8 @@
    "Mediterranean Islands"
   ],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kondoa-rock-art",
@@ -2167,7 +2312,8 @@
   "country": "Tanzania",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kourou-space-centre",
@@ -2181,7 +2327,8 @@
   "country": "France",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "krakatoa-1883-eruption",
@@ -2197,7 +2344,8 @@
    "Volcanoes"
   ],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kremlin-moscow",
@@ -2211,7 +2359,8 @@
   "country": "Russia",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 3 (neighbor moscow-russia)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kuelap-fortress-peru",
@@ -2226,7 +2375,8 @@
   "country": "Peru",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "las-lajas-sanctuary",
@@ -2240,7 +2390,8 @@
   "country": "Colombia",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "lascaux",
@@ -2254,7 +2405,8 @@
   "country": "France",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "le-mans-circuit",
@@ -2268,7 +2420,8 @@
   "country": "France",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "lifou-cliffs",
@@ -2284,7 +2437,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "little-bighorn-battlefield",
@@ -2298,7 +2452,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "lituya-bay-megatsunami",
@@ -2312,7 +2467,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "longmen-grottos",
@@ -2326,7 +2482,8 @@
   "country": "China",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "lumbini-nepal",
@@ -2342,7 +2499,8 @@
    "Sacred Sites"
   ],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "lunch-atop-skyscraper-rockefeller",
@@ -2356,7 +2514,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "machu-picchu",
@@ -2374,7 +2533,8 @@
    "Wonders of the World",
    "Andes"
   ],
-  "difficultyWhy": "F0·A2·K0·C1·S0 → 4"
+  "difficultyWhy": "F0·A2·K0·C1·S0 → 4",
+  "kind": "landmark"
  },
  {
   "id": "magna-carta-runnymede",
@@ -2388,7 +2548,8 @@
   "country": "England",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "maheno-shipwreck",
@@ -2402,7 +2563,8 @@
   "country": "Australia",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mall-of-america",
@@ -2416,7 +2578,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 4 (neighbor minneapolis-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mandela-rivonia-arrest-liliesleaf",
@@ -2430,7 +2593,8 @@
   "country": "South Africa",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 6 (neighbor johannesburg-south-africa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "masada-israel",
@@ -2444,7 +2608,8 @@
   "country": "Israel",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C1·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "matterhorn-summit",
@@ -2460,7 +2625,8 @@
    "Mountains"
   ],
   "difficultyWhy": "F1·A0·K0·C0·S0 → 2",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mawson-station",
@@ -2476,7 +2642,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mcmurdo-hut-point",
@@ -2492,7 +2659,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "medellin-botero-plaza",
@@ -2506,7 +2674,8 @@
   "country": "Colombia",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "migrant-mother-nipomo",
@@ -2520,7 +2689,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "miraflores-locks",
@@ -2534,7 +2704,8 @@
   "country": "Panama",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0·G1 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "moai-quarry-rano-raraku",
@@ -2548,7 +2719,8 @@
   "country": "Chile",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0·G1 → 6 (neighbor easter-island)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "moeraki-boulders",
@@ -2562,7 +2734,8 @@
   "country": "New Zealand",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "monkey-gorge-zimbabwe",
@@ -2576,7 +2749,8 @@
   "country": "Zimbabwe",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C1·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mont-blanc",
@@ -2592,7 +2766,8 @@
    "Mountains"
   ],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mont-saint-michel",
@@ -2608,7 +2783,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F1·A1·K0·C0·S0 → 3"
+  "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
+  "kind": "landmark"
  },
  {
   "id": "monterey-pop-festival",
@@ -2622,7 +2798,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "monticello",
@@ -2636,7 +2813,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "monument-valley-mitten",
@@ -2650,7 +2828,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mount-kilimanjaro-summit",
@@ -2666,7 +2845,8 @@
    "African Safari"
   ],
   "difficultyWhy": "F5·A2·K0·C1·S1 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mutianyu",
@@ -2680,7 +2860,8 @@
   "country": "China",
   "sets": [],
   "difficultyWhy": "F0·A3·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "nalanda-bihar",
@@ -2694,7 +2875,8 @@
   "country": "India",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "nan-madol",
@@ -2710,7 +2892,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "F3·A0·K2·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "napa-valley-ava",
@@ -2727,7 +2910,8 @@
   ],
   "difficultyWhy": "F4·A3·K0·C0·S1 → 9",
   "extentKm": 30,
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "ness-of-brodgar",
@@ -2741,7 +2925,8 @@
   "country": "Scotland",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "neumayer-iii",
@@ -2755,7 +2940,8 @@
   "country": "Antarctica",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "new-grange-colonia-lighthouse",
@@ -2769,7 +2955,8 @@
   "country": "Uruguay",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "newgrange",
@@ -2783,7 +2970,8 @@
   "country": "Ireland",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "ngorongoro-crater-rim",
@@ -2799,7 +2987,8 @@
    "African Safari"
   ],
   "difficultyWhy": "F3·A2·K0·C1·S1 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "nourlangie-rock",
@@ -2813,7 +3002,8 @@
   "country": "Australia",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "oivi-kokoda",
@@ -2827,7 +3017,8 @@
   "country": "Papua New Guinea",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "okefenokee-swamp",
@@ -2841,7 +3032,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "ol-duvai-gorge",
@@ -2855,7 +3047,8 @@
   "country": "Tanzania",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "ouro-preto-tiradentes-square",
@@ -2871,7 +3064,8 @@
    "Colonial Towns"
   ],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "palm-jumeirah",
@@ -2885,7 +3079,8 @@
   "country": "United Arab Emirates",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "palmer-station",
@@ -2901,7 +3096,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pamukkale-turkey",
@@ -2917,7 +3113,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F3·A2·K0·C0·S0 → 6"
+  "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
+  "kind": "landmark"
  },
  {
   "id": "pantanal-porto-jofre",
@@ -2931,7 +3128,8 @@
   "country": "Bolivia",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8 → evened to 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "paracas-candelabra",
@@ -2945,7 +3143,8 @@
   "country": "Peru",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "paramaribo-presidential-palace",
@@ -2959,7 +3158,8 @@
   "country": "Suriname",
   "sets": [],
   "difficultyWhy": "F2·A0·K1·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "parliament-hill-ottawa",
@@ -2973,7 +3173,8 @@
   "country": "Canada",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 8 (neighbor ottawa-canada)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pearl-harbor-uss-arizona",
@@ -2987,7 +3188,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "petra-jordan",
@@ -3005,7 +3207,8 @@
    "Wonders of the World",
    "Middle East"
   ],
-  "difficultyWhy": "F4·A0·K0·C1·S0 → 6"
+  "difficultyWhy": "F4·A0·K0·C1·S0 → 6",
+  "kind": "landmark"
  },
  {
   "id": "phong-nha-ke-bang",
@@ -3021,7 +3224,8 @@
    "Southeast Asia"
   ],
   "difficultyWhy": "F5·A2·K0·C0·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "pico-do-fogo-cape-verde",
@@ -3035,7 +3239,8 @@
   "country": "Cape Verde",
   "sets": [],
   "difficultyWhy": "F4·A0·K1·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pingyao-ancient-city",
@@ -3049,7 +3254,8 @@
   "country": "China",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pitcairn-bounty-bay",
@@ -3065,7 +3271,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "F5·A2·K2·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "plaza-de-espana-seville",
@@ -3079,7 +3286,8 @@
   "category": "city",
   "country": "Spain",
   "sets": [],
-  "difficultyWhy": "F3·A1·K0·C0·S0 → 5"
+  "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
+  "kind": "landmark"
  },
  {
   "id": "plaza-mayor-of-salamanca-d34-70",
@@ -3093,7 +3301,8 @@
   "country": "Spain",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "plymouth-rock",
@@ -3107,7 +3316,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pohutu-geyser",
@@ -3121,7 +3331,8 @@
   "country": "New Zealand",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pompeii",
@@ -3137,7 +3348,8 @@
    "Ancient Ruins"
   ],
   "difficultyWhy": "F0·A1·K0·C0·S0 → 2",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pont-du-gard-aqueduct",
@@ -3152,7 +3364,8 @@
   "country": "France",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "prado-museum",
@@ -3166,7 +3379,8 @@
   "country": "Spain",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 3 (neighbor madrid-spain)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "preikestolen-pulpit-rock",
@@ -3180,7 +3394,8 @@
   "country": "Norway",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "punta-arenas-magellan-monument",
@@ -3194,7 +3409,8 @@
   "country": "Chile",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pyramids-of-giza",
@@ -3211,7 +3427,8 @@
    "History Was Here",
    "Wonders of the World"
   ],
-  "difficultyWhy": "F2·A2·K0·C1·S0 → 5 (neighbor cairo)"
+  "difficultyWhy": "F2·A2·K0·C1·S0 → 5 (neighbor cairo)",
+  "kind": "landmark"
  },
  {
   "id": "queenstown-bay",
@@ -3225,7 +3442,8 @@
   "country": "New Zealand",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "rani-ki-vav-stepwell",
@@ -3239,7 +3457,8 @@
   "country": "India",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "red-square-moscow",
@@ -3253,7 +3472,8 @@
   "country": "Russia",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 3 (neighbor moscow-russia)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "registan-samarkand",
@@ -3269,7 +3489,8 @@
    "Silk Road"
   ],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "richat-structure",
@@ -3285,7 +3506,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F2·A2·K0·C0·S0 → 5"
+  "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
+  "kind": "area"
  },
  {
   "id": "rock-of-cashel",
@@ -3299,7 +3521,8 @@
   "country": "Ireland",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "rock-of-gibraltar",
@@ -3313,7 +3536,8 @@
   "country": "United Kingdom",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S0 → 5 → evened to 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sacsayhuaman-cusco",
@@ -3330,7 +3554,8 @@
    "Ancient Ruins"
   ],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "saint-laurent-camp-transportation",
@@ -3344,7 +3569,8 @@
   "country": "France",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "san-ignacio-mini-mission",
@@ -3360,7 +3586,8 @@
    "Colonial Towns"
   ],
   "difficultyWhy": "F5·A3·K0·C0·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sanctuary-of-fátima-d34-77",
@@ -3374,7 +3601,8 @@
   "country": "Portugal",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "santa-monica-pier",
@@ -3388,7 +3616,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 6 (neighbor los-angeles-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "savusavu-bay",
@@ -3402,7 +3631,8 @@
   "country": "Fiji",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "scott-hut-cape-evans",
@@ -3418,7 +3648,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sea-of-galilee",
@@ -3432,7 +3663,8 @@
   "country": "Israel",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "shackleton-hut-cape-royds",
@@ -3448,7 +3680,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "shibuya-crossing-tokyo",
@@ -3462,7 +3695,8 @@
   "country": "Japan",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 3 (neighbor tokyo-japan)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sigiriya",
@@ -3476,7 +3710,8 @@
   "country": "Sri Lanka",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "snowdon",
@@ -3492,7 +3727,8 @@
    "Mountains"
   ],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "south-beach",
@@ -3508,7 +3744,8 @@
    "Beaches"
   ],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 6 (neighbor miami-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "st-marks-square-venice",
@@ -3522,7 +3759,8 @@
   "country": "Italy",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C1·S0 → 5 (neighbor venice-italy)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "star-wars-lars-homestead-interior",
@@ -3536,7 +3774,8 @@
   "country": "Tunisia",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "stonehenge",
@@ -3552,7 +3791,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F0·A1·K0·C1·S0 → 3"
+  "difficultyWhy": "F0·A1·K0·C1·S0 → 3",
+  "kind": "landmark"
  },
  {
   "id": "strait-of-gibraltar",
@@ -3566,7 +3806,8 @@
   "country": "International Waters",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S1·G1 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "suez-canal",
@@ -3581,7 +3822,8 @@
   "sets": [],
   "difficultyWhy": "F1·A2·K0·C0·S1·G1 → 4",
   "extentKm": 97,
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "suicide-cliff-saipan",
@@ -3595,7 +3837,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "syowa-station",
@@ -3609,7 +3852,8 @@
   "country": "Antarctica",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "tanbaly-kazakhstan",
@@ -3623,7 +3867,8 @@
   "country": "Kazakhstan",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "thabana-ntlenyana-summit",
@@ -3637,7 +3882,8 @@
   "country": "Lesotho",
   "sets": [],
   "difficultyWhy": "F4·A0·K1·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "thermopylae",
@@ -3653,7 +3899,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F3·A1·K0·C0·S0 → 5"
+  "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
+  "kind": "landmark"
  },
  {
   "id": "thingvellir",
@@ -3667,7 +3914,8 @@
   "country": "Iceland",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "tiananmen-square-beijing",
@@ -3681,7 +3929,8 @@
   "category": "city",
   "country": "China",
   "sets": [],
-  "difficultyWhy": "F2·A3·K0·C0·S0 → 2 (neighbor beijing-china)"
+  "difficultyWhy": "F2·A3·K0·C0·S0 → 2 (neighbor beijing-china)",
+  "kind": "landmark"
  },
  {
   "id": "tikal",
@@ -3697,7 +3946,8 @@
    "Ancient Ruins"
   ],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "times-square-nyc",
@@ -3711,7 +3961,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 3 (neighbor new-york-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "tiwanaku-kalasasaya",
@@ -3725,7 +3976,8 @@
   "country": "Bolivia",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "trafalgar-square-london",
@@ -3739,7 +3991,8 @@
   "category": "city",
   "country": "England",
   "sets": [],
-  "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor london-uk)"
+  "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor london-uk)",
+  "kind": "landmark"
  },
  {
   "id": "transistor-bell-labs-murray-hill",
@@ -3753,7 +4006,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "trevi-fountain-rome",
@@ -3767,7 +4021,8 @@
   "country": "Italy",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C1·S0 → 2 (neighbor rome-italy)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "uyuni-salt-hotel",
@@ -3783,7 +4038,8 @@
    "Andes"
   ],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "valley-of-kings",
@@ -3797,7 +4053,8 @@
   "country": "Egypt",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "valley-of-queens-luxor",
@@ -3811,7 +4068,8 @@
   "country": "Egypt",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "vardzia-cliff-monastery",
@@ -3825,7 +4083,8 @@
   "country": "Georgia",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "versailles-palace",
@@ -3839,7 +4098,8 @@
   "country": "France",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 2 (neighbor paris-france)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "vlkolinec-slovakia",
@@ -3853,7 +4113,8 @@
   "country": "Slovakia",
   "sets": [],
   "difficultyWhy": "F5·A0·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "vostok-station",
@@ -3870,7 +4131,8 @@
    "History Was Here",
    "Antarctic Outposts"
   ],
-  "difficultyWhy": "F3·A3·K0·C0·S0 → 7"
+  "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
+  "kind": "landmark"
  },
  {
   "id": "wall-street-us",
@@ -3884,7 +4146,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "western-wall-jerusalem",
@@ -3900,7 +4163,8 @@
    "Sacred Sites"
   ],
   "difficultyWhy": "F1·A0·K0·C1·S0 → 2 (neighbor jerusalem)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "whalers-bay-deception",
@@ -3916,7 +4180,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "white-cliffs-of-dover",
@@ -3930,7 +4195,8 @@
   "country": "England",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "white-house-dc",
@@ -3944,7 +4210,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F0·A3·K0·C1·S0 → 2 (Icon)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "wimbledon-all-england-club",
@@ -3958,7 +4225,8 @@
   "country": "England",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 3 (neighbor london-uk)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "wittenberg-castle-church",
@@ -3974,7 +4242,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F3·A1·K0·C0·S0 → 5"
+  "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
+  "kind": "landmark"
  },
  {
   "id": "wounded-knee-creek",
@@ -3988,7 +4257,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S1 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "xochimilco-mx",
@@ -4002,7 +4272,8 @@
   "country": "Mexico",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 4 (neighbor mexico-city-mexico)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "yapahuwa-rock-citadel",
@@ -4016,7 +4287,8 @@
   "country": "Sri Lanka",
   "sets": [],
   "difficultyWhy": "F5·A0·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "yosemite-valley",
@@ -4030,7 +4302,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "zhangjiajie-national-forest-park",
@@ -4045,7 +4318,8 @@
   "country": "China",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "zugspitze-summit",
@@ -4061,7 +4335,8 @@
    "Mountains"
   ],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "empire-state-building-ny",
@@ -4075,7 +4350,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F0·A3·K0·C1·S0 → 2 (Icon)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "fuji-tv-building-tokyo",
@@ -4089,7 +4365,8 @@
   "country": "Japan",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C1·S0 → 4 (neighbor tokyo-japan)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pentagon-us",
@@ -4103,7 +4380,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor washington-dc-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "reichstag-de",
@@ -4117,7 +4395,8 @@
   "country": "Germany",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor berlin-germany)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "stonewall-uprising",
@@ -4131,7 +4410,8 @@
   "country": "United States",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 3 (neighbor new-york-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sacre-coeur-fr",
@@ -4146,7 +4426,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor paris-france)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "arc-de-triomphe-paris",
@@ -4161,7 +4442,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C1·S0 → 2 (neighbor paris-france)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "london-eye-gb",
@@ -4176,7 +4458,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 2 (neighbor london-uk)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "manneken-pis-be",
@@ -4191,7 +4474,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A0·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "old-trafford",
@@ -4206,7 +4490,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C0·S0 → 3 (neighbor manchester-england)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "roman-baths-bath",
@@ -4221,7 +4506,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sarajevo-baščaršija-d34-26",
@@ -4238,7 +4524,8 @@
    "Balkans"
   ],
   "difficultyWhy": "F1·A0·K0·C1·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "fushimi-inari-taisha",
@@ -4253,7 +4540,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "haamonga-trilithon",
@@ -4270,7 +4558,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "F5·A0·K2·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "katskhi-pillar-hermitage",
@@ -4285,7 +4574,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kinkakuji",
@@ -4300,7 +4590,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mecca-kaaba-saudi",
@@ -4317,7 +4608,8 @@
    "Sacred Sites"
   ],
   "difficultyWhy": "F0·A2·K0·C1·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "piedra-del-cocuy",
@@ -4332,7 +4624,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "port-lockroy",
@@ -4349,7 +4642,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "scott-base",
@@ -4366,7 +4660,8 @@
    "Antarctic Outposts"
   ],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "terracotta-army",
@@ -4383,7 +4678,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F1·A3·K0·C0·S0 → 5"
+  "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
+  "kind": "landmark"
  },
  {
   "id": "tian-tan-buddha-hk",
@@ -4398,7 +4694,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "twelve-apostles",
@@ -4413,7 +4710,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "wat-arun-th",
@@ -4428,7 +4726,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 3 (neighbor bangkok-thailand)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "great-blue-hole",
@@ -4445,7 +4744,8 @@
    "Caribbean"
   ],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "grise-fiord",
@@ -4462,7 +4762,8 @@
    "Arctic Circle"
   ],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "grand-prismatic-yellowstone",
@@ -4477,7 +4778,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pitons-of-saint-lucia",
@@ -4494,7 +4796,8 @@
    "Caribbean"
   ],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "piton-de-la-fournaise",
@@ -4511,7 +4814,8 @@
    "Volcanoes"
   ],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "graceland",
@@ -4528,7 +4832,8 @@
    "US Road Trip"
   ],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "half-dome-us",
@@ -4543,7 +4848,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "hollywood-sign-la",
@@ -4558,7 +4864,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 5 (neighbor los-angeles-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "liberty-bell",
@@ -4573,7 +4880,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 5 (neighbor philadelphia-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "old-faithful-yellowstone",
@@ -4588,7 +4896,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "one-world-trade-center-us",
@@ -4603,7 +4912,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "elvis-sun-studio-first-single",
@@ -4618,7 +4928,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "queens-us",
@@ -4633,7 +4944,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "the-bronx",
@@ -4648,7 +4960,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor new-york-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "two-lovers-point",
@@ -4663,7 +4976,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "wrigley-field",
@@ -4678,7 +4992,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C0·S0 → 4 (neighbor chicago)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "tsodilo-hills-bw",
@@ -4693,7 +5008,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "emi-koussi-chad",
@@ -4708,7 +5024,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "fasil-ghebbi-gondar",
@@ -4723,7 +5040,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "tsingy-de-bemaraha",
@@ -4738,7 +5056,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "sossusvlei-dead-vlei",
@@ -4753,7 +5072,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sossusvlei",
@@ -4768,7 +5088,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "spitzkoppe",
@@ -4783,7 +5104,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "punakha-dzong-confluence",
@@ -4800,7 +5122,8 @@
    "Himalaya"
   ],
   "difficultyWhy": "F5·A0·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "leshan-giant-buddha",
@@ -4815,7 +5138,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "gateway-of-india",
@@ -4830,7 +5154,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S0 → 5 (neighbor mumbai-india)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "qutub-minar-delhi",
@@ -4845,7 +5170,8 @@
   "country": "India",
   "continent": "Asia",
   "sets": [],
-  "difficultyWhy": "F2·A3·K0·C0·S0 → 4 (neighbor delhi)"
+  "difficultyWhy": "F2·A3·K0·C0·S0 → 4 (neighbor delhi)",
+  "kind": "landmark"
  },
  {
   "id": "taj-mahal",
@@ -4863,7 +5189,8 @@
    "History Was Here",
    "Wonders of the World"
   ],
-  "difficultyWhy": "F0·A3·K0·C1·S0 → 4"
+  "difficultyWhy": "F0·A3·K0·C1·S0 → 4",
+  "kind": "landmark"
  },
  {
   "id": "kamakura-daibutsu-jp",
@@ -4878,7 +5205,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "wadi-rum",
@@ -4896,7 +5224,8 @@
    "History Was Here",
    "Middle East"
   ],
-  "difficultyWhy": "F3·A0·K0·C0·S1 → 5"
+  "difficultyWhy": "F3·A0·K0·C0·S1 → 5",
+  "kind": "area"
  },
  {
   "id": "yolyn-am-mongolia",
@@ -4911,7 +5240,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "son-doong-vietnam",
@@ -4926,7 +5256,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "el-porvenir-san-blas",
@@ -4941,7 +5272,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "horseshoe-bend",
@@ -4959,7 +5291,8 @@
    "US Road Trip"
   ],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mlk-assassination-lorraine-motel",
@@ -4974,7 +5307,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "redwood-national-and-state-parks",
@@ -4989,7 +5323,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S1 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "space-needle-seattle",
@@ -5004,7 +5339,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A3·K0·C1·S0 → 5 (neighbor seattle-usa)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "fitz-roy-laguna-de-los-tres",
@@ -5021,7 +5357,8 @@
    "Andes"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "torres-del-paine-base-viewpoint",
@@ -5038,7 +5375,8 @@
    "Andes"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "concepcion-jesuit-mission",
@@ -5053,7 +5391,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "salar-de-uyuni",
@@ -5071,7 +5410,8 @@
    "History Was Here",
    "Andes"
   ],
-  "difficultyWhy": "F2·A2·K0·C0·S0 → 5"
+  "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
+  "kind": "area"
  },
  {
   "id": "potosi-casa-de-la-moneda",
@@ -5089,7 +5429,8 @@
    "Mining Towns"
   ],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "lencois-maranhenses",
@@ -5104,7 +5445,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F3·A3·K0·C0·S1 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "serra-da-capivara-boqueirao",
@@ -5119,7 +5461,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "moai-rapa-nui-ahu-tongariki",
@@ -5134,7 +5477,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0·G1 → 6 (neighbor easter-island)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "fuerte-bulnes",
@@ -5149,7 +5493,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "laguna-colorada-viewpoint",
@@ -5166,7 +5511,8 @@
    "Andes"
   ],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "valle-de-la-luna-chile",
@@ -5181,7 +5527,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "equator-mitad-del-mundo",
@@ -5196,7 +5543,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C1·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "huacachina-peru",
@@ -5211,7 +5559,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "isla-foca",
@@ -5226,7 +5575,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "lord-of-rings-hobbiton-film-set",
@@ -5241,7 +5591,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mt-yasur",
@@ -5259,7 +5610,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "F4·A1·K2·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "east-london",
@@ -5274,7 +5626,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "forbidden-city-beijing",
@@ -5289,7 +5642,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 2 (neighbor beijing-china)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "hegra-qasr-al-farid",
@@ -5304,7 +5658,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pietermaritzburg-za",
@@ -5319,7 +5674,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "F3·A2·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "tabas",
@@ -5336,7 +5692,8 @@
    "Desert Cities"
   ],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "tigers-nest",
@@ -5353,7 +5710,8 @@
    "Himalaya"
   ],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "ambunti-sepik",
@@ -5368,7 +5726,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "atafu-loto",
@@ -5383,7 +5742,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "hunga-tonga-2022-eruption",
@@ -5400,7 +5760,8 @@
    "Volcanoes"
   ],
   "difficultyWhy": "F3·A0·K2·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kiriwina-trobriands",
@@ -5415,7 +5776,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "manihiki-oma",
@@ -5430,7 +5792,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A2·K2·C1·S1 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "mauna-kea",
@@ -5445,7 +5808,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A2·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "nanumea-tuvalu",
@@ -5460,7 +5824,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A0·K2·C0·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "pangai-haapai",
@@ -5475,7 +5840,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A0·K2·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "pavuvu-russells",
@@ -5490,7 +5856,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A1·K2·C1·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "pucara-de-tilcara",
@@ -5505,7 +5872,8 @@
   "continent": "South America",
   "sets": [],
   "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pukapuka-village",
@@ -5520,7 +5888,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F3·A2·K2·C1·S1 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "santiago-de-cuba-cu",
@@ -5537,7 +5906,8 @@
    "Caribbean"
   ],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "santiago-de-los-caballeros-do",
@@ -5552,7 +5922,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "sewell-mining-stairways",
@@ -5569,7 +5940,8 @@
    "Mining Towns"
   ],
   "difficultyWhy": "F5·A3·K0·C0·S0 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "tabuaeran",
@@ -5584,7 +5956,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A0·K2·C0·S1 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "teotihuacan",
@@ -5601,7 +5974,8 @@
    "Ancient Ruins"
   ],
   "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "teraina",
@@ -5616,7 +5990,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F5·A0·K2·C0·S1 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "kizhi-pogost",
@@ -5631,7 +6006,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A3·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mt-ngauruhoe",
@@ -5646,7 +6022,8 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "peros-banhos",
@@ -5661,7 +6038,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A2·K2·C1·S0 → 10",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "puente-nuevo-d34-66",
@@ -5676,7 +6054,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "real-alcázar-of-seville-d34-64",
@@ -5691,7 +6070,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sagrada-familia",
@@ -5706,7 +6086,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F0·A1·K0·C0·S0 → 2",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "stone-of-destiny",
@@ -5721,7 +6102,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F5·A1·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "zaporizhzhya-ua",
@@ -5736,7 +6118,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "dettifoss",
@@ -5753,7 +6136,8 @@
    "Waterfalls"
   ],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "geirangerfjord-no",
@@ -5771,7 +6155,8 @@
    "Fjords & Glaciers"
   ],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "geysir-d34-42",
@@ -5786,7 +6171,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "guggenheim-bilbao",
@@ -5801,7 +6187,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "gullfoss",
@@ -5818,7 +6205,8 @@
    "Waterfalls"
   ],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "hallgrímskirkja-d34-40",
@@ -5833,7 +6221,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kirkjufell-iceland",
@@ -5848,7 +6237,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "kjeragbolten",
@@ -5866,7 +6256,8 @@
    "Fjords & Glaciers"
   ],
   "difficultyWhy": "F4·A2·K0·C0·S0 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "little-mermaid-dk",
@@ -5881,7 +6272,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A0·K0·C0·S0 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "lucca-walls-d34-50",
@@ -5896,7 +6288,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mata-utu-wallis",
@@ -5911,7 +6304,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "mohenjo-daro",
@@ -5928,7 +6322,8 @@
    "Ancient Ruins"
   ],
   "difficultyWhy": "F2·A2·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mole-antonelliana-d34-56",
@@ -5943,7 +6338,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C1·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mt-orohena",
@@ -5960,7 +6356,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "F4·A2·K0·C1·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "pantheon-rome",
@@ -5975,7 +6372,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F1·A1·K0·C0·S0 → 2 (neighbor rome-italy)",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "piazza-del-campo-d34-51",
@@ -5990,7 +6388,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F4·A1·K0·C0·S0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "skógafoss-d34-43",
@@ -6007,7 +6406,8 @@
    "Waterfalls"
   ],
   "difficultyWhy": "F4·A0·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "thanh-hoa",
@@ -6022,7 +6422,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "F5·A2·K0·C0·S0 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "uluru",
@@ -6039,7 +6440,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F1·A3·K0·C0·S0 → 5"
+  "difficultyWhy": "F1·A3·K0·C0·S0 → 5",
+  "kind": "landmark"
  },
  {
   "id": "vatnajökull-d34-44",
@@ -6056,7 +6458,8 @@
    "Fjords & Glaciers"
   ],
   "difficultyWhy": "F4·A0·K0·C0·S1 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "york-minster-d34-3",
@@ -6071,7 +6474,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "F3·A1·K0·C0·S0 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "tristan-da-cunha",
@@ -6088,7 +6492,8 @@
   "sets": [
    "History Was Here"
   ],
-  "difficultyWhy": "F1·A2·K2·C1·S1 → 8"
+  "difficultyWhy": "F1·A2·K2·C1·S1 → 8",
+  "kind": "area"
  },
  {
   "id": "salvador-pelourinho",
@@ -6105,7 +6510,8 @@
    "Colonial Towns"
   ],
   "difficultyWhy": "p.66(via Salvador)·fb936·K0·iso476 → 72.6 → 7",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "waikiki",
@@ -6122,7 +6528,8 @@
    "Beaches"
   ],
   "difficultyWhy": "p.91(via Honolulu)·fb6356·K0·iso4119 → 81.3 → 8",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "brooklyn-us",
@@ -6137,7 +6544,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.99·fb1683·K0·iso23 → 6.6 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "champs-elysees-paris",
@@ -6152,7 +6560,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.74·fb179·K0·iso264 → 13.8 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "coyoacan-mx",
@@ -6167,7 +6576,8 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.50·fb294·K0·iso17 → 34.8 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "murano-d34-55",
@@ -6182,7 +6592,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.35·fb301·K0·iso247 → 43.9 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "soweto-za",
@@ -6197,7 +6608,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "p.59·fb251·K0·iso20 → 25.6 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "sri-jayawardenepura-kotte",
@@ -6212,7 +6624,8 @@
   "country": "Sri Lanka",
   "category": "city",
   "continent": "Asia",
-  "sets": []
+  "sets": [],
+  "kind": "settlement"
  },
  {
   "id": "abala",
@@ -6227,7 +6640,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "p.00·fb199·K1·iso213 → 177.3 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "settlement"
  },
  {
   "id": "cesky-krumlov-d34-18",
@@ -6242,7 +6656,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.49·fb145·K0·iso142 → 18.7 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "leptis-magna",
@@ -6262,7 +6677,8 @@
   "continent": "Africa",
   "sets": [],
   "difficultyWhy": "p.47·fb129·K0·iso107 → 17.6 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "monschau-d34-79",
@@ -6282,7 +6698,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.22·fb251·K0·iso65 → 41.7 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "san-gimignano-d34-52",
@@ -6302,7 +6719,8 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.57·fb116·K0·iso212 → 14.1 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "trolltunga",
@@ -6325,7 +6743,8 @@
    "Fjords & Glaciers"
   ],
   "difficultyWhy": "p.30·fb155·K0·iso224 → 24.3 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "vagator",
@@ -6345,7 +6764,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "p.00·fb776·K0·iso325 → 166.6 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mount-fuji",
@@ -6363,7 +6783,8 @@
    "Mountains"
   ],
   "difficultyWhy": "p.94·fb140·K0·iso84 → 4.9 → 2",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mount-vesuvius",
@@ -6380,7 +6801,8 @@
    "Volcanoes"
   ],
   "difficultyWhy": "p.93·fb290·K0·iso199 → 7.9 → 3",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "mount-pinatubo",
@@ -6398,7 +6820,8 @@
    "Southeast Asia"
   ],
   "difficultyWhy": "p.65·fb370·K0·iso86 → 32.0 → 6",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "colosseum-rome",
@@ -6417,7 +6840,8 @@
    "Ancient Ruins"
   ],
   "difficultyWhy": "p.99·fb102·K0·iso478 → 3.2 → 1",
-  "category": "city"
+  "category": "city",
+  "kind": "landmark"
  },
  {
   "id": "easter-island",
@@ -6434,7 +6858,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "p.99·fb3711·K0·iso3751 → 9.6 → 4",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "galapagos-islands",
@@ -6451,7 +6876,8 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "p.94·fb1255·K0·iso1197 → 18.6 → 5",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  },
  {
   "id": "lord-howe-island",
@@ -6468,6 +6894,7 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "p.61·fb1337·K0·iso741 → 117.9 → 9",
-  "category": "city"
+  "category": "city",
+  "kind": "area"
  }
 ]
