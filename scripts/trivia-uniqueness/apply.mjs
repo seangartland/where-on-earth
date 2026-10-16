@@ -38,7 +38,7 @@ for (const [id, v] of Object.entries(verdicts)) {
   if (v.v === 'PASS') continue;
   if (!v.competitors?.length) throw new Error(`${id}: flagged without named competitors`);
   if (v.v === 'REWRITE') {
-    if (/—/.test(v.clue)) throw new Error(`${id}: clue contains an em dash`);
+    if (/\u2014/.test(v.clue)) throw new Error(`${id}: clue contains an em dash`);
     const changed = editBlock(id, s => {
       const oldLine = `"clue": ${JSON.stringify(v.clue_before)}`, newLine = `"clue": ${JSON.stringify(v.clue)}`;
       if (s.includes(newLine)) return s;

@@ -57,7 +57,7 @@ before.forEach((b, i) => {
     if (k === 'clue') {
       n.clue++; changedLines++;
       if (v?.v !== 'REWRITE' || v.clue !== a.clue || v.clue_before !== b.clue) fail(`${b.id}: clue change not backed by a REWRITE verdict`);
-      if (/—/.test(a.clue)) fail(`${b.id}: clue contains an em dash`);
+      if (/\u2014/.test(a.clue)) fail(`${b.id}: clue contains an em dash`);
       if (a.clue.split(' ')[0] !== b.clue.split(' ')[0] || !a.clue.endsWith('?')) fail(`${b.id}: clue lost its question form`);
       if (a.short && a.clue.toLowerCase().includes(a.short.toLowerCase())) fail(`${b.id}: clue names its answer (${a.short})`);
     } else if (k === 'photo' && b.photo === 'verified' && a.photo === undefined) {
