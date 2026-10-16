@@ -1,0 +1,408 @@
+{
+ "manarola": {
+  "v": "REWRITE",
+  "clue_before": "Where is the colourful fishing village perched on a cliff in the Cinque Terre?",
+  "clue": "Where is the colourful Cinque Terre fishing village whose church of San Lorenzo dates from 1338?",
+  "competitors": [
+   "Riomaggiore",
+   "Vernazza",
+   "Monterosso al Mare (all colourful Cinque Terre fishing villages above the sea)"
+  ],
+  "note": "San Lorenzo 1338: fact field and article"
+ },
+ "alcazar-of-segovia": {
+  "v": "PASS"
+ },
+ "plaza-de-espana-seville": {
+  "v": "PASS"
+ },
+ "prado-museum": {
+  "v": "PASS"
+ },
+ "santiago-de-compostela-cathedral": {
+  "v": "PASS"
+ },
+ "roman-baths-bath": {
+  "v": "PASS"
+ },
+ "kotors-old-town": {
+  "v": "REWRITE",
+  "clue_before": "Where is the walled Adriatic old town climbing the slopes of a fjord-like bay?",
+  "clue": "Where do 4.5 km of walls climb the slopes above an Adriatic old town on a fjord-like bay?",
+  "competitors": [
+   "Herceg Novi, Montenegro (fortified old town on the slopes of the same bay)"
+  ],
+  "note": "4.5 km of walls: fact field and article"
+ },
+ "cesky-krumlov-castle": {
+  "v": "PASS"
+ },
+ "kjeragbolten": {
+  "v": "PASS"
+ },
+ "trolltunga": {
+  "v": "PASS"
+ },
+ "cape-point": {
+  "v": "PASS"
+ },
+ "lake-manyara": {
+  "v": "PASS"
+ },
+ "hell-gate-national-park": {
+  "v": "PASS"
+ },
+ "sossusvlei": {
+  "v": "PASS"
+ },
+ "fish-river-canyon": {
+  "v": "PASS"
+ },
+ "cape-coast-castle": {
+  "v": "REWRITE",
+  "clue_before": "Where is the British slaving fort on the old Gold Coast?",
+  "clue": "Where is the slaving fort that became the capital of England's Gold Coast possessions, its dungeons holding up to a thousand captives?",
+  "competitors": [
+   "Fort William, Anomabo",
+   "James Fort, Accra",
+   "Fort Metal Cross, Dixcove (all British slaving forts on the Gold Coast)"
+  ],
+  "note": "capital of the English possessions: article; dungeons: fact field"
+ },
+ "piton-de-la-fournaise": {
+  "v": "REWRITE",
+  "clue_before": "Where is the active volcano on an island in the Indian Ocean?",
+  "clue": "Where has an island volcano in the Indian Ocean erupted more than 150 times since the 17th century?",
+  "competitors": [
+   "Karthala, Grande Comore",
+   "Barren Island, Andaman Sea",
+   "Big Ben, Heard Island"
+  ],
+  "note": "flagged in the repair report sample; 150 eruptions: fact field"
+ },
+ "sensoji-temple": {
+  "v": "PASS"
+ },
+ "kinkakuji": {
+  "v": "PASS"
+ },
+ "himeji-castle": {
+  "v": "PASS"
+ },
+ "itsukushima-shrine": {
+  "v": "PASS"
+ },
+ "shuri-castle": {
+  "v": "PASS"
+ },
+ "bulguksa": {
+  "v": "PASS"
+ },
+ "mutianyu": {
+  "v": "REWRITE",
+  "clue_before": "Where is one of the best-preserved sections of the Great Wall, rebuilt under the Ming and crowded with watchtowers?",
+  "clue": "Where does a section of the Great Wall pack 22 watchtowers into 2.25 km, over a wall first built under the Northern Qi?",
+  "competitors": [
+   "Jinshanling",
+   "Badaling",
+   "Simatai (all well-preserved Ming sections with many watchtowers)"
+  ],
+  "note": "22 watchtowers on 2,250 m: article; Northern Qi: fact field"
+ },
+ "pingyao-ancient-city": {
+  "v": "PASS"
+ },
+ "petronas-towers": {
+  "v": "PASS"
+ },
+ "mount-bromo": {
+  "v": "PASS"
+ },
+ "chocolate-hills": {
+  "v": "PASS"
+ },
+ "mayon-volcano": {
+  "v": "PASS"
+ },
+ "phong-nha-ke-bang": {
+  "v": "REWRITE",
+  "clue_before": "Where is the cave system holding the world's longest river cave?",
+  "clue": "Where does Asia's oldest major karst, some 400 million years in the making, hold the world's longest river cave?",
+  "competitors": [
+   "Puerto Princesa Subterranean River, Palawan (marketed as among the world's longest underground rivers)"
+  ],
+  "note": "oldest major karst in Asia, about 400 million years; longest river: article"
+ },
+ "hoi-an": {
+  "v": "PASS"
+ },
+ "tigers-nest": {
+  "v": "PASS"
+ },
+ "konark-sun-temple": {
+  "v": "PASS"
+ },
+ "sheikh-zayed-mosque": {
+  "v": "PASS"
+ },
+ "badshahi-mosque": {
+  "v": "PASS"
+ },
+ "monument-valley": {
+  "v": "REWRITE",
+  "clue_before": "Where are the sandstone buttes rising from the Arizona desert floor?",
+  "clue": "Where do sandstone buttes up to 300 m tall rise from a desert whose Navajo name means valley of the rocks?",
+  "competitors": [
+   "Sedona, Arizona (red sandstone buttes rising from the valley floor)"
+  ],
+  "note": "300 m and the Navajo name: fact field"
+ },
+ "bryce-canyon": {
+  "v": "REWRITE",
+  "clue_before": "Where is the Utah amphitheatre filled with orange hoodoos spires?",
+  "clue": "Where do orange hoodoos fill Utah amphitheatres carved from a lifted lake bed at 2,400 to 2,700 m?",
+  "competitors": [
+   "Cedar Breaks National Monument, Utah (amphitheatre of orange hoodoos in the same rock formation)"
+  ],
+  "note": "article names Cedar Breaks as the higher twin; elevation and lake bed: fact field"
+ },
+ "yosemite-valley": {
+  "v": "PASS"
+ },
+ "brooklyn-bridge": {
+  "v": "PASS"
+ },
+ "kennedy-space-center": {
+  "v": "REWRITE",
+  "clue_before": "Where is the Florida launch site for NASA crewed missions?",
+  "clue": "Where did all six Apollo Moon landing missions lift off aboard the Saturn V?",
+  "competitors": [
+   "Cape Canaveral Space Force Station, Florida (Mercury and Gemini crewed launches; Starliner from SLC-41)"
+  ],
+  "note": "Launch Complex 39 and Saturn V: fact field"
+ },
+ "badwater-basin": {
+  "v": "PASS"
+ },
+ "okefenokee-swamp": {
+  "v": "PASS"
+ },
+ "chateau-frontenac": {
+  "v": "PASS"
+ },
+ "teotihuacan": {
+  "v": "PASS"
+ },
+ "copper-canyon": {
+  "v": "PASS"
+ },
+ "tikal": {
+  "v": "REWRITE",
+  "clue_before": "Where is the Maya temple complex rising above the Petén rainforest?",
+  "clue": "Where does a Maya temple rise 70 m to its roof comb above the Petén rainforest, its wooden lintels dated to 741 CE?",
+  "competitors": [
+   "El Mirador",
+   "Yaxha",
+   "Uaxactun (Maya temple sites in the Peten rainforest)"
+  ],
+  "note": "Temple IV height and lintel date: fact field"
+ },
+ "pitons-of-saint-lucia": {
+  "v": "PASS"
+ },
+ "jericoacoara": {
+  "v": "REWRITE",
+  "clue_before": "Where are the shifting white dunes and freshwater lagoons near the equatorial Atlantic coast?",
+  "clue": "Where do white dunes and lagoons surround a beach village that still forbids electric street lighting?",
+  "competitors": [
+   "Lencois Maranhenses, Brazil (white dunes and freshwater lagoons near the equatorial Atlantic coast)"
+  ],
+  "note": "street lighting: fact field"
+ },
+ "lencois-maranhenses": {
+  "v": "PASS"
+ },
+ "ciudad-perdida": {
+  "v": "PASS"
+ },
+ "kakadu": {
+  "v": "PASS"
+ },
+ "three-sisters-blue-mountains": {
+  "v": "PASS"
+ },
+ "mount-kosciuszko": {
+  "v": "PASS"
+ },
+ "lake-tekapo": {
+  "v": "PASS"
+ },
+ "waitomo-caves": {
+  "v": "REWRITE",
+  "clue_before": "Where is the cave system where thousands of glowworms illuminate underground boat passages?",
+  "clue": "Where did Tane Tinorau first explore, in 1887, a cave where boats glide beneath thousands of glowworms?",
+  "competitors": [
+   "Te Anau Glowworm Caves, New Zealand (boat rides beneath glowworms)"
+  ],
+  "note": "Tinorau, 1887, boat through the Glowworm Grotto: article"
+ },
+ "penicillin-st-marys-london": {
+  "v": "PASS"
+ },
+ "dna-cavendish-cambridge": {
+  "v": "PASS"
+ },
+ "chicago-pile-one-stagg-field": {
+  "v": "PASS"
+ },
+ "transistor-bell-labs-murray-hill": {
+  "v": "PASS"
+ },
+ "higgs-boson-cern-atlas": {
+  "v": "PASS"
+ },
+ "pulsar-discovery-mullard": {
+  "v": "PASS"
+ },
+ "dolly-cloning-roslin": {
+  "v": "PASS"
+ },
+ "first-heart-transplant-groote-schuur": {
+  "v": "PASS"
+ },
+ "first-powered-flight-kill-devil-hills": {
+  "v": "PASS"
+ },
+ "edison-light-menlo-park": {
+  "v": "PASS"
+ },
+ "arpanet-first-message-ucla": {
+  "v": "PASS"
+ },
+ "first-atm-enfield": {
+  "v": "PASS"
+ },
+ "woodstock-max-yasgur-farm": {
+  "v": "PASS"
+ },
+ "beatles-rooftop-concert": {
+  "v": "PASS"
+ },
+ "lunch-atop-skyscraper-rockefeller": {
+  "v": "PASS"
+ },
+ "tank-man-changan-avenue": {
+  "v": "PASS"
+ },
+ "iwo-jima-flag-raising": {
+  "v": "PASS"
+ },
+ "jaws-menemsha-harbor": {
+  "v": "PASS"
+ },
+ "lord-of-rings-hobbiton-film-set": {
+  "v": "PASS"
+ },
+ "burning-man-first-baker-beach": {
+  "v": "PASS"
+ },
+ "krakatoa-1883-eruption": {
+  "v": "PASS"
+ },
+ "tambora-1815-eruption": {
+  "v": "PASS"
+ },
+ "mount-st-helens-1980": {
+  "v": "PASS"
+ },
+ "tunguska-event-epicenter": {
+  "v": "PASS"
+ },
+ "lituya-bay-megatsunami": {
+  "v": "PASS"
+ },
+ "hunga-tonga-2022-eruption": {
+  "v": "PASS"
+ },
+ "barringer-meteor-impact": {
+  "v": "PASS"
+ },
+ "roanoke-lost-colony": {
+  "v": "PASS"
+ },
+ "flannan-isles-lighthouse-mystery": {
+  "v": "PASS"
+ },
+ "hinterkaifeck-murders": {
+  "v": "PASS"
+ },
+ "isdal-woman-discovery": {
+  "v": "PASS"
+ },
+ "miracle-on-ice-arena": {
+  "v": "PASS"
+ },
+ "hand-of-god-azteca": {
+  "v": "PASS"
+ },
+ "rumble-in-the-jungle": {
+  "v": "PASS"
+ },
+ "first-four-minute-mile-iffley": {
+  "v": "PASS"
+ },
+ "beamon-long-jump-1968": {
+  "v": "PASS"
+ },
+ "secretariat-belmont-1973": {
+  "v": "PASS"
+ },
+ "golden-spike-promontory-summit": {
+  "v": "PASS"
+ },
+ "gagarin-launch-pad-one": {
+  "v": "PASS"
+ },
+ "lindbergh-spirit-st-louis-landing": {
+  "v": "PASS"
+ },
+ "bloody-sunday-selma-bridge": {
+  "v": "PASS"
+ },
+ "magna-carta-runnymede": {
+  "v": "PASS"
+ },
+ "lincoln-assassination-fords-theatre": {
+  "v": "PASS"
+ },
+ "jfk-assassination-dealey-plaza": {
+  "v": "PASS"
+ },
+ "mlk-assassination-lorraine-motel": {
+  "v": "PASS"
+ },
+ "gandhi-assassination-birla-house": {
+  "v": "PASS"
+ },
+ "triangle-shirtwaist-fire": {
+  "v": "PASS"
+ },
+ "bhopal-gas-disaster-plant": {
+  "v": "PASS"
+ },
+ "hindenburg-lakehurst": {
+  "v": "PASS"
+ },
+ "halifax-explosion-narrows": {
+  "v": "PASS"
+ },
+ "stonewall-uprising": {
+  "v": "PASS"
+ },
+ "fall-of-berlin-wall-bornholmer": {
+  "v": "PASS"
+ },
+ "mandela-rivonia-arrest-liliesleaf": {
+  "v": "PASS"
+ }
+}

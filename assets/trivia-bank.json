@@ -1279,7 +1279,7 @@
   {
     "id": "manarola",
     "short": "Manarola",
-    "clue": "Where is the colourful fishing village perched on a cliff in the Cinque Terre?",
+    "clue": "Where is the colourful Cinque Terre fishing village whose church of San Lorenzo dates from 1338?",
     "fact": "One of the five Cinque Terre villages, it has long lived by fishing and winemaking, and the cornerstone of its church of San Lorenzo dates from 1338.",
     "lat": 44.1063,
     "lng": 9.7103,
@@ -1345,7 +1345,7 @@
   {
     "id": "kotors-old-town",
     "short": "Kotor Old Town",
-    "clue": "Where is the walled Adriatic old town climbing the slopes of a fjord-like bay?",
+    "clue": "Where do 4.5 km of walls climb the slopes above an Adriatic old town on a fjord-like bay?",
     "fact": "Its walls stretch for 4.5 km above the town, and in the 14th century its trade rivalled that of the Republic of Ragusa.",
     "lat": 42.4247,
     "lng": 18.771,
@@ -1454,7 +1454,7 @@
   {
     "id": "cape-coast-castle",
     "short": "Cape Coast Castle",
-    "clue": "Where is the British slaving fort on the old Gold Coast?",
+    "clue": "Where is the slaving fort that became the capital of England's Gold Coast possessions, its dungeons holding up to a thousand captives?",
     "fact": "Its rock-cut dungeons could hold as many as a thousand enslaved people at a time awaiting ships in the Atlantic trade.",
     "lat": 5.105,
     "lng": -1.2461,
@@ -1465,7 +1465,7 @@
   {
     "id": "piton-de-la-fournaise",
     "short": "Piton de la Fournaise",
-    "clue": "Where is the active volcano on an island in the Indian Ocean?",
+    "clue": "Where has an island volcano in the Indian Ocean erupted more than 150 times since the 17th century?",
     "fact": "One of the most active volcanoes on Earth, it has produced more than 150 recorded eruptions since the 17th century.",
     "lat": -21.2297,
     "lng": 55.7072,
@@ -1542,7 +1542,7 @@
   {
     "id": "mutianyu",
     "short": "Great Wall at Mutianyu",
-    "clue": "Where is one of the best-preserved sections of the Great Wall, rebuilt under the Ming and crowded with watchtowers?",
+    "clue": "Where does a section of the Great Wall pack 22 watchtowers into 2.25 km, over a wall first built under the Northern Qi?",
     "fact": "First built in the 6th century under the Northern Qi, this section is older than Badaling, and its present Ming wall rose over the earlier one.",
     "lat": 40.4319,
     "lng": 116.5704,
@@ -1608,7 +1608,7 @@
   {
     "id": "phong-nha-ke-bang",
     "short": "Phong Nha-Ke Bang",
-    "clue": "Where is the cave system holding the world's longest river cave?",
+    "clue": "Where does Asia's oldest major karst, some 400 million years in the making, hold the world's longest river cave?",
     "fact": "Sơn Đoòng, surveyed by British and Vietnamese explorers in 2009 and considered the world's largest cave, lies within the park.",
     "lat": 17.5533,
     "lng": 106.2417,
@@ -1674,7 +1674,7 @@
   {
     "id": "monument-valley",
     "short": "Monument Valley",
-    "clue": "Where are the sandstone buttes rising from the Arizona desert floor?",
+    "clue": "Where do sandstone buttes up to 300 m tall rise from a desert whose Navajo name means valley of the rocks?",
     "fact": "Its largest buttes rise about 300 m above the valley floor, and its Navajo name, Tsé Biiʼ Ndzisgaii, means valley of the rocks.",
     "lat": 37.0041,
     "lng": -110.1738,
@@ -1685,7 +1685,7 @@
   {
     "id": "bryce-canyon",
     "short": "Bryce Canyon",
-    "clue": "Where is the Utah amphitheatre filled with orange hoodoos spires?",
+    "clue": "Where do orange hoodoos fill Utah amphitheatres carved from a lifted lake bed at 2,400 to 2,700 m?",
     "fact": "The park sits at 2,400-2,700 m, and its rock formed when a lake bottom was lifted and eroded.",
     "lat": 37.6283,
     "lng": -112.1677,
@@ -1718,7 +1718,7 @@
   {
     "id": "kennedy-space-center",
     "short": "Kennedy Space Center",
-    "clue": "Where is the Florida launch site for NASA crewed missions?",
+    "clue": "Where did all six Apollo Moon landing missions lift off aboard the Saturn V?",
     "fact": "From 1969 to 1972 its Launch Complex 39 sent all six Apollo Moon landing missions aloft on the 111 m Saturn V.",
     "lat": 28.5729,
     "lng": -80.649,
@@ -1784,7 +1784,7 @@
   {
     "id": "tikal",
     "short": "Tikal",
-    "clue": "Where is the Maya temple complex rising above the Petén rainforest?",
+    "clue": "Where does a Maya temple rise 70 m to its roof comb above the Petén rainforest, its wooden lintels dated to 741 CE?",
     "fact": "Its Temple IV rises 70 m to the top of its roof comb, and its carved wooden lintels record a date corresponding to 741 CE.",
     "lat": 17.222,
     "lng": -89.6237,
@@ -1806,7 +1806,7 @@
   {
     "id": "jericoacoara",
     "short": "Jericoacoara Dunes",
-    "clue": "Where are the shifting white dunes and freshwater lagoons near the equatorial Atlantic coast?",
+    "clue": "Where do white dunes and lagoons surround a beach village that still forbids electric street lighting?",
     "fact": "Its name comes from a Tupi phrase meaning lair of the turtles, and electric street lighting is still forbidden in the village.",
     "lat": -2.8,
     "lng": -40.5,
@@ -1893,7 +1893,7 @@
   {
     "id": "waitomo-caves",
     "short": "Waitomo Caves",
-    "clue": "Where is the cave system where thousands of glowworms illuminate underground boat passages?",
+    "clue": "Where did Tane Tinorau first explore, in 1887, a cave where boats glide beneath thousands of glowworms?",
     "fact": "Its glowworms are fungus gnat larvae that hang silk threads coated in sticky mucus from the ceiling to snare flying insects.",
     "lat": -38.2646,
     "lng": 175.0986,
