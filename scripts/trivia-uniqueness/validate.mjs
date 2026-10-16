@@ -4,7 +4,7 @@
 //   - every clue change is a REWRITE verdict, and every REWRITE was applied
 //   - flag removals exactly match the PULL verdicts (and the report's list, once written)
 //   - every flagged verdict names at least one competitor place
-//   - rewritten clues: zero em dashes, a question, do not contain the entry's short name
+//   - rewritten clues: zero em dashes, same question word as before, do not contain the entry's short name
 //   - the file's text diff is exactly the changed lines (no reformatting)
 //   - playable before = playable after + pulled
 // Usage: node scripts/trivia-uniqueness/validate.mjs   (exit 1 on any failure)
@@ -58,7 +58,7 @@ before.forEach((b, i) => {
       n.clue++; changedLines++;
       if (v?.v !== 'REWRITE' || v.clue !== a.clue || v.clue_before !== b.clue) fail(`${b.id}: clue change not backed by a REWRITE verdict`);
       if (/—/.test(a.clue)) fail(`${b.id}: clue contains an em dash`);
-      if (!/^Where\b.*\?$/.test(a.clue)) fail(`${b.id}: clue is not a Where question`);
+      if (a.clue.split(' ')[0] !== b.clue.split(' ')[0] || !a.clue.endsWith('?')) fail(`${b.id}: clue lost its question form`);
       if (a.short && a.clue.toLowerCase().includes(a.short.toLowerCase())) fail(`${b.id}: clue names its answer (${a.short})`);
     } else if (k === 'photo' && b.photo === 'verified' && a.photo === undefined) {
       n.pulled++; pulled.push(b.id); changedLines++;

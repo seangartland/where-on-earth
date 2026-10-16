@@ -2745,7 +2745,7 @@
   {
     "id": "ait-benhaddou-ksar",
     "short": "Aït Benhaddou",
-    "clue": "Which fortified village of earthen towers stands beside the Ounila River on the old caravan route to Marrakesh?",
+    "clue": "Which UNESCO-listed ksar of earthen towers stands beside the Ounila River on the old caravan route to Marrakesh?",
     "fact": "This UNESCO-listed ksar is a compact group of earthen buildings enclosed by defensive walls and corner towers.",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Ait_Benhaddou_Pano.jpg/500px-Ait_Benhaddou_Pano.jpg",
     "lat": 31.0472,
@@ -2769,7 +2769,7 @@
   {
     "id": "kuelap-fortress-peru",
     "short": "Kuélap",
-    "clue": "Where is the mountaintop walled settlement built by the Chachapoya people?",
+    "clue": "Where is the Chachapoya citadel whose limestone walls, up to 20 m high, enclose more than 400 round structures?",
     "fact": "Kuélap's massive limestone walls enclose hundreds of structures at about 3,000 metres above sea level.",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Kuelap%2C_Peru.jpg/500px-Kuelap%2C_Peru.jpg",
     "lat": -6.4173,
@@ -2781,7 +2781,7 @@
   {
     "id": "hegra-qasr-al-farid",
     "short": "Hegra",
-    "clue": "Which Nabataean archaeological site contains monumental tombs carved into isolated sandstone outcrops?",
+    "clue": "Which Nabataean city of tombs carved into isolated sandstone outcrops became its country's first UNESCO World Heritage Site in 2008?",
     "fact": "Hegra was the Nabataeans' major southern city and became Saudi Arabia's first UNESCO World Heritage Site in 2008.",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg/500px-Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg",
     "lat": 26.7914,
@@ -2958,7 +2958,7 @@
   {
     "id": "vardzia-cliff-monastery",
     "short": "Vardzia",
-    "clue": "Which medieval cave monastery forms hundreds of chambers across the face of a river-valley cliff?",
+    "clue": "Which twelfth-century cave monastery stacks its chambers up to nineteen tiers high along a river-valley cliff?",
     "fact": "Its principal construction dates to the twelfth century, and the complex once extended across as many as nineteen tiers.",
     "lat": 41.380917,
     "lng": 43.283761,
@@ -2969,7 +2969,7 @@
   {
     "id": "dunnottar-headland-fortress",
     "short": "Dunnottar Castle",
-    "clue": "Which ruined fortress crowns a sheer-sided coastal headland reached by a narrow path and steep steps?",
+    "clue": "Which ruined headland fortress, reached by a narrow path and steep steps, hid the Scottish crown jewels from Cromwell's army?",
     "fact": "Its secluded position helped safeguard the Scottish crown jewels from invading forces in the seventeenth century.",
     "lat": 56.946,
     "lng": -2.197,
@@ -3035,7 +3035,7 @@
   {
     "id": "zipaquira-salt-cathedral",
     "short": "Salt Cathedral",
-    "clue": "Which underground church occupies chambers carved into a former halite mine, with illuminated crosses cut from dark rock?",
+    "clue": "Which underground church, opened in 1995 some 200 metres down a former halite mine, has three naves and illuminated crosses?",
     "fact": "The current sanctuary opened in 1995 about 200 metres below ground and has three principal naves.",
     "lat": 5.018611,
     "lng": -74.010556,
@@ -3057,7 +3057,7 @@
   {
     "id": "brimstone-hill-fortress",
     "short": "Brimstone Hill Fortress",
-    "clue": "Which remarkably preserved colonial citadel climbs a steep volcanic hill above a narrow Caribbean coastline?",
+    "clue": "Which colonial citadel, called the Gibraltar of the Caribbean, climbs a steep volcanic hill above a narrow coastline?",
     "fact": "British military engineers designed the fortifications, which were constructed and maintained largely by enslaved Africans.",
     "lat": 17.346944,
     "lng": -62.837222,
@@ -3068,7 +3068,7 @@
   {
     "id": "ani-cathedral-ruin",
     "short": "Cathedral of Ani",
-    "clue": "Which roofless medieval cathedral stands amid grassland ruins near a deeply cut border ravine?",
+    "clue": "Which roofless cathedral, designed by the architect Trdat around the year 1000, stands amid grassland ruins near a border ravine?",
     "fact": "Completed around the start of the eleventh century, it was designed by the architect Trdat.",
     "lat": 40.506389,
     "lng": 43.572778,
@@ -3079,7 +3079,7 @@
   {
     "id": "larabanga-adobe-mosque",
     "short": "Larabanga Mosque",
-    "clue": "Which small whitewashed adobe mosque is bristled with timber supports and pyramidal buttresses?",
+    "clue": "Which whitewashed adobe mosque, founded in 1421 and called the Mecca of West Africa, bristles with timber supports?",
     "fact": "Repeated community restoration has preserved one of West Africa's oldest surviving mosques and its earthen-building traditions.",
     "lat": 9.2203,
     "lng": -1.8599,
@@ -3101,7 +3101,7 @@
   {
     "id": "banteay-chhmar-face-towers",
     "short": "Banteay Chhmar",
-    "clue": "Which sprawling temple complex has moat-bound ruins, long narrative reliefs, and towers bearing serene stone faces?",
+    "clue": "Which remote moat-bound complex has face towers and reliefs of multi-armed dancing deities, many stripped by looters?",
     "fact": "Built under Jayavarman VII in the Bayon style, it flourished in the 12th and 13th centuries, though looters have since stripped many of its reliefs.",
     "lat": 14.071389,
     "lng": 103.098056,
@@ -3112,7 +3112,7 @@
   {
     "id": "khami-stone-terraces",
     "short": "Khami Ruins",
-    "clue": "Which abandoned royal center is recognized by patterned dry-stone terrace walls built across a wooded hillside?",
+    "clue": "Which former capital of the Torwa dynasty is recognized by patterned dry-stone terrace walls on a wooded hillside?",
     "fact": "The settlement flourished after the fifteenth century, and its decorated retaining walls supported elite compounds.",
     "lat": -20.158333,
     "lng": 28.376667,
@@ -3123,7 +3123,7 @@
   {
     "id": "quilmes-hillside-ruins",
     "short": "Quilmes Ruins",
-    "clue": "Which pre-Hispanic settlement spreads as low stone foundations and reconstructed walls across an arid mountain slope?",
+    "clue": "Which pre-Hispanic hillside settlement resisted outside rule for centuries until its people were forcibly displaced in 1667?",
     "fact": "The fortified community resisted outside rule for centuries before its inhabitants were forcibly displaced in 1667.",
     "lat": -26.464058,
     "lng": -66.037864,
@@ -3134,7 +3134,7 @@
   {
     "id": "humberstone-saltpeter-works",
     "short": "Humberstone",
-    "clue": "Which abandoned industrial settlement preserves a theatre, company store, and rusting nitrate works in an exceptionally dry plain?",
+    "clue": "Which abandoned nitrate town, the most successful saltpeter works by 1940, preserves a theatre and rusting works in an exceptionally dry plain?",
     "fact": "Its surviving buildings document the saltpeter boom that drew workers from several nations in the late nineteenth and early twentieth centuries.",
     "lat": -20.209722,
     "lng": -69.795833,
@@ -3167,7 +3167,7 @@
   {
     "id": "san-ignacio-mini-mission",
     "short": "San Ignacio Miní",
-    "clue": "Which mission ruin is marked by richly carved red-sandstone portals emerging from subtropical greenery?",
+    "clue": "Which mission ruin, founded about 1610 by the Jesuits Cataldino and Maceta, shows carved red-sandstone portals amid subtropical greenery?",
     "fact": "Established in the seventeenth century, the complex included a church, workshops, housing, and a large central plaza.",
     "lat": -27.255278,
     "lng": -55.531667,
@@ -3189,7 +3189,7 @@
   {
     "id": "yapahuwa-rock-citadel",
     "short": "Yapahuwa",
-    "clue": "Which medieval citadel is approached by an ornate stone stairway beneath a sheer granite outcrop?",
+    "clue": "Which thirteenth-century rock citadel, briefly a royal capital, guarded the sacred tooth relic atop an ornate stone stairway?",
     "fact": "The stronghold briefly served as a royal capital in the thirteenth century and once guarded a sacred tooth relic.",
     "lat": 7.816784,
     "lng": 80.310746,
@@ -8220,7 +8220,7 @@
     "lat": -43.466944,
     "lng": 170.191667,
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Franz_josef_Glacier_LC0250.jpg",
-    "clue": "Which New Zealand glacier descends almost into temperate rainforest?",
+    "clue": "Which New Zealand glacier, the source of the Waiho River, descends almost into temperate rainforest?",
     "difficulty": 1,
     "photo": "verified"
   },
@@ -8462,7 +8462,7 @@
     "lat": -23.7,
     "lng": 133.87,
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Alice_Springs%2C_2015_%2801%29.JPG",
-    "clue": "Which outback town in Australia's Red Centre is the gateway to Uluru country?",
+    "clue": "Which outback town near Australia's geographic centre is named for the wife of telegraph pioneer Charles Todd?",
     "difficulty": 1,
     "photo": "verified"
   },
@@ -8550,7 +8550,7 @@
     "lat": 46.536806,
     "lng": 7.962639,
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Jungfrau03.jpg",
-    "clue": "Which Swiss peak in the Bernese Alps is reached by a railway to Europe's highest station?",
+    "clue": "Which Swiss peak, the highest of a trio with the Eiger and the Mönch, is reached by a railway to Europe's highest station?",
     "difficulty": 1,
     "photo": "verified"
   },

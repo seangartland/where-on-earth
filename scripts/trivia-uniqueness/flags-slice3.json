@@ -1,0 +1,160 @@
+{
+ "ait-benhaddou-ksar": {
+  "v": "REWRITE",
+  "competitors": [
+   "Tamdaght, Morocco (kasbah village of earthen towers on the Ounila)",
+   "Telouet kasbah (upstream on the same Ounila caravan route)"
+  ],
+  "clue": "Which UNESCO-listed ksar of earthen towers stands beside the Ounila River on the old caravan route to Marrakesh?",
+  "note": "UNESCO listing: fact field"
+ },
+ "kuelap-fortress-peru": {
+  "v": "REWRITE",
+  "competitors": [
+   "Gran Pajaten, Peru (Chachapoya mountaintop settlement)",
+   "Olan, Peru (Chachapoya settlement)"
+  ],
+  "clue": "Where is the Chachapoya citadel whose limestone walls, up to 20 m high, enclose more than 400 round structures?",
+  "note": "walls 10 to 20 m, 421 structures nearly all circular: article"
+ },
+ "hegra-qasr-al-farid": {
+  "v": "REWRITE",
+  "competitors": [
+   "Petra, Jordan (Nabataean tombs carved into sandstone)"
+  ],
+  "clue": "Which Nabataean city of tombs carved into isolated sandstone outcrops became its country's first UNESCO World Heritage Site in 2008?",
+  "note": "first UNESCO site, 2008: fact field"
+ },
+ "vardzia-cliff-monastery": {
+  "v": "REWRITE",
+  "competitors": [
+   "Vanis Kvabebi, Georgia (cave monastery in the same river-valley cliffs)",
+   "David Gareja, Georgia"
+  ],
+  "clue": "Which twelfth-century cave monastery stacks its chambers up to nineteen tiers high along a river-valley cliff?",
+  "note": "twelfth century, nineteen tiers: fact field and article"
+ },
+ "dunnottar-headland-fortress": {
+  "v": "REWRITE",
+  "competitors": [
+   "Dunluce Castle, Northern Ireland (ruin on a sheer coastal headland)",
+   "Tantallon Castle, Scotland"
+  ],
+  "clue": "Which ruined headland fortress, reached by a narrow path and steep steps, hid the Scottish crown jewels from Cromwell's army?",
+  "note": "Honours of Scotland hidden from Cromwell: fact field and article"
+ },
+ "zipaquira-salt-cathedral": {
+  "v": "REWRITE",
+  "competitors": [
+   "Wieliczka Salt Mine, Poland (Chapel of St Kinga carved in the mine)"
+  ],
+  "clue": "Which underground church, opened in 1995 some 200 metres down a former halite mine, has three naves and illuminated crosses?",
+  "note": "1995, 200 m, three naves: fact field"
+ },
+ "brimstone-hill-fortress": {
+  "v": "REWRITE",
+  "competitors": [
+   "Fort Shirley, Dominica",
+   "Fort Charlotte, St Vincent",
+   "Fort George, Grenada (British hill forts above Caribbean coasts)"
+  ],
+  "clue": "Which colonial citadel, called the Gibraltar of the Caribbean, climbs a steep volcanic hill above a narrow coastline?",
+  "note": "nickname: article"
+ },
+ "ani-cathedral-ruin": {
+  "v": "REWRITE",
+  "competitors": [
+   "Mren Cathedral, Turkey (roofless medieval cathedral in grassland near the Armenian border)"
+  ],
+  "clue": "Which roofless cathedral, designed by the architect Trdat around the year 1000, stands amid grassland ruins near a border ravine?",
+  "note": "Trdat and date: fact field"
+ },
+ "larabanga-adobe-mosque": {
+  "v": "REWRITE",
+  "competitors": [
+   "Nakore Mosque, Ghana",
+   "Bole Mosque, Ghana (Sudano-Sahelian adobe mosques with timber spikes and buttresses)"
+  ],
+  "clue": "Which whitewashed adobe mosque, founded in 1421 and called the Mecca of West Africa, bristles with timber supports?",
+  "note": "1421, Mecca of West Africa: article"
+ },
+ "banteay-chhmar-face-towers": {
+  "v": "REWRITE",
+  "competitors": [
+   "Bayon, Angkor Thom (moat-bound face towers and long reliefs, also Jayavarman VII)",
+   "Ta Prohm"
+  ],
+  "clue": "Which remote moat-bound complex has face towers and reliefs of multi-armed dancing deities, many stripped by looters?",
+  "note": "looting: fact field; multi-armed dancing deities: article"
+ },
+ "khami-stone-terraces": {
+  "v": "REWRITE",
+  "competitors": [
+   "Naletale, Zimbabwe (patterned dry-stone walls)",
+   "Danangombe (Dhlo-Dhlo), Zimbabwe"
+  ],
+  "clue": "Which former capital of the Torwa dynasty is recognized by patterned dry-stone terrace walls on a wooded hillside?",
+  "note": "Torwa capital: article"
+ },
+ "quilmes-hillside-ruins": {
+  "v": "REWRITE",
+  "competitors": [
+   "Pucara de Tilcara, Argentina (reconstructed walls on an arid slope)",
+   "Tastil, Argentina",
+   "El Shincal, Argentina"
+  ],
+  "clue": "Which pre-Hispanic hillside settlement resisted outside rule for centuries until its people were forcibly displaced in 1667?",
+  "note": "flagged in the repair report sample; 1667: fact field"
+ },
+ "humberstone-saltpeter-works": {
+  "v": "REWRITE",
+  "competitors": [
+   "Chacabuco, Chile (nitrate town with a theatre)",
+   "Santa Laura, Chile"
+  ],
+  "clue": "Which abandoned nitrate town, the most successful saltpeter works by 1940, preserves a theatre and rusting works in an exceptionally dry plain?",
+  "note": "most successful by 1940: article"
+ },
+ "san-ignacio-mini-mission": {
+  "v": "REWRITE",
+  "competitors": [
+   "Jesus de Tavarangue, Paraguay",
+   "Santisima Trinidad de Parana, Paraguay",
+   "Sao Miguel das Missoes, Brazil (red-sandstone Jesuit mission ruins)"
+  ],
+  "clue": "Which mission ruin, founded about 1610 by the Jesuits Cataldino and Maceta, shows carved red-sandstone portals amid subtropical greenery?",
+  "note": "1610 and founders: article"
+ },
+ "yapahuwa-rock-citadel": {
+  "v": "REWRITE",
+  "competitors": [
+   "Sigiriya, Sri Lanka (rock citadel approached by a monumental stairway beneath a sheer rock)"
+  ],
+  "clue": "Which thirteenth-century rock citadel, briefly a royal capital, guarded the sacred tooth relic atop an ornate stone stairway?",
+  "note": "royal capital, tooth relic: fact field"
+ },
+ "franz-josef-glacier": {
+  "v": "REWRITE",
+  "competitors": [
+   "Fox Glacier, New Zealand (20 km south, also descends into rainforest)"
+  ],
+  "clue": "Which New Zealand glacier, the source of the Waiho River, descends almost into temperate rainforest?",
+  "note": "article names Fox Glacier; Waiho River emerges from it: article"
+ },
+ "alice-springs": {
+  "v": "REWRITE",
+  "competitors": [
+   "Yulara, Northern Territory (resort town that is the direct gateway to Uluru)"
+  ],
+  "clue": "Which outback town near Australia's geographic centre is named for the wife of telegraph pioneer Charles Todd?",
+  "note": "Lady Alice Todd, geographic centre: article and fact field"
+ },
+ "jungfrau": {
+  "v": "REWRITE",
+  "competitors": [
+   "Mönch, Switzerland (Bernese Alps peak also reached from the Jungfraujoch station)"
+  ],
+  "clue": "Which Swiss peak, the highest of a trio with the Eiger and the Mönch, is reached by a railway to Europe's highest station?",
+  "note": "highest of the three: article"
+ }
+}
