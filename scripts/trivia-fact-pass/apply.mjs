@@ -16,7 +16,13 @@ const files = fs.readdirSync(HERE).filter(f => /^(slice\d+|named)\.json$/.test(f
 const verdicts = {};
 for (const f of files) {
   for (const [id, v] of Object.entries(JSON.parse(fs.readFileSync(path.join(HERE, f), 'utf8')))) {
-    if (verdicts[id]) throw new Error(`${id} has verdicts in two files`);
+    if (verdicts[id]) {
+      // a named-item verdict may add fields (e.g. a pin move) to a slice verdict, never overwrite one
+      const clash = ['fact', 'clue', 'lat', 'lng'].filter(k => v[k] !== undefined && verdicts[id][k] !== undefined);
+      if (clash.length || v.v === 'UNFLAG' || verdicts[id].v === 'UNFLAG') throw new Error(`${id} has clashing verdicts in two files`);
+      verdicts[id] = { ...verdicts[id], ...v, v: 'FIX', note: verdicts[id].note + ' | ' + v.note, file: verdicts[id].file + '+' + f };
+      continue;
+    }
     verdicts[id] = { ...v, file: f };
   }
 }

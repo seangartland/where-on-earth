@@ -1,0 +1,13 @@
+{
+ "wartburg-castle": {
+  "v": "FIX",
+  "lat": 50.9661,
+  "lng": 10.3064,
+  "note": "pin moved from 50.716, 10.352 to the castle's Wikidata coordinates (Q151545, P625: 50.96611, 10.30639), about 28 km north; fact was corrected in slice 1"
+ },
+ "titanic-sinking": {
+  "v": "FIX",
+  "fact": "The liner struck an iceberg at about 11:40 p.m., sank at about 2:20 a.m., and came to rest about 3,800 m down, roughly 600 km south-southeast of Newfoundland.",
+  "note": "not playable (photo marked wrong); was 'struck an iceberg at 2:40 a.m.'; Sinking of the Titanic: struck 23:40, sank 02:20 ship's time; Wreck of the Titanic: about 3,800 m deep, about 600 km south-southeast of Newfoundland"
+ }
+}
