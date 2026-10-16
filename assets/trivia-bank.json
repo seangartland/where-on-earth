@@ -37,7 +37,7 @@
   },
   {
     "id": "mont-saint-michel",
-    "clue": "Where does a tidal island crowned by an abbey rise from the sea?",
+    "clue": "Where does a tidal island crowned by an abbey rise from a bay, reached since 2014 by a light bridge?",
     "category": "moment",
     "lat": 48.6361,
     "lng": -1.5115,
@@ -61,7 +61,7 @@
   },
   {
     "id": "serengeti-tanzania",
-    "clue": "Where do over a million wildebeest migrate across open grassland each year?",
+    "clue": "Where do over a million wildebeest loop about 800 km across Tanzanian grassland each year?",
     "category": "moment",
     "lat": -2.3333,
     "lng": 34.8333,
@@ -85,7 +85,7 @@
   },
   {
     "id": "dead-sea",
-    "clue": "Where is a lake so salty that swimmers float effortlessly on its surface?",
+    "clue": "Where is a lake so salty that swimmers float, its shores the lowest dry land on Earth?",
     "category": "moment",
     "lat": 31.559,
     "lng": 35.4732,
@@ -97,7 +97,7 @@
   },
   {
     "id": "hagia-sophia",
-    "clue": "Where does a building that has served as both a cathedral and a mosque stand?",
+    "clue": "Where does a cathedral completed in AD 537, later a mosque, enclose what was the world's largest interior space?",
     "category": "moment",
     "lat": 41.0086,
     "lng": 28.9802,
@@ -157,7 +157,7 @@
   },
   {
     "id": "plitvice-lakes",
-    "clue": "Where do a chain of turquoise lakes cascade over travertine waterfalls?",
+    "clue": "Where do sixteen turquoise lakes cascade into one another over travertine waterfalls?",
     "category": "moment",
     "lat": 44.8654,
     "lng": 15.582,
@@ -181,7 +181,7 @@
   },
   {
     "id": "socotra-island",
-    "clue": "Where do alien-looking dragon's blood trees grow on an isolated island?",
+    "clue": "Where do umbrella-crowned dragon's blood trees grow on an island isolated for millions of years in the Arabian Sea?",
     "category": "moment",
     "lat": 12.4634,
     "lng": 53.8237,
@@ -193,7 +193,7 @@
   },
   {
     "id": "pamukkale-turkey",
-    "clue": "Where do white mineral terraces cascade down a hillside like frozen waterfalls?",
+    "clue": "Where do white travertine terraces cascade down a hillside beneath the ruins of an ancient Greek spa city?",
     "category": "moment",
     "lat": 37.9203,
     "lng": 29.1211,
@@ -217,7 +217,7 @@
   },
   {
     "id": "wadi-rum",
-    "clue": "Where does a red-sand desert of towering sandstone cliffs evoke a landscape from Mars?",
+    "clue": "Where did T. E. Lawrence cross a red-sand desert of sandstone cliffs that Hollywood now films as Mars?",
     "category": "moment",
     "lat": 29.5765,
     "lng": 35.4206,
@@ -480,7 +480,7 @@
   },
   {
     "id": "mount-kinabalu",
-    "clue": "Where is the highest mountain in Southeast Asia?",
+    "clue": "Where is the highest mountain on the world's third-largest island?",
     "fact": "At 4,095 m, Kinabalu's bare granite summit is one of the youngest granite intrusions exposed on Earth, and Pleistocene glaciers carved its slopes.",
     "lat": 6.1885,
     "lng": 116.5503,
@@ -524,7 +524,7 @@
   },
   {
     "id": "flaming-cliffs-bayanzag",
-    "clue": "Where does a Gobi ridge of red cliffs glow like fire at sunset?",
+    "clue": "Where did a Gobi ridge of red cliffs that glow like fire at sunset yield the first discovery of dinosaur eggs?",
     "fact": "Roy Chapman Andrews named the orange sandstone cliffs of Bayanzag in the 1920s, and the site is most famous for the first discovery of dinosaur eggs.",
     "lat": 44.15,
     "lng": 103.3667,
@@ -546,7 +546,7 @@
   },
   {
     "id": "gobekli-tepe",
-    "clue": "Where were monumental T-shaped stone pillars carved more than 11,000 years ago?",
+    "clue": "Where did hunter-gatherers raise T-shaped pillars 11,000 years ago, at the hilltop Klaus Schmidt began digging in 1995?",
     "fact": "Hunter-gatherers, not farmers, raised this hilltop of enclosures from around 9500 BC, which upset the idea that settled agriculture had to come first.",
     "lat": 37.2233,
     "lng": 38.9226,
@@ -753,7 +753,7 @@
   },
   {
     "id": "cologne-cathedral",
-    "clue": "Where does a landmark Gothic cathedral raise twin spires above the Rhine?",
+    "clue": "Where does the world's tallest twin-spired church rise above the Rhine?",
     "fact": "Cologne Cathedral took 632 years to finish, and during the Second World War Allied bombs failed to bring down its twin spires.",
     "lat": 50.9413,
     "lng": 6.9583,
@@ -884,7 +884,7 @@
   },
   {
     "id": "prague-astronomical-clock",
-    "clue": "Where does the 600-year-old clock show where the sun and the moon should be?",
+    "clue": "Where has an astronomical clock built in 1410 shown the sun and the moon above a town square for six centuries?",
     "fact": "Prague's astronomical clock has run since 1410, when it was made by clockmaker Mikuláš of Kadaň and astronomer Jan Šindel.",
     "lat": 50.0871,
     "lng": 14.4207,
@@ -917,7 +917,7 @@
   },
   {
     "id": "pompeii",
-    "clue": "Where was the Roman town frozen in ash by a volcano in AD 79?",
+    "clue": "Where was a Roman town frozen in ash in AD 79, its victims recovered as plaster casts of the hollows they left?",
     "fact": "Pompeii's plaster casts were made by pouring plaster into the hollows that decomposed bodies left in the ash, a technique devised by Giuseppe Fiorelli.",
     "lat": 40.7497,
     "lng": 14.4869,
@@ -983,7 +983,7 @@
   },
   {
     "id": "blue-lagoon-iceland",
-    "clue": "Where can you bathe in milky turquoise geothermal water in the middle of a lava field?",
+    "clue": "Where can you bathe in milky turquoise water in a lava field, the runoff of the Svartsengi power station?",
     "fact": "The Blue Lagoon is not a natural hot spring at all: its water is the runoff of the nearby Svartsengi geothermal power station.",
     "lat": 63.8804,
     "lng": -22.4495,
@@ -1005,7 +1005,7 @@
   },
   {
     "id": "jokulsarlon-glacier-lagoon",
-    "clue": "Where do icebergs calve off a glacier into a lagoon and roll out to sea through its shallow mouth?",
+    "clue": "Where do icebergs from Breiðamerkurjökull calve into a lagoon and float out to sea under a ring-road bridge?",
     "fact": "Jökulsárlón is fed by Breiðamerkurjökull, an outlet glacier of the Vatnajökull ice cap, whose blocks of ice about 30 m high calve into the lagoon.",
     "lat": 64.0484,
     "lng": -16.1795,
@@ -1060,7 +1060,7 @@
   },
   {
     "id": "dettifoss",
-    "clue": "Where does one of Europe's most powerful waterfalls drop into a canyon of spray?",
+    "clue": "Where does a waterfall reputed to be Europe's second most powerful drop 44 metres into a canyon of spray?",
     "fact": "Dettifoss is 100 metres wide and drops 44 metres into the Jökulsárgljúfur canyon on the glacier-fed Jökulsá á Fjöllum river.",
     "lat": 65.8145,
     "lng": -16.3853,
@@ -1137,7 +1137,7 @@
   },
   {
     "id": "newgrange",
-    "clue": "Where does midwinter sunlight enter a stone mound and light up a chamber built 5,000 years ago?",
+    "clue": "Where does midwinter sunrise shine through a roof box into the chamber of a stone mound built 5,000 years ago?",
     "fact": "Newgrange is aligned to the winter solstice sunrise, when light shines through the roof box above the entrance into the inner chamber.",
     "lat": 53.6947,
     "lng": -6.4756,

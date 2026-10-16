@@ -1,0 +1,161 @@
+{
+ "mont-saint-michel": {
+  "v": "REWRITE",
+  "competitors": [
+   "St Michael's Mount, Cornwall (tidal island crowned by a former Benedictine priory church and castle)"
+  ],
+  "clue": "Where does a tidal island crowned by an abbey rise from a bay, reached since 2014 by a light bridge?",
+  "note": "2014 bridge: fact field and article"
+ },
+ "serengeti-tanzania": {
+  "v": "REWRITE",
+  "competitors": [
+   "Maasai Mara, Kenya (the same wildebeest migration crosses its grassland every year)"
+  ],
+  "clue": "Where do over a million wildebeest loop about 800 km across Tanzanian grassland each year?",
+  "note": "country kept as the only clean separator from the Mara (precedent: repair pass kept 'Chinese city', 'Italian lake'); 800 km from fact field"
+ },
+ "dead-sea": {
+  "v": "REWRITE",
+  "competitors": [
+   "Great Salt Lake, Utah",
+   "Lake Assal, Djibouti"
+  ],
+  "clue": "Where is a lake so salty that swimmers float, its shores the lowest dry land on Earth?",
+  "note": "lowest land: fact field and article"
+ },
+ "hagia-sophia": {
+  "v": "REWRITE",
+  "competitors": [
+   "Mosque-Cathedral of Cordoba",
+   "Hagia Sophia, Trabzon",
+   "Hagia Sophia, Iznik",
+   "Lala Mustafa Pasha Mosque (St Nicholas Cathedral), Famagusta"
+  ],
+  "clue": "Where does a cathedral completed in AD 537, later a mosque, enclose what was the world's largest interior space?",
+  "note": "537 and largest interior: fact field and article"
+ },
+ "plitvice-lakes": {
+  "v": "REWRITE",
+  "competitors": [
+   "Jiuzhaigou, China",
+   "Band-e Amir, Afghanistan",
+   "Krka National Park, Croatia"
+  ],
+  "clue": "Where do sixteen turquoise lakes cascade into one another over travertine waterfalls?",
+  "note": "16 lakes: fact field and article"
+ },
+ "socotra-island": {
+  "v": "REWRITE",
+  "competitors": [
+   "Tenerife, Canary Islands (Dracaena draco, also called the dragon's blood tree)"
+  ],
+  "clue": "Where do umbrella-crowned dragon's blood trees grow on an island isolated for millions of years in the Arabian Sea?",
+  "note": "Arabian Sea and isolation from fact field; umbrella crown from article"
+ },
+ "pamukkale-turkey": {
+  "v": "REWRITE",
+  "competitors": [
+   "Mammoth Hot Springs, Yellowstone",
+   "Hierve el Agua, Mexico"
+  ],
+  "clue": "Where do white travertine terraces cascade down a hillside beneath the ruins of an ancient Greek spa city?",
+  "note": "Hierapolis built on top of the travertine, founded as a thermal spa: article"
+ },
+ "wadi-rum": {
+  "v": "REWRITE",
+  "competitors": [
+   "Monument Valley, USA",
+   "Valle de la Luna, Chile"
+  ],
+  "clue": "Where did T. E. Lawrence cross a red-sand desert of sandstone cliffs that Hollywood now films as Mars?",
+  "note": "Lawrence passed through during the Arab Revolt: article; Mars films: fact field"
+ },
+ "mount-kinabalu": {
+  "v": "REWRITE",
+  "competitors": [
+   "Hkakabo Razi, Myanmar (5,881 m)",
+   "Puncak Jaya, New Guinea (4,884 m)"
+  ],
+  "clue": "Where is the highest mountain on the world's third-largest island?",
+  "note": "both competitors are higher, so the old clue was also loose; article: Kinabalu is on Borneo; Borneo as third-largest island is general reference"
+ },
+ "flaming-cliffs-bayanzag": {
+  "v": "REWRITE",
+  "competitors": [
+   "Khermen Tsav, Gobi (red-cliff canyon)"
+  ],
+  "clue": "Where did a Gobi ridge of red cliffs that glow like fire at sunset yield the first discovery of dinosaur eggs?",
+  "note": "dinosaur eggs: fact field and article"
+ },
+ "gobekli-tepe": {
+  "v": "REWRITE",
+  "competitors": [
+   "Karahan Tepe, Turkey",
+   "Nevali Cori, Turkey"
+  ],
+  "clue": "Where did hunter-gatherers raise T-shaped pillars 11,000 years ago, at the hilltop Klaus Schmidt began digging in 1995?",
+  "note": "article names Karahan Tepe and other PPN sites with T-shaped pillars; Schmidt's excavation from 1995: article"
+ },
+ "cologne-cathedral": {
+  "v": "REWRITE",
+  "competitors": [
+   "Basel Minster (Gothic, twin towers above the Rhine)"
+  ],
+  "clue": "Where does the world's tallest twin-spired church rise above the Rhine?",
+  "note": "tallest twin-spired church: article"
+ },
+ "prague-astronomical-clock": {
+  "v": "REWRITE",
+  "competitors": [
+   "Wells Cathedral clock, England (c. 1390, dial shows sun and moon)"
+  ],
+  "clue": "Where has an astronomical clock built in 1410 shown the sun and the moon above a town square for six centuries?",
+  "note": "1410: fact field and article"
+ },
+ "pompeii": {
+  "v": "REWRITE",
+  "competitors": [
+   "Herculaneum",
+   "Stabiae",
+   "Oplontis"
+  ],
+  "clue": "Where was a Roman town frozen in ash in AD 79, its victims recovered as plaster casts of the hollows they left?",
+  "note": "Fiorelli plaster casts: fact field"
+ },
+ "blue-lagoon-iceland": {
+  "v": "REWRITE",
+  "competitors": [
+   "Myvatn Nature Baths, Iceland (milky blue geothermal water among lava)"
+  ],
+  "clue": "Where can you bathe in milky turquoise water in a lava field, the runoff of the Svartsengi power station?",
+  "note": "Svartsengi: fact field and article"
+ },
+ "jokulsarlon-glacier-lagoon": {
+  "v": "REWRITE",
+  "competitors": [
+   "Tasman Lake, New Zealand",
+   "Laguna San Rafael, Chile",
+   "Columbia Glacier lagoon, Alaska",
+   "Fjallsarlon, Iceland"
+  ],
+  "clue": "Where do icebergs from Breiðamerkurjökull calve into a lagoon and float out to sea under a ring-road bridge?",
+  "note": "Sean's example. Breiðamerkurjökull: fact field; Route 1 (the Ring Road) and the Glacial River Bridge spanning the outlet: article"
+ },
+ "dettifoss": {
+  "v": "REWRITE",
+  "competitors": [
+   "Gullfoss, Iceland (powerful glacier-river falls into a canyon)"
+  ],
+  "clue": "Where does a waterfall reputed to be Europe's second most powerful drop 44 metres into a canyon of spray?",
+  "note": "second most powerful after the Rhine Falls: article; 44 m: fact field"
+ },
+ "newgrange": {
+  "v": "REWRITE",
+  "competitors": [
+   "Maeshowe, Orkney (winter solstice sun lights its chamber, built about 2800 BC)"
+  ],
+  "clue": "Where does midwinter sunrise shine through a roof box into the chamber of a stone mound built 5,000 years ago?",
+  "note": "roof box: fact field and article; Maeshowe's light is sunset through the passage"
+ }
+}

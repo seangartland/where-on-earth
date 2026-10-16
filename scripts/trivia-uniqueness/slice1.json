@@ -1,0 +1,449 @@
+{
+ "mount-fuji": {
+  "v": "PASS"
+ },
+ "mount-kilimanjaro": {
+  "v": "PASS"
+ },
+ "easter-island": {
+  "v": "PASS"
+ },
+ "mont-saint-michel": {
+  "v": "REWRITE",
+  "clue_before": "Where does a tidal island crowned by an abbey rise from the sea?",
+  "clue": "Where does a tidal island crowned by an abbey rise from a bay, reached since 2014 by a light bridge?",
+  "competitors": [
+   "St Michael's Mount, Cornwall (tidal island crowned by a former Benedictine priory church and castle)"
+  ],
+  "note": "2014 bridge: fact field and article"
+ },
+ "neuschwanstein-castle": {
+  "v": "PASS"
+ },
+ "serengeti-tanzania": {
+  "v": "REWRITE",
+  "clue_before": "Where do over a million wildebeest migrate across open grassland each year?",
+  "clue": "Where do over a million wildebeest loop about 800 km across Tanzanian grassland each year?",
+  "competitors": [
+   "Maasai Mara, Kenya (the same wildebeest migration crosses its grassland every year)"
+  ],
+  "note": "country kept as the only clean separator from the Mara (precedent: repair pass kept 'Chinese city', 'Italian lake'); 800 km from fact field"
+ },
+ "galapagos-islands": {
+  "v": "PASS"
+ },
+ "dead-sea": {
+  "v": "REWRITE",
+  "clue_before": "Where is a lake so salty that swimmers float effortlessly on its surface?",
+  "clue": "Where is a lake so salty that swimmers float, its shores the lowest dry land on Earth?",
+  "competitors": [
+   "Great Salt Lake, Utah",
+   "Lake Assal, Djibouti"
+  ],
+  "note": "lowest land: fact field and article"
+ },
+ "hagia-sophia": {
+  "v": "REWRITE",
+  "clue_before": "Where does a building that has served as both a cathedral and a mosque stand?",
+  "clue": "Where does a cathedral completed in AD 537, later a mosque, enclose what was the world's largest interior space?",
+  "competitors": [
+   "Mosque-Cathedral of Cordoba",
+   "Hagia Sophia, Trabzon",
+   "Hagia Sophia, Iznik",
+   "Lala Mustafa Pasha Mosque (St Nicholas Cathedral), Famagusta"
+  ],
+  "note": "537 and largest interior: fact field and article"
+ },
+ "terracotta-army": {
+  "v": "PASS"
+ },
+ "salar-de-uyuni": {
+  "v": "PASS"
+ },
+ "lalibela-ethiopia": {
+  "v": "PASS"
+ },
+ "cappadocia-turkey": {
+  "v": "PASS"
+ },
+ "plitvice-lakes": {
+  "v": "REWRITE",
+  "clue_before": "Where do a chain of turquoise lakes cascade over travertine waterfalls?",
+  "clue": "Where do sixteen turquoise lakes cascade into one another over travertine waterfalls?",
+  "competitors": [
+   "Jiuzhaigou, China",
+   "Band-e Amir, Afghanistan",
+   "Krka National Park, Croatia"
+  ],
+  "note": "16 lakes: fact field and article"
+ },
+ "timbuktu-mali": {
+  "v": "PASS"
+ },
+ "socotra-island": {
+  "v": "REWRITE",
+  "clue_before": "Where do alien-looking dragon's blood trees grow on an isolated island?",
+  "clue": "Where do umbrella-crowned dragon's blood trees grow on an island isolated for millions of years in the Arabian Sea?",
+  "competitors": [
+   "Tenerife, Canary Islands (Dracaena draco, also called the dragon's blood tree)"
+  ],
+  "note": "Arabian Sea and isolation from fact field; umbrella crown from article"
+ },
+ "pamukkale-turkey": {
+  "v": "REWRITE",
+  "clue_before": "Where do white mineral terraces cascade down a hillside like frozen waterfalls?",
+  "clue": "Where do white travertine terraces cascade down a hillside beneath the ruins of an ancient Greek spa city?",
+  "competitors": [
+   "Mammoth Hot Springs, Yellowstone",
+   "Hierve el Agua, Mexico"
+  ],
+  "note": "Hierapolis built on top of the travertine, founded as a thermal spa: article"
+ },
+ "danakil-depression": {
+  "v": "PASS"
+ },
+ "wadi-rum": {
+  "v": "REWRITE",
+  "clue_before": "Where does a red-sand desert of towering sandstone cliffs evoke a landscape from Mars?",
+  "clue": "Where did T. E. Lawrence cross a red-sand desert of sandstone cliffs that Hollywood now films as Mars?",
+  "competitors": [
+   "Monument Valley, USA",
+   "Valle de la Luna, Chile"
+  ],
+  "note": "Lawrence passed through during the Arab Revolt: article; Mars films: fact field"
+ },
+ "richat-structure": {
+  "v": "PASS"
+ },
+ "tristan-da-cunha": {
+  "v": "PASS"
+ },
+ "challenger-deep": {
+  "v": "PASS"
+ },
+ "mcmurdo-station": {
+  "v": "PASS"
+ },
+ "vostok-station": {
+  "v": "PASS"
+ },
+ "pitcairn-island": {
+  "v": "PASS"
+ },
+ "alert-nunavut": {
+  "v": "PASS"
+ },
+ "la-rinconada-peru": {
+  "v": "PASS"
+ },
+ "bouvet-island": {
+  "v": "PASS"
+ },
+ "forbidden-city-beijing": {
+  "v": "PASS"
+ },
+ "topkapi-palace": {
+  "v": "PASS"
+ },
+ "gyeongbokgung-palace": {
+  "v": "PASS"
+ },
+ "mount-everest-summit": {
+  "v": "PASS"
+ },
+ "borobudur": {
+  "v": "PASS"
+ },
+ "leshan-giant-buddha": {
+  "v": "PASS"
+ },
+ "ha-long-bay": {
+  "v": "PASS"
+ },
+ "amber-fort-jaipur": {
+  "v": "PASS"
+ },
+ "fushimi-inari-taisha": {
+  "v": "PASS"
+ },
+ "registan-samarkand": {
+  "v": "PASS"
+ },
+ "mogao-caves-dunhuang": {
+  "v": "PASS"
+ },
+ "potala-palace-lhasa": {
+  "v": "PASS"
+ },
+ "mount-kinabalu": {
+  "v": "REWRITE",
+  "clue_before": "Where is the highest mountain in Southeast Asia?",
+  "clue": "Where is the highest mountain on the world's third-largest island?",
+  "competitors": [
+   "Hkakabo Razi, Myanmar (5,881 m)",
+   "Puncak Jaya, New Guinea (4,884 m)"
+  ],
+  "note": "both competitors are higher, so the old clue was also loose; article: Kinabalu is on Borneo; Borneo as third-largest island is general reference"
+ },
+ "sigiriya": {
+  "v": "PASS"
+ },
+ "bagan-myanmar": {
+  "v": "PASS"
+ },
+ "darvaza-gas-crater": {
+  "v": "PASS"
+ },
+ "flaming-cliffs-bayanzag": {
+  "v": "REWRITE",
+  "clue_before": "Where does a Gobi ridge of red cliffs glow like fire at sunset?",
+  "clue": "Where did a Gobi ridge of red cliffs that glow like fire at sunset yield the first discovery of dinosaur eggs?",
+  "competitors": [
+   "Khermen Tsav, Gobi (red-cliff canyon)"
+  ],
+  "note": "dinosaur eggs: fact field and article"
+ },
+ "lake-issyk-kul": {
+  "v": "PASS"
+ },
+ "gobekli-tepe": {
+  "v": "REWRITE",
+  "clue_before": "Where were monumental T-shaped stone pillars carved more than 11,000 years ago?",
+  "clue": "Where did hunter-gatherers raise T-shaped pillars 11,000 years ago, at the hilltop Klaus Schmidt began digging in 1995?",
+  "competitors": [
+   "Karahan Tepe, Turkey",
+   "Nevali Cori, Turkey"
+  ],
+  "note": "article names Karahan Tepe and other PPN sites with T-shaped pillars; Schmidt's excavation from 1995: article"
+ },
+ "mohenjo-daro": {
+  "v": "PASS"
+ },
+ "persepolis": {
+  "v": "PASS"
+ },
+ "nalanda-bihar": {
+  "v": "PASS"
+ },
+ "fatehpur-sikri": {
+  "v": "PASS"
+ },
+ "polonnaruwa-sri-lanka": {
+  "v": "PASS"
+ },
+ "marco-polo-bridge": {
+  "v": "PASS"
+ },
+ "son-doong-vietnam": {
+  "v": "PASS"
+ },
+ "kharkhorin-mongolia": {
+  "v": "PASS"
+ },
+ "dholavira-india": {
+  "v": "PASS"
+ },
+ "yolyn-am-mongolia": {
+  "v": "PASS"
+ },
+ "ak-baital-pass": {
+  "v": "PASS"
+ },
+ "lo-manthang-nepal": {
+  "v": "PASS"
+ },
+ "lothal-india": {
+  "v": "PASS"
+ },
+ "adams-bridge": {
+  "v": "PASS"
+ },
+ "versailles-palace": {
+  "v": "PASS"
+ },
+ "st-peters-basilica": {
+  "v": "PASS"
+ },
+ "cologne-cathedral": {
+  "v": "REWRITE",
+  "clue_before": "Where does a landmark Gothic cathedral raise twin spires above the Rhine?",
+  "clue": "Where does the world's tallest twin-spired church rise above the Rhine?",
+  "competitors": [
+   "Basel Minster (Gothic, twin towers above the Rhine)"
+  ],
+  "note": "tallest twin-spired church: article"
+ },
+ "brandenburg-gate": {
+  "v": "PASS"
+ },
+ "tower-of-london": {
+  "v": "PASS"
+ },
+ "st-basils-cathedral": {
+  "v": "PASS"
+ },
+ "acropolis-athens": {
+  "v": "PASS"
+ },
+ "sagrada-familia": {
+  "v": "PASS"
+ },
+ "anne-frank-house": {
+  "v": "PASS"
+ },
+ "hungarian-parliament": {
+  "v": "PASS"
+ },
+ "hermitage-museum": {
+  "v": "PASS"
+ },
+ "wawel-castle": {
+  "v": "PASS"
+ },
+ "charles-bridge-prague": {
+  "v": "PASS"
+ },
+ "prague-astronomical-clock": {
+  "v": "REWRITE",
+  "clue_before": "Where does the 600-year-old clock show where the sun and the moon should be?",
+  "clue": "Where has an astronomical clock built in 1410 shown the sun and the moon above a town square for six centuries?",
+  "competitors": [
+   "Wells Cathedral clock, England (c. 1390, dial shows sun and moon)"
+  ],
+  "note": "1410: fact field and article"
+ },
+ "dubrovnik-city-walls": {
+  "v": "PASS"
+ },
+ "bran-castle": {
+  "v": "PASS"
+ },
+ "pompeii": {
+  "v": "REWRITE",
+  "clue_before": "Where was the Roman town frozen in ash by a volcano in AD 79?",
+  "clue": "Where was a Roman town frozen in ash in AD 79, its victims recovered as plaster casts of the hollows they left?",
+  "competitors": [
+   "Herculaneum",
+   "Stabiae",
+   "Oplontis"
+  ],
+  "note": "Fiorelli plaster casts: fact field"
+ },
+ "hohensalzburg-fortress": {
+  "v": "PASS"
+ },
+ "matera-sassi": {
+  "v": "PASS"
+ },
+ "alberobello-trulli": {
+  "v": "PASS"
+ },
+ "ness-of-brodgar": {
+  "v": "PASS"
+ },
+ "giants-causeway": {
+  "v": "PASS"
+ },
+ "blue-lagoon-iceland": {
+  "v": "REWRITE",
+  "clue_before": "Where can you bathe in milky turquoise geothermal water in the middle of a lava field?",
+  "clue": "Where can you bathe in milky turquoise water in a lava field, the runoff of the Svartsengi power station?",
+  "competitors": [
+   "Myvatn Nature Baths, Iceland (milky blue geothermal water among lava)"
+  ],
+  "note": "Svartsengi: fact field and article"
+ },
+ "strokkur-geyser": {
+  "v": "PASS"
+ },
+ "jokulsarlon-glacier-lagoon": {
+  "v": "REWRITE",
+  "clue_before": "Where do icebergs calve off a glacier into a lagoon and roll out to sea through its shallow mouth?",
+  "clue": "Where do icebergs from Breiðamerkurjökull calve into a lagoon and float out to sea under a ring-road bridge?",
+  "competitors": [
+   "Tasman Lake, New Zealand",
+   "Laguna San Rafael, Chile",
+   "Columbia Glacier lagoon, Alaska",
+   "Fjallsarlon, Iceland"
+  ],
+  "note": "Sean's example. Breiðamerkurjökull: fact field; Route 1 (the Ring Road) and the Glacial River Bridge spanning the outlet: article"
+ },
+ "kirkjufell-iceland": {
+  "v": "PASS"
+ },
+ "preikestolen-pulpit-rock": {
+  "v": "PASS"
+ },
+ "lake-bled": {
+  "v": "PASS"
+ },
+ "mount-elbrus": {
+  "v": "PASS"
+ },
+ "dettifoss": {
+  "v": "REWRITE",
+  "clue_before": "Where does one of Europe's most powerful waterfalls drop into a canyon of spray?",
+  "clue": "Where does a waterfall reputed to be Europe's second most powerful drop 44 metres into a canyon of spray?",
+  "competitors": [
+   "Gullfoss, Iceland (powerful glacier-river falls into a canyon)"
+  ],
+  "note": "second most powerful after the Rhine Falls: article; 44 m: fact field"
+ },
+ "loch-ness": {
+  "v": "PASS"
+ },
+ "thingvellir": {
+  "v": "PASS"
+ },
+ "auschwitz-birkenau": {
+  "v": "PASS"
+ },
+ "chernobyl-reactor-4": {
+  "v": "PASS"
+ },
+ "stone-of-destiny": {
+  "v": "PASS"
+ },
+ "malbork-castle": {
+  "v": "PASS"
+ },
+ "newgrange": {
+  "v": "REWRITE",
+  "clue_before": "Where does midwinter sunlight enter a stone mound and light up a chamber built 5,000 years ago?",
+  "clue": "Where does midwinter sunrise shine through a roof box into the chamber of a stone mound built 5,000 years ago?",
+  "competitors": [
+   "Maeshowe, Orkney (winter solstice sun lights its chamber, built about 2800 BC)"
+  ],
+  "note": "roof box: fact field and article; Maeshowe's light is sunset through the passage"
+ },
+ "rock-of-cashel": {
+  "v": "PASS"
+ },
+ "wartburg-castle": {
+  "v": "PASS"
+ },
+ "housesteads-hadrians-wall": {
+  "v": "PASS"
+ },
+ "kizhi-pogost": {
+  "v": "PASS"
+ },
+ "brasilia-national-congress": {
+  "v": "PASS"
+ },
+ "greek-theatre-of-taormina-d34-60": {
+  "v": "PASS"
+ },
+ "hohenzollern-castle": {
+  "v": "PASS"
+ },
+ "matterhorn-summit": {
+  "v": "PASS"
+ },
+ "zugspitze-summit": {
+  "v": "PASS"
+ },
+ "hallstatt": {
+  "v": "PASS"
+ }
+}
