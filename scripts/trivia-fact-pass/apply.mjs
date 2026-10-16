@@ -49,7 +49,7 @@ for (const [id, v] of Object.entries(verdicts)) {
   if (v.v === 'KEEP') continue;
   for (const key of ['fact', 'clue']) {
     if (v[key] === undefined) continue;
-    if (/—/.test(v[key])) throw new Error(`${id}.${key} contains an em dash`);
+    if (/\u2014/.test(v[key])) throw new Error(`${id}.${key} contains an em dash`);
     const changed = editBlock(id, s => {
       const oldLine = `"${key}": ${JSON.stringify(e[key])}`;
       const newLine = `"${key}": ${JSON.stringify(v[key])}`;
