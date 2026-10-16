@@ -13,6 +13,18 @@ import { isLandmark, isPlayableLocation } from '../daily.js';
 let host = null;
 const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
 const SURVIVAL_LIMIT_KM = 150;
+
+// A Survival run's source: label (results heading), pool (what rounds draw
+// from), resultsId (runResultsMode) and bestKey. Optional bands(round) gives
+// the round's [lo, hi] band range and shareText() a mode's own share text.
+// Classic Survival is the cities pool with a uniform 1 to 10 band draw.
+const CLASSIC = {
+  label: 'Survival',
+  pool: () => host.locations.filter((item) => isPlayableLocation(item) && !isLandmark(item)),
+  resultsId: 'survival',
+  bestKey: SURVIVAL_BEST_KEY,
+};
+let source = CLASSIC;
 export const survival = {
   active: false,
   item: null,
@@ -24,17 +36,17 @@ export const survival = {
   results: [],
 };
 
-export function survivalBest() {
+export function survivalBest(key = SURVIVAL_BEST_KEY) {
   try {
-    return Math.max(0, Number.parseInt(localStorage.getItem(SURVIVAL_BEST_KEY), 10) || 0);
+    return Math.max(0, Number.parseInt(localStorage.getItem(key), 10) || 0);
   } catch {
     return 0;
   }
 }
 
 function saveSurvivalBest(value) {
-  const best = Math.max(survivalBest(), value);
-  host.safeSetItem(SURVIVAL_BEST_KEY, String(best));
+  const best = Math.max(survivalBest(source.bestKey), value);
+  host.safeSetItem(source.bestKey, String(best));
   return best;
 }
 
@@ -45,8 +57,13 @@ export function randomDifficultyBand() {
 // Independent uniform draw from the requested band. There is intentionally no
 // bag, collection weighting, or repeat prevention in Survival.
 function survivalPick() {
-  survival.band = randomDifficultyBand();
-  const playable = host.locations.filter((item) => isPlayableLocation(item) && !isLandmark(item));
+  if (source.bands) {
+    const [lo, hi] = source.bands(survival.round);
+    survival.band = lo + Math.floor(Math.random() * (hi - lo + 1));
+  } else {
+    survival.band = randomDifficultyBand();
+  }
+  const playable = source.pool();
   const bandChoices = playable.filter((item) => Number(item.difficulty) === survival.band);
   const choices = bandChoices.length ? bandChoices : playable;
   if (!choices.length) return null;
@@ -66,13 +83,14 @@ function survivalGo() {
   host.showRound();
 }
 
-export function startSurvival() {
+export function startSurvival(from = CLASSIC) {
   if (!host.locations.length) return;
+  source = from;
   host.expeditionRun.active = false;
   host.endless.active = false;
   host.borders.active = false;
   survival.active = true;
-  runResultsMode = 'survival';
+  runResultsMode = source.resultsId;
   survival.item = null;
   survival.band = null;
   survival.round = 0;
@@ -94,7 +112,7 @@ function showSurvivalGameOver() {
   document.body.className = 'game-results survival';
   const count = survival.survived;
   const best = saveSurvivalBest(count);
-  setRunResultsCopy('Survival run over', 'One miss over 150 km ends the run.', 'Survived');
+  setRunResultsCopy(`${source.label} run over`, 'One miss over 150 km ends the run.', 'Survived');
   gameEls.survivalResultTitle.textContent = `${count} ${count === 1 ? 'round' : 'rounds'} survived`;
   gameEls.survivalFinalStreak.textContent = count.toLocaleString();
   gameEls.survivalBestStreak.textContent = best.toLocaleString();
@@ -105,6 +123,7 @@ function showSurvivalGameOver() {
 function survivalShareText() {
   if (runResultsMode === 'blackout') return host.blackoutShareText();
   if (runResultsMode === 'borders') return host.bordersShareText();
+  if (source.shareText) return source.shareText();
   const count = survival.survived;
   const survivedResults = survival.results.slice(0, count);
   return host.formatGameShare({
@@ -187,11 +206,11 @@ export function survivalNext() {
 export function initSurvival(main) {
   host = main;
   const { gameEls } = host;
-  gameEls.survivalEntry.addEventListener('click', startSurvival);
+  gameEls.survivalEntry.addEventListener('click', () => startSurvival());
   gameEls.survivalAgain.addEventListener('click', () => {
     if (runResultsMode === 'blackout') host.startBorders(host.borders.scope);
     else if (runResultsMode === 'borders') host.startBorders();
-    else startSurvival();
+    else startSurvival(source);
   });
 
   gameEls.survivalShare.addEventListener('click', () => host.shareResult(

@@ -116,6 +116,9 @@ export const gameEls = {
   survivalEntry: document.getElementById('survival-button'),
   survivalHub: document.getElementById('survival-hub'),
   survivalHubEntry: document.getElementById('survival-hub-button'),
+  moreModesHub: document.getElementById('more-modes-hub'),
+  moreModesEntry: document.getElementById('more-modes-button'),
+  landmarksEntry: document.getElementById('landmarks-button'),
   survivalStreak: document.getElementById('survival-streak'),
   survivalResults: document.getElementById('survival-results-screen'),
   survivalResultTitle: document.getElementById('survival-result-title'),
@@ -134,6 +137,7 @@ export function hideScreens() {
   gameEls.start.hidden = gameEls.round.hidden = gameEls.postcardSummaryScreen.hidden = gameEls.results.hidden = true;
   gameEls.survivalResults.hidden = true;
   gameEls.survivalHub.hidden = true;
+  gameEls.moreModesHub.hidden = true;
   host.reviewEls.screen.hidden = true;
   if (state.statsScreenEl) state.statsScreenEl.hidden = true;
   if (state.settingsScreenEl) state.settingsScreenEl.hidden = true;

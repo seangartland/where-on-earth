@@ -41,11 +41,6 @@ function expeditionLocation(expedition, index) {
 
 // Stops resolve against both the cities and the landmarks file, so the entry
 // stays disabled until both have loaded (a half-loaded list would skew progress).
-// The Passport's Landmarks shelf: every playable landmark stop, in expedition order.
-export function expeditionLandmarks() {
-  return [...new Set(expeditions.flatMap(expeditionLocations).filter((item) => host.landmarks?.includes(item)))];
-}
-
 export function updateExpeditionEntry() {
   const ready = Boolean(host.locations.length && host.landmarks
     && expeditions.some((expedition) => expeditionLocations(expedition).length));

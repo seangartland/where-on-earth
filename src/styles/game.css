@@ -432,10 +432,10 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 /* Daily takes the full first row so Survival and Challenge pair below it. */
 #play-button { grid-column: 1 / -1; }
 
-/* Survival hub rows: the shared picker row without the emoji column. */
-#survival-hub .expedition-choice { grid-template-columns: 1fr auto; }
-#survival-hub .expedition-choice:disabled { opacity: .45; cursor: progress; }
-#survival-hub .expedition-choice small:empty { display: none; }
+/* Survival and More modes hub rows: the shared picker row without the emoji column. */
+#survival-hub .expedition-choice, #more-modes-hub .expedition-choice { grid-template-columns: 1fr auto; }
+#survival-hub .expedition-choice:disabled, #more-modes-hub .expedition-choice:disabled { opacity: .45; cursor: progress; }
+#survival-hub .expedition-choice small:empty, #more-modes-hub .expedition-choice small:empty { display: none; }
 
 .survival-streak {
   display: none;

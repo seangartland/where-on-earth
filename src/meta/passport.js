@@ -853,7 +853,7 @@ function closeCountryDetail() {
   passportScreen.scrollTop = ppCountryListScroll;
 }
 
-// The Landmarks shelf: Expeditions' landmark stops (host.landmarkShelf), apart
+// The Landmarks shelf: the curated landmark pool (host.landmarkShelf), apart
 // from Places and Countries so a landmark never counts toward a country or
 // continent total. Same slots and mystery cards as the city dex.
 function renderLandmarkShelf() {

@@ -97,6 +97,7 @@
         <button id="survival-hub-button" type="button"><span class="mode-name">Survival</span><small class="mode-desc">Three ways to play</small></button>
         <button id="expeditions-button" type="button" hidden><span class="mode-name">Expeditions</span><small class="mode-desc">Themed journeys</small></button>
         <button id="pvp-button" type="button" disabled><span class="mode-name">Challenge</span><small class="mode-desc">Play a friend</small></button>
+        <button id="more-modes-button" type="button"><span class="mode-name">More modes</span><small class="mode-desc">Landmarks, photo and trivia games</small></button>
       </div>
       <p id="start-streak" class="streak"></p>
     </section>
@@ -189,6 +190,18 @@
         <button id="survival-button" class="expedition-choice" type="button"><span><strong>Classic Survival</strong><small>Find each place within 150 km.</small><small data-hub-best="survival"></small></span><span class="badge">›</span></button>
         <button id="borders-button" class="expedition-choice" type="button"><span><strong>Survival: Tap the Country</strong><small>Tap each named country.</small><small data-hub-best="borders"></small></span><span class="badge">›</span></button>
         <button id="blackout-button" class="expedition-choice" type="button" disabled><span><strong>Survival: Country Blackout</strong><small>Find every country in a region.</small><small data-hub-best="blackout"></small></span><span class="badge">›</span></button>
+      </div>
+    </div>
+  </section>
+  <section id="more-modes-hub" class="expedition-picker" hidden>
+    <div class="expedition-panel" role="dialog" aria-modal="true" aria-labelledby="more-modes-heading">
+      <button class="home-nav-btn finished-home-nav" type="button" aria-label="Go home">×</button>
+      <h2 id="more-modes-heading">More modes</h2>
+      <p>New ways to play. Pick a mode.</p>
+      <div class="expedition-list">
+        <button id="landmarks-button" class="expedition-choice" type="button" disabled><span><strong>Landmarks</strong><small>Famous places, one miss ends the run.</small><small data-hub-best="landmarks"></small></span><span class="badge">›</span></button>
+        <button class="expedition-choice" type="button" disabled><span><strong>Photo mode</strong><small>Coming soon</small></span></button>
+        <button class="expedition-choice" type="button" disabled><span><strong>Trivia clues</strong><small>Coming soon</small></span></button>
       </div>
     </div>
   </section>

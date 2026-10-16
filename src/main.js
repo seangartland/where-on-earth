@@ -54,9 +54,10 @@ import {
 } from './modes/blackout.js';
 import {
   expeditionRun, expeditionPicker, initExpeditions, expeditionsLoaded, updateExpeditionEntry, completeExpeditionRound,
-  expeditionLandmarks, expeditionRoundHeader, expeditionRevealCard, expeditionNext,
+  expeditionRoundHeader, expeditionRevealCard, expeditionNext,
 } from './modes/expeditions.js';
 import { endless, endlessEls, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
+import { initLandmarks, landmarkPool, syncLandmarksEntry } from './modes/landmarks.js';
 import { AUDIT_MODE, initAudit, auditFlagsLocationsLoaded, addAuditFlagButton, mountAuditBanner } from './modes/audit.js';
 import {
   initDailyGame, initDailyCountdown, initReview, loadDaily, saveDaily, streakText, syncDailyButton, startGame, runHaul,
@@ -382,6 +383,12 @@ initTapCountry(modeHost);
 // ---------------------------------------------------------------------------
 initBlackout(modeHost);
 
+// ---------------------------------------------------------------------------
+// The More modes hub and Landmarks mode (Survival on the curated landmark
+// pool) live in src/modes/landmarks.js.
+// ---------------------------------------------------------------------------
+initLandmarks(modeHost);
+
 // Post-game review (src/modes/daily-game.js): all five rounds on the globe.
 initReview();
 
@@ -539,7 +546,7 @@ const passportHost = {
   isVisited,
   localDateKey,
   passportLocation,
-  landmarkShelf: expeditionLandmarks,
+  landmarkShelf: landmarkPool,
   safeSetItem,
   storageError,
   tierOf,
@@ -632,6 +639,7 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   gameEls.survivalEntry.disabled = false;
   syncBordersEntry();
   updateExpeditionEntry();
+  syncLandmarksEntry();
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
   document.getElementById('pvp-button').disabled = false;
@@ -649,10 +657,11 @@ getJSON('assets/expeditions.json').then(expeditionsLoaded).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('EXPEDITIONS: ' + err.message);
 });
-// Landmarks: Expeditions stops and the Passport's Landmarks shelf only (state.js).
+// Landmarks: Expeditions stops, Landmarks mode and the Passport's Landmarks shelf only (state.js).
 getJSON('assets/locations-landmarks-sol.json').then((data) => {
   state.landmarks = Array.isArray(data) ? data : [];
   updateExpeditionEntry();
+  syncLandmarksEntry();
 }).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('LANDMARKS: ' + err.message);

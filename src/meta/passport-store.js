@@ -101,7 +101,7 @@ export function passportLocation(id) {
   return locationIndex.get(id);
 }
 
-// Landmarks are collectible content inside Expeditions only. They stay out of
+// Landmarks are collectible content in Expeditions and Landmarks mode. They stay out of
 // state.locations, so the Daily, the other modes and every country or
 // continent total never see them; a stop resolves through findLocation().
 let landmarkIndex = null;
