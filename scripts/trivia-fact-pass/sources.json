@@ -1122,7 +1122,10 @@
  },
  "ali-olympic-cauldron-atlanta": {
   "title": "Centennial Olympic Stadium",
-  "extra": [],
+  "extra": [
+   "1996 Summer Olympics opening ceremony",
+   "Center Parc Stadium"
+  ],
   "km": 0
  },
  "freedom-speech-lincoln-memorial": {
@@ -1317,7 +1320,9 @@
  },
  "quilmes-hillside-ruins": {
   "title": "Ruins of Quilmes",
-  "extra": [],
+  "extra": [
+   "Quilme people"
+  ],
   "km": 0
  },
  "humberstone-saltpeter-works": {

@@ -1,0 +1,448 @@
+{
+ "munich-olympic-hostage-site": {
+  "v": "KEEP",
+  "note": "checked against Munich massacre"
+ },
+ "ali-olympic-cauldron-atlanta": {
+  "v": "FIX",
+  "fact": "Ali, who had Parkinson's disease, lit the cauldron after a relay of more than 10,000 torchbearers. The stadium was later reconfigured for the Atlanta Braves.",
+  "note": "trembling hands kept implicitly via Parkinson's; cauldron-survives claim not supported by Centennial Olympic Stadium, opening ceremony or Center Parc Stadium articles"
+ },
+ "freedom-speech-lincoln-memorial": {
+  "v": "KEEP",
+  "note": "checked against Lincoln Memorial"
+ },
+ "first-oscar-ceremony-roosevelt": {
+  "v": "KEEP",
+  "note": "checked against Hollywood Roosevelt Hotel"
+ },
+ "elvis-sun-studio-first-single": {
+  "v": "KEEP",
+  "note": "checked against Sun Studio"
+ },
+ "montgomery-bus-boycott-church": {
+  "v": "KEEP",
+  "note": "checked against Holt Street Baptist Church"
+ },
+ "bastei-bridge-germany": {
+  "v": "KEEP",
+  "note": "checked against Bastei"
+ },
+ "ait-benhaddou-ksar": {
+  "v": "KEEP",
+  "note": "checked against Aït Benhaddou"
+ },
+ "derawar-fort-pakistan": {
+  "v": "KEEP",
+  "note": "checked against Derawar Fort"
+ },
+ "kuelap-fortress-peru": {
+  "v": "KEEP",
+  "note": "checked against Kuélap"
+ },
+ "hegra-qasr-al-farid": {
+  "v": "KEEP",
+  "note": "checked against Hegra"
+ },
+ "gjirokaster-fortress-albania": {
+  "v": "KEEP",
+  "note": "checked against Gjirokastër Fortress"
+ },
+ "dallol-hydrothermal-field": {
+  "v": "KEEP",
+  "note": "checked against Dallol (hydrothermal system)"
+ },
+ "sacsayhuaman-cusco": {
+  "v": "KEEP",
+  "note": "checked against Sacsayhuamán"
+ },
+ "chand-baori-abhaneri": {
+  "v": "KEEP",
+  "note": "checked against Chand Baori"
+ },
+ "predjama-castle-slovenia": {
+  "v": "KEEP",
+  "note": "checked against Predjama Castle"
+ },
+ "kailasa-temple-ellora": {
+  "v": "KEEP",
+  "note": "checked against Kailasa Temple, Ellora"
+ },
+ "pont-du-gard-aqueduct": {
+  "v": "FIX",
+  "fact": "The bridge carried the Nîmes aqueduct across the Gardon valley and, standing 48.8 m high, is one of the best preserved Roman aqueduct bridges.",
+  "note": "\"tallest Roman aqueduct bridge still standing\" not in the article (article: one of the best preserved, 48.8 m)"
+ },
+ "buzludzha-monument-bulgaria": {
+  "v": "KEEP",
+  "note": "checked against Buzludzha monument"
+ },
+ "trakai-island-castle": {
+  "v": "KEEP",
+  "note": "checked against Trakai Island Castle"
+ },
+ "meteora-greece": {
+  "v": "FIX",
+  "fact": "Meteora's monastic community began forming in the 14th century; six of its 24 monasteries survive, listed by UNESCO in 1988.",
+  "note": "\"six remain active today\" contradicted by the article (four occupied as of December 2025; six extant)"
+ },
+ "zhangjiajie-national-forest-park": {
+  "v": "KEEP",
+  "note": "checked against Zhangjiajie"
+ },
+ "punakha-dzong-confluence": {
+  "v": "KEEP",
+  "note": "checked against Punakha Dzong"
+ },
+ "eilean-donan-tidal-castle": {
+  "v": "KEEP",
+  "note": "checked against Eilean Donan"
+ },
+ "atomium-iron-crystal": {
+  "v": "KEEP",
+  "note": "checked against Atomium"
+ },
+ "vardzia-cliff-monastery": {
+  "v": "KEEP",
+  "note": "checked against Vardzia"
+ },
+ "dunnottar-headland-fortress": {
+  "v": "KEEP",
+  "note": "checked against Dunnottar Castle"
+ },
+ "elmina-castle-gold-coast": {
+  "v": "KEEP",
+  "note": "checked against Elmina Castle"
+ },
+ "our-lady-peace-basilica": {
+  "v": "KEEP",
+  "note": "checked against Basilica of Our Lady of Peace"
+ },
+ "rani-ki-vav-stepwell": {
+  "v": "KEEP",
+  "note": "checked against Rani ki Vav"
+ },
+ "tatev-gorge-monastery": {
+  "v": "FIX",
+  "clue": "Which ninth-century monastery sits on a basalt plateau above a deep gorge, now reached by a long aerial tramway?",
+  "note": "clue said \"once reached\"; the Wings of Tatev tramway opened in 2010 and still runs"
+ },
+ "kasubi-royal-tombs": {
+  "v": "KEEP",
+  "note": "checked against Kasubi Tombs"
+ },
+ "zipaquira-salt-cathedral": {
+  "v": "KEEP",
+  "note": "checked against Salt Cathedral of Zipaquirá"
+ },
+ "citadelle-laferriere-mountaintop": {
+  "v": "KEEP",
+  "note": "checked against Citadelle Laferrière"
+ },
+ "brimstone-hill-fortress": {
+  "v": "KEEP",
+  "note": "checked against Brimstone Hill Fortress National Park"
+ },
+ "ani-cathedral-ruin": {
+  "v": "KEEP",
+  "note": "checked against Cathedral of Ani"
+ },
+ "larabanga-adobe-mosque": {
+  "v": "KEEP",
+  "note": "checked against Larabanga Mosque"
+ },
+ "katskhi-pillar-hermitage": {
+  "v": "FIX",
+  "fact": "Religious buildings have occupied the pillar since at least the early medieval period; an iron ladder climbs it, though visitors have been barred since 2012.",
+  "note": "\"modern access is by a metal ladder\" outdated (visitors barred since 2012)"
+ },
+ "banteay-chhmar-face-towers": {
+  "v": "FIX",
+  "fact": "Built under Jayavarman VII in the Bayon style, it flourished in the 12th and 13th centuries, though looters have since stripped many of its reliefs.",
+  "note": "battle and daily-life relief claim not in the article"
+ },
+ "khami-stone-terraces": {
+  "v": "KEEP",
+  "note": "checked against Khami"
+ },
+ "quilmes-hillside-ruins": {
+  "v": "KEEP",
+  "note": "checked against Ruins of Quilmes"
+ },
+ "humberstone-saltpeter-works": {
+  "v": "KEEP",
+  "note": "checked against Humberstone and Santa Laura Saltpeter Works"
+ },
+ "haamonga-trilithon": {
+  "v": "KEEP",
+  "note": "checked against Haʻamonga ʻa Maui"
+ },
+ "sewell-mining-stairways": {
+  "v": "KEEP",
+  "note": "checked against Sewell, Chile"
+ },
+ "san-ignacio-mini-mission": {
+  "v": "KEEP",
+  "note": "checked against San Ignacio Miní"
+ },
+ "larnach-castle-otago": {
+  "v": "FIX",
+  "fact": "Built from 1871 for a merchant and politician, the Gothic Revival house mixes local basalt and timber with materials imported from around the world.",
+  "note": "\"locally sourced stone and timber\" half true (article: imported materials from around the world, Italian marble, Venetian glass)"
+ },
+ "yapahuwa-rock-citadel": {
+  "v": "KEEP",
+  "note": "checked against Yapahuwa"
+ },
+ "xian-cn": {
+  "v": "KEEP",
+  "note": "checked against Xi'an"
+ },
+ "pudong-cn": {
+  "v": "FIX",
+  "fact": "Pudong was mostly farmland before its development began in 1990 and now holds Shanghai's famous skyline, including the Oriental Pearl Tower and the Shanghai Tower.",
+  "note": "\"farmland until 1990\" overstated (mainly farmland with wharfs and warehouses; development policy announced 1990)"
+ },
+ "salvador-br": {
+  "v": "KEEP",
+  "note": "checked against Salvador, Bahia"
+ },
+ "manaus-br": {
+  "v": "KEEP",
+  "note": "checked against Manaus"
+ },
+ "luoyang-cn": {
+  "v": "FIX",
+  "fact": "Luoyang is the earliest of China's Four Great Ancient Capitals and lies near the Longmen Grottoes, packed with Buddhist carvings.",
+  "note": "\"capital for over a dozen dynasties\" not stated in the article"
+ },
+ "madinah-sa": {
+  "v": "KEEP",
+  "note": "checked against Medina"
+ },
+ "trujillo-pe": {
+  "v": "KEEP",
+  "note": "checked against Trujillo, Peru"
+ },
+ "mount-pinatubo": {
+  "v": "KEEP",
+  "note": "checked against Mount Pinatubo"
+ },
+ "geneva": {
+  "v": "KEEP",
+  "note": "checked against Geneva"
+ },
+ "muscat": {
+  "v": "FIX",
+  "fact": "This port between rugged mountains and the sea has been a leading trading port since the early 1st century CE.",
+  "note": "\"more than two millennia\" overstated (article: known since the early 1st century CE)"
+ },
+ "mount-rinjani": {
+  "v": "KEEP",
+  "note": "checked against Mount Rinjani"
+ },
+ "macau": {
+  "v": "KEEP",
+  "note": "checked against Macau"
+ },
+ "great-ocean-road": {
+  "v": "KEEP",
+  "note": "checked against Great Ocean Road"
+ },
+ "nara": {
+  "v": "KEEP",
+  "note": "checked against Nara (city)"
+ },
+ "gold-coast": {
+  "v": "KEEP",
+  "note": "checked against Gold Coast, Queensland"
+ },
+ "great-blue-hole": {
+  "v": "KEEP",
+  "note": "checked against Great Blue Hole"
+ },
+ "suez-canal": {
+  "v": "KEEP",
+  "note": "checked against Suez Canal"
+ },
+ "mississippi-river": {
+  "v": "KEEP",
+  "note": "checked against Mississippi River"
+ },
+ "mount-erebus": {
+  "v": "KEEP",
+  "note": "checked against Mount Erebus"
+ },
+ "lake-titicaca": {
+  "v": "FIX",
+  "fact": "At about 3,812 meters above sea level, it is often called the world's highest navigable lake.",
+  "note": "\"used by large commercial vessels\" qualifier not in the article; article: often called the highest navigable lake"
+ },
+ "victoria-peak": {
+  "v": "KEEP",
+  "note": "checked against Victoria Peak"
+ },
+ "tel-aviv": {
+  "v": "KEEP",
+  "note": "checked against Tel Aviv"
+ },
+ "luxembourg-city": {
+  "v": "KEEP",
+  "note": "checked against Luxembourg City"
+ },
+ "valletta": {
+  "v": "KEEP",
+  "note": "checked against Valletta"
+ },
+ "belfast": {
+  "v": "KEEP",
+  "note": "checked against Belfast"
+ },
+ "palma-de-mallorca": {
+  "v": "KEEP",
+  "note": "checked against Palma de Mallorca"
+ },
+ "franz-josef-glacier": {
+  "v": "KEEP",
+  "note": "checked against Franz Josef Glacier"
+ },
+ "nice": {
+  "v": "KEEP",
+  "note": "checked against Nice"
+ },
+ "monaco": {
+  "v": "KEEP",
+  "note": "checked against Monaco"
+ },
+ "nuremberg": {
+  "v": "KEEP",
+  "note": "checked against Nuremberg"
+ },
+ "bering-strait": {
+  "v": "KEEP",
+  "note": "checked against Bering Strait"
+ },
+ "san-juan": {
+  "v": "KEEP",
+  "note": "checked against San Juan, Puerto Rico"
+ },
+ "strait-of-gibraltar": {
+  "v": "KEEP",
+  "note": "checked against Strait of Gibraltar"
+ },
+ "orlando": {
+  "v": "FIX",
+  "clue": "Which Florida city is the hub for the nearby Walt Disney World resort?",
+  "note": "clue said Orlando is the home of Walt Disney World (article: about 21 miles southwest, in Bay Lake)"
+ },
+ "baltimore": {
+  "v": "KEEP",
+  "note": "checked against Baltimore"
+ },
+ "pittsburgh": {
+  "v": "KEEP",
+  "note": "checked against Pittsburgh"
+ },
+ "kansas-city": {
+  "v": "KEEP",
+  "note": "checked against Kansas City, Missouri"
+ },
+ "cincinnati": {
+  "v": "KEEP",
+  "note": "checked against Cincinnati"
+ },
+ "milwaukee": {
+  "v": "KEEP",
+  "note": "checked against Milwaukee"
+ },
+ "salt-lake-city": {
+  "v": "KEEP",
+  "note": "checked against Salt Lake City"
+ },
+ "santa-fe": {
+  "v": "KEEP",
+  "note": "checked against Santa Fe, New Mexico"
+ },
+ "savannah": {
+  "v": "KEEP",
+  "note": "checked against Savannah, Georgia"
+ },
+ "charleston": {
+  "v": "KEEP",
+  "note": "checked against Charleston, South Carolina"
+ },
+ "key-west": {
+  "v": "KEEP",
+  "note": "checked against Key West"
+ },
+ "victoria": {
+  "v": "KEEP",
+  "note": "checked against Victoria, British Columbia"
+ },
+ "missouri-river": {
+  "v": "KEEP",
+  "note": "checked against Missouri River"
+ },
+ "banff": {
+  "v": "FIX",
+  "fact": "This resort town, 1,400 to 1,630 m up, sits inside the country's oldest national park amid turquoise lakes and Rocky Mountain peaks.",
+  "note": "\"Canada's highest townsite\" not in the article"
+ },
+ "darwin": {
+  "v": "KEEP",
+  "note": "checked against Darwin, Northern Territory"
+ },
+ "alice-springs": {
+  "v": "KEEP",
+  "note": "checked against Alice Springs"
+ },
+ "cairns": {
+  "v": "KEEP",
+  "note": "checked against Cairns"
+ },
+ "colorado-river": {
+  "v": "KEEP",
+  "note": "checked against Colorado River"
+ },
+ "rocky-mountains": {
+  "v": "KEEP",
+  "note": "checked against Rocky Mountains"
+ },
+ "caspian-sea": {
+  "v": "KEEP",
+  "note": "checked against Caspian Sea"
+ },
+ "mount-etna": {
+  "v": "KEEP",
+  "note": "checked against Mount Etna"
+ },
+ "mount-vesuvius": {
+  "v": "KEEP",
+  "note": "checked against Mount Vesuvius"
+ },
+ "mont-blanc": {
+  "v": "FIX",
+  "fact": "Mont Blanc is the highest mountain in the Alps (about 4,807 m).",
+  "note": "malformed \"4,806.m\"; article gives 4,807.3 m"
+ },
+ "jungfrau": {
+  "v": "KEEP",
+  "note": "checked against Jungfrau"
+ },
+ "lake-como": {
+  "v": "KEEP",
+  "note": "checked against Lake Como"
+ },
+ "cliffs-of-moher": {
+  "v": "KEEP",
+  "note": "checked against Cliffs of Moher"
+ },
+ "snowdon": {
+  "v": "KEEP",
+  "note": "checked against Snowdon"
+ },
+ "ben-nevis": {
+  "v": "KEEP",
+  "note": "checked against Ben Nevis"
+ }
+}
