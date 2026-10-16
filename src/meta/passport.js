@@ -541,6 +541,8 @@ function ppGroupHead(name, text, onCollapse) {
     head.setAttribute('aria-expanded', String(!collapsed));
     onCollapse(collapsed);
   };
+  head.ppApplyCollapse = apply;
+  head.dataset.continent = name;
   const toggle = () => {
     const collapsed = !ppCollapsedContinents.has(name);
     if (collapsed) ppCollapsedContinents.add(name); else ppCollapsedContinents.delete(name);
@@ -555,6 +557,16 @@ function ppGroupHead(name, text, onCollapse) {
   });
   apply(ppCollapsedContinents.has(name));
   return head;
+}
+
+function setPpGroupsCollapsed(container, collapsed) {
+  const heads = [...container.querySelectorAll('.pp-group-head')];
+  if (!collapsed) ppCollapsedContinents.clear();
+  heads.forEach((head) => {
+    if (collapsed) ppCollapsedContinents.add(head.dataset.continent);
+    head.ppApplyCollapse(collapsed);
+  });
+  savePpCollapsedContinents();
 }
 
 function ppFilteredGroupCount(name) {
@@ -622,6 +634,7 @@ function renderPassportDex() {
     }
   }
   ppEls.dex.replaceChildren(frag);
+  ppEls.placesGroupControls.hidden = !atlas || ppDexGroups.length === 0;
   applyPassportFilters();
 }
 
@@ -739,6 +752,7 @@ function renderCountryList() {
       return groups;
     }, new Map())]
     : [['', rows]];
+  ppEls.countryGroupControls.hidden = sort !== 'continent' || countryGroups.length === 0;
   countryGroups.forEach(([group, groupRows]) => {
     const groupCards = [];
     if (sort === 'continent') {
@@ -1465,6 +1479,8 @@ export function initPassport(main) {
 .pp-toolbar.is-stuck::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: calc(env(safe-area-inset-top, 0px) + 18px); background: #0b1120; }
 .pp-filters-btn { flex: none; min-height: 36px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; touch-action: manipulation; white-space: nowrap; }
 .pp-filters-btn[aria-expanded="true"], .pp-filters-btn.has-active { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
+.pp-group-controls { display: flex; justify-content: flex-end; gap: 6px; margin: 5px 0 3px; }
+.pp-group-controls .pp-filters-btn { min-height: 30px; }
 .pp-badge { margin-left: 3px; color: #ffc76a; font-size: 11px; }
 .pp-toolbar-close { display: grid; flex: none; place-items: center; width: 32px; height: 32px; margin-left: auto; padding: 0; border: 0; border-radius: 50%; background: rgba(157,211,255,.08); color: #e8f3ff; font: inherit; font-size: 20px; line-height: 1; opacity: 0; pointer-events: none; transition: opacity .15s ease-out; }
 .pp-toolbar.is-stuck .pp-toolbar-close { opacity: 1; pointer-events: auto; }
@@ -1646,6 +1662,10 @@ body.game-passport #hud { opacity: 0; }
         <p class="pp-shown" data-pp="shown"></p>
       </div>
       </div>
+      <div class="pp-group-controls" data-pp="places-group-controls">
+        <button type="button" class="pp-filters-btn" data-group-action="expand">Expand all</button>
+        <button type="button" class="pp-filters-btn" data-group-action="collapse">Collapse all</button>
+      </div>
       <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
       <div class="pp-dex-wrap" data-pp="dex" data-pp-list></div>
 
@@ -1660,6 +1680,10 @@ body.game-passport #hud { opacity: 0; }
           <option value="alpha">A–Z</option>
           <option value="continent">By continent</option>
           </select><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
+        <div class="pp-group-controls" data-pp="country-group-controls" hidden>
+          <button type="button" class="pp-filters-btn" data-group-action="expand">Expand all</button>
+          <button type="button" class="pp-filters-btn" data-group-action="collapse">Collapse all</button>
+        </div>
         <div data-pp="country-list-body"></div>
       </div>
       <div data-pp="country-detail" hidden>
@@ -1700,12 +1724,14 @@ body.game-passport #hud { opacity: 0; }
     shown: passportScreen.querySelector('[data-pp="shown"]'),
     empty: passportScreen.querySelector('[data-pp="empty"]'),
     dex: passportScreen.querySelector('[data-pp="dex"]'),
+    placesGroupControls: passportScreen.querySelector('[data-pp="places-group-controls"]'),
     collections: passportScreen.querySelector('[data-pp="collections"]'),
     countryList: passportScreen.querySelector('[data-pp="country-list"]'),
     countryDetail: passportScreen.querySelector('[data-pp="country-detail"]'),
     countrySummary: passportScreen.querySelector('[data-pp="country-summary"]'),
     countrySort: passportScreen.querySelector('[data-pp="country-sort"]'),
     countryListBody: passportScreen.querySelector('[data-pp="country-list-body"]'),
+    countryGroupControls: passportScreen.querySelector('[data-pp="country-group-controls"]'),
     countryBack: passportScreen.querySelector('[data-pp="country-back"]'),
     countryHead: passportScreen.querySelector('[data-pp="country-head"]'),
     countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
@@ -1858,6 +1884,14 @@ body.game-passport #hud { opacity: 0; }
     if (!ppEls.filters.contains(event.target) && !ppEls.filtersToggle.closest('.pp-toolbar').contains(event.target)) closePassportFilters();
   });
   ppEls.countrySort.addEventListener('change', renderCountryList);
+  ppEls.placesGroupControls.addEventListener('click', (event) => {
+    const action = event.target.closest('[data-group-action]')?.dataset.groupAction;
+    if (action) setPpGroupsCollapsed(ppEls.dex, action === 'collapse');
+  });
+  ppEls.countryGroupControls.addEventListener('click', (event) => {
+    const action = event.target.closest('[data-group-action]')?.dataset.groupAction;
+    if (action) setPpGroupsCollapsed(ppEls.countryListBody, action === 'collapse');
+  });
   ppEls.countryBack.addEventListener('click', closeCountryDetail);
   passportScreen.addEventListener('click', (e) => {
     if (e.target === passportScreen) closePassport();
