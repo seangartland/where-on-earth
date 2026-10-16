@@ -1,0 +1,377 @@
+# photo#|verified entry id or -|method F=filename M=commons metadata V=visual|note
+1|mount-fuji|F|
+2|mount-kilimanjaro|F|
+3|easter-island|F|
+4|mont-saint-michel|F|
+5|neuschwanstein-castle|F|
+6|serengeti-tanzania|F|
+7|galapagos-islands|F|
+8|dead-sea|F|
+9|hagia-sophia|F|
+10|terracotta-army|F|
+11|salar-de-uyuni|F|
+12|lalibela-ethiopia|F|
+13|cappadocia-turkey|F|
+14|plitvice-lakes|F|
+15|timbuktu-mali|F|
+16|socotra-island|F|satellite view
+17|pamukkale-turkey|F|
+18|danakil-depression|F|
+19|wadi-rum|F|
+20|richat-structure|F|ISS photo
+21|tristan-da-cunha|F|
+22|-|M|world map of distance to coast, not a photo of the place
+23|challenger-deep|F|
+24|mcmurdo-station|F|
+25|vostok-station|F|
+26|pitcairn-island|F|satellite view
+27|alert-nunavut|F|satellite view
+28|la-rinconada-peru|F|
+29|bouvet-island|F|
+30|forbidden-city-beijing|F|
+31|topkapi-palace|F|
+32|gyeongbokgung-palace|F|Hangul filename Gwanghwamun Woldae, the palace gate
+33|mount-everest-summit|F|
+34|borobudur|M|generic filename; description names Borobudur
+35|leshan-giant-buddha|F|
+36|ha-long-bay|F|
+37|amber-fort-jaipur|F|
+38|fushimi-inari-taisha|F|
+39|registan-samarkand|F|
+40|mogao-caves-dunhuang|F|
+41|potala-palace-lhasa|F|
+42|mount-kinabalu|F|
+43|sigiriya|F|
+44|bagan-myanmar|F|
+45|darvaza-gas-crater|F|
+46|flaming-cliffs-bayanzag|F|
+47|lake-issyk-kul|F|
+48|gobekli-tepe|F|
+49|mohenjo-daro|F|
+50|persepolis|F|
+51|nalanda-bihar|F|
+52|fatehpur-sikri|F|
+53|polonnaruwa-sri-lanka|F|
+54|marco-polo-bridge|F|Lugouqiao is the Marco Polo Bridge
+55|son-doong-vietnam|F|
+56|kharkhorin-mongolia|F|
+57|dholavira-india|F|
+58|yolyn-am-mongolia|F|
+59|ak-baital-pass|F|
+60|lo-manthang-nepal|F|
+61|lothal-india|F|
+62|gurudongmar-lake|F|COORD: photo GPS 1060 km from entry pin
+63|adams-bridge|F|
+64|versailles-palace|F|
+65|-|F|Pantheon of Paris, entry is the Rome Pantheon
+66|st-peters-basilica|F|
+67|cologne-cathedral|F|
+68|brandenburg-gate|F|
+69|tower-of-london|F|
+70|st-basils-cathedral|F|
+71|acropolis-athens|F|
+72|sagrada-familia|M|opaque filename; description names Sagrada Familia
+73|anne-frank-house|F|
+74|hungarian-parliament|F|
+75|hermitage-museum|F|
+76|wawel-castle|F|
+77|-|F|Gorbunov Palace of Culture is in Moscow, not Warsaw
+78|charles-bridge-prague|F|
+79|prague-astronomical-clock|M|generic filename; categories place it in Prague
+80|dubrovnik-city-walls|F|
+81|bran-castle|F|
+82|pompeii|F|
+83|hohensalzburg-fortress|F|
+84|matera-sassi|F|
+85|alberobello-trulli|F|
+86|ness-of-brodgar|F|
+87|giants-causeway|F|
+88|blue-lagoon-iceland|F|
+89|strokkur-geyser|F|
+90|jokulsarlon-glacier-lagoon|F|
+91|kirkjufell-iceland|F|
+92|preikestolen-pulpit-rock|F|
+93|lake-bled|F|
+94|mount-elbrus|F|
+95|dettifoss|F|
+96|loch-ness|F|
+97|thingvellir|F|
+98|auschwitz-birkenau|F|Auschwitz I, same memorial site
+99|chernobyl-reactor-4|M|generic filename; categories place it in Chornobyl town, at the entry pin
+100|stone-of-destiny|F|replica on Moot Hill at Scone
+101|malbork-castle|F|
+102|newgrange|M|generic filename; description names Newgrange
+103|rock-of-cashel|F|
+104|wartburg-castle|F|COORD: photo GPS 28 km from entry pin
+105|housesteads-hadrians-wall|F|
+106|kizhi-pogost|F|
+107|-|F|lithograph of the battle, artwork not a photo of the place
+108|brasilia-national-congress|F|
+109|greek-theatre-of-taormina-d34-60|F|
+110|V?|V|
+111|hohenzollern-castle|F|
+112|matterhorn-summit|F|
+113|zugspitze-summit|F|
+114|hallstatt|F|
+115|manarola|F|
+116|alcazar-of-segovia|F|
+117|plaza-de-espana-seville|F|
+118|prado-museum|F|
+119|santiago-de-compostela-cathedral|M|filename ambiguous between Santiagos; description names Compostela
+120|roman-baths-bath|F|
+121|kotors-old-town|F|
+122|V?|V|
+123|kjeragbolten|F|
+124|trolltunga|F|
+125|V?|V|
+126|-|F|elephant on a road, generic wildlife scene; Chief's Island not shown identifiably
+127|lake-manyara|F|
+128|hell-gate-national-park|F|
+129|sossusvlei|F|
+130|fish-river-canyon|F|
+131|cape-coast-castle|F|
+132|piton-de-la-fournaise|F|
+133|sensoji-temple|F|
+134|kinkakuji|F|
+135|himeji-castle|F|
+136|itsukushima-shrine|F|
+137|shuri-castle|F|
+138|bulguksa|F|
+139|mutianyu|M|filename says only Great Wall; description names Mutianyu
+140|pingyao-ancient-city|F|
+141|petronas-towers|F|
+142|mount-bromo|F|
+143|chocolate-hills|F|
+144|mayon-volcano|F|
+145|phong-nha-ke-bang|F|
+146|hoi-an|F|
+147|tigers-nest|F|
+148|konark-sun-temple|F|
+149|sheikh-zayed-mosque|F|
+150|badshahi-mosque|F|
+151|monument-valley|F|
+152|bryce-canyon|F|
+153|yosemite-valley|F|
+154|brooklyn-bridge|F|
+155|kennedy-space-center|F|ISS photo of pads 39A and 39B
+156|badwater-basin|F|
+157|okefenokee-swamp|F|
+158|chateau-frontenac|F|
+159|teotihuacan|F|
+160|copper-canyon|F|
+161|tikal|F|
+162|pitons-of-saint-lucia|F|
+163|jericoacoara|F|
+164|lencois-maranhenses|F|
+165|ciudad-perdida|F|
+166|-|M|locator map of Easter Island, not a photo of Anakena
+167|kakadu|F|Nourlangie Rock, inside Kakadu
+168|three-sisters-blue-mountains|F|
+169|mount-kosciuszko|F|
+170|lake-tekapo|F|
+171|waitomo-caves|F|
+172|penicillin-st-marys-london|F|Clarence Memorial Wing, St Mary's
+173|dna-cavendish-cambridge|F|plaque at the Old Cavendish Laboratory site
+174|chicago-pile-one-stagg-field|F|
+175|transistor-bell-labs-murray-hill|F|
+176|higgs-boson-cern-atlas|F|
+177|-|M|LIGO Livingston control room, entry is LIGO Hanford
+178|-|F|portrait of Rutherford, not a place
+179|pulsar-discovery-mullard|F|
+180|dolly-cloning-roslin|F|
+181|first-heart-transplant-groote-schuur|F|
+182|first-powered-flight-kill-devil-hills|M|generic filename; description names the Wright Brothers monument
+183|-|F|portrait of Bell, not a place
+184|edison-light-menlo-park|F|Edison Memorial Tower on the Menlo Park lab site
+185|-|F|sand sculpture of a film poster, not the Grand Cafe
+186|arpanet-first-message-ucla|F|
+187|V?|V|
+188|first-atm-enfield|F|
+189|-|F|Niepce monument in the village, not the Le Gras house
+190|-|F|White Horse Tavern, New York; entry is Parliament Square, London
+191|woodstock-max-yasgur-farm|F|Bethel Woods pavilion on the festival site
+192|beatles-rooftop-concert|F|
+193|lunch-atop-skyscraper-rockefeller|F|
+194|tank-man-changan-avenue|F|
+195|iwo-jima-flag-raising|F|
+196|-|F|portrait (Migrant Mother), not a place
+197|-|F|Matmata town sign, not the Hotel Sidi Driss
+198|jaws-menemsha-harbor|F|
+199|lord-of-rings-hobbiton-film-set|F|
+200|-|F|magazine advert, not a place
+201|burning-man-first-baker-beach|F|
+202|C?|F|Valdivia damage photo; check pin vs Valdivia
+203|krakatoa-1883-eruption|F|Anak Krakatau inside the caldera
+204|tambora-1815-eruption|F|
+205|mount-st-helens-1980|M|abbreviated filename; categories name Mount St. Helens
+206|tunguska-event-epicenter|F|
+207|-|F|dashcam animation of the fireball, no identifiable place
+208|lituya-bay-megatsunami|F|
+209|hunga-tonga-2022-eruption|F|
+210|V?|V|
+211|barringer-meteor-impact|F|
+212|-|F|Dyatlov group memorial in a Yekaterinburg cemetery, not the pass
+213|roanoke-lost-colony|F|
+214|flannan-isles-lighthouse-mystery|F|
+215|hinterkaifeck-murders|F|
+216|isdal-woman-discovery|F|
+217|-|F|forensic sketch, not a place
+218|miracle-on-ice-arena|F|
+219|hand-of-god-azteca|F|
+220|rumble-in-the-jungle|F|
+221|first-four-minute-mile-iffley|F|
+222|beamon-long-jump-1968|F|
+223|secretariat-belmont-1973|F|
+224|golden-spike-promontory-summit|F|
+225|gagarin-launch-pad-one|M|Soyuz launch; categories name Baikonur Site 1
+226|-|M|Alcock and Brown at departure in Newfoundland, entry is the Clifden landing
+227|lindbergh-spirit-st-louis-landing|F|
+228|bloody-sunday-selma-bridge|F|
+229|magna-carta-runnymede|F|
+230|lincoln-assassination-fords-theatre|F|
+231|jfk-assassination-dealey-plaza|F|
+232|mlk-assassination-lorraine-motel|F|National Civil Rights Museum is the Lorraine Motel
+233|gandhi-assassination-birla-house|F|
+234|-|F|Pergamon acropolis, entry is Sarajevo
+235|triangle-shirtwaist-fire|F|
+236|bhopal-gas-disaster-plant|F|
+237|hindenburg-lakehurst|F|
+238|halifax-explosion-narrows|F|
+239|stonewall-uprising|F|
+240|fall-of-berlin-wall-bornholmer|F|
+241|mandela-rivonia-arrest-liliesleaf|F|
+242|munich-olympic-hostage-site|F|
+243|ali-olympic-cauldron-atlanta|F|
+244|freedom-speech-lincoln-memorial|F|
+245|first-oscar-ceremony-roosevelt|F|
+246|elvis-sun-studio-first-single|F|
+247|montgomery-bus-boycott-church|F|
+248|-|F|portrait of Webb, not a place
+249|bastei-bridge-germany|F|
+250|ait-benhaddou-ksar|F|
+251|derawar-fort-pakistan|F|
+252|kuelap-fortress-peru|F|
+253|hegra-qasr-al-farid|F|
+254|V?|V|
+255|dallol-hydrothermal-field|F|
+256|sacsayhuaman-cusco|F|
+257|chand-baori-abhaneri|F|
+258|predjama-castle-slovenia|F|
+259|kailasa-temple-ellora|F|
+260|pont-du-gard-aqueduct|F|
+261|buzludzha-monument-bulgaria|F|
+262|trakai-island-castle|F|
+263|meteora-greece|F|
+264|zhangjiajie-national-forest-park|F|
+265|punakha-dzong-confluence|F|
+266|eilean-donan-tidal-castle|F|
+267|atomium-iron-crystal|F|
+268|vardzia-cliff-monastery|F|
+269|dunnottar-headland-fortress|F|
+270|elmina-castle-gold-coast|F|
+271|our-lady-peace-basilica|F|
+272|rani-ki-vav-stepwell|F|
+273|tatev-gorge-monastery|F|
+274|kasubi-royal-tombs|F|
+275|zipaquira-salt-cathedral|F|
+276|citadelle-laferriere-mountaintop|F|
+277|brimstone-hill-fortress|F|
+278|ani-cathedral-ruin|F|
+279|larabanga-adobe-mosque|F|
+280|katskhi-pillar-hermitage|F|
+281|banteay-chhmar-face-towers|F|
+282|khami-stone-terraces|F|
+283|quilmes-hillside-ruins|F|
+284|humberstone-saltpeter-works|F|
+285|haamonga-trilithon|F|
+286|sewell-mining-stairways|F|
+287|san-ignacio-mini-mission|F|
+288|larnach-castle-otago|F|
+289|yapahuwa-rock-citadel|F|
+290|-|F|Victoria Harbour, Hong Kong; no Hong Kong entry uses it
+291|-|F|Phnom Penh skyline; no Phnom Penh entry uses it
+292|-|F|Tianzi Shan, Zhangjiajie; no entry for it uses it
+293|xian-cn|F|Xi'an city wall
+294|-|F|Paraty; no Paraty entry
+295|-|F|Vladivostok GUM; no Vladivostok entry
+296|-|F|Chinese filename: Hangzhou Qianjiang New City, no Hangzhou entry uses it
+297|-|F|Temple of Heaven, Beijing; no Beijing entry uses it
+298|-|F|Arch of Triumph, Pyongyang
+299|pudong-cn|M|filename says Huangpu Park; categories show Lujiazui, Pudong
+300|luoyang-cn|F|Luoyang (Longmen, Fengxian Temple)
+301|-|F|Kaaba, Mecca; entries Jeddah and Kerkici
+302|-|F|Taipei City from Elephant Mountain; New Taipei City is a different city
+303|-|F|Kandahar; entries Kabul, Quetta, Dursley
+304|-|M|Cairo Opera House and Zamalek, Cairo; entry Giza is across the Nile
+305|-|M|Bengali filename; Lalbagh Fort, Dhaka; entry Chattogram
+306|-|F|Odaiba, Tokyo; entries Yokohama, Kawasaki
+307|-|F|Osun Grove, Osogbo; no Osogbo entry
+308|-|F|Goreme; entry Ankara
+309|-|F|Great Wall at Jinshanling; entry Hohhot
+310|-|F|Bandra-Worli Sea Link, Mumbai; no Mumbai entry
+311|-|F|Sultan Ahmed Mosque, Istanbul; entry Bursa
+312|-|F|Manila; entries Quezon City, Caloocan, Taguig
+313|-|M|Hangul filename; Deoksugung, Seoul; entries Incheon, Daejeon
+314|-|M|Cuenca Cathedral, Spain; entry Guayaquil
+315|-|F|Ouro Preto; entries Belo Horizonte etc
+316|salvador-br|F|
+317|-|F|Kano city gate; no Kano entry
+318|-|F|Tejgaon, Dhaka; entry Gazipur
+319|-|F|Bundaran HI, Jakarta; entries Bekasi etc
+320|-|F|Mombasa Island; entry Mogadishu
+321|-|F|George Town, Penang; entries Medan, Accra
+322|-|F|Khajuraho; entries Lucknow, Saharanpur
+323|-|F|Taj-ul-Masjid, Bhopal; entries Nagpur, Indore
+324|-|F|Tatacoa Desert; entries Cali, Changsha, Pulawy
+325|-|F|Lusaka; entries Lubumbashi, Kitwe etc
+326|manaus-br|F|Teatro Amazonas, Manaus
+327|-|M|Accra; entries Lome, Ibb
+328|-|F|Mount Cameroon from Buea; no Buea entry
+329|-|F|Kigali; entries Mbuji-Mayi etc
+330|-|F|Iguazu Falls; entries Curitiba, Londrina
+331|-|F|Ziama Massif forest, Guinea; entries Conakry etc
+332|-|F|Clifton, Karachi; entries Hyderabad etc
+333|-|M|Tuti Island, Khartoum; entries Omdurman, Khartoum North
+334|-|F|Mission Concepcion, San Antonio
+335|-|F|Burj Khalifa, Dubai; entries Sharjah, Yerevan
+336|-|F|a Ford Transit van, no place
+337|-|F|Golden Temple, Amritsar; entry Ludhiana
+338|-|F|Osaka Castle; entry Kobe
+339|-|F|Kolkata Maidan; entries Khulna, Jamshedpur, Malingao
+340|-|F|Komodo Island; entry Makassar
+341|-|F|Tehran; entry Karaj
+342|-|F|Vivekananda Rock, Kanyakumari; entry Tirunelveli
+343|-|F|Jama Masjid, Old Delhi; entry Najafgarh
+344|-|F|Naqsh-e Jahan, Isfahan; entries Basrah, Ulsan
+345|madinah-sa|F|
+346|-|F|Singapore; entry Batam
+347|-|F|The Pearl, Doha; entries Dammam, Istanbul
+348|-|F|Laguna Grande, Puerto Rico; Colombian entries
+349|trujillo-pe|F|Chan Chan, Trujillo
+350|-|F|Recife; entries Maceio etc
+351|-|F|Angel Falls; entries Ciudad Guayana, Maturin
+352|-|F|Puerto Madero, Buenos Aires; entry Rosario
+353|-|F|Porto Jofre, Pantanal; entries Campo Grande, Cuiaba
+354|-|F|Lencois Maranhenses lagoon; entry Teresina
+355|-|F|Maracana, Rio; entries Duque de Caxias etc
+356|-|F|Cape Gracias a Dios from orbit; entry Tegucigalpa
+357|-|F|Casa de la Libertad, Sucre; entry Cochabamba
+358|-|F|Bogota; entry Soacha
+359|-|F|Punta Veleros beach; entry Piura city 124 km away
+360|-|F|Palacio Legislativo, Montevideo; entries Mar del Plata, Baghdad
+361|-|F|La Moneda, Santiago; entries Puente Alto, Maipu
+362|-|F|Pucara de Tilcara; entries Salta, Belgrade
+363|-|F|Rio from Corcovado; entries Niteroi, Campos
+364|-|F|Cayenne cathedral; entry Macapa
+365|-|F|Museo Naval, Cartagena; entry Monteria
+366|-|F|Quilotoa; entry Santo Domingo de los Colorados
+367|-|F|Johannesburg skyline; entries Soweto, Evaton
+368|-|M|museum event in Plateau, Abidjan; entry Abobo
+369|-|F|Ouagadougou; entries Niamey, Bogor
+370|-|F|Maputo; entry Matola
+371|-|F|Place de l'Independance, Dakar; entries Nouakchott, Pikine
+372|-|F|Goree Island; entries Touba, Rakvere
+373|-|M|Zambezi at Mana Pools; entry Lilongwe
+374|-|F|Thabana Ntlenyana; entry Gqeberha
+375|-|F|Rock of Gibraltar; entries Tangier, Sabha
+376|-|F|Gombe, Kinshasa; entry Pointe-Noire

@@ -1,0 +1,3409 @@
+#1 View_of_Mount_Fuji_from_Ōwakudani_20211202.jpg
+   d: Views of Mount Fuji from Ōwakudani
+   c: Mount Fuji in 2021; Views of Mount Fuji from Ōwakudani
+   - mount-fuji | Mount Fuji
+#2 Kilimanjaro_from_Amboseli.jpg [GPS -2.90,37.52]
+   d: View of Kilimanjaro from Amboseli National Park, Kenya.
+   c: Clouds and blue sky in Kenya; Kilimanjaro from Amboseli National Park; Volcanoes in Tanzania in 2012
+   - mount-kilimanjaro | Mount Kilimanjaro | 26km
+#3 Easter_Island_5.jpg
+   d: Ahu in Easter Island. Hanga Roa seen in the background.
+   c: Ahu in Easter Island; Hanga Roa
+   - easter-island | Easter Island
+#4 Mont-Saint-Michel_vu_du_ciel.jpg [GPS 48.63,-1.51]
+   d: Le Mont-Saint-Michel vu du ciel au lever du soleil. Photo prise par un drone.
+   c: Aerial views of Mont Saint-Michel; High tide in France; Tidal roads in France
+   - mont-saint-michel | Mont Saint-Michel | 0km
+#5 Schloss_Neuschwanstein_2013.jpg [GPS 47.56,10.75]
+   d: Neuschwanstein Castle at Schwangau, Bavaria, Germany.
+   c: Blue, cream, gray, green, white; Views of Neuschwanstein Castle from Marienbrücke (south)
+   - neuschwanstein-castle | Neuschwanstein Castle | 0km
+#6 Wildebeest_Migration_in_Serengeti_National_Park,_Tanzania.jpg
+   d: Wildebeest Migration in Serengeti National Park, Tanzania. Each year, enormous herds of wildebeest and zebra move thousands of kilometres across the Serengeti-M
+   c: Aerial photographs of Tanzania; Aerial photographs of animals; Connochaetes taurinus migration; Connochaetes taurinus of Serengeti National Park; Zoologische Ge
+   - serengeti-tanzania | Serengeti
+   - mwanza-tz | Mwanza
+   - monchegorsk | Monchegorsk
+#7 Lobo_marino_(Zalophus_californianus_wollebaeki),_Punta_Pitt,_isla_de_San_Cristóbal,_islas_Galápagos,_Ecuador,_2015-07-24,_DD_11.JPG
+   d: Galápagos sea lion (Zalophus wollebaeki) in Punta Pitt, San Cristóbal Island, Galápagos Islands, Ecuador.
+   c: July 2015 in Ecuador; Playa Punta Pitt; Quality images of beaches in Ecuador; Zalophus wollebaeki on San Cristóbal
+   - galapagos-islands | Galapagos Islands
+#8 Dead_Sea_beach_00.JPG
+   d: Dead Sea beach, jordan
+   c: Dead Sea, seen from Jordan; Dead Sea beaches; Parasols
+   - dead-sea | Dead Sea
+   - taoyuan | Taoyuan
+#9 Hagia_Sophia_(228968325).jpeg [GPS 41.01,28.98]
+   d: Hagia Sophia / Hagia Sophia
+   c: Exterior of Hagia Sophia; SE exterior of the of Hagia Sophia
+   - hagia-sophia | Hagia Sophia | 0km
+#10 51714-Terracota-Army.jpg [GPS 34.39,109.28]
+   d: Terracotta Army in Xi'an, China
+   c: Terracotta Army - Pit 1
+   - terracotta-army | Terracotta Army | 0km
+   - shiyan-cn | Shiyan | 238km
+   - bahawalpur | Bahawalpur | 3573km
+   - najaf | Najaf | 5940km
+#11 Salar_Uyuni_au01.jpg
+   d: This is the Salar of Uyuni, in Bolivia.
+   c: Salar de Uyuni
+   - salar-de-uyuni | Salar de Uyuni
+#12 Lalibela,_san_giorgio,_esterno_24.jpg
+   d: Biete Ghiorgis
+   c: Biete Ghiorgis
+   - lalibela-ethiopia | Lalibela
+#13 Cappadocia_balloon_trip,_Ortahisar_Castle_(11893715185).jpg [GPS 38.62,34.86]
+   d: Cappadocia balloon trip, Ortahisar Castle Cappadocia is a historical region in Central Anatolia, largely in the Nevşehir, Kayseri, Aksaray, and Niğde Provinces 
+   c: Hot air balloons in Ürgüp; TC-BNO (aircraft); TC-BUZ (aircraft)
+   - cappadocia-turkey | Cappadocia | 4km
+#14 View_in_Plitvice_Lakes_National_Park.jpg
+   d: Beautiful view in Plitvice Lakes National Park. Croatia.
+   c: Sastavci (Plitvice)
+   - plitvice-lakes | Plitvice Lakes
+#15 Donkeys,_Timbuktu.jpg
+   d: Timbuktu, preferred method of transport, Mali, W. Africa, The team of donkeys walks past the mud mosque laden with their heavy items of transport. The mud wall'
+   c: August 2007; Donkey trains; Donkey transport in Mali; Mosques in Mali photographed in 2007; Sankore Mosque
+   - timbuktu-mali | Timbuktu
+   - moreno | Moreno
+#16 Socotra_satview.jpg
+   c: Geography of Socotra; Landsat images of Yemen; NASA World Wind; Satellite pictures of islands
+   - socotra-island | Socotra Island
+#17 Pamukkale,_Denizli_2026_68.jpg
+   d: Pamukkale, Denizli 2026
+   c: Documenting Visual Memory of Denizli; Pamukkale
+   - pamukkale-turkey | Pamukkale
+   - izmir-tr | İzmir
+   - ingleburn | Ingleburn
+#18 Danakil_depression.jpg [GPS 13.93,40.19]
+   d: Danakil depression
+   c: Danakil Desert
+   - danakil-depression | Danakil Depression | 37km
+   - sanaa-ye | Sanaa | 460km
+   - dera-ghazi-khan | Dera Ghazi Khan | 3597km
+   - xichang | Xichang | 6566km
+#19 Mountain_in_Wadi_Rum,_Jordan.jpg
+   d: A mountain near the entrance to Wadi Rum in Jordan.
+   c: Mountains of Jordan; Wadi Rum
+   - wadi-rum | Wadi Rum
+#20 Richat_Structure_ISS030-E-12516.jpg [GPS 21.10,-11.40]
+   d: The Richat Structure of Mauritania has captured the attention of astronauts for about as long as NASA has sent humans into orbit around Earth. This circular geo
+   c: ISS Expedition 30 Crew Earth Observations (dump); Photos of Richat Structure from ISS
+   - richat-structure | Richat Structure | 3km
+#21 Edinburgh_of_the_Seven_Seas_01.jpg
+   d: View of Edinburgh of the Seven Seas, Tristan da Cunha
+   c: Edinburgh of the Seven Seas; Tristan da Cunha in the 21st century
+   - tristan-da-cunha | Tristan da Cunha
+   - falavarjan | Falāvarjān
+#22 Distancia_a_la_costa.png
+   d: Map of great-circle distance to the coastline.
+   c: 2008 maps of the world; Maps of the world with Mollweide projection; Pole of inaccessibility
+   - point-nemo | Point Nemo
+#23 Challenger_Deep_Dive_071222_by_V_Vescovo_in_DSV_Limiting_Factor_-_Southern_Wall_of_Western_Pool.jpg [GPS 11.33,142.20]
+   d: This is an image of the southern subduction slope and wall as photographed by a Samsung phone on July 12, 2022 in the Western Pool of Challenger Deep. The estim
+   c: Challenger Deep; Limiting Factor (submersible); Trenches; Victor Vescovo
+   - challenger-deep | Challenger Deep | 2km
+#24 McMurdo_Station_From_The_Top_Of_Observation_Hill.jpg [GPS -77.85,166.69]
+   d: A view of the largest research base in Antarctica, the United States's McMurdo Station, as seen from the very top of Observation Hill. You can just make out Dis
+   c: Islands of Antarctica; McMurdo Station; Ross Island
+   - mcmurdo-station | McMurdo Station | 1km
+   - shantipur | Shāntipur | 12262km
+#25 Vostok_Station_2024.png
+   d: New wintering building at Vostok station as of summer 2023-2024
+   c: Vostok Station
+   - vostok-station | Vostok Station
+#26 Pitcairnsatellite.png
+   d: NASA Satellite Image of Pitcairn Island in the Pacific Ocean
+   c: 2006 in the Pitcairn Islands; NASA Earth Observing-1 images; Pitcairn Island; Satellite pictures of the Pitcairn Islands
+   - pitcairn-island | Pitcairn Island
+#27 Alert_Nunavut_432_pan_crop_15_(33817848520).jpg
+   d: Landsat images
+   c: 2017 satellite pictures; Alert, Nunavut; April 2017 in Nunavut; Landsat images of Canada; Satellite pictures of Nunavut
+   - alert-nunavut | Alert
+#28 Rinconadapuno.JPG
+   d: Pueblo de La Rinconada-Ananea, 5400 msnm.
+   c: Cordillera de Apolobamba; La Rinconada, Puno
+   - la-rinconada-peru | La Rinconada
+#29 Bouvet_Island_west_coast_glacier.jpg [GPS -54.25,3.10]
+   d: Bouvet Island west coast glacier as seen in December 2011 from the RRS Ernest Shackleton
+   c: Bouvet Island; Bouvet Island in the 21st century; Glaciers of Norway; Subglacial volcanoes in 2011; Subglacial volcanoes in Norway
+   - bouvet-island | Bouvet Island | 25km
+#30 The_Forbidden_City_-_View_from_Coal_Hill.jpg
+   d: A (HDR-) photograph shot from the Jingshan Park (aka Coal Hill or Prospect Hill).
+   c: HDR images; Sunrises of Beijing; Views of the Forbidden City from Jingshan Park; Winter at the Forbidden City
+   - forbidden-city-beijing | Forbidden City
+   - bull-run | Bull Run
+#31 Topkapı_-_01.jpg
+   d: Topkapı Palace, Istanbul, Turkey.
+   c: Views of Topkapı Palace from the Galata Tower
+   - topkapi-palace | Topkapi Palace
+#32 광화문_월대.jpg
+   d: Overview of Gyeongbokgung. From the Seoul Tourism Archive
+   c: 2023 in Seoul; Gwanghwamun; Views of Gyeongbokgung
+   - gyeongbokgung-palace | Gyeongbokgung
+   - el-limon | El Limón
+#33 Mt._Everest_from_Gokyo_Ri_November_5,_2012.jpg [GPS 27.96,86.68]
+   d: Digital photograph of Mount Everest taken at an elevation of 5,300 meter from Gokyo Ri, Khumbu, Nepal
+   c: Nuptse; Views of Mount Everest from Gokyo Ri
+   - mount-everest-summit | Mount Everest | 24km
+#34 Pradaksina.jpg
+   d: Pradaksina biasanya dilakukan dengan mengelilingi Candi Borobudur sebanyak 3 kali
+   c: Borobudur in the 2020s; Monks at Borobudur; Panoramas of Borobudur; Pradakshina; Religious ceremonies at Borobudur
+   - borobudur | Borobudur
+   - semarang-id | Semarang
+   - jepara-id | Jepara
+#35 36275-Leshan_(49067653383).jpg [GPS 29.55,103.77]
+   d: 36275-Leshan
+   c: Leshan Giant Buddha
+   - leshan-giant-buddha | Leshan Giant Buddha | 1km
+   - chongqing-cn | Chongqing | 270km
+   - chengdu-cn | Chengdu | 127km
+   - kunming-cn | Kunming | 513km
+   - guiyang-cn | Guiyang | 439km
+   - zunyi-cn | Zunyi | 370km
+   - nanchong-cn | Nanchong | 262km
+   - mianyang-cn | Mianyang | 230km
+   - qujing-cn | Qujing | 453km
+   - liupanshui-cn | Liupanshui | 345km
+   - zigong-cn | Zigong | 101km
+   - neijiang-cn | Neijiang | 125km
+   - vinh | Vinh | 1225km
+   - cheboksary | Cheboksary | 5270km
+#36 Ha_Long_Bay_in_2019.jpg [GPS 20.86,107.08]
+   d: This image was taken by me at Titov Island of Ha Long Bay in July 2019.
+   c: Boats in Ha Long Bay; Panoramics in Ha Long Bay
+   - ha-long-bay | Ha Long Bay | 12km
+   - nanning-cn | Nanning | 252km
+   - haiphong-vn | Haiphong | 41km
+   - liuzhou-cn | Liuzhou | 453km
+   - zhanjiang-cn | Zhanjiang | 346km
+   - lianjiang-cn | Lianjiang | 343km
+   - qinzhou-cn | Qinzhou | 205km
+   - busan | Busan | 2664km
+   - dunhua | Dunhua | 3179km
+#37 20191219_Fort_Amber,_Amer,_Jaipur_0955_9481.jpg [GPS 26.99,75.85]
+   d: Amber Fort seen from the bank of Maotha Lake, Jaigarh Fort on the hills in the background
+   c: East side of the Amber Fort; Maota Lake; Remote views of Jaigarh Fort; Views of Amber Fort
+   - amber-fort-jaipur | Amber Fort | 0km
+#38 Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg [GPS 34.97,135.78]
+   d: Torii path with a hanging lantern at Fushimi Inari Taisha Shrine Senbontorii, Kyoto, Japan.
+   c: Iron lanterns in Japan; Long exposure photographs of Japan; Orange objects in Japan
+   - fushimi-inari-taisha | Fushimi Inari | 0km
+   - liaocheng | Liaocheng | 1790km
+#39 RegistanSquare_Samarkand.jpg [GPS 39.65,66.98]
+   d: The Registan Square in Samarkand, Uzbekistan.
+   c: 2011 in Samarkand; Registan in 2011; Views of the Registan from the Viewing Platform
+   - registan-samarkand | Registan | 0km
+#40 Mogao_Caves_(54376969262).jpg [GPS 40.04,94.80]
+   d: The Mogao Caves, also known as the Thousand Buddha Grottoes, are a magnificent ensemble of Buddhist art and culture located near Dunhuang, in the Gansu province
+   c: Cave 96, Mogao Caves
+   - mogao-caves-dunhuang | Mogao Caves | 17km
+   - urumqi-cn | Ürümqi | 728km
+#41 Potala_Palace_HQ.jpg
+   d: Potala Palace in Lhasa. In the distant background: Nyangrain Subdistrict.[1]
+   c: Remote views of Potala Palace
+   - potala-palace-lhasa | Potala Palace
+   - lagos | Lagos
+#42 Kinabalu_Sabah_Borneo_Kampong_Kundasang_panorama_2.jpg [GPS 6.00,116.55]
+   d: Panoramic view of Mount Kinabalu during sunrise, from Kampong Kundasang, near Kinabalu Park entrance
+   c: Remote views of Mount Kinabalu; Views of Mount Kinabalu from Kundasang
+   - mount-kinabalu | Mount Kinabalu | 21km
+#43 Sigiriya_(141688197).jpeg
+   d: Sigiriya / 500px provided description: Sigiriya [#mountain ,#sri lanka]
+   c: Sigiriya rock
+   - sigiriya | Sigiriya
+#44 Bagan,_Burma.jpg
+   d: Bagan, Burma
+   c: Bagan Panorama; Images by Corto Maltese 1999
+   - bagan-myanmar | Bagan
+#45 Darvasa_gas_crater_panorama.jpg
+   d: The Door to Hell, a burning natural gas field in Derweze, Turkmenistan. This image is made from three 17mm shots stitched together and the field of view (~170°)
+   c: 2011 in Turkmenistan; Derweze gas fire; Men facing right and looking right; Men in 2011; People with fire
+   - darvaza-gas-crater | Darvaza Crater
+   - mashhad-ir | Mashhad
+#46 Flaming_cliffs_5.jpg
+   d: Flaming Cliffs, Mongolia.
+   c: Bayanzag
+   - flaming-cliffs-bayanzag | Flaming Cliffs
+#47 Issykkul_plyag.jpg
+   d: Бұл суретте Қырғыстандағы Иссык-көл көлі
+   c: Issyk-Kul
+   - lake-issyk-kul | Lake Issyk-Kul
+#48 Göbekli_Tepe,_Urfa.jpg [GPS 37.22,38.92]
+   d: Göbekli Tepe, Şanlıurfa
+   c: Göbekli Tepe excavations in 2011
+   - gobekli-tepe | Göbekli Tepe | 0km
+   - gaziantep-tr | Gaziantep | 138km
+   - aleppo-sy | Aleppo | 194km
+   - diyarbakr-tr | Diyarbakır | 138km
+   - sunnyside | Sunnyside | 8981km
+   - lubsko | Lubsko | 2475km
+#49 Mohenjodaro_-_view_of_the_stupa_mound.JPG [GPS 27.33,68.13]
+   d: A view of the Buddhist stupa in the background located in the higher settlement to the west, generally referred to as the citadel mound, and it is mostly compri
+   c: Buddhist Stupa, Mohenjo-daro
+   - mohenjo-daro | Mohenjo-daro | 1km
+#50 2018-09-21_Iran,_Persepolis,_Tachara_(from_the_southeast).jpg [GPS 29.93,52.89]
+   d: This is a photo of a monument in Iran identified by the ID
+   c: 2018 in Persepolis; Palace of Darius I in Persepolis; Southern staircase of Tachara
+   - persepolis | Persepolis | 0km
+#51 Temple_No.-_3,_Nalanda_Archaeological_Site.jpg [GPS 25.14,85.44]
+   d: Mesmerizing view of Temple No.- 3 at Archaeological Site of Nalanda Mahavihara, Nalanda (Bihar).
+   c: Stupa of Sariputta
+   - nalanda-bihar | Nalanda | 0km
+   - ursynow | Ursynów | 6101km
+#52 Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg [GPS 27.09,77.66]
+   d: Buland Darwaza gate to Jami Masjid mosque, Fatehpur Sikiri, India.
+   c: Buland Darwaza
+   - fatehpur-sikri | Fatehpur Sikri | 11km
+#53 Polonnaruwa_01.jpg [GPS 7.94,81.00]
+   d: Royal Palace, Polonnawura, Sri Lanka
+   c: Royal Palace, Polonnaruwa
+   - polonnaruwa-sri-lanka | Polonnaruwa | 23km
+#54 Lugouqiao-2014.jpg
+   d: Marco Polo Bridge, 2014
+   c: Bridges in Beijing; Bridges in China
+   - marco-polo-bridge | Marco Polo Bridge
+   - jinan-cn | Jinan
+   - baoding-cn | Baoding
+   - taian-cn | Tai’an
+   - sulaymaniyah | Sulaymaniyah
+#55 Son_Doong_Cave_5.jpg
+   d: Son Doong-47
+   c: Bo Trach District; Son Doong Cave
+   - son-doong-vietnam | Son Doong
+#56 View_of_Kharkhorin.jpg [GPS 47.19,102.82]
+   d: View of Kharkhorin, Övörkhangai Province, Mongolia
+   c: Kharkhorin
+   - kharkhorin-mongolia | Kharkhorin | 1km
+#57 DHOLAVIRA_SITE_(24).jpg
+   d: Dholavira in Gujarat, India, is one of the largest cities of Indus Valley Civilisation, with stepwell steps to reach the water level in artificially constructed
+   c: Dholavira site
+   - dholavira-india | Dholavira
+   - tijuana | Tijuana
+#58 Yoliinam.jpg
+   d: Remnants of the ice field in en:Yoliin Am, a deep gorge in the en:Gurvansaikhan Mountains region of the en:Gobi Desert in Mongolia.
+   c: Yolyn Am
+   - yolyn-am-mongolia | Yolyn Am
+   - bayan-nur-cn | Bayan Nur
+#59 Ak_Baital_Pass_2.jpg [GPS 38.56,73.60]
+   d: Ak Batail montain pass (view towards Murghab)
+   c: Ak-Baital Pass
+   - ak-baital-pass | Ak-Baital Pass | 32km
+#60 Lomangthang.jpg [GPS 29.18,83.96]
+   d: Barley and buckwheat fields of Lomangthang (Lo Manthang), Upper Mustang, Nepal. Mountain Higher Dzong and village Namgyal in background.
+   c: Landscapes of Nepal; Lo Manthang
+   - lo-manthang-nepal | Lo Manthang | 1km
+#61 The_drainage_system_at_Lothal_2.JPG
+   d: This is a photo of ASI monument number
+   c: Lothal; Water supply infrastructure of Lothal
+   - lothal-india | Lothal
+   - ahmedabad-in | Ahmedabad
+   - surat-in | Surat
+   - vadodara-in | Vadodara
+   - rajkot-in | Rājkot
+   - prenzlauer-berg | Prenzlauer Berg
+#62 Gurudongmar_Lake_Sikkim,_India_(edit).jpg [GPS 28.03,88.71]
+   d: Partially frozen Gurudongmar Lake, a high altitude glacial lake located in the northeast Indian state of Sikkim. Located at an altitude of over 5,150 metres (16
+   c: 2015 in Sikkim; Frozen lakes of Sikkim; Glaciated mountains; Gurudongmar; Gurudongmar Lake
+   - gurudongmar-lake | Gurudongmar Lake | 1060km
+#63 Adams_Bridge_aerial.jpg [GPS 9.10,79.67]
+   d: Aerial view of Ram Setu (Adam's Bridge), taken while flying over Sri Lanka looking west.
+   c: Aerial photographs of the Adam's Bridge
+   - adams-bridge | Adam's Bridge | 51km
+   - bengaluru-in | Bengaluru | 486km
+   - chennai-in | Chennai | 448km
+   - coimbatore-in | Coimbatore | 364km
+   - kallakurichi-in | Kallakurichi | 303km
+   - madurai-in | Madurai | 193km
+   - bandar-lampung | Bandar Lampung | 3265km
+   - san-luis-de-la-paz | San Luis de la Paz | 16635km
+#64 Vue_aérienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_(cropped).jpg [GPS 48.80,2.12]
+   d: Aerial view of the Palace of Versailles, France
+   c: Aerial views of the Palace of Versailles
+   - versailles-palace | Versailles | 0km
+#65 Pantheon_of_Paris_007.JPG [GPS 48.85,2.34]
+   d: Pantheon of Paris located in the 5th arrondissement of Paris, France.
+   c: Facade of the Panthéon de Paris
+   - pantheon-rome | Pantheon | 1104km
+#66 Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg [GPS 41.90,12.46]
+   d: Main facade of Saint Peter's Basilica, Rome
+   c: Blue sky in the Vatican City; Saint Peter's Basilica (from Saint Peter's Square, frontal)
+   - st-peters-basilica | St Peter's Basilica | 0km
+#67 Kölner_Dom_-_Westfassade_2022_ohne_Gerüst-0968_b.jpg [GPS 50.94,6.96]
+   d: Kölner Dom - Westfassade 2022 ohne Gerüst
+   c: 2022 in Cologne; West facade of Cologne cathedral
+   - cologne-cathedral | Cologne Cathedral | 0km
+   - dusseldorf-de | Düsseldorf | 34km
+   - essen-de | Essen | 57km
+   - dortmund-de | Dortmund | 73km
+   - coquitlam | Coquitlam | 7893km
+   - ceska-trebova | Česká Třebová | 681km
+#68 Brandenburger_Tor_abends.jpg [GPS 52.52,13.38]
+   d: The Brandenburg Gate in Berlin, Germany
+   c: Brandenburg Gate during the blue hour; Brandenburg Gate in 2008; Dusk in Berlin; May 2008 in Berlin; Structures in Germany at dusk
+   - brandenburg-gate | Brandenburg Gate | 0km
+#69 Tower_of_London_from_the_Shard_(8515883950).jpg [GPS 51.51,-0.08]
+   d: Tower of London, Another London landmark seen from the city's tallest building.
+   c: Tower of London from Shard London Bridge; Tower of London in 2013
+   - tower-of-london | Tower of London | 0km
+#70 Saint_Basil's_Cathedral_in_Moscow.jpg
+   d: Покровский собор на рву (собор Василия Блаженного): Красная площадь, б/н, Тверской, Центральный округ, Москва
+   c: Exteriors of Saint Basil's Cathedral; October 2015 in Moscow
+   - st-basils-cathedral | St Basil's Cathedral
+   - nizhniy-novgorod-ru | Nizhniy Novgorod
+   - kazan-ru | Kazan
+   - voronezh-ru | Voronezh
+   - saratov-ru | Saratov
+   - ulyanovsk-ru | Ulyanovsk
+   - dundee | Dundee
+#71 1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg [GPS 37.97,23.73]
+   d: Acropolis of Athens in Greece at night
+   c: Acropolis of Athens
+   - acropolis-athens | Acropolis of Athens | 0km
+#72 SF_maig_2_cropped.jpg [GPS 41.40,2.18]
+   d: Sagrada Família, in Barcelona, Catalonia, Spain.
+   c: Construction of the Sagrada Família in 2026; Eastern Views of the Sagrada Família
+   - sagrada-familia | Sagrada Familia | 0km
+#73 Amsterdam_(NL),_Anne-Frank-Huis_--_2015_--_7185.jpg [GPS 52.38,4.88]
+   d: Anne Frank House (black facade at ground level) on the Prinsengracht in Amsterdam, Netherlands
+   c: 4 buildings; Anne Frank House; Bicycles in Amsterdam; Bicycles in the Netherlands photographed in 2015; Blue sky in North Holland
+   - anne-frank-house | Anne Frank House | 0km
+   - shanwei | Shanwei | 9306km
+#74 Hungarian_Parliament_Building_from_across_the_Danube,_2025-01-11.jpg [GPS 47.51,19.04]
+   d: Vue du Parlement hongrois depuis l'autre côté du Danube.
+   c: Hungarian Parliament Building from across the Danube
+   - hungarian-parliament | Hungarian Parliament | 1km
+#75 5174-3._St._Petersburg._Greater_Hermitage.jpg
+   d: Greater Hermitage: Palace Embankment, 34. Tsentralny District, St. Petersburg.
+   c: Great Hermitage
+   - hermitage-museum | Hermitage Museum
+#76 Wawel_(4).jpg [GPS 50.05,19.94]
+   d: Kraków, Zamek Królewski na Wawelu
+   c: Aerial photographs of Wawel; Wawel Castle
+   - wawel-castle | Wawel Castle | 0km
+   - aurangabad | Aurangabad | 5880km
+#77 Gorbunov_Palace_of_Culture.jpg
+   d: Gorbunov Palace of Culture
+   c: GFDL files; Self-published work; Wikipedia images using freedom of panorama; Wikipedia license migration not eligible
+   - palace-of-culture-warsaw | Palace of Culture
+   - odz-pl | Łódź
+   - baoshan | Baoshan
+#78 Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg [GPS 50.09,14.41]
+   d: View from the Lesser Town tower of Charles Bridge in Prague (Czech Republic)
+   c: July 2016 in Prague; Views from Malostranská mostecká věž; Views of Charles Bridge from Malá Strana; Views of Old Town from Charles Bridge
+   - charles-bridge-prague | Charles Bridge | 0km
+#79 Astronomical_Clock_(8341899828).jpg
+   d: Astronomical Clock
+   c: Prague Astronomical Clock; September 2012 Czech Republic photographs; September 2012 in Prague
+   - prague-astronomical-clock | Prague Astronomical Clock
+   - hangzhou | Hangzhou
+#80 Dubrovnik_s_24.jpg
+   d: Dubrovnik - City Walls - N-1 Dubrovnik historically Latin: Ragusa) is a Croatian city on the Adriatic Sea. It is one of the most prominent tourist destinations 
+   c: Cultural heritage monuments in Dubrovnik; Dubrovnik; Dubrovnik in the 21st century
+   - dubrovnik-city-walls | Dubrovnik Walls
+#81 Castelul_Bran2.jpg
+   d: .mw-parser-output .monument-istoric{width:400px;max-width:100%;margin:1px;padding:2px;background-color:#800000;color:#fff;text-align:initial;font-size:0.75em;li
+   c: Bran Castle
+   - bran-castle | Bran Castle
+   - chisinau-md | Chisinau
+#82 Aerial_image_of_Pompeii_and_Mount_Vesuvius_(view_from_the_southeast).jpg [GPS 40.74,14.50]
+   d: Aerial image of Pompeii and Mount Vesuvius (view from the southeast)
+   c: Aerial photographs of Campania; Aerial photographs of Vesuvius; Aerial photographs of World Heritage Sites; Archaeological Park of Pompeii
+   - pompeii | Pompeii | 1km
+#83 Salzburg_-_Festung_Hohensalzburg.JPG [GPS 47.80,13.05]
+   d: South view of Hohensalzburg Fortress.
+   c: Festung Hohensalzburg seen from the South
+   - hohensalzburg-fortress | Hohensalzburg | 0km
+#84 Matera_-_View_from_Sant'Agostino.jpg
+   d: Matera (Basilicata, Italy) - The old town viewed from the parvise of Saint Augustin church
+   c: Matera from Convento di Sant'Agostino
+   - matera-sassi | Matera
+#85 Alberobello_con_il_drone.jpg [GPS 40.78,17.24]
+   d: Alberobello con il drone
+   c: 2023 photographs of Italy; Alberobello; August in Italy by region; Trulli
+   - alberobello-trulli | Alberobello | 0km
+#86 Ness_of_Brodgar_19_-_6.7.16.jpg
+   d: Ness of Brodgar dig 6.7.16, looking almost due south along the west wall of structure #1. Gives a good view of the quality of the stonework, and the flagstone f
+   c: 2016 in archaeology; Archaeological excavations in Scotland; Ness of Brodgar
+   - ness-of-brodgar | Ness of Brodgar
+#87 Causeway-code_poet-4.jpg
+   d: Giant's Causeway, Co. Antrim, Northern Ireland.
+   c: Breaking ocean waves in the United Kingdom; Ground textures; May 2005 in County Antrim; Visitors at Giant's Causeway
+   - giants-causeway | Giant's Causeway
+#88 Islanda_-_blue_lagoon.jpg [GPS 63.88,-22.45]
+   d: islanda - blue lagoon
+   c: Blue Lagoon
+   - blue-lagoon-iceland | Blue Lagoon | 0km
+   - iguatemi | Iguatemi | 9951km
+#89 Strokkur_Geysir_(14135319580)_(cropped).jpg
+   d: Strokkur Geysir
+   c: Overcast in Iceland; Overtourism in Iceland; Strokkur in 2010; Strokkur in eruption
+   - strokkur-geyser | Strokkur
+#90 Jökulsárlón_lagoon_in_southeastern_Iceland.jpg
+   d: Jökulsárlón lagoon in southeastern Iceland,
+   c: Jökulsárlón
+   - jokulsarlon-glacier-lagoon | Jökulsárlón
+#91 Kirkjufell_in_Iceland.jpg
+   d: The Kirkjufell mountain in Iceland on a cloudy day.
+   c: Kirkjufell; Kirkjufellsfoss; Long exposure photographs of Iceland; Long exposure photographs of waterfalls
+   - kirkjufell-iceland | Kirkjufell
+   - johor-bahru | Johor Bahru
+#92 Preikestolen-lysefjord-tunliweb.jpg
+   d: The photograph shows Preikestolen, also known as Pulpit Rock, above the Lysefjord in Rogaland, Norway. The image documents the cliff plateau, visitors on the ro
+   c: Lysefjorden; Preikestolen
+   - preikestolen-pulpit-rock | Pulpit Rock
+#93 Lake_Bled_from_the_Mountain.jpg
+   d: View of the lake from the mountain
+   c: Reflections in lakes; Views of Bled; Views of Bled Castle with Lake Bled in the foreground; Views of Bled Island; Water reflections of trees in Bled
+   - lake-bled | Lake Bled
+#94 Mount_Elbrus_(cropped).jpg
+   d: Glider Grob G 103 flying in front of Mount Elbrus.
+   c: 2015 in aviation in Russia; Elbrus; General aviation aircraft in flight; RA-1486G (Grob G 103)
+   - mount-elbrus | Mount Elbrus
+   - rostov-on-don-ru | Rostov-on-Don
+   - volgograd-ru | Volgograd
+   - krasnodar-ru | Krasnodar
+   - kayseri | Kayseri
+#95 Dettifoss_TimBekaert.JPG
+   d: View of Dettifoss, the largest waterfall in Europe, in its entirety with a person next to it for scale. The waterfall is located in the Jökulsárgljúfur National
+   c: Dettifoss, seen from the east; Dettifoss in 2009
+   - dettifoss | Dettifoss
+#96 LochNessUrquhart.jpg
+   d: Loch Ness with Urquhart Castle in the foreground.
+   c: Mythology of Scotland; Urquhart Castle
+   - loch-ness | Loch Ness
+#97 Þingvellir_from_the_information_centre.JPG [GPS 64.26,-21.13]
+   d: A view of Þingvellir National Park, Iceland from the outlook by the information centre.
+   c: 2012 in Þingvellir; Remote views of Þingvallakirkja; September 2012 in Iceland; Views of Þingvellir; Þingvallabær
+   - thingvellir | Thingvellir | 0km
+#98 Auschwitz_I_(22_May_2010)_b.jpg [GPS 50.03,19.20]
+   d: German concentration camp, Auschwitz I (the main camp), Poland (1940-1945). Visible old Austrian and later Polish Army barracks dated before 1939.
+   c: Arbeit macht frei in Auschwitz I
+   - auschwitz-birkenau | Auschwitz-Birkenau | 2km
+   - wrocaw-pl | Wrocław | 195km
+   - antipolo | Antipolo | 9592km
+#99 Administrative_center,_Radiation_Control_(11383715816).jpg [GPS 51.27,30.22]
+   d: Administrative center, Radiation Control
+   c: 2013 in Chernobyl; Buildings in Chornobyl
+   - chernobyl-reactor-4 | Chernobyl | 0km
+#100 The_Stone_of_Destiny_-_geograph.org.uk_-_94666.jpg [GPS 56.42,-3.44]
+   d: The Stone of Destiny. Replica, original is now in Edinburgh Castle
+   c: Perth and Kinross; Stones in Scotland
+   - stone-of-destiny | Stone of Destiny | 13km
+#101 Zespół_Zamku_Krzyżackiego_MALBORK_01.jpg
+   d: zespół zamku krzyżackiego ul. Starościńska 1, Malbork, Malbork
+   c: Exterior of Malbork Castle; Foreground bodies of water
+   - malbork-castle | Malbork Castle
+#102 Irelands_history.jpg [GPS 53.69,-6.47]
+   d: A front view of the Newgrange monument taken from outside the grounds
+   c: Newgrange
+   - newgrange | Newgrange | 0km
+   - puerto-lumbreras | Puerto Lumbreras | 1829km
+#103 Rock_of_Cashel_(49163525453).jpg [GPS 52.52,-7.89]
+   d: The Rock of Cashel in County Tipperary, Ireland, features the ruins of a Gothic cathedral and a 12th century round tower. King Cormac's Chapel (1127) on the Roc
+   c: Rock of Cashel
+   - rock-of-cashel | Rock of Cashel | 0km
+#104 Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg [GPS 50.97,10.31]
+   d: Close view of Wartburg Castle in Eisenach (Thuringia, Germany)
+   c: 2020 in Eisenach; Bergfried of Wartburg Castle; Clouds and blue sky in Thuringia; Drawbridge of Wartburg Castle; Elisabethengang of Wartburg Castle
+   - wartburg-castle | Wartburg Castle | 28km
+   - frankfurt-am-main-de | Frankfurt am Main | 149km
+#105 Housesteads_Roman_Fort_aerial.jpg
+   d: Aerial photograph of Housesteads Roman Fort by Hadrian's Wall, Northumberland, England. Nikon D60 f=200mm f/5.6 at 1/1600s ISO 800. Processed using Nikon ViewNX
+   c: Aerial photographs of Hadrian's Wall; February 2023 in Northumberland; Housesteads Roman Fort
+   - housesteads-hadrians-wall | Housesteads
+   - barakpur | Bārākpur
+#106 Kizhi_06-2017_img08_Pogost_view.jpg [GPS 62.07,35.22]
+   d: View of the Pogost on Kizhi Island, Republic of Karelia (Russia).
+   c: 2017 in the Republic of Karelia; Bell tower in Kizhi; Church of the Intercession; Clouds and blue sky in the Republic of Karelia; General views of Kizhi Pogost
+   - kizhi-pogost | Kizhi Pogost | 0km
+#107 Charles_Marion_Russell_-_The_Custer_Fight_(1903).jpg
+   d: The Custer Fightlabel QS:Len,"The Custer Fight" / Lithograph showing the Battle of Little Bighorn, from the Indian side.
+   c: Adam Cuerden's restorations; Battle of the Little Bighorn; Cavalry in the history of the United States; Cheyenne; Horse riding in art
+   - little-bighorn-battlefield | Little Bighorn
+#108 Brasilia_National_Congress.JPG
+   d: The National Congress in Brasilia, a creation of the architect Oscar Niemayer, in a empty morning Sunday.
+   c: February 2005 in Brazil; Film locations of That Man from Rio; Towers of Palácio do Congresso Nacional (Brasília); Xenïa Antunes
+   - brasilia-national-congress | National Congress of Brazil
+   - brasilia-br | Brasília
+   - goiania-br | Goiânia
+   - uberlandia-br | Uberlândia
+   - aparecida-de-goiania-br | Aparecida de Goiânia
+   - nay-pyi-taw | Nay Pyi Taw
+   - komaki | Komaki
+#109 Ancient_Greek-Roman_theatre_(Taormina)_15.jpg [GPS 37.85,15.29]
+   d: Ancient Greek-Roman theatre (Taormina)
+   c: Ancient Greek-Roman theatre (Taormina)
+   - greek-theatre-of-taormina-d34-60 | Greek Theatre of Taormina | 0km
+#110 Funchal,_Jardins_da_Quinta_Vigia_(lookout).jpg [GPS 32.64,-16.92]
+   d: Funchal: Gardens of Quinta Vigia (lookout)
+   c: 2026 in Funchal; Avenida Sá Carneiro; Gardens of Quinta Vigia (Quinta das Angústias); January 2026 in Portugal; Nyctaginaceae in Portugal
+   - funchal-old-town-d34-78 | Funchal Old Town | 3km
+#111 Burg_Hohenzollern_10-2016.jpg [GPS 48.31,8.98]
+   d: Hohenzollern Castle in Bisingen, Baden-Württemberg, Germany
+   c: Autumn 2016 in Zollernalbkreis; Hohenzollern Castle in 2016; Hohenzollern Castle in autumn; Indian summer in Baden-Württemberg; Trees in autumn 2016 in Baden-Wü
+   - hohenzollern-castle | Hohenzollern Castle | 2km
+   - stuttgart-de | Stuttgart | 54km
+#112 Matterhorn_from_Domhütte_-_2.jpg
+   d: The Matterhorn seen from the Domhütte (Valais). Elevation points from Swisstopo.
+   c: North-east side of Matterhorn
+   - matterhorn-summit | Matterhorn Summit
+   - candoi | Candói
+#113 Zugspitze_2.JPG [GPS 47.41,10.91]
+   d: View at the mountain Zugspitze from the Austrian village Ehrwald
+   c: Ehrwald; Schneefernerkopf; Tiroler Zugspitzbahn; Zugspitze from West
+   - zugspitze-summit | Zugspitze Summit | 6km
+#114 Hallstatt_-_Zentrum_.JPG [GPS 47.56,13.65]
+   d: Hallstatt - Zentrum / Northeast view of Hallstatt, Upper Austria.
+   c: Christuskirche (Hallstatt); Hallstätter See in Hallstatt; Pfarrkirche Mariä Himmelfahrt (Hallstatt); Vorderer Hirlatz
+   - hallstatt | Hallstatt Village | 0km
+#115 Manarola_NW_Cinque_Terre_Sep23_A7C_07233.jpg [GPS 44.11,9.73]
+   d: Manarola village, harbour and hillside. Cinque Terre, Liguria, Italy
+   c: Clouds and blue sky in Liguria; Manarola seen from north-west; Seascapes of Italy; September 2023 in Liguria
+   - manarola | Manarola | 1km
+   - rio-tinto | Rio Tinto | 1527km
+#116 Panorámica_Otoño_Alcázar_de_Segovia.jpg [GPS 40.95,-4.13]
+   d: Panorámica en Otoño del Alcázar de Segovia.
+   c: 2013 in Segovia; Alcázar of Segovia in 2013; Exterior of the Alcázar of Segovia; November 2013 in Castile and León; Views of the Alcázar of Segovia from the Ere
+   - alcazar-of-segovia | Alcazar of Segovia | 0km
+#117 Plaza_de_España_(Sevilla)_-_01.jpg [GPS 37.38,-5.99]
+   d: Plaza de España (Spain Square), Seville, Andalusia, Spain.
+   c: Golden hour in Spain; Golden hour photographs of buildings; Plaza de España, Seville
+   - plaza-de-espana-seville | Plaza de Espana, Seville | 2km
+#118 Museo_del_Prado_2016_(25185969599).jpg [GPS 40.41,-3.69]
+   d: Pórtico hexástilo (seis columnas) de estilo neoclásico del Museo del Prado en Madrid, conocido como Puerta de Velázquez. Diseñado por el arquitecto Juan de Vill
+   c: Exterior of Villanueva building (Museo del Prado); March 2016 in Madrid; Porticos in Spain
+   - prado-museum | Museo del Prado | 0km
+   - nishinomiya | Nishinomiya | 10667km
+#119 Santiago_cathedral_2021.jpg
+   d: West façade of the Santiago de Compostela cathedral
+   c: Fachada do Obradoiro (Catedral de Santiago de Compostela)
+   - santiago-de-compostela-cathedral | Santiago de Compostela Cathedral
+#120 Roman_Baths_in_Bath_Spa,_England_-_July_2006.jpg [GPS 51.38,-2.36]
+   d: The Roman Baths (Thermae) of Bath, England. This is a 6 segment panorama taken by myself with a Canon 5D and 24-105mm f/4L IS lens.
+   c: Clouds and blue sky in England; July 2006 in Somerset; Roman Baths with Bath Abbey
+   - roman-baths-bath | Roman Baths, Bath | 0km
+#121 20090719_Crkva_Gospa_od_Zdravlja_Kotor_Bay_Montenegro.jpg [GPS 42.42,18.77]
+   d: "Crkva Gospa od Zdravlja" (translated in English "Our Lady of Health") church, Kotor bay, Montenegro.
+   c: Bay of Kotor; Church of Our Lady of Remedy in Kotor; Views of Kotor
+   - kotors-old-town | Kotor Old Town | 0km
+   - zamboanga | Zamboanga | 10565km
+#122 Blick_auf_das_Stadtzentrum_von_Krumau_(2026).jpg
+   d: Blick auf das Stadtzentrum von Krumau (2026)
+   c: 2026 in Český Krumlov; Views of Český Krumlov
+   - cesky-krumlov-castle | Cesky Krumlov Castle
+   - silkeborg | Silkeborg
+#123 Kjerakbolten_Freddy_Fish.jpg [GPS 59.03,6.59]
+   d: The first ascent of Kjeragbolten, the boulder stuck between two rock cliffs, of a fish named Freddy. Freddy was a cod caught at Lysefjord, the fjord beneath Kje
+   c: Climbing in Norway
+   - kjeragbolten | Kjeragbolten | 10km
+#124 Trolltunga_2017.jpg [GPS 60.13,6.75]
+   d: Trolltunga in Odda, Norway.
+   c: Ringedalsvatnet; Trolltunga
+   - trolltunga | Trolltunga | 1km
+   - santiago | Santiago | 12543km
+#125 Goodhope2.jpg
+   d: Kap vun der Gudder Hoffnung
+   c: Cape Point Lighthouse
+   - cape-point | Cape Point
+#126 Moremi_elephant.jpg
+   d: Elephant crossing the road in Moremi Wildlife Reserve, Botswana.
+   c: Elephants walking on roads; Loxodonta africana in Moremi Game Reserve
+   - chiefs-island-moremi | Chief's Island, Moremi
+#127 Overlook_of_Lake_Manyara_National_Park.JPG
+   d: An overlook of the park with the lake in the background. 1 megapixel picture taken at an overlook 3/4 up the way of the rift wall, directly north from the Lake 
+   c: Lake Manyara
+   - lake-manyara | Lake Manyara
+#128 Hell's_Gate,_Kenya.jpg [GPS -0.89,36.34]
+   d: Hell's Gate National Park, Naivasha, Kenya. Do you remember the film The Lion King? The main setting of the 1994 film The Lion King is heavily modelled after th
+   c: Columnar igneous rocks in Kenya; Escarpments in Kenya; Hell's Gate National Park (Kenya); Magmatism of Kenya; Olkaria Volcanic Complex
+   - hell-gate-national-park | Hell's Gate National Park | 33km
+   - kakamega-ke | Kakamega | 220km
+#129 Sossusvlei.jpg [GPS -24.73,15.29]
+   d: The clay pan at Sossusvlei, which is filled about once in a decade by the Tsauchab river. It is situated in the central Namib Naukluft, western Hardap Region, N
+   c: Namib Desert; Sossusvlei
+   - sossusvlei | Sossusvlei | 1km
+   - chilmari | Chilmāri | 9752km
+#130 Fish_River_Canyon_from_Main_View_Point.jpg
+   d: This is a panorama of 5 photographs taken from the Main View Point of the Fish River Canyon in Namibia
+   c: Fish River Canyon, Namibia
+   - fish-river-canyon | Fish River Canyon
+#131 Cape_Coast_Castle,_Cape_Coast,_Ghana.JPG
+   d: Cape Coast Castle, Cape Coast, Ghana
+   c: Cannons at Cape Coast Castle; Cannons in Ghana
+   - cape-coast-castle | Cape Coast Castle
+#132 Piton_de_la_Fournaise,_Réunion_Island_(High_Resolution).jpg [GPS -21.23,55.69]
+   d: The Piton de la Fournaise volcano on Réunion Island.
+   c: Lava fields of Piton de la Fournaise; Views of Piton de la Fournaise from Pas de Bellecombe-Jacob
+   - piton-de-la-fournaise | Piton de la Fournaise | 2km
+   - borough-park | Borough Park | 14837km
+#133 Sensoji_2023.jpg [GPS 35.71,139.80]
+   d: Sensoji Main Hall in November 2023
+   c: 2023 in Asakusa; Main Hall, Sensō-ji
+   - sensoji-temple | Sensō-ji Temple | 0km
+   - saitama-jp | Saitama | 25km
+#134 Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg
+   d: A picture of the golden pavilion at the Kinkaku-ji in 2024, with its structure mirrored on the water
+   c: Golden Pavilion
+   - kinkakuji | Kinkaku-ji (Golden Pavilion)
+   - vientiane | Vientiane
+#135 Himeji_castle_in_may_2015.jpg [GPS 34.84,134.69]
+   d: Himeji castle in may 2015 after the five year renovation of the roof and walls.
+   c: 2015 at Himeji Castle; May 2015 in Hyogo prefecture; Views of Himeji Castle Keep Tower from the Castle Entrance
+   - himeji-castle | Himeji Castle | 0km
+#136 Itsukushima_Shrine_Torii_Gate_(13890465459).jpg
+   d: Itsukushima Shrine Torii Gate
+   c: Views of the Itsukushima-jinja torii from Mikasanohara
+   - itsukushima-shrine | Itsukushima Shrine
+   - fukuoka-jp | Fukuoka
+#137 Naha_Okinawa_Japan_Shuri-Castle-01.jpg [GPS 26.22,127.72]
+   d: Naha, Okinawa, Japan: Palace building of Shuri Castle.
+   c: Main Hall (1992) of Shuri Castle
+   - shuri-castle | Shuri Castle | 4km
+   - meerut | Meerut | 4902km
+#138 Lotus_Flower_Bridge_and_Seven_Treasure_Bridge_at_Bulguksa_in_Gyeongju,_Korea.jpg
+   d: The Lotus Flower Bridge and Seven Treasure Bridge at Bulguksa in Gyeongju, Korea
+   c: 2009 in Gyeongju; Architecture as National Treasures of South Korea; Entrance stairs; Lotus Flower Bridge and Seven Treasure Bridge; November 2009 in South Kore
+   - bulguksa | Bulguksa Temple
+   - daegu-kr | Daegu
+#139 Great_Wall_of_China_July_2006.JPG [GPS 40.43,116.57]
+   d: The Great Wall of China at Mutianyu, near Beijing, in July 2006.
+   c: Great Wall of China at Mutianyu
+   - mutianyu | Great Wall at Mutianyu | 0km
+#140 Pingyao_Shilou_2013.08.25_07-01-33.jpg [GPS 37.21,112.18]
+   d: 平遥市楼 —— 北面
+   c: Pingyao Shilou
+   - pingyao-ancient-city | Pingyao Ancient City | 0km
+   - shijiazhuang-cn | Shijiazhuang | 223km
+   - luliang-cn | Lüliang | 98km
+   - baotou-cn | Baotou | 433km
+   - ordos-cn | Ordos | 339km
+   - handan-cn | Handan | 216km
+#141 Kuala_Lumpur_Malaysia_Petronas-Twin-Towers-01.jpg [GPS 3.18,101.72]
+   d: Kuala Lumpur, Malaysia:Petronas Towers, seen from Jalan Semarak.
+   c: June 2014 in Kuala Lumpur; Petronas Towers; Skylines of Kuala Lumpur
+   - petronas-towers | Petronas Twin Towers | 2km
+#142 Bromo-Semeru-Batok-Widodaren.jpg [GPS -7.93,112.91]
+   d: Mts. Bromo-Semeru-Batok-Widodaren, Tengger Caldera, East Java
+   c: Bromo 2006 eruptions; Bromo Tengger Semeru National Park; Mount Batok; Mount Semeru in 2006; Mount Widodaren
+   - mount-bromo | Mount Bromo | 5km
+   - surabaya-id | Surabaya | 78km
+#143 Chocolate_Hills_Bohol.JPG
+   d: Aerial view of the Chocolate Hills, Bohol, Philippines
+   c: Aerial photographs of the Philippines; April 2009 Philippines photographs; Chocolate Hills
+   - chocolate-hills | Chocolate Hills
+   - davao-ph | Davao
+   - budta-ph | Budta
+#144 Mount_Mayon_Cagsawa_field_view_close-up_(Busay,_Daraga,_Albay;_04-21-2023).jpg
+   d: Mount Mayon view from Cagsawa, Busay, Daraga, Albay
+   c: Mayon
+   - mayon-volcano | Mayon Volcano
+   - qaderabad | Qāderābād
+#145 Phongnhakebang6.jpg
+   d: Phong Nha-Ke Bang National Park, Vietnam
+   c: Mountains of Vietnam; Phong Nha-Ke Bang National Park; Rivers of Vietnam
+   - phong-nha-ke-bang | Phong Nha-Ke Bang
+#146 Old_Town_Hoi_An_003.JPG
+   d: The old town of Hoi An, Hoi An.
+   c: Files moved from wts.wikivoyage to Commons requiring review; Hoi An Old Town; Streets in Hoi An
+   - hoi-an | Hoi An
+   - hue-vn | Huế
+   - da-nang-vn | Da Nang
+#147 Paro_Taktsang,_Bhutan_(edited).jpg [GPS 27.49,89.36]
+   d: Paro Taktsang monastery in the upper Paro valley of Bhutan. Also known as the Taktsang Palphug Monastery and the Tiger's Nest, it is located in the cliffside of
+   c: Paro Taktsang
+   - tigers-nest | Paro Taktsang (Tiger's Nest) | 8km
+   - peine | Peine | 6907km
+#148 Konarka_Temple.jpg
+   d: Konarka Temple
+   c: Mandapa of Konark Sun Temple
+   - konark-sun-temple | Konark Sun Temple
+   - rasapudipalem-in | Rasapūdipalem
+#149 Sheikh_Zayed_Mosque_view.jpg
+   d: Sheikh Zayed Mosque seen from the courtyard with its floral design.
+   c: Creative Commons Attribution-ShareAlike 4.0 files; GFDL files; Self-published work; Wikipedia images using freedom of panorama; Wikipedia license migration not 
+   - sheikh-zayed-mosque | Sheikh Zayed Mosque
+   - abu-dhabi-ae | Abu Dhabi
+#150 Badshahi_Mosque_front_picture.jpg
+   d: This is a photo of a monument in Pakistan identified as the
+   c: Badshahi Mosque in 2018
+   - badshahi-mosque | Badshahi Mosque
+   - peshawar-pk | Peshawar
+   - faisalabad-pk | Faisalabad
+   - rawalpindi-pk | Rawalpindi
+   - gujranwala-pk | Gujranwala
+   - bannu-pk | Bannu
+   - sultanah | Sulţānah
+   - masina | Masina
+   - imus | Imus
+   - duping | Duping
+#151 Monument_Valley,_Utah,_USA_(23611451292).jpg [GPS 36.99,-110.11]
+   d: Monument Valley, Utah, USA
+   c: September 2015 in Utah; West Mitten Butte, East Mitten Butte, and Merrick Butte
+   - monument-valley | Monument Valley | 6km
+#152 Inspiration_Point_Bryce_Canyon_November_2018_panorama.jpg [GPS 37.61,-112.17]
+   d: Four-segment panorama of Inspiration Point, Bryce Canyon National Park.
+   c: November 2018 in Utah; Panoramics in Bryce Canyon National Park; Views from Inspiration Point Overlook
+   - bryce-canyon | Bryce Canyon | 2km
+#153 Tunnel_View,_Yosemite_Valley,_Yosemite_NP_-_Diliff.jpg [GPS 37.72,-119.68]
+   d: View of the valley of Yosemite (from Tunnel View) in the Yosemite National Park, California, USA
+   c: Clouds and blue sky in California; Mountains in California in May 2013; Tunnel View
+   - yosemite-valley | Yosemite Valley | 8km
+   - jacksonville | Jacksonville | 3573km
+#154 Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach,_New_York.jpg [GPS 40.70,-73.99]
+   d: The Brooklyn Bridge and the Lower Manhattan skyline seen from Pebble Beach; the glass pavilion of Jane's Carousel sits below the bridge, with One World Trade Ce
+   c: Jane's Carousel; May 2026 in Lower Manhattan; Panoramas of the Brooklyn Bridge
+   - brooklyn-bridge | Brooklyn Bridge | 1km
+   - brooklyn-us | Brooklyn | 7km
+   - pekanbaru | Pekanbaru | 15408km
+#155 Kennedy_Space_Center's_launch_pads_39A_and_39B.jpg
+   d: iss067e341309 (Sept. 6, 2022) --- Kennedy Space Center's launch pads, 39A and 39B, are pictured on Merritt Island in Florida from the International Space Statio
+   c: ISS Expedition 67 Crew Earth Observations
+   - kennedy-space-center | Kennedy Space Center
+#156 Badwater_Basin_from_Dante's_View_Overlook.JPG
+   d: Badwater Basin taken from Dante's View Overlook, Death Valley NP, CA
+   c: Badwater Basin; Dante's View
+   - badwater-basin | Badwater Basin
+   - yangon | Yangon
+#157 Aerial_view_of_wetlands_in_Okefenokee.jpg
+   d: Image title: Aerial view of wetlands in Okefenokee Image from Public domain images website, http://www.public-domain-image.com/full-image/nature-landscapes-publ
+   c: Aerial photographs of Georgia (U.S. state); Okefenokee Swamp
+   - okefenokee-swamp | Okefenokee Swamp
+#158 Château_Frontenac_02.jpg [GPS 46.81,-71.19]
+   d: The Château Frontenac seen from the Terrasse of Lévis, Canada
+   c: Exterior of the Château Frontenac in 2013; February 2013 in Quebec City
+   - chateau-frontenac | Château Frontenac | 2km
+#159 ZA77_Teotihuacán_edo_de_mex_Herberto_de_la_rosa.jpg
+   d: This is a photo of a monument in Mexico, identified by ID
+   c: Teotihuacán
+   - teotihuacan | Teotihuacan
+   - ojo-de-agua-mx | Ojo de Agua
+#160 Barranca_del_cobre_2.jpg
+   d: View of Copper Canyon (Barranca del Cobre) in Chihuahua, Mexico. Picture taken February 2006 by Jens Uhlenbrock.
+   c: Copper Canyon
+   - copper-canyon | Barrancas del Cobre
+   - chihuahua-mx | Chihuahua
+   - hermosillo-mx | Hermosillo
+   - culiacan-mx | Culiacán
+#161 Tikal_3.jpg
+   d: Plaza Mayor, Parque Nacional Tikal, Petén, Guatemala
+   c: Tikal
+   - tikal | Tikal
+   - guatemala-city-gt | Guatemala City
+   - san-pedro-sula-hn | San Pedro Sula
+   - villa-nueva-gt | Villa Nueva
+   - san-salvador-sv | San Salvador
+   - mixco-gt | Mixco
+   - tuxtla-mx | Tuxtla
+   - sendai | Sendai
+   - okene | Okene
+   - jyvaskyla | Jyväskylä
+#162 Pitons-aerial.jpg
+   d: An aerial shot taken of the pitons while descending to Hewanorra International Airport
+   c: Pitons (Saint Lucia)
+   - pitons-of-saint-lucia | The Pitons, Saint Lucia
+#163 2010._Jijoca_de_Jericoacoara_(CE)_(3).JPG
+   d: Lagoa entre as dunas de Jericoacoara.
+   c: Parque Nacional de Jericoacoara
+   - jericoacoara | Jericoacoara Dunes
+   - fortaleza-br | Fortaleza
+#164 Lençóis_Maranhenses_2018.jpg
+   d: Fresh water collecting in the valleys between sand dunes in the Lençóis Maranhenses National Park in Brazil. A layer of rock beneath the sand prevents the rain 
+   c: Aerial photographs of Lençóis Maranhenses; Clouds and blue sky in Brazil; Quality images of beaches in Brazil; Seascapes of Brazil
+   - lencois-maranhenses | Lençóis Maranhenses
+   - belem-br | Belém
+   - sao-luis-br | São Luís
+   - ananindeua-br | Ananindeua
+   - ryogoku | Ryōgoku
+#165 CIUDAD_PERDIDA_2.jpg
+   d: imagen de las terrazas de ciudad perdida
+   c: Ciudad Perdida
+   - ciudad-perdida | Ciudad Perdida
+   - caracas-ve | Caracas
+   - maracaibo-ve | Maracaibo
+   - barquisimeto-ve | Barquisimeto
+   - maracay-ve | Maracay
+#166 Easter_island_and_south_america.jpg
+   d: Easter Island and the islands between it and South America.
+   c: CIA World Factbook maps of Chile; Locator maps of Easter Island
+   - anakena-beach | Anakena, Rapa Nui
+#167 Nourlangie_Rock_03.jpg [GPS -12.87,132.82]
+   d: This image was uploaded as part of Wiki Loves Earth 2017.
+   c: Kakadu National Park; Nourlangie
+   - kakadu | Kakadu | 37km
+   - harrow | Harrow | 14018km
+#168 Three_Sisters_from_echo_point.jpg
+   d: The Three Sisters viewed from Echo Point.
+   c: Three Sisters, Blue Mountains
+   - three-sisters-blue-mountains | Three Sisters, Blue Mountains
+#169 Kosciuszko_main_range_from_Scammel_Spur_Lookout_(cropped).jpg
+   d: The Kosciuszko main range with snow cover, viewed from the north west, from Scammel Spur Lookout
+   c: Australian Alps; Mount Kosciuszko
+   - mount-kosciuszko | Mount Kosciuszko
+#170 LakeTekapoNov242024_05.jpg [GPS -43.97,170.49]
+   d: Lake Tekapo
+   c: Lake Tekapo
+   - lake-tekapo | Lake Tekapo | 4km
+   - kampung-baru-subang | Kampung Baru Subang | 8595km
+#171 Glowworm_Grotto,_Waitomo_Glowworm_Cave.jpg
+   d: Tourists on a boat gliding through the Glowworm Grotto. The boatman pulls the boat along by an overhead wire. Photograph taken 1960s or 1970s.
+   - waitomo-caves | Waitomo Caves
+#172 St_Mary's_Hospital.jpg
+   d: The Clarence Memorial Wing at St Mary's Hospital
+   c: Buildings in the City of Westminster photographed in 2008; Clarence Memorial Wing
+   - penicillin-st-marys-london | St Mary's Hospital, London
+#173 Cavendish-plaque_retouch_b.jpg
+   d: Old Cavendish Laboratory site: plaque.
+   c: Cavendish Laboratory, University of Cambridge; Plaques in Cambridge
+   - dna-cavendish-cambridge | Old Cavendish Laboratory
+#174 Henry_Moore_Nuclear_Energy_!.JPG [GPS 41.79,-87.60]
+   d: «Nuclear Energy», a sculpture by Henry Moore commemorates the first controlled nuclear chain reaction.
+   c: 2012 in Chicago; July 2012 United States photographs; Nuclear Energy - Henry Moore (LH 526, University of Chicago)
+   - chicago-pile-one-stagg-field | Henry Moore's Nuclear Energy | 0km
+#175 Lucent_HQ.gif
+   d: Lucent Headquarters in Murray Hill, New Jersey
+   c: Bell Labs Murray Hill; Buildings in Union County, New Jersey; Economy of New Jersey; Lucent Technologies; Science in the United States
+   - transistor-bell-labs-murray-hill | Bell Labs, Murray Hill
+#176 CERN_ATLAS_Detector.jpg [GPS 46.24,6.05]
+   d: ATLAS (A Toroidal LHC ApparatuS) particle detector experiments at the LHC particle accelerator at CERN in Switzerland.
+   c: 360° panoramas; ATLAS cavern; CERN Open days 2019
+   - higgs-boson-cern-atlas | CERN ATLAS Experiment | 0km
+#177 LLO_Control_Room.jpg
+   d: The LIGO Livingston control room as it was during Advanced LIGO's first observing run (O1). This panoramic was sewn together from several images.
+   c: Control rooms; LIGO
+   - gravitational-waves-ligo-hanford | LIGO Hanford Observatory
+#178 Sir_Ernest_Rutherford_LCCN2014716719_-_restoration1.jpg
+   d: Title: Sir Ernest Rutherford Abstract/medium: 1 negative : glass ; 5 x 7 in. or smaller.
+   c: Ernest Rutherford
+   - first-atom-split-manchester | Rutherford Building, Manchester
+   - sheffield-gb | Sheffield
+   - udi | Udi
+#179 One-Mile_Telescope.jpg
+   d: One-Mile Telescope at the Mullard Radio Astronomy Observatory (MRAO) operated by Cambridge University.
+   c: One-Mile Telescope
+   - pulsar-discovery-mullard | Mullard Radio Astronomy Observatory
+#180 Roslin_Institute.JPG [GPS 55.87,-3.20]
+   d: Roslin Institute, University of Edinburgh, UK
+   c: Roslin Institute
+   - dolly-cloning-roslin | Roslin Institute | 0km
+#181 Groote_Schuur_Hospital,_Observatory,_Cape_Town,_Western_Cape._05.JPG
+   d: Groote Schuur Hospital, Observatory, Cape Town, Western Cape.
+   c: Groote Schuur Hospital
+   - first-heart-transplant-groote-schuur | Groote Schuur Hospital
+   - huddersfield | Huddersfield
+#182 On_this_hill.jpg
+   d: Monument to the Wright Brother's first flight.
+   c: Wright Brothers Monument
+   - first-powered-flight-kill-devil-hills | Wright Brothers National Memorial
+#183 Alexander_Graham_Bell.jpg
+   d: Portrait of Alexander Graham Bell
+   c: Alexander Graham Bell; Black and white photographs of men wearing neckties; Black and white portrait photographs of men with beards; Men looking at viewer; Phot
+   - first-telephone-call-boston | 109 Court Street, Boston
+#184 Thomas_Edison_Tower.jpg [GPS 40.56,-74.34]
+   d: Overhead view of the Thomas Alva Edison Memorial Tower and surrounding park, taken from above, looking Southwest
+   c: Thomas Alva Edison Memorial Tower and Museum
+   - edison-light-menlo-park | Menlo Park Laboratory Site | 0km
+   - niigata | Niigata | 10651km
+#185 Cinématographe_Lumière.jpg
+   d: the poster realised as a sand sculpture The poster advertising the Lumière brothers cinematographe, showing a famous comedy (L'Arroseur Arrosé, 1895).
+   c: Marcellin Auzolle
+   - first-film-screening-grand-cafe | Salon Indien du Grand Café
+#186 Boelter_Hall,_UCLA.jpg
+   d: Boelter Hall, UCLA
+   c: University of California, Los Angeles buildings
+   - arpanet-first-message-ucla | Boelter Hall, UCLA
+#187 Partner-marsh.png
+   d: Marsh
+   c: Marsh Supermarkets
+   - first-barcode-scan-troy-ohio | Former Marsh Supermarket, Troy
+   - mandalay | Mandalay
+#188 Barclays_Bank,_Enfield_(South_Face_-_01).jpg
+   d: South face of the Grade II listed Barclays Bank in Enfield.
+   c: Barclays Bank, Enfield Town
+   - first-atm-enfield | Barclays Enfield
+#189 Saint_Loup_de_Varennes.JPG
+   d: Saint-Loup-de-Varennes, monument à la mémoire de Nicéphore Niépce.
+   c: Clouds and blue sky in France; Cumulus humilis clouds; Le Cercle rouge; Monument Nicéphore Niépce de Saint-Loup-de-Varennes
+   - first-photograph-le-gras | Le Gras, Saint-Loup-de-Varennes
+#190 White_Horse_Tavern_NYWTS.jpg
+   d: White Horse Tavern, New York City. Exterior view, with African American man walking by. Note two-light traffic signal. / World Telegram &amp; Sun photo by Phyll
+   c: 1961 in New York City; Black and white photographs of Manhattan, New York City in the 1960s; New York World-Telegram and Sun, 1961; Photographs by Phyllis Twach
+   - first-traffic-signal-london | Parliament Square Traffic Signal Site
+#191 Bethelwoods.jpg
+   d: View of The Bethel Woods Pavilion from the lawn prior to a concert in 2009
+   c: Unidentified people
+   - woodstock-max-yasgur-farm | Bethel Woods
+#192 The_Beatles_plaque_on_3_Savile_Row.jpg [GPS 51.51,-0.14]
+   d: 3 Savile Row
+   c: 3 Savile Row; The Beatles played their last live performance (blue plaque), Savile Row
+   - beatles-rooftop-concert | 3 Savile Row | 0km
+#193 30_Rockefeller_Plaza_view_from_Empire_State_Building,_around_1_pm.jpg [GPS 40.75,-73.99]
+   d: Upscaled with Gigapixel v8.4.4. 14208x4736 =&gt; 28416x9472 (2x) Model: Text Refine, denoise: 0.7476251809532884, sharpen: 0.5562123185374052, decompression: 0.
+   c: Exterior of 30 Rockefeller Plaza; October 2025 in Manhattan, New York City; Rockefeller Center in 2025; Views from the Empire State Building in 2025
+   - lunch-atop-skyscraper-rockefeller | 30 Rockefeller Plaza | 1km
+#194 Chang'an_avenue_in_Beijing.jpg
+   d: Chang'an avenue in Beijing at 18:42 on a Thursday in May 2010
+   c: Bilingual Chinese-English road signs; Blue road signs; Chang'an Avenue; Pollution in China; Road signs in Beijing
+   - tank-man-changan-avenue | Chang'an Avenue Tank Man Site
+   - silute | Silute
+#195 Iwo_Jima_Suribachi_DN-SD-03-11845.JPEG
+   d: ID: DNSD0311845; Service Depicted: Other Service 010928N0271M009; Aerial view of Mount Surabuchi on the Island of Iwo Jima, Japan. Camera Operator: PHAN LEE MCC
+   c: Aerial photographs of Mount Suribachi
+   - iwo-jima-flag-raising | Mount Suribachi Summit
+#196 Lange-MigrantMother02.jpg
+   d: Migrant mother, Nipomo, California label QS:Len,"Migrant Mother"label QS:Lar,"الأُمُّ المُهاجرة" / Portrait shows Florence Thompson with several of her children
+   c: Migrant Mother by Dorothea Lange; The Family of Man (Steichen exhibition)
+   - migrant-mother-nipomo | Nipomo Migrant Camp Site
+#197 Matmata,_Tunisia.JPG
+   d: An image on a mountaintop that greets all visitors as they enter the Tunisian town of Matmata.
+   c: Matmata; Place name signs; Signs in Tunisia
+   - star-wars-lars-homestead-interior | Hotel Sidi Driss
+   - redford | Redford
+#198 Marthasvineyard-Chilmark-Menemsha.jpg [GPS 41.35,-70.77]
+   c: Menemsha, Massachusetts
+   - jaws-menemsha-harbor | Menemsha Harbor | 0km
+#199 Waterhouse_Lake_Front.jpg [GPS -37.86,175.68]
+   d: This is a small Waterhouse opposite to the Green Dragon Inn.
+   c: Hobbiton Movie Set; Lake shores; Lakes of New Zealand; Matamata-Piako District; Thatched roofs
+   - lord-of-rings-hobbiton-film-set | Hobbiton Movie Set | 0km
+#200 Monterey_International_Pop_Festival_publicity_1967.jpg
+   d: Advertising for the Monterey International Pop Festival featured on Cashbox magazine in 1967.
+   c: 1967 in California; Monterey Pop Festival
+   - monterey-pop-festival | Monterey County Fairgrounds
+   - angeles-city | Angeles City
+#201 BakeBeachAtMidday.jpg [GPS 37.79,-122.49]
+   d: Baker Beach with the Golden Gate Bridge in the background
+   c: Baker Beach
+   - burning-man-first-baker-beach | Baker Beach | 1km
+#202 Valdivia_after_earthquake,_1960.jpg
+   d: Earthquake damage to good quality, wood-frame houses in Valdivia, Chile, 1960.
+   c: Black and white photographs of cities; Buildings in Valdivia; Earthquake damage; Great Chilean Earthquake; Wooden buildings in Chile
+   - valdivia-earthquake-epicenter | 1960 Valdivia Earthquake Epicenter
+#203 Anak_krakatau_sebelum_tsunami.jpg
+   d: Pemandangan aktivitas erupsi gunung anak krakatau satu bulan sebelum runtuh dan menyebabkan tsunami di Lampung.
+   c: Anak Krakatoa
+   - krakatoa-1883-eruption | Krakatau Caldera
+   - palembang-id | Palembang
+   - kennedy | Kennedy
+#204 Mount_Tambora_Volcano,_Sumbawa_Island,_Indonesia.jpg [GPS -8.24,118.00]
+   d: This detailed astronaut photograph depicts the summit caldera of the volcano. The huge caldera—6 kilometers in diameter and 1,100 meters deep—formed when Tambor
+   c: Calderas in Indonesia; Holocene caldera-forming eruptions in Indonesia; ISS Expedition 20 Crew Earth Observations; Lava domes in Indonesia; Lava flows in Indone
+   - tambora-1815-eruption | Mount Tambora | 1km
+#205 MSH04_crater_eruption_image_1213PDT_10-01-04.jpg
+   c: 2004 eruptions in the United States; Eruption columns of Mount St. Helens; Glaciers of Mount St. Helens; Lava dome eruptions; Lava domes of Mount St. Helens
+   - mount-st-helens-1980 | Mount St. Helens Crater
+#206 Tunguska_Ereignis-1.jpg
+   d: Tunguska event. Trees were knocked down and burned over hundreds of square km by the Tunguska meteoroid impact. This image is cropped from the original, taken i
+   c: Damaged trees; May 1929 in Russia; Taiga in Krasnoyarsk Krai; Tunguska event
+   - tunguska-event-epicenter | Tunguska Event Epicenter
+   - novosibirsk-ru | Novosibirsk
+   - krasnoyarsk-ru | Krasnoyarsk
+   - tomsk-ru | Tomsk
+   - kemerovo-ru | Kemerovo
+   - zhongshan | Zhongshan
+   - tbilisi | Tbilisi
+#207 Meteorite_explosion_over_Chelyabinsk_on_February_15,_2013.gif
+   d: Meteor over Chelyabinsk. This very bright fireball is also known as a superbolide.
+   c: 2013-02-15; Animations of astronomical objects; History of Kamensk-Uralsky; Transport in Chelyabinsk Oblast; Videos from automobile cameras
+   - chelyabinsk-meteor-airburst | Chelyabinsk Meteor Airburst
+   - astana-kz | Astana
+   - yekaterinburg-ru | Yekaterinburg
+   - chelyabinsk-ru | Chelyabinsk
+   - omsk-ru | Omsk
+   - samara-ru | Samara
+   - ufa-ru | Ufa
+   - tyumen-ru | Tyumen
+   - tolyatti-ru | Tolyatti
+   - izhevsk-ru | Izhevsk
+   - orenburg-ru | Orenburg
+   - karagandy | Karagandy
+   - yazd | Yazd
+   - rimini | Rimini
+   - whitchurch-stouffville | Whitchurch-Stouffville
+#208 Lituya_Bay_overview.jpg
+   d: Lituya Bay a few weeks after the 1958 tsunami. The areas of destroyed forest are clearly recognizable as the light areas rimming the bay.
+   c: Lituya Bay megatsunami
+   - lituya-bay-megatsunami | Lituya Bay
+#209 Hunga_Tonga–Hunga_Haʻapai_on_Sentinel-2_L2A_21_February_2022_(cropped).jpg
+   d: The island of Hunga Tonga–Hunga Haʻapai destroyed by the volcanic eruption in January 2022 leaving two small remnant islands
+   c: Hunga Tonga–Hunga Ha'apai in 2022
+   - hunga-tonga-2022-eruption | Hunga Tonga–Hunga Ha'apai
+#210 Armero_-_Cambao.jpg
+   d: Armero - Cambao
+   c: Tolima Department
+   - armero-nevado-del-ruiz | Armero Ruins
+   - ibague-co | Ibagué
+   - pereira-co | Pereira
+#211 Meteor_Crater_-_Arizona.jpg
+   d: This image has a resolution of 2 meters per pixel, and illumination is from the right. Layers of exposed limestone and sandstone are visible just beneath the cr
+   c: Aerial photographs of Barringer Crater
+   - barringer-meteor-impact | Meteor Crater
+#212 Памятник_дятловцам_на_Михайловском_кладбище.jpg
+   d: The Mikhajlov Cemetry in Yekaterinburg. The tomb of the group who had died in mysterious circumstances in the northern Ural Mountains.
+   c: Dyatlov's team grave
+   - dyatlov-pass-tent-site | Dyatlov Pass Tent Site
+   - perm-ru | Perm
+#213 Fort-Raleigh-fort.jpg [GPS 35.94,-75.71]
+   d: Fort Raleigh National Historic Site, Manteo vicinity, Dare County, NC. Perspective view of earthen ramparts during reconstruction. 35°56′18″N 75°42′32″W / 35.93
+   c: Buildings in North Carolina; Fort Raleigh
+   - roanoke-lost-colony | Fort Raleigh | 0km
+   - pikit | Pikit | 14781km
+#214 St._Flannan's_Cell_and_Flannan_Isles_Lighthouse_-_geograph.org.uk_-_623920.jpg [GPS 58.29,-7.59]
+   d: St. Flannan's Cell and Flannan Isles Lighthouse. Here is the source of one of the world's great mysteries for at the turn of the century three lightkeepers disa
+   c: Flannan Isles Lighthouse
+   - flannan-isles-lighthouse-mystery | Flannan Isles Lighthouse | 0km
+#215 Hinterkaifeck-Hof_(cropped).jpg
+   d: View of Hinterkaifeck from the south
+   c: Buildings in Waidhofen (Upper Bavaria); Hinterkaifeck
+   - hinterkaifeck-murders | Hinterkaifeck Farm Site
+#216 Isdalen.JPG [GPS 60.39,5.38]
+   d: Isdalen in Bergen, Norway
+   c: April 2009 in Bergen, Norway; Isdalen, Bergen
+   - isdal-woman-discovery | Isdalen Death Valley | 4km
+   - arabi | Ārabī | 6385km
+#217 Zodiac-Killer.jpg
+   d: Sketch of the Zodiac Killer.
+   c: 1969 documents of the United States; 1969 drawings; Forensic sketches; Men wearing glasses in the United States; Men with short hair
+   - zodiac-lake-berryessa-attack | Lake Berryessa Zodiac Site
+#218 HerbBrooksArena.jpg
+   d: The Herb Brooks Arena in Lake Placid, New York, USA
+   c: 2010 in Essex County, New York; Building interiors in New York (state); Herb Brooks Arena; January 2010 in New York (state)
+   - miracle-on-ice-arena | Herb Brooks Arena
+#219 Vista_aérea_del_Estadio_Azteca_-_2026_-_02.jpg [GPS 19.30,-99.15]
+   d: Drone aerial view of the Azteca Stadium in Mexico City after its 2026 renovation as Banorte Stadium.
+   c: 2026 photographs by User:ProtoplasmaKid; Aerial drone photos by User:ProtoplasmaKid; Aerial photographs of association football venues in Mexico; Aerial photogr
+   - hand-of-god-azteca | Estadio Azteca | 0km
+   - iztapalapa-mx | Iztapalapa | 11km
+   - acapulco-de-juarez-mx | Acapulco de Juárez | 285km
+   - xochimilco-mx | Xochimilco | 7km
+   - zarqa | Zarqa | 12576km
+#220 Stade_Tata_Raphaël_lors_d'un_de_l'AS_V.CLUB.jpg
+   d: Stade Tata Raphaël
+   c: Stade Tata Raphaël
+   - rumble-in-the-jungle | Stade Tata Raphaël
+   - brazzaville-cg | Brazzaville
+   - kananga-cd | Kananga
+   - bangui-cf | Bangui
+#221 The_Grandstand_at_the_Sir_Roger_Bannister_running_track.jpg [GPS 51.75,-1.24]
+   d: The Grandstand at the Roger Bannister running track, Oxford, England.
+   c: Roger Bannister running track
+   - first-four-minute-mile-iffley | Iffley Road Track | 1km
+#222 Estadio_Olímpico_Universitario_-_2026_-_04.jpg [GPS 19.33,-99.19]
+   d: Drone aerial view of the UNAM Olympic University Stadium in 2026, located in University City, Mexico City.
+   c: 2026 photographs by User:ProtoplasmaKid; Aerial drone photos by User:ProtoplasmaKid; Aerial photographs of association football venues in Mexico; Aerial photogr
+   - beamon-long-jump-1968 | Estadio Olímpico Universitario | 0km
+   - morelia-mx | Morelia | 213km
+   - coyoacan-mx | Coyoacán | 3km
+   - toluca-mx | Toluca | 49km
+   - srinagar | Srinagar | 14041km
+   - loudi | Loudi | 13798km
+#223 Belmont_Park_aerial_2021.jpg [GPS 40.72,-73.72]
+   d: Aerial view of Belmont Park and UBS Arena in 2021
+   c: 2021 in Nassau County, New York; Aerial photographs of Nassau County, New York; Belmont Park; June 2021 in New York (state); UBS Arena
+   - secretariat-belmont-1973 | Belmont Park | 0km
+   - queens-us | Queens | 10km
+#224 A111,_Golden_Spike_National_Historic_Site,_Utah,_USA,_2004.jpg
+   d: Golden Spike National Historic Site, Utah, USA
+   c: Central Pacific no. 60 replica; Golden Spike National Historical Park; Union Pacific no. 119 replica
+   - golden-spike-promontory-summit | Golden Spike National Historical Park
+#225 Soyuz_TMA-3_launch.jpg
+   d: The Soyuz TMA-3 vehicle launches from the Baikonur Cosmodrome in Kazakhstan October 18, 2003, carrying astronaut C. Michael Foale, Expedition 8 mission commande
+   c: 2003 in space program of Russia; Baikonur Cosmodrome Site 1 launch pad; Carrier rocket launches in Kazakhstan in the 2010s; Launches of Soyuz from Baikonur Cosm
+   - gagarin-launch-pad-one | Baikonur Gagarin's Start
+#226 Alcockandbrown_mail.jpg
+   d: Alcock and Brown taking on mail on Vickers Vimy, June 14, 1919. CNS Photo 0504001
+   c: 1919 in Newfoundland and Labrador; June 1919 in Canada; Transatlantic flight of Alcock and Brown; Transport of post by aircraft; Vickers Vimy (Alcock & Brown)
+   - alcock-brown-clifden-landing | Alcock and Brown Landing Site
+#227 Tarmac_de_l'aéroport_du_Bourget_à_Paris.jpg
+   d: Le Bourget Airport
+   c: Aerial photographs of Val-d'Oise; Aerial views of Le Bourget Airport; Henry Lossier
+   - lindbergh-spirit-st-louis-landing | Le Bourget Airfield
+#228 Edmund_Pettus_Bridge_03.jpg
+   d: Edmund Pettus Bridge, Selma, Alabama.
+   c: April 2010 in Alabama; Edmund Pettus Bridge
+   - bloody-sunday-selma-bridge | Edmund Pettus Bridge
+#229 RunnymedeMagnacartaisle.jpg
+   d: View from north bank of Thames over Magna Carta Island and water meadows towards Air Forces Memorial on horizon at left
+   c: Magna Carta Island
+   - magna-carta-runnymede | Runnymede
+#230 Ford's_Theatre_-_2026_(55266858418).jpg [GPS 38.90,-77.03]
+   d: Washington D.C.
+   c: 2026 Washington, D.C. photographs by ajay suresh; Ford's Theatre
+   - lincoln-assassination-fords-theatre | Ford's Theatre | 0km
+   - dongshi | Dongshi | 12855km
+#231 Dealey_Plaza_2003.jpg [GPS 32.78,-96.81]
+   d: Dealey Plaza in 2003.
+   c: Dal-Tex Building; Dallas in the 2000s; Dallas skylines; Dealey Plaza; Texas School Book Depository
+   - jfk-assassination-dealey-plaza | Dealey Plaza | 0km
+#232 National_Civil_Rights_Museum_2022a.jpg [GPS 35.13,-90.06]
+   d: National Civil Rights Museum in Memphis, Tennessee in 2022. Jacqueline Smith protest is visible at far left.
+   c: Jacqueline Smith Protest; National Civil Rights Museum
+   - mlk-assassination-lorraine-motel | Lorraine Motel | 0km
+#233 Birla_HouseGandhi_Smriti,_New_Delhi.jpg
+   d: House where Mahatma Gandhi was assasinated
+   c: Birla House
+   - gandhi-assassination-birla-house | Gandhi Smriti
+   - faridabad-in | Faridabad
+   - marano-di-napoli | Marano di Napoli
+#234 Bergama_-_AKRAPOL_-_panoramio_(4).jpg [GPS 39.13,27.18]
+   d: Bergama - AKRAPOL
+   c: Colonnades in İzmir; Temple of Trajan in Pergamon
+   - archduke-assassination-sarajevo | Latin Bridge Corner | 898km
+   - sarajevo-ba | Sarajevo | 902km
+#235 Asch-brown-triangle-shirtwaist-fire-building.JPG [GPS 40.73,-74.00]
+   d: Asch/Brown Building, Triangle Shirtwaist Fire
+   c: Triangle Shirtwaist Factory building
+   - triangle-shirtwaist-fire | Brown Building | 0km
+#236 Union_Carbide_pesticide_factory,_Bhopal,_India,_1985.jpg
+   d: Exterior view of the Union Carbide pesticide factory in Bhopal, India, scene of the world's worst industrial disaster in 1985. Interior shot of the factory befo
+   c: Bhopal plant
+   - bhopal-gas-disaster-plant | Union Carbide Bhopal Plant
+   - bhatpara | Bhātpāra
+#237 Hindenburg_disaster.jpg
+   d: The German airship (zeppelin) Hindenburg on fire at the mooring mast at Lakehurst New Jersey, United States of America, 6 May 1937. Ballast water is being dropp
+   c: 1937 black and white photographs; Aircraft photographed in 1937; Black and white photographs of New Jersey in the 1930s; Black and white photographs of aircraft
+   - hindenburg-lakehurst | Lakehurst Hindenburg Site
+#238 Halifax_Explosion_blast_cloud_restored.jpg
+   d: This photograph was purportedly taken 15-20 seconds after the explosion. The National Library and Archives Canada description estimates the distance from the ex
+   c: 1917 black and white photographs; Bedford Basin; Black and white photographs of Canada in the 1910s; Halifax Explosion; Non-nuclear mushroom clouds
+   - halifax-explosion-narrows | Halifax Narrows
+#239 Stonewall_Inn_5_pride_weekend_2016.jpg [GPS 40.73,-74.00]
+   d: Outside of the official business district, the Stonewall Inn, a gay bar on Christopher Street in Manhattan's Greenwich Village. A 1969 police raid here led to t
+   c: 2016 in Greenwich Village, Manhattan; June 2016 in Manhattan, New York City; Photographs of LGBT pride flags in New York City; Stonewall Inn; Street memorials t
+   - stonewall-uprising | Stonewall Inn | 0km
+   - chiba | Chiba | 10839km
+#240 Bundesarchiv_Bild_183-1989-1118-018,_Berlin,_Grenzübergang_Bornholmer_Straße.jpg
+   d: Berlin, Grenzübergang Bornholmer Straße / For documentary purposes the German Federal Archive often retained the original image captions, which may be erroneous
+   c: Border crossing Bornholmer Straße; Fall and demolition of the Berlin Wall
+   - fall-of-berlin-wall-bornholmer | Bornholmer Straße Crossing
+#241 Liliesleaf_hut1.jpg
+   d: The thatched room at Liliesleaf Farm, Rivonia, where several ANC activists were meeting when the police raided the Farm in 1963 (Winston Avenue, Rivonia, Johann
+   c: Liliesleaf
+   - mandela-rivonia-arrest-liliesleaf | Liliesleaf Farm
+#242 Connollystraße_GO-2.jpg [GPS 48.18,11.55]
+   d: Connollystraße mit einer Brunnenanlage
+   c: 1972 sculptures in Munich; Connollystraße (München); Fountains in Am Riesenfeld
+   - munich-olympic-hostage-site | Connollystraße 31 | 0km
+   - dubai | Dubai | 4585km
+#243 1996_Atlanta_Summer_Olympics_cauldron_0463.jpg
+   d: 1996 Atlanta Summer Olympics cauldron, 2011
+   c: 1996 Summer Olympics cauldrons
+   - ali-olympic-cauldron-atlanta | Centennial Olympic Stadium Cauldron
+#244 Lincoln_Memorial_east_side.JPG [GPS 38.89,-77.05]
+   d: Lincoln Memorial, east side.
+   c: Exterior views of the Lincoln Memorial (ground)
+   - freedom-speech-lincoln-memorial | Lincoln Memorial Steps | 0km
+   - varanasi | Varanasi | 12580km
+#245 Hollywood_Roosevelt_Hotel_2015.jpg
+   d: A 2015 photo of the Hollywood Roosevelt Hotel in Los Angeles, California.
+   c: Hollywood Roosevelt Hotel
+   - first-oscar-ceremony-roosevelt | Hollywood Roosevelt Hotel
+#246 Sun_studio_memphis.jpg
+   d: Picture of Sun Studio in 2013
+   c: Sun Studio
+   - elvis-sun-studio-first-single | Sun Studio
+#247 Holt_St_Baptist_Church_June09_02.jpg
+   d: Front (west) and north sides of Holt Street Baptist Church in Montgomery, Alabama
+   c: Arches in Alabama; Holt Street Baptist Church
+   - montgomery-bus-boycott-church | Holt Street Baptist Church
+#248 Captain_Matthew_Webb.jpg
+   d: Captain Matthew Webb July 1883
+   c: 1883 portrait prints of men; Matthew Webb; Portraits in the Illustrated London News; The Illustrated London News 1883
+   - channel-swim-captain-webb | Calais Landing Beach
+#249 Die_Bastei_in_der_Sächsischen_Schweiz.jpg [GPS 50.96,14.07]
+   d: The Bastei in Saxon Switzerland is a vast bridge in a fascinating landscape. The view from the bridge is simply stunning and it is worth it to hike to this plac
+   c: April 2017 in Lohmen (Sachsen); Basteibrücke in 2017; Views from Ferdinandaussicht
+   - bastei-bridge-germany | Bastei Bridge | 0km
+#250 Ait_Benhaddou_Pano.jpg [GPS 31.05,-7.13]
+   d: Panorama of Aït Benhaddou ksar, Morocco. (3 pictures, stitched with AutoStitch)
+   c: Aït Benhaddou; Panoramas of Morocco
+   - ait-benhaddou-ksar | Aït Benhaddou | 0km
+   - armenia | Armenia | 8509km
+#251 Derawar_fort_Panorama.jpg
+   d: This is a photo of a monument in Pakistan identified as the
+   c: Derawar Fort - distance view
+   - derawar-fort-pakistan | Derawar Fort
+   - multan-pk | Multan
+#252 Kuelap,_Peru.jpg [GPS -6.42,-77.92]
+   d: This is a photo of a monument in Peru, identified by ID
+   c: Kuelap
+   - kuelap-fortress-peru | Kuélap | 0km
+#253 Landscape_at_Hegra_(Madain_Salih),_Saudi_Arabia_(6).jpg [GPS 26.79,37.96]
+   d: Madain Salih archaeological site
+   c: Meda'in Saleh
+   - hegra-qasr-al-farid | Hegra | 1km
+   - kerch | Kerch | 2068km
+#254 Gjirokaster,_panorama.jpg [GPS 40.07,20.14]
+   d: Panorama from Gjirokastër castle
+   c: Mali i Lunxhërisë; Panoramic photographs of Albania; Views from Gjirokastër Fortress; Views of Gjirokastër
+   - gjirokaster-fortress-albania | Gjirokastër Fortress | 0km
+#255 ET_Afar_asv2018-01_img55_Dallol.jpg [GPS 14.23,40.29]
+   d: Salt canyons – landscape at Dallol volcano, Afar Region, Ethiopia
+   c: Dallol in 2018
+   - dallol-hydrothermal-field | Dallol | 2km
+   - kucukcekmece | Küçükçekmece | 3178km
+#256 Sacsayhuamán_Inca_site_Pérou_Nov_2011-1.jpg [GPS -13.51,-71.98]
+   d: This is a photo of a monument in Peru, identified by ID
+   c: 2011 photographs of Peru; Sacsayhuamán; Vicugna pacos in Peru
+   - sacsayhuaman-cusco | Sacsayhuamán | 0km
+#257 Isometric_view_of_Chand_Baori.jpg [GPS 27.01,76.61]
+   d: Chand Baori, built in 9th century, is one of the world's deepest and largest stepwells, featuring a stunning architectural design with 13 stories and approximat
+   c: Chand Baori
+   - chand-baori-abhaneri | Chand Baori | 0km
+#258 Predjama_Castle,_Slovenia,_20240502_0831_7409.jpg [GPS 45.82,14.13]
+   d: Predjama Castle, Slovenia
+   c: Views of Predjama Castle
+   - predjama-castle-slovenia | Predjama Castle | 0km
+   - shymkent | Shymkent | 4360km
+#259 Kailasha_Temple,_Ellora.jpg
+   d: kailash Temple is carved out of a single stone and it is dedicated to Lord Shiva.
+   c: Ellora Caves; Front external views of Kailash temple (Ellora)
+   - kailasa-temple-ellora | Kailasa Temple
+   - cebu-city | Cebu City
+#260 Pont_du_Gard_panorama.jpg [GPS 43.95,4.54]
+   d: Pont du Gard
+   c: Pont du Gard
+   - pont-du-gard-aqueduct | Pont du Gard | 0km
+   - marseille-fr | Marseille | 99km
+#261 Паметникът_"Бузлуджа".jpg
+   d: This is a photo of a monument in Stara Zagora in Bulgaria identified by the ID
+   c: 2000 in Bulgaria; Buzludzha
+   - buzludzha-monument-bulgaria | Buzludzha Monument
+#262 Trakai_Island_Castle_on_Lake_Galvė,_Trakai,_Lithuania_-_20110421.jpg
+   d: A panoramic view of Trakai Island Castle on Lake Galvė in Trakai, Lithuania.
+   c: Bridge of the Trakai Island Castle; Panoramas of Lithuania; Trakai Island Castle
+   - trakai-island-castle | Trakai Island Castle
+#263 Meteora_Panoramic_View.jpg
+   d: Meteora UNESCO Site Panoramic View from Kastraki
+   c: Kastraki (Kalambaka); Meteora
+   - meteora-greece | Meteora
+#264 Zhangjiajie_National_Forest_Park.jpg [GPS 29.33,110.43]
+   d: Zhangjiajie National Forest Park
+   c: 2016 in Hunan; August 2016 in Hunan; Wulingyuan; Zhangjiajie National Forest Park
+   - zhangjiajie-national-forest-park | Zhangjiajie | 0km
+   - dazhou-cn | Dazhou | 353km
+   - wanzhou-cn | Wanzhou | 252km
+   - yichang-cn | Yichang | 175km
+   - rajshahi | Rajshahi | 2230km
+   - melitopol | Melitopol | 6589km
+#265 Punakha_Dzong,_Bhutan_02.jpg [GPS 27.58,89.86]
+   d: Punakha Dzong, Bhutan
+   c: 2018 in Bhutan; Mo Chhu; Punakha Dzong
+   - punakha-dzong-confluence | Punakha Dzong | 0km
+#266 Eilean_Donan_Castle,_Scotland_-_Jan_2011.jpg [GPS 57.27,-5.51]
+   d: Eilean Donan Castle, as viewed from the south-east at sunrise. Taken by myself as a 2×6 segment panorama with a Canon 5D and 85mm f/1.8 lens.
+   c: Eilean Donan Castle viewed from south; January 2011 in Highland (council area); Water reflections of buildings in Scotland; Water reflections of castles in the 
+   - eilean-donan-tidal-castle | Eilean Donan | 0km
+   - kenley | Kenley | 748km
+#267 Brussels_-_Atomium.jpg [GPS 50.89,4.34]
+   d: This photo of immovable heritage has been taken in the Brussels Capital Region
+   c: Atomium
+   - atomium-iron-crystal | Atomium | 0km
+#268 2025-05-25_Vardzia_9.jpg [GPS 41.38,43.29]
+   d: Vardzia
+   c: Vardzia Cave Monastery
+   - vardzia-cliff-monastery | Vardzia | 0km
+#269 Dunnottar_Castle_-_geograph.org.uk_-_8057610.jpg [GPS 56.94,-2.20]
+   d: Dunnottar Castle
+   c: Dunnottar Castle
+   - dunnottar-headland-fortress | Dunnottar Castle | 0km
+   - phalodi | Phalodi | 6588km
+#270 Elmina_Castle_-_Ghana.jpg [GPS 5.08,-1.35]
+   d: Elmina Castle also known as St. George of the Mine Castle in Ghana.
+   c: Elmina Castle; Elmina in 2010
+   - elmina-castle-gold-coast | Elmina Castle | 0km
+#271 Basilique_notre_Dame_de_la_Paix_de_Yamoussoukro.jpg [GPS 6.81,-5.29]
+   d: La photo de la Basilique notre Dame de la Paix de Yamoussoukro lors de la visite tournique du 21 mai 2024
+   c: Rencontres Annuelles 2024, Daloa
+   - our-lady-peace-basilica | Basilica of Our Lady of Peace | 1km
+   - bouake-ci | Bouaké | 103km
+#272 Rani_ki_vav_02.jpg [GPS 23.86,72.10]
+   d: Rani ki vav, Patan, India
+   c: Rani ki vav
+   - rani-ki-vav-stepwell | Rani ki Vav | 0km
+   - jijiga | Jijiga | 3503km
+#273 Tatev_Monastery,_Tatev,_Armenia.jpg [GPS 39.38,46.25]
+   d: Tatev Monastery, a 9th-century monastery. Tatev, Armenia.
+   c: 2014 in Armenia; Tatev monastery
+   - tatev-gorge-monastery | Tatev Monastery | 0km
+   - tabriz-ir | Tabriz | 144km
+#274 Kampala_Kasubi_Tombs.jpg [GPS 0.33,32.55]
+   d: The Kasubi Tombs in Kampala, Uganda.
+   c: 2007 in Uganda; Kasubi Tombs; Thatched roofs in Uganda
+   - kasubi-royal-tombs | Kasubi Tombs | 0km
+#275 Catedral_de_Sal_de_Zipaquira.jpg
+   d: Catedral de sal de Zipaquirá
+   c: Catedral de Sal; Purple light
+   - zipaquira-salt-cathedral | Salt Cathedral
+   - cucuta-co | Cúcuta
+   - bucaramanga-co | Bucaramanga
+   - aden | Aden
+   - sargodha | Sargodha
+#276 Citadelle_Laferrière.jpg [GPS 19.57,-72.24]
+   d: The Citadelle Laferrière, near Milot in Haiti, seen from the access path.
+   c: 2006 in Milot; Citadelle Laferrière; September 2006 in Haiti
+   - citadelle-laferriere-mountaintop | Citadelle Laferrière | 0km
+   - santo-domingo-do | Santo Domingo | 276km
+   - port-au-prince-ht | Port-au-Prince | 115km
+   - santiago-de-los-caballeros-do | Santiago de los Caballeros | 163km
+   - santo-domingo-oeste-do | Santo Domingo Oeste | 264km
+   - santo-domingo-este-do | Santo Domingo Este | 279km
+   - santiago-de-cuba-cu | Santiago de Cuba | 378km
+   - carrefour-ht | Carrefour | 117km
+   - dakar | Dakar | 5825km
+   - bhuj | Bhuj | 13711km
+#277 BrimstoneHill01.jpg [GPS 17.35,-62.84]
+   d: The Prince of Wales Bastion at the Brimstone Hill Fortress National Park, St Kitts, Leeward Islands
+   c: Brimstone Hill
+   - brimstone-hill-fortress | Brimstone Hill Fortress | 0km
+#278 Cathedral_of_Ani.jpg
+   d: Cathedral of Ani
+   c: Cathedral of Ani
+   - ani-cathedral-ruin | Cathedral of Ani
+   - casablanca | Casablanca
+#279 Larabanga_Mosque_Ghana.jpg
+   d: This is a photo of Ghana's material cultural heritage number
+   c: Larabanga Mosque; Mosques in Ghana photographed in 2011
+   - larabanga-adobe-mosque | Larabanga Mosque
+#280 Katskhi_column_(G.N._2009).jpg [GPS 42.28,43.21]
+   d: Katskhi stone column
+   c: Katskhi pillar
+   - katskhi-pillar-hermitage | Katskhi Pillar | 1km
+#281 Banteay_Chhmar_-_001_Facetower,_Samnang_Tasok_(8593129585).jpg
+   d: 001 Facetower, Samnang Tasok at Banteay Chhmar Photograph from Banteay Chhmar in north-west Cambodia taken by Anandajoti.
+   c: Banteay Chhmar
+   - banteay-chhmar-face-towers | Banteay Chhmar
+#282 ZW_Khami_Ruins.JPG
+   d: UNECSO Heritage - Khami ruins near Bulawayo, Zimbabwe
+   c: Khami ruins
+   - khami-stone-terraces | Khami Ruins
+   - bulawayo-zw | Bulawayo
+#283 Ruins_of_Quilmes_08.jpg [GPS -26.46,-66.04]
+   d: Ruins of Quilmes, Argentina
+   c: Ruinas de Quilmes
+   - quilmes-hillside-ruins | Quilmes Ruins | 0km
+   - cordoba-ar | Córdoba | 578km
+   - san-miguel-de-tucuman-ar | San Miguel de Tucumán | 91km
+#284 Vista_Humberstone.jpg
+   d: Vista de Humberstone, Chile
+   c: Oficina Salitrera Humberstone
+   - humberstone-saltpeter-works | Humberstone
+#285 Haʻamonga.jpg
+   d: Haʻamonga ʻa Maui, a prehistoric megalithic momument, with the maka faakinanga in the distance; Tonga
+   c: Haʻamonga ʻa Maui; Maka faakinanga
+   - haamonga-trilithon | Haʻamonga ʻa Maui
+#286 Sewell_Chile.jpg
+   d: This is a photo of a national monument in Chile:
+   c: Sewell
+   - sewell-mining-stairways | Sewell Mining Town
+   - sao-joao-do-triunfo | São João do Triunfo
+#287 San_Ignacio_Miní.jpg
+   d: Ruinas de San Ignacio
+   c: Culture of Misiones Province; Ruinas Jesuíticas de San Ignacio Miní
+   - san-ignacio-mini-mission | San Ignacio Miní
+   - porto-alegre-br | Porto Alegre
+   - asuncion-py | Asunción
+   - caxias-do-sul-br | Caxias do Sul
+   - la-garriga | la Garriga
+#288 Larnach_Castle.jpg
+   d: Larnach Castle, Dunedin, New Zealand
+   c: Larnach Castle
+   - larnach-castle-otago | Larnach Castle
+#289 Yapahuwa_Rock_Fortress.jpg [GPS 7.82,80.31]
+   d: Yapahuwa Rock Fortress
+   c: Yapahuwa rock fortress
+   - yapahuwa-rock-citadel | Yapahuwa | 0km
+   - saguenay | Saguenay | 13164km
+#290 Victoria_Harbour_skyline,_Hong_Kong_(2008).jpg
+   d: The Victoria Harbour in Hong Kong SAR.
+   c: Hong Kong night skylines (Wan Chai District)
+   - guangzhou-cn | Guangzhou
+   - shenzhen-cn | Shenzhen
+   - dongguan-cn | Dongguan
+   - foshan-cn | Foshan
+   - bao-an-cn | Bao'an
+   - shantou-cn | Shantou
+   - huizhou-cn | Huizhou
+   - yunfu-cn | Yunfu
+   - zhuhai-cn | Zhuhai
+   - puning-cn | Puning
+   - ganzhou-cn | Ganzhou
+   - jieyang-cn | Jieyang
+   - jiangmen-cn | Jiangmen
+   - chaozhou-cn | Chaozhou
+   - qingyuan-cn | Qingyuan
+   - zhaoqing-cn | Zhaoqing
+   - maoming-cn | Maoming
+   - yangjiang-cn | Yangjiang
+   - hamamatsu | Hamamatsu
+   - doetinchem | Doetinchem
+   - gangakher | Gangākher
+   - panorama | Panorama
+#291 Phnom_Penh_skyline_from_TK_district_Dec_2024.jpg
+   d: Phnom Penh Skyline from Toul Kork
+   c: Cityscapes; Clouds and blue sky in Cambodia; December 2024 Cambodia photographs; Phnom Penh
+   - ho-chi-minh-city-vn | Ho Chi Minh City
+   - can-tho-vn | Cần Thơ
+   - bien-hoa-vn | Biên Hòa
+   - karabaglar | Karabağlar
+#292 1_tianzishan_wulingyuan_zhangjiajie_2012.jpg
+   d: Panoramic view from Mount Tianzi Shan, Wulingyuan Zhangjiajie hunan China tujia miao 2012
+   c: October 2012 in China; Panoramics in Hunan; Wulingyuan
+   - wuhan-cn | Wuhan
+   - guilin-cn | Guilin
+   - guankou-cn | Guankou
+   - reboucas | Rebouças
+#293 City_wall_of_Xi'an_51550-Xian_(27959363326).jpg [GPS 34.20,108.97]
+   d: 51550-Xian
+   c: Bluish bricks; City wall of Xi'an
+   - xian-cn | Xi’an | 7km
+   - wuzhong-cn | Wuzhong | 489km
+   - lanzhou-cn | Lanzhou | 510km
+   - yinchuan-cn | Yinchuan | 532km
+   - bazhong-cn | Bazhong | 332km
+   - xining-cn | Xining | 707km
+   - baoji-cn | Baoji | 160km
+   - padang | Padang | 4011km
+   - tula | Tula | 5823km
+   - kalaban-koro | Kalaban Koro | 11578km
+   - pordenone | Pordenone | 7791km
+#294 Paraty_05.JPG
+   d: Paraty
+   c: Paraty
+   - sao-paulo-br | São Paulo
+   - guarulhos-br | Guarulhos
+   - campinas-br | Campinas
+   - sao-bernardo-do-campo-br | São Bernardo do Campo
+   - sorocaba-br | Sorocaba
+   - sao-jose-dos-campos-br | São José dos Campos
+   - ribeirao-preto-br | Ribeirão Preto
+   - joinville-br | Joinville
+   - florianopolis-br | Florianópolis
+   - sao-jose-do-rio-preto-br | São José do Rio Preto
+#295 Vladivostok._GUM_Department_Store_P8070703_2200.jpg [GPS 43.12,131.89]
+   d: Vladivostok. GUM Department Store
+   c: Vladivostok GUM
+   - harbin-cn | Harbin | 509km
+   - changchun-cn | Changchun | 536km
+   - jilin-cn | Jilin | 437km
+   - daqing-cn | Daqing | 666km
+   - khabarovsk-ru | Khabarovsk | 644km
+#296 杭州钱江新城_4_(cropped).jpg
+   d: Hangzhou Qianjiang New City
+   c: Hangzhou CBD; October 2022 in Hangzhou
+   - hefei-cn | Hefei
+   - nanjing-cn | Nanjing
+   - ningbo-cn | Ningbo
+   - puyang-cn | Puyang
+   - huainan-cn | Huainan
+   - wenzhou-cn | Wenzhou
+   - nanchang-cn | Nanchang
+   - shaoxing-cn | Shaoxing
+   - luan-cn | Lu’an
+   - wuhu-cn | Wuhu
+   - yiwu-cn | Yiwu
+   - cixi-cn | Cixi
+   - yixing-cn | Yixing
+   - nettuno | Nettuno
+   - cheung-sha-wan | Cheung Sha Wan
+   - perole | Perole
+#297 Temple_of_Heaven_20160323_01.jpg
+   d: Temple of Heaven - Hall of Prayer for Good Harvests
+   c: Hall of Prayer for Good Harvests
+   - weifang-cn | Weifang
+   - tangshan-cn | Tangshan
+   - ghaziabad | Ghāziābād
+   - lincoln | Lincoln
+#298 The_Arch_of_Triumph_(11360607534).jpg
+   d: Built in 1982 on the Triumph Return Square at the foot of Moran Hill (모란봉) in the North Korean capital city of Pyongyang, the monument was built to honour and g
+   c: Arch of Triumph (Pyongyang)
+   - shenyang-cn | Shenyang
+   - yantai-cn | Yantai
+   - anshan-cn | Anshan
+   - fushun-cn | Fushun
+#299 Huangpu_Park_20124-Shanghai_(32208802494).jpg [GPS 31.25,121.48]
+   d: Huangpu Park is the name of the triangular stretch of green at the northern end of the Bund in Shanghai, the oldest and smallest park of the city.
+   c: 2016 in Pudong; Lujiazui from Suzhou Creek; October 2016 in Shanghai; Oriental Pearl Tower
+   - qingdao-cn | Qingdao | 545km
+   - pudong-cn | Pudong | 2km
+   - yangzhou-cn | Yangzhou | 232km
+   - huai-an-cn | Huai'an | 348km
+   - wuxi-cn | Wuxi | 119km
+   - changzhou-cn | Changzhou | 157km
+   - minhang-cn | Minhang | 19km
+   - nantong-cn | Nantong | 105km
+   - kunshan-cn | Kunshan | 52km
+   - lianyungang-cn | Lianyungang | 429km
+   - songjiang-cn | Songjiang | 34km
+   - jiading-cn | Jiading | 28km
+   - jiangyin-cn | Jiangyin | 137km
+   - changshu-cn | Changshu | 83km
+   - yancheng-cn | Yancheng | 266km
+   - taizhou-cn | Taizhou | 203km
+   - suqian-cn | Suqian | 424km
+   - zhangjiagang-cn | Zhangjiagang | 113km
+   - qingpu-cn | Qingpu | 37km
+   - datong | Datong | 1230km
+   - haikou | Haikou | 1671km
+   - toronto | Toronto | 11414km
+   - hong-kong-island | Hong Kong Island | 1233km
+#300 27427-Luoyang_(49067744628).jpg [GPS 34.55,112.47]
+   d: Luoyang is an industrial city in central China’s Henan province, in what is widely recognized as the region where Chinese civilization originated. Luoyang, anci
+   c: Fengxian Temple
+   - zhengzhou-cn | Zhengzhou | 110km
+   - zaozhuang-cn | Zaozhuang | 466km
+   - linyi-cn | Linyi | 539km
+   - shangqiu-cn | Shangqiu | 292km
+   - nanyang-cn | Nanyang | 172km
+   - fuyang-cn | Fuyang | 360km
+   - chengtangcun-cn | Chengtangcun | 435km
+   - suzhou-cn | Suzhou | 427km
+   - kaifeng-cn | Kaifeng | 170km
+   - xinyang-cn | Xinyang | 308km
+   - bozhou-cn | Bozhou | 312km
+   - luoyang-cn | Luoyang | 14km
+   - heze-cn | Heze | 284km
+   - luohe-cn | Luohe | 180km
+   - xiangyang-cn | Xiangyang | 281km
+   - xuchang-cn | Xuchang | 140km
+   - xuzhou-cn | Xuzhou | 443km
+   - chicago | Chicago | 11275km
+   - taiz | Taiz | 7195km
+   - homs | Homs | 6747km
+   - tasikmalaya | Tasikmalaya | 4678km
+#301 The_Ka'ba,_Great_Mosque_of_Mecca,_Saudi_Arabia_(4).jpg [GPS 21.42,39.83]
+   d: The Ka'ba, Great Mosque of Mecca, Saudi Arabia (4). Photo taken by Richard Mortel in December 2020.
+   c: 2020 in Mecca; Kaaba in 2020
+   - jeddah-sa | Jeddah | 67km
+   - kerkici | Kerkiçi | 3044km
+#302 Taipei_Skyline_2022.06.29.jpg
+   d: Skyline of Taipei, Taiwan viewed from Mount Elephant on June 29, 2022
+   c: 2022 at Taipei 101; 2022 photographs of Taipei; Skylines of Taipei; Views from Mount Elephant (Taipei)
+   - xiamen-cn | Xiamen
+   - new-taipei-city-tw | New Taipei City
+   - taichung-tw | Taichung
+   - kaohsiung-tw | Kaohsiung
+   - tainan-tw | Tainan
+   - putian-cn | Putian
+   - quanzhou-cn | Quanzhou
+   - jinjiang-cn | Jinjiang
+   - quito | Quito
+   - fazenda-rio-grande | Fazenda Rio Grande
+#303 Aerial_view_of_a_section_of_Kandahar_in_2013.jpg
+   d: Traveling by helicopter enables us to see the beauty of Kandahar province from the air. (USACE Photo by Karla Marshall)
+   c: Aerial photographs of Kandahar Province; Buildings in Kandahar; Registan-North Pakistan Sandy Desert Ecoregion; Views of Kandahar
+   - kabul-af | Kabul
+   - quetta-pk | Quetta
+   - dursley | Dursley
+#304 Cairo_Opera_House,_Al_Hurriyah_Park_and_the_Nile_river_(14797782354).jpg [GPS 30.05,31.22]
+   d: Zamalek (Egyptian Arabic: الزمالك pronounced [ez.zæˈmæːlek]) is an affluent district of western Cairo encompassing the northern portion of Gezira Island in the 
+   c: Views from Cairo Tower
+   - giza-eg | Giza | 4km
+   - shubra-al-khaymah-eg | Shubrā al Khaymah | 9km
+   - port-said-eg | Port Said | 170km
+   - suez-eg | Suez | 126km
+#305 লাল_কেল্লার_মায়া.jpg [GPS 23.72,90.38]
+   d: This is a photo of a monument in Bangladesh identified by the ID
+   c: Lalbagh Qila
+   - chattogram-bd | Chattogram | 214km
+#306 Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg [GPS 35.63,139.77]
+   d: お台場 (Odaiba)
+   c: Odaiba
+   - yokohama-jp | Yokohama | 25km
+   - kawasaki-jp | Kawasaki | 14km
+   - erzurum | Erzurum | 8188km
+#307 Osun_groove_Osogbo.jpg
+   d: The Osun-Osogbo Grove is among the last of the sacred forests which usually adjoined the edges of most Yoruba cities before extensive urbanization. In recogniti
+   c: Unidentified cultural heritage monuments in Nigeria
+   - ibadan-ng | Ibadan
+   - benin-city-ng | Benin City
+   - onitsha-ng | Onitsha
+   - ilorin-ng | Ilorin
+   - warri-ng | Warri
+   - oyo-ng | Oyo
+   - akure-ng | Akure
+   - east-honolulu | East Honolulu
+#308 Göreme_town_and_valley_2015.JPG
+   d: View of Göreme town and valley in May of 2015.
+   c: Views of Göreme
+   - ankara-tr | Ankara
+   - yongxin | Yongxin
+#309 The_Great_Wall_of_China_at_Jinshanling-edit.jpg
+   d: The Great Wall of China at Jinshanling
+   c: Great Wall of China at Jinshanling
+   - hohhot-cn | Hohhot
+#310 Mumbai_Bandra-Worli_Sea_Link.jpg [GPS 19.03,72.81]
+   d: The Bandra Worli Sea Link is an ubiquitous symbol of 21st century Mumbai. The 5.6-kilometre cable-stayed bridge is a remarkable technical feat, the first of its
+   c: Bandra–Worli Sea Link; Worli Koliwada
+   - pune-in | Pune | 123km
+   - thane-in | Thāne | 25km
+   - pimpri-chinchwad-in | Pimpri-Chinchwad | 114km
+   - nashik-in | Nashik | 149km
+   - kalyan-in | Kalyān | 41km
+   - kingston | Kingston | 14727km
+   - huchuan | Huchuan | 3721km
+#311 Sultan_Ahmed_Mosque_Front_Façade_and_Southern_Minaret,_2024.jpg [GPS 41.01,28.98]
+   d: Sultan Ahmed Mosque front façade and southern minaret, 2024 .mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(
+   c: Sultan Ahmed I Mosque NW side
+   - bursa-tr | Bursa | 90km
+#312 Cityscape_of_Manila,_2025_(01).jpg [GPS 14.59,120.98]
+   d: Sunset cityscape of Manila, from The Bayleaf Intramuros, Manila
+   c: Cityscapes of Manila; Clouds at sunset in the Philippines; Intramuros; Sunsets of Manila
+   - quezon-city-ph | Quezon City | 10km
+   - caloocan-ph | Caloocan | 7km
+   - taguig-ph | Taguig | 13km
+   - kanash | Kanash | 7638km
+#313 중화전의_낮.jpg [GPS 37.57,126.97]
+   d: 덕수궁의 낮
+   c: Junghwajeon
+   - incheon-kr | Incheon | 27km
+   - daejeon-kr | Daejeon | 140km
+   - charlotte | Charlotte | 11427km
+#314 Cuenca_Cathedral_2020.jpg
+   d: Exterior of the Cuenca Cathedral, Spain
+   c: Main facade of the Cathedral of Cuenca
+   - guayaquil-ec | Guayaquil
+#315 Conjunto_arquitetônico_e_urbanístico_de_Ouro_Preto.JPG
+   d: This is a photo of a monument in Brazil identified by the ID
+   c: Historic Town of Ouro Preto; Igreja de Nossa Senhora do Carmo (Ouro Preto); Museu da Inconfidência
+   - belo-horizonte-br | Belo Horizonte
+   - contagem-br | Contagem
+   - serra-br | Serra
+   - kabba | Kabba
+#316 Centro_Histórico_Salvador_Vista_Aérea_2021-0933.jpg [GPS -12.97,-38.51]
+   d: Vista aérea, Centro Histórico de Salvador, Bahia. Cultural propertyHistoric Centre of Salvador da Bahia, Cidade Alta, Salvador, Bahia, BrazilQ5572706, VIAF clus
+   c: Aerial photographs of Centro Histórico de Salvador
+   - salvador-br | Salvador | 2km
+   - aracaju-br | Aracaju | 278km
+   - feira-de-santana-br | Feira de Santana | 93km
+#317 Kofar_Gadan_Kaya_-_Kano_City_Gate.jpg [GPS 11.98,8.50]
+   d: Ancient City Gate of Kano City which was rebuilt in 2014.
+   c: Kano city gates
+   - abuja-ng | Abuja | 343km
+   - n-djamena-td | N'Djamena | 712km
+   - maiduguri-ng | Maiduguri | 507km
+   - jos-ng | Jos | 232km
+   - sokoto-ng | Sokoto | 373km
+   - zaria-ng | Zaria | 128km
+   - bauchi-ng | Bauchi | 237km
+   - katsina-ng | Katsina | 148km
+   - matsudo | Matsudo | 12654km
+   - bristol | Bristol | 4502km
+   - brejo-santo | Brejo Santo | 5679km
+#318 Tejgaon_Commercial_Area.jpg
+   d: Tejgaon Commercial Area
+   c: Dhaka; Dhaka North City Corporation; Hatirjheel; Hatirjheel Amphitheatre; Niketan
+   - gazipur-bd | Gazipur
+#319 Bundaran_Hotel_Indonesia_(2025)_(cropped).jpg [GPS -6.19,106.82]
+   d: Bundaran Hotel Indonesia dari Halte Transjakarta Bundaran HI Astra pada Maret 2025
+   c: Selamat Datang Monument
+   - bekasi-id | Bekasi | 19km
+   - bandung-id | Bandung | 118km
+   - tangerang-id | Tangerang | 21km
+   - south-tangerang-id | South Tangerang | 16km
+   - setagaya | Setagaya | 5779km
+   - sha-tin | Sha Tin | 3277km
+#320 Mombasa_Island.jpg
+   d: A bird's eye view of Mombasa Island, Kenya
+   c: Mombasa Island
+   - mogadishu-so | Mogadishu
+#321 Skyline_of_George_Town,_Penang_at_night_Nov2024-29-17.jpg [GPS 5.41,100.33]
+   d: Drone photo of the skyline in George Town as of November 2024, taken with DJI Air 3S
+   c: Aerial photographs of George Town; KOMTAR, Penang; Skylines of George Town, Penang
+   - medan-id | Medan | 275km
+   - accra | Accra | 11108km
+#322 1_Khajuraho.jpg
+   d: Khajuraho group of monuments
+   c: Devi Jagdambi Temple Khajuraho; Kandariya Mahadeva Temple
+   - lucknow-in | Lucknow
+   - saharanpur | Sahāranpur
+#323 Taj-ul-Masjid,_Bhopal,_India.jpg [GPS 23.26,77.39]
+   d: Taj-ul-Masjid, Bhopal, India.
+   c: Minarets in Madhya Pradesh; Taj-ul-Masjid, Bhopal
+   - nagpur-in | Nagpur | 293km
+   - indore-in | Indore | 171km
+#324 Desierto_de_la_Tatacoa_-_camilogaleano(com).jpg
+   d: Fotografía aérea del desierto de la Tatacoa
+   c: Tatacoa Desert
+   - cali-co | Cali
+   - changsha | Changsha
+   - puawy | Puławy
+#325 Downtown_Lusaka.JPG
+   d: Downtown Lusaka showing the Findeco Building from the south end round-a-bout.
+   c: 2013 in Lusaka; Findeco House; Views of Lusaka
+   - lubumbashi-cd | Lubumbashi
+   - kolwezi-cd | Kolwezi
+   - kitwe-zm | Kitwe
+   - likasi-cd | Likasi
+#326 Noite_no_Teatro_Amazonas_(cropped).jpg [GPS -3.13,-60.02]
+   d: Amazon theater
+   c: Teatro Amazonas at night; Teatro Amazonas in 2021; Three-quarter views of buildings
+   - manaus-br | Manaus | 3km
+   - porto-velho-br | Porto Velho | 759km
+#327 Acca.jpg
+   d: Accra
+   c: Aerial photographs of Greater Accra; High-rises in Ghana
+   - lome-tg | Lomé
+   - ibb | Ibb
+#328 Mount_Cameroon_view_from_Buea_(Soppo).jpg [GPS 4.15,9.26]
+   d: Mount Cameroon viewed from Buea town ( Soppo) Fako Division ,South West region
+   c: Remote views of Mount Cameroon
+   - port-harcourt-ng | Port Harcourt | 258km
+   - douala-cm | Douala | 51km
+   - yaounde-cm | Yaoundé | 253km
+   - aba-ng | Aba | 235km
+   - enugu-ng | Enugu | 320km
+   - libreville-ga | Libreville | 419km
+   - benito-juarez | Benito Juárez | 11579km
+#329 High_Angle_View_Of_Kigali_City_Street_on_November_29,_2018._Emmanuel_Kwizera.jpg
+   d: High Angle View Of Kigali City Street on November 29, 2018. Most of the people in Rwanda's capital use this kind of transport.Emmanuel Kwizera
+   c: Building construction in Rwanda; Buildings in Kigali; Skylines of Kigali; Unidentified roads in Kigali
+   - mbuji-mayi-cd | Mbuji-Mayi
+   - kisangani-cd | Kisangani
+   - bukavu-cd | Bukavu
+   - bujumbura-bi | Bujumbura
+   - yonago | Yonago
+   - ruqi | Ruqi
+#330 Aerial_Foz_de_Iguaçu_26_Nov_2005.jpg
+   d: Aerial view of Foz de Iguaçu, Brazil-Argentina border.
+   c: Aerial photographs of Iguazu Falls
+   - curitiba-br | Curitiba
+   - londrina-br | Londrina
+#331 Montane_rainforest_near_to_Sérédou_(Northern_limit_of_Ziama_Massif).jpg
+   d: Montane rainforest near to Sérédou (Northern limit of Ziama Massif)
+   c: Forests in Guinea; Rainforests of Africa
+   - conakry-gn | Conakry
+   - monrovia-lr | Monrovia
+   - freetown-sl | Freetown
+   - bamako | Bamako
+   - hathazari | Hāthazāri
+#332 Clifton_Karachi_View.jpg
+   d: View of Clifton, Karachi Skyline
+   c: Karachi
+   - hyderabad-pk | Hyderabad
+   - putuo | Putuo
+   - kitakyushu | Kitakyushu
+#333 ©Nile-Project_-Sari_Omer_0025.jpg
+   d: Khartoum land mark touti island
+   c: Nile
+   - omdurman-sd | Omdurman
+   - khartoum-north-sd | Khartoum North
+#334 Mission_Concepcion_San_Antonio.JPG [GPS 29.39,-98.49]
+   d: Mission Concepcion at San Antonio, Texas
+   c: 2010 in San Antonio, Texas; Bell towers in Texas; Churches in the United States photographed in 2010; June 2010 in Texas; Mission Concepcion, San Antonio, Texas
+   - santa-cruz-de-la-sierra-bo | Santa Cruz de la Sierra | 6470km
+   - marvdasht | Marvdasht | 12756km
+#335 Burj_Khalifa_2021.jpg
+   d: Downtown Burj Khalifa, Dubai
+   c: Creative Commons Attribution 2.0 files; Wikipedia images using freedom of panorama
+   - sharjah-ae | Sharjah
+   - yerevan | Yerevan
+#336 2018_Ford_Transit_Custom_300_Base_2.0_facelift.jpg
+   d: 2018 Ford Transit Custom 300 Base 2.0 facelift Taken in Stratford-upon-Avon
+   c: Ford Transit Custom (2017); Ford vehicles in the United Kingdom
+   - mosul-iq | Mosul
+   - erbil-iq | Erbil
+   - malegaon | Malegaon
+#337 Golden_Temple_Amritsar_Gurudwara_(cropped).jpg [GPS 31.62,74.88]
+   d: Main religious site for Sikh community
+   c: Atta Mandi Deori; Golden Temple (Harmandir Sahib); Harmandir Sahib causeway
+   - ludhiana-in | Ludhiana | 122km
+#338 Osaka_Castle_03bs3200.jpg
+   d: Osaka Castle in Chuo-ku, Osaka, Osaka prefecture, Japan
+   c: 2009 at Osaka Castle; September 2009 in Osaka; Views of Osaka Castle and Osaka Business Park from the Osaka Museum of History
+   - kobe-jp | Kobe
+#339 Kolkata_maidan.jpg
+   d: Kolkata maidan
+   c: Aerial photographs of Central Kolkata; Remote views of The 42
+   - khulna-bd | Khulna
+   - jamshedpur-in | Jamshedpur
+   - malingao | Malingao
+#340 Komodo_Island_north_aerial.jpg [GPS -8.57,119.63]
+   d: Northern tip of Komodo Island, Indonesia
+   c: Komodo National Park; Nature of Komodo
+   - makassar-id | Makassar | 381km
+#341 North_of_Tehran_Skyline_view.jpg
+   d: North of Tehran Skyline view, Tehran, Iran
+   c: Ab-o-Atash Park; April 2018 in Tehran; Buildings in Tehran; District 3, Tehran; Haghani–Modarres Interchange
+   - karaj-ir | Karaj
+#342 Vivekananda_Rock_Memorial,_Kanyakumari.jpg [GPS 8.08,77.55]
+   d: Vivekananda Rock Memorial, Kanyakumari
+   c: Ferries in Kanniyakumari; Kanniyakumari harbour; Remote views of the Thiruvalluvar Statue and the Vivekananda Rock Memorial
+   - tirunelveli-in | Tirunelveli | 73km
+   - zaoyang | Zaoyang | 4509km
+   - kameyama | Kameyama | 6671km
+#343 Jama_Masjid_2011.jpg [GPS 28.65,77.23]
+   d: Jama Masjid mosque, Dehli, India.
+   c: Minarets of the Jama Masjid, Delhi
+   - najafgarh-in | Najafgarh | 25km
+#344 Naghshe_jahan_01.jpg
+   d: This is a photo of a monument in Iran identified by the ID
+   c: 2020 aerial photographs of Iran; 2020 in Isfahan; Aerial photographs of Isfahan; Ali Qapu; Clouds in Isfahan
+   - basrah-iq | Basrah
+   - ulsan | Ulsan
+#345 Al-Masjid_An-Nabawi_(Bird's_Eye_View).jpg
+   d: A bird's eye view of the Prophet's Mosque in Medina (Masjid al-Nabawi) from the southern side
+   c: Al-Masjid an-Nabawi in 2018; Exterior of Masjid al-Nabawi
+   - madinah-sa | Madinah
+#346 Singapore_Skyline_2019-10.jpg [GPS 1.29,103.85]
+   d: Singapore Skyline with Merlion in the foreground. Picture captured on October 14th 2019.
+   c: Merlion statues (Merlion Park) at night; Skylines of Singapore
+   - batam-id | Batam | 24km
+#347 The_Pearl_Marina_in_Nov_2013.jpg
+   d: Boats docked at The Pearl Marina in November 2013.
+   c: Boats in Qatar; Photos by Alex Sergeev; Piers in the Persian Gulf; The Pearl
+   - dammam-sa | Dammam
+   - istanbul | Istanbul
+#348 Las_Cabezas_de_San_Juan_PR_Fajardo_IMG_2385_Laguna_Grande.JPG
+   d: Grand Laguna of northeaestern Puerto Rico, known as the "Lumeniscent Laguna" due to lumeniscent fauna during night. This is inside the Reserva Natural De Las Ca
+   c: Cabo San Juan lighthouse; February 2016 in Puerto Rico; Laguna Grande (Puerto Rico)
+   - barranquilla-co | Barranquilla
+   - santa-marta-co | Santa Marta
+   - valledupar-co | Valledupar
+   - navi-mumbai | Navi Mumbai
+#349 Chan_chan_view1.jpg
+   d: Chan Chan, the huge adobe town from Chimu time. Trujillo, Peru.
+   c: Chan Chan
+   - trujillo-pe | Trujillo
+   - chiclayo-pe | Chiclayo
+   - mangaluru | Mangaluru
+   - zhucheng | Zhucheng
+#350 Antonio_Vaz_island_-_Recife,_Pernambuco,_Brazil_(cropped).jpg
+   d: Antonio Vaz island - Recife, Pernambuco, Brazil
+   c: Aerial photographs of Recife; Recife in the 2010s; Santo Antônio (Recife); São José (Recife)
+   - maceio-br | Maceió
+   - natal-br | Natal
+   - joao-pessoa-br | João Pessoa
+   - jaboatao-dos-guararapes-br | Jaboatão dos Guararapes
+   - port-sudan | Port Sudan
+   - senaki | Senaki
+#351 SaltoAngel1.jpg
+   d: Salto Angel (Angel Falls), official name: Kerepakupai merú
+   c: Angel Falls
+   - ciudad-guayana-ve | Ciudad Guayana
+   - maturin-ve | Maturín
+#352 Puerto_Madero,_Buenos_Aires_(40689219792)_(cropped).jpg [GPS -34.63,-58.36]
+   d: Puerto Madero, Buenos Aires
+   c: Buildings in Puerto Madero, Buenos Aires; February 2018 in Buenos Aires; Views of Buenos Aires
+   - rosario-ar | Rosario | 281km
+#353 Porto_Jofre.JPG
+   d: View of Cuiabá River, from Porto Jofre village in the Pantanal, Mato Grosso state, southern Brazil.
+   c: Mato Grosso; Pantanal; Porto Jofre; Rio Cuiabá; Rivers of Mato Grosso
+   - campo-grande-br | Campo Grande
+   - cuiaba-br | Cuiabá
+#354 Lagoa_Lençóis_Maranhenses.JPG [GPS -2.53,-43.12]
+   d: Lagoa formada com o acumulo de água das chuvas no Parque dos Lençois Maranhenses
+   c: Parque Nacional dos Lençóis Maranhenses
+   - teresina-br | Teresina | 286km
+#355 Maracana_2022.jpg
+   d: Maracanã, Rio de Janeiro, Brasil
+   c: Aerial views of Estádio do Maracanã
+   - duque-de-caxias-br | Duque de Caxias
+   - nova-iguacu-br | Nova Iguaçu
+   - juiz-de-fora-br | Juiz de Fora
+   - belford-roxo-br | Belford Roxo
+   - sao-joao-de-meriti-br | São João de Meriti
+#356 Cape_Gracias_a_Dios.jpg
+   d: Around 15 degrees North, a rounded point of land juts out into the Caribbean Sea from the Central American isthmus. This low-lying, wet area is called the Mosqu
+   c: 2002 in Honduras; Coco River; Geomorphology of Honduras; Geomorphology of Nicaragua; Honduras-Nicaragua border
+   - tegucigalpa-hn | Tegucigalpa
+#357 Casa_de_la_Libertad_Sucre.jpg [GPS -19.05,-65.26]
+   d: This medium shows the protected monument with the number H/00-019 in Bolivia.
+   c: Casa de la Libertad, Sucre
+   - cochabamba-bo | Cochabamba | 208km
+   - khagaria | Khagaria | 17025km
+   - tsukubamirai | Tsukubamirai | 16908km
+#358 Bogota,_Colombia_(36668708290).jpg [GPS 4.60,-74.07]
+   d: Bogota, Colombia
+   c: Cityscapes of Bogotá
+   - soacha-co | Soacha | 16km
+#359 Punta_Veleros_2.jpg [GPS -4.18,-81.14]
+   d: Punta Veleros Beach in Piura, northern coast of Peru.
+   c: Beaches of Piura Department; Coasts of Peru; Leisure in Peru; Los Órganos, Perú; Nature of Piura Department
+   - piura-pe | Piura | 124km
+#360 PALACIO_LEGISLATIVO_01.JPG
+   d: This is a photo of a Uruguayan monument identified by the ID
+   c: Palacio Legislativo, Uruguay
+   - mar-del-plata-ar | Mar del Plata
+   - baghdad | Baghdad
+#361 Palacio_de_La_Moneda_-_miguelreflex.jpg
+   d: La Moneda
+   c: Palacio de La Moneda; Photographs of the national flag of Chile in Santiago Province
+   - puente-alto-cl | Puente Alto
+   - maipu-cl | Maipú
+   - eskisehir | Eskişehir
+#362 Pucará_de_Tilcara_01.JPG
+   c: Pucará de Tilcara
+   - salta-ar | Salta
+   - belgrade | Belgrade
+#363 Cidade_Maravilhosa.jpg
+   d: Rio !
+   c: Botafogo Bay from Corcovado; Corcovado; Cristo Redentor in 2011; Remote views of Cristo Redentor do Rio de Janeiro; Sugarloaf Mountain
+   - niteroi-br | Niterói
+   - campos-dos-goytacazes-br | Campos dos Goytacazes
+#364 Cathédralestsauveur.jpg [GPS 4.94,-52.33]
+   d: Vue générale de la Cathédrale Saint-Sauveur de Cayenne.
+   c: Cathédrale Saint-Sauveur de Cayenne
+   - macapa-br | Macapá | 563km
+   - uijeongbu-si | Uijeongbu-si | 15269km
+#365 Museo_Naval_del_Caribe.JPG
+   d: This is a photo of a Colombian monument identified by the ID
+   c: Museo Naval del Caribe
+   - monteria-co | Montería
+   - prayagraj | Prayagraj
+#366 Panorama_quilotoa_crater_lake_ecuador.jpg
+   d: Quilotoa craterlake in Ecuador
+   c: Quilotoa
+   - santo-domingo-de-los-colorados-ec | Santo Domingo de los Colorados
+   - bobrovo | Bobrovo
+#367 Johannesburg_skyline_2017.jpg [GPS -26.20,28.03]
+   d: Johannesburg South Africa
+   c: Skylines of Johannesburg
+   - soweto-za | Soweto | 19km
+   - evaton-za | Evaton | 41km
+#368 Visite_du_musée_de_civilisation_de_Côte_d'Ivoire_08.jpg
+   d: Les journées d'études et de perfectionnement sont à l'endroit des leaders de communauté et les groupes thématiques.
+   c: Musée des Civilisations de Côte d'Ivoire
+   - abobo-ci | Abobo
+#369 Ouagadougou_Skyline.jpg
+   d: Skyline of the capital city of Burkina Faso, Ouagadougou.
+   - niamey-ne | Niamey
+   - bogor | Bogor
+#370 Maputo_-_Panorama.jpg [GPS -25.98,32.56]
+   d: Maputo, Mozambique
+   c: 2006 in Mozambique; Coasts of Mozambique; Maputo in the 2000s; Panoramics in Maputo
+   - matola-mz | Matola | 10km
+#371 Dakar-Indépendance.jpg
+   d: La place de l'Indépendance à Dakar (Sénégal). En arrière-plan le port et Gorée.
+   c: Place de l'indépendance (Dakar); Port of Dakar
+   - nouakchott-mr | Nouakchott
+   - pikine-sn | Pikine
+#372 Ile-de-goree.jpg
+   d: Île de Gorée
+   c: Gorée
+   - touba-sn | Touba
+   - rakvere | Rakvere
+#373 ZmbziRvr.jpg
+   c: Mana Pools National Park; Zambezi
+   - lilongwe-mw | Lilongwe
+#374 Thabana_Ntlenyana.jpeg
+   d: Blick auf den Gipfel aus südlicher Richtung
+   c: Drakensberg; Mokhotlong District; Thabana Ntlenyana
+   - gqeberha-za | Gqeberha
+#375 Rock_of_Gibraltar_South_View.jpg
+   d: View of Gibraltar from the South. Taken from onboard the Independence of the Seas cruise ship.
+   c: Estrecho Oriental (Special Area of Conservation); Rock of Gibraltar; Strait of Gibraltar
+   - tangier-ma | Tangier
+   - sabha | Sabha
+#376 La_Gombe,_Kinshasa,_RDC_(cropped).jpg
+   d: Gombe is a neighborhood situated in Kinshasa, which is the capital and largest city of the DRC. Gombe is known for its central location, government buildings, b
+   c: Views of Kinshasa
+   - pointe-noire-cg | Pointe-Noire
+   - seongnam-si | Seongnam-si
+   - hecun | Hecun
+#377 "Eine_beeindruckende_Festung"._09.jpg
+   d: The Kabah Udayas in Rabat.
+   c: Kasbah of the Udayas
+   - sale-ma | Salé
+   - algiers | Algiers
+#378 Djenne_great_mud_mosque.jpg [GPS 13.91,-4.56]
+   d: Great Mud Mosque, Djenné, Mali
+   c: Great Mosque of Djenné; Rammed earth buildings
+   - bobo-dioulasso-bf | Bobo-Dioulasso | 304km
+#379 Crowne_Plaza,_Harare.png
+   d: View of the Crowne Plaza from the Harare Gardens
+   c: Crowne Plaza; Hotels in Harare
+   - blantyre-mw | Blantyre
+   - beira-mz | Beira
+#380 Luanda_2025_focused_(cropped).jpg
+   d: default
+   c: Luanda Bay
+   - mulenvos-ao | Mulenvos
+   - viana-ao | Viana
+   - kikolo-ao | Kikolo
+   - maianga-ao | Maianga
+   - camama-ao | Camama
+   - golfe-ao | Golfe
+   - hoji-ya-henda-ao | Hoji ya Henda
+   - baku | Baku
+   - cartagena | Cartagena
+#381 Durban_from_the_Balcony_(Dennis_Sylvester_Hurd)_1.jpg [GPS -29.83,31.01]
+   d: Durban from the Balcony
+   c: Skylines of Durban; Views of Durban
+   - pietermaritzburg-za | Pietermaritzburg | 65km
+#382 Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg [GPS 37.18,-3.59]
+   d: Dawn on Charles V Palace in Alhambra, Granada, Andalusia (Spain).
+   c: Alhambra in 2014; Palacio de Carlos V; Views of Alhambra from Mirador de San Nicolás
+   - oran-dz | Oran | 312km
+#383 Fortaleza_de_São_Sebastião_-_detail.jpg
+   d: S. Sebastião fortress, Mozambique Island, Mozambique.
+   c: 2009 photographs of Mozambique; Fortaleza de São Sebastião (Ilha de Moçambique)
+   - nampula-mz | Nampula
+   - goyang-si | Goyang-si
+#384 Kondoa_mchoro_mwambani_2012_Tamino.jpg
+   d: Rock paintings at Kondoa, Tanzania 2012
+   c: Dodoma Region; Kondoa Rock Art Sites; Rock paintings in Tanzania
+   - dodoma-tz | Dodoma
+#385 Boulders_Beach_Suedafrika.jpg [GPS -34.20,18.45]
+   d: Boulders Beach South Africa
+   c: January 2017 South Africa photographs; Spheniscus demersus at Boulders Penguin Colony
+   - benghazi-ly | Benghazi | 7375km
+#386 Lagos-centre-from-executive-lounge-Continental-hotel-2026-IMG_7970.jpg
+   d: L'île de Lagos, vue depuis l'hôtel Continental; Lagos Island, view from the Continental Hotel
+   c: Lagos, Nigeria; Skylines
+   - abeokuta-ng | Abeokuta
+   - agege-ng | Agege
+   - cotonou-bj | Cotonou
+   - east-london | East London
+#387 Marokko0112_(retouched).jpg
+   d: (slightly lightened version of original photo, with contrast increased, with intention to use in an article)
+   c: Koutoubia Minaret; Koutoubia Mosque
+   - agadir-ma | Agadir
+   - playa-del-carmen | Playa del Carmen
+   - niksar | Niksar
+#388 Vilnius_old_town_by_Augustas_Didzgalvis.jpg
+   d: Vilnius Old Town
+   c: Views To The Europa Tower, Lithuania; Vilnius Old Town
+   - minsk-by | Minsk
+#389 Будинок_з_химерами,_серпень_2019.jpg [GPS 50.45,30.53]
+   d: Будинок житловий, Київ, Банкова вул., 10
+   c: Facades of House with Chimeras (Kyiv)
+   - kharkiv-ua | Kharkiv | 411km
+   - dnipro-ua | Dnipro | 393km
+   - donetsk-ua | Donetsk | 592km
+   - zaporizhzhya-ua | Zaporizhzhya | 441km
+   - kryvyy-rih-ua | Kryvyy Rih | 351km
+   - la-gloria | La Gloria | 10264km
+#390 Museum_of_Oxford_(5652685943).jpg [GPS 51.75,-1.26]
+   d: The Town Hall, St Aldate's Street, Oxford. The Museum of Oxford is in this end of the building
+   c: Museum of Oxford; Oxford Town Hall
+   - birmingham-gb | Birmingham | 92km
+   - lapu-lapu-city | Lapu-Lapu City | 11359km
+#391 Bucharest_-_Palace_of_the_Parliament_(2024)_(2).jpg
+   d: Photo of the Palace of the Parliament, Bucharest, Romania
+   c: Creative Commons Attribution 2.0 files; Wikipedia images using freedom of panorama
+   - odesa-ua | Odesa
+#392 Abbey_of_Montserrat_02.jpg [GPS 41.59,1.84]
+   d: Abbey Santa Maria de Montserrat, Catalonia, Spain
+   c: Buildings in Monestir de Montserrat; Plaça de la Creu (Monestir de Montserrat)
+   - valencia-es | Valencia | 301km
+   - zaragoza-es | Zaragoza | 226km
+   - ahvaz | Ahvaz | 4287km
+#393 Krakow_Rynek_Glowny_panorama_2.jpg
+   d: Kraków - Main Market Square
+   c: Adam Mickiewicz Monument in Kraków; Churches in Poland photographed in 2009; Facades in Kraków; Houses at Old Town Market Square in Kraków; Panoramics of Old To
+   - lviv-ua | Lviv
+#394 Tanbaly.jpg
+   d: Tamgaly World Heritage site
+   c: Tamgaly
+   - barnaul-ru | Barnaul
+#395 UB_downtown.jpg
+   d: View of Ulaanbaatar in Mongolia, with the Blue Sky Tower.
+   c: Downtowns and city centers; Panoramic views of Ulaanbaatar; Ulaanbaatar
+   - irkutsk-ru | Irkutsk
+   - pretoria | Pretoria
+#396 Saint_Basil's_Cathedral_and_the_Red_Square.jpg
+   d: A picture of the view in Red Square in Moscow, taken by the U.S. Department of State // Actually, only a small portion of the square can be seen (the blue stand
+   c: Ostankino Tower; Red Square in the 2010s; Remote views of Saint Basil's Cathedral; Views of Moscow Kremlin
+   - yaroslavl-ru | Yaroslavl
+   - loniya | Loniya
+#397 View_of_Tbilisi_from_Tabori_Church_2023-10-08-2.jpg [GPS 41.69,44.81]
+   d: View of Tbilisi from Tabori Church
+   c: 2023 in Tbilisi; Ballooning in Georgia (country); Bridges photographed in 2023; Cityscapes of Tbilisi; Kura, Tbilisi
+   - makhachkala-ru | Makhachkala | 264km
+#398 Panoramic_view_over_central_Sofia_and_the_Vitosha_Mountain_2017-10-08.jpg [GPS 42.70,23.33]
+   d: central Sofia and the Vitosha Mountain, Bulgaria
+   c: Aerial photographs of Sofia; Aerial photographs of churches in Bulgaria; Saint Nicholas Russian Church, Sofia; Views from Sofia to Vitosha
+   - pristina-xk | Pristina | 177km
+   - rangpur | Rangpur | 6185km
+#399 Sobrevuelos_CDMX_HJ2A4913_(25514321687)_(cropped).jpg
+   d: Fotografías de la Ciudad de México desde el aire.
+   c: Sobrevuelos CDMX
+   - ecatepec-de-morelos-mx | Ecatepec de Morelos
+   - santiago-de-queretaro-mx | Santiago de Querétaro
+   - gustavo-adolfo-madero-mx | Gustavo Adolfo Madero
+   - ciudad-nezahualcoyotl-mx | Ciudad Nezahualcoyotl
+   - naucalpan-de-juarez-mx | Naucalpan de Juárez
+   - tlalnepantla-mx | Tlalnepantla
+   - cuautitlan-izcalli-mx | Cuautitlán Izcalli
+   - ciudad-lopez-mateos-mx | Ciudad López Mateos
+   - azcapotzalco-mx | Azcapotzalco
+   - iztacalco-mx | Iztacalco
+   - miguel-hidalgo-mx | Miguel Hidalgo
+   - ad-dawahy | Aḍ-Ḍawāḥy
+   - sardhana | Sardhana
+#400 Panorámica_Guadalajara_desde_edificio_Bansi_hacia_norte_(cropped).jpg [GPS 20.68,-103.38]
+   d: Guadalajara, Jalisco, México
+   c: Panoramics in Guadalajara, Mexico
+   - leon-de-los-aldama-mx | León de los Aldama | 183km
+   - san-luis-potosi-mx | San Luis Potosí | 299km
+   - aguascalientes-mx | Aguascalientes | 176km
+   - tlaquepaque-mx | Tlaquepaque | 10km
+   - victoria-de-durango-mx | Victoria de Durango | 394km
+   - mazatlan-mx | Mazatlán | 422km
+   - irapuato-mx | Irapuato | 211km
+   - columbus | Columbus | 2888km
+   - horishni-plavni | Horishni Plavni | 11176km
+#401 Carlsbad_Interior_Formations.jpg
+   d: Picture of interior cave formations at Carlsbad Caverns National Park, New Mexico taken in June 2003 by Eric Guinther (Marshman at en.wikipedia) and donated to 
+   c: Carlsbad Cavern; Columns (speleology); Draperies; Stalactites
+   - ciudad-juarez-mx | Ciudad Juárez
+#402 Dzilam_de_Bravo,_Yucatán_(04).JPG [GPS 21.39,-88.89]
+   d: Iglesia principal de Dzilam de Bravo, Yucatán.
+   c: Churches in Yucatán photographed in 2013; Dzilam de Bravo
+   - merida-mx | Mérida | 89km
+#403 Templo_Tijuana_Mexico_(cropped).jpg
+   d: The Tijuana Temple of The Church of Jesus Christ of Latter-day Saints.
+   c: 2018 in Tijuana; Tijuana Mexico Temple
+   - mexicali-mx | Mexicali
+   - ensenada-mx | Ensenada
+   - poblacion-san-felipe | Poblacion, San Felipe
+#404 SarahLake.jpg
+   d: Sarah Lake, Quetico Provincial Park, Ontario, Canada
+   c: Lakes of Ontario; Lakes of Quetico Provincial Park; Western Great Lakes forests
+   - winnipeg-ca | Winnipeg
+   - hargeysa | Hargeysa
+#405 View_of_Monterrey_(2015).jpg
+   d: Vista de la casa del gordo
+   c: Cerro de la Silla Mountain, Nuevo León; Views of Monterrey
+   - torreon-mx | Torreón
+   - saltillo-mx | Saltillo
+   - guadalupe-mx | Guadalupe
+   - reynosa-mx | Reynosa
+   - heroica-matamoros-mx | Heroica Matamoros
+   - ciudad-apodaca-mx | Ciudad Apodaca
+   - ciudad-general-escobedo-mx | Ciudad General Escobedo
+   - nuevo-laredo-mx | Nuevo Laredo
+   - san-nicolas-de-los-garza-mx | San Nicolás de los Garza
+   - lusaka | Lusaka
+   - qingyang | Qingyang
+   - pyryatyn | Pyryatyn
+#406 CN_Tower_logo.png
+   d: Logo of the CN Tower
+   c: CN Tower; Logos of buildings; Logos of places in Canada; Red logos with transparent background
+   - mississauga-ca | Mississauga
+   - brampton-ca | Brampton
+   - hamilton-ca | Hamilton
+#407 Skyline_of_Vancouver,_Canada.jpg [GPS 49.27,-123.10]
+   d: Aerial view of downtown Vancouver, British Columbia, Canada. It is the 3rd largest metropolitan area in Canada and has the 4th highest population density in Nor
+   c: Aerial photographs of Vancouver; Skylines of Vancouver
+   - surrey-ca | Surrey | 27km
+#408 Montreal,_Quebec_skyline.jpg [GPS 45.50,-73.59]
+   d: The skyline of downtown Montreal, Quebec (pop. 1,762,000). It's the 2nd-largest city in Canada, and 8th-largest in North America.
+   c: Montreal
+   - laval-ca | Laval | 11km
+#409 Mexico-Popocatepetl.jpg
+   d: Volcano Popocatépetl, north side, view from Paso de Cortez
+   c: Forests in Mexico; Glaciers of Popocatépetl; Popocatépetl from north; Popocatépetl in 2006; Tree lines
+   - veracruz-mx | Veracruz
+   - xalapa-de-enriquez-mx | Xalapa de Enríquez
+#410 Mt_Pinatubo_trekking_-_panoramio_(5).jpg [GPS 15.15,120.35]
+   d: Mt Pinatubo trekking
+   c: Mount Pinatubo summit caldera with lake
+   - mount-pinatubo | Mount Pinatubo | 1km
+#411 Geneve_2005_001_Ork.ch.jpg
+   d: Photographie aérienne de Genève, la rade, le jet d'eau, le Pont du Mont-Blanc, le 26 avril 2005.
+   c: Aerial photographs of Geneva; Remote views of Jet d'eau de Genève
+   - geneva | Geneva
+#412 Al_Alam_Palace.jpg [GPS 23.61,58.59]
+   c: 2010 Asian Beach Games; Qasr Al Alam Royal Palace
+   - muscat | Muscat | 19km
+#413 KAGAGAHAN_RIJANI.jpg
+   d: foto tersebut dimabil wilayah desa sembalun yang merupakan pintu masuk bagi pendaki yang ingin mendaki puncak gunung rinjani.
+   c: Mount Rinjani in 2017; Sembalun; Views of Mount Rinjani
+   - mount-rinjani | Mount Rinjani
+#414 Macau_Skyline_(157820121).jpeg [GPS 22.19,113.56]
+   d: Macau Skyline / 500px provided description: Macau Skyline [#sky ,#sunset ,#water ,#clouds ,#architecture ,#cityscape ,#bridge ,#skyline ,#macau ,#skyscrapers ,#
+   c: Views of Macau
+   - macau | Macau | 2km
+#415 2009-0825-GreatOceanRoadsign.jpg
+   d: Sign at the eastern end of the Great Ocean Road, Australia.
+   c: Great Ocean Road Arch
+   - great-ocean-road | Great Ocean Road
+#416 Tōdai-ji_Kon-dō.jpg
+   d: Tōdai-ji Kon-dō, at Nara Japan.
+   c: Front views of the Golden Hall, Todaiji
+   - nara | Nara
+#417 Gold_Coast_skyline_(Unsplash).jpg [GPS -28.02,153.43]
+   d: Gold Coast, Australia
+   c: Surfers Paradise, Queensland
+   - gold-coast | Gold Coast | 9km
+#418 Great_Blue_Hole.jpg
+   d: Great Blue Hole, Coast of Belize - a phenomenon of Karst topography.
+   c: Aerial photographs of Belize; Great Blue Hole (Belize)
+   - great-blue-hole | Great Blue Hole
+#419 Iss016e019375.jpg
+   d: Port of Suez, Egypt is featured in this image photographed by an Expedition 16 crewmember on the International Space Station. The Port of Suez is located in Egy
+   c: 2007 satellite pictures; Aerial photographs of Suez Canal; Debouch; December 2007 in Egypt; ISS Expedition 16 Crew Earth Observations
+   - suez-canal | Suez Canal
+#420 Efmo_View_from_Fire_Point.jpg
+   d: Mississippi River from Fire Point in Effigy Mounds National Monument, Iowa, USA
+   c: Bodies of water in Effigy Mounds National Monument; Islands in the Mississippi River; Mississippi River in Iowa
+   - mississippi-river | Mississippi River
+#421 Mt_erebus.jpg
+   d: Mount Erebus, Ross Island, Antarctica.
+   c: 1972 in Antarctica; Eruption columns of Mount Erebus; Mount Erebus
+   - mount-erebus | Mount Erebus
+#422 Lake_Titicaca_ESA22522896.jpeg
+   d: Ahead of World Wetlands Day, the Copernicus Sentinel-2 mission takes us over Lake Titicaca – one of the largest lakes in South America.Zoom in to see this image
+   c: Satellite pictures of Lake Titicaca; Sentinel-2 images
+   - lake-titicaca | Lake Titicaca
+#423 High_West_and_Victoria_Peak_from_Victoria_Gap_(crop1).jpg
+   d: High West and Victoria Peak from Victoria Gap, Hong Kong
+   c: High West; The Mount Austin; Victoria Peak
+   - victoria-peak | Victoria Peak
+#424 Sarona_CBD_01_(cropped).jpg
+   d: Sarona CBD, Tel Aviv, Israel
+   c: Montefiore neighborhood; Photos and video from unmanned aerial vehicles of Tel Aviv-Yafo; Sarona Compound; September 2023 in Tel Aviv-Yafo; Skyscrapers in Tel A
+   - tel-aviv | Tel Aviv
+#425 Luxembourg_Grand_Ducal_Palace_01.jpg
+   d: Grand Ducal Palace in Luxembourg city. At the right: part of the Parliament building (Chambre des députés)
+   c: Grand Ducal Palace (Luxembourg); May 2006 Luxembourg photographs
+   - luxembourg-city | Luxembourg City
+#426 St_Sebastian_Curtain_(cropped).jpg
+   d: This media is about Maltese cultural property with inventory number 01587.
+   c: 2017 in Valletta; German Curtain (Valletta); Skylines in Valletta; St. Sebastian Curtain
+   - valletta | Valletta
+#427 Custom_House,_River_Lagan,_Belfast.jpg [GPS 54.60,-5.92]
+   d: Custom House, River Lagan, Belfast
+   c: Custom House, Belfast; July 2024 in Belfast; River Lagan
+   - belfast | Belfast | 1km
+#428 Kathedrale_von_Palma.jpg [GPS 39.57,2.65]
+   d: Palma Cathedral in Palma de Mallorca, Majorca, Spain
+   c: Baluard de ses Voltes; Cathedral of Palma de Mallorca - View from Parc de la Mar; July 2015 in Palma de Mallorca
+   - palma-de-mallorca | Palma de Mallorca | 0km
+#429 Franz_josef_Glacier_LC0250.jpg [GPS -43.44,170.17]
+   d: Franz Josef Glacier, Southern Alps, New Zealand
+   c: Franz Josef Glacier / Kā Roimata o Hine Hukatere
+   - franz-josef-glacier | Franz Josef Glacier | 4km
+#430 Promenade_des_Anglais_Nice_IMG_1255.jpg
+   d: Promenade des Anglais in Nice
+   c: Quai des États-Unis (Nice)
+   - nice | Nice
+#431 Panorama_von_Monaco-La_Turbie.jpg [GPS 43.73,7.40]
+   d: panoramic view of Monaco from a viewpoint near the observatory which is situated in the south of the village of "La Turbie"
+   c: Port Hercule; Port of Fontvieille; Views of Monaco from Tête de Chien
+   - monaco | Monaco | 1km
+#432 Nürnberger_Burg_im_Herbst_2013.jpg
+   d: Nuremberg Castle as seen from southwest
+   c: Towers with flags in Germany; Views of Nuremberg Castle
+   - nuremberg | Nuremberg
+#433 Bering_Strait.jpeg
+   d: Bering strait, image taken by MISR satellite. With the Seward Peninsula of Alaska to the east, and Chukotskiy Poluostrovof Siberia to the west, the Bering Strai
+   c: Bering Strait; Photos of Russia by MISR; Photos of the United States by MISR; Satellite pictures of the Bering Sea
+   - bering-strait | Bering Strait
+#434 2013_Old_San_Juan_01.JPG [GPS 18.47,-66.12]
+   d: Old San Juan, Puerto Rico from San Juan Bay.
+   c: Bahía de San Juan (Puerto Rico); Distrito Histórico del Viejo San Juan; March 2013 in Puerto Rico; Puerta de San Juan (San Juan, Puerto Rico)
+   - san-juan | San Juan | 9km
+#435 STS059-238-074_Strait_of_Gibraltar.jpg
+   d: The Strait of Gibraltar provides a natural physical barrier between the countries of Spain (north) and Morocco (south). In geologic terms, the 10-mile (16-kilom
+   c: Alboran Sea; Curvature of the horizon; Earth photography during STS-59; Satellite pictures of Andalusia; Satellite pictures of the Strait of Gibraltar
+   - strait-of-gibraltar | Strait of Gibraltar
+#436 Orlando,_Florida_(cropped).jpg [GPS 28.53,-81.41]
+   d: The skyline of downtown Orlando, Florida.
+   c: Orlando, Florida
+   - orlando | Orlando | 3km
+#437 Fell's_Point_Aerial_2022.jpg
+   d: An aerial photograph of the Fell's Point waterfront in Baltimore, in June 2022 at sunset.
+   c: Aerial photographs of Baltimore; Cityscapes in the United States; Fell's Point, Baltimore; Sunsets of Maryland
+   - baltimore | Baltimore
+#438 Ascending_the_Duquesne_Incline.jpg [GPS 40.44,-80.02]
+   d: Ascending the Duquesne Incline on Mount Washington.
+   c: Duquesne Incline
+   - pittsburgh | Pittsburgh | 4km
+#439 Kansas_City_-_Downtown_-_panoramio_(15).jpg [GPS 39.08,-94.59]
+   d: Downtown
+   c: Kansas City, Missouri skylines
+   - kansas-city | Kansas City | 2km
+#440 Downtown_Cincinnati_viewed_from_Devou_Park_(cropped).jpg
+   d: Downtown Cincinnati viewed from Devou Park
+   c: Cincinnati, Ohio; Cincinnati skylines; Downtown Cincinnati, Ohio
+   - cincinnati | Cincinnati
+#441 Milwaukee_Skyline_w_New_NW_Mutual_Building_2025_by_Isaac_Rowlett.jpg
+   d: Milwaukee Skyline with New NW Mutual Building 2025 by Isaac Rowlett
+   c: Milwaukee, Wisconsin
+   - milwaukee | Milwaukee
+#442 SLC_Skyline_2024.jpg
+   d: Salt Lake City skyline view
+   c: 2022 in Salt Lake City; July 2022 in Utah; Salt Lake City skylines; Wasatch Range
+   - salt-lake-city | Salt Lake City
+#443 Palace_of_the_Governors.jpg [GPS 35.69,-105.94]
+   d: The Palace of the Governors is an adobe structure located on Palace Avenue on the Plaza of Santa Fe.
+   c: 2014 in Santa Fe, New Mexico; Palace of the Governors
+   - santa-fe | Santa Fe | 3km
+#444 Savannah.tif
+   d: This is an image of a place or building that is listed on the National Register of Historic Places in the United States of America. Its reference number is 6600
+   c: Savannah Historic District (Savannah, Georgia)
+   - savannah | Savannah
+#445 East_Battery_Street_Charleston_Aug2010.jpg [GPS 32.77,-79.93]
+   d: Homes on East Battery Street in Charleston, South Carolina
+   c: 2010 in Charleston, South Carolina; Charleston Old and Historic District; East Battery, Charleston, South Carolina; Houses in Charleston, South Carolina
+   - charleston | Charleston | 5km
+#446 Southernmost_point_buoy,_NE_view.jpg [GPS 24.55,-81.80]
+   d: Southernmost Point Buoy in Key West, Florida
+   c: 2018 in Key West, Florida; August 2018 in Florida; Clouds and blue sky in Florida; Southernmost point buoy in Key West, Florida
+   - key-west | Key West | 2km
+#447 Victoria_BC,_Canada_(Johnson_Street)_-_panoramio.jpg [GPS 48.43,-123.37]
+   d: Victoria BC, Canada (Johnson Street)
+   c: Downtown Victoria, British Columbia; June 2012 in Victoria, British Columbia
+   - victoria | Victoria | 0km
+#448 Missouri_River_in_2021_01.jpg [GPS 47.91,-110.06]
+   d: Missouri River in 2021 by Christopher Michel
+   c: Upper Missouri River Breaks National Monument
+   - missouri-river | Missouri River | 1895km
+#449 Town_of_Banff_viewed_from_Sulphur_Mountain.jpg
+   d: The town of Banff viewed from Sulphur Mountain.
+   c: 2020 in Alberta; 2020 in Canada; Aerial photographs of Canada; Banff, Alberta; Banff National Park
+   - banff | Banff
+#450 DarwinOct172024_02.jpg [GPS -12.47,130.84]
+   d: Darwin, Northern Territory, AU
+   c: Darwin, Northern Territory
+   - darwin | Darwin | 3km
+#451 Alice_Springs,_2015_(01).JPG [GPS -23.69,133.88]
+   d: View of Alice Springs, Northern Territory, Australia, from Anzac Hill.
+   c: Alice Springs, Northern Territory; July 2015 in the Northern Territory
+   - alice-springs | Alice Springs | 1km
+#452 Cairns_(Queensland)_(cropped).jpg [GPS -16.93,145.77]
+   d: View of Cairns, Queensland, Australia
+   c: Views of Cairns
+   - cairns | Cairns | 1km
+#453 Horseshoe_Bend_13_February_2023.jpg
+   d: Horseshoe Bend of the Colorado River in Arizona, USA.
+   c: Horseshoe Bend (Arizona)
+   - colorado-river | Colorado River
+#454 Mount_Elbert_and_Surrounding_Sawatch_Range,_Colorado_(9179291029).jpg [GPS 39.12,-106.44]
+   d: Mount Elbert is the highest peak in the Rocky Mountains of North America. At 14,440 feet (4,401 m), it is the second-highest mountain in the contiguous United S
+   c: Aerial photographs of Lake County, Colorado; Mount Elbert; Sawatch Range
+   - rocky-mountains | Rocky Mountains | 828km
+#455 Caspian_Sea_from_orbit.jpg
+   d: This is a view from orbit of the Caspian Sea as imaged by the MODIS sensor on the Terra satellite. Caption: The original caption from NASA: ::"The northern part
+   c: 2003 in Azerbaijan; 2003 in Turkmenistan; 2003 satellite pictures; June 2003 in Iran; June 2003 in Kazakhstan
+   - caspian-sea | Caspian Sea
+#456 Mt_Etna_and_Catania1.jpg
+   d: Mt Etna, with Catania in the foreground
+   c: 2007 aerial photographs of Italy; Aerial photographs of Catania; Aerial views of Mount Etna; Monti Rossi
+   - mount-etna | Mount Etna
+#457 Il_cratere_del_Vulcano_-_panoramio.jpg [GPS 40.83,14.25]
+   d: Il cratere del Vulcano
+   c: Vesuvius from Naples (W)
+   - mount-vesuvius | Mount Vesuvius | 15km
+#458 Mont_Blanc_Aiguille.jpg
+   d: Mont Blanc together with Aiguille du Midi.
+   c: North side of Mont Blanc
+   - mont-blanc | Mont Blanc
+#459 Jungfrau03.jpg
+   d: Jungfrau from north-east
+   c: Jungfrau
+   - jungfrau | Jungfrau
+#460 Sentiero_del_Viandante_DSC_6340_(14020554463).jpg [GPS 46.00,9.30]
+   d: DSC_6340.jpg
+   c: Bellagio; Lake Como; Lierna; Panoramas of Lake Como; Sentiero del Viandante
+   - lake-como | Lake Como | 3km
+#461 Cliffs-Of-Moher-OBriens-From-South.JPG [GPS 52.96,-9.45]
+   d: Looking north along the cliffs towards O'Brien's Tower.
+   c: Cliffs of Moher
+   - cliffs-of-moher | Cliffs of Moher | 2km
+#462 Snowdon_massif.jpg [GPS 53.10,-4.03]
+   c: Snowdon massif
+   - snowdon | Snowdon | 5km
+#463 BenNevis2005.jpg
+   d: Ben Nevis, 1,344 metres, Scotland. Photograph taken from Banavie about 8 km north west. 18:55, 11 July 2005. The summit is beyond and to the left of the apparen
+   c: Ben Nevis
+   - ben-nevis | Ben Nevis
+#464 Blick_vom_Hohfelsen.jpg [GPS 48.59,8.18]
+   d: View from the Hohfelsen near Seebach in Germany.
+   c: Landscapes of the Northern Black Forest; Landschaftsschutzgebiet Oberes Achertal; Nature of Seebach (Baden); Nördlicher Talschwarzwald; Remote views of Vosges m
+   - black-forest | Black Forest | 40km
+#465 SBB_RABe_514_DTZ_Rheinfall.jpg [GPS 47.68,8.61]
+   d: Rhine Falls with Laufen castle and an SBB RABe 514 trainset on an S16 service from Herrliberg-Feldmeilen to Thayngen.
+   c: Clouds and blue sky in Switzerland; June 2013 in the canton of Zürich; Remote views of Schloss Laufen; Rhine Falls; SBB RABe 514
+   - rhine-falls | Rhine Falls | 0km
+#466 Danube_Delta_ESA23450088.jpeg
+   d: The Copernicus Sentinel-2 mission takes us over the Danube Delta – the second largest river delta in Europe.Zoom in to see this image at its full 10 m resolutio
+   c: Photos of Romania by Sentinel-2; Photos of Ukraine by Sentinel-2; Satellite pictures of Danube Delta; Square photos of bodies of water; Wetland monitoring
+   - danube-delta | Danube Delta
+#467 Lake_Ohrid,_Macedonia-Albania_viewed_from_a_NASA_satellite.jpg
+   d: Lake Ohrid straddles the border between North Macedonia and Albania. It is one of Europe's oldest (3-5 million years old) and deepest (almost 300 m) lakes, with
+   c: Lake Ohrid; Satellite pictures of Albania; Wetland monitoring
+   - lake-ohrid | Lake Ohrid
+#468 Mount_Ararat_and_the_Yerevan_skyline.jpg
+   d: Ağrı Dağı and the Yerevan skyline. The Opera house is visible in the center.
+   c: 2014 in Yerevan; General views of Yerevan; Views of Mount Ararat from Yerevan
+   - mount-ararat | Mount Ararat
+#469 Amazon_River_ESA387332.jpg
+   d: The Copernicus Sentinel-2A satellite takes us over northern Brazil on 22 August 2017, where the Amazon River meets the Atlantic Ocean (Amazon Delta). Click on t
+   c: 2017 satellite pictures; Cumulus humilis clouds; Delta islands; Fluvial sediment transport; Marajó Várzea Ecoregion
+   - amazon-river | Amazon River
+#470 Aerial_view_of_the_Congo_River_near_Kisangani.jpg
+   d: Aerial view of the Congo River near Kisangani, the capital of Orientale Province. Kisangani is an important commercial hub point for river and land transportati
+   c: 2010 in Orientale Province; Aerial photographs of rivers of the Democratic Republic of the Congo; Congo River
+   - congo-river | Congo River
+#471 STS51G-034-0012_Lake_Tanganyika_June1985.jpg
+   d: STS51G-034-0012 Lake Tanganyika, Tanzania, Zaire, and Zambia June 1985
+   c: Rukwa Valley; Satellite pictures of Lake Tanganyika
+   - lake-tanganyika | Lake Tanganyika
+#472 Okavango_Delta,_Botswana1.jpg
+   d: View on the Okavango Delta
+   c: Aerial photographs of Okavango Delta
+   - okavango-delta | Okavango Delta
+#473 Mount_Nemrut_-_East_Terrace_(4961323529).jpg
+   d: Mount Nemrut - East Terrace Nemrut Tümülüsü
+   c: 2010 in Adıyaman; East terrace of Mount Nemrut
+   - mount-nemrut | Mount Nemrut
+#474 Baikal.A2001296.0420.250m-NASA.jpg
+   d: Lake Baikal from satellite Sensor: Terra/MODIS
+   c: NASA MODIS images of Russia; Satellite pictures of Baikal lake
+   - lake-baikal | Lake Baikal
+#475 20140516阿蘇山広域.jpg
+   d: 阿蘇山広域空撮画像 阿蘇山広域空撮画像。
+   c: Aerial photographs of Mount Aso
+   - mount-aso | Mount Aso
+#476 Jeju_Island.jpg
+   d: Jeju Island
+   c: Geography of Jeju-do; Landsat images of South Korea
+   - jeju-island | Jeju Island
+#477 Gobi_Desert.jpg
+   c: Geography of Inner Mongolia; Gobi Desert
+   - gobi-desert | Gobi Desert
+#478 Kailash_north.JPG
+   d: Northern side of Mt Kailash (Tibet Autonomous Region, People's Republic of China).
+   c: Mount Kailash
+   - mount-kailash | Mount Kailash
+#479 981012-Damavand-South-IMG_9861-2.jpg [GPS 35.88,52.11]
+   d: جبل دماوند، من الجهة الجنوبية، محافظة مازندران، إيران، التقطت الصورة في 2 يناير 2010، تصوير صفا دانشور
+   c: January 2020 Iran photographs; Mount Damavand; Winter in Iran
+   - mount-damavand | Mount Damavand | 8km
+#480 AralSea1989_2014.jpg
+   d: A comparison of the Aral Sea in 1989 (left) and 2014 (right).
+   c: 1989 in Asia; 2014 in Asia; Satellite pictures of Aral Sea
+   - aral-sea | Aral Sea
+#481 Zion_angels_landing_view.jpg [GPS 37.27,-112.95]
+   d: Zion Canyon at sunset in Zion National Park as seen from Angels Landing looking south.
+   c: September 2004 in Utah; Sunsets of Utah; Valleys of Utah; Views from Angels Landing; Zion Canyon
+   - zion-national-park | Zion National Park | 6km
+#482 General_Sherman_Tree_in_Sequoia_National_Park_-_June_2022.jpg
+   d: Photograph of the General Sherman Tree, located in Sequoia National Park in Tulare County, California. This photo was taken in June 2022.
+   c: General Sherman Tree; June 2022 in California
+   - sequoia-national-park | Sequoia National Park
+#483 Redwood_National_Park,_fog_in_the_forest.jpg
+   d: Coast Redwood forest and understory plants — in Redwood National Park, California.
+   c: Forests in California; Nature of the California Coast Ranges; Northern California coastal forests; Sequoia sempervirens in Redwood National Park; Trees in Calif
+   - redwood-national-and-state-parks | Redwood National and State Parks
+#484 Rocky_Mountain_National_Park_in_September_2011_-_Glacier_Gorge_from_Bear_Lake.JPG
+   d: See file name
+   c: Bear Lake (Rocky Mountain National Park)
+   - rocky-mountain-national-park | Rocky Mountain National Park
+#485 Mountain_Goat_at_Hidden_Lake.jpg [GPS 48.69,-113.74]
+   d: Mountain goat at Hidden Lake, near Logan Pass, in Glacier National Park
+   c: Dragons Tail (Montana); Hidden Lake (Flathead County, Montana); Oreamnos americanus in Glacier National Park
+   - glacier-national-park | Glacier National Park | 9km
+#486 Sunset_over_the_River_of_Grass,_NPSphoto,_G.Gardner_(9255157507).jpg
+   d: Sunset over the River of Grass, NPSphoto, G.Gardner
+   c: Cladium jamaicense of Everglades National Park; Sunsets of Everglades National Park
+   - everglades-national-park | Everglades National Park
+#487 Acadia_National_Park_02.JPG
+   d: Acadia National Park (Jordan Pond and the Bubbles), Maine
+   c: Jordan Pond (Acadia National Park); The Bubbles; Water reflections of mountains in Maine
+   - acadia-national-park | Acadia National Park
+#488 Joshua_Tree_-_Cyclops_+_Potato_Head_-_Sunrise.jpg [GPS 34.01,-116.16]
+   d: Joshua Tree National Park: Cyclops and Pee Wee Formations near Hidden Valley Campground during civil twilight before sunrise. The receding fringe of Earth's sha
+   c: Belt of Venus; Chimney Rock in Joshua Tree National Park; Civil twilights; Cyclops formation in Joshua Tree National Park; Earth's shadow
+   - joshua-tree-national-park | Joshua Tree National Park | 14km
+#489 Mesquite_Sand_Dunes_in_Death_Valley.jpg [GPS 36.62,-117.12]
+   d: Mesquite Dunes in Death Valley National Park
+   c: Mesquite Flat Sand Dunes; Nature of the Mojave Desert
+   - death-valley-national-park | Death Valley National Park | 30km
+#490 Tahoe_North_Shore_from_the_East_Shore.jpg
+   d: Image of the South Shore of the Lake from the West Shore. Heavenly Valley's ski runs can be seen quite clearly, as can just a bit of Job's Peak on the right.
+   c: April 2013 in California; April 2013 in Nevada; Lake Tahoe
+   - lake-tahoe | Lake Tahoe
+#491 Rainier20200906.jpg [GPS 46.91,-121.97]
+   d: Mount Rainier (also known as Tahoma or Tacoma) glows blue and red on the evening of September 6th, 2020. This is the northwestern slope seen from the window of 
+   c: Aerial photographs of Mount Rainier; Golden hour landscapes in the United States; Mount Rainier at sunset; Mount Rainier in 2020
+   - mount-rainier | Mount Rainier | 17km
+#492 Wonder_Lake_and_Denali.jpg
+   d: Wonder Lake and Denali (original Flickr title: Reflection Pond)
+   c: Clouds and blue sky in Alaska; Denali and Wonder Lake; June 2010 in Alaska; Landscapes of Denali National Park; Reflections in lakes
+   - denali | Denali
+#493 Crater_Lake_winter_pano2.jpg
+   d: Panoramic winter view of Crater Lake in Crater Lake National Park, Oregon, from Rim Village. Full-size version.
+   c: Crater Lake in 2012; November 2012 in Oregon; Panoramics of Crater Lake; Snow at Crater Lake; Winter in Oregon
+   - crater-lake | Crater Lake
+#494 Moraine_Lake_17092005.jpg [GPS 51.33,-116.18]
+   d: Valley of the Ten Peaks and Moraine Lake, Banff National Park, Canada. Mountains from left to right: Tonsa (3057 m), Mount Perren (3051 m), Mount Allen (3310 m)
+   c: 2005 in Banff National Park; Blue sky in Alberta; Deltaform Mountain; Forests in Banff National Park; Forests in Canada in autumn
+   - banff-national-park | Banff National Park | 23km
+#495 Mount_Andromeda_at_dusk,_Jasper_National_Park,_Alberta,_Canada.jpg [GPS 52.21,-117.23]
+   d: Mount Andromeda at dusk, towering over the rocky trail leading to the Athabasca Glacier in the Columbia Icefield, Jasper National Park.
+   c: Athabasca Glacier; Columbia Icefield; Mount Andromeda; Mountains of Jasper National Park
+   - jasper-national-park | Jasper National Park | 79km
+#496 U.S._Route_1,_Florida_Keys.jpg [GPS 24.71,-81.12]
+   d: Overseas Highway and Railway Bridges
+   c: Overseas Highway
+   - florida-keys | Florida Keys | 43km
+#497 White_Crest_Beach_Wellfleet.jpg [GPS 41.94,-69.98]
+   d: Panoramic view (six stitched photographs) of White Crest Beach on the Cape Cod National Seashore in Wellfleet, Massachusetts (location is on edge of dune cliff,
+   c: Beaches in Wellfleet, Massachusetts; Cape Cod National Seashore; Panoramics in Massachusetts
+   - cape-cod | Cape Cod | 34km
+#498 NCOuterBanks-EO.jpg
+   d: Cropped satellite photo to show North Carolina's Outer Banks
+   c: Barrier islands; Cape Lookout (North Carolina); Outer Banks
+   - outer-banks | Outer Banks
+#499 Vineyards_of_Napa_Valley_panorama.jpg
+   d: Napa Valley AVA is an w:American Viticultural Area located in Napa County, w:California, w:USA. Napa Valley is considered one of the top w:wine regions in the U
+   c: 2009-11-15; 2009 in Napa, California; November 2009 in California; Panoramics in Napa County, California; Vineyards at Artesa Vineyards & Winery
+   - napa-valley-ava | Napa Valley AVA
+#500 City_of_Waikiki_view.jpg
+   d: A ocean view of Waikiki
+   c: Views of Waikiki
+   - waikiki | Waikiki
+#501 NaPali_overlook_Kalalau_Valley.jpg [GPS 22.15,-159.66]
+   d: Overlooking the Kalalau Valley and the eroded, green cliffs of the Na Pali Coast in late-afternoon light. From an overlook along Rt 550 in the Koke'e State Park
+   c: Nā Pali Coast State Park
+   - na-pali-coast-state-park | Nā Pali Coast State Park | 3km
+#502 USA_Tour_2019_P095_Graceland.jpg
+   d: Graceland
+   c: 2019 in Memphis, Tennessee; Exteriors of Graceland Mansion; Graceland; January 2019 in Tennessee
+   - graceland | Graceland
+#503 131023-F-PR861-033_Hanscom_participates_in_World_Series_pregame_events.jpg
+   d: 10/24/2013 - Airmen from Hanscom Air Force Base, also captured on the centerfield Jumbotron, line the flag-draped left field wall at Fenway Park in Boston durin
+   c: "Boston Strong" in Fenway Park outfield; 2013 World Series; World Series pre-game ceremonies
+   - fenway-park | Fenway Park
+#504 Wrigley_Field_in_line_with_sign.jpg [GPS 41.95,-87.65]
+   d: Wrigley Field in line with the Chicago Cubs sign.
+   c: Aerial views of Wrigley Field; Hotel Zachary; June 2022 in Chicago; Wrigley Field bleachers exterior; Wrigley Field center field scoreboard
+   - wrigley-field | Wrigley Field | 0km
+#505 London_Wembley.jpg [GPS 51.55,-0.28]
+   d: Wembley Stadium, London, England, United Kingdom
+   c: 2022 at Wembley Stadium; Aerial photographs of Wembley Stadium; Buildings in London photographed in 2022; October 2022 in London
+   - wembley-stadium | Wembley Stadium | 0km
+#506 Indianapolis-motor-speedway-1848561.jpg
+   d: Aerial of Indianapolis Motor Speedway complex looking north. West 16th Street is in the foreground.
+   c: 2016 in Indianapolis; Aerial photographs of Indianapolis Motor Speedway; September 2016 in Indiana
+   - indianapolis-motor-speedway | Indianapolis Motor Speedway
+#507 Daytona_International_Speedway.jpg
+   d: Looking across the Daytona International Speedway's frontstrech.
+   c: Daytona International Speedway; Victory lane in NASCAR
+   - daytona-international-speedway | Daytona International Speedway
+#508 AugustaNationalMastersLogoFlowers.jpg
+   d: The logo for the Masters Tournament made of flowers, in front of the clubhouse of the Augusta National Golf Club.
+   c: Augusta National Golf Club; Masters Tournament
+   - augusta-national-golf-club | Augusta National Golf Club
+#509 Churchill_Downs_-_Louisville_Kentucky.jpg [GPS 38.20,-85.77]
+   d: Churchill Downs Louisville Kentucky
+   c: Aerial photographs of Kentucky; Aerial photographs of racecourses; Aerial photographs of sports venues in the United States; Churchill Downs; May 2018 in Kentuc
+   - churchill-downs | Churchill Downs | 0km
+#510 Sentinel-Homey.png
+   d: Homey Airport near Rachel, Nevada as seen from space
+   c: Area 51; Lac Groom; Photos of the United States by Sentinel-2
+   - area-51 | Area 51
+#511 West_Face_of_Mansion,_Mount_Vernon,_Near_Alexandria,_Virginia_(2731038734).jpg [GPS 38.71,-77.09]
+   d: Mount Vernon in Fairfax County, Virginia, near Alexandria, was the plantation home of George Washington, first President of the United States. The estate is sit
+   c: Mount Vernon
+   - mount-vernon | Mount Vernon | 0km
+#512 Monticello_reflected.JPG
+   d: This photo was taken October 2005 at Monticello, the home of Thomas Jefferson, in Charlottesville, Virginia. The reflection is from the fish pond where Jefferso
+   c: Monticello (Albemarle County, Virginia); Reflections in ponds; Water reflections of buildings in Virginia
+   - monticello | Monticello
+#513 Grand_Canyon_of_the_Yellowstone_Lower_Falls_(95819p).jpg [GPS 44.72,-110.49]
+   d: Lower Falls and Yellowstone River in the Grand Canyon of the Yellowstone, Yellowstone National Park
+   c: Grand Canyon of the Yellowstone; July 2026 in Wyoming; Lower Falls of the Yellowstone River
+   - yellowstone-national-park | Yellowstone National Park | 13km
+#514 Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_(15351915006).jpg
+   d: Global Citizen Festival Central Park New York City from NYonAir
+   c: Aerial photographs of Central Park; September 2014 in Manhattan, New York City
+   - central-park | Central Park
+#515 PersianGulf_vue_satellite_du_golfe_persique.jpg
+   d: الخليج الفارسىي.
+   c: Satellite pictures of the Persian Gulf
+   - persian-gulf | Persian Gulf
+#516 Ocean_drive_day_2009j.JPG
+   d: Ocean Drive, South Beach, Miami, Florida 2009
+   c: 2009 in Miami-Dade County, Florida; Hotels in South Beach; Ocean Drive (Miami Beach, Florida)
+   - south-beach | South Beach
+#517 Beverly_Wilshire_Hotel_(15676919512).jpg [GPS 34.07,-118.40]
+   d: Beverly Wilshire Hotel
+   c: Beverly Wilshire Hotel
+   - beverly-hills | Beverly Hills | 1km
+#518 Santa_monica_pier_entrance_evening.jpg
+   d: Entrance to the Santa Monica Pier, Santa Monica, California, at evening.
+   c: Entrance to Santa Monica Pier; Neon signs in California; Overhead signs
+   - santa-monica-pier | Santa Monica Pier
+#519 2018_Mall_of_America_01.jpg [GPS 44.86,-93.24]
+   d: The Mall of America in Bloomington, Minnesota.
+   c: Cray Inc; High-rise office buildings in Minnesota; High-rises in Bloomington, Minnesota; June 2018 in Minnesota; Mall of America
+   - mall-of-america | Mall of America | 0km
+#520 Mumbai_03-2016_30_Gateway_of_India.jpg [GPS 18.92,72.83]
+   d: The Gateway of India in Mumbai, India
+   c: March 2016 in Mumbai; People at the Gateway of India
+   - gateway-of-india | Gateway of India | 0km
+#521 LotusDelhi.jpg
+   d: Lotus Temple, India
+   c: Lotus Temple illuminated
+   - lotus-temple | Lotus Temple
+#522 Burj_Al_Arab,_Dubai.jpg [GPS 25.12,55.20]
+   d: Burj Al Arab, Jumeirah
+   c: Burj Al Arab
+   - burj-al-arab | Burj Al Arab | 3km
+#523 Artificial_Archipelagos,_Dubai,_United_Arab_Emirates_ISS022-E-024940_lrg_(cropped).jpg
+   d: The municipality of Dubai is the largest city of the Persian Gulf emirate of the same name, and has built a global reputation for large-scale developments and a
+   c: ISS Expedition 22 Crew Earth Observations; Infrastructure in the United Arab Emirates; PD NASA-AP; Satellite pictures of the Palm Jumeirah
+   - palm-jumeirah | Palm Jumeirah
+#524 Kinneret_cropped.jpg
+   d: Kinnereth (Sea of Galilee), Israel - panorama of the southern end, February 5th, 2014
+   c: Panoramics in the Sea of Galilee; Sea of Galilee
+   - sea-of-galilee | Sea of Galilee
+#525 Church_of_the_Nativity_(7703592746).jpg
+   d: Church of the Nativity
+   c: Church of the Nativity (Bethlehem)
+   - bethlehem | Bethlehem
+#526 Nazareth_Panorama_Dafna_Tal_IMOT_(14532097313).jpg
+   d: Nazareth, Galilee region with the Basilica of Annunciation on background. Photo taken by Daphna Tal for the Israeli Ministry of Tourism. Credit attribution requ
+   c: Remote views of Church of the Annunciation; Views of Nazareth
+   - nazareth | Nazareth
+#527 Walls_of_Troy_(2).jpg
+   d: Walls of Troy, Hisarlik, Turkey
+   c: Troy VI east gate
+   - troy | Troy
+#528 Ephesus_Celsus_Library_Façade.jpg
+   d: Façade of the Celsus library, in Ephesus, near Selçuk, west Turkey.
+   c: 2010 in Selçuk; Blue sky in Turkey; Views of the Library of Celsus
+   - ephesus | Ephesus
+#529 Delphi,_Greece_-_panoramio.jpg [GPS 38.48,22.51]
+   d: Delphi, Greece
+   c: Tholos in Delphi (North-West view)
+   - delphi | Delphi | 1km
+#530 Ancient_Olympia,_Greece2.jpg
+   d: Ancient Olympia, Greece. Photo taken with Nokia N8 (12 Megapixel). Αρχαία Ολυμπία. Φωτογραφία που τράβηξα με το Nokia N8.
+   c: 2010 in Olympia; Columns in Olympia; November 2010 Greece photographs; Palaestra at Olympia, north side
+   - olympia-greece | Olympia, Greece
+#531 Mt._Athos_(3939757657).jpg [GPS 40.16,24.32]
+   d: Mt. Athos
+   c: 2005 in Mount Athos; Clouds and blue sky in Greece; Clouds in Mount Athos; Mountains with clouds; Skete of Saint Anne
+   - mount-athos | Mount Athos | 0km
+#532 Knossos_R01.jpg [GPS 35.30,25.16]
+   d: The palace of Knossos (Crete, Greece): part of the northern entrance, reconstructed by the British archaeologist Sir Arthur Evans
+   c: West Bastion (Knossos)
+   - knossos | Knossos | 0km
+#533 Greece_Cape_Sounion_BW_2017-10-09_10-12-43.jpg [GPS 37.65,24.02]
+   d: Greece, Temple of Poseidon at Cape Sounion
+   c: Temple of Poseidon at Cape Sounion, South-East view
+   - temple-of-poseidon-at-sounion | Temple of Poseidon at Sounion | 0km
+#534 La_Rocca_di_Manerba_del_Garda_con_l'isola_dei_Conigli.jpg [GPS 45.56,10.57]
+   d: The Rocca of Manerba del Garda and the Isola di San Biagio known also as Isola dei Conigli island.
+   c: Rocca di Manerba del Garda
+   - lake-garda | Lake Garda | 11km
+#535 Lauerzersee.jpg
+   d: Lauerz on Lake Lauerz with Rigi
+   c: Boats in the canton of Schwyz; Foreground watercraft; Lake Lauerz; Remote views of Rigi
+   - mount-rigi | Mount Rigi
+#536 Lascaux_painting.jpg
+   d: Aurochs, horses and deer painted on a cave
+   c: Art of Lascaux; Bos primigenius in prehistoric art; Paintings of horses in prehistoric art
+   - lascaux | Lascaux
+#537 Aerial_image_of_Château_de_Chambord_(view_from_the_southeast).jpg [GPS 47.61,1.53]
+   d: Aerial image of Château de Chambord (view from the southeast)
+   c: Aerial photographs of the Château de Chambord; Park of the Palace of Chambord
+   - chateau-de-chambord | Château de Chambord | 1km
+#538 Château_de_Fontainebleau_(Fontainebleau)_edited_(1).jpg [GPS 48.40,2.70]
+   d: Palace of Fontainebleau (Seine-et-Marne, France).
+   c: Blue sky in Seine-et-Marne; Exterior of the Palace of Fontainebleau
+   - palace-of-fontainebleau | Palace of Fontainebleau | 0km
+#539 Normandy_American_Cemetery.png
+   d: Normandy American Cemetery
+   c: Normandy American Cemetery in 2021
+   - normandy-american-cemetery-and-memorial | Normandy American Cemetery and Memorial
+#540 White_Cliffs_of_Dover_02.JPG
+   d: White Cliffs of Dover
+   c: 2012 in Kent; Illustrations used in Salute, Jonathan!; White Cliffs of Dover
+   - white-cliffs-of-dover | White Cliffs of Dover
+#541 Warwick_Castle_May_2016.jpg [GPS 52.28,-1.58]
+   d: Warwick Castle from the bridge over the River Avon, Warwick, Warwickshire, UK.
+   c: Reflections in rivers in the United Kingdom; River Avon, Warwickshire; Warwick Castle; Water reflections of buildings in England; Water reflections of castles i
+   - warwick-castle | Warwick Castle | 0km
+#542 Tintagel_Castle_-_May_2026.jpg
+   d: View of Tintagel Castle with bridge
+   c: Tintagel; Tintagel Castle
+   - tintagel-castle | Tintagel Castle
+#543 Hollyford_River_NZ_11.jpg [GPS -44.77,168.01]
+   d: Hollyford River in Fiordland National Park, South Island of New Zealand
+   c: Hollyford River
+   - fiordland-national-park | Fiordland National Park | 75km
+#544 ISS-45_StoryOfWater,_Great_Barrier_Reef,_Australia.jpg
+   d: "The Great Barrier Reef outlines the coast of Australia in turquoise and blue. The #StoryOfWater." - Kjell Lindgren
+   c: Coral Sea Islands; ISS Expedition 45 Crew Earth Observations; PD NASA-AP; Photos of Queensland from ISS; Satellite pictures of the Great Barrier Reef
+   - great-barrier-reef | Great Barrier Reef
+#545 Daintree_Rainforest,_Queensland_(483855)_(9440811465).jpg [GPS -16.84,145.65]
+   d: Daintree Rainforest, Queensland, Australia
+   c: Daintree Rainforest
+   - daintree-rainforest | Daintree Rainforest | 76km
+#546 Flinders_Chase_National_Park_01.jpg [GPS -36.05,136.76]
+   d: View from the Remarkable Rocks in the Flinders Chase National Park, Kangaroo Island, Australia
+   c: Beaches of South Australia; Breaking ocean waves in Australia; Clouds and blue sky in Australia; Flinders Chase National Park; Landscapes of South Australia
+   - kangaroo-island | Kangaroo Island | 56km
+#547 Rottnest_Island.jpg
+   d: This is a map of the Rottnest Island, Western Australia.
+   c: Satellite pictures of Rottnest Island
+   - rottnest-island | Rottnest Island
+#548 Altstadt_Zürich_2015.jpg [GPS 47.37,8.54]
+   d: Zürich, Switzerland
+   c: 2015 in Zürich; Rathausbrücke (Zürich); Reflections in rivers; Water reflections of buildings in Switzerland
+   - lahore | Lahore | 5734km
+#549 The_Battle_of_Bunker's_Hill_Bridgeman_Images.jpg
+   d: The Battle of Bunker's Hill, June 17, 1775 / 
+   c: Paintings by John Trumbull in the Yale University Art Gallery; The Death of General Warren at the Battle of Bunker's Hill by John Trumbull
+   - delhi | Delhi
+#550 2017_Aerial_view_Hoover_Dam_4774.jpg [GPS 36.02,-114.74]
+   d: Aerial view of Hoover Dam, Nevada-Arizona.
+   c: Aerial photographs of Hoover Dam
+   - dhaka | Dhaka | 12867km
+#551 Adelaide_skyline,_December_2022_b.jpg
+   d: The skyline of Adelaide and the River Torrens in December 2022
+   c: Aerial photographs of Adelaide; April 2022 in Adelaide; River Torrens; Skyline in Adelaide
+   - cairo | Cairo
+#552 Two_Lovers_Point_from_Tumon_Bay.JPG
+   d: Two Lovers Point from Tumon Bay
+   c: Tumon Bay; Views of Two Lovers Point
+   - taipei | Taipei
+#553 El_Chaltén.jpg
+   d: This few is from one of the mountains above El Chaltén
+   c: Clouds and blue sky in Argentina; El Chaltén
+   - tehran | Tehran
+#554 DomTorenUtrechtNederland.jpg [GPS 52.09,5.12]
+   d: The Dom Tower in Utrecht, the Netherlands is one of the best known landmarks of this country. This gothic tower is the highest church tower (112,5 metres/368 fe
+   c: Utrecht Dom Tower
+   - dar-es-salaam | Dar es Salaam | 7308km
+#555 Florence,_Italy_-_panoramio_(125).jpg [GPS 43.77,11.26]
+   d: Florence, Italy
+   c: Film locations of Up at the Villa; Piazzale degli Uffizi
+   - kano | Kano | 3542km
+#556 Valledelaluna-lapaz-bolivia.jpg
+   c: Valle de la Luna (Bolivia)
+   - riyadh | Riyadh
+#557 Downtown_Grise_Fiord.jpg
+   d: Grise Fiord
+   c: Grise Fiord; March 2004 in Nunavut; Queen Elizabeth Islands
+   - fuzhou | Fuzhou
+#558 Caleta_Tortel_03.JPG
+   d: Caleta Tortel
+   c: Caleta Tortel
+   - new-territories | New Territories
+#559 Reykjavík,_view_from_Hallgrímskirkja_(2).jpg
+   d: Blick von der Hallgrímskirkja über Reykjavík
+   c: June 2022 Iceland photographs; Views of Skólavörðustígur from Hallgrímskirkja
+   - havana | Havana
+#560 Chichen_Itza_3.jpg [GPS 20.68,-88.57]
+   d: El Castillo (pyramid of Kukulcán) in Chichén Itzá
+   c: 2009 in Yucatán; Chichen Itza - Castillo - northwest; Chichen Itza - Castillo in the 2000s
+   - depok | Depok | 17719km
+#561 Oymyakon_-_190228_DSC_5642.jpg
+   d: Oymyakon, Sakha Republic, Russia
+   c: 2019 in Oymyakon; Utility poles in the Sakha Republic; Wooden utility poles in Russia
+   - tashkent | Tashkent
+#562 Rome_Stele.jpg
+   d: The Rome Stele (known also as the Aksum Obelisk) in Aksum (Tigray Region, Ethiopia).
+   c: Aksum Stele n. 2 (Obelisk of Axum-Roma)
+   - almaty | Almaty
+#563 Valley_of_the_Queens_by_Zureks.jpg
+   d: Valley of the Queens as seen from a balloon flight (Luxor, Egypt). The visible road leads to the Valley.
+   c: Aerial photographs of Valley of the Queens
+   - khartoum | Khartoum
+#564 Salzburg_(48489551981).jpg [GPS 47.80,13.05]
+   d: Salzburg (Austria)
+   c: May 2019 in Salzburg; Stift Nonnberg; Views of Rudolfskai, Salzburg; Views of the historic centre of the city of Salzburg from Kapuzinerberg
+   - kampala | Kampala | 5607km
+#565 New_Orleans_from_the_Air_September_2019_-_Central_Business_District_Skyline_(cropped).jpg [GPS 29.94,-90.08]
+   d: New Orleans from the Air- High rises of the Central Business District
+   c: 2019 in New Orleans Central Business District; Aerial photographs of New Orleans Central Business District; New Orleans skyline in the 2010s; September 2019 in 
+   - konya | Konya | 10402km
+#566 FortSumter2009.jpg
+   d: Fort Sumter in South Carolina, USA.
+   c: Coasts of South Carolina; Remote views of Fort Sumter
+   - gwangju | Gwangju
+#567 Bondi_from_above.jpg [GPS -33.89,151.28]
+   d: Bondi Beach, located in the Eastern Suburbs of Sydney, is Australia's most iconic beach, known for its parked sand, the rocks, the blue water and the warm tempe
+   c: Bondi Beach; Views from unmanned aerial vehicles
+   - the-bronx | The Bronx | 15996km
+#568 Makapuu_Point_2.jpeg
+   d: en:Makapuu Point, from its highest point down toward the lighthouse. On island of en:Oahu in en:Hawaii.
+   c: Makapuu Point Lighthouse
+   - antananarivo | Antananarivo
+#569 Chivay,_2023_(cropped).jpg
+   d: Chivay
+   c: Views of Chivay
+   - antalya | Antalya
+#570 Milan_Cathedral_from_Piazza_del_Duomo.jpg [GPS 45.46,9.19]
+   d: Milan Cathedral from Piazza del Duomo
+   c: Duomo (Milan) - Facade
+   - shiraz | Shiraz | 4146km
+#571 Ljubljana_Old_Town,_Slovenia_(Old_Camera)_(33286165680).jpg
+   d: Ljubljana Old Town, Slovenia (Old Camera)
+   c: Views of Ljubljana from Ljubljana Castle
+   - dombivali | Dombivali
+#572 Universidade_de_Coimbra_-_panoramio.jpg [GPS 40.21,-8.43]
+   d: Universidade de Coimbra
+   c: Biblioteca Geral da Universidade de Coimbra; Faculdade de Ciências e Tecnologia da Universidade de Coimbra; Faculdade de Medicina da Universidade de Coimbra; Re
+   - suwon | Suwon | 10274km
+#573 Baikonur_Cosmodrome_Soyuz_launch_pad.jpg
+   d: The Soyuz launch pad, Gagarin's Start is seen prior to the rollout of the Soyuz TMA-13 spacecraft at the Baikonur Cosmodrome in Kazakhstan, Friday, October 10, 
+   c: Baikonur Cosmodrome Site 1 launch pad; Sunrises of Kazakhstan
+   - virar | Virār
+#574 Vestmannaeyjar018.JPG [GPS 63.43,-20.26]
+   d: Iceland, Heimaey
+   c: Buildings in Heimaey; Há (mountain); Klif, Heimaey
+   - nowrangapur | Nowrangapur | 8719km
+#575 Kiritimati-EO.jpg
+   d: Kiritimati (Christmas Island) as seen by the crew of Expedition 4 aboard the International Space Station. The mosaic is based on images ISS004-ESC-6249 to 6252
+   c: ISS Expedition 4 Crew Earth Observations; Kiritimati; PD NASA-AP; Satellite pictures of Kiribati
+   - karbala | Karbala
+#576 Antarctica_base(Japan)_English_ver.png
+   d: Antarctic bases of Japan
+   c: Japanese Antarctic Research Expedition; Locator maps of research stations of Antarctica; Scientific stations in Antarctica
+   - sadr-city | Sadr City
+#577 Museumsinsel_Berlin_Juli_2021_1_(cropped)_b.jpg [GPS 52.52,13.39]
+   d: Museumsinsel in Berlin, im Hintergrund der Fernsehturm am Alexanderplatz, Juli 2021
+   c: Berliner Fernsehturm and another building; Museumsinsel (Berlin)
+   - jinzhou | Jinzhou | 7510km
+#578 Palikir_2025-Presidential2.jpg [GPS 6.92,158.16]
+   d: Palikir 2025-Presidential
+   c: Office of the President of the Federated States of Micronesia
+   - jinhua | Jinhua | 4726km
+#579 St_Joseph's_Catholic_Cathedral_(34895613805).jpg [GPS -6.82,39.29]
+   d: Neo-Gothic St Joseph's Catholic Cathedral (1902) in Dar es Salaam, Tanzania, has some fine stained glass windows.
+   c: Saint Joseph Cathedral (Dar es Salaam)
+   - heshan | Heshan | 8742km
+#580 Ngorongoro-1001-2.jpg
+   d: ngorongoro crater
+   c: 2016 in Tanzania; Ngorongoro
+   - jining | Jining
+#581 Sevilla_Cathedral_-_Southeast.jpg
+   d: Cathedral of Seville - southeast façade
+   c: Cathedral of Seville, facade east; Horse-drawn taxis in Sevilla; November 2014 in Seville; Plaza del Triunfo, Seville; Views of Giralda in 2014
+   - dhanbad | Dhanbad
+#582 Two_Mittens_Predawn.jpg [GPS 36.98,-110.11]
+   d: Monument Valley
+   c: October 2019 in Arizona; Sunrises of Arizona; West and East Mitten Buttes
+   - vijayawada | Vijayawada | 13961km
+#583 Melbourne_skyline_sor.jpg
+   d: melbourne from shrine of rememberance
+   c: Skylines of Melbourne; Views from the Shrine of Remembrance
+   - ranchi | Ranchi
+#584 Fire_Walking_(1234969885).jpg
+   d: Fire walking on Sri Lanka
+   c: Culture of Sri Lanka; Fire in entertainment; Thimithi
+   - jabalpur | Jabalpur
+#585 Cotopaxi_volcano_2008-06-27T1322.jpg [GPS -0.57,-78.45]
+   d: Cotopaxi Volcano
+   c: Cotopaxi; Snow line
+   - visakhapatnam | Visakhapatnam | 17250km
+#586 Kremlin_and_Red_Square.1.jpg
+   d: Kremlin and Red Square in Moscow
+   c: Aerial photographs of Moscow Kremlin; Red Square in 2021
+   - kirkuk | Kirkuk
+#587 Windsor_Castle_at_Sunset_-_Nov_2006.jpg [GPS 51.48,-0.60]
+   d: Windsor Castle at sunset as viewed from the Long Walk in Windsor, England. Taken by myself with a Canon 5D and 70-200mm f/2.8L lens at 200mm.
+   c: Autumn 2006 in the United Kingdom; Autumn in Berkshire; Castles at sunset; Exterior of Windsor Castle; Facades in England
+   - ashgabat | Ashgabat | 4755km
+#588 Lucca.city_walls01.jpg
+   d: City walls; Lucca, Italy Own photo - photo made by Georges Jansoone on 10 October 2005
+   c: Baluardo San Paolino (Lucca); City walls of Lucca; October 2005 in Lucca
+   - changwon | Changwon
+#589 Khumbutse.jpg
+   d: Khumbutse, Khumbu Glacier and Everest Base Camp, Nepal.
+   c: Everest Base Camp - South (Nepal); Hanging glaciers of the Himalayas; Khumbutse; Moraines in the Himalayas; Valley glaciers of the Himalayas
+   - fort-worth | Fort Worth
+#590 Auyan_Tepui_01.JPG
+   d: Auyan-Tepui in der Abenddämmerung vom Campo Uruyen aus gesehen
+   c: Auyantepuy
+   - pest | Pest
+#591 Prince_Edward_Island,_South_Africa,_EO-1_ALI_satellite_image,_5_May_2009.jpg
+   d: Satellite image of South Africa's Prince Edward Island.
+   c: May 2009 in South Africa; NASA Earth Observing-1 images; Satellite pictures of the Prince Edward Islands; Volcanic cones
+   - san-jose | San Jose
+#592 Cliffs_of_Paracas,_Peru.jpg
+   d: Cliffs of Paracas, Peru
+   c: Coasts of Peru; Landscapes of Paracas National Reserve; Marine erosion in Peru; Reefs in Peru; Sea cliffs of Peru
+   - esenyurt | Esenyurt
+#593 Sydney_Opera_House_and_Harbour_Bridge_Dusk_(2)_2019-06-21.jpg [GPS -33.86,151.22]
+   d: Jørn Utzon's Sydney Opera House, and the Harbour Bridge, two of Sydney's most famous landmarks, taken at late dusk. The Sydney Opera House is one of the most ic
+   c: Sydney Harbour Bridge at night; Sydney Opera House at night; Sydney Opera House from the east
+   - sialkot | Sialkot | 10890km
+#594 Ittoqqortoormiit,_Greenland.jpg [GPS 70.48,-21.97]
+   d: Ittoqqortoormiit, Greenland
+   c: Ittoqqortoormiit
+   - abu-ghurayb | Abū Ghurayb | 5662km
+#595 Hassan_II_mosque,_Casablanca_2.jpg
+   d: Hassan II Mosque, Casablanca
+   c: Creative Commons Attribution-ShareAlike 4.0 files; Self-published work; Wikipedia images using freedom of panorama
+   - qom | Qom
+#596 Cape_Verde_Pico_do_Fogo_b.jpg [GPS 14.94,-24.36]
+   d: Cape Verde, isle of Fogo: Volcano Pico do Fogo.
+   c: Cinder cones in Cape Verde; Crater rows in Cape Verde; Fogo (Cape Verde) in the 2010s; Iron oxidations at volcanoes in Cape Verde; Magmatic dikes in Cape Verde
+   - malang | Malang | 15273km
+#597 New_Abdali_2024.png
+   d: New Abdali 2024
+   c: Amman; The Boulevard, Amman, Jordan
+   - indianapolis | Indianapolis
+#598 Raekoja_plats_at_night.jpg [GPS 59.44,24.75]
+   d: A view of Raekoja plats, Tallinn, Estonia
+   c: Town Hall Square (Tallinn)
+   - samarinda | Samarinda | 10190km
+#599 Dallas_Texas_skyline_from_Reunion_Tower_September_2025_(cropped).png
+   d: Dallas Texas skyline from Reunion Tower September 2025
+   c: Dallas, Texas; Dallas skyline panoramas; Dallas skylines viewed from Reunion Tower
+   - arifwala | Arifwala
+#600 Pueblo_Bonito_Aerial.JPG
+   d: Aerial view of Pueblo Bonito, New Mexico
+   c: 2009 aerial photographs of the United States; Aerial photographs of New Mexico; December 2009 in New Mexico; Pueblo Bonito
+   - pasig-city | Pasig City
+#601 The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg [GPS 45.47,9.17]
+   d: The Last Supper label QS:Les,"La Última Cena" label QS:Lhu,"Az utolsó vacsora" label QS:Lel,"Ο Μυστικός Δείπνος" label QS:Lit,"L’ultima cena" label QS:Lru,"Тайн
+   c: Last Supper by Leonardo da Vinci
+   - cheongju-si | Cheongju-si | 8994km
+#602 San_Francisco_Maru_-_Mine_&_Shells.jpg
+   d: Underwater mine and artillery shells inside San Francisco Maru - Truk Lagoon
+   c: Naval mines of the United States
+   - bucheon-si | Bucheon-si
+#603 Casa_de_la_moneda.jpg
+   d: Fachada de la casa de la moneda en Potosí, Bolivia.
+   c: Casa de la Moneda de Potosí
+   - thanh-hoa | Thanh Hóa
+#604 KamperveenStadion.jpg
+   d: Standbild von Andre Kamperveen vor dem gleichnamigen Stadion in Paramaribo, Suriname
+   c: André Kamperveenstadion; Statue Andre Kamperveen
+   - al-ain-city | Al Ain City
+#605 Moscow_Kremlin_(8281675670).jpg
+   d: Moscow Kremlin and Moskva River on a winter evening.
+   c: Frozen Moskva River in Moscow; Views of Moscow Kremlin from Bolshoy Kamenny Bridge
+   - ulan-bator | Ulan Bator
+#606 P037152-661920_-_Belgrade_fortress_stand_at_the_downtown_of_Belgrade.jpg
+   d: Belgrade fortress stand at the downtown of Belgrade
+   c: Belgrade Fortress
+   - takeo | Takeo
+#607 Cambridge_Bay,_Nunavut_aerial_view.jpg [GPS 69.12,-105.03]
+   d: Cambridge Bay, Nunavut aerial view
+   c: Aerial photographs of Cambridge Bay
+   - sakai | Sakai | 7484km
+#608 Government_office_building.jpg
+   d: Government office building in Funafuti
+   c: Government office building in Vaiaku
+   - barcelona | Barcelona
+#609 Davis_Station_November_2005.jpg [GPS -68.58,77.96]
+   d: Davis Station Antarctica, Australian Antarctic Programme, November 2005
+   c: Davis Station
+   - petaling-jaya | Petaling Jaya | 8175km
+#610 Tour_Eiffel_Wikimedia_Commons_(cropped).jpg
+   d: Eiffel Tower, Paris France
+   c: Eiffel Tower from Champ-de-Mars in the 2000s; Eiffel Tower in 2009; June 2009 in Paris; Pelouses centrales du Champ-de-Mars
+   - ichikawa | Ichikawa
+#611 2007_Sankore_Mosque_Timbuktu_02.jpg [GPS 16.78,-3.01]
+   d: A mosque in Timbuktu, unidentified by the photographer; possibly Sankore Mosque
+   c: Sankore Mosque
+   - higashiosaka | Higashiosaka | 12814km
+#612 Varanasi,_India,_Ghats,_Cremation_ceremony_in_progress.jpg
+   d: In Shivaism creation and destruction are part of a single whole. Pale blue smoke rises into the air from this sacred site where those lucky enough to die in the
+   c: 2007 in Varanasi; Burning ghats in Varanasi; Ganges River in Varanasi; Manikarnika Ghat
+   - pindi-bhattian | Pindi Bhattian
+#613 Spb_06-2017_img20_StMichael_Castle_(cropped).jpg [GPS 59.94,30.33]
+   d: Aerial photo of St. Michael Castle in Saint Petersburg, Russia.
+   c: Aerial photographs of Central District (Saint Petersburg); Aerial photographs of buildings in Saint Petersburg; Aerial photographs of palaces in Russia; June 20
+   - pohang | Pohang | 7066km
+#614 Chicago_River_ferry_b.jpg
+   d: A Chicago River tour boat passes in front of Trump Tower
+   c: 35 East Wacker; 55 West Wacker; 77 West Wacker Drive; Chicago Riverwalk south bank segment between the Michigan Avenue Bridge and the Wabash Avenue Bridge (2009
+   - ruiru | Ruiru
+#615 Wall,_SD.jpg
+   d: 80' Dinosaur marking the exit for Wall, South Dakota on Interstate I-90.
+   c: May 2022 in South Dakota; Wall, South Dakota
+   - belagavi | Belagavi
+#616 Nashville,_Tennessee_(cropped).jpg [GPS 36.17,-86.78]
+   d: Aerial view of Nashville, Tennessee, the state capital and a city of 689,447 people on the Cumberland River, best known as the centre of the country music indus
+   c: Nashville, Tennessee
+   - ajman | Ajman | 12106km
+#617 Priroda_Aotearoe.jpg
+   d: Whakarewarewa
+   c: Whakarewarewa
+   - jianshui | Jianshui
+#618 Buenos_Aires_(20234294752).jpg [GPS -34.60,-58.38]
+   d: Buenos Aires Obelisk at night
+   c: July 2015 in Buenos Aires; Lighting in Argentina; Night in Buenos Aires; Obelisk of Buenos Aires at night
+   - sancaktepe | Sancaktepe | 12263km
+#619 Buckingham_Palace_London_Morning_2020_01_(cropped).jpg [GPS 51.50,-0.14]
+   d: East Front of Buckingham Palace
+   c: Buckingham Palace in 2020; East Front of Buckingham Palace
+   - al-khusus | Al Khuşūş | 3507km
+#620 Edinburgh_Castle_2000-1.jpg
+   d: A panoramic photo of Edinburgh Castle in Edinburgh, Scotland taken in August of 2000
+   c: Edinburgh Castle from the north
+   - jeju-city | Jeju City
+#621 Aerial_view_-_Harbour_of_Genoa,_Italy_-_DSC01156.JPG
+   d: Aerial view - Harbour of Genoa, Italy.
+   c: Harbour of Genoa
+   - omaha | Omaha
+#622 Lord_Howe_ISS006-E-5731.png
+   d: NASA astronaut image of Lord Howe Island in the Pacific Ocean
+   c: ISS Expedition 6 Crew Earth Observations; Lord Howe Island; PD NASA-AP; Satellite pictures of New South Wales; Satellite pictures of islands
+   - vellore | Vellore
+#623 Nightingale_Island.jpg
+   d: Nightingale Island
+   c: Nightingale Island
+   - donghe | Donghe
+#624 Malecon_de_Ilo_-_panoramio.jpg [GPS -17.64,-71.35]
+   d: Malecon de Ilo
+   c: Ilo; Malecón Costero de Ilo
+   - kurashiki | Kurashiki | 16895km
+#625 Skyscrapers_of_Shinjuku_2009_January.jpg [GPS 35.71,139.75]
+   d: View of Shinjuku skyscrapers and Mount Fuji as seen from the Bunkyo Civic Center in Tokyo
+   c: 2009 in Shinjuku; Cityscapes in Tokyo; Mode Gakuen Cocoon Tower; Views of skyscrapers in Nishi-Shinjuku and Mount Fuji from Bunkyo Civic Center
+   - oita | Ōita | 796km
+#626 Imagen_de_los_canales_concéntricos_en_Ámsterdam.png [GPS 52.36,4.88]
+   d: Aerial view of the concentric canal belt (grachtengordel) in Amsterdam.
+   c: Aerial photographs of Amsterdam; October 2020 in Amsterdam
+   - modinagar | Modīnagar | 6365km
+#627 Temple_de_Louxor_68.jpg
+   d: Great Hypostyle Hall of Karnak
+   c: Central columns of the Great Hypostyle Hall of Karnak
+   - chishtian | Chishtian
+#628 Nest_One_Tashkent.jpg
+   d: Tashkent City
+   c: Creative Commons Attribution-ShareAlike 4.0 files; Self-published work; Wikipedia images using freedom of panorama
+   - santa-rita | Santa Rita
+#629 Panorama_Belgrad.jpg
+   d: Aufnahme vom Dach der "Belgraderin" (Bürogebäude,101m) in Richtung des Tempels des heiligen Sava
+   c: Panoramas of Belgrade; Slavija
+   - hollywood | Hollywood
+#630 Denver,_Colorado_skyline_(cropped_3x5).jpg [GPS 39.73,-104.96]
+   d: Skyline of Denver, Colorado, the 19th-most populous city in the United States (715,522).
+   c: Denver skylines
+   - harunabad | Harunabad | 12302km
+#631 Gettysburgbattlefield.jpg
+   d: Battlefield at Gettysburg, Pennsylvania
+   c: Battle of Gettysburg
+   - shunan | Shūnan
+#632 South_Tarawa_from_the_air.jpg
+   d: South Tarawa is a narrow strip of land between the lagoon and the ocean
+   c: Beaches of Tarawa Atoll; South Tarawa
+   - agadez | Agadez
+#633 AST-01-039_Aituctaki_Atoll.jpg
+   d: Copped from Apollo-Soyuz Test Project photo AST-01-039 to show Aituctaki Atoll in the Cook Islands. North is up and slightly to the right.
+   c: Satellite pictures of the Cook Islands
+   - burnley | Burnley
+#634 Paramaribo_city_collage.png
+   d: Paramaribo city, capital of Suriname.
+   c: Paramaribo
+   - rehovot | Reẖovot
+#635 Santa_Catalina_Monastery,_Arequipa_-_53032077180.jpg [GPS -16.40,-71.54]
+   d: Interior view of the Monastery of Santa Catalina, Arequipa
+   c: Santa Catalina Monastery, Arequipa - Exterior
+   - watampone | Watampone | 17347km
+#636 Hunedoara_castle.jpg [GPS 45.75,22.89]
+   d: Hunedoara castle
+   c: Castle of Hunedoara
+   - disuq | Disūq | 1758km
+#637 Punte_Nuevo_Bridge,_Ronda_-_Spain.jpg
+   d: Puente Nuevo Bridge
+   c: Puente Nuevo, Ronda
+   - cagliari | Cagliari
+#638 Arviat_Church_Centers_1995-06-30.jpg
+   d: Churches of Arviat, Nunavut, Canada
+   c: 1995 in Nunavut; Churches in Arviat; June 1995 in Canada; Modernist churches in Canada
+   - berrechid | Berrechid
+#639 Palmerston_ISS006.jpg
+   d: NASA astronaut image of Palmerston Islands (Cook Islands) in the Pacific Ocean
+   c: ISS Expedition 6 Crew Earth Observations; PD NASA-AP; Palmerston Island; Photos of the Cook Islands from ISS
+   - queimados | Queimados
+#640 EXISTING_CONDITIONS_FOR_PALMER_STATION.png
+   d: EXISTING CONDITIONS FOR PALMER STATION
+   c: Palmer Station
+   - tambacounda | Tambacounda
+#641 Skyline_of_Beijing_CBD_with_B-5906_approaching_(20211016171955)_(1).jpg
+   d: B-5906 was flying CA112 (from Hong Kong) at that time.
+   c: China Zun
+   - arar | Arar
+#642 Fes Medina Panoramic view.jpg
+   d: Panoramic view over Fes' Old town.
+   c: Fes el Bali; Views from Borj Sud
+   - tama | Tama
+#643 Oldupai-3.jpg
+   d: Oldupai - this is a duplicate and should be deleted
+   c: Olduvai Gorge
+   - rockford | Rockford
+#644 Aleja_Niepdleglosci_Warsaw_2022_aerial_(cropped).jpg [GPS 52.22,21.01]
+   d: Aerial view along the stretch of Niepodległości (Independence) Avenue in Warsaw from north of the intersection with the Łazienkowski Route (Wawelska Street / Pe
+   c: Aerial photographs of Warsaw; Aleja Niepodległości in Warsaw; Clouds and blue sky in Warsaw; July 2022 in Warsaw; Skylines in Warsaw
+   - nimes | Nîmes | 1543km
+#645 Aerial_image_of_Grand_Prismatic_Spring_(view_from_the_south).jpg [GPS 44.52,-110.84]
+   d: Aerial image of Grand Prismatic Spring in Yellowstone National Park (view from the south)
+   c: Aerial photographs of Grand Prismatic Spring; Aerial photographs of World Heritage Sites; August 2022 in Wyoming; Grand Prismatic Spring in 2022
+   - sao-rafael | Sao Rafael | 9999km
+#646 Detroit_Skyline_from_Windsor_2025-09-01.jpg
+   d: The Detroit skyline as it appeared from Windsor, Ontario on a sunny Labor Day 2025, known as the “Motor City,” Detroit sits on the Detroit River and anchors the
+   c: Detroit International Riverfront; Detroit skylines; September 2025 in Detroit; September 2025 in Windsor, Ontario; Views of Detroit from Windsor
+   - sujiatun | Sujiatun
+#647 Moeraki_Boulders.jpg
+   d: Moeraki Boulders
+   c: Moeraki Boulders
+   - tabas | Tabas
+#648 Eco_Nelson_2019.jpg
+   d: Stanice Eco-Nelson, únor 2019
+   c: Eco-Nelson
+   - chatra | Chatrā
+#649 Pedra_de_Cucuí_-_panoramio.jpg [GPS 1.23,-66.85]
+   d: Pedra de Cucuí
+   c: Negro River (tributary of the Amazon) in Brazil; Piedra del Cocuy
+   - cabiao | Cabiao | 17997km
+#650 TexasStateCapitol-2010-01.JPG [GPS 30.27,-97.74]
+   d: Texas State Capitol in Austin, Texas. Designed by the architect Elijah E. Myers. Built in 1882-1888.
+   c: 2010 in Austin, Texas; Copper roofs in the United States; January 2010 in Texas; Texas State Capitol
+   - cerritos | Cerritos | 1953km
+#651 Erupting_geysir.jpg
+   d: The erupting "Great Geysir" in Haukadalur
+   c: Bjarnarfell (Geysir) in 2000; Cryptodomes in Iceland in 2000; Geysir Geothermal Field in 2000; Great Geysir erupting after earthquakes; Great Geysir erupting af
+   - dhampur | Dhāmpur
+#652 Kluane_Lake_YT_2005.jpg
+   d: Kluane Lake, Yukon Territory, Canada. Taken from northbound Highway 1 (Alaska Highway).
+   c: Kluane Lake; September 2005 in Yukon
+   - chahar-dangeh | Chahār Dangeh
+#653 Eagle_Islands_ISS006.jpg
+   d: Astronaut picture of Eagle Islands, Chagos Archipelago, British Indian Ocean Territory
+   c: ISS Expedition 6 Crew Earth Observations; PD NASA-AP; Satellite pictures of Eagle Islands
+   - sayanogorsk | Sayanogorsk
+#654 Manglares_en_el_maritorio_de_Bahía_Málaga,_Colombia.jpg [GPS 4.04,-77.19]
+   d: Manglares en el maritorio de Bahía Málaga, Colombia
+   c: Oraloteca Biocultural del Maritorio de Bahia Malaga; Uramba Bahía Málaga National Natural Park
+   - tarkwa | Tarkwa | 8330km
+#655 Historical_peninsula_and_modern_skyline_of_Istanbul.jpg
+   d: Aerial view of the historical peninsula and modern skyline of Istanbul
+   c: Aerial photographs of Istanbul; Exterior of Hagia Sophia; Hippodrome of Constantinople; July 2022 in Istanbul; Skylines of Istanbul
+   - zaranj | Zaranj
+#656 Casa_finance_city_6_(cropped).jpg
+   d: Casablanca Finance City seen from Eurostars Casa Anfa rooftop in Beauséjour district
+   - neunkirchen | Neunkirchen
+#657 Templo_funerario_de_Hatshepsut,_Luxor,_Egipto,_2022-04-03,_DD_13.jpg [GPS 25.74,32.61]
+   d: Aerial view during sunrise of the Mortuary Temple of Hatshepsut, Luxor, Egypt. The mortuary temple built during the reign of Pharaoh Hatshepsut of the Eighteent
+   c: Aerial photographs of Hatshepsut Temple
+   - nohar | Nohar | 4156km
+#658 Zagreb_(29255640143).jpg [GPS 45.81,15.98]
+   d: كاتدرائية زغرب وساحة بان جيلاتشيتش
+   c: 2016 in Zagreb; Jelačić Square (Zagreb); Views of Zagreb
+   - yeola | Yeola | 6005km
+#659 Vlkolinecslovakia001.jpg
+   d: Vlkolínec, Slovakia.
+   c: Cultural heritage monuments in Vlkolínec; Kabřince; Sculptures in Vlkolínec
+   - ostersund | Östersund
+#660 Villa_Vizcaya_20110228.jpg
+   d: I, the copyright holder of this work, hereby publish it under the following license:
+   c: Exterior of Villa Vizcaya; Formal gardens in Vizcaya gardens; Outside stairs in Florida
+   - mbuguni | Mbuguni
+#661 El_Castillo,_Chichen_Itza.jpg
+   d: A sculpted stone head of Kukulkan (the Feathered Serpent) with the structure commonly known as the Castle (from Spanish El Castillo) in the background.
+   c: Chichen Itza - Castillo - west side; Chichen Itza - Sculptures
+   - zajecar | Zaječar
+#662 Royal_Palace,_Nuku'alofa,_Nov_18.jpg
+   d: Royal Palace, Nuku'alofa, Tonga
+   c: Royal Palace, Nuku'alofa
+   - kerkrade | Kerkrade
+#663 Savusavu.jpg
+   d: Savusavu, Fiji. Photo taken by Paul Dashwood 1985
+   c: Populated places in Fiji; Provinces; Savusavu
+   - changdian | Changdian
+#664 Mitad_del_Mundo,_Quito,_Ecuador,_2015-07-22,_DD_15.JPG
+   d: Mitad del Mundo, Quito, Ecuador
+   c: 2015 in Quito; Monumento a la Mitad del Mundo
+   - novovolynsk | Novovolynsk
+#665 Panorama_of_Toledo_at_sunset._View_from_the_south.jpg [GPS 39.85,-4.03]
+   d: From left to right at the top of the panorama: Iglesia de Santo Tome, Iglesia de San Idelfonso, Church of San Marcos, Remains Archaeological Arab Baths of Tener
+   c: Cityscapes of Toledo, Spain; Exterior of the Academia de Infantería de Toledo; Exterior of the Alcázar of Toledo; Exterior of the Church of Santo Tomé (Toledo);
+   - chachoengsao | Chachoengsao | 10279km
+#666 Barrow_Alaska.jpg
+   d: Barrow, Alaska
+   c: 2008 in Alaska; Roads in Alaska; Utqiagvik, Alaska
+   - wharton | Wharton
+#667 Pukapuka_Aerial_efs_1280.jpg [GPS -10.85,-165.83]
+   d: Aerial photograph of Pukapuka Atoll in the Cook Islands, photographed from Air Rarotonga's Embraer Bandeirante Aircraft that infrequently services this remote a
+   c: Aerial photographs of the Cook Islands; Pukapuka
+   - regenstauf | Regenstauf | 15755km
+#668 Amundsen–Scott_South_Pole_Station_01.jpg
+   d: Amundsen–Scott South Pole Station
+   c: Amundsen-Scott South Pole Station; Photographs of the national flag of the United States in Antarctica
+   - chakia | Chakia
+#669 ULURU.jpg
+   d: Uluru/Ayers rock
+   c: Views of Uluru on the horizon
+   - salinas-da-margarida | Salinas da Margarida
+#670 Temple_Mount_(Aerial_view,_2007)_07.jpg [GPS 31.78,35.24]
+   d: Aerial views of the Temple Mount and parts of the Old City of Jerusalem (2007)
+   c: Aerial photographs of Israel; Aerial views of the Temple Mount
+   - qingshui | Qingshui | 6149km
+#671 Vientiane_-_Patuxai_-_0003.jpg
+   d: Patuxai, Vientiane, Laos Patuxai, Vientiane, Laos ປະຕູໄຊ, ວຽງຈັນ
+   c: Creative Commons Attribution-ShareAlike 3.0 files; Self-published work; Wikipedia images using freedom of panorama
+   - vagator | Vagator
+#672 Minaret_et_patio_de_la_mosquée_Zitouna_au_centre_de_la_Médina_de_Tunis.jpg
+   d: This is a photo of the protected monument identified by the ID 11-90 in Tunisia. Minaret et patio de la mosquée Zitouna au centre de la Médina de Tunis, Tunis, 
+   c: Courtyard of the Zitouna Mosque; Minaret of the Zitouna Mosque
+   - cim | CIM
+#673 Bukit_Bintang_junction_in_2024_2.jpg [GPS 3.15,101.71]
+   d: Bukit Bintang junction in 2024
+   c: Bukit Bintang; Jalan Sultan Ismail, Kuala Lumpur
+   - mukkudal | Mukkūdal | 2745km
+#674 Firenze_-_Piazzale_Michelangelo,_Firenze,_Italy_-_April_6,_2015_02.jpg [GPS 43.76,11.26]
+   d: Firenze from Piazzale Michelangelo, Firenze, Italy
+   c: Views from Piazzale Michelangelo
+   - valle-de-guanape | Valle de Guanape | 8201km
+#675 Halifax_waterfront.jpg
+   d: Halifax waterfront.
+   c: Cityscapes of Halifax, Nova Scotia
+   - chingoli | Chingoli
+#676 Rock_stacks_in_Anapai_Bay.jpg [GPS -40.80,173.00]
+   d: Rock stacks in Anapai Bay
+   c: Abel Tasman Coast Track; Beaches of New Zealand; Stacks of New Zealand
+   - abala | Abala | 16967km
+#677 Port_Lockroy_1962.jpg [GPS -64.82,-63.50]
+   d: The abandoned british base at Port Lockroy, Antarctic Peninsula. Background: Luigi Peak, 1435m
+   c: 1410s mountains of Antarctica; 1962 in Antarctica; Mountains of Graham Land; Photographs by Harley D. Nygren; Port Lockroy Station
+   - addlestone | Addlestone | 14000km
+#678 Catedral_desde_el_Lago_Nahuel_Huapi_-_panoramio.jpg [GPS -41.13,-71.30]
+   d: Catedral desde el Lago Nahuel Huapi
+   c: San Carlos de Bariloche Cathedral
+   - songon | Songon | 8519km
+#679 Sous-préfecture_Saint-Laurent_du_Maroni.jpg
+   d: Photo de la Sous-Préfecture à Saint-Laurent du Maroni; Guyane (973) ; Saint-Laurent-du-Maroni ; 4 avenue Général-de-Gaulle
+   c: Photographs of flags of France in Saint-Laurent-du-Maroni; Sous-préfecture de Saint-Laurent-du-Maroni
+   - roncesvalles | Roncesvalles
+#680 2018_FCG_Headquarters_Building_2.jpg
+   d: FCGビルとアクアシティお台場
+   c: Aquacity Odaiba; FCG Headquarters Building
+   - petersfield | Petersfield
+#681 Nidaros_Cathedral,_Trondheim,_West_view_20150605_1.jpg [GPS 63.43,10.40]
+   d: A west view of the Nidaros Cathedral, Trondheim. This facade is the best-known view of the church
+   c: West front of Nidaros Cathedral
+   - banissa | Banissa | 7047km
+#682 Skellig_Michael03(js).jpg
+   d: The Skellig Michael
+   c: Skellig Michael; Views of Skellig Michael
+   - tavros | Távros
+#683 Prambanan_Temple_Yogyakarta_Indonesia.jpg
+   d: Prambanan Temple Yogyakarta Indonesia
+   c: Overviews of Prambanan; Prambanan in 2016
+   - pucioasa | Pucioasa
+#684 DG_Ariel_Plantation.jpg
+   d: Aerial photograph of the coconut plantation at East Point, Diego Garcia. Photograph shows strip of land between both ocean and lagoon. The island hosts a large 
+   c: Aerial photographs of Diego Garcia
+   - quynh-loi | Quỳnh Lôi
+#685 Isla_El_Porvenir.jpg
+   d: el Archipiélago de Kuna Yala
+   c: 2006 in Panama; Gaigirgordub; Isla El Porvenir (Panamá)
+   - novyi-buh | Novyi Buh
+#686 Dunkirk_26-29_May_1940_NYP68075.jpg
+   d: Dunkirk 26-29 May 1940 British troops line up on the beach at Dunkirk to await evacuation.
+   c: 1940 black and white photographs; British Army 1939-1945 images from the Imperial War Museum (1940); May 1940 France photographs; Military history of the United
+   - dunkirk-evacuation | Dunkirk
+#687 Atomic_bombing_of_Japan.jpg
+   d: Left picture : At the time this photo was made, smoke billowed 20,000 feet above Hiroshima while smoke from the burst of the first atomic bomb had spread over 1
+   c: Mushroom cloud over Hiroshima (by George R. Caron); Mushroom cloud over Nagasaki (by Charles Levy)
+   - nagasaki-atomic-bombing | Nagasaki
+#688 London_Centre_Court_Wimbledon_(53284151591).jpg [GPS 51.43,-0.21]
+   d: Foto: Arne Müseler
+   c: Aerial photographs of sports venues in the United Kingdom; Aerial photographs of the London Borough of Merton; Centre Court; No. 1 Court, Wimbledon
+   - wimbledon-all-england-club | Wimbledon | 0km
+#689 Robben_Island_-_Cape_Town,_South_Africa_(3883849594).jpg
+   d: Some kilometers off the coast of &lt;a href="http://www.southafrica.net/sat/content/en/za/full-article?oid=4458&amp;sn=Detail&amp;pid=1" rel="nofollow"&gt;Cape 
+   c: Cape Peninsula; Coastline of Robben Island; Robben Island; Table Bay; Table Mountain seen from Robben Island
+   - robben-island | Robben Island
+#690 Battleabbey-wyrdlight-0170.jpg [GPS 50.92,0.49]
+   d: Battle Abbey - Gate House
+   c: Battle Abbey gatehouse
+   - battle-of-hastings | Battle of Hastings | 0km
+#691 RoswellNM.jpg [GPS 33.41,-104.52]
+   d: Skyline of Roswell, New Mexico, looking south along Main St
+   c: June 2022 in New Mexico; New Mexico skylines; Roswell, New Mexico
+   - roswell-ufo-incident | Roswell | 1km
+#692 Fukushima_Daiichi_04780015_(8388174045).jpg
+   d: Fukushima Daiichi Nuclear Power Station. (Fukushima, Japan)Photo Credit: Tokyo Electric Power Co., TEPCO
+   c: 2007 aerial photographs of Japan; Aerial photographs of Fukushima I Nuclear Power Plant; February 2007 in Fukushima prefecture
+   - fukushima-daiichi | Fukushima Daiichi
+#693 Camp_Nou_aerial.jpg
+   d: The Camp Nou is the biggest stadium in Europe and offers seats to 98,787 visitors.
+   c: Aerial photographs of association football venues; Camp Nou; Més que un club
+   - camp-nou | Camp Nou
+#694 2023_07_31_arne_mueseler_00060-Verbessert-RR_(53106651455).jpg [GPS 53.46,-2.29]
+   d: Photo: Arne Müseler
+   c: Aerial photographs of association football venues in the United Kingdom; Old Trafford Cricket Ground; Old Trafford in 2023
+   - old-trafford | Old Trafford | 0km
+#695 Beijing_China_Beijing-National-Stadium-01.jpg [GPS 39.99,116.39]
+   d: Beijing, China: National Stadium, also known als "birds nest"
+   c: Exterior of Beijing National Stadium
+   - birds-nest-beijing | Bird's Nest | 1km
+#696 Urquhart_Castle_Tower_House_2.jpg
+   d: Tower House of Urquhart Castle on Loch Ness.
+   c: Urquhart Castle
+   - urquhart-castle | Urquhart Castle
+#697 08-130_Esclusas_de_Miraflores_(23).jpg
+   d: Jaime Massot Hernández Panamá R.P.
+   c: Hercules (ship, 2012); Miraflores Locks; Panama Canal mule locomotives; Wiki Loves Monuments 2016 in Panama
+   - miraflores-locks | Miraflores Locks
+#698 ANZAC_Cove.jpg
+   d: ANZAC Cove from Conkbayiri
+   c: 2020 photographs of Turkey; Anzac Cove; Conkbayırı
+   - anzac-cove | Anzac Cove
+#699 1_carcassonne_aerial_2016.jpg [GPS 43.21,2.36]
+   d: aerial panorama of Cité de Carcassonne
+   c: Aerial photographs of Aude; Aerial photographs of France by city; Exterior views of the fortified city of Carcassonne
+   - carcassonne-cite | Carcassonne | 0km
+#700 Blarney_Castle_Ireland.jpg
+   d: Blarney Castle in Ireland.
+   c: Blarney Castle
+   - blarney-castle | Blarney Castle
+#701 Le_Mans_2008_Rolling_start.jpg [GPS 47.94,0.22]
+   d: The rolling start of 24 Hours of Le Mans 2008
+   c: 2008 24 Hours of Le Mans; 24 Hours of Le Mans race starts; Ford Chicanes
+   - le-mans-circuit | Le Mans | 2km
+#702 Kalon-Ensemble_Buchara.jpg
+   d: Kalon-Ensemble in Bukhara (Uzbekistan)
+   c: 2010 in Bukhara; Kalyan Mosque; Kalyan minaret; Mir-i-Arab madrasa; Pishtak
+   - bukhara-uzbekistan | Bukhara
+#703 Christ_Church_in_Windhoek,_Namibia.jpg [GPS -22.57,17.09]
+   d: Christuskirche Windhoek
+   c: Christuskirche Windhoek; Windhoek skylines
+   - windhoek-namibia | Windhoek | 2km
+#704 Mostar_Old_Town_Panorama_2007.jpg [GPS 43.34,17.81]
+   d: Mostar - Old Town panorama. The picture was taken from the minaret of Koski Mehmed Pasha Mosque, which is just opposite Stari Most ("The Old Bridge") looking on
+   c: 2007 in Mostar; Blue, brown, gray, green, white; Old Bridge Area of the Old City of Mostar; Pictures of the Year/2010 (finalist); Stari Most viewed from north
+   - stari-most | Stari Most | 0km
+#705 BRP_Lumbini_Mayadevi_temple.jpg
+   d: This is a photo of a monument in Nepal identified by the ID
+   c: Maya Devi Temple, Lumbini
+   - lumbini-nepal | Lumbini
+#706 Mahabodhitemple.jpg
+   d: Maha Bodhi Temple, Bodhgaya, India.
+   c: 2007 in India; Buddhist monks of India; Exterior of the Mahabodhi Temple
+   - bodh-gaya-india | Bodh Gaya
+#707 Schlosskirche_Wittenberg_I.jpg [GPS 51.87,12.64]
+   d: Schlosskirche Wittenberg
+   c: Schlosskirche (Lutherstadt Wittenberg)
+   - wittenberg-castle-church | Wittenberg | 0km
+#708 Panorama_with_buildings,_Dushanbe.jpg
+   d: Panorama with buildings, Dushanbe
+   c: Views of Dushanbe
+   - dushanbe-tajikistan | Dushanbe
+#709 View_over_Noumea.jpg
+   d: View over Noumea, New Caledonia from the youth hostel
+   c: Cathédrale Saint-Joseph de Nouméa; Nouméa
+   - noumea-new-caledonia | Nouméa
+#710 Leonidas_Statue_01.jpg
+   d: Marmorstatue Leonidas darstellend, um 480 n. Chr., Gipsabguss des frühklassischen Originals im Archäologischen Museum von Sparta
+   c: 2022-02-27 Wikipedia-StammtischTour Antike am Königsplatz; Leonidas hoplite, AM Sparta; Salamis 480 in München
+   - thermopylae | Thermopylae
+#711 Gullfoss_from_the_Air_(cropped).jpg [GPS 64.32,-20.12]
+   d: Der Wasserfall Gullfoss, nur wenige Kilometer von Geysir und seinem Strokkur gelegen. Ein HDR Bild von 2015.
+   c: 2015 aerial photographs of Iceland; Gullfoss in 2015; HDR pictures of Gullfoss; Viewing platforms at Gullfoss; Walking paths near Gullfoss
+   - gullfoss | Gullfoss | 0km
+#712 RMS_Titanic_3_(cropped_to_ship).jpg
+   d: RMS Titanic departing Southampton on April 10, 1912.
+   c: Crow's nest; Francis Godolphin Osbourne Stuart; RMS Titanic in Southampton
+   - titanic-sinking | Titanic
+#713 Battle_of_Waterloo_1815.PNG
+   d: The Battle of Waterlootitle QS:P1476,en:"The Battle of Waterloo"label QS:Len,"The Battle of Waterloo"label QS:Les,"Batalla de Waterloo"label QS:Lfr,"Bataille de
+   c: 19th-century paintings of cavalry in battle; Battle of Waterloo in art; Cavalry in art; Regency era; William Sadler
+   - battle-of-waterloo | Battle of Waterloo
