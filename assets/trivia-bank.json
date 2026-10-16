@@ -8638,7 +8638,7 @@
     "lat": 41.03,
     "lng": 20.72,
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Lake_Ohrid%2C_Macedonia-Albania_viewed_from_a_NASA_satellite.jpg",
-    "clue": "Which ancient lake is shared by North Macedonia and Albania?",
+    "clue": "Which ancient lake, shared by North Macedonia and Albania, holds more than 200 endemic species?",
     "difficulty": 1,
     "photo": "verified"
   },
@@ -8814,7 +8814,7 @@
     "lat": 41.3,
     "lng": -124,
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Redwood_National_Park%2C_fog_in_the_forest.jpg",
-    "clue": "Which California parks protect the world's tallest trees along the coast?",
+    "clue": "Which coastal California parks protect Hyperion, the world's tallest known living tree?",
     "difficulty": 2,
     "photo": "verified"
   },
@@ -9254,7 +9254,7 @@
     "lat": 25.118056,
     "lng": 55.133333,
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Artificial_Archipelagos%2C_Dubai%2C_United_Arab_Emirates_ISS022-E-024940_lrg_%28cropped%29.jpg",
-    "clue": "Which palm-tree-shaped artificial island juts into the Gulf from Dubai?",
+    "clue": "Which palm-shaped artificial island off Dubai runs a monorail out to the Atlantis hotel on its crescent?",
     "difficulty": 2,
     "photo": "verified"
   },
@@ -9397,7 +9397,7 @@
     "lat": 45.053611,
     "lng": 1.17,
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg",
-    "clue": "Which cave in France's Dordogne holds 17,000-year-old paintings of horses and bulls?",
+    "clue": "Which Dordogne cave, found by a teenager's dog in 1940, holds 17,000-year-old paintings in its Hall of the Bulls?",
     "difficulty": 2,
     "photo": "verified"
   },
@@ -13122,7 +13122,7 @@
   {
     "id": "miraflores-locks",
     "short": "Miraflores Locks",
-    "clue": "Where do ships climb or descend the final steps at the Pacific end of the Panama Canal?",
+    "clue": "Where do ships rise or fall 16.5 metres in two lock stages at the Pacific end of the Panama Canal?",
     "fact": "Its locks lift ships about 16.5 metres in two stages, and a visitors centre gives a full view of the transits.",
     "lat": 8.9967,
     "lng": -79.5917,

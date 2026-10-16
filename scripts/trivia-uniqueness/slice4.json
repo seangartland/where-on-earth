@@ -1,0 +1,358 @@
+{
+ "black-forest": {
+  "v": "PASS"
+ },
+ "rhine-falls": {
+  "v": "PASS"
+ },
+ "danube-delta": {
+  "v": "PASS"
+ },
+ "lake-ohrid": {
+  "v": "REWRITE",
+  "clue_before": "Which ancient lake is shared by North Macedonia and Albania?",
+  "clue": "Which ancient lake, shared by North Macedonia and Albania, holds more than 200 endemic species?",
+  "competitors": [
+   "Lake Prespa (ancient lake also shared by North Macedonia and Albania, plus Greece)"
+  ],
+  "note": "200 endemic species: article"
+ },
+ "mount-ararat": {
+  "v": "PASS"
+ },
+ "amazon-river": {
+  "v": "PASS"
+ },
+ "congo-river": {
+  "v": "PASS"
+ },
+ "lake-tanganyika": {
+  "v": "PASS"
+ },
+ "okavango-delta": {
+  "v": "PASS"
+ },
+ "mount-nemrut": {
+  "v": "PASS"
+ },
+ "lake-baikal": {
+  "v": "PASS"
+ },
+ "mount-aso": {
+  "v": "PASS"
+ },
+ "jeju-island": {
+  "v": "PASS"
+ },
+ "gobi-desert": {
+  "v": "PASS"
+ },
+ "mount-kailash": {
+  "v": "PASS"
+ },
+ "mount-damavand": {
+  "v": "PASS"
+ },
+ "aral-sea": {
+  "v": "PASS"
+ },
+ "zion-national-park": {
+  "v": "PASS"
+ },
+ "sequoia-national-park": {
+  "v": "PASS"
+ },
+ "redwood-national-and-state-parks": {
+  "v": "REWRITE",
+  "clue_before": "Which California parks protect the world's tallest trees along the coast?",
+  "clue": "Which coastal California parks protect Hyperion, the world's tallest known living tree?",
+  "competitors": [
+   "Humboldt Redwoods State Park, California (coastal redwood park with many of the tallest trees)"
+  ],
+  "note": "Hyperion, 120 m, found in Redwood National Park in 2006: article"
+ },
+ "rocky-mountain-national-park": {
+  "v": "PASS"
+ },
+ "glacier-national-park": {
+  "v": "PASS"
+ },
+ "everglades-national-park": {
+  "v": "PASS"
+ },
+ "acadia-national-park": {
+  "v": "PASS"
+ },
+ "joshua-tree-national-park": {
+  "v": "PASS"
+ },
+ "death-valley-national-park": {
+  "v": "PASS"
+ },
+ "lake-tahoe": {
+  "v": "PASS"
+ },
+ "mount-rainier": {
+  "v": "PASS"
+ },
+ "denali": {
+  "v": "PASS"
+ },
+ "crater-lake": {
+  "v": "PASS"
+ },
+ "banff-national-park": {
+  "v": "PASS"
+ },
+ "jasper-national-park": {
+  "v": "PASS"
+ },
+ "florida-keys": {
+  "v": "PASS"
+ },
+ "cape-cod": {
+  "v": "PASS"
+ },
+ "outer-banks": {
+  "v": "PASS"
+ },
+ "napa-valley-ava": {
+  "v": "PASS"
+ },
+ "waikiki": {
+  "v": "PASS"
+ },
+ "na-pali-coast-state-park": {
+  "v": "PASS"
+ },
+ "graceland": {
+  "v": "PASS"
+ },
+ "fenway-park": {
+  "v": "PASS"
+ },
+ "wrigley-field": {
+  "v": "PASS"
+ },
+ "wembley-stadium": {
+  "v": "PASS"
+ },
+ "indianapolis-motor-speedway": {
+  "v": "PASS"
+ },
+ "daytona-international-speedway": {
+  "v": "PASS"
+ },
+ "augusta-national-golf-club": {
+  "v": "PASS"
+ },
+ "churchill-downs": {
+  "v": "PASS"
+ },
+ "area-51": {
+  "v": "PASS"
+ },
+ "mount-vernon": {
+  "v": "PASS"
+ },
+ "monticello": {
+  "v": "PASS"
+ },
+ "yellowstone-national-park": {
+  "v": "PASS"
+ },
+ "central-park": {
+  "v": "PASS"
+ },
+ "persian-gulf": {
+  "v": "PASS"
+ },
+ "south-beach": {
+  "v": "PASS"
+ },
+ "beverly-hills": {
+  "v": "PASS"
+ },
+ "santa-monica-pier": {
+  "v": "PASS"
+ },
+ "mall-of-america": {
+  "v": "PASS"
+ },
+ "gateway-of-india": {
+  "v": "PASS"
+ },
+ "lotus-temple": {
+  "v": "PASS"
+ },
+ "burj-al-arab": {
+  "v": "PASS"
+ },
+ "palm-jumeirah": {
+  "v": "REWRITE",
+  "clue_before": "Which palm-tree-shaped artificial island juts into the Gulf from Dubai?",
+  "clue": "Which palm-shaped artificial island off Dubai runs a monorail out to the Atlantis hotel on its crescent?",
+  "competitors": [
+   "Palm Jebel Ali, Dubai (the second palm-shaped island, named in the article)"
+  ],
+  "note": "monorail to the Atlantis hotel: article"
+ },
+ "sea-of-galilee": {
+  "v": "PASS"
+ },
+ "bethlehem": {
+  "v": "PASS"
+ },
+ "nazareth": {
+  "v": "PASS"
+ },
+ "troy": {
+  "v": "PASS"
+ },
+ "ephesus": {
+  "v": "PASS"
+ },
+ "delphi": {
+  "v": "PASS"
+ },
+ "olympia-greece": {
+  "v": "PASS"
+ },
+ "mount-athos": {
+  "v": "PASS"
+ },
+ "knossos": {
+  "v": "PASS"
+ },
+ "temple-of-poseidon-at-sounion": {
+  "v": "PASS"
+ },
+ "lake-garda": {
+  "v": "PASS"
+ },
+ "mount-rigi": {
+  "v": "PASS"
+ },
+ "lascaux": {
+  "v": "REWRITE",
+  "clue_before": "Which cave in France's Dordogne holds 17,000-year-old paintings of horses and bulls?",
+  "clue": "Which Dordogne cave, found by a teenager's dog in 1940, holds 17,000-year-old paintings in its Hall of the Bulls?",
+  "competitors": [
+   "Font-de-Gaume, Dordogne (painted horses and bison of similar age)",
+   "Rouffignac, Dordogne"
+  ],
+  "note": "1940 discovery by 18-year-old Marcel Ravidat's dog, Hall of the Bulls: article"
+ },
+ "chateau-de-chambord": {
+  "v": "PASS"
+ },
+ "palace-of-fontainebleau": {
+  "v": "PASS"
+ },
+ "normandy-american-cemetery-and-memorial": {
+  "v": "PASS"
+ },
+ "white-cliffs-of-dover": {
+  "v": "PASS"
+ },
+ "warwick-castle": {
+  "v": "PASS"
+ },
+ "tintagel-castle": {
+  "v": "PASS"
+ },
+ "fiordland-national-park": {
+  "v": "PASS"
+ },
+ "great-barrier-reef": {
+  "v": "PASS"
+ },
+ "daintree-rainforest": {
+  "v": "PASS"
+ },
+ "kangaroo-island": {
+  "v": "PASS"
+ },
+ "rottnest-island": {
+  "v": "PASS"
+ },
+ "dunkirk-evacuation": {
+  "v": "PASS"
+ },
+ "wimbledon-all-england-club": {
+  "v": "PASS"
+ },
+ "robben-island": {
+  "v": "PASS"
+ },
+ "battle-of-hastings": {
+  "v": "PASS"
+ },
+ "roswell-ufo-incident": {
+  "v": "PASS"
+ },
+ "fukushima-daiichi": {
+  "v": "PASS"
+ },
+ "camp-nou": {
+  "v": "PASS"
+ },
+ "old-trafford": {
+  "v": "PASS"
+ },
+ "birds-nest-beijing": {
+  "v": "PASS"
+ },
+ "urquhart-castle": {
+  "v": "PASS"
+ },
+ "miraflores-locks": {
+  "v": "REWRITE",
+  "clue_before": "Where do ships climb or descend the final steps at the Pacific end of the Panama Canal?",
+  "clue": "Where do ships rise or fall 16.5 metres in two lock stages at the Pacific end of the Panama Canal?",
+  "competitors": [
+   "Cocoli Locks (Neopanamax locks at the Pacific end)",
+   "Pedro Miguel Locks"
+  ],
+  "note": "16.5 m in two stages: fact field and article (Cocoli has three steps, Pedro Miguel one)"
+ },
+ "anzac-cove": {
+  "v": "PASS"
+ },
+ "carcassonne-cite": {
+  "v": "PASS"
+ },
+ "blarney-castle": {
+  "v": "PASS"
+ },
+ "le-mans-circuit": {
+  "v": "PASS"
+ },
+ "bukhara-uzbekistan": {
+  "v": "PASS"
+ },
+ "windhoek-namibia": {
+  "v": "PASS"
+ },
+ "stari-most": {
+  "v": "PASS"
+ },
+ "lumbini-nepal": {
+  "v": "PASS"
+ },
+ "bodh-gaya-india": {
+  "v": "PASS"
+ },
+ "wittenberg-castle-church": {
+  "v": "PASS"
+ },
+ "dushanbe-tajikistan": {
+  "v": "PASS"
+ },
+ "noumea-new-caledonia": {
+  "v": "PASS"
+ },
+ "gullfoss": {
+  "v": "PASS"
+ }
+}
