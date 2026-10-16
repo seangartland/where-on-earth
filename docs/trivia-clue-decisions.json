@@ -1,0 +1,1786 @@
+{
+ "base": "0ea2ca0",
+ "tally": {
+  "ownName KEEP": 86,
+  "compass KEEP": 6,
+  "stub KEEP": 6,
+  "compass REWRITE": 57,
+  "ownName REWRITE": 28,
+  "deictic REWRITE": 2,
+  "emDash REWRITE": 1,
+  "stub REWRITE": 1
+ },
+ "decisions": [
+  {
+   "id": "ali-olympic-cauldron-atlanta",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did Muhammad Ali light the Olympic cauldron in a surprise appearance at the 1996 opening ceremony?",
+   "reason": "names Ali and the cauldron, the event's subject; Atlanta is not named"
+  },
+  {
+   "id": "anshan-cn",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Liaoning steel city sits beneath Qianshan’s peaks and is nicknamed China’s capital of iron and steel?",
+   "reason": "mode report hit is the substring \"anshan\" inside \"Qianshan\" (a mountain); the city is not named"
+  },
+  {
+   "id": "augusta-national-golf-club",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Georgia golf club hosts the Masters each April?",
+   "reason": "generic word \"golf,club\" shared with the name, not the place's name"
+  },
+  {
+   "id": "badshahi-mosque",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the Mughal mosque in Lahore, once the largest in the world?",
+   "reason": "generic word \"mosque\" shared with the name, not the place's name"
+  },
+  {
+   "id": "bamako",
+   "classes": [
+    "compass"
+   ],
+   "action": "KEEP",
+   "clue": "Which capital spreads along the Niger River in the western Sahel?",
+   "reason": "\"western Sahel\" is a multi-country region and the only fact separating Bamako from Niamey on the Niger"
+  },
+  {
+   "id": "barringer-meteor-impact",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did an iron asteroid leave one of Earth's best-preserved impact craters about 50,000 years ago?",
+   "reason": "generic word \"crater\" shared with the name, not the place's name"
+  },
+  {
+   "id": "bering-strait",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which narrow strait separates Russia from Alaska?",
+   "reason": "generic word \"strait\" shared with the name, not the place's name"
+  },
+  {
+   "id": "bhatpara",
+   "classes": [
+    "compass"
+   ],
+   "action": "KEEP",
+   "clue": "Which jute-mill town on the Hooghly's east bank in North 24 Parganas is an old center of Sanskrit learning?",
+   "reason": "\"Hooghly's east bank\" is a river bank, not a region of a country"
+  },
+  {
+   "id": "bodh-gaya-india",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did the Buddha attain enlightenment under the Bodhi tree?",
+   "reason": "the Bodhi tree is the defining fact; the town is not named"
+  },
+  {
+   "id": "brasilia-national-congress",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the modernist National Congress complex designed by Oscar Niemeyer?",
+   "reason": "generic word \"congress\" shared with the name, not the place's name"
+  },
+  {
+   "id": "brimstone-hill-fortress",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which remarkably preserved colonial citadel climbs a steep volcanic hill above a narrow Caribbean coastline?",
+   "reason": "generic word \"hill\" shared with the name, not the place's name"
+  },
+  {
+   "id": "buzludzha-monument-bulgaria",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which abandoned saucer-shaped communist monument crowns Hadzhi Dimitar Peak?",
+   "reason": "generic word \"monument\" shared with the name, not the place's name"
+  },
+  {
+   "id": "cali-co",
+   "classes": [
+    "compass"
+   ],
+   "action": "KEEP",
+   "clue": "Which Colombian salsa capital stands between the western Andes and the Cauca River valley?",
+   "reason": "\"western Andes\" names the Cordillera Occidental range, not a compass sector of a country"
+  },
+  {
+   "id": "camp-nou",
+   "classes": [
+    "stub"
+   ],
+   "action": "KEEP",
+   "clue": "Where does FC Barcelona play its home games?",
+   "reason": "short but a complete question with exactly one answer"
+  },
+  {
+   "id": "cape-coast-castle",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the British slaving fort on the old Gold Coast?",
+   "reason": "generic word \"coast\" shared with the name, not the place's name"
+  },
+  {
+   "id": "challenger-deep",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the deepest known point in all of Earth's oceans?",
+   "reason": "generic word \"deep\" shared with the name, not the place's name"
+  },
+  {
+   "id": "chateau-de-chambord",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Loire Valley château, with a double-helix staircase, was built for King Francis I?",
+   "reason": "generic word \"chateau\" shared with the name, not the place's name"
+  },
+  {
+   "id": "chelyabinsk-meteor-airburst",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did a meteor airburst in 2013 shatter windows and injure more than a thousand people?",
+   "reason": "generic word \"meteor,airburst\" shared with the name, not the place's name"
+  },
+  {
+   "id": "chicago-pile-one-stagg-field",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did Enrico Fermi's team produce the first controlled, self-sustaining nuclear chain reaction?",
+   "reason": "generic word \"nuclear\" shared with the name, not the place's name"
+  },
+  {
+   "id": "chocolate-hills",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where are the 1,268 grassy mounds in Bohol that look like spilled chocolate?",
+   "reason": "generic word \"chocolate\" shared with the name, not the place's name"
+  },
+  {
+   "id": "cliffs-of-moher",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which sheer sea cliffs in County Clare, Ireland, face the open Atlantic?",
+   "reason": "generic word \"cliffs\" shared with the name, not the place's name"
+  },
+  {
+   "id": "colorado-river",
+   "classes": [
+    "stub"
+   ],
+   "action": "KEEP",
+   "clue": "Which river carved the Grand Canyon?",
+   "reason": "short but a complete question with exactly one answer"
+  },
+  {
+   "id": "daintree-rainforest",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which ancient rainforest north of Cairns meets the Great Barrier Reef at Cape Tribulation?",
+   "reason": "generic word \"rainforest\" shared with the name, not the place's name"
+  },
+  {
+   "id": "daytona-international-speedway",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Florida speedway near the beach hosts NASCAR's season-opening 500?",
+   "reason": "generic word \"speedway\" shared with the name, not the place's name"
+  },
+  {
+   "id": "donghe",
+   "classes": [
+    "compass"
+   ],
+   "action": "KEEP",
+   "clue": "Which old trading district of Inner Mongolia's steel city lies along the Yellow River's north bank?",
+   "reason": "\"Yellow River's north bank\" is a river bank, not a region of a country"
+  },
+  {
+   "id": "dubrovnik-city-walls",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where do you climb the fortified circuit of stone walls around a walled Adriatic republic?",
+   "reason": "generic word \"walls\" shared with the name, not the place's name"
+  },
+  {
+   "id": "dyatlov-pass-tent-site",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did nine hikers mysteriously abandon their tent and die in the Ural Mountains in 1959?",
+   "reason": "generic word \"tent\" shared with the name, not the place's name"
+  },
+  {
+   "id": "east-london",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Eastern Cape river port on the Buffalo River is near where a living coelacanth was identified in 1938?",
+   "reason": "generic word \"east\" shared with the name, not the place's name"
+  },
+  {
+   "id": "ecatepec-de-morelos-mx",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which enormous municipality beneath the Sierra de Guadalupe contains the hilltop tomb and museum of independence hero José María Morelos?",
+   "reason": "names the hero Morelos as a fact; the city name is not given"
+  },
+  {
+   "id": "first-atom-split-manchester",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did Ernest Rutherford's team first split the atomic nucleus in 1917?",
+   "reason": "names Rutherford, the event's subject; Manchester is not named"
+  },
+  {
+   "id": "first-powered-flight-kill-devil-hills",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did the Wright brothers make the first controlled, sustained flight of a powered airplane?",
+   "reason": "names the Wright brothers, the event's subject; the place is not named"
+  },
+  {
+   "id": "first-traffic-signal-london",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where was the world's first traffic signal installed in 1868?",
+   "reason": "generic word \"traffic,signal\" shared with the name, not the place's name"
+  },
+  {
+   "id": "flaming-cliffs-bayanzag",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where does a Gobi ridge of red cliffs glow like fire at sunset?",
+   "reason": "generic word \"cliffs\" shared with the name, not the place's name"
+  },
+  {
+   "id": "flannan-isles-lighthouse-mystery",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did three lighthouse keepers disappear without explanation in December 1900?",
+   "reason": "generic word \"lighthouse\" shared with the name, not the place's name"
+  },
+  {
+   "id": "frankfurt-am-main-de",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which banking skyline rises beside the Main River, surrounding a reconstructed medieval square and the birthplace of Goethe?",
+   "reason": "names the Main River as setting; Goethe's birthplace and the banking skyline identify the city"
+  },
+  {
+   "id": "gagarin-launch-pad-one",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did Yuri Gagarin launch to become the first human in space?",
+   "reason": "names Gagarin, the event's subject; the launch site is not named"
+  },
+  {
+   "id": "gandhi-assassination-birla-house",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where was Mahatma Gandhi assassinated while walking to an evening prayer meeting?",
+   "reason": "names Gandhi, the event's subject; Birla House is not named"
+  },
+  {
+   "id": "golden-spike-promontory-summit",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where was the ceremonial golden spike driven to complete the first transcontinental railroad in the United States?",
+   "reason": "names the spike, the event's subject; Promontory Summit is not named"
+  },
+  {
+   "id": "great-barrier-reef",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which reef system off Queensland is the largest living structure on Earth?",
+   "reason": "generic word \"reef\" shared with the name, not the place's name"
+  },
+  {
+   "id": "great-ocean-road",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Australian coastal road, built by WWI veterans, passes the Twelve Apostles sea stacks?",
+   "reason": "generic word \"road\" shared with the name, not the place's name"
+  },
+  {
+   "id": "greek-theatre-of-taormina-d34-60",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where does an ancient Greek theatre frame views of Mount Etna and the sea from a clifftop town?",
+   "reason": "\"Greek theatre\" describes the site type; Taormina is not named"
+  },
+  {
+   "id": "hallstatt",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the lakeside Alpine village famous for its salt mine and Iron Age cemetery?",
+   "reason": "generic word \"village\" shared with the name, not the place's name"
+  },
+  {
+   "id": "hindenburg-lakehurst",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did the Hindenburg airship catch fire while attempting to land in 1937?",
+   "reason": "names the airship, the event's subject; Lakehurst is not named"
+  },
+  {
+   "id": "hinterkaifeck-murders",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where were six residents of an isolated farm murdered in an enduring 1922 mystery?",
+   "reason": "generic word \"farm\" shared with the name, not the place's name"
+  },
+  {
+   "id": "hungarian-parliament",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where does the neo-Gothic parliament with 691 statues face the Danube?",
+   "reason": "generic word \"parliament\" shared with the name, not the place's name"
+  },
+  {
+   "id": "ichikawa",
+   "classes": [
+    "compass"
+   ],
+   "action": "KEEP",
+   "clue": "Which bedroom city on the Edo River's east bank is home to Nakayama Hokekyō-ji temple?",
+   "reason": "\"Edo River's east bank\" is a river bank, not a region of a country"
+  },
+  {
+   "id": "itsukushima-shrine",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the Shinto shrine whose great torii gate appears to stand in the sea?",
+   "reason": "generic word \"shrine\" shared with the name, not the place's name"
+  },
+  {
+   "id": "jaws-menemsha-harbor",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where were many of the harbor scenes for Jaws filmed, standing in for fictional Amity Island?",
+   "reason": "generic word \"harbor\" shared with the name, not the place's name"
+  },
+  {
+   "id": "jericoacoara",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where are the shifting white dunes and freshwater lagoons near the equatorial Atlantic coast?",
+   "reason": "generic word \"dunes\" shared with the name, not the place's name"
+  },
+  {
+   "id": "kalaban-koro",
+   "classes": [
+    "compass"
+   ],
+   "action": "KEEP",
+   "clue": "Which commune on the Niger's south bank has swelled into a suburb of a Sahel capital?",
+   "reason": "\"Niger's south bank\" is a river bank, not a region of a country"
+  },
+  {
+   "id": "larabanga-adobe-mosque",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which small whitewashed adobe mosque is bristled with timber supports and pyramidal buttresses?",
+   "reason": "generic word \"mosque\" shared with the name, not the place's name"
+  },
+  {
+   "id": "leshan-giant-buddha",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where does a 71 m Buddha carved from a cliff watch three rivers meet?",
+   "reason": "generic word \"buddha\" shared with the name, not the place's name"
+  },
+  {
+   "id": "little-bighorn-battlefield",
+   "classes": [
+    "stub"
+   ],
+   "action": "KEEP",
+   "clue": "Where was Custer's Last Stand?",
+   "reason": "short but a complete question with exactly one answer"
+  },
+  {
+   "id": "mall-of-america",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which giant shopping mall near Minneapolis has an indoor theme park?",
+   "reason": "generic word \"mall\" shared with the name, not the place's name"
+  },
+  {
+   "id": "migrant-mother-nipomo",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did Dorothea Lange photograph the woman who became known as Migrant Mother?",
+   "reason": "names the photograph, the event's subject; Nipomo is not named"
+  },
+  {
+   "id": "mogao-caves-dunhuang",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where do 500 painted caves hold 45 km of Buddhist murals in a desert cliff?",
+   "reason": "generic word \"caves\" shared with the name, not the place's name"
+  },
+  {
+   "id": "mount-kilimanjaro",
+   "classes": [
+    "stub"
+   ],
+   "action": "KEEP",
+   "clue": "Where is Africa's tallest mountain?",
+   "reason": "short but a complete question with exactly one answer; brevity is not a giveaway"
+  },
+  {
+   "id": "mount-kosciuszko",
+   "classes": [
+    "stub"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the highest mountain in Australia?",
+   "reason": "short but a complete question with exactly one answer"
+  },
+  {
+   "id": "mutianyu",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the best-preserved Ming-dynasty section of the Great Wall, with watchtowers?",
+   "reason": "generic word \"wall\" shared with the name, not the place's name"
+  },
+  {
+   "id": "normandy-american-cemetery-and-memorial",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which clifftop cemetery above Omaha Beach holds over 9,000 American war graves?",
+   "reason": "generic word \"american,cemetery\" shared with the name, not the place's name"
+  },
+  {
+   "id": "okavango-delta",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which inland river delta in Botswana floods the Kalahari each year?",
+   "reason": "generic word \"delta\" shared with the name, not the place's name"
+  },
+  {
+   "id": "okefenokee-swamp",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the 1,780-square-km peat swamp of Georgia and Florida, from a Choctaw name meaning bubble water?",
+   "reason": "generic word \"swamp\" shared with the name, not the place's name"
+  },
+  {
+   "id": "our-lady-peace-basilica",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which monumental domed basilica rises from a planned inland capital, surrounded by a vast paved esplanade?",
+   "reason": "generic word \"basilica\" shared with the name, not the place's name"
+  },
+  {
+   "id": "palm-jumeirah",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which palm-tree-shaped artificial island juts into the Gulf from Dubai?",
+   "reason": "generic word \"palm\" shared with the name, not the place's name"
+  },
+  {
+   "id": "petronas-towers",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where are the twin stainless steel towers in Kuala Lumpur joined by a skybridge?",
+   "reason": "generic word \"twin,towers\" shared with the name, not the place's name"
+  },
+  {
+   "id": "plaza-de-espana-seville",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the semicircular plaza decorated with tiled alcoves for each of the country's provinces?",
+   "reason": "generic word \"plaza\" shared with the name, not the place's name"
+  },
+  {
+   "id": "plitvice-lakes",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where do a chain of turquoise lakes cascade over travertine waterfalls?",
+   "reason": "generic word \"lakes\" shared with the name, not the place's name"
+  },
+  {
+   "id": "point-nemo",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the point in the ocean farthest from any land?",
+   "reason": "generic word \"point\" shared with the name, not the place's name"
+  },
+  {
+   "id": "port-sudan",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Red Sea port became a wartime seat of government after fighting engulfed the capital in 2023?",
+   "reason": "generic word \"port\" shared with the name, not the place's name"
+  },
+  {
+   "id": "prague-astronomical-clock",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where does the 600-year-old clock show where the sun and the moon should be?",
+   "reason": "generic word \"clock\" shared with the name, not the place's name"
+  },
+  {
+   "id": "preikestolen-pulpit-rock",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where does a square cliff of rock hang 600 metres above a fjord?",
+   "reason": "generic word \"rock\" shared with the name, not the place's name"
+  },
+  {
+   "id": "pulsar-discovery-mullard",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did Jocelyn Bell Burnell first detect the repeating radio signals of a pulsar?",
+   "reason": "generic word \"radio\" shared with the name, not the place's name"
+  },
+  {
+   "id": "roman-baths-bath",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the Roman spa complex beside the River Avon?",
+   "reason": "\"Roman spa complex\" describes the site; Bath is not named"
+  },
+  {
+   "id": "salt-lake-city",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Utah capital was founded by Mormon pioneers beside a vast salty lake?",
+   "reason": "\"vast salty lake\" is a description; the city is not named"
+  },
+  {
+   "id": "santa-monica-pier",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Los Angeles-area pier with a Ferris wheel marks the end of Route 66?",
+   "reason": "generic word \"pier\" shared with the name, not the place's name"
+  },
+  {
+   "id": "sheikh-zayed-mosque",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the Abu Dhabi mosque with white domes and 96 columns inlaid with mother-of-pearl?",
+   "reason": "generic word \"mosque\" shared with the name, not the place's name"
+  },
+  {
+   "id": "snowdon",
+   "classes": [
+    "stub"
+   ],
+   "action": "KEEP",
+   "clue": "Which mountain is the highest in Wales?",
+   "reason": "short but a complete question with exactly one answer"
+  },
+  {
+   "id": "south-beach",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Miami Beach neighborhood is famous for Art Deco hotels along Ocean Drive?",
+   "reason": "generic word \"beach\" shared with the name, not the place's name"
+  },
+  {
+   "id": "south-tangerang-id",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which planned municipality southwest of Jakarta contains the modern business district of BSD City?",
+   "reason": "generic word \"south\" shared with the name, not the place's name"
+  },
+  {
+   "id": "stone-of-destiny",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where were medieval kings crowned on the stone that Edward I carried off to Westminster Abbey in 1296?",
+   "reason": "generic word \"stone\" shared with the name, not the place's name"
+  },
+  {
+   "id": "strait-of-gibraltar",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which strait, only about 14 km wide, separates Spain from Morocco?",
+   "reason": "generic word \"strait\" shared with the name, not the place's name"
+  },
+  {
+   "id": "suez-canal",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Egyptian canal, opened in 1869, links the Mediterranean to the Red Sea?",
+   "reason": "generic word \"canal\" shared with the name, not the place's name"
+  },
+  {
+   "id": "tank-man-changan-avenue",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did an unidentified man stand in front of a column of tanks after the 1989 Tiananmen crackdown?",
+   "reason": "describes the event; the avenue is not named"
+  },
+  {
+   "id": "tatev-gorge-monastery",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which ninth-century monastery sits on a basalt plateau above a deep gorge, once reached by a long aerial tramway?",
+   "reason": "generic word \"monastery\" shared with the name, not the place's name"
+  },
+  {
+   "id": "three-sisters-blue-mountains",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where are the three sandstone peaks above the Blue Mountains west of Sydney?",
+   "reason": "names the Blue Mountains as setting; the Three Sisters are not named"
+  },
+  {
+   "id": "tigers-nest",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where is the monastery clinging to a cliff 900 m above the Paro valley?",
+   "reason": "names the Paro valley it overlooks, a setting fact; the monastery is not named"
+  },
+  {
+   "id": "valdivia-earthquake-epicenter",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where was the epicenter of the most powerful earthquake ever instrumentally recorded?",
+   "reason": "generic word \"earthquake,epicenter\" shared with the name, not the place's name"
+  },
+  {
+   "id": "victoria-peak",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which Hong Kong summit, reached by a historic tram, overlooks Victoria Harbour?",
+   "reason": "names Victoria Harbour, which the peak overlooks; the peak is not named"
+  },
+  {
+   "id": "wembley-stadium",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which London stadium with a giant arch is home to England's national football team?",
+   "reason": "generic word \"stadium\" shared with the name, not the place's name"
+  },
+  {
+   "id": "white-cliffs-of-dover",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Which chalk cliffs on England's Kent coast face France across the Channel?",
+   "reason": "generic word \"cliffs\" shared with the name, not the place's name"
+  },
+  {
+   "id": "woodstock-max-yasgur-farm",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did the 1969 Woodstock festival actually take place after its original venue plans collapsed?",
+   "reason": "names the festival; the point of the clue is that it did not happen in the town of Woodstock"
+  },
+  {
+   "id": "zodiac-lake-berryessa-attack",
+   "classes": [
+    "ownName"
+   ],
+   "action": "KEEP",
+   "clue": "Where did the Zodiac killer attack two students beside a lake while wearing a hooded costume?",
+   "reason": "names the killer, the event's subject; the lake is not named"
+  },
+  {
+   "id": "adana-tr",
+   "classes": [
+    "compass",
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which southern Turkish city is famed for the Roman stone bridge, Sabancı Mosque, and spicy Adana kebab?",
+   "after": "Which city is famed for the Roman stone bridge, Sabancı Mosque, and a spicy kebab named after it?"
+  },
+  {
+   "id": "agra-in",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Mughal city on the Yamuna is home to the white-marble Taj Mahal and the massive red-sandstone Agra Fort?",
+   "after": "Which Mughal city on the Yamuna is home to the white-marble Taj Mahal and a massive red-sandstone fort?"
+  },
+  {
+   "id": "bandar-lampung",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which city at Sumatra's southern tip is the ferry gateway across the Sunda Strait?",
+   "after": "Which Sumatran city is the ferry gateway across the Sunda Strait?"
+  },
+  {
+   "id": "banissa",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which Mandera County town lies near Kenya's northeastern border?",
+   "after": "Which Mandera County town lies near the borders with Ethiopia and Somalia?"
+  },
+  {
+   "id": "bastei-bridge-germany",
+   "classes": [
+    "deictic"
+   ],
+   "action": "REWRITE",
+   "before": "Where does this stone bridge thread through the sandstone pinnacles of Saxon Switzerland above the Elbe River?",
+   "after": "Where does a stone bridge thread through the sandstone pinnacles of Saxon Switzerland above the Elbe River?"
+  },
+  {
+   "id": "battle-of-waterloo",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Where was the Battle of Waterloo fought in 1815?",
+   "after": "Where did Napoleon fight his last battle, in 1815?"
+  },
+  {
+   "id": "bay-of-islands",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which bay in New Zealand's far north, dotted with over 140 islands, is where the Treaty of Waitangi was signed?",
+   "after": "Which bay, dotted with over 140 islands, is where the Treaty of Waitangi was signed?"
+  },
+  {
+   "id": "black-forest",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which wooded mountain region in southwest Germany gave its name to cuckoo clocks and a cherry cake?",
+   "after": "Which wooded mountain region gave its name to cuckoo clocks and a cherry cake?"
+  },
+  {
+   "id": "bull-run",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Virginia creek gave its name to two Civil War battles also called Manassas?",
+   "after": "Which creek gave its name to two Civil War battles also called Manassas?"
+  },
+  {
+   "id": "caloocan-ph",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Manila city contains the giant Bonifacio Monument and the historic railway workshops of Grace Park?",
+   "after": "Which Metro Manila city contains the giant Bonifacio Monument and the historic railway workshops of Grace Park?"
+  },
+  {
+   "id": "calumbo-ao",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which settlement south of Luanda lies beside the Kwanza River and the historic Calumbo church?",
+   "after": "Which settlement south of Luanda lies on the banks of the Kwanza River?"
+  },
+  {
+   "id": "camama-ao",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which southern Luanda district grew around the sprawling Chinese-built Kilamba satellite development?",
+   "after": "Which Luanda district grew around the sprawling Chinese-built Kilamba satellite development?"
+  },
+  {
+   "id": "carcassonne-cite",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which walled medieval citadel in southern France has 52 towers and inspired a popular board game?",
+   "after": "Which walled medieval citadel has 52 towers and inspired a popular board game?"
+  },
+  {
+   "id": "changde-cn",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Hunan city beside Dongting Lake is associated with poet Qu Yuan and spicy Changde rice noodles?",
+   "after": "Which Hunan city beside Dongting Lake is associated with poet Qu Yuan and a long poetry wall along the Yuan River?"
+  },
+  {
+   "id": "changdian",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which town lies on the southwestern Shandong plain near the old course of the Yellow River?",
+   "after": "Which town lies on the Shandong plain near the old course of the Yellow River?"
+  },
+  {
+   "id": "danube-delta",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Where does the Danube spread into a vast reed-filled wetland before reaching the Black Sea?",
+   "after": "Where does Europe's second-longest river spread into a vast reed-filled wetland before reaching the Black Sea?",
+   "note": "adds one general-reference fact: the Danube is Europe's second-longest river after the Volga"
+  },
+  {
+   "id": "daqing-cn",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which city amid Daqing’s oil derricks became synonymous with China’s largest petroleum field and the model worker Wang Jinxi?",
+   "after": "Which city of oil derricks became synonymous with China’s largest petroleum field and the model worker Wang Jinxi?"
+  },
+  {
+   "id": "datong",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which coal city in northern Shanxi is famous for the Buddhist cave carvings of the Yungang Grottoes?",
+   "after": "Which coal city is famous for the Buddhist cave carvings of the Yungang Grottoes?"
+  },
+  {
+   "id": "dazhou-cn",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northeastern Sichuan city is known for natural gas, the Bashan Grand Canyon, and the lantern festival of its old quarters?",
+   "after": "Which Sichuan city is known for natural gas, the Bashan Grand Canyon, and the lantern festival of its old quarters?"
+  },
+  {
+   "id": "dhampur",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which Bijnor district sugar town lies in western Uttar Pradesh?",
+   "after": "Which Bijnor district sugar town lies in Uttar Pradesh?"
+  },
+  {
+   "id": "duping",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which village lies in the Three Gorges mountains of western Hubei?",
+   "after": "Which village lies in the Three Gorges mountains of Hubei?"
+  },
+  {
+   "id": "erzurum",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which high, cold eastern Anatolian city is known for Seljuk twin minarets and cağ kebab?",
+   "after": "Which high, cold Anatolian city is known for Seljuk twin minarets and cağ kebab?"
+  },
+  {
+   "id": "franz-josef-glacier",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which New Zealand glacier descends almost into temperate rainforest on the South Island's west coast?",
+   "after": "Which New Zealand glacier descends almost into temperate rainforest?",
+   "keptFor": {
+    "classes": [
+     "ownName"
+    ],
+    "reason": ""
+   }
+  },
+  {
+   "id": "funchal-old-town-d34-78",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Where is Funchal’s old town, known for painted doors and a waterfront market?",
+   "after": "Where is the old town of Madeira’s capital, known for painted doors and a waterfront market?"
+  },
+  {
+   "id": "gaziantep-tr",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which southeastern Turkish city is renowned for pistachios, copperware, baklava, and the Roman mosaics of Zeugma?",
+   "after": "Which city is renowned for pistachios, copperware, baklava, and the Roman mosaics of Zeugma?"
+  },
+  {
+   "id": "gobi-desert",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which cold desert spans southern Mongolia and northern China?",
+   "after": "Which cold desert spans Mongolia and China?"
+  },
+  {
+   "id": "harbin-cn",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Chinese city turns winter ice into illuminated palaces and retains onion-domed Russian architecture?",
+   "after": "Which Chinese city turns winter ice into illuminated palaces and retains onion-domed Russian architecture?"
+  },
+  {
+   "id": "hecun",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which town in southern Hebei's Handan prefecture lies on the edge of the Taihang foothills?",
+   "after": "Which town in Hebei's Handan prefecture lies on the edge of the Taihang foothills?"
+  },
+  {
+   "id": "huchuan",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which town lies in the loess hills of eastern Gansu, near the Wei River basin?",
+   "after": "Which town lies in the loess hills of Gansu, near the Wei River basin?"
+  },
+  {
+   "id": "ibb",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which hilltop city in the wettest highlands of the southern Arabian Peninsula is capital of the \"Green Governorate\"?",
+   "after": "Which hilltop city in the wettest highlands of the Arabian Peninsula is capital of the \"Green Governorate\"?"
+  },
+  {
+   "id": "jeju-island",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which volcanic island off South Korea's southern coast is crowned by Hallasan?",
+   "after": "Which volcanic island is crowned by Hallasan?"
+  },
+  {
+   "id": "joshua-tree-national-park",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which southern California park is named for the spiky yucca trees of the Mojave Desert?",
+   "after": "Which park is named for the spiky yucca trees of the Mojave Desert?",
+   "keptFor": {
+    "classes": [
+     "ownName"
+    ],
+    "reason": ""
+   }
+  },
+  {
+   "id": "kaduna-ng",
+   "classes": [
+    "compass",
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Nigerian city was designed as a colonial administrative center and hosts the colorful Kaduna polo tournament?",
+   "after": "Which Nigerian city was designed as a colonial administrative center and hosts a colorful polo tournament?"
+  },
+  {
+   "id": "kakamega-ke",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which western Kenyan town is famous for its crying stone and lies amid a major sugarcane-growing region?",
+   "after": "Which Kenyan town is famous for its crying stone and lies amid a major sugarcane-growing region?"
+  },
+  {
+   "id": "kampung-baru-subang",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Selangor village lies beside the old Sultan Abdul Aziz Shah Airport at Subang?",
+   "after": "Which Selangor village lies beside the old Sultan Abdul Aziz Shah Airport?"
+  },
+  {
+   "id": "kanpur-in",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Ganges city once called the “Manchester of the East” is associated with leather works and IIT Kanpur?",
+   "after": "Which Ganges city once called the “Manchester of the East” is associated with leather works and the 1857 uprising?"
+  },
+  {
+   "id": "kayseri",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which central Anatolian city lies at the foot of the extinct volcano Mount Erciyes, near Cappadocia?",
+   "after": "Which city lies at the foot of the extinct volcano Mount Erciyes, near Cappadocia?"
+  },
+  {
+   "id": "konya",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which central Anatolian city holds the tomb of Rumi, home of the whirling dervishes?",
+   "after": "Which city holds the tomb of Rumi, home of the whirling dervishes?"
+  },
+  {
+   "id": "kuelap-fortress-peru",
+   "classes": [
+    "compass",
+    "deictic"
+   ],
+   "action": "REWRITE",
+   "before": "Where is this mountaintop walled settlement built by the Chachapoya people in the northern Andes?",
+   "after": "Where is the mountaintop walled settlement built by the Chachapoya people?"
+  },
+  {
+   "id": "lake-como",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which wishbone-shaped lake in northern Italy is lined with villas below the Alps?",
+   "after": "Which wishbone-shaped Italian lake is lined with villas below the Alps?"
+  },
+  {
+   "id": "loudi",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which central Hunan industrial city governs the ancestral home of Qing statesman Zeng Guofan?",
+   "after": "Which Hunan industrial city governs the ancestral home of Qing statesman Zeng Guofan?"
+  },
+  {
+   "id": "macau",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which former Portuguese enclave on China's south coast now earns more from casinos than Las Vegas?",
+   "after": "Which former Portuguese enclave now earns more from casinos than Las Vegas?"
+  },
+  {
+   "id": "malingao",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which farming community on the rice plains of central Mindanao lies west of the Liguasan Marsh?",
+   "after": "Which farming community on the rice plains of Mindanao lies west of the Liguasan Marsh?"
+  },
+  {
+   "id": "managua-ni",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which capital stretches between Lake Managua and the Tiscapa...",
+   "after": "Which capital on the shore of Lake Xolotlán was rebuilt after a devastating 1972 earthquake?",
+   "note": "original clue was truncated mid-sentence; rewritten from the entry fact"
+  },
+  {
+   "id": "meerut",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which city in western Uttar Pradesh is where the 1857 sepoy uprising broke out?",
+   "after": "Which city is where the 1857 sepoy uprising broke out?"
+  },
+  {
+   "id": "minhang-cn",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which southwestern Shanghai district contains Qibao’s old water-town lanes and the major Hongqiao transport hub?",
+   "after": "Which Shanghai district contains Qibao’s old water-town lanes and the major Hongqiao transport hub?"
+  },
+  {
+   "id": "monterey-pop-festival",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Where did Jimi Hendrix set his guitar on fire during the 1967 Monterey Pop Festival?",
+   "after": "Where did Jimi Hendrix set his guitar on fire during his 1967 U.S. festival debut?"
+  },
+  {
+   "id": "moreno",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which partido in the western Conurbano grew around a station on the Sarmiento railway line?",
+   "after": "Which partido in the Conurbano grew around a station on the Sarmiento railway line?"
+  },
+  {
+   "id": "mount-ararat",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which snow-capped volcano in eastern Turkey, visible from Armenia, is linked to Noah's Ark?",
+   "after": "Which snow-capped volcano, visible from Armenia, is linked to Noah's Ark?"
+  },
+  {
+   "id": "nagoya-jp",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Japanese manufacturing center is home to Nagoya Castle, Atsuta Shrine, and Toyota’s industrial roots?",
+   "after": "Which Japanese manufacturing center is home to a golden-dolphin castle, Atsuta Shrine, and Toyota’s industrial roots?"
+  },
+  {
+   "id": "nagpur-in",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which central Indian city marks the country’s geographical center with the Zero Mile stone and is famous for oranges?",
+   "after": "Which Indian city marks the country’s geographical center with the Zero Mile stone and is famous for oranges?"
+  },
+  {
+   "id": "new-taipei-city-tw",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which municipality wraps around Taipei and includes Jiufen’s hillside lanes, Tamsui’s waterfront, and Yehliu’s rock formations?",
+   "after": "Which municipality includes Jiufen’s hillside lanes, Tamsui’s waterfront, and Yehliu’s rock formations?"
+  },
+  {
+   "id": "niagara-on-the-lake",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Ontario town, where the Niagara River meets Lake Ontario, is known for wineries and the Shaw Festival?",
+   "after": "Which Ontario town is known for wineries and the Shaw Festival?"
+  },
+  {
+   "id": "nohar",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which Hanumangarh district town lies in the dry north of Rajasthan?",
+   "after": "Which dry-country town lies in Rajasthan's Hanumangarh district?"
+  },
+  {
+   "id": "nowrangapur",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which tribal district town in southern Odisha lies on a plateau near the Chhattisgarh border?",
+   "after": "Which tribal district town in Odisha lies on a plateau near the Chhattisgarh border?"
+  },
+  {
+   "id": "nuevo-laredo-mx",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which border city faces Laredo across the Rio Grande and marks the southern end of a major Pan-American trade corridor?",
+   "after": "Which Rio Grande border city is the busiest land port for US-Mexico trade and marks the southern end of a major Pan-American trade corridor?"
+  },
+  {
+   "id": "ojo-de-agua-mx",
+   "classes": [
+    "emDash"
+   ],
+   "action": "REWRITE",
+   "before": "Which rapidly grown community beside the Sierra de Guadalupe takes its name\u2014'spring'\u2014from the water source around which its original hacienda developed?",
+   "after": "Which rapidly grown community beside the Sierra de Guadalupe takes its name ('spring') from the water source around which its original hacienda developed?"
+  },
+  {
+   "id": "olympia-greece",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which site in Greece's western Peloponnese hosted the ancient Olympic Games?",
+   "after": "Which site hosted the ancient Olympic Games?",
+   "keptFor": {
+    "classes": [
+     "ownName"
+    ],
+    "reason": ""
+   }
+  },
+  {
+   "id": "orlando",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which central Florida city is the home of Walt Disney World?",
+   "after": "Which city is the home of Walt Disney World?"
+  },
+  {
+   "id": "osasco-br",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which dense municipality west of São Paulo is known for its enormous retail district and the striking metal Osasco Viaduct?",
+   "after": "Which dense municipality west of São Paulo is known for its enormous retail district and the headquarters of Bradesco, one of Brazil’s biggest banks?"
+  },
+  {
+   "id": "panama-city",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which capital's skyline faces the Pacific entrance to the Panama Canal?",
+   "after": "Which capital's skyline faces the Pacific entrance to the canal that transformed global shipping?"
+  },
+  {
+   "id": "patna-in",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which ancient Ganges capital is associated with Pataliputra, Ashoka, and the enormous Sikh shrine Takht Sri Patna Sahib?",
+   "after": "Which ancient Ganges capital is associated with Pataliputra, Ashoka, and an enormous Sikh shrine?"
+  },
+  {
+   "id": "perole",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which village on northern Kerala's Kasaragod coast lies near Nileshwaram?",
+   "after": "Which village on Kerala's Kasaragod coast lies near Nileshwaram?"
+  },
+  {
+   "id": "pont-du-gard-aqueduct",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which three-tiered Roman aqueduct bridge crosses the Gardon River near Nîmes in southern France?",
+   "after": "Which three-tiered Roman aqueduct bridge crosses the Gardon River near Nîmes?",
+   "keptFor": {
+    "classes": [
+     "ownName"
+    ],
+    "reason": "\"Gard\" match is inside the river name \"Gardon\"; also rewritten for its compass phrase"
+   }
+  },
+  {
+   "id": "qingshui",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which township in the Tengchong area lies in the volcanic hills of western Yunnan?",
+   "after": "Which township in the Tengchong area lies in the volcanic hills of Yunnan?"
+  },
+  {
+   "id": "qingyang",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which Loess Plateau city in eastern Gansu is famed for cave dwellings and embroidered sachets?",
+   "after": "Which Loess Plateau city in Gansu is famed for cave dwellings and embroidered sachets?"
+  },
+  {
+   "id": "qingyuan-cn",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Guangdong city is known for dramatic karst gorges, rafting on the Huangteng Gorge, and a prized local chicken breed?",
+   "after": "Which Guangdong city is known for dramatic karst gorges, rafting on the Huangteng Gorge, and a prized local chicken breed?"
+  },
+  {
+   "id": "redwood-national-and-state-parks",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern California parks protect the world's tallest trees along the coast?",
+   "after": "Which California parks protect the world's tallest trees along the coast?",
+   "keptFor": {
+    "classes": [
+     "ownName"
+    ],
+    "reason": ""
+   }
+  },
+  {
+   "id": "rila-monastery-bulgaria",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which striped Orthodox monastery lies high in Bulgaria's Rila Mountains?",
+   "after": "Which striped Orthodox monastery lies high in Bulgaria's mountains and is named for a hermit saint?"
+  },
+  {
+   "id": "rockford",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Illinois city on the Rock River, the \"Forest City\", is home to the Anderson Japanese Gardens?",
+   "after": "Which Illinois city on the Rock River, the \"Forest City\", is home to the Anderson Japanese Gardens?"
+  },
+  {
+   "id": "ryogoku",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which rural hamlet in northern Chiba's paddy country shares its name with a famous sumo district?",
+   "after": "Which rural hamlet in Chiba's paddy country shares its name with a famous sumo district?"
+  },
+  {
+   "id": "san-pedro-sula-hn",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which industrial city lies in the hot Sula Valley near the vast Maya ruins of Copán and the cloud forests of Cusuco?",
+   "after": "Which industrial city lies in a hot valley near the vast Maya ruins of Copán and the cloud forests of Cusuco?"
+  },
+  {
+   "id": "santo-andre-br",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which ABC-region city grew around railways and industry and is home to the grand Museu de Santo André?",
+   "after": "Which city, the A in São Paulo’s industrial ABC region, grew around railways and industry?",
+   "note": "adds one general-reference fact: the A of the ABC region stands for Santo André"
+  },
+  {
+   "id": "sea-of-galilee",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which freshwater lake in northern Israel is where Jesus is said to have walked on water?",
+   "after": "Which freshwater lake is where Jesus is said to have walked on water?"
+  },
+  {
+   "id": "shanwei",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which eastern Guangdong coastal city governs Haifeng, where Peng Pai set up a short-lived soviet in 1927?",
+   "after": "Which Guangdong coastal city governs Haifeng, where Peng Pai set up a short-lived soviet in 1927?"
+  },
+  {
+   "id": "shymkent",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which southern Silk Road city near the Uzbek border is the third-largest in its steppe nation?",
+   "after": "Which Silk Road city near the Uzbek border is the third-largest in its steppe nation?"
+  },
+  {
+   "id": "soshanguve-za",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Pretoria township is known for Tswana culture and the massive Soshanguve Crossing commercial hub?",
+   "after": "Which Pretoria township is known for Tswana culture and has a name combining several South African languages?"
+  },
+  {
+   "id": "titanic-sinking",
+   "classes": [
+    "ownName",
+    "stub"
+   ],
+   "action": "REWRITE",
+   "before": "Where did the Titanic sink in 1912?",
+   "after": "Where did a liner on its maiden voyage strike an iceberg and sink in 1912?",
+   "note": "adds one general-reference fact (maiden voyage); the entry fact's \"2:40 a.m.\" impact time is wrong (impact about 11:40 p.m.), so it was not reused"
+  },
+  {
+   "id": "tshikapa-cd",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Kasai city is a major diamond-trading center at the confluence of the Tshikapa and Kasai rivers?",
+   "after": "Which Kasai city is a major diamond-trading center where a namesake river meets the Kasai?"
+  },
+  {
+   "id": "uijeongbu-si",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Gyeonggi city near old US Army camps is famous for budae-jjigae \"army stew\"?",
+   "after": "Which Gyeonggi city near old US Army camps is famous for budae-jjigae \"army stew\"?"
+  },
+  {
+   "id": "valle-de-guanape",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which Anzoátegui valley town lies in the interior hills of eastern Venezuela?",
+   "after": "Which valley town lies in the interior hills of Anzoátegui?",
+   "keptFor": {
+    "classes": [
+     "ownName"
+    ],
+    "reason": "\"valley town\" translates part of the name but locates nothing; also rewritten for its compass phrase"
+   }
+  },
+  {
+   "id": "xuzhou-cn",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Jiangsu transport hub is associated with Han dynasty founder Liu Bang and the terracotta warriors of the Chu kings?",
+   "after": "Which Jiangsu transport hub is associated with Han dynasty founder Liu Bang and the terracotta warriors of the Chu kings?"
+  },
+  {
+   "id": "zaoyang",
+   "classes": [
+    "compass"
+   ],
+   "action": "REWRITE",
+   "before": "Which northern Hubei city is the hometown of Emperor Guangwu, founder of the Eastern Han?",
+   "after": "Which Hubei city is the hometown of Emperor Guangwu, founder of the Eastern Han?"
+  },
+  {
+   "id": "zapopan-mx",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Guadalajara suburb includes the Basilica of Our Lady of Zapopan and the vast Andares commercial district?",
+   "after": "Which Guadalajara suburb includes the Estadio Akron and the vast Andares commercial district?"
+  },
+  {
+   "id": "zibo-cn",
+   "classes": [
+    "ownName"
+   ],
+   "action": "REWRITE",
+   "before": "Which Shandong ceramics center gave its name to Zibo barbecue’s distinctive pancakes, scallions, and tabletop grills?",
+   "after": "Which Shandong ceramics center gave its name to a viral barbecue of pancakes, scallions, and tabletop grills?"
+  }
+ ],
+ "relativeCompassFollowUp": [
+  {
+   "id": "three-sisters-blue-mountains",
+   "clue": "Where are the three sandstone peaks above the Blue Mountains west of Sydney?"
+  },
+  {
+   "id": "urumqi-cn",
+   "clue": "Which famously remote inland metropolis sits north of the Tian Shan and displays Silk Road mummies in its regional museum?"
+  },
+  {
+   "id": "gazipur-bd",
+   "clue": "Which industrial city north of Dhaka is dominated by garment factories and borders the forested Bhawal National Park?"
+  },
+  {
+   "id": "taizhou-cn",
+   "clue": "Which Zhejiang city of this name is known for the Tiantai Mountains and manufacturing along the coast south of Ningbo?"
+  },
+  {
+   "id": "karaj-ir",
+   "clue": "Which fast-growing city lies below the Alborz Mountains just west of Tehran?"
+  },
+  {
+   "id": "south-tangerang-id",
+   "clue": "Which planned municipality southwest of Jakarta contains the modern business district of BSD City?"
+  },
+  {
+   "id": "bien-hoa-vn",
+   "clue": "Which industrial city northeast of Saigon grew around rubber plantations and pottery along the Đồng Nai River?"
+  },
+  {
+   "id": "santo-domingo-este-do",
+   "clue": "Which city east of the Ozama River contains the lighthouse-like Columbus monument and the limestone caverns and turquoise lagoons of Los Tres Ojos?"
+  },
+  {
+   "id": "contagem-br",
+   "clue": "Which industrial municipality immediately west of Belo Horizonte contains Eldorado’s busy commercial district?"
+  },
+  {
+   "id": "serra-br",
+   "clue": "Which Espírito Santo municipality sprawls from beaches to the Mestre Álvaro mountain just north of Vitória?"
+  },
+  {
+   "id": "carrefour-ht",
+   "clue": "Which city west of Port-au-Prince spreads between the sea and mountains and contains the port of Thor?"
+  },
+  {
+   "id": "evaton-za",
+   "clue": "Which Vaal Triangle township is remembered for the 1984 rent protests and lies south of Johannesburg?"
+  },
+  {
+   "id": "yekaterinburg-ru",
+   "clue": "Which city east of the Urals is associated with the Romanovs’ final days and the constructivist White Tower?"
+  },
+  {
+   "id": "ciudad-nezahualcoyotl-mx",
+   "clue": "Which dense city east of Mexico City was built on the drained bed of Lake Texcoco and is known for the giant Coyote sculpture?"
+  },
+  {
+   "id": "brampton-ca",
+   "clue": "Which city northwest of Toronto is known for its extraordinary South Asian community and large Sikh gurdwaras?"
+  },
+  {
+   "id": "surrey-ca",
+   "clue": "Which city includes both dense Punjabi neighborhoods and broad Pacific-coast parks south of the Fraser River?"
+  },
+  {
+   "id": "ciudad-lopez-mateos-mx",
+   "clue": "Which suburb northwest of Mexico City contains the vast modernist towers and satellite-like sculpture of Torres de Satélite?"
+  },
+  {
+   "id": "laval-ca",
+   "clue": "Which island city north of Montreal is divided by the Rivière des Prairies and has a major Greek and Lebanese community?"
+  },
+  {
+   "id": "napa-valley-ava",
+   "clue": "Which California valley north of San Francisco is the country's most famous wine region?"
+  },
+  {
+   "id": "palace-of-fontainebleau",
+   "clue": "Which royal palace in a forest southeast of Paris is where Napoleon abdicated in 1814?"
+  },
+  {
+   "id": "daintree-rainforest",
+   "clue": "Which ancient rainforest north of Cairns meets the Great Barrier Reef at Cape Tribulation?"
+  },
+  {
+   "id": "hathazari",
+   "clue": "Which upazila town north of Chattogram is home to the country's most influential Deobandi madrasa?"
+  },
+  {
+   "id": "karabaglar",
+   "clue": "Which district split off in 2008 climbs the hills south of Konak in a big Aegean port?"
+  },
+  {
+   "id": "queimados",
+   "clue": "Which Baixada Fluminense city lies along the Via Dutra west of Nova Iguaçu?"
+  },
+  {
+   "id": "el-limon",
+   "clue": "Which Aragua town at the foot of Henri Pittier National Park lies just north of Maracay?"
+  },
+  {
+   "id": "rio-tinto",
+   "clue": "Which town in Gondomar, just north of the Douro, shares its name with a mining giant?"
+  },
+  {
+   "id": "marano-di-napoli",
+   "clue": "Which Campanian town in the hills north of the Phlegraean Fields was long a stronghold of the Nuvoletta clan?"
+  },
+  {
+   "id": "kanash",
+   "clue": "Which Chuvash railway junction town lies southwest of Cheboksary?"
+  },
+  {
+   "id": "regenstauf",
+   "clue": "Which Upper Palatinate market town lies on the Regen River north of Regensburg?"
+  },
+  {
+   "id": "bobrovo",
+   "clue": "Which village in New Moscow lies just south of Butovo?"
+  },
+  {
+   "id": "songon",
+   "clue": "Which commune west of Abidjan lies along the Ébrié Lagoon?"
+  },
+  {
+   "id": "osasco-br",
+   "clue": "Which dense municipality west of São Paulo is known for its enormous retail district and the striking metal Osasco Viaduct?"
+  },
+  {
+   "id": "calumbo-ao",
+   "clue": "Which settlement south of Luanda lies beside the Kwanza River and the historic Calumbo church?"
+  }
+ ]
+}
