@@ -57,7 +57,7 @@ const flagged = after.filter((e) => e.photo === 'verified');
 check(flagged.length === [...verifiedByVerdict].filter((id) => !dropIds.has(id)).length && flagged.every((e) => verifiedByVerdict.has(e.id)), 'photo flags differ from the verdicts');
 
 // 4. Zero em dashes in the bank.
-check(!afterText.includes('—'), 'em dash in the bank');
+check(!afterText.includes('\u2014'), 'em dash in the bank');
 
 const method = { F: 0, M: 0, V: 0 };
 for (const v of verdicts) method[v.method]++;

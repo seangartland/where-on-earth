@@ -28,7 +28,7 @@ for (const [id, cls, edits, note] of rewrites) {
     if (!after.includes(from)) errors.push(`rewrite ${id}: "${from}" not found`);
     after = after.replace(from, to);
   }
-  if (/—/.test(after)) errors.push(`rewrite ${id}: em dash`);
+  if (/\u2014/.test(after)) errors.push(`rewrite ${id}: em dash`);
   records.set(id, { id, classes: cls, action: 'REWRITE', before: e.clue, after, ...(note ? { note } : {}) });
 }
 for (const [id, cls, reason] of keeps) {
