@@ -1,0 +1,224 @@
+[
+  {
+    "id": "pilgrim-week",
+    "name": "Pilgrim Week",
+    "sub": "Seven places people cross the world to stand in.",
+    "locationIds": ["mecca-kaaba-saudi", "western-wall-jerusalem", "dome-of-the-rock", "lumbini-nepal", "sanctuary-of-fátima-d34-77", "bodh-gaya-india", "las-lajas-sanctuary"]
+  },
+  {
+    "id": "summit-week",
+    "name": "Summit Week",
+    "sub": "Seven peaks, from Kilimanjaro to Denali.",
+    "locationIds": ["mount-kilimanjaro-summit", "matterhorn-summit", "ben-nevis", "jungfrau", "kirkjufell-iceland", "zugspitze-summit", "denali"]
+  },
+  {
+    "id": "roof-of-the-world",
+    "name": "Roof of the World",
+    "sub": "Base camps, monasteries and mountain towns in the Himalaya.",
+    "locationIds": ["k2-base-camp-pakistan", "kathmandu-nepal", "anapurna-base-camp-nepal", "darjeeling-in", "tigers-nest", "leh-india", "shigatse-tibet"]
+  },
+  {
+    "id": "silk-road",
+    "name": "Silk Road",
+    "sub": "Caravan cities between Istanbul and Xi'an.",
+    "locationIds": ["istanbul", "isfahan-iran", "xian-china", "tabriz-ir", "bukhara-uzbekistan", "registan-samarkand", "ak-baital-pass"]
+  },
+  {
+    "id": "roman-roads",
+    "name": "Roman Roads",
+    "sub": "Across the Roman Empire, from Libya to Hadrian's Wall.",
+    "locationIds": ["pantheon-rome", "roman-baths-bath", "leptis-magna", "jerash-jordan", "ephesus", "pont-du-gard-aqueduct", "housesteads-hadrians-wall"]
+  },
+  {
+    "id": "ruins-week",
+    "name": "Ruins Week",
+    "sub": "Troy, Knossos, Persepolis and the lost cities of the Indus.",
+    "locationIds": ["gobekli-tepe", "troy", "acropolis-athens-gr", "persepolis", "knossos", "mohenjo-daro", "dholavira-india"]
+  },
+  {
+    "id": "before-columbus",
+    "name": "Before Columbus",
+    "sub": "Cities the Americas built long before Europe arrived.",
+    "locationIds": ["teotihuacan", "xochimilco-mx", "tikal", "tiwanaku-kalasasaya", "chan-chan-tshudi-palace", "sacsayhuaman-cusco", "chaco-canyon-pueblo-bonito"]
+  },
+  {
+    "id": "temple-trail",
+    "name": "Temple Trail",
+    "sub": "Stupas, spires and jungle stone across Southeast Asia.",
+    "locationIds": ["angkor-wat", "wat-arun-th", "borobudur", "bagan-myanmar", "banteay-chhmar-face-towers", "luang-prabang-laos", "champasak-laos"]
+  },
+  {
+    "id": "imperial-capitals",
+    "name": "Imperial Capitals",
+    "sub": "Old seats of emperors and kings across East Asia.",
+    "locationIds": ["kyoto-japan", "gyeongbokgung-palace", "forbidden-city-beijing", "gyeongju-kr", "hue-vn", "kaifeng-cn", "kharkhorin-mongolia"]
+  },
+  {
+    "id": "nordic-coast",
+    "name": "Nordic Coast",
+    "sub": "Harbour towns from Reykjavik to Helsinki.",
+    "locationIds": ["reykjavik-iceland", "helsinki-finland", "gothenburg-canals-d34-34", "aarhus-dk", "little-mermaid-dk", "bergen-norway", "stavanger-no"]
+  },
+  {
+    "id": "restless-earth",
+    "name": "Restless Earth",
+    "sub": "Geysers, hot pools and a gas crater that has burned for decades.",
+    "locationIds": ["thingvellir", "geysir-d34-42", "pamukkale-turkey", "pohutu-geyser", "champagne-pool", "darvaza-gas-crater", "old-faithful-yellowstone"]
+  },
+  {
+    "id": "pacific-capitals",
+    "name": "Pacific Capitals",
+    "sub": "Capitals scattered across the biggest ocean on Earth.",
+    "locationIds": ["honolulu-usa", "wellington-new-zealand", "port-moresby-papua-new-guinea", "noumea-new-caledonia", "apia-samoa", "nuku-alofa-tonga", "port-vila-vanuatu"]
+  },
+  {
+    "id": "megacities",
+    "name": "Megacities",
+    "sub": "Seven cities of ten million people or more.",
+    "locationIds": ["mexico-city-mexico", "sao-paulo-br", "lima-peru", "karachi-pakistan", "manila-philippines", "kinshasa-dr-congo", "chengdu-cn"]
+  },
+  {
+    "id": "great-rivers",
+    "name": "Great Rivers",
+    "sub": "From the Dnieper to the Amazon, one big river a day.",
+    "locationIds": ["kyiv-ukraine", "varanasi", "nizhniy-novgorod-ru", "aswan-egypt", "yichang-cn", "can-tho-vn", "manaus-br"]
+  },
+  {
+    "id": "desert-week",
+    "name": "Desert Week",
+    "sub": "Dunes, salt flats and fortresses in the driest places on Earth.",
+    "locationIds": ["masada-israel", "ait-benhaddou-ksar", "sossusvlei-dead-vlei", "huacachina-peru", "hegra-qasr-al-farid", "flaming-cliffs-bayanzag", "badwater-basin"]
+  },
+  {
+    "id": "wine-country",
+    "name": "Wine Country",
+    "sub": "Port, claret and champagne, then four wine regions further afield.",
+    "locationIds": ["porto-portugal", "bordeaux-france", "reims-fr", "tbilisi", "mendoza-argentina", "nashik-in", "niagara-on-the-lake"]
+  },
+  {
+    "id": "port-cities",
+    "name": "Port Cities",
+    "sub": "Seven harbours that made their cities rich.",
+    "locationIds": ["singapore", "hamburg-germany", "alexandria-egypt", "valparaiso-ascensor-artilleria", "dar-es-salaam", "odesa-ua", "genoa-harbor-d34-46"]
+  },
+  {
+    "id": "african-capitals",
+    "name": "African Capitals",
+    "sub": "Seven capitals, from Dakar on the Atlantic to Nairobi.",
+    "locationIds": ["nairobi-kenya", "dakar", "accra", "abuja-ng", "kampala", "kigali-rwanda", "lusaka"]
+  },
+  {
+    "id": "africa-through-time",
+    "name": "Africa Through Time",
+    "sub": "Early humans at Olduvai, pharaohs on the Nile, castles at Gondar.",
+    "locationIds": ["great-sphinx-giza", "abu-simbel-temples", "fasil-ghebbi-gondar", "ol-duvai-gorge", "axum-obelisks", "kilwa-kisiwani-ruins", "tsodilo-hills-bw"]
+  },
+  {
+    "id": "caribbean-week",
+    "name": "Caribbean Week",
+    "sub": "Harbours, reefs and twin peaks around the Caribbean.",
+    "locationIds": ["nassau-bahamas", "havana", "port-au-prince-ht", "cartagena", "great-blue-hole", "port-of-spain-trinidad-and-tobago", "pitons-of-saint-lucia"]
+  },
+  {
+    "id": "mediterranean-islands",
+    "name": "Mediterranean Islands",
+    "sub": "Seven islands, one sea.",
+    "locationIds": ["valletta", "limassol-cy", "mykonos-gr", "capri-it", "ibiza-es", "cagliari", "palma-de-mallorca"]
+  },
+  {
+    "id": "arctic-circle",
+    "name": "Arctic Circle",
+    "sub": "Seven stops north of the Arctic Circle.",
+    "locationIds": ["longyearbyen-svalbard", "tromso-norway", "barrow-alaska", "ilulissat-greenland", "alert-nunavut", "pevek-russia", "tiksi-russia"]
+  },
+  {
+    "id": "the-balkans",
+    "name": "The Balkans",
+    "sub": "Bridges, bazaars and capitals across the Balkans.",
+    "locationIds": ["belgrade", "sofia-bulgaria", "skopje-north-macedonia", "tirana-albania", "stari-most", "dubrovnik-croatia", "zajecar"]
+  },
+  {
+    "id": "the-alps",
+    "name": "The Alps",
+    "sub": "Lakes, peaks and ski towns across the Alps.",
+    "locationIds": ["vaduz-liechtenstein", "lucerne-ch", "hallstatt", "zermatt-ch", "mont-blanc", "grenoble-fr", "innsbruck-austria"]
+  },
+  {
+    "id": "sports-week",
+    "name": "Sports Week",
+    "sub": "Centre Court, Camp Nou and the field where the Olympics began.",
+    "locationIds": ["wimbledon-all-england-club", "old-trafford", "camp-nou", "le-mans-circuit", "olympia-greece", "wrigley-field", "indianapolis-motor-speedway"]
+  },
+  {
+    "id": "skyline-week",
+    "name": "Skyline Week",
+    "sub": "Towers, a big wheel and a giant atom.",
+    "locationIds": ["burj-khalifa-dubai", "empire-state-building-ny", "atomium-iron-crystal", "london-eye-gb", "burj-al-arab", "mole-antonelliana-d34-56", "space-needle-seattle"]
+  },
+  {
+    "id": "turning-points",
+    "name": "Turning Points",
+    "sub": "Battles, a charter and a church door that changed what came next.",
+    "locationIds": ["battle-of-hastings", "thermopylae", "magna-carta-runnymede", "wittenberg-castle-church", "dunkirk-evacuation", "anzac-cove", "gettysburg-battlefield"]
+  },
+  {
+    "id": "twentieth-century",
+    "name": "Twentieth Century",
+    "sub": "Seven places where the last century made headlines.",
+    "locationIds": ["anne-frank-house", "brandenburg-gate", "hiroshima-japan", "chernobyl-reactor-4", "red-square-moscow", "jfk-assassination-dealey-plaza", "pearl-harbor-uss-arizona"]
+  },
+  {
+    "id": "music-week",
+    "name": "Music Week",
+    "sub": "From Mozart's Salzburg to the studio where Elvis cut his first record.",
+    "locationIds": ["liverpool-england", "vienna-austria", "rio-de-janeiro-brazil", "kingston", "salzburg-austria", "graceland", "elvis-sun-studio-first-single"]
+  },
+  {
+    "id": "movie-week",
+    "name": "Movie Week",
+    "sub": "Bollywood, Nollywood, Hollywood and the film sets in between.",
+    "locationIds": ["mumbai-india", "lagos", "lord-of-rings-hobbiton-film-set", "cannes-fr", "star-wars-lars-homestead-interior", "monument-valley-mitten", "hollywood-sign-la"]
+  },
+  {
+    "id": "stone-age",
+    "name": "Stone Age",
+    "sub": "Standing stones, painted caves and rock art from the deep past.",
+    "locationIds": ["stonehenge", "newgrange", "lascaux", "kondoa-rock-art", "ness-of-brodgar", "nourlangie-rock", "serra-da-capivara-boqueirao"]
+  },
+  {
+    "id": "castle-week",
+    "name": "Castle Week",
+    "sub": "Walls, towers and fortresses from Edinburgh to Granada.",
+    "locationIds": ["edinburgh-scotland", "chateau-de-chambord", "alhambra-granada", "eilean-donan-tidal-castle", "hohensalzburg-fortress", "carcassonne-cite", "alcazaba-of-malaga-d34-67"]
+  },
+  {
+    "id": "town-squares",
+    "name": "Town Squares",
+    "sub": "Piazzas, plazas and the squares where cities gather.",
+    "locationIds": ["medellin-botero-plaza", "trafalgar-square-london", "piazza-del-campo-d34-51", "st-marks-square-venice", "plaza-de-espana-seville", "plaza-mayor-of-salamanca-d34-70", "times-square-nyc"]
+  },
+  {
+    "id": "old-towns",
+    "name": "Old Towns",
+    "sub": "Cobbled lanes and town walls from Tallinn to Toledo.",
+    "locationIds": ["tallinn-estonia", "bruges-belgium", "san-gimignano-d34-52", "toledo-d34-62", "cesky-krumlov-d34-18", "rothenburg-ob-der-tauber-germany", "colmar-france"]
+  },
+  {
+    "id": "indian-ocean",
+    "name": "Indian Ocean",
+    "sub": "Spice ports and island capitals around the Indian Ocean.",
+    "locationIds": ["colombo-sri-lanka", "kochi-india", "mombasa-kenya", "perth-australia", "port-louis-mauritius", "moroni-comoros", "victoria-seychelles"]
+  },
+  {
+    "id": "built-on-rock",
+    "name": "Built on Rock",
+    "sub": "Monasteries and fortresses perched on rock.",
+    "locationIds": ["mont-saint-michel", "sigiriya", "rock-of-cashel", "meteora-greece", "yapahuwa-rock-citadel", "katskhi-pillar-hermitage", "vardzia-cliff-monastery"]
+  },
+  {
+    "id": "colonial-towns",
+    "name": "Colonial Towns",
+    "sub": "Painted streets and old churches left by empires overseas.",
+    "locationIds": ["santo-domingo-do", "quito", "george-town-malaysia", "zanzibar-city-tanzania", "ouro-preto-tiradentes-square", "paraty-historic-center", "san-ignacio-mini-mission"]
+  }
+]
