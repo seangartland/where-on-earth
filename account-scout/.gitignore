@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.wrangler/
+.scout-state.json
+__pycache__/
