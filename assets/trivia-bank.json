@@ -732,13 +732,14 @@
   },
   {
     "id": "pantheon-rome",
-    "clue": "Where does an ancient domed rotunda with a single oculus open onto the sky?",
-    "fact": "The Panthe's oculus is one 43-metre hole cut in the dome and the only light the interior gets, so rain falls straight onto the marble floor.",
+    "clue": "Where does an ancient Roman dome, still the world's largest of unreinforced concrete, open to the sky through an oculus?",
+    "fact": "The height to the Pantheon's oculus equals the rotunda's 43-metre width, and the oculus and the door are the interior's only natural light.",
     "lat": 41.8986,
     "lng": 12.4769,
     "difficulty": 4,
     "short": "Pantheon",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Pantheon_of_Paris_007.JPG/500px-Pantheon_of_Paris_007.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Pantheon_%28Rome%29%2C_Dome_interior.jpg/500px-Pantheon_%28Rome%29%2C_Dome_interior.jpg",
+    "photo": "verified"
   },
   {
     "id": "st-peters-basilica",
@@ -2586,7 +2587,8 @@
     "lat": 43.8577,
     "lng": 18.4288,
     "difficulty": 4,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Bergama_-_AKRAPOL_-_panoramio_%284%29.jpg/500px-Bergama_-_AKRAPOL_-_panoramio_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Latin_bridge_in_Sarajevo_2012.jpg/500px-Latin_bridge_in_Sarajevo_2012.jpg",
+    "photo": "verified"
   },
   {
     "id": "triangle-shirtwaist-fire",
@@ -4160,7 +4162,8 @@
     "lat": 35.87028,
     "lng": 128.59111,
     "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Lotus_Flower_Bridge_and_Seven_Treasure_Bridge_at_Bulguksa_in_Gyeongju%2C_Korea.jpg/500px-Lotus_Flower_Bridge_and_Seven_Treasure_Bridge_at_Bulguksa_in_Gyeongju%2C_Korea.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Yangnyeongsi_%28Daegu%29_20221126_001.jpg/500px-Yangnyeongsi_%28Daegu%29_20221126_001.jpg",
+    "photo": "verified"
   },
   {
     "id": "nanchang-cn",
@@ -4170,37 +4173,41 @@
     "lat": 28.68396,
     "lng": 115.85306,
     "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Tengwang_Pavilion%2C_Nanchang.jpg/500px-Tengwang_Pavilion%2C_Nanchang.jpg",
+    "photo": "verified"
   },
   {
     "id": "queens-us",
     "short": "Queens",
     "clue": "Which borough hosts both the Unisphere from the 1964 World's Fair and a remarkably diverse food scene beneath arriving planes?",
-    "fact": "Queens is often called the most ethnically diverse urban area on Earth, with well over 100 languages spoken.",
+    "fact": "Queens is called the most linguistically diverse place in the world, and about 47% of its residents were born abroad.",
     "lat": 40.68149,
     "lng": -73.83652,
     "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Belmont_Park_aerial_2021.jpg/500px-Belmont_Park_aerial_2021.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Flushing_Meadows_Corona_Park_Unisphere_001.jpg/500px-Flushing_Meadows_Corona_Park_Unisphere_001.jpg",
+    "photo": "verified"
   },
   {
     "id": "mashhad-ir",
     "short": "Mashhad",
     "clue": "Which Iranian pilgrimage city surrounds the golden-domed shrine of Imam Reza and is famed for saffron?",
-    "fact": "Mashhad is Iran's holiest city, home to the vast shrine of Imam Reza that draws millions of pilgrims each year.",
+    "fact": "Mashhad holds the shrine of Imam Reza, the most pilgrimaged site in Islam, visited by nearly 30 million people each year.",
     "lat": 36.29807,
     "lng": 59.60567,
     "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Darvasa_gas_crater_panorama.jpg/500px-Darvasa_gas_crater_panorama.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/The_Golden_Dome_of_Imam_Reza_shrine_-_21_March_2018_%2813970101_0339269%29.jpg/500px-The_Golden_Dome_of_Imam_Reza_shrine_-_21_March_2018_%2813970101_0339269%29.jpg",
+    "photo": "verified"
   },
   {
     "id": "shaoxing-cn",
     "short": "Shaoxing",
     "clue": "Which canal-laced water town is associated with writer Lu Xun and produces an amber rice wine often aged in clay jars?",
-    "fact": "Shaoxing is a canal town famous for its amber rice wine and as the hometown of writer Lu Xun.",
+    "fact": "Shaoxing gives its name to Shaoxing wine, China's famous rice wine, and is the birthplace of the writer Lu Xun.",
     "lat": 30.00237,
     "lng": 120.57864,
     "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg/500px-%E6%9D%AD%E5%B7%9E%E9%92%B1%E6%B1%9F%E6%96%B0%E5%9F%8E_4_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Shaoxing.jpg/500px-Shaoxing.jpg",
+    "photo": "verified"
   },
   {
     "id": "nantong-cn",
@@ -4210,7 +4217,8 @@
     "lat": 32.03028,
     "lng": 120.87472,
     "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg/500px-Huangpu_Park_20124-Shanghai_%2832208802494%29.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/City_of_Nantong_and_the_River_Hao.jpg/500px-City_of_Nantong_and_the_River_Hao.jpg",
+    "photo": "verified"
   },
   {
     "id": "gaziantep-tr",
@@ -4220,17 +4228,19 @@
     "lat": 37.05944,
     "lng": 37.3825,
     "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg/500px-G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Gaziantep_Castle_in_2018.jpg/500px-Gaziantep_Castle_in_2018.jpg",
+    "photo": "verified"
   },
   {
     "id": "lubumbashi-cd",
     "short": "Lubumbashi",
-    "clue": "Which copper-belt city has a courthouse and cathedral from its colonial mining era and streets shaded by jacaranda trees?",
-    "fact": "Lubumbashi is the copper-mining capital of the DR Congo's Katanga region, founded by Belgian colonists as Élisabethville.",
+    "clue": "Which mining city, founded under Belgian rule as Élisabethville, is now the DR Congo's second-largest?",
+    "fact": "Lubumbashi is the capital of Haut-Katanga Province and the hub of a regional copper mining industry.",
     "lat": -11.66089,
     "lng": 27.47938,
     "difficulty": 3,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Downtown_Lusaka.JPG/500px-Downtown_Lusaka.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Downtown_Lubumbashi%2C_Democratic_Republic_of_the_Congo_-_20061130.jpg/500px-Downtown_Lubumbashi%2C_Democratic_Republic_of_the_Congo_-_20061130.jpg",
+    "photo": "verified"
   },
   {
     "id": "manaus-br",
