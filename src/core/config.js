@@ -8,7 +8,7 @@ export const FOV = 36;
 export const ATMO_RADIUS = 1.17;
 // Player zoom floor: ~158 km above the surface, ~0.14 km per css px on a
 // 390 px phone, enough to see Robben Island or Alcatraz as a shape.
-export const MIN_DIST = 1.20;
+export const MIN_DIST = 1.12;
 // Scripted cameras (bullseye snap, flight, reveal framing) keep the closest
 // framing they were tuned at; only the player's own zoom goes deeper.
 export const SCENE_MIN_DIST = 1.32;
