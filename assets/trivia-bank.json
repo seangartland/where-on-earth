@@ -2087,11 +2087,12 @@
     "id": "first-photograph-le-gras",
     "short": "Le Gras, Saint-Loup-de-Varennes",
     "clue": "Where did Nicéphore Niépce create the oldest surviving photograph made with a camera?",
-    "fact": "Around 1826 or 1827, Niépce exposed a pewter plate for hours through an upstairs window at his estate, producing View from the Window at Le Gras.",
+    "fact": "In 1827, Niépce exposed a bitumen-coated pewter plate for hours, perhaps days, at a high window of his estate, producing View from the Window at Le Gras.",
     "lat": 46.7252,
     "lng": 4.8336,
     "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Saint_Loup_de_Varennes.JPG/500px-Saint_Loup_de_Varennes.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Saint-Loup-de-Varennes._Le_Gras._Maison_o%C3%B9_Nic%C3%A9phore_Ni%C3%A9pce_inventa_la_photographie_-_btv1b10848908v.jpg/500px-Saint-Loup-de-Varennes._Le_Gras._Maison_o%C3%B9_Nic%C3%A9phore_Ni%C3%A9pce_inventa_la_photographie_-_btv1b10848908v.jpg",
+    "photo": "verified"
   },
   {
     "id": "first-traffic-signal-london",
@@ -2101,7 +2102,8 @@
     "lat": 51.5008,
     "lng": -0.1255,
     "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/White_Horse_Tavern_NYWTS.jpg/500px-White_Horse_Tavern_NYWTS.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/London_-_Westminster_-_Bridge_Street_%26_Houses_of_Parliament_-_geograph.org.uk_-_1785067.jpg/500px-London_-_Westminster_-_Bridge_Street_%26_Houses_of_Parliament_-_geograph.org.uk_-_1785067.jpg",
+    "photo": "verified"
   },
   {
     "id": "woodstock-max-yasgur-farm",
@@ -2390,7 +2392,8 @@
     "lat": 38.5632,
     "lng": -122.2317,
     "difficulty": 9,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Zodiac-Killer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Lake_Berryessa_AW.jpg/500px-Lake_Berryessa_AW.jpg",
+    "photo": "verified"
   },
   {
     "id": "miracle-on-ice-arena",
@@ -2724,11 +2727,12 @@
     "id": "channel-swim-captain-webb",
     "short": "Calais Landing Beach",
     "clue": "Where did Captain Matthew Webb come ashore after the first recorded unaided swim across the English Channel?",
-    "fact": "Webb swam from Dover to the Calais coast in nearly 22 hours in 1875, battling currents and jellyfish without a wetsuit.",
+    "fact": "Webb swam from Dover to the coast near Calais in nearly 22 hours in 1875, in a red silk costume, fighting currents and a jellyfish sting.",
     "lat": 50.9643,
     "lng": 1.8431,
     "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Captain_Matthew_Webb.jpg/500px-Captain_Matthew_Webb.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Calais_beach_2012.jpg/500px-Calais_beach_2012.jpg",
+    "photo": "verified"
   },
   {
     "id": "bastei-bridge-germany",
@@ -7707,12 +7711,13 @@
   {
     "id": "guadalupe-mx",
     "short": "Guadalupe",
-    "clue": "Which municipality beneath Cerro de la Silla is home to the BBVA football stadium and the cascading La Pastora park?",
-    "fact": "Guadalupe is part of greater Monterrey and holds Estadio BBVA, the home of the Rayados football club.",
+    "clue": "Which municipality beneath Cerro de la Silla is home to the BBVA football stadium and La Pastora park with its zoo?",
+    "fact": "Guadalupe is part of greater Monterrey and holds the BBVA Stadium, where Liga MX club Monterrey plays its home games.",
     "lat": 25.67663,
     "lng": -100.25907,
     "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/View_of_Monterrey_%282015%29.jpg/500px-View_of_Monterrey_%282015%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Estadio_BBVA_Bancomer_%281%29.jpg/500px-Estadio_BBVA_Bancomer_%281%29.jpg",
+    "photo": "verified"
   },
   {
     "id": "acapulco-de-juarez-mx",
@@ -7722,17 +7727,19 @@
     "lat": 16.84942,
     "lng": -99.90891,
     "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/500px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Santa_Lucia_Bay_in_Acapulco%2C_Mexico.jpg/500px-Santa_Lucia_Bay_in_Acapulco%2C_Mexico.jpg",
+    "photo": "verified"
   },
   {
     "id": "brampton-ca",
     "short": "Brampton",
-    "clue": "Which city northwest of Toronto is known for its extraordinary South Asian community and large Sikh gurdwaras?",
-    "fact": "Brampton is a fast-growing city near Toronto with one of Canada's largest South Asian communities.",
+    "clue": "Which Canadian city, once called the Flower Town of Canada for its greenhouses, now has a South Asian majority?",
+    "fact": "Brampton is part of the Greater Toronto Area, and people of South Asian origin made up 52.4% of its population in 2021.",
     "lat": 43.68341,
     "lng": -79.76633,
     "difficulty": 9,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/CN_Tower_logo.png/500px-CN_Tower_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Brampton_Town_Centre_Main_St_2021.jpg/500px-Brampton_Town_Centre_Main_St_2021.jpg",
+    "photo": "verified"
   },
   {
     "id": "tlalnepantla-mx",

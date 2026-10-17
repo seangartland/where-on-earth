@@ -1,0 +1,182 @@
+[
+ {
+  "id": "point-nemo",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Point Nemo"
+ },
+ {
+  "id": "gurudongmar-lake",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Gurudongmar Lake"
+ },
+ {
+  "id": "first-barcode-scan-troy-ohio",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Former Marsh Supermarket, Troy"
+ },
+ {
+  "id": "first-photograph-le-gras",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Le Gras, Saint-Loup-de-Varennes"
+ },
+ {
+  "id": "first-traffic-signal-london",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Parliament Square Traffic Signal Site"
+ },
+ {
+  "id": "zodiac-lake-berryessa-attack",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Lake Berryessa Zodiac Site"
+ },
+ {
+  "id": "channel-swim-captain-webb",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Calais Landing Beach"
+ },
+ {
+  "id": "guadalupe-mx",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Guadalupe"
+ },
+ {
+  "id": "acapulco-de-juarez-mx",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Acapulco de Juárez"
+ },
+ {
+  "id": "brampton-ca",
+  "band": "9-10",
+  "difficulty": 9,
+  "short": "Brampton"
+ },
+ {
+  "id": "palace-of-culture-warsaw",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Palace of Culture"
+ },
+ {
+  "id": "little-bighorn-battlefield",
+  "band": "7-8",
+  "difficulty": 8,
+  "short": "Little Bighorn"
+ },
+ {
+  "id": "chiefs-island-moremi",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Chief's Island, Moremi"
+ },
+ {
+  "id": "anakena-beach",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Anakena, Rapa Nui"
+ },
+ {
+  "id": "gravitational-waves-ligo-hanford",
+  "band": "7-8",
+  "difficulty": 8,
+  "short": "LIGO Hanford Observatory"
+ },
+ {
+  "id": "first-atom-split-manchester",
+  "band": "7-8",
+  "difficulty": 8,
+  "short": "Rutherford Building, Manchester"
+ },
+ {
+  "id": "first-telephone-call-boston",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "109 Court Street, Boston"
+ },
+ {
+  "id": "first-film-screening-grand-cafe",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Salon Indien du Grand Café"
+ },
+ {
+  "id": "migrant-mother-nipomo",
+  "band": "7-8",
+  "difficulty": 8,
+  "short": "Nipomo Migrant Camp Site"
+ },
+ {
+  "id": "star-wars-lars-homestead-interior",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Hotel Sidi Driss"
+ },
+ {
+  "id": "pantheon-rome",
+  "band": "3-4",
+  "difficulty": 4,
+  "short": "Pantheon"
+ },
+ {
+  "id": "archduke-assassination-sarajevo",
+  "band": "3-4",
+  "difficulty": 4,
+  "short": "Latin Bridge Corner"
+ },
+ {
+  "id": "daegu-kr",
+  "band": "3-4",
+  "difficulty": 3,
+  "short": "Daegu"
+ },
+ {
+  "id": "nanchang-cn",
+  "band": "3-4",
+  "difficulty": 3,
+  "short": "Nanchang"
+ },
+ {
+  "id": "queens-us",
+  "band": "3-4",
+  "difficulty": 3,
+  "short": "Queens"
+ },
+ {
+  "id": "mashhad-ir",
+  "band": "3-4",
+  "difficulty": 3,
+  "short": "Mashhad"
+ },
+ {
+  "id": "shaoxing-cn",
+  "band": "3-4",
+  "difficulty": 3,
+  "short": "Shaoxing"
+ },
+ {
+  "id": "nantong-cn",
+  "band": "3-4",
+  "difficulty": 3,
+  "short": "Nantong"
+ },
+ {
+  "id": "gaziantep-tr",
+  "band": "3-4",
+  "difficulty": 3,
+  "short": "Gaziantep"
+ },
+ {
+  "id": "lubumbashi-cd",
+  "band": "3-4",
+  "difficulty": 3,
+  "short": "Lubumbashi"
+ }
+]
