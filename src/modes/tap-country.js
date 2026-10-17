@@ -14,8 +14,6 @@ import { randomDifficultyBand, setRunResultsCopy, setRunResultsMode } from './su
 
 let host = null;
 const BORDERS_BEST_KEY = 'where-on-earth-countries-best-v1';
-const BORDERS_TAP_PX = 20; // tap tolerance, as REVIEW_LINE_HIT
-const BORDERS_TAP_MAX_KM = 50; // so zooming out can't make 20 px cover 1,000 km
 // scope/pool: Country Blackout's continent or world (see below); null in Tap the Country
 export const borders = { active: false, key: null, band: null, round: 0, found: 0, missed: false, bags: new Map(), scope: null, pool: null };
 export let bordersEntry = null;
@@ -122,8 +120,7 @@ export function revealBorders(tap) {
   const { gameEls, peekSlot, pins, correctPin, answerLine } = host;
   const key = borders.key;
   const displayName = host.keyName(key);
-  const kmPerPx = host.radPerPx() * 6371.0088; // at the screen centre, where the player zoomed to tap
-  const res = host.bordersHit(key, tap, Math.min(BORDERS_TAP_PX * kmPerPx, BORDERS_TAP_MAX_KM));
+  const res = host.bordersHit(key, tap, 0);
   borders.missed = !res.hit;
   if (res.hit) {
     borders.found += 1;
@@ -141,10 +138,11 @@ export function revealBorders(tap) {
   document.body.className = `game-reveal survival borders${borders.missed ? ' survival-miss' : ''}`;
   gameEls.hint.textContent = '';
   const km = Math.round(res.km);
+  const toleranceHit = res.hit && res.near && res.km > 0;
   const name = `${displayName} ${countryFlag(key)}`;
   gameEls.revealName.textContent = name;
   gameEls.peekName.textContent = name;
-  gameEls.distance.textContent = borders.missed ? formatKm(km) : '';
+  gameEls.distance.textContent = borders.missed || toleranceHit ? formatKm(km) : '';
   gameEls.mult.style.display = 'none';
   gameEls.fact.textContent = complete ? `Found ${displayName}. That's every ${borders.scope.unit} in ${borders.scope.place}.`
     : !borders.missed ? `Found ${displayName}.`
@@ -164,7 +162,8 @@ export function revealBorders(tap) {
   if (headerFrom > host.REVEAL_HEADER_H) host.collapseRoundHeader(headerFrom);
 
   const a = host.latLngToVec3(tap.lat, tap.lng);
-  if (host.activePin >= 0) pins[host.activePin].drop(a);
+  const pin = toleranceHit ? host.latLngToVec3(res.near.lat, res.near.lng) : a;
+  if (host.activePin >= 0) pins[host.activePin].drop(pin);
   if (borders.missed) {
     // the route runs from the tap to the nearest point of the target's border
     const { b } = host.buildAnswerPath(tap, res.near);

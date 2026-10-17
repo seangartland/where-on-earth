@@ -322,6 +322,8 @@ export function nearestBorder(geom, p, maxKm = Infinity) {
 }
 
 export const SMALL_TARGET_KM = 30;
+// Enclave allowance, not a general tap grace.
+const ENCLAVE_ALLOWANCE_KM = 50;
 // -> { hit, near: nearest border point, km to it, tapped: unit name or null (ocean) }
 export function bordersHit(key, p, tolKm) {
   const data = dataFor(key);
@@ -330,9 +332,9 @@ export function bordersHit(key, p, tolKm) {
   if (own) return { hit: true, km: 0, near: null, ring: ringAt(geom, p), tapped: null };
   const near = nearestBorder(geom, p);
   const hit = { hit: true, km: near.km, near, ring: null, tapped: null };
-  if (geom.diagKm < SMALL_TARGET_KM && near.km <= tolKm) return hit; // the Vatican sits inside Italy
   const other = data.units.find((u) => !geom.units.includes(u) && inUnit(u, p.lng, p.lat));
   if (other) {
+    if (geom.diagKm < SMALL_TARGET_KM && near.km <= ENCLAVE_ALLOWANCE_KM) return hit;
     const key2 = data.keyOf.get(other.id);
     const tapped = !key2 || key2 === other.name ? other.name : `${other.name} (${key2})`;
     return { hit: false, km: near.km, near, tapped };
