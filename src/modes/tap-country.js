@@ -54,7 +54,7 @@ function countryFlag(key) {
 
 export function syncBordersEntry() {
   bordersEntry.disabled = !(host.countryData && host.countryBands && host.locations.length);
-  host.blackoutEntry.disabled = bordersEntry.disabled;
+  host.blackoutEntry.disabled = bordersEntry.disabled || !host.stateData || !host.landAreas;
 }
 
 // Draw without replacement within the band. If the random band is exhausted,
@@ -107,7 +107,10 @@ export function startBorders(scope = null) {
   borders.scope = scope;
   borders.pool = scope && new Set(scope.keys);
   setRunResultsMode(scope ? 'blackout' : 'borders');
-  if (scope) host.resetBlackout();
+  if (scope) {
+    host.resetBlackout();
+    host.startBlackoutTimer();
+  }
   bordersGo();
 }
 
@@ -130,6 +133,7 @@ export function revealBorders(tap) {
     } else saveBordersBest(borders.found);
   }
   const complete = host.blackoutComplete();
+  if (complete) host.completeBlackoutTimer(borders.scope);
   gameEls.number.textContent = borders.scope ? host.blackoutProgressText() : `Streak ${borders.found}`;
   host.gameMode = 'reveal';
   window.__canGuess = false;
@@ -243,4 +247,5 @@ export function initTapCountry(main) {
   bordersEntry = document.getElementById('borders-button');
   bordersEntry.addEventListener('click', () => startBorders());
   Promise.all([host.countriesP, host.countryBandsP]).then(syncBordersEntry, () => {});
+  Promise.all([host.statesP, host.landAreasP]).then(syncBordersEntry, () => {});
 }
