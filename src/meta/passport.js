@@ -489,7 +489,8 @@ function ppDex(view, { noun, sentinel, dex, groupControls, statusKey = null }) {
     els: {
       filters: q('filters'), filtersToggle: q('filters-toggle'), badge: q('badge'), status: q('status'),
       continent: q('continent'), band: q('band'), sort: q('sort'), shown: q('shown'), empty: q('empty'),
-      dex: q(dex), groupControls: q(groupControls), sentinel: q(sentinel),
+      dex: q(dex), groupControls: groupControls ? q(groupControls) : null, sentinel: q(sentinel),
+      summary: q('filters-summary'),
     },
     noun,
     statusKey,
@@ -501,8 +502,10 @@ function ppDex(view, { noun, sentinel, dex, groupControls, statusKey = null }) {
 }
 
 // The Filters toggle, toolbar close and filter panel, shared by both dex tabs.
-function ppFilterControls(id) {
-  return `<button type="button" class="pp-filters-btn" data-pp="filters-toggle" aria-expanded="false" aria-controls="${id}" aria-label="Filters, none active">Filters <b class="pp-badge" data-pp="badge" hidden></b></button>
+// `pill` (Places) widens the toggle into one row that summarises the active filters.
+function ppFilterControls(id, pill = false) {
+  const summary = pill ? '<span class="pp-filters-summary" data-pp="filters-summary"></span>' : '';
+  return `<button type="button" class="pp-filters-btn${pill ? ' pp-filters-pill' : ''}" data-pp="filters-toggle" aria-expanded="false" aria-controls="${id}" aria-label="Filters, none active"><span>Filters <b class="pp-badge" data-pp="badge" hidden></b></span>${summary}</button>
         <button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button>
         <div class="pp-filters" id="${id}" data-pp="filters" aria-hidden="true">
         <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
@@ -538,23 +541,47 @@ function savePpCollapsedContinents() {
   catch (error) { host.storageError('Write failed', PP_COLLAPSED_KEY, error); }
 }
 
+// Places and Countries continents are an accordion: exactly one open, the rest
+// stored in ppCollapsedContinents (same key and shape as before). A saved state
+// with exactly one open continent is kept; anything else falls back to the
+// first continent with earned postcards, else the first continent.
+function ppAccordionOpen(names, earnedOf) {
+  const open = names.filter((name) => !ppCollapsedContinents.has(name));
+  return open.length === 1 ? open[0] : (names.find((name) => earnedOf(name) > 0) || names[0]);
+}
+
+function ppSetAccordionOpen(open, names) {
+  names.forEach((name) => { if (name === open) ppCollapsedContinents.delete(name); else ppCollapsedContinents.add(name); });
+  savePpCollapsedContinents();
+}
+
 function ppGroupHeadText(name, items) {
   const visited = items.filter((e) => e.visited).length;
   return `${name} · ${visited.toLocaleString()}/${items.length.toLocaleString()}`;
 }
 
-// Shared collapsible <h3 class="pp-group-head"> for both the Places dex
-// (atlas sort) and the Countries list (continent sort). `onCollapse`
-// toggles whatever that caller's group body is (a <ul>, or a running list
-// of row <li>s) and is also called once up front for the saved state.
-function ppGroupHead(name, text, onCollapse) {
+// Shared collapsible <h3 class="pp-group-head"> for the Places dex (atlas
+// sort), the Countries list (continent sort) and the Landmarks shelf.
+// `onCollapse` toggles whatever that caller's group body is (a <ul>, or a
+// running list of row <li>s) and is also called once up front for the saved
+// state. `accordion` ({ earned, visited, total }) turns the head into a
+// continent row whose tap opens it and closes the other rows inside the
+// nearest [data-pp-accordion] container.
+function ppGroupHead(name, text, onCollapse, accordion = null) {
   const head = document.createElement('h3');
-  head.className = 'pp-group-head';
+  head.className = accordion ? 'pp-group-head is-accordion' : 'pp-group-head';
   head.tabIndex = 0;
   head.setAttribute('role', 'button');
   const label = document.createElement('span');
   label.className = 'pp-group-head-text';
-  label.textContent = text;
+  if (accordion) {
+    const { earned, visited, total } = accordion;
+    const pct = (n) => (total ? (n / total) * 100 : 0);
+    label.innerHTML = `<b></b><span class="pp-group-sub">${earned.toLocaleString()} of ${total.toLocaleString()} collected</span><span class="pp-bar pp-group-bar" aria-hidden="true"><i class="pp-bar-seen" style="width:${pct(visited)}%"></i><i class="pp-bar-earned" style="width:${pct(earned)}%"></i></span>`;
+    label.querySelector('b').textContent = name;
+  } else {
+    label.textContent = text;
+  }
   const chevron = document.createElement('span');
   chevron.className = 'pp-group-chevron';
   chevron.setAttribute('aria-hidden', 'true');
@@ -566,6 +593,16 @@ function ppGroupHead(name, text, onCollapse) {
   head.ppApplyCollapse = apply;
   head.dataset.continent = name;
   const toggle = () => {
+    if (accordion) {
+      if (!ppCollapsedContinents.has(name)) return; // already the open one
+      const heads = [...head.closest('[data-pp-accordion]').querySelectorAll('.pp-group-head')];
+      ppSetAccordionOpen(name, heads.map((h) => h.dataset.continent));
+      heads.forEach((h) => h.ppApplyCollapse(ppCollapsedContinents.has(h.dataset.continent)));
+      // Closing a continent above this one pulls it upward; bring it back into view.
+      const target = head.closest('.pp-group, .pp-ccards-head') || head;
+      if (target.getBoundingClientRect().top < passportScreen.getBoundingClientRect().top) target.scrollIntoView({ block: 'start' });
+      return;
+    }
     const collapsed = !ppCollapsedContinents.has(name);
     if (collapsed) ppCollapsedContinents.add(name); else ppCollapsedContinents.delete(name);
     savePpCollapsedContinents();
@@ -619,6 +656,12 @@ function renderPassportDex(dex) {
       byContinent.get(key).push(entry);
     }
     const order = [...host.CONTINENT_ORDER, ...[...byContinent.keys()].filter((k) => !host.CONTINENT_ORDER.includes(k))];
+    const accordion = dex === ppPlaces;
+    const earnedIn = (name) => byContinent.get(name).filter((e) => e.earned).length;
+    if (accordion) {
+      const names = order.filter((name) => byContinent.has(name));
+      ppSetAccordionOpen(ppAccordionOpen(names, earnedIn), names);
+    }
     for (const name of order) {
       if (!byContinent.has(name)) continue;
       const items = byContinent.get(name).sort(ppAtlasCompare);
@@ -633,7 +676,9 @@ function renderPassportDex(dex) {
         dex.lis.push({ li, entry });
         return li;
       }));
-      const head = ppGroupHead(name, ppGroupHeadText(name, items), (collapsed) => { ul.hidden = collapsed; });
+      const head = ppGroupHead(name, ppGroupHeadText(name, items), (collapsed) => { ul.hidden = collapsed; }, accordion
+        ? { earned: earnedIn(name), visited: items.filter((e) => e.visited).length, total: items.length }
+        : null);
       section.append(head, ul);
       frag.append(section);
       dex.groups.push({ section, name, head });
@@ -656,7 +701,7 @@ function renderPassportDex(dex) {
     }
   }
   dex.els.dex.replaceChildren(frag);
-  dex.els.groupControls.hidden = !atlas || dex.groups.length === 0;
+  if (dex.els.groupControls) dex.els.groupControls.hidden = !atlas || dex.groups.length === 0;
   applyPassportFilters(dex);
 }
 
@@ -675,6 +720,7 @@ function applyPassportFilters(dex) {
   for (const group of dex.groups) {
     const { section, name, head } = group;
     section.hidden = ![...section.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
+    if (head.classList.contains('is-accordion')) continue;
     const total = section.querySelectorAll('.pp-slot').length;
     const count = ppFilteredGroupCount(dex, name);
     head.querySelector('.pp-group-head-text').textContent = `${name} · ${count.toLocaleString()}/${total.toLocaleString()}`;
@@ -689,6 +735,15 @@ function applyPassportFilters(dex) {
   dex.els.badge.textContent = active ? `•${active}` : '';
   dex.els.filtersToggle.classList.toggle('has-active', active > 0);
   dex.els.filtersToggle.setAttribute('aria-label', active ? `Filters, ${active} active` : 'Filters, none active');
+  if (dex.els.summary) {
+    const statuses = [...dex.els.status.querySelectorAll('button')].filter((b) => dex.statuses.has(b.dataset.status)).map((b) => b.textContent);
+    dex.els.summary.textContent = [
+      statuses.length ? statuses.join(', ') : `All ${dex.noun}`,
+      band && dex.els.band.selectedOptions[0].text,
+      continent,
+      dex.els.sort.selectedOptions[0].text,
+    ].filter(Boolean).join(' · ');
+  }
 }
 
 function renderPassportPage() {
@@ -699,11 +754,7 @@ function renderPassportPage() {
   ppEls.found.textContent = found.toLocaleString();
   ppEls.total.textContent = total.toLocaleString();
   const earned = visited.filter((e) => e.earned).length;
-  const bulls = visited.filter((e) => e.earned >= host.EARN_BULLSEYE).length;
-  const pins = visited.filter((e) => e.earned >= host.EARN_PINPOINT).length;
-  ppEls.earned.hidden = found === 0;
-  const stat = (n, label) => `<span class="pp-stat"><b>${n.toLocaleString()}</b> ${label}</span>`;
-  ppEls.earned.innerHTML = [stat(earned, 'postcards'), bulls ? stat(bulls, '🎯') : '', pins ? stat(pins, '📍') : ''].filter(Boolean).join(' · ');
+  ppEls.postcards.textContent = ` · ${earned.toLocaleString()} postcard${earned === 1 ? '' : 's'}`;
   ppEls.bar.setAttribute('aria-valuemax', String(total));
   ppEls.bar.setAttribute('aria-valuenow', String(earned));
   ppEls.fill.style.width = `${total ? (found / total) * 100 : 0}%`;
@@ -774,17 +825,23 @@ function renderCountryList() {
       return groups;
     }, new Map())]
     : [['', rows]];
-  ppEls.countryGroupControls.hidden = sort !== 'continent' || countryGroups.length === 0;
+  if (sort === 'continent') {
+    const names = countryGroups.map(([group]) => group);
+    const earnedIn = (name) => countryGroups.find(([group]) => group === name)[1].reduce((sum, row) => sum + row.earned, 0);
+    ppSetAccordionOpen(ppAccordionOpen(names, earnedIn), names);
+  }
   countryGroups.forEach(([group, groupRows]) => {
     const groupCards = [];
+    let head = null;
     if (sort === 'continent') {
       const visited = groupRows.reduce((sum, row) => sum + row.visited, 0);
+      const earned = groupRows.reduce((sum, row) => sum + row.earned, 0);
       const total = groupRows.reduce((sum, row) => sum + row.total, 0);
       const headLi = document.createElement('li');
       headLi.className = 'pp-ccards-head';
-      const head = ppGroupHead(group, `${group} · ${visited.toLocaleString()}/${total.toLocaleString()}`, (collapsed) => {
+      head = ppGroupHead(group, '', (collapsed) => {
         groupCards.forEach((card) => { card.hidden = collapsed; });
-      });
+      }, { earned, visited, total });
       headLi.append(head);
       list.append(headLi);
     }
@@ -834,6 +891,8 @@ function renderCountryList() {
     groupCards.push(li);
   });
     list.append(...groupCards);
+    // The head applied its saved state before these cards existed.
+    head?.ppApplyCollapse(ppCollapsedContinents.has(group));
   });
   ppEls.countryListBody.replaceChildren(list);
 }
@@ -1485,12 +1544,10 @@ export function initPassport(main) {
 .pp-header-row h2 { flex: 1; text-align: left !important; font-size: 19px !important; }
 .pp-header-actions { display: flex; flex-shrink: 0; gap: 8px; }
 .pp-share-icon { flex-shrink: 0; width: 44px; height: 44px; border: 1px solid rgba(255,209,102,.55); border-radius: 50%; background: linear-gradient(135deg, rgba(77,54,145,.95), rgba(25,47,101,.95)); color: #fff7dc; font-size: 18px; font-weight: 800; cursor: pointer; }
+.pp-share-pill { flex-shrink: 0; min-height: 32px; padding: 0 13px; border: 1px solid rgba(157,211,255,.25); border-radius: 999px; background: rgba(157,211,255,.06); color: #c9f6ff; font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; touch-action: manipulation; }
 .pp-progress { margin: 8px 2px 0; }
-.pp-count { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 0 0 4px; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 700; text-align: left; }
-.pp-count-main { white-space: nowrap; }
-.pp-count [data-pp="earned"] { min-width: 0; overflow: hidden; text-align: right; white-space: nowrap; text-overflow: ellipsis; }
-.pp-stat { white-space: nowrap; }
-.pp-count b { color: #ffc76a; font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(255,199,106,.3); }
+.pp-count { margin: 0 0 8px; color: rgba(234,246,255,.92); font-size: 13.5px; font-weight: 650; text-align: left; font-variant-numeric: tabular-nums; }
+.pp-count-sub { color: rgba(193,224,250,.6); font-weight: 500; }
 /* Two layers: visited as a pale track, earned as the bright gradient over it. */
 .pp-bar { position: relative; height: 4px; border-radius: 8px; background: rgba(157,211,255,.1); overflow: hidden; }
 .pp-bar i { position: absolute; left: 0; top: 0; height: 100%; border-radius: 8px; transition: width .4s ease-out; }
@@ -1505,6 +1562,10 @@ export function initPassport(main) {
 .pp-toolbar.is-stuck::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: calc(env(safe-area-inset-top, 0px) + 18px); background: #0b1120; }
 .pp-filters-btn { flex: none; min-height: 36px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; touch-action: manipulation; white-space: nowrap; }
 .pp-filters-btn[aria-expanded="true"], .pp-filters-btn.has-active { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
+.pp-filters-pill { display: flex; flex: 1 1 auto; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; padding: 0 12px; border-color: rgba(157,211,255,.16); border-radius: 12px; background: rgba(157,211,255,.04); color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; }
+.pp-filters-summary { min-width: 0; overflow: hidden; color: rgba(193,224,250,.55); font-weight: 500; text-overflow: ellipsis; }
+.pp-filters-summary::after { content: ' ▾'; }
+.pp-toolbar:not(.is-stuck) .pp-filters-pill ~ .pp-toolbar-close { display: none; }
 .pp-group-controls { display: flex; justify-content: flex-end; gap: 6px; margin: 5px 0 3px; }
 .pp-group-controls .pp-filters-btn { min-height: 30px; }
 .pp-badge { margin-left: 3px; color: #ffc76a; font-size: 11px; }
@@ -1528,6 +1589,15 @@ export function initPassport(main) {
 .pp-group-head::after { content: ''; flex: none; width: 6px; height: 6px; margin: -3px 3px 0 0; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
 .pp-group-head[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(225deg); }
 .pp-group-head-text { min-width: 0; }
+/* Accordion continent row (Places and Countries): name, collected count, mini bar. */
+.pp-group-head.is-accordion { margin: 10px 0 0; padding: 12px; border: 1px solid rgba(157,211,255,.12); border-radius: 13px; background: #0e1524; color: rgba(193,224,250,.55); font-size: 12px; font-weight: 600; letter-spacing: normal; }
+.pp-group-head.is-accordion .pp-group-head-text b { display: block; color: #eef2ff; font-size: 14px; font-weight: 800; }
+.pp-group-sub { display: block; margin-top: 3px; }
+.pp-group-bar { display: block; width: 120px; margin-top: 7px; }
+.pp-ccards .pp-group-head.is-accordion { margin: 6px 0 0; background: #0e1524; }
+.pp-ccards-head { scroll-margin-top: var(--pp-toolbar-h); }
+/* Collapsed rows are short: skip content-visibility's 900px placeholder. */
+.pp-group:has(> .is-accordion[aria-expanded="false"]) { content-visibility: visible; contain-intrinsic-size: none; }
 .pp-chunk { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 .pp-dex { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 8px; margin: 0; padding: 4px 3px; list-style: none; }
 .pp-slot { position: relative; min-width: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
@@ -1627,11 +1697,11 @@ body.game-passport #hud { opacity: 0; }
       <h2 id="pp-title">Your passport</h2>
       <div class="pp-header-actions">
         <button class="pp-share-icon" data-pp="collections" aria-label="View collections" hidden>🛡</button>
-        <button class="pp-share-icon" data-pps="share" aria-label="Share my passport">↗</button>
+        <button class="pp-share-pill" data-pps="share" aria-label="Share my passport">Share</button>
       </div>
     </div>
     <div class="pp-progress" data-pp="progress">
-      <p class="pp-count"><span class="pp-count-main"><b data-pp="found">0</b> / <span data-pp="total">0</span> places</span><span data-pp="earned"></span></p>
+      <p class="pp-count"><b data-pp="found">0</b> of <span data-pp="total">0</span> places<span class="pp-count-sub" data-pp="postcards"></span></p>
       <div class="pp-bar" role="progressbar" aria-label="Postcards earned" aria-valuemin="0"><i class="pp-bar-seen" data-pp="fill"></i><i class="pp-bar-earned" data-pp="earnfill"></i></div>
     </div>
     <div class="pp-tabs" role="tablist" data-pp="tabs">
@@ -1642,14 +1712,10 @@ body.game-passport #hud { opacity: 0; }
     <div data-pp="places-view">
       <div class="pp-stick-sentinel" data-pp="places-sentinel"></div>
       <div class="pp-toolbar" data-pp="toolbar">
-        ${ppFilterControls('pp-filters')}
-      </div>
-      <div class="pp-group-controls" data-pp="places-group-controls">
-        <button type="button" class="pp-filters-btn" data-group-action="expand">Expand all</button>
-        <button type="button" class="pp-filters-btn" data-group-action="collapse">Collapse all</button>
+        ${ppFilterControls('pp-filters', true)}
       </div>
       <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
-      <div class="pp-dex-wrap" data-pp="dex" data-pp-list></div>
+      <div class="pp-dex-wrap" data-pp="dex" data-pp-list data-pp-accordion></div>
 
     </div>
     <div data-pp="countries-view" hidden>
@@ -1662,11 +1728,7 @@ body.game-passport #hud { opacity: 0; }
           <option value="alpha">A–Z</option>
           <option value="continent">By continent</option>
           </select><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
-        <div class="pp-group-controls" data-pp="country-group-controls" hidden>
-          <button type="button" class="pp-filters-btn" data-group-action="expand">Expand all</button>
-          <button type="button" class="pp-filters-btn" data-group-action="collapse">Collapse all</button>
-        </div>
-        <div data-pp="country-list-body"></div>
+        <div data-pp="country-list-body" data-pp-accordion></div>
       </div>
       <div data-pp="country-detail" hidden>
         <div class="pp-stick-sentinel" data-pp="country-detail-sentinel"></div>
@@ -1698,7 +1760,7 @@ body.game-passport #hud { opacity: 0; }
     total: passportScreen.querySelector('[data-pp="total"]'),
     bar: passportScreen.querySelector('.pp-bar'),
     fill: passportScreen.querySelector('[data-pp="fill"]'),
-    earned: passportScreen.querySelector('[data-pp="earned"]'),
+    postcards: passportScreen.querySelector('[data-pp="postcards"]'),
     earnFill: passportScreen.querySelector('[data-pp="earnfill"]'),
     tabs: passportScreen.querySelector('[data-pp="tabs"]'),
     placesView: passportScreen.querySelector('[data-pp="places-view"]'),
@@ -1709,14 +1771,13 @@ body.game-passport #hud { opacity: 0; }
     countrySummary: passportScreen.querySelector('[data-pp="country-summary"]'),
     countrySort: passportScreen.querySelector('[data-pp="country-sort"]'),
     countryListBody: passportScreen.querySelector('[data-pp="country-list-body"]'),
-    countryGroupControls: passportScreen.querySelector('[data-pp="country-group-controls"]'),
     countryBack: passportScreen.querySelector('[data-pp="country-back"]'),
     countryHead: passportScreen.querySelector('[data-pp="country-head"]'),
     countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
     landmarksView: passportScreen.querySelector('[data-pp="landmarks-view"]'),
     landmarkSummary: passportScreen.querySelector('[data-pp="landmark-summary"]'),
   };
-  ppPlaces = ppDex(ppEls.placesView, { noun: 'places', sentinel: 'places-sentinel', dex: 'dex', groupControls: 'places-group-controls', statusKey: PP_STATUS_KEY });
+  ppPlaces = ppDex(ppEls.placesView, { noun: 'places', sentinel: 'places-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
   ppLandmarks = ppDex(ppEls.landmarksView, { noun: 'landmarks', sentinel: 'landmarks-sentinel', dex: 'landmark-dex', groupControls: 'landmark-group-controls' });
 
   ppStickyObserver = new IntersectionObserver((entries) => {
@@ -1862,7 +1923,7 @@ body.game-passport #hud { opacity: 0; }
       const expanded = dex.els.filtersToggle.getAttribute('aria-expanded') === 'true';
       if (expanded) closePassportFilters(); else openPassportFilters(dex);
     });
-    dex.els.groupControls.addEventListener('click', (event) => {
+    dex.els.groupControls?.addEventListener('click', (event) => {
       const action = event.target.closest('[data-group-action]')?.dataset.groupAction;
       if (action) setPpGroupsCollapsed(dex.els.dex, action === 'collapse');
     });
@@ -1874,10 +1935,6 @@ body.game-passport #hud { opacity: 0; }
     if (!dex.els.filters.contains(event.target) && !dex.els.filtersToggle.closest('.pp-toolbar').contains(event.target)) closePassportFilters();
   });
   ppEls.countrySort.addEventListener('change', renderCountryList);
-  ppEls.countryGroupControls.addEventListener('click', (event) => {
-    const action = event.target.closest('[data-group-action]')?.dataset.groupAction;
-    if (action) setPpGroupsCollapsed(ppEls.countryListBody, action === 'collapse');
-  });
   ppEls.countryBack.addEventListener('click', closeCountryDetail);
   passportScreen.addEventListener('click', (e) => {
     if (e.target === passportScreen) closePassport();
