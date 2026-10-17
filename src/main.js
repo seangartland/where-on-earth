@@ -6,7 +6,7 @@ import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
 import {
   SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, AUTO_SPIN, RESET_DAILY, STREAK_KEY, HISTORY_KEY, EXPEDITION_KEY,
-  REVEAL_VIEW_KEY, WEIGHTS, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES,
+  REVEAL_VIEW_KEY, WEIGHTS, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
 } from './core/config.js';
 import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
 import { storageError, safeSetItem, migrateStorage, readJSON, writeJSON } from './core/storage.js';
@@ -441,6 +441,10 @@ settingsScreen.innerHTML = `
           <button type="button" data-reveal-view="north-up" aria-pressed="false">North-up</button>
         </div>
       </fieldset>
+      ${ACCOUNTS_ENABLED ? `<div class="settings-account">
+        <div><strong>Account</strong><small class="settings-account-detail">Save your progress</small></div>
+        <button class="settings-account-action" type="button">Sign in</button>
+      </div>` : ''}
       <button class="settings-reset" type="button">Reset all data</button>
     </div>
     <div class="settings-confirm" hidden>
@@ -464,7 +468,33 @@ const settingsEls = {
   danger: settingsScreen.querySelector('.settings-danger'),
   cancel: settingsScreen.querySelector('.settings-cancel'),
   revealViews: [...settingsScreen.querySelectorAll('[data-reveal-view]')],
+  account: settingsScreen.querySelector('.settings-account'),
+  accountDetail: settingsScreen.querySelector('.settings-account-detail'),
+  accountAction: settingsScreen.querySelector('.settings-account-action'),
 };
+
+async function syncAccountSetting() {
+  if (!ACCOUNTS_ENABLED) return;
+  const { readAccountSession } = await import('./account/session.js');
+  const session = readAccountSession();
+  settingsEls.accountDetail.textContent = session?.sessionToken ? session.emailHint : 'Save your progress';
+  settingsEls.accountAction.textContent = session?.sessionToken ? 'Sign out' : 'Sign in';
+}
+
+settingsEls.accountAction?.addEventListener('click', async () => {
+  const { clearAccountSession, readAccountSession } = await import('./account/session.js');
+  const session = readAccountSession();
+  if (session?.sessionToken) {
+    const { accountApi } = await import('./account/api.js');
+    await accountApi('/v1/auth/signout', { method: 'POST', token: session.sessionToken }).catch(() => {});
+    clearAccountSession();
+    await syncAccountSetting();
+    return;
+  }
+  const { openAccountSheet } = await import('./account/sheet.js');
+  openAccountSheet(settingsEls.accountAction);
+});
+window.addEventListener('account-session-change', syncAccountSetting);
 
 function syncRevealViewSetting() {
   settingsEls.revealViews.forEach((button) => {
@@ -488,6 +518,7 @@ function openSettings() {
   window.__canGuess = false;
   settingsScreen.scrollTop = 0;
   settingsEls.close.focus();
+  syncAccountSetting();
 }
 
 function closeSettings() {
@@ -505,6 +536,12 @@ settingsScreen.addEventListener('click', (e) => {
   if (e.target === settingsScreen) closeSettings();
 });
 settingsEls.reset.addEventListener('click', () => {
+  if (ACCOUNTS_ENABLED) {
+    import('./account/session.js').then(({ isSignedIn }) => {
+      const copy = settingsEls.confirm.querySelector('p');
+      copy.textContent = `Are you sure? This will erase all progress, postcards, collections, and stats.${isSignedIn() ? ' Your account copy is kept. Sign in again to restore it.' : ''}`;
+    });
+  }
   settingsEls.main.hidden = true;
   settingsEls.confirm.hidden = false;
 });
@@ -821,6 +858,22 @@ if (window.__boot) window.__boot('ready');
 // the boot screen stays up until the land fill is on the globe (revealGlobe)
 renderLoad();
 window.__audio = audio; // test hook: context state, live whoosh
+if (ACCOUNTS_ENABLED) {
+  setTimeout(async () => {
+    const { isSignedIn } = await import('./account/session.js');
+    if (!isSignedIn()) return;
+    const { syncAccountProgress } = await import('./account/sync.js');
+    syncAccountProgress().catch(() => {});
+  }, 0);
+  document.addEventListener('visibilitychange', async () => {
+    if (document.visibilityState !== 'visible') return;
+    const { readAccountSession } = await import('./account/session.js');
+    const session = readAccountSession();
+    if (!session?.sessionToken || Date.now() - (session.lastSyncAt || 0) < 300000) return;
+    const { syncAccountProgress } = await import('./account/sync.js');
+    syncAccountProgress().catch(() => {});
+  });
+}
 // test hook: read the view, or pin it for screenshots
 window.__view = {
   globe,

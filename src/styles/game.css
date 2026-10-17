@@ -105,6 +105,26 @@ button { font: inherit; }
 .settings-segmented button:focus-visible { outline: 2px solid rgba(127,210,244,.8); outline-offset: 1px; }
 .settings-reset { width: 100%; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; background: #e5484d; color: #fff; font-size: 15px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 18px rgba(229,72,77,.28); touch-action: manipulation; }
 .settings-reset:active { transform: scale(.98); }
+.settings-account { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 54px; padding: 12px 14px; border: 1px solid rgba(157,211,255,.18); border-radius: 14px; background: rgba(5,12,29,.52); color: #f5fbff; }
+.settings-account strong, .settings-account small { display: block; }
+.settings-account small { margin-top: 3px; color: rgba(220,239,255,.62); font-size: 12px; }
+.settings-account-action { min-width: 82px; min-height: 40px; padding: 0 14px; border: 1px solid rgba(157,211,255,.25); border-radius: 999px; background: rgba(119,202,255,.16); color: #eaf7ff; font-weight: 800; }
+.account-sheet { z-index: 105; display: flex; box-sizing: border-box; overflow: auto; align-items: flex-end; padding: 80px 14px calc(env(safe-area-inset-bottom, 0px) + 14px); background: rgba(2,4,9,.74); pointer-events: auto; }
+.account-sheet[hidden] { display: none; }
+.account-panel.settings-card { min-height: 0; max-width: 440px; padding: 30px 20px 24px; text-align: center; }
+.account-panel h2 { margin-top: 4px; font-size: 26px; }
+.account-copy { margin: 14px auto 22px; max-width: 310px; color: rgba(224,240,255,.76); font-size: 15px; line-height: 1.5; }
+.account-google, .account-form .primary, .account-done { width: 100%; min-height: 50px; }
+.account-google { border: 1px solid rgba(255,255,255,.22); border-radius: 999px; background: rgba(255,255,255,.08); color: rgba(255,255,255,.46); font-size: 15px; font-weight: 800; }
+.account-google-note { margin: 8px 0 0; color: rgba(220,239,255,.55); font-size: 12px; }
+.account-divider { display: flex; align-items: center; gap: 10px; margin: 20px 0; color: rgba(220,239,255,.45); font-size: 12px; }
+.account-divider::before, .account-divider::after { content: ''; flex: 1; height: 1px; background: rgba(157,211,255,.16); }
+.account-form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
+.account-form label { color: #f5fbff; font-size: 13px; font-weight: 800; }
+.account-form input { box-sizing: border-box; width: 100%; min-height: 50px; margin-top: 8px; padding: 0 15px; border: 1px solid rgba(157,211,255,.24); border-radius: 13px; outline: 0; background: rgba(2,8,20,.7); color: #f5fbff; font: inherit; }
+.account-form input:focus { border-color: rgba(119,202,255,.7); box-shadow: 0 0 0 3px rgba(119,202,255,.12); }
+.account-status { min-height: 18px; margin: 14px 0 0; color: #9edcff; font-size: 13px; }
+.account-status.is-error { color: #ffaaa9; }
 .settings-confirm { margin-top: 22px; }
 .settings-confirm p { margin: 0; color: rgba(224,240,255,.82); font-size: 14px; line-height: 1.5; text-align: center; }
 .settings-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }

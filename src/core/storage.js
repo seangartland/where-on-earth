@@ -3,7 +3,20 @@
 // writes, corrupt-value backups, guarded writes and the boot-time schema
 // migration. Moved out of main.js unchanged; keys live in config.js.
 // ---------------------------------------------------------------------------
-import { STORAGE_VERSION, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, VERSIONED_KEYS } from './config.js';
+import { ACCOUNTS_ENABLED, ACCOUNT_KEY, STORAGE_VERSION, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, SYNC_QUEUE_KEY, VERSIONED_KEYS } from './config.js';
+
+function queueSyncKey(key) {
+  if (!ACCOUNTS_ENABLED || key === ACCOUNT_KEY || key === SYNC_QUEUE_KEY) return;
+  try {
+    const account = JSON.parse(localStorage.getItem(ACCOUNT_KEY) || 'null');
+    if (!account?.sessionToken) return;
+    const queue = JSON.parse(localStorage.getItem(SYNC_QUEUE_KEY) || '{"_v":1,"keys":[]}');
+    const keys = [...new Set([...(Array.isArray(queue.keys) ? queue.keys : []), key])];
+    localStorage.setItem(SYNC_QUEUE_KEY, JSON.stringify({ _v: 1, keys }));
+  } catch (error) {
+    storageError('Could not queue account sync', key, error);
+  }
+}
 
 export function storageError(message, key, error) {
   console.error(`[storage] ${message}: ${key}`, error || '');
@@ -51,6 +64,7 @@ export function safeSetItem(key, rawValue) {
     oldRaw = localStorage.getItem(key);
     if (!VERSIONED_KEYS.has(key)) {
       localStorage.setItem(key, rawValue);
+      queueSyncKey(key);
       return true;
     }
 
@@ -84,6 +98,7 @@ export function safeSetItem(key, rawValue) {
     }
 
     localStorage.setItem(key, rawValue);
+    queueSyncKey(key);
     return true;
   } catch (error) {
     storageError('Write failed', key, error);
