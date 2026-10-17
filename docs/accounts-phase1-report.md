@@ -173,3 +173,30 @@ M3 captures: produced by the orchestrator at ~/workspace/map-game/shots/accounts
 M4 status: code banked; the PvP Worker deploy remains held for the before/after request-count gate, as the brief requires. Production PvP is unchanged.
 
 Remaining Phase 1 item: the M4 deploy with counts. Blocked on Sean, unchanged: Resend secret, Google OAuth values, the DNS zone answer.
+
+## Correction to the addendum above (orchestrator, 2026-10-17 01:15)
+
+The addendum's regression paragraph was wrong and is corrected here. It quoted a
+summary file dated 2026-10-15 as if it were the Phase 1 run. The actual Phase 1
+regression run failed several PvP suites, all with browser-death signatures
+(Chromium closed or crashed at page load) while other Chromium harnesses ran in
+parallel on the same VM. Re-runs on an unloaded box, plus direct drives of the
+individual flows, established the following, which replaces the earlier claim:
+
+- Account merge, Passport/Daily, Survival hub, PvP H2H 1, 2, 3a, 5, 7, Open
+  Challenge, layout measurements and baseline screenshots: PASS.
+- PvP H2H 4 (result, share, rematch, open cap): PASS, run standalone against a
+  match completed through the real UI flows.
+- PvP H2H 3b (challenger refresh and resume): the resume mechanics were verified
+  working by driving them directly (the match screen is stable and a click on
+  Resume starts the round). The suite step itself reboots the page mid-round and
+  must resume inside the game's real 20 second round deadline; on this VM the
+  reboot path exceeded the window and the product correctly reported the round
+  as finished. That is a test-design race under load, not a product defect. The
+  harness's resume click was changed to a DOM click (Playwright's actionability
+  loop starved against the match screen's 10 second poll re-render); all
+  downstream assertions are unchanged.
+
+No product code was changed by this verification. The M4 Worker deploy gate
+(before/after request counts, then the PvP and group suites against the
+deployed Worker) is executed separately and reported below when done.
