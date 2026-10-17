@@ -514,15 +514,24 @@ export function buildOutline(lines, radius, opts) {
 // ---------------------------------------------------------------------------
 export const SAT_PROVIDERS = [
   {
+    id: 'eox2025',
     // ?v=3: 2025 imagery replaced 2016, bust edge and browser cache
     // policy without Access-Control-Allow-Origin (immutable, 1 year); a new
     // query string is a new cache key, so every tile is fetched with CORS.
-    url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg?v=3`,
+    tiles: 'https://tiles.where-on.earth/tiles/{z}/{x}/{y}.jpg?v=3',
+    base: './assets/eox-z4-base-2k.jpg',
     credit: 'EOxCloudless <a href="https://cloudless.eox.at" target="_blank" rel="noopener">https://cloudless.eox.at</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)',
     maxZ: 8,
   },
 ];
-export const SAT_BASE_URL = './assets/eox-z4-base-2k.jpg';
+export const DEFAULT_SAT_PROVIDER_ID = 'eox2025';
+export const tileURL = (provider, z, y, x) => provider.tiles
+  .replace('{z}', z).replace('{x}', x).replace('{y}', y);
+export const getSatProvider = () => {
+  const id = new URLSearchParams(location.search).get('sat');
+  return SAT_PROVIDERS.find((provider) => provider.id === id)
+    || SAT_PROVIDERS.find((provider) => provider.id === DEFAULT_SAT_PROVIDER_ID);
+};
 export const SAT_FADE_S = 0.4;
 let mapStyle; // read in initImagery(), after main.js has handled ?reset=daily
 export let satTarget = 0; // uSatMix eases toward this
@@ -532,8 +541,8 @@ export let satCreditEl = null;
 export let satProvider = null; // tile provider used only by the detail insets
 export let satDisabled = false; // for the session, after a second context loss
 
-export async function loadSatBase() {
-  const tex = await new THREE.TextureLoader().loadAsync(SAT_BASE_URL);
+export async function loadSatBase(provider) {
+  const tex = await new THREE.TextureLoader().loadAsync(provider.base);
   tex.colorSpace = THREE.NoColorSpace; // globeMat writes gl_FragColor raw
   tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
   return tex;
@@ -553,10 +562,10 @@ export function showSatToast(text) {
 export async function initSatellite() {
   if (mapStyle !== 'satellite') return false;
   try {
-    const base = await loadSatBase();
+    satProvider = getSatProvider();
+    const base = await loadSatBase(satProvider);
     if (satDisabled) { base.dispose(); return false; }
     globeMat.uniforms.uSatBase.value = base;
-    satProvider = SAT_PROVIDERS[0];
     satCreditEl = document.createElement('p');
     satCreditEl.className = 'sat-credit';
     satCreditEl.innerHTML = satProvider.credit;
@@ -777,7 +786,7 @@ export function startInsetWindow(want) {
   const { z, n } = want;
   const x0 = imod(want.tx0, n) / n;
   buf.bounds.set(x0, want.ty0 / n, x0 + INSET_TILES / n, (want.ty0 + INSET_TILES) / n);
-  const win = { ...want, pi: SAT_PROVIDERS.indexOf(satProvider), gen: ++inset.gen, buf, tiles: [], visLeft: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
+  const win = { ...want, providerId: satProvider.id, gen: ++inset.gen, buf, tiles: [], visLeft: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
   for (let sy = 0; sy < want.rows; sy++) {
     for (let sx = 0; sx < want.cols; sx++) {
       const tx = want.tx0 + sx;
@@ -818,8 +827,8 @@ export function setInsetSrc(win, t) {
   const z = win.z - t.k;
   const x = t.x >> t.k;
   const y = t.y >> t.k;
-  t.src = `${win.pi}/${z}/${x}/${y}`;
-  t.url = satProvider.url(z, y, x);
+  t.src = `${win.providerId}/${z}/${x}/${y}`;
+  t.url = tileURL(satProvider, z, y, x);
 }
 
 // Start an idle tile from its source: cached blob, a fetch already in flight

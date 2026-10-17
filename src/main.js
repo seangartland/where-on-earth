@@ -445,6 +445,7 @@ settingsScreen.innerHTML = `
         <div><strong>Account</strong><small class="settings-account-detail">Save your progress</small></div>
         <button class="settings-account-action" type="button">Sign in</button>
       </div>` : ''}
+      <a class="settings-credits" href="./credits.html">Imagery credits</a>
       <button class="settings-reset" type="button">Reset all data</button>
     </div>
     <div class="settings-confirm" hidden>
