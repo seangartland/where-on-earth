@@ -221,6 +221,7 @@ function pvpPollOpponent() {
   if (!pvp.active || pvp.opponent || pvp.result) return;
   const { matchId, round } = pvp;
   pvp.pollTimer = setTimeout(async () => {
+    if (document.hidden) { pvpPollOpponent(); return; }
     try {
       const state = await pvpGetMatch(matchId);
       if (!pvp.active || pvp.matchId !== matchId || pvp.round !== round || host.gameMode !== 'reveal') return;

@@ -120,6 +120,11 @@ function renderPvpGroup() {
 
 async function loadPvpGroup() {
   const challengeId = pvpGroupView.challengeId;
+  if (document.hidden) {
+    clearTimeout(pvpGroupView.pollTimer);
+    pvpGroupView.pollTimer = setTimeout(loadPvpGroup, 10000);
+    return;
+  }
   try {
     const state = await pvpGetGroup(challengeId);
     if (pvpGroupView.challengeId !== challengeId || pvpGroupScreen.hidden) return;

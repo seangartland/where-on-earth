@@ -308,6 +308,8 @@ async function refreshPvpList() {
   pvpUi.listError = '';
   let unreachable = false;
   await Promise.all(pvpStore.matches.map(async (entry) => {
+    const cached = pvpUi.states.get(entry.matchId);
+    if (cached && ['COMPLETED', 'EXPIRED', 'ABANDONED'].includes(cached.status)) return;
     try {
       pvpUi.states.set(entry.matchId, await pvpGetMatch(entry.matchId));
     } catch (error) {
