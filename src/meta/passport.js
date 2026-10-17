@@ -548,13 +548,19 @@ function savePpCollapsedContinents() {
   catch (error) { host.storageError('Write failed', PP_COLLAPSED_KEY, error); }
 }
 
-// Places, Countries and Landmarks continents are an accordion: exactly one open, the rest
-// stored in ppCollapsedContinents (same key and shape as before). A saved state
-// with exactly one open continent is kept; anything else falls back to the
-// first continent with earned postcards, else the first continent.
+// Places, Countries and Landmarks continents are an accordion: at most one open, the rest
+// stored in ppCollapsedContinents (same key and shape as before). Among the
+// rendered `names`, a saved state with exactly one open continent is kept, and
+// a saved all-collapsed state (every known continent in the set) stays closed
+// (returns null). Anything else, including a saved open continent that is not
+// rendered here, falls back to the first continent with earned postcards, else
+// the first continent.
 function ppAccordionOpen(names, earnedOf) {
   const open = names.filter((name) => !ppCollapsedContinents.has(name));
-  return open.length === 1 ? open[0] : (names.find((name) => earnedOf(name) > 0) || names[0]);
+  if (open.length === 1) return open[0];
+  const known = [...host.CONTINENT_ORDER, ...names];
+  if (!open.length && known.every((name) => ppCollapsedContinents.has(name))) return null;
+  return names.find((name) => earnedOf(name) > 0) || names[0];
 }
 
 function ppSetAccordionOpen(open, names) {
@@ -567,8 +573,9 @@ function ppSetAccordionOpen(open, names) {
 // Landmarks shelf (atlas sort). `onCollapse` toggles whatever that caller's
 // group body is (a <ul>, or a running list of row <li>s) and is also called
 // once up front for the saved state. `{ earned, visited, total }` fill the
-// row's count and mini bar. A tap opens the row and closes the other rows
-// inside the nearest [data-pp-accordion] container.
+// row's count and mini bar. A tap on a closed row opens it and closes the other
+// rows inside the nearest [data-pp-accordion] container; a tap on the open row
+// closes it, saving every known continent as collapsed.
 function ppGroupHead(name, onCollapse, { earned, visited, total }) {
   const head = document.createElement('h3');
   head.className = 'pp-group-head is-accordion';
@@ -590,9 +597,10 @@ function ppGroupHead(name, onCollapse, { earned, visited, total }) {
   head.ppApplyCollapse = apply;
   head.dataset.continent = name;
   const toggle = () => {
-    if (!ppCollapsedContinents.has(name)) return; // already the open one
     const heads = [...head.closest('[data-pp-accordion]').querySelectorAll('.pp-group-head')];
-    ppSetAccordionOpen(name, heads.map((h) => h.dataset.continent));
+    const names = heads.map((h) => h.dataset.continent);
+    if (ppCollapsedContinents.has(name)) ppSetAccordionOpen(name, names);
+    else ppSetAccordionOpen(null, [...new Set([...host.CONTINENT_ORDER, ...names])]);
     heads.forEach((h) => h.ppApplyCollapse(ppCollapsedContinents.has(h.dataset.continent)));
     // Closing a continent above this one pulls it upward; bring it back into view.
     const target = head.closest('.pp-group, .pp-ccards-head') || head;
@@ -859,6 +867,7 @@ function openCountryDetail(key) {
   ppCountryListScroll = passportScreen.scrollTop;
   ppActiveCountry = key;
   renderCountryDetail(key);
+  passportScreen.scrollTop = 0;
 }
 
 function renderCountryDetail(key) {
@@ -1579,7 +1588,8 @@ export function initPassport(main) {
 .pp-country-summary { margin: 8px 2px 0; color: rgba(193,224,250,.55); font-size: 11px; font-weight: 700; }
 /* The sort select wears the Filters pill: quiet outline, full row, text left, chevron right. */
 .pp-country-sort { flex: 1 1 auto; min-width: 0; padding: 0 30px 0 12px; border-color: rgba(157,211,255,.16); border-radius: 12px; background-color: rgba(157,211,255,.04); background-position: right 12px center; color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; }
-.pp-country-toolbar .collections-back { min-height: 36px; }
+/* Country detail Back wears the Filters pill (quiet outline and fill), scoped off the Collections back. */
+.pp-country-toolbar .pp-country-back { flex: none; min-height: 36px; padding: 0 14px; border: 1px solid rgba(157,211,255,.16); border-radius: 12px; background: rgba(157,211,255,.04); color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; touch-action: manipulation; }
 /* Country cards: same grid and size as .pp-slot, but read as a *stack* of
    postcards (offset card edges behind), with a neutral frame instead of rarity,
    a flag chip and a progress strip. Never carries a prox badge or score pill.
@@ -1691,7 +1701,7 @@ body.game-passport #hud { opacity: 0; }
       </div>
       <div data-pp="country-detail" hidden>
         <div class="pp-stick-sentinel" data-pp="country-detail-sentinel"></div>
-        <div class="pp-toolbar pp-country-toolbar"><button class="collections-back" type="button" data-pp="country-back">‹ Countries</button><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
+        <div class="pp-toolbar pp-country-toolbar"><button class="collections-back pp-country-back" type="button" data-pp="country-back">‹ Countries</button><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
         <div class="pp-country-head" data-pp="country-head"></div>
         <ul class="pp-dex pp-country-dex" data-pp="country-dex" data-pp-list></ul>
       </div>
