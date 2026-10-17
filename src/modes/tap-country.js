@@ -9,7 +9,7 @@
 // builds on survival.js; Country Blackout (blackout.js) builds on it and is
 // reached only through the host passed to initTapCountry(), as is main.js.
 // ---------------------------------------------------------------------------
-import { formatKm } from '../core/format.js';
+import { formatKm, SHARE_URL } from '../core/format.js';
 import { randomDifficultyBand, setRunResultsCopy, setRunResultsMode } from './survival.js';
 
 let host = null;
@@ -201,6 +201,7 @@ export function bordersShareText() {
     headline: `${found.toLocaleString()} ${found === 1 ? 'country' : 'countries'} found`,
     streak: bordersBest(),
     missed: borders.missed ? borders.key : null,
+    url: `${SHARE_URL}?mode=tap-country`,
   });
 }
 

@@ -6,7 +6,7 @@
 // The results reuse the run-over screen (survival.js).
 // ---------------------------------------------------------------------------
 import { setRunResultsCopy, setRunResultsMode } from './survival.js';
-import { formatKm } from '../core/format.js';
+import { formatKm, SHARE_URL } from '../core/format.js';
 
 let host = null;
 const TRIVIA_BEST_KEY = 'where-on-earth-best-trivia';
@@ -135,6 +135,7 @@ export function triviaShareText() {
     streak: triviaBest(),
     streakLabel: 'Best',
     guesses: host.closestGuessLines(trivia.results, trivia.results.map((result) => result.item)),
+    url: `${SHARE_URL}?mode=trivia`,
   });
 }
 

@@ -9,6 +9,7 @@
 // initSurvival() at the spot the section used to run.
 // ---------------------------------------------------------------------------
 import { isLandmark, isPlayableLocation } from '../daily.js';
+import { SHARE_URL } from '../core/format.js';
 
 let host = null;
 const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
@@ -133,6 +134,7 @@ function survivalShareText() {
     streak: survivalBest(),
     guesses: host.closestGuessLines(survivedResults, survivedResults.map((entry) => entry.item)),
     visited: count,
+    url: `${SHARE_URL}?mode=survival`,
   });
 }
 

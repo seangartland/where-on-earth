@@ -54,13 +54,13 @@ export function closestGuessLines(results, items) {
     .map(({ result, item }) => `${item.short || item.clue}: ${result.distance.toLocaleString()} km`);
 }
 
-export function formatGameShare({ title, titleSep = ' — ', headline, streak, streakLabel = 'Best streak', guesses = [], visited, missed }) {
+export function formatGameShare({ title, titleSep = ' — ', headline, streak, streakLabel = 'Best streak', guesses = [], visited, missed, url = SHARE_URL }) {
   const lines = [`Where on Earth?${titleSep}${title}`, headline];
   if (streak != null) lines.push(`${streakLabel}: ${streak.toLocaleString()}`);
   if (guesses.length) lines.push('', ...guesses);
   if (visited != null) lines.push('', `${visited.toLocaleString()} places visited`);
   if (missed) lines.push(`Missed: ${missed}`);
-  lines.push('', `${SHARE_URL} ${SHARE_HASHTAG}`);
+  lines.push('', `${url} ${SHARE_HASHTAG}`);
   return lines.join('\n');
 }
 

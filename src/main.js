@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { initPvpApi } from './pvp/api.js';
-import { initPvpHome, pvpLinkInvite, pvpLinkIsGroup } from './pvp/home.js';
+import { initPvpHome, pvpLinkInvite, pvpLinkIsGroup, showPvpHome } from './pvp/home.js';
 import { initPvpH2h, openPvpJoin } from './pvp/h2h.js';
 import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
@@ -50,14 +50,14 @@ import {
 } from './modes/tap-country.js';
 import {
   blackoutEntry, blackoutPicker, initBlackout, syncBlackoutMask, resetBlackout, saveBlackoutBest, blackoutFill, blackoutComplete,
-  blackoutProgressText, blackoutBestSummary, showBlackoutGameOver, blackoutShareText,
+  blackoutProgressText, blackoutBestSummary, showBlackoutGameOver, blackoutShareText, showBlackoutPicker,
 } from './modes/blackout.js';
 import {
   expeditionRun, expeditionPicker, initExpeditions, expeditionsLoaded, updateExpeditionEntry, completeExpeditionRound,
   expeditionRoundHeader, expeditionRevealCard, expeditionNext, weeklyRoutesLoaded,
 } from './modes/expeditions.js';
 import { endless, endlessEls, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
-import { initLandmarks, landmarkPool, syncLandmarksEntry } from './modes/landmarks.js';
+import { initLandmarks, landmarkPool, landmarksSource, syncLandmarksEntry } from './modes/landmarks.js';
 import {
   trivia, initTrivia, startTrivia, triviaBankLoaded, triviaRoundHeader, triviaRecordGuess, triviaNext, triviaShareText,
 } from './modes/trivia.js';
@@ -674,6 +674,25 @@ initPvpH2h(pvpHost);
 initPvpGroup(pvpHost);
 initPvpPlay(pvpHost);
 
+const sharedModeOpeners = {
+  blackout: showBlackoutPicker,
+  survival: () => startSurvival(),
+  'tap-country': () => startBorders(),
+  landmarks: () => startSurvival(landmarksSource),
+  trivia: startTrivia,
+  challenge: showPvpHome,
+};
+
+function openSharedMode() {
+  const mode = new URLSearchParams(location.search).get('mode');
+  const opener = sharedModeOpeners[mode];
+  if (!opener) return;
+  opener();
+  const url = new URL(location.href);
+  url.searchParams.delete('mode');
+  history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+}
+
 // ---------------------------------------------------------------------------
 // Passport page, Collections, postcard detail and shares: src/meta/passport.js
 // ---------------------------------------------------------------------------
@@ -712,7 +731,7 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   loadJobDone('critical', 'locations');
 });
 // Trivia targets come only from the self-contained trivia bank.
-getJSON('assets/trivia-bank.json').then(triviaBankLoaded).catch((err) => {
+const triviaBankP = getJSON('assets/trivia-bank.json').then(triviaBankLoaded).catch((err) => {
   if (window.__showErr) window.__showErr('TRIVIA: ' + err.message);
 });
 getJSON('assets/expeditions.json').then(expeditionsLoaded).catch((err) => {
@@ -723,7 +742,7 @@ getJSON('assets/weekly-expeditions.json').then(weeklyRoutesLoaded).catch((err) =
   if (window.__showErr) window.__showErr('WEEKLY: ' + err.message);
 });
 // Landmarks: Expeditions stops, Landmarks mode and the Passport's Landmarks shelf only (state.js).
-getJSON('assets/locations-landmarks-sol.json').then((data) => {
+const landmarksP = getJSON('assets/locations-landmarks-sol.json').then((data) => {
   state.landmarks = Array.isArray(data) ? data : [];
   updateExpeditionEntry();
   syncLandmarksEntry();
@@ -731,6 +750,7 @@ getJSON('assets/locations-landmarks-sol.json').then((data) => {
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('LANDMARKS: ' + err.message);
 });
+Promise.allSettled([locationsP, pinsP, countriesP, countryBandsP, triviaBankP, landmarksP]).then(openSharedMode);
 gameEls.play.disabled = true;
 endlessEls.entry.disabled = true;
 gameEls.survivalEntry.disabled = true;

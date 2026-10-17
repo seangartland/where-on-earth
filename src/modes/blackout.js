@@ -13,6 +13,7 @@
 // initBlackout(host) at the spot the section used to run.
 // ---------------------------------------------------------------------------
 import * as THREE from 'three';
+import { SHARE_URL } from '../core/format.js';
 import { runResultsMode, setRunResultsCopy } from './survival.js';
 import { borders, startBorders } from './tap-country.js';
 
@@ -101,7 +102,7 @@ export let blackoutPicker = null;
 let blackoutList = null;
 let blackoutScopeList = [];
 
-function showBlackoutPicker() {
+export function showBlackoutPicker() {
   if (!host.countryData || !host.countryBands || !host.locations.length) return;
   host.clearReveal();
   host.hideScreens();
@@ -173,6 +174,7 @@ export function blackoutShareText() {
     streak: blackoutBest(scope),
     streakLabel: 'Best',
     missed: borders.missed ? borders.key : null,
+    url: `${SHARE_URL}?mode=blackout`,
   });
 }
 

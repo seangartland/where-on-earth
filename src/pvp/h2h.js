@@ -11,6 +11,7 @@ import {
   pvpNav, pvpEl, pvpHome, pvpHomeBody, pvpUi, pvpSetStatus, pvpNameBlock, pvpForgetLinkInvite,
   pvpStatusKey, pvpOpponent, pvpMe, pvpOpponentLabel, showPvpHome,
 } from './home.js';
+import { SHARE_URL } from '../core/format.js';
 
 let host = null;
 
@@ -172,6 +173,7 @@ function pvpShareText(state) {
       `${myName} ${mine.toLocaleString()} vs ${oppName} ${theirs.toLocaleString()}`,
       ...state.rounds.map((r) => `Round ${r.round}: ${r.viewerResult?.score ?? 0} vs ${r.opponentResult?.score ?? 0}`),
     ],
+    url: `${SHARE_URL}?mode=challenge`,
   });
 }
 

@@ -4,6 +4,7 @@
 // pool is also the Passport's Landmarks shelf.
 // ---------------------------------------------------------------------------
 import { isPlayableLocation } from '../daily.js';
+import { SHARE_URL } from '../core/format.js';
 import { survival, survivalBest, startSurvival } from './survival.js';
 import { triviaHubLine } from './trivia.js';
 
@@ -44,6 +45,7 @@ function landmarksShareText() {
     streak: survivalBest(LANDMARKS_BEST_KEY),
     guesses: host.closestGuessLines(survivedResults, survivedResults.map((entry) => entry.item)),
     visited: count,
+    url: `${SHARE_URL}?mode=landmarks`,
   });
 }
 
