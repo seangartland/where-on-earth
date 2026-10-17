@@ -12,12 +12,13 @@ import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from '../daily.js';
-import { DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_PINPOINT } from '../core/config.js';
+import { DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_NAMES, EARN_PINPOINT } from '../core/config.js';
 import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { readJSON, writeJSON } from '../core/storage.js';
 import { setThumb } from '../core/dom.js';
 import { formatKm, localDateKey, flagForLocation } from '../core/format.js';
+import { buildPostcardCard } from '../meta/postcard-card.js';
 import { gameEls, hideScreens, showRound, revealGuess } from '../game/round.js';
 import { shareResult } from '../game/share.js';
 import { survival } from './survival.js';
@@ -98,33 +99,13 @@ export function postcardDistance(result, outcome) {
 export function postcardSummaryCard(result, item) {
   const outcome = result.postcard;
   if (!outcome || !['new', 'upgrade'].includes(outcome.kind)) return null;
-  const card = document.createElement('article');
-  card.className = 'pp-post';
-  applyCardTier(card, item, outcome.tier);
-  const photo = document.createElement('div');
-  photo.className = 'pp-photo';
-  if (item.image) {
-    const img = document.createElement('img');
-    img.src = item.image;
-    img.alt = '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.addEventListener('error', () => img.remove(), { once: true });
-    photo.append(img);
-  }
-  const flag = flagForLocation(item);
-  const name = document.createElement('p');
-  name.className = 'pp-name';
-  name.textContent = `${item.short || item.clue}${flag ? ` ${flag}` : ''}`;
-  const meta = document.createElement('p');
-  meta.className = 'pp-meta';
   const distanceText = postcardDistance(result, outcome);
-  if (outcome.kind === 'upgrade') {
-    meta.textContent = `Upgraded • ${distanceText}`;
-  } else {
-    meta.textContent = `New • ${distanceText}`;
-  }
-  card.append(photo, name, meta);
+  const card = buildPostcardCard(item, {
+    earned: outcome.tier,
+    earnName: EARN_NAMES[outcome.tier],
+    meta: `${outcome.kind === 'upgrade' ? 'Upgraded' : 'New'} • ${distanceText}`,
+  }, { flagForLocation, applyCardTier });
+  const name = card.querySelector('.pp-name');
   const entry = passportEntryFor(item);
   card.tabIndex = 0;
   card.setAttribute('role', 'button');

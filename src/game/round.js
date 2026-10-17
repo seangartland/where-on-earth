@@ -325,8 +325,8 @@ export function revealGuess(guess, restoring = false) {
   if (animate && (tier === 'bullseye' || tier === 'pinpoint')) {
     document.body.classList.add('bullseye');
     gameEls.hint.textContent = tier === 'pinpoint' ? 'Pinpoint! Incredible accuracy' : 'Bullseye! The gold marker shows the answer';
-    beginBullseyeReveal(guess, answer, km, newlyEarned, tier);
-  } else if (animate) beginTravelReveal(guess, answer, km, newlyEarned, tier);
+    beginBullseyeReveal(guess, answer, km, newlyEarned, tier, { plain: trivia.active });
+  } else if (animate) beginTravelReveal(guess, answer, km, newlyEarned, tier, { plain: trivia.active });
   else {
     revealThumbCurrent();
     let a;

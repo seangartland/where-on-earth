@@ -10,12 +10,13 @@ import * as THREE from 'three';
 import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
-import { DEG, FOV, SCENE_MIN_DIST, PITCH_LIMIT, flyoverTier } from '../core/config.js';
+import { DEG, FOV, SCENE_MIN_DIST, PITCH_LIMIT, EARN_NAMES, flyoverTier } from '../core/config.js';
 import { clamp, smoothstep } from '../core/math.js';
 import { state } from '../core/state.js';
 import { audio } from '../core/audio.js';
 import { fadeElement } from '../core/dom.js';
-import { formatKm, countryKey } from '../core/format.js';
+import { formatKm, countryKey, flagForLocation } from '../core/format.js';
+import { buildPostcardCard, ensurePostcardCardStyles } from '../meta/postcard-card.js';
 import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe, pointers, projectToScreen } from './scene.js';
 import { showCountryOutline, clearCountryOutline } from './outlines.js';
 import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle, _unitSphere } from './pin.js';
@@ -30,7 +31,9 @@ let shockwave;
 let bullseyeStamp;
 let postcard;
 let postcardImg;
-let postcardCaption;
+let postcardPhotoFrame;
+let postcardName;
+let postcardMeta;
 export let peekSlot;
 let thumbSlots;
 
@@ -54,7 +57,7 @@ function setAccuracyStamp(tier) {
 }
 
 const POSTCARD_W = 212;
-const POSTCARD_H = 8 + 124 + 34;
+const POSTCARD_H = 202;
 // All postcard timing is real time (performance.now) from touchdown, so a slow
 // device whose logical clock lags (dt is clamped) holds the card just as long.
 const POSTCARD_POP_MS = 560;
@@ -78,12 +81,30 @@ export let postcardRun = null; // { b, landedAt, popAt, newUnlock, phase: 'pendi
 export let postcardNewUnlock = false;
 export let revealCardAt = null; // when the reveal card has finished fading in
 export let afterPostcard = null; // queued until the postcard is out of the way
-export function preparePostcard(item, newlyEarned) {
+export function preparePostcard(item, newlyEarned, km, plain = false) {
   clearPostcard();
   revealCardAt = null;
   afterPostcard = null;
   postcardNewUnlock = Boolean(newlyEarned);
   if (!item.image) return;
+  const earned = plain ? 0 : (state.passport.meta[item.id]?.e || newlyEarned || 0);
+  const earnName = plain ? '' : (EARN_NAMES[earned] || 'seen');
+  buildPostcardCard(item, {
+    earned,
+    earnName,
+    meta: plain ? formatKm(km) : `${earnName[0].toUpperCase()}${earnName.slice(1)} • ${formatKm(km)}`,
+  }, {
+    element: postcard,
+    className: 'postcard',
+    loading: 'eager',
+    flagForLocation,
+    applyCardTier: host.applyCardTier,
+  });
+  postcard.hidden = true;
+  postcardPhotoFrame = postcard.querySelector('.pp-photo');
+  postcardImg = postcard.querySelector('img');
+  postcardName = postcard.querySelector('.pp-name');
+  postcardMeta = postcard.querySelector('.pp-meta');
   const photo = { src: item.image, ok: false, failed: false };
   const loader = new Image();
   loader.decoding = 'async';
@@ -97,15 +118,15 @@ export function preparePostcard(item, newlyEarned) {
   };
   loader.src = item.image;
   postcardPhoto = photo;
-  postcardCaption.textContent = item.clue || item.short;
 }
 
 export function clearPostcard() {
   postcardRun = null;
   postcardPhoto = null;
   postcard.getAnimations().forEach((a) => a.cancel());
-  postcardImg.getAnimations().forEach((a) => a.cancel());
-  postcardCaption.getAnimations().forEach((a) => a.cancel());
+  for (const child of [postcardPhotoFrame, postcardImg, postcardName, postcardMeta]) {
+    child?.getAnimations().forEach((animation) => animation.cancel());
+  }
   postcard.hidden = true;
   thumbSlots.forEach((slot) => slot.classList.remove('waiting'));
 }
@@ -196,7 +217,7 @@ export function popPostcard() {
   ], { duration: POSTCARD_POP_MS, easing: 'cubic-bezier(.2,.9,.3,1.2)', fill: 'forwards' });
 }
 
-// Morph the polaroid into the thumb's exact box: the frame, caption and tilt
+// Morph the postcard into the thumb's exact box: the frame, text and tilt
 // melt away while the photo grows to the slot's size and corner radius. Both
 // are the same src with object-fit: cover, so the final swap is invisible.
 export function settlePostcard() {
@@ -229,26 +250,29 @@ export function settlePostcard() {
   const lift = 0.2; // a short pick-up beat before it glides down
   postcard.getAnimations().forEach((a) => a.cancel());
   postcard.animate([
-    { transform: `translate(${run.x}px, ${run.y}px) scale(1) rotate(-4deg)`, width: `${POSTCARD_W}px`, padding: '8px 8px 0', borderRadius: '3px', backgroundColor: '#fbf8f1', boxShadow: '0 14px 34px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.3)' },
-    { transform: `translate(${run.x}px, ${run.y - 10}px) scale(1.04) rotate(-6deg)`, width: `${POSTCARD_W}px`, padding: '8px 8px 0', borderRadius: '3px', backgroundColor: '#fbf8f1', boxShadow: '0 22px 40px rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.3)', offset: lift },
-    { transform: `translate(${r.left}px, ${r.top}px) scale(1) rotate(0deg)`, width: `${r.width}px`, padding: '0px 0px 0', borderRadius: '10px', backgroundColor: 'rgba(251,248,241,0)', boxShadow: '0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0)' },
+    { transform: `translate(${run.x}px, ${run.y}px) scale(1) rotate(-4deg)`, width: `${POSTCARD_W}px`, padding: '5px 5px 8px', borderWidth: '2px', borderRadius: '4px', backgroundColor: '#1a1f2e', boxShadow: '0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset' },
+    { transform: `translate(${run.x}px, ${run.y - 10}px) scale(1.04) rotate(-6deg)`, width: `${POSTCARD_W}px`, padding: '5px 5px 8px', borderWidth: '2px', borderRadius: '4px', backgroundColor: '#1a1f2e', boxShadow: '0 22px 40px rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.3)', offset: lift },
+    { transform: `translate(${r.left}px, ${r.top}px) scale(1) rotate(0deg)`, width: `${r.width}px`, padding: '0px', borderWidth: '0px', borderRadius: '10px', backgroundColor: 'rgba(26,31,46,0)', boxShadow: '0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0)' },
   ], timing).onfinish = () => {
     if (postcardRun !== run) return;
     // Hold the postcard over the slot until the thumb can actually paint.
     if (thumb.complete) swapPostcard(run);
     else thumb.decode().then(() => swapPostcard(run), () => swapPostcard(run));
   };
-  postcardImg.animate([
-    { height: '124px', borderRadius: '0px' },
-    { height: '124px', borderRadius: '0px', offset: lift },
+  postcardPhotoFrame.animate([
+    { height: '148px', borderRadius: '2px' },
+    { height: '148px', borderRadius: '2px', offset: lift },
     { height: `${r.height}px`, borderRadius: '10px' },
   ], timing);
-  postcardCaption.animate([
-    { height: '34px', opacity: 1 },
-    { height: '34px', opacity: 1, offset: lift },
-    { height: '0px', opacity: 0, offset: 0.7 },
-    { height: '0px', opacity: 0 },
-  ], timing);
+  for (const text of [postcardName, postcardMeta]) {
+    const height = `${text.getBoundingClientRect().height}px`;
+    text.animate([
+      { height, opacity: 1 },
+      { height, opacity: 1, offset: lift },
+      { height: '0px', opacity: 0, offset: 0.7 },
+      { height: '0px', opacity: 0 },
+    ], timing);
+  }
 }
 
 export function swapPostcard(run) {
@@ -353,14 +377,14 @@ export function placeRevealVisual(guess, answer) {
   return { a, b };
 }
 
-export function beginNorthUpReveal(guess, answer, km, newlyEarned, tier) {
+export function beginNorthUpReveal(guess, answer, km, newlyEarned, tier, options = {}) {
   const { a, b } = buildAnswerPath(guess, answer);
   if (state.activePin >= 0) pins[state.activePin].drop(a);
   if (tier === 'bullseye' || tier === 'pinpoint') correctPin.setColor(GOLD_COLOR, '#fff6d8');
   correctPin.drop(b);
   answerLine.visible = true;
   gameEls.distance.textContent = formatKm(km);
-  preparePostcard(answer, newlyEarned);
+  preparePostcard(answer, newlyEarned, km, options.plain);
   frameNorthUpRevealPoints(a, b);
   showCountryOutline(countryKey(answer), answer, true);
   startRevealBeat(a, b, tier !== 'bullseye');
@@ -383,9 +407,9 @@ export function beginNorthUpReveal(guess, answer, km, newlyEarned, tier) {
   requestAnimationFrame(watchLanding);
 }
 
-export function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km)) {
+export function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km), options = {}) {
   if (state.revealViewPreference === 'north-up') {
-    beginNorthUpReveal(guess, answer, km, newlyEarned, tier);
+    beginNorthUpReveal(guess, answer, km, newlyEarned, tier, options);
     return;
   }
   const path = buildAnswerPath(guess, answer);
@@ -397,7 +421,7 @@ export function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyover
   gameEls.distance.textContent = formatKm(km);
   gameEls.travelDistance.querySelector('span').textContent = '0 km';
   gameEls.travelDistance.hidden = true;
-  preparePostcard(answer, newlyEarned);
+  preparePostcard(answer, newlyEarned, km, options.plain);
   travelAnimation = {
     ...path,
     km,
@@ -429,9 +453,9 @@ export function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyover
 
 // Bullseye: no flight. Snap-zoom onto the answer, drop a gold pin, roll a
 // shockwave across the surface in slow motion, stamp it, then the usual pullback.
-export function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km)) {
+export function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyoverTier(km), options = {}) {
   if (state.revealViewPreference === 'north-up') {
-    beginNorthUpReveal(guess, answer, km, newlyEarned, tier);
+    beginNorthUpReveal(guess, answer, km, newlyEarned, tier, options);
     return;
   }
   const path = buildAnswerPath(guess, answer);
@@ -440,7 +464,7 @@ export function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyov
   correctPin.state = 'idle';
   correctPin.setColor(GOLD_COLOR, '#fff6d8');
   gameEls.distance.textContent = formatKm(km);
-  preparePostcard(answer, newlyEarned);
+  preparePostcard(answer, newlyEarned, km, options.plain);
   travelAnimation = {
     ...path,
     km,
@@ -1178,6 +1202,7 @@ export function homeRevealView(a, b, solved) {
 export function initReveal(main) {
   host = main;
   gameEls = main.gameEls;
+  ensurePostcardCardStyles();
   answerLineMaterial = new LineMaterial({
     color: '#b9f7ff',
     linewidth: 2.4, // CSS pixels; stays legible when the final view pulls back
@@ -1248,12 +1273,9 @@ export function initReveal(main) {
   setAccuracyStamp('bullseye');
 
   postcard = document.createElement('figure');
-  postcard.className = 'postcard';
+  postcard.className = 'pp-post postcard';
   postcard.hidden = true;
-  postcard.innerHTML = '<img alt="" decoding="async"><p></p>';
   document.body.append(postcard);
-  postcardImg = postcard.querySelector('img');
-  postcardCaption = postcard.querySelector('p');
   // The thumb sits in a slot that shows a dashed outline while the postcard is
   // out, so the card never shows an unexplained gap where the photo will land.
   // The sheet has two: the peek bar's square (where the postcard lands while

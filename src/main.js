@@ -139,7 +139,7 @@ const pinHost = {
 initPin(pinHost);
 
 // The reveal reaches the round screen only through this host.
-const revealHost = { gameEls, currentItem, revealThumbCurrent, clearPendingGuess, hideReviewVisuals };
+const revealHost = { gameEls, currentItem, revealThumbCurrent, clearPendingGuess, hideReviewVisuals, applyCardTier };
 initReveal(revealHost);
 
 migrateStorage();

@@ -10,6 +10,7 @@
 // the sections used to run, so every element is built in the same order.
 // ---------------------------------------------------------------------------
 import { currentStreak, statsEntry } from './stats.js';
+import { buildPostcardCard, ensurePostcardCardStyles, postcardDisplayName } from './postcard-card.js';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
@@ -433,56 +434,30 @@ let ppMysteryTemplate;
 // mystery branch for unvisited places (Idea 1, docs/passport-redesign-opus.md §2).
 function passportSlot(entry) {
   if (!entry.visited) return ppMysteryTemplate.cloneNode(true);
-  const li = document.createElement('li');
-  li.className = 'pp-slot';
   const earn = host.EARN_NAMES[entry.earned] || 'seen';
   const tier = entry.earned >= host.EARN_PINPOINT ? 'pinpoint' : entry.earned >= host.EARN_BULLSEYE ? 'bullseye' : 'ordinary';
   const tierLabel = tier[0].toUpperCase() + tier.slice(1);
   const hasDistance = Number.isFinite(entry.km);
   const pillText = hasDistance ? formatShareKm(entry.km) : null;
-  li.dataset.earn = earn;
-  host.applyCardTier(li, entry.item, entry.earned);
-  li.append(...passportSlotFace(entry, pillText, { scoreTier: tier }));
+  const li = buildPostcardCard(entry.item, {
+    earned: entry.earned,
+    earnName: earn,
+    entry,
+    photo: hasRealPhoto(entry.item) ? 'image' : 'flag',
+    scoreText: pillText,
+    scoreTier: tier,
+  }, {
+    variant: 'slot',
+    flagForLocation: host.flagForLocation,
+    applyCardTier: host.applyCardTier,
+    addAuditFlagButton: host.addAuditFlagButton,
+  });
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
   li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${tierLabel}${hasDistance ? `, ${pillText}` : ''}`);
   bindPostcard(li, entry);
   return li;
-}
-
-function passportSlotFace(entry, pillText, { flagForPlaceholder = true, scoreTier = '' } = {}) {
-  const photo = document.createElement('div');
-  photo.className = 'pp-slot-photo';
-  if (hasRealPhoto(entry.item) || !flagForPlaceholder) {
-    if (entry.item.image) {
-      const img = document.createElement('img');
-      img.src = entry.item.image;
-      img.alt = '';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.addEventListener('error', () => img.remove(), { once: true });
-      photo.append(img);
-    }
-  } else {
-    photo.append(Object.assign(document.createElement('span'), {
-      className: 'pps-flag', textContent: host.flagForLocation(entry.item),
-    }));
-  }
-  if (pillText != null) {
-    const score = document.createElement('span');
-    score.className = 'pp-slot-score';
-    if (scoreTier) score.dataset.tier = scoreTier;
-    score.textContent = pillText;
-    photo.append(score);
-  }
-  host.addAuditFlagButton(photo, entry);
-  const flag = host.flagForLocation(entry.item);
-  const name = document.createElement('p');
-  name.className = 'pp-slot-name';
-  name.textContent = `${entry.item.short || entry.item.clue}${flag ? ` ${flag}` : ''}`;
-  name.title = name.textContent;
-  return [photo, name];
 }
 
 function ppTagSlot(li, entry) {
@@ -1206,9 +1181,8 @@ function fillPostcard(entry) {
     ppdEls.photo.append(img);
   }
   ppdEls.from.textContent = `Postcard from ${entry.continent || 'Earth'}`;
-  const flag = (item.clue || '').match(FLAG_RE);
-  const short = item.short || item.clue || '';
-  ppdEls.name.textContent = `${short}${flag ? ` ${flag[0]}` : ''}`;
+  const short = item.short || '';
+  ppdEls.name.textContent = postcardDisplayName(item, host.flagForLocation);
   const clue = (item.clue || '').replace(FLAG_RE, '').trim();
   ppdEls.clue.textContent = clue;
   ppdEls.clue.hidden = !clue || clue === short;
@@ -1486,6 +1460,7 @@ export function initPassportHome(main) {
 
 export function initPassport(main) {
   host = main;
+  ensurePostcardCardStyles();
 
   passportPageStyle = document.createElement('style');
   passportPageStyle.textContent = `
@@ -1621,35 +1596,9 @@ export function initPassport(main) {
 .pp-country-head p { margin: 2px 0 0; color: rgba(193,224,250,.55); font-size: 12px; }
 .pp-country-head .pp-country-bar { width: 100%; height: 4px; margin-top: 10px; }
 .pp-country-dex { margin-top: 12px; }
-/* A postcard: white border round the photo, caption on the card stock, and the
-   best score pressed on as a round ink stamp. Alternate cards tilt a hair so the
-   grid reads as a collection pinned in a book rather than a table. */
-.pp-post { --tilt: -.6deg; position: relative; min-width: 0; padding: 5px 5px 8px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 4px; background: #1a1f2e; box-shadow: 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset; transform: rotate(var(--tilt)); transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-.pp-post:nth-child(even) { --tilt: .7deg; }
-.pp-post:active { transform: rotate(var(--tilt)) scale(.965); filter: brightness(.95); }
-.pp-post:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
-/* While its detail is open the card has been lifted out of the book. */
-.pp-post.pp-lifted { visibility: hidden; }
-.pp-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 2px; overflow: hidden; background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
-.pp-photo::after { content: '🌍'; position: absolute; inset: 0; display: grid; place-items: center; font-size: 26px; opacity: .45; }
-.pp-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-.pp-stamp { position: absolute; z-index: 2; right: 8px; top: 8px; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 2px dashed currentColor; background: rgba(8,14,32,.82); color: #9fb6cc; font-size: 15px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; transform: rotate(12deg); box-shadow: 0 0 0 3px rgba(8,14,32,.82); text-align: center; }
-.pp-stamp small { display: block; margin-top: 2px; font-size: 10px; font-weight: 800; letter-spacing: .08em; opacity: .9; text-align: center; }
-.pp-stamp[data-tier="gold"] { color: #ffd166; text-shadow: 0 0 10px rgba(255,209,102,.45); }
-.pp-stamp[data-tier="cyan"] { color: #67e8ff; }
-/* Earned tiers add the gold .prox-badge on the photo. Seen cards are the same
-   postcard in black and white, with a nudge to come back for it. */
-.pp-post[data-earn="seen"] { background: #151923; }
-.pp-post[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.pp-post[data-earn="seen"] .pp-name { color: #8992a8; }
-.pp-name { margin: 7px 2px 0; overflow: hidden; color: #eef2ff; font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
-.pp-meta { min-height: 12px; margin: 4px 2px 0; color: #a8b0c3; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.pp-meta span { white-space: nowrap; }
-.pp-tier-date { color: rgba(193,224,250,.66); font-weight: 650; }
 body.game-passport #hud { opacity: 0; }
 @media (max-width: 360px) {
   .pp-dex { gap: 8px 6px; }
-  .pp-stamp { width: 36px; height: 36px; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { .pp-filters { transform: none; } }`;
   document.head.appendChild(passportPageStyle);
