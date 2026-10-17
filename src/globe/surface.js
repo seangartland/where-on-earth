@@ -24,7 +24,7 @@ export let globeMat;
 export function initGlobeSurface() {
   blankTex = new THREE.DataTexture(new Uint8Array([0, 0, 0, 255]), 1, 1);
   blankTex.needsUpdate = true;
-  const coast = parseInt(new URLSearchParams(location.search).get('coast') || '0');
+  const coast = parseInt(new URLSearchParams(location.search).get('coast') ?? '2');
 
   globeMat = new THREE.ShaderMaterial({
     uniforms: {
@@ -34,7 +34,7 @@ export function initGlobeSurface() {
       // satellite imagery (see "Satellite imagery" below): equirectangular base
       uSatBase: { value: blankTex },
       uSatMix: { value: 0 },
-      uLegFadeOn: { value: coast >= 1 ? 1 : 0 },
+      uLegFadeOn: { value: coast === 0 ? 0 : 1 },
       uOceanFlat: { value: coast === 2 ? 0.55 : coast === 3 ? 0.85 : 0 },
       // detail insets: A draws under B; bounds are Mercator (x0, y0, x1, y1)
       uInsetA: { value: blankTex },
