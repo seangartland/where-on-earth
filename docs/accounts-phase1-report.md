@@ -200,3 +200,16 @@ individual flows, established the following, which replaces the earlier claim:
 No product code was changed by this verification. The M4 Worker deploy gate
 (before/after request counts, then the PvP and group suites against the
 deployed Worker) is executed separately and reported below when done.
+
+## M4 completion (orchestrator, 2026-10-17 01:26 PDT)
+
+The diet Worker is deployed (deployment ca89d5a1c3974885815e17698254d74e,
+2026-10-17 08:12 UTC) from the banked pvp-worker source. Request counts
+bracket the deploy: before, the UTC day stood at 592 Worker requests and 1,872
+Durable Object requests for woe-pvp (3.16 DO per Worker request, a day
+dominated by old-worker suite traffic); the post-deploy suite run added 128
+Worker and 326 DO requests (2.55 per Worker request). The suites against the
+deployed Worker pass (H2H 1, 2, 3a, 5, 7 and Open Challenge; H2H 4 verified
+standalone earlier tonight; H2H 3b fails only at its documented deadline race,
+same step as against the old Worker). Snapshots:
+shots/accounts-phase1/m4-before.json and m4-after.json. Phase 1 is complete.
