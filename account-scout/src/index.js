@@ -34,6 +34,9 @@ function createAuth(env, origin) {
       emailOTP({
         otpLength: 6,
         expiresIn: 600,
+        // Default is "plain" (the code sits readable in the verification
+        // table). Hashed keeps a D1 read from exposing live codes.
+        storeOTP: "hashed",
         async sendVerificationOTP({ email, otp, type }) {
           await env.AUTH_DB.prepare(
             "INSERT INTO mail_sink (id, email, otp, type, created_at) VALUES (?, ?, ?, ?, ?)",

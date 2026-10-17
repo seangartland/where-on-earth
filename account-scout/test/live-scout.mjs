@@ -6,7 +6,9 @@ assert(base, "SCOUT_URL is required");
 const email = `scout-${Date.now()}@example.invalid`;
 const post = (path, body, headers = {}) => fetch(`${base}${path}`, {
   method: "POST",
-  headers: { "content-type": "application/json", ...headers },
+  // Browsers always send Origin; better-auth rejects its absence. Node's
+  // fetch does not, so the harness supplies the Worker's own origin.
+  headers: { "content-type": "application/json", origin: base, ...headers },
   body: JSON.stringify(body),
 });
 
@@ -38,7 +40,7 @@ response = await post("/api/auth/sign-in/email-otp", { email, otp });
 assert(response.ok, `OTP verify failed: ${response.status} ${await response.text()}`);
 const token = response.headers.get("set-auth-token");
 assert(token, "bearer plugin did not return set-auth-token");
-response = await fetch(`${base}/api/auth/get-session`, { headers: { authorization: `Bearer ${token}` } });
+response = await fetch(`${base}/api/auth/get-session`, { headers: { authorization: `Bearer ${token}`, origin: base } });
 const session = await response.json();
 assert.equal(session.user.email, email);
 const emailRoundTripWallMs = Number((performance.now() - emailStart).toFixed(2));

@@ -4,6 +4,8 @@ Date: 2026-10-17 UTC
 
 ## Overall verdict
 
+**Final update, 2026-10-16 night (orchestrator): the live run is DONE; see "Live run results" below.** Sean added D1 Edit to the existing token (Edit, then Update Token), the D1 endpoint returned 200, and the database, schema, Worker deploy and both test suites all ran. Email round trip PASS, rejection paths PASS, bundle PASS, CPU verdict a labelled wall-clock proxy PASS. One real library finding was fixed in config (`storeOTP` defaults to plain; now hashed). Google live sign-in remains BLOCKED on Sean's OAuth client and the iPhone checks remain PENDING as his device test. The conditional better-auth decision stands confirmed.
+
 **Update, 2026-10-16 evening (orchestrator): one gate PASSED, the rest blocked on a token permission.** The agent sessions were blocked by their sandbox (no npm registry, no credential socket, read-only `.git`), so the orchestrator ran the prepared resume procedure directly. `npm install` completed (better-auth 1.7.10) and the bundle gate PASSED with a measured size (see the gate table). Creating the D1 database then failed with HTTP 401 from the D1 API: the account token (created from the "Edit Cloudflare Workers" template) can manage Workers (verified: script list returns 200) but has no D1 permission (D1 list returns 401 code 10000). Creating the database needs Sean to add D1 Edit permission to the token in the Cloudflare dashboard, or to create the empty database there. After that one step, the remaining commands are `python3 deploy.py create-db` (or record the dashboard-created ID), `apply-schema`, `deploy`, and the two test commands in the resume procedure.
 
 **Original agent verdict: BLOCKED by the execution environment.** The local scout source, schema, API deploy helper, and test harness are prepared and banked, but the resumed session still could not install dependencies, access the Cloudflare credential surrogate, or write to the repository's `.git` directory. No Cloudflare resource was created or changed. No game file, existing Worker, existing database, DNS record, or production resource was changed.
@@ -68,6 +70,58 @@ SCOUT_URL=https://woe-account-scout.<workers-subdomain>.workers.dev node test/li
 ```
 
 Replace the URL placeholder with the URL printed by the deploy helper. Record bundle bytes, all raw timing samples, summary statistics, response status and body checks, and any Cloudflare CPU metric without relabeling wall time as CPU.
+
+## Live run results (orchestrator, 2026-10-16 night)
+
+Sean added D1 Edit to the existing account token (the earlier attempts had
+created new tokens in the create flow instead of editing this one; the fix
+was Edit, then Update Token). The D1 list endpoint then returned 200 and
+the full resume procedure ran in one pass:
+
+- `create-db`: database `woe-account-scout` created, ID
+  `8c72d67e-2ee1-4bc5-8c93-a7c252f83564`.
+- `apply-schema`: 9 statements applied.
+- `deploy`: Worker live at https://woe-account-scout.gartland-79.workers.dev
+- Bundle re-measured after the config fix below: 2,084,427 bytes
+  uncompressed, about 3.2% of the 64 MiB cap. Bundle gate PASS.
+- `npm test` (endpoint rejection paths): 1 passed, 0 failed.
+- `node test/live-scout.mjs`: email round trip PASS. A code was sent to a
+  throwaway address, read back from the D1 mail sink, verified, and
+  `get-session` returned the created user. Whole round trip 3,032 ms wall
+  (includes two D1 API hops from the harness machine).
+
+Two findings from the live run, both fixed in the scout config:
+
+1. better-auth rejects requests with no Origin header
+   (`MISSING_OR_NULL_ORIGIN`). Browsers always send one; the Node harness
+   did not. The harness now sends the Worker's own origin. Not a product
+   issue, recorded so Phase 1 testing does not rediscover it.
+2. The emailOTP plugin's `storeOTP` option defaults to "plain": the live
+   code sat readable in the `verification` table (the harness caught this
+   on its storage assertion). Set to "hashed" in `account-scout/src/index.js`
+   and re-verified: the stored value no longer contains the code, and the
+   round trip still passes. Phase 1 inherits this setting.
+
+CPU and startup: per-request CPU microseconds are not exposed by the
+analytics fields this token can query (the GraphQL schema rejects the
+cpuTimeUs fields tried). Per the brief's fallback rule, the verdict is a
+labelled wall-clock proxy: 20 health invocations, first request 717 ms,
+warm median 141 ms, warm p95 605 ms, all measured from this VM through its
+egress proxy, so network dominates. No invocation errored or timed out.
+Verdict: PROXY PASS, not a CPU measurement.
+
+Remaining gates, unchanged and external to the library: live Google
+sign-in is BLOCKED until Sean creates the Google Cloud OAuth client (the
+rejection paths pass); the iPhone Safari and home-screen checks are
+PENDING as Sean's device test against the URL above.
+
+Scout conclusion: every gate that can run without Sean's two external
+items passes. The conditional provider decision stands confirmed:
+better-auth on a Worker with D1 for Phase 1, with `storeOTP: "hashed"` as
+a required config line, and Clerk (Appendix A of the accounts plan) kept
+as the fallback if the iPhone gate fails during Phase 1 acceptance. The
+throwaway Worker and database are left running for the iPhone test;
+cleanup stays one command (`python3 deploy.py cleanup`) for afterwards.
 
 ## Cleanup
 
