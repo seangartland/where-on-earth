@@ -24,15 +24,26 @@ const BLACKOUT_EMOJI = { Africa: '🌍', Europe: '🌍', Asia: '🌏', Oceania: 
 export let blackoutEntry = null;
 let blackoutTex = null;
 
-// Scopes on the game's own continent assignments (the Passport's countryIndex).
+// Scopes on the game's own continent assignments (the Passport's countryIndex),
+// plus the United States (its 50 states; never merged into the country scopes
+// above, see src/globe/outlines.js).
 function blackoutScopes() {
-  const { countryBands, countryData, countryIndex } = host;
+  const { countryBands, countryData, countryIndex, stateData } = host;
   const keys = Object.keys(countryBands).filter((k) => countryData.keys[k]);
-  const scopes = [{ id: 'world', label: 'Full World', place: 'the world', done: 'World', emoji: '🌐', keys }];
+  const scopes = [{ id: 'world', label: 'Full World', place: 'the world', done: 'World', emoji: '🌐', keys, unit: 'country', unitPlural: 'countries' }];
+  if (stateData) {
+    scopes.push({
+      id: 'united-states', label: 'United States', place: 'the United States', done: 'United States',
+      emoji: host.COUNTRY_FLAGS['United States'], keys: Object.keys(stateData.keys), unit: 'state', unitPlural: 'states',
+    });
+  }
   for (const name of host.CONTINENT_ORDER) {
     const inScope = keys.filter((k) => countryIndex && countryIndex.get(k)?.continent === name);
     if (inScope.length < BLACKOUT_MIN_COUNTRIES) continue;
-    scopes.push({ id: name.toLowerCase().replace(/ /g, '-'), label: name, place: name, done: name, emoji: BLACKOUT_EMOJI[name] || '🌐', keys: inScope });
+    scopes.push({
+      id: name.toLowerCase().replace(/ /g, '-'), label: name, place: name, done: name, emoji: BLACKOUT_EMOJI[name] || '🌐',
+      keys: inScope, unit: 'country', unitPlural: 'countries',
+    });
   }
   return scopes;
 }
@@ -151,11 +162,11 @@ export function showBlackoutGameOver() {
   document.body.className = `game-results survival borders blackout${complete ? ' blackout-complete' : ''}`;
   const best = saveBlackoutBest(scope, found);
   if (complete) {
-    setRunResultsCopy(`Country Blackout: ${scope.label}`, `Every country in ${scope.place}, found in one run without a miss.`, 'Found');
+    setRunResultsCopy(`Country Blackout: ${scope.label}`, `Every ${scope.unit} in ${scope.place}, found in one run without a miss.`, 'Found');
     gameEls.survivalResultTitle.textContent = `🏅 ${scope.done} complete`;
   } else {
     setRunResultsCopy(`Country Blackout: ${scope.label}`, 'One miss ends the run.', 'Found');
-    gameEls.survivalResultTitle.textContent = `${found} of ${total} ${total === 1 ? 'country' : 'countries'} found`;
+    gameEls.survivalResultTitle.textContent = `${found} of ${total} ${total === 1 ? scope.unit : scope.unitPlural} found`;
   }
   gameEls.survivalFinalStreak.textContent = `${found}/${total}`;
   gameEls.survivalBestStreak.textContent = `${best}/${total}`;

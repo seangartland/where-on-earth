@@ -24,7 +24,7 @@ import {
 } from './globe/surface.js';
 import {
   initOutlines, countryData, countryBands, countriesP, countryBandsP, countryGeom, bordersHit, showCountryOutline,
-  updateCountryOutline, countryOutline,
+  updateCountryOutline, countryOutline, stateData, hasKey, keyName,
 } from './globe/outlines.js';
 import {
   initPin, Pin, makeBadgeTexture, pins, correctPin, pinch, applyDrag, sphereHit, nearAngle,
@@ -221,6 +221,9 @@ const modeHost = {
   get countryData() { return countryData; },
   get countryBands() { return countryBands; },
   get countryIndex() { return countryIndex; },
+  get stateData() { return stateData; },
+  hasKey,
+  keyName,
   get CONTINENT_ORDER() { return CONTINENT_ORDER; },
   get activePin() { return state.activePin; },
   get blackoutEntry() { return blackoutEntry; },

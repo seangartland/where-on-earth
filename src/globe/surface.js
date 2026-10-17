@@ -1140,6 +1140,8 @@ export const LOAD = {
   // Lazy, in no load phase: the reveal outline and Borders mode (see "Country outlines")
   countries: { url: 'assets/country-outlines.topo.json', size: 1211450 },
   countryBands: { url: 'assets/country-bands.json', size: 2855 },
+  // Lazy, in no load phase: Blackout's United States scope (see "Country outlines")
+  states: { url: 'assets/us-states.topo.json', size: 107056 },
 };
 for (const entry of Object.values(LOAD)) { entry.loaded = 0; entry.done = false; entry.built = false; }
 
