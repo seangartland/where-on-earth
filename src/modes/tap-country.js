@@ -35,8 +35,10 @@ function saveBordersBest(value) {
 }
 
 // A key's flag: its most common clue flag (Denmark's places include Greenland's).
+// State keys have no clue flags of their own: the US scope's own flag stands in.
 let countryFlags = null;
 function countryFlag(key) {
+  if (host.stateData && host.stateData.keys[key]) return host.COUNTRY_FLAGS['United States'] || '🇺🇸';
   if (!countryFlags) {
     const counts = new Map();
     for (const item of host.locations) {
@@ -52,17 +54,21 @@ function countryFlag(key) {
 
 export function syncBordersEntry() {
   bordersEntry.disabled = !(host.countryData && host.countryBands && host.locations.length);
-  host.blackoutEntry.disabled = bordersEntry.disabled;
+  host.blackoutEntry.disabled = bordersEntry.disabled || !host.stateData || !host.landAreas;
 }
 
 // Draw without replacement within the band. If the random band is exhausted,
-// use another nonempty band; only exhausting every bag ends the run.
+// use another nonempty band; only exhausting every bag ends the run. Scope
+// keys outside the country band system (the US scope's state keys) have no
+// band of their own, so they default to band 1 and only ever enter the draw
+// through the scope's pool, never affecting an unscoped (banded) run.
 function bordersPick() {
-  const { countryBands, countryData } = host;
+  const { countryBands } = host;
   const drawnBand = randomDifficultyBand();
   for (let band = 1; band <= 10; band += 1) {
     if (!borders.bags.has(band)) {
-      borders.bags.set(band, Object.keys(countryBands).filter((k) => countryBands[k] === band && countryData.keys[k]
+      const universe = band === 1 && borders.pool ? new Set([...Object.keys(countryBands), ...borders.pool]) : Object.keys(countryBands);
+      borders.bags.set(band, [...universe].filter((k) => (countryBands[k] ?? 1) === band && host.hasKey(k)
         && (!borders.pool || borders.pool.has(k))));
     }
   }
@@ -101,7 +107,10 @@ export function startBorders(scope = null) {
   borders.scope = scope;
   borders.pool = scope && new Set(scope.keys);
   setRunResultsMode(scope ? 'blackout' : 'borders');
-  if (scope) host.resetBlackout();
+  if (scope) {
+    host.resetBlackout();
+    host.startBlackoutTimer();
+  }
   bordersGo();
 }
 
@@ -112,6 +121,7 @@ export function revealBorders(tap) {
   if (host.gameMode !== 'guess') return;
   const { gameEls, peekSlot, pins, correctPin, answerLine } = host;
   const key = borders.key;
+  const displayName = host.keyName(key);
   const kmPerPx = host.radPerPx() * 6371.0088; // at the screen centre, where the player zoomed to tap
   const res = host.bordersHit(key, tap, Math.min(BORDERS_TAP_PX * kmPerPx, BORDERS_TAP_MAX_KM));
   borders.missed = !res.hit;
@@ -123,6 +133,7 @@ export function revealBorders(tap) {
     } else saveBordersBest(borders.found);
   }
   const complete = host.blackoutComplete();
+  if (complete) host.completeBlackoutTimer(borders.scope);
   gameEls.number.textContent = borders.scope ? host.blackoutProgressText() : `Streak ${borders.found}`;
   host.gameMode = 'reveal';
   window.__canGuess = false;
@@ -130,14 +141,14 @@ export function revealBorders(tap) {
   document.body.className = `game-reveal survival borders${borders.missed ? ' survival-miss' : ''}`;
   gameEls.hint.textContent = '';
   const km = Math.round(res.km);
-  const name = `${key} ${countryFlag(key)}`;
+  const name = `${displayName} ${countryFlag(key)}`;
   gameEls.revealName.textContent = name;
   gameEls.peekName.textContent = name;
   gameEls.distance.textContent = borders.missed ? formatKm(km) : '';
   gameEls.mult.style.display = 'none';
-  gameEls.fact.textContent = complete ? `Found ${key}. That's every country in ${borders.scope.place}.`
-    : !borders.missed ? `Found ${key}.`
-    : `You tapped ${res.tapped || 'the ocean'}, ${km.toLocaleString()} km from ${key}.`;
+  gameEls.fact.textContent = complete ? `Found ${displayName}. That's every ${borders.scope.unit} in ${borders.scope.place}.`
+    : !borders.missed ? `Found ${displayName}.`
+    : `You tapped ${res.tapped || 'the ocean'}, ${km.toLocaleString()} km from ${displayName}.`;
   host.setThumb(gameEls.thumb, null);
   host.setThumb(gameEls.peekThumb, null);
   peekSlot.hidden = true;
@@ -147,7 +158,7 @@ export function revealBorders(tap) {
   gameEls.score.textContent = borders.missed ? '✗ Run over' : `${borders.found}`;
   const pill = gameEls.revealPill;
   pill.classList.remove('safe', 'miss');
-  pill.textContent = !borders.missed ? `✓ ${key}` : res.tapped ? `✗ That's ${res.tapped}` : '✗ Ocean';
+  pill.textContent = !borders.missed ? `✓ ${displayName}` : res.tapped ? `✗ That's ${res.tapped}` : '✗ Ocean';
   pill.classList.add(borders.missed ? 'miss' : 'safe');
   gameEls.next.textContent = borders.missed || complete ? 'See run' : 'Keep going';
   if (headerFrom > host.REVEAL_HEADER_H) host.collapseRoundHeader(headerFrom);
@@ -221,7 +232,7 @@ export function bordersRoundHeader() {
 
 export function bordersClue() {
   const name = document.createElement('strong');
-  name.textContent = borders.key;
+  name.textContent = host.keyName(borders.key);
   host.gameEls.clue.replaceChildren('Tap ', name, ` ${countryFlag(borders.key)}`);
 }
 
@@ -236,4 +247,5 @@ export function initTapCountry(main) {
   bordersEntry = document.getElementById('borders-button');
   bordersEntry.addEventListener('click', () => startBorders());
   Promise.all([host.countriesP, host.countryBandsP]).then(syncBordersEntry, () => {});
+  Promise.all([host.statesP, host.landAreasP]).then(syncBordersEntry, () => {});
 }

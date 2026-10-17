@@ -141,8 +141,11 @@ export function initGlobeSurface() {
                                texture2D(uMap, vUv + vec2(0.0, wx.y)).r)) * uLand;
       float openWater = 1.0 - smoothstep(0.02, 0.60, wideLand);
       sat = mix(sat, vec3(0.045, 0.125, 0.255), openWater * uOceanFlat);
-      float satMix = uSatMix * (1.0 - texture2D(uBlackout, vUv).r * uBlackoutMix);
+      float boM = texture2D(uBlackout, vUv).r * uBlackoutMix;
+      float satMix = uSatMix * (1.0 - boM);
       col = mix(col, sat, satMix);
+      vec3 oceanTone = mix(vec3(0.105, 0.230, 0.340), texture2D(uSatBase, vec2(0.083, 0.555)).rgb, 0.55) * mix(0.72, 1.0, sqrt(ndv));
+      col = mix(col, oceanTone, boM * uSatMix);
 
       // Island legibility over satellite (2026-10-16): the crossfade above
       // discards the classic style's fill contrast, so small islands blend
@@ -186,7 +189,7 @@ export function initGlobeSurface() {
 
       // atmospheric rim haze (eased back over imagery)
       float fres = pow(1.0 - ndv, 2.6);
-      col += vec3(0.18, 0.48, 1.00) * fres * mix(0.80, 0.32, satMix);
+      col += vec3(0.18, 0.48, 1.00) * fres * mix(0.80, 0.32, mix(satMix, uSatMix, boM));
 
       col += (hash(gl_FragCoord.xy) - 0.5) / 255.0; // dither against banding
       gl_FragColor = vec4(col, 1.0);
@@ -1149,6 +1152,10 @@ export const LOAD = {
   // Lazy, in no load phase: the reveal outline and Borders mode (see "Country outlines")
   countries: { url: 'assets/country-outlines.topo.json', size: 1211450 },
   countryBands: { url: 'assets/country-bands.json', size: 2855 },
+  // Lazy, in no load phase: Blackout's United States scope (see "Country outlines")
+  states: { url: 'assets/us-states.topo.json', size: 107056 },
+  // Lazy, in no load phase: Blackout's land-cleared progress statistic
+  landAreas: { url: 'assets/land-areas.json', size: 7354 },
 };
 for (const entry of Object.values(LOAD)) { entry.loaded = 0; entry.done = false; entry.built = false; }
 

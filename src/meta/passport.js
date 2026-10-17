@@ -11,6 +11,7 @@
 // ---------------------------------------------------------------------------
 import { currentStreak, statsEntry } from './stats.js';
 import { buildPostcardCard, ensurePostcardCardStyles, postcardDisplayName } from './postcard-card.js';
+import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
@@ -144,7 +145,7 @@ function passportEntries() {
     .sort((a, b) => b.recency - a.recency);
 }
 
-// Every location, visited or not — the dex grid's full 1,301 slots.
+// Every location, visited or not: the dex grid's full set of slots.
 function passportAllEntries() {
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
   return host.locations.map((item) => buildPassportEntry(item, age));
@@ -477,32 +478,28 @@ function ppTagSlot(li, entry) {
 // Atlas grouping/within-group order: by country, then by name (so a country's
 // slots sit together under one flag). Used for every group, and for mysteries
 // at the tail of a flat sort (recency/distance are meaningless for them).
-function ppAtlasCompare(a, b) {
-  return a.country.localeCompare(b.country) || (a.item.short || '').localeCompare(b.item.short || '');
-}
-const PP_FLAT_COMPARE = {
-  distance: (a, b) => (a.km ?? Infinity) - (b.km ?? Infinity),
-  name: (a, b) => (a.item.short || '').localeCompare(b.item.short || ''),
-  recent: (a, b) => b.recency - a.recency,
-};
 const PP_STATUS_KEY = 'where-on-earth-passport-status';
 const PP_STATUSES = new Set(['earned', 'seen', 'unvisited']);
 
 // One filterable dex per tab. `view` is the tab's container; `dex` and
 // `sentinel` name the dex body and sticky sentinel by their data-pp names in it. `statusKey` is
 // Places only: the Landmarks tab keeps its filters in memory (no new key).
-function ppDex(view, { noun, sentinel, dex, statusKey = null }) {
+function ppDex(view, { tab, noun, sentinel, dex, statusKey = null }) {
   const q = (name) => view.querySelector(`[data-pp="${name}"]`);
   return {
     els: {
       filters: q('filters'), filtersToggle: q('filters-toggle'), badge: q('badge'), status: q('status'),
-      continent: q('continent'), band: q('band'), sort: q('sort'), shown: q('shown'), empty: q('empty'),
+      grouping: q('grouping'), sort: q('sort'), sortLabel: q('sort-label'), shown: q('shown'), empty: q('empty'),
       dex: q(dex), sentinel: q(sentinel),
       summary: q('filters-summary'),
     },
+    tab,
     noun,
     statusKey,
     statuses: new Set(),
+    grouping: 'continent',
+    sorts: new Map([['continent', 'atlas'], ['country', 'atlas'], ['difficulty', 'atlas'], ['none', 'recent']]),
+    accordion: new Map(),
     all: [], // every entry for the open tab, filtered client-side
     groups: [], // atlas sort only: [{ section, name, head }]
     lis: [], // every rendered slot: [{ li, entry }]
@@ -512,19 +509,26 @@ function ppDex(view, { noun, sentinel, dex, statusKey = null }) {
 // The Filters toggle, toolbar close and filter panel, shared by both dex tabs.
 // The toggle is one wide pill that summarises the active filters.
 function ppFilterControls(id) {
-  return `<button type="button" class="pp-filters-btn pp-filters-pill" data-pp="filters-toggle" aria-expanded="false" aria-controls="${id}" aria-label="Filters, none active"><span>Filters <b class="pp-badge" data-pp="badge" hidden></b></span><span class="pp-filters-summary" data-pp="filters-summary"></span></button>
+  return `<button type="button" class="pp-filters-btn pp-filters-pill" data-pp="filters-toggle" aria-expanded="false" aria-controls="${id}" aria-label="Browse, no status filters active"><span>Browse <b class="pp-badge" data-pp="badge" hidden></b></span><span class="pp-filters-summary" data-pp="filters-summary"></span></button>
         <button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button>
         <div class="pp-filters" id="${id}" data-pp="filters" aria-hidden="true">
+        <span class="pp-filter-label">Show</span>
         <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
           <button type="button" data-status="all" aria-pressed="true">All</button>
           <button type="button" data-status="earned" aria-pressed="false">Earned</button>
           <button type="button" data-status="seen" aria-pressed="false">Seen</button>
           <button type="button" data-status="unvisited" aria-pressed="false">Unvisited</button>
         </div>
-        <select data-pp="continent" aria-label="Filter by continent" hidden><option value="">All continents</option></select>
-        <select data-pp="band" aria-label="Filter by rarity"><option value="">All rarities</option></select>
-        <select data-pp="sort" aria-label="Sort by">
-          <option value="atlas">Atlas</option>
+        <label class="pp-filter-label" for="${id}-grouping">Group by</label>
+        <select id="${id}-grouping" data-pp="grouping" aria-label="Group by">
+          <option value="continent">Continent</option>
+          <option value="country">Country</option>
+          <option value="difficulty">Difficulty</option>
+          <option value="none">None</option>
+        </select>
+        <label class="pp-filter-label" data-pp="sort-label" for="${id}-sort">Sort within groups</label>
+        <select id="${id}-sort" data-pp="sort" aria-label="Sort within groups">
+          <option value="atlas">Country then name</option>
           <option value="recent">Most recent</option>
           <option value="distance">Closest guess</option>
           <option value="name">Name A-Z</option>
@@ -616,33 +620,70 @@ function ppGroupHead(name, onCollapse, { earned, visited, total }) {
   return head;
 }
 
-// Build once per open (or per sort change): every slot renders once, kept in
-// dex.lis so status/band/continent filter changes only toggle [hidden]
-// (docs/passport-redesign-opus.md §2d).
+function ppInitialDexOpen(dex, groups) {
+  if (dex.accordion.has(dex.grouping)) return dex.accordion.get(dex.grouping);
+  let open;
+  if (dex.grouping === 'continent') {
+    const names = groups.map((group) => group.key);
+    open = ppAccordionOpen(names, (name) => groups.find((group) => group.key === name).entries.filter((entry) => entry.earned).length);
+  } else {
+    open = groups.find((group) => group.entries.some((entry) => entry.earned))?.key ?? groups[0]?.key ?? null;
+  }
+  dex.accordion.set(dex.grouping, open);
+  return open;
+}
+
+function ppDexGroupHead(dex, group, onCollapse, totals) {
+  const head = ppGroupHead(group.label, onCollapse, totals);
+  head.dataset.continent = group.key;
+  if (group.flag) {
+    head.classList.add('is-country');
+    const flag = document.createElement('span');
+    flag.className = 'pp-group-flag';
+    flag.textContent = group.flag;
+    flag.setAttribute('aria-hidden', 'true');
+    head.prepend(flag);
+  }
+  const toggle = (event) => {
+    event.stopImmediatePropagation();
+    const next = head.getAttribute('aria-expanded') === 'true' ? null : group.key;
+    dex.accordion.set(dex.grouping, next);
+    const heads = [...head.closest('[data-pp-accordion]').querySelectorAll('.pp-group-head')];
+    heads.forEach((candidate) => candidate.ppApplyCollapse(candidate.dataset.continent !== next));
+    if (dex.grouping === 'continent') {
+      ppSetAccordionOpen(next, next ? heads.map((candidate) => candidate.dataset.continent) : [...new Set([...host.CONTINENT_ORDER, ...heads.map((candidate) => candidate.dataset.continent)])]);
+    }
+    const target = head.closest('.pp-group') || head;
+    if (target.getBoundingClientRect().top < passportScreen.getBoundingClientRect().top) target.scrollIntoView({ block: 'start' });
+  };
+  head.addEventListener('click', toggle, true);
+  head.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    toggle(event);
+  }, true);
+  return head;
+}
+
+// Build once per open, group change or sort change. Status filtering only
+// toggles slots and sections, preserving each grouping's accordion state.
 function renderPassportDex(dex) {
   const sort = dex.els.sort.value;
-  const atlas = sort === 'atlas';
-  dex.els.continent.hidden = atlas;
   dex.groups = [];
   dex.lis = [];
   const frag = document.createDocumentFragment();
-  if (atlas) {
-    const byContinent = new Map();
-    for (const entry of dex.all) {
-      const key = entry.continent || 'Other';
-      if (!byContinent.has(key)) byContinent.set(key, []);
-      byContinent.get(key).push(entry);
-    }
-    const order = [...host.CONTINENT_ORDER, ...[...byContinent.keys()].filter((k) => !host.CONTINENT_ORDER.includes(k))];
-    const earnedIn = (name) => byContinent.get(name).filter((e) => e.earned).length;
-    const names = order.filter((name) => byContinent.has(name));
-    ppSetAccordionOpen(ppAccordionOpen(names, earnedIn), names);
-    for (const name of order) {
-      if (!byContinent.has(name)) continue;
-      const items = byContinent.get(name).sort(ppAtlasCompare);
+  const groups = passportGroups(dex.all, dex.grouping, host.CONTINENT_ORDER, (key) => {
+    const country = countryIndex?.get(key);
+    const fallback = dex.all.find((entry) => entry.country === key);
+    return country || (fallback ? { flag: host.flagForLocation(fallback.item) } : null);
+  });
+  if (dex.grouping !== 'none') {
+    const open = ppInitialDexOpen(dex, groups);
+    for (const group of groups) {
+      const items = group.entries.sort(passportEntryCompare(sort));
       const section = document.createElement('section');
       section.className = 'pp-group';
-      section.dataset.continent = name;
+      section.dataset.group = group.key;
       const ul = document.createElement('ul');
       ul.className = 'pp-dex';
       ul.append(...items.map((entry) => {
@@ -651,16 +692,18 @@ function renderPassportDex(dex) {
         dex.lis.push({ li, entry });
         return li;
       }));
-      const head = ppGroupHead(name, (collapsed) => { ul.hidden = collapsed; },
-        { earned: earnedIn(name), visited: items.filter((e) => e.visited).length, total: items.length });
+      const head = ppDexGroupHead(dex, group, (collapsed) => { ul.hidden = collapsed; }, {
+        earned: items.filter((entry) => entry.earned).length,
+        visited: items.filter((entry) => entry.visited).length,
+        total: items.length,
+      });
+      head.ppApplyCollapse(group.key !== open);
       section.append(head, ul);
       frag.append(section);
-      dex.groups.push({ section, name, head });
+      dex.groups.push({ section, name: group.key, head });
     }
   } else {
-    const visited = dex.all.filter((e) => e.visited).sort(PP_FLAT_COMPARE[sort] || PP_FLAT_COMPARE.recent);
-    const mysteries = dex.all.filter((e) => !e.visited).sort(ppAtlasCompare);
-    const ordered = [...visited, ...mysteries];
+    const ordered = [...dex.all].sort(passportEntryCompare(sort));
     const CHUNK = 60;
     for (let i = 0; i < ordered.length; i += CHUNK) {
       const ul = document.createElement('ul');
@@ -678,41 +721,39 @@ function renderPassportDex(dex) {
   applyPassportFilters(dex);
 }
 
-// Toggle-only pass: status/band/continent changes never rebuild the dex.
+// Toggle-only pass: status changes never rebuild the dex.
 function applyPassportFilters(dex) {
-  const band = dex.els.band.value;
-  const continent = dex.els.continent.hidden ? '' : dex.els.continent.value;
   let shown = 0;
   for (const { li, entry } of dex.lis) {
-    const show = (dex.statuses.size === 0 || dex.statuses.has(li.dataset.status))
-      && (!band || entry.band === band)
-      && (!continent || li.dataset.continent === continent);
+    const show = dex.statuses.size === 0 || dex.statuses.has(li.dataset.status);
     li.hidden = !show;
     if (show) shown += 1;
   }
   for (const { section } of dex.groups) {
     section.hidden = ![...section.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
   }
-  const filtered = dex.statuses.size > 0 || band || continent;
+  dex.els.dex.querySelectorAll('.pp-chunk').forEach((chunk) => {
+    chunk.hidden = ![...chunk.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
+  });
+  const filtered = dex.statuses.size > 0;
   dex.els.shown.textContent = filtered
     ? (shown ? `${shown.toLocaleString()} of ${dex.all.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
     : `${dex.all.length.toLocaleString()} ${dex.noun}`;
   dex.els.empty.hidden = shown !== 0;
-  const active = dex.statuses.size + Number(Boolean(band)) + Number(Boolean(continent));
+  const active = dex.statuses.size;
   dex.els.badge.hidden = active === 0;
   dex.els.badge.textContent = active ? `•${active}` : '';
   dex.els.filtersToggle.classList.toggle('has-active', active > 0);
-  dex.els.filtersToggle.setAttribute('aria-label', active ? `Filters, ${active} active` : 'Filters, none active');
+  dex.els.filtersToggle.setAttribute('aria-label', active ? `Browse, ${active} status filters active` : 'Browse, no status filters active');
   const statuses = [...dex.els.status.querySelectorAll('button')].filter((b) => dex.statuses.has(b.dataset.status)).map((b) => b.textContent);
-  dex.els.summary.textContent = [
-    statuses.length ? statuses.join(', ') : `All ${dex.noun}`,
-    band && dex.els.band.selectedOptions[0].text,
-    continent,
-    dex.els.sort.selectedOptions[0].text,
-  ].filter(Boolean).join(' · ');
+  const grouping = dex.grouping === 'none' ? 'No grouping' : `Grouped by ${dex.grouping}`;
+  const status = statuses.length ? statuses.join(', ') : `All ${dex.noun}`;
+  const nondefaultSort = dex.els.sort.value !== 'atlas' ? ` · ${dex.els.sort.selectedOptions[0].text}` : '';
+  dex.els.summary.textContent = `${grouping} - ${status}${nondefaultSort}`;
 }
 
 function renderPassportPage() {
+  if (!countryIndex) buildCountryIndex();
   const visited = passportEntries(); // visited only, for the header stats and share card
   ppPlaces.all = passportAllEntries(); // every location, for the dex grid
   const total = host.locations.length;
@@ -905,6 +946,7 @@ function closeCountryDetail() {
 // from Places and Countries so a landmark never counts toward a country or
 // continent total. Same slots, mystery cards and filters as the city dex.
 function renderLandmarkShelf() {
+  if (!countryIndex) buildCountryIndex();
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
   // Audit mode previews the whole landmarks bank, not just expedition stops.
   const shelfItems = host.AUDIT_MODE && host.landmarks?.length ? host.landmarks : host.landmarkShelf();
@@ -913,13 +955,6 @@ function renderLandmarkShelf() {
   const earned = entries.filter((e) => e.earned).length;
   ppEls.landmarkSummary.textContent = `${earned} of ${entries.length} landmark postcards · ${visited} visited`;
   ppLandmarks.all = entries;
-  // Continent choices come from the shelf itself (the curated pool has no
-  // Antarctica stop; the audit bank does).
-  const { continent } = ppLandmarks.els;
-  const picked = continent.value;
-  const present = host.CONTINENT_ORDER.filter((name) => entries.some((e) => e.continent === name));
-  continent.replaceChildren(new Option('All continents', ''), ...present.map((name) => new Option(name, name)));
-  continent.value = present.includes(picked) ? picked : '';
   renderPassportDex(ppLandmarks);
 }
 
@@ -1498,6 +1533,7 @@ export function initPassport(main) {
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
 .pp-card { --pp-toolbar-h: 44px; position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; } /* Keep clip: overflow:hidden breaks sticky descendants. */
+[data-pp="places-view"], [data-pp="landmarks-view"] { --pp-toolbar-h: 52px; }
 .pp-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
 .pp-audit-banner { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; flex-wrap: wrap; margin: 0 0 8px; padding: 5px 8px; border: 1px solid rgba(255,209,102,.45); border-radius: 999px; background: rgba(255,209,102,.1); color: #ffd166; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .pp-audit-flags-button { min-height: 24px; padding: 1px 8px; border: 1px solid rgba(255,209,102,.55); border-radius: 999px; background: rgba(8,14,32,.45); color: #ffe29a; font: inherit; font-size: 10px; font-weight: 850; cursor: pointer; text-transform: none; }
@@ -1529,27 +1565,30 @@ export function initPassport(main) {
 .pp-toolbar.is-stuck::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: calc(env(safe-area-inset-top, 0px) + 18px); background: #0b1120; }
 .pp-filters-btn { flex: none; min-height: 36px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; touch-action: manipulation; white-space: nowrap; }
 .pp-filters-btn[aria-expanded="true"], .pp-filters-btn.has-active { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
-.pp-filters-pill { display: flex; flex: 1 1 auto; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; padding: 0 12px; border-color: rgba(157,211,255,.16); border-radius: 12px; background: rgba(157,211,255,.04); color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; }
-.pp-filters-summary { min-width: 0; overflow: hidden; color: rgba(193,224,250,.55); font-weight: 500; text-overflow: ellipsis; }
+.pp-filters-pill { display: grid; flex: 1 1 auto; align-content: center; justify-items: start; gap: 1px; min-width: 0; min-height: 44px; padding: 0 12px; border-color: rgba(157,211,255,.16); border-radius: 12px; background: rgba(157,211,255,.04); color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; text-align: left; }
+.pp-filters-summary { display: block; max-width: 100%; min-width: 0; overflow: hidden; color: rgba(193,224,250,.55); font-size: 11px; font-weight: 500; text-overflow: ellipsis; }
 .pp-filters-summary::after { content: ' ▾'; }
 .pp-toolbar:not(.is-stuck) :is(.pp-filters-pill, .pp-country-sort) ~ .pp-toolbar-close { display: none; }
 .pp-badge { margin-left: 3px; color: #ffc76a; font-size: 11px; }
 .pp-toolbar-close { display: grid; flex: none; place-items: center; width: 32px; height: 32px; margin-left: auto; padding: 0; border: 0; border-radius: 50%; background: rgba(157,211,255,.08); color: #e8f3ff; font: inherit; font-size: 20px; line-height: 1; opacity: 0; pointer-events: none; transition: opacity .15s ease-out; }
 .pp-toolbar.is-stuck .pp-toolbar-close { opacity: 1; pointer-events: auto; }
-.pp-status { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
-.pp-status button { min-height: 36px; padding: 0 2px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 750; cursor: pointer; touch-action: manipulation; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-filter-label { color: rgba(193,224,250,.5); font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.pp-status { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+.pp-status button { min-height: 40px; padding: 0 2px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 750; cursor: pointer; touch-action: manipulation; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pp-status button[aria-pressed="true"] { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
-.pp-filters { position: absolute; z-index: 4; top: 100%; left: 14px; right: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 6px; padding: 10px; border: 1px solid rgba(157,211,255,.18); border-radius: 14px; background: #111a30; box-shadow: 0 14px 32px rgba(0,0,0,.48); opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none; transition: opacity .12s ease-out, transform .12s ease-out, visibility 0s linear .12s; }
+.pp-filters { position: absolute; z-index: 4; top: 100%; left: 14px; right: 14px; display: grid; gap: 7px; padding: 12px 12px 14px; border: 1px solid rgba(157,211,255,.18); border-radius: 14px; background: #111a30; box-shadow: 0 14px 32px rgba(0,0,0,.48); opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none; transition: opacity .12s ease-out, transform .12s ease-out, visibility 0s linear .12s; }
 .pp-filters.is-open { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; transition-duration: .16s; transition-delay: 0s; }
 .pp-filters select, .pp-country-sort { appearance: none; -webkit-appearance: none; min-height: 36px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
+.pp-filters select { min-height: 40px; padding: 0 30px 0 12px; border-radius: 10px; background-position: right 12px center; font-size: 12px; }
 .pp-filters select option { background: #0b1430; color: #ece4ff; }
-.pp-shown { grid-column: 1 / -1; margin: 0; color: rgba(193,224,250,.45); font-size: 11px; text-align: center; }
+.pp-shown { margin: 3px 0 0; color: rgba(193,224,250,.45); font-size: 11px; text-align: center; }
 .pp-empty { margin: 18px 0; color: rgba(193,224,250,.55); font-size: 12px; text-align: center; }
 /* Dex grid: every slot renders once per open; filters toggle [hidden] instead
    of rebuilding, so only a sort change rebuilds the DOM (see renderPassportDex). */
 .pp-dex-wrap { margin-top: 0; }
 .pp-group { content-visibility: auto; contain-intrinsic-size: auto 900px; scroll-margin-top: var(--pp-toolbar-h); }
 .pp-group-head { position: sticky; top: var(--pp-toolbar-h); z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
+[data-pp="places-view"] .pp-group-head, [data-pp="landmarks-view"] .pp-group-head { min-height: 48px; box-sizing: border-box; }
 .pp-group-head:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pp-group-head::after { content: ''; flex: none; width: 6px; height: 6px; margin: -3px 3px 0 0; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
 .pp-group-head[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(225deg); }
@@ -1559,6 +1598,9 @@ export function initPassport(main) {
 .pp-group-head.is-accordion .pp-group-head-text b { display: block; color: #eef2ff; font-size: 14px; font-weight: 800; }
 .pp-group-sub { display: block; margin-top: 3px; }
 .pp-group-bar { display: block; width: 120px; margin-top: 7px; }
+.pp-group-head.is-country { display: grid; grid-template-columns: 22px minmax(0, 1fr) 18px; }
+.pp-group-head.is-country .pp-group-chevron { display: none; }
+.pp-group-flag { width: 22px; font-size: 16px; line-height: 1; text-align: center; }
 .pp-ccards .pp-group-head.is-accordion { margin: 6px 0 0; background: #0e1524; }
 .pp-ccards-head { scroll-margin-top: var(--pp-toolbar-h); }
 /* Collapsed rows are short: skip content-visibility's 900px placeholder. */
@@ -1593,7 +1635,7 @@ export function initPassport(main) {
 /* Country cards: same grid and size as .pp-slot, but read as a *stack* of
    postcards (offset card edges behind), with a neutral frame instead of rarity,
    a flag chip and a progress strip. Never carries a prox badge or score pill.
-   Postcards earned leads (meta line); places visited is secondary (sub line) —
+   Postcards earned leads (meta line); places visited is secondary (sub line):
    it's about earning, not visiting (Sean, 2026-10-11). */
 .pp-ccards { margin-top: 10px; }
 .pp-ccards-head { grid-column: 1 / -1; }
@@ -1743,8 +1785,8 @@ body.game-passport #hud { opacity: 0; }
     landmarksView: passportScreen.querySelector('[data-pp="landmarks-view"]'),
     landmarkSummary: passportScreen.querySelector('[data-pp="landmark-summary"]'),
   };
-  ppPlaces = ppDex(ppEls.placesView, { noun: 'places', sentinel: 'places-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
-  ppLandmarks = ppDex(ppEls.landmarksView, { noun: 'landmarks', sentinel: 'landmarks-sentinel', dex: 'landmark-dex' });
+  ppPlaces = ppDex(ppEls.placesView, { tab: 'places', noun: 'places', sentinel: 'places-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
+  ppLandmarks = ppDex(ppEls.landmarksView, { tab: 'landmarks', noun: 'landmarks', sentinel: 'landmarks-sentinel', dex: 'landmark-dex' });
 
   ppStickyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1831,9 +1873,6 @@ body.game-passport #hud { opacity: 0; }
   passportShareScreen.addEventListener('click', (event) => { if (event.target === passportShareScreen) closePassportShare(); });
 
 
-  ppPlaces.els.continent.append(...host.CONTINENT_ORDER.map((name) => new Option(name, name)));
-  for (const dex of [ppPlaces, ppLandmarks]) dex.els.band.append(...DIFFICULTY_BANDS.map((b) => new Option(b.label, b.key)));
-
   ppMysteryTemplate = document.createElement('li');
   ppMysteryTemplate.className = 'pp-slot is-mystery';
   ppMysteryTemplate.setAttribute('aria-label', 'Mystery location, not visited');
@@ -1874,14 +1913,18 @@ body.game-passport #hud { opacity: 0; }
         ppScrollToDexTop(dex);
       });
     });
-    const applyControlFilter = () => {
-      applyPassportFilters(dex);
-      ppScrollToDexTop(dex);
-    };
-    dex.els.continent.addEventListener('change', applyControlFilter);
-    dex.els.band.addEventListener('change', applyControlFilter);
     dex.els.sort.addEventListener('change', () => {
+      dex.sorts.set(dex.grouping, dex.els.sort.value);
       const wasStuck = dex.els.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck');
+      renderPassportDex(dex);
+      ppScrollToDexTop(dex, wasStuck);
+    });
+    dex.els.grouping.addEventListener('change', () => {
+      const wasStuck = dex.els.filtersToggle.closest('.pp-toolbar').classList.contains('is-stuck');
+      dex.grouping = dex.els.grouping.value;
+      dex.els.sort.value = dex.sorts.get(dex.grouping) || (dex.grouping === 'none' ? 'recent' : 'atlas');
+      dex.els.sortLabel.textContent = dex.grouping === 'none' ? 'Sort' : 'Sort within groups';
+      dex.els.sort.setAttribute('aria-label', dex.grouping === 'none' ? 'Sort' : 'Sort within groups');
       renderPassportDex(dex);
       ppScrollToDexTop(dex, wasStuck);
     });
