@@ -1,0 +1,16 @@
+{
+  "name": "woe-account",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "bundle": "wrangler deploy --dry-run --outdir dist --config wrangler.jsonc",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "better-auth": "1.7.10"
+  },
+  "devDependencies": {
+    "wrangler": "4.45.0"
+  }
+}
