@@ -488,16 +488,16 @@ const PP_FLAT_COMPARE = {
 const PP_STATUS_KEY = 'where-on-earth-passport-status';
 const PP_STATUSES = new Set(['earned', 'seen', 'unvisited']);
 
-// One filterable dex per tab. `view` is the tab's container; `names` maps the
-// dex body and group controls to their data-pp names in it. `statusKey` is
+// One filterable dex per tab. `view` is the tab's container; `dex` and
+// `sentinel` name the dex body and sticky sentinel by their data-pp names in it. `statusKey` is
 // Places only: the Landmarks tab keeps its filters in memory (no new key).
-function ppDex(view, { noun, sentinel, dex, groupControls, statusKey = null }) {
+function ppDex(view, { noun, sentinel, dex, statusKey = null }) {
   const q = (name) => view.querySelector(`[data-pp="${name}"]`);
   return {
     els: {
       filters: q('filters'), filtersToggle: q('filters-toggle'), badge: q('badge'), status: q('status'),
       continent: q('continent'), band: q('band'), sort: q('sort'), shown: q('shown'), empty: q('empty'),
-      dex: q(dex), groupControls: groupControls ? q(groupControls) : null, sentinel: q(sentinel),
+      dex: q(dex), sentinel: q(sentinel),
       summary: q('filters-summary'),
     },
     noun,
@@ -510,10 +510,9 @@ function ppDex(view, { noun, sentinel, dex, groupControls, statusKey = null }) {
 }
 
 // The Filters toggle, toolbar close and filter panel, shared by both dex tabs.
-// `pill` (Places) widens the toggle into one row that summarises the active filters.
-function ppFilterControls(id, pill = false) {
-  const summary = pill ? '<span class="pp-filters-summary" data-pp="filters-summary"></span>' : '';
-  return `<button type="button" class="pp-filters-btn${pill ? ' pp-filters-pill' : ''}" data-pp="filters-toggle" aria-expanded="false" aria-controls="${id}" aria-label="Filters, none active"><span>Filters <b class="pp-badge" data-pp="badge" hidden></b></span>${summary}</button>
+// The toggle is one wide pill that summarises the active filters.
+function ppFilterControls(id) {
+  return `<button type="button" class="pp-filters-btn pp-filters-pill" data-pp="filters-toggle" aria-expanded="false" aria-controls="${id}" aria-label="Filters, none active"><span>Filters <b class="pp-badge" data-pp="badge" hidden></b></span><span class="pp-filters-summary" data-pp="filters-summary"></span></button>
         <button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button>
         <div class="pp-filters" id="${id}" data-pp="filters" aria-hidden="true">
         <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
@@ -549,7 +548,7 @@ function savePpCollapsedContinents() {
   catch (error) { host.storageError('Write failed', PP_COLLAPSED_KEY, error); }
 }
 
-// Places and Countries continents are an accordion: exactly one open, the rest
+// Places, Countries and Landmarks continents are an accordion: exactly one open, the rest
 // stored in ppCollapsedContinents (same key and shape as before). A saved state
 // with exactly one open continent is kept; anything else falls back to the
 // first continent with earned postcards, else the first continent.
@@ -563,33 +562,23 @@ function ppSetAccordionOpen(open, names) {
   savePpCollapsedContinents();
 }
 
-function ppGroupHeadText(name, items) {
-  const visited = items.filter((e) => e.visited).length;
-  return `${name} · ${visited.toLocaleString()}/${items.length.toLocaleString()}`;
-}
-
-// Shared collapsible <h3 class="pp-group-head"> for the Places dex (atlas
-// sort), the Countries list (continent sort) and the Landmarks shelf.
-// `onCollapse` toggles whatever that caller's group body is (a <ul>, or a
-// running list of row <li>s) and is also called once up front for the saved
-// state. `accordion` ({ earned, visited, total }) turns the head into a
-// continent row whose tap opens it and closes the other rows inside the
-// nearest [data-pp-accordion] container.
-function ppGroupHead(name, text, onCollapse, accordion = null) {
+// Shared collapsible continent row <h3 class="pp-group-head is-accordion"> for
+// the Places dex (atlas sort), the Countries list (continent sort) and the
+// Landmarks shelf (atlas sort). `onCollapse` toggles whatever that caller's
+// group body is (a <ul>, or a running list of row <li>s) and is also called
+// once up front for the saved state. `{ earned, visited, total }` fill the
+// row's count and mini bar. A tap opens the row and closes the other rows
+// inside the nearest [data-pp-accordion] container.
+function ppGroupHead(name, onCollapse, { earned, visited, total }) {
   const head = document.createElement('h3');
-  head.className = accordion ? 'pp-group-head is-accordion' : 'pp-group-head';
+  head.className = 'pp-group-head is-accordion';
   head.tabIndex = 0;
   head.setAttribute('role', 'button');
   const label = document.createElement('span');
   label.className = 'pp-group-head-text';
-  if (accordion) {
-    const { earned, visited, total } = accordion;
-    const pct = (n) => (total ? (n / total) * 100 : 0);
-    label.innerHTML = `<b></b><span class="pp-group-sub">${earned.toLocaleString()} of ${total.toLocaleString()} collected</span><span class="pp-bar pp-group-bar" aria-hidden="true"><i class="pp-bar-seen" style="width:${pct(visited)}%"></i><i class="pp-bar-earned" style="width:${pct(earned)}%"></i></span>`;
-    label.querySelector('b').textContent = name;
-  } else {
-    label.textContent = text;
-  }
+  const pct = (n) => (total ? (n / total) * 100 : 0);
+  label.innerHTML = `<b></b><span class="pp-group-sub">${earned.toLocaleString()} of ${total.toLocaleString()} collected</span><span class="pp-bar pp-group-bar" aria-hidden="true"><i class="pp-bar-seen" style="width:${pct(visited)}%"></i><i class="pp-bar-earned" style="width:${pct(earned)}%"></i></span>`;
+  label.querySelector('b').textContent = name;
   const chevron = document.createElement('span');
   chevron.className = 'pp-group-chevron';
   chevron.setAttribute('aria-hidden', 'true');
@@ -601,20 +590,13 @@ function ppGroupHead(name, text, onCollapse, accordion = null) {
   head.ppApplyCollapse = apply;
   head.dataset.continent = name;
   const toggle = () => {
-    if (accordion) {
-      if (!ppCollapsedContinents.has(name)) return; // already the open one
-      const heads = [...head.closest('[data-pp-accordion]').querySelectorAll('.pp-group-head')];
-      ppSetAccordionOpen(name, heads.map((h) => h.dataset.continent));
-      heads.forEach((h) => h.ppApplyCollapse(ppCollapsedContinents.has(h.dataset.continent)));
-      // Closing a continent above this one pulls it upward; bring it back into view.
-      const target = head.closest('.pp-group, .pp-ccards-head') || head;
-      if (target.getBoundingClientRect().top < passportScreen.getBoundingClientRect().top) target.scrollIntoView({ block: 'start' });
-      return;
-    }
-    const collapsed = !ppCollapsedContinents.has(name);
-    if (collapsed) ppCollapsedContinents.add(name); else ppCollapsedContinents.delete(name);
-    savePpCollapsedContinents();
-    apply(collapsed);
+    if (!ppCollapsedContinents.has(name)) return; // already the open one
+    const heads = [...head.closest('[data-pp-accordion]').querySelectorAll('.pp-group-head')];
+    ppSetAccordionOpen(name, heads.map((h) => h.dataset.continent));
+    heads.forEach((h) => h.ppApplyCollapse(ppCollapsedContinents.has(h.dataset.continent)));
+    // Closing a continent above this one pulls it upward; bring it back into view.
+    const target = head.closest('.pp-group, .pp-ccards-head') || head;
+    if (target.getBoundingClientRect().top < passportScreen.getBoundingClientRect().top) target.scrollIntoView({ block: 'start' });
   };
   head.addEventListener('click', toggle);
   head.addEventListener('keydown', (e) => {
@@ -624,26 +606,6 @@ function ppGroupHead(name, text, onCollapse, accordion = null) {
   });
   apply(ppCollapsedContinents.has(name));
   return head;
-}
-
-function setPpGroupsCollapsed(container, collapsed) {
-  const heads = [...container.querySelectorAll('.pp-group-head')];
-  if (!collapsed) ppCollapsedContinents.clear();
-  heads.forEach((head) => {
-    if (collapsed) ppCollapsedContinents.add(head.dataset.continent);
-    head.ppApplyCollapse(collapsed);
-  });
-  savePpCollapsedContinents();
-}
-
-function ppFilteredGroupCount(dex, name) {
-  const band = dex.els.band.value;
-  return dex.lis.filter(({ li, entry }) => {
-    const statusMatch = dex.statuses.size === 0 || dex.statuses.has(li.dataset.status);
-    return (entry.continent || 'Other') === name
-      && statusMatch
-      && (!band || entry.band === band);
-  }).length;
 }
 
 // Build once per open (or per sort change): every slot renders once, kept in
@@ -664,12 +626,9 @@ function renderPassportDex(dex) {
       byContinent.get(key).push(entry);
     }
     const order = [...host.CONTINENT_ORDER, ...[...byContinent.keys()].filter((k) => !host.CONTINENT_ORDER.includes(k))];
-    const accordion = dex === ppPlaces;
     const earnedIn = (name) => byContinent.get(name).filter((e) => e.earned).length;
-    if (accordion) {
-      const names = order.filter((name) => byContinent.has(name));
-      ppSetAccordionOpen(ppAccordionOpen(names, earnedIn), names);
-    }
+    const names = order.filter((name) => byContinent.has(name));
+    ppSetAccordionOpen(ppAccordionOpen(names, earnedIn), names);
     for (const name of order) {
       if (!byContinent.has(name)) continue;
       const items = byContinent.get(name).sort(ppAtlasCompare);
@@ -684,9 +643,8 @@ function renderPassportDex(dex) {
         dex.lis.push({ li, entry });
         return li;
       }));
-      const head = ppGroupHead(name, ppGroupHeadText(name, items), (collapsed) => { ul.hidden = collapsed; }, accordion
-        ? { earned: earnedIn(name), visited: items.filter((e) => e.visited).length, total: items.length }
-        : null);
+      const head = ppGroupHead(name, (collapsed) => { ul.hidden = collapsed; },
+        { earned: earnedIn(name), visited: items.filter((e) => e.visited).length, total: items.length });
       section.append(head, ul);
       frag.append(section);
       dex.groups.push({ section, name, head });
@@ -709,7 +667,6 @@ function renderPassportDex(dex) {
     }
   }
   dex.els.dex.replaceChildren(frag);
-  if (dex.els.groupControls) dex.els.groupControls.hidden = !atlas || dex.groups.length === 0;
   applyPassportFilters(dex);
 }
 
@@ -725,13 +682,8 @@ function applyPassportFilters(dex) {
     li.hidden = !show;
     if (show) shown += 1;
   }
-  for (const group of dex.groups) {
-    const { section, name, head } = group;
+  for (const { section } of dex.groups) {
     section.hidden = ![...section.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
-    if (head.classList.contains('is-accordion')) continue;
-    const total = section.querySelectorAll('.pp-slot').length;
-    const count = ppFilteredGroupCount(dex, name);
-    head.querySelector('.pp-group-head-text').textContent = `${name} · ${count.toLocaleString()}/${total.toLocaleString()}`;
   }
   const filtered = dex.statuses.size > 0 || band || continent;
   dex.els.shown.textContent = filtered
@@ -743,15 +695,13 @@ function applyPassportFilters(dex) {
   dex.els.badge.textContent = active ? `•${active}` : '';
   dex.els.filtersToggle.classList.toggle('has-active', active > 0);
   dex.els.filtersToggle.setAttribute('aria-label', active ? `Filters, ${active} active` : 'Filters, none active');
-  if (dex.els.summary) {
-    const statuses = [...dex.els.status.querySelectorAll('button')].filter((b) => dex.statuses.has(b.dataset.status)).map((b) => b.textContent);
-    dex.els.summary.textContent = [
-      statuses.length ? statuses.join(', ') : `All ${dex.noun}`,
-      band && dex.els.band.selectedOptions[0].text,
-      continent,
-      dex.els.sort.selectedOptions[0].text,
-    ].filter(Boolean).join(' · ');
-  }
+  const statuses = [...dex.els.status.querySelectorAll('button')].filter((b) => dex.statuses.has(b.dataset.status)).map((b) => b.textContent);
+  dex.els.summary.textContent = [
+    statuses.length ? statuses.join(', ') : `All ${dex.noun}`,
+    band && dex.els.band.selectedOptions[0].text,
+    continent,
+    dex.els.sort.selectedOptions[0].text,
+  ].filter(Boolean).join(' · ');
 }
 
 function renderPassportPage() {
@@ -847,7 +797,7 @@ function renderCountryList() {
       const total = groupRows.reduce((sum, row) => sum + row.total, 0);
       const headLi = document.createElement('li');
       headLi.className = 'pp-ccards-head';
-      head = ppGroupHead(group, '', (collapsed) => {
+      head = ppGroupHead(group, (collapsed) => {
         groupCards.forEach((card) => { card.hidden = collapsed; });
       }, { earned, visited, total });
       headLi.append(head);
@@ -1573,9 +1523,7 @@ export function initPassport(main) {
 .pp-filters-pill { display: flex; flex: 1 1 auto; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; padding: 0 12px; border-color: rgba(157,211,255,.16); border-radius: 12px; background: rgba(157,211,255,.04); color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; }
 .pp-filters-summary { min-width: 0; overflow: hidden; color: rgba(193,224,250,.55); font-weight: 500; text-overflow: ellipsis; }
 .pp-filters-summary::after { content: ' ▾'; }
-.pp-toolbar:not(.is-stuck) .pp-filters-pill ~ .pp-toolbar-close { display: none; }
-.pp-group-controls { display: flex; justify-content: flex-end; gap: 6px; margin: 5px 0 3px; }
-.pp-group-controls .pp-filters-btn { min-height: 30px; }
+.pp-toolbar:not(.is-stuck) :is(.pp-filters-pill, .pp-country-sort) ~ .pp-toolbar-close { display: none; }
 .pp-badge { margin-left: 3px; color: #ffc76a; font-size: 11px; }
 .pp-toolbar-close { display: grid; flex: none; place-items: center; width: 32px; height: 32px; margin-left: auto; padding: 0; border: 0; border-radius: 50%; background: rgba(157,211,255,.08); color: #e8f3ff; font: inherit; font-size: 20px; line-height: 1; opacity: 0; pointer-events: none; transition: opacity .15s ease-out; }
 .pp-toolbar.is-stuck .pp-toolbar-close { opacity: 1; pointer-events: auto; }
@@ -1597,7 +1545,7 @@ export function initPassport(main) {
 .pp-group-head::after { content: ''; flex: none; width: 6px; height: 6px; margin: -3px 3px 0 0; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
 .pp-group-head[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(225deg); }
 .pp-group-head-text { min-width: 0; }
-/* Accordion continent row (Places and Countries): name, collected count, mini bar. */
+/* Accordion continent row (Places, Countries, Landmarks): name, collected count, mini bar. */
 .pp-group-head.is-accordion { margin: 10px 0 0; padding: 12px; border: 1px solid rgba(157,211,255,.12); border-radius: 13px; background: #0e1524; color: rgba(193,224,250,.55); font-size: 12px; font-weight: 600; letter-spacing: normal; }
 .pp-group-head.is-accordion .pp-group-head-text b { display: block; color: #eef2ff; font-size: 14px; font-weight: 800; }
 .pp-group-sub { display: block; margin-top: 3px; }
@@ -1627,8 +1575,10 @@ export function initPassport(main) {
 .pp-slot.is-mystery .pp-slot-photo { border-color: rgba(214,220,232,.16); }
 .pp-slot.is-mystery .pp-slot-name { color: rgba(214,220,232,.4); letter-spacing: .1em; text-align: center; }
 /* Countries tab */
-.pp-country-summary { flex: 1; min-width: 0; margin: 0; overflow: hidden; color: rgba(193,224,250,.55); font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
-.pp-country-sort { flex: none; width: 126px; }
+/* Countries and Landmarks counts line, above the toolbar so it never truncates. */
+.pp-country-summary { margin: 8px 2px 0; color: rgba(193,224,250,.55); font-size: 11px; font-weight: 700; }
+/* The sort select wears the Filters pill: quiet outline, full row, text left, chevron right. */
+.pp-country-sort { flex: 1 1 auto; min-width: 0; padding: 0 30px 0 12px; border-color: rgba(157,211,255,.16); border-radius: 12px; background-color: rgba(157,211,255,.04); background-position: right 12px center; color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; }
 .pp-country-toolbar .collections-back { min-height: 36px; }
 /* Country cards: same grid and size as .pp-slot, but read as a *stack* of
    postcards (offset card edges behind), with a neutral frame instead of rarity,
@@ -1720,7 +1670,7 @@ body.game-passport #hud { opacity: 0; }
     <div data-pp="places-view">
       <div class="pp-stick-sentinel" data-pp="places-sentinel"></div>
       <div class="pp-toolbar" data-pp="toolbar">
-        ${ppFilterControls('pp-filters', true)}
+        ${ppFilterControls('pp-filters')}
       </div>
       <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
       <div class="pp-dex-wrap" data-pp="dex" data-pp-list data-pp-accordion></div>
@@ -1728,13 +1678,14 @@ body.game-passport #hud { opacity: 0; }
     </div>
     <div data-pp="countries-view" hidden>
       <div data-pp="country-list">
+        <p class="pp-country-summary" data-pp="country-summary"></p>
         <div class="pp-stick-sentinel" data-pp="country-list-sentinel"></div>
-        <div class="pp-toolbar pp-country-toolbar"><p class="pp-country-summary" data-pp="country-summary"></p>
+        <div class="pp-toolbar pp-country-toolbar">
           <select class="pp-country-sort" data-pp="country-sort" aria-label="Sort countries">
           <option value="earned">Most earned</option>
           <option value="closest">Closest to complete</option>
           <option value="alpha">A–Z</option>
-          <option value="continent">By continent</option>
+          <option value="continent" selected>By continent</option>
           </select><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
         <div data-pp="country-list-body" data-pp-accordion></div>
       </div>
@@ -1746,16 +1697,13 @@ body.game-passport #hud { opacity: 0; }
       </div>
     </div>
     <div data-pp="landmarks-view" hidden>
+      <p class="pp-country-summary" data-pp="landmark-summary"></p>
       <div class="pp-stick-sentinel" data-pp="landmarks-sentinel"></div>
-      <div class="pp-toolbar pp-country-toolbar"><p class="pp-country-summary" data-pp="landmark-summary"></p>
+      <div class="pp-toolbar">
         ${ppFilterControls('pp-landmark-filters')}
       </div>
-      <div class="pp-group-controls" data-pp="landmark-group-controls">
-        <button type="button" class="pp-filters-btn" data-group-action="expand">Expand all</button>
-        <button type="button" class="pp-filters-btn" data-group-action="collapse">Collapse all</button>
-      </div>
       <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
-      <div class="pp-dex-wrap" data-pp="landmark-dex" data-pp-list></div>
+      <div class="pp-dex-wrap" data-pp="landmark-dex" data-pp-list data-pp-accordion></div>
     </div>
   </div>`;
   document.getElementById('game').appendChild(passportScreen);
@@ -1786,7 +1734,7 @@ body.game-passport #hud { opacity: 0; }
     landmarkSummary: passportScreen.querySelector('[data-pp="landmark-summary"]'),
   };
   ppPlaces = ppDex(ppEls.placesView, { noun: 'places', sentinel: 'places-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
-  ppLandmarks = ppDex(ppEls.landmarksView, { noun: 'landmarks', sentinel: 'landmarks-sentinel', dex: 'landmark-dex', groupControls: 'landmark-group-controls' });
+  ppLandmarks = ppDex(ppEls.landmarksView, { noun: 'landmarks', sentinel: 'landmarks-sentinel', dex: 'landmark-dex' });
 
   ppStickyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1930,10 +1878,6 @@ body.game-passport #hud { opacity: 0; }
     dex.els.filtersToggle.addEventListener('click', () => {
       const expanded = dex.els.filtersToggle.getAttribute('aria-expanded') === 'true';
       if (expanded) closePassportFilters(); else openPassportFilters(dex);
-    });
-    dex.els.groupControls?.addEventListener('click', (event) => {
-      const action = event.target.closest('[data-group-action]')?.dataset.groupAction;
-      if (action) setPpGroupsCollapsed(dex.els.dex, action === 'collapse');
     });
   }
   passportScreen.querySelectorAll('.pp-toolbar-close').forEach((button) => button.addEventListener('click', () => closePassport()));
