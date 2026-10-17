@@ -29,6 +29,7 @@ export function initGlobeSurface() {
     uniforms: {
       uMap: { value: blankTex },
       uLand: { value: 0 },
+      uMapTexel: { value: new THREE.Vector2(1 / 4096, 1 / 2048) },
       // satellite imagery (see "Satellite imagery" below): equirectangular base
       uSatBase: { value: blankTex },
       uSatMix: { value: 0 },
@@ -57,6 +58,7 @@ export function initGlobeSurface() {
     fragmentShader: /* glsl */ `
     uniform sampler2D uMap;
     uniform float uLand;
+    uniform vec2 uMapTexel;
     uniform sampler2D uSatBase;
     uniform float uSatMix;
     uniform sampler2D uInsetA;
@@ -129,6 +131,45 @@ export function initGlobeSurface() {
       sat *= mix(0.72, 1.0, sqrt(ndv)); // soft limb darkening
       float satMix = uSatMix * (1.0 - texture2D(uBlackout, vUv).r * uBlackoutMix);
       col = mix(col, sat, satMix);
+
+      // Island legibility over satellite (2026-10-16): the crossfade above
+      // discards the classic style's fill contrast, so small islands blend
+      // into the ocean (player feedback: Tuvalu, the Pacific chains, New
+      // Guinea's coast). Rebuild the separation from the baked land
+      // channels, scaled by the local satellite mix so the classic style
+      // and blacked-out countries are untouched.
+      if (satMix > 0.001) {
+        // shelf fringe: lighten the water just off the coast
+        col += vec3(0.020, 0.085, 0.160) * shelf * 0.60 * satMix;
+        // coastal glow, softer than the classic style's own
+        col += vec3(0.22, 0.70, 1.00) * glow * 0.30 * satMix;
+        // coastline rim: land-mask gradient, brightened on the land side
+        vec2 tx = uMapTexel * 1.6;
+        float nMin = min(min(texture2D(uMap, vUv - vec2(tx.x, 0.0)).r,
+                             texture2D(uMap, vUv + vec2(tx.x, 0.0)).r),
+                         min(texture2D(uMap, vUv - vec2(0.0, tx.y)).r,
+                             texture2D(uMap, vUv + vec2(0.0, tx.y)).r)) * uLand;
+        float rim = land * (1.0 - nMin);
+        col += vec3(0.35, 0.60, 0.66) * rim * 0.55 * satMix;
+        // minimum land tint: where the mask says land but the photo reads
+        // as dark water, lift the fill toward a pale land tone. Suppressed
+        // in land interiors (neighbours all land at a wider radius), so
+        // dark continents keep their photo; small islands and coasts,
+        // whose neighbourhood includes water, get the lift.
+        vec2 fx = uMapTexel * 6.0;
+        float interior = min(min(texture2D(uMap, vUv - vec2(fx.x, 0.0)).r,
+                                  texture2D(uMap, vUv + vec2(fx.x, 0.0)).r),
+                              min(texture2D(uMap, vUv - vec2(0.0, fx.y)).r,
+                                  texture2D(uMap, vUv + vec2(0.0, fx.y)).r)) * uLand;
+        // presence responds to a few percent of land: at gameplay zoom a
+        // small island's mask value is mip-diluted to a faint average even
+        // though the island is solid in the data (measured: Funafuti peaks
+        // at 255 but averages 2.8 over its neighbourhood).
+        float presence = smoothstep(0.008, 0.10, land);
+        float lum = dot(col, vec3(0.299, 0.587, 0.114));
+        float watery = 1.0 - smoothstep(0.06, 0.20, lum);
+        col = mix(col, vec3(0.44, 0.50, 0.36), presence * (1.0 - interior) * watery * 0.50 * satMix);
+      }
 
       // atmospheric rim haze (eased back over imagery)
       float fres = pow(1.0 - ndv, 2.6);
@@ -1276,6 +1317,7 @@ export async function loadLand() {
   const [geo, islands] = await Promise.all([landP, islandsP]);
   const tex = buildLandTexture(geo, islands);
   globeMat.uniforms.uMap.value = tex;
+  globeMat.uniforms.uMapTexel.value.set(1 / tex.image.width, 1 / tex.image.height);
   landLoaded = true;
   if (window.__boot) window.__boot('land loaded');
   return { tex, islands };
