@@ -1888,7 +1888,9 @@ body.game-passport #hud { opacity: 0; }
   syncPpStatusButtons(ppPlaces);
   try {
     const raw = localStorage.getItem(PP_COLLAPSED_KEY);
-    if (raw) JSON.parse(raw).forEach((name) => ppCollapsedContinents.add(name));
+    const saved = raw && JSON.parse(raw);
+    // Never greet a returning player with every continent collapsed.
+    if (saved && !host.CONTINENT_ORDER.every((name) => saved.includes(name))) saved.forEach((name) => ppCollapsedContinents.add(name));
   } catch (error) { host.storageError('Read failed', PP_COLLAPSED_KEY, error); }
   try {
     const savedView = localStorage.getItem(PP_VIEW_KEY);
