@@ -7,3 +7,7 @@ __pycache__/
 scripts/difficulty/ne/
 scripts/difficulty/pageviews-cache.json
 scripts/difficulty/extent-cache.json
+scripts/sat/.env
+scripts/sat/pilot/*
+!scripts/sat/pilot/qa.json
+!scripts/sat/pilot/report.json
