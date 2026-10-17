@@ -1,7 +1,9 @@
 # Island visibility over satellite: report
 
 Date: 2026-10-16. Built by Muse Wonder in session, at Sean's direction.
-Status: committed and pushed, NOT deployed. Sean reviews the screenshots first.
+Status: Sean reviewed the close and wide captures, chose the softer rim
+(0.30), and approved shipping on 2026-10-16, bundled with the deploy that
+carries this commit.
 
 ## The complaint
 
@@ -38,7 +40,9 @@ existing channels (R land, G coastal glow, B shelf haze):
    (classic tint, 0.60 strength).
 2. Coastal glow: the baked glow channel reintroduced at 0.30 strength.
 3. Coastline rim: the land-mask gradient from four neighbour taps (1.6
-   texels), brightened on the land side (pale cyan, 0.55 strength).
+   texels), brightened on the land side (pale cyan, 0.30 strength; the
+   first cut at 0.55 read too outlined on the Japan control shot, and Sean
+   picked the softer value from the captures).
 4. Minimum land tint: where the mask says land but the photo reads as dark
    water, the fill lifts toward a pale land tone (0.50 strength). Presence
    responds to a few percent of mask land (`smoothstep(0.008, 0.10)`),
@@ -52,7 +56,7 @@ camera changes; the extra cost is eight texture taps in one shader branch
 that only runs in satellite view.
 
 Tuning constants a reviewer can change, all in the one block: shelf 0.60,
-glow 0.30, rim 0.55, rim offset 1.6 texels, tint 0.50, presence
+glow 0.30, rim 0.30, rim offset 1.6 texels, tint 0.50, presence
 smoothstep(0.008, 0.10), interior radius 6 texels.
 
 ## Proof
@@ -81,6 +85,11 @@ far-side antipode and was discarded).
 - `tuvalu-classic`: classic style before and after are visually identical
   (measured: zero pixels differ by more than 8 of 255; mean absolute
   difference 0.034), as designed.
+- Softer rim (0.30) set, in `after-soft/`: the four views above plus wide
+  views of Indonesia and the Philippines, the Caribbean, Europe and the
+  Mediterranean, and Canada. At wide zoom the rim stays restrained on
+  continents while archipelagos stay legible; Canada's Arctic islands and
+  Hudson Bay read clearly. Sean approved this set.
 
 Regression: `scripts/regression.sh sh baseline` passes both suites.
 Module syntax check on the edited file passes. The baseline suite

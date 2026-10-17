@@ -150,7 +150,7 @@ export function initGlobeSurface() {
                          min(texture2D(uMap, vUv - vec2(0.0, tx.y)).r,
                              texture2D(uMap, vUv + vec2(0.0, tx.y)).r)) * uLand;
         float rim = land * (1.0 - nMin);
-        col += vec3(0.35, 0.60, 0.66) * rim * 0.55 * satMix;
+        col += vec3(0.35, 0.60, 0.66) * rim * 0.30 * satMix;
         // minimum land tint: where the mask says land but the photo reads
         // as dark water, lift the fill toward a pale land tone. Suppressed
         // in land interiors (neighbours all land at a wider radius), so
