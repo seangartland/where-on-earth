@@ -864,12 +864,13 @@
   {
     "id": "palace-of-culture-warsaw",
     "clue": "Where does a 42-floor Stalin-era skyscraper, presented as a Soviet gift, dominate the skyline?",
-    "fact": "The Palace of Culture was sent by Stalin to Poland in 1955 as a gift, its construction materials shipped in from 168 Soviet locations.",
+    "fact": "The Palace of Culture was a Soviet gift to the people of Poland, completed in 1955 by thousands of Soviet and Polish workers and first dedicated to Stalin.",
     "lat": 52.2317,
     "lng": 21.0058,
     "difficulty": 7,
     "short": "Palace of Culture",
-    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/fd/Gorbunov_Palace_of_Culture.jpg/500px-Gorbunov_Palace_of_Culture.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Palace_of_Culture_and_Science%2C_2026%2C_Warsaw%2C_Poland.jpg/500px-Palace_of_Culture_and_Science%2C_2026%2C_Warsaw%2C_Poland.jpg",
+    "photo": "verified"
   },
   {
     "id": "charles-bridge-prague",
@@ -1198,7 +1199,8 @@
     "lng": -107.4275,
     "difficulty": 8,
     "short": "Little Bighorn",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Charles_Marion_Russell_-_The_Custer_Fight_%281903%29.jpg/500px-Charles_Marion_Russell_-_The_Custer_Fight_%281903%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Visitors_Walking_to_Last_Stand_Hill_%286a3e6cef-1dd8-b71b-0b42-3db0575b20b8%29.jpg/500px-Visitors_Walking_to_Last_Stand_Hill_%286a3e6cef-1dd8-b71b-0b42-3db0575b20b8%29.jpg",
+    "photo": "verified"
   },
   {
     "id": "brasilia-national-congress",
@@ -1959,22 +1961,24 @@
   {
     "id": "gravitational-waves-ligo-hanford",
     "short": "LIGO Hanford Observatory",
-    "clue": "Where was the first direct detection of gravitational waves made as twin detectors registered colliding black holes?",
+    "clue": "Where in Washington state did one of LIGO's twin detectors make the first direct detection of gravitational waves, from colliding black holes?",
     "fact": "LIGO's Hanford and Livingston observatories detected the same signal on September 14, 2015. Hanford's immense L-shaped interferometer is one of the two discovery sites.",
     "lat": 46.4551,
     "lng": -119.4077,
     "difficulty": 8,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/LLO_Control_Room.jpg/500px-LLO_Control_Room.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/LIGO_Hanford_aerial_05.jpg/500px-LIGO_Hanford_aerial_05.jpg",
+    "photo": "verified"
   },
   {
     "id": "first-atom-split-manchester",
     "short": "Rutherford Building, Manchester",
-    "clue": "Where did Ernest Rutherford's team first split the atomic nucleus in 1917?",
-    "fact": "At the University of Manchester, Rutherford bombarded nitrogen with alpha particles and identified emitted hydrogen nuclei, the first artificial transmutation of an element.",
+    "clue": "Where did Ernest Rutherford first induce a nuclear reaction, by bombarding nitrogen with alpha particles in 1917?",
+    "fact": "At the University of Manchester, Rutherford bombarded nitrogen with alpha particles and saw it eject hydrogen nuclei, the first artificially induced nuclear reaction.",
     "lat": 53.467,
     "lng": -2.2339,
     "difficulty": 8,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Sir_Ernest_Rutherford_LCCN2014716719_-_restoration1.jpg/500px-Sir_Ernest_Rutherford_LCCN2014716719_-_restoration1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Rutherford_Building.jpg/500px-Rutherford_Building.jpg",
+    "photo": "verified"
   },
   {
     "id": "pulsar-discovery-mullard",
@@ -2024,11 +2028,12 @@
     "id": "first-telephone-call-boston",
     "short": "109 Court Street, Boston",
     "clue": "Where did Alexander Graham Bell make the first intelligible telephone call, asking Watson to come to him?",
-    "fact": "Bell spoke the famous request in his Boston laboratory on March 10, 1876. The original building is gone, but a plaque near the site records the call.",
+    "fact": "Bell spoke 'Mr. Watson, come here, I want to see you' on March 10, 1876, in rooms above the Palace Theatre at 109 Court Street.",
     "lat": 42.3611,
     "lng": -71.0606,
     "difficulty": 7,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Alexander_Graham_Bell.jpg/500px-Alexander_Graham_Bell.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Birthplace_of_the_First_Telephone%2C_Boston%2C_MA_-_IMG_7007.JPG/500px-Birthplace_of_the_First_Telephone%2C_Boston%2C_MA_-_IMG_7007.JPG",
+    "photo": "verified"
   },
   {
     "id": "edison-light-menlo-park",
@@ -2044,12 +2049,13 @@
   {
     "id": "first-film-screening-grand-cafe",
     "short": "Salon Indien du Grand Café",
-    "clue": "Where did the Lumière brothers stage the first commercial public film screening in 1895?",
+    "clue": "Where did the Lumière brothers hold their own first commercial public film screening, in December 1895?",
     "fact": "Paying spectators watched ten short films in the basement Salon Indien on Boulevard des Capucines. The site is now occupied by Hôtel Scribe Paris Opéra.",
     "lat": 48.87,
     "lng": 2.3298,
     "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Cin%C3%A9matographe_Lumi%C3%A8re.jpg/500px-Cin%C3%A9matographe_Lumi%C3%A8re.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Plaque_Lumi%C3%A8re2.jpg/500px-Plaque_Lumi%C3%A8re2.jpg",
+    "photo": "verified"
   },
   {
     "id": "arpanet-first-message-ucla",
@@ -2168,17 +2174,19 @@
     "lat": 35.0353,
     "lng": -120.4856,
     "difficulty": 8,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Lange-MigrantMother02.jpg/500px-Lange-MigrantMother02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/NipomoLocationOfMigrantMotherPhotoJan52025.jpg/500px-NipomoLocationOfMigrantMotherPhotoJan52025.jpg",
+    "photo": "verified"
   },
   {
     "id": "star-wars-lars-homestead-interior",
     "short": "Hotel Sidi Driss",
     "clue": "Where were the interior scenes of Luke Skywalker's childhood home filmed for Star Wars?",
-    "fact": "A traditional underground Berber dwelling in Matmata became the Lars homestead dining room. Its Star Wars decorations have been restored for visitors.",
+    "fact": "The Hotel Sidi Driss, a traditional Berber troglodyte home dug into the ground at Matmata, was filmed as the Lars home in 1976 and again for a 2002 prequel.",
     "lat": 33.5422,
     "lng": 9.9666,
     "difficulty": 7,
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Matmata%2C_Tunisia.JPG/500px-Matmata%2C_Tunisia.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Hotel_Sidi_Driss-underground_view_only.jpg/500px-Hotel_Sidi_Driss-underground_view_only.jpg",
+    "photo": "verified"
   },
   {
     "id": "jaws-menemsha-harbor",

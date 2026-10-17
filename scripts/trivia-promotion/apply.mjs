@@ -39,6 +39,7 @@ for (const r of recs) {
     });
     changed ? n[key]++ : n.skipped++;
   }
+  if (!g.photo.url) throw new Error(r.id + ': photo url missing (run photo-meta.mjs)');
   const img = editBlock(r.id, s => {
     const newLine = `"image": ${JSON.stringify(g.photo.url)}`;
     if (s.includes(newLine)) return s;

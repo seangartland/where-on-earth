@@ -359,5 +359,374 @@
    }
   },
   "promoted": true
+ },
+ {
+  "id": "palace-of-culture-warsaw",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Palace of Culture",
+  "gates": {
+   "fact": {
+    "v": "PASS",
+    "source": "Palace of Culture and Science",
+    "note": "Fact rewritten. Not supported: 'sent by Stalin' and materials 'shipped in from 168 Soviet locations'. Supported: agreement signed 1952, offered as a gift to the people of Poland, completed in 1955 and dedicated to Stalin, 3,500 to 5,000 Soviet and 4,000 Polish workers. Clue kept: 'Stalin-era' and 'Soviet gift' are supported; '42-floor' is consistent with the article (its 42nd floor hosts peregrine falcons) and not false.",
+    "changes": [
+     {
+      "field": "fact",
+      "before": "The Palace of Culture was sent by Stalin to Poland in 1955 as a gift, its construction materials shipped in from 168 Soviet locations.",
+      "after": "The Palace of Culture was a Soviet gift to the people of Poland, completed in 1955 by thousands of Soviet and Polish workers and first dedicated to Stalin.",
+      "why": "unsupported '168 Soviet locations' and 'sent by Stalin' replaced with the article's construction facts"
+     }
+    ]
+   },
+   "unique": {
+    "v": "PASS",
+    "competitors": [],
+    "note": "Considered Moscow's Seven Sisters and the Latvian Academy of Sciences in Riga: Stalin-era towers, but none was a Soviet gift to another country."
+   },
+   "photo": {
+    "v": "PASS",
+    "file": "Palace of Culture and Science, 2026, Warsaw, Poland.jpg",
+    "method": "V",
+    "note": "The palace tower and its colonnaded wings from the street. No public-domain or CC0 photo in the search results.",
+    "searched": [
+     "Commons search: Palace of Culture and Science Warsaw"
+    ],
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Palace_of_Culture_and_Science%2C_2026%2C_Warsaw%2C_Poland.jpg/500px-Palace_of_Culture_and_Science%2C_2026%2C_Warsaw%2C_Poland.jpg",
+    "license": "CC BY 4.0",
+    "author": "Igor123121",
+    "attributionRequired": true,
+    "source": "https://commons.wikimedia.org/wiki/File:Palace_of_Culture_and_Science,_2026,_Warsaw,_Poland.jpg"
+   }
+  },
+  "promoted": true
+ },
+ {
+  "id": "little-bighorn-battlefield",
+  "band": "7-8",
+  "difficulty": 8,
+  "short": "Little Bighorn",
+  "gates": {
+   "fact": {
+    "v": "PASS",
+    "source": "Battle of the Little Bighorn",
+    "note": "Supported: commonly called Custer's Last Stand; 1876; Lieutenant Colonel George Armstrong Custer's 7th Cavalry defeated by Lakota, Northern Cheyenne and Arapaho forces. Clue and fact kept."
+   },
+   "unique": {
+    "v": "PASS",
+    "competitors": [],
+    "note": "'Custer's Last Stand' names one battle."
+   },
+   "photo": {
+    "v": "PASS",
+    "file": "Visitors Walking to Last Stand Hill (6a3e6cef-1dd8-b71b-0b42-3db0575b20b8).jpg",
+    "method": "V",
+    "note": "NPS public-domain photograph: the path up Last Stand Hill to the 7th Cavalry monument. Rejected: the NPS gravestones slide (4376e661), which keeps its black slide-mount border.",
+    "searched": [
+     "Commons search: Last Stand Hill Little Bighorn"
+    ],
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Visitors_Walking_to_Last_Stand_Hill_%286a3e6cef-1dd8-b71b-0b42-3db0575b20b8%29.jpg/500px-Visitors_Walking_to_Last_Stand_Hill_%286a3e6cef-1dd8-b71b-0b42-3db0575b20b8%29.jpg",
+    "license": "Public domain",
+    "author": "NPS",
+    "attributionRequired": false,
+    "source": "https://commons.wikimedia.org/wiki/File:Visitors_Walking_to_Last_Stand_Hill_(6a3e6cef-1dd8-b71b-0b42-3db0575b20b8).jpg"
+   }
+  },
+  "promoted": true
+ },
+ {
+  "id": "chiefs-island-moremi",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Chief's Island, Moremi",
+  "gates": {
+   "fact": {
+    "v": "FAIL",
+    "source": "Moremi Game Reserve (no Chief's Island article exists)",
+    "note": "Premise unsalvageable within this pass's allowed fields. The pin (19.2833, 22.9) is in the northern hemisphere, 4,276 km from the Moremi Game Reserve article's coordinates. Chief's Island lies at about 19.28 S in the Okavango Delta, so the latitude's sign is wrong. A pin move is outside this pass. The fact's '700 large animals' and 'most biodiverse spot' are also not in the source."
+   },
+   "unique": {
+    "v": "NOT RUN",
+    "note": "an earlier gate failed"
+   },
+   "photo": {
+    "v": "NOT RUN",
+    "note": "an earlier gate failed"
+   }
+  },
+  "promoted": false
+ },
+ {
+  "id": "anakena-beach",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Anakena, Rapa Nui",
+  "gates": {
+   "fact": {
+    "v": "FAIL",
+    "source": "Anakena",
+    "note": "The pin (-27.15, -109.4333) is 14 km from the article's beach, near Hanga Roa on the island's southwest corner, while Anakena is on the north coast. A pin move is outside this pass, so the entry stays held for a pin repair. The fact also needs a rewrite: Anakena is 'one of only two small sandy beaches', not 'the only' one, and the burial-site claim is not in the article (it is Hotu Matu'a's legendary landing place)."
+   },
+   "unique": {
+    "v": "NOT RUN",
+    "note": "an earlier gate failed"
+   },
+   "photo": {
+    "v": "NOT RUN",
+    "note": "an earlier gate failed"
+   }
+  },
+  "promoted": false
+ },
+ {
+  "id": "gravitational-waves-ligo-hanford",
+  "band": "7-8",
+  "difficulty": 8,
+  "short": "LIGO Hanford Observatory",
+  "gates": {
+   "fact": {
+    "v": "PASS",
+    "source": "LIGO; First observation of gravitational waves",
+    "note": "Supported: GW150914 detected at Hanford and Livingston on 14 September 2015 from two merging black holes; each observatory has an L-shaped vacuum system 4 km on a side. Clue and fact true."
+   },
+   "unique": {
+    "v": "PASS",
+    "competitors": [
+     "LIGO Livingston Observatory, Louisiana (the other twin detector, same first detection)"
+    ],
+    "note": "Flagged: the old clue fits both twin detectors. Rewritten with a location word to rule out Livingston, following the uniqueness pass's precedent ('Tanzanian grassland'). The article places Hanford on the DOE Hanford Site in Washington.",
+    "changes": [
+     {
+      "field": "clue",
+      "before": "Where was the first direct detection of gravitational waves made as twin detectors registered colliding black holes?",
+      "after": "Where in Washington state did one of LIGO's twin detectors make the first direct detection of gravitational waves, from colliding black holes?",
+      "why": "Livingston also fits the old clue; state added to make it one place"
+     }
+    ]
+   },
+   "photo": {
+    "v": "PASS",
+    "file": "LIGO Hanford aerial 05.jpg",
+    "method": "V",
+    "note": "Public-domain LIGO Laboratory aerial photograph of the Hanford observatory with its long interferometer arm across the desert.",
+    "searched": [
+     "Commons search: LIGO Hanford Observatory"
+    ],
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/LIGO_Hanford_aerial_05.jpg/500px-LIGO_Hanford_aerial_05.jpg",
+    "license": "Public domain",
+    "author": "LIGO Laboratory",
+    "attributionRequired": false,
+    "source": "https://commons.wikimedia.org/wiki/File:LIGO_Hanford_aerial_05.jpg"
+   }
+  },
+  "promoted": true
+ },
+ {
+  "id": "first-atom-split-manchester",
+  "band": "7-8",
+  "difficulty": 8,
+  "short": "Rutherford Building, Manchester",
+  "gates": {
+   "fact": {
+    "v": "PASS",
+    "source": "Ernest Rutherford (no Rutherford Building article)",
+    "note": "Clue and fact rewritten. The clue said Rutherford's team 'first split the atomic nucleus in 1917', but the article credits the first nucleus split to Cockcroft and Walton (1932, Cambridge). Supported: at Manchester from 1907 until 1919; in 1917 he performed the first artificially induced nuclear reaction by bombarding nitrogen with alpha particles; nitrogen ejected a proton, which he called a 'hydrogen atom'. 'Transmutation' is not the article's word, so the fact uses the article's phrasing.",
+    "changes": [
+     {
+      "field": "clue",
+      "before": "Where did Ernest Rutherford's team first split the atomic nucleus in 1917?",
+      "after": "Where did Ernest Rutherford first induce a nuclear reaction, by bombarding nitrogen with alpha particles in 1917?",
+      "why": "'first split the atomic nucleus' is credited to Cockcroft and Walton in 1932; rewritten to the article's 1917 claim"
+     },
+     {
+      "field": "fact",
+      "before": "At the University of Manchester, Rutherford bombarded nitrogen with alpha particles and identified emitted hydrogen nuclei, the first artificial transmutation of an element.",
+      "after": "At the University of Manchester, Rutherford bombarded nitrogen with alpha particles and saw it eject hydrogen nuclei, the first artificially induced nuclear reaction.",
+      "why": "worded to the article's 'first artificially induced nuclear reaction'"
+     }
+    ]
+   },
+   "unique": {
+    "v": "PASS",
+    "competitors": [],
+    "note": "Considered the Cavendish Laboratory, Cambridge (Cockcroft and Walton's 1932 split): it does not fit 1917 or nitrogen."
+   },
+   "photo": {
+    "v": "PASS",
+    "file": "Rutherford Building.jpg",
+    "method": "V",
+    "note": "The Rutherford Building of the University of Manchester, the entry's pin. Passed over: the CC0 Rutherford blue plaque photo (Day 12 - Ernest Lord Rutherford), a plaque close-up, not the place.",
+    "searched": [
+     "Commons search: Rutherford Building Manchester"
+    ],
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Rutherford_Building.jpg/500px-Rutherford_Building.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Doctorneroli",
+    "attributionRequired": true,
+    "source": "https://commons.wikimedia.org/wiki/File:Rutherford_Building.jpg"
+   }
+  },
+  "promoted": true
+ },
+ {
+  "id": "first-telephone-call-boston",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "109 Court Street, Boston",
+  "gates": {
+   "fact": {
+    "v": "PASS",
+    "source": "Invention of the telephone; Alexander Graham Bell",
+    "note": "Fact rewritten. Supported: on 10 March 1876 Bell spoke 'Mr. Watson, come here, I want to see you', in a test between two rooms above the Palace Theatre at 109 Court Street, Boston. Not in the source: that the building is gone and a plaque records the call. Clue supported ('first successful bi-directional transmission of clear speech'). Caveat: one article places the call at 109 Court Street; the Bell article says only 'in Boston'. The entry follows the article that names the place.",
+    "changes": [
+     {
+      "field": "fact",
+      "before": "Bell spoke the famous request in his Boston laboratory on March 10, 1876. The original building is gone, but a plaque near the site records the call.",
+      "after": "Bell spoke 'Mr. Watson, come here, I want to see you' on March 10, 1876, in rooms above the Palace Theatre at 109 Court Street.",
+      "why": "unsourced plaque and demolition claims replaced with the article's address and wording"
+     }
+    ]
+   },
+   "unique": {
+    "v": "PASS",
+    "competitors": [],
+    "note": "Considered 5 Exeter Place, Bell's house, where earlier line tests ran: the source puts the 'come here' call at 109 Court Street, so the clue fits one place."
+   },
+   "photo": {
+    "v": "PASS",
+    "file": "Birthplace of the First Telephone, Boston, MA - IMG 7007.JPG",
+    "method": "V",
+    "note": "Public-domain photograph of the 'Birthplace of the First Telephone' monument on the plaza at the former 109 Court Street site. Its plaque cites the June 2, 1875 sound test at the same address. Shown at the reveal only, after the guess.",
+    "searched": [
+     "Commons search: Bell telephone plaque Boston",
+     "Commons search: 109 Court Street Boston",
+     "Commons search: birthplace of the telephone Boston"
+    ],
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Birthplace_of_the_First_Telephone%2C_Boston%2C_MA_-_IMG_7007.JPG/500px-Birthplace_of_the_First_Telephone%2C_Boston%2C_MA_-_IMG_7007.JPG",
+    "license": "Public domain",
+    "author": "Daderot",
+    "attributionRequired": false,
+    "source": "https://commons.wikimedia.org/wiki/File:Birthplace_of_the_First_Telephone,_Boston,_MA_-_IMG_7007.JPG"
+   }
+  },
+  "promoted": true
+ },
+ {
+  "id": "first-film-screening-grand-cafe",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Salon Indien du Grand Café",
+  "gates": {
+   "fact": {
+    "v": "PASS",
+    "source": "Salon Indien du Grand Café; Lumière brothers",
+    "note": "Clue rewritten. The article lists earlier commercial public screenings by others (Latham's Eidoloscope, the Skladanowsky Bioscop, Reynaud, Anschütz), so 'the first commercial public film screening' is false as an absolute. It was the Lumières' first, on 28 December 1895. Fact supported: ten short films in the basement Salon Indien on the Boulevard des Capucines; the building is now the Hotel Scribe.",
+    "changes": [
+     {
+      "field": "clue",
+      "before": "Where did the Lumière brothers stage the first commercial public film screening in 1895?",
+      "after": "Where did the Lumière brothers hold their own first commercial public film screening, in December 1895?",
+      "why": "earlier commercial screenings by others are in the article; made the Lumières' own first"
+     }
+    ]
+   },
+   "unique": {
+    "v": "PASS",
+    "competitors": [],
+    "note": "One event, one room; the Lumières' earlier 1895 shows were not commercial."
+   },
+   "photo": {
+    "v": "PASS",
+    "file": "Plaque Lumière2.jpg",
+    "method": "V",
+    "note": "Public-domain photograph of the Hotel Scribe entrance on the Boulevard des Capucines with the 28 December 1895 commemorative plaque. Chosen under the public-domain-first rule over the CC BY 2.0 full facade (Hotel Scribe, Paris July 2014).",
+    "searched": [
+     "Commons search: Hôtel Scribe Paris",
+     "Commons search: 14 boulevard des Capucines",
+     "Commons search: Grand Café Capucines Lumière plaque"
+    ],
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Plaque_Lumi%C3%A8re2.jpg/500px-Plaque_Lumi%C3%A8re2.jpg",
+    "license": "Public domain",
+    "author": "Tangopaso",
+    "attributionRequired": false,
+    "source": "https://commons.wikimedia.org/wiki/File:Plaque_Lumi%C3%A8re2.jpg"
+   }
+  },
+  "promoted": true
+ },
+ {
+  "id": "migrant-mother-nipomo",
+  "band": "7-8",
+  "difficulty": 8,
+  "short": "Nipomo Migrant Camp Site",
+  "gates": {
+   "fact": {
+    "v": "PASS",
+    "source": "Migrant Mother; Nipomo, California",
+    "note": "Supported: Lange photographed Florence Owens Thompson at a pea-pickers' camp in Nipomo in March 1936; the work is considered symbolic of the Great Depression. Clue and fact kept."
+   },
+   "unique": {
+    "v": "PASS",
+    "competitors": [],
+    "note": "Names one photograph."
+   },
+   "photo": {
+    "v": "PASS",
+    "file": "NipomoLocationOfMigrantMotherPhotoJan52025.jpg",
+    "method": "V",
+    "note": "CC0 photograph (January 2025) of the field that researchers identified as the Migrant Mother site on the outskirts of Nipomo; the article describes the same research. Borderline: it is a field with trees, documented as the place but not recognisable by itself. Lange's own camp photographs were not used because they show people, not the place.",
+    "searched": [
+     "Commons search: Nipomo pea pickers camp",
+     "Commons search: Nipomo California"
+    ],
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/NipomoLocationOfMigrantMotherPhotoJan52025.jpg/500px-NipomoLocationOfMigrantMotherPhotoJan52025.jpg",
+    "license": "CC0",
+    "author": "AlmanacHobbyist",
+    "attributionRequired": false,
+    "source": "https://commons.wikimedia.org/wiki/File:NipomoLocationOfMigrantMotherPhotoJan52025.jpg"
+   }
+  },
+  "promoted": true
+ },
+ {
+  "id": "star-wars-lars-homestead-interior",
+  "band": "7-8",
+  "difficulty": 7,
+  "short": "Hotel Sidi Driss",
+  "gates": {
+   "fact": {
+    "v": "PASS",
+    "source": "Matmata, Tunisia (no Hotel Sidi Driss article)",
+    "note": "Fact rewritten. Not in the source: 'dining room' and 'decorations restored for visitors'. Supported: the Hotel Sidi Idriss in Matmata, a traditional Berber troglodyte underground building, was filmed in 1976 as Luke Skywalker's home and appeared again in the 2002 prequel Attack of the Clones. Clue not false.",
+    "changes": [
+     {
+      "field": "fact",
+      "before": "A traditional underground Berber dwelling in Matmata became the Lars homestead dining room. Its Star Wars decorations have been restored for visitors.",
+      "after": "The Hotel Sidi Driss, a traditional Berber troglodyte home dug into the ground at Matmata, was filmed as the Lars home in 1976 and again for a 2002 prequel.",
+      "why": "unsourced dining-room and restoration claims replaced with the article's filming facts"
+     }
+    ]
+   },
+   "unique": {
+    "v": "PASS",
+    "competitors": [],
+    "note": "Considered the Lars homestead exterior set at Chott el Djerid: the clue asks for the interior scenes, which only Sidi Driss fits."
+   },
+   "photo": {
+    "v": "PASS",
+    "file": "Hotel Sidi Driss-underground view only.jpg",
+    "method": "V",
+    "note": "The hotel's underground courtyard, the filming location. No public-domain or CC0 photo of the hotel found.",
+    "searched": [
+     "Commons search: Hotel Sidi Driss"
+    ],
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Hotel_Sidi_Driss-underground_view_only.jpg/500px-Hotel_Sidi_Driss-underground_view_only.jpg",
+    "license": "CC BY 2.0",
+    "author": "Neil Rickards from Cambridge, England",
+    "attributionRequired": true,
+    "source": "https://commons.wikimedia.org/wiki/File:Hotel_Sidi_Driss-underground_view_only.jpg"
+   }
+  },
+  "promoted": true
  }
 ]
