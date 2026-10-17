@@ -116,7 +116,7 @@ Why, each reason tied to a fact above:
 4. **Exit cost is zero.** All account data is in Sean's D1.
 5. **The sign-in UI has to be ours regardless.** The game's visual bar is high, and the weakest part of the Clerk draft (A2) was a hosted modal inside a styled game. better-auth is headless, so the sheet is built from the game's shared overlay classes from the start.
 
-The honest costs: more to build (section 7 estimates about 4 to 6 build sessions more than Clerk for the auth layer), a security surface we own (mitigated by using a maintained library rather than hand-rolling), and the deploy change in 2a.3.
+The honest costs: more to build (section 7 estimates about 3 to 4 build sessions more than Clerk for the auth layer: the scout, the auth endpoints and bundled deploy, the custom sheet, passkeys), a security surface we own (mitigated by using a maintained library rather than hand-rolling), and the deploy change in 2a.3.
 
 **better-auth over hand-rolled:** the error-prone parts (one-time-code attempt limits and expiry, session rotation, linking a Google and an email identity that share an address, the passkey ceremony, Apple's client-secret JWT) are exactly what a library has already been through. Hand-rolled stays the fallback.
 
@@ -429,6 +429,43 @@ Round submissions from two devices at once are serialized by the match's single 
 **Email as the cheaper first step:** the account already holds a verified email. An opt-in "Email me when my opponent finishes" works on every iPhone without install or a service worker, using the same sender as sign-in codes. Recommend it as the first notification, with push after (section 8).
 
 **Clerk delta:** identical, except the PvP Worker verifies a Clerk JWT instead of looking up a session row.
+
+## 7. Sequencing
+
+Effort is in build sessions (one builder session of a few hours), as estimates. Every phase ships dark behind a flag and banks commits per milestone.
+
+| Phase | What | Effort | Gate to the next phase |
+|---|---|---|---|
+| **0. Scout** | Throwaway Worker `woe-account-scout` with better-auth and D1, bundled by Wrangler and uploaded via the API. Measure bundle size and CPU time per auth request against the Workers Free limits; complete an email-code sign-in and a Google ID-token sign-in from Sean's iPhone in both Safari and the home-screen app. Sean's prerequisites run in parallel (section 8: sender account and DNS records, Google OAuth client, Apple Developer membership). | 1 | Pass: Worker-native confirmed. Fail on size or CPU: hand-rolled minimum on the same plan. Fail on the iPhone flows: Clerk (Appendix A). |
+| **1. Backbone** | `account-worker/` (D1 schema 5b, auth endpoints for email code and Google, sync API, Daily results), `cf_api.py deploy-account`, `src/account/` (`api.js`, `session.js`, `sheet.js`, `sync.js`, `merge.js` with `node --test` suite added to `scripts/regression.sh`), Settings Account row, first-sign-in merge. Flag: `ACCOUNTS_ENABLED` in `src/core/config.js`, with a `?accounts=1` override for Sean's testing. | 3 to 4 | Merge tests green (including every row of 4c), two-device sync verified by hand (phone and laptop), 390px captures of the sheet. |
+| **2. Offers and polish** | Value-moment offers and frequency cap (4b), Apple sign-in, passkey upgrade, account delete and export, then the flag turns on for everyone. | 1 to 2 | Sean reviews the offer copy and captures on his phone. |
+| **Payment addendum** | Separate plan against this provider: Stripe direct, `entitlements` table, webhook in `woe-account`. | (own plan) | Needs Phase 1 live. |
+| **3. PvP linking** | D1 binding on the PvP Worker, `authenticate()` and `participant()` changes (6c), name propagation, summed records. | 2 | The `pvp` and `group` regression suites green against the live Worker, plus a cross-device match by hand. |
+| **4. Notifications** (only if Sean reopens the 2026-10-13 decision) | Email notifications first (1); then `manifest.webmanifest`, push-only `sw.js`, VAPID sending (2 to 3). | 1, then 2 to 3 | Device test on an installed iPhone. |
+
+Clerk comparison: Phases 0 to 2 would be about 3 sessions instead of 5 to 7 (no auth endpoints, no custom sign-in steps, no passkey work), plus about $25 a month from launch for the session lifetime and passkeys (2c).
+
+### 7a. Migrating existing players' local data
+
+There is nothing to migrate in bulk: no server copy exists today, so no backfill and no forced step. Every existing player keeps playing as a guest on the exact keys and shapes they have. Their first sign-in on each device **is** the migration: the 4c merge, preceded by the `where-on-earth-premerge-v1` snapshot.
+
+New device keys, none of which changes an existing key or shape: `where-on-earth-account-v1` (added to `VERSIONED_KEYS` in `src/core/config.js:34`), `where-on-earth-sync-queue-v1`, `where-on-earth-account-offer`, `where-on-earth-premerge-v1`. All carry the `where-on-earth-` prefix, so the existing Reset path clears them too.
+
+Edge cases the merge tests must cover: legacy passport entries without `meta`, a passport at the 240-id `order` cap, a streak older than history, a `corrupt-backup` key present, weekly data from week 0 (Monday 2026-10-19, which starts before accounts ship), and a Daily in progress during sign-in.
+
+### 7b. Rollback
+
+- **Client:** setting `ACCOUNTS_ENABLED` to false hides every account surface in one deploy. Play is unaffected because local storage stays the source the game reads; sync is purely additive.
+- **Device data:** the premerge snapshot is kept 30 days; a support-only "restore pre-sign-in data" path reads it if a merge bug is ever found.
+- **Server:** `woe-account` is independent of PvP; a bad deploy is reverted by redeploying the previous bundle. D1 Time Travel restores the database to a point before a bad sync write.
+- **PvP (Phase 3):** the player-token path is kept permanently, so reverting the PvP Worker to its previous version leaves every device working; only cross-device play is lost until the fix.
+
+### 7c. Interaction with the current queue
+
+- **Trivia promotion** (slice 1 onward, approved 2026-10-16, `docs/trivia-promotion-recommendation-opus.md`): pure content in `assets/trivia-bank.json`. No overlap with account files; `where-on-earth-best-trivia` is already in the sync list with no shape change. It can proceed first or interleave. Per the standing rule, heavyweight builds run one at a time, so the order is a choice, not a dependency.
+- **Pin repair** (held entries such as `anakena-beach`; the pin check awaits Sean's approval, `docs/trivia-promotion-pilot-report.md`): the passport is keyed by id, so pin moves never touch synced data. If a repair changes the playable city list, `dailyGame(date)` can derive different ids for future dates across deploys; 5d's "stored row wins" covers it. No blocker either way.
+- **Photo-first mode** (later landmark variant, `future-features.md` item 2, demoted in `docs/feature-impact-review-opus.md`): if it ships with a best score, its key joins the sync allow-list and `merge.js` gets a max rule. Standing rule from Phase 1 on: **every new progress key must be added to the allow-list and the merge with a rule in the same build**, or it stays device-only by default.
+- **Deploy cargo:** Phase 1 client code ships dark. Each deploy that carries it names it in the cargo list, per the deploy rule, so no account surface goes live unnamed.
 
 ## Appendix A. Runner-up notes: Clerk on this stack
 
