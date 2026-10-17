@@ -158,7 +158,7 @@ New folder `src/account/`, all plain ES modules like the rest of `src/`:
 | `account/session.js` | Reads and writes `where-on-earth-account-v1`; `isSignedIn()`, `signOut()`, token refresh. Tiny, imported at boot. |
 | `account/sheet.js` | The sign-in sheet (3c). Loaded with `import()` only when an offer is tapped. Injects Google's `https://accounts.google.com/gsi/client` and Apple's JS SDK only at that moment. |
 | `account/sync.js` | Upload and download of progress (section 5). Loaded with `import()` after the first frame, and only when signed in. |
-| `account/merge.js` | Pure merge functions (section 4), unit-tested with Node like `scripts/regression.sh` tests today. |
+| `account/merge.js` | Pure merge functions (section 4), unit-tested with `node --test` (a new suite; `scripts/regression.sh` today runs only Playwright harnesses, so the merge tests are added to it as a new named suite). |
 
 A guest never downloads anything account-related except `session.js` (a few hundred bytes). No third-party script runs on boot, so the link-first first paint is unchanged.
 
@@ -218,6 +218,71 @@ Custom, because better-auth is headless and because the game's look is the point
 - Session: Clerk cookies on a `clerk.where-on.earth` custom domain (needs the DNS answer from 2a.4); `getToken()` per request to our Worker.
 - Server: `woe-account` still exists for sync data. It verifies Clerk's short-lived JWT against Clerk's JWKS with WebCrypto and maps `clerk_user_id` to our own `accountId` in D1 on first sight, so exit cost stays limited to the identity layer.
 - Methods and lifetime: passkeys and a session longer than 7 days need Clerk Pro (A3, A4).
+
+## 4. Guest-first policy
+
+**Playing never requires an account.** A shared link opens a playable game exactly as today, and no mode, share format or saved shape changes for a guest. The account is offered at moments where it protects something the player already has, never before they have something.
+
+### 4a. What a guest keeps and what a guest risks
+
+A guest keeps everything they have today, on that device. What they risk, all of it true today:
+- **Reset** in Settings (`src/main.js:516`), clearing site data, or private browsing wipes everything.
+- **A new or second phone** starts from zero.
+- **Adding the game to the iPhone home screen starts from zero.** The home-screen app's storage is separate from Safari's (2a.5), so a Safari player who installs the game loses their passport inside the installed app. This is the sharpest real data-loss path today, and the account is the only bridge across it.
+- **Safari storage eviction:** Safari can delete a site's script-written storage after a stretch of days without a visit (author's knowledge, unverified; installed home-screen apps are believed exempt). A lapsed guest may come back to an empty passport.
+- **PvP:** losing the device token loses unfinished matches and pair records (`docs/pvp-tech-spec-sol.md` line 108).
+
+### 4b. When sign-in is offered (value moments)
+
+Each offer is the 3c sheet with the player's own numbers in the first line. All are dismissible with one tap and none interrupts a round.
+
+| # | Moment | Where in code | Offer line |
+|---|---|---|---|
+| 1 | Daily summary when the streak reaches 3, and again at 7 | Summary after `finishStreak()` (`src/modes/daily-game.js:72`) | "Keep your 3-day streak safe on any phone" |
+| 2 | Passport crosses 25 places, then 100 | After `recordVisit()` grows `order` | "Save your 25 places" |
+| 3 | Weekly badge earned (`record.badge = true`, `src/modes/expeditions.js:109`) | Weekly completion card | "Save your Week 1 badge" |
+| 4 | First visit inside the installed home-screen app with an empty passport (`navigator.standalone` true, no `where-on-earth-passport-v1`) | Boot | "Played in Safari before? Sign in to bring your progress here" |
+| 5 | Before Reset: the confirm panel gains "Save to an account first" | Settings confirm | "Save first, then reset this device" |
+| 6 | PvP: creating or joining a match on a device with no PvP identity, when an account exists elsewhere is likely (any progress already local) | `pvpEnsureIdentity()` (`src/pvp/api.js:121`) | "Use your account name and record" |
+| 7 | Always: the Account row in Settings | Settings | "Save your progress" |
+
+**Never offered:** before or during the first game, on a share-link landing before the first round, mid-round, on the very first Daily summary, or more than once per session.
+
+**Frequency cap** (device key `where-on-earth-account-offer`, `{ _v: 1, shown: { moment: ms }, dismissals: n }`): each moment fires at most once; after any dismissal, no automatic offer for 7 days; after 3 dismissals, only moments 4, 5 and 7 remain (the ones the player triggers or where loss is imminent).
+
+### 4c. Merge rules when a guest with local progress signs in
+
+Signing in on a device runs one merge: local document L, account document A (from `GET /v1/sync`), result M written to both. Merges are pure functions in `src/account/merge.js`. The guarantees: **M is never smaller than L or A in any collection, no best goes down, no earned tier goes down, and no first-date moves later.** The merge is idempotent (merging M with L again gives M), so a retry after a dropped connection is safe.
+
+| Data | Rule |
+|---|---|
+| Passport ids | Union of `visits` keys. Storage's shrink guard (`storage.js`) can never trip, because M only grows. |
+| Passport `meta[id]` | `b` max; `d` min; `e` max (never downgraded, as `recordVisit()` does); `ea`, `eb1`, `eb2`, `eb3` earliest present value; `t` latest. `f` earliest present date, except that if either side holds the id as a legacy visit (in `visits` with no `meta`), M keeps it undated, because its true first visit predates every dated one. This mirrors `recordVisit()`'s own legacy rule (`passport-store.js:188`). |
+| Passport `visits[id]` (latest score, drives dot colour) | Taken from whichever side has the later `meta[id].t`; legacy on both sides: max. |
+| Passport `order` | Union, sorted by `meta[id].t` ascending (legacy ids first, in their existing order), then capped to the last 240 (`PASSPORT_ORDER_LIMIT`). |
+| All bests (`survival-best-v1`, `best-landmarks-survival`, `best-trivia`, `countries-best-v1`, each `blackout-best-v1-<scope>`) | Max per key. |
+| History (`history-v1`) | Union by `date`. A date on both sides means the same Daily was played twice on two devices; the first play is the honest one, but entries carry no timestamp. Rule: keep A's entry (it reached the account first), and keep L's duplicate server-side only in a `history_conflicts` table, never shown. A replay is not progress, so nothing the player earned is lost. Trim to the last 365. |
+| Streak (`streak-v1`) | `last` = the later of the two. `count` = the longest run of consecutive days ending at that `last`, counting a day as played if either side has it in history or as its own `last`. Where that run reaches back to a side's own `last`, that side's `count` extends it backwards (the count can predate history, section 1). Never lower than the count of the side whose `last` is the merged `last`. Example: phone A played Mon to Wed (count 3), phone B played Thu (count 1): M is count 4, last Thu. |
+| Today's Daily (`where-on-earth-v1`) | Only when both sides hold the same `date`: complete beats incomplete; both complete, keep A (first write wins) and the summary shows A's result; both incomplete, the one with more rounds played. The `ids` are date-derived and identical. The "cannot replay seen places" property holds because a device that loads a complete game shows "played". |
+| Expeditions (`expedition-v1`) | Per expedition: `completed` max; `complete` recomputed as `completed >= stops`. |
+| Weekly (`weekly-v1`) | Union of week keys. Per week: `played` union by stop index, earliest date key per stop; `badge` = either side's badge, or recomputed when the union reaches `WEEK_STOPS`. `route` is date-derived; a mismatch keeps A's and logs a conflict. |
+| Device preferences (section 1c) | Never merged or uploaded. |
+| `<key>.corrupt-backup` | Not merged automatically. If present, the merge uploads it to a `corrupt_backups` table for manual recovery only. |
+
+**PvP at sign-in:** nothing about PvP moves. The device keeps its `playerId` and token, so in-flight matches and Open Challenges continue untouched. The account records a link to that `playerId` (section 6). Two devices with two PvP identities both stay valid and both are linked.
+
+**Order of operations at first sign-in** (crash-safe):
+1. Snapshot L: copy every progress key to `where-on-earth-premerge-v1` (one JSON object, device-local, kept 30 days).
+2. `GET /v1/sync` for A. Compute M with `merge.js`.
+3. `POST /v1/sync` with M and the hash of A it was built from. The server rejects a stale base (section 5) and the client repeats from step 2.
+4. Write M to the local keys through `writeJSON` / `safeSetItem`, so the existing storage guards apply. Set `merged: true` in `where-on-earth-account-v1`.
+5. Rebuild in-memory state (`state.passport`, dots) by the same path boot uses, without a reload mid-game.
+
+If the app dies between steps 3 and 4, the next boot sees `merged: false`, re-runs the merge (idempotent) and finishes. The snapshot is the last-resort undo.
+
+**Signing out** leaves the local keys in place (the device keeps playing as a guest with the merged progress). "Sign out and clear this device" is the Reset path.
+
+**Clerk delta:** none. Merge rules depend only on the data, not the provider.
 
 ## Appendix A. Runner-up notes: Clerk on this stack
 
