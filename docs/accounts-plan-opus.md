@@ -138,6 +138,87 @@ Because this session had no web access, these must be read from the live pages a
 
 None of these can flip the recommendation on its own except a Workers CPU or size limit that the Phase 0 scout would catch anyway.
 
+## 3. Integration design (Worker-native, better-auth)
+
+### 3a. Topology: a second Worker, not a bigger PvP Worker
+
+- **New Worker `woe-account`** in a new repo folder `account-worker/` (beside `pvp-worker/`), with one D1 database `woe-accounts`. It runs better-auth, the sync API (section 5) and later the Stripe webhook.
+- **Why separate** (judgment): (1) the PvP Worker's unbundled `cf_api.py` deploy keeps working untouched, and only the new Worker takes the Wrangler bundle step (2a.3); (2) a bad auth deploy cannot break live PvP matches; (3) the PvP client already uses `Authorization: Bearer` for its player token (`src/pvp/api.js:69`), so keeping account sessions on another origin avoids two meanings for one header.
+- **Build and deploy:** `wrangler deploy --dry-run --outdir account-worker/dist` bundles locally (no Wrangler login needed, as `npm run check` already shows for PvP), then a new `cf_api.py deploy-account` subcommand uploads `dist/index.js` with a `d1` binding `DB` and the secrets (`BETTER_AUTH_SECRET`, `GOOGLE_CLIENT_ID`, Apple keys, the email sender key). D1 schema changes are SQL files in `account-worker/migrations/`, applied through the D1 API by the same helper.
+- **Origin:** `woe-account.gartland-79.workers.dev` at first; `api.where-on.earth` later only if the zone is on Cloudflare (2a.4). The client never depends on cookies, so either works.
+- **PvP Worker change (Phase 3 only, section 6):** add the same D1 database as a binding so it can resolve an account session with one indexed lookup. A binding is metadata, not a library, so its deploy stays unbundled.
+
+### 3b. Client: loading with no framework
+
+New folder `src/account/`, all plain ES modules like the rest of `src/`:
+
+| File | Role |
+|---|---|
+| `account/api.js` | `fetch` wrapper modelled on `pvpApi()` in `src/pvp/api.js`: base `ACCOUNT_API`, JSON in and out, `AccountError` with codes, never throws into gameplay. |
+| `account/session.js` | Reads and writes `where-on-earth-account-v1`; `isSignedIn()`, `signOut()`, token refresh. Tiny, imported at boot. |
+| `account/sheet.js` | The sign-in sheet (3c). Loaded with `import()` only when an offer is tapped. Injects Google's `https://accounts.google.com/gsi/client` and Apple's JS SDK only at that moment. |
+| `account/sync.js` | Upload and download of progress (section 5). Loaded with `import()` after the first frame, and only when signed in. |
+| `account/merge.js` | Pure merge functions (section 4), unit-tested with Node like `scripts/regression.sh` tests today. |
+
+A guest never downloads anything account-related except `session.js` (a few hundred bytes). No third-party script runs on boot, so the link-first first paint is unchanged.
+
+Device key, added to `VERSIONED_KEYS` so it gets the `storage.js` guards:
+
+```js
+// where-on-earth-account-v1
+{ _v: 1,
+  accountId: 'acc_8f3k...',      // ours, never a vendor id
+  sessionToken: '...',            // bearer, sent only to ACCOUNT_API
+  expiresAt: 1767225600000,       // rolling, see below
+  displayName: 'Sean',
+  emailHint: 's***@gmail.com',    // for the Settings row, never the full address
+  deviceId: 'dev_2c9...',         // random per install, names this device in sync
+  lastSyncAt: 1760650000000,
+  merged: true }                  // the first-sign-in merge (section 4) completed
+```
+
+Endpoints (the client wrapper hides better-auth's own route names, which live under `/api/auth/*`):
+
+```
+POST /v1/auth/email/send        { email }                     -> 204
+POST /v1/auth/email/verify      { email, code }               -> { session, account }
+POST /v1/auth/google            { idToken, nonce }            -> { session, account }
+POST /v1/auth/apple             { idToken, nonce, name? }     -> { session, account }
+POST /v1/auth/passkey/*         WebAuthn register and login ceremonies
+POST /v1/auth/signout           { everywhere?: true }
+GET  /v1/me                                                   -> { account, entitlements, pvpPlayers }
+GET  /v1/sync  |  POST /v1/sync                               section 5
+```
+
+**Session handling:** opaque bearer token, stored only on the device and hashed in D1 (or stored as better-auth stores it; confirm in Phase 0). Rolling 90-day expiry, extended on any authenticated request at most once a day (better-auth `expiresIn` and `updateAge`). A daily player therefore never sees a sign-in prompt again on that device. "Sign out everywhere" deletes all session rows for the account. Rate limits in D1 (or a Durable Object counter): at most 5 code emails per address per hour and 5 wrong codes per code, with codes expiring in 10 minutes.
+
+**Settings touchpoints** (`src/main.js:429` builds the Settings screen): an Account row above Reset showing "Save your progress" (guest) or the name and email hint (signed in), with Sign out. The Reset button (`src/main.js:516`) keeps wiping every `where-on-earth-` key, which now also signs this device out; its confirm text gains one line when signed in: "Your account copy is kept. Sign in again to restore it." Deleting the account itself is a separate, explicit action (`POST /v1/account/delete`), needed anyway for the App Store and privacy rules if the game ever ships natively.
+
+### 3c. Sign-in UI at the game's standard
+
+Custom, because better-auth is headless and because the game's look is the point (judgment):
+- **Container:** the existing dialog pattern `div.expedition-panel[role=dialog][aria-modal=true]` used by the Survival hub and More modes (`index.html:189`, `:201`), with the shared close button. No one-off sheet (the centralize-shared-UI rule).
+- **Top:** one sentence naming what is at stake in this moment (section 4 lists them), with the player's own numbers, for example "Save your 214 places and 12-day streak".
+- **Buttons:** Sign in with Apple and Continue with Google first. Their look is constrained by Apple's and Google's branding rules (Google's button is rendered by its own script), so they get the panel's spacing and order, not custom colours. Then "Use email instead".
+- **Email path:** email field, then a 6-digit code field with `autocomplete="one-time-code"` and `inputmode="numeric"`, a resend link with a 30-second timer, and errors inline in the panel. No passwords anywhere.
+- **Passkey upgrade:** after a successful sign-in, if `window.PublicKeyCredential` exists, one quiet line: "Sign in with Face ID next time on this phone". Never shown to a guest.
+- **Done state:** "Saved. Your progress is now on your account." and the sheet closes back to exactly where the player was (a summary card, the passport).
+- **Ships only after** 390px captures of every state (offer, email, code, error, done) pass review, and a live sign-in from the iPhone home-screen app.
+
+### 3d. Play while signed out or offline
+
+- **Signed out is today's game,** byte for byte. No mode, share or feature moves behind sign-in.
+- **Local first, always.** Every write still lands in `localStorage` through the unchanged gameplay code. `sync.js` only observes and uploads (section 5), and queues while offline in `where-on-earth-sync-queue-v1`.
+- **Account service down:** the sheet says "Sign-in isn't available right now" and the game carries on. Nothing in gameplay awaits an account call.
+- **Session expired or revoked:** a quiet "Sign in again to keep syncing" line in Settings and on the home screen, never a modal, and local play continues.
+
+### 3e. Delta if Clerk is picked instead
+
+- Client: Clerk's two script tags, loaded lazily the same way (A1); its prebuilt modal behind our value sheet (A2).
+- Session: Clerk cookies on a `clerk.where-on.earth` custom domain (needs the DNS answer from 2a.4); `getToken()` per request to our Worker.
+- Server: `woe-account` still exists for sync data. It verifies Clerk's short-lived JWT against Clerk's JWKS with WebCrypto and maps `clerk_user_id` to our own `accountId` in D1 on first sight, so exit cost stays limited to the identity layer.
+- Methods and lifetime: passkeys and a session longer than 7 days need Clerk Pro (A3, A4).
+
 ## Appendix A. Runner-up notes: Clerk on this stack
 
 Written as section 2 of the first draft, before Sean reopened the provider question. Kept because it holds the live-checked Clerk facts and is the integration design if Sean picks Clerk (section 2d). Section references below are updated to the current numbering.
