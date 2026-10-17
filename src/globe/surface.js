@@ -24,6 +24,7 @@ export let globeMat;
 export function initGlobeSurface() {
   blankTex = new THREE.DataTexture(new Uint8Array([0, 0, 0, 255]), 1, 1);
   blankTex.needsUpdate = true;
+  const coast = parseInt(new URLSearchParams(location.search).get('coast') || '0');
 
   globeMat = new THREE.ShaderMaterial({
     uniforms: {
@@ -33,6 +34,8 @@ export function initGlobeSurface() {
       // satellite imagery (see "Satellite imagery" below): equirectangular base
       uSatBase: { value: blankTex },
       uSatMix: { value: 0 },
+      uLegFadeOn: { value: coast >= 1 ? 1 : 0 },
+      uOceanFlat: { value: coast === 2 ? 0.55 : coast === 3 ? 0.85 : 0 },
       // detail insets: A draws under B; bounds are Mercator (x0, y0, x1, y1)
       uInsetA: { value: blankTex },
       uInsetB: { value: blankTex },
@@ -61,6 +64,8 @@ export function initGlobeSurface() {
     uniform vec2 uMapTexel;
     uniform sampler2D uSatBase;
     uniform float uSatMix;
+    uniform float uLegFadeOn;
+    uniform float uOceanFlat;
     uniform sampler2D uInsetA;
     uniform sampler2D uInsetB;
     uniform vec4 uInsetBoundsA;
@@ -129,6 +134,13 @@ export function initGlobeSurface() {
       vec4 ib = insetSample(uInsetB, uInsetBoundsB, merc) * uInsetMixB;
       sat = sat * (1.0 - ib.a) + ib.rgb;
       sat *= mix(0.72, 1.0, sqrt(ndv)); // soft limb darkening
+      vec2 wx = uMapTexel * 10.0;
+      float wideLand = max(max(texture2D(uMap, vUv - vec2(wx.x, 0.0)).r,
+                               texture2D(uMap, vUv + vec2(wx.x, 0.0)).r),
+                           max(texture2D(uMap, vUv - vec2(0.0, wx.y)).r,
+                               texture2D(uMap, vUv + vec2(0.0, wx.y)).r)) * uLand;
+      float openWater = 1.0 - smoothstep(0.02, 0.60, wideLand);
+      sat = mix(sat, vec3(0.045, 0.125, 0.255), openWater * uOceanFlat);
       float satMix = uSatMix * (1.0 - texture2D(uBlackout, vUv).r * uBlackoutMix);
       col = mix(col, sat, satMix);
 
@@ -138,11 +150,12 @@ export function initGlobeSurface() {
       // Guinea's coast). Rebuild the separation from the baked land
       // channels, scaled by the local satellite mix so the classic style
       // and blacked-out countries are untouched.
+      float legFade = mix(1.0, smoothstep(1.15, 1.38, length(cameraPosition)), uLegFadeOn);
       if (satMix > 0.001) {
         // shelf fringe: lighten the water just off the coast
-        col += vec3(0.020, 0.085, 0.160) * shelf * 0.60 * satMix;
+        col += vec3(0.020, 0.085, 0.160) * shelf * 0.60 * satMix * legFade;
         // coastal glow, softer than the classic style's own
-        col += vec3(0.22, 0.70, 1.00) * glow * 0.30 * satMix;
+        col += vec3(0.22, 0.70, 1.00) * glow * 0.30 * satMix * legFade;
         // coastline rim: land-mask gradient, brightened on the land side
         vec2 tx = uMapTexel * 1.6;
         float nMin = min(min(texture2D(uMap, vUv - vec2(tx.x, 0.0)).r,
@@ -150,7 +163,7 @@ export function initGlobeSurface() {
                          min(texture2D(uMap, vUv - vec2(0.0, tx.y)).r,
                              texture2D(uMap, vUv + vec2(0.0, tx.y)).r)) * uLand;
         float rim = land * (1.0 - nMin);
-        col += vec3(0.35, 0.60, 0.66) * rim * 0.30 * satMix;
+        col += vec3(0.35, 0.60, 0.66) * rim * 0.30 * satMix * legFade;
         // minimum land tint: where the mask says land but the photo reads
         // as dark water, lift the fill toward a pale land tone. Suppressed
         // in land interiors (neighbours all land at a wider radius), so
@@ -168,7 +181,7 @@ export function initGlobeSurface() {
         float presence = smoothstep(0.008, 0.10, land);
         float lum = dot(col, vec3(0.299, 0.587, 0.114));
         float watery = 1.0 - smoothstep(0.06, 0.20, lum);
-        col = mix(col, vec3(0.44, 0.50, 0.36), presence * (1.0 - interior) * watery * 0.50 * satMix);
+        col = mix(col, vec3(0.44, 0.50, 0.36), presence * (1.0 - interior) * watery * 0.50 * satMix * legFade);
       }
 
       // atmospheric rim haze (eased back over imagery)
