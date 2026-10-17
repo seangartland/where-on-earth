@@ -505,7 +505,7 @@ export const SAT_PROVIDERS = [
     // policy without Access-Control-Allow-Origin (immutable, 1 year); a new
     // query string is a new cache key, so every tile is fetched with CORS.
     url: (z, y, x) => `https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg?v=3`,
-    credit: 'Imagery <a href="https://www.where-on.earth/credits" target="_blank" rel="noopener">© EOX</a> (Sentinel-2 2025)',
+    credit: 'EOxCloudless <a href="https://cloudless.eox.at" target="_blank" rel="noopener">https://cloudless.eox.at</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)',
     maxZ: 8,
   },
 ];
