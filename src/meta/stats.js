@@ -160,9 +160,10 @@ function renderStats() {
     const peak = Math.max(...counts);
     statsEls.histBars.replaceChildren(...counts.map((count, i) => {
       const li = document.createElement('li');
-      const height = count ? Math.max(8, (count / peak) * 100) : 0;
-      li.innerHTML = `<span class="stats-hist-count">${count || ''}</span><span class="stats-hist-bar"><span class="stats-hist-fill"></span></span><span class="stats-hist-label">${i ? `${i}k` : '0'}</span>`;
+      const height = count ? (count / peak) * 100 : 0;
+      li.innerHTML = `<span class="stats-hist-bar"><span class="stats-hist-fill"></span><span class="stats-hist-count">${count || ''}</span></span><span class="stats-hist-label">${i ? `${i}k` : '0'}</span>`;
       li.querySelector('.stats-hist-fill').style.height = `${height}%`;
+      li.querySelector('.stats-hist-count').style.bottom = `calc(${height}% + 3px)`;
       return li;
     }));
   }
@@ -218,11 +219,11 @@ export function initStats(main) {
 .stat small { display: block; margin-top: 4px; color: rgba(193,224,250,.42); font-size: 10px; letter-spacing: .06em; text-transform: none; }
 .stats-head { margin: 24px 0 10px; color: #77caff; font-size: 11px; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
 .stats-hist-bars { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 5px; margin: 0; padding: 0; list-style: none; }
-.stats-hist-bars li { display: grid; grid-template-rows: 18px 96px 16px; min-width: 0; text-align: center; }
-.stats-hist-count { align-self: end; color: #f5fbff; font-size: 11px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.stats-hist-bars li { display: grid; grid-template-rows: 96px 16px; min-width: 0; text-align: center; }
+.stats-hist-count { position: absolute; right: 0; left: 0; color: #f5fbff; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: center; }
 .stats-hist-bar { position: relative; display: block; margin: 0 1px; border-bottom: 1px solid rgba(157,211,255,.3); }
 .stats-hist-bar::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; border-radius: 2px; background: rgba(157,211,255,.5); content: ''; }
-.stats-hist-fill { position: absolute; right: 0; bottom: 0; left: 0; min-height: 0; border-radius: 5px 5px 0 0; background: rgba(103,232,255,.55); box-shadow: 0 0 14px rgba(103,232,255,.18); transition: height .35s ease-out; }
+.stats-hist-fill { position: absolute; right: 0; bottom: 0; left: 0; min-height: 0; border-radius: 5px 5px 0 0; background: rgba(103,232,255,.55); transition: height .35s ease-out; }
 .stats-hist-label { padding-top: 4px; color: rgba(193,224,250,.58); font-size: 10px; font-variant-numeric: tabular-nums; }
 .stats-best { margin: 16px 0 0; padding: 12px 14px; border: 1px solid rgba(255,199,106,.26); border-radius: 14px; background: rgba(255,199,106,.08); color: rgba(240,248,255,.86); font-size: 13px; line-height: 1.45; }
 .stats-best b { color: #ffc76a; }
