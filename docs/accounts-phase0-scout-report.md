@@ -4,7 +4,9 @@ Date: 2026-10-17 UTC
 
 ## Overall verdict
 
-**BLOCKED by the execution environment.** The local scout source, schema, API deploy helper, and test harness are prepared and banked, but the resumed session still could not install dependencies, access the Cloudflare credential surrogate, or write to the repository's `.git` directory. No Cloudflare resource was created or changed. No game file, existing Worker, existing database, DNS record, or production resource was changed.
+**Update, 2026-10-16 evening (orchestrator): one gate PASSED, the rest blocked on a token permission.** The agent sessions were blocked by their sandbox (no npm registry, no credential socket, read-only `.git`), so the orchestrator ran the prepared resume procedure directly. `npm install` completed (better-auth 1.7.10) and the bundle gate PASSED with a measured size (see the gate table). Creating the D1 database then failed with HTTP 401 from the D1 API: the account token (created from the "Edit Cloudflare Workers" template) can manage Workers (verified: script list returns 200) but has no D1 permission (D1 list returns 401 code 10000). Creating the database needs Sean to add D1 Edit permission to the token in the Cloudflare dashboard, or to create the empty database there. After that one step, the remaining commands are `python3 deploy.py create-db` (or record the dashboard-created ID), `apply-schema`, `deploy`, and the two test commands in the resume procedure.
+
+**Original agent verdict: BLOCKED by the execution environment.** The local scout source, schema, API deploy helper, and test harness are prepared and banked, but the resumed session still could not install dependencies, access the Cloudflare credential surrogate, or write to the repository's `.git` directory. No Cloudflare resource was created or changed. No game file, existing Worker, existing database, DNS record, or production resource was changed.
 
 This is not a pass or fail verdict for better-auth. The measurements required to choose Worker-native auth have not run.
 
@@ -19,7 +21,7 @@ This is not a pass or fail verdict for better-auth. The measurements required to
 
 | Gate | Verdict | Evidence and method |
 |---|---|---|
-| Bundle size | BLOCKED | `npm install` produced no response for about 90 seconds and was stopped. No bundle exists, so no byte count is claimed. The prepared command is `python3 deploy.py bundle`, which runs Wrangler dry-run bundling and records `dist/index.js` bytes and SHA-256. The applicable cap from the live recheck is 64 MiB uncompressed. |
+| Bundle size | PASS (orchestrator run, 2026-10-16) | `npm install` completed from the orchestrator's shell and `python3 deploy.py bundle` (Wrangler dry-run) produced `dist/index.js` at **2,084,257 bytes uncompressed**, about 3% of the 64 MiB cap from the live recheck. |
 | Startup | BLOCKED | No Worker was deployed. The applicable startup limit is 1 second. A successful upload and first public request are required before judging this gate. |
 | CPU | BLOCKED | No Worker was deployed, and no Cloudflare CPU telemetry was available. Wall time is not CPU time. The harness labels its repeated public request measurements as wall-clock proxies only. A Cloudflare dashboard, Workers Logs field, or API metric exposing CPU time for this Worker would settle this gate against the 10 ms Free limit. |
 | Email-code round trip | BLOCKED | The Worker and D1 database do not exist. The prepared flow uses better-auth 1.7.10 with the native D1 binding and `emailOTP`. better-auth stores its non-plaintext verification value in D1, while the send hook records the simulated delivery in a D1-only mail sink. The harness reads that sink through the authenticated D1 API, asserts that the verification value excludes the live code, submits the code, requires a bearer token, and calls `get-session` to prove the user session. No public endpoint returns a live code. |
