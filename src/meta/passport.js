@@ -1532,7 +1532,7 @@ export function initPassport(main) {
 .passport-entry { min-height: 44px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
-.pp-card { --pp-toolbar-h: 44px; position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; } /* Keep clip: overflow:hidden breaks sticky descendants. */
+.pp-card { --pp-toolbar-h: 44px; --pp-toolbar-top: 0px; position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; } /* Keep clip: overflow:hidden breaks sticky descendants. */
 [data-pp="places-view"], [data-pp="landmarks-view"] { --pp-toolbar-h: 52px; }
 .pp-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
 .pp-audit-banner { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; flex-wrap: wrap; margin: 0 0 8px; padding: 5px 8px; border: 1px solid rgba(255,209,102,.45); border-radius: 999px; background: rgba(255,209,102,.1); color: #ffd166; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
@@ -1560,7 +1560,7 @@ export function initPassport(main) {
 .pp-tabs button { flex: 1 1 0; min-height: 34px; border: 1px solid rgba(157,211,255,.18); border-radius: 11px; background: rgba(157,211,255,.05); color: rgba(193,224,250,.62); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
 .pp-tabs button[aria-selected="true"] { border-color: rgba(103,232,255,.5); background: rgba(103,232,255,.1); color: #c9f6ff; }
 .pp-stick-sentinel { height: 1px; margin-top: 7px; }
-.pp-toolbar { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 6px; box-sizing: border-box; height: var(--pp-toolbar-h); margin: -1px -14px 0; padding: 4px 14px; background: #0b1120; }
+.pp-toolbar { position: sticky; top: var(--pp-toolbar-top); z-index: 3; display: flex; align-items: center; gap: 6px; box-sizing: border-box; height: var(--pp-toolbar-h); margin: -1px -14px 0; padding: 4px 14px; background: #0b1120; }
 .pp-toolbar.is-stuck { box-shadow: 0 1px rgba(157,211,255,.14), 0 8px 18px rgba(0,0,0,.22); }
 .pp-toolbar.is-stuck::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: calc(env(safe-area-inset-top, 0px) + 18px); background: #0b1120; }
 .pp-filters-btn { flex: none; min-height: 36px; padding: 0 10px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; touch-action: manipulation; white-space: nowrap; }
@@ -1587,7 +1587,7 @@ export function initPassport(main) {
    of rebuilding, so only a sort change rebuilds the DOM (see renderPassportDex). */
 .pp-dex-wrap { margin-top: 0; }
 .pp-group { content-visibility: auto; contain-intrinsic-size: auto 900px; scroll-margin-top: var(--pp-toolbar-h); }
-.pp-group-head { position: sticky; top: var(--pp-toolbar-h); z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
+.pp-group-head { position: sticky; top: calc(var(--pp-toolbar-top) + var(--pp-toolbar-h)); z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
 [data-pp="places-view"] .pp-group-head, [data-pp="landmarks-view"] .pp-group-head { min-height: 48px; box-sizing: border-box; }
 .pp-group-head:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pp-group-head::after { content: ''; flex: none; width: 6px; height: 6px; margin: -3px 3px 0 0; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
@@ -1677,6 +1677,10 @@ export function initPassport(main) {
 .pp-country-head .pp-country-bar { width: 100%; height: 4px; margin-top: 10px; }
 .pp-country-dex { margin-top: 12px; }
 body.game-passport #hud { opacity: 0; }
+@media (max-width: 560px) {
+  .passport-screen { width: 100dvw; height: 100dvh; overflow-y: auto; padding: 0; background: #0b1120; }
+  .passport-screen .pp-card { --pp-toolbar-top: env(safe-area-inset-top, 0px); width: 100dvw; max-width: none; min-height: 100dvh; margin: 0; padding: calc(env(safe-area-inset-top, 0px) + 14px) 14px calc(env(safe-area-inset-bottom, 0px) + 20px); border: 0; border-radius: 0; background: #0b1120; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
 @media (max-width: 360px) {
   .pp-dex { gap: 8px 6px; }
 }
