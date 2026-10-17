@@ -24,7 +24,7 @@ import {
 } from './globe/surface.js';
 import {
   initOutlines, countryData, countryBands, countriesP, countryBandsP, countryGeom, bordersHit, showCountryOutline,
-  updateCountryOutline, countryOutline,
+  updateCountryOutline, countryOutline, stateData, statesP, hasKey, keyName, landAreas, landAreasP,
 } from './globe/outlines.js';
 import {
   initPin, Pin, makeBadgeTexture, pins, correctPin, pinch, applyDrag, sphereHit, nearAngle,
@@ -51,6 +51,7 @@ import {
 import {
   blackoutEntry, blackoutPicker, initBlackout, syncBlackoutMask, resetBlackout, saveBlackoutBest, blackoutFill, blackoutComplete,
   blackoutProgressText, blackoutBestSummary, showBlackoutGameOver, blackoutShareText, showBlackoutPicker,
+  startBlackoutTimer, completeBlackoutTimer,
 } from './modes/blackout.js';
 import {
   expeditionRun, expeditionPicker, initExpeditions, expeditionsLoaded, updateExpeditionEntry, completeExpeditionRound,
@@ -221,6 +222,10 @@ const modeHost = {
   get countryData() { return countryData; },
   get countryBands() { return countryBands; },
   get countryIndex() { return countryIndex; },
+  get stateData() { return stateData; },
+  get landAreas() { return landAreas; },
+  hasKey,
+  keyName,
   get CONTINENT_ORDER() { return CONTINENT_ORDER; },
   get activePin() { return state.activePin; },
   get blackoutEntry() { return blackoutEntry; },
@@ -237,6 +242,8 @@ const modeHost = {
   runHaul,
   countriesP,
   countryBandsP,
+  statesP,
+  landAreasP,
   survival,
   borders,
   expeditionRun,
@@ -272,6 +279,8 @@ const modeHost = {
   bordersBest,
   bordersShareText,
   resetBlackout,
+  startBlackoutTimer,
+  completeBlackoutTimer,
   saveBlackoutBest,
   blackoutFill,
   blackoutComplete,
@@ -750,7 +759,7 @@ const landmarksP = getJSON('assets/locations-landmarks-sol.json').then((data) =>
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('LANDMARKS: ' + err.message);
 });
-Promise.allSettled([locationsP, pinsP, countriesP, countryBandsP, triviaBankP, landmarksP]).then(openSharedMode);
+Promise.allSettled([locationsP, pinsP, countriesP, countryBandsP, statesP, landAreasP, triviaBankP, landmarksP]).then(openSharedMode);
 gameEls.play.disabled = true;
 endlessEls.entry.disabled = true;
 gameEls.survivalEntry.disabled = true;

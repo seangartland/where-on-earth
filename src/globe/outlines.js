@@ -26,6 +26,14 @@ export const whenIdle = (fn) => (window.requestIdleCallback ? requestIdleCallbac
 export let countryData = null; // { arcs, cut, units, keys, keyOf }
 export let countryBands = null; // { key: band 1-10 }, build/make-country-bands.py
 export const countryGeoms = new Map();
+// United States scope (Blackout only): assets/us-states.topo.json, decoded
+// through the same decodeCountries() path into its own structure. Never
+// merged into countryData: the Passport's countryIndex/countryBands must
+// never see state keys ('US-CA' style). geomFor()/bordersHit() below resolve
+// a key against countryData first, then stateData, so the shared borders
+// machinery works on either without forking.
+export let stateData = null; // { arcs, cut, units, keys, keyOf }
+export const stateGeoms = new Map();
 
 export function decodeCountries(topo) {
   const { scale, translate } = topo.transform;
@@ -69,14 +77,31 @@ export function mergeBoxes(boxes) {
     [Infinity, Infinity, -Infinity, -Infinity]);
 }
 
-// A game key's merged geometry: its member units' polygons, and the arcs to
+// A key's dataset: countryData if it resolves there, else stateData. The one
+// place that knows about both; everything below reaches either through it,
+// so the geometry engine itself (geomFor, countryLines, bordersHit) is never
+// duplicated for states.
+function dataFor(key) {
+  if (countryData && countryData.keys[key]) return countryData;
+  if (stateData && stateData.keys[key]) return stateData;
+  return null;
+}
+export const hasKey = (key) => Boolean(dataFor(key));
+// A state key's display name ('US-CA' -> 'California'); country keys are
+// already names, returned as-is.
+export function keyName(key) {
+  if (countryData && countryData.keys[key]) return key;
+  const geom = countryGeom(key);
+  return geom ? geom.units[0].name : key;
+}
+
+// A key's merged geometry: its member units' polygons, and the arcs to
 // stroke (minus seams, and minus borders between members such as
 // Somalia/Somaliland, which appear once in each member).
-export function countryGeom(key) {
-  if (!countryData || !countryData.keys[key]) return null;
-  let geom = countryGeoms.get(key);
+function geomFor(key, data, cache) {
+  let geom = cache.get(key);
   if (geom) return geom;
-  const units = countryData.keys[key].map((id) => countryData.units.find((u) => u.id === id));
+  const units = data.keys[key].map((id) => data.units.find((u) => u.id === id));
   const uses = new Map();
   for (const u of units) for (const poly of u.polys) for (const r of poly) for (const i of r.refs) {
     const a = i >= 0 ? i : ~i;
@@ -85,9 +110,14 @@ export function countryGeom(key) {
   const rings = units.flatMap((u) => u.polys.flat());
   const box = mergeBoxes(units.map((u) => u.box));
   const diagKm = distanceKm({ lat: box[1], lng: box[0] }, { lat: box[3], lng: box[2] });
-  geom = { key, units, rings, box, diagKm, skip: (a) => countryData.cut.has(a) || uses.get(a) > 1 };
-  countryGeoms.set(key, geom);
+  geom = { key, units, rings, box, diagKm, arcs: data.arcs, skip: (a) => data.cut.has(a) || uses.get(a) > 1 };
+  cache.set(key, geom);
   return geom;
+}
+export function countryGeom(key) {
+  if (countryData && countryData.keys[key]) return geomFor(key, countryData, countryGeoms);
+  if (stateData && stateData.keys[key]) return geomFor(key, stateData, stateGeoms);
+  return null;
 }
 
 // Stroke polylines for a key. Rings under MIN_ISLAND are skipped like the
@@ -103,7 +133,7 @@ export function countryLines(geom, anchor) {
     for (const i of r.refs) {
       const a = i >= 0 ? i : ~i;
       if (geom.skip(a)) { line = null; continue; }
-      const arc = i >= 0 ? countryData.arcs[a] : countryData.arcs[a].slice().reverse();
+      const arc = i >= 0 ? geom.arcs[a] : geom.arcs[a].slice().reverse();
       if (!line) lines.push((line = [arc[0]]));
       for (let j = 1; j < arc.length; j++) line.push(arc[j]);
     }
@@ -218,6 +248,9 @@ export function updateCountryOutline(dt) {
 
 export let countriesP;
 export let countryBandsP;
+export let statesP;
+export let landAreas = null;
+export let landAreasP;
 
 export function initOutlines() {
   countriesP = criticalBytesP
@@ -232,6 +265,16 @@ export function initOutlines() {
     .then(() => loadJSON(LOAD.countryBands, { priority: 'low' }))
     .then((data) => { countryBands = data.bands; });
   countryBandsP.catch((err) => console.error('[outlines] failed to load bands', err));
+  // Blackout's United States scope, same lazy path as countriesP.
+  statesP = criticalBytesP
+    .then(() => loadJSON(LOAD.states, { priority: 'low' }))
+    .then((topo) => new Promise((resolve) => whenIdle(() => resolve(decodeCountries(topo)))))
+    .then((data) => { stateData = data; });
+  statesP.catch((err) => console.error('[outlines] failed to load states', err));
+  landAreasP = criticalBytesP
+    .then(() => loadJSON(LOAD.landAreas, { priority: 'low' }))
+    .then((data) => { landAreas = data; });
+  landAreasP.catch((err) => console.error('[outlines] failed to load land areas', err));
 }
 
 // Borders mode hit test (plan §3.2), on the game key's merged units.
@@ -281,15 +324,16 @@ export function nearestBorder(geom, p, maxKm = Infinity) {
 export const SMALL_TARGET_KM = 30;
 // -> { hit, near: nearest border point, km to it, tapped: unit name or null (ocean) }
 export function bordersHit(key, p, tolKm) {
+  const data = dataFor(key);
   const geom = countryGeom(key);
   const own = geom.units.find((u) => inUnit(u, p.lng, p.lat));
   if (own) return { hit: true, km: 0, near: null, ring: ringAt(geom, p), tapped: null };
   const near = nearestBorder(geom, p);
   const hit = { hit: true, km: near.km, near, ring: null, tapped: null };
   if (geom.diagKm < SMALL_TARGET_KM && near.km <= tolKm) return hit; // the Vatican sits inside Italy
-  const other = countryData.units.find((u) => !geom.units.includes(u) && inUnit(u, p.lng, p.lat));
+  const other = data.units.find((u) => !geom.units.includes(u) && inUnit(u, p.lng, p.lat));
   if (other) {
-    const key2 = countryData.keyOf.get(other.id);
+    const key2 = data.keyOf.get(other.id);
     const tapped = !key2 || key2 === other.name ? other.name : `${other.name} (${key2})`;
     return { hit: false, km: near.km, near, tapped };
   }
