@@ -379,6 +379,57 @@ Synced keys (allow-list, enforced server-side): `passport-v1`, `history-v1`, `st
 
 **Clerk delta:** identical tables, plus `clerk_users (clerk_user_id PRIMARY KEY, account_id)` in place of better-auth's tables; the Worker resolves `account_id` from the verified Clerk JWT `sub`.
 
+## 6. PvP identity and the path to notifications
+
+### 6a. Today (verified)
+
+- A PvP identity is created on first create or join: `POST /v1/players` returns `playerId` and `playerToken` (`pvp-worker/src/index.js:340`), kept in `where-on-earth-pvp-v1`.
+- The name is typed by the player, cleaned to 24 characters (`pvpCleanName()`, `src/pvp/api.js:111`), and **snapshotted per seat**: renaming relabels future matches only (comment above `pvpEnsureIdentity()`). Opponents also see a `displaySuffix` derived from the `playerId`, which separates two players with the same name.
+- `authenticate()` (`pvp-worker/src/index.js:71`) resolves the bearer token's HMAC to one `playerId`; `participant()` (line 224) then requires both the seat's `playerId` **and** its `tokenHash` to match. So a match can only be played from the device that holds the token.
+- Pair records (`pair_records`) are keyed by the pair of `playerId`s.
+
+### 6b. Account name versus device name
+
+- **One name, owned by the account.** At sign-in, the account's display name defaults to the device's existing PvP name if there is one, else the first name from Apple or Google, else the part of the email before the `@` cleaned by `pvpCleanName()`'s rules. No extra prompt.
+- **Renaming in Settings** updates the account and, through the PvP Worker's existing `/name` path, every linked `playerId`. The snapshot rule is unchanged: past and in-flight seats keep the name they were created with.
+- **Suffix:** unchanged, still per `playerId`, so nothing an opponent has already seen changes (judgment; a per-account suffix can come later if two-device players cause confusion).
+- **Anonymous players keep everything they have today:** device identity, matches, records, the 24-character name. They can play account holders and vice versa; no badge or gate marks the difference. PvP stays link-first: joining a challenge never asks for an account.
+
+### 6c. One player, several devices
+
+Phase 3 (section 7) changes the PvP Worker so an account session is an alternative credential:
+1. Add the `woe-accounts` D1 binding to the PvP Worker (metadata only, 3a).
+2. `authenticate()` accepts either today's player token or an account session sent in a separate header (`x-woe-session`, so `Authorization` keeps one meaning). A session resolves to the set of `playerId`s in `pvp_links` for that account.
+3. `participant()` accepts a seat whose `playerId` is in that set (the token-hash check still applies when a raw player token is used).
+4. A device that signs in with no local PvP identity reuses the account's most recent linked `playerId` for new matches, instead of creating a new one. The token is never copied between devices (the server only holds its HMAC, section 1b); the session stands in for it.
+5. Guards: refuse a join where both seats would belong to the same account; keep the existing rate limits; a revoked session stops working immediately because it is checked per request.
+
+Result: an in-flight match started on the phone can be finished on the laptop, and the pair record against a friend is one record even across devices, because new matches use one `playerId`. Records already split across two old `playerId`s are summed at read time for the "your record" display (a `WHERE player_id IN (...)` over the linked set).
+
+Round submissions from two devices at once are serialized by the match's single Durable Object; the existing one-submission-per-round rule decides (verify in the Phase 3 build that a second submission for the same round is rejected, not double-counted).
+
+### 6d. The path to notifications
+
+**Status:** no notifications beyond share links and in-app status was APPROVED for the PvP MVP (Sean, 2026-10-13, `docs/pvp-mode-plan-sol.md:260`). Adding them is a new product decision (section 8), not a default of this plan.
+
+**Web push requirements** (author's knowledge, unverified, recheck when the phase starts):
+- iOS and iPadOS 16.4 and later support web push **only for a site added to the Home Screen**, which must have a web app manifest (standalone display) and a service worker, and the permission request must come from a tap. Safari tabs on iOS cannot receive push.
+- Android and desktop browsers support push from a normal tab.
+
+**What the game lacks today:** a manifest and a service worker (2a.5). Both are needed first:
+- `manifest.webmanifest` with `display: standalone`, `start_url: /`, icons from `assets/`, and the existing theme colour `#03060f` (`index.html:29`). Install behaviour for current home-screen users must be checked on device: adding a manifest can change what the existing home-screen icon opens.
+- `sw.js` **for push only, with no `fetch` handler**, so it caches nothing. The game already fights stale iOS caches with the version check in `index.html`; a caching service worker would reopen that problem.
+
+**Do accounts gate push?** Not strictly: a push subscription could hang off a device's `playerId`. Accounts make it reach every device a player uses and survive a reinstall, and they make the email fallback possible. The `push_subscriptions` table (5b) is keyed by device and joined to the account.
+
+**Sending:** the PvP Worker sends on match events (opponent finished, it is your turn, a challenge expires in 24 hours) by reading subscriptions for the seat's linked account. Web push needs VAPID signing (ES256) and payload encryption (aes128gcm), both doable with WebCrypto in the unbundled Worker (estimate: about 200 lines with tests), or a small library in the bundled account Worker with the PvP Worker calling it.
+
+**The iOS funnel** (judgment): "Get a ping when Sam finishes" on the PvP waiting screen. If the game is not installed, the sheet shows Add to Home Screen steps (iOS has no install prompt the page can trigger), and offers sign-in so the installed app opens with the player's progress (4b moment 4). Inside the installed app, the next tap asks for push permission.
+
+**Email as the cheaper first step:** the account already holds a verified email. An opt-in "Email me when my opponent finishes" works on every iPhone without install or a service worker, using the same sender as sign-in codes. Recommend it as the first notification, with push after (section 8).
+
+**Clerk delta:** identical, except the PvP Worker verifies a Clerk JWT instead of looking up a session row.
+
 ## Appendix A. Runner-up notes: Clerk on this stack
 
 Written as section 2 of the first draft, before Sean reopened the provider question. Kept because it holds the live-checked Clerk facts and is the integration design if Sean picks Clerk (section 2d). Section references below are updated to the current numbering.
