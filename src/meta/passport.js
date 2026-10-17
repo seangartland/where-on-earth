@@ -273,11 +273,19 @@ function fillPassportShareCard(stats) {
   if (stats.top3?.length) {
     ppsEls.top3.replaceChildren(...stats.top3.map((entry) => {
       const li = document.createElement('li');
-      li.className = 'pp-slot';
-      li.dataset.earn = host.EARN_NAMES[entry.earned] || 'seen';
-      host.applyCardTier(li, entry.item, entry.earned);
-      li.append(...passportSlotFace(entry, formatShareKm(entry.km), { flagForPlaceholder: true }));
-      return li;
+      return buildPostcardCard(entry.item, {
+        earned: entry.earned,
+        earnName: host.EARN_NAMES[entry.earned] || 'seen',
+        entry,
+        photo: hasRealPhoto(entry.item) ? 'image' : 'flag',
+        scoreText: formatShareKm(entry.km),
+      }, {
+        variant: 'slot',
+        element: li,
+        flagForLocation: host.flagForLocation,
+        applyCardTier: host.applyCardTier,
+        addAuditFlagButton: host.addAuditFlagButton,
+      });
     }));
   }
   while (ppsEls.top3.children.length < 3 && !ppsEls.best.hidden) ppsEls.top3.append(ppMysteryTemplate.cloneNode(true));
