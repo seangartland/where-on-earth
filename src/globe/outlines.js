@@ -249,6 +249,8 @@ export function updateCountryOutline(dt) {
 export let countriesP;
 export let countryBandsP;
 export let statesP;
+export let landAreas = null;
+export let landAreasP;
 
 export function initOutlines() {
   countriesP = criticalBytesP
@@ -269,6 +271,10 @@ export function initOutlines() {
     .then((topo) => new Promise((resolve) => whenIdle(() => resolve(decodeCountries(topo)))))
     .then((data) => { stateData = data; });
   statesP.catch((err) => console.error('[outlines] failed to load states', err));
+  landAreasP = criticalBytesP
+    .then(() => loadJSON(LOAD.landAreas, { priority: 'low' }))
+    .then((data) => { landAreas = data; });
+  landAreasP.catch((err) => console.error('[outlines] failed to load land areas', err));
 }
 
 // Borders mode hit test (plan §3.2), on the game key's merged units.

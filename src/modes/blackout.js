@@ -19,10 +19,14 @@ import { borders, startBorders } from './tap-country.js';
 
 let host = null;
 const BLACKOUT_BEST_KEY = 'where-on-earth-blackout-best-v1';
+const BLACKOUT_TIMES_KEY = 'where-on-earth-blackout-times-v1';
 const BLACKOUT_MIN_COUNTRIES = 10; // smaller scopes aren't a real run
 const BLACKOUT_EMOJI = { Africa: '🌍', Europe: '🌍', Asia: '🌏', Oceania: '🌏', 'North America': '🌎', 'South America': '🌎' };
 export let blackoutEntry = null;
 let blackoutTex = null;
+let blackoutFoundArea = 0; // km2, running sum for the HUD/results % stat (see blackoutAreaPct)
+let blackoutStartedAt = null;
+let blackoutClearResult = null;
 
 // Scopes on the game's own continent assignments (the Passport's countryIndex),
 // plus the United States (its 50 states; never merged into the country scopes
@@ -62,11 +66,73 @@ export function saveBlackoutBest(scope, value) {
   return best;
 }
 
+function blackoutTimes() {
+  try {
+    const value = JSON.parse(localStorage.getItem(BLACKOUT_TIMES_KEY) || '{}');
+    return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+  } catch {
+    return {};
+  }
+}
+
+function blackoutBestTime(scope) {
+  const seconds = blackoutTimes()[scope.id];
+  return Number.isFinite(seconds) && seconds >= 0 ? seconds : null;
+}
+
+export function formatBlackoutTime(seconds) {
+  const total = Math.max(0, Math.round(seconds));
+  const s = String(total % 60).padStart(2, '0');
+  const minutes = Math.floor(total / 60);
+  if (minutes < 60) return `${minutes}:${s}`;
+  return `${Math.floor(minutes / 60)}:${String(minutes % 60).padStart(2, '0')}:${s}`;
+}
+
+export function startBlackoutTimer() {
+  blackoutStartedAt = performance.now();
+  blackoutClearResult = null;
+}
+
+export function completeBlackoutTimer(scope) {
+  if (blackoutStartedAt == null || blackoutClearResult) return blackoutClearResult;
+  const seconds = Math.max(0, Math.round((performance.now() - blackoutStartedAt) / 1000));
+  const times = blackoutTimes();
+  const previous = blackoutBestTime(scope);
+  const isNew = previous == null || seconds < previous;
+  if (isNew) {
+    times[scope.id] = seconds;
+    host.safeSetItem(BLACKOUT_TIMES_KEY, JSON.stringify(times));
+  }
+  blackoutClearResult = { seconds, best: isNew ? seconds : previous, isNew };
+  return blackoutClearResult;
+}
+
 export const blackoutComplete = () => Boolean(borders.scope && !borders.missed && borders.found === borders.scope.keys.length);
-export const blackoutProgressText = () => `Streak ${borders.found} · ${borders.found}/${borders.scope.keys.length} found`;
+
+// % of the scope's land area found so far, assets/land-areas.json (lazy,
+// loaded alongside the outlines; see src/globe/outlines.js), keyed by the
+// same country/state keys as the scope. null until that file has landed, or
+// if a key has no area entry, so callers can omit the stat rather than show
+// a bogus number.
+function areaOf(key) {
+  const areas = host.landAreas;
+  return (areas && (areas.countries[key] ?? areas.states[key])) || 0;
+}
+export function blackoutAreaPct(scope) {
+  if (!host.landAreas || scope.keys.some((key) => !areaOf(key))) return null;
+  const total = scope.keys.reduce((n, k) => n + areaOf(k), 0);
+  return total ? (blackoutFoundArea / total) * 100 : null;
+}
+
+export const blackoutProgressText = () => {
+  const base = `Streak ${borders.found} · ${borders.found}/${borders.scope.keys.length} found`;
+  const pct = blackoutAreaPct(borders.scope);
+  return pct == null ? base : `${base} · ${pct.toFixed(1)}% of land cleared`;
+};
 
 export function resetBlackout() {
   const { renderer } = host;
+  blackoutFoundArea = 0;
   if (!blackoutTex) {
     const W = renderer.capabilities.maxTextureSize >= 4096 ? 4096 : 2048; // as the land texture
     const cv = document.createElement('canvas');
@@ -88,6 +154,7 @@ export function resetBlackout() {
 // Paint a found country into the mask: every ring of its units, holes kept
 // (evenodd), plus a thin stroke so microstates still show as a dot.
 export function blackoutFill(key) {
+  blackoutFoundArea += areaOf(key);
   const geom = host.countryGeom(key);
   if (!geom || !blackoutTex) return;
   const cv = blackoutTex.image;
@@ -114,7 +181,7 @@ let blackoutList = null;
 let blackoutScopeList = [];
 
 export function showBlackoutPicker() {
-  if (!host.countryData || !host.countryBands || !host.locations.length) return;
+  if (!host.countryData || !host.countryBands || !host.stateData || !host.landAreas || !host.locations.length) return;
   host.clearReveal();
   host.hideScreens();
   host.gameMode = 'blackout-scope';
@@ -130,8 +197,10 @@ export function showBlackoutPicker() {
     button.innerHTML = `<span class="emoji"></span><span><strong></strong><small></small></span><span class="badge"></span>`;
     button.querySelector('.emoji').textContent = scope.emoji;
     button.querySelector('strong').textContent = scope.label;
-    button.querySelector('small').textContent = best >= total ? `${total}/${total} found · Replay`
-      : best ? `${total} countries · Best ${best}/${total}` : `${total} countries`;
+    const countText = best >= total ? `${total}/${total} found · Replay`
+      : best ? `${total} ${scope.unitPlural} · Best ${best}/${total}` : `${total} ${scope.unitPlural}`;
+    const bestTime = blackoutBestTime(scope);
+    button.querySelector('small').textContent = bestTime == null ? countText : `${countText} · Best clear ${formatBlackoutTime(bestTime)}`;
     button.querySelector('.badge').textContent = best >= total ? '🏅' : '›';
     return button;
   }));
@@ -162,12 +231,16 @@ export function showBlackoutGameOver() {
   document.body.className = `game-results survival borders blackout${complete ? ' blackout-complete' : ''}`;
   const best = saveBlackoutBest(scope, found);
   if (complete) {
-    setRunResultsCopy(`Country Blackout: ${scope.label}`, `Every ${scope.unit} in ${scope.place}, found in one run without a miss.`, 'Found');
+    const clear = blackoutClearResult;
+    const timeText = clear && `Cleared in ${formatBlackoutTime(clear.seconds)} - ${clear.isNew ? 'new best' : `Best ${formatBlackoutTime(clear.best)}`}`;
+    setRunResultsCopy(`Country Blackout: ${scope.label}`, timeText || `Every ${scope.unit} in ${scope.place}, found in one run without a miss.`, 'Found');
     gameEls.survivalResultTitle.textContent = `🏅 ${scope.done} complete`;
   } else {
     setRunResultsCopy(`Country Blackout: ${scope.label}`, 'One miss ends the run.', 'Found');
     gameEls.survivalResultTitle.textContent = `${found} of ${total} ${total === 1 ? scope.unit : scope.unitPlural} found`;
   }
+  const pct = blackoutAreaPct(scope);
+  if (pct != null) gameEls.survivalResultTitle.textContent += ` · ${pct.toFixed(1)}% of land cleared`;
   gameEls.survivalFinalStreak.textContent = `${found}/${total}`;
   gameEls.survivalBestStreak.textContent = `${best}/${total}`;
   gameEls.survivalShare.textContent = 'Share result';
