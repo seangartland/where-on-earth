@@ -62,3 +62,46 @@ The token itself is never stored server-side, only `HMAC(PLAYER_TOKEN_KEY, token
 - **Merge-friendly by construction.** Almost every field is a max, a min, a union or a "first value wins": best score, closest km, earned tier (never downgraded, `readPassport()`), first-earned dates, bests, played stops. That is what makes a lossless guest merge possible (section 3). The two exceptions are `visits[id]` (latest score, drives dot colour) and the streak, which need explicit rules.
 - **Dates are the player's local calendar.** `localDateKey()` (`core/format.js`) builds the Daily date, the streak, the first-visit date and weekly stop dates from the device clock. `dayNumber()` (`daily.js`) maps a key to the same game in every timezone. Section 4 keeps this.
 - **The "contract" holds.** An account layer must read and write these exact keys and shapes. It is a sync layer beside the existing storage, not a replacement of it, so a signed-out player's game is byte-for-byte today's game.
+
+## 2. Clerk integration for this stack
+
+### 2a. Loading the SDK in a framework-less module app
+
+The game has no bundler for the app: `index.html` loads `src/main.js` as a module with an import map for `three` and `topojson-client` from `vendor/`. Clerk's current JavaScript quickstart (read 2026-10-16) supports exactly this with two script tags served from the app's Clerk Frontend API host, `@clerk/ui@1/dist/ui.browser.js` and `@clerk/clerk-js@6/dist/clerk.browser.js` (the second carries `data-clerk-publishable-key`), then `await Clerk.load({ ui: { ClerkUI: window.__internal_ClerkUICtor } })`. No npm, no build step, nothing added to `vendor/`.
+
+Plan (judgment):
+- **Lazy, never on boot.** The game's promise is "a shared link opens a playable game", and `index.html` already fights for first paint (boot messages, the version banner). Clerk is not loaded at startup. A new module `src/account/clerk.js` injects the two script tags only when (a) a local hint key `where-on-earth-account` says this device is signed in, or (b) the player taps an account offer. A guest who never taps one never downloads Clerk. Bundle size was not measured; measure it on a 390px throttled capture before shipping, and if it is large, case (a) loads it after the first round starts, not before.
+- **Custom domain for the Frontend API**, e.g. `clerk.where-on.earth` (a CNAME, included on the free Hobby plan per the pricing page). The session cookie is then first-party to `where-on.earth`, which matters on iOS Safari where third-party cookies are blocked.
+- **Session token to the Worker.** Signed-in requests to `woe-pvp` send `Authorization: Bearer <await Clerk.session.getToken()>`. The SDK refreshes the short-lived token (its lifetime is a Clerk Dashboard setting); the client always asks `getToken()` right before a request and never caches it. The Worker verifies the JWT itself with WebCrypto (`crypto.subtle.importKey` on the JWK from the Frontend API's JWKS, RS256), checks `exp`, `nbf` and `azp` against the game's origins, and caches the JWKS in memory. This has to be hand-written: `cf_api.py deploy` uploads `pvp-worker/src/*.js` as-is with no bundling, so the Worker cannot import an npm JWT library. Roughly 50 lines, unit-tested with a fixed key pair.
+- **One module boundary.** `src/account/` (new): `clerk.js` (load, sign in, sign out, token), `sync.js` (section 4), `merge.js` (section 3, pure functions with tests). Gameplay modules never import Clerk; they keep calling `readJSON` / `writeJSON` / `safeSetItem`, and `sync.js` observes those writes. That keeps the "contract with players' phones" untouched.
+
+### 2b. Sign-in UI: Clerk components or custom forms
+
+Two options:
+
+| | Clerk prebuilt (`Clerk.openSignIn()` modal, `appearance` theming) | Custom forms on Clerk's API (`Clerk.client.signIn.create`, `authenticateWithRedirect`) |
+|---|---|---|
+| Effort | Small: one call plus an appearance object | Medium to large: every step (code entry, resend, errors, account linking, bot checks) is ours |
+| Look | Clerk's layout, themable colours, radius and font; "Secured by Clerk" footer stays on Hobby (removal is Pro) | Fully ours: the dark glass panels, gold accent and `.expedition-panel` sheet the rest of the game uses |
+| Risk | Generic look inside a very styled game | More code paths to break, on the one flow where a bug loses a signup |
+
+Recommendation (judgment): **our own value sheet in front, Clerk's modal behind it.** The offer (section 3) is a game-styled sheet built from the existing shared overlay classes (the AGENTS rule: reuse shared UI, no one-off), saying exactly what the account saves, with buttons for each method. Tapping a method opens Clerk's prebuilt flow themed to the game (`colorPrimary` the game's gold, dark background, the game's font). This gets Clerk's tested edge cases (verification, automatic account linking when one email uses two methods, bot protection) for little code, and the part players judge, the pitch, is ours. Visual bar: it ships only after a 390px capture of the sheet and the modal, signed in and out, on Sean's phone width. Move to fully custom forms only if that capture fails the game's standard.
+
+### 2c. Which sign-in methods
+
+The audience: casual, mobile-first, arriving from share links in group chats, mostly on phones (Sean tests on an iPhone; the game has iOS-specific code such as the `apple-mobile-web-app-capable` meta and the iOS cache-busting version check in `main.js`).
+
+| Method | Verdict | Why |
+|---|---|---|
+| **Sign in with Apple** | Offer | One tap on iPhone with Face ID, and Hide My Email lowers the trust bar. Needs Sean's own Apple Developer credentials for production (Clerk's shared dev credentials are for development only); confirm the Apple Developer Program membership cost and setup before Phase 1 (not verified here). |
+| **Google** | Offer | One tap on Android and for anyone signed into Google on iOS. Hobby allows up to 3 social connections; Apple plus Google uses 2. |
+| **Email one-time code** | Offer, as the fallback | Works for everyone with no third-party account. Preferred over the magic link because the code is typed where the player already is. iOS also offers to autofill codes from Mail and Messages. |
+| **Email magic link** | Do not offer | A link opens in whatever browser the mail app picks, not necessarily the tab or the installed home-screen app the player came from. On iOS a home-screen web app has its own storage, so the session would land in the wrong place. The code flow avoids this. |
+| **Passkeys** | Not at launch | Not included on Clerk's Hobby plan (Pro only, pricing page 2026-10-16). Also the least understood option for a casual audience. Revisit with Pro. |
+| Password, SMS | No | Passwords add friction and support load; SMS costs per message and is not on Hobby. |
+
+### 2d. Signed out and offline
+
+- **Signed out is today's game.** Every mode reads and writes `localStorage` exactly as now. No feature that works today is moved behind sign-in.
+- **Offline or Clerk down.** Writes always land in `localStorage` first (unchanged code paths); `sync.js` queues the delta in a device key `where-on-earth-sync-queue-v1` and flushes when online and signed in. If Clerk's script fails to load, the account sheet says sign-in is unavailable right now and the game carries on. The game must never block on a network call to Clerk or the Worker.
+- **Session expiry.** Clerk's Hobby plan has a fixed 7-day session lifetime (pricing page; custom lifetime is Pro). A daily player signed in on Monday is asked to sign in again the next week. Nothing is lost (local data keeps working and the queue holds), but it is a real annoyance: a quiet "Sign in again to keep syncing" row on the home screen, never a modal. This is a decision for Sean (section 8).
