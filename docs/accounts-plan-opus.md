@@ -1,9 +1,9 @@
-# Where on Earth: accounts plan (Clerk)
+# Where on Earth: accounts plan
 
 Date: 2026-10-16 · Author: Claude Opus 5.5, written directly in session (no delegation)
 Status: PLAN ONLY. No code or data changed.
 
-Method: every claim about the current codebase below comes from reading the repo at commit `04b7299` (`src/core/config.js`, `src/core/storage.js`, `src/meta/passport-store.js`, `src/meta/passport.js`, `src/meta/stats.js`, `src/modes/*.js`, `src/pvp/api.js`, `src/pvp/home.js`, `src/main.js`, `src/daily.js`, `src/modes/weekly.js`, `index.html`, `vercel.json`, `deploy.sh`, `pvp-worker/` and the PvP docs) and from the Cloudflare deploy helper `~/workspace/custom-connectors/custom.cloudflare/bin/cf_api.py`. Clerk and Cloudflare prices and limits were read from their live pages on 2026-10-16 (section 7). Byte sizes are my estimates from sample JSON, labelled as estimates. Recommendations marked (judgment) are mine.
+Method: every claim about the current codebase below comes from reading the repo at commit `04b7299` (`src/core/config.js`, `src/core/storage.js`, `src/meta/passport-store.js`, `src/meta/passport.js`, `src/meta/stats.js`, `src/modes/*.js`, `src/pvp/api.js`, `src/pvp/home.js`, `src/main.js`, `src/daily.js`, `src/modes/weekly.js`, `index.html`, `vercel.json`, `deploy.sh`, `pvp-worker/` and the PvP docs) and from the Cloudflare deploy helper `~/workspace/custom-connectors/custom.cloudflare/bin/cf_api.py`. Clerk facts in Appendix A were read from Clerk's live pages on 2026-10-16 by the session that wrote the first draft. The session that wrote sections 2 to 8 had no web access (WebFetch and WebSearch were not permitted), so every other price or vendor limit is from the author's knowledge (training data to mid-2026), marked "(unverified)", and listed for a live recheck in section 2e before Sean decides. Byte sizes are my estimates from sample JSON, labelled as estimates. Recommendations marked (judgment) are mine.
 
 ## 1. Inventory: player state today
 
@@ -17,7 +17,7 @@ Everything a player has lives in their browser. There is no account, no server c
 |---|---|---|---|---|
 | `where-on-earth-passport-v1` | `recordVisit()` in `meta/passport-store.js`, every scored reveal except Trivia | `{ v: 2, visits: { id: base0to1000 }, order: [id...], meta: { id: { b, d, f, t, e, ea, eb1, eb2, eb3 } }, _v: 1 }`. `b` best base score, `d` closest km, `f` first-visit local date, `t` last visit ms, `e` earned tier 1 to 3 (near, bullseye, pinpoint), `ea` first earn ms, `eb1..eb3` first time each tier was reached. Visits logged before `meta` shipped have no meta entry (legacy, undated). | One entry per distinct place, never per play. Capped by content: 805 cities in `assets/locations.json` plus 427 landmarks in `assets/locations-landmarks-sol.json`, so at most 1,232 entries. `order` is capped at 240 ids. Estimate: about 160 bytes per entry, so roughly 200 KB for a player who has seen everything, 10 to 30 KB for a typical player. | **Yes.** The core collection and the main thing worth an account. |
 | `where-on-earth-history-v1` | `recordHistory()` in `meta/stats.js`, once per finished Daily | `{ _v: 1, entries: [ { date, total, rounds: [ { base, score, distance } x5 ] } ] }` | One entry per Daily played, trimmed to the last 365 (`HISTORY_LIMIT`). Estimate 250 bytes each, about 90 KB at the cap. Only collects from the first game after it shipped. | **Yes.** Feeds Stats (averages, histogram, longest run). |
-| `where-on-earth-streak-v1` | `finishStreak()` in `modes/daily-game.js` | `{ last: 'YYYY-MM-DD', count, _v: 1 }`; extends only when `last` was the local day before | Constant size | **Yes**, with the merge rule in section 3. Note the count can predate history, so it cannot be rebuilt from history alone. |
+| `where-on-earth-streak-v1` | `finishStreak()` in `modes/daily-game.js` | `{ last: 'YYYY-MM-DD', count, _v: 1 }`; extends only when `last` was the local day before | Constant size | **Yes**, with the merge rule in section 4. Note the count can predate history, so it cannot be rebuilt from history alone. |
 | `where-on-earth-v1` (`GAME_KEY`) | `saveDaily()` after every Daily round | `{ date, ids: [5 ids], round, results: [ { guess, distance, score, base, distanceExact, postcard } ], complete, _v: 1 }` | Current day only; `loadDaily()` replaces it when the local date rolls | **Yes, the finished or in-progress result for the day** (so a second device shows "played" and cannot replay seen places). The `ids` are derived from the date, not owned. |
 | `where-on-earth-expedition-v1` | `completeExpeditionRound()` in `modes/expeditions.js` | `{ progress: { expeditionId: { completed, complete } }, _v: 1 }` | 4 expeditions in `assets/expeditions.json`, 7 stops each | **Yes.** |
 | `where-on-earth-weekly-v1` | `completeWeeklyStop()` | `{ weeks: { 'Monday YYYY-MM-DD': { route, played: { stopIndex: dateKey }, badge } }, _v: 1 }` | One entry per week played, never trimmed. Week 0 is Monday 2026-10-19 (`weekly.js`), so this key is about to start growing. Estimate 150 bytes a week, under 8 KB a year. | **Yes.** It is also the data the planned paid catch-up and archive (`docs/expeditions-rethink-opus.md`, recommendation 11) would gate. |
@@ -54,18 +54,95 @@ The token itself is never stored server-side, only `HMAC(PLAYER_TOKEN_KEY, token
 | `where-on-earth-passport-view` | `'places'` or `'countries'` | UI state. |
 | `where-on-earth-collection-sort` | One of `completion`, `earned`, `closest`, `alpha` | UI state (Collections is hidden today). |
 | `where-on-earth-audit-flags`, `where-on-earth-flags-wiped-v1` | Retired audit mode (`src/modes/audit.js`, quarantined 2026-10-12) | Internal tooling, never synced. |
-| `<key>.corrupt-backup` | Raw corrupt value | Recovery copy. The merge in section 3 should read it as a last resort, never upload it blind. |
+| `<key>.corrupt-backup` | Raw corrupt value | Recovery copy. The merge in section 4 should read it as a last resort, never upload it blind. |
 
 ### 1d. What the inventory implies
 
 - **Small data.** A heavy player's whole progress is a few hundred KB, a typical player's well under 50 KB. Sync can send whole documents at sign-in and small deltas per play; no paging or blob storage is needed.
-- **Merge-friendly by construction.** Almost every field is a max, a min, a union or a "first value wins": best score, closest km, earned tier (never downgraded, `readPassport()`), first-earned dates, bests, played stops. That is what makes a lossless guest merge possible (section 3). The two exceptions are `visits[id]` (latest score, drives dot colour) and the streak, which need explicit rules.
-- **Dates are the player's local calendar.** `localDateKey()` (`core/format.js`) builds the Daily date, the streak, the first-visit date and weekly stop dates from the device clock. `dayNumber()` (`daily.js`) maps a key to the same game in every timezone. Section 4 keeps this.
+- **Merge-friendly by construction.** Almost every field is a max, a min, a union or a "first value wins": best score, closest km, earned tier (never downgraded, `readPassport()`), first-earned dates, bests, played stops. That is what makes a lossless guest merge possible (section 4). The two exceptions are `visits[id]` (latest score, drives dot colour) and the streak, which need explicit rules.
+- **Dates are the player's local calendar.** `localDateKey()` (`core/format.js`) builds the Daily date, the streak, the first-visit date and weekly stop dates from the device clock. `dayNumber()` (`daily.js`) maps a key to the same game in every timezone. Section 5 keeps this.
 - **The "contract" holds.** An account layer must read and write these exact keys and shapes. It is a sync layer beside the existing storage, not a replacement of it, so a signed-out player's game is byte-for-byte today's game.
 
-## 2. Clerk integration for this stack
+## 2. Provider shootout
 
-### 2a. Loading the SDK in a framework-less module app
+This section gates everything after it. Candidates: **Clerk**, **Supabase Auth**, **Firebase Auth**, and a **Worker-native** route on the existing `woe-pvp` Cloudflare Worker (the auth library better-auth with Cloudflare D1, or hand-rolled email codes and passkeys on the same Worker).
+
+### 2a. Facts about this stack that decide the comparison (verified in the repo, 2026-10-16)
+
+1. **No framework, no bundler for the app.** `index.html` loads `src/main.js` as an ES module with an import map pointing `three` and `topojson-client` at `vendor/`. Any client SDK must load as a plain script or ES module, or be vendored once into `vendor/`.
+2. **A backend already exists and already issues bearer tokens.** `src/pvp/api.js:69` sends `authorization: Bearer <playerToken>`, with the token kept in `localStorage` (`where-on-earth-pvp-v1`). The Worker stores only an HMAC of it. Whatever provider wins, this Worker has to trust an account session, because the account-to-`playerId` link, entitlement checks for paid features and push subscriptions all sit beside PvP data.
+3. **The Worker deploy path cannot take npm dependencies or D1 today.** `cf_api.py deploy` uploads every `pvp-worker/src/*.js` file unbundled, with a hard-coded binding list of the three Durable Object classes (`MATCHES`, `RECORDS`, `GROUPS`), no D1 binding and no compatibility flags. Wrangler's OAuth login does not complete in this VM (`pvp-worker/README.md`), but `npm run check` (`wrangler deploy --dry-run`) bundles locally. So any npm library inside the Worker means: bundle with Wrangler locally, then teach `cf_api.py` to upload the bundle and a D1 binding. That is a one-time change, but it is a change to a deploy path that works.
+4. **The Worker is on another site.** It answers at `woe-pvp.gartland-79.workers.dev`; the game is `www.where-on.earth` (`DEFAULT_ORIGINS`, `pvp-worker/src/index.js:10`). A cookie set by the Worker is third-party on the game page and Safari blocks it. Bearer tokens (today's PvP pattern) avoid cookies entirely. Whether the `where-on.earth` DNS zone is on Cloudflare, which would allow a same-site `api.where-on.earth` route, could not be determined from the repo or this VM (the sandbox resolver returns proxy addresses). That is a question for Sean, but the recommendation below does not depend on it.
+5. **The "installed app" is minimal.** There is no web app manifest and no service worker; home-screen mode comes only from `<meta name="apple-mobile-web-app-capable">` (`index.html:31`). On iOS a home-screen web app keeps its storage separate from Safari, so a session created in Safari does not appear in the home-screen app (author's knowledge, consistent with the existing iOS cache-buster in `index.html`; test on device). Web push on iOS needs a manifest, a service worker and a home-screen install, none of which exist yet (section 6).
+6. **Guests are already complete without a server identity.** Every single-player key is local (section 1). Guest-first therefore does not need a provider's anonymous-user feature: a guest is a device with no account. A provider's anonymous users are a nice-to-have, not a criterion that can decide the pick.
+
+### 2b. The cross-cutting finding: no full-page redirects
+
+Full-page OAuth redirects leave the game's origin. In an iOS home-screen app, an out-of-scope navigation opens in an in-app browser sheet, and whether the resulting session lands back in the app's own storage is unreliable (author's knowledge; not tested here, must be tested on Sean's iPhone in Phase 0). Magic links have the same flaw in a worse form: the mail app opens the link in Safari, whose storage is not the home-screen app's.
+
+Flows that never leave the page are safe in every context:
+- **Email one-time code**, typed where the player already is (iOS offers to autofill codes from Mail).
+- **Google Identity Services** button or One Tap, which returns a signed ID token to the page.
+- **Sign in with Apple JS** with `usePopup: true`, which returns an ID token to the page.
+- **Passkeys** through `navigator.credentials` (WebAuthn), entirely in-page.
+
+So the design rule, for any provider: **email code plus ID-token sign-in for Google and Apple, passkeys as an upgrade, and no redirect or magic-link flows.** Each candidate is judged on whether it supports that set.
+
+### 2c. Scorecard
+
+Legend: facts verified in this repo are unmarked; Clerk facts from the first draft's live read are marked (live 2026-10-16); everything else is (unverified) and listed in 2e.
+
+| Criterion | Clerk | Supabase Auth | Firebase Auth | Worker-native (better-auth + D1) |
+|---|---|---|---|---|
+| Fit with a framework-less static client | Good. Two script tags from the Clerk Frontend API host, no build (live 2026-10-16). | Good. `supabase-js` loads as an ES module from a CDN or vendored into `vendor/` (unverified). | Good. Modular SDK loads as ES modules from Google's CDN (unverified). | Good. Skip the client library and call about six JSON endpoints with `fetch`, the same way `src/pvp/api.js` talks to the Worker today (judgment). |
+| Installed iOS app (2b) | Email code: yes. Google One Tap: yes (`authenticateWithGoogleOneTap`, unverified). Apple: redirect flow as far as the author knows (unverified), so weak in the home-screen app. Session is first-party cookies on a `clerk.` custom domain, which needs a CNAME on `where-on.earth` (A1). | Email code: yes. Google and Apple ID tokens: yes (`signInWithIdToken`, unverified). Session stored in `localStorage` by default (unverified). | Email: magic link only, no email code for primary sign-in (unverified), which fails 2b. Redirect sign-in on Safari needs the auth handler proxied onto the app domain (`/__/auth/*` rewrite in `vercel.json`, unverified). ID-token credentials work. | Email code: yes (better-auth email-OTP plugin, unverified). Google and Apple ID tokens: yes (social `idToken` sign-in, unverified). Bearer session in `localStorage`, identical to today's PvP token. |
+| Guest-first, anonymous play | No anonymous users (unverified); fine per 2a.6. | Anonymous sign-ins, convertible later, counted as MAU (unverified). Not needed. | Anonymous auth with account linking (unverified). Not needed. | Anonymous plugin exists (unverified). Not needed; a guest is a device. |
+| Methods for a casual mobile audience | Email code, Google, Apple on Hobby (3 social connections max); passkeys are Pro only (live 2026-10-16). | Email code, Google, Apple. Passkey support for primary sign-in: unknown (unverified). | Google, Apple, email link. No passkeys (unverified). | Email code, Google, Apple, passkeys, all as plugins (unverified). Needs our own email sender. |
+| Cost at plausible scale (say 2,000 to 50,000 signed-in players a month) | Hobby is free, with a retained-user cap the author recalls as 50,000 (unverified). But the Hobby session lifetime is a fixed 7 days and custom lifetime and passkeys are Pro only (live 2026-10-16). A daily-game audience asked to sign in weekly is a real cost, so realistically Pro at about $25 a month (unverified). | Free to 50,000 MAU, but free projects pause after a week without activity and the built-in mail sender is rate limited for production, so custom SMTP is required (unverified). Pro about $25 a month (unverified). | Free to 50,000 MAU for standard providers (unverified). | $0 per user. Workers Free gives 100,000 requests a day, shared with PvP (`pvp-worker/README.md`, verified there 2026-10-13). D1 free tier about 5 GB and millions of row reads a day (unverified). Workers Paid is $5 a month if needed (README). An email sender's free tier, for example Resend's (unverified). |
+| Any provider, production Apple sign-in | Needs Sean's Apple Developer Program membership, about $99 a year (unverified). Same for all four. | same | same | same |
+| Data ownership and exit cost | Users live in Clerk. Export exists; Google and Apple links re-attach by verified email after a move (unverified). User ids change on exit, so our tables must key on our own account id, never the vendor's. | Open source; auth schema is plain Postgres and dumps with the database (unverified). Lowest exit cost of the hosted three. | Export via CLI (unverified). Proprietary; Firestore data model is the bigger lock-in. | Every row in Sean's D1. Exit is a SQL dump. |
+| Payment enablement | Clerk Billing (Stripe underneath, plus a Clerk fee the author recalls as 0.7%, unverified) or Stripe direct. | Stripe direct, webhook into a function or the Worker. | Stripe direct or the Stripe extension writing to Firestore (unverified). | Stripe direct: Checkout plus a webhook to the Worker writing an entitlement row in D1. better-auth has a Stripe plugin (unverified). |
+| Operational burden on a solo builder | Lowest auth code. Adds a vendor, a dashboard, a DNS record and JWT verification in the Worker (about 50 lines hand-written, because the Worker is unbundled, A1). | A second backend (Postgres with row-level security) beside the Worker unless used for auth only; SMTP setup; the pause rule. | A Google Cloud project, the auth-handler rewrite, and a second datastore. | Highest up front: we own the security surface (rate limits on code requests, session rotation), the deploy change in 2a.3, D1 migrations, and sender DNS (SPF and DKIM). Lowest ongoing: no new vendor beyond the email sender. |
+| Sean's experience | Has shipped Clerk on FFO. Real, saves ramp-up. | None known. | None known. | None with better-auth; but the Worker and its deploy path are already his. |
+
+### 2d. Recommendation
+
+**Worker-native: better-auth on the existing Cloudflare stack, with a D1 database, bearer-token sessions, email code plus Google and Apple ID-token sign-in at launch, and passkeys as an upgrade.** (judgment)
+
+Why, each reason tied to a fact above:
+1. **The Worker has to enforce accounts anyway** (2a.2). Account-to-`playerId` links, Daily verification for any future leaderboard, paid entitlements and push subscriptions all live there. With a hosted provider there are two identity systems and a sync between them (JWKS verification plus a user mirror). Worker-native has one.
+2. **It matches the pattern already shipped.** A bearer token in `localStorage` is exactly how PvP authenticates today (`src/pvp/api.js:69`). No cookies means no third-party-cookie problem on `workers.dev` and no dependency on the DNS question (2a.4).
+3. **It gets every method 2b wants at no per-user cost,** including passkeys and a session lifetime we choose (rolling 90 days, section 3). On Clerk the same set needs Pro (live 2026-10-16).
+4. **Exit cost is zero.** All account data is in Sean's D1.
+5. **The sign-in UI has to be ours regardless.** The game's visual bar is high, and the weakest part of the Clerk draft (A2) was a hosted modal inside a styled game. better-auth is headless, so the sheet is built from the game's shared overlay classes from the start.
+
+The honest costs: more to build (section 7 estimates about 4 to 6 build sessions more than Clerk for the auth layer), a security surface we own (mitigated by using a maintained library rather than hand-rolling), and the deploy change in 2a.3.
+
+**better-auth over hand-rolled:** the error-prone parts (one-time-code attempt limits and expiry, session rotation, linking a Google and an email identity that share an address, the passkey ceremony, Apple's client-secret JWT) are exactly what a library has already been through. Hand-rolled stays the fallback.
+
+**Phase 0 scout gates the pick** (section 7). Workers Free allows about 10 ms of CPU per request and a capped script size (unverified). A test Worker must show better-auth plus D1 bundled under the size cap, typical auth requests under the CPU limit, and an email-code and a Google sign-in completing inside the iPhone home-screen app. If better-auth fails the CPU or size test, fall back to a hand-rolled minimum on the same D1 (email code, Google and Apple ID-token verification with WebCrypto against their published keys, passkeys later). If the iPhone test shows a flow that no Worker-native variant can make work, Clerk takes over.
+
+**What would have to be true for a different pick to win:**
+- **Clerk** (runner-up) wins if Sean would rather pay about $25 a month than own auth code; or the scout fails both Worker-native variants; or he wants Clerk Billing's ready-made subscription UI more than a Stripe Checkout link; or his FFO code is directly reusable. Its integration design is Appendix A, and each later section notes the Clerk delta.
+- **Supabase** wins only if the backend were moving off the Worker into Postgres. It is not: PvP is built on Durable Objects and works.
+- **Firebase** wins only if native Android or iOS apps became the plan. As a web-only pick it is last: no email code (fails 2b), a redirect workaround on Safari, no passkeys.
+
+### 2e. Recheck before Sean decides
+
+Because this session had no web access, these must be read from the live pages and dated before decision 1 in section 8 (about 15 minutes, any session with web access):
+- Clerk: Hobby retained-user cap, Pro price, Clerk Billing fee, whether Apple sign-in can run without a redirect.
+- Supabase: free MAU, pause rule, built-in mail limits, passkey status. Firebase: MAU tiers and email-code support.
+- Cloudflare: Workers Free CPU limit and script size cap, D1 free and paid limits.
+- better-auth: current D1 support on Workers, email-OTP, passkey, `idToken` and Stripe plugins.
+- An email sender's free tier (Resend or similar). Apple Developer Program price.
+
+None of these can flip the recommendation on its own except a Workers CPU or size limit that the Phase 0 scout would catch anyway.
+
+## Appendix A. Runner-up notes: Clerk on this stack
+
+Written as section 2 of the first draft, before Sean reopened the provider question. Kept because it holds the live-checked Clerk facts and is the integration design if Sean picks Clerk (section 2d). Section references below are updated to the current numbering.
+
+### A1. Loading the SDK in a framework-less module app
 
 The game has no bundler for the app: `index.html` loads `src/main.js` as a module with an import map for `three` and `topojson-client` from `vendor/`. Clerk's current JavaScript quickstart (read 2026-10-16) supports exactly this with two script tags served from the app's Clerk Frontend API host, `@clerk/ui@1/dist/ui.browser.js` and `@clerk/clerk-js@6/dist/clerk.browser.js` (the second carries `data-clerk-publishable-key`), then `await Clerk.load({ ui: { ClerkUI: window.__internal_ClerkUICtor } })`. No npm, no build step, nothing added to `vendor/`.
 
@@ -73,9 +150,9 @@ Plan (judgment):
 - **Lazy, never on boot.** The game's promise is "a shared link opens a playable game", and `index.html` already fights for first paint (boot messages, the version banner). Clerk is not loaded at startup. A new module `src/account/clerk.js` injects the two script tags only when (a) a local hint key `where-on-earth-account` says this device is signed in, or (b) the player taps an account offer. A guest who never taps one never downloads Clerk. Bundle size was not measured; measure it on a 390px throttled capture before shipping, and if it is large, case (a) loads it after the first round starts, not before.
 - **Custom domain for the Frontend API**, e.g. `clerk.where-on.earth` (a CNAME, included on the free Hobby plan per the pricing page). The session cookie is then first-party to `where-on.earth`, which matters on iOS Safari where third-party cookies are blocked.
 - **Session token to the Worker.** Signed-in requests to `woe-pvp` send `Authorization: Bearer <await Clerk.session.getToken()>`. The SDK refreshes the short-lived token (its lifetime is a Clerk Dashboard setting); the client always asks `getToken()` right before a request and never caches it. The Worker verifies the JWT itself with WebCrypto (`crypto.subtle.importKey` on the JWK from the Frontend API's JWKS, RS256), checks `exp`, `nbf` and `azp` against the game's origins, and caches the JWKS in memory. This has to be hand-written: `cf_api.py deploy` uploads `pvp-worker/src/*.js` as-is with no bundling, so the Worker cannot import an npm JWT library. Roughly 50 lines, unit-tested with a fixed key pair.
-- **One module boundary.** `src/account/` (new): `clerk.js` (load, sign in, sign out, token), `sync.js` (section 4), `merge.js` (section 3, pure functions with tests). Gameplay modules never import Clerk; they keep calling `readJSON` / `writeJSON` / `safeSetItem`, and `sync.js` observes those writes. That keeps the "contract with players' phones" untouched.
+- **One module boundary.** `src/account/` (new): `clerk.js` (load, sign in, sign out, token), `sync.js` (section 5), `merge.js` (section 4, pure functions with tests). Gameplay modules never import Clerk; they keep calling `readJSON` / `writeJSON` / `safeSetItem`, and `sync.js` observes those writes. That keeps the "contract with players' phones" untouched.
 
-### 2b. Sign-in UI: Clerk components or custom forms
+### A2. Sign-in UI: Clerk components or custom forms
 
 Two options:
 
@@ -85,9 +162,9 @@ Two options:
 | Look | Clerk's layout, themable colours, radius and font; "Secured by Clerk" footer stays on Hobby (removal is Pro) | Fully ours: the dark glass panels, gold accent and `.expedition-panel` sheet the rest of the game uses |
 | Risk | Generic look inside a very styled game | More code paths to break, on the one flow where a bug loses a signup |
 
-Recommendation (judgment): **our own value sheet in front, Clerk's modal behind it.** The offer (section 3) is a game-styled sheet built from the existing shared overlay classes (the AGENTS rule: reuse shared UI, no one-off), saying exactly what the account saves, with buttons for each method. Tapping a method opens Clerk's prebuilt flow themed to the game (`colorPrimary` the game's gold, dark background, the game's font). This gets Clerk's tested edge cases (verification, automatic account linking when one email uses two methods, bot protection) for little code, and the part players judge, the pitch, is ours. Visual bar: it ships only after a 390px capture of the sheet and the modal, signed in and out, on Sean's phone width. Move to fully custom forms only if that capture fails the game's standard.
+Recommendation (judgment): **our own value sheet in front, Clerk's modal behind it.** The offer (section 4) is a game-styled sheet built from the existing shared overlay classes (the AGENTS rule: reuse shared UI, no one-off), saying exactly what the account saves, with buttons for each method. Tapping a method opens Clerk's prebuilt flow themed to the game (`colorPrimary` the game's gold, dark background, the game's font). This gets Clerk's tested edge cases (verification, automatic account linking when one email uses two methods, bot protection) for little code, and the part players judge, the pitch, is ours. Visual bar: it ships only after a 390px capture of the sheet and the modal, signed in and out, on Sean's phone width. Move to fully custom forms only if that capture fails the game's standard.
 
-### 2c. Which sign-in methods
+### A3. Which sign-in methods
 
 The audience: casual, mobile-first, arriving from share links in group chats, mostly on phones (Sean tests on an iPhone; the game has iOS-specific code such as the `apple-mobile-web-app-capable` meta and the iOS cache-busting version check in `main.js`).
 
@@ -100,7 +177,7 @@ The audience: casual, mobile-first, arriving from share links in group chats, mo
 | **Passkeys** | Not at launch | Not included on Clerk's Hobby plan (Pro only, pricing page 2026-10-16). Also the least understood option for a casual audience. Revisit with Pro. |
 | Password, SMS | No | Passwords add friction and support load; SMS costs per message and is not on Hobby. |
 
-### 2d. Signed out and offline
+### A4. Signed out and offline
 
 - **Signed out is today's game.** Every mode reads and writes `localStorage` exactly as now. No feature that works today is moved behind sign-in.
 - **Offline or Clerk down.** Writes always land in `localStorage` first (unchanged code paths); `sync.js` queues the delta in a device key `where-on-earth-sync-queue-v1` and flushes when online and signed in. If Clerk's script fails to load, the account sheet says sign-in is unavailable right now and the game carries on. The game must never block on a network call to Clerk or the Worker.
