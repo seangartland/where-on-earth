@@ -151,19 +151,21 @@ function renderStats() {
   const sub = statsScreen.querySelector('[data-stats="games-sub"]');
   sub.textContent = stats.games ? `since ${shortDate(stats.first)}` : 'no games logged yet';
 
-  const today = stats.history.length && host.daily && stats.history.some((game) => game.date === host.daily.date)
-    ? host.daily.results.reduce((sum, result) => sum + result.score, 0)
-    : null;
-  const todayBand = today === null ? -1 : bandIndex(today);
-  statsEls.dist.replaceChildren(...stats.counts.map((count, i) => {
-    const li = document.createElement('li');
-    if (i === todayBand) li.className = 'today';
-    li.innerHTML = `<span class="stats-band">${bandLabel(i)}</span><div class="stats-track"><div class="stats-fill"></div><span class="stats-count">${count}</span></div>`;
-    const fill = li.querySelector('.stats-fill');
-    fill.style.width = `${count ? Math.max(9, (count / stats.peak) * 100) : 0}%`;
-    fill.style.background = bandColor(i, 0.5);
-    return li;
-  }));
+  statsEls.hist.hidden = !stats.games;
+  if (stats.games) {
+    const counts = new Array(10).fill(0);
+    stats.history.forEach((game) => {
+      counts[Math.min(9, Math.floor(game.total / 1000))] += 1;
+    });
+    const peak = Math.max(...counts);
+    statsEls.histBars.replaceChildren(...counts.map((count, i) => {
+      const li = document.createElement('li');
+      const height = count ? Math.max(8, (count / peak) * 100) : 0;
+      li.innerHTML = `<span class="stats-hist-count">${count || ''}</span><span class="stats-hist-bar"><span class="stats-hist-fill"></span></span><span class="stats-hist-label">${i ? `${i}k` : '0'}</span>`;
+      li.querySelector('.stats-hist-fill').style.height = `${height}%`;
+      return li;
+    }));
+  }
 
   if (stats.bestRound) {
     const round = stats.bestRound;
@@ -215,14 +217,13 @@ export function initStats(main) {
 .stats-grid .stat b { font-size: 25px; }
 .stat small { display: block; margin-top: 4px; color: rgba(193,224,250,.42); font-size: 10px; letter-spacing: .06em; text-transform: none; }
 .stats-head { margin: 24px 0 10px; color: #77caff; font-size: 11px; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
-.stats-dist { display: grid; grid-template-columns: 76px 1fr; padding: 0; gap: 10px; align-items: center; }
-.stats-dist li { display: contents; }
-.stats-band { white-space: nowrap; text-align: left; color: rgba(193,224,250,.58); font-size: 11px; font-variant-numeric: tabular-nums; }
-.stats-track { position: relative; height: 24px; border-radius: 7px; background: rgba(157,211,255,.07); overflow: hidden; }
-.stats-fill { position: absolute; top: 0; left: 0; bottom: 0; border-radius: 7px; transition: width .35s ease-out; }
-.stats-count { position: absolute; top: 50%; right: 9px; transform: translateY(-50%); color: #f5fbff; font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
-.stats-dist li.today .stats-band { color: #ffc76a; font-weight: 800; }
-.stats-dist li.today .stats-track { box-shadow: 0 0 0 1px rgba(255,199,106,.6); }
+.stats-hist-bars { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 5px; margin: 0; padding: 0; list-style: none; }
+.stats-hist-bars li { display: grid; grid-template-rows: 18px 96px 16px; min-width: 0; text-align: center; }
+.stats-hist-count { align-self: end; color: #f5fbff; font-size: 11px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.stats-hist-bar { position: relative; display: block; margin: 0 1px; border-bottom: 1px solid rgba(157,211,255,.3); }
+.stats-hist-bar::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; border-radius: 2px; background: rgba(157,211,255,.5); content: ''; }
+.stats-hist-fill { position: absolute; right: 0; bottom: 0; left: 0; min-height: 0; border-radius: 5px 5px 0 0; background: rgba(103,232,255,.55); box-shadow: 0 0 14px rgba(103,232,255,.18); transition: height .35s ease-out; }
+.stats-hist-label { padding-top: 4px; color: rgba(193,224,250,.58); font-size: 10px; font-variant-numeric: tabular-nums; }
 .stats-best { margin: 16px 0 0; padding: 12px 14px; border: 1px solid rgba(255,199,106,.26); border-radius: 14px; background: rgba(255,199,106,.08); color: rgba(240,248,255,.86); font-size: 13px; line-height: 1.45; }
 .stats-best b { color: #ffc76a; }
 .stats-note { margin: 16px 0 0; color: rgba(193,224,250,.42); font-size: 11px; line-height: 1.5; text-align: center; }
@@ -258,8 +259,10 @@ body.game-stats #hud { opacity: 0; }
       <div class="stat"><b data-stats="best">0</b><span>Best score</span><small>/10000 in one game</small></div>
       <div class="stat cool"><b data-stats="distance">0</b><span>Avg distance</span><small>km off the mark</small></div>
     </div>
-    <p class="stats-head">Score distribution</p>
-    <ol class="stats-dist" data-stats="dist"></ol>
+    <section class="stats-hist" data-stats="hist" hidden>
+      <p class="stats-head">Score distribution</p>
+      <ol class="stats-hist-bars" data-stats="hist-bars"></ol>
+    </section>
     <p class="stats-best" data-stats="best-round" hidden></p>
     <p class="stats-note" data-stats="note"></p>
   </div>`;
@@ -270,7 +273,8 @@ body.game-stats #hud { opacity: 0; }
     screen: statsScreen,
     card: statsScreen.querySelector('.stats-card'),
     close: statsScreen.querySelector('.stats-close'),
-    dist: statsScreen.querySelector('[data-stats="dist"]'),
+    hist: statsScreen.querySelector('[data-stats="hist"]'),
+    histBars: statsScreen.querySelector('[data-stats="hist-bars"]'),
     bestRound: statsScreen.querySelector('[data-stats="best-round"]'),
     note: statsScreen.querySelector('[data-stats="note"]'),
   };
