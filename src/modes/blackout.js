@@ -164,7 +164,8 @@ export function blackoutFill(key) {
   ctx.fillStyle = ctx.strokeStyle = '#fff';
   ctx.fill(path, 'evenodd');
   ctx.lineJoin = 'round';
-  ctx.lineWidth = host.ISLAND_BLOB_TEXELS * (cv.width / 4096);
+  const dilation = Math.min(host.ISLAND_BLOB_TEXELS, geom.diagKm / 1000);
+  ctx.lineWidth = dilation * (cv.width / 4096);
   ctx.stroke(path);
   blackoutTex.needsUpdate = true;
 }
