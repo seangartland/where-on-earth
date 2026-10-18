@@ -29,10 +29,36 @@ def main():
         aws_access_key_id=os.environ.get('CDSE_S3_ACCESS_KEY', env.get('CDSE_S3_ACCESS_KEY')),
         aws_secret_access_key=os.environ.get('CDSE_S3_SECRET_KEY', env.get('CDSE_S3_SECRET_KEY')),
     )
-    paginator = client.get_paginator('list_objects_v2')
-    for page in paginator.paginate(Bucket='eodata', Prefix='Global-Mosaics/Sentinel-2/S2MSI_L3__MCQ_LR/2025/'):
-        for item in page.get('Contents', []):
-            print(json.dumps({'key': item['Key'], 'size': item['Size'], 'etag': item['ETag']}))
+    # This endpoint returns empty Contents for high-level recursive
+    # listings; descend level by level with a delimiter, then list
+    # each block folder's contents (traversal proven by the
+    # orchestrator's 2026-10-18 census, which this replaces).
+    def list_page(prefix, delimiter=None):
+        kwargs = {'Bucket': 'eodata', 'Prefix': prefix, 'MaxKeys': 1000}
+        if delimiter:
+            kwargs['Delimiter'] = delimiter
+        token = None
+        contents, prefixes = [], []
+        while True:
+            if token:
+                kwargs['ContinuationToken'] = token
+            page = client.list_objects_v2(**kwargs)
+            contents += page.get('Contents', [])
+            prefixes += page.get('CommonPrefixes', [])
+            if not page.get('IsTruncated'):
+                return contents, prefixes
+            token = page.get('NextContinuationToken')
+
+    base = 'Global-Mosaics/Sentinel-2/S2MSI_L3__MCQ_LR/2025/'
+    _, quarters = list_page(base, delimiter='/')
+    for quarter in quarters:
+        _, days = list_page(quarter['Prefix'], delimiter='/')
+        for day in days:
+            _, blocks = list_page(day['Prefix'], delimiter='/')
+            for block in blocks:
+                contents, _ = list_page(block['Prefix'])
+                for item in contents:
+                    print(json.dumps({'key': item['Key'], 'size': item['Size'], 'etag': item['ETag']}))
 
 
 if __name__ == '__main__':
