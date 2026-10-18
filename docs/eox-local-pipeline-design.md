@@ -333,5 +333,14 @@ G1 ship verdict, and Sean's G2 live verdict.
   intersects its footprint. Coastal ambiguity is retained. Every exclusion and
   its measured content length is written to the inventory evidence. Ocean is
   still painted from Blue Marble during finishing.
+- **Band selection (Sean, 2026-10-18).** Acquisition skips B08 in both
+  product families. Rendering uses B02, B03, B04 only; B08's pilot role
+  (water detection) was retired with the move to the Natural Earth mask,
+  and season selection uses observations.tif, which acquisition keeps.
+  Measured on a sampled LR block: B08 is the largest single file
+  (about 175 MB of 712 MB per block), so skipping it saves roughly a
+  quarter of every download (about 16.5 GB on the 67.33 GB LR set). B08
+  stays in S3 and can be pulled per block later if a tuning round ever
+  needs a vegetation-index test.
 - **Zoom scope.** The approximately 400 m product supplies z4 through z9; z9 is
   an upscale already in scope. The separate 10 m pin layer starts at z10.
