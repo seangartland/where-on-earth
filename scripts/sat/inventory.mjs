@@ -20,9 +20,10 @@ const landMaskFile = resolve(here, 'cache/ne-land-mask.png');
 const maskWidth = 21600;
 const maskHeight = 10800;
 const products = [
-  { key: 'low-resolution', id: 'byoc-6af2d932-8f18-4bed-a31b-d32bc49d43a0', target: 'manifest' },
-  { key: '10-metre', id: 'byoc-5460de54-082e-473a-b6ea-d5cbe3c17cca', target: 'pin-or-manifest' },
+  { key: 'low-resolution', id: 'byoc-6af2d932-8f18-4bed-a31b-d32bc49d43a0', target: 'manifest', family: 'S2MSI_L3__MCQ_LR' },
+  { key: '10-metre', id: 'byoc-5460de54-082e-473a-b6ea-d5cbe3c17cca', target: 'pin-or-manifest', family: 'S2MSI_L3__MCQ' },
 ];
+const productTypes = ['S2MSI_L3__MCQ', 'S2MSI_L3__MCQ_LR'];
 const quarters = [
   { key: '2025-Q1', from: '2025-01-01T00:00:00.000Z', to: '2025-04-01T00:00:00.000Z' },
   { key: '2025-Q2', from: '2025-04-01T00:00:00.000Z', to: '2025-07-01T00:00:00.000Z' },
@@ -128,9 +129,11 @@ const footprintTouchesLand = (polygons, mask) => polygons.some((polygon) => {
   return false;
 });
 
-const attributeValues = (product) => (product.Attributes || []).map((attribute) => attribute.Value).filter((value) => typeof value === 'string');
-const productMatchesIdentity = (product, identity) => [product.Name, product.S3Path, ...attributeValues(product)].some((value) => value?.includes(identity) || value?.includes(identity.replace(/^byoc-/, '')));
-const productMatchesType = (product) => (product.Attributes || []).some((attribute) => attribute.Name === 'productType' && attribute.Value === 'S2MSI_L3__MCQ');
+const productConfigOf = (product) => {
+  const matches = products.filter(({ family }) => new RegExp(`(?:^|/)${family}(?:/|$)`).test(product.S3Path || ''));
+  if (matches.length !== 1) throw new Error(`Product ${product.Id || product.Name || '<unknown>'} S3Path did not match exactly one known family: ${product.S3Path || '<missing>'}`);
+  return matches[0];
+};
 const checksumOf = (product) => {
   const checksums = Array.isArray(product.Checksum) ? product.Checksum : product.Checksum ? [product.Checksum] : [];
   return checksums.map((checksum) => ({ algorithm: checksum.Algorithm || checksum.algorithm, value: checksum.Value || checksum.value }));
@@ -161,17 +164,15 @@ const validateProduct = (product, context) => {
   if (!product.S3Path) throw new Error(`Product ${product.Id} is missing S3Path`);
   if (!Number.isFinite(Number(product.ContentLength)) || Number(product.ContentLength) < 0) throw new Error(`Product ${product.Id} has invalid ContentLength`);
   if (!checksumOf(product).length || checksumOf(product).some(({ value }) => !value)) throw new Error(`Product ${product.Id} is missing a checksum`);
-  if (!productMatchesType(product)) throw new Error(`Product ${product.Id} did not carry product type S2MSI_L3__MCQ`);
   const start = Date.parse(product.ContentDate?.Start);
   if (!Number.isFinite(start) || start < Date.parse(context.quarter.from) || start >= Date.parse(context.quarter.to)) throw new Error(`Product ${product.Id} has an unexpected content date for ${context.quarter.key}`);
 };
 
-const initialUrl = ({ product, quarter }) => {
-  const productType = `Attributes/OData.CSC.StringAttribute/any(a:a/Name eq 'productType' and a/OData.CSC.StringAttribute/Value eq 'S2MSI_L3__MCQ')`;
-  const identity = `Attributes/OData.CSC.StringAttribute/any(a:a/OData.CSC.StringAttribute/Value eq '${product.id}' or a/OData.CSC.StringAttribute/Value eq '${product.id.replace(/^byoc-/, '')}')`;
+const initialUrl = ({ productType, quarter }) => {
+  const typeFilter = `Attributes/OData.CSC.StringAttribute/any(a:a/Name eq 'productType' and a/OData.CSC.StringAttribute/Value eq '${productType}')`;
   const dates = `ContentDate/Start ge ${quarter.from} and ContentDate/Start lt ${quarter.to}`;
   const params = new URLSearchParams({
-    '$filter': `${productType} and ${identity} and ${dates}`,
+    '$filter': `${typeFilter} and ${dates}`,
     '$select': 'Id,Name,ContentDate,GeoFootprint,S3Path,ContentLength,Checksum',
     '$expand': 'Attributes',
     '$top': '1000',
@@ -196,19 +197,23 @@ const pageFiles = async () => (await readdir(rawDir)).filter((name) => name.ends
 const materialize = async (manifestBoxes, pinBoxes, mask, complete) => {
   const retained = [];
   const excluded = [];
-  const seenProducts = new Set();
+  const seenProducts = new Map();
   for (const name of await pageFiles()) {
-    const match = name.match(/^(low-resolution|10-metre)-(2025-Q[1-4])-page-(\d+)\.json$/);
+    const match = name.match(/^(S2MSI_L3__MCQ(?:_LR)?)-(2025-Q[1-4])-page-(\d+)\.json$/);
     if (!match) continue;
-    const productConfig = products.find(({ key }) => key === match[1]);
     const quarter = quarters.find(({ key }) => key === match[2]);
+    const queryKey = `${match[1]}-${quarter.key}`;
     const payload = JSON.parse(await readFile(resolve(rawDir, name), 'utf8'));
     for (const product of payload.value || []) {
+      const productConfig = productConfigOf(product);
       validateProduct(product, { product: productConfig, quarter });
-      const uniqueKey = `${productConfig.id}/${quarter.key}/${product.Id}`;
-      if (seenProducts.has(uniqueKey)) throw new Error(`Duplicate product id in ${productConfig.key} ${quarter.key}: ${product.Id}`);
-      seenProducts.add(uniqueKey);
-      if (!productMatchesIdentity(product, productConfig.id)) throw new Error(`Product ${product.Id} did not carry expected collection identity ${productConfig.id}`);
+      const uniqueKey = product.Id;
+      const seenQueries = seenProducts.get(uniqueKey) || new Set();
+      if (seenQueries.has(queryKey)) throw new Error(`Duplicate product id in ${queryKey}: ${product.Id}`);
+      const crossQueryDuplicate = seenQueries.size > 0;
+      seenQueries.add(queryKey);
+      seenProducts.set(uniqueKey, seenQueries);
+      if (crossQueryDuplicate) continue;
       const footprint = parseFootprint(product.GeoFootprint);
       const polygons = polygonsOf(footprint);
       if (!polygons.length) throw new Error(`Product ${product.Id} has no polygon footprint`);
@@ -233,7 +238,7 @@ const materialize = async (manifestBoxes, pinBoxes, mask, complete) => {
 
 const formatBytes = (bytes) => `${bytes.toLocaleString('en-US')} bytes (${(bytes / 1e9).toFixed(3)} GB)`;
 const writeReport = async (retained, excluded) => {
-  const lines = ['# EOX source inventory report', '', `Generated by \`scripts/sat/inventory.mjs\` from completed live CDSE OData responses on ${new Date().toISOString()}.`, '', '## Retained source inventory', '', '| Product | Quarter | Unique grid cells | Objects | Total bytes |', '| --- | --- | ---: | ---: | ---: |'];
+  const lines = ['# EOX source inventory report', '', `Generated by \`scripts/sat/inventory.mjs\` from completed live CDSE OData responses on ${new Date().toISOString()}.`, '', 'Collection family assignment is based solely on the S3Path family segment: `S2MSI_L3__MCQ_LR` is low-resolution and `S2MSI_L3__MCQ` is 10-metre.', '', '## Retained source inventory', '', '| Product | Quarter | Unique grid cells | Objects | Total bytes |', '| --- | --- | ---: | ---: | ---: |'];
   for (const product of products) for (const quarter of quarters) {
     const rows = retained.filter((record) => record.collection === product.id && record.quarter === quarter.key);
     lines.push(`| ${product.key} (\`${product.id}\`) | ${quarter.key} | ${new Set(rows.map(({ gridCell }) => gridCell)).size.toLocaleString('en-US')} | ${rows.length.toLocaleString('en-US')} | ${rows.reduce((sum, row) => sum + row.contentLength, 0).toLocaleString('en-US')} |`);
@@ -293,9 +298,9 @@ await atomicJson(stateFile, state);
 
 try {
   const token = await getToken(clientId, clientSecret);
-  for (const product of products) for (const quarter of quarters) {
-    const key = `${product.key}-${quarter.key}`;
-    const job = state.jobs[key] || { complete: false, pages: 0, nextUrl: initialUrl({ product, quarter }) };
+  for (const quarter of quarters) for (const productType of productTypes) {
+    const key = `${productType}-${quarter.key}`;
+    const job = state.jobs[key] || { complete: false, pages: 0, nextUrl: initialUrl({ productType, quarter }) };
     state.jobs[key] = job;
     while (!job.complete) {
       const page = job.pages + 1;
@@ -310,7 +315,18 @@ try {
       job.updatedAt = new Date().toISOString();
       await atomicJson(stateFile, state);
     }
-    if (!job.objects) throw new Error(`${key} completed with zero products; collection identity or quarter coverage is missing`);
+  }
+  for (const quarter of quarters) {
+    const coveredFamilies = new Set();
+    for (const name of await pageFiles()) {
+      const match = name.match(/^(S2MSI_L3__MCQ(?:_LR)?)-(2025-Q[1-4])-page-(\d+)\.json$/);
+      if (!match || match[2] !== quarter.key) continue;
+      const payload = JSON.parse(await readFile(resolve(rawDir, name), 'utf8'));
+      for (const product of payload.value || []) coveredFamilies.add(productConfigOf(product).key);
+    }
+    for (const product of products) {
+      if (!coveredFamilies.has(product.key)) throw new Error(`${product.key}-${quarter.key} completed with zero products across candidate productType queries; family coverage is missing`);
+    }
   }
   state.status = 'complete';
   delete state.error;
