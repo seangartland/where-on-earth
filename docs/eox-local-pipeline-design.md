@@ -303,3 +303,35 @@ G1 ship verdict, and Sean's G2 live verdict.
   Any Process fallback requires a new written acquisition/cache design, a PU
   budget approved by Sean, raw API responses retained, and dashboard
   reconciliation after every batch. It is not part of this Phase 2 design.
+
+## Amendments, 2026-10-18 (Sean)
+
+- **R2 retention and free allowance (amends section 3).** Durable R2 storage is
+  capped at the account-wide 10 GB free allowance; no monthly R2 storage cost
+  is authorized. R2 retains finished low-resolution tiles and base, the
+  finished high-zoom pin layer, and the selected untoned windows, projected at
+  up to 9.975 GB using the present worst-case estimates. The four quarterly
+  source COG sets and raw quarterly working windows live on the VM's home
+  volume and are never copied to R2. Sean confirmed on 2026-10-18, after the
+  persistence check, that they are RETAINED there as the working archive:
+  the home volume demonstrably survives VM replacements (files from
+  2026-10-17 intact through repeated replacements; 100 GB volume, 86 GB
+  free), while processes and /tmp do not persist. They remain reproducible
+  from the immutable inventory and CDSE if the VM store is ever lost, and
+  anything irreplaceable still belongs in git or R2. The original section 3 table's longer source-COG and quarterly-
+  window retention statements are superseded by this paragraph.
+- **Derive-down windows (amends section 2).** For a given covered area, sample
+  and store an untoned window once at the finest required output grid, then
+  derive its lower-zoom windows during the offline finish. Store a separate
+  lower-zoom sample only where its footprint is not covered by a finer stored
+  window. This replaces routine per-zoom duplicate sampling while preserving
+  the section 2 selection, projection, masking, and finish rules.
+- **Ocean pruning (amends section 1 acquisition).** Before retaining a source
+  object, intersect its footprint with the checked-in Natural Earth land-minus-
+  lakes mask. The inventory uses a conservative polygon-versus-mask-cell test:
+  an object is excluded as entirely ocean only when no land pixel cell
+  intersects its footprint. Coastal ambiguity is retained. Every exclusion and
+  its measured content length is written to the inventory evidence. Ocean is
+  still painted from Blue Marble during finishing.
+- **Zoom scope.** The approximately 400 m product supplies z4 through z9; z9 is
+  an upscale already in scope. The separate 10 m pin layer starts at z10.

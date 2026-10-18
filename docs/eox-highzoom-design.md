@@ -383,3 +383,24 @@ The release gate is the measured pin-cell source byte total, the measured
 49,379-tile output total and build duration, a passing visual pilot through z14,
 and confirmation that the account-wide R2 footprint remains within Sean's
 approved storage budget **[M/E]**.
+
+## Amendments, 2026-10-18 (Sean)
+
+- The frozen high-zoom coverage artifact is
+  `scripts/sat/highzoom-manifest.json`, generated deterministically by
+  `node scripts/sat/generate-highzoom-manifest.mjs`. It contains the sorted
+  z10-z14 XYZ sets, per-zoom candidate/deduplication counts and SHA-256 hashes,
+  the explicit South Pole exclusion, and the confirmed full-footprint
+  descendant counts from the committed z8 manifest. This artifact is the input
+  to acquisition and rendering; regenerate and review it rather than editing it
+  by hand.
+- Acquisition prunes source objects whose footprints are entirely ocean using
+  the checked-in Natural Earth land-minus-lakes mask. The inventory's
+  conservative polygon-versus-mask-cell test excludes an object only when no
+  land cell intersects its footprint; coastal ambiguity is retained, every
+  exclusion is recorded, and finished ocean pixels continue to come from Blue
+  Marble.
+- The four-quarter 10 m source COGs are temporary VM build cache, not durable
+  R2 contents. The finished high-zoom pin layer remains durable within the
+  account-wide 10 GB free-storage cap and incurs no authorized monthly R2
+  storage cost.
