@@ -219,3 +219,83 @@ Peninsula with `--refresh`, then run `make-ab`:
 node scripts/sat/render.mjs --pilot --sites fiji,sydney,bay-area,iceland,antarctic-peninsula --refresh
 node scripts/sat/make-ab.mjs
 ```
+
+## Tuning round 2
+
+This final Gate G1 tuning round changes the ocean from the 5400 by 2700 Blue
+Marble file to NASA's 21600 by 10800 version of the same December 2004 Blue
+Marble Next Generation topography-and-bathymetry product. The renderer fetches
+that single global image once into `scripts/sat/cache/` and every window samples
+it by absolute longitude and latitude, so neither source selection nor tone can
+vary by request window. The fourfold source-resolution increase reduces
+equatorial enlargement from about 12x to 3x at z8 and from about 6x to 1.5x at
+z9. The decoded global RGB source occupies about 700 MB and is retained once
+per renderer run; the decoder pipe is sized accordingly. This was chosen over
+a GEBCO-derived shader because it is the smallest change that supplies
+materially more source pixels while preserving the known ocean relief; it
+avoids adding a NetCDF/grid decoder and an unvalidated custom relief model in
+the final tuning round. NASA-produced imagery is not
+copyrighted in the United States and NASA Earthdata describes NASA-led data as
+open/CC0 unless a product says otherwise; Blue Marble requests NASA Earth
+Observatory acknowledgement and no implied NASA endorsement. It is therefore
+suitable for commercial reuse with that acknowledgement.
+
+Ocean tone is now a single deterministic transform inside the global sampler:
+luminance becomes `0.07 + 0.68 * luminance^0.92`, and colour deviation from
+luminance is multiplied by `0.72`. This supplies a dark-value floor, compresses
+bright shelves, and reduces cyan saturation without any per-window statistics.
+The base and all detail zooms use this identical sampler and transform.
+
+At z8 and z9, the renderer now downloads and caches the public-domain Natural
+Earth 1:10m land and lakes source zips and asks `make-land-mask.py` to rasterize
+each exact EPSG:3857 window. Rasterization is 4x supersampled, then a signed
+two-pixel shoreline-distance feather is derived from the vector result. This
+preserves subpixel shoreline placement and islands represented by the 10m
+vectors instead of magnifying the 1/60-degree global raster steps. Lakes are
+cut out after land, which makes the Natural Earth Caspian polygon water. The
+resulting per-window mask is cached by bounds and dimensions; z4, z6, and the
+base retain the inexpensive global raster. Expected classification accuracy is
+within about one output pixel relative to the Natural Earth vector at z9 (the
+source's own geographic generalization remains the limiting error). Missing
+masks for a render are generated as one batch, so the two shapefiles are parsed
+and indexed by ring bounds once; each window projects only intersecting rings.
+Cached masks only incur PNG decode, while ocean composition remains linear in
+output pixels. An offline batch of two
+768-square synthetic land/lake windows completed in 0.565 seconds on this
+machine, produced identical expected water/land/lake classes and 17 feather
+levels. The synthetic shapefiles are too small to predict the full Natural
+Earth batch time, which cannot be measured until the orchestrator fetches the
+source zips, but they verify that adding windows does not repeat source parsing.
+
+Land tone now uses `REFLECTANCE_GAIN = 2.9`, `GAMMA = 0.9`,
+`SATURATION = 1.05`, and unchanged `CONTRAST = 1.0`. Values above the
+`HIGHLIGHT_KNEE = 0.72` use an exponential soft roll-off toward 1.0. This backs
+off orange/red amplification and protects snow, salt, and desert detail while
+retaining a material lift over the original 2.5-gain neutral treatment.
+
+The base defect came from requesting two independently encoded 2048-square
+hemispheres, stitching them, and downsampling the result, while transparent
+terminal polar land remained black. The base is now one allowed 2048 by 1024
+EPSG:4326 Process request, with no hemisphere stitch or extra resample. During
+composition, transparent polar land extends the nearest valid land sample;
+water, including the Southern Ocean, is sampled from the same continuous global
+ocean used by detail windows. This removes the west/east assembly boundary and
+the black terminal strip path.
+
+### Orchestrator-run live steps
+
+No live request or visual approval was possible in this networkless sandbox.
+Rerender the unchanged five-site set and base, then rebuild the blind A/B:
+
+```sh
+node scripts/sat/render.mjs --pilot --sites fiji,sydney,bay-area,iceland,antarctic-peninsula --refresh
+node scripts/sat/make-ab.mjs
+```
+
+This is 18 detail windows plus one whole-base request (19 Process requests),
+with an estimated 312.7 PU: 270 for detail and 42.7 for the 2048 by 1024 base.
+The same scoped command with `--dry-run` was run successfully here. Module
+syntax checks passed for both JavaScript files, Python compilation passed for
+the mask generator, and `git diff --check` was clean. The synthetic vector test
+is not a substitute for visual inspection of the downloaded Natural Earth data
+or the rebuilt imagery.

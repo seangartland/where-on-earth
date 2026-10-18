@@ -1,10 +1,11 @@
 //VERSION=3
 // The Process API receives the 2025 global mosaic BYOC collection as dated scenes.
 // These values lift mosaic land without changing the source reflectance scale.
-const REFLECTANCE_GAIN = 3.2;
-const GAMMA = 0.85;
+const REFLECTANCE_GAIN = 2.9;
+const GAMMA = 0.9;
 const CONTRAST = 1.0;
-const SATURATION = 1.15;
+const SATURATION = 1.05;
+const HIGHLIGHT_KNEE = 0.72;
 const PREFERRED_MONTHS = __PREFERRED_MONTHS__;
 
 function setup() {
@@ -32,7 +33,9 @@ function chooseSample(samples, scenes) {
 }
 
 function tone(value) {
-  return Math.pow(Math.max(0, value / 10000 * REFLECTANCE_GAIN), 1 / GAMMA);
+  const lifted = Math.pow(Math.max(0, value / 10000 * REFLECTANCE_GAIN), 1 / GAMMA);
+  if (lifted <= HIGHLIGHT_KNEE) return lifted;
+  return HIGHLIGHT_KNEE + (1 - HIGHLIGHT_KNEE) * (1 - Math.exp(-(lifted - HIGHLIGHT_KNEE) / (1 - HIGHLIGHT_KNEE)));
 }
 
 function evaluatePixel(samples, scenes) {
