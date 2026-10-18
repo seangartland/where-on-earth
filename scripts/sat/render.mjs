@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { appendFile, access, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { appendFile, access, mkdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -36,12 +36,12 @@ const mercatorBbox = (z, x, y) => {
     edge - (y / n) * edge * 2,
   ];
 };
-const quarters = [
-  ['q1', '2025-01-01T00:00:00Z', '2025-03-31T23:59:59Z'],
-  ['q2', '2025-04-01T00:00:00Z', '2025-06-30T23:59:59Z'],
-  ['q3', '2025-07-01T00:00:00Z', '2025-09-30T23:59:59Z'],
-  ['q4', '2025-10-01T00:00:00Z', '2025-12-31T23:59:59Z'],
-];
+const preferenceFor = (z, bbox) => {
+  if (![6, 8, 9].includes(z)) return [];
+  const centerY = (bbox[1] + bbox[3]) / 2;
+  const latitude = Math.atan(Math.sinh(centerY / 20037508.342789244 * Math.PI)) * 180 / Math.PI;
+  return latitude > 23 ? [7, 8, 9] : latitude < -23 ? [1, 2, 3] : [];
+};
 
 const parseEnvFile = async () => {
   try {
@@ -62,20 +62,23 @@ const puFor = (width, height) => width * height / (512 * 512) * (INPUT_BANDS / 3
 const requestBody = (bbox, width, height, crs) => ({
   input: {
     bounds: { bbox, properties: { crs } },
-    data: quarters.map(([id, from, to]) => ({
-      id,
-      type: 'sentinel-2-global-mosaics',
-      dataFilter: { timeRange: { from, to } },
-    })),
+    data: [{
+      type: 'byoc-6af2d932-8f18-4bed-a31b-d32bc49d43a0',
+      dataFilter: { timeRange: { from: '2025-01-01T00:00:00Z', to: '2025-12-31T23:59:59Z' } },
+    }],
   },
   output: { width, height, responses: [{ identifier: 'default', format: { type: 'image/png' } }] },
 });
 const withEvalscript = (body, evalscript) => ({ ...body, evalscript });
 const redacted = (body) => ({ ...body, evalscript: '[scripts/sat/evalscript.js]', authorization: '[redacted]' });
 const runFfmpeg = (args, input, message) => {
-  const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', 'pipe:0', ...args], { input });
+  const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', 'pipe:0', ...args], { input, maxBuffer: 256 * 1024 * 1024 });
   if (result.status !== 0) throw new Error(`${message}: ${result.stderr.toString().trim() || 'ffmpeg failed'}`);
   return result.stdout;
+};
+const runFfmpegFiles = (args, message) => {
+  const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', ...args], { maxBuffer: 256 * 1024 * 1024 });
+  if (result.status !== 0) throw new Error(`${message}: ${result.stderr.toString().trim() || 'ffmpeg failed'}`);
 };
 const rgba = (png) => runFfmpeg(['-f', 'rawvideo', '-pix_fmt', 'rgba', 'pipe:1'], png, 'Could not decode Process API image');
 const nodataFraction = (pixels, offsetX, offsetY) => {
@@ -113,17 +116,23 @@ const postRender = async (token, body, out, label) => {
     const wait = Math.max(0, REQUEST_INTERVAL_MS - (Date.now() - lastRequestAt));
     if (wait) await sleep(wait);
     lastRequestAt = Date.now();
+    let response;
     try {
-      const response = await fetch(PROCESS_URL, {
+      response = await fetch(PROCESS_URL, {
         method: 'POST',
         headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', accept: 'image/png' },
         body: JSON.stringify(body),
       });
-      await logRequest(out, { timestamp: new Date().toISOString(), ...label, status: response.status, puEstimate: estimate });
-      if (response.ok) return Buffer.from(await response.arrayBuffer());
-      if (![429, 500, 502, 503, 504].includes(response.status) || retry === RETRIES) throw new Error(`Process API request failed with HTTP ${response.status}`);
     } catch (error) {
       if (retry === RETRIES) throw error;
+      await sleep(500 * 2 ** retry);
+      continue;
+    }
+    await logRequest(out, { timestamp: new Date().toISOString(), ...label, status: response.status, puEstimate: estimate });
+    if (response.ok) return Buffer.from(await response.arrayBuffer());
+    const responseBody = (await response.text()).slice(0, 300);
+    if (![429, 500, 502, 503, 504].includes(response.status) || retry === RETRIES) {
+      throw new Error(`Process API request failed with HTTP ${response.status}: ${responseBody}`);
     }
     await sleep(500 * 2 ** retry);
   }
@@ -144,6 +153,7 @@ const envFile = await parseEnvFile();
 const clientId = process.env.CDSE_CLIENT_ID || envFile.CDSE_CLIENT_ID;
 const clientSecret = process.env.CDSE_CLIENT_SECRET || envFile.CDSE_CLIENT_SECRET;
 const evalscript = await readFile(resolve(here, 'evalscript.js'), 'utf8');
+const evalscriptFor = (preferredMonths) => evalscript.replace('__PREFERRED_MONTHS__', JSON.stringify(preferredMonths));
 const sites = pilot ? JSON.parse(await readFile(resolve(here, 'pilot-sites.json'), 'utf8')) : [];
 const windows = pilot
   ? sites.flatMap((site) => [4, 6, 8].map((z) => ({ x: site.tiles[z].x - 1, y: site.tiles[z].y - 1, z, site: site.id }))).concat(sites.filter((site) => ['bay-area', 'alps', 'fiji', 'sydney'].includes(site.id)).map((site) => ({ x: site.tiles[9].x - 1, y: site.tiles[9].y - 1, z: 9, site: site.id })))
@@ -153,9 +163,12 @@ if (!pilot && !windows.length) throw new Error('Use --pilot or --window z/x/y');
 if (!clientId && !clientSecret) {
   for (const z of [...new Set(windows.map((window) => window.z))]) {
     const sample = windows.find((window) => window.z === z);
-    console.log(JSON.stringify({ dryRun: true, zoom: z, request: redacted(requestBody(mercatorBbox(z, sample.x, sample.y), WINDOW_SIZE, WINDOW_SIZE, 'http://www.opengis.net/def/crs/EPSG/0/3857')) }, null, 2));
+    const bbox = mercatorBbox(z, sample.x, sample.y);
+    console.log(JSON.stringify({ dryRun: true, zoom: z, preferredMonths: preferenceFor(z, bbox), request: redacted(requestBody(bbox, WINDOW_SIZE, WINDOW_SIZE, 'http://www.opengis.net/def/crs/EPSG/0/3857')) }, null, 2));
   }
-  if (pilot) console.log(JSON.stringify({ dryRun: true, base: redacted(requestBody([-180, -90, 180, 90], 4096, 2048, 'http://www.opengis.net/def/crs/EPSG/0/4326')) }, null, 2));
+  if (pilot) for (const { part, bbox } of [{ part: 'west', bbox: [-180, -90, 0, 90] }, { part: 'east', bbox: [0, -90, 180, 90] }]) {
+    console.log(JSON.stringify({ dryRun: true, preferredMonths: [], base: { part, request: redacted(requestBody(bbox, 2048, 2048, 'http://www.opengis.net/def/crs/EPSG/0/4326')) } }, null, 2));
+  }
   process.exit(0);
 }
 if (!clientId || !clientSecret) throw new Error('Both CDSE_CLIENT_ID and CDSE_CLIENT_SECRET are required for a live render');
@@ -171,15 +184,25 @@ for (const window of windows) {
     return exists(resolve(out, String(window.z), String(tx), `${ty}.jpg`));
   }));
   if (tileFiles.every(Boolean)) continue;
-  const body = withEvalscript(requestBody(mercatorBbox(window.z, window.x, window.y), WINDOW_SIZE, WINDOW_SIZE, 'http://www.opengis.net/def/crs/EPSG/0/3857'), evalscript);
+  const bbox = mercatorBbox(window.z, window.x, window.y);
+  const body = withEvalscript(requestBody(bbox, WINDOW_SIZE, WINDOW_SIZE, 'http://www.opengis.net/def/crs/EPSG/0/3857'), evalscriptFor(preferenceFor(window.z, bbox)));
   const png = await postRender(token, body, out, { z: window.z, x: window.x, y: window.y, site: window.site });
   await sliceWindow(png, out, window.z, window.x, window.y, qa);
   await writeFile(resolve(out, 'qa.json'), `${JSON.stringify(qa, null, 2)}\n`);
 }
 if (pilot && !(await exists(resolve(out, 'base-ours.jpg')))) {
-  const body = withEvalscript(requestBody([-180, -90, 180, 90], 4096, 2048, 'http://www.opengis.net/def/crs/EPSG/0/4326'), evalscript);
-  const png = await postRender(token, body, out, { kind: 'base', z: null, x: null, y: null });
-  runFfmpeg(['-vf', 'scale=2048:1024', '-frames:v', '1', '-q:v', '2', '-y', resolve(out, 'base-ours.jpg')], png, 'Could not write pilot base texture');
+  const baseParts = [{ part: 'west', bbox: [-180, -90, 0, 90] }, { part: 'east', bbox: [0, -90, 180, 90] }];
+  const files = baseParts.map(({ part }) => resolve(out, `.base-${part}.png`));
+  try {
+    for (let index = 0; index < baseParts.length; index++) {
+      const { part, bbox } = baseParts[index];
+      const body = withEvalscript(requestBody(bbox, 2048, 2048, 'http://www.opengis.net/def/crs/EPSG/0/4326'), evalscriptFor([]));
+      await writeFile(files[index], await postRender(token, body, out, { kind: 'base', part, z: null, x: null, y: null }));
+    }
+    runFfmpegFiles(['-i', files[0], '-i', files[1], '-filter_complex', '[0:v][1:v]hstack=inputs=2,scale=2048:1024', '-frames:v', '1', '-q:v', '2', '-y', resolve(out, 'base-ours.jpg')], 'Could not write pilot base texture');
+  } finally {
+    await Promise.all(files.map((file) => unlink(file).catch((error) => { if (error.code !== 'ENOENT') throw error; })));
+  }
 }
 await writeFile(resolve(out, 'report.json'), `${JSON.stringify({ inputBands: INPUT_BANDS, samples: SAMPLES, windows: windows.length, expectedPU: windows.length * puFor(WINDOW_SIZE, WINDOW_SIZE) + (pilot ? puFor(4096, 2048) : 0) }, null, 2)}\n`);
 console.log(`Rendered ${windows.length} window(s) to ${out}`);

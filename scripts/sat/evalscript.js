@@ -1,40 +1,42 @@
 //VERSION=3
-// The Process API receives Q1 through Q4 of the 2025 global mosaic as q1..q4.
+// The Process API receives the 2025 global mosaic BYOC collection as dated scenes.
 // These defaults preserve the CDSE true-colour example's 2.5 reflectance gain.
 const REFLECTANCE_GAIN = 2.5;
 const GAMMA = 1.0;
 const CONTRAST = 1.0;
 const SATURATION = 1.0;
-const SUMMER_LATITUDE = 23;
+const PREFERRED_MONTHS = __PREFERRED_MONTHS__;
 
 function setup() {
   return {
     input: [
-      { datasource: "q1", bands: ["B02", "B03", "B04", "observations"] },
-      { datasource: "q2", bands: ["B02", "B03", "B04", "observations"] },
-      { datasource: "q3", bands: ["B02", "B03", "B04", "observations"] },
-      { datasource: "q4", bands: ["B02", "B03", "B04", "observations"] }
+      { bands: ["B02", "B03", "B04", "observations"] }
     ],
-    output: { bands: 4, sampleType: "FLOAT32" }
+    mosaicking: Mosaicking.TILE,
+    output: { bands: 4, sampleType: "AUTO" }
   };
 }
 
-function chooseSample(samples, latitude) {
-  const preferred = latitude > SUMMER_LATITUDE ? 2 : latitude < -SUMMER_LATITUDE ? 0 : -1;
-  if (preferred >= 0 && samples[preferred].observations > 0) return samples[preferred];
-  let best = samples[0];
-  for (let i = 1; i < samples.length; i++) {
-    if (samples[i].observations > best.observations) best = samples[i];
+function chooseSample(samples, scenes) {
+  let preferred;
+  let best;
+  for (let i = 0; i < samples.length; i++) {
+    const sample = samples[i];
+    if (!best || sample.observations > best.observations) best = sample;
+    const month = new Date(scenes.tiles[i].date).getUTCMonth() + 1;
+    if (PREFERRED_MONTHS.includes(month) && sample.observations > 0 && (!preferred || sample.observations > preferred.observations)) {
+      preferred = sample;
+    }
   }
-  return best;
+  return preferred || best;
 }
 
 function tone(value) {
-  return Math.pow(Math.max(0, value * REFLECTANCE_GAIN), 1 / GAMMA);
+  return Math.pow(Math.max(0, value / 10000 * REFLECTANCE_GAIN), 1 / GAMMA);
 }
 
-function evaluatePixel(samples, scenes, inputMetadata, customData, outputMetadata) {
-  const sample = chooseSample(samples, inputMetadata.coordinates.lat);
+function evaluatePixel(samples, scenes) {
+  const sample = chooseSample(samples, scenes);
   if (!sample || sample.observations <= 0) return [0, 0, 0, 0];
   let r = tone(sample.B04);
   let g = tone(sample.B03);
