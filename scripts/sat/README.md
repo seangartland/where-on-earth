@@ -11,3 +11,7 @@ It writes `scripts/sat/eox2025-manifest.json`: the deduplicated 3 by 3 tile
 windows around every currently playable location for z4 through the source's
 maximum zoom. Render and upload commands intentionally belong to later
 phases.
+
+## Offline finished-site A/B
+
+`node scripts/sat/make-local-ab.mjs --ours scripts/sat/work/s2gm2025/finished --eox scripts/sat/pilot/eox --out scripts/sat/work/ab` creates shuffled blind A/B panels for the five acceptance sites. Both tile trees must already be on disk; `ab-key.json` is held back until review.
