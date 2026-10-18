@@ -26,11 +26,13 @@ const run = (argsRun, message) => {
 // under eox/ so the stitched outputs can use symmetric ours/ and eox/ paths.
 const tilePath = (source, z, x, y) => resolve(out, source === 'ours' ? '' : source, String(z), String(x), `${y}.jpg`);
 const download = async (url, file) => {
-  if (existsSync(file)) return;
+  if (existsSync(file)) return true;
   await mkdir(dirname(file), { recursive: true });
   const response = await fetch(url);
+  if (response.status === 404) return false;
   if (!response.ok) throw new Error(`EOX tile download failed with HTTP ${response.status} for ${url}`);
   await writeFile(file, Buffer.from(await response.arrayBuffer()));
+  return true;
 };
 const stitch = async (source, site, z) => {
   const center = site.tiles[z];
@@ -49,25 +51,55 @@ const stitch = async (source, site, z) => {
   run(['-hide_banner', '-loglevel', 'error', ...files.flatMap((file) => ['-i', file]), '-filter_complex', `xstack=inputs=9:layout=${layout}`, '-frames:v', '1', '-q:v', '2', '-y', destination], `Could not stitch ${source} ${site.id} z${z}`);
   return destination;
 };
+const stitchEoxParentRegion = async (site, z) => {
+  const center = site.tiles[z];
+  const n = 2 ** z;
+  const x = (center.x - 1 + n) % n;
+  const y = Math.max(0, Math.min(n - 1, center.y - 1));
+  const parentZ = z - 1;
+  const parentN = 2 ** parentZ;
+  const parentX = Math.floor(x / 2);
+  const parentY = Math.floor(y / 2);
+  const files = [];
+  for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 2; dx++) {
+    const tileX = (parentX + dx) % parentN;
+    const tileY = Math.min(parentN - 1, parentY + dy);
+    const file = tilePath('eox', parentZ, tileX, tileY);
+    const found = await download(`https://tiles.where-on.earth/tiles/${parentZ}/${tileX}/${tileY}.jpg`, file);
+    if (!found) throw new Error(`EOX parent tile ${parentZ}/${tileX}/${tileY} is unavailable for ${site.id} z${z}`);
+    files.push(file);
+  }
+  const destination = resolve(out, 'eox', 'stitched', String(z), `${site.id}.jpg`);
+  await mkdir(dirname(destination), { recursive: true });
+  const cropX = (x % 2) * 128;
+  const cropY = (y % 2) * 128;
+  run(['-hide_banner', '-loglevel', 'error', ...files.flatMap((file) => ['-i', file]), '-filter_complex', `xstack=inputs=4:layout=0_0|256_0|0_256|256_256,crop=384:384:${cropX}:${cropY},scale=768:768`, '-frames:v', '1', '-q:v', '2', '-y', destination], `Could not build EOX parent region for ${site.id} z${z}`);
+  return destination;
+};
 
 const panels = [];
 for (const site of sites) for (const z of zoomsFor(site)) {
   const center = site.tiles[z];
   const n = 2 ** z;
+  let eoxMissing = false;
   for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 3; dx++) {
     const x = (center.x - 1 + dx + n) % n;
     const y = Math.max(0, Math.min(n - 1, center.y - 1 + dy));
-    await download(`https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg`, tilePath('eox', z, x, y));
+    if (!await download(`https://tiles.where-on.earth/tiles/${z}/${x}/${y}.jpg`, tilePath('eox', z, x, y))) eoxMissing = true;
   }
   await stitch('ours', site, z);
-  await stitch('eox', site, z);
+  if (eoxMissing) await stitchEoxParentRegion(site, z);
+  else await stitch('eox', site, z);
   panels.push({ id: `${site.id}-z${z}`, title: `${site.name} z${z}`, ours: `ours/stitched/${z}/${site.id}.jpg`, eox: `eox/stitched/${z}/${site.id}.jpg` });
 }
 const oursBase = resolve(out, 'base-ours.jpg');
-if (!existsSync(oursBase)) throw new Error('Missing pilot/base-ours.jpg; run the pilot renderer first');
-await mkdir(resolve(out, 'eox'), { recursive: true });
-await copyFile(resolve(root, 'assets/eox-z4-base-2k.jpg'), resolve(out, 'eox/base.jpg'));
-panels.push({ id: 'base', title: 'Base texture', ours: 'base-ours.jpg', eox: 'eox/base.jpg' });
+if (existsSync(oursBase)) {
+  await mkdir(resolve(out, 'eox'), { recursive: true });
+  await copyFile(resolve(root, 'assets/eox-z4-base-2k.jpg'), resolve(out, 'eox/base.jpg'));
+  panels.push({ id: 'base', title: 'Base texture', ours: 'base-ours.jpg', eox: 'eox/base.jpg' });
+} else {
+  console.log('Skipping base pair: missing pilot/base-ours.jpg');
+}
 
 const key = {};
 const markup = panels.map((panel) => {

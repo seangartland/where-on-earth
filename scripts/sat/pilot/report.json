@@ -1,0 +1,15 @@
+{
+  "inputBands": 4,
+  "samples": 4,
+  "windows": 18,
+  "expectedPU": 386.66666666666663,
+  "bmng": {
+    "file": "world.topo.bathy.200412.3x5400x2700.jpg",
+    "source": "https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg",
+    "bytes": 2566770
+  },
+  "landMask": {
+    "file": "ne-land-mask.png",
+    "bytes": 921306
+  }
+}

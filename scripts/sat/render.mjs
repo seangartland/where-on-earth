@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { appendFile, access, mkdir, readFile, unlink, writeFile } from 'node:fs/promises';
+import { appendFile, access, mkdir, readFile, stat, unlink, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,8 +14,15 @@ const WINDOW_SIZE = TILE_SIZE * 3;
 const INPUT_BANDS = 4;
 const SAMPLES = 4;
 const RETRIES = 3;
+const BMNG_URL = 'https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg';
+const BMNG_FILE = 'world.topo.bathy.200412.3x5400x2700.jpg';
+const LAND_MASK_FILE = 'ne-land-mask.png';
+const LAND_MASK_WIDTH = 21600;
+const LAND_MASK_HEIGHT = 10800;
 const REQUEST_INTERVAL_MS = 500; // 120 Process API requests per minute.
 let lastRequestAt = 0;
+let bmng;
+let landMask;
 
 const sleep = (ms) => new Promise((resolveSleep) => setTimeout(resolveSleep, ms));
 const tileAt = (lat, lng, z) => {
@@ -81,6 +88,102 @@ const runFfmpegFiles = (args, message) => {
   if (result.status !== 0) throw new Error(`${message}: ${result.stderr.toString().trim() || 'ffmpeg failed'}`);
 };
 const rgba = (png) => runFfmpeg(['-f', 'rawvideo', '-pix_fmt', 'rgba', 'pipe:1'], png, 'Could not decode Process API image');
+const rgb = (image) => runFfmpeg(['-f', 'rawvideo', '-pix_fmt', 'rgb24', 'pipe:1'], image, 'Could not decode Blue Marble image');
+const grayscale = (image) => runFfmpeg(['-f', 'rawvideo', '-pix_fmt', 'gray', 'pipe:1'], image, 'Could not decode Natural Earth land mask');
+const jpeg = (pixels, width, height, message) => {
+  const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-f', 'rawvideo', '-pixel_format', 'rgb24', '-video_size', `${width}x${height}`, '-i', 'pipe:0', '-frames:v', '1', '-q:v', '2', '-f', 'image2', '-vcodec', 'mjpeg', 'pipe:1'], { input: pixels, maxBuffer: 256 * 1024 * 1024 });
+  if (result.status !== 0) throw new Error(`${message}: ${result.stderr.toString().trim() || 'ffmpeg failed'}`);
+  return result.stdout;
+};
+const imageDimensions = (file) => {
+  const result = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0:s=x', file]);
+  if (result.status !== 0) throw new Error(`Could not inspect Blue Marble image: ${result.stderr.toString().trim() || 'ffprobe failed'}`);
+  const match = result.stdout.toString().trim().match(/^(\d+)x(\d+)$/);
+  if (!match) throw new Error('Could not read Blue Marble image dimensions');
+  return { width: Number(match[1]), height: Number(match[2]) };
+};
+const loadBmng = async () => {
+  if (bmng) return bmng;
+  const file = resolve(here, 'cache', BMNG_FILE);
+  if (!(await exists(file))) {
+    await mkdir(dirname(file), { recursive: true });
+    const response = await fetch(BMNG_URL);
+    if (!response.ok) throw new Error(`Blue Marble download failed with HTTP ${response.status}`);
+    await writeFile(file, Buffer.from(await response.arrayBuffer()));
+  }
+  const dimensions = imageDimensions(file);
+  bmng = { file, ...dimensions, pixels: rgb(await readFile(file)), bytes: (await stat(file)).size };
+  if (bmng.pixels.length !== bmng.width * bmng.height * 3) throw new Error('Unexpected Blue Marble image dimensions');
+  return bmng;
+};
+const loadLandMask = async () => {
+  if (landMask) return landMask;
+  const file = resolve(here, 'cache', LAND_MASK_FILE);
+  if (!(await exists(file))) throw new Error(`Natural Earth land mask is missing: run scripts/sat/make-land-mask.py to create ${file}`);
+  landMask = { file, pixels: grayscale(await readFile(file)), bytes: (await stat(file)).size };
+  if (landMask.pixels.length !== LAND_MASK_WIDTH * LAND_MASK_HEIGHT) throw new Error('Unexpected Natural Earth land mask dimensions');
+  return landMask;
+};
+const mercatorLatitude = (y) => Math.atan(Math.sinh(y / 20037508.342789244 * Math.PI)) * 180 / Math.PI;
+const sampleBmng = (source, longitude, latitude, target) => {
+  const x = ((longitude + 180) / 360 * source.width + source.width) % source.width;
+  const y = Math.max(0, Math.min(source.height - 1, (90 - latitude) / 180 * source.height));
+  const x0 = Math.floor(x);
+  const x1 = (x0 + 1) % source.width;
+  const y0 = Math.floor(y);
+  const y1 = Math.min(source.height - 1, y0 + 1);
+  const tx = x - x0;
+  const ty = y - y0;
+  const at = (px, py, channel) => source.pixels[(py * source.width + px) * 3 + channel];
+  for (let channel = 0; channel < 3; channel++) target[channel] = Math.round(
+    at(x0, y0, channel) * (1 - tx) * (1 - ty) + at(x1, y0, channel) * tx * (1 - ty) +
+    at(x0, y1, channel) * (1 - tx) * ty + at(x1, y1, channel) * tx * ty,
+  );
+};
+const composeOcean = async (png, bbox, crs, width, height) => {
+  const mosaic = rgba(png);
+  if (mosaic.length !== width * height * 4) throw new Error('Unexpected Process API image dimensions');
+  const source = await loadBmng();
+  const mask = await loadLandMask();
+  const output = Buffer.alloc(width * height * 3);
+  const ocean = [0, 0, 0];
+  const isMercator = crs.endsWith('/3857');
+  const waterClasses = new Uint8Array(width * height);
+  for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+    const rawX = bbox[0] + (x + 0.5) / width * (bbox[2] - bbox[0]);
+    const longitude = isMercator ? rawX * 180 / 20037508.342789244 : rawX;
+    const coordinateY = bbox[3] - (y + 0.5) / height * (bbox[3] - bbox[1]);
+    const latitude = isMercator ? mercatorLatitude(coordinateY) : coordinateY;
+    const maskX = Math.floor(((longitude + 180) / 360 * LAND_MASK_WIDTH + LAND_MASK_WIDTH) % LAND_MASK_WIDTH);
+    const maskY = Math.max(0, Math.min(LAND_MASK_HEIGHT - 1, Math.floor((90 - latitude) / 180 * LAND_MASK_HEIGHT)));
+    waterClasses[y * width + x] = mask.pixels[maskY * LAND_MASK_WIDTH + maskX] < 128;
+  }
+  for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+    const at = (y * width + x) * 4;
+    const alpha = mosaic[at + 3];
+    const rawX = bbox[0] + (x + 0.5) / width * (bbox[2] - bbox[0]);
+    const longitude = isMercator ? rawX * 180 / 20037508.342789244 : rawX;
+    const coordinateY = bbox[3] - (y + 0.5) / height * (bbox[3] - bbox[1]);
+    const latitude = isMercator ? mercatorLatitude(coordinateY) : coordinateY;
+    const water = waterClasses[y * width + x];
+    sampleBmng(source, longitude, latitude, ocean);
+    let nearestOpposite = Infinity;
+    if (alpha > 0) {
+      for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) {
+        const nx = x + dx;
+        const ny = y + dy;
+        if (nx < 0 || ny < 0 || nx >= width || ny >= height || mosaic[(ny * width + nx) * 4 + 3] === 0) continue;
+        if (waterClasses[ny * width + nx] !== water) nearestOpposite = Math.min(nearestOpposite, Math.hypot(dx, dy));
+      }
+    }
+    const blend = nearestOpposite <= 2
+      ? (water ? 0.5 + nearestOpposite / 4 : 0.5 - nearestOpposite / 4)
+      : (water ? 1 : 0);
+    const out = (y * width + x) * 3;
+    for (let channel = 0; channel < 3; channel++) output[out + channel] = Math.round(mosaic[at + channel] * (1 - blend) + ocean[channel] * blend);
+  }
+  return jpeg(output, width, height, 'Could not encode ocean composite');
+};
 const nodataFraction = (pixels, offsetX, offsetY) => {
   let empty = 0;
   for (let y = offsetY; y < offsetY + TILE_SIZE; y++) for (let x = offsetX; x < offsetX + TILE_SIZE; x++) {
@@ -89,8 +192,8 @@ const nodataFraction = (pixels, offsetX, offsetY) => {
   }
   return empty / (TILE_SIZE * TILE_SIZE);
 };
-const sliceWindow = async (png, out, z, x, y, qa) => {
-  const pixels = rgba(png);
+const sliceWindow = async (png, out, z, x, y, qa, nodataPixels = rgba(png)) => {
+  const pixels = nodataPixels;
   if (pixels.length !== WINDOW_SIZE * WINDOW_SIZE * 4) throw new Error('Unexpected Process API image dimensions');
   for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 3; dx++) {
     const tx = ((x + dx) % (2 ** z) + 2 ** z) % (2 ** z);
@@ -145,6 +248,9 @@ const parseWindow = (value) => {
 
 const args = process.argv.slice(2);
 const pilot = args.includes('--pilot');
+const refresh = args.includes('--refresh');
+const dryRun = args.includes('--dry-run');
+const sitesFlag = args.indexOf('--sites');
 const windowFlag = args.indexOf('--window');
 const outFlag = args.indexOf('--out');
 const out = resolve(root, outFlag >= 0 ? args[outFlag + 1] : pilot ? 'scripts/sat/pilot' : 'scripts/sat/render');
@@ -154,13 +260,17 @@ const clientId = process.env.CDSE_CLIENT_ID || envFile.CDSE_CLIENT_ID;
 const clientSecret = process.env.CDSE_CLIENT_SECRET || envFile.CDSE_CLIENT_SECRET;
 const evalscript = await readFile(resolve(here, 'evalscript.js'), 'utf8');
 const evalscriptFor = (preferredMonths) => evalscript.replace('__PREFERRED_MONTHS__', JSON.stringify(preferredMonths));
-const sites = pilot ? JSON.parse(await readFile(resolve(here, 'pilot-sites.json'), 'utf8')) : [];
+const allSites = pilot ? JSON.parse(await readFile(resolve(here, 'pilot-sites.json'), 'utf8')) : [];
+const selectedIds = sitesFlag < 0 ? null : new Set((args[sitesFlag + 1] || '').split(',').filter(Boolean));
+if (sitesFlag >= 0 && (!pilot || !selectedIds.size)) throw new Error('--sites needs a comma-separated list and requires --pilot');
+const sites = selectedIds ? allSites.filter((site) => selectedIds.has(site.id)) : allSites;
+if (selectedIds && sites.length !== selectedIds.size) throw new Error(`Unknown pilot site: ${[...selectedIds].find((id) => !sites.some((site) => site.id === id))}`);
 const windows = pilot
   ? sites.flatMap((site) => [4, 6, 8].map((z) => ({ x: site.tiles[z].x - 1, y: site.tiles[z].y - 1, z, site: site.id }))).concat(sites.filter((site) => ['bay-area', 'alps', 'fiji', 'sydney'].includes(site.id)).map((site) => ({ x: site.tiles[9].x - 1, y: site.tiles[9].y - 1, z: 9, site: site.id })))
   : windowFlag >= 0 ? [{ ...parseWindow(args[windowFlag + 1]), site: 'manual' }] : [];
 if (!pilot && !windows.length) throw new Error('Use --pilot or --window z/x/y');
 
-if (!clientId && !clientSecret) {
+if (dryRun || (!clientId && !clientSecret)) {
   for (const z of [...new Set(windows.map((window) => window.z))]) {
     const sample = windows.find((window) => window.z === z);
     const bbox = mercatorBbox(z, sample.x, sample.y);
@@ -181,28 +291,29 @@ for (const window of windows) {
   const tileFiles = await Promise.all(Array.from({ length: 9 }, (_, index) => {
     const tx = (window.x + index % 3 + 2 ** window.z) % 2 ** window.z;
     const ty = Math.max(0, Math.min(2 ** window.z - 1, window.y + Math.floor(index / 3)));
-    return exists(resolve(out, String(window.z), String(tx), `${ty}.jpg`));
+    return refresh ? false : exists(resolve(out, String(window.z), String(tx), `${ty}.jpg`));
   }));
   if (tileFiles.every(Boolean)) continue;
   const bbox = mercatorBbox(window.z, window.x, window.y);
   const body = withEvalscript(requestBody(bbox, WINDOW_SIZE, WINDOW_SIZE, 'http://www.opengis.net/def/crs/EPSG/0/3857'), evalscriptFor(preferenceFor(window.z, bbox)));
   const png = await postRender(token, body, out, { z: window.z, x: window.x, y: window.y, site: window.site });
-  await sliceWindow(png, out, window.z, window.x, window.y, qa);
+  const nodataPixels = rgba(png);
+  await sliceWindow(await composeOcean(png, bbox, 'http://www.opengis.net/def/crs/EPSG/0/3857', WINDOW_SIZE, WINDOW_SIZE), out, window.z, window.x, window.y, qa, nodataPixels);
   await writeFile(resolve(out, 'qa.json'), `${JSON.stringify(qa, null, 2)}\n`);
 }
-if (pilot && !(await exists(resolve(out, 'base-ours.jpg')))) {
+if (pilot && (refresh || !(await exists(resolve(out, 'base-ours.jpg'))))) {
   const baseParts = [{ part: 'west', bbox: [-180, -90, 0, 90] }, { part: 'east', bbox: [0, -90, 180, 90] }];
   const files = baseParts.map(({ part }) => resolve(out, `.base-${part}.png`));
   try {
     for (let index = 0; index < baseParts.length; index++) {
       const { part, bbox } = baseParts[index];
       const body = withEvalscript(requestBody(bbox, 2048, 2048, 'http://www.opengis.net/def/crs/EPSG/0/4326'), evalscriptFor([]));
-      await writeFile(files[index], await postRender(token, body, out, { kind: 'base', part, z: null, x: null, y: null }));
+      await writeFile(files[index], await composeOcean(await postRender(token, body, out, { kind: 'base', part, z: null, x: null, y: null }), bbox, 'http://www.opengis.net/def/crs/EPSG/0/4326', 2048, 2048));
     }
     runFfmpegFiles(['-i', files[0], '-i', files[1], '-filter_complex', '[0:v][1:v]hstack=inputs=2,scale=2048:1024', '-frames:v', '1', '-q:v', '2', '-y', resolve(out, 'base-ours.jpg')], 'Could not write pilot base texture');
   } finally {
     await Promise.all(files.map((file) => unlink(file).catch((error) => { if (error.code !== 'ENOENT') throw error; })));
   }
 }
-await writeFile(resolve(out, 'report.json'), `${JSON.stringify({ inputBands: INPUT_BANDS, samples: SAMPLES, windows: windows.length, expectedPU: windows.length * puFor(WINDOW_SIZE, WINDOW_SIZE) + (pilot ? puFor(4096, 2048) : 0) }, null, 2)}\n`);
+await writeFile(resolve(out, 'report.json'), `${JSON.stringify({ inputBands: INPUT_BANDS, samples: SAMPLES, windows: windows.length, expectedPU: windows.length * puFor(WINDOW_SIZE, WINDOW_SIZE) + (pilot ? puFor(4096, 2048) : 0), bmng: bmng && { file: BMNG_FILE, source: BMNG_URL, bytes: bmng.bytes }, landMask: landMask && { file: LAND_MASK_FILE, bytes: landMask.bytes } }, null, 2)}\n`);
 console.log(`Rendered ${windows.length} window(s) to ${out}`);

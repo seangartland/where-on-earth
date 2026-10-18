@@ -1,10 +1,10 @@
 //VERSION=3
 // The Process API receives the 2025 global mosaic BYOC collection as dated scenes.
-// These defaults preserve the CDSE true-colour example's 2.5 reflectance gain.
-const REFLECTANCE_GAIN = 2.5;
-const GAMMA = 1.0;
+// These values lift mosaic land without changing the source reflectance scale.
+const REFLECTANCE_GAIN = 3.2;
+const GAMMA = 0.85;
 const CONTRAST = 1.0;
-const SATURATION = 1.0;
+const SATURATION = 1.15;
 const PREFERRED_MONTHS = __PREFERRED_MONTHS__;
 
 function setup() {
