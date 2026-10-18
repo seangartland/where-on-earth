@@ -167,11 +167,11 @@ const validateProduct = (product, context) => {
   if (!Number.isFinite(start) || start < Date.parse(context.quarter.from) || start >= Date.parse(context.quarter.to)) throw new Error(`Product ${product.Id} has an unexpected content date for ${context.quarter.key}`);
 };
 
-const initialUrl = ({ productType, from, to }) => {
+const initialUrl = ({ productType, from, to, afterId }) => {
   const typeFilter = `Attributes/OData.CSC.StringAttribute/any(a:a/Name eq 'productType' and a/OData.CSC.StringAttribute/Value eq '${productType}')`;
   const dates = `ContentDate/Start ge ${from} and ContentDate/Start lt ${to}`;
   const params = new URLSearchParams({
-    '$filter': `${typeFilter} and ${dates}`,
+    '$filter': `${typeFilter} and ${dates}${afterId ? ` and Id gt ${afterId}` : ''}`,
     '$select': 'Id,Name,ContentDate,GeoFootprint,S3Path,ContentLength,Checksum',
     '$expand': 'Attributes',
     '$top': '1000',
@@ -180,26 +180,10 @@ const initialUrl = ({ productType, from, to }) => {
   });
   return `${productsUrl}?${params}`;
 };
-const daysOf = ({ from, to }) => {
-  const days = [];
-  for (let start = new Date(from); start < new Date(to); start = new Date(start.getTime() + 24 * 60 * 60 * 1000)) {
-    const end = new Date(start.getTime() + 24 * 60 * 60 * 1000);
-    days.push({ key: start.toISOString().slice(0, 10), from: start.toISOString(), to: end.toISOString() });
-  }
-  return days;
-};
-const jobsForQuarter = (quarter) => [
-  ...daysOf(quarter).map((slice) => ({
-    key: `v2-S2MSI_L3__MCQ-${quarter.key}-${slice.key}`,
-    productType: 'S2MSI_L3__MCQ',
-    slice,
-  })),
-  {
-    key: `v2-S2MSI_L3__MCQ_LR-${quarter.key}`,
-    productType: 'S2MSI_L3__MCQ_LR',
-    slice: { from: quarter.from, to: quarter.to },
-  },
-];
+const jobsForQuarter = (quarter) => products.map(({ family }) => ({
+  key: `v3-${family}-${quarter.key}`,
+  productType: family,
+}));
 const getToken = async (clientId, clientSecret) => {
   const response = await fetch(tokenUrl, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ grant_type: 'client_credentials', client_id: clientId, client_secret: clientSecret }) });
   if (!response.ok) throw new Error(`CDSE token request failed with HTTP ${response.status}`);
@@ -230,7 +214,7 @@ const materialize = async (manifestBoxes, pinBoxes, mask, complete, reconciliati
   const seenProducts = new Map();
   let duplicates = 0;
   for (const name of await pageFiles()) {
-    const match = name.match(/^v2-(S2MSI_L3__MCQ(?:_LR)?)-(2025-Q[1-4])(?:-\d{4}-\d{2}-\d{2})?-page-(\d+)\.json$/);
+    const match = name.match(/^v3-(S2MSI_L3__MCQ(?:_LR)?)-(2025-Q[1-4])-page-(\d+)\.json$/);
     if (!match) continue;
     const quarter = quarters.find(({ key }) => key === match[2]);
     const payload = JSON.parse(await readFile(resolve(rawDir, name), 'utf8'));
@@ -295,7 +279,7 @@ const writeReport = async (retained, excluded, reconciliation, duplicates) => {
 };
 
 if (process.argv.includes('--help')) {
-  console.log('Usage: node scripts/sat/inventory.mjs\nQueries 2025 daily MCQ slices plus quarterly LR and resumes from scripts/sat/work/inventory/state.json.');
+  console.log('Usage: node scripts/sat/inventory.mjs\nQueries 2025 quarterly product types with Id-cursor pagination and resumes from scripts/sat/work/inventory/state.json.');
   process.exit(0);
 }
 
@@ -340,12 +324,12 @@ try {
   const token = await getToken(clientId, clientSecret);
   const reconciliation = {};
   for (const quarter of quarters) for (const query of jobsForQuarter(quarter)) {
-    const { key, productType, slice } = query;
-    const job = state.jobs[key] || { complete: false, pages: 0, nextUrl: initialUrl({ productType, from: slice.from, to: slice.to }) };
+    const { key, productType } = query;
+    const job = state.jobs[key] || { complete: false, pages: 0 };
     state.jobs[key] = job;
-    while (!job.complete && job.nextUrl) {
+    while (!job.complete) {
       const page = job.pages + 1;
-      const text = await fetchPage(job.nextUrl, token);
+      const text = await fetchPage(initialUrl({ productType, from: quarter.from, to: quarter.to, afterId: job.lastId }), token);
       const payload = JSON.parse(text);
       if (!Array.isArray(payload.value)) throw new Error(`${key} page ${page} did not contain an OData value array`);
       if (page === 1) {
@@ -355,15 +339,17 @@ try {
       }
       await writeFile(resolve(rawDir, `${key}-page-${String(page).padStart(4, '0')}.json`), text);
       job.pages = page;
-      job.nextUrl = payload['@odata.nextLink'] || null;
-      job.updatedAt = new Date().toISOString();
-      await atomicJson(stateFile, state);
-    }
-    if (!job.complete) {
       const fetched = await uniqueProductsInJob(key);
-      if (fetched !== job.expectedCount) throw new Error(`${key} fetched ${fetched} unique products but catalogue reported ${job.expectedCount}`);
-      job.uniqueProducts = fetched;
-      job.complete = true;
+      if (fetched > job.expectedCount) throw new Error(`${key} fetched ${fetched} unique products but catalogue reported ${job.expectedCount}`);
+      if (fetched === job.expectedCount) {
+        job.uniqueProducts = fetched;
+        job.complete = true;
+      } else {
+        if (!payload.value.length) throw new Error(`${key} page ${page} returned zero products before reaching the catalogue count`);
+        const lastId = payload.value.at(-1).Id;
+        if (!lastId) throw new Error(`${key} page ${page} final product did not contain an Id`);
+        job.lastId = lastId;
+      }
       job.updatedAt = new Date().toISOString();
       await atomicJson(stateFile, state);
     }
