@@ -18,6 +18,7 @@ export const checksum = (record) => {
   const item = record.checksum?.find(({ algorithm, value }) => algorithm && value);
   if (!item) throw new Error(`${record.productId}: a published checksum is required`);
   const algorithm = item.algorithm.toLowerCase().replace(/[^a-z0-9]/g, '');
+  if (algorithm === 's3etag') return { algorithm: 's3-etag', value: String(item.value).replace(/^\"|\"$/g, '').toLowerCase() };
   if (!['md5', 'sha1', 'sha256', 'sha384', 'sha512'].includes(algorithm)) {
     throw new Error(`${record.productId}: unsupported checksum algorithm ${item.algorithm}`);
   }

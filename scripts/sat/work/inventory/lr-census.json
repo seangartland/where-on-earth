@@ -1,0 +1,12 @@
+{
+  "measuredBy": "orchestrator via boto3 S3 listing, 2026-10-18",
+  "family": "S2MSI_L3__MCQ_LR",
+  "grid": "50 lat/lon blocks per quarter (36-degree steps, e.g. N18E000), 5 files per block",
+  "quarters": {
+    "2025-Q1": { "blocks": 50, "files": 250, "gb": 18.35 },
+    "2025-Q2": { "blocks": 50, "files": 250, "gb": 15.55 },
+    "2025-Q3": { "blocks": 50, "files": 250, "gb": 16.06 },
+    "2025-Q4": { "blocks": 50, "files": 250, "gb": 17.37 }
+  },
+  "totalGb": 67.33
+}

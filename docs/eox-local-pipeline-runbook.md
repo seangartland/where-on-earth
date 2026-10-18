@@ -10,7 +10,7 @@ Run from the repository root on the VM:
 ```sh
 PYTHON=/home/hatch/workspace/map-game/eox1-work/.venv-sat/bin/python
 WORK=scripts/sat/work/s2gm2025
-INVENTORY=scripts/sat/work/inventory/source-inventory.jsonl
+INVENTORY=scripts/sat/work/inventory/lr-inventory.jsonl
 ASSETS=/home/hatch/workspace/map-game/eox1-work/scripts/sat/cache
 ```
 
@@ -21,16 +21,17 @@ already there. These are local inputs; finish never downloads them.
 
 ## Acquire, after the inventory gate
 
-Do not run this until the inventory report confirms all four quarters and the
-inventoried total is at most 40 GB. Expose the CDSE S3 credentials from the VM
-secret store under boto3's standard environment names (do not write them to
-this repository), then run:
+The full LR census is 67.33 GB across 2025; after Sean's approved B08 skip,
+`lr-inventory.jsonl` is about 51 GB. Do not run this until that inventory
+contains all four quarters and remains at or below the 52 GB acquisition gate.
+Expose the CDSE S3 credentials from the VM secret store under boto3's standard
+environment names (do not write them to this repository), then run:
 
 ```sh
 export AWS_ACCESS_KEY_ID='<CDSE S3 access key from the VM secret store>'
 export AWS_SECRET_ACCESS_KEY='<CDSE S3 secret from the VM secret store>'
 node scripts/sat/local/run.mjs --stage acquire \
-  --inventory "$INVENTORY" --work "$WORK" --python "$PYTHON"
+  --inventory "$INVENTORY" --work "$WORK" --python "$PYTHON" --max-gb 52
 ```
 
 The downloader reads only inventory S3 paths, writes `.partial` files, checks
