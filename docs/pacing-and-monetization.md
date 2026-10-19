@@ -41,7 +41,7 @@ The More modes hub is retired (its last tenant, Trivia, moves into Practice). Th
 
 ## Unification (adopted from the weigh-in, with overrides)
 
-- Scope: Survival only. Landmark Survival merges into Classic Survival over one pool of 1,146 (805 cities + 341 landmarks, including the 9 extent-aware areas).
+- Scope: Survival only. Landmark Survival merges into Classic Survival over one pool of every playable city plus the Landmark pool (805 + 341 = 1,146 at decision time, including the 9 extent-aware areas; the total floats as the bank grows, 1,166 after lakes and parks batch 1 landed the same evening).
 - Draw: Classic's uniform band 1-10 over the merged pool, plus the weigh-in's draw fix (item-uniform within the ramp range). Measured effect: worst cohort overdraw falls from 9.2x to about 1.5x; any single landmark's share of runs falls from 12.9% to about 0.6%.
 - `?mode=landmarks` aliases to Survival. The `?area=` test hook keeps working through the merged pool.
 - Passport tabs unchanged. Daily stays cities-only. The PvP catalog stays cities-only.

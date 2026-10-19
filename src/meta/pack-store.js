@@ -1,7 +1,8 @@
 // ---------------------------------------------------------------------------
 // The Daily postcard pack store (docs/daily-pack-spec.md, 2b and 2c): today's
-// pack only, saved under PACK_KEY. A pack is three distinct ids drawn uniformly
-// from the pool (cities plus the Landmarks pool), generated on the first tap of
+// pack only, saved under PACK_KEY. A pack is three distinct ids from the pool
+// (cities plus the pack's landmark subset), one of them always a landmark
+// (pacing doc, 2026-10-18), generated on the first tap of
 // a new date and written before the first clue, so a reload cannot reroll it.
 // A record from any other date reads as an empty record for today: unplayed
 // cards from a past date are forfeit, as the Daily's are. No history, no
@@ -56,6 +57,21 @@ function drawIds(pool, count, random, taken = []) {
   return ids;
 }
 
+// A fresh pack always holds a landmark (pacing doc, 2026-10-18): one slot is
+// drawn from the pool's landmark subset, the rest from the full pool, then
+// the three are shuffled so the landmark is not always the first card.
+function drawPackIds(pool, random) {
+  const landmarks = pool.filter((item) => item.kind === 'landmark');
+  if (!landmarks.length) return drawIds(pool, PACK_CARDS, random);
+  const guaranteed = drawIds(landmarks, 1, random);
+  const ids = [...guaranteed, ...drawIds(pool, PACK_CARDS - 1, random, guaranteed)];
+  for (let i = ids.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [ids[i], ids[j]] = [ids[j], ids[i]];
+  }
+  return ids;
+}
+
 // The pack at index (0 = free pack), generated and saved if it does not exist
 // yet. An unplayed slot whose id has left the pool gets a fresh draw; a played
 // slot keeps its stored result. Returns null while the pool is too small.
@@ -64,14 +80,20 @@ export function ensurePack(record, index, pool, random = Math.random) {
   let pack = record.packs[index];
   let changed = false;
   if (!isPack(pack)) {
-    pack = { ids: drawIds(pool, PACK_CARDS, random), results: Array(PACK_CARDS).fill(null) };
+    pack = { ids: drawPackIds(pool, random), results: Array(PACK_CARDS).fill(null) };
     changed = true;
   } else {
     const inPool = new Set(pool.map((item) => item.id));
+    const landmarkIds = new Set(pool.filter((item) => item.kind === 'landmark').map((item) => item.id));
+    const landmarks = pool.filter((item) => item.kind === 'landmark');
     pack.results = Array.from({ length: PACK_CARDS }, (_, i) => pack.results?.[i] || null);
     pack.ids.forEach((id, i) => {
       if (pack.results[i] || inPool.has(id)) return;
-      pack.ids[i] = drawIds(pool, 1, random, pack.ids)[0];
+      // A replacement keeps the landmark guarantee: if no other slot holds a
+      // landmark, the fresh card is drawn from the landmark subset.
+      const others = pack.ids.filter((_, j) => j !== i);
+      const source = !landmarks.length || others.some((other) => landmarkIds.has(other)) ? pool : landmarks;
+      pack.ids[i] = drawIds(source, 1, random, pack.ids)[0];
       changed = true;
     });
   }

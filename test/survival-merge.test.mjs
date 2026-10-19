@@ -35,12 +35,16 @@ const { initSurvival, mergedSurvivalPool, survivalBest } = await import('../src/
 initLandmarks(host);
 initSurvival(host);
 
-test('merged pool is 805 cities plus the 341-entry Landmark pool', () => {
+test('merged pool is every playable city plus the whole Landmark pool, no duplicates', () => {
+  // Counts derive from the data files: the Landmark pool grows as new
+  // extent-aware entries are banked (341 at the merge, 361 after lakes and
+  // parks batch 1 landed the same evening).
   const pool = mergedSurvivalPool();
-  assert.equal(pool.length, 1146);
-  assert.equal(landmarkPool().length, 341);
-  assert.equal(pool.filter((item) => item.kind === 'landmark' || item.kind === 'area').length, 341);
-  assert.equal(new Set(pool.map((item) => item.id)).size, 1146);
+  const citiesInPool = pool.filter((item) => item.kind !== 'landmark' && item.kind !== 'area').length;
+  assert.equal(citiesInPool, 805);
+  assert.equal(pool.length, 805 + landmarkPool().length);
+  assert.equal(pool.filter((item) => item.kind === 'landmark' || item.kind === 'area').length, landmarkPool().length);
+  assert.equal(new Set(pool.map((item) => item.id)).size, pool.length);
 });
 
 test('uniform band draw over the merged pool: worst overdraw under 1.6x, no zero-chance items', () => {
