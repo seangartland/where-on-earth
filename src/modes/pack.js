@@ -125,9 +125,16 @@ function packSlot(id, result, index) {
     li.setAttribute('aria-haspopup', 'dialog');
     li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${formatKm(result.distance)}`);
     host.bindPostcard(li, passportEntry);
+    // The pack is about collecting, not points: no scores on this screen,
+    // just a note under the cards that changed the collection.
+    if (result.postcard?.kind === 'new' || result.postcard?.kind === 'upgrade') {
+      li.append(Object.assign(document.createElement('p'), {
+        className: `pack-slot-note is-${result.postcard.kind === 'new' ? 'new' : 'upgrade'}`,
+        textContent: result.postcard.kind === 'new' ? 'New postcard' : 'Upgraded',
+      }));
+    }
   }
   li.classList.add('pack-slot');
-  if (result) li.append(Object.assign(document.createElement('p'), { className: 'pack-slot-base', textContent: `+${(Number(result.base) || 0).toLocaleString()}` }));
   return li;
 }
 
@@ -191,8 +198,6 @@ function renderPackScreen(deal = false) {
   els.line.textContent = sealedNow ? 'Three postcards. Pin each one.'
     : done ? doneLine(summary)
     : summary.played ? `${summary.played} of ${PACK_CARDS} opened · Tap a card to flip its clue` : 'Tap a card to flip its clue.';
-  els.score.hidden = !done;
-  els.score.textContent = `Pack score ${summary.score.toLocaleString()} / ${(PACK_CARDS * 1000).toLocaleString()}`;
   els.ready.hidden = !stale;
   els.primary.hidden = sealedNow || (!stale && !done);
   els.primary.textContent = stale ? 'Open today’s pack' : 'Done';
@@ -340,7 +345,6 @@ export function initPack(main) {
     sealed,
     line: screen.querySelector('.pack-line'),
     slots: screen.querySelector('.pack-slots'),
-    score: screen.querySelector('.pack-score'),
     ready: screen.querySelector('.pack-ready'),
     primary: screen.querySelector('.pack-primary'),
   };
