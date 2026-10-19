@@ -6989,7 +6989,8 @@
   ],
   "difficultyWhy": "p.94·fb1255·K0·iso1197 → 18.6 → 5",
   "category": "city",
-  "kind": "area"
+  "kind": "area",
+  "extentKm": 148
  },
  {
   "id": "lord-howe-island",
