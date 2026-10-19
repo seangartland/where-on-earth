@@ -22,3 +22,7 @@ Built by Muse Wonder in-session, 2026-10-18. Spec: docs/pacing-and-monetization.
 - Earning proof: a perfect (0 km) Survival guess on Thessaloniki recorded the visit with meta {b: 1000, t, f} and no earn field and no stored best distance, so no postcard was earned and none can be rebuilt later.
 - Full node suite: all five test files pass (36 tests), syntax checks clean on every edited file.
 - Screenshots reviewed: shots/pacing-home.png (card with chevron, five buttons) and shots/pacing-practice-hub.png (hub copy and rows).
+
+## Addendum: import cycle broken before deploy
+
+The first deploy attempt failed at the version-modules step: the phase 2 hub line made survival.js import triviaHubLine from trivia.js while trivia.js imports from survival.js, and the deploy's content-hash versioning cannot settle over an import cycle. Fixed by routing triviaHubLine through the host object (main.js), the same pattern the hub's borders and blackout lines already use. Full suite and the headless hub check re-run green after the fix.

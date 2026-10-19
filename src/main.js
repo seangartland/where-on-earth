@@ -60,7 +60,7 @@ import {
 import { endless, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
 import { initLandmarks, landmarkPool } from './modes/landmarks.js';
 import {
-  trivia, initTrivia, startTrivia, triviaBankLoaded, triviaRoundHeader, triviaRecordGuess, triviaNext, triviaShareText,
+  trivia, initTrivia, startTrivia, triviaBankLoaded, triviaRoundHeader, triviaRecordGuess, triviaNext, triviaShareText, triviaHubLine,
 } from './modes/trivia.js';
 import { pack, initPack, syncPackButton, packRoundHeader, packRecordGuess, packIsLastCard, packNext } from './modes/pack.js';
 import { AUDIT_MODE, initAudit, auditFlagsLocationsLoaded, addAuditFlagButton, mountAuditBanner } from './modes/audit.js';
@@ -291,6 +291,7 @@ const modeHost = {
   blackoutShareText,
   startTrivia,
   triviaShareText,
+  triviaHubLine,
   passportEntryFor,
   bindPostcard,
   applyCardTier,

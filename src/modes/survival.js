@@ -11,7 +11,8 @@
 import { isLandmark, isPlayableLocation } from '../daily.js';
 import { SHARE_URL } from '../core/format.js';
 import { landmarkPool, LANDMARKS_BEST_KEY } from './landmarks.js';
-import { triviaHubLine } from './trivia.js';
+// triviaHubLine comes through the host, not an import: trivia.js imports this
+// module, and a back-import would form a cycle the deploy versioning rejects.
 
 let host = null;
 const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
@@ -181,7 +182,7 @@ function showSurvivalHub() {
   hub.querySelector('[data-hub-best="survival"]').textContent = streak(survivalBest());
   hub.querySelector('[data-hub-best="borders"]').textContent = streak(host.bordersBest());
   hub.querySelector('[data-hub-best="blackout"]').textContent = host.blackoutBestSummary();
-  hub.querySelector('[data-hub-best="trivia"]').textContent = triviaHubLine();
+  hub.querySelector('[data-hub-best="trivia"]').textContent = host.triviaHubLine();
   hub.hidden = false;
 }
 
