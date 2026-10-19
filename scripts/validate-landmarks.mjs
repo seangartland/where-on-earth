@@ -41,6 +41,8 @@ const APPROVED_AREAS = new Map([
   ['masai-mara', 40.6],
   ['sagarmatha-national-park', 29.3],
   ['grand-teton-national-park', 33],
+  ['easter-island', 14],
+  ['lord-howe-island', 5],
 ]);
 
 const items = JSON.parse(readFileSync(new URL('../assets/locations-landmarks-sol.json', import.meta.url), 'utf8'));

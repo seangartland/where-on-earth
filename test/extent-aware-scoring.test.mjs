@@ -49,6 +49,8 @@ const APPROVED_AREAS = {
   'masai-mara': 40.6,
   'sagarmatha-national-park': 29.3,
   'grand-teton-national-park': 33,
+  'easter-island': 14,
+  'lord-howe-island': 5,
 };
 
 function destination(start, km, bearingDegrees = 73) {
@@ -189,7 +191,11 @@ test('other mode catalogs remain center-scored and independent', () => {
   const islandIds = ['easter-island', 'galapagos-islands', 'lord-howe-island'];
   const islandRoute = expeditions.find((route) => islandIds.every((id) => route.locationIds.includes(id)));
   assert.ok(islandRoute);
-  assert.ok(islandIds.every((id) => !Object.hasOwn(byLandmarkId.get(id), 'extentKm')));
+  // Sean 2026-10-18: the two compact island stops carry extents (Easter 14 km,
+  // Lord Howe 5 km); Galapagos stays point-scored pending his extent call.
+  assert.equal(byLandmarkId.get('easter-island').extentKm, 14);
+  assert.equal(byLandmarkId.get('lord-howe-island').extentKm, 5);
+  assert.ok(!Object.hasOwn(byLandmarkId.get('galapagos-islands'), 'extentKm'));
   assert.ok(weekly.every((route) => islandIds.every((id) => !route.locationIds.includes(id))));
   const catalogSource = readFileSync(new URL('../pvp-worker/src/catalog.js', import.meta.url), 'utf8');
   assert.ok(Object.keys(APPROVED_AREAS).every((id) => !catalogSource.includes(`\"${id}\"`)));

@@ -1042,22 +1042,6 @@
   "kind": "landmark"
  },
  {
-  "id": "chagos-diego-garcia-point",
-  "short": "Diego Garcia Point",
-  "clue": "Diego Garcia Point, United Kingdom 🇸🇭",
-  "fact": "Diego Garcia is a strategic atoll in the Chagos Archipelago, home to a joint UK-US military base.",
-  "lat": -7.3133,
-  "lng": 72.4111,
-  "difficulty": 9,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "United Kingdom",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.86·fb9574·K0·iso1877 → 133.9 → 9",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "challenger-deep",
   "clue": "Challenger Deep, Mariana Trench",
   "category": "city",
@@ -1138,22 +1122,6 @@
   "country": "India",
   "sets": [],
   "difficultyWhy": "p.41·fb687·K0·iso82 → 91.3 → 8",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "channel-swim-captain-webb",
-  "short": "Calais Landing Beach",
-  "clue": "Calais, France 🇫🇷",
-  "fact": "Webb swam from Dover to the Calais coast in nearly 22 hours in 1875, battling currents and jellyfish without a wetsuit.",
-  "lat": 50.9643,
-  "lng": 1.8431,
-  "difficulty": 6,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "France",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.61·fb415·K0·iso150 → 38.8 → 6",
   "category": "city",
   "kind": "landmark"
  },
@@ -1340,25 +1308,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.64·fb171·K0·iso216 → 16.9 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "colca-canyon-condor-cross",
-  "short": "Cruz del Condor",
-  "clue": "Cruz del Condor, Peru 🇵🇪",
-  "fact": "This ledge above Peru's Colca Canyon is celebrated for close views of soaring Andean condors. Thermal currents lift the birds past the rim.",
-  "lat": -15.6117,
-  "lng": -71.9039,
-  "difficulty": 9,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Peru",
-  "continent": "South America",
-  "sets": [
-   "Andes",
-   "Canyons & Gorges"
-  ],
-  "difficultyWhy": "p.24·fb693·K0·iso96 → 115.9 → 9",
   "category": "city",
   "kind": "landmark"
  },
@@ -3193,22 +3142,6 @@
   "kind": "landmark"
  },
  {
-  "id": "oivi-kokoda",
-  "clue": "Oivi Kokoda, Papua New Guinea 🇵🇬",
-  "fact": "Oivi was a key battleground during the Kokoda Campaign of WWII, where Australians fought to repel Japanese forces.",
-  "lat": -9.0694,
-  "lng": 147.7439,
-  "difficulty": 6,
-  "short": "Oivi Kokoda",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Papua New Guinea",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb154·K0·iso2120 → 28.9 → 6",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "okefenokee-swamp",
   "short": "Okefenokee Swamp",
   "clue": "Okefenokee Swamp, United States 🇺🇸",
@@ -4079,22 +4012,6 @@
   "kind": "landmark"
  },
  {
-  "id": "tanbaly-kazakhstan",
-  "short": "Tanbaly Petroglyphs",
-  "clue": "Tanbaly Petroglyphs, Kazakhstan 🇰🇿",
-  "fact": "The Tanbaly archaeological landscape contains over 5,000 rock carvings dating from the Bronze Age to the Turkic period in southern Kazakhstan.",
-  "lat": 43.8008,
-  "lng": 75.535,
-  "difficulty": 9,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Kazakhstan",
-  "continent": "Asia",
-  "sets": [],
-  "difficultyWhy": "p.00·fb581·K0·iso127 → 123.2 → 9",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "thabana-ntlenyana-summit",
   "clue": "Thabana Ntlenyana, Lesotho",
   "fact": "The highest point in Southern Africa at 3,482 meters, located in Lesotho.",
@@ -4491,22 +4408,6 @@
    "History Was Here"
   ],
   "difficultyWhy": "p.47·fb218·K0·iso90 → 27.5 → 6",
-  "kind": "landmark"
- },
- {
-  "id": "wounded-knee-creek",
-  "clue": "Wounded Knee, United States 🇺🇸",
-  "fact": "Wounded Knee Creek in South Dakota was the site of the 1890 massacre of Lakota Sioux by the U.S. 7th Cavalry.",
-  "lat": 43.1403,
-  "lng": -102.3635,
-  "difficulty": 6,
-  "short": "Wounded Knee",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.89·fb885·K0·iso1213 → 24.8 → 6",
-  "category": "city",
   "kind": "landmark"
  },
  {
@@ -5186,38 +5087,6 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.24·fb511·K0·iso677 → 85.0 → 8",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "queens-us",
-  "short": "Queens",
-  "clue": "Queens, United States 🇺🇸",
-  "fact": "Queens is often called the most ethnically diverse urban area on Earth, with well over 100 languages spoken.",
-  "lat": 40.68149,
-  "lng": -73.83652,
-  "difficulty": 7,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.88·fb1693·K0·iso16 → 48.1 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "the-bronx",
-  "short": "The Bronx",
-  "clue": "The Bronx, United States 🇺🇸",
-  "fact": "The Bronx is home to Yankee Stadium and the Bronx Zoo, one of the largest city zoos in the world.",
-  "lat": 40.84985,
-  "lng": -73.86641,
-  "difficulty": 6,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.91·fb1691·K0·iso19 → 36.2 → 6",
   "category": "city",
   "kind": "landmark"
  },
@@ -6790,22 +6659,6 @@
   "kind": "landmark"
  },
  {
-  "id": "brooklyn-us",
-  "short": "Brooklyn",
-  "clue": "Brooklyn, United States 🇺🇸",
-  "fact": "Brooklyn would be one of the largest cities in the US if it were independent, and it was its own city until it joined New York in 1898.",
-  "lat": 40.6501,
-  "lng": -73.94958,
-  "difficulty": 2,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Brooklyn_skyline.jpg/500px-Brooklyn_skyline.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.99·fb1683·K0·iso23 → 6.6 → 2",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "champs-elysees-paris",
   "short": "Champs-Élysées",
   "clue": "Champs-Élysées, France 🇫🇷",
@@ -7116,6 +6969,7 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "p.99·fb3711·K0·iso3751 → 9.6 → 4",
+  "extentKm": 14,
   "category": "city",
   "kind": "area"
  },
@@ -7152,6 +7006,7 @@
    "Pacific Islands"
   ],
   "difficultyWhy": "p.61·fb1337·K0·iso741 → 117.9 → 9",
+  "extentKm": 5,
   "category": "city",
   "kind": "area"
  },
