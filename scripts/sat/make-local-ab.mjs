@@ -13,6 +13,8 @@ const option = (name, fallback) => args.includes(name) ? args[args.indexOf(name)
 const seed = option('--seed', 'eox-finish-sites');
 const ours = resolve(option('--ours', 'scripts/sat/work/s2gm2025/finished'));
 const eox = resolve(option('--eox', 'scripts/sat/pilot/eox'));
+const oursLabel = option('--ours-label', 'ours');
+const eoxLabel = option('--eox-label', 'eox');
 const eoxFallback = option('--eox-fallback', null);
 const out = resolve(option('--out', 'scripts/sat/work/ab'));
 const planFile = option('--plan', null);
@@ -48,7 +50,7 @@ for (const site of sites) for (const z of SITE_ZOOMS) {
 const key = {};
 const markup = panels.map(panel => {
   const oursIsA = (hash(`${seed}:${panel.id}`) & 1) === 0;
-  key[panel.id] = oursIsA ? { A: 'ours', B: 'eox' } : { A: 'eox', B: 'ours' };
+  key[panel.id] = oursIsA ? { A: oursLabel, B: eoxLabel } : { A: eoxLabel, B: oursLabel };
   const relative = file => file.slice(out.length + 1);
   const a = relative(oursIsA ? panel.ours : panel.eox), b = relative(oursIsA ? panel.eox : panel.ours);
   return `<section><h2>${panel.title}</h2><div class="pair"><figure><figcaption>A</figcaption><img src="${a}" alt=""></figure><figure><figcaption>B</figcaption><img src="${b}" alt=""></figure></div></section>`;

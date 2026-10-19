@@ -5,19 +5,21 @@ import { resolve, dirname } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { flag, readJson, sha256 } from './common.mjs';
 
-const CONFIG = Object.freeze({ landGain: 2.9, landGamma: 0.9, landSaturation: 1.05, contrast: 1.0, highlightKnee: 0.72, oceanLuminanceOffset: 0.08, oceanLuminanceScale: 0.65, oceanGamma: 0.92, oceanChroma: 0.64, jpegQ: 2 });
+const args=process.argv.slice(2);
+const liftMode=flag(args,'--land-shadow-lift','on');
+if(!['on','off'].includes(liftMode))throw new Error('--land-shadow-lift must be on or off');
+const CONFIG = Object.freeze({ landGain: 2.9, landGamma: 0.9, landSaturation: 1.05, contrast: 1.0, highlightKnee: 0.72, landShadowLift: liftMode==='on', landShadowLiftStrength: 0.07, landShadowLiftCutoff: 0.55, landShadowLiftCurve: 2.0, oceanLuminanceOffset: 0.08, oceanLuminanceScale: 0.65, oceanGamma: 0.92, oceanChroma: 0.64, jpegQ: 2 });
 const WINDOW_TONE = Object.freeze({
   '8/39/96': { landGain: 3.19, landGamma: 0.87 },
   '4/6/3': { landGain: 3.09, landGamma: 0.87 },
   '6/27/15': { landGain: 3.09, landGamma: 0.87 },
-  '9/471/306': { landGain: 2.65, landSaturation: 0.99 },
+  '9/471/306': { landGain: 2.65, landSaturation: 0.99, landShadowLift: false },
   '4/3/9': { landGain: 2.75, highlightKnee: 0.66 },
   '6/21/45': { landGain: 2.75, highlightKnee: 0.66 },
   '8/84/186': { landGain: 2.75, highlightKnee: 0.66 },
   '9/171/375': { landGain: 2.75, highlightKnee: 0.66 }
 });
-const args=process.argv.slice(2);
-if(args.includes('--help')){console.log('Usage: finish.mjs --plan FILE --work DIR --out DIR --assets DIR [--python PYTHON] [--all-tiles] [--skip-base]');process.exit(0)}
+if(args.includes('--help')){console.log('Usage: finish.mjs --plan FILE --work DIR --out DIR --assets DIR [--python PYTHON] [--all-tiles] [--skip-base] [--land-shadow-lift on|off]');process.exit(0)}
 const root=resolve(import.meta.dirname,'../../..');
 const planFile=resolve(flag(args,'--plan')); const work=resolve(flag(args,'--work',resolve(root,'scripts/sat/work/s2gm2025'))); const out=resolve(flag(args,'--out',resolve(work,'finished'))); const assets=resolve(flag(args,'--assets',resolve(root,'scripts/sat/cache'))); const python=flag(args,'--python','/home/hatch/workspace/map-game/eox1-work/.venv-sat/bin/python'); const allTiles=args.includes('--all-tiles'),skipBase=args.includes('--skip-base');
 const plan=await readJson(planFile); await mkdir(out,{recursive:true}); await mkdir(resolve(work,'raw-selected'),{recursive:true});
@@ -36,7 +38,8 @@ const oceanAt=(lon,lat,z)=>{const color=oceanSample(lon,lat),l=.2126*color[0]+.7
 const latAt=(window,y)=>window.crs==='EPSG:4326'?window.bounds[3]-(y+.5)/window.height*(window.bounds[3]-window.bounds[1]):Math.atan(Math.sinh((window.bounds[3]-(y+.5)/window.height*(window.bounds[3]-window.bounds[1]))/20037508.342789244*Math.PI))*180/Math.PI;
 const lonAt=(window,x)=>window.crs==='EPSG:4326'?window.bounds[0]+(x+.5)/window.width*(window.bounds[2]-window.bounds[0]):(window.bounds[0]+(x+.5)/window.width*(window.bounds[2]-window.bounds[0]))*180/20037508.342789244;
 const toneFor=(w)=>({...CONFIG,...WINDOW_TONE[w.id]});
-const landTone=(rgb,tone)=>{let c=rgb.map(value=>{let x=Math.pow(Math.max(0,value/10000*tone.landGain),1/tone.landGamma);if(x>tone.highlightKnee)x=tone.highlightKnee+(1-tone.highlightKnee)*(1-Math.exp(-(x-tone.highlightKnee)/(1-tone.highlightKnee)));return x});const mean=(c[0]+c[1]+c[2])/3;c=c.map(value=>(mean+(value-mean)*tone.landSaturation-.5)*tone.contrast+.5);return c.map(value=>Math.round(Math.max(0,Math.min(1,value))*255))};
+const landTone=(rgb,tone)=>{let c=rgb.map(value=>{let x=Math.pow(Math.max(0,value/10000*tone.landGain),1/tone.landGamma);if(x>tone.highlightKnee)x=tone.highlightKnee+(1-tone.highlightKnee)*(1-Math.exp(-(x-tone.highlightKnee)/(1-tone.highlightKnee)));return x});const mean=(c[0]+c[1]+c[2])/3;c=c.map(value=>(mean+(value-mean)*tone.landSaturation-.5)*tone.contrast+.5);if(tone.landShadowLift){const luminance=.2126*c[0]+.7152*c[1]+.0722*c[2];if(luminance<tone.landShadowLiftCutoff){const lift=tone.landShadowLiftStrength*(1-luminance/tone.landShadowLiftCutoff)**tone.landShadowLiftCurve;c=c.map(value=>value+lift)}}return c.map(value=>Math.round(Math.max(0,Math.min(1,value))*255))};
+const luminanceStats=(values)=>{values.sort((a,b)=>a-b);const percentile=p=>values[Math.round((values.length-1)*p)];return {pixels:values.length,p10:percentile(.1),p50:percentile(.5),p90:percentile(.9),mean:values.reduce((sum,value)=>sum+value,0)/values.length}};
 const preference=(w)=>{if(w.kind==='base'||w.z<6)return '';const lat=latAt(w,(w.height-1)/2);return lat>23?'2025-Q3':lat< -23?'2025-Q1':''};
 const outputs=new Map(),qa={status:'passed',config:CONFIG,windowTone:WINDOW_TONE,windows:{},seams:[],tiles:{}};
 // Lower layers are deliberately finished first so whole-globe defects surface
@@ -50,9 +53,9 @@ for(const w of [...plan.windows].sort((a,b)=>(a.z??-1)-(b.z??-1))){
  let result;try{result=run(command,null,`select ${w.id}`)}catch(error){if(!/missing quarterly cache key/.test(error.message))throw error;console.log(JSON.stringify({window:w.id,status:'skipped',reason:'required quarterly source window is incomplete'}));qa.windows[w.id]={status:'skipped',reason:'required quarterly source window is incomplete'};continue}const stats=JSON.parse(result.toString());const pixels=await readFile(raw);const vectorName=w.vectorMask;const landMask=vectorName?decode(resolve(assets,vectorName),'gray'):mask;const [landW,landH]=vectorName?dimensions(resolve(assets,vectorName)):[maskW,maskH];
  console.log(`Compositing ${w.id}`);
  const tone=toneFor(w),polar=latAt(w,(w.height-1)/2)<-55,maskAt=(x,y)=>1-landMask[Math.max(0,Math.min(landH-1,Math.floor(y*landH/w.height)))*landW+Math.max(0,Math.min(landW-1,Math.floor(x*landW/w.width)))]/255;let sourceGapEdgePixels=0;
- const composed=Buffer.alloc(w.width*w.height*3);for(let y=0;y<w.height;y++){for(let x=0;x<w.width;x++){const p=(y*w.width+x),at=p*8,outAt=p*3,obs=pixels.readUInt16LE(at+6),lon=lonAt(w,x),lat=latAt(w,y);let alpha;if(polar){alpha=obs?1:0;if(obs&&[[-1,0],[1,0],[0,-1],[0,1]].some(([dx,dy])=>{const nx=x+dx,ny=y+dy;return nx>=0&&nx<w.width&&ny>=0&&ny<w.height&&!pixels.readUInt16LE((ny*w.width+nx)*8+6)}))sourceGapEdgePixels++}else if(vectorName)alpha=maskAt(x,y);else{const mx=Math.max(0,Math.min(maskW-1,Math.floor((lon+180)/360*maskW))),my=Math.max(0,Math.min(maskH-1,Math.floor((90-lat)/180*maskH)));alpha=landMask[my*maskW+mx]/255}let landAt=at;if(!obs&&w.kind==='base'&&alpha>0){const step=y<w.height/2?1:-1;for(let sy=y+step;sy>=0&&sy<w.height;sy+=step){const candidate=(sy*w.width+x)*8;if(pixels.readUInt16LE(candidate+6)>0){landAt=candidate;break}}}const raw=[pixels.readUInt16LE(landAt),pixels.readUInt16LE(landAt+2),pixels.readUInt16LE(landAt+4)],land=pixels.readUInt16LE(landAt+6)?landTone(raw,tone):null,sea=oceanAt(lon,lat,w.z??0);for(let c=0;c<3;c++)composed[outAt+c]=land?Math.round(land[c]*alpha+sea[c]*(1-alpha)):sea[c]}}
+ const landLuminance=[],oceanLuminance=[],composed=Buffer.alloc(w.width*w.height*3);for(let y=0;y<w.height;y++){for(let x=0;x<w.width;x++){const p=(y*w.width+x),at=p*8,outAt=p*3,obs=pixels.readUInt16LE(at+6),lon=lonAt(w,x),lat=latAt(w,y);let alpha;if(polar){alpha=obs?1:0;if(obs&&[[-1,0],[1,0],[0,-1],[0,1]].some(([dx,dy])=>{const nx=x+dx,ny=y+dy;return nx>=0&&nx<w.width&&ny>=0&&ny<w.height&&!pixels.readUInt16LE((ny*w.width+nx)*8+6)}))sourceGapEdgePixels++}else if(vectorName)alpha=maskAt(x,y);else{const mx=Math.max(0,Math.min(maskW-1,Math.floor((lon+180)/360*maskW))),my=Math.max(0,Math.min(maskH-1,Math.floor((90-lat)/180*maskH)));alpha=landMask[my*maskW+mx]/255}let landAt=at;if(!obs&&w.kind==='base'&&alpha>0){const step=y<w.height/2?1:-1;for(let sy=y+step;sy>=0&&sy<w.height;sy+=step){const candidate=(sy*w.width+x)*8;if(pixels.readUInt16LE(candidate+6)>0){landAt=candidate;break}}}const raw=[pixels.readUInt16LE(landAt),pixels.readUInt16LE(landAt+2),pixels.readUInt16LE(landAt+4)],land=pixels.readUInt16LE(landAt+6)?landTone(raw,tone):null,sea=oceanAt(lon,lat,w.z??0);if(land&&alpha>=.5)landLuminance.push(.2126*land[0]+.7152*land[1]+.0722*land[2]);oceanLuminance.push(.2126*sea[0]+.7152*sea[1]+.0722*sea[2]);for(let c=0;c<3;c++)composed[outAt+c]=land?Math.round(land[c]*alpha+sea[c]*(1-alpha)):sea[c]}}
  const fullySourced=stats.nodataPixels===0,maskEdgeQa={status:fullySourced&&sourceGapEdgePixels>0?'failed':'passed',mode:polar?'observations':'natural-earth',geometricMaskPixels:polar?0:null,sourceGapEdgePixels,coverageLimited:stats.nodataPixels>0};if(maskEdgeQa.status==='failed')qa.status='failed';
- outputs.set(w.id,composed);qa.windows[w.id]={...stats,preferredQuarter:preference(w)||null,tone,maskEdgeQa};
+ outputs.set(w.id,composed);qa.windows[w.id]={...stats,preferredQuarter:preference(w)||null,tone,landLuminance:luminanceStats(landLuminance),oceanLuminance:luminanceStats(oceanLuminance),maskEdgeQa};
  console.log(`Encoding ${w.id}`);
  const ppm=resolve(work,'raw-selected',`${stem}.ppm`);await writeFile(ppm,Buffer.concat([Buffer.from(`P6\n${w.width} ${w.height}\n255\n`),composed]));
  if(w.kind==='base'){const file=resolve(out,'base-ours.jpg');run(['ffmpeg','-hide_banner','-loglevel','error','-i',ppm,'-frames:v','1','-q:v',String(CONFIG.jpegQ),'-y',file],null,`encode ${file}`);continue}
