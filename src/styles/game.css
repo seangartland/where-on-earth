@@ -172,6 +172,7 @@ h1 { max-width: 330px; margin: 0; color: #f1f8ff; font-size: clamp(46px, 15vw, 6
 /* Reveal: the clue header collapses to the place name, a score pill floats
    under it while the map plays alone, then the bottom sheet peeks up. */
 .reveal-name { display: none; margin: 0; overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; letter-spacing: -.01em; line-height: 22px; text-overflow: ellipsis; white-space: nowrap; }
+.reveal-name .reveal-repeat { display: block; overflow: hidden; color: rgba(193,224,250,.62); font-size: 11px; font-weight: 650; letter-spacing: .01em; line-height: 14px; text-overflow: ellipsis; }
 body.game-reveal .round-header { display: flex; align-items: center; justify-content: center; min-height: 0; height: 52px; padding: 0 56px; overflow: hidden; text-align: center; }
 body.game-reveal .round-header > :not(.reveal-name):not(.home-nav-btn) { display: none; }
 body.game-reveal .round-header .home-nav-btn { top: 4px; right: 4px; }
@@ -452,6 +453,21 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 #play-button { background: linear-gradient(135deg, #ffd166, #ff9f6a); border: 0; color: #21152f; font-weight: 800; }
 /* Daily takes the full first row so Survival and Challenge pair below it. */
 #play-button { grid-column: 1 / -1; }
+/* The Daily postcard pack: a slim, quiet full-width row under the Daily (outline, no fill). */
+#pack-button { grid-column: 1 / -1; min-height: 48px; border-color: rgba(255,209,102,.55); background: none; color: #ffe2a0; }
+#pack-button.played { opacity: .55; }
+
+/* The Daily postcard pack screen: the hub panel over a plain scrim. */
+.pack-screen { display: grid; place-items: center; box-sizing: border-box; padding: 18px; overflow: auto; background: rgba(2,4,9,.78); pointer-events: auto; }
+.pack-screen[hidden] { display: none; }
+.pack-panel { text-align: center; }
+.pack-panel h2 { padding: 0 34px; }
+.pack-panel > .pack-line { margin: 6px 0 16px; }
+.pack-slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; text-align: left; }
+.pack-slot-base { margin: 2px 1px 0; color: #ffc76a; font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pack-panel > .pack-score { margin: 16px 0 0; color: #f3f9ff; font-size: 15px; font-weight: 800; }
+.pack-panel > .pack-ready { margin: 8px 0 0; color: #ffd166; font-weight: 750; }
+.pack-primary { width: 100%; margin-top: 18px; }
 
 /* Survival and More modes hub rows: the shared picker row without the emoji column. */
 #survival-hub .expedition-choice, #more-modes-hub .expedition-choice { grid-template-columns: 1fr auto; }

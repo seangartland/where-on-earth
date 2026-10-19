@@ -21,6 +21,7 @@ let completeExpeditionRound, expeditionRevealCard, survivalRevealCard, bordersNe
 let expeditionNext, endlessNext, revealBorders, pvpRenderVs, pvpNext, pvpSubmit, saveDaily, runHaul;
 let showPostcardSummary, recordVisit, applyCardTier, isVisited;
 let trivia, triviaRoundHeader, triviaRecordGuess, triviaNext;
+let pack, packRoundHeader, packRecordGuess, packIsLastCard, packNext;
 
 // Guessing is two steps: tap the globe to place (or move) the pin, then press
 // Lock in. The button sits in a fixed spot in the thumb zone, away from the
@@ -147,6 +148,7 @@ export function hideScreens() {
   if (state.settingsScreenEl) state.settingsScreenEl.hidden = true;
   if (state.passportScreenEl) state.passportScreenEl.hidden = true;
   if (state.collectionsScreenEl) state.collectionsScreenEl.hidden = true;
+  if (state.packScreenEl) state.packScreenEl.hidden = true;
   for (const el of pvpScreenEls) el.hidden = true;
   document.body.className = '';
 }
@@ -174,6 +176,8 @@ export function showRound() {
     endlessRoundHeader();
   } else if (trivia.active) {
     triviaRoundHeader();
+  } else if (pack.active) {
+    packRoundHeader();
   } else {
     gameEls.number.textContent = `Round ${state.daily.round + 1} of 5`;
     gameEls.weight.textContent = `${WEIGHTS[state.daily.round]}× points`;
@@ -188,6 +192,7 @@ export function showRound() {
 
 // Compact earn toast: appears after the flyover completes, doesn't block the globe.
 // The postcard is the payoff of the flight, not a competing modal.
+// Tier 0 is the pack's first-visit variant: the grey card (spec 2d).
 export function showEarnToast(answer, tier) {
   document.querySelector('.earn-toast')?.remove();
   const style = document.createElement('style');
@@ -197,14 +202,17 @@ export function showEarnToast(answer, tier) {
     .earn-toast img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex: none; }
     .earn-toast .earn-toast-text { color: #f3f9ff; font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .earn-toast .earn-toast-text small { display: block; color: #ffc76a; font-size: 11px; font-weight: 600; }
+    .earn-toast.seen { border-color: rgba(193,224,250,.32); }
+    .earn-toast.seen img { filter: grayscale(1) contrast(.92) brightness(.82); }
+    .earn-toast.seen .earn-toast-text small { color: rgba(193,224,250,.72); }
   `;
   document.head.appendChild(style);
   const toast = document.createElement('div');
-  toast.className = 'earn-toast';
-  const tierLabel = tier === EARN_PINPOINT ? '📍 Pinpoint!' : tier === EARN_BULLSEYE ? '🎯 Bullseye!' : 'New postcard earned!';
+  toast.className = `earn-toast${tier ? '' : ' seen'}`;
+  const tierLabel = !tier ? 'Visited · added to your Passport' : tier === EARN_PINPOINT ? '📍 Pinpoint!' : tier === EARN_BULLSEYE ? '🎯 Bullseye!' : 'New postcard earned!';
   toast.innerHTML = `
     <img src="${answer.image || ''}" alt="">
-    <div class="earn-toast-text">${tierLabel}<small>${answer.clue || answer.short || ''}</small></div>
+    <div class="earn-toast-text">${tierLabel}<small>${tier ? answer.clue || answer.short || '' : 'Land within 150 km anywhere to colour it'}</small></div>
   `;
   document.body.appendChild(toast);
   // Animate in
@@ -236,7 +244,7 @@ export function revealGuess(guess, restoring = false) {
   const pvpScored = pvp.active ? pvp.reveal : null;
   const km = pvpScored ? pvpScored.distanceKm : Math.round(kmExact);
   const base = pvpScored ? pvpScored.score : Math.round(distanceScore(kmExact));
-  const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active || trivia.active; // outside the daily
+  const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active || trivia.active || pack.active; // outside the daily
   const score = oneOff ? 0 : scoreGuess(kmExact, state.daily.round);
   if (!restoring && survival.active) survivalRecordGuess(answer, km, kmExact);
   if (!restoring && trivia.active) triviaRecordGuess(km, base);
@@ -248,7 +256,8 @@ export function revealGuess(guess, restoring = false) {
     : survival.active
     ? `game-reveal survival${survival.missed ? ' survival-miss' : ''}`
     : endless.active ? 'game-reveal endless'
-    : trivia.active ? 'game-reveal trivia' : 'game-reveal';
+    : trivia.active ? 'game-reveal trivia'
+    : pack.active ? 'game-reveal pack' : 'game-reveal';
   gameEls.hint.textContent = '';
   gameEls.distance.textContent = window.__travelAnim && !restoring ? '0 km' : formatKm(km);
   // Capture the passport state before this guess changes it. The reveal starts
@@ -260,6 +269,7 @@ export function revealGuess(guess, restoring = false) {
   // Trivia is score-only: it never records.
   const record = pvp.active ? pvp.recordVisit : !restoring && !trivia.active;
   const newlyEarned = record ? recordVisit(answer.id, base, pvpScored ? pvpScored.distanceKm : kmExact, !endless.active && !pvp.active) : 0; // exact, so earning matches the flyover tier
+  const packCard = !restoring && pack.active ? packRecordGuess(guess, km, kmExact, base, wasVisited, previousEarn, newlyEarned) : null;
   if (!restoring && !oneOff) {
     state.daily.results[state.daily.round] = {
       guess,
@@ -283,6 +293,8 @@ export function revealGuess(guess, restoring = false) {
   // A trivia entry's clue is the riddle; the reveal names the place.
   const placeName = trivia.active ? answer.short : answer.clue || answer.short;
   gameEls.revealName.textContent = placeName;
+  // A pack repeat with nothing new is labelled, never rerolled.
+  if (packCard?.kind === 'repeat') gameEls.revealName.append(Object.assign(document.createElement('small'), { className: 'reveal-repeat', textContent: 'Already in your Passport' }));
   gameEls.peekName.textContent = placeName;
   gameEls.fact.textContent = answer.fact;
   setThumb(gameEls.thumb, answer.image);
@@ -304,6 +316,10 @@ export function revealGuess(guess, restoring = false) {
     gameEls.score.textContent = `+${base}`;
     pill.textContent = `+${base}`;
     gameEls.next.textContent = trivia.round >= 5 ? 'Results' : 'Next';
+  } else if (pack.active) {
+    gameEls.score.textContent = `+${base}`;
+    pill.textContent = `+${base}`;
+    gameEls.next.textContent = packIsLastCard() ? 'Done' : 'Next card';
   } else {
     // Endless is unscored: no pill, and the peek bar shows just the distance.
     gameEls.score.textContent = endless.active ? '' : `+${score}`;
@@ -315,7 +331,7 @@ export function revealGuess(guess, restoring = false) {
   const animate = window.__travelAnim !== false && !restoring;
   // Queue the earn celebration for after the flyover completes.
   // The earn toast is non-blocking, but holds off until the postcard has settled.
-  if (newlyEarned) {
+  if (newlyEarned || packCard?.kind === 'visited') {
     setTimeout(() => {
       if (animate) whenPostcardDone(() => showEarnToast(answer, newlyEarned));
       else showEarnToast(answer, newlyEarned);
@@ -397,6 +413,7 @@ export function nextRound() {
   else if (pvp.active) pvpNext();
   else if (endless.active) endlessNext();
   else if (trivia.active) triviaNext();
+  else if (pack.active) packNext();
   else if (state.daily.round >= 4) showPostcardSummary();
   else {
     state.daily.round += 1;
@@ -413,6 +430,7 @@ export function currentItem() {
   if (borders.active) return null; // Borders asks for a country, not a location
   if (pvp.active) return pvp.item;
   if (trivia.active) return trivia.item;
+  if (pack.active) return pack.item;
   return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : state.selected[state.daily.round];
 }
 
@@ -461,7 +479,7 @@ export function initRound(main) {
     completeExpeditionRound, expeditionRevealCard, survivalRevealCard, bordersNext, survivalNext,
     expeditionNext, endlessNext, revealBorders, pvpRenderVs, pvpNext, pvpSubmit, saveDaily, runHaul,
     showPostcardSummary, recordVisit, applyCardTier, isVisited, trivia, triviaRoundHeader, triviaRecordGuess,
-    triviaNext } = main);
+    triviaNext, pack, packRoundHeader, packRecordGuess, packIsLastCard, packNext } = main);
   lockButton.addEventListener('click', () => {
     if (!state.pendingGuess || !window.__canGuess || state.gameMode !== 'guess') return;
     if (performance.now() < lockArmedAt) return; // the tail of a double tap on the globe

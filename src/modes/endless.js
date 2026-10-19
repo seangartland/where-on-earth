@@ -62,7 +62,8 @@ export function initEndless(main) {
   host = main;
   const endlessEntry = document.getElementById('endless-button');
   endlessEls = { entry: endlessEntry };
-  endlessEntry.addEventListener('click', () => {
+  // The home button was removed (cleanup C4); the mode itself stays quarantined.
+  endlessEntry?.addEventListener('click', () => {
     if (!host.locations.length) return;
     endless.count = 0;
     endlessNext();

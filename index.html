@@ -93,11 +93,11 @@
       <p class="how-to">Find five places. Spin the globe, zoom in, tap to place your pin, then lock it in.</p>
       <div class="mode-buttons" aria-label="Game modes">
         <button id="play-button" type="button"><span class="mode-name">Daily</span><small class="mode-desc">5 places daily</small></button>
-        <button id="endless-button" type="button" hidden><span class="mode-name">Endless</span><small class="mode-desc">Play nonstop</small></button>
+        <button id="pack-button" type="button" disabled><span class="mode-name">Daily postcard pack</span><small class="mode-desc">3 cards today</small></button>
         <button id="survival-hub-button" type="button"><span class="mode-name">Survival</span><small class="mode-desc">Three ways to play</small></button>
         <button id="expeditions-button" type="button" hidden><span class="mode-name">Expeditions</span><small class="mode-desc">Themed journeys</small></button>
         <button id="pvp-button" type="button" disabled><span class="mode-name">Challenge</span><small class="mode-desc">Play a friend</small></button>
-        <button id="more-modes-button" type="button"><span class="mode-name">More modes</span><small class="mode-desc">Landmarks, photo and trivia games</small></button>
+        <button id="more-modes-button" type="button"><span class="mode-name">More modes</span><small class="mode-desc">Landmarks and trivia</small></button>
       </div>
       <p id="start-streak" class="streak"></p>
     </section>
@@ -147,6 +147,18 @@
       </div>
     </section>
 
+    <section id="pack-screen" class="screen pack-screen" hidden>
+      <div class="expedition-panel pack-panel" role="dialog" aria-modal="true" aria-labelledby="pack-heading">
+        <button class="home-nav-btn finished-home-nav" type="button" aria-label="Go home">×</button>
+        <h2 id="pack-heading">Daily postcard pack</h2>
+        <p class="pack-line"></p>
+        <ul class="pack-slots" data-pp-list aria-label="Today's cards"></ul>
+        <p class="pack-score" hidden></p>
+        <p class="pack-ready" hidden>Today’s pack is ready</p>
+        <button class="primary pack-primary" type="button">Open card 1</button>
+      </div>
+    </section>
+
     <section id="results-screen" class="screen results-screen" hidden>
       <div class="results-card glass">
         <button id="results-home" class="home-nav-btn finished-home-nav" type="button" aria-label="Back to home">×</button>
@@ -192,8 +204,8 @@
       <p>One miss ends the run. Pick a mode.</p>
       <div class="expedition-list">
         <button id="survival-button" class="expedition-choice" type="button"><span><strong>Classic Survival</strong><small>Find each place within 150 km.</small><small data-hub-best="survival"></small></span><span class="badge">›</span></button>
-        <button id="borders-button" class="expedition-choice" type="button"><span><strong>Survival: Tap the Country</strong><small>Tap each named country.</small><small data-hub-best="borders"></small></span><span class="badge">›</span></button>
-        <button id="blackout-button" class="expedition-choice" type="button" disabled><span><strong>Survival: Country Blackout</strong><small>Find every country in a region.</small><small data-hub-best="blackout"></small></span><span class="badge">›</span></button>
+        <button id="borders-button" class="expedition-choice" type="button"><span><strong>Tap the Country</strong><small>Tap each named country.</small><small data-hub-best="borders"></small></span><span class="badge">›</span></button>
+        <button id="blackout-button" class="expedition-choice" type="button" disabled><span><strong>Country Blackout</strong><small>Find every country in a region.</small><small data-hub-best="blackout"></small></span><span class="badge">›</span></button>
       </div>
     </div>
   </section>
@@ -205,7 +217,6 @@
       <div class="expedition-list">
         <button id="landmarks-button" class="expedition-choice" type="button" disabled><span><strong>Landmarks</strong><small>Famous places, one miss ends the run.</small><small data-hub-best="landmarks"></small></span><span class="badge">›</span></button>
         <button id="trivia-button" class="expedition-choice" type="button" disabled><span><strong>Trivia clues</strong><small>Five clues, find each place.</small><small data-hub-best="trivia"></small></span><span class="badge">›</span></button>
-        <button class="expedition-choice" type="button" disabled><span><strong>Photo mode</strong><small>Coming soon</small></span></button>
       </div>
     </div>
   </section>

@@ -15,22 +15,7 @@ import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
-const CONTINENT_SHORT = {
-  Africa: 'Africa',
-  Asia: 'Asia',
-  Europe: 'Europe',
-  'North America': 'N. America',
-  'South America': 'S. America',
-  Oceania: 'Oceania',
-  Antarctica: 'Antarctica',
-};
 function passportSummary() {
-  const totals = new Map();
-  for (const item of host.locations) {
-    const name = host.continentOf(item);
-    if (name) totals.set(name, (totals.get(name) || 0) + 1);
-  }
-  const counts = new Map();
   let found = 0;
   let earned = 0;
   for (const id of Object.keys(host.passport.visits)) {
@@ -38,8 +23,6 @@ function passportSummary() {
     if (!item) continue; // location retired from locations.json
     found += 1;
     if (host.passport.meta[id]?.e) earned += 1;
-    const name = host.continentOf(item); // poles above the boxes still count as found
-    if (name) counts.set(name, (counts.get(name) || 0) + 1);
   }
   const recent = host.passport.order
     .slice(-40)
@@ -51,9 +34,6 @@ function passportSummary() {
     earned,
     total: host.locations.length,
     recent: recent.slice(0, PASSPORT_STAMPS).filter((spot) => spot.item.image),
-    continents: [...totals]
-      .map(([name, total]) => ({ name, found: counts.get(name) || 0, total }))
-      .sort((a, b) => host.CONTINENT_ORDER.indexOf(a.name) - host.CONTINENT_ORDER.indexOf(b.name)),
   };
 }
 let passportStyle;
@@ -82,15 +62,6 @@ export function syncPassport() {
     img.title = `${spot.item.short || spot.item.clue} · ${spot.base}/1000`;
     img.addEventListener('error', () => img.remove(), { once: true });
     return img;
-  }));
-  passportEls.continents.replaceChildren(...summary.continents.map((c) => {
-    const chip = document.createElement('span');
-    chip.textContent = `${CONTINENT_SHORT[c.name] || c.name} ${Math.round((c.found / c.total) * 100)}%`;
-    chip.title = `${c.found} of ${c.total} ${c.name} places found`;
-    const bar = document.createElement('i');
-    bar.style.width = `${((c.found / c.total) * 100).toFixed(1)}%`;
-    chip.append(bar);
-    return chip;
   }));
 }
 // Same overlay pattern as the stats screen (a fixed .screen over a frozen start
@@ -438,6 +409,10 @@ function closePassportShare() {
 // One template, cloned for every mystery slot: mysteries never mount an <img>
 // and look identical, so building 1,000+ of them is cheap (3 nodes each).
 let ppMysteryTemplate;
+// The same face-down card for the Daily postcard pack's unopened slots.
+export function passportMysterySlot() {
+  return ppMysteryTemplate.cloneNode(true);
+}
 
 // passportCard() → passportSlot(): a compact 3-up tile for the dex grid, with a
 // mystery branch for unvisited places (Idea 1, docs/passport-redesign-opus.md §2).
@@ -1487,14 +1462,10 @@ export function initPassportHome(main) {
 .passport-stamps img[data-tier="gold"] { border-color: #ffd166; box-shadow: 0 0 12px rgba(255,209,102,.3); }
 .passport-stamps img[data-tier="cyan"] { border-color: #67e8ff; }
 .passport-stamps img[data-tier="dim"] { filter: saturate(.65) brightness(.7); }
-.passport-continents { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-top: 12px; }
-.passport-continents span { position: relative; padding: 3px 8px 7px; border-radius: 999px; background: rgba(157,211,255,.07); color: rgba(193,224,250,.68); font-size: 10px; font-weight: 750; letter-spacing: .03em; white-space: nowrap; }
-.passport-continents i { position: absolute; left: 8px; bottom: 3px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #ffd166, #67e8ff); opacity: .85; }
 @media (max-height: 700px) {
   .passport { margin-bottom: 18px; }
   .passport-count b { font-size: 23px; }
   .passport-stamps img { width: 34px; height: 34px; }
-  .passport-continents { margin-top: 9px; }
 }`;
   document.head.appendChild(passportStyle);
 
@@ -1503,8 +1474,7 @@ export function initPassportHome(main) {
   passportBox.hidden = true;
   passportBox.innerHTML = `
   <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places found<span class="passport-earned" data-passport="earned"></span><span class="passport-streak" data-passport="streak"></span></p>
-  <div class="passport-stamps" data-passport="stamps"></div>
-  <div class="passport-continents" data-passport="continents"></div>`;
+  <div class="passport-stamps" data-passport="stamps"></div>`;
   // Above the mode-button grid, never inside it: a fourth grid child shoves
   // Survival onto a second row once the passport has a place in it.
   host.gameEls.play.closest('.mode-buttons').before(passportBox);
@@ -1515,7 +1485,6 @@ export function initPassportHome(main) {
     earned: passportBox.querySelector('[data-passport="earned"]'),
     streak: passportBox.querySelector('[data-passport="streak"]'),
     stamps: passportBox.querySelector('[data-passport="stamps"]'),
-    continents: passportBox.querySelector('[data-passport="continents"]'),
   };
 }
 

@@ -57,11 +57,12 @@ import {
   expeditionRun, expeditionPicker, initExpeditions, expeditionsLoaded, updateExpeditionEntry, completeExpeditionRound,
   expeditionRoundHeader, expeditionRevealCard, expeditionNext, weeklyRoutesLoaded,
 } from './modes/expeditions.js';
-import { endless, endlessEls, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
+import { endless, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
 import { initLandmarks, landmarkPool, landmarksSource, syncLandmarksEntry } from './modes/landmarks.js';
 import {
   trivia, initTrivia, startTrivia, triviaBankLoaded, triviaRoundHeader, triviaRecordGuess, triviaNext, triviaShareText,
 } from './modes/trivia.js';
+import { pack, initPack, syncPackButton, packRoundHeader, packRecordGuess, packIsLastCard, packNext } from './modes/pack.js';
 import { AUDIT_MODE, initAudit, auditFlagsLocationsLoaded, addAuditFlagButton, mountAuditBanner } from './modes/audit.js';
 import {
   initDailyGame, initDailyCountdown, initReview, loadDaily, saveDaily, streakText, syncDailyButton, startGame, runHaul,
@@ -74,7 +75,7 @@ import {
 } from './meta/passport-store.js';
 import {
   initPassportHome, initPassport, syncPassport, passportEntryFor, countryIndex, buildCountryIndex,
-  passportEntry, collectionsEntry, bindPostcard, postcardShareText,
+  passportEntry, collectionsEntry, bindPostcard, postcardShareText, passportMysterySlot,
 } from './meta/passport.js';
 
 if (window.__boot) window.__boot('3D engine loaded');
@@ -155,12 +156,11 @@ try {
 initAudio();
 
 const MUTE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="none"/><path class="waves" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="slash" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>';
-const muteButtons = [gameEls.start, gameEls.round.querySelector('.round-meta')].map((parent) => {
+const muteButtons = [gameEls.round.querySelector('.round-meta')].map((parent) => {
   const button = document.createElement('button');
   button.className = 'mute-toggle';
   button.innerHTML = MUTE_ICON;
-  if (parent === gameEls.start) parent.prepend(button);
-  else parent.firstElementChild.after(button); // centred between round and weight
+  parent.firstElementChild.after(button); // centred between round and weight
   return button;
 });
 function syncMuteButtons() {
@@ -190,6 +190,7 @@ const roundHost = {
   revealBorders, pvpRenderVs, pvpNext, pvpSubmit,
   saveDaily, runHaul, showPostcardSummary, recordVisit, applyCardTier, isVisited,
   trivia, triviaRoundHeader, triviaRecordGuess, triviaNext,
+  pack, packRoundHeader, packRecordGuess, packIsLastCard, packNext,
   get reviewEls() { return reviewEls; },
 };
 initRound(roundHost);
@@ -290,6 +291,10 @@ const modeHost = {
   blackoutShareText,
   startTrivia,
   triviaShareText,
+  passportEntryFor,
+  bindPostcard,
+  applyCardTier,
+  passportMysterySlot,
 };
 
 // ---------------------------------------------------------------------------
@@ -304,6 +309,7 @@ function goHome() {
   endless.active = false;
   expeditionRun.active = false;
   trivia.active = false;
+  pack.active = false;
   expeditionPicker.hidden = true;
   blackoutPicker.hidden = true;
   pvpLeave();
@@ -318,6 +324,7 @@ function goHome() {
   state.targetDist = 3;
   syncPassport();
   syncDailyButton();
+  syncPackButton();
 }
 
 initConfirmModal();
@@ -345,7 +352,8 @@ async function confirmGoHome() {
   }
   // Daily is the default game while no alternate mode is active. Its state is
   // persisted after each round, so returning home does not discard progress.
-  const isDailyGame = !endless.active && !survival.active && !expeditionRun.active && !borders.active && !trivia.active;
+  // The Daily postcard pack saves each card on reveal, the same way.
+  const isDailyGame = pack.active || (!endless.active && !survival.active && !expeditionRun.active && !borders.active && !trivia.active);
   const message = isDailyGame
     ? 'Your progress is saved. You can continue later.'
     : 'Your current game progress will be lost.';
@@ -407,6 +415,10 @@ initLandmarks(modeHost);
 
 // Trivia clues (the hub's second mode, score-only) lives in src/modes/trivia.js.
 initTrivia(modeHost);
+
+// The Daily postcard pack (home row, pack screen, round variant) lives in
+// src/modes/pack.js; its saved record in src/meta/pack-store.js.
+initPack(modeHost);
 
 // Post-game review (src/modes/daily-game.js): all five rounds on the globe.
 initReview();
@@ -728,13 +740,13 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   syncDailyButton();
   gameEls.startStreak.textContent = streakText();
   gameEls.play.disabled = false;
-  endlessEls.entry.disabled = false;
   gameEls.survivalEntry.disabled = false;
   syncBordersEntry();
   updateExpeditionEntry();
   syncLandmarksEntry();
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
+  syncPackButton();
   document.getElementById('pvp-button').disabled = false;
   if (pvpLinkInvite) (pvpLinkIsGroup ? openPvpGroupJoin : openPvpJoin)({ inviteToken: pvpLinkInvite });
   window.__renderAuditFlags?.();
@@ -762,13 +774,13 @@ const landmarksP = getJSON('assets/locations-landmarks-sol.json').then((data) =>
   state.landmarks = Array.isArray(data) ? data : [];
   updateExpeditionEntry();
   syncLandmarksEntry();
+  syncPackButton();
 }).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('LANDMARKS: ' + err.message);
 });
 Promise.allSettled([locationsP, pinsP, countriesP, countryBandsP, statesP, landAreasP, triviaBankP, landmarksP]).then(openSharedMode);
 gameEls.play.disabled = true;
-endlessEls.entry.disabled = true;
 gameEls.survivalEntry.disabled = true;
 bordersEntry.disabled = true;
 gameEls.expeditionsEntry.disabled = true;

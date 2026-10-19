@@ -64,6 +64,9 @@ export function updateExpeditionEntry() {
   // so the mode was unreachable from the home screen).
   host.gameEls.expeditionsEntry.hidden = !ready;
   host.gameEls.expeditionsEntry.disabled = !ready;
+  // The label names the live week, the time-bound content in the picker.
+  const route = thisWeek().route;
+  host.gameEls.expeditionsEntry.querySelector('.mode-desc').textContent = route ? `This week: ${route.name}` : 'Themed journeys';
 }
 
 export function completeExpeditionRound() {
@@ -252,6 +255,7 @@ export function expeditionsLoaded(data) {
 export function weeklyRoutesLoaded(data) {
   weeklyRoutes = Array.isArray(data) ? data : [];
   loadWeeklyState();
+  updateExpeditionEntry();
 }
 
 // The round screen's Expeditions variant (main.js showRound, revealGuess and

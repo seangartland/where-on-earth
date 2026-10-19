@@ -5,7 +5,6 @@
 .mute-toggle.muted .waves { opacity: 0; }
 .mute-toggle .slash { opacity: 0; transition: opacity .15s; }
 .mute-toggle.muted .slash { opacity: 1; }
-.start-screen .mute-toggle { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 12px); right: 12px; width: 44px; height: 44px; margin: 0; }
 #travel-distance.suspense span { color: #ffe6a8; animation: suspense-tick .55s ease-in-out infinite; }
 @keyframes suspense-tick { 50% { transform: scale(1.06); } }
 #travel-distance.deadpan { border-color: rgba(255,255,255,.22); box-shadow: none; }

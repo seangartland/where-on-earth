@@ -1,0 +1,736 @@
+{
+ "checks": [
+  {
+   "name": "home row fresh label",
+   "ok": true,
+   "detail": "Daily postcard pack 3 cards today"
+  },
+  {
+   "name": "no pack saved before the first tap",
+   "ok": true
+  },
+  {
+   "name": "fresh screen: 3 face-down slots",
+   "ok": true,
+   "detail": {
+    "visible": true,
+    "slots": 3,
+    "mystery": 3,
+    "flipped": 0,
+    "seen": 0,
+    "bases": [],
+    "line": "Three postcards. Pin each one.",
+    "score": null,
+    "ready": false,
+    "primary": "Open card 1"
+   }
+  },
+  {
+   "name": "fresh copy",
+   "ok": true
+  },
+  {
+   "name": "generated and saved before the first clue: 3 distinct ids, no results",
+   "ok": true
+  },
+  {
+   "name": "card 1 header: clue-only, no weight or date",
+   "ok": true,
+   "detail": {
+    "mode": "guess",
+    "item": "hamburg-germany",
+    "body": "game-round pack",
+    "number": "Card 1 of 3",
+    "weightShown": false,
+    "dateShown": false,
+    "clue": "Hamburg, Germany 🇩🇪"
+   }
+  },
+  {
+   "name": "hit inside 150 km sets meta.e",
+   "ok": true,
+   "detail": {
+    "b": 991,
+    "t": 1792377104251,
+    "d": 56,
+    "f": "2026-10-19",
+    "e": 1,
+    "ea": 1792377104251,
+    "eb1": 1792377104251
+   }
+  },
+  {
+   "name": "card 1 result saved on reveal as new",
+   "ok": true,
+   "detail": {
+    "guess": {
+     "lat": 54.0511,
+     "lng": 9.9937
+    },
+    "distance": 56,
+    "distanceExact": 55.59754011676645,
+    "base": 991,
+    "postcard": {
+     "kind": "new",
+     "tier": 1
+    },
+    "name": "Hamburg"
+   }
+  },
+  {
+   "name": "reveal shows +base, no multiplier, Next card",
+   "ok": true,
+   "detail": {
+    "mode": "reveal",
+    "body": "game-reveal pack",
+    "name": "Hamburg, Germany 🇩🇪",
+    "repeat": null,
+    "pill": "+991",
+    "multShown": false,
+    "next": "Next card"
+   }
+  },
+  {
+   "name": "earn toast on a new postcard",
+   "ok": true,
+   "detail": {
+    "seen": false,
+    "text": "New postcard earned! Hamburg, Germany 🇩🇪"
+   }
+  },
+  {
+   "name": "mid-pack screen: 1 flipped, 2 face-down",
+   "ok": true,
+   "detail": {
+    "visible": true,
+    "slots": 3,
+    "mystery": 2,
+    "flipped": 1,
+    "seen": 0,
+    "bases": [
+     "+991"
+    ],
+    "line": "1 of 3 opened",
+    "score": null,
+    "ready": false,
+    "primary": "Open card 2"
+   }
+  },
+  {
+   "name": "card 2 header",
+   "ok": true
+  },
+  {
+   "name": "miss leaves a seen-only entry",
+   "ok": true,
+   "detail": {
+    "b": 1,
+    "t": 1792377118119,
+    "d": 20015,
+    "f": "2026-10-19"
+   }
+  },
+  {
+   "name": "miss saved as visited",
+   "ok": true
+  },
+  {
+   "name": "grey-card toast on a first visit",
+   "ok": true,
+   "detail": {
+    "seen": true,
+    "text": "Visited · added to your Passport Land within 150 km anywhere to colour it"
+   }
+  },
+  {
+   "name": "home row mid-pack",
+   "ok": true,
+   "detail": "2 of 3 opened"
+  },
+  {
+   "name": "reload keeps the pack: card 3 next",
+   "ok": true,
+   "detail": {
+    "visible": true,
+    "slots": 3,
+    "mystery": 1,
+    "flipped": 2,
+    "seen": 1,
+    "bases": [
+     "+991",
+     "+1"
+    ],
+    "line": "2 of 3 opened",
+    "score": null,
+    "ready": false,
+    "primary": "Open card 3"
+   }
+  },
+  {
+   "name": "reload mid-pack resumes the same card",
+   "ok": true,
+   "detail": {
+    "before": "mohenjo-daro",
+    "after": "mohenjo-daro"
+   }
+  },
+  {
+   "name": "last card button says Done",
+   "ok": true,
+   "detail": "Done"
+  },
+  {
+   "name": "done screen: 3 flipped, none face-down",
+   "ok": true,
+   "detail": {
+    "visible": true,
+    "slots": 3,
+    "mystery": 0,
+    "flipped": 3,
+    "seen": 2,
+    "bases": [
+     "+991",
+     "+1",
+     "+1"
+    ],
+    "line": "1 new postcard · 2 visited",
+    "score": "Pack score 993 / 3,000",
+    "ready": false,
+    "primary": "Done"
+   }
+  },
+  {
+   "name": "pack score total out of 3,000",
+   "ok": true,
+   "detail": {
+    "score": "Pack score 993 / 3,000",
+    "total": 993
+   }
+  },
+  {
+   "name": "per-card +base shown",
+   "ok": true,
+   "detail": [
+    "+991",
+    "+1",
+    "+1"
+   ]
+  },
+  {
+   "name": "done line names the outcomes",
+   "ok": true,
+   "detail": "1 new postcard · 2 visited"
+  },
+  {
+   "name": "flipped slot opens the postcard detail",
+   "ok": true,
+   "detail": {
+    "open": true,
+    "name": "Bucaramanga 🇨🇴",
+    "share": "Share this postcard"
+   }
+  },
+  {
+   "name": "home row done state",
+   "ok": true,
+   "detail": {
+    "text": "✓ Opened · new pack at midnight",
+    "played": true,
+    "home": true
+   }
+  },
+  {
+   "name": "pack miss then Survival hit colours the card",
+   "ok": true,
+   "detail": {
+    "b": 991,
+    "t": 1792377166401,
+    "d": 56,
+    "f": "2026-10-19",
+    "e": 1,
+    "ea": 1792377166401,
+    "eb1": 1792377166401
+   }
+  },
+  {
+   "name": "pack screen shows the coloured card",
+   "ok": true,
+   "detail": {
+    "recolour": {
+     "visible": true,
+     "slots": 3,
+     "mystery": 0,
+     "flipped": 3,
+     "seen": 1,
+     "bases": [
+      "+991",
+      "+1",
+      "+1"
+     ],
+     "line": "1 new postcard · 2 visited",
+     "score": "Pack score 993 / 3,000",
+     "ready": false,
+     "primary": "Done"
+    },
+    "greyLeft": 1
+   }
+  },
+  {
+   "name": "flow A: zero page errors",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "name": "seeded pack is used as saved (no reroll)",
+   "ok": true
+  },
+  {
+   "name": "repeat: \"Already in your Passport\" on the reveal",
+   "ok": true,
+   "detail": {
+    "mode": "reveal",
+    "body": "game-reveal pack",
+    "name": "Agadir, Morocco 🇲🇦Already in your Passport",
+    "repeat": "Already in your Passport",
+    "pill": "+1",
+    "multShown": false,
+    "next": "Next card"
+   }
+  },
+  {
+   "name": "repeat: no toast",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "repeat saved as repeat",
+   "ok": true
+  },
+  {
+   "name": "round finishing after midnight banks under its own date",
+   "ok": true,
+   "detail": {
+    "_v": 1,
+    "date": "2000-01-01",
+    "packs": [
+     {
+      "ids": [
+       "agadir-ma",
+       "algiers",
+       "antananarivo"
+      ],
+      "results": [
+       {
+        "guess": {
+         "lat": -30.42018,
+         "lng": 170.40185
+        },
+        "distance": 20015,
+        "distanceExact": 20015.114442035923,
+        "base": 1,
+        "postcard": {
+         "kind": "repeat"
+        },
+        "name": "Agadir"
+       },
+       {
+        "guess": {
+         "lat": 37.27466,
+         "lng": 3.05873
+        },
+        "distance": 56,
+        "distanceExact": 55.59754011676645,
+        "base": 991,
+        "postcard": {
+         "kind": "new",
+         "tier": 1
+        },
+        "name": "Algiers"
+       },
+       null
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "name": "after midnight: pack screen offers today's pack",
+   "ok": true,
+   "detail": {
+    "visible": true,
+    "slots": 3,
+    "mystery": 1,
+    "flipped": 2,
+    "seen": 1,
+    "bases": [
+     "+1",
+     "+991"
+    ],
+    "line": "2 of 3 opened",
+    "score": null,
+    "ready": true,
+    "primary": "Open today’s pack"
+   }
+  },
+  {
+   "name": "today's pack opens fresh",
+   "ok": true,
+   "detail": {
+    "visible": true,
+    "slots": 3,
+    "mystery": 3,
+    "flipped": 0,
+    "seen": 0,
+    "bases": [],
+    "line": "Three postcards. Pin each one.",
+    "score": null,
+    "ready": false,
+    "primary": "Open card 1"
+   }
+  },
+  {
+   "name": "flow B: zero page errors",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "name": "844: home has no overflow",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "844: Daily and pack stay full width; mode pairs stay intact",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "844: settings gear owns its hit target",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "844: home cleanup C1/C4/C5",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "844: dynamic and More modes labels",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "664: home has no overflow",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "664: Daily and pack stay full width; mode pairs stay intact",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "664: settings gear owns its hit target",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "664: home cleanup C1/C4/C5",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  },
+  {
+   "name": "664: dynamic and More modes labels",
+   "ok": true,
+   "detail": {
+    "overflow": 0,
+    "dailyWidth": 334,
+    "gridWidth": 334,
+    "packBelowDaily": true,
+    "pairs": true,
+    "gearHit": true,
+    "homeMute": false,
+    "continentChips": 0,
+    "moreLabel": "Landmarks and trivia",
+    "expeditionLabel": "This week: Pilgrim Week",
+    "endless": false
+   }
+  }
+ ],
+ "out": {
+  "rowFresh": "Daily postcard pack 3 cards today",
+  "fresh": {
+   "visible": true,
+   "slots": 3,
+   "mystery": 3,
+   "flipped": 0,
+   "seen": 0,
+   "bases": [],
+   "line": "Three postcards. Pin each one.",
+   "score": null,
+   "ready": false,
+   "primary": "Open card 1"
+  },
+  "generated": {
+   "date": "2026-10-19",
+   "packs": [
+    {
+     "ids": [
+      "hamburg-germany",
+      "bucaramanga-co",
+      "mohenjo-daro"
+     ],
+     "results": [
+      null,
+      null,
+      null
+     ]
+    }
+   ],
+   "_v": 1
+  },
+  "round1": {
+   "mode": "guess",
+   "item": "hamburg-germany",
+   "body": "game-round pack",
+   "number": "Card 1 of 3",
+   "weightShown": false,
+   "dateShown": false,
+   "clue": "Hamburg, Germany 🇩🇪"
+  },
+  "reveal1": {
+   "mode": "reveal",
+   "body": "game-reveal pack",
+   "name": "Hamburg, Germany 🇩🇪",
+   "repeat": null,
+   "pill": "+991",
+   "multShown": false,
+   "next": "Next card"
+  },
+  "toast1": {
+   "seen": false,
+   "text": "New postcard earned! Hamburg, Germany 🇩🇪"
+  },
+  "mid": {
+   "visible": true,
+   "slots": 3,
+   "mystery": 2,
+   "flipped": 1,
+   "seen": 0,
+   "bases": [
+    "+991"
+   ],
+   "line": "1 of 3 opened",
+   "score": null,
+   "ready": false,
+   "primary": "Open card 2"
+  },
+  "toast2": {
+   "seen": true,
+   "text": "Visited · added to your Passport Land within 150 km anywhere to colour it"
+  },
+  "rowMid": "2 of 3 opened",
+  "done": {
+   "visible": true,
+   "slots": 3,
+   "mystery": 0,
+   "flipped": 3,
+   "seen": 2,
+   "bases": [
+    "+991",
+    "+1",
+    "+1"
+   ],
+   "line": "1 new postcard · 2 visited",
+   "score": "Pack score 993 / 3,000",
+   "ready": false,
+   "primary": "Done"
+  },
+  "total": 993,
+  "detail": {
+   "open": true,
+   "name": "Bucaramanga 🇨🇴",
+   "share": "Share this postcard"
+  },
+  "rowDone": {
+   "text": "✓ Opened · new pack at midnight",
+   "played": true,
+   "home": true
+  },
+  "errsA": [],
+  "repeat": {
+   "reveal": {
+    "mode": "reveal",
+    "body": "game-reveal pack",
+    "name": "Agadir, Morocco 🇲🇦Already in your Passport",
+    "repeat": "Already in your Passport",
+    "pill": "+1",
+    "multShown": false,
+    "next": "Next card"
+   },
+   "toast": null,
+   "result": {
+    "guess": {
+     "lat": -30.42018,
+     "lng": 170.40185
+    },
+    "distance": 20015,
+    "distanceExact": 20015.114442035923,
+    "base": 1,
+    "postcard": {
+     "kind": "repeat"
+    },
+    "name": "Agadir"
+   }
+  },
+  "stale": {
+   "visible": true,
+   "slots": 3,
+   "mystery": 1,
+   "flipped": 2,
+   "seen": 1,
+   "bases": [
+    "+1",
+    "+991"
+   ],
+   "line": "2 of 3 opened",
+   "score": null,
+   "ready": true,
+   "primary": "Open today’s pack"
+  },
+  "errsB": [],
+  "layout844": {
+   "overflow": 0,
+   "dailyWidth": 334,
+   "gridWidth": 334,
+   "packBelowDaily": true,
+   "pairs": true,
+   "gearHit": true,
+   "homeMute": false,
+   "continentChips": 0,
+   "moreLabel": "Landmarks and trivia",
+   "expeditionLabel": "This week: Pilgrim Week",
+   "endless": false
+  },
+  "layout664": {
+   "overflow": 0,
+   "dailyWidth": 334,
+   "gridWidth": 334,
+   "packBelowDaily": true,
+   "pairs": true,
+   "gearHit": true,
+   "homeMute": false,
+   "continentChips": 0,
+   "moreLabel": "Landmarks and trivia",
+   "expeditionLabel": "This week: Pilgrim Week",
+   "endless": false
+  }
+ }
+}
