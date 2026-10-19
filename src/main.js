@@ -694,7 +694,13 @@ const sharedModeOpeners = {
 };
 
 function openSharedMode() {
-  const mode = new URLSearchParams(location.search).get('mode');
+  const params = new URLSearchParams(location.search);
+  const areaId = params.get('area');
+  if (areaId) {
+    const entry = (state.landmarks || []).find((x) => x.id === areaId && x.kind === 'area' && Number(x.extentKm) > 0);
+    if (entry) { survival.forced = entry; startSurvival(landmarksSource); return; }
+  }
+  const mode = params.get('mode');
   const opener = sharedModeOpeners[mode];
   if (!opener) return;
   opener();

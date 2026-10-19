@@ -29,6 +29,7 @@ let source = CLASSIC;
 export const survival = {
   active: false,
   item: null,
+  forced: null,
   band: null,
   round: 0,
   survived: 0,
@@ -73,7 +74,8 @@ function survivalPick() {
 
 function survivalGo() {
   survival.round += 1;
-  survival.item = survivalPick();
+  survival.item = survival.forced || survivalPick();
+  if (survival.forced) { survival.band = survival.item.difficulty; survival.forced = null; }
   survival.lastDistance = null;
   survival.missed = false;
   if (!survival.item) {
