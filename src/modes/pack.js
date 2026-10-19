@@ -45,7 +45,9 @@ function currentPack() {
 // The home row (P1): quiet, and dimmed once today's pack is opened.
 export function syncPackButton() {
   rowDate = localDateKey();
-  entry.disabled = !(host.locations.length && host.landmarks.length);
+  // Called from both load chains: whichever of locations/landmarks lands
+  // second re-syncs, so tolerate the other bank still being in flight.
+  entry.disabled = !((host.locations || []).length && (host.landmarks || []).length);
   const { played } = packSummary(readPack(rowDate).packs[0]);
   const done = played >= PACK_CARDS;
   entry.querySelector('.mode-desc').textContent = done ? '✓ Opened · new pack at midnight'
