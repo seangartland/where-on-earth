@@ -8,6 +8,7 @@
 // initPack(host); round.js through its own host.
 // ---------------------------------------------------------------------------
 import { EARN_NAMES, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
+import { audio } from '../core/audio.js';
 import { state } from '../core/state.js';
 import { formatKm, localDateKey } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
@@ -24,6 +25,16 @@ export const pack = { active: false, packIndex: 0, card: 0, item: null, record: 
 let entry;
 let els;
 let rowDate = '';
+// The opening ritual (2026-10-18): a fresh pack starts sealed for this
+// session, each unplayed card flips to its clue before its round, and a
+// just-played card stamps into its slot on return. Session state only; the
+// saved pack record is untouched by all of it.
+let tornDate = null;
+let flipping = false;
+let landingCard = -1;
+let landingKind = null;
+let landingTier = 0;
+const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const plural = (count, word) => `${count} ${word}${count === 1 ? '' : 's'}`;
 
@@ -51,12 +62,43 @@ function openPack() {
   showPackScreen();
 }
 
+function flipCard(li, index) {
+  if (flipping) return;
+  flipping = true;
+  audio.tick();
+  if (navigator.vibrate) navigator.vibrate(8);
+  li.classList.add('flipped');
+  window.setTimeout(() => { flipping = false; startCard(index); }, reducedMotion() ? 0 : 330);
+}
+
 function packSlot(id, result, index) {
   const item = host.findLocation(id);
   let li;
   if (!result) {
-    li = host.passportMysterySlot();
-    li.setAttribute('aria-label', `Card ${index + 1}, not opened yet`);
+    // Face down until tapped: the flip reveals the clue face only (name,
+    // clue, flag; never the photo), then the round starts. Any order works;
+    // the draw is fixed and results save per slot.
+    li = document.createElement('li');
+    li.className = 'pp-slot pack-slot pack-flip-slot';
+    const name = item ? (item.short || item.clue || '') : '';
+    const clue = item ? (item.clue || '') : '';
+    const flag = item ? host.flagForLocation(item) : '';
+    li.innerHTML = `
+      <div class="pack-flip">
+        <div class="pack-flip-face pack-flip-back"><span class="pack-flip-mark">?</span></div>
+        <div class="pack-flip-face pack-flip-front">
+          <p class="pack-clue-flag">${flag}</p>
+          <p class="pack-clue-name">${name}</p>
+          <p class="pack-clue-text">${clue}</p>
+        </div>
+      </div>`;
+    li.tabIndex = 0;
+    li.setAttribute('role', 'button');
+    li.setAttribute('aria-label', `Card ${index + 1}: tap to reveal the clue`);
+    li.addEventListener('click', () => flipCard(li, index));
+    li.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); flipCard(li, index); }
+    });
   } else if (!item) {
     // Retired from the data after it was played: the name only.
     li = document.createElement('li');
@@ -97,21 +139,61 @@ function doneLine({ counts }) {
   return parts.join(' · ');
 }
 
-// One screen for every moment: fresh, mid-pack and done (spec 2g). A record
-// from an earlier date (a round finished after midnight) shows as it ended,
-// with today's pack one tap away.
-function renderPackScreen() {
+// One screen for every moment: sealed, fresh, mid-pack and done (spec 2g). A
+// record from an earlier date (a round finished after midnight) shows as it
+// ended, with today's pack one tap away.
+function renderPackScreen(deal = false) {
   const current = currentPack();
   const summary = packSummary(current);
   const stale = pack.record.date !== localDateKey();
   const done = summary.played >= PACK_CARDS;
-  els.slots.replaceChildren(...current.ids.map((id, i) => packSlot(id, current.results[i], i)));
-  els.line.textContent = done ? doneLine(summary)
-    : summary.played ? `${summary.played} of ${PACK_CARDS} opened` : 'Three postcards. Pin each one.';
+  const sealedNow = !stale && !done && summary.played === 0 && tornDate !== pack.record.date;
+  els.sealed.hidden = !sealedNow;
+  els.slots.hidden = sealedNow;
+  if (!sealedNow) {
+    els.slots.replaceChildren(...current.ids.map((id, i) => packSlot(id, current.results[i], i)));
+    // Deal-in and stamp-in run through element.animate with a timer that
+    // cancels them back to the natural (visible) state: a CSS animation left
+    // holding its first frame could strand a card invisible if the browser
+    // stalls its clock, a timer cannot.
+    if (deal && !reducedMotion()) {
+      [...els.slots.children].forEach((li, i) => {
+        const anim = li.animate(
+          [{ transform: 'translateY(14px)', opacity: 0 }, { transform: 'none', opacity: 1 }],
+          { duration: 450, delay: i * 90, easing: 'ease-out', fill: 'backwards' },
+        );
+        window.setTimeout(() => anim.cancel(), 450 + i * 90 + 150);
+      });
+    }
+    if (landingCard >= 0) {
+      const li = els.slots.children[landingCard];
+      if (li && !reducedMotion()) {
+        const anim = li.animate(
+          [{ transform: 'scale(1.16) rotate(-4deg)', opacity: 0 }, { transform: 'scale(1) rotate(0deg)', opacity: 1, offset: 0.6 }, { transform: 'none', opacity: 1 }],
+          { duration: 500, easing: 'cubic-bezier(.2, 1.4, .4, 1)' },
+        );
+        window.setTimeout(() => anim.cancel(), 650);
+      }
+      if (landingKind === 'new' || landingKind === 'upgrade') {
+        audio.thump();
+        if (landingTier >= EARN_BULLSEYE) audio.chime();
+        if (navigator.vibrate) navigator.vibrate(12);
+      } else {
+        audio.tick();
+      }
+      landingCard = -1;
+      landingKind = null;
+      landingTier = 0;
+    }
+  }
+  els.line.textContent = sealedNow ? 'Three postcards. Pin each one.'
+    : done ? doneLine(summary)
+    : summary.played ? `${summary.played} of ${PACK_CARDS} opened · Tap a card to flip its clue` : 'Tap a card to flip its clue.';
   els.score.hidden = !done;
   els.score.textContent = `Pack score ${summary.score.toLocaleString()} / ${(PACK_CARDS * 1000).toLocaleString()}`;
   els.ready.hidden = !stale;
-  els.primary.textContent = stale ? 'Open today’s pack' : done ? 'Done' : `Open card ${summary.nextCard + 1}`;
+  els.primary.hidden = sealedNow || (!stale && !done);
+  els.primary.textContent = stale ? 'Open today’s pack' : 'Done';
 }
 
 export function showPackScreen() {
@@ -163,6 +245,9 @@ export function packRecordGuess(guess, km, kmExact, base, wasVisited, previousEa
   savePackResult(pack.record, pack.packIndex, pack.card, {
     guess, distance: km, distanceExact: kmExact, base, postcard, name: pack.item.short || pack.item.clue || '',
   });
+  landingCard = pack.card;
+  landingKind = postcard.kind;
+  landingTier = postcard.tier || 0;
   return postcard;
 }
 
@@ -174,18 +259,80 @@ export function packNext() {
   showPackScreen();
 }
 
+// The sealed pack: a swipe across the top tears it, a plain tap does the
+// same, and a tap during the tear finishes it instantly. Fresh packs only.
+function wireSealedPack(sealed) {
+  let startX = 0;
+  let startT = 0;
+  let dragging = false;
+  let tearing = false;
+  const finishTear = () => {
+    if (tornDate === pack.record?.date) return;
+    tornDate = pack.record.date;
+    tearing = false;
+    sealed.classList.remove('tearing');
+    sealed.style.removeProperty('--tear');
+    renderPackScreen(true);
+  };
+  const tearOpen = () => {
+    if (tearing || tornDate === pack.record?.date) return;
+    audio.tear();
+    if (navigator.vibrate) navigator.vibrate(12);
+    if (reducedMotion()) { finishTear(); return; }
+    tearing = true;
+    sealed.classList.add('tearing');
+    window.setTimeout(finishTear, 500);
+  };
+  sealed.addEventListener('pointerdown', (event) => {
+    if (tearing) { finishTear(); return; }
+    dragging = true;
+    startX = event.clientX;
+    startT = Date.now();
+    sealed.setPointerCapture(event.pointerId);
+  });
+  sealed.addEventListener('pointermove', (event) => {
+    if (!dragging || tearing) return;
+    const progress = Math.min(1, Math.max(0, (event.clientX - startX) / 130));
+    sealed.style.setProperty('--tear', progress.toFixed(3));
+  });
+  sealed.addEventListener('pointerup', (event) => {
+    if (!dragging) return;
+    dragging = false;
+    const dx = event.clientX - startX;
+    if (dx >= 65 || (Math.abs(dx) < 10 && Date.now() - startT < 400)) tearOpen();
+    else sealed.style.removeProperty('--tear');
+  });
+  sealed.addEventListener('pointercancel', () => { dragging = false; sealed.style.removeProperty('--tear'); });
+  sealed.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); tearOpen(); }
+  });
+}
+
 export function initPack(main) {
   host = main;
   entry = document.getElementById('pack-button');
   const screen = document.getElementById('pack-screen');
+  const sealed = document.createElement('div');
+  sealed.className = 'pack-sealed';
+  sealed.hidden = true;
+  sealed.setAttribute('role', 'button');
+  sealed.tabIndex = 0;
+  sealed.setAttribute('aria-label', 'Open the pack');
+  sealed.innerHTML = `
+    <div class="pack-sealed-flap"></div>
+    <p class="pack-sealed-name">Daily postcard pack</p>
+    <p class="pack-sealed-sub">Swipe or tap to open</p>`;
+  screen.querySelector('.pack-panel').insertBefore(sealed, screen.querySelector('.pack-slots'));
   els = {
     screen,
+    sealed,
     line: screen.querySelector('.pack-line'),
     slots: screen.querySelector('.pack-slots'),
     score: screen.querySelector('.pack-score'),
     ready: screen.querySelector('.pack-ready'),
     primary: screen.querySelector('.pack-primary'),
   };
+  wireSealedPack(sealed);
   state.packScreenEl = screen;
   entry.disabled = true;
   entry.addEventListener('click', openPack);

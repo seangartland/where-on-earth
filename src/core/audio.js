@@ -164,6 +164,26 @@ export const audio = {
     this.tone('triangle', 1900, 1500, now, 0.06, 0.06);
   },
 
+  // Paper rip for the pack tear: a short noise burst through a falling bandpass.
+  tear() {
+    if (!this.live()) return;
+    const now = this.ctx.currentTime;
+    const src = this.ctx.createBufferSource();
+    src.buffer = this.noise;
+    const bp = this.ctx.createBiquadFilter();
+    bp.type = 'bandpass';
+    bp.Q.value = 0.7;
+    bp.frequency.setValueAtTime(3600, now);
+    bp.frequency.exponentialRampToValueAtTime(700, now + 0.32);
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.5, now + 0.03);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.36);
+    src.connect(bp).connect(gain).connect(this.master);
+    src.start(now, Math.random() * 0.4);
+    src.stop(now + 0.4);
+  },
+
   // Deadpan two-note "wah wah" for a blowout.
   bwomp() {
     if (!this.live()) return;

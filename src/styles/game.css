@@ -468,6 +468,36 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-panel > .pack-score { margin: 16px 0 0; color: #f3f9ff; font-size: 15px; font-weight: 800; }
 .pack-panel > .pack-ready { margin: 8px 0 0; color: #ffd166; font-weight: 750; }
 .pack-primary { width: 100%; margin-top: 18px; }
+.pack-primary[hidden] { display: none; }
+.pack-slots[hidden] { display: none; }
+
+/* The pack opening ritual (2026-10-18): sealed pack, clue flip, stamp-in. */
+.pack-sealed { position: relative; box-sizing: border-box; max-width: 300px; margin: 4px auto 10px; padding: 30px 18px 24px; overflow: hidden; border: 1.5px solid rgba(255,209,102,.55); border-radius: 16px; background: linear-gradient(150deg, #1d2a48, #141c33 60%, #10182c); box-shadow: 4px -4px 0 -1px #24304d, 4px -4px 0 0 rgba(255,209,102,.25), 8px -8px 0 -2px #18203a, 8px -8px 0 -1px rgba(255,209,102,.12); cursor: pointer; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+.pack-sealed[hidden] { display: none; }
+.pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
+.pack-sealed-flap { position: absolute; inset: 0 0 auto 0; height: 30%; border-bottom: 2px dashed rgba(255,209,102,.4); background: linear-gradient(180deg, rgba(255,209,102,.14), rgba(255,209,102,.03)); transform: translateX(calc(var(--tear, 0) * 112%)) rotate(calc(var(--tear, 0) * -7deg)); opacity: calc(1 - var(--tear, 0)); pointer-events: none; }
+.pack-sealed.tearing .pack-sealed-flap { transition: transform .45s ease-in, opacity .45s ease-in; transform: translateX(115%) rotate(-9deg); opacity: 0; }
+.pack-sealed.tearing { animation: pack-open-pop .5s ease-out forwards; }
+@keyframes pack-open-pop { 40% { transform: scale(1.04); } 100% { transform: scale(1.06); opacity: 0; } }
+.pack-sealed-name { margin: 8px 0 0; color: #ffe2a0; font-size: 18px; font-weight: 800; }
+.pack-sealed-sub { margin: 4px 0 0; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 650; }
+
+.pack-flip-slot { perspective: 700px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.pack-flip-slot:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }
+.pack-flip { position: relative; aspect-ratio: 4 / 3; transform-style: preserve-3d; transition: transform .33s ease; }
+.pack-flip-slot.flipped .pack-flip { transform: rotateY(180deg); }
+.pack-flip-face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 8px; border-radius: 10px; backface-visibility: hidden; -webkit-backface-visibility: hidden; text-align: center; }
+.pack-flip-back { border: 1.5px solid rgba(157,211,255,.3); background: linear-gradient(150deg, #1b2c5a, #2a2150); }
+.pack-flip-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 2px solid rgba(255,209,102,.65); border-radius: 50%; color: #ffd166; font-size: 22px; font-weight: 800; }
+.pack-flip-front { border: 1.5px solid rgba(255,209,102,.45); background: linear-gradient(160deg, #16233f, #10182c); transform: rotateY(180deg); }
+.pack-clue-flag { margin: 0; font-size: 26px; line-height: 1.1; }
+.pack-clue-name { margin: 2px 0 0; color: #eef2ff; font-size: 13px; font-weight: 800; line-height: 1.2; }
+.pack-clue-text { margin: 1px 0 0; color: rgba(193,224,250,.66); font-size: 11px; font-weight: 600; line-height: 1.3; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pack-flip { transition: none; }
+  .pack-sealed.tearing { animation: none; }
+}
 
 /* Survival and More modes hub rows: the shared picker row without the emoji column. */
 #survival-hub .expedition-choice, #more-modes-hub .expedition-choice { grid-template-columns: 1fr auto; }
