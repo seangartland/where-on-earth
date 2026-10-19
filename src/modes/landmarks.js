@@ -14,11 +14,21 @@ let host = null;
 // level must equal the stored difficulty.
 const V2_WHY = /^p(?:1|\.\d{2})(?:\(via [^)]+\))?·fb\d+·K[\d.]+·iso\d+ → \d+(?:\.\d)? → (\d+)$/;
 
-// Pool rule: kind landmark, playable in the game, and a measured v2 rating.
+// Pool rule: approved areas have a positive extent; point landmarks retain
+// their existing playable-image and measured-v2-rating requirements.
 export function isPoolLandmark(item) {
-  if (item?.kind !== 'landmark' || !isPlayableLocation(item)) return false;
-  const match = V2_WHY.exec(item.difficultyWhy || '');
-  return Boolean(match) && Number(match[1]) === item.difficulty;
+  if (item?.kind === 'landmark') {
+    if (!isPlayableLocation(item)) return false;
+    const match = V2_WHY.exec(item.difficultyWhy || '');
+    return Boolean(match) && Number(match[1]) === item.difficulty;
+  }
+  if (item?.kind === 'area') {
+    return isPlayableLocation(item)
+      && Object.hasOwn(item, 'extentKm')
+      && Number.isFinite(item.extentKm)
+      && item.extentKm > 0;
+  }
+  return false;
 }
 
 let poolFrom = null;

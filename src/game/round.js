@@ -6,11 +6,10 @@
 // store, which sit outside the game layer.
 // ---------------------------------------------------------------------------
 import { LOCK_ARM_MS, WEIGHTS, flyoverTier, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
-import { distanceKm } from '../core/math.js';
 import { state } from '../core/state.js';
 import { setThumb } from '../core/dom.js';
 import { formatKm, formatDailyDate, countryKey } from '../core/format.js';
-import { distanceScore, scoreGuess } from './scoring.js';
+import { distanceScore, scoreGuess, scoringDistanceKm } from './scoring.js';
 
 let host = null;
 let pins, correctPin, answerLine, peekSlot, latLngToVec3, buildAnswerPath, placeRevealVisual;
@@ -231,7 +230,7 @@ export function postcardRoundOutcome(previousEarn, newlyEarned) {
 export function revealGuess(guess, restoring = false) {
   if (state.gameMode !== 'guess' && !restoring) return;
   const answer = currentItem();
-  const kmExact = distanceKm(guess, answer);
+  const kmExact = scoringDistanceKm(guess, answer);
   // PvP shows the server's accepted distance and score; the local exact
   // distance only picks the flyover tier.
   const pvpScored = pvp.active ? pvp.reveal : null;

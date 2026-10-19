@@ -4,6 +4,15 @@
 // and untouched; great-circle distance is core/math.js distanceKm.
 // ---------------------------------------------------------------------------
 import { WEIGHTS } from '../core/config.js';
+import { distanceKm } from '../core/math.js';
+
+export function scoringDistanceKm(guess, target) {
+  const pinDistanceKm = distanceKm(guess, target);
+  if (!Object.hasOwn(target, 'extentKm') || !Number.isFinite(target.extentKm) || target.extentKm <= 0) {
+    return pinDistanceKm;
+  }
+  return Math.max(0, pinDistanceKm - target.extentKm);
+}
 
 // Stretched-exponential: near-perfect under ~10km, matches MapTap's generous
 // mid-range (~980 @ 112km, ~940 @ 301km), and decays gradually toward 0 at
