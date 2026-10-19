@@ -476,7 +476,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 /* The sealed pack: a postcard-shaped packet, a bit taller and wider than a
    single postcard, torn across the top. --tear (0..1) is the cut's progress
    across the width, driven by the player's finger (pack.js). */
-.pack-sealed { position: relative; box-sizing: border-box; width: min(190px, 60vw); aspect-ratio: 3 / 4; margin: 6px auto 12px; overflow: hidden; border: 1.5px solid rgba(255,209,102,.55); border-radius: 14px; background: linear-gradient(160deg, #1d2a48, #141c33 55%, #10182c); box-shadow: 4px -4px 0 -1px #24304d, 4px -4px 0 0 rgba(255,209,102,.25), 8px -8px 0 -2px #18203a, 8px -8px 0 -1px rgba(255,209,102,.12); cursor: pointer; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+.pack-sealed { position: relative; box-sizing: border-box; width: min(190px, 60vw); aspect-ratio: 3 / 4; margin: 6px auto 12px; overflow: hidden; border: 1.5px solid rgba(255,209,102,.55); border-radius: 14px; background: linear-gradient(160deg, #1d2a48, #141c33 55%, #10182c); box-shadow: 4px -4px 0 -1px #24304d, 4px -4px 0 0 rgba(255,209,102,.25), 8px -8px 0 -2px #18203a, 8px -8px 0 -1px rgba(255,209,102,.12); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
 .pack-sealed[hidden] { display: none; }
 .pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pack-sealed-strip { position: absolute; inset: 0 0 auto 0; height: 22%; border-bottom: 2px dashed rgba(255,209,102,.45); background: linear-gradient(180deg, rgba(255,209,102,.17), rgba(255,209,102,.04)); clip-path: inset(0 0 0 calc(var(--tear, 0) * 100%)); pointer-events: none; }

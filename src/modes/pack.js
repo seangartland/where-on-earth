@@ -297,23 +297,27 @@ function wireSealedPack(sealed) {
     startT = Date.now();
     sealed.setPointerCapture(event.pointerId);
   });
+  let lastProgress = 0;
   sealed.addEventListener('pointermove', (event) => {
     if (!dragging || tearing) return;
     // The cut follows the finger: progress is the drag's share of the pack
     // width, and the CSS draws the tear at exactly that x position.
     const width = sealed.getBoundingClientRect().width || 190;
-    const progress = Math.min(1, Math.max(0, (event.clientX - startX) / width));
-    sealed.style.setProperty('--tear', progress.toFixed(3));
+    lastProgress = Math.min(1, Math.max(0, (event.clientX - startX) / width));
+    sealed.style.setProperty('--tear', lastProgress.toFixed(3));
   });
-  sealed.addEventListener('pointerup', (event) => {
+  const finishDrag = (clientX) => {
     if (!dragging) return;
     dragging = false;
     const width = sealed.getBoundingClientRect().width || 190;
-    const dx = event.clientX - startX;
-    if (dx >= width * 0.55 || (Math.abs(dx) < 10 && Date.now() - startT < 400)) tearOpen();
+    const dx = clientX - startX;
+    const quick = Date.now() - startT < 300 && dx >= 55;
+    if (dx >= width * 0.4 || lastProgress >= 0.4 || quick || (Math.abs(dx) < 10 && Date.now() - startT < 400)) tearOpen();
     else sealed.style.removeProperty('--tear');
-  });
-  sealed.addEventListener('pointercancel', () => { dragging = false; sealed.style.removeProperty('--tear'); });
+    lastProgress = 0;
+  };
+  sealed.addEventListener('pointerup', (event) => finishDrag(event.clientX));
+  sealed.addEventListener('pointercancel', () => finishDrag(startX + lastProgress * (sealed.getBoundingClientRect().width || 190)));
   sealed.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); tearOpen(); }
   });
