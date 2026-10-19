@@ -31,6 +31,7 @@ let rowDate = '';
 // saved pack record is untouched by all of it.
 let tornDate = null;
 let flipping = false;
+let waitingCard = -1;
 let landingCard = -1;
 let landingKind = null;
 let landingTier = 0;
@@ -64,13 +65,30 @@ function openPack() {
   showPackScreen();
 }
 
+// The flip reveals the clue card and then waits: the round starts only when
+// the player taps Play (or the waiting card again), so the clue gets all the
+// reading time it needs. One card can wait at a time.
 function flipCard(li, index) {
   if (flipping) return;
+  if (waitingCard === index) { startCard(index); return; }
+  if (waitingCard >= 0) return;
   flipping = true;
   audio.tick();
   if (navigator.vibrate) navigator.vibrate(8);
   li.classList.add('flipped');
-  window.setTimeout(() => { flipping = false; startCard(index); }, reducedMotion() ? 0 : 330);
+  window.setTimeout(() => {
+    flipping = false;
+    waitingCard = index;
+    li.classList.add('waiting');
+    updatePrimary();
+  }, reducedMotion() ? 0 : 330);
+}
+
+function updatePrimary() {
+  const stale = pack.record && pack.record.date !== localDateKey();
+  const done = packSummary(currentPack()).played >= PACK_CARDS;
+  els.primary.hidden = waitingCard < 0 && !stale && !done;
+  els.primary.textContent = stale ? 'Open today’s pack' : done ? 'Done' : 'Play this card';
 }
 
 function packSlot(id, result, index) {
@@ -199,8 +217,9 @@ function renderPackScreen(deal = false) {
     : done ? doneLine(summary)
     : summary.played ? `${summary.played} of ${PACK_CARDS} opened · Tap a card to flip its clue` : 'Tap a card to flip its clue.';
   els.ready.hidden = !stale;
-  els.primary.hidden = sealedNow || (!stale && !done);
-  els.primary.textContent = stale ? 'Open today’s pack' : 'Done';
+  els.screen.classList.toggle('sealed-on', sealedNow);
+  if (sealedNow) els.primary.hidden = true;
+  else updatePrimary();
 }
 
 export function showPackScreen() {
@@ -216,6 +235,7 @@ export function showPackScreen() {
 
 function startCard(index) {
   const current = currentPack();
+  waitingCard = -1;
   host.expeditionRun.active = false;
   host.endless.active = false;
   host.borders.active = false;
@@ -231,6 +251,7 @@ function primaryAction() {
     openPack();
     return;
   }
+  if (waitingCard >= 0) { startCard(waitingCard); return; }
   const { played, nextCard } = packSummary(currentPack());
   if (played >= PACK_CARDS) host.goHome();
   else startCard(nextCard);
@@ -266,21 +287,56 @@ export function packNext() {
   showPackScreen();
 }
 
-// The sealed pack: a swipe across the top tears it, a plain tap does the
-// same, and a tap during the tear finishes it instantly. Fresh packs only.
-function wireSealedPack(sealed) {
+// The sealed pack. The swipe is tracked on the whole pack screen, not just
+// the packet: a drag that starts off the pack and crosses over it counts,
+// and the cut draws at the finger's actual position over the pack. A plain
+// tap on the pack tears it too. Fresh packs only.
+function wireSealedPack(sealed, screen) {
   let startX = 0;
   let startT = 0;
   let dragging = false;
   let tearing = false;
+  let downOnPack = false;
+  let maxProgress = 0;
+  let travel = 0;
+  let opening = null;
+  let openingTimer = 0;
+
+  const endOpening = () => {
+    if (!opening) return;
+    opening.fade.cancel();
+    opening.glide.cancel();
+    opening = null;
+    window.clearTimeout(openingTimer);
+    sealed.hidden = true;
+    sealed.style.removeProperty('--tear');
+    sealed.style.pointerEvents = '';
+  };
+
+  // The packet opens, the cards slide up out of it, then the wrapper fades.
   const finishTear = () => {
     if (tornDate === pack.record?.date) return;
     tornDate = pack.record.date;
     tearing = false;
     sealed.classList.remove('tearing');
-    sealed.style.removeProperty('--tear');
+    if (reducedMotion()) {
+      sealed.style.removeProperty('--tear');
+      renderPackScreen(false);
+      return;
+    }
+    const packH = sealed.getBoundingClientRect().height;
     renderPackScreen(true);
+    sealed.hidden = false;
+    sealed.style.pointerEvents = 'none';
+    const fade = sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 540, easing: 'ease-out', fill: 'forwards' });
+    const glide = els.slots.animate(
+      [{ transform: 'translateY(0px)' }, { transform: `translateY(${-(packH + 18)}px)` }],
+      { duration: 400, delay: 150, easing: 'ease-out', fill: 'forwards' },
+    );
+    opening = { fade, glide };
+    openingTimer = window.setTimeout(endOpening, 600);
   };
+
   const tearOpen = () => {
     if (tearing || tornDate === pack.record?.date) return;
     audio.tear();
@@ -290,34 +346,47 @@ function wireSealedPack(sealed) {
     sealed.classList.add('tearing');
     window.setTimeout(finishTear, 500);
   };
-  sealed.addEventListener('pointerdown', (event) => {
+
+  const progressAt = (clientX) => {
+    const r = sealed.getBoundingClientRect();
+    return Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+  };
+
+  screen.addEventListener('pointerdown', (event) => {
+    if (opening) { endOpening(); return; }
+    if (sealed.hidden) return;
     if (tearing) { finishTear(); return; }
+    if (event.target.closest('.home-nav-btn')) return;
     dragging = true;
+    downOnPack = Boolean(event.target.closest('.pack-sealed'));
     startX = event.clientX;
     startT = Date.now();
-    sealed.setPointerCapture(event.pointerId);
+    travel = 0;
+    maxProgress = progressAt(event.clientX);
+    if (downOnPack) sealed.style.setProperty('--tear', maxProgress.toFixed(3));
   });
-  let lastProgress = 0;
-  sealed.addEventListener('pointermove', (event) => {
+  screen.addEventListener('pointermove', (event) => {
     if (!dragging || tearing) return;
-    // The cut follows the finger: progress is the drag's share of the pack
-    // width, and the CSS draws the tear at exactly that x position.
-    const width = sealed.getBoundingClientRect().width || 190;
-    lastProgress = Math.min(1, Math.max(0, (event.clientX - startX) / width));
-    sealed.style.setProperty('--tear', lastProgress.toFixed(3));
+    travel = Math.max(travel, Math.abs(event.clientX - startX));
+    const progress = progressAt(event.clientX);
+    maxProgress = Math.max(maxProgress, progress);
+    sealed.style.setProperty('--tear', progress.toFixed(3));
   });
-  const finishDrag = (clientX) => {
+  const finishDrag = () => {
     if (!dragging) return;
     dragging = false;
     const width = sealed.getBoundingClientRect().width || 190;
-    const dx = clientX - startX;
-    const quick = Date.now() - startT < 300 && dx >= 55;
-    if (dx >= width * 0.4 || lastProgress >= 0.4 || quick || (Math.abs(dx) < 10 && Date.now() - startT < 400)) tearOpen();
+    const crossed = maxProgress >= 0.8;
+    const travelled = travel >= width * 0.55;
+    const flick = Date.now() - startT < 300 && travel >= 55;
+    const tap = downOnPack && travel < 10 && Date.now() - startT < 400;
+    if (crossed || travelled || flick || tap) tearOpen();
     else sealed.style.removeProperty('--tear');
-    lastProgress = 0;
+    maxProgress = 0;
+    travel = 0;
   };
-  sealed.addEventListener('pointerup', (event) => finishDrag(event.clientX));
-  sealed.addEventListener('pointercancel', () => finishDrag(startX + lastProgress * (sealed.getBoundingClientRect().width || 190)));
+  screen.addEventListener('pointerup', finishDrag);
+  screen.addEventListener('pointercancel', finishDrag);
   sealed.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); tearOpen(); }
   });
@@ -352,7 +421,7 @@ export function initPack(main) {
     ready: screen.querySelector('.pack-ready'),
     primary: screen.querySelector('.pack-primary'),
   };
-  wireSealedPack(sealed);
+  wireSealedPack(sealed, screen);
   state.packScreenEl = screen;
   entry.disabled = true;
   entry.addEventListener('click', openPack);
