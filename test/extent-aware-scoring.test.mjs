@@ -29,6 +29,26 @@ const APPROVED_AREAS = {
   'great-ocean-road': 122,
   'napa-valley-ava': 30,
   'suez-canal': 97,
+  'lake-baikal': 342.7,
+  'lake-superior': 338,
+  'lake-victoria': 246.7,
+  'lake-titicaca': 83.7,
+  'lake-bled': 1.1,
+  'crater-lake': 4.9,
+  'great-salt-lake': 58.1,
+  'moraine-lake': 0.8,
+  'plitvice-lakes': 16.5,
+  'lake-como': 25.7,
+  'lake-malawi': 301.2,
+  'lake-balkhash': 334.3,
+  'yellowstone-national-park': 74.8,
+  'serengeti-national-park': 110.9,
+  'kruger-national-park': 191,
+  'fiordland-national-park': 128.5,
+  'etosha-national-park': 203.3,
+  'masai-mara': 40.6,
+  'sagarmatha-national-park': 29.3,
+  'grand-teton-national-park': 33,
 };
 
 function destination(start, km, bearingDegrees = 73) {
@@ -49,7 +69,7 @@ const close = (actual, expected, tolerance = 1e-8) => {
   assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} is not within ${tolerance} of ${expected}`);
 };
 
-test('all nine approved areas clamp inside and boundary guesses, then subtract outside', () => {
+test('all approved areas clamp inside and boundary guesses, then subtract outside', () => {
   const actualMap = Object.fromEntries(landmarks
     .filter((item) => item.kind === 'area' && Object.hasOwn(item, 'extentKm'))
     .map((item) => [item.id, item.extentKm]));
@@ -143,7 +163,7 @@ test('fixed pinned and derived Daily selections and serialized round fields stay
   }
 });
 
-test('landmark pool preserves point landmarks and adds exactly the approved nine areas', () => {
+test('landmark pool preserves point landmarks and adds exactly the approved areas', () => {
   const oldPool = landmarks.filter((item) => item.kind === 'landmark' && isPlayableLocation(item) && (() => {
     const match = /^p(?:1|\.\d{2})(?:\(via [^)]+\))?·fb\d+·K[\d.]+·iso\d+ → \d+(?:\.\d)? → (\d+)$/.exec(item.difficultyWhy || '');
     return Boolean(match) && Number(match[1]) === item.difficulty;

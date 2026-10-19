@@ -7170,5 +7170,85 @@
   "difficultyWhy": "p.61·fb1337·K0·iso741 → 117.9 → 9",
   "category": "city",
   "kind": "area"
+ },
+ {
+  "id": "lake-baikal", "short": "Lake Baikal", "clue": "Lake Baikal, Russia 🇷🇺", "fact": "This Siberian rift lake is the world's deepest lake and holds more water than any other freshwater lake.",
+  "lat": 53.30277778, "lng": 108.00472222, "difficulty": 3, "image": "https://upload.wikimedia.org/wikipedia/commons/0/00/Olkhon_Island_and_Lake_Baikal.jpg", "country": "Russia", "continent": "Asia", "sets": ["Lakes"], "difficultyWhy": "p.93·fb2228·K0·iso343 → 8.2 → 3", "extentKm": 342.7, "category": "city", "kind": "area"
+ },
+ {
+  "id": "lake-superior", "short": "Lake Superior", "clue": "Lake Superior, Canada and United States 🇨🇦🇺🇸", "fact": "The largest Great Lake is also the world's largest freshwater lake by surface area.",
+  "lat": 47.52881611111111, "lng": -87.76002194444445, "difficulty": 3, "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Lake_Superior%2C_ISS.jpg", "country": "Canada and United States", "continent": "North America", "sets": ["Lakes"], "difficultyWhy": "p.91·fb1522·K0·iso338 → 8.9 → 3", "extentKm": 338, "category": "city", "kind": "area"
+ },
+ {
+  "id": "lake-victoria", "short": "Lake Victoria", "clue": "Lake Victoria, East Africa", "fact": "Africa's largest lake by area is shared by Tanzania, Uganda, and Kenya and is a principal reservoir of the Nile.",
+  "lat": -1, "lng": 33, "difficulty": 4, "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Getting_out_to_fish_at_dusk.jpg", "country": "Tanzania, Uganda, and Kenya", "continent": "Africa", "sets": ["Lakes"], "difficultyWhy": "p.86·fb807·K0·iso247 → 12.4 → 4", "extentKm": 246.7, "category": "city", "kind": "area"
+ },
+ {
+  "id": "lake-titicaca", "short": "Lake Titicaca", "clue": "Lake Titicaca, Peru and Bolivia 🇵🇪🇧🇴", "fact": "High in the Andes, this lake is famed for the Uros people's floating islands made from totora reeds.",
+  "lat": -15.825, "lng": -69.325, "difficulty": 4, "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/00_1635_Reed_Islands_of_Lake_Titicaca.jpg", "country": "Peru and Bolivia", "continent": "South America", "sets": ["Lakes", "Andes"], "difficultyWhy": "p.85·fb863·K0·iso84 → 12.8 → 4", "extentKm": 83.7, "category": "city", "kind": "area"
+ },
+ {
+  "id": "lake-bled", "short": "Lake Bled", "clue": "Lake Bled, Slovenia 🇸🇮", "fact": "Slovenia's only natural island sits in this Alpine lake and carries a pilgrimage church reached by traditional pletna boats.",
+  "lat": 46.364444444444, "lng": 14.094722222222, "difficulty": 4, "image": "https://upload.wikimedia.org/wikipedia/commons/0/01/Aerial_image_of_Lake_Bled_(view_from_the_southwest).jpg", "country": "Slovenia", "continent": "Europe", "sets": ["Lakes", "The Alps"], "difficultyWhy": "p.74·fb309·K0·iso1 → 13.1 → 4", "extentKm": 1.1, "category": "city", "kind": "area"
+ },
+ {
+  "id": "crater-lake", "short": "Crater Lake", "clue": "Crater Lake, United States 🇺🇸", "fact": "Oregon's deepest lake fills the caldera left when Mount Mazama collapsed after a massive eruption.",
+  "lat": 42.943611111111, "lng": -122.10666666667, "difficulty": 6, "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Day_181_-_Crater_Lake%2C_Oregon_(18695528363).jpg", "country": "United States", "continent": "North America", "sets": ["Lakes"], "difficultyWhy": "p.66·fb804·K0·iso5 → 34.0 → 6", "extentKm": 4.9, "category": "city", "kind": "area"
+ },
+ {
+  "id": "great-salt-lake", "short": "Great Salt Lake", "clue": "Great Salt Lake, United States 🇺🇸", "fact": "This shallow terminal lake in Utah has no outlet, so evaporation leaves its water much saltier than the ocean.",
+  "lat": 41.166666666667, "lng": -112.58333333333, "difficulty": 5, "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Great_Salt_Lake_by_Sentinel-2.jpg", "country": "United States", "continent": "North America", "sets": ["Lakes"], "difficultyWhy": "p.72·fb751·K0·iso58 → 23.0 → 5", "extentKm": 58.1, "category": "city", "kind": "area"
+ },
+ {
+  "id": "moraine-lake", "short": "Moraine Lake", "clue": "Moraine Lake, Canada 🇨🇦", "fact": "Glacial rock flour gives this lake in the Valley of the Ten Peaks its vivid turquoise color.",
+  "lat": 51.3225, "lng": -116.18555555555555, "difficulty": 8, "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Moraine_Lake_17092005.jpg", "country": "Canada", "continent": "North America", "sets": ["Lakes", "Mountains"], "difficultyWhy": "p.35·fb127·K0·iso1 → 87.5 → 8", "extentKm": 0.8, "category": "city", "kind": "area"
+ },
+ {
+  "id": "plitvice-lakes", "short": "Plitvice Lakes", "clue": "Plitvice Lakes National Park, Croatia 🇭🇷", "fact": "Sixteen lakes descend through this Croatian park in terraces linked by waterfalls and natural travertine barriers.",
+  "lat": 44.880445, "lng": 15.616035, "difficulty": 5, "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Plitvice_Lakes_National_Park_(2).jpg", "country": "Croatia", "continent": "Europe", "sets": ["Lakes", "Balkans"], "difficultyWhy": "p.61·fb169·K0·iso17 → 24.6 → 5", "extentKm": 16.5, "category": "city", "kind": "area"
+ },
+ {
+  "id": "lake-como", "short": "Lake Como", "clue": "Lake Como, Italy 🇮🇹", "fact": "This deep, inverted-Y-shaped lake in Lombardy has been celebrated for its villas and Alpine scenery since Roman times.",
+  "lat": 46, "lng": 9.2666666666667, "difficulty": 5, "image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Panoramic_view_of_Como_Lake_(Lago_di_Como)%2C_seen_from_the_mountain_Monte_Grona_-_Plesio_(Como)_2015-10-25.JPG", "country": "Italy", "continent": "Europe", "sets": ["Lakes", "The Alps"], "difficultyWhy": "p.80·fb945·K0·iso26 → 20.0 → 5", "extentKm": 25.7, "category": "city", "kind": "area"
+ },
+ {
+  "id": "lake-malawi", "short": "Lake Malawi", "clue": "Lake Malawi, Malawi, Mozambique, and Tanzania", "fact": "This African Great Lake is renowned for its extraordinary diversity of colorful cichlid fish.",
+  "lat": -12.183333333333334, "lng": 34.36666666666667, "difficulty": 6, "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Otter_Point%2C_Cape_Maclear_(Malawi).jpg", "country": "Malawi, Mozambique, and Tanzania", "continent": "Africa", "sets": ["Lakes"], "difficultyWhy": "p.48·fb254·K0·iso301 → 41.1 → 6", "extentKm": 301.2, "category": "city", "kind": "area"
+ },
+ {
+  "id": "lake-balkhash", "short": "Lake Balkhash", "clue": "Lake Balkhash, Kazakhstan 🇰🇿", "fact": "A narrow strait divides this endorheic Kazakh lake into a fresher western half and a saltier eastern half.",
+  "lat": 46.54083333333333, "lng": 74.8788888888889, "difficulty": 8, "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/STS039-085-00E_Lake_Balkhash%2C_Kazakhstan_April_1991.jpg", "country": "Kazakhstan", "continent": "Asia", "sets": ["Lakes"], "difficultyWhy": "p.31·fb186·K0·iso334 → 91.8 → 8", "extentKm": 334.3, "category": "city", "kind": "area"
+ },
+ {
+  "id": "yellowstone-national-park", "short": "Yellowstone National Park", "clue": "Yellowstone National Park, United States 🇺🇸", "fact": "Established in 1872, Yellowstone is widely regarded as the world's first national park and contains the Old Faithful geyser.",
+  "lat": 44.6, "lng": -110.5, "difficulty": 6, "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Grand_Prismatic_Spring_2013.jpg", "country": "United States", "continent": "North America", "sets": ["US Road Trip"], "difficultyWhy": "p.96·fb2010·K0·iso75 → 35.0 → 6", "extentKm": 74.8, "category": "city", "kind": "area"
+ },
+ {
+  "id": "serengeti-national-park", "short": "Serengeti National Park", "clue": "Serengeti National Park, Tanzania 🇹🇿", "fact": "Vast grasslands in this Tanzanian park host part of the annual migration of millions of wildebeest and other grazing animals.",
+  "lat": -2.4, "lng": 34.6, "difficulty": 6, "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Serengeti-Landscape-2012.JPG", "country": "Tanzania", "continent": "Africa", "sets": ["African Safari"], "difficultyWhy": "p.69·fb286·K0·iso111 → 34.1 → 6", "extentKm": 110.9, "category": "city", "kind": "area"
+ },
+ {
+  "id": "kruger-national-park", "short": "Kruger National Park", "clue": "Kruger National Park, South Africa 🇿🇦", "fact": "One of Africa's largest game reserves, Kruger protects populations of all five animals traditionally called the Big Five.",
+  "lat": -24.011389, "lng": 31.485278, "difficulty": 7, "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Impalas_and_Zebras_at_Duke's_Waterhole_(16589771331).jpg", "country": "South Africa", "continent": "Africa", "sets": ["African Safari"], "difficultyWhy": "p.63·fb343·K0·iso191 → 59.2 → 7", "extentKm": 191, "category": "city", "kind": "area"
+ },
+ {
+  "id": "fiordland-national-park", "short": "Fiordland National Park", "clue": "Fiordland National Park, New Zealand 🇳🇿", "fact": "New Zealand's largest national park protects a mountainous landscape carved into deep fiords including Milford Sound.",
+  "lat": -45.386, "lng": 167.347, "difficulty": 8, "image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Mountains_in_Fiordland_National_Park_08.jpg", "country": "New Zealand", "continent": "Oceania", "sets": ["Fjords & Glaciers"], "difficultyWhy": "p.27·fb64·K0·iso129 → 105.0 → 8", "extentKm": 128.5, "category": "city", "kind": "area"
+ },
+ {
+  "id": "etosha-national-park", "short": "Etosha National Park", "clue": "Etosha National Park, Namibia 🇳🇦", "fact": "A vast salt pan dominates this Namibian park and briefly fills with shallow water after heavy rains.",
+  "lat": -18.785278, "lng": 16.263889, "difficulty": 8, "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/Zebras_Etosha_Namibia(1).jpg", "country": "Namibia", "continent": "Africa", "sets": ["African Safari"], "difficultyWhy": "p.41·fb91·K0·iso203 → 94.0 → 8", "extentKm": 203.3, "category": "city", "kind": "area"
+ },
+ {
+  "id": "masai-mara", "short": "Maasai Mara", "clue": "Maasai Mara National Reserve, Kenya 🇰🇪", "fact": "This Kenyan reserve adjoins Tanzania's Serengeti and is a major stage of the annual wildebeest migration.",
+  "lat": -1.49, "lng": 35.14, "difficulty": 7, "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Mara_River_Massai_Mara.jpg", "country": "Kenya", "continent": "Africa", "sets": ["African Safari"], "difficultyWhy": "p.52·fb386·K0·iso41 → 63.0 → 7", "extentKm": 40.6, "category": "city", "kind": "area"
+ },
+ {
+  "id": "sagarmatha-national-park", "short": "Sagarmatha National Park", "clue": "Sagarmatha National Park, Nepal 🇳🇵", "fact": "This Himalayan park contains Mount Everest, known in Nepali as Sagarmatha, and protects the upper Dudh Kosi basin.",
+  "lat": 27.891069, "lng": 86.693033, "difficulty": 8, "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Everest%2C_Nuptse%2C_Khumbu_Glacier%2C_Nepal%2C_Himalayas.jpg", "country": "Nepal", "continent": "Asia", "sets": ["Himalaya", "Mountains"], "difficultyWhy": "p.34·fb65·K0·iso29 → 91.2 → 8", "extentKm": 29.3, "category": "city", "kind": "area"
+ },
+ {
+  "id": "grand-teton-national-park", "short": "Grand Teton National Park", "clue": "Grand Teton National Park, United States 🇺🇸", "fact": "The sharply rising Teton Range and the valley of Jackson Hole define this Wyoming national park.",
+  "lat": 43.833333333333, "lng": -110.70083333333, "difficulty": 7, "image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Barns_grand_tetons.jpg", "country": "United States", "continent": "North America", "sets": ["US Road Trip", "Mountains"], "difficultyWhy": "p.57·fb446·K0·iso33 → 61.0 → 7", "extentKm": 33, "category": "city", "kind": "area"
  }
 ]
