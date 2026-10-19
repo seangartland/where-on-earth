@@ -85,18 +85,13 @@
  },
  {
   "id": "alamo-san-antonio",
-  "clue": "The Alamo, Texas 🇺🇸",
+  "clue": "The Alamo, United States 🇺🇸",
   "fact": "The Alamo is a historic mission in San Antonio, Texas, famous for the 1836 battle during the Texas Revolution.",
   "lat": 29.4258,
   "lng": -98.4861,
   "difficulty": 9,
   "short": "The Alamo",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Alamo_Mission%2C_San_Antonio%2C_Texas%2C_USA.jpg/500px-Alamo_Mission%2C_San_Antonio%2C_Texas%2C_USA.jpg",
-  "region": {
-   "id": "US.TX",
-   "name": "Texas",
-   "outline": "US.TX"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -106,18 +101,13 @@
  },
  {
   "id": "alcatraz-island",
-  "clue": "Alcatraz, California 🇺🇸",
+  "clue": "Alcatraz, United States 🇺🇸",
   "fact": "Alcatraz served as a federal penitentiary from 1934 to 1963 and is now a National Park site in San Francisco Bay.",
   "lat": 37.8267,
   "lng": -122.423,
   "difficulty": 9,
   "short": "Alcatraz",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Alcatraz_2021.jpg/500px-Alcatraz_2021.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -307,13 +297,8 @@
   "lat": 37.233333,
   "lng": -115.808333,
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Sentinel-Homey.png",
-  "clue": "Area 51, Nevada 🇺🇸",
+  "clue": "Area 51, United States 🇺🇸",
   "difficulty": 3,
-  "region": {
-   "id": "US.NV",
-   "name": "Nevada",
-   "outline": "US.NV"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -326,17 +311,12 @@
  {
   "id": "arpanet-first-message-ucla",
   "short": "Boelter Hall, UCLA",
-  "clue": "UCLA, Los Angeles, California 🇺🇸",
+  "clue": "UCLA, Los Angeles, United States 🇺🇸",
   "fact": "A UCLA team tried to send LOGIN to Stanford on October 29, 1969. The network failed after two letters, making 'LO' the internet ancestor's first message.",
   "lat": 34.0689,
   "lng": -118.4432,
   "difficulty": 8,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Boelter_Hall%2C_UCLA.jpg/500px-Boelter_Hall%2C_UCLA.jpg",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -367,13 +347,8 @@
   "lat": 33.5025,
   "lng": -82.02,
   "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/AugustaNationalMastersLogoFlowers.jpg",
-  "clue": "Augusta National Golf Club, Georgia 🇺🇸",
+  "clue": "Augusta National Golf Club, United States 🇺🇸",
   "difficulty": 9,
-  "region": {
-   "id": "US.GA",
-   "name": "Georgia",
-   "outline": "US.GA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -384,17 +359,12 @@
  {
   "id": "austin-capitol-texas",
   "short": "Texas State Capitol",
-  "clue": "Texas State Capitol, Texas 🇺🇸",
+  "clue": "Texas State Capitol, United States 🇺🇸",
   "fact": "The Texas State Capitol in Austin is one of the largest state capitol buildings in the U.S.",
   "lat": 30.2747,
   "lng": -97.7404,
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/TexasStateCapitol-2010-01.JPG/500px-TexasStateCapitol-2010-01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.TX",
-   "name": "Texas",
-   "outline": "US.TX"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -455,18 +425,13 @@
  },
  {
   "id": "badlands-national-park",
-  "clue": "Badlands Wall, South Dakota 🇺🇸",
+  "clue": "Badlands Wall, United States 🇺🇸",
   "fact": "The Badlands Wall near Cedar Pass is one of the most dramatic eroded landscapes in South Dakota.",
   "lat": 43.7675,
   "lng": -101.929,
   "difficulty": 8,
   "short": "Badlands Wall",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Badlands_Wall_-_Badlands_National_Park_(52643718369).jpg/500px-Badlands_Wall_-_Badlands_National_Park_(52643718369).jpg",
-  "region": {
-   "id": "US.SD",
-   "name": "South Dakota",
-   "outline": "US.SD"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -477,17 +442,12 @@
  {
   "id": "badwater-basin",
   "short": "Badwater Basin",
-  "clue": "Badwater Basin, California 🇺🇸",
+  "clue": "Badwater Basin, United States 🇺🇸",
   "fact": "At 120 m long and 1.6 km wide, it holds temporary lakes and salt flats after rare rains, and salt polygons form as the water evaporates.",
   "lat": 36.2296,
   "lng": -116.825,
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Badwater_Basin_from_Dante%27s_View_Overlook.JPG/500px-Badwater_Basin_from_Dante%27s_View_Overlook.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -515,18 +475,13 @@
  },
  {
   "id": "balanced-rock-utah",
-  "clue": "Balanced Rock, Utah 🇺🇸",
+  "clue": "Balanced Rock, United States 🇺🇸",
   "fact": "Balanced Rock in Arches National Park features a 3,600-ton boulder balanced atop a narrow pedestal.",
   "lat": 38.701,
   "lng": -109.5645,
   "difficulty": 10,
   "short": "Balanced Rock",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Balanced_Rock_sunset.jpg/500px-Balanced_Rock_sunset.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.UT",
-   "name": "Utah",
-   "outline": "US.UT"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -569,17 +524,12 @@
  {
   "id": "barringer-meteor-impact",
   "short": "Meteor Crater",
-  "clue": "Meteor Crater, Arizona 🇺🇸",
+  "clue": "Meteor Crater, Arizona, United States 🇺🇸",
   "fact": "The Arizona crater is about 1.2 kilometers wide. Daniel Barringer's unsuccessful search for a huge buried meteor helped establish its impact origin.",
   "lat": 35.027,
   "lng": -111.022,
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Meteor_Crater_-_Arizona.jpg/500px-Meteor_Crater_-_Arizona.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.AZ",
-   "name": "Arizona",
-   "outline": "US.AZ"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -848,17 +798,12 @@
  {
   "id": "bull-run",
   "short": "Bull Run",
-  "clue": "Bull Run, Virginia 🇺🇸",
+  "clue": "Bull Run, United States 🇺🇸",
   "fact": "Bull Run is a creek in northern Virginia, the site of the first major battle of the US Civil War in 1861.",
   "lat": 38.78373,
   "lng": -77.52055,
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Stone_Bridge%2C_Spanning_Bull_Run_%28Occoquan_River%29.jpg/500px-Stone_Bridge%2C_Spanning_Bull_Run_%28Occoquan_River%29.jpg",
-  "region": {
-   "id": "US.VA",
-   "name": "Virginia",
-   "outline": "US.VA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -886,18 +831,13 @@
  },
  {
   "id": "bunker-hill-monument",
-  "clue": "Bunker Hill, Massachusetts 🇺🇸",
+  "clue": "Bunker Hill, United States 🇺🇸",
   "fact": "The Bunker Hill Monument in Charlestown marks the site of the first major battle of the American Revolutionary War.",
   "lat": 42.3764,
   "lng": -71.0608,
   "difficulty": 10,
   "short": "Bunker Hill",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Bunker_Hill_Monument.jpg/500px-Bunker_Hill_Monument.jpg",
-  "region": {
-   "id": "US.MA",
-   "name": "Massachusetts",
-   "outline": "US.MA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -942,17 +882,12 @@
  {
   "id": "burning-man-first-baker-beach",
   "short": "Baker Beach",
-  "clue": "Baker Beach, San Francisco, California 🇺🇸",
+  "clue": "Baker Beach, San Francisco, United States 🇺🇸",
   "fact": "Larry Harvey and friends burned an eight-foot wooden man on Baker Beach in 1986. The event later moved to Nevada's Black Rock Desert.",
   "lat": 37.7936,
   "lng": -122.4836,
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/BakeBeachAtMidday.jpg/500px-BakeBeachAtMidday.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1061,17 +996,12 @@
  {
   "id": "capitol-building-washington",
   "short": "United States Capitol",
-  "clue": "United States Capitol, District of Columbia 🇺🇸",
+  "clue": "United States Capitol, United States 🇺🇸",
   "fact": "The U.S. Capitol is the home of the United States Congress in Washington, D.C.",
   "lat": 38.8899,
   "lng": -77.0091,
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/USCapitolRotunda.JPG/500px-USCapitolRotunda.JPG",
-  "region": {
-   "id": "US.DC",
-   "name": "District of Columbia",
-   "outline": "US.DC"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1097,18 +1027,13 @@
  },
  {
   "id": "chaco-canyon-pueblo-bonito",
-  "clue": "Pueblo Bonito, New Mexico 🇺🇸",
+  "clue": "Pueblo Bonito, United States 🇺🇸",
   "fact": "Pueblo Bonito in Chaco Culture National Historical Park was the largest great house in Chaco Canyon, built around 850-1150 CE.",
   "lat": 36.06,
   "lng": -107.9619,
   "difficulty": 10,
   "short": "Pueblo Bonito",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Pueblo_Bonito_Aerial.JPG/500px-Pueblo_Bonito_Aerial.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.NM",
-   "name": "New Mexico",
-   "outline": "US.NM"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1323,18 +1248,13 @@
  {
   "id": "chrysler-building-nyc",
   "short": "Chrysler Building",
-  "clue": "Chrysler Building, New York 🇺🇸",
+  "clue": "Chrysler Building, United States 🇺🇸",
   "fact": "Its stainless-steel Art Deco crown made it the world's tallest building for 11 months in 1930, until the Empire State Building opened.",
   "lat": 40.7516,
   "lng": -73.9755,
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Chrysler_Building_by_David_Shankbone_Retouched.jpg/500px-Chrysler_Building_by_David_Shankbone_Retouched.jpg",
   "category": "city",
-  "region": {
-   "id": "US.NY",
-   "name": "New York",
-   "outline": "US.NY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1362,17 +1282,12 @@
  {
   "id": "cinderella-castle-us",
   "short": "Walt Disney World",
-  "clue": "Walt Disney World, Florida 🇺🇸",
+  "clue": "Walt Disney World, United States 🇺🇸",
   "fact": "Cinderella Castle uses forced perspective: the upper stones are smaller than the lower ones, making it look much taller than its 57 metres.",
   "lat": 28.4195,
   "lng": -81.5812,
   "difficulty": 6,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Cinderella_Castle%2C_Magic_Kingdom_%282026%29.jpg/500px-Cinderella_Castle%2C_Magic_Kingdom_%282026%29.jpg",
-  "region": {
-   "id": "US.FL",
-   "name": "Florida",
-   "outline": "US.FL"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1563,13 +1478,8 @@
   "lat": 29.185556,
   "lng": -81.069444,
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Daytona_International_Speedway.jpg",
-  "clue": "Daytona International Speedway, Florida 🇺🇸",
+  "clue": "Daytona International Speedway, United States 🇺🇸",
   "difficulty": 9,
-  "region": {
-   "id": "US.FL",
-   "name": "Florida",
-   "outline": "US.FL"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1599,18 +1509,13 @@
  },
  {
   "id": "delicate-arch-utah",
-  "clue": "Delicate Arch, Utah 🇺🇸",
+  "clue": "Delicate Arch, United States 🇺🇸",
   "fact": "Delicate Arch is Arches National Park's most famous freestanding natural arch, standing 52 feet tall.",
   "lat": 38.7436,
   "lng": -109.4993,
   "difficulty": 9,
   "short": "Delicate Arch",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg",
-  "region": {
-   "id": "US.UT",
-   "name": "Utah",
-   "outline": "US.UT"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1641,13 +1546,8 @@
   "lat": 63.069167,
   "lng": -151.006389,
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/91/Wonder_Lake_and_Denali.jpg",
-  "clue": "Denali, Alaska 🇺🇸",
+  "clue": "Denali, United States 🇺🇸",
   "difficulty": 7,
-  "region": {
-   "id": "US.AK",
-   "name": "Alaska",
-   "outline": "US.AK"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -1680,13 +1580,8 @@
   "lat": 33.81,
   "lng": -117.92,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Sleeping_Beauty_Castle_-_February_2024.png/500px-Sleeping_Beauty_Castle_-_February_2024.png",
-  "clue": "Disneyland, California 🇺🇸",
+  "clue": "Disneyland, United States 🇺🇸",
   "difficulty": 7,
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1846,18 +1741,13 @@
  },
  {
   "id": "french-quarter-nola",
-  "clue": "Jackson Square, Louisiana 🇺🇸",
+  "clue": "Jackson Square, United States 🇺🇸",
   "fact": "Jackson Square, in the heart of the French Quarter, has been a focal point of New Orleans since 1721.",
   "lat": 29.9574,
   "lng": -90.0631,
   "difficulty": 9,
   "short": "Jackson Square",
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/Jackson_Square_New_Orleans.jpg",
-  "region": {
-   "id": "US.LA",
-   "name": "Louisiana",
-   "outline": "US.LA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1901,18 +1791,13 @@
  },
  {
   "id": "gateway-arch-st-louis",
-  "clue": "Gateway Arch, Missouri 🇺🇸",
+  "clue": "Gateway Arch, United States 🇺🇸",
   "fact": "The Gateway Arch in St. Louis is the tallest man-made monument in the United States, standing 630 feet.",
   "lat": 38.6247,
   "lng": -90.1848,
   "difficulty": 5,
   "short": "Gateway Arch",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/St_Louis_night_expblend_cropped.jpg/500px-St_Louis_night_expblend_cropped.jpg",
-  "region": {
-   "id": "US.MO",
-   "name": "Missouri",
-   "outline": "US.MO"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1956,18 +1841,13 @@
  },
  {
   "id": "gettysburg-battlefield",
-  "clue": "Gettysburg, Pennsylvania 🇺🇸",
+  "clue": "Gettysburg, United States 🇺🇸",
   "fact": "Cemetery Hill was a key defensive position during the Battle of Gettysburg, the bloodiest battle of the Civil War.",
   "lat": 39.8183,
   "lng": -77.2314,
   "difficulty": 10,
   "short": "Gettysburg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Gettysburgbattlefield.jpg/500px-Gettysburgbattlefield.jpg",
-  "region": {
-   "id": "US.PA",
-   "name": "Pennsylvania",
-   "outline": "US.PA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2128,18 +2008,13 @@
  },
  {
   "id": "halemaumau-crater",
-  "clue": "Halemaʻumaʻu, Hawaii 🇺🇸",
+  "clue": "Halemaʻumaʻu, United States 🇺🇸",
   "fact": "Halemaʻumaʻu is the home of Pele, Hawaiian goddess of fire, and has hosted an active lava lake for much of the past decade.",
   "lat": 19.4098,
   "lng": -155.283,
   "difficulty": 10,
   "short": "Halemaʻumaʻu",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Halema%CA%BBuma%CA%BBu_crater2.jpg/500px-Halema%CA%BBuma%CA%BBu_crater2.jpg",
-  "region": {
-   "id": "US.HI",
-   "name": "Hawaii",
-   "outline": "US.HI"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -2200,17 +2075,12 @@
  {
   "id": "hindenburg-lakehurst",
   "short": "Lakehurst Hindenburg Site",
-  "clue": "Lakehurst, New Jersey 🇺🇸",
+  "clue": "Lakehurst, New Jersey, United States 🇺🇸",
   "fact": "The zeppelin burned at Lakehurst Naval Air Station in 34 seconds, killing 35 aboard and one ground worker. Newsreel footage helped end the passenger-airship era.",
   "lat": 40.0304,
   "lng": -74.3259,
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Hindenburg_landing_May_6_1937.jpg/500px-Hindenburg_landing_May_6_1937.jpg",
-  "region": {
-   "id": "US.NJ",
-   "name": "New Jersey",
-   "outline": "US.NJ"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2307,18 +2177,13 @@
  },
  {
   "id": "independence-hall",
-  "clue": "Independence Hall, Pennsylvania 🇺🇸",
+  "clue": "Independence Hall, United States 🇺🇸",
   "fact": "Independence Hall is where both the Declaration of Independence and the U.S. Constitution were debated and adopted.",
   "lat": 39.9489,
   "lng": -75.15,
   "difficulty": 9,
   "short": "Independence Hall",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Independence_Hall.jpg/500px-Independence_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.PA",
-   "name": "Pennsylvania",
-   "outline": "US.PA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2333,13 +2198,8 @@
   "lat": 39.798333,
   "lng": -86.232778,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Indianapolis-motor-speedway-1848561.jpg/500px-Indianapolis-motor-speedway-1848561.jpg",
-  "clue": "Indianapolis Motor Speedway, Indiana 🇺🇸",
+  "clue": "Indianapolis Motor Speedway, United States 🇺🇸",
   "difficulty": 7,
-  "region": {
-   "id": "US.IN",
-   "name": "Indiana",
-   "outline": "US.IN"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2350,17 +2210,12 @@
  {
   "id": "jaws-menemsha-harbor",
   "short": "Menemsha Harbor",
-  "clue": "Menemsha, Martha's Vineyard, Massachusetts 🇺🇸",
+  "clue": "Menemsha, Martha's Vineyard, United States 🇺🇸",
   "fact": "Steven Spielberg used Martha's Vineyard locations throughout the 1975 film. Menemsha's working harbor appeared as the movie's Amity waterfront.",
   "lat": 41.3554,
   "lng": -70.7675,
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Sunset_at_Menemsha_Harbor.jpg/500px-Sunset_at_Menemsha_Harbor.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "region": {
-   "id": "US.MA",
-   "name": "Massachusetts",
-   "outline": "US.MA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2371,17 +2226,12 @@
  {
   "id": "jfk-assassination-dealey-plaza",
   "short": "Dealey Plaza",
-  "clue": "Dealey Plaza, Dallas, Texas 🇺🇸",
+  "clue": "Dealey Plaza, Dallas, United States 🇺🇸",
   "fact": "Kennedy was fatally shot as his limousine passed through Dealey Plaza. The former Texas School Book Depository now houses a museum about the assassination.",
   "lat": 32.7787,
   "lng": -96.8083,
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dealey_Plaza_2003.jpg/500px-Dealey_Plaza_2003.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.TX",
-   "name": "Texas",
-   "outline": "US.TX"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2494,17 +2344,12 @@
  {
   "id": "kennedy-space-center",
   "short": "Kennedy Space Center",
-  "clue": "Kennedy Space Center, Florida 🇺🇸",
+  "clue": "Kennedy Space Center, United States 🇺🇸",
   "fact": "Launch pad 39A has sent every crewed moon mission to space, and its 120 m Saturn V still stands as a monument.",
   "lat": 28.5729,
   "lng": -80.649,
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/NASA_logo_%282023_colors%29.svg/500px-NASA_logo_%282023_colors%29.svg.png",
-  "region": {
-   "id": "US.FL",
-   "name": "Florida",
-   "outline": "US.FL"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2697,18 +2542,13 @@
  },
  {
   "id": "little-bighorn-battlefield",
-  "clue": "Little Bighorn Battlefield, Montana 🇺🇸",
+  "clue": "Little Bighorn Battlefield, Montana, United States 🇺🇸",
   "fact": "The Little Bighorn Battlefield marks where Lieutenant Colonel George Custer and his troops were defeated by Lakota and Cheyenne forces in 1876.",
   "lat": 45.5708,
   "lng": -107.4275,
   "difficulty": 7,
   "short": "Little Bighorn",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Little_Bighorn_Battlefield_National_Monument%2C_Montana_(4376e661-3010-41dd-b720-f26ff6494b28).jpg/500px-Little_Bighorn_Battlefield_National_Monument%2C_Montana_(4376e661-3010-41dd-b720-f26ff6494b28).jpg",
-  "region": {
-   "id": "US.MT",
-   "name": "Montana",
-   "outline": "US.MT"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2719,17 +2559,12 @@
  {
   "id": "lituya-bay-megatsunami",
   "short": "Lituya Bay",
-  "clue": "Lituya Bay, Alaska 🇺🇸",
+  "clue": "Lituya Bay, United States 🇺🇸",
   "fact": "An earthquake sent rock plunging into the narrow Alaskan bay, stripping trees up to 524 meters above sea level. Two people in fishing boats were killed.",
   "lat": 58.6425,
   "lng": -137.5667,
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Lituya_Bay_overview.jpg/500px-Lituya_Bay_overview.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.AK",
-   "name": "Alaska",
-   "outline": "US.AK"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2774,17 +2609,12 @@
  {
   "id": "lunch-atop-skyscraper-rockefeller",
   "short": "30 Rockefeller Plaza",
-  "clue": "Rockefeller Center, New York City, New York 🇺🇸",
+  "clue": "Rockefeller Center, New York City, United States 🇺🇸",
   "fact": "Lunch Atop a Skyscraper was staged during construction of 30 Rockefeller Plaza in 1932. The men were genuinely sitting hundreds of feet above the street.",
   "lat": 40.759,
   "lng": -73.9794,
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/30_Rockefeller_Plaza_view_from_Empire_State_Building%2C_around_1_pm.jpg/500px-30_Rockefeller_Plaza_view_from_Empire_State_Building%2C_around_1_pm.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.NY",
-   "name": "New York",
-   "outline": "US.NY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2851,13 +2681,8 @@
   "lat": 44.854167,
   "lng": -93.242222,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/2018_Mall_of_America_01.jpg/3840px-2018_Mall_of_America_01.jpg",
-  "clue": "Mall of America, Minnesota 🇺🇸",
+  "clue": "Mall of America, United States 🇺🇸",
   "difficulty": 7,
-  "region": {
-   "id": "US.MN",
-   "name": "Minnesota",
-   "outline": "US.MN"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2970,17 +2795,12 @@
  {
   "id": "migrant-mother-nipomo",
   "short": "Nipomo Migrant Camp Site",
-  "clue": "Nipomo, California 🇺🇸",
+  "clue": "Nipomo, California, United States 🇺🇸",
   "fact": "Lange met Florence Owens Thompson at a pea-pickers' camp in Nipomo in 1936. The photograph became an enduring image of the Great Depression.",
   "lat": 35.0353,
   "lng": -120.4856,
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/NipomoLocationOfMigrantMotherPhotoJan52025.jpg/500px-NipomoLocationOfMigrantMotherPhotoJan52025.jpg",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -3091,17 +2911,12 @@
  {
   "id": "monterey-pop-festival",
   "short": "Monterey County Fairgrounds",
-  "clue": "Monterey, California 🇺🇸",
+  "clue": "Monterey, California, United States 🇺🇸",
   "fact": "Hendrix's dramatic finale helped turn his U.S. festival debut into rock history. The same festival also introduced major audiences to Janis Joplin and the Who.",
   "lat": 36.5948,
   "lng": -121.8627,
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/SCOUT-O-RAMA_AT_FAIRGROUNDS_IN_MONTEREY_-_NARA_-_543162.jpg/500px-SCOUT-O-RAMA_AT_FAIRGROUNDS_IN_MONTEREY_-_NARA_-_543162.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -3116,13 +2931,8 @@
   "lat": 38.010306,
   "lng": -78.452333,
   "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Monticello_reflected.JPG",
-  "clue": "Monticello, Virginia 🇺🇸",
+  "clue": "Monticello, United States 🇺🇸",
   "difficulty": 8,
-  "region": {
-   "id": "US.VA",
-   "name": "Virginia",
-   "outline": "US.VA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -3132,18 +2942,13 @@
  },
  {
   "id": "monument-valley-mitten",
-  "clue": "East Mitten Butte, Arizona 🇺🇸",
+  "clue": "East Mitten Butte, United States 🇺🇸",
   "fact": "The East Mitten Butte is one of Monument Valley's most iconic sandstone formations on the Arizona-Utah border.",
   "lat": 36.9889,
   "lng": -110.0942,
   "difficulty": 8,
   "short": "East Mitten Butte",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Monumentvalley3.jpg/500px-Monumentvalley3.jpg",
-  "region": {
-   "id": "US.AZ",
-   "name": "Arizona",
-   "outline": "US.AZ"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -3226,13 +3031,8 @@
   "lat": 38.401201,
   "lng": -122.330178,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/TTB_Map_Napa_Valley_AVA.png/500px-TTB_Map_Napa_Valley_AVA.png",
-  "clue": "Napa Valley AVA, California 🇺🇸",
+  "clue": "Napa Valley AVA, United States 🇺🇸",
   "difficulty": 10,
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -3344,17 +3144,12 @@
  {
   "id": "okefenokee-swamp",
   "short": "Okefenokee Swamp",
-  "clue": "Okefenokee Swamp, Georgia 🇺🇸",
+  "clue": "Okefenokee Swamp, United States 🇺🇸",
   "fact": "Long called the land of the dancing bears, it sits only 33 m above sea level and hosts dense black bear and wild boar populations.",
   "lat": 30.6669,
   "lng": -82.3332,
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Aerial_view_of_wetlands_in_Okefenokee.jpg/500px-Aerial_view_of_wetlands_in_Okefenokee.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.GA",
-   "name": "Georgia",
-   "outline": "US.GA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -3514,18 +3309,13 @@
  },
  {
   "id": "pearl-harbor-uss-arizona",
-  "clue": "USS Arizona, Hawaii 🇺🇸",
+  "clue": "USS Arizona, United States 🇺🇸",
   "fact": "The USS Arizona Memorial marks the resting place of 1,177 sailors killed during the Japanese attack on Pearl Harbor on December 7, 1941.",
   "lat": 21.3647,
   "lng": -157.9499,
   "difficulty": 10,
   "short": "USS Arizona",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Arizona_%28BB39%29_Port_Bow%2C_Underway_-_NARA_-_5900075_-_1930.jpg/500px-Arizona_%28BB39%29_Port_Bow%2C_Underway_-_NARA_-_5900075_-_1930.jpg",
-  "region": {
-   "id": "US.HI",
-   "name": "Hawaii",
-   "outline": "US.HI"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -3655,18 +3445,13 @@
  },
  {
   "id": "plymouth-rock",
-  "clue": "Plymouth Rock, Massachusetts 🇺🇸",
+  "clue": "Plymouth Rock, United States 🇺🇸",
   "fact": "Plymouth Rock is traditionally said to be the landing site of the Pilgrims who arrived on the Mayflower in 1620.",
   "lat": 41.9584,
   "lng": -70.6631,
   "difficulty": 9,
   "short": "Plymouth Rock",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Plymouth_Rock%2C_Plymouth%2C_MA%2C_jjron_03.05.2012.jpg/500px-Plymouth_Rock%2C_Plymouth%2C_MA%2C_jjron_03.05.2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.MA",
-   "name": "Massachusetts",
-   "outline": "US.MA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -3982,13 +3767,8 @@
   "lat": 34.008611,
   "lng": -118.498611,
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Santa_monica_pier_entrance_evening.jpg",
-  "clue": "Santa Monica Pier, California 🇺🇸",
+  "clue": "Santa Monica Pier, United States 🇺🇸",
   "difficulty": 10,
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -4121,13 +3901,8 @@
   "lat": 25.781875,
   "lng": -80.136262,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ocean_drive_day_2009j.JPG/3840px-Ocean_drive_day_2009j.JPG",
-  "clue": "South Beach, Florida 🇺🇸",
+  "clue": "South Beach, United States 🇺🇸",
   "difficulty": 10,
-  "region": {
-   "id": "US.FL",
-   "name": "Florida",
-   "outline": "US.FL"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -4323,17 +4098,12 @@
  {
   "id": "times-square-nyc",
   "short": "Times Square",
-  "clue": "Times Square, New York 🇺🇸",
+  "clue": "Times Square, United States 🇺🇸",
   "fact": "Times Square is known for its bright lights, Broadway theaters, and New Year's Eve celebration.",
   "lat": 40.758,
   "lng": -73.9855,
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/500px-New_york_times_square-terabass.jpg",
-  "region": {
-   "id": "US.NY",
-   "name": "New York",
-   "outline": "US.NY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -4376,17 +4146,12 @@
  {
   "id": "transistor-bell-labs-murray-hill",
   "short": "Bell Labs, Murray Hill",
-  "clue": "Murray Hill, New Jersey 🇺🇸",
+  "clue": "Murray Hill, New Jersey, United States 🇺🇸",
   "fact": "John Bardeen, Walter Brattain, and William Shockley's group developed the device at Bell Telephone Laboratories, launching the solid-state electronics era.",
   "lat": 40.6842,
   "lng": -74.4003,
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Lucent_HQ.gif/500px-Lucent_HQ.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.NJ",
-   "name": "New Jersey",
-   "outline": "US.NJ"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -4530,17 +4295,12 @@
  {
   "id": "wall-street-us",
   "short": "Wall Street",
-  "clue": "Wall Street, New York 🇺🇸",
+  "clue": "Wall Street, United States 🇺🇸",
   "fact": "The street takes its name from a wooden wall the Dutch built across lower Manhattan in the 1650s to keep out attackers.",
   "lat": 40.7069,
   "lng": -74.0113,
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Wall_Street_%2855314253740%29.jpg/500px-Wall_Street_%2855314253740%29.jpg",
-  "region": {
-   "id": "US.NY",
-   "name": "New York",
-   "outline": "US.NY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -4602,18 +4362,13 @@
  },
  {
   "id": "white-house-dc",
-  "clue": "White House, District of Columbia 🇺🇸",
+  "clue": "White House, United States 🇺🇸",
   "fact": "The White House has been the residence of every U.S. president since John Adams in 1800.",
   "lat": 38.8977,
   "lng": -77.0365,
   "difficulty": 2,
   "short": "White House",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/White_House_north_and_south_sides.jpg/500px-White_House_north_and_south_sides.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.DC",
-   "name": "District of Columbia",
-   "outline": "US.DC"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -4690,17 +4445,12 @@
  {
   "id": "yosemite-valley",
   "short": "Yosemite Valley",
-  "clue": "Yosemite Valley, California 🇺🇸",
+  "clue": "Yosemite Valley, United States 🇺🇸",
   "fact": "A glacial river carved the valley during the last ice age, and the first Yosemite National Park in the world was dedicated here in 1890.",
   "lat": 37.7456,
   "lng": -119.5936,
   "difficulty": 10,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg/500px-Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -4744,18 +4494,13 @@
  },
  {
   "id": "empire-state-building-ny",
-  "clue": "Empire State Building, New York 🇺🇸",
+  "clue": "Empire State Building, United States 🇺🇸",
   "fact": "The Empire State Building was the world's tallest skyscraper for nearly 40 years after its completion in 1931.",
   "lat": 40.7484,
   "lng": -73.9857,
   "difficulty": 2,
   "short": "Empire State Building",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/500px-Empire_State_Building_%28aerial_view%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.NY",
-   "name": "New York",
-   "outline": "US.NY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -4782,17 +4527,12 @@
  {
   "id": "pentagon-us",
   "short": "The Pentagon",
-  "clue": "The Pentagon, Virginia 🇺🇸",
+  "clue": "The Pentagon, United States 🇺🇸",
   "fact": "The US Department of Defense headquarters was built in just 16 months during World War II and is still one of the largest office buildings in the world.",
   "lat": 38.8719,
   "lng": -77.0563,
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/The_Pentagon%2C_Headquarters_of_the_US_Department_of_Defense_%28cropped2%29.jpg/500px-The_Pentagon%2C_Headquarters_of_the_US_Department_of_Defense_%28cropped2%29.jpg",
-  "region": {
-   "id": "US.VA",
-   "name": "Virginia",
-   "outline": "US.VA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -4819,17 +4559,12 @@
  {
   "id": "stonewall-uprising",
   "short": "Stonewall Inn",
-  "clue": "Stonewall Inn, New York City, New York 🇺🇸",
+  "clue": "Stonewall Inn, New York City, United States 🇺🇸",
   "fact": "Patrons and neighbors resisted a routine raid at the Stonewall Inn in Greenwich Village. Annual Pride marches grew from commemorations held one year later.",
   "lat": 40.7338,
   "lng": -74.0022,
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Stonewall_Inn_5_pride_weekend_2016.jpg/500px-Stonewall_Inn_5_pride_weekend_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.NY",
-   "name": "New York",
-   "outline": "US.NY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5191,18 +4926,13 @@
  },
  {
   "id": "grand-prismatic-yellowstone",
-  "clue": "Grand Prismatic, Wyoming 🇺🇸",
+  "clue": "Grand Prismatic, United States 🇺🇸",
   "fact": "The Grand Prismatic Spring is the largest hot spring in the United States and displays vibrant rainbow colors.",
   "lat": 44.525,
   "lng": -110.8382,
   "difficulty": 9,
   "short": "Grand Prismatic",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Aerial_image_of_Grand_Prismatic_Spring_%28view_from_the_south%29.jpg/500px-Aerial_image_of_Grand_Prismatic_Spring_%28view_from_the_south%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.WY",
-   "name": "Wyoming",
-   "outline": "US.WY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5253,13 +4983,8 @@
   "lat": 35.045944,
   "lng": -90.022944,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/USA_Tour_2019_P095_Graceland.jpg/3840px-USA_Tour_2019_P095_Graceland.jpg",
-  "clue": "Graceland, Tennessee 🇺🇸",
+  "clue": "Graceland, United States 🇺🇸",
   "difficulty": 6,
-  "region": {
-   "id": "US.TN",
-   "name": "Tennessee",
-   "outline": "US.TN"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -5272,17 +4997,12 @@
  {
   "id": "half-dome-us",
   "short": "Half Dome",
-  "clue": "Half Dome, California 🇺🇸",
+  "clue": "Half Dome, United States 🇺🇸",
   "fact": "The final climb to its granite summit follows steel cables bolted into the rock face, and hikers need a permit.",
   "lat": 37.7459,
   "lng": -119.5332,
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Half_Dome_with_Eastern_Yosemite_Valley_%28Zuschnitt%29.jpg/500px-Half_Dome_with_Eastern_Yosemite_Valley_%28Zuschnitt%29.jpg",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5293,17 +5013,12 @@
  {
   "id": "hollywood-sign-la",
   "short": "Hollywood Sign",
-  "clue": "Hollywood Sign, California 🇺🇸",
+  "clue": "Hollywood Sign, United States 🇺🇸",
   "fact": "The Hollywood Sign overlooks Los Angeles from Mount Lee in Griffith Park.",
   "lat": 34.1341,
   "lng": -118.3215,
   "difficulty": 9,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Hollywood_sign_%288485145044%29.jpg/500px-Hollywood_sign_%288485145044%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5313,18 +5028,13 @@
  },
  {
   "id": "liberty-bell",
-  "clue": "Liberty Bell, Pennsylvania 🇺🇸",
+  "clue": "Liberty Bell, United States 🇺🇸",
   "fact": "The Liberty Bell, an iconic symbol of American independence, is housed near Independence Hall in Philadelphia.",
   "lat": 39.9496,
   "lng": -75.1503,
   "difficulty": 8,
   "short": "Liberty Bell",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Liberty_Bell_2017a.jpg/500px-Liberty_Bell_2017a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.PA",
-   "name": "Pennsylvania",
-   "outline": "US.PA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5334,18 +5044,13 @@
  },
  {
   "id": "old-faithful-yellowstone",
-  "clue": "Old Faithful, Wyoming 🇺🇸",
+  "clue": "Old Faithful, United States 🇺🇸",
   "fact": "Old Faithful in Yellowstone National Park erupts roughly every 90 minutes, making it one of the world's most predictable geysers.",
   "lat": 44.4605,
   "lng": -110.8281,
   "difficulty": 9,
   "short": "Old Faithful",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Yellowstone_National_Park_%28WY%2C_USA%29%2C_Old_Faithful_Geyser_--_2022_--_2599.jpg/500px-Yellowstone_National_Park_%28WY%2C_USA%29%2C_Old_Faithful_Geyser_--_2022_--_2599.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.WY",
-   "name": "Wyoming",
-   "outline": "US.WY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5356,17 +5061,12 @@
  {
   "id": "one-world-trade-center-us",
   "short": "One World Trade Center",
-  "clue": "One World Trade Center, New York 🇺🇸",
+  "clue": "One World Trade Center, United States 🇺🇸",
   "fact": "Its spire tops out at 1,776 feet, a deliberate nod to the year of American independence.",
   "lat": 40.7127,
   "lng": -74.0134,
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/One_WTC_logo.svg/500px-One_WTC_logo.svg.png",
-  "region": {
-   "id": "US.NY",
-   "name": "New York",
-   "outline": "US.NY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5377,17 +5077,12 @@
  {
   "id": "elvis-sun-studio-first-single",
   "short": "Sun Studio",
-  "clue": "Sun Studio, Memphis, Tennessee 🇺🇸",
+  "clue": "Sun Studio, Memphis, United States 🇺🇸",
   "fact": "During a break in a 1954 session, Presley began playing Arthur Crudup's song and producer Sam Phillips recognized the sound he wanted.",
   "lat": 35.1392,
   "lng": -90.0377,
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Sun_studio_memphis.jpg/500px-Sun_studio_memphis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.TN",
-   "name": "Tennessee",
-   "outline": "US.TN"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5397,18 +5092,13 @@
  },
  {
   "id": "two-lovers-point",
-  "clue": "Two Lovers Point, Guam 🇺🇸",
+  "clue": "Two Lovers Point, United States 🇺🇸",
   "fact": "Two Lovers Point is a limestone cliff with a tragic Chamorro legend of star-crossed lovers who leapt to their deaths.",
   "lat": 13.5364,
   "lng": 144.8028,
   "difficulty": 10,
   "short": "Two Lovers Point",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Two_Lovers_Point_from_Tumon_Bay.JPG/500px-Two_Lovers_Point_from_Tumon_Bay.JPG",
-  "region": {
-   "id": "US.GU",
-   "name": "Guam",
-   "outline": "US.GU"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5423,13 +5113,8 @@
   "lat": 41.948056,
   "lng": -87.655556,
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Wrigley_Field_in_line_with_sign.jpg",
-  "clue": "Wrigley Field, Illinois 🇺🇸",
+  "clue": "Wrigley Field, United States 🇺🇸",
   "difficulty": 6,
-  "region": {
-   "id": "US.IL",
-   "name": "Illinois",
-   "outline": "US.IL"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5724,13 +5409,8 @@
   "lat": 36.8792,
   "lng": -111.5107,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Horseshoe_Bend_13_February_2023.jpg/3840px-Horseshoe_Bend_13_February_2023.jpg",
-  "clue": "Horseshoe Bend, Arizona 🇺🇸",
+  "clue": "Horseshoe Bend, United States 🇺🇸",
   "difficulty": 10,
-  "region": {
-   "id": "US.AZ",
-   "name": "Arizona",
-   "outline": "US.AZ"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -5744,17 +5424,12 @@
  {
   "id": "mlk-assassination-lorraine-motel",
   "short": "Lorraine Motel",
-  "clue": "Lorraine Motel, Memphis, Tennessee 🇺🇸",
+  "clue": "Lorraine Motel, Memphis, United States 🇺🇸",
   "fact": "King was shot while standing on the motel's second-floor balcony in Memphis. The preserved Lorraine Motel is now part of the National Civil Rights Museum.",
   "lat": 35.1345,
   "lng": -90.0576,
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/National_Civil_Rights_Museum_2022a.jpg/500px-National_Civil_Rights_Museum_2022a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.TN",
-   "name": "Tennessee",
-   "outline": "US.TN"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5769,13 +5444,8 @@
   "lat": 41.3,
   "lng": -124,
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Redwood_National_Park%2C_fog_in_the_forest.jpg",
-  "clue": "Redwood National and State Parks, California 🇺🇸",
+  "clue": "Redwood National and State Parks, United States 🇺🇸",
   "difficulty": 10,
-  "region": {
-   "id": "US.CA",
-   "name": "California",
-   "outline": "US.CA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -5785,18 +5455,13 @@
  },
  {
   "id": "space-needle-seattle",
-  "clue": "Space Needle, Washington 🇺🇸",
+  "clue": "Space Needle, United States 🇺🇸",
   "fact": "The Space Needle was built for the 1962 World's Fair and has become Seattle's most iconic landmark.",
   "lat": 47.6205,
   "lng": -122.3493,
   "difficulty": 9,
   "short": "Space Needle",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Space_Needle_2011-07-04.jpg/500px-Space_Needle_2011-07-04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "region": {
-   "id": "US.WA",
-   "name": "Washington",
-   "outline": "US.WA"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -6259,18 +5924,13 @@
  },
  {
   "id": "mauna-kea",
-  "clue": "Mauna Kea, Hawaii 🇺🇸",
+  "clue": "Mauna Kea, United States 🇺🇸",
   "fact": "Mauna Kea is the world's tallest mountain from base to summit, rising over 10,200 meters from the ocean floor.",
   "lat": 19.8207,
   "lng": -155.4681,
   "difficulty": 9,
   "short": "Mauna Kea",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Mauna_Kea_from_the_ocean.jpg/500px-Mauna_Kea_from_the_ocean.jpg",
-  "region": {
-   "id": "US.HI",
-   "name": "Hawaii",
-   "outline": "US.HI"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -6987,13 +6647,8 @@
   "lat": 21.2752,
   "lng": -157.8312,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Waikiki_Beach_%282024%29-L1004709.jpg/500px-Waikiki_Beach_%282024%29-L1004709.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "clue": "Waikiki, Hawaii 🇺🇸",
+  "clue": "Waikiki, United States 🇺🇸",
   "difficulty": 8,
-  "region": {
-   "id": "US.HI",
-   "name": "Hawaii",
-   "outline": "US.HI"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -7456,17 +7111,12 @@
  {
   "id": "crater-lake",
   "short": "Crater Lake",
-  "clue": "Crater Lake, Oregon 🇺🇸",
+  "clue": "Crater Lake, United States 🇺🇸",
   "fact": "Oregon's deepest lake fills the caldera left when Mount Mazama collapsed after a massive eruption.",
   "lat": 42.943611111111,
   "lng": -122.10666666667,
   "difficulty": 6,
   "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Day_181_-_Crater_Lake%2C_Oregon_(18695528363).jpg",
-  "region": {
-   "id": "US.OR",
-   "name": "Oregon",
-   "outline": "US.OR"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -7480,17 +7130,12 @@
  {
   "id": "great-salt-lake",
   "short": "Great Salt Lake",
-  "clue": "Great Salt Lake, Utah 🇺🇸",
+  "clue": "Great Salt Lake, United States 🇺🇸",
   "fact": "This shallow terminal lake in Utah has no outlet, so evaporation leaves its water much saltier than the ocean.",
   "lat": 41.166666666667,
   "lng": -112.58333333333,
   "difficulty": 5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Great_Salt_Lake_by_Sentinel-2.jpg",
-  "region": {
-   "id": "US.UT",
-   "name": "Utah",
-   "outline": "US.UT"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -7602,17 +7247,12 @@
  {
   "id": "yellowstone-national-park",
   "short": "Yellowstone National Park",
-  "clue": "Yellowstone National Park, Wyoming 🇺🇸",
+  "clue": "Yellowstone National Park, United States 🇺🇸",
   "fact": "Established in 1872, Yellowstone is widely regarded as the world's first national park and contains the Old Faithful geyser.",
   "lat": 44.6,
   "lng": -110.5,
   "difficulty": 6,
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Grand_Prismatic_Spring_2013.jpg",
-  "region": {
-   "id": "US.WY",
-   "name": "Wyoming",
-   "outline": "US.WY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
@@ -7741,17 +7381,12 @@
  {
   "id": "grand-teton-national-park",
   "short": "Grand Teton National Park",
-  "clue": "Grand Teton National Park, Wyoming 🇺🇸",
+  "clue": "Grand Teton National Park, United States 🇺🇸",
   "fact": "The sharply rising Teton Range and the valley of Jackson Hole define this Wyoming national park.",
   "lat": 43.833333333333,
   "lng": -110.70083333333,
   "difficulty": 7,
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Barns_grand_tetons.jpg",
-  "region": {
-   "id": "US.WY",
-   "name": "Wyoming",
-   "outline": "US.WY"
-  },
   "country": "United States",
   "continent": "North America",
   "sets": [
