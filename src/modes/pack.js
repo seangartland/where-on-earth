@@ -294,14 +294,18 @@ function wireSealedPack(sealed) {
   });
   sealed.addEventListener('pointermove', (event) => {
     if (!dragging || tearing) return;
-    const progress = Math.min(1, Math.max(0, (event.clientX - startX) / 130));
+    // The cut follows the finger: progress is the drag's share of the pack
+    // width, and the CSS draws the tear at exactly that x position.
+    const width = sealed.getBoundingClientRect().width || 190;
+    const progress = Math.min(1, Math.max(0, (event.clientX - startX) / width));
     sealed.style.setProperty('--tear', progress.toFixed(3));
   });
   sealed.addEventListener('pointerup', (event) => {
     if (!dragging) return;
     dragging = false;
+    const width = sealed.getBoundingClientRect().width || 190;
     const dx = event.clientX - startX;
-    if (dx >= 65 || (Math.abs(dx) < 10 && Date.now() - startT < 400)) tearOpen();
+    if (dx >= width * 0.55 || (Math.abs(dx) < 10 && Date.now() - startT < 400)) tearOpen();
     else sealed.style.removeProperty('--tear');
   });
   sealed.addEventListener('pointercancel', () => { dragging = false; sealed.style.removeProperty('--tear'); });
@@ -321,9 +325,15 @@ export function initPack(main) {
   sealed.tabIndex = 0;
   sealed.setAttribute('aria-label', 'Open the pack');
   sealed.innerHTML = `
+    <div class="pack-sealed-strip"></div>
     <div class="pack-sealed-flap"></div>
-    <p class="pack-sealed-name">Daily postcard pack</p>
-    <p class="pack-sealed-sub">Swipe or tap to open</p>`;
+    <div class="pack-sealed-cut"></div>
+    <div class="pack-sealed-face">
+      <span class="pack-flip-mark">?</span>
+      <p class="pack-sealed-name">Daily postcard pack</p>
+      <p class="pack-sealed-sub">3 postcards</p>
+      <p class="pack-sealed-hint">Swipe across the top to tear it open</p>
+    </div>`;
   screen.querySelector('.pack-panel').insertBefore(sealed, screen.querySelector('.pack-slots'));
   els = {
     screen,

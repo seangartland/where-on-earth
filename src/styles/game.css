@@ -472,15 +472,23 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-slots[hidden] { display: none; }
 
 /* The pack opening ritual (2026-10-18): sealed pack, clue flip, stamp-in. */
-.pack-sealed { position: relative; box-sizing: border-box; max-width: 300px; margin: 4px auto 10px; padding: 30px 18px 24px; overflow: hidden; border: 1.5px solid rgba(255,209,102,.55); border-radius: 16px; background: linear-gradient(150deg, #1d2a48, #141c33 60%, #10182c); box-shadow: 4px -4px 0 -1px #24304d, 4px -4px 0 0 rgba(255,209,102,.25), 8px -8px 0 -2px #18203a, 8px -8px 0 -1px rgba(255,209,102,.12); cursor: pointer; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+/* The sealed pack: a postcard-shaped packet, a bit taller and wider than a
+   single postcard, torn across the top. --tear (0..1) is the cut's progress
+   across the width, driven by the player's finger (pack.js). */
+.pack-sealed { position: relative; box-sizing: border-box; width: min(190px, 60vw); aspect-ratio: 3 / 4; margin: 6px auto 12px; overflow: hidden; border: 1.5px solid rgba(255,209,102,.55); border-radius: 14px; background: linear-gradient(160deg, #1d2a48, #141c33 55%, #10182c); box-shadow: 4px -4px 0 -1px #24304d, 4px -4px 0 0 rgba(255,209,102,.25), 8px -8px 0 -2px #18203a, 8px -8px 0 -1px rgba(255,209,102,.12); cursor: pointer; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
 .pack-sealed[hidden] { display: none; }
 .pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
-.pack-sealed-flap { position: absolute; inset: 0 0 auto 0; height: 30%; border-bottom: 2px dashed rgba(255,209,102,.4); background: linear-gradient(180deg, rgba(255,209,102,.14), rgba(255,209,102,.03)); transform: translateX(calc(var(--tear, 0) * 112%)) rotate(calc(var(--tear, 0) * -7deg)); opacity: calc(1 - var(--tear, 0)); pointer-events: none; }
-.pack-sealed.tearing .pack-sealed-flap { transition: transform .45s ease-in, opacity .45s ease-in; transform: translateX(115%) rotate(-9deg); opacity: 0; }
+.pack-sealed-strip { position: absolute; inset: 0 0 auto 0; height: 22%; border-bottom: 2px dashed rgba(255,209,102,.45); background: linear-gradient(180deg, rgba(255,209,102,.17), rgba(255,209,102,.04)); clip-path: inset(0 0 0 calc(var(--tear, 0) * 100%)); pointer-events: none; }
+.pack-sealed-flap { position: absolute; top: 0; height: 22%; width: 52px; left: calc(var(--tear, 0) * 100% - 52px); background: linear-gradient(200deg, #2a3a5f, #1b2745); border-bottom: 2px dashed rgba(255,209,102,.45); transform-origin: 100% 0; transform: rotate(calc(var(--tear, 0) * -22deg)) translateY(calc(var(--tear, 0) * -7px)); opacity: var(--tear, 0); pointer-events: none; }
+.pack-sealed-cut { position: absolute; top: 0; height: 22%; width: 2px; left: calc(var(--tear, 0) * 100%); background: linear-gradient(180deg, #ffe9b0, #ffd166); box-shadow: 0 0 8px 2px rgba(255,209,102,.45); opacity: var(--tear, 0); pointer-events: none; }
+.pack-sealed-face { position: absolute; inset: 22% 0 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 14px; text-align: center; }
+.pack-sealed.tearing .pack-sealed-strip { transition: clip-path .45s ease-in; clip-path: inset(0 0 0 100%); }
+.pack-sealed.tearing .pack-sealed-flap, .pack-sealed.tearing .pack-sealed-cut { transition: opacity .3s; opacity: 0; }
 .pack-sealed.tearing { animation: pack-open-pop .5s ease-out forwards; }
 @keyframes pack-open-pop { 40% { transform: scale(1.04); } 100% { transform: scale(1.06); opacity: 0; } }
-.pack-sealed-name { margin: 8px 0 0; color: #ffe2a0; font-size: 18px; font-weight: 800; }
-.pack-sealed-sub { margin: 4px 0 0; color: rgba(193,224,250,.62); font-size: 12px; font-weight: 650; }
+.pack-sealed-name { margin: 9px 0 0; color: #ffe2a0; font-size: 18px; font-weight: 800; line-height: 1.2; }
+.pack-sealed-sub { margin: 0; color: rgba(193,224,250,.66); font-size: 12px; font-weight: 650; }
+.pack-sealed-hint { margin: 10px 0 0; color: rgba(193,224,250,.45); font-size: 11px; font-weight: 600; }
 
 .pack-flip-slot { perspective: 700px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .pack-flip-slot:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }
