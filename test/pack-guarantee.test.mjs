@@ -38,10 +38,10 @@ function rng(seed) {
   };
 }
 
-test('pool shape: 805 cities plus 330 landmarks, areas excluded', () => {
-  assert.equal(cities.filter(isPlayableLocation).length, 805);
+test('pool shape: 804 cities plus 330 landmarks, areas excluded', () => {
+  assert.equal(cities.filter(isPlayableLocation).length, 804);
   assert.equal(pool.filter((item) => item.kind === 'landmark').length, 330);
-  assert.equal(pool.length, 1135);
+  assert.equal(pool.length, 1134);
 });
 
 test('500 simulated days: every pack has a landmark and three distinct cards', () => {

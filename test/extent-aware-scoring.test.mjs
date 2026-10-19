@@ -52,6 +52,7 @@ const APPROVED_AREAS = {
   'easter-island': 14,
   'lord-howe-island': 5,
   'galapagos-islands': 148,
+  'loch-ness': 20,
 };
 
 function destination(start, km, bearingDegrees = 73) {
@@ -146,7 +147,7 @@ test('cities and point landmarks preserve the raw number and frozen score fixtur
 test('fixed pinned and derived Daily selections and serialized round fields stay frozen', () => {
   const fixtures = [
     ['2026-10-18', ['tokyo-japan', 'boise-usa', 'enugu-ng', 'ciudad-juarez-mx', 'krasnoyarsk-ru'], [251.05352006657486, 231.86657960125547, 292.9841319554443, 259.6144718086858, 198.46724682154738], [[251, 950, 950], [232, 955, 955], [293, 941, 1882], [260, 948, 2844], [198, 962, 2886]]],
-    ['2026-11-03', ['nashville-usa', 'asuncion-py', 'durban-south-africa', 'malabo-equatorial-guinea', 'oymyakon-russia'], [249.95192791543136, 273.8873601603364, 265.76571920044677, 294.0622469008112, 178.4221670484311], [[250, 951, 951], [274, 945, 945], [266, 947, 1894], [294, 941, 2823], [178, 966, 2898]]],
+    ['2026-11-03', ['nashville-usa', 'osaka-japan', 'durban-south-africa', 'malabo-equatorial-guinea', 'oymyakon-russia'], [249.95192791543136, 253.25007566156745, 265.76571920044677, 294.0622469008112, 178.4221670484311], [[250, 951, 951], [253, 950, 950], [266, 947, 1894], [294, 941, 2823], [178, 966, 2898]]],
   ];
   const byId = new Map(cities.map((item) => [item.id, item]));
   for (const [date, expectedIds, expectedExact, expectedScores] of fixtures) {

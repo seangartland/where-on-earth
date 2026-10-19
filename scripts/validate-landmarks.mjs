@@ -43,6 +43,8 @@ const APPROVED_AREAS = new Map([
   ['grand-teton-national-park', 33],
   ['easter-island', 14],
   ['lord-howe-island', 5],
+  ['galapagos-islands', 148],
+  ['loch-ness', 20],
 ]);
 
 const items = JSON.parse(readFileSync(new URL('../assets/locations-landmarks-sol.json', import.meta.url), 'utf8'));

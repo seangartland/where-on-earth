@@ -6237,23 +6237,6 @@
   "category": "city"
  },
  {
-  "id": "loch-ness",
-  "clue": "Loch Ness, Scotland",
-  "fact": "Loch Ness reaches 227 metres in depth, and the 1934 photograph of a flipper that started the modern monster legend is now widely thought to be a duck.",
-  "lat": 57.324,
-  "lng": -4.607,
-  "difficulty": 4,
-  "short": "Loch Ness",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/LochNessUrquhart.jpg/500px-LochNessUrquhart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Scotland",
-  "continent": "Europe",
-  "sets": [
-   "Lakes"
-  ],
-  "difficultyWhy": "p.74·fb150·K0·iso456 → 12.0 → 4",
-  "category": "city"
- },
- {
   "id": "lome-tg",
   "short": "Lomé",
   "clue": "Lomé, Togo 🇹🇬",

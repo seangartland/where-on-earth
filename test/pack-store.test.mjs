@@ -36,9 +36,9 @@ test('key is versioned and off the sync list', () => {
 
 test('pool counts: every playable city plus the Landmarks pool, no shared ids', () => {
   const packLandmarks = pool.filter((item) => item.kind === 'landmark');
-  assert.equal(cities.filter(isPlayableLocation).length, 805);
+  assert.equal(cities.filter(isPlayableLocation).length, 804);
   assert.equal(packLandmarks.length, 330);
-  assert.equal(pool.length, 805 + 330);
+  assert.equal(pool.length, 804 + 330);
   assert.ok(pool.every((item) => item.kind !== 'area'));
   assert.equal(new Set(pool.map((item) => item.id)).size, pool.length);
   console.log(`pool: ${cities.filter(isPlayableLocation).length} cities + ${packLandmarks.length} landmarks = ${pool.length}`);
