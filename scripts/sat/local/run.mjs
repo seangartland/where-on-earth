@@ -7,5 +7,5 @@ const stage=flag(args,'--stage','all'),root=resolve(import.meta.dirname,'../../.
 const run=(command)=>{console.log(`+ ${command.join(' ')}`);const r=spawnSync(command[0],command.slice(1),{stdio:'inherit'});if(r.status!==0)process.exit(r.status??1)};
 if(stage==='all'||stage==='acquire'){const c=['node',resolve(import.meta.dirname,'acquire.mjs'),'--inventory',inventory,'--work',work,'--python',python];const source=flag(args,'--source-dir',null),maxGb=flag(args,'--max-gb',null);if(source)c.push('--source-dir',resolve(source));if(maxGb)c.push('--max-gb',maxGb);run(c)}
 if(stage==='all'||stage==='sample')run([python,resolve(import.meta.dirname,'sample.py'),'--inventory',inventory,'--plan',plan,'--work',work]);
-if(stage==='all'||stage==='finish')run(['node',resolve(import.meta.dirname,'finish.mjs'),'--plan',plan,'--work',work,'--assets',assets,'--out',out,'--python',python]);
+if(stage==='all'||stage==='finish'){const c=['node',resolve(import.meta.dirname,'finish.mjs'),'--plan',plan,'--work',work,'--assets',assets,'--out',out,'--python',python];if(args.includes('--all-tiles'))c.push('--all-tiles');if(args.includes('--skip-base'))c.push('--skip-base');run(c)}
 if(!['all','acquire','sample','finish'].includes(stage))throw new Error(`Unknown stage ${stage}`);
