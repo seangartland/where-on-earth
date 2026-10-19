@@ -7341,5 +7341,21 @@
   "sets": [],
   "difficultyWhy": "F0·A1·K0·C0·S0 → 2",
   "category": "city"
+ },
+ {
+  "id": "suicide-cliff-saipan",
+  "clue": "Suicide Cliff, United States 🇺🇸",
+  "fact": "Suicide Cliff is a historic WWII site where thousands of civilians leapt to their deaths during the Battle of Saipan.",
+  "lat": 15.2606,
+  "lng": 145.8094,
+  "difficulty": 10,
+  "short": "Suicide Cliff",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/SUICIDE_CLIFF.jpg/500px-SUICIDE_CLIFF.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.35·fb11412·K0·iso2325 → 642.8 → 10",
+  "category": "city",
+  "kind": "landmark"
  }
 ]
