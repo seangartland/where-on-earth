@@ -31,7 +31,8 @@ let rowDate = '';
 // saved pack record is untouched by all of it.
 let tornDate = null;
 let flipping = false;
-let waitingCard = -1;
+let holdIndex = -1;
+let holdTimer = 0;
 let landingCard = -1;
 let landingKind = null;
 let landingTier = 0;
@@ -65,30 +66,34 @@ function openPack() {
   showPackScreen();
 }
 
-// The flip reveals the clue card and then waits: the round starts only when
-// the player taps Play (or the waiting card again), so the clue gets all the
-// reading time it needs. One card can wait at a time.
+// The flip reveals the clue card, holds it long enough to read the location,
+// then the round starts on its own. A tap on the flipped card during the hold
+// starts it right away.
+const CLUE_HOLD_MS = 1400;
 function flipCard(li, index) {
-  if (flipping) return;
-  if (waitingCard === index) { startCard(index); return; }
-  if (waitingCard >= 0) return;
+  if (holdIndex === index) {
+    window.clearTimeout(holdTimer);
+    holdIndex = -1;
+    startCard(index);
+    return;
+  }
+  if (flipping || holdIndex >= 0) return;
   flipping = true;
   audio.tick();
   if (navigator.vibrate) navigator.vibrate(8);
   li.classList.add('flipped');
   window.setTimeout(() => {
     flipping = false;
-    waitingCard = index;
-    li.classList.add('waiting');
-    updatePrimary();
+    holdIndex = index;
+    holdTimer = window.setTimeout(() => { holdIndex = -1; startCard(index); }, reducedMotion() ? 0 : CLUE_HOLD_MS);
   }, reducedMotion() ? 0 : 330);
 }
 
 function updatePrimary() {
   const stale = pack.record && pack.record.date !== localDateKey();
   const done = packSummary(currentPack()).played >= PACK_CARDS;
-  els.primary.hidden = waitingCard < 0 && !stale && !done;
-  els.primary.textContent = stale ? 'Open today’s pack' : done ? 'Done' : 'Play this card';
+  els.primary.hidden = !stale && !done;
+  els.primary.textContent = stale ? 'Open today’s pack' : 'Done';
 }
 
 function packSlot(id, result, index) {
@@ -101,15 +106,24 @@ function packSlot(id, result, index) {
     li = document.createElement('li');
     li.className = 'pp-slot pack-slot pack-flip-slot';
     const name = item ? (item.short || item.clue || '') : '';
-    const clue = item ? (item.clue || '') : '';
     const flag = item ? host.flagForLocation(item) : '';
+    // The clue string repeats the name and ends with the flag, both of which
+    // the card already shows on their own lines; the sub-line keeps only what
+    // is new (the country or state part).
+    let sub = item ? (item.clue || '') : '';
+    for (const candidate of [item?.name, item?.short]) {
+      if (candidate && sub.startsWith(candidate)) { sub = sub.slice(candidate.length); break; }
+    }
+    sub = sub.replace(/^[,\s]+/, '').replace(/\s{2,}/g, ' ').trim();
+    if (flag) sub = sub.replaceAll(flag, '').replace(/[\s,]+$/, '').trim();
+    if (sub === name) sub = '';
     li.innerHTML = `
       <div class="pack-flip">
         <div class="pack-flip-face pack-flip-back"><span class="pack-flip-mark">?</span></div>
         <div class="pack-flip-face pack-flip-front">
           <p class="pack-clue-flag">${flag}</p>
           <p class="pack-clue-name">${name}</p>
-          <p class="pack-clue-text">${clue}</p>
+          ${sub ? `<p class="pack-clue-text">${sub}</p>` : ''}
         </div>
       </div>`;
     li.tabIndex = 0;
@@ -235,7 +249,8 @@ export function showPackScreen() {
 
 function startCard(index) {
   const current = currentPack();
-  waitingCard = -1;
+  holdIndex = -1;
+  window.clearTimeout(holdTimer);
   host.expeditionRun.active = false;
   host.endless.active = false;
   host.borders.active = false;
@@ -251,7 +266,6 @@ function primaryAction() {
     openPack();
     return;
   }
-  if (waitingCard >= 0) { startCard(waitingCard); return; }
   const { played, nextCard } = packSummary(currentPack());
   if (played >= PACK_CARDS) host.goHome();
   else startCard(nextCard);

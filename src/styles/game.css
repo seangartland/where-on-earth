@@ -493,7 +493,6 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-sealed-hint { margin: 10px 0 0; color: rgba(193,224,250,.45); font-size: 11px; font-weight: 600; }
 
 .pack-flip-slot { perspective: 700px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.pack-flip-slot.waiting .pack-flip { box-shadow: 0 0 0 2px #ffd166, 0 6px 22px rgba(255,209,102,.25); border-radius: 10px; }
 .pack-flip-slot:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }
 /* Height matches a played postcard slot exactly: the slot photo is square
    (100% of the column width) plus the name line and its top margin under it
