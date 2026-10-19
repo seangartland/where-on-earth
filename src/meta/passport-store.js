@@ -190,7 +190,10 @@ export function recordVisit(id, base, km, canEarn = true) {
   const prev = state.passport.meta[id] || {};
   const prevEarned = prev.e || 0;
   const entry = { b: Math.max(score, prev.b ?? (legacy ? state.passport.visits[id] : 0)), t: Date.now() };
-  const kms = [km, prev.d].filter(Number.isFinite);
+  // A visit that cannot earn (Endless, PvP, Practice) must not improve the
+  // stored best distance either: the read-time migration rebuilds tiers from
+  // it, so a practice guess would otherwise earn through the back door.
+  const kms = (canEarn ? [km, prev.d] : [prev.d]).filter(Number.isFinite);
   if (kms.length) entry.d = Math.round(Math.min(...kms));
   if (prev.f || !legacy) entry.f = prev.f || localDateKey();
   const earned = Math.max(prevEarned, Number.isFinite(km) && canEarn ? earnForKm(km) : 0);

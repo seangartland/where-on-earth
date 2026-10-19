@@ -153,7 +153,6 @@ let passportPageStyle;
 
 export let passportEntry;
 export let collectionsEntry;
-let homeLinks;
 
 let passportScreen;
 
@@ -1453,6 +1452,10 @@ export function initPassportHome(main) {
    same reason) and the dots show through the tint anyway. */
 .passport { box-sizing: border-box; width: min(100%, 330px); max-width: 330px; margin: 18px 0 24px; padding: 12px 14px 13px; border-radius: 20px; border: 1px solid rgba(157,211,255,.14); background: rgba(4,10,24,.5); }
 .passport[hidden] { display: none; }
+.passport { position: relative; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.passport:active { transform: scale(.99); }
+.passport:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
+.passport-open { position: absolute; top: 10px; right: 12px; color: rgba(193,224,250,.55); font-size: 20px; font-weight: 700; line-height: 1; }
 .passport-count { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; font-weight: 700; }
 .passport-earned { color: #ffd166; }
 .passport-streak { color: #ffc76a; }
@@ -1472,9 +1475,19 @@ export function initPassportHome(main) {
   passportBox = document.createElement('div');
   passportBox.className = 'passport';
   passportBox.hidden = true;
+  // Option A (2026-10-18): the summary card is the Passport button. The whole
+  // card opens the Passport; the chevron is the affordance.
+  passportBox.setAttribute('role', 'button');
+  passportBox.tabIndex = 0;
+  passportBox.setAttribute('aria-label', 'Open your passport');
   passportBox.innerHTML = `
   <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places found<span class="passport-earned" data-passport="earned"></span><span class="passport-streak" data-passport="streak"></span></p>
-  <div class="passport-stamps" data-passport="stamps"></div>`;
+  <div class="passport-stamps" data-passport="stamps"></div>
+  <span class="passport-open" aria-hidden="true">›</span>`;
+  passportBox.addEventListener('click', openPassport);
+  passportBox.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPassport(); }
+  });
   // Above the mode-button grid, never inside it: a fourth grid child shoves
   // Survival onto a second row once the passport has a place in it.
   host.gameEls.play.closest('.mode-buttons').before(passportBox);
@@ -1495,9 +1508,7 @@ export function initPassport(main) {
   passportPageStyle = document.createElement('style');
   passportPageStyle.textContent = `
 .pp-card [hidden] { display: none !important; }
-.home-links { display: flex; flex-wrap: nowrap; justify-content: center; gap: 6px; width: min(100%, 354px); max-width: calc(100vw - 32px); box-sizing: border-box; margin-top: 10px; }
-.home-links > button { flex: 1 1 0; min-width: 0; margin-top: 0; padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-@media (max-width: 360px) { .home-links > button { padding: 0 4px; font-size: 12px; } }
+.pp-header-actions .stats-entry { min-height: 32px; margin-top: 0; padding: 0 13px; font-size: 12.5px; }
 .passport-entry { min-height: 44px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
@@ -1665,10 +1676,10 @@ body.game-passport #hud { opacity: 0; }
   collectionsEntry.textContent = '🛡 Collections';
   collectionsEntry.setAttribute('aria-haspopup', 'dialog');
   collectionsEntry.hidden = true; // Temporarily hide Collections without removing its navigation wiring.
-  homeLinks = document.createElement('div');
-  homeLinks.className = 'home-links';
-  statsEntry.before(homeLinks);
-  homeLinks.append(statsEntry, passportEntry, collectionsEntry);
+  // The home links row is gone (Option A, 2026-10-18): the Passport summary
+  // card is the Passport button, and Stats lives inside the Passport screen
+  // (statsEntry is relocated into its header below). passportEntry and
+  // collectionsEntry stay unappended; main.js still toggles their state.
 
   passportScreen = document.createElement('section');
   passportScreen.className = 'screen stats-screen passport-screen';
@@ -1871,6 +1882,12 @@ body.game-passport #hud { opacity: 0; }
   } catch (error) { host.storageError('Read failed', PP_VIEW_KEY, error); }
 
   passportEntry.addEventListener('click', openPassport);
+  passportScreen.querySelector('.pp-header-actions').prepend(statsEntry);
+  // Stats now opens from inside the Passport, so its screen has to paint
+  // above the Passport screen: re-append it at the end of the body, the same
+  // stacking the DOM order gives the other overlays.
+  const statsScreenEl = document.querySelector('.stats-screen:not(.passport-screen)');
+  if (statsScreenEl) document.body.appendChild(statsScreenEl);
   ppEls.close.addEventListener('click', () => closePassport());
   ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => {
     tab.addEventListener('click', () => setPassportView(tab.dataset.view));

@@ -58,7 +58,7 @@ import {
   expeditionRoundHeader, expeditionRevealCard, expeditionNext, weeklyRoutesLoaded,
 } from './modes/expeditions.js';
 import { endless, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
-import { initLandmarks, landmarkPool, syncLandmarksEntry } from './modes/landmarks.js';
+import { initLandmarks, landmarkPool } from './modes/landmarks.js';
 import {
   trivia, initTrivia, startTrivia, triviaBankLoaded, triviaRoundHeader, triviaRecordGuess, triviaNext, triviaShareText,
 } from './modes/trivia.js';
@@ -408,8 +408,8 @@ initTapCountry(modeHost);
 initBlackout(modeHost);
 
 // ---------------------------------------------------------------------------
-// The More modes hub and Landmarks mode (Survival on the curated landmark
-// pool) live in src/modes/landmarks.js.
+// The Landmark pool lives in src/modes/landmarks.js; Survival draws from it
+// directly since the 2026-10-18 merge.
 // ---------------------------------------------------------------------------
 initLandmarks(modeHost);
 
@@ -743,7 +743,6 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   gameEls.survivalEntry.disabled = false;
   syncBordersEntry();
   updateExpeditionEntry();
-  syncLandmarksEntry();
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
   syncPackButton();
@@ -769,11 +768,10 @@ getJSON('assets/expeditions.json').then(expeditionsLoaded).catch((err) => {
 getJSON('assets/weekly-expeditions.json').then(weeklyRoutesLoaded).catch((err) => {
   if (window.__showErr) window.__showErr('WEEKLY: ' + err.message);
 });
-// Landmarks: Expeditions stops, Landmarks mode and the Passport's Landmarks shelf only (state.js).
+// Landmarks: Expeditions stops, the merged Survival pool and the Passport's Landmarks shelf (state.js).
 const landmarksP = getJSON('assets/locations-landmarks-sol.json').then((data) => {
   state.landmarks = Array.isArray(data) ? data : [];
   updateExpeditionEntry();
-  syncLandmarksEntry();
   syncPackButton();
 }).catch((err) => {
   gameEls.expeditionsEntry.disabled = true;

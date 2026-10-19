@@ -11,6 +11,7 @@
 import { isLandmark, isPlayableLocation } from '../daily.js';
 import { SHARE_URL } from '../core/format.js';
 import { landmarkPool, LANDMARKS_BEST_KEY } from './landmarks.js';
+import { triviaHubLine } from './trivia.js';
 
 let host = null;
 const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
@@ -165,9 +166,9 @@ export function setRunResultsCopy(eyebrow, summary, label, bestLabel = 'Best str
   document.getElementById('survival-best-label').textContent = bestLabel;
 }
 
-// Survival hub: the one home entry for the three Survival modes. Its rows are
-// the mode entries above (survival, borders, blackout buttons), so each keeps
-// its own click handler; hideScreens closes the hub on the way out.
+// Practice hub: the one home entry for the practice modes (Survival, Tap the
+// Country, Country Blackout, Trivia). Its rows are the mode entries, so each
+// keeps its own click handler; hideScreens closes the hub on the way out.
 
 function showSurvivalHub() {
   const { gameEls } = host;
@@ -180,6 +181,7 @@ function showSurvivalHub() {
   hub.querySelector('[data-hub-best="survival"]').textContent = streak(survivalBest());
   hub.querySelector('[data-hub-best="borders"]').textContent = streak(host.bordersBest());
   hub.querySelector('[data-hub-best="blackout"]').textContent = host.blackoutBestSummary();
+  hub.querySelector('[data-hub-best="trivia"]').textContent = triviaHubLine();
   hub.hidden = false;
 }
 

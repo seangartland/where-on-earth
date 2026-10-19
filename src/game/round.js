@@ -117,9 +117,6 @@ export const gameEls = {
   survivalEntry: document.getElementById('survival-button'),
   survivalHub: document.getElementById('survival-hub'),
   survivalHubEntry: document.getElementById('survival-hub-button'),
-  moreModesHub: document.getElementById('more-modes-hub'),
-  moreModesEntry: document.getElementById('more-modes-button'),
-  landmarksEntry: document.getElementById('landmarks-button'),
   triviaEntry: document.getElementById('trivia-button'),
   survivalStreak: document.getElementById('survival-streak'),
   survivalResults: document.getElementById('survival-results-screen'),
@@ -142,7 +139,6 @@ export function hideScreens() {
   gameEls.survivalResults.hidden = true;
   gameEls.runBreakdown.hidden = true;
   gameEls.survivalHub.hidden = true;
-  gameEls.moreModesHub.hidden = true;
   host.reviewEls.screen.hidden = true;
   if (state.statsScreenEl) state.statsScreenEl.hidden = true;
   if (state.settingsScreenEl) state.settingsScreenEl.hidden = true;
@@ -264,11 +260,12 @@ export function revealGuess(guess, restoring = false) {
   // with the thumbnail the player already had, then a new unlock can land in it.
   const wasVisited = Object.hasOwn(state.passport.visits, answer.id);
   const previousEarn = state.passport.meta[answer.id]?.e || 0;
-  // Endless and PvP earn visits only; postcards come from daily and survival.
-  // PvP records each accepted round once (pvp.recordVisit), never on a replay.
-  // Trivia is score-only: it never records.
+  // Endless, PvP and Survival earn visits only (Survival is Practice since the
+  // 2026-10-18 pacing change); postcards come from the Daily, the pack and
+  // Expeditions. PvP records each accepted round once (pvp.recordVisit), never
+  // on a replay. Trivia is score-only: it never records.
   const record = pvp.active ? pvp.recordVisit : !restoring && !trivia.active;
-  const newlyEarned = record ? recordVisit(answer.id, base, pvpScored ? pvpScored.distanceKm : kmExact, !endless.active && !pvp.active) : 0; // exact, so earning matches the flyover tier
+  const newlyEarned = record ? recordVisit(answer.id, base, pvpScored ? pvpScored.distanceKm : kmExact, !endless.active && !pvp.active && !survival.active) : 0; // exact, so earning matches the flyover tier
   const packCard = !restoring && pack.active ? packRecordGuess(guess, km, kmExact, base, wasVisited, previousEarn, newlyEarned) : null;
   if (!restoring && !oneOff) {
     state.daily.results[state.daily.round] = {

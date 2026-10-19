@@ -1,12 +1,9 @@
 // ---------------------------------------------------------------------------
-// The Landmark pool and the More modes hub. Landmark Survival merged into
-// Survival on 2026-10-18 (pacing doc): survival.js draws from landmarkPool()
-// directly, and this file's entry starts the merged mode. The pool is also
-// the Passport's Landmarks shelf and the pack's landmark subset.
+// The Landmark pool. Landmark Survival merged into Survival on 2026-10-18
+// (pacing doc): survival.js draws from landmarkPool() directly. The pool is
+// also the Passport's Landmarks shelf and the pack's landmark subset.
 // ---------------------------------------------------------------------------
 import { isPlayableLocation } from '../daily.js';
-import { survivalBest, startSurvival } from './survival.js';
-import { triviaHubLine } from './trivia.js';
 
 let host = null;
 
@@ -46,30 +43,6 @@ export function landmarkPool() {
 // the key itself is never rewritten or deleted.
 export const LANDMARKS_BEST_KEY = 'where-on-earth-best-landmarks-survival';
 
-function showMoreModesHub() {
-  const { gameEls } = host;
-  host.clearReveal();
-  host.hideScreens();
-  host.gameMode = 'more-modes-hub';
-  window.__canGuess = false;
-  const count = landmarkPool().length;
-  const best = survivalBest();
-  gameEls.moreModesHub.querySelector('[data-hub-best="landmarks"]').textContent = count
-    ? `${count.toLocaleString()} landmarks${best ? ` · Best streak ${best.toLocaleString()}` : ''}`
-    : '';
-  gameEls.moreModesHub.querySelector('[data-hub-best="trivia"]').textContent = triviaHubLine();
-  gameEls.moreModesHub.hidden = false;
-}
-
-// Landmarks and cities both load before the row can start a run.
-export function syncLandmarksEntry() {
-  host.gameEls.landmarksEntry.disabled = !(host.locations.length && landmarkPool().length);
-}
-
 export function initLandmarks(main) {
   host = main;
-  const { gameEls } = host;
-  gameEls.moreModesEntry.addEventListener('click', showMoreModesHub);
-  gameEls.moreModesHub.addEventListener('click', (event) => { if (event.target === gameEls.moreModesHub) host.goHome(); });
-  gameEls.landmarksEntry.addEventListener('click', () => startSurvival());
 }
