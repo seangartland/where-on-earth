@@ -15,9 +15,9 @@ import { isPlayableLocation } from '../daily.js';
 
 export const PACK_CARDS = 3;
 
-// landmarks is the Landmarks mode pool (landmarkPool()). The live mode also
-// admits extent-aware areas now; the approved pack decision remains the 332
-// actual landmarks, so keep those newer area entries out of this pool.
+// landmarks is the Landmark pool (landmarkPool()). The live pool also admits
+// extent-aware areas now; the approved pack decision remains the actual
+// point landmarks only, so keep those area entries out of this pool.
 export function packPool(locations, landmarks) {
   return [...locations.filter(isPlayableLocation), ...landmarks.filter((item) => item.kind === 'landmark')];
 }
