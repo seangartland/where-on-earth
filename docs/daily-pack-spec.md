@@ -563,3 +563,26 @@ CommonJS-check gap).
 19. **Home label for the pack.** "Postcard pack" or "Daily pack"?
     *Recommend "Postcard pack": "Daily pack" next to "Daily" reads as
     part of the Daily game.*
+
+## Decisions (Sean, 2026-10-18)
+
+Sean approved all 19 recommendations in section 6 as written, with
+one override:
+
+19. **Name:** the feature is the **Daily postcard pack** (Sean's
+call, overruling the "Postcard pack" recommendation), so players
+can tell at a glance that it is a daily pack. The home row label
+follows the name.
+
+Decisions 1 to 18 stand as recommended: pool 805 + 332 (1,137);
+three distinct cards per pack; repeats labelled, never rerolled;
+no timer; unplayed cards forfeit at midnight; lazy generation saved
+before the first clue; key `where-on-earth-pack-v1`, today only;
+black and white is the existing seen state; grey-card toast shown;
+pack total out of 3,000 with no streak and no Stats feed; no
+pack-level share; pack key off the sync list until accounts go
+live; entitlement key `daily_pack_extra`; pack 2 built last, after
+the payments entitlement helper, pack 1 ships without it; no
+upsell line until payments are live; placement P1 with cleanup C5;
+Endless loses only its dead home button; cleanup C1 to C7 approved
+as one batch.
