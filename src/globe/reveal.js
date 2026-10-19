@@ -61,7 +61,7 @@ const POSTCARD_H = 202;
 // All postcard timing is real time (performance.now) from touchdown, so a slow
 // device whose logical clock lags (dt is clamped) holds the card just as long.
 const POSTCARD_POP_MS = 560;
-const POSTCARD_HOLD_MS = 1500; // touchdown -> earliest settle
+const POSTCARD_HOLD_MS = 3200; // touchdown -> earliest settle (Sean 2026-10-18: long enough to read the name and fact)
 const POSTCARD_MIN_SHOW_MS = 600; // after a (late) pop finishes, before it settles
 const POSTCARD_SETTLE_MS = 640;
 
@@ -508,7 +508,7 @@ export function setCameraFov(fov) {
 // peek bar carries name, score, distance and Next; a tap (or swipe up) opens
 // the photo and fact underneath.
 // ---------------------------------------------------------------------------
-export const REVEAL_BEAT_MS = 1500;
+export const REVEAL_BEAT_MS = 3200;
 export const SHEET_SLIDE_MS = 380;
 export const SHEET_PEEK_H = 80;
 export const REVEAL_HEADER_H = 52; // the collapsed one-line header, see styles/game.css
