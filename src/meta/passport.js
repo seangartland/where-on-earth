@@ -865,7 +865,7 @@ function renderCountryList() {
     meta.innerHTML = complete ? '✓ Complete' : `<b>${row.earned}</b> postcard${row.earned === 1 ? '' : 's'}`;
     const sub = document.createElement('p');
     sub.className = 'pp-ccard-sub';
-    sub.textContent = `${row.visited}/${row.total} places`;
+    sub.textContent = `${row.visited}/${row.total} cities`;
     button.append(photo, name, meta, sub);
     button.addEventListener('click', () => openCountryDetail(row.name));
     li.append(button);
@@ -927,7 +927,7 @@ function renderLandmarkShelf() {
   const entries = shelfItems.map((item) => buildPassportEntry(item, age));
   const visited = entries.filter((e) => e.visited).length;
   const earned = entries.filter((e) => e.earned).length;
-  ppEls.landmarkSummary.textContent = `${earned} of ${entries.length} landmark postcards · ${visited} visited`;
+  ppEls.landmarkSummary.textContent = `${earned} of ${entries.length} postcards · ${visited} visited`;
   ppLandmarks.all = entries;
   renderPassportDex(ppLandmarks);
 }
@@ -1695,13 +1695,13 @@ body.game-passport #hud { opacity: 0; }
       </div>
     </div>
     <div class="pp-progress" data-pp="progress">
-      <p class="pp-count"><b data-pp="found">0</b> of <span data-pp="total">0</span> places<span class="pp-count-sub" data-pp="postcards"></span></p>
+      <p class="pp-count"><b data-pp="found">0</b> of <span data-pp="total">0</span> locations<span class="pp-count-sub" data-pp="postcards"></span></p>
       <div class="pp-bar" role="progressbar" aria-label="Postcards earned" aria-valuemin="0"><i class="pp-bar-seen" data-pp="fill"></i><i class="pp-bar-earned" data-pp="earnfill"></i></div>
     </div>
     <div class="pp-tabs" role="tablist" data-pp="tabs">
-      <button type="button" role="tab" data-view="places" aria-selected="true">Places</button>
+      <button type="button" role="tab" data-view="places" aria-selected="true">Cities</button>
       <button type="button" role="tab" data-view="countries" aria-selected="false">Countries</button>
-      <button type="button" role="tab" data-view="landmarks" aria-selected="false">Landmarks</button>
+      <button type="button" role="tab" data-view="landmarks" aria-selected="false">Places</button>
     </div>
     <div data-pp="places-view">
       <div class="pp-stick-sentinel" data-pp="places-sentinel"></div>
@@ -1769,8 +1769,8 @@ body.game-passport #hud { opacity: 0; }
     landmarksView: passportScreen.querySelector('[data-pp="landmarks-view"]'),
     landmarkSummary: passportScreen.querySelector('[data-pp="landmark-summary"]'),
   };
-  ppPlaces = ppDex(ppEls.placesView, { tab: 'places', noun: 'places', sentinel: 'places-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
-  ppLandmarks = ppDex(ppEls.landmarksView, { tab: 'landmarks', noun: 'landmarks', sentinel: 'landmarks-sentinel', dex: 'landmark-dex' });
+  ppPlaces = ppDex(ppEls.placesView, { tab: 'places', noun: 'cities', sentinel: 'places-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
+  ppLandmarks = ppDex(ppEls.landmarksView, { tab: 'landmarks', noun: 'places', sentinel: 'landmarks-sentinel', dex: 'landmark-dex' });
 
   ppStickyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

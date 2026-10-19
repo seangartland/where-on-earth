@@ -15,10 +15,10 @@ import { clamp, smoothstep } from '../core/math.js';
 import { state } from '../core/state.js';
 import { audio } from '../core/audio.js';
 import { fadeElement } from '../core/dom.js';
-import { formatKm, countryKey, flagForLocation } from '../core/format.js';
+import { formatKm, countryKey, regionKey, flagForLocation } from '../core/format.js';
 import { buildPostcardCard, ensurePostcardCardStyles } from '../meta/postcard-card.js';
 import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe, pointers, projectToScreen } from './scene.js';
-import { showCountryOutline, clearCountryOutline } from './outlines.js';
+import { showCountryOutline, clearCountryOutline, showRegionOutline, clearRegionOutline } from './outlines.js';
 import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle, _unitSphere } from './pin.js';
 
 let host = null;
@@ -318,6 +318,7 @@ export function clearReveal() {
   correctPin.release();
   answerLine.visible = false;
   clearCountryOutline();
+  clearRegionOutline();
   state.revealView = null;
   for (const pin of pins) pin.release();
   state.activePin = -1;
@@ -367,13 +368,22 @@ export function buildAnswerPath(guess, answer) {
   return { a, b, points, axis, angle };
 }
 
+// The answer's borders: its country, plus its state inside it when the
+// answer is a US city (regionKey is null for landmarks by design).
+function showAnswerOutlines(item, fade) {
+  showCountryOutline(countryKey(item), item, fade);
+  const rk = regionKey(item);
+  if (rk) showRegionOutline(rk, item, fade);
+  else clearRegionOutline();
+}
+
 export function placeRevealVisual(guess, answer) {
   const { a, b } = buildAnswerPath(guess, answer);
   if (state.activePin >= 0) pins[state.activePin].drop(a);
   correctPin.drop(b);
   answerLine.visible = true;
   frameRevealPoints(a, b);
-  showCountryOutline(countryKey(answer), answer, false);
+  showAnswerOutlines(answer, false);
   return { a, b };
 }
 
@@ -386,7 +396,7 @@ export function beginNorthUpReveal(guess, answer, km, newlyEarned, tier, options
   gameEls.distance.textContent = formatKm(km);
   preparePostcard(answer, newlyEarned, km, options.plain);
   frameNorthUpRevealPoints(a, b);
-  showCountryOutline(countryKey(answer), answer, true);
+  showAnswerOutlines(answer, true);
   startRevealBeat(a, b, tier !== 'bullseye');
   const token = ++northUpRevealToken;
   const watchLanding = () => {
@@ -873,7 +883,7 @@ export function startPullback(anim) {
   anim.pullbackAt = anim.elapsed;
   // The answer's country fades in as the map plays alone, not at touchdown,
   // where it would compete with the postcard pop.
-  showCountryOutline(countryKey(host.currentItem()), host.currentItem(), true);
+  showAnswerOutlines(host.currentItem(), true);
   travelHead.visible = false;
   setCameraNear(0.05);
   setCameraFov(FOV);

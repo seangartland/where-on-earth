@@ -67,3 +67,14 @@ export function formatGameShare({ title, titleSep = ' — ', headline, streak, s
 // England/Scotland/Wales/Northern Ireland/United Kingdom stay five separate
 // rows (Sean, 2026-10-11): this is just the one place that name is read from.
 export function countryKey(item) { return item.country; }
+
+// The answer's US state outline key ('US.ID' in the data, 'US-ID' in the
+// states geometry), or null. Cities carry a state and show it; landmarks
+// deliberately do not (Sean, 2026-10-18: a state reveal would make them too
+// easy), so this reads region.outline only, which landmarks do not carry.
+export function regionKey(item) {
+  const outline = item?.region?.outline;
+  if (!outline) return null;
+  const key = outline.replace('.', '-');
+  return /^US-[A-Z]{2}$/.test(key) ? key : null;
+}

@@ -218,6 +218,37 @@ export function showCountryOutline(key, anchor, fade) {
   if (countryData) placeCountryOutline(countryOutlineWant);
 }
 
+// The answer's state outline, drawn in addition to its country outline
+// (Sean, 2026-10-18). Same machinery, second slot; only US city answers
+// carry a state key (see regionKey), so landmarks never reveal one.
+export let regionOutline = null;
+export let regionOutlineWant = null;
+
+export function placeRegionOutline({ key, anchor, fade }) {
+  clearRegionOutline();
+  const geom = countryGeom(key);
+  if (!geom) return;
+  const built = buildCountryOutline(countryLines(geom, anchor));
+  regionOutline = { ...built, geom, reveal: fade ? 0 : 1 };
+  globe.add(built.group);
+  updateCountryOutline(0);
+}
+
+export function showRegionOutline(key, anchor, fade) {
+  regionOutlineWant = { key, anchor: anchor && { lat: anchor.lat, lng: anchor.lng }, fade };
+  if (stateData) placeRegionOutline(regionOutlineWant);
+}
+
+export function clearRegionOutline() {
+  regionOutlineWant = null;
+  if (!regionOutline) return;
+  globe.remove(regionOutline.group);
+  for (const mesh of regionOutline.group.children) outlineMeshes.splice(outlineMeshes.indexOf(mesh), 1);
+  regionOutline.geo.dispose();
+  regionOutline.mats.forEach((m) => m.dispose());
+  regionOutline = null;
+}
+
 export function clearCountryOutline() {
   countryOutlineWant = null;
   if (!countryOutline) return;
@@ -230,8 +261,7 @@ export function clearCountryOutline() {
 
 export const _cornerA = new THREE.Vector3();
 export const _cornerB = new THREE.Vector3();
-export function updateCountryOutline(dt) {
-  const o = countryOutline;
+function updateOneOutline(o, dt) {
   if (!o) return;
   if (o.reveal < 1) o.reveal = Math.min(1, o.reveal + dt / 1.1);
   const ease = 1 - Math.pow(1 - o.reveal, 3);
@@ -244,6 +274,10 @@ export function updateCountryOutline(dt) {
     const pb = projectToScreen(latLngToVec3(b[3], b[2], 1, _cornerB), _cornerB);
     o.group.visible = Math.hypot(pa.x - pb.x, pa.y - pb.y) >= 12;
   }
+}
+export function updateCountryOutline(dt) {
+  updateOneOutline(countryOutline, dt);
+  updateOneOutline(regionOutline, dt);
 }
 
 export let countriesP;
@@ -259,6 +293,7 @@ export function initOutlines() {
     .then((data) => {
       countryData = data;
       if (countryOutlineWant) placeCountryOutline({ ...countryOutlineWant, fade: true });
+      if (regionOutlineWant && stateData) placeRegionOutline({ ...regionOutlineWant, fade: true });
     });
   countriesP.catch((err) => console.error('[outlines] failed to load', err));
   countryBandsP = criticalBytesP
@@ -269,7 +304,10 @@ export function initOutlines() {
   statesP = criticalBytesP
     .then(() => loadJSON(LOAD.states, { priority: 'low' }))
     .then((topo) => new Promise((resolve) => whenIdle(() => resolve(decodeCountries(topo)))))
-    .then((data) => { stateData = data; });
+    .then((data) => {
+      stateData = data;
+      if (regionOutlineWant) placeRegionOutline({ ...regionOutlineWant, fade: true });
+    });
   statesP.catch((err) => console.error('[outlines] failed to load states', err));
   landAreasP = criticalBytesP
     .then(() => loadJSON(LOAD.landAreas, { priority: 'low' }))

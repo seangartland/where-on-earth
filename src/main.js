@@ -24,7 +24,7 @@ import {
 } from './globe/surface.js';
 import {
   initOutlines, countryData, countryBands, countriesP, countryBandsP, countryGeom, bordersHit, showCountryOutline,
-  updateCountryOutline, countryOutline, stateData, statesP, hasKey, keyName, landAreas, landAreasP,
+  updateCountryOutline, countryOutline, regionOutline, stateData, statesP, hasKey, keyName, landAreas, landAreasP,
 } from './globe/outlines.js';
 import {
   initPin, Pin, makeBadgeTexture, pins, correctPin, pinch, applyDrag, sphereHit, nearAngle,
@@ -137,6 +137,7 @@ const pinHost = {
   showLockButton, setGuessHint, nearLockButton, nearTopUI, pickReviewRound,
   get answerLineMaterial() { return answerLineMaterial; },
   get countryOutline() { return countryOutline; },
+  get regionOutline() { return regionOutline; },
 };
 initPin(pinHost);
 
