@@ -126,3 +126,8 @@ Estimated implementation effort: **1.75 engineer-days**, plus Sean's phone revie
 1. **Zero-distance reveal wording.** Recommendation: approve **“Inside the feature”** as a short reveal hint while retaining `0 km` and the existing perfect-score/Pinpoint presentation. This is the only decision needed before implementation; the alternative is to show only `0 km`, which is mechanically correct but does not explain why a pin away from the center earned a perfect result.
 
 2. **Center-pin flight with edge-based counter.** Recommendation: keep the existing pin-to-center route and let the counter end at adjusted km for this radius-model release. Drawing a geometrically correct endpoint on the modeled circle would require choosing a synthetic edge point and revisiting camera/pin semantics; that is extra visual-model work, not required for correct scoring. Sean should confirm the phone experience during the implementation smoke check, but this need not block the headless build.
+
+## Decisions (Sean, 2026-10-18)
+
+1. **Zero-distance reveal wording:** show `0 km` only. No "Inside the feature" hint (overrules the plan's recommendation).
+2. **Center-pin flight with edge-based counter:** approved as recommended. The flight keeps the pin-to-center route and the counter ends at the adjusted km for this release; Sean confirms the feel on his phone during the build's smoke check.
