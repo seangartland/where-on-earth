@@ -303,8 +303,8 @@ export function packNext() {
 
 // The sealed pack. The swipe is tracked on the whole pack screen, not just
 // the packet: a drag that starts off the pack and crosses over it counts,
-// and the cut draws at the finger's actual position over the pack. A plain
-// tap on the pack tears it too. Fresh packs only.
+// and the cut draws at the finger's actual position over the pack. Only a
+// slice that runs all the way through tears it. Fresh packs only.
 function wireSealedPack(sealed, screen) {
   let startX = 0;
   let startT = 0;
@@ -318,8 +318,8 @@ function wireSealedPack(sealed, screen) {
 
   const endOpening = () => {
     if (!opening) return;
-    opening.fade.cancel();
-    opening.glide.cancel();
+    for (const anim of opening.anims) anim.cancel();
+    for (const timer of opening.timers) window.clearTimeout(timer);
     opening = null;
     window.clearTimeout(openingTimer);
     sealed.hidden = true;
@@ -327,7 +327,9 @@ function wireSealedPack(sealed, screen) {
     sealed.style.pointerEvents = '';
   };
 
-  // The packet opens, the cards slide up out of it, then the wrapper fades.
+  // The packet opens and the three cards come out stacked on top of each
+  // other, then deal out one at a time into their slots while the wrapper
+  // fades away.
   const finishTear = () => {
     if (tornDate === pack.record?.date) return;
     tornDate = pack.record.date;
@@ -338,17 +340,41 @@ function wireSealedPack(sealed, screen) {
       renderPackScreen(false);
       return;
     }
-    const packH = sealed.getBoundingClientRect().height;
-    renderPackScreen(true);
+    const packRect = sealed.getBoundingClientRect();
+    renderPackScreen(false);
+    const cards = [...els.slots.querySelectorAll('.pack-flip-slot')];
+    const rects = cards.map((card) => card.getBoundingClientRect());
+    const mid = rects[1] || rects[0];
+    const midCx = mid.left + mid.width / 2;
+    const packCy = packRect.top + packRect.height / 2;
     sealed.hidden = false;
     sealed.style.pointerEvents = 'none';
-    const fade = sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 540, easing: 'ease-out', fill: 'forwards' });
-    const glide = els.slots.animate(
-      [{ transform: 'translateY(0px)' }, { transform: `translateY(${-(packH + 18)}px)` }],
-      { duration: 400, delay: 150, easing: 'ease-out', fill: 'forwards' },
-    );
-    opening = { fade, glide };
-    openingTimer = window.setTimeout(endOpening, 600);
+    const anims = [sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 750, delay: 300, easing: 'ease-out', fill: 'forwards' })];
+    const timers = [];
+    cards.forEach((card, i) => {
+      const r = rects[i];
+      const dx = midCx - (r.left + r.width / 2);
+      const dy = packCy - (r.top + r.height / 2);
+      const rot = (i - 1) * 3;
+      anims.push(card.animate([
+        { transform: `translate(${dx}px, ${dy}px) scale(.82)`, opacity: 0 },
+        { transform: `translate(${dx}px, 0px) rotate(${rot}deg)`, opacity: 1 },
+      ], { duration: 420, delay: 60 + i * 80, easing: 'cubic-bezier(.2,.8,.3,1)', fill: 'forwards' }));
+      timers.push(window.setTimeout(() => {
+        anims.push(card.animate([
+          { transform: `translate(${dx}px, 0px) rotate(${rot}deg)` },
+          { transform: 'translate(0px, 0px) rotate(0deg)' },
+        ], { duration: 430, easing: 'cubic-bezier(.2,.8,.3,1)', fill: 'forwards' }));
+      }, 820 + i * 160));
+    });
+    timers.push(window.setTimeout(() => {
+      anims.push(els.slots.animate([
+        { transform: 'translateY(0px)' },
+        { transform: `translateY(${-(packRect.height + 18)}px)` },
+      ], { duration: 320, easing: 'ease-out', fill: 'forwards' }));
+      timers.push(window.setTimeout(endOpening, 340));
+    }, 820 + 2 * 160 + 460));
+    opening = { anims, timers };
   };
 
   const tearOpen = () => {
@@ -386,16 +412,23 @@ function wireSealedPack(sealed, screen) {
     maxProgress = Math.max(maxProgress, progress);
     sealed.style.setProperty('--tear', progress.toFixed(3));
   });
+  // Only a slice that runs all the way through the pack opens it. Anything
+  // less springs back to zero for another try.
+  const resetTear = (from) => {
+    const started = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - started) / 200);
+      sealed.style.setProperty('--tear', (from * (1 - t)).toFixed(3));
+      if (t < 1 && !tearing) requestAnimationFrame(step);
+      else sealed.style.removeProperty('--tear');
+    };
+    requestAnimationFrame(step);
+  };
   const finishDrag = () => {
     if (!dragging) return;
     dragging = false;
-    const width = sealed.getBoundingClientRect().width || 190;
-    const crossed = maxProgress >= 0.8;
-    const travelled = travel >= width * 0.55;
-    const flick = Date.now() - startT < 300 && travel >= 55;
-    const tap = downOnPack && travel < 10 && Date.now() - startT < 400;
-    if (crossed || travelled || flick || tap) tearOpen();
-    else sealed.style.removeProperty('--tear');
+    if (maxProgress >= 0.85 && travel >= 40) tearOpen();
+    else resetTear(maxProgress);
     maxProgress = 0;
     travel = 0;
   };
@@ -420,12 +453,16 @@ export function initPack(main) {
     <div class="pack-sealed-strip"></div>
     <div class="pack-sealed-flap"></div>
     <div class="pack-sealed-cut"></div>
+    <div class="pack-sealed-sheen"></div>
     <div class="pack-sealed-face">
       <span class="pack-flip-mark">?</span>
-      <p class="pack-sealed-name">Daily postcard pack</p>
-      <p class="pack-sealed-sub">3 postcards</p>
-      <p class="pack-sealed-hint">Swipe across the top to tear it open</p>
-    </div>`;
+      <div class="pack-sealed-label">
+        <p class="pack-sealed-name">Daily postcard pack</p>
+        <p class="pack-sealed-sub">3 postcards inside</p>
+      </div>
+      <p class="pack-sealed-hint">Swipe all the way across to tear it open</p>
+    </div>
+    <div class="pack-sealed-crimp"></div>`;
   screen.querySelector('.pack-panel').insertBefore(sealed, screen.querySelector('.pack-slots'));
   els = {
     screen,
