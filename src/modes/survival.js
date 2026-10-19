@@ -10,18 +10,29 @@
 // ---------------------------------------------------------------------------
 import { isLandmark, isPlayableLocation } from '../daily.js';
 import { SHARE_URL } from '../core/format.js';
+import { landmarkPool, LANDMARKS_BEST_KEY } from './landmarks.js';
 
 let host = null;
 const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
 const SURVIVAL_LIMIT_KM = 150;
 
+// The merged Survival pool (pacing doc, 2026-10-18): every playable city plus
+// the Landmark pool, drawn with Classic's uniform 1 to 10 band rule. If the
+// landmarks file failed to load, landmarkPool() is empty and the pool falls
+// back to cities only.
+export function mergedSurvivalPool() {
+  return [
+    ...host.locations.filter((item) => isPlayableLocation(item) && !isLandmark(item)),
+    ...landmarkPool(),
+  ];
+}
+
 // A Survival run's source: label (results heading), pool (what rounds draw
 // from), resultsId (runResultsMode) and bestKey. Optional bands(round) gives
 // the round's [lo, hi] band range and shareText() a mode's own share text.
-// Classic Survival is the cities pool with a uniform 1 to 10 band draw.
 const CLASSIC = {
   label: 'Survival',
-  pool: () => host.locations.filter((item) => isPlayableLocation(item) && !isLandmark(item)),
+  pool: mergedSurvivalPool,
   resultsId: 'survival',
   bestKey: SURVIVAL_BEST_KEY,
 };
@@ -38,7 +49,11 @@ export const survival = {
   results: [],
 };
 
-export function survivalBest(key = SURVIVAL_BEST_KEY) {
+// With no key, the merged Survival best: the max of the legacy Classic and
+// Landmark keys, so bests set under the old separate modes are honored and
+// neither stored key is rewritten or deleted.
+export function survivalBest(key) {
+  if (!key) return Math.max(survivalBest(SURVIVAL_BEST_KEY), survivalBest(LANDMARKS_BEST_KEY));
   try {
     return Math.max(0, Number.parseInt(localStorage.getItem(key), 10) || 0);
   } catch {
@@ -47,7 +62,7 @@ export function survivalBest(key = SURVIVAL_BEST_KEY) {
 }
 
 function saveSurvivalBest(value) {
-  const best = Math.max(survivalBest(source.bestKey), value);
+  const best = Math.max(survivalBest(), value);
   host.safeSetItem(source.bestKey, String(best));
   return best;
 }

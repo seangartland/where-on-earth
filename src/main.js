@@ -58,7 +58,7 @@ import {
   expeditionRoundHeader, expeditionRevealCard, expeditionNext, weeklyRoutesLoaded,
 } from './modes/expeditions.js';
 import { endless, initEndless, endlessNext, endlessRoundHeader } from './modes/endless.js';
-import { initLandmarks, landmarkPool, landmarksSource, syncLandmarksEntry } from './modes/landmarks.js';
+import { initLandmarks, landmarkPool, syncLandmarksEntry } from './modes/landmarks.js';
 import {
   trivia, initTrivia, startTrivia, triviaBankLoaded, triviaRoundHeader, triviaRecordGuess, triviaNext, triviaShareText,
 } from './modes/trivia.js';
@@ -700,7 +700,7 @@ const sharedModeOpeners = {
   blackout: showBlackoutPicker,
   survival: () => startSurvival(),
   'tap-country': () => startBorders(),
-  landmarks: () => startSurvival(landmarksSource),
+  landmarks: () => startSurvival(),
   trivia: startTrivia,
   challenge: showPvpHome,
 };
@@ -710,7 +710,7 @@ function openSharedMode() {
   const areaId = params.get('area');
   if (areaId) {
     const entry = (state.landmarks || []).find((x) => x.id === areaId && x.kind === 'area' && Number(x.extentKm) > 0);
-    if (entry) { survival.forced = entry; startSurvival(landmarksSource); return; }
+    if (entry) { survival.forced = entry; startSurvival(); return; }
   }
   const mode = params.get('mode');
   const opener = sharedModeOpeners[mode];

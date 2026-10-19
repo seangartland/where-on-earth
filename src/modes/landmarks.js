@@ -1,11 +1,11 @@
 // ---------------------------------------------------------------------------
-// More modes hub and Landmarks mode: Classic Survival rules on the curated
-// landmark pool. The run itself is survival.js with this file's source; the
-// pool is also the Passport's Landmarks shelf.
+// The Landmark pool and the More modes hub. Landmark Survival merged into
+// Survival on 2026-10-18 (pacing doc): survival.js draws from landmarkPool()
+// directly, and this file's entry starts the merged mode. The pool is also
+// the Passport's Landmarks shelf and the pack's landmark subset.
 // ---------------------------------------------------------------------------
 import { isPlayableLocation } from '../daily.js';
-import { SHARE_URL } from '../core/format.js';
-import { survival, survivalBest, startSurvival } from './survival.js';
+import { survivalBest, startSurvival } from './survival.js';
 import { triviaHubLine } from './trivia.js';
 
 let host = null;
@@ -41,32 +41,10 @@ export function landmarkPool() {
   return pool;
 }
 
-// Band range per round: rounds 1 to 10 ramp up, then every round is [9, 10].
-const BAND_RAMP = [[1, 3], [1, 4], [2, 5], [3, 6], [4, 7], [5, 8], [6, 9], [7, 10], [8, 10], [9, 10]];
-const LANDMARKS_BEST_KEY = 'where-on-earth-best-landmarks-survival';
-
-function landmarksShareText() {
-  const count = survival.survived;
-  const survivedResults = survival.results.slice(0, count);
-  return host.formatGameShare({
-    title: landmarksSource.label,
-    titleSep: ' · ',
-    headline: `${count.toLocaleString()} ${count === 1 ? 'round' : 'rounds'} survived`,
-    streak: survivalBest(LANDMARKS_BEST_KEY),
-    guesses: host.closestGuessLines(survivedResults, survivedResults.map((entry) => entry.item)),
-    visited: count,
-    url: `${SHARE_URL}?mode=landmarks`,
-  });
-}
-
-export const landmarksSource = {
-  label: 'Landmark Survival',
-  pool: landmarkPool,
-  resultsId: 'landmarks',
-  bestKey: LANDMARKS_BEST_KEY,
-  bands: (round) => BAND_RAMP[Math.min(round, BAND_RAMP.length) - 1],
-  shareText: landmarksShareText,
-};
+// Legacy best key from the retired Landmark Survival mode. The merged
+// Survival best reads the max of this key and the Classic key (survival.js);
+// the key itself is never rewritten or deleted.
+export const LANDMARKS_BEST_KEY = 'where-on-earth-best-landmarks-survival';
 
 function showMoreModesHub() {
   const { gameEls } = host;
@@ -75,7 +53,7 @@ function showMoreModesHub() {
   host.gameMode = 'more-modes-hub';
   window.__canGuess = false;
   const count = landmarkPool().length;
-  const best = survivalBest(LANDMARKS_BEST_KEY);
+  const best = survivalBest();
   gameEls.moreModesHub.querySelector('[data-hub-best="landmarks"]').textContent = count
     ? `${count.toLocaleString()} landmarks${best ? ` · Best streak ${best.toLocaleString()}` : ''}`
     : '';
@@ -93,5 +71,5 @@ export function initLandmarks(main) {
   const { gameEls } = host;
   gameEls.moreModesEntry.addEventListener('click', showMoreModesHub);
   gameEls.moreModesHub.addEventListener('click', (event) => { if (event.target === gameEls.moreModesHub) host.goHome(); });
-  gameEls.landmarksEntry.addEventListener('click', () => startSurvival(landmarksSource));
+  gameEls.landmarksEntry.addEventListener('click', () => startSurvival());
 }
