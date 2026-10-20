@@ -88,6 +88,11 @@ def main():
         records = [r for r in inventory if r['quarter'] == quarter]
         if not records: raise ValueError(f'Inventory has no objects for {quarter}')
         for window in windows:
+            key = hashlib.sha256(json.dumps({'window':window,'quarter':quarter,'checksums':[digest(r) for r in records]}, sort_keys=True,separators=(',',':')).encode()).hexdigest()[:16]
+            output = work / 'raw-quarterly' / safe(window['id']) / f'{quarter}__{key}.tif'
+            if output.is_file():
+                print(json.dumps({'window':window['id'],'quarter':quarter,'file':str(output),'shaKey':key,'status':'cached'}))
+                continue
             required = [r for r in records if intersects(r, window)]
             unavailable = [r['productId'] for r in required if not verified(work, r, verification)]
             if unavailable:
@@ -112,8 +117,6 @@ def main():
                     take = scratch[3] > combined[3]
                     if target_band is None: combined[:, take] = scratch[:, take]
                     else: combined[target_band, scratch[target_band] > 0] = scratch[target_band, scratch[target_band] > 0]
-                key = hashlib.sha256(json.dumps({'window':window,'quarter':quarter,'checksums':[digest(r) for r in records]}, sort_keys=True,separators=(',',':')).encode()).hexdigest()[:16]
-                output = work / 'raw-quarterly' / safe(window['id']) / f'{quarter}__{key}.tif'
                 write_window(output, combined, window, quarter, [digest(r) for r in sources_for_window])
                 print(json.dumps({'window':window['id'],'quarter':quarter,'file':str(output),'shaKey':key}))
             finally:
