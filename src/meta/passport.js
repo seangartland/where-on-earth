@@ -1215,7 +1215,10 @@ function fillPostcard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     ppdEls.photo.append(img);
   }
-  ppdEls.from.textContent = `Postcard from ${entry.continent || 'Earth'}`;
+  const stampDistance = Number.isFinite(entry.km) ? `${Math.round(entry.km).toLocaleString()} KM` : '';
+  ppdEls.stamp.hidden = !stampDistance;
+  ppdEls.stampFlag.textContent = host.flagForLocation(item);
+  ppdEls.stampTier.textContent = `${entry.earned >= host.EARN_BULLSEYE ? 'GOLD' : 'POSTCARD'} · ${stampDistance}`;
   const short = item.short || '';
   ppdEls.name.textContent = postcardDisplayName(item, host.flagForLocation);
   const clue = (item.clue || '').replace(FLAG_RE, '').trim();
@@ -1225,6 +1228,12 @@ function fillPostcard(entry) {
   ppdEls.fact.hidden = !item.fact;
   ppdEls.history.replaceChildren();
   const historyDate = entry.earned ? tierDateKey(entry.earnedAt) : entry.first || '';
+  ppdEls.postmark.hidden = !historyDate;
+  if (historyDate) {
+    const date = new Date(`${historyDate}T12:00:00`);
+    ppdEls.postmarkDate.textContent = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
+    ppdEls.postmarkYear.textContent = date.getFullYear();
+  }
   const addHistoryRow = (label, date) => {
     if (!date) return;
     const row = document.createElement('div');
@@ -2040,15 +2049,16 @@ body.game-collections #hud { opacity: 0; }
   postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-.ppd-card { --ppd-accent: #d1a943; position: relative; touch-action: pan-y; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 13px; border: 2px solid var(--rarity, #3f485b); border-radius: 28px; background: #1a1f2e; box-shadow: 0 24px 70px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.08); color: #f7f8fc; transform-origin: 0 0; }
+.ppd-card { --ppd-accent: #b27c20; position: relative; touch-action: pan-y; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 7px; border-radius: 10px; background: repeating-linear-gradient(45deg, #c8433c 0 14px, #f7efdc 14px 28px, #2c4a7c 28px 42px, #f7efdc 42px 56px); box-shadow: 0 24px 70px rgba(0,0,0,.72); color: #43331a; transform-origin: 0 0; }
+.ppd-inner { min-height: 100%; padding: 9px 9px 12px; border-radius: 5px; background: linear-gradient(165deg, #faf3e1, #f0e4c6); }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.ppd-front .prox-badge { top: 10px; left: 10px; gap: 5px; height: 26px; padding: 0 11px 0 8px; font-size: 11px; box-shadow: 0 2px 8px rgba(0,0,0,.55); }
+.ppd-front .prox-badge { top: 10px; left: 10px; gap: 5px; height: 26px; padding: 0 11px 0 8px; font-size: 11px; box-shadow: 0 2px 8px rgba(90,70,30,.35); }
 .ppd-front .prox-badge i { font-size: 14px; }
 .ppd-front { position: relative; }
-.ppd-front .pp-photo { aspect-ratio: 16 / 9; border-radius: 15px; }
+.ppd-front .pp-photo { aspect-ratio: 4 / 3; overflow: hidden; border: 4px solid #fffdf6; border-radius: 0; background: #d9cdb2; box-shadow: 0 0 0 1px rgba(101,78,38,.25), 0 2px 6px rgba(101,78,38,.3); }
 .ppd-front .pp-photo::after { font-size: 44px; }
-.ppd-close { position: absolute; z-index: 3; top: var(--ppd-control-inset, 6px); right: var(--ppd-control-inset, 6px); width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
-.ppd-close::before, .ppd-nav::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(8,14,32,.72); color: #f5fbff; font-size: 22px; line-height: 1; }
+.ppd-close { position: absolute; z-index: 4; top: var(--ppd-control-inset, 6px); right: var(--ppd-control-inset, 6px); width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
+.ppd-close::before, .ppd-nav::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(44,74,124,.85); color: #fffdf6; font-size: 22px; line-height: 1; }
 /* Previous and next: the close button's circle, quieter, centred on the photo edges. */
 .ppd-nav { position: absolute; z-index: 3; top: 50%; width: 44px; height: 44px; margin-top: -22px; padding: 0; border: 0; background: none; cursor: pointer; opacity: .55; touch-action: manipulation; }
 .ppd-nav[data-dir="-1"] { left: 0; }
@@ -2059,25 +2069,30 @@ body.game-collections #hud { opacity: 0; }
 .ppd-nav[hidden] { display: none; }
 .ppd-close:focus-visible { outline: none; }
 .ppd-close:focus-visible::before { box-shadow: 0 0 0 2px #67e8ff; }
-.ppd-body { padding: 14px 2px 0; color: #f7f8fc; }
-.ppd-from, .ppd-pos { margin: 0; color: #8f9aaf; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+.ppd-stamp { position: absolute; z-index: 2; top: 56px; right: 8px; width: 47px; min-height: 56px; padding: 3px; border: 1.5px dashed rgba(90,70,30,.5); background: #fffdf6; box-shadow: 0 1px 4px rgba(90,70,30,.35); color: #b27c20; text-align: center; transform: rotate(2deg); }
+.ppd-stamp-flag { display: block; font-size: 21px; line-height: 1.15; }
+.ppd-stamp-tier { display: block; margin-top: 2px; font-size: 8px; font-weight: 900; letter-spacing: .06em; line-height: 1.2; }
+.ppd-postmark { position: absolute; z-index: 2; top: 16px; left: -8px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 74px; height: 74px; border: 2.2px solid rgba(52,72,96,.55); border-radius: 50%; background: rgba(250,243,225,.28); color: rgba(52,72,96,.78); font-size: 8px; font-weight: 800; letter-spacing: .1em; line-height: 1.5; text-align: center; transform: rotate(-11deg); }
+.ppd-postmark-date { font-size: 10.5px; letter-spacing: .04em; }
+.ppd-body { padding: 0 5px; color: #43331a; }
+.ppd-from, .ppd-pos { margin: 0; color: #7a5f36; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
 .ppd-pos { position: absolute; top: 100%; left: 0; right: 0; padding-top: 7px; font-variant-numeric: tabular-nums; text-align: center; }
 .ppd-pos[hidden] { display: none; }
-.ppd-body h3 { margin: 4px 0 0; color: #f7f8fc; font-family: Georgia, serif; font-size: 27px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; overflow-wrap: anywhere; }
-.ppd-clue { margin: 4px 0 0; color: #8f9aaf; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.ppd-history { display: grid; gap: 5px; margin: 13px 0 0; color: #818da2; font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.ppd-body h3 { margin: 11px 0 0; color: #22355c; font-family: Inter, sans-serif; font-size: 18px; font-weight: 800; line-height: 1.1; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.ppd-clue { margin: 3px 0 0; color: rgba(52,72,96,.75); font-size: 11px; font-weight: 650; letter-spacing: .04em; text-transform: none; }
+.ppd-history { display: grid; gap: 5px; margin: 11px 0 0; padding-top: 8px; border-top: 1.5px solid rgba(101,78,38,.35); color: rgba(101,78,38,.85); font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 .ppd-history-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
-.ppd-history-row strong { min-width: 0; color: #c8cfdb; font-weight: 750; text-align: right; white-space: nowrap; }
+.ppd-history-row strong { min-width: 0; color: #43331a; font-weight: 750; text-align: right; white-space: nowrap; }
 .ppd-history[hidden] { display: none; }
-.ppd-fact { margin: 14px 0 0; padding: 0 0 14px; border-bottom: 1px solid #303748; color: #c2c8d4; font-family: Georgia, serif; font-size: 13px; line-height: 1.52; }
-.ppd-fact::before { content: 'DID YOU KNOW?'; display: block; margin-bottom: 5px; color: var(--ppd-accent); font-family: Inter, sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .15em; }
-.ppd-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 14px 0 0; }
-.ppd-stats div { min-width: 0; padding: 10px; border: 1px solid #30384a; border-radius: 10px; background: #151a27; }
-.ppd-stats dt { color: #8a95a9; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
-.ppd-stats dd { margin: 5px 0 0; color: #f7f8fc; font-size: 14px; font-weight: 850; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ppd-stats dd small { color: #8390a6; font-size: 10px; font-weight: 650; }
-.ppd-hint { margin: 10px 0 0; color: #9fa9bb; font-size: 12px; font-weight: 700; text-align: center; }
-.ppd-share { display: block; width: 100%; min-height: 45px; margin: 13px 0 0; padding: 0 16px; border: 1px solid #4b566b; border-radius: 12px; background: #252d40; color: #fff; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; }
+.ppd-fact { margin: 10px 0 0; padding: 0; border: 0; color: #4c3d20; font-family: Georgia, "Times New Roman", serif; font-size: 13.5px; font-style: italic; line-height: 1.55; }
+.ppd-fact::before { display: none; }
+.ppd-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 9px 0 0; }
+.ppd-stats div { min-width: 0; padding: 0; border: 0; border-radius: 0; background: none; }
+.ppd-stats dt { color: rgba(101,78,38,.65); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.ppd-stats dd { margin: 1px 0 0; color: #22355c; font-size: 14.5px; font-weight: 850; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ppd-stats dd small { color: rgba(52,72,96,.6); font-size: 9.5px; font-weight: 650; }
+.ppd-hint { margin: 10px 0 0; color: rgba(101,78,38,.72); font-size: 12px; font-weight: 700; text-align: center; }
+.ppd-share { display: block; width: 100%; min-height: 45px; margin: 13px 0 0; padding: 0 16px; border: 1px solid #2c4a7c; border-radius: 4px; background: #fffdf6; color: #22355c; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; }
 .ppd-share:active { transform: scale(.98); }
 .ppd-share:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .ppd-share[hidden] { display: none; }`;
@@ -2090,20 +2105,23 @@ body.game-collections #hud { opacity: 0; }
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
-    <div class="ppd-front">
-      <div class="pp-photo" data-ppd="photo"></div>
-      <button class="ppd-nav" data-dir="-1" aria-label="Previous postcard" tabindex="-1" data-ppd="prev"></button>
-      <button class="ppd-nav" data-dir="1" aria-label="Next postcard" tabindex="-1" data-ppd="next"></button>
-    </div>
-    <div class="ppd-body">
-      <p class="ppd-from" data-ppd="from"></p>
-      <h3 id="ppd-title" data-ppd="name"></h3>
-      <p class="ppd-clue" data-ppd="clue"></p>
-      <p class="ppd-fact" data-ppd="fact"></p>
-      <dl class="ppd-stats" data-ppd="stats"></dl>
-      <p class="ppd-hint" data-ppd="hint"></p>
-      <div class="ppd-history" data-ppd="history" aria-label="Visit history"></div>
-      <button class="ppd-share" data-ppd="share"></button>
+    <div class="ppd-inner">
+      <div class="ppd-front">
+        <div class="pp-photo" data-ppd="photo"></div>
+        <span class="ppd-stamp" data-ppd="stamp"><span class="ppd-stamp-flag" data-ppd="stampFlag"></span><span class="ppd-stamp-tier" data-ppd="stampTier"></span></span>
+        <span class="ppd-postmark" data-ppd="postmark">POSTCARD<span class="ppd-postmark-date" data-ppd="postmarkDate"></span><span data-ppd="postmarkYear"></span></span>
+        <button class="ppd-nav" data-dir="-1" aria-label="Previous postcard" tabindex="-1" data-ppd="prev"></button>
+        <button class="ppd-nav" data-dir="1" aria-label="Next postcard" tabindex="-1" data-ppd="next"></button>
+      </div>
+      <div class="ppd-body">
+        <h3 id="ppd-title" data-ppd="name"></h3>
+        <p class="ppd-clue" data-ppd="clue"></p>
+        <p class="ppd-fact" data-ppd="fact"></p>
+        <div class="ppd-history" data-ppd="history" aria-label="Visit history"></div>
+        <dl class="ppd-stats" data-ppd="stats"></dl>
+        <p class="ppd-hint" data-ppd="hint"></p>
+        <button class="ppd-share" data-ppd="share"></button>
+      </div>
     </div>
     <p class="ppd-pos" aria-live="polite" data-ppd="pos"></p>
   </article>`;

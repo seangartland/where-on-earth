@@ -43,7 +43,9 @@ export function buildPostcardCard(item, passportState, options) {
     const score = document.createElement('span');
     score.className = 'pp-slot-score';
     if (passportState.scoreTier) score.dataset.tier = passportState.scoreTier;
-    score.textContent = passportState.scoreText;
+    const [distance, unit] = String(passportState.scoreText).split(/\s+/, 2);
+    score.append(document.createTextNode(distance));
+    if (unit) score.append(document.createElement('br'), document.createTextNode(unit));
     photo.append(score);
   }
   if (compact) addAuditFlagButton?.(photo, passportState.entry);
@@ -86,6 +88,17 @@ export function ensurePostcardCardStyles() {
 .pp-meta { min-height: 12px; margin: 4px 2px 0; color: #a8b0c3; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .pp-meta span { white-space: nowrap; }
 .pp-tier-date { color: rgba(193,224,250,.66); font-weight: 650; }
+/* Passport shelf cards retain the compact component but use the mailed-paper face. */
+.pp-dex .pp-slot { overflow: hidden; padding: 0 0 6px; border-radius: 4px; background: linear-gradient(165deg, #faf3e1, #f0e4c6); box-shadow: 0 2px 6px rgba(0,0,0,.4), inset 0 0 0 1px rgba(101,78,38,.18); }
+.pp-dex .pp-slot::before { content: ''; display: block; height: 6px; background: repeating-linear-gradient(45deg, #c8433c 0 9px, #f7efdc 9px 18px, #2c4a7c 18px 27px, #f7efdc 27px 36px); }
+.pp-dex .pp-slot-photo { margin: 5px 5px 0; overflow: visible; border: 3px solid #fffdf6; border-radius: 0; background: #d9cdb2; box-shadow: 0 0 0 1px rgba(101,78,38,.22), 0 1px 3px rgba(101,78,38,.25), inset 0 0 8px rgba(90,70,30,.16); }
+.pp-dex .pp-slot-score { top: auto; right: -7px; bottom: -7px; display: flex; align-items: center; justify-content: center; width: 37px; height: 37px; padding: 4px; border: 1.8px solid rgba(90,90,90,.55); background: rgba(245,242,235,.9); color: rgba(90,90,90,.8); font-size: 8.3px; line-height: 1.15; text-align: center; white-space: normal; transform: rotate(-11deg); box-shadow: none; }
+.pp-dex .pp-slot-score[data-tier="bullseye"], .pp-dex .pp-slot-score[data-tier="pinpoint"] { border-color: #b27c20; background: rgba(250,243,225,.9); color: #b27c20; }
+.pp-dex .pp-slot-name { margin: 6px 7px 0; color: #22355c; }
+.pp-dex .pp-slot[data-earn="seen"] .pp-slot-name { color: #526071; }
+.pp-dex .pp-slot.is-mystery .pp-slot-photo { border-color: #fffdf6; }
+.pp-dex .pp-slot.is-mystery .pp-slot-name { color: rgba(34,53,92,.55); }
+.pp-dex .pps-flag { inset: 4px; border: 1.5px dashed rgba(101,78,38,.4); background: rgba(44,74,124,.05); filter: drop-shadow(0 2px 4px rgba(0,0,0,.18)); }
 @media (max-width: 360px) { .pp-stamp { width: 36px; height: 36px; font-size: 13px; } }
 `;
   document.head.append(postcardCardStyle);
