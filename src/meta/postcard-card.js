@@ -70,7 +70,7 @@ export function ensurePostcardCardStyles() {
   postcardCardStyle = document.createElement('style');
   postcardCardStyle.dataset.postcardCard = '';
   postcardCardStyle.textContent = `
-.pp-post { position: relative; min-width: 0; padding: 5px 5px 8px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 4px; background: #1a1f2e; box-shadow: 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset; transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.pp-post { position: relative; min-width: 0; padding: 5px 5px 8px; border: 2px solid rgba(214,220,232,.16); border-radius: 4px; background: #1a1f2e; box-shadow: 0 8px 22px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12) inset; transition: transform .16s ease-out, filter .16s ease-out; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-post:active { transform: scale(.965); filter: brightness(.95); }
 .pp-post:focus-visible { outline: 2px solid #67e8ff; outline-offset: 3px; }
 .pp-post.pp-lifted { visibility: hidden; }

@@ -105,6 +105,11 @@ export function postcardSummaryCard(result, item) {
     earnName: EARN_NAMES[outcome.tier],
     meta: `${outcome.kind === 'upgrade' ? 'Upgraded' : 'New'} • ${distanceText}`,
   }, { flagForLocation, applyCardTier });
+  card.classList.add('postcard-summary-entry');
+  const score = document.createElement('span');
+  score.className = 'postcard-summary-score';
+  score.textContent = result.score.toLocaleString();
+  card.append(score);
   const name = card.querySelector('.pp-name');
   const entry = passportEntryFor(item);
   card.tabIndex = 0;
@@ -175,6 +180,11 @@ export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next =
     Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }),
     countLabel(upgradeCount, 'upgraded'),
   );
+  const postmark = document.createElement('span');
+  postmark.className = 'postcard-summary-postmark';
+  postmark.setAttribute('aria-hidden', 'true');
+  postmark.textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+  gameEls.breakdown.append(gameEls.postcardSummaryCounts, postmark);
 }
 
 export function showResults() {
