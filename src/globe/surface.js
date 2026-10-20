@@ -526,6 +526,15 @@ export const SAT_PROVIDERS = [
     credit: 'EOxCloudless <a href="https://cloudless.eox.at" target="_blank" rel="noopener">https://cloudless.eox.at</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)',
     maxZ: 8,
   },
+  {
+    id: 's2gm2025',
+    // Our own mosaic (docs/eox-r2-upload.md): rendered locally from the
+    // Copernicus Sentinel-2 quarterly mosaics, served from our R2 bucket.
+    tiles: 'https://tiles.where-on.earth/s2gm2025/{z}/{x}/{y}.jpg?v=1',
+    base: 'https://tiles.where-on.earth/s2gm2025/base-ours.jpg',
+    credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
+    maxZ: 8,
+  },
 ];
 export const DEFAULT_SAT_PROVIDER_ID = 'eox2025';
 export const tileURL = (provider, z, y, x) => provider.tiles
