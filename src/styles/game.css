@@ -202,13 +202,6 @@ body.game-reveal .reveal-name { display: block; }
 #peek-thumb.seen-no-postcard, #place-thumb.seen-no-postcard { filter: grayscale(1); opacity: 0.7; }
 #peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint,
 #place-thumb.prox-postcard, #place-thumb.prox-bullseye, #place-thumb.prox-pinpoint { filter: none; opacity: 1; }
-/* Rarity belongs to the card frame. Gold is reserved for accuracy, so a great
-   guess can sit on top of any rarity without replacing that signal. */
-.rarity-common { --rarity: #9aa6bb; --rarity-bg: rgba(154,166,187,.14); --rarity-border: rgba(154,166,187,.52); }
-.rarity-uncommon { --rarity: #4fcf8a; --rarity-bg: rgba(79,207,138,.14); --rarity-border: rgba(79,207,138,.52); }
-.rarity-rare { --rarity: #6c8cff; --rarity-bg: rgba(108,140,255,.16); --rarity-border: rgba(108,140,255,.56); }
-.rarity-legendary { --rarity: #c77dff; --rarity-bg: rgba(199,125,255,.16); --rarity-border: rgba(199,125,255,.56); }
-.ppd-rarity { display: inline-flex; align-items: center; box-sizing: border-box; padding: 3px 9px; border: 1px solid var(--rarity-border, rgba(154,166,187,.52)); border-radius: 999px; background: var(--rarity-bg, rgba(154,166,187,.14)); color: var(--rarity, #9aa6bb); font-size: 9.5px; font-weight: 800; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 /* Accuracy badge (setProxBadge): a small gold chip pinned inside the photo, clear
    of the rarity frame, so Bullseye/Pinpoint never recolours or glows the border.
    Compact hosts show the icon only; the postcard modal gets the large version. */
@@ -239,7 +232,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .sheet-content { max-height: 0; overflow: hidden; transition: max-height .32s cubic-bezier(.2,.8,.2,1); }
 .reveal-sheet.expanded .sheet-content { max-height: 320px; }
 .sheet-inner { padding: 0 14px 14px; }
-#place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid var(--rarity, rgba(157,211,255,.18)); border-radius: 10px; object-fit: cover; object-position: center 20%; }
+#place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid rgba(157,211,255,.18); border-radius: 10px; object-fit: cover; object-position: center 20%; }
 #place-thumb[hidden] { display: none; }
 #fact { margin: 10px 0 0; color: rgba(224,240,255,.8); font-size: 13px; line-height: 1.45; }
 
@@ -527,6 +520,20 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 #survival-hub .expedition-choice, #more-modes-hub .expedition-choice { grid-template-columns: 1fr auto; }
 #survival-hub .expedition-choice:disabled, #more-modes-hub .expedition-choice:disabled { opacity: .45; cursor: progress; }
 #survival-hub .expedition-choice small:empty, #more-modes-hub .expedition-choice small:empty { display: none; }
+
+/* Expedition routes are letters kept in the dark picker, with postmarks for stops. */
+.expedition-picker:not(:has(.pvp-panel)) .expedition-choice { position: relative; border: 0; border-radius: 7px; background: linear-gradient(165deg, #faf3e1, #f0e4c6); box-shadow: 0 3px 10px rgba(0,0,0,.3), inset 0 0 0 1px rgba(101,78,38,.18); color: #22355c; }
+.expedition-picker:not(:has(.pvp-panel)) .expedition-choice::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(45deg, #c8433c 0 9px, #f7efdc 9px 18px, #2c4a7c 18px 27px, #f7efdc 27px 36px); }
+.expedition-picker:not(:has(.pvp-panel)) .expedition-choice strong { margin-top: 5px; color: #22355c; }
+.expedition-picker:not(:has(.pvp-panel)) .expedition-choice small { color: rgba(52,72,96,.78); }
+.expedition-picker:not(:has(.pvp-panel)) .expedition-choice .badge { color: #b27c20; }
+.expedition-picker:not(:has(.pvp-panel)) .expedition-choice .emoji { align-self: start; margin-top: 5px; }
+.expedition-picker:not(:has(.pvp-panel)) .weekly-eyebrow { color: #7a5f36; }
+.expedition-marks { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.expedition-marks span, .expedition-picker:not(:has(.pvp-panel)) .weekly-dot { display: grid; place-items: center; width: 29px; height: 29px; border: 1.5px dashed rgba(101,78,38,.35); border-radius: 50%; background: transparent; color: rgba(101,78,38,.52); font-size: 8px; font-weight: 800; line-height: 1; }
+.expedition-marks span[data-state="played"], .expedition-picker:not(:has(.pvp-panel)) .weekly-dot[data-state="played"] { border-style: solid; border-color: #34486a; background: #34486a; color: #faf3e1; }
+.expedition-picker:not(:has(.pvp-panel)) .weekly-dot[data-state="open"] { border-color: #c8433c; color: #c8433c; }
+.expedition-picker:not(:has(.pvp-panel)) .weekly-dot[data-today] { box-shadow: 0 0 0 2px rgba(200,67,60,.18); }
 
 .survival-streak {
   display: none;

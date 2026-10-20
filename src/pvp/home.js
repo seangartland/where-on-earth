@@ -170,9 +170,11 @@ function pvpMatchRow(entry) {
   if (key === 'completed') detail = `${detail} · ${pvpResultLine(state)}`;
   else if (key === 'waiting' && entry.joinCode) detail = `${detail} · Code ${entry.joinCode}`;
   const played = state?.viewer && Number.isFinite(state.viewer.nextRound) ? state.viewer.nextRound - 1 : state?.status === 'COMPLETED' || key === 'their-turn' || key === 'waiting' ? 5 : null;
-  return pvpEl('button', { type: 'button', className: 'expedition-choice', 'data-pvp-match': entry.matchId },
+  const incoming = entry.role !== 'CHALLENGER';
+  return pvpEl('button', { type: 'button', className: `expedition-choice${incoming ? ' challenge-envelope' : ''}`, 'data-pvp-match': entry.matchId },
     pvpEl('span', { className: 'pvp-progress', text: played == null ? '' : `${played}/5` }),
     pvpEl('span', {}, pvpEl('strong', { text: title }), pvpEl('small', { text: detail })),
+    incoming ? pvpEl('span', { className: 'challenge-stamp', 'aria-hidden': true, text: (opponent || title).trim().slice(0, 1) }) : null,
     pvpEl('span', { className: 'badge', text: '›' }),
   );
 }
@@ -294,9 +296,11 @@ function pvpGroupRow(item) {
   const detail = item.progress === 'FINISHED' ? (item.rank ? `Finished · #${item.rank}` : 'Finished')
     : item.status === 'EXPIRED' ? 'Expired'
       : item.progress === 'PLAYING' ? `In progress · ${(item.total || 0).toLocaleString()}` : 'Not started';
-  return pvpEl('button', { type: 'button', className: 'expedition-choice', 'data-pvp-group': item.challengeId },
+  const incoming = item.role !== 'CREATOR';
+  return pvpEl('button', { type: 'button', className: `expedition-choice${incoming ? ' challenge-envelope' : ''}`, 'data-pvp-group': item.challengeId },
     pvpEl('span', { className: 'pvp-progress', text: '' }),
     pvpEl('span', {}, pvpEl('strong', { text: `Open Challenge · ${players}` }), pvpEl('small', { text: detail })),
+    incoming ? pvpEl('span', { className: 'challenge-stamp', 'aria-hidden': true, text: 'O' }) : null,
     pvpEl('span', { className: 'badge', text: '›' }),
   );
 }

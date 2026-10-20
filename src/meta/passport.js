@@ -1464,16 +1464,19 @@ export function initPassportHome(main) {
 .passport { position: relative; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .passport:active { transform: scale(.99); }
 .passport:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
-.passport-open { position: absolute; top: 10px; right: 12px; color: rgba(193,224,250,.55); font-size: 20px; font-weight: 700; line-height: 1; }
-.passport-count { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; font-weight: 700; }
-.passport-earned { color: #ffd166; }
-.passport-streak { color: #ffc76a; }
-.passport-count b { color: #ffc76a; font-size: 27px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.02em; text-shadow: 0 0 22px rgba(255,199,106,.3); }
-.passport-stamps { display: flex; justify-content: center; gap: 7px; margin-top: 11px; }
-.passport-stamps img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: rgba(157,211,255,.08); border: 2px solid rgba(157,211,255,.28); }
-.passport-stamps img[data-tier="gold"] { border-color: #ffd166; box-shadow: 0 0 12px rgba(255,209,102,.3); }
-.passport-stamps img[data-tier="cyan"] { border-color: #67e8ff; }
+.passport { overflow: hidden; padding: 0 0 11px; border: 0; border-radius: 8px; background: linear-gradient(165deg, #faf3e1, #f0e4c6); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); }
+.passport::before { content: ''; display: block; height: 7px; background: repeating-linear-gradient(45deg, #c8433c 0 10px, #f7efdc 10px 20px, #2c4a7c 20px 30px, #f7efdc 30px 40px); }
+.passport-open { position: absolute; top: 18px; right: 76px; color: rgba(52,72,96,.55); font-size: 20px; font-weight: 700; line-height: 1; }
+.passport-count { margin: 11px 76px 0 14px; color: rgba(52,72,96,.78); font-size: 13px; font-weight: 700; }
+.passport-earned, .passport-streak { color: #b27c20; }
+.passport-count b { color: #22355c; font-size: 27px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.02em; text-shadow: none; }
+.passport-stamps { display: flex; justify-content: flex-start; gap: 7px; margin: 11px 76px 0 14px; }
+.passport-stamps img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #fffdf6; border: 2px solid rgba(52,72,96,.35); }
+.passport-stamps img[data-tier="gold"] { border-color: #b27c20; box-shadow: none; }
+.passport-stamps img[data-tier="cyan"] { border-color: #34486a; }
 .passport-stamps img[data-tier="dim"] { filter: saturate(.65) brightness(.7); }
+.passport-postmark { position: absolute; top: 17px; right: 13px; display: grid; place-items: center; width: 56px; height: 56px; border: 2px solid rgba(52,72,96,.45); border-radius: 50%; color: rgba(52,72,96,.68); font-size: 7px; font-weight: 800; letter-spacing: .08em; line-height: 1.35; text-align: center; transform: rotate(-11deg); }
+.passport-postmark time { display: block; font-size: 9px; }
 @media (max-height: 700px) {
   .passport { margin-bottom: 18px; }
   .passport-count b { font-size: 23px; }
@@ -1492,7 +1495,9 @@ export function initPassportHome(main) {
   passportBox.innerHTML = `
   <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places found<span class="passport-earned" data-passport="earned"></span><span class="passport-streak" data-passport="streak"></span></p>
   <div class="passport-stamps" data-passport="stamps"></div>
+  <span class="passport-postmark" aria-hidden="true"><time></time></span>
   <span class="passport-open" aria-hidden="true">›</span>`;
+  passportBox.querySelector('.passport-postmark time').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
   passportBox.addEventListener('click', openPassport);
   passportBox.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPassport(); }
@@ -1597,7 +1602,7 @@ export function initPassport(main) {
 .pp-chunk { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 .pp-dex { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 8px; margin: 0; padding: 4px 3px; list-style: none; }
 .pp-slot { position: relative; min-width: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-.pp-slot-photo { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 2px solid var(--rarity, rgba(214,220,232,.16)); background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
+.pp-slot-photo { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 2px solid rgba(214,220,232,.16); background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
 .pp-slot-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 .pp-audit-flag { position: absolute; z-index: 4; left: 3px; top: 3px; display: grid; place-items: center; width: 27px; height: 27px; padding: 0; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; background: rgba(8,14,32,.84); font-size: 14px; line-height: 1; cursor: pointer; filter: drop-shadow(0 1px 2px rgba(0,0,0,.6)); }
 .pp-audit-flag:active { transform: scale(.92); }
@@ -1633,29 +1638,27 @@ export function initPassport(main) {
 .pp-ccard > button { display: block; width: 100%; padding: 6px 6px 0 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-ccard > button:active .pp-ccard-photo { transform: scale(.97); }
 .pp-ccard > button:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }
-.pp-ccard-photo { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 1.5px solid rgba(157,211,255,.28); background: linear-gradient(135deg, #1b2c5a, #3b2a6e);
-  /* two card edges peeking out top-right = "a stack of postcards" (own box-shadow is not clipped by overflow) */
-  box-shadow: 3px -3px 0 -1px #24304d, 3px -3px 0 0 rgba(157,211,255,.18), 6px -6px 0 -2px #18203a, 6px -6px 0 -1px rgba(157,211,255,.1); transition: transform .12s ease-out; }
+.pp-ccard-photo { position: relative; aspect-ratio: 1; overflow: hidden; border: 1.5px dashed rgba(90,70,30,.45); background: #fffdf6; box-shadow: 0 1px 3px rgba(101,78,38,.25); transition: transform .12s ease-out; }
 .pp-ccard-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 /* bottom scrim so the flag chip and strip read on any photo */
-.pp-ccard-photo::after { content: ''; position: absolute; inset: auto 0 0 0; height: 42%; background: linear-gradient(transparent, rgba(8,14,32,.72)); pointer-events: none; }
-.pp-ccard-flag { position: absolute; z-index: 1; left: 5px; bottom: 8px; font-size: 18px; line-height: 1; filter: drop-shadow(0 1px 2px rgba(0,0,0,.6)); }
-.pp-ccard-bar { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; height: 4px; border-radius: 0; background: rgba(8,14,32,.6); }
+.pp-ccard-photo::after { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(52,72,96,.2); pointer-events: none; }
+.pp-ccard-flag { position: absolute; z-index: 1; inset: 0; display: grid; place-items: center; font-size: 40px; line-height: 1; filter: none; }
+.pp-ccard-bar { position: absolute; z-index: 2; left: 4px; right: 4px; bottom: 4px; height: 3px; border-radius: 0; background: rgba(52,72,96,.16); }
 .pp-ccard-bar i { border-radius: 0; }
 .pp-ccard-name { margin: 5px 1px 0; overflow: hidden; color: #eef2ff; font-size: 11px; font-weight: 800; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .pp-ccard-meta, .pp-ccard-sub { margin: 1px 1px 0; overflow: hidden; color: rgba(193,224,250,.62); font-size: 10px; font-weight: 700; line-height: 1.25; font-variant-numeric: tabular-nums; text-overflow: ellipsis; white-space: nowrap; }
-.pp-ccard-meta b { color: #eef2ff; font-weight: 800; }
+.pp-ccard-meta b { color: #b27c20; font-weight: 800; }
 /* states */
 .pp-ccard[data-state="seen"] .pp-ccard-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.pp-ccard[data-state="unvisited"] .pp-ccard-photo { border-color: rgba(214,220,232,.12); box-shadow: none; }
+.pp-ccard[data-state="unvisited"] .pp-ccard-photo { border-color: rgba(90,70,30,.25); box-shadow: none; }
 .pp-ccard[data-state="unvisited"] .pp-ccard-flag { filter: grayscale(1); opacity: .45; }
 .pp-ccard[data-state="unvisited"] :is(.pp-ccard-name, .pp-ccard-meta, .pp-ccard-sub) { color: rgba(193,224,250,.4); }
 /* no photo: the flag becomes the picture */
-.pp-ccard-photo.is-flagtile { background: radial-gradient(circle at 50% 42%, #1d2a48, #0b1120 75%); }
+.pp-ccard-photo.is-flagtile { background: #fffdf6; }
 .pp-ccard-photo.is-flagtile::after { display: none; }
 .pp-ccard-photo.is-flagtile .pp-ccard-flag { inset: 0; display: grid; place-items: center; font-size: 40px; filter: none; }
 /* complete: gold frame and gold stack edges; the leading (postcards) line turns gold too */
-.pp-ccard.is-complete .pp-ccard-photo { border-color: #ffd166; box-shadow: 3px -3px 0 -1px #3a2f12, 3px -3px 0 0 rgba(255,209,102,.5), 6px -6px 0 -2px #2a2310, 6px -6px 0 -1px rgba(255,209,102,.3); }
+.pp-ccard.is-complete .pp-ccard-photo { border-color: #b27c20; box-shadow: 0 1px 3px rgba(101,78,38,.25); }
 .pp-ccard.is-complete .pp-ccard-meta { color: #ffd166; }
 @media (max-width: 360px) { .pp-ccard-flag { font-size: 16px; } }
 .pp-country-head { margin-top: 10px; }
@@ -1999,7 +2002,7 @@ body.game-passport #hud { opacity: 0; }
 .collection-segments i { flex: 1; height: 6px; border-radius: 3px; background: rgba(214,220,232,.08); }
 .collection-segments i.earned { background: #d2ae62; box-shadow: 0 0 5px rgba(210,174,98,.45); }
 .collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px 10px; margin: 0; padding: 0; list-style: none; }
-.collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 2px solid var(--rarity, rgba(214,220,232,.16)); border-radius: 9px; background: #1a1f2e; }
+.collection-card { position: relative; min-width: 0; padding: 5px 5px 7px; border: 2px solid rgba(214,220,232,.16); border-radius: 9px; background: #1a1f2e; }
 .collection-card .photo { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 5px; background: #0d111b; }
 .collection-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .collection-card-name { min-height: 2.3em; margin: 6px 1px 0; display: grid; place-items: center; color: #e6e8ee; font-size: 10px; font-weight: 750; line-height: 1.15; text-align: center; }

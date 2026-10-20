@@ -143,7 +143,10 @@ function renderWeeklyCard() {
     dot.className = 'weekly-dot';
     dot.dataset.state = stopState;
     if (index === week.weekday) dot.dataset.today = 'true';
-    dot.textContent = DAY_NAMES[index][0];
+    const playedOn = weeklyPlayed(week)[index];
+    dot.textContent = playedOn
+      ? new Date(`${playedOn}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase()
+      : DAY_NAMES[index][0];
     return dot;
   }));
   const status = complete ? 'Week complete'
@@ -192,10 +195,16 @@ function renderExpeditionPicker(highlightId = '') {
     button.className = 'expedition-choice';
     button.dataset.expeditionId = expedition.id;
     if (expedition.id === highlightId) button.dataset.justCompleted = 'true';
-    button.innerHTML = `<span class="emoji"></span><span><strong></strong><small></small></span><span class="badge"></span>`;
+    button.innerHTML = `<span class="emoji"></span><span><strong></strong><small></small><span class="expedition-marks" aria-hidden="true"></span></span><span class="badge"></span>`;
     button.querySelector('.emoji').textContent = expedition.emoji || '🧭';
     button.querySelector('strong').textContent = expedition.theme;
     button.querySelector('small').textContent = progress.complete ? `${total}/${total} completed · Replay` : `${progress.completed}/${total} completed`;
+    button.querySelector('.expedition-marks').replaceChildren(...Array.from({ length: total }, (_, index) => {
+      const mark = document.createElement('span');
+      mark.dataset.state = index < progress.completed ? 'played' : 'locked';
+      mark.textContent = index + 1;
+      return mark;
+    }));
     button.querySelector('.badge').textContent = progress.complete ? '🏅' : '›';
     return button;
   }));
