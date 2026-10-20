@@ -2057,7 +2057,7 @@ body.game-collections #hud { opacity: 0; }
 .ppd-front { position: relative; }
 .ppd-front .pp-photo { aspect-ratio: 4 / 3; overflow: hidden; border: 4px solid #fffdf6; border-radius: 0; background: #d9cdb2; box-shadow: 0 0 0 1px rgba(101,78,38,.25), 0 2px 6px rgba(101,78,38,.3); }
 .ppd-front .pp-photo::after { font-size: 44px; }
-.ppd-close { position: absolute; z-index: 4; top: var(--ppd-control-inset, 6px); right: var(--ppd-control-inset, 6px); width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
+.ppd-close { position: absolute; z-index: 4; top: -12px; right: -2px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
 .ppd-close::before, .ppd-nav::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(44,74,124,.85); color: #fffdf6; font-size: 22px; line-height: 1; }
 /* Previous and next: the close button's circle, quieter, centred on the photo edges. */
 .ppd-nav { position: absolute; z-index: 3; top: 50%; width: 44px; height: 44px; margin-top: -22px; padding: 0; border: 0; background: none; cursor: pointer; opacity: .55; touch-action: manipulation; }
@@ -2069,10 +2069,10 @@ body.game-collections #hud { opacity: 0; }
 .ppd-nav[hidden] { display: none; }
 .ppd-close:focus-visible { outline: none; }
 .ppd-close:focus-visible::before { box-shadow: 0 0 0 2px #67e8ff; }
-.ppd-stamp { position: absolute; z-index: 2; top: 56px; right: 8px; width: 47px; min-height: 56px; padding: 3px; border: 1.5px dashed rgba(90,70,30,.5); background: #fffdf6; box-shadow: 0 1px 4px rgba(90,70,30,.35); color: #b27c20; text-align: center; transform: rotate(2deg); }
+.ppd-stamp { position: absolute; z-index: 2; top: 8px; right: 8px; width: 47px; min-height: 56px; padding: 3px; border: 1.5px dashed rgba(90,70,30,.5); background: #fffdf6; box-shadow: 0 1px 4px rgba(90,70,30,.35); color: #b27c20; text-align: center; transform: rotate(2deg); }
 .ppd-stamp-flag { display: block; font-size: 21px; line-height: 1.15; }
 .ppd-stamp-tier { display: block; margin-top: 2px; font-size: 8px; font-weight: 900; letter-spacing: .06em; line-height: 1.2; }
-.ppd-postmark { position: absolute; z-index: 2; top: 16px; left: -8px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 74px; height: 74px; border: 2.2px solid rgba(52,72,96,.55); border-radius: 50%; background: rgba(250,243,225,.28); color: rgba(52,72,96,.78); font-size: 8px; font-weight: 800; letter-spacing: .1em; line-height: 1.5; text-align: center; transform: rotate(-11deg); }
+.ppd-postmark { position: absolute; z-index: 2; top: 16px; left: -8px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 74px; height: 74px; border: 2.2px solid rgba(52,72,96,.85); border-radius: 50%; background: rgba(250,243,225,.88); color: rgba(40,58,80,.95); font-size: 8px; font-weight: 800; letter-spacing: .1em; line-height: 1.5; text-align: center; transform: rotate(-11deg); box-shadow: 0 1px 5px rgba(30,30,20,.25); }
 .ppd-postmark-date { font-size: 10.5px; letter-spacing: .04em; }
 .ppd-body { padding: 0 5px; color: #43331a; }
 .ppd-from, .ppd-pos { margin: 0; color: #7a5f36; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
