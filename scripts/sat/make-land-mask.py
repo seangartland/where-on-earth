@@ -182,8 +182,9 @@ if __name__ == '__main__':
     if len(sys.argv) == 12 and sys.argv[1] == '--window':
         window_mask(land_rings, lake_rings, sys.argv[4], sys.argv[5],
                     [float(value) for value in sys.argv[6:10]], int(sys.argv[10]), int(sys.argv[11]))
-    elif len(sys.argv) == 4 and sys.argv[1] == '--batch':
-        for job in json.load(sys.stdin):
+    elif len(sys.argv) in (4, 5) and sys.argv[1] == '--batch':
+        jobs_file = open(sys.argv[4]) if len(sys.argv) == 5 else sys.stdin
+        for job in json.load(jobs_file):
             window_mask(land_rings, lake_rings, job['out'], job['crs'],
                         job['bbox'], job['width'], job['height'])
     else:
