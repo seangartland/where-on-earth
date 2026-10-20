@@ -464,7 +464,6 @@ export function initPack(main) {
         </svg>
       </div>
       <div class="pack-sealed-postmark" aria-hidden="true">DAILY<br>MAIL</div>
-      <span class="pack-sealed-airmail" aria-hidden="true"><b>PAR AVION</b> · BY AIR MAIL</span>
       <p class="pack-sealed-name">Daily postcard pack</p>
       <p class="pack-sealed-sub">3 postcards inside</p>
       <p class="pack-sealed-hint">Swipe all the way across to tear it open</p>
