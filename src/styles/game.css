@@ -477,21 +477,26 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 /* The sealed pack: a postcard-shaped packet, a bit taller and wider than a
    single postcard, torn across the top. --tear (0..1) is the cut's progress
    across the width, driven by the player's finger (pack.js). */
-.pack-sealed { position: relative; box-sizing: border-box; width: min(200px, 62vw); aspect-ratio: 3 / 4.1; margin: 6px auto 12px; overflow: hidden; border: 1.5px solid rgba(255,209,102,.55); border-radius: 9px; background: linear-gradient(155deg, #2c3169, #1d2050 52%, #151740); box-shadow: 4px -4px 0 -1px #262b5e, 4px -4px 0 0 rgba(255,209,102,.25), 8px -8px 0 -2px #1a1d47, 8px -8px 0 -1px rgba(255,209,102,.12), inset 0 1px 0 rgba(255,255,255,.30), inset 0 -20px 30px rgba(0,0,0,.38), inset 0 14px 22px rgba(255,255,255,.05); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
+.pack-sealed { position: relative; box-sizing: border-box; width: min(200px, 62vw); aspect-ratio: 3 / 4.1; margin: 6px auto 12px; overflow: hidden; border-radius: 9px; background: repeating-linear-gradient(45deg, #c8433c 0 14px, #f7efdc 14px 28px, #2c4a7c 28px 42px, #f7efdc 42px 56px); box-shadow: 4px -4px 0 -1px #d9cdb2, 8px -8px 0 -2px #cbbd9c, inset 0 1px 0 rgba(255,255,255,.5), inset 0 -18px 26px rgba(90,70,30,.18); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
 .pack-sealed[hidden] { display: none; }
-.pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
-.pack-sealed-strip { position: absolute; inset: 0 0 auto 0; height: 30px; border-bottom: 2px dashed rgba(255,209,102,.55); background: repeating-linear-gradient(90deg, rgba(255,255,255,.16) 0 3px, rgba(0,0,0,.18) 3px 6px), linear-gradient(180deg, #3a3f7d, #272b5c); clip-path: inset(0 0 0 calc(var(--tear, 0) * 100%)); pointer-events: none; }
-.pack-sealed-flap { position: absolute; top: 0; height: 30px; width: 52px; left: calc(var(--tear, 0) * 100% - 52px); background: repeating-linear-gradient(90deg, rgba(255,255,255,.13) 0 3px, rgba(0,0,0,.15) 3px 6px), linear-gradient(200deg, #343973, #232657); border-bottom: 2px dashed rgba(255,209,102,.55); transform-origin: 100% 0; transform: rotate(calc(var(--tear, 0) * -22deg)) translateY(calc(var(--tear, 0) * -7px)); opacity: var(--tear, 0); pointer-events: none; }
-.pack-sealed-cut { position: absolute; top: 0; height: 30px; width: 2px; left: calc(var(--tear, 0) * 100%); background: linear-gradient(180deg, #ffe9b0, #ffd166); box-shadow: 0 0 8px 2px rgba(255,209,102,.45); opacity: var(--tear, 0); pointer-events: none; }
-.pack-sealed-sheen { position: absolute; inset: 0; background: linear-gradient(115deg, transparent 22%, rgba(255,255,255,.11) 42%, rgba(255,255,255,.03) 56%, transparent 72%); pointer-events: none; }
-.pack-sealed-crimp { position: absolute; inset: auto 0 0 0; height: 26px; border-top: 1px solid rgba(255,255,255,.14); background: repeating-linear-gradient(90deg, rgba(255,255,255,.15) 0 3px, rgba(0,0,0,.18) 3px 6px), linear-gradient(0deg, #232657, #2e3270); pointer-events: none; }
-.pack-sealed-face { position: absolute; inset: 30px 0 26px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 14px; text-align: center; }
+.pack-sealed:focus-visible { outline: 2px solid #2c4a7c; outline-offset: 2px; }
+.pack-sealed::before { position: absolute; inset: 7px; border-radius: 5px; background: linear-gradient(165deg, #faf3e1, #f1e6cb); content: ''; pointer-events: none; }
+.pack-sealed-strip { position: absolute; z-index: 2; inset: 0 7px auto; height: 30px; border-bottom: 2px dashed rgba(200,67,60,.65); background: repeating-linear-gradient(90deg, rgba(44,74,124,.14) 0 3px, rgba(200,67,60,.12) 3px 6px), linear-gradient(180deg, #f3ead2, #eadfc2); clip-path: inset(0 0 0 calc(var(--tear, 0) * 100%)); pointer-events: none; }
+.pack-sealed-flap { position: absolute; z-index: 2; top: 0; height: 30px; width: 52px; left: calc(var(--tear, 0) * 100% - 52px); background: repeating-linear-gradient(90deg, rgba(44,74,124,.14) 0 3px, rgba(200,67,60,.12) 3px 6px), linear-gradient(200deg, #f3ead2, #eadfc2); border-bottom: 2px dashed rgba(200,67,60,.65); transform-origin: 100% 0; transform: rotate(calc(var(--tear, 0) * -22deg)) translateY(calc(var(--tear, 0) * -7px)); opacity: var(--tear, 0); pointer-events: none; }
+.pack-sealed-cut { position: absolute; z-index: 3; top: 0; height: 30px; width: 2px; left: calc(var(--tear, 0) * 100%); background: linear-gradient(180deg, #fffdf6, #c8433c); box-shadow: 0 0 8px 2px rgba(200,67,60,.28); opacity: var(--tear, 0); pointer-events: none; }
+.pack-sealed-sheen { position: absolute; z-index: 1; inset: 7px; background: linear-gradient(115deg, transparent 22%, rgba(255,255,255,.17) 42%, rgba(255,255,255,.04) 56%, transparent 72%); pointer-events: none; }
+.pack-sealed-crimp { position: absolute; z-index: 2; inset: auto 7px 0; height: 26px; border-top: 1px solid rgba(90,70,30,.18); background: repeating-linear-gradient(90deg, rgba(44,74,124,.12) 0 3px, rgba(200,67,60,.10) 3px 6px), linear-gradient(0deg, #eadfc2, #f3ead2); pointer-events: none; }
+.pack-sealed-face { position: absolute; z-index: 1; inset: 30px 7px 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 14px; text-align: center; }
 .pack-sealed.tearing .pack-sealed-strip { transition: clip-path .45s ease-in; clip-path: inset(0 0 0 100%); }
 .pack-sealed.tearing .pack-sealed-flap, .pack-sealed.tearing .pack-sealed-cut { transition: opacity .3s; opacity: 0; }
-.pack-sealed-label { margin: 10px 14px 0; padding: 8px 10px; border-top: 1px solid rgba(255,209,102,.5); border-bottom: 1px solid rgba(255,209,102,.5); }
-.pack-sealed-name { margin: 0; color: #ffe2a0; font-size: 17px; font-weight: 800; line-height: 1.2; letter-spacing: .02em; }
-.pack-sealed-sub { margin: 2px 0 0; color: rgba(193,224,250,.75); font-size: 12px; font-weight: 650; }
-.pack-sealed-hint { margin: 12px 0 0; color: rgba(193,224,250,.45); font-size: 11px; font-weight: 600; }
+.pack-sealed-stamp { position: absolute; top: 10px; right: 10px; width: 52px; height: 62px; padding: 3px; border: 1.5px dashed rgba(90,70,30,.45); background: #fffdf6; box-shadow: 0 1px 3px rgba(90,70,30,.25); }
+.pack-sealed-stamp svg { display: block; width: 44px; height: 54px; }
+.pack-sealed-postmark { position: absolute; top: 26px; right: 44px; display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border: 2px solid rgba(52,72,96,.5); border-radius: 50%; transform: rotate(-10deg); color: rgba(52,72,96,.65); font-size: 7.5px; font-weight: 700; letter-spacing: .12em; line-height: 1.5; text-align: center; }
+.pack-sealed-airmail { display: inline-block; margin-top: 30px; padding: 3px 8px; border: 1.5px solid #2c4a7c; border-radius: 3px; color: #2c4a7c; font-size: 9.5px; font-weight: 800; letter-spacing: .18em; }
+.pack-sealed-airmail b { color: #c8433c; font-weight: 800; }
+.pack-sealed-name { margin: 8px 0 0; color: #22355c; font-size: 17px; font-weight: 800; line-height: 1.2; letter-spacing: .02em; }
+.pack-sealed-sub { margin: 2px 0 0; color: rgba(52,72,96,.75); font-size: 12px; font-weight: 650; }
+.pack-sealed-hint { margin: 12px 0 0; color: rgba(90,70,30,.55); font-size: 11px; font-weight: 600; }
 
 .pack-flip-slot { perspective: 700px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .pack-flip-slot:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }

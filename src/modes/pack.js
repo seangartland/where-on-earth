@@ -455,11 +455,18 @@ export function initPack(main) {
     <div class="pack-sealed-cut"></div>
     <div class="pack-sealed-sheen"></div>
     <div class="pack-sealed-face">
-      <span class="pack-flip-mark">?</span>
-      <div class="pack-sealed-label">
-        <p class="pack-sealed-name">Daily postcard pack</p>
-        <p class="pack-sealed-sub">3 postcards inside</p>
+      <div class="pack-sealed-stamp" aria-hidden="true">
+        <svg viewBox="0 0 44 54" focusable="false">
+          <rect width="44" height="54" fill="#bcd6ea"/>
+          <circle cx="32" cy="12" r="6" fill="#f2b544"/>
+          <path d="M0 40 L14 24 L24 34 L32 26 L44 38 L44 54 L0 54 Z" fill="#4a6b4f"/>
+          <path d="M0 46 Q11 40 22 46 T44 46 L44 54 L0 54 Z" fill="#3e6d8e"/>
+        </svg>
       </div>
+      <div class="pack-sealed-postmark" aria-hidden="true">DAILY<br>MAIL</div>
+      <span class="pack-sealed-airmail" aria-hidden="true"><b>PAR AVION</b> · BY AIR MAIL</span>
+      <p class="pack-sealed-name">Daily postcard pack</p>
+      <p class="pack-sealed-sub">3 postcards inside</p>
       <p class="pack-sealed-hint">Swipe all the way across to tear it open</p>
     </div>
     <div class="pack-sealed-crimp"></div>`;
