@@ -369,7 +369,6 @@ export function applyThumbState(thumb, item, earned, visited) {
   thumb.classList.toggle('seen-no-postcard', showGrayscale);
   thumb.classList.toggle('no-postcard', showGrayscale);
   applyCardTier(thumb, item, earned);
-  thumb.parentElement.querySelector(':scope > .prox-badge')?.remove();
 }
 
 export function setRevealThumbState(item, visited, earned) {

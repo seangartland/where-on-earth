@@ -12,7 +12,7 @@ import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from '../daily.js';
-import { DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_NAMES, EARN_PINPOINT } from '../core/config.js';
+import { DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_NAMES } from '../core/config.js';
 import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { readJSON, writeJSON } from '../core/storage.js';
@@ -67,7 +67,7 @@ export function loadDaily() {
 export function streakText() {
   const streak = readJSON(STREAK_KEY);
   const count = streak && Number(streak.count) ? streak.count : 0;
-  return count ? `🔥 ${count} day streak` : '';
+  return count ? `${count} day streak` : '';
 }
 
 export function finishStreak() {
@@ -90,26 +90,28 @@ export function scoreEmoji(base) {
   return '🥶';
 }
 
-export function postcardDistance(result, outcome) {
+export function postcardDistance(result) {
   const distance = Number.isFinite(result.distanceExact) ? result.distanceExact : result.distance;
-  const precision = outcome?.tier === EARN_PINPOINT ? 1 : 0;
-  return `${distance.toLocaleString(undefined, { maximumFractionDigits: precision, minimumFractionDigits: precision })} km`;
+  return formatKm(distance);
 }
 
 export function postcardSummaryCard(result, item) {
   const outcome = result.postcard;
   if (!outcome || !['new', 'upgrade'].includes(outcome.kind)) return null;
-  const distanceText = postcardDistance(result, outcome);
+  const distanceText = postcardDistance(result);
   const card = buildPostcardCard(item, {
     earned: outcome.tier,
     earnName: EARN_NAMES[outcome.tier],
     meta: `${outcome.kind === 'upgrade' ? 'Upgraded' : 'New'} • ${distanceText}`,
   }, { flagForLocation, applyCardTier });
   card.classList.add('postcard-summary-entry');
-  const score = document.createElement('span');
-  score.className = 'postcard-summary-score';
-  score.textContent = result.score.toLocaleString();
-  card.append(score);
+  const scoreValue = result.base ?? result.score;
+  if (scoreValue != null) {
+    const score = document.createElement('span');
+    score.className = 'postcard-summary-score';
+    score.textContent = scoreValue.toLocaleString();
+    card.append(score);
+  }
   const name = card.querySelector('.pp-name');
   const entry = passportEntryFor(item);
   card.tabIndex = 0;
@@ -167,23 +169,22 @@ export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next =
   document.body.classList.add('game-results');
   const { new: newCount, upgrade: upgradeCount } = postcardSummaryCounts(outcomes);
   gameEls.postcardSummaryLede.textContent = `${note ? `${note} ` : ''}${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
+  gameEls.breakdown.hidden = outcomes.length === 0;
   gameEls.breakdown.replaceChildren(...outcomes.map(({ result, item }) => postcardSummaryCard(result, item)));
   const countLabel = (count, label) => {
+    if (!count) return null;
     const el = document.createElement('span');
     const number = document.createElement('b');
     number.textContent = count;
     el.append(number, ` ${label}`);
     return el;
   };
-  gameEls.postcardSummaryCounts.replaceChildren(
-    countLabel(newCount, 'new'),
-    Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }),
-    countLabel(upgradeCount, 'upgraded'),
-  );
+  const counts = [countLabel(newCount, 'new'), countLabel(upgradeCount, 'upgraded')].filter(Boolean);
+  gameEls.postcardSummaryCounts.replaceChildren(...counts.flatMap((count, index) => index ? [Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }), count] : [count]));
   const postmark = document.createElement('span');
   postmark.className = 'postcard-summary-postmark';
   postmark.setAttribute('aria-hidden', 'true');
-  postmark.textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+  postmark.textContent = new Date(`${state.daily.date}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
   gameEls.breakdown.append(gameEls.postcardSummaryCounts, postmark);
 }
 
@@ -200,7 +201,7 @@ export function showResults() {
   recordHistory();
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
-  gameEls.resultStreak.textContent = `🔥 ${streak} day streak`;
+  gameEls.resultStreak.textContent = `${streak} day streak`;
   gameEls.resultsBreakdown.replaceChildren(...state.daily.results.map((result, i) => {
     const round = document.createElement('li');
     const number = document.createElement('b');

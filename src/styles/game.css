@@ -11,6 +11,18 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+:root {
+  --mail-paper: linear-gradient(165deg, #faf3e1, #f0e4c6);
+  --mail-ink: #22355c;
+  --mail-ink-2: rgba(52,72,96,.78);
+  --mail-gold: #b27c20;
+  --mail-stamp: #fffdf6;
+  --mail-ring: 2px solid rgba(52,72,96,.45);
+  --mail-band-height: 6px;
+  --mail-stripe: repeating-linear-gradient(45deg, #c8433c 0 9px, #f7efdc 9px 18px, #2c4a7c 18px 27px, #f7efdc 27px 36px);
+  --mail-stripe-border: repeating-linear-gradient(45deg, #c8433c 0 14px, #f7efdc 14px 28px, #2c4a7c 28px 42px, #f7efdc 42px 56px);
+}
+
 body {
   position: fixed;
   inset: 0;
@@ -192,7 +204,7 @@ body.game-reveal .reveal-name { display: block; }
 .peek-slot { position: relative; flex: none; width: 52px; height: 52px; }
 .peek-slot[hidden] { display: none; }
 #peek-thumb { display: block; box-sizing: border-box; width: 52px; height: 52px; border: 3px solid #fffdf6; border-radius: 3px; object-fit: cover; object-position: center 20%; box-shadow: 0 0 0 1px rgba(101,78,38,.35), 0 2px 5px rgba(0,0,0,.4); }
-.peek-slot::before { position: absolute; z-index: 1; top: -3px; left: -3px; right: -3px; height: 5px; border-radius: 3px 3px 0 0; background: repeating-linear-gradient(45deg, #c8433c 0 7px, #f7efdc 7px 14px, #2c4a7c 14px 21px, #f7efdc 21px 28px); content: ''; pointer-events: none; }
+.peek-slot::before { position: absolute; z-index: 1; top: -3px; left: -3px; right: -3px; height: var(--mail-band-height); border-radius: 3px 3px 0 0; background: var(--mail-stripe); content: ''; pointer-events: none; }
 .peek-slot:has(#peek-thumb.prox-postcard)::after, .peek-slot:has(#peek-thumb.prox-bullseye)::after, .peek-slot:has(#peek-thumb.prox-pinpoint)::after { position: absolute; z-index: 2; right: -8px; bottom: -8px; display: grid; place-items: center; width: 21px; height: 21px; border: 1.6px solid rgba(178,124,32,.9); border-radius: 50%; background: rgba(250,243,225,.92); color: #22355c; font-size: 10px; line-height: 1; transform: rotate(-11deg); pointer-events: none; }
 .peek-slot:has(#peek-thumb.prox-bullseye)::after { content: '🎯'; }
 .peek-slot:has(#peek-thumb.prox-pinpoint)::after { content: '📍'; }
@@ -202,17 +214,6 @@ body.game-reveal .reveal-name { display: block; }
 #peek-thumb.seen-no-postcard, #place-thumb.seen-no-postcard { filter: grayscale(1); opacity: 0.7; }
 #peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint,
 #place-thumb.prox-postcard, #place-thumb.prox-bullseye, #place-thumb.prox-pinpoint { filter: none; opacity: 1; }
-/* Accuracy badge (setProxBadge): a small gold chip pinned inside the photo, clear
-   of the rarity frame, so Bullseye/Pinpoint never recolours or glows the border.
-   Compact hosts show the icon only; the postcard modal gets the large version. */
-.prox-badge { position: absolute; z-index: 3; top: 5px; left: 5px; display: inline-flex; align-items: center; gap: 3px; box-sizing: border-box; height: 18px; padding: 0 6px 0 4px; border-radius: 999px; background: linear-gradient(180deg, #ffdc7a, #e9b23c); box-shadow: 0 1px 3px rgba(0,0,0,.5); color: #2b1d00; font-size: 10px; font-weight: 900; line-height: 1; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
-.prox-badge i { font-size: 10px; font-style: normal; letter-spacing: 0; }
-.prox-badge.compact { gap: 0; width: 18px; padding: 0; justify-content: center; }
-.prox-badge.compact b { display: none; }
-.thumb-slot.waiting .prox-badge, .peek-slot.mystery .prox-badge, .thumb-slot:has(> img[hidden]) .prox-badge { display: none; }
-/* Proximity badge must overlay the thumbnail corner, never wrap into layout */
-.peek-slot, .thumb-slot { position: relative; overflow: visible; }
-.peek-slot > .prox-badge, .thumb-slot > .prox-badge { position: absolute; top: 4px; left: 4px; margin: 0; transform: none; }
 .peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .peek-name { overflow: hidden; color: #f3f9ff; font-size: 16px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .peek-bar[aria-expanded="true"] .peek-text { align-self: center; }
@@ -247,8 +248,8 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-header .eyebrow { margin-bottom: 6px; }
 .postcard-summary-header h2 { margin: 0; color: #f5fbff; font-size: 29px; line-height: 1.05; letter-spacing: -.045em; }
 .postcard-summary-lede { min-height: 18px; margin: 7px 0 0; color: rgba(198,226,250,.57); font-size: 13px; line-height: 1.4; }
-.postcard-summary-list { position: relative; display: grid; gap: 0; margin: 4px 3px; padding: 20px 15px 88px; overflow: hidden; border-radius: 8px; background: linear-gradient(165deg, #faf3e1, #f0e4c6); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); }
-.postcard-summary-list::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 7px; background: repeating-linear-gradient(45deg, #c8433c 0 9px, #f7efdc 9px 18px, #2c4a7c 18px 27px, #f7efdc 27px 36px); }
+.postcard-summary-list { position: relative; display: grid; gap: 0; margin: 4px 3px; padding: 20px 15px 88px; overflow: hidden; border-radius: 8px; background: var(--mail-paper); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); }
+.postcard-summary-list::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: var(--mail-band-height); background: var(--mail-stripe); }
 .postcard-summary-entry.pp-post { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 3px 10px; padding: 7px 1px; border: 0; border-bottom: 1px solid rgba(101,78,38,.18); border-radius: 0; background: none; box-shadow: none; color: #22355c; }
 .postcard-summary-entry .pp-photo { display: none; }
 .postcard-summary-entry .pp-name { min-width: 0; margin: 0; color: #22355c; }
@@ -258,7 +259,6 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-counts b { color: #b27c20; font-size: 14px; }
 .postcard-summary-separator { color: rgba(178,124,32,.6); }
 .postcard-summary-postmark { position: absolute; left: 15px; bottom: 12px; display: grid; place-items: center; width: 58px; height: 58px; border: 2px solid rgba(52,72,96,.45); border-radius: 50%; color: rgba(52,72,96,.68); font-size: 8px; font-weight: 800; letter-spacing: .05em; line-height: 1.2; text-align: center; transform: rotate(-11deg); }
-.postcard-summary-tier { color: #ffd477; }
 .postcard-summary-continue { display: block; width: min(100%, 300px); margin: 0 auto; }
 .result-score { margin: 0 0 10px; color: rgba(198,226,250,.58); font-size: 12px; font-weight: 700; text-align: center; }
 .result-score b { color: #ffc76a; font-size: 18px; }
@@ -481,10 +481,10 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 /* The sealed pack: a postcard-shaped packet, a bit taller and wider than a
    single postcard, torn across the top. --tear (0..1) is the cut's progress
    across the width, driven by the player's finger (pack.js). */
-.pack-sealed { position: relative; box-sizing: border-box; width: min(200px, 62vw); aspect-ratio: 3 / 4.1; margin: 6px auto 12px; overflow: hidden; border-radius: 9px; background: repeating-linear-gradient(45deg, #c8433c 0 14px, #f7efdc 14px 28px, #2c4a7c 28px 42px, #f7efdc 42px 56px); box-shadow: 4px -4px 0 -1px #d9cdb2, 8px -8px 0 -2px #cbbd9c, inset 0 1px 0 rgba(255,255,255,.5), inset 0 -18px 26px rgba(90,70,30,.18); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
+.pack-sealed { position: relative; box-sizing: border-box; width: min(200px, 62vw); aspect-ratio: 3 / 4.1; margin: 6px auto 12px; overflow: hidden; border-radius: 9px; background: var(--mail-stripe-border); box-shadow: 4px -4px 0 -1px #d9cdb2, 8px -8px 0 -2px #cbbd9c, inset 0 1px 0 rgba(255,255,255,.5), inset 0 -18px 26px rgba(90,70,30,.18); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
 .pack-sealed[hidden] { display: none; }
 .pack-sealed:focus-visible { outline: 2px solid #2c4a7c; outline-offset: 2px; }
-.pack-sealed::before { position: absolute; inset: 7px; border-radius: 5px; background: linear-gradient(165deg, #faf3e1, #f1e6cb); content: ''; pointer-events: none; }
+.pack-sealed::before { position: absolute; inset: 7px; border-radius: 5px; background: var(--mail-paper); content: ''; pointer-events: none; }
 .pack-sealed-strip { position: absolute; z-index: 2; inset: 0 7px auto; height: 30px; border-bottom: 2px dashed rgba(200,67,60,.65); background: repeating-linear-gradient(90deg, rgba(44,74,124,.14) 0 3px, rgba(200,67,60,.12) 3px 6px), linear-gradient(180deg, #f3ead2, #eadfc2); clip-path: inset(0 0 0 calc(var(--tear, 0) * 100%)); pointer-events: none; }
 .pack-sealed-flap { position: absolute; z-index: 2; top: 0; height: 30px; width: 52px; left: calc(var(--tear, 0) * 100% - 52px); background: repeating-linear-gradient(90deg, rgba(44,74,124,.14) 0 3px, rgba(200,67,60,.12) 3px 6px), linear-gradient(200deg, #f3ead2, #eadfc2); border-bottom: 2px dashed rgba(200,67,60,.65); transform-origin: 100% 0; transform: rotate(calc(var(--tear, 0) * -22deg)) translateY(calc(var(--tear, 0) * -7px)); opacity: var(--tear, 0); pointer-events: none; }
 .pack-sealed-cut { position: absolute; z-index: 3; top: 0; height: 30px; width: 2px; left: calc(var(--tear, 0) * 100%); background: linear-gradient(180deg, #fffdf6, #c8433c); box-shadow: 0 0 8px 2px rgba(200,67,60,.28); opacity: var(--tear, 0); pointer-events: none; }
@@ -493,10 +493,11 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-sealed-face { position: absolute; z-index: 1; inset: 30px 7px 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 14px; text-align: center; }
 .pack-sealed.tearing .pack-sealed-strip { transition: clip-path .45s ease-in; clip-path: inset(0 0 0 100%); }
 .pack-sealed.tearing .pack-sealed-flap, .pack-sealed.tearing .pack-sealed-cut { transition: opacity .3s; opacity: 0; }
-.pack-sealed-stamp { position: absolute; top: 10px; right: 10px; width: 52px; height: 62px; padding: 3px; border: 1.5px dashed rgba(90,70,30,.45); background: #fffdf6; box-shadow: 0 1px 3px rgba(90,70,30,.25); }
+.pack-sealed.tearing .pack-sealed-hint { visibility: hidden; }
+.pack-sealed-stamp { position: absolute; top: 10px; right: 10px; width: 52px; height: 62px; padding: 3px; border: 1.5px dashed rgba(90,70,30,.45); background: var(--mail-stamp); box-shadow: 0 1px 3px rgba(90,70,30,.25); }
 .pack-sealed-stamp svg { display: block; width: 44px; height: 54px; }
-.pack-sealed-postmark { position: absolute; top: 26px; right: 44px; display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border: 2px solid rgba(52,72,96,.5); border-radius: 50%; transform: rotate(-10deg); color: rgba(52,72,96,.65); font-size: 7.5px; font-weight: 700; letter-spacing: .12em; line-height: 1.5; text-align: center; }
-.pack-sealed-name { margin: 34px 0 0; color: #22355c; font-size: 17px; font-weight: 800; line-height: 1.2; letter-spacing: .02em; }
+.pack-sealed-postmark { position: absolute; top: 2px; right: 38px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: var(--mail-ring); border-radius: 50%; transform: rotate(-10deg); color: rgba(52,72,96,.65); font-size: 7.5px; font-weight: 700; letter-spacing: .12em; line-height: 1.5; text-align: center; }
+.pack-sealed-name { margin: 56px 0 0; color: var(--mail-ink); font-size: 17px; font-weight: 800; line-height: 1.2; letter-spacing: .02em; }
 .pack-sealed-sub { margin: 2px 0 0; color: rgba(52,72,96,.75); font-size: 12px; font-weight: 650; }
 .pack-sealed-hint { margin: 12px 0 0; color: rgba(90,70,30,.55); font-size: 11px; font-weight: 600; }
 
@@ -522,23 +523,25 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 }
 
 /* Survival and More modes hub rows: the shared picker row without the emoji column. */
-#survival-hub .expedition-choice, #more-modes-hub .expedition-choice { grid-template-columns: 1fr auto; }
-#survival-hub .expedition-choice:disabled, #more-modes-hub .expedition-choice:disabled { opacity: .45; cursor: progress; }
-#survival-hub .expedition-choice small:empty, #more-modes-hub .expedition-choice small:empty { display: none; }
+#survival-hub .expedition-choice { grid-template-columns: 1fr auto; }
+#survival-hub .expedition-choice:disabled { opacity: .45; cursor: progress; }
+#survival-hub .expedition-choice small:empty { display: none; }
 
 /* Expedition routes are letters kept in the dark picker, with postmarks for stops. */
-.expedition-picker:not(:has(.pvp-panel)) .expedition-choice { position: relative; border: 0; border-radius: 7px; background: linear-gradient(165deg, #faf3e1, #f0e4c6); box-shadow: 0 3px 10px rgba(0,0,0,.3), inset 0 0 0 1px rgba(101,78,38,.18); color: #22355c; }
-.expedition-picker:not(:has(.pvp-panel)) .expedition-choice::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(45deg, #c8433c 0 9px, #f7efdc 9px 18px, #2c4a7c 18px 27px, #f7efdc 27px 36px); }
-.expedition-picker:not(:has(.pvp-panel)) .expedition-choice strong { margin-top: 5px; color: #22355c; }
-.expedition-picker:not(:has(.pvp-panel)) .expedition-choice small { color: rgba(52,72,96,.78); }
-.expedition-picker:not(:has(.pvp-panel)) .expedition-choice .badge { color: #b27c20; }
-.expedition-picker:not(:has(.pvp-panel)) .expedition-choice .emoji { align-self: start; margin-top: 5px; }
-.expedition-picker:not(:has(.pvp-panel)) .weekly-eyebrow { color: #7a5f36; }
-.expedition-marks { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
-.expedition-marks span, .expedition-picker:not(:has(.pvp-panel)) .weekly-dot { display: grid; place-items: center; width: 29px; height: 29px; border: 1.5px dashed rgba(101,78,38,.35); border-radius: 50%; background: transparent; color: rgba(101,78,38,.52); font-size: 8px; font-weight: 800; line-height: 1; }
-.expedition-marks span[data-state="played"], .expedition-picker:not(:has(.pvp-panel)) .weekly-dot[data-state="played"] { border-style: solid; border-color: #34486a; background: #34486a; color: #faf3e1; }
-.expedition-picker:not(:has(.pvp-panel)) .weekly-dot[data-state="open"] { border-color: #c8433c; color: #c8433c; }
-.expedition-picker:not(:has(.pvp-panel)) .weekly-dot[data-today] { box-shadow: 0 0 0 2px rgba(200,67,60,.18); }
+.expedition-picker:has(#expedition-heading) .expedition-choice { position: relative; border: 0; border-radius: 7px; background: var(--mail-paper); box-shadow: 0 3px 10px rgba(0,0,0,.3), inset 0 0 0 1px rgba(101,78,38,.18); color: var(--mail-ink); }
+.expedition-picker:has(#expedition-heading) .expedition-choice::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: var(--mail-band-height); background: var(--mail-stripe); }
+.expedition-picker:has(#expedition-heading) .expedition-choice strong { margin-top: 5px; color: var(--mail-ink); }
+.expedition-picker:has(#expedition-heading) .expedition-choice small { color: var(--mail-ink-2); }
+.expedition-picker:has(#expedition-heading) .expedition-choice .badge { color: var(--mail-gold); }
+.expedition-picker:has(#expedition-heading) .expedition-choice .emoji { align-self: start; margin-top: 5px; }
+.expedition-picker:has(#expedition-heading) .weekly-eyebrow { color: #7a5f36; }
+.expedition-picker:has(#expedition-heading) .expedition-list { gap: 14px; }
+.expedition-marks { display: flex; gap: 5px; margin-top: 10px; flex-wrap: nowrap; }
+.expedition-marks span, .expedition-picker:has(#expedition-heading) .weekly-dot { display: grid; place-items: center; width: 26px; height: 26px; border: 1.5px dashed rgba(101,78,38,.35); border-radius: 50%; background: transparent; color: rgba(101,78,38,.52); font-size: 8px; font-weight: 800; line-height: 1; }
+.expedition-marks span[data-state="played"], .expedition-picker:has(#expedition-heading) .weekly-dot[data-state="played"] { border-style: solid; border-color: #34486a; background: #34486a; color: #faf3e1; }
+.expedition-picker:has(#expedition-heading) .weekly-dot[data-state="open"] { border-color: #c8433c; color: #c8433c; }
+.expedition-picker:has(#expedition-heading) .weekly-dot[data-today] { box-shadow: 0 0 0 2px rgba(200,67,60,.18); }
+.expedition-complete-mark { display: grid; place-items: center; width: 42px; height: 42px; border: var(--mail-ring); border-radius: 50%; color: var(--mail-ink-2); font-size: 6px; font-weight: 800; line-height: 1.15; text-align: center; transform: rotate(-11deg); }
 
 .survival-streak {
   display: none;

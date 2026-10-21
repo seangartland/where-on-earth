@@ -51,7 +51,7 @@ export function syncPassport() {
   passportEls.total.textContent = summary.total.toLocaleString();
   passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} earned` : '';
   const streak = currentStreak();
-  passportEls.streak.textContent = streak ? ` · 🔥 ${streak.toLocaleString()}` : '';
+  passportEls.streak.textContent = streak ? ` · ${streak.toLocaleString()}` : '';
   passportEls.stamps.replaceChildren(...summary.recent.map((spot) => {
     const img = document.createElement('img');
     img.src = spot.item.image;
@@ -260,7 +260,7 @@ function fillPassportShareCard(stats) {
     }));
   }
   while (ppsEls.top3.children.length < 3 && !ppsEls.best.hidden) ppsEls.top3.append(ppMysteryTemplate.cloneNode(true));
-  ppsEls.streak.innerHTML = `🔥 <b>${stats.streak.toLocaleString()}</b> day current streak`;
+  ppsEls.streak.innerHTML = `<b>${stats.streak.toLocaleString()}</b> day current streak`;
 }
 
 function roundRect(ctx, x, y, width, height, radius) {
@@ -276,45 +276,43 @@ function passportShareImage(stats) {
   canvas.height = 800;
   const ctx = canvas.getContext('2d');
   const bg = ctx.createLinearGradient(0, 0, 1200, 800);
-  bg.addColorStop(0, '#152756');
-  bg.addColorStop(.55, '#15143d');
-  bg.addColorStop(1, '#080b20');
+  bg.addColorStop(0, '#faf3e1');
+  bg.addColorStop(1, '#f0e4c6');
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, 1200, 800);
-  const glow = ctx.createRadialGradient(1010, 0, 0, 1010, 0, 430);
-  glow.addColorStop(0, 'rgba(132,93,255,.52)');
-  glow.addColorStop(1, 'rgba(132,93,255,0)');
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, 1200, 700);
-  ctx.fillStyle = '#8fdfff';
+  ctx.fillStyle = '#c8433c'; ctx.fillRect(0, 0, 300, 6);
+  ctx.fillStyle = '#f7efdc'; ctx.fillRect(300, 0, 300, 6);
+  ctx.fillStyle = '#2c4a7c'; ctx.fillRect(600, 0, 300, 6);
+  ctx.fillStyle = '#f7efdc'; ctx.fillRect(900, 0, 300, 6);
+  ctx.fillStyle = '#22355c';
   ctx.font = '800 24px system-ui, sans-serif';
   ctx.fillText('WHERE ON EARTH', 72, 82);
-  ctx.fillStyle = '#f7f8ff';
+  ctx.fillStyle = '#22355c';
   ctx.font = '900 58px system-ui, sans-serif';
   ctx.fillText('My passport', 72, 150);
-  ctx.fillStyle = 'rgba(218,229,255,.72)';
+  ctx.fillStyle = 'rgba(52,72,96,.78)';
   ctx.font = '800 24px system-ui, sans-serif';
   ctx.fillText('of ' + stats.total.toLocaleString() + ' places visited', 72 + ctx.measureText(stats.visited.toLocaleString()).width + 12, 212);
-  ctx.fillStyle = '#67e8ff';
+  ctx.fillStyle = '#b27c20';
   ctx.font = '900 30px system-ui, sans-serif';
   ctx.fillText(stats.visited.toLocaleString(), 72, 212);
-  ctx.fillStyle = 'rgba(157,211,255,.1)';
+  ctx.fillStyle = 'rgba(52,72,96,.14)';
   ctx.fillRect(72, 230, 1056, 10);
-  ctx.fillStyle = 'rgba(193,224,250,.22)';
+  ctx.fillStyle = 'rgba(52,72,96,.28)';
   ctx.fillRect(72, 230, stats.total ? 1056 * stats.visited / stats.total : 0, 10);
   const earnedGradient = ctx.createLinearGradient(72, 0, 1128, 0);
-  earnedGradient.addColorStop(0, '#67e8ff'); earnedGradient.addColorStop(.55, '#c4a8ff'); earnedGradient.addColorStop(1, '#ffd166');
+  earnedGradient.addColorStop(0, '#34486a'); earnedGradient.addColorStop(.55, '#b27c20'); earnedGradient.addColorStop(1, '#b27c20');
   ctx.fillStyle = earnedGradient;
   ctx.fillRect(72, 230, stats.total ? 1056 * stats.earned / stats.total : 0, 10);
-  ctx.fillStyle = '#8fdfff';
+  ctx.fillStyle = '#22355c';
   ctx.font = '850 20px system-ui, sans-serif';
   ctx.fillText('CLOSEST GUESSES', 72, 296);
 
   const tileXs = [72, 432, 792];
   const mystery = (x) => {
-    ctx.fillStyle = '#1b2c5a'; ctx.fillRect(x, 316, 336, 224);
-    ctx.strokeStyle = 'rgba(193,224,250,.42)'; ctx.lineWidth = 3; ctx.setLineDash([10, 8]); ctx.strokeRect(x + 2, 318, 332, 220); ctx.setLineDash([]);
-    ctx.fillStyle = 'rgba(214,220,232,.4)'; ctx.font = '900 80px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText('?', x + 168, 450);
+    ctx.fillStyle = '#fffdf6'; ctx.fillRect(x, 316, 336, 224);
+    ctx.strokeStyle = 'rgba(52,72,96,.45)'; ctx.lineWidth = 3; ctx.setLineDash([10, 8]); ctx.strokeRect(x + 2, 318, 332, 220); ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(52,72,96,.4)'; ctx.font = '900 80px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText('?', x + 168, 450);
     ctx.font = '900 22px system-ui, sans-serif'; ctx.fillText('???', x + 168, 520); ctx.textAlign = 'left';
   };
   const loadImage = (src) => new Promise((resolve) => {
@@ -331,18 +329,18 @@ function passportShareImage(stats) {
   }));
   const drawTile = (entry, img, x) => {
     if (!entry) return mystery(x);
-    ctx.fillStyle = '#1b2c5a'; ctx.fillRect(x, 316, 336, 224);
+    ctx.fillStyle = '#fffdf6'; ctx.fillRect(x, 316, 336, 224);
     if (img) {
       const scale = Math.max(336 / img.width, 224 / img.height);
       const w = img.width * scale, h = img.height * scale;
       ctx.save(); ctx.beginPath(); ctx.rect(x, 316, 336, 224); ctx.clip(); ctx.drawImage(img, x + (336 - w) / 2, 316 + (224 - h) * .2, w, h); ctx.restore();
     } else {
-      ctx.fillStyle = '#1b2c5a'; ctx.fillRect(x, 316, 336, 224);
+      ctx.fillStyle = '#fffdf6'; ctx.fillRect(x, 316, 336, 224);
       ctx.fillStyle = 'rgba(255,255,255,.95)'; ctx.font = '96px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(host.flagForLocation(entry.item), x + 168, 460); ctx.textAlign = 'left';
     }
-    ctx.fillStyle = 'rgba(8,14,32,.78)'; ctx.roundRect(x + 218, 328, 106, 38, 18); ctx.fill();
-    ctx.fillStyle = '#e6f0ff'; ctx.font = '800 22px system-ui, sans-serif'; ctx.fillText(formatShareKm(entry.km), x + 230, 354);
-    ctx.fillStyle = '#eef2ff'; ctx.font = '800 28px system-ui, sans-serif';
+    ctx.strokeStyle = '#b27c20'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x + 280, 348, 34, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = '#22355c'; ctx.font = '800 22px system-ui, sans-serif'; ctx.fillText(formatShareKm(entry.km), x + 230, 354);
+    ctx.fillStyle = '#22355c'; ctx.font = '800 28px system-ui, sans-serif';
     const flag = host.flagForLocation(entry.item);
     const labelText = entry.item.short || entry.item.clue;
     const label = Array.from(labelText);
@@ -361,12 +359,15 @@ function passportShareImage(stats) {
       { x: 792, value: stats.pinpoints, label: 'PINPOINTS', color: '#ffd166' },
     ];
     boxes.forEach((box) => {
-      ctx.fillStyle = 'rgba(4,10,28,.56)'; ctx.strokeStyle = box.color === '#ffd166' ? 'rgba(255,209,102,.48)' : 'rgba(157,211,255,.24)'; ctx.lineWidth = 2; roundRect(ctx, box.x, 616, 336, 104, 20);
+      ctx.fillStyle = '#fffdf6'; ctx.strokeStyle = 'rgba(52,72,96,.45)'; ctx.lineWidth = 2; roundRect(ctx, box.x, 616, 336, 104, 20);
       ctx.fillStyle = box.color; ctx.font = '900 48px system-ui, sans-serif'; ctx.fillText(box.value.toLocaleString(), box.x + 28, 680);
-      ctx.fillStyle = 'rgba(218,229,255,.64)'; ctx.font = '800 18px system-ui, sans-serif'; ctx.fillText(box.label, box.x + 28, 704);
+      ctx.fillStyle = 'rgba(52,72,96,.78)'; ctx.font = '800 18px system-ui, sans-serif'; ctx.fillText(box.label, box.x + 28, 704);
     });
-    if (!stats.top3?.length) { ctx.fillStyle = '#f3ecff'; ctx.font = '800 29px system-ui, sans-serif'; ctx.fillText(`🔥  ${stats.streak.toLocaleString()} day current streak`, 72, 400); }
-    ctx.fillStyle = 'rgba(193,224,250,.56)'; ctx.font = '700 21px system-ui, sans-serif'; ctx.fillText('where-on.earth', 72, 768);
+    if (!stats.top3?.length) { ctx.fillStyle = '#22355c'; ctx.font = '800 29px system-ui, sans-serif'; ctx.fillText(`${stats.streak.toLocaleString()} day current streak`, 72, 400); }
+    const postmarkDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+    ctx.strokeStyle = 'rgba(52,72,96,.45)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(1050, 752, 34, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = 'rgba(52,72,96,.78)'; ctx.font = '700 11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(postmarkDate, 1050, 755); ctx.textAlign = 'left';
+    ctx.fillStyle = 'rgba(52,72,96,.78)'; ctx.font = '700 21px system-ui, sans-serif'; ctx.fillText('where-on.earth', 72, 768);
     return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
   });
 }
@@ -1218,7 +1219,7 @@ function fillPostcard(entry) {
   const stampDistance = Number.isFinite(entry.km) ? `${Math.round(entry.km).toLocaleString()} KM` : '';
   ppdEls.stamp.hidden = !stampDistance;
   ppdEls.stampFlag.textContent = host.flagForLocation(item);
-  ppdEls.stampTier.textContent = `${entry.earned >= host.EARN_BULLSEYE ? 'GOLD' : 'POSTCARD'} · ${stampDistance}`;
+  ppdEls.stampTier.textContent = entry.earned >= host.EARN_BULLSEYE ? 'GOLD' : 'POSTCARD';
   const short = item.short || '';
   ppdEls.name.textContent = postcardDisplayName(item, host.flagForLocation);
   const clue = (item.clue || '').replace(FLAG_RE, '').trim();
@@ -1459,14 +1460,12 @@ export function initPassportHome(main) {
 /* A plain scrim, not backdrop-filter: a blurred panel over the live WebGL canvas
    starves the software compositor (the stats overlay needed a frozen loop for the
    same reason) and the dots show through the tint anyway. */
-.passport { box-sizing: border-box; width: min(100%, 330px); max-width: 330px; margin: 18px 0 24px; padding: 12px 14px 13px; border-radius: 20px; border: 1px solid rgba(157,211,255,.14); background: rgba(4,10,24,.5); }
 .passport[hidden] { display: none; }
 .passport { position: relative; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .passport:active { transform: scale(.99); }
 .passport:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
-.passport { overflow: hidden; padding: 0 0 11px; border: 0; border-radius: 8px; background: linear-gradient(165deg, #faf3e1, #f0e4c6); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); }
-.passport::before { content: ''; display: block; height: 7px; background: repeating-linear-gradient(45deg, #c8433c 0 10px, #f7efdc 10px 20px, #2c4a7c 20px 30px, #f7efdc 30px 40px); }
-.passport-open { position: absolute; top: 18px; right: 76px; color: rgba(52,72,96,.55); font-size: 20px; font-weight: 700; line-height: 1; }
+.passport { overflow: hidden; padding: 0 0 11px; border: 0; border-radius: 8px; background: var(--mail-paper); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); }
+.passport::before { content: ''; display: block; height: var(--mail-band-height); background: var(--mail-stripe); }
 .passport-count { margin: 11px 76px 0 14px; color: rgba(52,72,96,.78); font-size: 13px; font-weight: 700; }
 .passport-earned, .passport-streak { color: #b27c20; }
 .passport-count b { color: #22355c; font-size: 27px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.02em; text-shadow: none; }
@@ -1487,16 +1486,14 @@ export function initPassportHome(main) {
   passportBox = document.createElement('div');
   passportBox.className = 'passport';
   passportBox.hidden = true;
-  // Option A (2026-10-18): the summary card is the Passport button. The whole
-  // card opens the Passport; the chevron is the affordance.
+  // The summary card is the Passport button.
   passportBox.setAttribute('role', 'button');
   passportBox.tabIndex = 0;
   passportBox.setAttribute('aria-label', 'Open your passport');
   passportBox.innerHTML = `
   <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places found<span class="passport-earned" data-passport="earned"></span><span class="passport-streak" data-passport="streak"></span></p>
   <div class="passport-stamps" data-passport="stamps"></div>
-  <span class="passport-postmark" aria-hidden="true"><time></time></span>
-  <span class="passport-open" aria-hidden="true">›</span>`;
+  <span class="passport-postmark" aria-hidden="true"><time></time></span>`;
   passportBox.querySelector('.passport-postmark time').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
   passportBox.addEventListener('click', openPassport);
   passportBox.addEventListener('keydown', (event) => {
@@ -2052,11 +2049,9 @@ body.game-collections #hud { opacity: 0; }
   postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-.ppd-card { --ppd-accent: #b27c20; position: relative; touch-action: pan-y; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 7px; border-radius: 10px; background: repeating-linear-gradient(45deg, #c8433c 0 14px, #f7efdc 14px 28px, #2c4a7c 28px 42px, #f7efdc 42px 56px); box-shadow: 0 24px 70px rgba(0,0,0,.72); color: #43331a; transform-origin: 0 0; }
-.ppd-inner { min-height: 100%; padding: 9px 9px 12px; border-radius: 5px; background: linear-gradient(165deg, #faf3e1, #f0e4c6); }
+.ppd-card { --ppd-accent: var(--mail-gold); position: relative; touch-action: pan-y; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 7px; border-radius: 10px; background: var(--mail-stripe-border); box-shadow: 0 24px 70px rgba(0,0,0,.72); color: #43331a; transform-origin: 0 0; }
+.ppd-inner { min-height: 100%; padding: 9px 9px 12px; border-radius: 5px; background: var(--mail-paper); }
 .ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.ppd-front .prox-badge { top: 10px; left: 10px; gap: 5px; height: 26px; padding: 0 11px 0 8px; font-size: 11px; box-shadow: 0 2px 8px rgba(90,70,30,.35); }
-.ppd-front .prox-badge i { font-size: 14px; }
 .ppd-front { position: relative; }
 .ppd-front .pp-photo { aspect-ratio: 4 / 3; overflow: hidden; border: 4px solid #fffdf6; border-radius: 0; background: #d9cdb2; box-shadow: 0 0 0 1px rgba(101,78,38,.25), 0 2px 6px rgba(101,78,38,.3); }
 .ppd-front .pp-photo::after { font-size: 44px; }

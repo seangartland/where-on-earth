@@ -154,7 +154,12 @@ function renderWeeklyCard() {
     : playable.length ? `Stop ${playable[0] + 1} open today`
     : 'Next stop opens tomorrow';
   button.querySelector('.weekly-progress').textContent = `${done} of ${WEEK_STOPS} stops · ${status}${missed && !complete ? ' · Missed stops open Sunday' : ''}`;
-  button.querySelector('.badge').textContent = complete ? '🏅' : playable.length ? '›' : '';
+  if (complete) {
+    const completionDate = Object.values(weeklyPlayed(week)).sort().at(-1) || localDateKey();
+    const badge = button.querySelector('.badge');
+    badge.classList.add('expedition-complete-mark');
+    badge.textContent = `${new Date(`${completionDate}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase()} COMPLETE`;
+  } else button.querySelector('.badge').textContent = playable.length ? '›' : '';
   weeklySlot.replaceChildren(button);
 }
 
@@ -176,10 +181,21 @@ function renderWeeklyArchive() {
     const row = document.createElement('div');
     row.className = 'expedition-choice expedition-archive-row';
     row.dataset.weeklyArchive = start;
-    row.innerHTML = `<span><strong></strong><small></small></span><span class="badge"></span>`;
+    row.innerHTML = `<span><strong></strong><small></small><span class="expedition-marks" aria-hidden="true"></span></span><span class="badge"></span>`;
     row.querySelector('strong').textContent = weeklyRoutes.find((route) => route.id === record.route)?.name || record.route;
     row.querySelector('small').textContent = `${weekRangeText(start)} · ${playedCount(record)} of ${WEEK_STOPS} stops`;
-    row.querySelector('.badge').textContent = record.badge ? '🏅' : '';
+    if (record.badge) {
+      row.querySelector('.expedition-marks').replaceChildren(...Array.from({ length: WEEK_STOPS }, (_, index) => {
+        const mark = document.createElement('span');
+        mark.dataset.state = 'played';
+        mark.textContent = index + 1;
+        return mark;
+      }));
+      const completionDate = Object.values(record.played || {}).sort().at(-1) || start;
+      const badge = row.querySelector('.badge');
+      badge.classList.add('expedition-complete-mark');
+      badge.textContent = `${new Date(`${completionDate}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase()} COMPLETE`;
+    }
     return row;
   }));
 }
@@ -205,7 +221,11 @@ function renderExpeditionPicker(highlightId = '') {
       mark.textContent = index + 1;
       return mark;
     }));
-    button.querySelector('.badge').textContent = progress.complete ? '🏅' : '›';
+    if (progress.complete) {
+      const badge = button.querySelector('.badge');
+      badge.classList.add('expedition-complete-mark');
+      badge.textContent = 'COMPLETE';
+    } else button.querySelector('.badge').textContent = '›';
     return button;
   }));
 }

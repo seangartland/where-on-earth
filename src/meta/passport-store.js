@@ -76,20 +76,6 @@ export function applyCardTier(el, item, earned) {
   if (earned) el.classList.add(PROX_CLASSES[earned]);
 }
 
-// The one accuracy badge every surface uses (styles: .prox-badge in styles/game.css).
-// host must be positioned; size is '' (icon + label), 'compact' (icon) or 'large'.
-export const PROX_BADGES = { [EARN_BULLSEYE]: ['🎯', 'Bullseye'], [EARN_PINPOINT]: ['📍', 'Pinpoint'] };
-export function setProxBadge(host, earned, size = '') {
-  const old = host.querySelector(':scope > .prox-badge');
-  const badge = PROX_BADGES[earned];
-  if (!badge) { old?.remove(); return; }
-  const el = old || document.createElement('span');
-  el.className = `prox-badge${size ? ` ${size}` : ''}`;
-  el.setAttribute('role', 'img');
-  el.setAttribute('aria-label', badge[1]);
-  el.innerHTML = `<i aria-hidden="true">${badge[0]}</i><b aria-hidden="true">${badge[1]}</b>`;
-  if (!old) host.append(el);
-}
 export let passportDirty = true; // dots need rebuilding before the next start screen
 export let locationIndex = null; // built lazily; locations arrive after this section runs
 
