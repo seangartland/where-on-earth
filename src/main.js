@@ -90,6 +90,10 @@ if (RESET_DAILY) {
   history.replaceState(null, '', location.pathname + location.hash);
 }
 
+// Recommended home variant: ?home=recs gates the simplified layout.
+const isRecsHome = new URLSearchParams(location.search).get('home') === 'recs';
+if (isRecsHome) document.body.classList.add('home-recs');
+
 // ---------------------------------------------------------------------------
 // Version check: if the server has a newer version, show a reload banner.
 // This handles iOS Safari caching the HTML despite no-cache headers.
@@ -305,6 +309,66 @@ const modeHost = {
 // ---------------------------------------------------------------------------
 initEndless(modeHost);
 
+function setupRecsHome() {
+  const modeButtons = document.querySelector('.mode-buttons');
+  if (!modeButtons) return;
+
+  // Daily button: update sub-line and add pack marker
+  const playButton = document.getElementById('play-button');
+  if (playButton) {
+    const desc = playButton.querySelector('.mode-desc');
+    if (desc) desc.textContent = '5 places · about 2 minutes';
+    // Pack marker as separate tap target
+    if (!playButton.querySelector('.pack-marker')) {
+      const marker = document.createElement('button');
+      marker.type = 'button';
+      marker.className = 'pack-marker';
+      marker.setAttribute('aria-label', 'Open daily postcard pack');
+      marker.textContent = '✦';
+      marker.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const packBtn = document.getElementById('pack-button');
+        if (packBtn && !packBtn.disabled) packBtn.click();
+      });
+      playButton.appendChild(marker);
+    }
+  }
+
+  // Expeditions button: make visible in variant
+  const expeditionsButton = document.getElementById('expeditions-button');
+  if (expeditionsButton) {
+    expeditionsButton.classList.add('recs-visible');
+    expeditionsButton.hidden = false;
+  }
+
+  // Hide original Practice and Challenge buttons
+  const survivalHubButton = document.getElementById('survival-hub-button');
+  if (survivalHubButton) survivalHubButton.style.display = 'none';
+  const pvpButton = document.getElementById('pvp-button');
+  if (pvpButton) pvpButton.style.display = 'none';
+
+  // Create "More ways to play" row - single button opening Practice hub
+  if (!modeButtons.querySelector('.more-ways-row')) {
+    const moreWaysRow = document.createElement('div');
+    moreWaysRow.className = 'more-ways-row';
+    moreWaysRow.innerHTML = `
+      <button type="button" id="recs-more-ways-button">
+        <span class="mode-name">More ways to play</span>
+        <small class="mode-desc">Practice, Tap the Country, and more</small>
+      </button>
+    `;
+    modeButtons.appendChild(moreWaysRow);
+
+    const moreWaysBtn = document.getElementById('recs-more-ways-button');
+    if (moreWaysBtn) {
+      moreWaysBtn.addEventListener('click', () => {
+        const hubBtn = document.getElementById('survival-hub-button');
+        if (hubBtn && !hubBtn.disabled) hubBtn.click();
+      });
+    }
+  }
+}
+
 function goHome() {
   borders.active = false;
   survival.active = false;
@@ -321,11 +385,12 @@ function goHome() {
   hideScreens();
   state.gameMode = 'start';
   gameEls.start.hidden = false;
-  document.body.className = 'game-start';
+  document.body.className = isRecsHome ? 'game-start home-recs' : 'game-start';
   window.__canGuess = false;
   state.targetDist = 3;
   syncPassport();
   syncDailyButton();
+  if (isRecsHome) setupRecsHome();
   syncPackButton();
 }
 
@@ -747,6 +812,7 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   updateExpeditionEntry();
   passportEntry.disabled = false;
   collectionsEntry.disabled = false;
+  if (isRecsHome) setupRecsHome();
   syncPackButton();
   document.getElementById('pvp-button').disabled = false;
   if (pvpLinkInvite) (pvpLinkIsGroup ? openPvpGroupJoin : openPvpJoin)({ inviteToken: pvpLinkInvite });

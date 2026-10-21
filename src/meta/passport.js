@@ -47,11 +47,16 @@ export function syncPassport() {
   passportEls.box.hidden = summary.found === 0;
   host.gameEls.start.classList.toggle('has-passport', summary.found > 0);
   if (!summary.found) return;
-  passportEls.found.textContent = summary.found.toLocaleString();
-  passportEls.total.textContent = summary.total.toLocaleString();
-  passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} earned` : '';
-  const streak = currentStreak();
-  passportEls.streak.textContent = streak ? ` · ${streak.toLocaleString()}` : '';
+  const isRecsHome = document.body.classList.contains('home-recs');
+  if (isRecsHome && passportEls.count) {
+    passportEls.count.innerHTML = `<b data-passport="found">${summary.found.toLocaleString()}</b> found${summary.earned ? ` · ${summary.earned.toLocaleString()} earned` : ''}`;
+  } else {
+    passportEls.found.textContent = summary.found.toLocaleString();
+    passportEls.total.textContent = summary.total.toLocaleString();
+    passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} earned` : '';
+    const streak = currentStreak();
+    passportEls.streak.textContent = streak ? ` · ${streak.toLocaleString()}` : '';
+  }
   passportEls.stamps.replaceChildren(...summary.recent.map((spot) => {
     const img = document.createElement('img');
     img.src = spot.item.image;
@@ -1455,6 +1460,7 @@ let ppdCopiedTimer = 0;
 
 export function initPassportHome(main) {
   host = main;
+  const isRecsHome = document.body.classList.contains('home-recs');
   passportStyle = document.createElement('style');
   passportStyle.textContent = `
 /* A plain scrim, not backdrop-filter: a blurred panel over the live WebGL canvas
@@ -1476,10 +1482,19 @@ export function initPassportHome(main) {
 .passport-stamps img[data-tier="dim"] { filter: saturate(.65) brightness(.7); }
 .passport-postmark { position: absolute; top: 17px; right: 13px; display: grid; place-items: center; width: 56px; height: 56px; border: 2px solid rgba(52,72,96,.45); border-radius: 50%; color: rgba(52,72,96,.68); font-size: 7px; font-weight: 800; letter-spacing: .08em; line-height: 1.35; text-align: center; transform: rotate(-11deg); }
 .passport-postmark time { display: block; font-size: 9px; }
+
+/* Recommended home variant: compressed passport card */
+.home-recs .passport { padding: 0 0 8px; }
+.home-recs .passport-count { margin: 8px 76px 0 14px; font-size: 12px; }
+.home-recs .passport-count b { font-size: 22px; }
+.home-recs .passport-stamps { display: none; }
+.home-recs .passport-postmark { top: 10px; right: 10px; width: 48px; height: 48px; font-size: 6.5px; }
+.home-recs .passport-postmark time { font-size: 8px; }
 @media (max-height: 700px) {
   .passport { margin-bottom: 18px; }
   .passport-count b { font-size: 23px; }
   .passport-stamps img { width: 34px; height: 34px; }
+  .home-recs .passport-count b { font-size: 20px; }
 }`;
   document.head.appendChild(passportStyle);
 
@@ -1504,6 +1519,7 @@ export function initPassportHome(main) {
   host.gameEls.play.closest('.mode-buttons').before(passportBox);
   passportEls = {
     box: passportBox,
+    count: passportBox.querySelector('.passport-count'),
     found: passportBox.querySelector('[data-passport="found"]'),
     total: passportBox.querySelector('[data-passport="total"]'),
     earned: passportBox.querySelector('[data-passport="earned"]'),

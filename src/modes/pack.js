@@ -55,6 +55,17 @@ export function syncPackButton() {
   entry.querySelector('.mode-desc').textContent = done ? '✓ Opened · new pack at midnight'
     : played ? `${played} of ${PACK_CARDS} opened` : `${PACK_CARDS} cards today`;
   entry.classList.toggle('played', done);
+
+  // Recommended home variant: update pack marker on Daily button
+  const isRecsHome = document.body.classList.contains('home-recs');
+  if (isRecsHome) {
+    const playButton = document.getElementById('play-button');
+    const marker = playButton?.querySelector('.pack-marker');
+    if (marker) {
+      marker.hidden = done;
+      marker.setAttribute('aria-label', done ? 'Pack opened' : 'Open daily postcard pack');
+    }
+  }
 }
 
 // First tap on a new date generates today's pack and saves it before any clue.

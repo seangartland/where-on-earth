@@ -234,7 +234,13 @@ export function showResults() {
 
 export function syncDailyButton() {
   const played = state.daily && state.daily.complete && state.daily.date === localDateKey();
-  gameEls.play.querySelector('.mode-desc').textContent = played ? '✓ See results' : '5 places daily';
+  const isRecsHome = document.body.classList.contains('home-recs');
+  const desc = gameEls.play.querySelector('.mode-desc');
+  if (isRecsHome) {
+    desc.textContent = played ? '✓ See results' : '5 places · about 2 minutes';
+  } else {
+    desc.textContent = played ? '✓ See results' : '5 places daily';
+  }
   gameEls.play.classList.toggle('played', Boolean(played));
 }
 
