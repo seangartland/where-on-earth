@@ -201,6 +201,7 @@ export function showResults() {
   recordHistory();
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
+  gameEls.maxScore.textContent = `/${(WEIGHTS.reduce((sum, w) => sum + w, 0) * 1000).toLocaleString()}`;
   gameEls.resultStreak.textContent = `${streak} day streak`;
   gameEls.resultsBreakdown.replaceChildren(...state.daily.results.map((result, i) => {
     const round = document.createElement('li');
@@ -402,8 +403,6 @@ export function openRecap(i) {
   reviewEls.name.textContent = item.clue;
   reviewEls.distance.textContent = formatKm(result.distance);
   reviewEls.base.textContent = result.base ?? Math.round((result.score * 10) / WEIGHTS[i]);
-  reviewEls.mult.textContent = `×${WEIGHTS[i] / 10}`;
-  reviewEls.mult.style.display = WEIGHTS[i] > 1 ? '' : 'none';
   reviewEls.score.textContent = `+${result.score.toLocaleString()}`;
   reviewEls.fact.textContent = item.fact;
   setThumb(reviewEls.thumb, item.image);
@@ -577,7 +576,7 @@ body.game-review #hud { opacity: 0; }
   </header>
   <article class="reveal-card recap-card glass" hidden>
     <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div><button class="recap-close" aria-label="Close round recap">×</button></div>
-    <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><div class="score-math"><span class="base"><b class="recap-base"></b>/1000</span><span class="mult recap-mult"></span><strong class="recap-score"></strong></div></div>
+    <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><div class="score-math"><span class="base"><b class="recap-base"></b>/1000</span><strong class="recap-score"></strong></div></div>
     <img class="recap-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
     <p class="recap-fact"></p>
     <button class="primary" data-act="back">Back to globe</button>
@@ -593,7 +592,6 @@ body.game-review #hud { opacity: 0; }
     name: reviewScreen.querySelector('.recap-head h3'),
     distance: reviewScreen.querySelector('.recap-distance'),
     base: reviewScreen.querySelector('.recap-base'),
-    mult: reviewScreen.querySelector('.recap-mult'),
     score: reviewScreen.querySelector('.recap-score'),
     thumb: reviewScreen.querySelector('.recap-thumb'),
     fact: reviewScreen.querySelector('.recap-fact'),

@@ -178,7 +178,6 @@ h1 { max-width: 330px; margin: 0; color: #f1f8ff; font-size: clamp(46px, 15vw, 6
 .score-math { display: flex; align-items: baseline; gap: 9px; }
 .score-math .base { color: #fff; font-size: 14px; font-weight: 700; white-space: nowrap; }
 .score-math .base b { font-size: 22px; font-weight: 800; }
-.score-math .mult { color: rgba(193,224,250,.62); font-size: 15px; font-weight: 700; }
 .reveal-card .primary { width: 100%; min-height: 48px; }
 
 /* Reveal: the clue header collapses to the place name, a score pill floats
@@ -227,7 +226,6 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .peek-text .score-math { display: flex; align-items: baseline; gap: 7px; min-width: 0; color: rgba(193,224,250,.8); line-height: 1.2; white-space: nowrap; }
 .peek-text .score-math .base { font-size: 15px; }
 .peek-text .score-math .base b { font-size: 15px; }
-.peek-text .score-math .mult { color: #bfe7ff; font-size: 15px; }
 .peek-bar .peek-next { flex: none; min-width: 0; min-height: 44px; padding: 0 18px; font-size: 15px; }
 .peek-bar[aria-expanded="true"] .peek-next { align-self: center; padding: 0 14px; }
 .sheet-content { max-height: 0; overflow: hidden; transition: max-height .32s cubic-bezier(.2,.8,.2,1); }

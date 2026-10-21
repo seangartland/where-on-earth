@@ -98,12 +98,12 @@ export const gameEls = {
   lineDistance: document.getElementById('line-distance'),
   distance: document.getElementById('distance'),
   baseScore: document.getElementById('base-score'),
-  mult: document.getElementById('score-mult'),
   score: document.getElementById('round-score'),
   fact: document.getElementById('fact'),
   thumb: document.getElementById('place-thumb'),
   next: document.getElementById('next-button'),
   total: document.getElementById('total-score'),
+  maxScore: document.getElementById('max-score'),
   breakdown: document.getElementById('breakdown'),
   resultsBreakdown: document.getElementById('results-breakdown'),
   postcardSummaryLede: document.getElementById('postcard-summary-lede'),
@@ -176,8 +176,7 @@ export function showRound() {
     packRoundHeader();
   } else {
     gameEls.number.textContent = `Round ${state.daily.round + 1} of 5`;
-    gameEls.weight.textContent = `${WEIGHTS[state.daily.round]}× points`;
-    gameEls.weight.style.display = WEIGHTS[state.daily.round] > 1 ? '' : 'none';
+    gameEls.weight.style.display = 'none';
     gameEls.dailyDate.textContent = formatDailyDate(state.daily.date);
     gameEls.dailyDate.hidden = false;
   }
@@ -283,10 +282,7 @@ export function revealGuess(guess, restoring = false) {
     if (postcard.kind !== 'miss') runHaul.push({ result: { distance: km, distanceExact: kmExact, postcard }, item: answer });
   }
   if (!restoring && expeditionRun.active) completeExpeditionRound();
-  const weight = oneOff ? 1 : WEIGHTS[state.daily.round];
   gameEls.baseScore.textContent = base;
-  gameEls.mult.textContent = `×${weight}`;
-  gameEls.mult.style.display = oneOff ? 'none' : '';
   // A trivia entry's clue is the riddle; the reveal names the place.
   const placeName = trivia.active ? answer.short : answer.clue || answer.short;
   gameEls.revealName.textContent = placeName;
@@ -446,7 +442,6 @@ export function pvpRevealTimeout(answer) {
   setThumb(gameEls.peekThumb, answer.image);
   peekSlot.hidden = !answer.image;
   setRevealThumbState(answer, isVisited(answer.id), state.passport.meta[answer.id]?.e || 0);
-  gameEls.mult.style.display = 'none';
   gameEls.score.textContent = '0';
   gameEls.distance.textContent = 'Out of time';
   gameEls.revealPill.classList.remove('safe', 'miss');

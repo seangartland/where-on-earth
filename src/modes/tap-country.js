@@ -143,7 +143,6 @@ export function revealBorders(tap) {
   gameEls.revealName.textContent = name;
   gameEls.peekName.textContent = name;
   gameEls.distance.textContent = borders.missed || toleranceHit ? formatKm(km) : '';
-  gameEls.mult.style.display = 'none';
   gameEls.fact.textContent = complete ? `Found ${displayName}. That's every ${borders.scope.unit} in ${borders.scope.place}.`
     : !borders.missed ? `Found ${displayName}.`
     : `You tapped ${res.tapped || 'the ocean'}, ${km.toLocaleString()} km from ${displayName}.`;

@@ -15,7 +15,7 @@ import { formatKm } from '../core/format.js';
 
 let host = null;
 const HISTORY_LIMIT = 365;
-const BAND_EDGES = [2000, 4000, 6000, 8000]; // /10000 total, five rounds at weights 1,1,2,3,3
+const BAND_EDGES = [1000, 2000, 3000, 4000]; // /5000 total, five rounds at flat weight 1
 const BAND_LOW_RGB = [103, 232, 255]; // cyan
 const BAND_HIGH_RGB = [255, 199, 106]; // amber
 
@@ -85,7 +85,7 @@ function bandIndex(total) {
 
 function bandLabel(index) {
   const start = index === 0 ? 0 : BAND_EDGES[index - 1];
-  const end = index === BAND_EDGES.length ? 10000 : BAND_EDGES[index] - 1;
+  const end = index === BAND_EDGES.length ? 5000 : BAND_EDGES[index] - 1;
   return `${start}–${end}`;
 }
 
@@ -153,9 +153,9 @@ function renderStats() {
 
   statsEls.hist.hidden = !stats.games;
   if (stats.games) {
-    const counts = new Array(10).fill(0);
+    const counts = new Array(6).fill(0); // 0k-5k buckets: a daily total can't exceed the 5000 flat-scoring max
     stats.history.forEach((game) => {
-      counts[Math.min(9, Math.floor(game.total / 1000))] += 1;
+      counts[Math.min(5, Math.floor(game.total / 1000))] += 1;
     });
     const peak = Math.max(...counts);
     statsEls.histBars.replaceChildren(...counts.map((count, i) => {
@@ -218,7 +218,7 @@ export function initStats(main) {
 .stats-grid .stat b { font-size: 25px; }
 .stat small { display: block; margin-top: 4px; color: rgba(193,224,250,.42); font-size: 10px; letter-spacing: .06em; text-transform: none; }
 .stats-head { margin: 24px 0 10px; color: #77caff; font-size: 11px; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
-.stats-hist-bars { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 5px; margin: 0; padding: 0; list-style: none; }
+.stats-hist-bars { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px; margin: 0; padding: 0; list-style: none; }
 .stats-hist-bars li { display: grid; grid-template-rows: 96px 16px; min-width: 0; text-align: center; }
 .stats-hist-count { position: absolute; right: 0; left: 0; color: #f5fbff; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: center; }
 .stats-hist-bar { position: relative; display: block; margin: 0 1px; border-bottom: 1px solid rgba(157,211,255,.3); }
@@ -256,8 +256,8 @@ body.game-stats #hud { opacity: 0; }
     </div>
     <div class="stats-grid">
       <div class="stat cool"><b data-stats="games">0</b><span>Games played</span><small data-stats="games-sub"></small></div>
-      <div class="stat"><b data-stats="average">0</b><span>Average score</span><small>/10000 per game</small></div>
-      <div class="stat"><b data-stats="best">0</b><span>Best score</span><small>/10000 in one game</small></div>
+      <div class="stat"><b data-stats="average">0</b><span>Average score</span><small>/5000 per game</small></div>
+      <div class="stat"><b data-stats="best">0</b><span>Best score</span><small>/5000 in one game</small></div>
       <div class="stat cool"><b data-stats="distance">0</b><span>Avg distance</span><small>km off the mark</small></div>
     </div>
     <section class="stats-hist" data-stats="hist" hidden>
