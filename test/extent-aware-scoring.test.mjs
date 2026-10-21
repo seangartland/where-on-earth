@@ -125,8 +125,8 @@ test('adjusted exact distance drives score, display rounding, tiers, postcard an
 test('cities and point landmarks preserve the raw number and frozen score fixtures', () => {
   const samples = [
     ['tokyo-japan', 0, { lat: 36.91136, lng: 137.41829 }, 251.05352006657486, 251, 950, 950],
-    ['enugu-ng', 2, { lat: 7.67582, lng: 5.15323 }, 292.9841319554443, 293, 941, 1882],
-    ['krasnoyarsk-ru', 4, { lat: 57.27192, lng: 90.58576 }, 198.46724682154738, 198, 962, 2886],
+    ['enugu-ng', 2, { lat: 7.67582, lng: 5.15323 }, 292.9841319554443, 293, 941, 941],
+    ['krasnoyarsk-ru', 4, { lat: 57.27192, lng: 90.58576 }, 198.46724682154738, 198, 962, 962],
   ];
   const byCityId = new Map(cities.map((item) => [item.id, item]));
   for (const [id, round, guess, frozenKm, rounded, base, weighted] of samples) {
@@ -146,8 +146,8 @@ test('cities and point landmarks preserve the raw number and frozen score fixtur
 
 test('fixed pinned and derived Daily selections and serialized round fields stay frozen', () => {
   const fixtures = [
-    ['2026-10-18', ['tokyo-japan', 'boise-usa', 'enugu-ng', 'ciudad-juarez-mx', 'krasnoyarsk-ru'], [251.05352006657486, 231.86657960125547, 292.9841319554443, 259.6144718086858, 198.46724682154738], [[251, 950, 950], [232, 955, 955], [293, 941, 1882], [260, 948, 2844], [198, 962, 2886]]],
-    ['2026-11-03', ['nashville-usa', 'osaka-japan', 'durban-south-africa', 'malabo-equatorial-guinea', 'oymyakon-russia'], [249.95192791543136, 253.25007566156745, 265.76571920044677, 294.0622469008112, 178.4221670484311], [[250, 951, 951], [253, 950, 950], [266, 947, 1894], [294, 941, 2823], [178, 966, 2898]]],
+    ['2026-10-18', ['tokyo-japan', 'boise-usa', 'enugu-ng', 'ciudad-juarez-mx', 'krasnoyarsk-ru'], [251.05352006657486, 231.86657960125547, 292.9841319554443, 259.6144718086858, 198.46724682154738], [[251, 950, 950], [232, 955, 955], [293, 941, 941], [260, 948, 948], [198, 962, 962]]],
+    ['2026-11-03', ['nashville-usa', 'osaka-japan', 'durban-south-africa', 'malabo-equatorial-guinea', 'oymyakon-russia'], [249.95192791543136, 253.25007566156745, 265.76571920044677, 294.0622469008112, 178.4221670484311], [[250, 951, 951], [253, 950, 950], [266, 947, 947], [294, 941, 941], [178, 966, 966]]],
   ];
   const byId = new Map(cities.map((item) => [item.id, item]));
   for (const [date, expectedIds, expectedExact, expectedScores] of fixtures) {

@@ -1578,7 +1578,7 @@ export function initPassport(main) {
    of rebuilding, so only a sort change rebuilds the DOM (see renderPassportDex). */
 .pp-dex-wrap { margin-top: 0; }
 .pp-group { content-visibility: auto; contain-intrinsic-size: auto 900px; scroll-margin-top: var(--pp-toolbar-h); }
-.pp-group-head { position: sticky; top: calc(var(--pp-toolbar-top) + var(--pp-toolbar-h)); z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
+.pp-group-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
 [data-pp="places-view"] .pp-group-head, [data-pp="landmarks-view"] .pp-group-head { min-height: 48px; box-sizing: border-box; }
 .pp-group-head:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pp-group-head::after { content: ''; flex: none; width: 6px; height: 6px; margin: -3px 3px 0 0; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
