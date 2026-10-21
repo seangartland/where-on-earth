@@ -324,7 +324,7 @@ function setupRecsHome() {
       marker.type = 'button';
       marker.className = 'pack-marker';
       marker.setAttribute('aria-label', 'Open daily postcard pack');
-      marker.textContent = '✦';
+      marker.innerHTML = '<span class="mode-name" aria-hidden="true">✦</span><small class="mode-desc">Pack ready</small>';
       marker.addEventListener('click', (e) => {
         e.stopPropagation();
         const packBtn = document.getElementById('pack-button');
@@ -347,25 +347,18 @@ function setupRecsHome() {
   const pvpButton = document.getElementById('pvp-button');
   if (pvpButton) pvpButton.style.display = 'none';
 
-  // Create "More ways to play" row - single button opening Practice hub
-  if (!modeButtons.querySelector('.more-ways-row')) {
-    const moreWaysRow = document.createElement('div');
-    moreWaysRow.className = 'more-ways-row';
-    moreWaysRow.innerHTML = `
-      <button type="button" id="recs-more-ways-button">
-        <span class="mode-name">More ways to play</span>
-        <small class="mode-desc">Practice, Tap the Country, and more</small>
-      </button>
-    `;
-    modeButtons.appendChild(moreWaysRow);
-
-    const moreWaysBtn = document.getElementById('recs-more-ways-button');
-    if (moreWaysBtn) {
-      moreWaysBtn.addEventListener('click', () => {
-        const hubBtn = document.getElementById('survival-hub-button');
-        if (hubBtn && !hubBtn.disabled) hubBtn.click();
-      });
-    }
+  // "More ways to play": a direct grid child so it takes the shared mode-button
+  // styles and grid gap; a single button opening the Practice hub
+  if (!document.getElementById('recs-more-ways-button')) {
+    const moreWaysBtn = document.createElement('button');
+    moreWaysBtn.type = 'button';
+    moreWaysBtn.id = 'recs-more-ways-button';
+    moreWaysBtn.innerHTML = '<span class="mode-name">More ways to play</span><small class="mode-desc">Practice, Tap the Country, and more</small>';
+    moreWaysBtn.addEventListener('click', () => {
+      const hubBtn = document.getElementById('survival-hub-button');
+      if (hubBtn && !hubBtn.disabled) hubBtn.click();
+    });
+    modeButtons.appendChild(moreWaysBtn);
   }
 }
 
