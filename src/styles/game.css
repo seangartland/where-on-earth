@@ -645,15 +645,14 @@ body.blackout-complete .survival-results-card h2 { color: #ffd166; }
 .home-recs #expeditions-button { display: none; }
 .home-recs #expeditions-button.recs-visible { display: flex; }
 
-/* Same stack height as the default home, so .start-screen centers both
-   identically and the title keeps the default's place on the globe: reserve
-   below the grid what the variant folds away, the 48px pack row plus one
-   grid gap and, with a passport, the stamps row (40px stamp, 2px borders,
-   11px top margin; 34px stamps below 700px tall). */
-.home-recs .mode-buttons { --recs-gap: 8px; --recs-stamps: 55px; margin-bottom: calc(48px + var(--recs-gap)); }
-.home-recs .start-screen.has-passport .mode-buttons { margin-bottom: calc(48px + var(--recs-gap) + var(--recs-stamps)); }
-@media (max-width: 360px) { .home-recs .mode-buttons { --recs-gap: 6px; } }
-@media (max-height: 700px) { .home-recs .mode-buttons { --recs-stamps: 49px; } }
+/* The strip is the last item in the stack. The default streak row contributes
+   20px plus an 18px top margin only for fresh players, so hide it in both recs
+   states and put that shared 38px spacing on the always-visible strip. The
+   bottom reservation then keeps both recs titles aligned with the default. */
+.home-recs .start-screen { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 116px); }
+.home-recs .mode-buttons { margin-bottom: 0; }
+.home-recs .start-screen > .streak { display: none; }
+.home-recs .start-screen > .passport { margin-top: 38px; }
 
 /* Hide original survival-hub-button and pvp-button in variant */
 .home-recs #survival-hub-button { display: none; }

@@ -44,9 +44,13 @@ let passportEls;
 export function syncPassport() {
   if (host.passportDirty) host.buildPassportDots();
   const summary = passportSummary();
-  passportEls.box.hidden = summary.found === 0;
+  const isRecsHome = document.body.classList.contains('home-recs');
+  if (isRecsHome) {
+    passportEls.box.hidden = false;
+  } else {
+    passportEls.box.hidden = summary.found === 0;
+  }
   host.gameEls.start.classList.toggle('has-passport', summary.found > 0);
-  if (!summary.found) return;
   passportEls.found.textContent = summary.found.toLocaleString();
   passportEls.total.textContent = summary.total.toLocaleString();
   passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} earned` : '';
@@ -1489,7 +1493,12 @@ export function initPassportHome(main) {
   .passport { margin-bottom: 18px; }
   .passport-count b { font-size: 23px; }
   .passport-stamps img { width: 34px; height: 34px; }
-}`;
+}
+
+/* In the recs variant, hide the intro sentence (.how-to) since the passport
+   strip replaces it at the bottom of the stack. */
+.home-recs .start-screen .how-to { display: none; }
+`;
   document.head.appendChild(passportStyle);
 
   passportBox = document.createElement('div');
@@ -1508,9 +1517,14 @@ export function initPassportHome(main) {
   passportBox.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPassport(); }
   });
-  // Above the mode-button grid, never inside it: a fourth grid child shoves
-  // Survival onto a second row once the passport has a place in it.
-  host.gameEls.play.closest('.mode-buttons').before(passportBox);
+  // In the recs variant, place the passport strip at the bottom of the
+  // start-screen stack (after the mode-buttons). In the default home, keep
+  // it above the mode-buttons as before.
+  if (isRecsHome) {
+    host.gameEls.start.appendChild(passportBox);
+  } else {
+    host.gameEls.play.closest('.mode-buttons').before(passportBox);
+  }
   passportEls = {
     box: passportBox,
     found: passportBox.querySelector('[data-passport="found"]'),
