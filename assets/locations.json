@@ -914,7 +914,7 @@
   "fact": "Canada’s highest townsite sits inside the country’s oldest national park amid turquoise lakes and Rocky Mountain peaks.",
   "lat": 51.177778,
   "lng": -115.573611,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Banff_Town.jpg/500px-Banff_Town.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Banff_from_Sulphur_Mtn_2005.jpg/500px-Banff_from_Sulphur_Mtn_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "clue": "Banff, Canada 🇨🇦",
   "difficulty": 8,
   "country": "Canada",
@@ -4120,7 +4120,7 @@
   "lng": -63.5752,
   "difficulty": 6,
   "short": "Halifax",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Halifax_skyline.jpg/500px-Halifax_skyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Halifax_Harbour_Sunset_Skyline%2C_Nova_Scotia_%2824237034620%29.jpg/500px-Halifax_Harbour_Sunset_Skyline%2C_Nova_Scotia_%2824237034620%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "Canada",
   "region": {
    "id": "CA.07",
@@ -10010,7 +10010,7 @@
   "lng": -98.4936,
   "difficulty": 3,
   "short": "San Antonio",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Gfp-texas-san-antonio-skyscrapers-of-san-antonio.jpg/500px-Gfp-texas-san-antonio-skyscrapers-of-san-antonio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Downtown_San_Antonio%2C_Texas_%2812212839743%29.jpg/500px-Downtown_San_Antonio%2C_Texas_%2812212839743%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "United States",
   "region": {
    "id": "US.TX",
@@ -10070,7 +10070,7 @@
   "lat": 37.33939,
   "lng": -121.89496,
   "difficulty": 4,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/San_Jose_California_%28128805221%29.jpeg/500px-San_Jose_California_%28128805221%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/San_Jose_California_%28128805221_cropped%29.jpeg/500px-San_Jose_California_%28128805221_cropped%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "country": "United States",
   "region": {
    "id": "US.CA",
