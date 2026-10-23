@@ -35,6 +35,7 @@ export function initGlobeSurface() {
       uSatBase: { value: blankTex },
       uSatMix: { value: 0 },
       uLegFadeOn: { value: coast === 0 ? 0 : 1 },
+      uOceanFlatFade: { value: 1 },
       uOceanFlat: { value: coast === 2 ? 0.55 : coast === 3 ? 0.85 : 0 },
       // detail insets: A draws under B; bounds are Mercator (x0, y0, x1, y1)
       uInsetA: { value: blankTex },
@@ -65,6 +66,7 @@ export function initGlobeSurface() {
     uniform sampler2D uSatBase;
     uniform float uSatMix;
     uniform float uLegFadeOn;
+    uniform float uOceanFlatFade;
     uniform float uOceanFlat;
     uniform sampler2D uInsetA;
     uniform sampler2D uInsetB;
@@ -140,7 +142,13 @@ export function initGlobeSurface() {
                            max(texture2D(uMap, vUv - vec2(0.0, wx.y)).r,
                                texture2D(uMap, vUv + vec2(0.0, wx.y)).r)) * uLand;
       float openWater = 1.0 - smoothstep(0.02, 0.60, wideLand);
-      sat = mix(sat, vec3(0.045, 0.125, 0.255), openWater * uOceanFlat);
+      // openWater is sampled from the baked equirectangular land texture at a
+      // fixed texel offset, so its resolution doesn't scale with zoom. At
+      // close inset zoom that fixed-resolution falloff blows up into soft
+      // ellipses offset from the real (tile-sharp) coastline (2026-10-22 ghost
+      // blobs); uOceanFlatFade zeroes the flat tint once insets are detailed
+      // enough to show real coastline, leaving it untouched at whole-globe zoom.
+      sat = mix(sat, vec3(0.045, 0.125, 0.255), openWater * uOceanFlat * uOceanFlatFade);
       float boM = texture2D(uBlackout, vUv).r * uBlackoutMix;
       float satMix = uSatMix * (1.0 - boM);
       col = mix(col, sat, satMix);
@@ -1047,6 +1055,13 @@ export function evaluateInsets(now, drifting) {
 
 export function updateInsets(dt) {
   if (!satProvider || satDisabled || satTarget === 0) return;
+  _insetQ.copy(globe.quaternion).invert();
+  if (insetPointAt(0, 0, _insetP)) {
+    const lat = Math.asin(clamp(_insetP.y, -1, 1));
+    const mpp = ((state.dist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / state.viewH;
+    const detailZoom = Math.log2((156543.03 * Math.cos(lat)) / (mpp * INSET_Q));
+    globeMat.uniforms.uOceanFlatFade.value = 1 - smoothstep(clamp(detailZoom - 7, 0, 1));
+  }
   const now = performance.now();
   // camera motion in screen px/s at the centre, and zoom in log-altitude/s
   let speed = 0;
