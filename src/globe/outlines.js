@@ -150,6 +150,27 @@ export const COUNTRY_LAYERS = [
   { color: ANSWER_COLOR, width: 5, opacity: 0.22, ref: 1 },
   { color: '#b9f7ff', width: 1.6, opacity: 1, ref: 2 },
 ];
+// Raster fills connect source vertices in lon/lat texture space. Keep drawn
+// outlines on that same path: a long constant-latitude edge must not turn
+// into the great-circle arc produced by interpolating its endpoint vectors.
+export const OUTLINE_MAX_SEGMENT_KM = 50;
+export function densifyOutlineLine(line, maxKm = OUTLINE_MAX_SEGMENT_KM) {
+  if (line.length < 2) return line;
+  const out = [line[0]];
+  for (let i = 1; i < line.length; i++) {
+    const a = line[i - 1];
+    const b = line[i];
+    const steps = Math.max(1, Math.ceil(distanceKm(
+      { lat: a[1], lng: a[0] },
+      { lat: b[1], lng: b[0] },
+    ) / maxKm));
+    for (let k = 1; k <= steps; k++) {
+      const t = k / steps;
+      out.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]);
+    }
+  }
+  return out;
+}
 export let countryOutline = null; // { group, mats, geom, reveal }
 export let countryOutlineWant = null; // { key, anchor, fade } until the data lands
 
@@ -160,7 +181,8 @@ export function buildCountryOutline(lines) {
   const b = new THREE.Vector3();
   const p = new THREE.Vector3();
   const q = new THREE.Vector3();
-  for (const line of lines) {
+  for (const sourceLine of lines) {
+    const line = densifyOutlineLine(sourceLine);
     for (let i = 1; i < line.length; i++) {
       latLngToVec3(line[i - 1][1], line[i - 1][0], 1, a);
       latLngToVec3(line[i][1], line[i][0], 1, b);

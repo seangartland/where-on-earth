@@ -151,8 +151,8 @@ export function resetBlackout() {
   blackoutTex.needsUpdate = true;
 }
 
-// Paint a found country into the mask: every ring of its units, holes kept
-// (evenodd), plus a thin stroke so microstates still show as a dot.
+// Paint a found country into the mask: every ring of its units, holes kept.
+// Do not stroke the path: a centered stroke expands the fill past its border.
 export function blackoutFill(key) {
   blackoutFoundArea += areaOf(key);
   const geom = host.countryGeom(key);
@@ -161,12 +161,8 @@ export function blackoutFill(key) {
   const ctx = cv.getContext('2d');
   const path = new Path2D();
   for (const ring of geom.rings) host.addToPath(path, host.unwrap(ring.pts), cv.width, cv.height, true);
-  ctx.fillStyle = ctx.strokeStyle = '#fff';
+  ctx.fillStyle = '#fff';
   ctx.fill(path, 'evenodd');
-  ctx.lineJoin = 'round';
-  const dilation = Math.min(host.ISLAND_BLOB_TEXELS, geom.diagKm / 1000);
-  ctx.lineWidth = dilation * (cv.width / 4096);
-  ctx.stroke(path);
   blackoutTex.needsUpdate = true;
 }
 
