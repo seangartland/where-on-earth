@@ -2,14 +2,15 @@
 //   node shots/blackout/blackout-spill-capture.mjs
 // Uses request-time source transforms for the "before" page only, so one run
 // measures the shipped legacy behavior and the working tree's fixed behavior.
-import { chromium } from 'playwright';
+// Use the Playwright install paired with the workspace Chromium capture setup.
+import { chromium } from '../../../../.pw-setup/node_modules/playwright/index.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, 'shots/blackout/spill-proof');
 fs.mkdirSync(OUT, { recursive: true });
-const MIME = { html: 'text/html', js: 'text/javascript', css: 'text/css', json: 'application/json', jpg: 'image/jpeg', png: 'image/png' };
+const MIME = { html: 'text/html', js: 'text/javascript', mjs: 'text/javascript', css: 'text/css', json: 'application/json', jpg: 'image/jpeg', png: 'image/png' };
 const DEG = Math.PI / 180;
 const FOV = 36;
 const VIEW = 900;
@@ -57,19 +58,32 @@ const cases = [
 function testSource(relative, variant) {
   let source = fs.readFileSync(path.join(ROOT, relative), 'utf8');
   if (relative === 'src/globe/outlines.js') {
-    if (variant === 'before') source = source.replace('const line = densifyOutlineLine(sourceLine);', 'const line = sourceLine;');
+    if (variant === 'before') source = replaceOnce(
+      source,
+      'const line = densifyOutlineLine(sourceLine);',
+      'const line = sourceLine;',
+      relative,
+    );
     source += '\nwindow.__outlineSpillTest = { show: (key) => showCountryOutline(key, null, false), clear: clearCountryOutline };\n';
   }
   if (relative === 'src/modes/blackout.js') {
-    if (variant === 'before') source = source.replace("ctx.fill(path, 'evenodd');", `ctx.fill(path, 'evenodd');
+    if (variant === 'before') source = replaceOnce(source, "ctx.fill(path, 'evenodd');", `ctx.fill(path, 'evenodd');
   ctx.strokeStyle = '#fff';
   ctx.lineJoin = 'round';
   const dilation = Math.min(host.ISLAND_BLOB_TEXELS, geom.diagKm / 1000);
   ctx.lineWidth = dilation * (cv.width / 4096);
-  ctx.stroke(path);`);
+  ctx.stroke(path);`, relative);
     source += '\nwindow.__blackoutSpillTest = { reset: resetBlackout, fill: blackoutFill };\n';
   }
   return source;
+}
+
+function replaceOnce(source, before, after, relative) {
+  const first = source.indexOf(before);
+  if (first === -1 || source.indexOf(before, first + before.length) !== -1) {
+    throw new Error(`${relative}: expected exactly one legacy-emulation target`);
+  }
+  return source.replace(before, after);
 }
 
 const browser = await chromium.launch({

@@ -69,13 +69,17 @@ No protected file (`src/main.js`, `src/meta/passport.js`, or `src/meta/stats.js`
 
 ## Before/after rendered measurement
 
-Pending orchestrator capture: Chromium is intentionally not run in this sandbox. Run:
+Completed by the orchestrator on 2026-10-23. Two harness defects had to be fixed first, neither of them product code:
 
-```sh
-node shots/blackout/blackout-spill-capture.mjs
-```
+1. An earlier addendum blamed Playwright version skew (demo 1.64.1 vs the `.pw-setup` 1.63.0 driver) and switched the import. That was not the cause; the timeout persisted with the `.pw-setup` driver. (The import change is harmless and stays.)
+2. The actual cause, found from the page's own console error once error listeners were attached: the harness MIME map had no `mjs` entry, so `src/meta/passport-grouping.mjs` (the game's one `.mjs` module) was served as `application/octet-stream`, the module graph failed strict MIME checking, and the instrumented modules never loaded. The orchestrator added `mjs: 'text/javascript'` to the map (one line) and the script then ran end to end through all six combined captures (before/after for Canada, the France control, and Colorado). The browser died during the final in-page `analyze` step, after every capture PNG was saved, so `measurements.json` was not written; the measurements below were computed by the orchestrator from the saved PNGs instead.
 
-The script reports a robust maximum (95th percentile of sampled per-column fill-edge/outline separation), in pixels and in kilometers from the exact camera framing. Expected Canada values from the geometry are approximately 99 km before (92.04 km bow + 7.33 km dilation) and below one raster pixel after (54 m maximum outline bow, with no mask stroke). France should remain below one raster pixel apart from texture filtering/antialiasing. The Colorado shot verifies that state outlines use the same corrected draw path.
+Rendered spill, Canada, orchestrator-measured from `shots/blackout/spill-proof/before-canada.png` and `after-canada.png` (per-column scan of the border band, columns 250-700: cyan outline row vs dark fill pixels below it; 95th percentile; framing 3.22 km/px at dist 1.70):
+
+- Before: p95 spill 30 px = **96.6 km**, max 31 px. Matches the geometry prediction of about 99 km (92.04 km bow + 7.33 km dilation).
+- After: p95 spill **0.0 km**, max 3 px at a single column (line width and antialiasing). The fill edge and the drawn border coincide; in the after capture the border visibly curves with the true parallel instead of running straight.
+
+The France control and Colorado state captures are saved alongside (`before-/after-france-control.png`, `before-/after-colorado-state.png`) and show no regression; the Colorado shot confirms state outlines use the same corrected draw path.
 
 ## Verification completed here
 
@@ -85,4 +89,3 @@ The script reports a robust maximum (95th percentile of sampled per-column fill-
 - `node --test test/*.test.mjs` — 6/6 tests pass
 
 There are no existing outline- or blackout-specific unit tests in `test/`; the new capture is the focused regression check.
-
