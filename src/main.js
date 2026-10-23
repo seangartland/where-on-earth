@@ -68,7 +68,7 @@ import {
   initDailyGame, initDailyCountdown, initReview, loadDaily, saveDaily, streakText, syncDailyButton, startGame, runHaul,
   showRunHaul, showPostcardSummary, hideReviewVisuals, pickReviewRound, updateReview, reviewEls,
 } from './modes/daily-game.js';
-import { initStats, recordHistory } from './meta/stats.js';
+import { initStats, recordHistory, statsEntry } from './meta/stats.js';
 import {
   initPassportStore, readPassport, recordVisit, applyCardTier, isVisited, tierOf, continentOf, passportLocation,
   findLocation, buildPassportDots, resetLocationIndex, passportDots, passportDirty, CONTINENT_ORDER,
@@ -555,6 +555,14 @@ const settingsEls = {
   accountAction: settingsScreen.querySelector('.settings-account-action'),
 };
 
+// Stats used to live as a pill in the Passport header; it moved into Settings
+// (Sean, 2026-10-22, minimal-passport brief) alongside Imagery credits and
+// Reset all data. statsEntry already carries its own click->openStats wiring
+// (src/meta/stats.js) — relocating the same button keeps that wiring, styled
+// here as a settings row instead of a pill (see .settings-main .stats-entry
+// in game.css).
+settingsScreen.querySelector('.settings-credits').after(statsEntry);
+
 async function syncAccountSetting() {
   if (!ACCOUNTS_ENABLED) return;
   const { readAccountSession } = await import('./account/session.js');
@@ -617,6 +625,12 @@ settingsEls.close.addEventListener('click', closeSettings);
 settingsScreen.addEventListener('click', (e) => {
   if (e.target === settingsScreen) closeSettings();
 });
+// Capture phase on the ancestor runs before statsEntry's own bubble-phase
+// click->openStats listener (stats.js), so Settings is hidden first and
+// openStats()'s own screen-swap (which runs second) is the one that sticks.
+settingsScreen.addEventListener('click', (e) => {
+  if (e.target.closest('.stats-entry')) closeSettings();
+}, true);
 settingsEls.reset.addEventListener('click', () => {
   if (ACCOUNTS_ENABLED) {
     import('./account/session.js').then(({ isSignedIn }) => {

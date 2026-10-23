@@ -9,7 +9,7 @@
 // main.js passes in. initPassportHome and initPassport run at the two spots
 // the sections used to run, so every element is built in the same order.
 // ---------------------------------------------------------------------------
-import { currentStreak, statsEntry } from './stats.js';
+import { currentStreak } from './stats.js';
 import { buildPostcardCard, ensurePostcardCardStyles, postcardDisplayName } from './postcard-card.js';
 import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
 
@@ -161,15 +161,16 @@ export let collectionsEntry;
 let passportScreen;
 
 let ppEls;
-// The Places and Landmarks tabs share one filter system: each is a dex with its
-// own controls, slots and filter state (see ppDex()).
-let ppPlaces;
-let ppLandmarks;
+// The passport is one unified shelf (cities and places together, no tabs):
+// one dex with its own controls, slots and filter state (see ppDex()). The
+// kind split (cities vs places) that used to be two tabs is now a Kind filter
+// inside Browse, same shape as the Status filter.
+let ppShelf;
 let ppFilterOpenTop = 0;
 let ppFilterScrollFrame = 0;
 
 function ppOpenFiltersDex() {
-  return [ppPlaces, ppLandmarks].find((dex) => dex.els.filtersToggle.getAttribute('aria-expanded') === 'true');
+  return ppShelf.els.filtersToggle.getAttribute('aria-expanded') === 'true' ? ppShelf : null;
 }
 
 function closePassportFilters() {
@@ -200,214 +201,12 @@ function openPassportFilters(dex) {
 }
 
 let ppStickyObserver;
-// Passport collection share card. It is created here rather than in index.html so
-// it stays next to the passport data and can reuse passportEntries() directly.
-let PASSPORT_SHARE_URL;
-let passportShareStyle;
 
-let passportShareButton;
-
-let passportShareScreen;
-let ppsEls;
-
-function passportShareStats() {
-  const entries = passportEntries();
-  const withKm = entries.filter((e) => e.km != null).sort((a, b) => a.km - b.km);
-  return {
-    visited: entries.length,
-    total: host.locations.length,
-    earned: entries.filter((entry) => entry.earned).length,
-    bullseyes: entries.filter((entry) => entry.earned >= host.EARN_BULLSEYE).length,
-    pinpoints: entries.filter((entry) => entry.earned >= host.EARN_PINPOINT).length,
-    streak: currentStreak(),
-    top3: withKm.slice(0, 3),
-  };
-}
-
+// Shared by passportSlot() (postcard score pill) and the mystery-slot grid;
+// no longer shared with a share card (the Share pill and its card are gone,
+// Sean 2026-10-22 — see the minimal-passport report).
 function formatShareKm(km) {
   return km < 1 ? '<1 km' : `${Math.round(km).toLocaleString()} km`;
-}
-
-function passportShareText(stats) {
-  const remaining = stats.total - stats.visited;
-  const closest = stats.top3?.length ? `\nClosest: ${stats.top3.map((entry) => `${entry.item.short} ${formatShareKm(entry.km)}`).join(' · ')}` : '';
-  return `My Where on Earth Passport:\n📍 ${stats.pinpoints.toLocaleString()} Pinpoints\n🎯 ${stats.bullseyes.toLocaleString()} Bullseyes\n🛂 ${stats.earned.toLocaleString()} Postcards\n🌍 ${stats.visited.toLocaleString()} Visited\n🗺️ ${remaining.toLocaleString()} New places to explore${closest}`;
-}
-
-function fillPassportShareCard(stats) {
-  ppsEls.visited.textContent = stats.visited.toLocaleString();
-  ppsEls.total.textContent = stats.total.toLocaleString();
-  ppsEls.barSeen.style.width = `${stats.total ? (stats.visited / stats.total) * 100 : 0}%`;
-  ppsEls.barEarned.style.width = `${stats.total ? (stats.earned / stats.total) * 100 : 0}%`;
-  ppsEls.earned.textContent = stats.earned.toLocaleString();
-  ppsEls.bullseyes.textContent = stats.bullseyes.toLocaleString();
-  ppsEls.pinpoints.textContent = stats.pinpoints.toLocaleString();
-  ppsEls.top3.replaceChildren();
-  ppsEls.best.hidden = !stats.top3?.length;
-  ppsEls.streak.hidden = Boolean(stats.top3?.length);
-  if (stats.top3?.length) {
-    ppsEls.top3.replaceChildren(...stats.top3.map((entry) => {
-      const li = document.createElement('li');
-      return buildPostcardCard(entry.item, {
-        earned: entry.earned,
-        earnName: host.EARN_NAMES[entry.earned] || 'seen',
-        entry,
-        photo: hasRealPhoto(entry.item) ? 'image' : 'flag',
-        scoreText: formatShareKm(entry.km),
-      }, {
-        variant: 'slot',
-        element: li,
-        flagForLocation: host.flagForLocation,
-        applyCardTier: host.applyCardTier,
-        addAuditFlagButton: host.addAuditFlagButton,
-      });
-    }));
-  }
-  while (ppsEls.top3.children.length < 3 && !ppsEls.best.hidden) ppsEls.top3.append(ppMysteryTemplate.cloneNode(true));
-  ppsEls.streak.innerHTML = `<b>${stats.streak.toLocaleString()}</b> day current streak`;
-}
-
-function roundRect(ctx, x, y, width, height, radius) {
-  ctx.beginPath();
-  ctx.roundRect(x, y, width, height, radius);
-  ctx.fill();
-  ctx.stroke();
-}
-
-function passportShareImage(stats) {
-  const canvas = document.createElement('canvas');
-  canvas.width = 1200;
-  canvas.height = 800;
-  const ctx = canvas.getContext('2d');
-  const bg = ctx.createLinearGradient(0, 0, 1200, 800);
-  bg.addColorStop(0, '#faf3e1');
-  bg.addColorStop(1, '#f0e4c6');
-  ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, 1200, 800);
-  ctx.fillStyle = '#c8433c'; ctx.fillRect(0, 0, 300, 6);
-  ctx.fillStyle = '#f7efdc'; ctx.fillRect(300, 0, 300, 6);
-  ctx.fillStyle = '#2c4a7c'; ctx.fillRect(600, 0, 300, 6);
-  ctx.fillStyle = '#f7efdc'; ctx.fillRect(900, 0, 300, 6);
-  ctx.fillStyle = '#22355c';
-  ctx.font = '800 24px system-ui, sans-serif';
-  ctx.fillText('WHERE ON EARTH', 72, 82);
-  ctx.fillStyle = '#22355c';
-  ctx.font = '900 58px system-ui, sans-serif';
-  ctx.fillText('My passport', 72, 150);
-  ctx.fillStyle = 'rgba(52,72,96,.78)';
-  ctx.font = '800 24px system-ui, sans-serif';
-  ctx.fillText('of ' + stats.total.toLocaleString() + ' places visited', 72 + ctx.measureText(stats.visited.toLocaleString()).width + 12, 212);
-  ctx.fillStyle = '#b27c20';
-  ctx.font = '900 30px system-ui, sans-serif';
-  ctx.fillText(stats.visited.toLocaleString(), 72, 212);
-  ctx.fillStyle = 'rgba(52,72,96,.14)';
-  ctx.fillRect(72, 230, 1056, 10);
-  ctx.fillStyle = 'rgba(52,72,96,.28)';
-  ctx.fillRect(72, 230, stats.total ? 1056 * stats.visited / stats.total : 0, 10);
-  const earnedGradient = ctx.createLinearGradient(72, 0, 1128, 0);
-  earnedGradient.addColorStop(0, '#34486a'); earnedGradient.addColorStop(.55, '#b27c20'); earnedGradient.addColorStop(1, '#b27c20');
-  ctx.fillStyle = earnedGradient;
-  ctx.fillRect(72, 230, stats.total ? 1056 * stats.earned / stats.total : 0, 10);
-  ctx.fillStyle = '#22355c';
-  ctx.font = '850 20px system-ui, sans-serif';
-  ctx.fillText('CLOSEST GUESSES', 72, 296);
-
-  const tileXs = [72, 432, 792];
-  const mystery = (x) => {
-    ctx.fillStyle = '#fffdf6'; ctx.fillRect(x, 316, 336, 224);
-    ctx.strokeStyle = 'rgba(52,72,96,.45)'; ctx.lineWidth = 3; ctx.setLineDash([10, 8]); ctx.strokeRect(x + 2, 318, 332, 220); ctx.setLineDash([]);
-    ctx.fillStyle = 'rgba(52,72,96,.4)'; ctx.font = '900 80px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText('?', x + 168, 450);
-    ctx.font = '900 22px system-ui, sans-serif'; ctx.fillText('???', x + 168, 520); ctx.textAlign = 'left';
-  };
-  const loadImage = (src) => new Promise((resolve) => {
-    if (!src) return resolve(null);
-    const img = new Image(); img.crossOrigin = 'anonymous';
-    const timer = setTimeout(() => resolve(null), 1500);
-    img.onload = () => { clearTimeout(timer); resolve(img); };
-    img.onerror = () => { clearTimeout(timer); resolve(null); };
-    img.src = src;
-  });
-  const loads = Promise.all([0, 1, 2].map((i) => {
-    const entry = stats.top3?.[i];
-    return entry && hasRealPhoto(entry.item) ? loadImage(entry.item.image) : Promise.resolve(null);
-  }));
-  const drawTile = (entry, img, x) => {
-    if (!entry) return mystery(x);
-    ctx.fillStyle = '#fffdf6'; ctx.fillRect(x, 316, 336, 224);
-    if (img) {
-      const scale = Math.max(336 / img.width, 224 / img.height);
-      const w = img.width * scale, h = img.height * scale;
-      ctx.save(); ctx.beginPath(); ctx.rect(x, 316, 336, 224); ctx.clip(); ctx.drawImage(img, x + (336 - w) / 2, 316 + (224 - h) * .2, w, h); ctx.restore();
-    } else {
-      ctx.fillStyle = '#fffdf6'; ctx.fillRect(x, 316, 336, 224);
-      ctx.fillStyle = 'rgba(255,255,255,.95)'; ctx.font = '96px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(host.flagForLocation(entry.item), x + 168, 460); ctx.textAlign = 'left';
-    }
-    ctx.strokeStyle = '#b27c20'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x + 280, 348, 34, 0, Math.PI * 2); ctx.stroke();
-    ctx.fillStyle = '#22355c'; ctx.font = '800 22px system-ui, sans-serif'; ctx.fillText(formatShareKm(entry.km), x + 230, 354);
-    ctx.fillStyle = '#22355c'; ctx.font = '800 28px system-ui, sans-serif';
-    const flag = host.flagForLocation(entry.item);
-    const labelText = entry.item.short || entry.item.clue;
-    const label = Array.from(labelText);
-    let name = `${labelText} ${flag}`;
-    if (ctx.measureText(name).width > 336) {
-      while (ctx.measureText(`${label.join('')}… ${flag}`).width > 336 && label.length > 1) label.pop();
-      name = `${label.join('')}… ${flag}`;
-    }
-    ctx.fillText(name, x, 580);
-  };
-  return loads.then((images) => {
-    [0, 1, 2].forEach((i) => drawTile(stats.top3?.[i], images[i], tileXs[i]));
-    const boxes = [
-      { x: 72, value: stats.earned, label: 'POSTCARDS', color: '#f5fbff' },
-      { x: 432, value: stats.bullseyes, label: 'BULLSEYES', color: '#ffd166' },
-      { x: 792, value: stats.pinpoints, label: 'PINPOINTS', color: '#ffd166' },
-    ];
-    boxes.forEach((box) => {
-      ctx.fillStyle = '#fffdf6'; ctx.strokeStyle = 'rgba(52,72,96,.45)'; ctx.lineWidth = 2; roundRect(ctx, box.x, 616, 336, 104, 20);
-      ctx.fillStyle = box.color; ctx.font = '900 48px system-ui, sans-serif'; ctx.fillText(box.value.toLocaleString(), box.x + 28, 680);
-      ctx.fillStyle = 'rgba(52,72,96,.78)'; ctx.font = '800 18px system-ui, sans-serif'; ctx.fillText(box.label, box.x + 28, 704);
-    });
-    if (!stats.top3?.length) { ctx.fillStyle = '#22355c'; ctx.font = '800 29px system-ui, sans-serif'; ctx.fillText(`${stats.streak.toLocaleString()} day current streak`, 72, 400); }
-    const postmarkDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
-    ctx.strokeStyle = 'rgba(52,72,96,.45)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(1050, 752, 34, 0, Math.PI * 2); ctx.stroke();
-    ctx.fillStyle = 'rgba(52,72,96,.78)'; ctx.font = '700 11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(postmarkDate, 1050, 755); ctx.textAlign = 'left';
-    ctx.fillStyle = 'rgba(52,72,96,.78)'; ctx.font = '700 21px system-ui, sans-serif'; ctx.fillText('where-on.earth', 72, 768);
-    return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
-  });
-}
-
-async function sharePassport() {
-  const stats = passportShareStats();
-  const text = passportShareText(stats);
-  fillPassportShareCard(stats);
-  passportShareScreen.hidden = false;
-  ppsEls.status.textContent = '';
-  await new Promise(requestAnimationFrame);
-  try {
-    if (navigator.share) {
-      const blob = await passportShareImage(stats);
-      const file = blob ? new File([blob], 'where-on-earth-passport.png', { type: 'image/png' }) : null;
-      if (file && navigator.canShare?.({ files: [file] })) await navigator.share({ title: 'My Where on Earth passport', text, url: PASSPORT_SHARE_URL, files: [file] });
-      else await navigator.share({ title: 'My Where on Earth passport', text, url: PASSPORT_SHARE_URL });
-      ppsEls.status.textContent = 'Passport shared!';
-    } else {
-      await navigator.clipboard.writeText(`${text}\n${PASSPORT_SHARE_URL}`);
-      ppsEls.status.textContent = 'Passport stats copied. Paste them anywhere.';
-    }
-  } catch (error) {
-    if (error?.name === 'AbortError') return;
-    try {
-      await navigator.clipboard.writeText(`${text}\n${PASSPORT_SHARE_URL}`);
-      ppsEls.status.textContent = 'Passport stats copied. Paste them anywhere.';
-    } catch {
-      ppsEls.status.textContent = 'Sharing is unavailable on this browser.';
-    }
-  }
-}
-
-function closePassportShare() {
-  passportShareScreen.hidden = true;
-  passportShareButton.focus();
 }
 
 // One template, cloned for every mystery slot: mysteries never mount an <img>
@@ -452,6 +251,7 @@ function ppTagSlot(li, entry) {
   li.dataset.status = entry.visited ? (entry.earned ? 'earned' : 'seen') : 'unvisited';
   li.dataset.band = entry.band || '';
   li.dataset.continent = entry.continent || '';
+  li.dataset.kind = entry.kind || '';
 }
 
 // Atlas grouping/within-group order: by country, then by name (so a country's
@@ -467,7 +267,7 @@ function ppDex(view, { tab, noun, sentinel, dex, statusKey = null }) {
   const q = (name) => view.querySelector(`[data-pp="${name}"]`);
   return {
     els: {
-      filters: q('filters'), filtersToggle: q('filters-toggle'), badge: q('badge'), status: q('status'),
+      filters: q('filters'), filtersToggle: q('filters-toggle'), badge: q('badge'), status: q('status'), kind: q('kind'),
       grouping: q('grouping'), sort: q('sort'), sortLabel: q('sort-label'), shown: q('shown'), empty: q('empty'),
       dex: q(dex), sentinel: q(sentinel),
       summary: q('filters-summary'),
@@ -476,6 +276,7 @@ function ppDex(view, { tab, noun, sentinel, dex, statusKey = null }) {
     noun,
     statusKey,
     statuses: new Set(),
+    kind: 'all', // 'all' | 'city' | 'place': the Browse panel's Kind filter, replacing the old Cities/Places tabs
     grouping: 'continent',
     sorts: new Map([['continent', 'atlas'], ['country', 'atlas'], ['difficulty', 'atlas'], ['none', 'recent']]),
     accordion: new Map(),
@@ -491,6 +292,12 @@ function ppFilterControls(id) {
   return `<button type="button" class="pp-filters-btn pp-filters-pill" data-pp="filters-toggle" aria-expanded="false" aria-controls="${id}" aria-label="Browse, no status filters active"><span>Browse <b class="pp-badge" data-pp="badge" hidden></b></span><span class="pp-filters-summary" data-pp="filters-summary"></span></button>
         <button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button>
         <div class="pp-filters" id="${id}" data-pp="filters" aria-hidden="true">
+        <span class="pp-filter-label">Kind</span>
+        <div class="pp-status pp-kind" role="group" aria-label="Filter by kind" data-pp="kind">
+          <button type="button" data-kind="all" aria-pressed="true">All</button>
+          <button type="button" data-kind="city" aria-pressed="false">Cities</button>
+          <button type="button" data-kind="place" aria-pressed="false">Places</button>
+        </div>
         <span class="pp-filter-label">Show</span>
         <div class="pp-status" role="group" aria-label="Filter by status" data-pp="status">
           <button type="button" data-status="all" aria-pressed="true">All</button>
@@ -523,6 +330,12 @@ function syncPpStatusButtons(dex) {
   });
 }
 
+function syncPpKindButtons(dex) {
+  dex.els.kind.querySelectorAll('button').forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.kind === dex.kind));
+  });
+}
+
 const PP_COLLAPSED_KEY = 'where-on-earth-collapsed-continents';
 const ppCollapsedContinents = new Set();
 
@@ -531,21 +344,12 @@ function savePpCollapsedContinents() {
   catch (error) { host.storageError('Write failed', PP_COLLAPSED_KEY, error); }
 }
 
-// Places, Countries and Landmarks continents are an accordion: at most one open, the rest
-// stored in ppCollapsedContinents (same key and shape as before). Among the
-// rendered `names`, a saved state with exactly one open continent is kept, and
-// a saved all-collapsed state (every known continent in the set) stays closed
-// (returns null). Anything else, including a saved open continent that is not
-// rendered here, falls back to the first continent with earned postcards, else
-// the first continent.
-function ppAccordionOpen(names, earnedOf) {
-  const open = names.filter((name) => !ppCollapsedContinents.has(name));
-  if (open.length === 1) return open[0];
-  const known = [...host.CONTINENT_ORDER, ...names];
-  if (!open.length && known.every((name) => ppCollapsedContinents.has(name))) return null;
-  return names.find((name) => earnedOf(name) > 0) || names[0];
-}
-
+// Continent rows are an accordion: at most one open at a time, tracked in
+// ppCollapsedContinents (PP_COLLAPSED_KEY). Every group starts collapsed on
+// each Passport open (see openPassport(), which clears the per-open session
+// cache); this just persists the open/closed state a tap produces so the
+// within-session toggle (ppDexGroupHead) behaves consistently across a
+// grouping or sort change.
 function ppSetAccordionOpen(open, names) {
   names.forEach((name) => { if (name === open) ppCollapsedContinents.delete(name); else ppCollapsedContinents.add(name); });
   savePpCollapsedContinents();
@@ -567,12 +371,13 @@ function ppGroupHead(name, onCollapse, { earned, visited, total }) {
   const label = document.createElement('span');
   label.className = 'pp-group-head-text';
   const pct = (n) => (total ? (n / total) * 100 : 0);
-  label.innerHTML = `<b></b><span class="pp-group-sub">${earned.toLocaleString()} of ${total.toLocaleString()} collected</span><span class="pp-bar pp-group-bar" aria-hidden="true"><i class="pp-bar-seen" style="width:${pct(visited)}%"></i><i class="pp-bar-earned" style="width:${pct(earned)}%"></i></span>`;
+  label.innerHTML = `<b></b><span class="pp-group-sub">${earned.toLocaleString()} of ${total.toLocaleString()} collected</span>`;
   label.querySelector('b').textContent = name;
-  const chevron = document.createElement('span');
-  chevron.className = 'pp-group-chevron';
-  chevron.setAttribute('aria-hidden', 'true');
-  head.append(label, chevron);
+  const bar = document.createElement('span');
+  bar.className = 'pp-bar pp-group-bar';
+  bar.setAttribute('aria-hidden', 'true');
+  bar.innerHTML = `<i class="pp-bar-seen" style="width:${pct(visited)}%"></i><i class="pp-bar-earned" style="width:${pct(earned)}%"></i>`;
+  head.append(label, bar);
   const apply = (collapsed) => {
     head.setAttribute('aria-expanded', String(!collapsed));
     onCollapse(collapsed);
@@ -599,17 +404,16 @@ function ppGroupHead(name, onCollapse, { earned, visited, total }) {
   return head;
 }
 
-function ppInitialDexOpen(dex, groups) {
+// Every group starts collapsed on first paint, in every grouping (Sean,
+// 2026-10-22): no default-open continent/first-earned-group fallback. Once
+// the user taps a row open (ppDexGroupHead), that choice is cached here for
+// the rest of this open so switching sort or grouping and back doesn't
+// re-collapse it; openPassport() clears this cache on every fresh open, so
+// the "all collapsed" first paint always wins back on reopen.
+function ppInitialDexOpen(dex) {
   if (dex.accordion.has(dex.grouping)) return dex.accordion.get(dex.grouping);
-  let open;
-  if (dex.grouping === 'continent') {
-    const names = groups.map((group) => group.key);
-    open = ppAccordionOpen(names, (name) => groups.find((group) => group.key === name).entries.filter((entry) => entry.earned).length);
-  } else {
-    open = groups.find((group) => group.entries.some((entry) => entry.earned))?.key ?? groups[0]?.key ?? null;
-  }
-  dex.accordion.set(dex.grouping, open);
-  return open;
+  dex.accordion.set(dex.grouping, null);
+  return null;
 }
 
 function ppDexGroupHead(dex, group, onCollapse, totals) {
@@ -657,7 +461,7 @@ function renderPassportDex(dex) {
     return country || (fallback ? { flag: host.flagForLocation(fallback.item) } : null);
   });
   if (dex.grouping !== 'none') {
-    const open = ppInitialDexOpen(dex, groups);
+    const open = ppInitialDexOpen(dex);
     for (const group of groups) {
       const items = group.entries.sort(passportEntryCompare(sort));
       const section = document.createElement('section');
@@ -704,7 +508,7 @@ function renderPassportDex(dex) {
 function applyPassportFilters(dex) {
   let shown = 0;
   for (const { li, entry } of dex.lis) {
-    const show = dex.statuses.size === 0 || dex.statuses.has(li.dataset.status);
+    const show = (dex.statuses.size === 0 || dex.statuses.has(li.dataset.status)) && (dex.kind === 'all' || li.dataset.kind === dex.kind);
     li.hidden = !show;
     if (show) shown += 1;
   }
@@ -714,27 +518,40 @@ function applyPassportFilters(dex) {
   dex.els.dex.querySelectorAll('.pp-chunk').forEach((chunk) => {
     chunk.hidden = ![...chunk.querySelectorAll('.pp-slot')].some((li) => !li.hidden);
   });
-  const filtered = dex.statuses.size > 0;
+  const filtered = dex.statuses.size > 0 || dex.kind !== 'all';
   dex.els.shown.textContent = filtered
     ? (shown ? `${shown.toLocaleString()} of ${dex.all.length.toLocaleString()} shown` : 'No stamps match these filters yet.')
     : `${dex.all.length.toLocaleString()} ${dex.noun}`;
   dex.els.empty.hidden = shown !== 0;
-  const active = dex.statuses.size;
+  const active = dex.statuses.size + (dex.kind !== 'all' ? 1 : 0);
   dex.els.badge.hidden = active === 0;
   dex.els.badge.textContent = active ? `•${active}` : '';
   dex.els.filtersToggle.classList.toggle('has-active', active > 0);
-  dex.els.filtersToggle.setAttribute('aria-label', active ? `Browse, ${active} status filters active` : 'Browse, no status filters active');
+  dex.els.filtersToggle.setAttribute('aria-label', active ? `Browse, ${active} filters active` : 'Browse, no filters active');
+  const kindLabel = dex.kind === 'city' ? 'Cities' : dex.kind === 'place' ? 'Places' : null;
   const statuses = [...dex.els.status.querySelectorAll('button')].filter((b) => dex.statuses.has(b.dataset.status)).map((b) => b.textContent);
   const grouping = dex.grouping === 'none' ? 'No grouping' : `Grouped by ${dex.grouping}`;
-  const status = statuses.length ? statuses.join(', ') : `All ${dex.noun}`;
+  const statusParts = [...(kindLabel ? [kindLabel] : []), ...statuses];
+  const status = statusParts.length ? statusParts.join(', ') : `All ${dex.noun}`;
   const nondefaultSort = dex.els.sort.value !== 'atlas' ? ` · ${dex.els.sort.selectedOptions[0].text}` : '';
   dex.els.summary.textContent = `${grouping} - ${status}${nondefaultSort}`;
 }
 
+// Builds the one unified shelf: every city (host.locations) plus every place
+// in the landmark pool, tagged with entry.kind so the Browse panel's Kind
+// filter (All/Cities/Places) can toggle between them without a page change.
+// Header counts (found/total/postcards) stay cities-only, matching what they
+// always measured before the places merge.
 function renderPassportPage() {
   if (!countryIndex) buildCountryIndex();
-  const visited = passportEntries(); // visited only, for the header stats and share card
-  ppPlaces.all = passportAllEntries(); // every location, for the dex grid
+  const visited = passportEntries(); // visited cities only, for the header stats
+  const cities = passportAllEntries(); // every city, visited or not, for the dex grid
+  cities.forEach((entry) => { entry.kind = 'city'; });
+  const age = new Map(host.passport.order.map((id, i) => [id, i]));
+  const shelfItems = host.AUDIT_MODE && host.landmarks?.length ? host.landmarks : host.landmarkShelf();
+  const places = shelfItems.map((item) => buildPassportEntry(item, age));
+  places.forEach((entry) => { entry.kind = 'place'; });
+  ppShelf.all = [...cities, ...places];
   const total = host.locations.length;
   const found = visited.length;
   ppEls.found.textContent = found.toLocaleString();
@@ -745,18 +562,17 @@ function renderPassportPage() {
   ppEls.bar.setAttribute('aria-valuenow', String(earned));
   ppEls.fill.style.width = `${total ? (found / total) * 100 : 0}%`;
   ppEls.earnFill.style.width = `${total ? (earned / total) * 100 : 0}%`;
-  renderPassportDex(ppPlaces);
+  renderPassportDex(ppShelf);
 }
 
 // ---------------------------------------------------------------------------
-// Idea 2: the Countries tab. countryIndex (built once locations arrive, next
-// to locationIndex) groups every location by countryKey(); this is a
-// list/detail renderer over it, reusing passportSlot() for the detail grid
-// (docs/passport-redesign-opus.md §3). England/Scotland/Wales/Northern
-// Ireland/United Kingdom stay five separate rows (Sean, 2026-10-11). The list
-// cards lead with postcards earned, not places visited, same logic as
-// catching vs. seeing (Sean, 2026-10-11, docs/country-cards-opus.md); the
-// "12/36" detail-head wording is places visited, unchanged.
+// countryIndex (built once locations arrive, next to locationIndex) groups
+// every location by countryKey(); the Countries tab that used to list/detail
+// it with stamp-album cards is gone (Sean, 2026-10-22; minimal-passport
+// brief) — Group by Country in the Browse panel replaces it, rendering slim
+// country section rows through the same ppDexGroupHead/passportGroups path
+// as every other grouping. countryIndex itself stays: passportGroups() still
+// reads it for each country's flag.
 // ---------------------------------------------------------------------------
 
 // 338 locations ship Wikimedia's "No image available" graphic instead of a photo.
@@ -764,204 +580,9 @@ function hasRealPhoto(item) {
   return Boolean(item.image) && !item.image.includes('No_image_available');
 }
 
-function countryProgress(key) {
-  const country = countryIndex.get(key);
-  let visited = 0;
-  let earned = 0;
-  let cover = null;
-  let coverRank = -1;
-  for (const item of country.items) {
-    if (!host.AUDIT_MODE && !host.isVisited(item.id)) continue;
-    visited += 1;
-    const meta = host.passport.meta[item.id] || {};
-    if (host.AUDIT_MODE || meta.e) earned += 1;
-    if (!hasRealPhoto(item)) continue;
-    const rank = (meta.e || 0) * 2000 + (meta.b ?? host.passport.visits[item.id] ?? 0);
-    if (rank > coverRank) { cover = { item, earned: meta.e || 0 }; coverRank = rank; }
-  }
-  return { visited, earned, total: country.items.length, cover };
-}
-
-const PP_COUNTRY_SORTS = {
-  earned: (a, b) => b.earned - a.earned || a.name.localeCompare(b.name),
-  closest: (a, b) => (a.total - a.earned) - (b.total - b.earned) || a.name.localeCompare(b.name),
-  alpha: (a, b) => a.name.localeCompare(b.name),
-  continent: (a, b) => host.CONTINENT_ORDER.indexOf(a.continent) - host.CONTINENT_ORDER.indexOf(b.continent) || a.name.localeCompare(b.name),
-};
-
-function renderCountryList() {
-  const rows = [...countryIndex.values()].map((country) => ({
-    ...countryProgress(country.name),
-    name: country.name,
-    flag: country.flag,
-    continent: country.continent,
-  }));
-  const sort = ppEls.countrySort.value;
-  rows.sort(PP_COUNTRY_SORTS[sort] || PP_COUNTRY_SORTS.earned);
-  const earnedCountries = rows.filter((r) => r.earned > 0).length;
-  const completeCountries = rows.filter((r) => r.total > 0 && r.earned === r.total).length;
-  ppEls.countrySummary.textContent = `${earnedCountries} of ${rows.length} countries · ${completeCountries} complete`;
-  const list = document.createElement('ul');
-  list.className = 'pp-dex pp-ccards';
-  const countryGroups = sort === 'continent'
-    ? [...rows.reduce((groups, row) => {
-      const name = row.continent || 'Other';
-      if (!groups.has(name)) groups.set(name, []);
-      groups.get(name).push(row);
-      return groups;
-    }, new Map())]
-    : [['', rows]];
-  if (sort === 'continent') {
-    const names = countryGroups.map(([group]) => group);
-    const earnedIn = (name) => countryGroups.find(([group]) => group === name)[1].reduce((sum, row) => sum + row.earned, 0);
-    ppSetAccordionOpen(ppAccordionOpen(names, earnedIn), names);
-  }
-  countryGroups.forEach(([group, groupRows]) => {
-    const groupCards = [];
-    let head = null;
-    if (sort === 'continent') {
-      const visited = groupRows.reduce((sum, row) => sum + row.visited, 0);
-      const earned = groupRows.reduce((sum, row) => sum + row.earned, 0);
-      const total = groupRows.reduce((sum, row) => sum + row.total, 0);
-      const headLi = document.createElement('li');
-      headLi.className = 'pp-ccards-head';
-      head = ppGroupHead(group, (collapsed) => {
-        groupCards.forEach((card) => { card.hidden = collapsed; });
-      }, { earned, visited, total });
-      headLi.append(head);
-      list.append(headLi);
-    }
-    groupRows.forEach((row) => {
-    const complete = row.total > 0 && row.earned === row.total;
-    const state = row.visited === 0 ? 'unvisited' : row.earned > 0 ? 'earned' : 'seen';
-    const li = document.createElement('li');
-    li.className = `pp-ccard${complete ? ' is-complete' : ''}`;
-    li.dataset.state = state;
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.setAttribute('aria-label', `${row.name}: ${row.earned} postcard${row.earned === 1 ? '' : 's'} earned, ${row.visited} of ${row.total} places visited`);
-    const photo = document.createElement('div');
-    photo.className = 'pp-ccard-photo';
-    const flag = document.createElement('span');
-    flag.className = 'pp-ccard-flag';
-    flag.textContent = row.flag;
-    flag.setAttribute('aria-hidden', 'true');
-    if (row.cover) {
-      const img = document.createElement('img');
-      img.src = row.cover.item.image;
-      img.alt = '';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.addEventListener('error', () => { img.remove(); photo.classList.add('is-flagtile'); }, { once: true });
-      photo.append(img);
-    } else {
-      photo.classList.add('is-flagtile');
-    }
-    const bar = document.createElement('span');
-    bar.className = 'pp-bar pp-ccard-bar';
-    bar.setAttribute('aria-hidden', 'true');
-    bar.innerHTML = `<i class="pp-bar-seen" style="width:${row.total ? (row.visited / row.total) * 100 : 0}%"></i><i class="pp-bar-earned" style="width:${row.total ? (row.earned / row.total) * 100 : 0}%"></i>`;
-    photo.append(flag, bar);
-    const name = document.createElement('p');
-    name.className = 'pp-ccard-name';
-    name.textContent = row.name;
-    const meta = document.createElement('p');
-    meta.className = 'pp-ccard-meta';
-    meta.innerHTML = complete ? '✓ Complete' : `<b>${row.earned}</b> postcard${row.earned === 1 ? '' : 's'}`;
-    const sub = document.createElement('p');
-    sub.className = 'pp-ccard-sub';
-    sub.textContent = `${row.visited}/${row.total} cities`;
-    button.append(photo, name, meta, sub);
-    button.addEventListener('click', () => openCountryDetail(row.name));
-    li.append(button);
-    groupCards.push(li);
-  });
-    list.append(...groupCards);
-    // The head applied its saved state before these cards existed.
-    head?.ppApplyCollapse(ppCollapsedContinents.has(group));
-  });
-  ppEls.countryListBody.replaceChildren(list);
-}
-
-function openCountryDetail(key) {
-  ppCountryListScroll = passportScreen.scrollTop;
-  ppActiveCountry = key;
-  renderCountryDetail(key);
-  passportScreen.scrollTop = 0;
-}
-
-function renderCountryDetail(key) {
-  const country = countryIndex.get(key);
-  const age = new Map(host.passport.order.map((id, i) => [id, i]));
-  const entries = country.items
-    .map((item) => buildPassportEntry(item, age))
-    .sort((a, b) => (a.visited === b.visited ? 0 : a.visited ? -1 : 1) || (a.item.short || '').localeCompare(b.item.short || ''));
-  const visited = entries.filter((e) => e.visited).length;
-  const earned = entries.filter((e) => e.earned).length;
-  ppEls.countryHead.innerHTML = `
-    <div class="pp-country-head-row">
-      <span class="pp-country-head-flag">${country.flag}</span>
-      <div><h3></h3><p>${visited} / ${entries.length} places · ${earned} postcard${earned === 1 ? '' : 's'}</p></div>
-    </div>
-    <span class="pp-bar pp-country-bar"><i class="pp-bar-seen" style="width:${entries.length ? (visited / entries.length) * 100 : 0}%"></i><i class="pp-bar-earned" style="width:${entries.length ? (earned / entries.length) * 100 : 0}%"></i></span>`;
-  ppEls.countryHead.querySelector('h3').textContent = country.name;
-  ppEls.countryDex.replaceChildren(...entries.map((entry) => {
-    const li = passportSlot(entry);
-    ppTagSlot(li, entry);
-    return li;
-  }));
-  ppEls.countryList.hidden = true;
-  ppEls.countryDetail.hidden = false;
-}
-
-function closeCountryDetail() {
-  ppActiveCountry = null;
-  ppEls.countryDetail.hidden = true;
-  ppEls.countryList.hidden = false;
-  passportScreen.scrollTop = ppCountryListScroll;
-}
-
-// The Landmarks shelf: the curated landmark pool (host.landmarkShelf), apart
-// from Places and Countries so a landmark never counts toward a country or
-// continent total. Same slots, mystery cards and filters as the city dex.
-function renderLandmarkShelf() {
-  if (!countryIndex) buildCountryIndex();
-  const age = new Map(host.passport.order.map((id, i) => [id, i]));
-  // Audit mode previews the whole landmarks bank, not just expedition stops.
-  const shelfItems = host.AUDIT_MODE && host.landmarks?.length ? host.landmarks : host.landmarkShelf();
-  const entries = shelfItems.map((item) => buildPassportEntry(item, age));
-  const visited = entries.filter((e) => e.visited).length;
-  const earned = entries.filter((e) => e.earned).length;
-  ppEls.landmarkSummary.textContent = `${earned} of ${entries.length} postcards · ${visited} visited`;
-  ppLandmarks.all = entries;
-  renderPassportDex(ppLandmarks);
-}
-
-const PP_VIEW_KEY = 'where-on-earth-passport-view';
-let ppView = 'places';
-let ppActiveCountry = null;
-let ppCountryListScroll = 0;
-
-function setPassportView(view) {
-  closePassportFilters();
-  ppView = view;
-  // The saved view stays places or countries: no new stored value for the shelf.
-  if (view !== 'landmarks') host.safeSetItem(PP_VIEW_KEY, view);
-  ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.view === view)));
-  ppEls.placesView.hidden = view !== 'places';
-  ppEls.countriesView.hidden = view !== 'countries';
-  ppEls.landmarksView.hidden = view !== 'landmarks';
-  if (view === 'landmarks') renderLandmarkShelf();
-  if (view !== 'countries') return;
-  if (!countryIndex) buildCountryIndex();
-  if (ppActiveCountry) renderCountryDetail(ppActiveCountry);
-  else renderCountryList();
-}
-
 function openPassport() {
+  ppShelf.accordion.clear(); // every group starts collapsed on each open (Sean, 2026-10-22)
   renderPassportPage();
-  ppActiveCountry = null;
-  setPassportView(ppView);
   host.gameEls.start.hidden = true;
   passportScreen.hidden = false;
   document.body.className = 'game-passport';
@@ -1542,12 +1163,11 @@ export function initPassport(main) {
   passportPageStyle = document.createElement('style');
   passportPageStyle.textContent = `
 .pp-card [hidden] { display: none !important; }
-.pp-header-actions .stats-entry { min-height: 32px; margin-top: 0; padding: 0 13px; font-size: 12.5px; }
 .passport-entry { min-height: 44px; padding: 0 14px; border: 1px solid rgba(103,232,255,.4); border-radius: 999px; background: rgba(103,232,255,.09); color: #c9f6ff; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
 .passport-entry:active { transform: scale(.98); }
 .passport-entry:disabled { opacity: .4; }
 .pp-card { --pp-toolbar-h: 44px; --pp-toolbar-top: 0px; position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 14px 14px 20px; border-radius: 24px; overflow-x: clip; } /* Keep clip: overflow:hidden breaks sticky descendants. */
-[data-pp="places-view"], [data-pp="landmarks-view"] { --pp-toolbar-h: 52px; }
+[data-pp="shelf-view"] { --pp-toolbar-h: 52px; }
 .pp-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
 .pp-audit-banner { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; flex-wrap: wrap; margin: 0 0 8px; padding: 5px 8px; border: 1px solid rgba(255,209,102,.45); border-radius: 999px; background: rgba(255,209,102,.1); color: #ffd166; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .pp-audit-flags-button { min-height: 24px; padding: 1px 8px; border: 1px solid rgba(255,209,102,.55); border-radius: 999px; background: rgba(8,14,32,.45); color: #ffe29a; font: inherit; font-size: 10px; font-weight: 850; cursor: pointer; text-transform: none; }
@@ -1557,22 +1177,21 @@ export function initPassport(main) {
 .pp-audit-flags-actions { display: flex; justify-content: flex-end; margin-bottom: 4px; }
 .pp-audit-flags-actions button { padding: 3px 8px; border: 1px solid rgba(255,209,102,.4); border-radius: 999px; background: transparent; color: #ffe29a; font: inherit; font-size: 10px; font-weight: 800; cursor: pointer; }
 .pp-audit-flags-status { min-height: 1.2em; margin: 4px 0 0; color: rgba(255,244,207,.62); font-size: 10px; text-align: center; }
-.pp-header-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; padding-right: 40px; }
-.pp-header-row h2 { flex: 1; text-align: left !important; font-size: 19px !important; }
+/* Slim single-row header (Sean, 2026-10-22): title and counts share one line,
+   the close × is absolutely positioned (.stats-close) so it never needs its
+   own flex slot, and no Stats/Share pill lives here any more. */
+.pp-header-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 0; padding-right: 40px; }
+.pp-header-row h2 { flex: none; text-align: left !important; font-size: 19px !important; }
 .pp-header-actions { display: flex; flex-shrink: 0; gap: 8px; }
 .pp-share-icon { flex-shrink: 0; width: 44px; height: 44px; border: 1px solid rgba(255,209,102,.55); border-radius: 50%; background: linear-gradient(135deg, rgba(77,54,145,.95), rgba(25,47,101,.95)); color: #fff7dc; font-size: 18px; font-weight: 800; cursor: pointer; }
-.pp-share-pill { flex-shrink: 0; min-height: 32px; padding: 0 13px; border: 1px solid rgba(157,211,255,.25); border-radius: 999px; background: rgba(157,211,255,.06); color: #c9f6ff; font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; touch-action: manipulation; }
 .pp-progress { margin: 8px 2px 0; }
-.pp-count { margin: 0 0 8px; color: rgba(234,246,255,.92); font-size: 13.5px; font-weight: 650; text-align: left; font-variant-numeric: tabular-nums; }
+.pp-count { flex: 1 1 auto; min-width: 0; margin: 0; color: rgba(234,246,255,.92); font-size: 13px; font-weight: 650; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pp-count-sub { color: rgba(193,224,250,.6); font-weight: 500; }
 /* Two layers: visited as a pale track, earned as the bright gradient over it. */
 .pp-bar { position: relative; height: 4px; border-radius: 8px; background: rgba(157,211,255,.1); overflow: hidden; }
 .pp-bar i { position: absolute; left: 0; top: 0; height: 100%; border-radius: 8px; transition: width .4s ease-out; }
 .pp-bar .pp-bar-seen { background: rgba(193,224,250,.22); }
 .pp-bar .pp-bar-earned { background: linear-gradient(90deg, #67e8ff, #c4a8ff 55%, #ffd166); box-shadow: 0 0 12px rgba(255,209,102,.35); }
-.pp-tabs { display: flex; gap: 6px; margin-top: 8px; }
-.pp-tabs button { flex: 1 1 0; min-height: 34px; border: 1px solid rgba(157,211,255,.18); border-radius: 11px; background: rgba(157,211,255,.05); color: rgba(193,224,250,.62); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
-.pp-tabs button[aria-selected="true"] { border-color: rgba(103,232,255,.5); background: rgba(103,232,255,.1); color: #c9f6ff; }
 .pp-stick-sentinel { height: 1px; margin-top: 7px; }
 .pp-toolbar { position: sticky; top: var(--pp-toolbar-top); z-index: 3; display: flex; align-items: center; gap: 6px; box-sizing: border-box; height: var(--pp-toolbar-h); margin: -1px -14px 0; padding: 4px 14px; background: #0b1120; }
 .pp-toolbar.is-stuck { box-shadow: 0 1px rgba(157,211,255,.14), 0 8px 18px rgba(0,0,0,.22); }
@@ -1582,17 +1201,18 @@ export function initPassport(main) {
 .pp-filters-pill { display: grid; flex: 1 1 auto; align-content: center; justify-items: start; gap: 1px; min-width: 0; min-height: 44px; padding: 0 12px; border-color: rgba(157,211,255,.16); border-radius: 12px; background: rgba(157,211,255,.04); color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; text-align: left; }
 .pp-filters-summary { display: block; max-width: 100%; min-width: 0; overflow: hidden; color: rgba(193,224,250,.55); font-size: 11px; font-weight: 500; text-overflow: ellipsis; }
 .pp-filters-summary::after { content: ' ▾'; }
-.pp-toolbar:not(.is-stuck) :is(.pp-filters-pill, .pp-country-sort) ~ .pp-toolbar-close { display: none; }
+.pp-toolbar:not(.is-stuck) .pp-filters-pill ~ .pp-toolbar-close { display: none; }
 .pp-badge { margin-left: 3px; color: #ffc76a; font-size: 11px; }
 .pp-toolbar-close { display: grid; flex: none; place-items: center; width: 32px; height: 32px; margin-left: auto; padding: 0; border: 0; border-radius: 50%; background: rgba(157,211,255,.08); color: #e8f3ff; font: inherit; font-size: 20px; line-height: 1; opacity: 0; pointer-events: none; transition: opacity .15s ease-out; }
 .pp-toolbar.is-stuck .pp-toolbar-close { opacity: 1; pointer-events: auto; }
 .pp-filter-label { color: rgba(193,224,250,.5); font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .pp-status { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+.pp-status.pp-kind { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .pp-status button { min-height: 40px; padding: 0 2px; border: 1px solid rgba(196,168,255,.22); border-radius: 999px; background: rgba(150,110,255,.07); color: rgba(193,224,250,.7); font: inherit; font-size: 11px; font-weight: 750; cursor: pointer; touch-action: manipulation; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pp-status button[aria-pressed="true"] { border-color: #67e8ff; background: rgba(103,232,255,.14); color: #c9f6ff; }
 .pp-filters { position: absolute; z-index: 4; top: 100%; left: 14px; right: 14px; display: grid; gap: 7px; padding: 12px 12px 14px; border: 1px solid rgba(157,211,255,.18); border-radius: 14px; background: #111a30; box-shadow: 0 14px 32px rgba(0,0,0,.48); opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none; transition: opacity .12s ease-out, transform .12s ease-out, visibility 0s linear .12s; }
 .pp-filters.is-open { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; transition-duration: .16s; transition-delay: 0s; }
-.pp-filters select, .pp-country-sort { appearance: none; -webkit-appearance: none; min-height: 36px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
+.pp-filters select { appearance: none; -webkit-appearance: none; min-height: 36px; width: 100%; padding: 0 24px 0 10px; border: 1px solid rgba(196,168,255,.35); border-radius: 999px; background: rgba(150,110,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d9ccff' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: #ece4ff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
 .pp-filters select { min-height: 40px; padding: 0 30px 0 12px; border-radius: 10px; background-position: right 12px center; font-size: 12px; }
 .pp-filters select option { background: #0b1430; color: #ece4ff; }
 .pp-shown { margin: 3px 0 0; color: rgba(193,224,250,.45); font-size: 11px; text-align: center; }
@@ -1601,22 +1221,20 @@ export function initPassport(main) {
    of rebuilding, so only a sort change rebuilds the DOM (see renderPassportDex). */
 .pp-dex-wrap { margin-top: 0; }
 .pp-group { content-visibility: auto; contain-intrinsic-size: auto 900px; scroll-margin-top: var(--pp-toolbar-h); }
-.pp-group-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
-[data-pp="places-view"] .pp-group-head, [data-pp="landmarks-view"] .pp-group-head { min-height: 48px; box-sizing: border-box; }
+.pp-group-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; margin: 0; padding: 7px 4px; background: #0b1120; color: rgba(193,224,250,.6); font-size: 11px; font-weight: 800; letter-spacing: .04em; cursor: pointer; touch-action: manipulation; }
+[data-pp="shelf-view"] .pp-group-head { min-height: 48px; box-sizing: border-box; }
 .pp-group-head:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
-.pp-group-head::after { content: ''; flex: none; width: 6px; height: 6px; margin: -3px 3px 0 0; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
-.pp-group-head[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(225deg); }
-.pp-group-head-text { min-width: 0; }
-/* Accordion continent row (Places, Countries, Landmarks): name, collected count, mini bar. */
-.pp-group-head.is-accordion { margin: 10px 0 0; padding: 12px; border: 1px solid rgba(157,211,255,.12); border-radius: 13px; background: #0e1524; color: rgba(193,224,250,.55); font-size: 12px; font-weight: 600; letter-spacing: normal; }
-.pp-group-head.is-accordion .pp-group-head-text b { display: block; color: #eef2ff; font-size: 14px; font-weight: 800; }
-.pp-group-sub { display: block; margin-top: 3px; }
-.pp-group-bar { display: block; width: 120px; margin-top: 7px; }
-.pp-group-head.is-country { display: grid; grid-template-columns: 22px minmax(0, 1fr) 18px; }
-.pp-group-head.is-country .pp-group-chevron { display: none; }
-.pp-group-flag { width: 22px; font-size: 16px; line-height: 1; text-align: center; }
-.pp-ccards .pp-group-head.is-accordion { margin: 6px 0 0; background: #0e1524; }
-.pp-ccards-head { scroll-margin-top: var(--pp-toolbar-h); }
+.pp-group-head-text { display: flex; flex: 1 1 auto; align-items: baseline; gap: 6px; min-width: 0; }
+.pp-group-head-text::after { content: ''; flex: none; align-self: center; width: 6px; height: 6px; margin-left: 2px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
+.pp-group-head[aria-expanded="true"] .pp-group-head-text::after { transform: rotate(225deg); }
+/* Slim single-line accordion row: name left, "n of N collected" + chevron
+   right, hairline progress bar wraps full-width under the row (mockup C).
+   Shared by every grouping (continent/country/difficulty). */
+.pp-group-head.is-accordion { margin: 18px 0 0; padding: 0 0 8px; border: 0; border-radius: 0; background: transparent; color: rgba(193,224,250,.7); font-size: 12px; font-weight: 600; letter-spacing: normal; }
+.pp-group-head.is-accordion .pp-group-head-text b { margin-right: auto; color: #eef2ff; font-size: 15px; font-weight: 800; }
+.pp-group-sub { flex: none; color: rgba(193,224,250,.6); font-weight: 500; }
+.pp-group-bar { flex: 0 0 100%; width: auto; height: 2px; margin-top: 8px; }
+.pp-group-flag { flex: none; width: 20px; font-size: 15px; line-height: 1; text-align: center; }
 /* Collapsed rows are short: skip content-visibility's 900px placeholder. */
 .pp-group:has(> .is-accordion[aria-expanded="false"]) { content-visibility: visible; contain-intrinsic-size: none; }
 .pp-chunk { content-visibility: auto; contain-intrinsic-size: auto 900px; }
@@ -1639,55 +1257,6 @@ export function initPassport(main) {
 .pp-slot.is-mystery { cursor: default; }
 .pp-slot.is-mystery .pp-slot-photo { border-color: rgba(214,220,232,.16); }
 .pp-slot.is-mystery .pp-slot-name { color: rgba(214,220,232,.4); letter-spacing: .1em; text-align: center; }
-/* Countries tab */
-/* Countries and Landmarks counts line, above the toolbar so it never truncates. */
-.pp-country-summary { margin: 8px 2px 0; color: rgba(193,224,250,.55); font-size: 11px; font-weight: 700; }
-/* The sort select wears the Filters pill: quiet outline, full row, text left, chevron right. */
-.pp-country-sort { flex: 1 1 auto; min-width: 0; padding: 0 30px 0 12px; border-color: rgba(157,211,255,.16); border-radius: 12px; background-color: rgba(157,211,255,.04); background-position: right 12px center; color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; }
-/* Country detail Back wears the Filters pill (quiet outline and fill), scoped off the Collections back. */
-.pp-country-toolbar .pp-country-back { flex: none; min-height: 36px; padding: 0 14px; border: 1px solid rgba(157,211,255,.16); border-radius: 12px; background: rgba(157,211,255,.04); color: rgba(234,246,255,.85); font-size: 13px; font-weight: 650; touch-action: manipulation; }
-/* Country cards: same grid and size as .pp-slot, but read as a *stack* of
-   postcards (offset card edges behind), with a neutral frame instead of rarity,
-   a flag chip and a progress strip. Never carries a prox badge or score pill.
-   Postcards earned leads (meta line); places visited is secondary (sub line):
-   it's about earning, not visiting (Sean, 2026-10-11). */
-.pp-ccards { margin-top: 10px; }
-.pp-ccards-head { grid-column: 1 / -1; }
-.pp-ccards .pp-group-head { position: static; margin: 6px 0 0; background: transparent; }
-.pp-ccard { min-width: 0; }
-.pp-ccard > button { display: block; width: 100%; padding: 6px 6px 0 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-.pp-ccard > button:active .pp-ccard-photo { transform: scale(.97); }
-.pp-ccard > button:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }
-.pp-ccard-photo { position: relative; aspect-ratio: 1; overflow: hidden; border: 1.5px dashed rgba(90,70,30,.45); background: #fffdf6; box-shadow: 0 1px 3px rgba(101,78,38,.25); transition: transform .12s ease-out; }
-.pp-ccard-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-/* bottom scrim so the flag chip and strip read on any photo */
-.pp-ccard-photo::after { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(52,72,96,.2); pointer-events: none; }
-.pp-ccard-flag { position: absolute; z-index: 1; inset: 0; display: grid; place-items: center; font-size: 40px; line-height: 1; filter: none; }
-.pp-ccard-bar { position: absolute; z-index: 2; left: 4px; right: 4px; bottom: 4px; height: 3px; border-radius: 0; background: rgba(52,72,96,.16); }
-.pp-ccard-bar i { border-radius: 0; }
-.pp-ccard-name { margin: 5px 1px 0; overflow: hidden; color: #eef2ff; font-size: 11px; font-weight: 800; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
-.pp-ccard-meta, .pp-ccard-sub { margin: 1px 1px 0; overflow: hidden; color: rgba(193,224,250,.62); font-size: 10px; font-weight: 700; line-height: 1.25; font-variant-numeric: tabular-nums; text-overflow: ellipsis; white-space: nowrap; }
-.pp-ccard-meta b { color: #b27c20; font-weight: 800; }
-/* states */
-.pp-ccard[data-state="seen"] .pp-ccard-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.pp-ccard[data-state="unvisited"] .pp-ccard-photo { border-color: rgba(90,70,30,.25); box-shadow: none; }
-.pp-ccard[data-state="unvisited"] .pp-ccard-flag { filter: grayscale(1); opacity: .45; }
-.pp-ccard[data-state="unvisited"] :is(.pp-ccard-name, .pp-ccard-meta, .pp-ccard-sub) { color: rgba(193,224,250,.4); }
-/* no photo: the flag becomes the picture */
-.pp-ccard-photo.is-flagtile { background: #fffdf6; }
-.pp-ccard-photo.is-flagtile::after { display: none; }
-.pp-ccard-photo.is-flagtile .pp-ccard-flag { inset: 0; display: grid; place-items: center; font-size: 40px; filter: none; }
-/* complete: gold frame and gold stack edges; the leading (postcards) line turns gold too */
-.pp-ccard.is-complete .pp-ccard-photo { border-color: #b27c20; box-shadow: 0 1px 3px rgba(101,78,38,.25); }
-.pp-ccard.is-complete .pp-ccard-meta { color: #ffd166; }
-@media (max-width: 360px) { .pp-ccard-flag { font-size: 16px; } }
-.pp-country-head { margin-top: 10px; }
-.pp-country-head-row { display: flex; align-items: center; gap: 12px; }
-.pp-country-head-flag { flex: none; font-size: 40px; }
-.pp-country-head h3 { margin: 0; color: #f5fbff; font-size: 19px; }
-.pp-country-head p { margin: 2px 0 0; color: rgba(193,224,250,.55); font-size: 12px; }
-.pp-country-head .pp-country-bar { width: 100%; height: 4px; margin-top: 10px; }
-.pp-country-dex { margin-top: 12px; }
 body.game-passport #hud { opacity: 0; }
 @media (max-width: 560px) {
   .passport-screen { width: 100dvw; height: 100dvh; overflow-y: auto; padding: 0; background: #0b1120; }
@@ -1721,57 +1290,21 @@ body.game-passport #hud { opacity: 0; }
     <button class="stats-close" aria-label="Close passport">×</button>
     <div class="pp-header-row">
       <h2 id="pp-title">Your passport</h2>
+      <p class="pp-count"><b data-pp="found">0</b>/<span data-pp="total">0</span><span class="pp-count-sub" data-pp="postcards"></span></p>
       <div class="pp-header-actions">
         <button class="pp-share-icon" data-pp="collections" aria-label="View collections" hidden>🛡</button>
-        <button class="pp-share-pill" data-pps="share" aria-label="Share my passport">Share</button>
       </div>
     </div>
     <div class="pp-progress" data-pp="progress">
-      <p class="pp-count"><b data-pp="found">0</b> of <span data-pp="total">0</span> locations<span class="pp-count-sub" data-pp="postcards"></span></p>
       <div class="pp-bar" role="progressbar" aria-label="Postcards earned" aria-valuemin="0"><i class="pp-bar-seen" data-pp="fill"></i><i class="pp-bar-earned" data-pp="earnfill"></i></div>
     </div>
-    <div class="pp-tabs" role="tablist" data-pp="tabs">
-      <button type="button" role="tab" data-view="places" aria-selected="true">Cities</button>
-      <button type="button" role="tab" data-view="countries" aria-selected="false">Countries</button>
-      <button type="button" role="tab" data-view="landmarks" aria-selected="false">Places</button>
-    </div>
-    <div data-pp="places-view">
-      <div class="pp-stick-sentinel" data-pp="places-sentinel"></div>
+    <div data-pp="shelf-view">
+      <div class="pp-stick-sentinel" data-pp="shelf-sentinel"></div>
       <div class="pp-toolbar" data-pp="toolbar">
         ${ppFilterControls('pp-filters')}
       </div>
       <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
       <div class="pp-dex-wrap" data-pp="dex" data-pp-list data-pp-accordion></div>
-
-    </div>
-    <div data-pp="countries-view" hidden>
-      <div data-pp="country-list">
-        <p class="pp-country-summary" data-pp="country-summary"></p>
-        <div class="pp-stick-sentinel" data-pp="country-list-sentinel"></div>
-        <div class="pp-toolbar pp-country-toolbar">
-          <select class="pp-country-sort" data-pp="country-sort" aria-label="Sort countries">
-          <option value="earned">Most earned</option>
-          <option value="closest">Closest to complete</option>
-          <option value="alpha">A–Z</option>
-          <option value="continent" selected>By continent</option>
-          </select><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
-        <div data-pp="country-list-body" data-pp-accordion></div>
-      </div>
-      <div data-pp="country-detail" hidden>
-        <div class="pp-stick-sentinel" data-pp="country-detail-sentinel"></div>
-        <div class="pp-toolbar pp-country-toolbar"><button class="collections-back pp-country-back" type="button" data-pp="country-back">‹ Countries</button><button type="button" class="pp-toolbar-close" aria-label="Close passport">×</button></div>
-        <div class="pp-country-head" data-pp="country-head"></div>
-        <ul class="pp-dex pp-country-dex" data-pp="country-dex" data-pp-list></ul>
-      </div>
-    </div>
-    <div data-pp="landmarks-view" hidden>
-      <p class="pp-country-summary" data-pp="landmark-summary"></p>
-      <div class="pp-stick-sentinel" data-pp="landmarks-sentinel"></div>
-      <div class="pp-toolbar">
-        ${ppFilterControls('pp-landmark-filters')}
-      </div>
-      <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
-      <div class="pp-dex-wrap" data-pp="landmark-dex" data-pp-list data-pp-accordion></div>
     </div>
   </div>`;
   document.getElementById('game').appendChild(passportScreen);
@@ -1786,23 +1319,10 @@ body.game-passport #hud { opacity: 0; }
     fill: passportScreen.querySelector('[data-pp="fill"]'),
     postcards: passportScreen.querySelector('[data-pp="postcards"]'),
     earnFill: passportScreen.querySelector('[data-pp="earnfill"]'),
-    tabs: passportScreen.querySelector('[data-pp="tabs"]'),
-    placesView: passportScreen.querySelector('[data-pp="places-view"]'),
-    countriesView: passportScreen.querySelector('[data-pp="countries-view"]'),
+    shelfView: passportScreen.querySelector('[data-pp="shelf-view"]'),
     collections: passportScreen.querySelector('[data-pp="collections"]'),
-    countryList: passportScreen.querySelector('[data-pp="country-list"]'),
-    countryDetail: passportScreen.querySelector('[data-pp="country-detail"]'),
-    countrySummary: passportScreen.querySelector('[data-pp="country-summary"]'),
-    countrySort: passportScreen.querySelector('[data-pp="country-sort"]'),
-    countryListBody: passportScreen.querySelector('[data-pp="country-list-body"]'),
-    countryBack: passportScreen.querySelector('[data-pp="country-back"]'),
-    countryHead: passportScreen.querySelector('[data-pp="country-head"]'),
-    countryDex: passportScreen.querySelector('[data-pp="country-dex"]'),
-    landmarksView: passportScreen.querySelector('[data-pp="landmarks-view"]'),
-    landmarkSummary: passportScreen.querySelector('[data-pp="landmark-summary"]'),
   };
-  ppPlaces = ppDex(ppEls.placesView, { tab: 'places', noun: 'cities', sentinel: 'places-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
-  ppLandmarks = ppDex(ppEls.landmarksView, { tab: 'landmarks', noun: 'places', sentinel: 'landmarks-sentinel', dex: 'landmark-dex' });
+  ppShelf = ppDex(ppEls.shelfView, { tab: 'shelf', noun: 'locations', sentinel: 'shelf-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
 
   ppStickyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1812,82 +1332,6 @@ body.game-passport #hud { opacity: 0; }
   }, { root: passportScreen, threshold: 0 });
   passportScreen.querySelectorAll('.pp-stick-sentinel').forEach((sentinel) => ppStickyObserver.observe(sentinel));
   if (host.AUDIT_MODE) host.mountAuditBanner(ppEls.progress);
-  PASSPORT_SHARE_URL = new URL('/', location.href).href;
-  passportShareStyle = document.createElement('style');
-  passportShareStyle.textContent = `
-.pps { position: fixed; z-index: 14; inset: 0; box-sizing: border-box; display: grid; align-content: center; justify-items: center; gap: 14px; padding: max(18px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom)); background: rgba(2,5,16,.9); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); overflow: auto; overscroll-behavior: contain; }
-.pps[hidden] { display: none; }
-.pps-card [hidden] { display: none !important; }
-.pps-card { position: relative; box-sizing: border-box; width: min(100%, 358px); padding: 22px 20px 18px; border: 1px solid rgba(184,166,255,.42); border-radius: 22px; overflow: hidden; background: radial-gradient(circle at 84% 4%, rgba(132,93,255,.34), transparent 35%), linear-gradient(145deg, #101b43, #090d25 72%); box-shadow: 0 24px 70px rgba(0,0,0,.58), inset 0 1px rgba(255,255,255,.1); color: #f7f8ff; }
-.pps-card::before { content: ''; position: absolute; right: -25px; bottom: -38px; width: 150px; height: 150px; border: 1px dashed rgba(103,232,255,.22); border-radius: 50%; box-shadow: 0 0 0 18px rgba(103,232,255,.025), 0 0 0 42px rgba(196,168,255,.025); }
-.pps-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.pps-kicker { margin: 0; color: #8fdfff; font-size: 10px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
-.pps-card h3 { margin: 4px 0 0; font-size: 22px; line-height: 1; letter-spacing: -.035em; }
-.pps-progress { position: relative; margin-top: 12px; }
-.pps-visited { margin: 0 0 6px; color: rgba(218,229,255,.72); font-size: 12px; font-weight: 750; }
-.pps-visited b { color: #67e8ff; font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; }
-.pps-label { position: relative; margin: 16px 0 7px; color: #8fdfff; font-size: 10px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
-.pps-top3 { position: relative; padding: 4px 3px; }
-.pps-top3 .pp-slot { cursor: default; }
-.pps-km { white-space: nowrap; }
-.pps-flag { position: absolute; inset: 0; display: grid; place-items: center; font-size: 34px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.5)); }
-.pps-streak { position: relative; margin: 15px 0 0; color: #f3ecff; font-size: 12px; font-weight: 700; }
-.pps-streak b { color: #ffd166; }
-.pps-stats { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 14px 3px 0; }
-.pps-stat { min-width: 0; padding: 10px 9px 9px; border: 1px solid rgba(157,211,255,.13); border-radius: 12px; background: rgba(4,10,28,.54); }
-.pps-stat.gold { border-color: rgba(255,209,102,.34); }
-.pps-stat b { display: block; color: #eaf9ff; font-size: 21px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pps-stat.gold b { color: #ffd166; }
-.pps-stat span { display: block; margin-top: 5px; color: rgba(218,229,255,.7); font-size: 10px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pps-top3 { position: relative; margin: 15px 0 0; color: #f3ecff; font-size: 12px; font-weight: 700; line-height: 1.6; }
-.pps-top3 b { color: #ffd166; }
-.pps-url { margin: 12px 0 0; color: rgba(193,224,250,.62); font-size: 10px; font-weight: 750; letter-spacing: .04em; }
-.pps-actions { display: flex; gap: 10px; width: min(100%, 358px); }
-.pps-actions button { min-height: 44px; border-radius: 999px; font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; }
-.pps-again { flex: 1; border: 0; background: linear-gradient(135deg, #ffd166, #ff9f6a); color: #21152f; }
-.pps-close { width: 76px; border: 1px solid rgba(193,224,250,.28); background: rgba(14,24,54,.9); color: #e8f3ff; }
-.pps-status { min-height: 17px; margin: -5px 0 0; color: rgba(218,229,255,.7); font-size: 11px; text-align: center; }
-@media (max-width: 360px) { .pps-card { padding-inline: 17px; } .pps-stat { padding-inline: 7px; } .pps-stat b { font-size: 19px; } }
-`;
-  document.head.appendChild(passportShareStyle);
-
-  passportShareButton = passportScreen.querySelector('[data-pps="share"]');
-
-  passportShareScreen = document.createElement('section');
-  passportShareScreen.className = 'pps';
-  passportShareScreen.hidden = true;
-  passportShareScreen.setAttribute('role', 'dialog');
-  passportShareScreen.setAttribute('aria-modal', 'true');
-  passportShareScreen.setAttribute('aria-labelledby', 'pps-title');
-  passportShareScreen.innerHTML = `
-  <article class="pps-card">
-    <div class="pps-top"><div><p class="pps-kicker">Where on Earth</p><h3 id="pps-title">My passport</h3></div></div>
-    <div class="pps-progress">
-      <p class="pps-visited"><b data-pps="visited">0</b> of <span data-pps="total">0</span> places visited</p>
-      <div class="pp-bar" aria-hidden="true"><i class="pp-bar-seen" data-pps="barSeen"></i><i class="pp-bar-earned" data-pps="barEarned"></i></div>
-    </div>
-    <section class="pps-best" data-pps="best" aria-labelledby="pps-best-title">
-      <p class="pps-label" id="pps-best-title">Closest guesses</p>
-      <ol class="pp-dex pps-top3" data-pps="top3"></ol>
-    </section>
-    <p class="pps-streak" data-pps="streak" hidden></p>
-    <div class="pps-stats">
-      <div class="pps-stat"><b data-pps="earned">0</b><span>Postcards</span></div>
-      <div class="pps-stat gold"><b data-pps="bullseyes">0</b><span>Bullseyes</span></div>
-      <div class="pps-stat gold"><b data-pps="pinpoints">0</b><span>Pinpoints</span></div>
-    </div>
-    <p class="pps-url">where-on.earth</p>
-  </article>
-  <div class="pps-actions"><button class="pps-again" type="button" data-pps="again">Share again</button><button class="pps-close" type="button" data-pps="close">Close</button></div>
-  <p class="pps-status" role="status" data-pps="status"></p>`;
-  document.body.appendChild(passportShareScreen);
-  ppsEls = Object.fromEntries([...passportShareScreen.querySelectorAll('[data-pps]')].map((el) => [el.dataset.pps, el]));
-
-  passportShareButton.addEventListener('click', sharePassport);
-  ppsEls.again.addEventListener('click', sharePassport);
-  ppsEls.close.addEventListener('click', closePassportShare);
-  passportShareScreen.addEventListener('click', (event) => { if (event.target === passportShareScreen) closePassportShare(); });
-
 
   ppMysteryTemplate = document.createElement('li');
   ppMysteryTemplate.className = 'pp-slot is-mystery';
@@ -1899,32 +1343,38 @@ body.game-passport #hud { opacity: 0; }
   try {
     const savedStatus = localStorage.getItem(PP_STATUS_KEY);
     const savedStatuses = savedStatus?.startsWith('[') ? JSON.parse(savedStatus) : [savedStatus];
-    savedStatuses.filter((status) => PP_STATUSES.has(status)).forEach((status) => ppPlaces.statuses.add(status));
+    savedStatuses.filter((status) => PP_STATUSES.has(status)).forEach((status) => ppShelf.statuses.add(status));
   } catch (error) { host.storageError('Read failed', PP_STATUS_KEY, error); }
-  syncPpStatusButtons(ppPlaces);
+  syncPpStatusButtons(ppShelf);
+  syncPpKindButtons(ppShelf);
   try {
     const raw = localStorage.getItem(PP_COLLAPSED_KEY);
     const saved = raw && JSON.parse(raw);
-    // Never greet a returning player with every continent collapsed.
-    if (saved && !host.CONTINENT_ORDER.every((name) => saved.includes(name))) saved.forEach((name) => ppCollapsedContinents.add(name));
+    // On open, EVERY group starts collapsed (Sean, 2026-10-22): ignore saved
+    // collapse state so first paint is the slim row list. The per-session
+    // accordion cache (ppShelf.accordion) remembers user toggles during this
+    // open; we still write to localStorage on toggle for consistency but do not
+    // read it back on init.
   } catch (error) { host.storageError('Read failed', PP_COLLAPSED_KEY, error); }
-  try {
-    const savedView = localStorage.getItem(PP_VIEW_KEY);
-    if (savedView === 'places' || savedView === 'countries') ppView = savedView;
-  } catch (error) { host.storageError('Read failed', PP_VIEW_KEY, error); }
 
   passportEntry.addEventListener('click', openPassport);
-  passportScreen.querySelector('.pp-header-actions').prepend(statsEntry);
-  // Stats now opens from inside the Passport, so its screen has to paint
-  // above the Passport screen: re-append it at the end of the body, the same
-  // stacking the DOM order gives the other overlays.
+  // Stats now opens from the Settings screen (src/main.js), not the Passport,
+  // but its screen still has to paint above whichever screen opened it:
+  // re-append it at the end of the body, the same stacking trick the other
+  // overlays use.
   const statsScreenEl = document.querySelector('.stats-screen:not(.passport-screen)');
   if (statsScreenEl) document.body.appendChild(statsScreenEl);
   ppEls.close.addEventListener('click', () => closePassport());
-  ppEls.tabs.querySelectorAll('[role="tab"]').forEach((tab) => {
-    tab.addEventListener('click', () => setPassportView(tab.dataset.view));
-  });
-  for (const dex of [ppPlaces, ppLandmarks]) {
+  {
+    const dex = ppShelf;
+    dex.els.kind.querySelectorAll('button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        dex.kind = btn.dataset.kind;
+        syncPpKindButtons(dex);
+        applyPassportFilters(dex);
+        ppScrollToDexTop(dex);
+      });
+    });
     dex.els.status.querySelectorAll('button').forEach((btn) => {
       btn.addEventListener('click', () => {
         const status = btn.dataset.status;
@@ -1963,16 +1413,13 @@ body.game-passport #hud { opacity: 0; }
     if (!dex) return;
     if (!dex.els.filters.contains(event.target) && !dex.els.filtersToggle.closest('.pp-toolbar').contains(event.target)) closePassportFilters();
   });
-  ppEls.countrySort.addEventListener('change', renderCountryList);
-  ppEls.countryBack.addEventListener('click', closeCountryDetail);
   passportScreen.addEventListener('click', (e) => {
     if (e.target === passportScreen) closePassport();
   });
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape' || passportScreen.hidden) return;
     if (ppOpenFiltersDex()) { closePassportFilters(); return; }
-    if (ppView === 'countries' && ppActiveCountry) closeCountryDetail();
-    else closePassport();
+    closePassport();
   });
 
   collectionsStyle = document.createElement('style');

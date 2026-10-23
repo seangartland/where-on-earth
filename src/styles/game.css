@@ -117,6 +117,11 @@ button { font: inherit; }
 .settings-segmented button:focus-visible { outline: 2px solid rgba(127,210,244,.8); outline-offset: 1px; }
 .settings-reset { width: 100%; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; background: #e5484d; color: #fff; font-size: 15px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 18px rgba(229,72,77,.28); touch-action: manipulation; }
 .settings-credits { color: rgba(220,239,255,.75); font-size: 13px; text-align: center; }
+/* Stats relocated from the Passport header pill into a settings row (Sean,
+   2026-10-22): same text-link treatment as .settings-credits, not the pill
+   it wears everywhere else (base .stats-entry rule, src/meta/stats.js). */
+.settings-main .stats-entry { display: block; width: 100%; min-height: 44px; margin: 0; padding: 0; border: 0; background: none; color: rgba(220,239,255,.75); font-size: 13px; font-weight: 400; text-align: center; }
+.settings-main .stats-entry:active { transform: none; }
 .settings-reset:active { transform: scale(.98); }
 .settings-account { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 54px; padding: 12px 14px; border: 1px solid rgba(157,211,255,.18); border-radius: 14px; background: rgba(5,12,29,.52); color: #f5fbff; }
 .settings-account strong, .settings-account small { display: block; }
