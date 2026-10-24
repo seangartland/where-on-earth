@@ -206,7 +206,10 @@ let ppStickyObserver;
 // no longer shared with a share card (the Share pill and its card are gone,
 // Sean 2026-10-22 — see the minimal-passport report).
 function formatShareKm(km) {
-  return km < 1 ? '<1 km' : `${Math.round(km).toLocaleString()} km`;
+  if (km < 1) return '<1 km';
+  if (km < 1000) return `${Math.round(km)} km`;
+  if (km < 10000) return `${(Math.round(km / 100) / 10).toString()}k km`;
+  return `${Math.round(km / 1000)}k km`;
 }
 
 // One template, cloned for every mystery slot: mysteries never mount an <img>
@@ -238,6 +241,7 @@ function passportSlot(entry) {
     flagForLocation: host.flagForLocation,
     applyCardTier: host.applyCardTier,
     addAuditFlagButton: host.addAuditFlagButton,
+    showFlagInName: false,
   });
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
@@ -1238,7 +1242,7 @@ export function initPassport(main) {
 /* Collapsed rows are short: skip content-visibility's 900px placeholder. */
 .pp-group:has(> .is-accordion[aria-expanded="false"]) { content-visibility: visible; contain-intrinsic-size: none; }
 .pp-chunk { content-visibility: auto; contain-intrinsic-size: auto 900px; }
-.pp-dex { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 8px; margin: 0; padding: 4px 3px; list-style: none; }
+.pp-dex { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px 5px; margin: 0; padding: 4px 3px; list-style: none; }
 .pp-slot { position: relative; min-width: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .pp-slot-photo { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 2px solid rgba(214,220,232,.16); background: linear-gradient(135deg, #1b2c5a, #3b2a6e); }
 .pp-slot-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
@@ -1250,7 +1254,7 @@ export function initPassport(main) {
 .pp-slot-score { position: absolute; z-index: 2; top: 5px; right: 5px; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 3px 6px; border: 1px solid transparent; border-radius: 999px; background: rgba(8,14,32,.82); color: #e6f0ff; font-size: 9px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
 .pp-slot-score[data-tier="bullseye"] { border: 1.5px solid #ffd166; background: rgba(8,14,32,.88); color: #ffd166; }
 .pp-slot-score[data-tier="pinpoint"] { background: #e9b23c; color: #2b1d00; }
-.pp-slot-name { margin: 4px 1px 0; overflow: hidden; color: #eef2ff; font-size: 10px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.pp-slot-name { margin: 4px 1px 0; overflow: hidden; color: #eef2ff; font-size: 8.5px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 .pp-slot[data-earn="seen"] .pp-slot-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .pp-slot[data-earn="seen"] .pp-slot-name { color: #8992a8; }
 /* Mystery cards keep the same neutral frame used by visited cards. */
@@ -1263,7 +1267,7 @@ body.game-passport #hud { opacity: 0; }
   .passport-screen .pp-card { --pp-toolbar-top: env(safe-area-inset-top, 0px); width: 100dvw; max-width: none; min-height: 100dvh; margin: 0; padding: calc(env(safe-area-inset-top, 0px) + 14px) 14px calc(env(safe-area-inset-bottom, 0px) + 20px); border: 0; border-radius: 0; background: #0b1120; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 @media (max-width: 360px) {
-  .pp-dex { gap: 8px 6px; }
+  .pp-dex { gap: 9px 5px; }
 }
 @media (prefers-reduced-motion: reduce) { .pp-filters { transform: none; } }`;
   document.head.appendChild(passportPageStyle);
