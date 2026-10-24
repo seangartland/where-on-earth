@@ -1091,6 +1091,7 @@ export function initPassportHome(main) {
    starves the software compositor (the stats overlay needed a frozen loop for the
    same reason) and the dots show through the tint anyway. */
 .passport[hidden] { display: none; }
+.pp-chunk[hidden] { display: none; }
 .passport { position: relative; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .passport:active { transform: scale(.99); }
 .passport:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }

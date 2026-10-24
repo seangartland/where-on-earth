@@ -166,9 +166,10 @@ export function readPassport() {
   return { visits, order: order.slice(-PASSPORT_ORDER_LIMIT), meta };
 }
 
-// canEarn false (endless) logs the visit and progress but awards no postcard;
-// a card earned earlier is kept either way.
+// Non-earning modes do not touch the Passport. A false canEarn is exactly as if
+// the round never reached this store.
 export function recordVisit(id, base, km, canEarn = true) {
+  if (!canEarn) return 0;
   if (!id || !Number.isFinite(base)) return 0;
   const score = clamp(Math.round(base), 0, 1000);
   // Keep a visit logged before meta existed undated: its real first visit is unknown.
