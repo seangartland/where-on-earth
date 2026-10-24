@@ -822,6 +822,10 @@ Promise.all([locationsP, pinsP]).then(([data, pinsData]) => {
   if (isRecsHome) setupRecsHome();
   syncPackButton();
   document.getElementById('pvp-button').disabled = false;
+  // Challenge is hidden from the home page for now (Sean, 2026-10-23). The PvP
+  // code, this button, and shared challenge links all stay; only the home
+  // entry point is hidden. Remove this line to bring it back.
+  document.getElementById('pvp-button').style.display = 'none';
   if (pvpLinkInvite) (pvpLinkIsGroup ? openPvpGroupJoin : openPvpJoin)({ inviteToken: pvpLinkInvite });
   window.__renderAuditFlags?.();
   if (window.__boot) window.__boot('locations loaded');
