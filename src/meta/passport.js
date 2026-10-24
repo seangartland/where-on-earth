@@ -845,10 +845,17 @@ function fillPostcard(entry) {
     img.addEventListener('error', () => img.remove(), { once: true });
     ppdEls.photo.append(img);
   }
-  const stampDistance = Number.isFinite(entry.km) ? `${Math.round(entry.km).toLocaleString()} KM` : '';
-  ppdEls.stamp.hidden = !stampDistance;
-  ppdEls.stampFlag.textContent = host.flagForLocation(item);
-  ppdEls.stampTier.textContent = entry.earned >= host.EARN_BULLSEYE ? 'GOLD' : 'POSTCARD';
+  const badgeDistance = Number.isFinite(entry.km) ? formatShareKm(entry.km) : '';
+  ppdEls.distanceBadge.hidden = !badgeDistance;
+  ppdEls.distanceBadge.dataset.tier = entry.earned >= host.EARN_PINPOINT
+    ? 'pinpoint'
+    : entry.earned >= host.EARN_BULLSEYE ? 'bullseye' : 'ordinary';
+  ppdEls.distanceBadge.replaceChildren();
+  if (badgeDistance) {
+    const [distance, unit] = badgeDistance.split(/\s+/, 2);
+    ppdEls.distanceBadge.append(document.createTextNode(distance));
+    if (unit) ppdEls.distanceBadge.append(document.createElement('br'), document.createTextNode(unit));
+  }
   const short = item.short || '';
   ppdEls.name.textContent = postcardDisplayName(item, host.flagForLocation);
   const clue = (item.clue || '').replace(FLAG_RE, '').trim();
@@ -858,12 +865,6 @@ function fillPostcard(entry) {
   ppdEls.fact.hidden = !item.fact;
   ppdEls.history.replaceChildren();
   const historyDate = entry.earned ? tierDateKey(entry.earnedAt) : entry.first || '';
-  ppdEls.postmark.hidden = !historyDate;
-  if (historyDate) {
-    const date = new Date(`${historyDate}T12:00:00`);
-    ppdEls.postmarkDate.textContent = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
-    ppdEls.postmarkYear.textContent = date.getFullYear();
-  }
   const addHistoryRow = (label, date) => {
     if (!date) return;
     const row = document.createElement('div');
@@ -1005,8 +1006,6 @@ export function openPostcard(entry, source, siblings = postcardSiblings(source))
   syncPostcardNav(ppdLocate());
   postcardScreen.hidden = false;
   postcardScreen.scrollTop = 0;
-  // Restore stamp visibility (hidden on close to prevent FLIP glitch)
-  if (ppdEls.stamp) ppdEls.stamp.style.opacity = '';
   const flip = reducedMotion() ? null : postcardFlipFrame(source);
   source.classList.add('pp-lifted');
   ppdEls.close.focus({ preventScroll: true });
@@ -1037,8 +1036,6 @@ function closePostcard() {
   ppdClosing = true;
   if (!ppdSource?.isConnected) ppdLocate(); // re-sorted while open: land on the new tile
   const source = ppdSource;
-  // Hide the modal stamp immediately so it doesn't glitch during the FLIP close animation
-  if (ppdEls.stamp) ppdEls.stamp.style.opacity = '0';
   // Closed mid-open: play the opening backwards from where it got to rather
   // than snapping to the end first.
   if (ppdOpening) {
@@ -1542,11 +1539,11 @@ body.game-collections #hud { opacity: 0; }
 .ppd-nav[hidden] { display: none; }
 .ppd-close:focus-visible { outline: none; }
 .ppd-close:focus-visible::before { box-shadow: 0 0 0 2px #67e8ff; }
-.ppd-stamp { position: absolute; z-index: 2; top: 8px; right: 8px; width: 47px; min-height: 56px; padding: 3px; border: 1.5px dashed rgba(90,70,30,.5); background: #fffdf6; box-shadow: 0 1px 4px rgba(90,70,30,.35); color: #b27c20; text-align: center; transform: rotate(2deg); }
-.ppd-stamp-flag { display: block; font-size: 21px; line-height: 1.15; }
-.ppd-stamp-tier { display: block; margin-top: 2px; font-size: 8px; font-weight: 900; letter-spacing: .06em; line-height: 1.2; }
-.ppd-postmark { position: absolute; z-index: 2; top: 16px; left: -8px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 74px; height: 74px; border: 2.2px solid rgba(52,72,96,.85); border-radius: 50%; background: rgba(250,243,225,.88); color: rgba(40,58,80,.95); font-size: 8px; font-weight: 800; letter-spacing: .1em; line-height: 1.5; text-align: center; transform: rotate(-11deg); box-shadow: 0 1px 5px rgba(30,30,20,.25); }
-.ppd-postmark-date { font-size: 10.5px; letter-spacing: .04em; }
+.ppd-distance-badge { position: absolute; z-index: 2; top: 8px; right: 8px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 54px; height: 54px; padding: 3px; border: 1.8px solid rgba(52,72,96,.85); border-radius: 50%; background: rgba(245,242,235,.92); outline: 1.4px solid rgba(52,72,96,.85); outline-offset: 2.5px; color: rgba(40,58,80,.95); font-size: 12px; font-weight: 850; line-height: 1.15; text-align: center; transform: rotate(-11deg); }
+.ppd-distance-badge::after { content: ''; position: absolute; inset: 4px; border: 1px dashed rgba(52,72,96,.6); border-radius: 50%; pointer-events: none; }
+.ppd-distance-badge[data-tier="bullseye"], .ppd-distance-badge[data-tier="pinpoint"] { border-color: #b27c20; outline-color: #b27c20; color: #b27c20; }
+.ppd-distance-badge[data-tier="bullseye"]::after, .ppd-distance-badge[data-tier="pinpoint"]::after { border-color: rgba(178,124,32,.55); }
+.ppd-distance-badge[hidden] { display: none; }
 .ppd-body { padding: 0 5px; color: #43331a; }
 .ppd-from, .ppd-pos { margin: 0; color: #7a5f36; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
 .ppd-pos { position: absolute; top: 100%; left: 0; right: 0; padding-top: 7px; font-variant-numeric: tabular-nums; text-align: center; }
@@ -1581,8 +1578,7 @@ body.game-collections #hud { opacity: 0; }
     <div class="ppd-inner">
       <div class="ppd-front">
         <div class="pp-photo" data-ppd="photo"></div>
-        <span class="ppd-stamp" data-ppd="stamp"><span class="ppd-stamp-flag" data-ppd="stampFlag"></span><span class="ppd-stamp-tier" data-ppd="stampTier"></span></span>
-        <span class="ppd-postmark" data-ppd="postmark">POSTCARD<span class="ppd-postmark-date" data-ppd="postmarkDate"></span><span data-ppd="postmarkYear"></span></span>
+        <span class="ppd-distance-badge" data-ppd="distanceBadge"></span>
         <button class="ppd-nav" data-dir="-1" aria-label="Previous postcard" tabindex="-1" data-ppd="prev"></button>
         <button class="ppd-nav" data-dir="1" aria-label="Next postcard" tabindex="-1" data-ppd="next"></button>
       </div>

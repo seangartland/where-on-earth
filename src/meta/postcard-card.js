@@ -89,8 +89,10 @@ export function ensurePostcardCardStyles() {
 .pp-dex .pp-slot::before { content: ''; display: block; height: var(--mail-band-height); background: var(--mail-stripe); }
 .pp-dex .pp-slot.is-mystery::before { background: repeating-linear-gradient(45deg, #a89e8c 0 9px, #e9e2d0 9px 18px, #8b93a3 18px 27px, #e9e2d0 27px 36px); opacity: .55; }
 .pp-dex .pp-slot-photo { margin: 5px 5px 0; overflow: visible; border: 3px solid #fffdf6; border-radius: 0; background: #d9cdb2; box-shadow: 0 0 0 1px rgba(101,78,38,.22), 0 1px 3px rgba(101,78,38,.25), inset 0 0 8px rgba(90,70,30,.16); }
-.pp-dex .pp-slot-score { top: -6px; right: -4px; bottom: auto; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; padding: 1px; border: 1.4px solid rgba(90,90,90,.55); background: rgba(245,242,235,.9); color: rgba(90,90,90,.8); font-size: 7px; line-height: 1.15; text-align: center; white-space: normal; transform: rotate(-11deg); box-shadow: none; }
-.pp-dex .pp-slot-score[data-tier="bullseye"], .pp-dex .pp-slot-score[data-tier="pinpoint"] { border-color: #b27c20; background: rgba(250,243,225,.9); color: #b27c20; }
+.pp-dex .pp-slot-score { top: -6px; right: -4px; bottom: auto; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; padding: 1px; border: 1.4px solid rgba(90,90,90,.55); background: rgba(245,242,235,.9); outline: 1.2px solid rgba(90,90,90,.55); outline-offset: 2px; color: rgba(90,90,90,.8); font-size: 7px; line-height: 1.15; text-align: center; white-space: normal; transform: rotate(-11deg); box-shadow: none; }
+.pp-dex .pp-slot-score::after { content: ''; position: absolute; inset: 2.5px; border: 1px dashed rgba(90,90,90,.5); border-radius: 50%; pointer-events: none; }
+.pp-dex .pp-slot-score[data-tier="bullseye"], .pp-dex .pp-slot-score[data-tier="pinpoint"] { border-color: #b27c20; background: rgba(250,243,225,.9); outline-color: #b27c20; color: #b27c20; }
+.pp-dex .pp-slot-score[data-tier="bullseye"]::after, .pp-dex .pp-slot-score[data-tier="pinpoint"]::after { border-color: rgba(178,124,32,.55); }
 .pp-dex .pp-slot-name { margin: 6px 7px 0; color: var(--mail-ink); }
 .pp-dex .pp-slot[data-earn="seen"] .pp-slot-name { color: #526071; }
 .pp-dex .pp-slot.is-mystery .pp-slot-photo { border-color: #fffdf6; }
