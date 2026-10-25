@@ -144,7 +144,7 @@ export function dailyIds(date, list) {
   for (let day = 0; day <= dayNum; day++) {
     const recentIds = new Set(history.flat());
     history.push(picksForDay(queue, day, recentIds));
-    if (history.length > 6) history.shift();
+    if (history.length > 29) history.shift();
   }
   return history[history.length - 1];
 }

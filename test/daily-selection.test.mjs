@@ -24,15 +24,15 @@ test('daily selections have five unique ids and countries across a year', () => 
   }
 });
 
-test('no id repeats in any seven-day window over three years', () => {
+test('no id repeats in any 30-day window over three years', () => {
   const window = [];
   for (let day = 0; day < 365 * 3; day++) {
     const date = dateAt(day);
     const ids = dailyIds(date, locations);
     const prior = new Set(window.flat());
-    for (const id of ids) assert.equal(prior.has(id), false, `${id} repeats within seven days on ${date}`);
+    for (const id of ids) assert.equal(prior.has(id), false, `${id} repeats within 30 days on ${date}`);
     window.push(ids);
-    if (window.length > 6) window.shift();
+    if (window.length > 29) window.shift();
   }
 });
 
