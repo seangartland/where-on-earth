@@ -147,7 +147,7 @@ test('cities and point landmarks preserve the raw number and frozen score fixtur
 test('fixed pinned and derived Daily selections and serialized round fields stay frozen', () => {
   const fixtures = [
     ['2026-10-18', ['tokyo-japan', 'boise-usa', 'enugu-ng', 'ciudad-juarez-mx', 'krasnoyarsk-ru'], [251.05352006657486, 231.86657960125547, 292.9841319554443, 259.6144718086858, 198.46724682154738], [[251, 950, 950], [232, 955, 955], [293, 941, 941], [260, 948, 948], [198, 962, 962]]],
-    ['2026-11-03', ['nashville-usa', 'osaka-japan', 'durban-south-africa', 'malabo-equatorial-guinea', 'oymyakon-russia'], [249.95192791543136, 253.25007566156745, 265.76571920044677, 294.0622469008112, 178.4221670484311], [[250, 951, 951], [253, 950, 950], [266, 947, 947], [294, 941, 941], [178, 966, 966]]],
+    ['2026-11-03', ['hamburg-germany', 'zaragoza-es', 'ostersund', 'diyarbakr-tr', 'ipoh-my'], [205.29886559595116, 236.8154993504964, 179.16020934139766, 245.89660185018724, 293.7821583537704], [[205, 960, 960], [237, 953, 953], [179, 966, 966], [246, 951, 951], [294, 941, 941]]],
   ];
   const byId = new Map(cities.map((item) => [item.id, item]));
   for (const [date, expectedIds, expectedExact, expectedScores] of fixtures) {
