@@ -541,7 +541,11 @@ export const SAT_PROVIDERS = [
     // ?v=2: the z4-z8 tiles were repaired (lakes, snow) and z9 detail added;
     // a new query string is a new cache key for every tile.
     tiles: 'https://tiles.where-on.earth/s2gm2025/{z}/{x}/{y}.jpg?v=2',
-    base: 'https://tiles.where-on.earth/s2gm2025/base-ours.jpg',
+    // ?v=2 on the base too: the bare URL can be served from the CDN edge
+    // cache without a CORS allow header (the cached variant predates the
+    // per-origin policy), which fails the texture load exactly like a
+    // missing whitelist entry. A fresh query string is a fresh cache key.
+    base: 'https://tiles.where-on.earth/s2gm2025/base-ours.jpg?v=2',
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
     maxZ: 9,
   },
