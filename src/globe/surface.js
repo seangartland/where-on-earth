@@ -617,9 +617,9 @@ let satReady;
 // outruns the current window).
 // ---------------------------------------------------------------------------
 export const INSET_MIN_Z = 4;
-export const INSET_Q = 1; // target texels per css px: 1 = css px, 0.5 = device px
-let INSET_SIZE;
-let INSET_TILES; // footprint cap per side, margin included
+export const INSET_Q = devicePixelRatio >= 2 ? 0.5 : 1; // target texels per css px: 1 = css px, 0.5 = device px
+let INSET_COLS; // footprint cap in tiles, margin included
+let INSET_ROWS;
 export const INSET_FADE_S = 0.25;
 export const INSET_FETCHES = 6;
 export const INSET_FETCHES_SLOW = 3;
@@ -669,7 +669,7 @@ export const _insetClear = new THREE.Color();
 export function ensureInsets() {
   if (inset.bufs) return inset.bufs;
   inset.bufs = [0, 1].map(() => {
-    const rt = new THREE.WebGLRenderTarget(INSET_SIZE, INSET_SIZE, { depthBuffer: false, colorSpace: THREE.NoColorSpace });
+    const rt = new THREE.WebGLRenderTarget(INSET_COLS * 256, INSET_ROWS * 256, { depthBuffer: false, colorSpace: THREE.NoColorSpace });
     rt.texture.generateMipmaps = false; // copyTextureToTexture would rebuild them per tile; we do it once per window
     return { rt, bounds: new THREE.Vector4(0, 0, 1, 1), mix: 0, fadeTo: 0, win: null };
   });
@@ -769,7 +769,7 @@ export function insetWindowAt(view, z) {
   const cols = vx1 - vx0 + 3;
   const ty0 = Math.max(0, vy0 - 1);
   const rows = Math.min(n - 1, vy1 + 1) - ty0 + 1;
-  if (cols > INSET_TILES || rows > INSET_TILES) return null;
+  if (cols > INSET_COLS || rows > INSET_ROWS) return null;
   return { z, n, tx0, ty0, cols, rows, vx0, vx1, vy0, vy1, ccx: view.cx * n, ccy: view.cy * n };
 }
 
@@ -811,7 +811,7 @@ export function startInsetWindow(want) {
   buf.fadeTo = 1;
   const { z, n } = want;
   const x0 = imod(want.tx0, n) / n;
-  buf.bounds.set(x0, want.ty0 / n, x0 + INSET_TILES / n, (want.ty0 + INSET_TILES) / n);
+  buf.bounds.set(x0, want.ty0 / n, x0 + INSET_COLS / n, (want.ty0 + INSET_ROWS) / n);
   const win = { ...want, providerId: satProvider.id, gen: ++inset.gen, buf, tiles: [], visLeft: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
   for (let sy = 0; sy < want.rows; sy++) {
     for (let sx = 0; sx < want.cols; sx++) {
@@ -1547,8 +1547,12 @@ export function initMapLab(lakes, rivers) {
 export function initImagery() {
   mapStyle = new URLSearchParams(location.search).get('map') === 'classic' ? 'classic' : 'satellite';
   satReady = initSatellite();
-  INSET_SIZE = renderer.capabilities.maxTextureSize < 4096 ? 1536 : 2048;
-  INSET_TILES = INSET_SIZE / 256; // footprint cap per side, margin included
+  // 1536 square below 4096, else 2048 square, or 2048x4096 on a portrait view.
+  // state.viewW/H are still unset here, so read the canvas box as resize() does.
+  const box = canvas.getBoundingClientRect();
+  const portrait = (box.height || window.innerHeight) > (box.width || window.innerWidth);
+  INSET_COLS = renderer.capabilities.maxTextureSize < 4096 ? 6 : 8;
+  INSET_ROWS = INSET_COLS === 8 && portrait ? 16 : INSET_COLS;
   // WebGL context loss: three restores the context and re-uploads the classic
   // and base textures on its own; the insets restart empty and refill on the
   // next settle. A second loss in one session turns satellite off for good.
@@ -1572,7 +1576,7 @@ export function initImagery() {
     get inset() {
       const w = inset.win;
       return {
-        size: INSET_SIZE, gen: w && w.gen,
+        size: `${INSET_COLS * 256}x${INSET_ROWS * 256}`, gen: w && w.gen,
         z: w && w.z, cols: w && w.cols, rows: w && w.rows,
         tiles: w && w.tiles.length, fallback: w && w.tiles.filter((t) => t.k).length, visLeft: w && w.visLeft, allLeft: w && w.allLeft,
         ready: !!(w && w.ready), mipped: !!(w && w.mipped),
