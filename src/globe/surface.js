@@ -520,7 +520,7 @@ export function buildOutline(lines, radius, opts) {
 // ?map=classic forces the stylized map for testing; it is kept intact for a
 // future mode.
 //   base:   the whole world in one local 2048x1024 equirectangular texture
-//   insets: two detail windows (A under B) that follow the camera at z4-z8,
+//   insets: two detail windows (A under B) that follow the camera at z4-z9,
 //           filled tile by tile once the camera settles (see "Detail insets")
 // ---------------------------------------------------------------------------
 export const SAT_PROVIDERS = [
@@ -538,13 +538,15 @@ export const SAT_PROVIDERS = [
     id: 's2gm2025',
     // Our own mosaic (docs/eox-r2-upload.md): rendered locally from the
     // Copernicus Sentinel-2 quarterly mosaics, served from our R2 bucket.
-    tiles: 'https://tiles.where-on.earth/s2gm2025/{z}/{x}/{y}.jpg?v=1',
+    // ?v=2: the z4-z8 tiles were repaired (lakes, snow) and z9 detail added;
+    // a new query string is a new cache key for every tile.
+    tiles: 'https://tiles.where-on.earth/s2gm2025/{z}/{x}/{y}.jpg?v=2',
     base: 'https://tiles.where-on.earth/s2gm2025/base-ours.jpg',
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
-    maxZ: 8,
+    maxZ: 9,
   },
 ];
-export const DEFAULT_SAT_PROVIDER_ID = 'eox2025';
+export const DEFAULT_SAT_PROVIDER_ID = 's2gm2025';
 export const tileURL = (provider, z, y, x) => provider.tiles
   .replace('{z}', z).replace('{x}', x).replace('{y}', y);
 export const getSatProvider = () => {
@@ -602,7 +604,7 @@ let satReady;
 
 // ---------------------------------------------------------------------------
 // Detail insets
-// Two render-target textures hold a window of z4-z8 tiles around the view.
+// Two render-target textures hold a window of z4-z9 tiles around the view.
 // A new window fills the buffer that isn't showing, drawn on top (B) and
 // cleared to alpha 0, so unloaded tiles show the older inset or the base.
 // Once every visible tile has landed, the old buffer fades out underneath.
