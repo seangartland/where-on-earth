@@ -532,9 +532,10 @@ export const SAT_PROVIDERS = [
     tiles: 'https://tiles.where-on.earth/tiles/{z}/{x}/{y}.jpg?v=3',
     base: './assets/eox-z4-base-2k.jpg',
     credit: 'EOxCloudless <a href="https://cloudless.eox.at" target="_blank" rel="noopener">https://cloudless.eox.at</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)',
-    // z9 mirrored 2026-10-27 (3x3 around every playable coordinate,
-    // eox-z9/download_z9.py); tiles beyond the mirror upscale from z8.
-    maxZ: 9,
+    // z9 mirrored wide (13x17 per location) and z10 over the same ground,
+    // 2026-10-27 (eox-z9/download_tiles.py); beyond the mirror the game
+    // upscales from the nearest mirrored ancestor.
+    maxZ: 10,
   },
   {
     id: 's2gm2025',
