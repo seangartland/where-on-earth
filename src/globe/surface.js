@@ -532,7 +532,9 @@ export const SAT_PROVIDERS = [
     tiles: 'https://tiles.where-on.earth/tiles/{z}/{x}/{y}.jpg?v=3',
     base: './assets/eox-z4-base-2k.jpg',
     credit: 'EOxCloudless <a href="https://cloudless.eox.at" target="_blank" rel="noopener">https://cloudless.eox.at</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)',
-    maxZ: 8,
+    // z9 mirrored 2026-10-27 (3x3 around every playable coordinate,
+    // eox-z9/download_z9.py); tiles beyond the mirror upscale from z8.
+    maxZ: 9,
   },
   {
     id: 's2gm2025',
@@ -550,7 +552,7 @@ export const SAT_PROVIDERS = [
     maxZ: 9,
   },
 ];
-export const DEFAULT_SAT_PROVIDER_ID = 's2gm2025';
+export const DEFAULT_SAT_PROVIDER_ID = 'eox2025';
 export const tileURL = (provider, z, y, x) => provider.tiles
   .replace('{z}', z).replace('{x}', x).replace('{y}', y);
 export const getSatProvider = () => {
