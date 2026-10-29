@@ -312,17 +312,27 @@ export function packNext() {
   showPackScreen();
 }
 
-// The sealed pack. The swipe is tracked on the whole pack screen, not just
-// the packet: a drag that starts off the pack and crosses over it counts,
-// and the cut draws at the finger's actual position over the pack. Only a
-// slice that runs all the way through tears it. Fresh packs only.
+// The tear line: the middle of the holographic crimp strip under the WHERE ON
+// EARTH header, as a fraction of the pack art's height (measured on
+// assets/pack-daily-dispatch.webp, strip rows 465 to 544 of 1966).
+const TEAR_LINE = 0.257;
+// How far above or below the line (CSS px) the finger may stray and still cut.
+const TRACE_BAND = 64;
+
+// The sealed pack. The trace is tracked on the whole pack screen, not just
+// the packet: a drag that starts off the pack and crosses over it counts.
+// Only horizontal travel across the pack near the tear line cuts; straying
+// off the line pauses the cut, it does not reset it. Fresh packs only.
 function wireSealedPack(sealed, screen) {
   let startX = 0;
+  let startY = 0;
   let startT = 0;
+  let lastX = 0;
+  let dir = 0;
   let dragging = false;
   let tearing = false;
   let downOnPack = false;
-  let maxProgress = 0;
+  let progress = 0;
   let travel = 0;
   let opening = null;
   let openingTimer = 0;
@@ -334,6 +344,7 @@ function wireSealedPack(sealed, screen) {
     opening = null;
     window.clearTimeout(openingTimer);
     sealed.hidden = true;
+    sealed.classList.remove('torn');
     sealed.style.removeProperty('--tear');
     sealed.style.pointerEvents = '';
   };
@@ -394,14 +405,19 @@ function wireSealedPack(sealed, screen) {
     if (navigator.vibrate) navigator.vibrate(12);
     if (reducedMotion()) { finishTear(); return; }
     tearing = true;
-    sealed.classList.add('tearing');
+    sealed.classList.add('tearing', 'torn');
     window.setTimeout(finishTear, 500);
   };
 
-  const progressAt = (clientX) => {
-    const r = sealed.getBoundingClientRect();
-    return Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+  // A plain tap shows where to trace: one glint runs the whole line.
+  const teach = () => {
+    sealed.classList.remove('teach', 'tear-rtl');
+    void sealed.offsetWidth;
+    sealed.classList.add('teach');
   };
+  sealed.addEventListener('animationend', (event) => {
+    if (event.animationName === 'pack-glint-teach') sealed.classList.remove('teach');
+  });
 
   screen.addEventListener('pointerdown', (event) => {
     if (opening) { endOpening(); return; }
@@ -411,20 +427,37 @@ function wireSealedPack(sealed, screen) {
     dragging = true;
     downOnPack = Boolean(event.target.closest('.pack-sealed'));
     startX = event.clientX;
+    startY = event.clientY;
     startT = Date.now();
+    lastX = event.clientX;
+    dir = 0;
     travel = 0;
-    maxProgress = progressAt(event.clientX);
-    if (downOnPack) sealed.style.setProperty('--tear', maxProgress.toFixed(3));
+    progress = 0;
   });
+  // The cut runs the way the finger first moves along the line; moving back
+  // the other way, or off the line, holds it where it is.
   screen.addEventListener('pointermove', (event) => {
     if (!dragging || tearing) return;
-    travel = Math.max(travel, Math.abs(event.clientX - startX));
-    const progress = progressAt(event.clientX);
-    maxProgress = Math.max(maxProgress, progress);
+    travel = Math.max(travel, Math.hypot(event.clientX - startX, event.clientY - startY));
+    const r = sealed.getBoundingClientRect();
+    const clampX = (x) => Math.min(r.right, Math.max(r.left, x));
+    const dx = clampX(event.clientX) - clampX(lastX);
+    lastX = event.clientX;
+    if (Math.abs(event.clientY - (r.top + r.height * TEAR_LINE)) > TRACE_BAND || !dx) return;
+    if (!dir) {
+      dir = Math.sign(dx);
+      sealed.classList.toggle('tear-rtl', dir < 0);
+    }
+    progress = Math.min(1, progress + Math.max(0, dx * dir) / r.width);
     sealed.style.setProperty('--tear', progress.toFixed(3));
+    if (progress >= 0.9) {
+      dragging = false;
+      progress = 0;
+      tearOpen();
+    }
   });
-  // Only a slice that runs all the way through the pack opens it. Anything
-  // less springs back to zero for another try.
+  // Only a trace that runs nearly all the way along the line opens it.
+  // Anything less springs back to zero for another try.
   const resetTear = (from) => {
     const started = performance.now();
     const step = (now) => {
@@ -438,9 +471,13 @@ function wireSealedPack(sealed, screen) {
   const finishDrag = () => {
     if (!dragging) return;
     dragging = false;
-    if (maxProgress >= 0.85 && travel >= 40) tearOpen();
-    else resetTear(maxProgress);
-    maxProgress = 0;
+    if (downOnPack && travel < 10 && Date.now() - startT < 500) {
+      if (reducedMotion()) tearOpen();
+      else teach();
+    } else {
+      resetTear(progress);
+    }
+    progress = 0;
     travel = 0;
   };
   screen.addEventListener('pointerup', finishDrag);
@@ -460,26 +497,17 @@ export function initPack(main) {
   sealed.setAttribute('role', 'button');
   sealed.tabIndex = 0;
   sealed.setAttribute('aria-label', 'Open the pack');
+  sealed.style.setProperty('--line', TEAR_LINE);
+  // The art carries its own wordmark and title. body is the art below the
+  // tear line, strip the art above it (it flies off on the tear), flap the
+  // torn edge left on the body, cut the opening split and its flare head.
   sealed.innerHTML = `
+    <div class="pack-sealed-body"></div>
     <div class="pack-sealed-strip"></div>
     <div class="pack-sealed-flap"></div>
-    <div class="pack-sealed-cut"></div>
     <div class="pack-sealed-sheen"></div>
-    <div class="pack-sealed-face">
-      <div class="pack-sealed-stamp" aria-hidden="true">
-        <svg viewBox="0 0 44 54" focusable="false">
-          <rect width="44" height="54" fill="#bcd6ea"/>
-          <circle cx="32" cy="12" r="6" fill="#f2b544"/>
-          <path d="M0 40 L14 24 L24 34 L32 26 L44 38 L44 54 L0 54 Z" fill="#4a6b4f"/>
-          <path d="M0 46 Q11 40 22 46 T44 46 L44 54 L0 54 Z" fill="#3e6d8e"/>
-        </svg>
-      </div>
-      <div class="pack-sealed-postmark" aria-hidden="true">DAILY<br>MAIL</div>
-      <p class="pack-sealed-name">Daily postcard pack</p>
-      <p class="pack-sealed-sub">3 postcards inside</p>
-      <p class="pack-sealed-hint">Swipe all the way across to tear it open</p>
-    </div>
-    <div class="pack-sealed-crimp"></div>`;
+    <div class="pack-sealed-cut"><span class="pack-sealed-glint"></span></div>
+    <p class="pack-sealed-hint">Trace the line to open</p>`;
   screen.querySelector('.pack-panel').insertBefore(sealed, screen.querySelector('.pack-slots'));
   els = {
     screen,

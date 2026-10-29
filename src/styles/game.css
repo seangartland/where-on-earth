@@ -481,28 +481,35 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-slots[hidden] { display: none; }
 
 /* The pack opening ritual (2026-10-18): sealed pack, clue flip, stamp-in. */
-/* The sealed pack: a postcard-shaped packet, a bit taller and wider than a
-   single postcard, torn across the top. --tear (0..1) is the cut's progress
-   across the width, driven by the player's finger (pack.js). */
-.pack-sealed { position: relative; box-sizing: border-box; width: min(200px, 62vw); aspect-ratio: 3 / 4.1; margin: 6px auto 12px; overflow: hidden; border-radius: 9px; background: var(--mail-stripe-border); box-shadow: 4px -4px 0 -1px #d9cdb2, 8px -8px 0 -2px #cbbd9c, inset 0 1px 0 rgba(255,255,255,.5), inset 0 -18px 26px rgba(90,70,30,.18); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
+/* The sealed pack: the Globe Hero packet art, full-bleed. --line is the tear
+   line as a fraction of the pack height and --tear (0..1) the cut's progress
+   along it, both set by pack.js. body and strip are the same art split at the
+   line; on the tear the strip flies off and the body keeps a torn edge. */
+.pack-sealed { --art: url('../../assets/pack-daily-dispatch.webp'); position: relative; box-sizing: border-box; width: min(180px, 46vw); aspect-ratio: 831 / 1966; margin: 6px auto 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,.5)); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
 .pack-sealed[hidden] { display: none; }
-.pack-sealed:focus-visible { outline: 2px solid #2c4a7c; outline-offset: 2px; }
-.pack-sealed::before { position: absolute; inset: 7px; border-radius: 5px; background: var(--mail-paper); content: ''; pointer-events: none; }
-.pack-sealed-strip { position: absolute; z-index: 2; inset: 0 7px auto; height: 30px; border-bottom: 2px dashed rgba(200,67,60,.65); background: repeating-linear-gradient(90deg, rgba(44,74,124,.14) 0 3px, rgba(200,67,60,.12) 3px 6px), linear-gradient(180deg, #f3ead2, #eadfc2); clip-path: inset(0 0 0 calc(var(--tear, 0) * 100%)); pointer-events: none; }
-.pack-sealed-flap { position: absolute; z-index: 2; top: 0; height: 30px; width: 52px; left: calc(var(--tear, 0) * 100% - 52px); background: repeating-linear-gradient(90deg, rgba(44,74,124,.14) 0 3px, rgba(200,67,60,.12) 3px 6px), linear-gradient(200deg, #f3ead2, #eadfc2); border-bottom: 2px dashed rgba(200,67,60,.65); transform-origin: 100% 0; transform: rotate(calc(var(--tear, 0) * -22deg)) translateY(calc(var(--tear, 0) * -7px)); opacity: var(--tear, 0); pointer-events: none; }
-.pack-sealed-cut { position: absolute; z-index: 3; top: 0; height: 30px; width: 2px; left: calc(var(--tear, 0) * 100%); background: linear-gradient(180deg, #fffdf6, #c8433c); box-shadow: 0 0 8px 2px rgba(200,67,60,.28); opacity: var(--tear, 0); pointer-events: none; }
-.pack-sealed-sheen { position: absolute; z-index: 1; inset: 7px; background: linear-gradient(115deg, transparent 22%, rgba(255,255,255,.17) 42%, rgba(255,255,255,.04) 56%, transparent 72%); pointer-events: none; }
-.pack-sealed-crimp { position: absolute; z-index: 2; inset: auto 7px 0; height: 26px; border-top: 1px solid rgba(90,70,30,.18); background: repeating-linear-gradient(90deg, rgba(44,74,124,.12) 0 3px, rgba(200,67,60,.10) 3px 6px), linear-gradient(0deg, #eadfc2, #f3ead2); pointer-events: none; }
-.pack-sealed-face { position: absolute; z-index: 1; inset: 30px 7px 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 14px; text-align: center; }
-.pack-sealed.tearing .pack-sealed-strip { transition: clip-path .45s ease-in; clip-path: inset(0 0 0 100%); }
-.pack-sealed.tearing .pack-sealed-flap, .pack-sealed.tearing .pack-sealed-cut { transition: opacity .3s; opacity: 0; }
-.pack-sealed.tearing .pack-sealed-hint { visibility: hidden; }
-.pack-sealed-stamp { position: absolute; top: 10px; right: 10px; width: 52px; height: 62px; padding: 3px; border: 1.5px dashed rgba(90,70,30,.45); background: var(--mail-stamp); box-shadow: 0 1px 3px rgba(90,70,30,.25); }
-.pack-sealed-stamp svg { display: block; width: 44px; height: 54px; }
-.pack-sealed-postmark { position: absolute; top: 2px; right: 38px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: var(--mail-ring); border-radius: 50%; transform: rotate(-10deg); color: rgba(52,72,96,.65); font-size: 7.5px; font-weight: 700; letter-spacing: .12em; line-height: 1.5; text-align: center; }
-.pack-sealed-name { margin: 56px 0 0; color: var(--mail-ink); font-size: 17px; font-weight: 800; line-height: 1.2; letter-spacing: .02em; }
-.pack-sealed-sub { margin: 2px 0 0; color: rgba(52,72,96,.75); font-size: 12px; font-weight: 650; }
-.pack-sealed-hint { margin: 12px 0 0; color: rgba(90,70,30,.55); font-size: 11px; font-weight: 600; }
+.pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
+.pack-sealed-body, .pack-sealed-strip { position: absolute; inset: 0; background: var(--art) center / 100% 100% no-repeat; pointer-events: none; }
+.pack-sealed-body { clip-path: inset(calc(var(--line) * 100%) 0 0 0); }
+.pack-sealed-strip { z-index: 1; clip-path: inset(0 0 calc((1 - var(--line)) * 100% - 1px) 0); transform-origin: 100% calc(var(--line) * 100%); }
+.pack-sealed-flap { position: absolute; z-index: 2; inset: calc(var(--line) * 100% - 5px) 1.6% auto; height: 6px; background: linear-gradient(90deg, #f3c8ff, #b9e6ff, #d6ffd0, #fff0b0, #ffc6e4, #b9e6ff, #f3c8ff); -webkit-mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; opacity: 0; pointer-events: none; }
+.pack-sealed-sheen { position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 42%, rgba(255,255,255,.16) 50%, transparent 58%) 100% 0 / 300% 100% no-repeat; -webkit-mask: var(--art) center / 100% 100% no-repeat; mask: var(--art) center / 100% 100% no-repeat; animation: pack-sheen 5s ease-in-out infinite; pointer-events: none; }
+@keyframes pack-sheen { 0%, 30% { background-position: 100% 0; } 70%, 100% { background-position: 0 0; } }
+/* The cut: a dark split opening along the line behind a bright flare head.
+   Traced right to left, the whole layer mirrors so it runs from the right. */
+.pack-sealed-cut { position: absolute; z-index: 3; inset: calc(var(--line) * 100% - 2px) 1.6% auto; height: 4px; pointer-events: none; }
+.pack-sealed.tear-rtl .pack-sealed-cut { transform: scaleX(-1); }
+.pack-sealed-cut::before { position: absolute; inset: 0 auto 0 0; width: calc(var(--tear, 0) * 100%); border-radius: 2px; background: linear-gradient(180deg, #fff8d6, #0b1430 45% 55%, #d9f4ff); box-shadow: 0 0 6px rgba(255,236,170,.6); content: ''; }
+.pack-sealed-glint { position: absolute; top: 50%; left: calc(var(--tear, 0) * 100%); width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle, #fff 0 14%, rgba(255,240,180,.9) 26%, rgba(255,200,120,.35) 50%, transparent 70%); transform: translate(-50%, -50%); opacity: min(1, calc(var(--tear, 0) * 40)); }
+.pack-sealed.teach .pack-sealed-glint { animation: pack-glint-teach .9s ease-in-out; }
+@keyframes pack-glint-teach { 0% { left: 0; opacity: 0; } 12%, 88% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+/* The tear-off (tearOpen's 500ms): the strip lifts, tips and flies off past
+   the top; the body keeps a jagged iridescent edge. */
+.pack-sealed.torn .pack-sealed-strip { animation: pack-strip-off .5s cubic-bezier(.3,.1,.6,1) forwards; }
+@keyframes pack-strip-off { 0% { transform: none; opacity: 1; } 35% { transform: translateY(-3%) rotate(-3deg); opacity: 1; } 100% { transform: translate(-4%, -34%) rotate(-7deg); opacity: 0; } }
+.pack-sealed.torn .pack-sealed-flap { transition: opacity .15s; opacity: 1; }
+.pack-sealed.torn .pack-sealed-cut, .pack-sealed.torn .pack-sealed-sheen { transition: opacity .2s; opacity: 0; }
+.pack-sealed-hint { position: absolute; top: calc(100% + 6px); right: 0; left: 0; margin: 0; color: rgba(193,224,250,.7); font-size: 11px; font-weight: 600; text-align: center; white-space: nowrap; pointer-events: none; }
+.pack-sealed.torn .pack-sealed-hint { visibility: hidden; }
 
 .pack-flip-slot { perspective: 700px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .pack-flip-slot:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }
@@ -522,7 +529,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 
 @media (prefers-reduced-motion: reduce) {
   .pack-flip { transition: none; }
-  .pack-sealed.tearing { animation: none; }
+  .pack-sealed-sheen { animation: none; }
 }
 
 /* Survival and More modes hub rows: the shared picker row without the emoji column. */
