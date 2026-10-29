@@ -49,3 +49,19 @@ test('usable pins are unchanged and one unusable slot alone is repaired', () => 
   assert.equal(new Set(repaired).size, repaired.length);
   assert.equal(new Set(repaired.map((id) => byId.get(id).country)).size, repaired.length);
 });
+
+test('pin substitution never reads difficulty', () => {
+  const entry = (id, country) => {
+    const item = { id, country, image: `${id}.jpg`, lat: 0, lng: 0 };
+    Object.defineProperty(item, 'difficulty', { get() { throw new Error('difficulty was read'); } });
+    return item;
+  };
+  const pool = ['a', 'b', 'c'].map((id) => entry(id, id.toUpperCase()));
+  pool.push(entry('d', 'A'));
+  const repaired = resolvePinnedIds('2026-10-25', ['a', 'b', 'missing', 'c'], pool);
+  assert.ok(repaired);
+  assert.deepEqual(repaired.slice(0, 2), ['a', 'b']);
+  assert.deepEqual(repaired.slice(3), ['c']);
+  assert.equal(repaired[2], 'd');
+  assert.equal(resolvePinnedIds('2026-10-25', ['a', 'b', 'missing', 'c', 'd'], pool), null);
+});

@@ -155,7 +155,7 @@ const newPool = JSON.parse(readFileSync(join(ROOT, 'assets/locations.json'), 'ut
 const subs = [];
 for (const d of Object.keys(pins)) {
   const fixed = resolvePinnedIds(d, pins[d], newPool);
-  if (!fixed) fail(`${d}: a dropped location has no valid substitute in its difficulty band`);
+  if (!fixed) fail(`${d}: a dropped location has no valid playable substitute`);
   fixed.forEach((id, slot) => { if (id !== pins[d][slot]) subs.push(`${d} R${slot + 1}: ${pins[d][slot]} -> ${id}`); });
   pins[d] = fixed;
 }

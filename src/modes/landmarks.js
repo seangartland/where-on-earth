@@ -7,18 +7,10 @@ import { isPlayableLocation } from '../daily.js';
 
 let host = null;
 
-// The v2 difficultyWhy shape from scripts/validate-landmarks.mjs; its trailing
-// level must equal the stored difficulty.
-const V2_WHY = /^p(?:1|\.\d{2})(?:\(via [^)]+\))?·fb\d+·K[\d.]+·iso\d+ → \d+(?:\.\d)? → (\d+)$/;
-
 // Pool rule: approved areas have a positive extent; point landmarks retain
-// their existing playable-image and measured-v2-rating requirements.
+// their existing playable-image requirement.
 export function isPoolLandmark(item) {
-  if (item?.kind === 'landmark') {
-    if (!isPlayableLocation(item)) return false;
-    const match = V2_WHY.exec(item.difficultyWhy || '');
-    return Boolean(match) && Number(match[1]) === item.difficulty;
-  }
+  if (item?.kind === 'landmark') return isPlayableLocation(item);
   if (item?.kind === 'area') {
     return isPlayableLocation(item)
       && Object.hasOwn(item, 'extentKm')

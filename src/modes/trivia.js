@@ -12,17 +12,12 @@ let host = null;
 const TRIVIA_BEST_KEY = 'where-on-earth-best-trivia';
 const ROUNDS = 5;
 
-// One draw per band, easiest first. The bands are disjoint, so a game never
-// repeats a target.
-const BANDS = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]];
-
 let bank = [];
 export const trivia = { active: false, round: 0, item: null, picks: [], results: [] };
 
-// Playable: a 1 to 10 difficulty and a photo for the reveal that was checked
-// to show the entry's place (photo: 'verified').
-const isPlayable = (entry) => Number.isInteger(entry.difficulty) && entry.difficulty >= 1 && entry.difficulty <= 10
-  && Boolean(entry.image) && entry.photo === 'verified';
+// Playable: a photo for the reveal that was checked to show the entry's place
+// (photo: 'verified').
+const isPlayable = (entry) => Boolean(entry.image) && entry.photo === 'verified';
 export function triviaBankLoaded(data) {
   bank = (Array.isArray(data) ? data : []).filter(isPlayable);
   host.gameEls.triviaEntry.disabled = !bank.length;
@@ -41,11 +36,13 @@ export function triviaHubLine() {
   return bank.length ? `${bank.length.toLocaleString()} clues${best ? ` · Best ${best.toLocaleString()}` : ''}` : '';
 }
 
-function drawGame() {
-  return BANDS.map(([lo, hi]) => {
-    const choices = bank.filter((entry) => entry.difficulty >= lo && entry.difficulty <= hi);
-    return choices[Math.floor(Math.random() * choices.length)];
-  });
+export function drawGame() {
+  const choices = bank.slice();
+  for (let i = choices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [choices[i], choices[j]] = [choices[j], choices[i]];
+  }
+  return choices.slice(0, ROUNDS);
 }
 
 export function startTrivia() {

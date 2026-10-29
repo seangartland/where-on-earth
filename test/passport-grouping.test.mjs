@@ -2,20 +2,19 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { passportEntryCompare, passportGroups } from '../src/meta/passport-grouping.mjs';
 
-const entry = (name, country, continent, band, extra = {}) => ({
-  item: { short: name }, country, continent, band, visited: false, earned: 0, recency: -1, ...extra,
+const entry = (name, country, continent, extra = {}) => ({
+  item: { short: name }, country, continent, visited: false, earned: 0, recency: -1, ...extra,
 });
 const fixtures = [
-  entry('Kyoto', 'Japan', 'Asia', 'common', { visited: true, earned: 1, recency: 3, km: 20 }),
-  entry('Osaka', 'Japan', 'Asia', 'rare'),
-  entry('Lima', 'Peru', 'South America', 'legendary', { visited: true, recency: 8, km: 40 }),
-  entry('Unknown', 'Atlantis', '', null),
+  entry('Kyoto', 'Japan', 'Asia', { visited: true, earned: 1, recency: 3, km: 20 }),
+  entry('Osaka', 'Japan', 'Asia'),
+  entry('Lima', 'Peru', 'South America', { visited: true, recency: 8, km: 40 }),
+  entry('Unknown', 'Atlantis', ''),
 ];
 
 test('builds and orders all grouped modes with fallbacks', () => {
   assert.deepEqual(passportGroups(fixtures, 'continent', ['Asia', 'South America'], () => null).map((g) => g.key), ['Asia', 'South America', 'Other']);
   assert.deepEqual(passportGroups(fixtures, 'country', [], (key) => ({ flag: key === 'Japan' ? '🇯🇵' : '' })).map((g) => [g.key, g.flag]), [['Atlantis', ''], ['Japan', '🇯🇵'], ['Peru', '']]);
-  assert.deepEqual(passportGroups(fixtures, 'difficulty', [], () => null).map((g) => g.key), ['common', 'rare', 'legendary', 'other']);
   assert.deepEqual(passportGroups(fixtures, 'none', [], () => null), []);
 });
 

@@ -62,20 +62,6 @@ export function randomFrom(seed) {
   };
 }
 
-// Five difficulty bands, one per round: R1 = diff 1-2, R2 = 3-4, R3 = 5-6,
-// R4 = 7-8, R5 = 9-10. Each band is a deterministically shuffled queue.
-export function bandQueues(list) {
-  return [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]].map(([lo, hi], b) => {
-    const band = list.filter((item) => !isLandmark(item) && isPlayableLocation(item) && (item.difficulty || 5) >= lo && (item.difficulty || 5) <= hi);
-    const rand = randomFrom(hashSeed(`band-${b}`));
-    for (let i = band.length - 1; i > 0; i--) {
-      const j = Math.floor(rand() * (i + 1));
-      [band[i], band[j]] = [band[j], band[i]];
-    }
-    return band;
-  });
-}
-
 // Days since a fixed epoch; drives the rotation. The key is parsed as a UTC
 // calendar date so the same key gives the same day number in every timezone
 // (local-noon parsing put UTC+12..+14 one day behind).
@@ -85,14 +71,10 @@ export function dayNumber(date) {
   return Date.UTC(y, m - 1, d) / 86400000 - epoch;
 }
 
-// One stable queue over the same eligible city pool formerly split across the
-// five difficulty bands. The new seed keeps this order independent of every
-// legacy band shuffle.
+// One stable queue over the eligible city pool. Its seed keeps the order
+// independent of the retired band shuffles.
 function dailyQueue(list) {
-  const queue = list.filter((item) => {
-    const difficulty = item.difficulty || 5;
-    return !isLandmark(item) && isPlayableLocation(item) && difficulty >= 1 && difficulty <= 10;
-  });
+  const queue = list.filter((item) => !isLandmark(item) && isPlayableLocation(item));
   const rand = randomFrom(hashSeed('pool-v2'));
   for (let i = queue.length - 1; i > 0; i--) {
     const j = Math.floor(rand() * (i + 1));
@@ -152,9 +134,8 @@ export function dailyIds(date, list) {
 // A pinned game (assets/daily-pins.json) whose locations all still exist and are
 // playable is returned unchanged. Each slot that no longer resolves is replaced,
 // in slot order, by the first entry of the single daily queue at or after the
-// date's stride start whose id is not already in the game and whose country is
-// not used by any other slot. Every other slot stays identical. Returns null if
-// a slot has no valid substitute.
+// date's stride start whose id is not already in the game. Every other slot
+// stays identical. Returns null if a slot has no valid substitute.
 export function resolvePinnedIds(date, ids, list) {
   const byId = new Map(list.map((item) => [item.id, item]));
   const usable = (id) => {
@@ -168,11 +149,10 @@ export function resolvePinnedIds(date, ids, list) {
   const out = ids.slice();
   for (let slot = 0; slot < out.length; slot++) {
     if (usable(out[slot])) continue;
-    const otherCountries = new Set(out.filter((id, i) => i !== slot && usable(id)).map((id) => byId.get(id).country));
     let sub = null;
     for (let offset = 0; offset < queue.length; offset++) {
       const item = queue[(start + offset) % queue.length];
-      if (!out.includes(item.id) && !otherCountries.has(item.country)) {
+      if (!out.includes(item.id)) {
         sub = item;
         break;
       }

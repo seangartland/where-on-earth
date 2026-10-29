@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
-// Survival mode: each round draws a random difficulty band; one miss over 150
-// km ends the run
+// Survival mode: each round draws a new target; one miss over 150 km ends the
+// run
 //
 // Moved out of main.js in refactor Phase 4, with the run-over screen and the
 // Survival hub that the three Survival modes share. Tap the Country
@@ -19,9 +19,8 @@ const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
 const SURVIVAL_LIMIT_KM = 150;
 
 // The merged Survival pool (pacing doc, 2026-10-18): every playable city plus
-// the Landmark pool, drawn with Classic's uniform 1 to 10 band rule. If the
-// landmarks file failed to load, landmarkPool() is empty and the pool falls
-// back to cities only.
+// the Landmark pool. If the landmarks file failed to load, landmarkPool() is
+// empty and the pool falls back to cities only.
 export function mergedSurvivalPool() {
   return [
     ...host.locations.filter((item) => isPlayableLocation(item) && !isLandmark(item)),
@@ -30,8 +29,8 @@ export function mergedSurvivalPool() {
 }
 
 // A Survival run's source: label (results heading), pool (what rounds draw
-// from), resultsId (runResultsMode) and bestKey. Optional bands(round) gives
-// the round's [lo, hi] band range and shareText() a mode's own share text.
+// from), resultsId (runResultsMode) and bestKey. Optional shareText() gives a
+// mode its own share text.
 const CLASSIC = {
   label: 'Survival',
   pool: mergedSurvivalPool,
@@ -43,7 +42,6 @@ export const survival = {
   active: false,
   item: null,
   forced: null,
-  band: null,
   round: 0,
   survived: 0,
   lastDistance: null,
@@ -73,18 +71,10 @@ export function randomDifficultyBand() {
   return Math.floor(Math.random() * 10) + 1;
 }
 
-// Independent uniform draw from the requested band. There is intentionally no
-// bag, collection weighting, or repeat prevention in Survival.
-function survivalPick() {
-  if (source.bands) {
-    const [lo, hi] = source.bands(survival.round);
-    survival.band = lo + Math.floor(Math.random() * (hi - lo + 1));
-  } else {
-    survival.band = randomDifficultyBand();
-  }
-  const playable = source.pool();
-  const bandChoices = playable.filter((item) => Number(item.difficulty) === survival.band);
-  const choices = bandChoices.length ? bandChoices : playable;
+// Independent uniform draw from targets not already used in this run.
+export function survivalPick() {
+  const used = new Set(survival.results.map((result) => result.item.id));
+  const choices = source.pool().filter((item) => !used.has(item.id));
   if (!choices.length) return null;
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -92,7 +82,7 @@ function survivalPick() {
 function survivalGo() {
   survival.round += 1;
   survival.item = survival.forced || survivalPick();
-  if (survival.forced) { survival.band = survival.item.difficulty; survival.forced = null; }
+  if (survival.forced) survival.forced = null;
   survival.lastDistance = null;
   survival.missed = false;
   if (!survival.item) {
@@ -112,7 +102,6 @@ export function startSurvival(from = CLASSIC) {
   survival.active = true;
   runResultsMode = source.resultsId;
   survival.item = null;
-  survival.band = null;
   survival.round = 0;
   survival.survived = 0;
   survival.lastDistance = null;

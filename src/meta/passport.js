@@ -73,17 +73,7 @@ export function syncPassport() {
 // screen, closed by ×, backdrop tap or Escape). Cards are rebuilt on each open
 // and on each filter change; images lazy-load so a full 986-card passport only
 // fetches what scrolls into view.
-const DIFFICULTY_BANDS = [
-  { key: 'common', label: 'Common', min: 1, max: 3 },
-  { key: 'uncommon', label: 'Uncommon', min: 4, max: 6 },
-  { key: 'rare', label: 'Rare', min: 7, max: 8 },
-  { key: 'legendary', label: 'Legendary', min: 9, max: 10 },
-];
 const FLAG_RE = /[\u{1F1E6}-\u{1F1FF}]{2}/u;
-function difficultyBand(item) {
-  const band = DIFFICULTY_BANDS.find((b) => item.difficulty >= b.min && item.difficulty <= b.max);
-  return band ? band.key : null;
-}
 
 // Shared by the passport grid and the postgame summary cards: everything
 // openPostcard()/fillPostcard() need to show a location's detail view.
@@ -103,7 +93,6 @@ function buildPassportEntry(item, age) {
     // their place in the recency order (and to the very end if that was capped).
     recency: meta.t ?? (age?.has(item.id) ? age.get(item.id) : -1),
     continent: host.continentOf(item),
-    band: difficultyBand(item),
   };
 }
 
@@ -282,7 +271,6 @@ function passportUnvisitedSlot(entry, packName) {
 
 function ppTagSlot(li, entry) {
   li.dataset.status = entry.visited ? (entry.earned ? 'earned' : 'seen') : 'unvisited';
-  li.dataset.band = entry.band || '';
   li.dataset.continent = entry.continent || '';
   li.dataset.kind = entry.kind || '';
 }
@@ -311,7 +299,7 @@ function ppDex(view, { tab, noun, sentinel, dex, statusKey = null }) {
     statuses: new Set(),
     kind: 'all', // 'all' | 'city' | 'place': the Browse panel's Kind filter, replacing the old Cities/Places tabs
     grouping: 'continent',
-    sorts: new Map([['continent', 'atlas'], ['country', 'atlas'], ['difficulty', 'atlas'], ['none', 'recent']]),
+    sorts: new Map([['continent', 'atlas'], ['country', 'atlas'], ['none', 'recent']]),
     accordion: new Map(),
     all: [], // every entry for the open tab, filtered client-side
     groups: [], // atlas sort only: [{ section, name, head }]
@@ -342,7 +330,6 @@ function ppFilterControls(id) {
         <select id="${id}-grouping" data-pp="grouping" aria-label="Group by">
           <option value="continent">Continent</option>
           <option value="country">Country</option>
-          <option value="difficulty">Difficulty</option>
           <option value="none">None</option>
         </select>
         <label class="pp-filter-label" data-pp="sort-label" for="${id}-sort">Sort within groups</label>
@@ -1322,7 +1309,7 @@ export function initPassport(main) {
 .pp-group-head[aria-expanded="true"] .pp-group-head-text::after { transform: rotate(225deg); }
 /* Slim single-line accordion row: name left, "n of N collected" + chevron
    right, hairline progress bar wraps full-width under the row (mockup C).
-   Shared by every grouping (continent/country/difficulty). */
+   Shared by every grouping (continent/country). */
 .pp-group-head.is-accordion { margin: 18px 0 0; padding: 0 0 8px; border: 0; border-radius: 0; background: transparent; color: rgba(193,224,250,.7); font-size: 12px; font-weight: 600; letter-spacing: normal; }
 .pp-group-head.is-accordion .pp-group-head-text b { margin-right: auto; color: #eef2ff; font-size: 15px; font-weight: 800; }
 .pp-group-sub { flex: none; color: rgba(193,224,250,.6); font-weight: 500; }

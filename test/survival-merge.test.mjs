@@ -1,6 +1,6 @@
 // Merged Survival (docs/pacing-and-monetization.md, phase 1): one pool of
-// cities plus the Landmark pool under Classic's uniform band 1 to 10 draw,
-// legacy bests honored by read-time max.
+// cities plus the Landmark pool under a flat no-repeat draw, legacy bests
+// honored by read-time max.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
@@ -31,7 +31,7 @@ const host = {
 };
 
 const { initLandmarks, landmarkPool, LANDMARKS_BEST_KEY } = await import('../src/modes/landmarks.js');
-const { initSurvival, mergedSurvivalPool, survivalBest } = await import('../src/modes/survival.js');
+const { initSurvival, mergedSurvivalPool, survival, survivalBest, survivalPick } = await import('../src/modes/survival.js');
 initLandmarks(host);
 initSurvival(host);
 
@@ -47,25 +47,30 @@ test('merged pool is every playable city plus the whole Landmark pool, no duplic
   assert.equal(new Set(pool.map((item) => item.id)).size, pool.length);
 });
 
-test('uniform band draw over the merged pool: worst overdraw under 1.62x, no zero-chance items', () => {
-  const pool = mergedSurvivalPool();
-  const cohorts = new Map();
-  for (const item of pool) cohorts.set(item.difficulty, (cohorts.get(item.difficulty) || 0) + 1);
-  const flat = 1 / pool.length;
-  let worst = 0;
-  for (const size of cohorts.values()) {
-    assert.ok(size > 0);
-    worst = Math.max(worst, (0.1 / size) / flat);
+test('draws uniformly without difficulty values or repeats inside a run', () => {
+  const originalLocations = host.locations;
+  const originalLandmarks = host.landmarks;
+  const originalRandom = Math.random;
+  host.locations = [
+    { id: 'plain-a', image: 'a.jpg', lat: 0, country: 'A' },
+    { id: 'plain-b', image: 'b.jpg', lat: 1, country: 'B' },
+  ];
+  host.landmarks = [];
+  survival.results = [];
+  Math.random = () => 0;
+  try {
+    const first = survivalPick();
+    survival.results.push({ item: first, distance: 0 });
+    const second = survivalPick();
+    survival.results.push({ item: second, distance: 0 });
+    assert.deepEqual([first.id, second.id], ['plain-a', 'plain-b']);
+    assert.equal(survivalPick(), null);
+  } finally {
+    Math.random = originalRandom;
+    host.locations = originalLocations;
+    host.landmarks = originalLandmarks;
+    survival.results = [];
   }
-  assert.ok(worst < 1.62, `worst overdraw ${worst.toFixed(2)}x`);
-});
-
-test('a thin-band landmark (Balanced Rock) draws at well under 1% per round', () => {
-  const pool = mergedSurvivalPool();
-  const balancedRock = pool.find((item) => item.id === 'balanced-rock-utah');
-  assert.ok(balancedRock, 'Balanced Rock is in the merged pool');
-  const cohort = pool.filter((item) => item.difficulty === balancedRock.difficulty).length;
-  assert.ok(0.1 / cohort < 0.01, `Balanced Rock per-round chance ${(100 * 0.1 / cohort).toFixed(2)}%`);
 });
 
 test('merged best is the max of the two legacy keys; neither key is rewritten', () => {
