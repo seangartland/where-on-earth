@@ -25,8 +25,6 @@ const APPROVED_AREAS = {
   'daintree-rainforest': 35,
   'danube-delta': 50,
   'dead-sea': 55,
-  'great-ocean-road': 122,
-  'napa-valley-ava': 30,
   'suez-canal': 97,
   'lake-baikal': 342.7,
   'lake-superior': 338,
