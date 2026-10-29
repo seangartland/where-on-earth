@@ -10,9 +10,9 @@ const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, impo
 const landmarks = load('locations-landmarks-sol.json');
 const cities = load('locations.json');
 
-test('landform ids exist, are bounded, and disambiguate Uyuni', () => {
+test('the canonical 121 landform ids exist and disambiguate Uyuni', () => {
   const byId = new Map(landmarks.map((item) => [item.id, item]));
-  assert.ok(PACK_LANDFORM_IDS.size >= 60 && PACK_LANDFORM_IDS.size <= 100);
+  assert.equal(PACK_LANDFORM_IDS.size, 121);
   assert.ok([...PACK_LANDFORM_IDS].every((id) => byId.has(id)));
   const names = new Set([...PACK_LANDFORM_IDS].map((id) => byId.get(id).short));
   assert.ok(names.has('Salar de Uyuni'));
@@ -22,7 +22,7 @@ test('landform ids exist, are bounded, and disambiguate Uyuni', () => {
 test('landmark and landform pools are exclusive', () => {
   const landforms = landformPackPool(landmarks);
   const other = landmarkPackPool(landmarks);
-  assert.equal(other.length, 341);
+  assert.equal(other.length, 282);
   assert.equal(landforms.length, PACK_LANDFORM_IDS.size);
   assert.ok(other.every((item) => !PACK_LANDFORM_IDS.has(item.id)));
 });
