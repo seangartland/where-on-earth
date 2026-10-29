@@ -1,0 +1,213 @@
+{
+ "storedSeed": {
+  "v": 2,
+  "visits": {
+   "kyoto-japan": 310,
+   "santorini-gr": 996
+  },
+  "order": [
+   "kyoto-japan",
+   "santorini-gr"
+  ],
+  "meta": {
+   "santorini-gr": {
+    "b": 996,
+    "d": 3,
+    "f": "2026-10-02",
+    "t": 1793300400000,
+    "e": 3,
+    "ea": 1790967600000,
+    "eb1": 1790967600000,
+    "eb2": 1792004400000,
+    "eb3": 1793300400000
+   },
+   "kyoto-japan": {
+    "b": 310,
+    "d": 640,
+    "f": "2026-10-20",
+    "t": 1792522800000
+   }
+  },
+  "_v": 1
+ },
+ "earnedFront": {
+  "flipped": false,
+  "rect": {
+   "w": 366,
+   "h": 244
+  },
+  "innerTransform": "none",
+  "earn": "pinpoint",
+  "caption": [
+   "Santorini",
+   "Greece"
+  ],
+  "fact": "The island's crescent shape is the rim of a volcano that erupted catastrophically around 1600 BC, possibly inspiring the Atlantis legend.",
+  "addr": [
+   "Santorini",
+   "Greece 🇬🇷"
+  ],
+  "postmark": "OCT 2 2026",
+  "history": [
+   "FIRST VISITED OCT 2, 2026",
+   "NEAR EARNED OCT 2, 2026",
+   "BULLSEYE EARNED OCT 14, 2026",
+   "PINPOINT EARNED OCT 29, 2026"
+  ],
+  "stats": "3 km · Pinpoint",
+  "factOverflow": false,
+  "rightOverflow": false,
+  "docScrollW": 390,
+  "ppdScrollW": 390,
+  "ppdClientW": 390,
+  "focus": "ppd-close"
+ },
+ "midFlipTransform": "matrix3d(-0.468442, 0, -0.883494, 0, 0, 1, 0, 0, 0.883494, 0, -0.468442, 0, 0, 0, 0, 1)",
+ "earnedBack": {
+  "flipped": true,
+  "rect": {
+   "w": 366,
+   "h": 244
+  },
+  "innerTransform": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+  "earn": "pinpoint",
+  "caption": [
+   "Santorini",
+   "Greece"
+  ],
+  "fact": "The island's crescent shape is the rim of a volcano that erupted catastrophically around 1600 BC, possibly inspiring the Atlantis legend.",
+  "addr": [
+   "Santorini",
+   "Greece 🇬🇷"
+  ],
+  "postmark": "OCT 2 2026",
+  "history": [
+   "FIRST VISITED OCT 2, 2026",
+   "NEAR EARNED OCT 2, 2026",
+   "BULLSEYE EARNED OCT 14, 2026",
+   "PINPOINT EARNED OCT 29, 2026"
+  ],
+  "stats": "3 km · Pinpoint",
+  "factOverflow": false,
+  "rightOverflow": false,
+  "docScrollW": 390,
+  "ppdScrollW": 390,
+  "ppdClientW": 390,
+  "focus": "ppd-flip is-flipped"
+ },
+ "tapBackToFront": true,
+ "tabFocus": "ppd-flip",
+ "enterFlipped": true,
+ "spaceFlippedBack": true,
+ "afterEscape": {
+  "ppdHidden": true,
+  "passportOpen": true,
+  "lifted": 0
+ },
+ "unearnedBack": {
+  "flipped": true,
+  "rect": {
+   "w": 366,
+   "h": 244
+  },
+  "innerTransform": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+  "earn": "seen",
+  "caption": [
+   "Kyoto",
+   "Japan"
+  ],
+  "fact": "Japan's imperial capital for over a thousand years, it escaped major bombing in WWII and still holds nearly 1,600 Buddhist temples.",
+  "addr": [
+   "Kyoto",
+   "Japan 🇯🇵"
+  ],
+  "postmark": null,
+  "history": [
+   "FIRST VISITED OCT 20, 2026"
+  ],
+  "stats": "NOT YET COLLECTED",
+  "factOverflow": false,
+  "rightOverflow": false,
+  "docScrollW": 390,
+  "ppdScrollW": 390,
+  "ppdClientW": 390,
+  "focus": "ppd-close"
+ },
+ "unearnedFrontFilter": "grayscale(1) contrast(0.92) brightness(0.82)",
+ "afterScrim": true,
+ "reopened": {
+  "flipped": false,
+  "rect": {
+   "w": 366,
+   "h": 244
+  },
+  "innerTransform": "none",
+  "earn": "seen",
+  "caption": [
+   "Kyoto",
+   "Japan"
+  ],
+  "fact": "Japan's imperial capital for over a thousand years, it escaped major bombing in WWII and still holds nearly 1,600 Buddhist temples.",
+  "addr": [
+   "Kyoto",
+   "Japan 🇯🇵"
+  ],
+  "postmark": null,
+  "history": [
+   "FIRST VISITED OCT 20, 2026"
+  ],
+  "stats": "NOT YET COLLECTED",
+  "factOverflow": false,
+  "rightOverflow": false,
+  "docScrollW": 390,
+  "ppdScrollW": 390,
+  "ppdClientW": 390,
+  "focus": "ppd-close"
+ },
+ "net": {
+  "local": [
+   "Kyoto%2C_Japan_%2849667780482%29.jpg",
+   "Santorini_Fira3_tango7174.jpg"
+  ],
+  "images": [
+   "200 500px-Kyoto%2C_Japan_%2849667780482%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "200 500px-Santorini_Fira3_tango7174.jpg"
+  ]
+ },
+ "errs": [],
+ "reduced": {
+  "flipped": true,
+  "rect": {
+   "w": 366,
+   "h": 244
+  },
+  "innerTransform": "none",
+  "earn": "pinpoint",
+  "caption": [
+   "Santorini",
+   "Greece"
+  ],
+  "fact": "The island's crescent shape is the rim of a volcano that erupted catastrophically around 1600 BC, possibly inspiring the Atlantis legend.",
+  "addr": [
+   "Santorini",
+   "Greece 🇬🇷"
+  ],
+  "postmark": "OCT 2 2026",
+  "history": [
+   "FIRST VISITED OCT 2, 2026",
+   "NEAR EARNED OCT 2, 2026",
+   "BULLSEYE EARNED OCT 14, 2026",
+   "PINPOINT EARNED OCT 29, 2026"
+  ],
+  "stats": "3 km · Pinpoint",
+  "factOverflow": false,
+  "rightOverflow": false,
+  "docScrollW": 390,
+  "ppdScrollW": 390,
+  "ppdClientW": 390,
+  "focus": "ppd-close",
+  "backOpacity": "1",
+  "frontOpacity": "0"
+ },
+ "reducedErrs": []
+}

@@ -1577,7 +1577,7 @@ body.game-collections #hud { opacity: 0; }
 .ppd-divider { grid-column: 2; grid-row: 1; background: rgba(34,53,92,.22); }
 .ppd-right { grid-column: 3; grid-row: 1; display: flex; flex-direction: column; min-width: 0; padding-left: 10px; }
 .ppd-stamp-row { position: relative; display: flex; justify-content: flex-end; height: 62px; flex: none; }
-.ppd-stamp { position: relative; box-sizing: border-box; width: 52px; height: 52px; margin: 3px 3px 0 0; padding: 4px; background: var(--mail-stamp); box-shadow: 0 2px 5px rgba(0,0,0,.28); }
+.ppd-stamp { position: relative; box-sizing: border-box; width: 52px; height: 52px; margin: 3px 3px 0 0; padding: 4px; background: linear-gradient(135deg, #1b2c5a, #3b2a6e) content-box, var(--mail-stamp); box-shadow: 0 2px 5px rgba(0,0,0,.28); }
 .ppd-stamp img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .ppd-stamp::before, .ppd-stamp::after { content: ''; position: absolute; z-index: 1; pointer-events: none; --perf: radial-gradient(circle, #f4ebd3 2.3px, transparent 2.6px); }
 .ppd-stamp::before { inset: -3.5px 0; background: var(--perf) 0 0 / 7px 7px repeat-x, var(--perf) 0 100% / 7px 7px repeat-x; }
@@ -1611,7 +1611,7 @@ body.game-collections #hud { opacity: 0; }
   .ppd-flip.is-flipped .ppd-face-back { opacity: 1; }
   .ppd-flip.is-flipped .ppd-face-front { opacity: 0; }
 }
-.ppd-close { position: absolute; z-index: 4; top: -12px; right: -2px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
+.ppd-close { position: absolute; z-index: 4; top: -48px; right: -6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
 .ppd-close::before, .ppd-nav::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(44,74,124,.85); color: #fffdf6; font-size: 22px; line-height: 1; }
 /* Previous and next: the close button's circle, quieter, centred on the postcard edges. */
 .ppd-nav { position: absolute; z-index: 3; top: 50%; width: 44px; height: 44px; margin-top: -22px; padding: 0; border: 0; background: none; cursor: pointer; opacity: .55; touch-action: manipulation; }
@@ -1625,9 +1625,9 @@ body.game-collections #hud { opacity: 0; }
 .ppd-close:focus-visible::before { box-shadow: 0 0 0 2px #67e8ff; }
 .ppd-pos { position: absolute; top: 100%; left: 0; right: 0; margin: 0; padding-top: 7px; color: #7a5f36; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; font-variant-numeric: tabular-nums; text-align: center; }
 .ppd-pos[hidden] { display: none; }
-.ppd-hint { margin: 12px 0 0; color: rgba(255,253,246,.72); font-size: 12px; font-weight: 700; text-align: center; }
+.ppd-hint { position: relative; margin: 12px 0 0; color: rgba(255,253,246,.72); font-size: 12px; font-weight: 700; text-align: center; }
 .ppd-hint[hidden] { display: none; }
-.ppd-share { display: block; width: 100%; min-height: 45px; margin: 13px 0 0; padding: 0 16px; border: 1px solid #2c4a7c; border-radius: 4px; background: #fffdf6; color: #22355c; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; }
+.ppd-share { position: relative; display: block; width: 100%; min-height: 45px; margin: 13px 0 0; padding: 0 16px; border: 1px solid #2c4a7c; border-radius: 4px; background: #fffdf6; color: #22355c; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; }
 .ppd-share:active { transform: scale(.98); }
 .ppd-share:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .ppd-share[hidden] { display: none; }`;
