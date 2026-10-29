@@ -632,7 +632,10 @@ function hasRealPhoto(item) {
   return Boolean(item.image) && !item.image.includes('No_image_available');
 }
 
-function openPassport() {
+let passportReturn = null;
+
+export function openPassport(returnTo = passportReturn) {
+  passportReturn = typeof returnTo === 'function' ? returnTo : null;
   ppShelf.accordion.clear(); // every group starts collapsed on each open (Sean, 2026-10-22)
   renderPassportPage();
   host.gameEls.start.hidden = true;
@@ -646,6 +649,13 @@ function openPassport() {
 function closePassport(refocus = true) {
   closePassportFilters();
   passportScreen.hidden = true;
+  const returnTo = passportReturn;
+  passportReturn = null;
+  if (returnTo) {
+    returnTo();
+    syncPassport();
+    return;
+  }
   host.gameEls.start.hidden = false;
   document.body.className = 'game-start';
   syncPassport();
@@ -1217,7 +1227,7 @@ export function initPassportHome(main) {
   <div class="passport-stamps" data-passport="stamps"></div>
   <span class="passport-postmark" aria-hidden="true"><time></time></span>`;
   passportBox.querySelector('.passport-postmark time').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
-  passportBox.addEventListener('click', openPassport);
+  passportBox.addEventListener('click', () => openPassport(null));
   passportBox.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPassport(); }
   });
@@ -1455,7 +1465,7 @@ body.game-passport #hud { opacity: 0; }
     // read it back on init.
   } catch (error) { host.storageError('Read failed', PP_COLLAPSED_KEY, error); }
 
-  passportEntry.addEventListener('click', openPassport);
+  passportEntry.addEventListener('click', () => openPassport(null));
   // Stats now opens from the Settings screen (src/main.js), not the Passport,
   // but its screen still has to paint above whichever screen opened it:
   // re-append it at the end of the body, the same stacking trick the other

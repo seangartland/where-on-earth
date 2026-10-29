@@ -113,7 +113,7 @@ function flipCard(li, index) {
 
 function updatePrimary() {
   const done = packSummary(currentPack()).played >= PACK_CARDS;
-  els.primary.hidden = !done;
+  els.actions.hidden = !done;
   els.primary.textContent = 'Back to packs';
 }
 
@@ -221,7 +221,7 @@ export function showPackSelect() {
   els.slots.hidden = true;
   els.line.hidden = true;
   els.ready.hidden = true;
-  els.primary.hidden = true;
+  els.actions.hidden = true;
   els.stamina.hidden = true;
   els.screen.classList.remove('sealed-on');
   const render = () => {
@@ -348,7 +348,7 @@ function renderPackScreen(deal = false) {
   els.ready.hidden = true;
   els.stamina.textContent = done ? staminaText(pack.record) : '';
   els.screen.classList.toggle('sealed-on', sealedNow);
-  if (sealedNow) els.primary.hidden = true;
+  if (sealedNow) els.actions.hidden = true;
   else updatePrimary();
 }
 
@@ -639,7 +639,9 @@ export function initPack(main) {
     line: screen.querySelector('.pack-line'),
     slots: screen.querySelector('.pack-slots'),
     ready: screen.querySelector('.pack-ready'),
+    actions: screen.querySelector('.pack-actions'),
     primary: screen.querySelector('.pack-primary'),
+    passport: screen.querySelector('.pack-passport'),
     stamina: screen.querySelector('.pack-complete-stamina'),
   };
   wireSealedPack(sealed, screen);
@@ -647,6 +649,7 @@ export function initPack(main) {
   entry.disabled = true;
   entry.addEventListener('click', openPack);
   els.primary.addEventListener('click', primaryAction);
+  els.passport.addEventListener('click', () => host.openPassport(showPackSelect));
   screen.querySelector('.pack-back').addEventListener('click', (event) => {
     event.stopPropagation();
     if (els.select.hidden) showPackSelect();

@@ -495,8 +495,11 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-slot-note { margin: 3px 1px 0; font-size: 11px; font-weight: 750; }
 .pack-slot-note.is-new { color: #ffc76a; }
 .pack-slot-note.is-upgrade { color: #9dd3ff; }
-.pack-primary { width: 100%; margin-top: 18px; }
-.pack-primary[hidden] { display: none; }
+.pack-actions { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .72fr); gap: 8px; width: 100%; margin-top: 18px; }
+.pack-actions[hidden] { display: none; }
+.pack-actions .primary { width: 100%; min-width: 0; padding: 0 14px; }
+.pack-passport { min-width: 0; min-height: 52px; padding: 0 14px; border: 1px solid rgba(157,211,255,.22); border-radius: 999px; background: rgba(157,211,255,.08); color: #dcefff; font: inherit; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.pack-passport:active { transform: scale(.98); }
 .pack-slots[hidden] { display: none; }
 
 /* The pack opening ritual (2026-10-18): sealed pack, clue flip, stamp-in. */

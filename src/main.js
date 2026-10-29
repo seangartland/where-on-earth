@@ -75,7 +75,7 @@ import {
 } from './meta/passport-store.js';
 import {
   initPassportHome, initPassport, syncPassport, passportEntryFor, countryIndex, buildCountryIndex,
-  passportEntry, collectionsEntry, bindPostcard, postcardShareText, passportMysterySlot,
+  passportEntry, collectionsEntry, bindPostcard, postcardShareText, passportMysterySlot, openPassport,
 } from './meta/passport.js';
 
 if (window.__boot) window.__boot('3D engine loaded');
@@ -298,6 +298,7 @@ const modeHost = {
   triviaShareText,
   triviaHubLine,
   passportEntryFor,
+  openPassport,
   bindPostcard,
   applyCardTier,
   passportMysterySlot,

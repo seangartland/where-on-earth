@@ -1,14 +1,18 @@
 import { chromium } from '/home/hatch/workspace/.pw-setup/node_modules/playwright/index.mjs';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 
 const ROOT = '/home/hatch/workspace/map-game/demo';
 const OUT = `${ROOT}/shots/pack-stamina`;
 const MIME = { html: 'text/html', js: 'text/javascript', mjs: 'text/javascript', css: 'text/css', json: 'application/json', png: 'image/png', jpg: 'image/jpeg', webp: 'image/webp', svg: 'image/svg+xml', woff2: 'font/woff2' };
 fs.mkdirSync(OUT, { recursive: true });
+const domainsFile = '/tmp/pack-stamina-webgl-domains.txt';
+fs.writeFileSync(domainsFile, 'hatch-webgl-all-origins-v1\n');
+const domainsSha256 = crypto.createHash('sha256').update(fs.readFileSync(domainsFile)).digest('hex');
 
 const browser = await chromium.launch({
-  executablePath: '/home/hatch/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome',
-  args: ['--no-sandbox', '--disable-crashpad', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
+  executablePath: '/opt/meta-chromium/chrome',
+  args: ['--no-sandbox', '--disable-crashpad', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', `--hatch-webgl-allowed-domains-file=${domainsFile}`, `--hatch-webgl-allowed-domains-sha256=${domainsSha256}`],
 });
 
 async function openPage(seed) {
@@ -93,6 +97,33 @@ for (const [type, name] of [['landmarks', 'c-landmarks-sealed.png'], ['landforms
   const run = await openPage({ _v: 1, skips: 12, stamina: { stored: 0, nextAt: Date.now() + 4.25 * 3_600_000 }, byType: blankTypes() });
   await run.page.getByRole('button', { name: /Open a pack now/ }).click();
   await run.shot('g-select-after-open-now.png');
+  report.errors.push(...run.errors);
+  await run.context.close();
+}
+{
+  const ids = ['kabul-afghanistan', 'tirana-albania', 'algiers-algeria'];
+  const byType = blankTypes();
+  byType.capitals = {
+    ids,
+    torn: true,
+    results: ids.map((id, index) => ({
+      name: id,
+      distance: 120 + index * 80,
+      postcard: { kind: index ? 'repeat' : 'new', tier: index ? undefined : 1 },
+    })),
+  };
+  const run = await openPage({ _v: 1, stamina: { stored: 0, nextAt: Date.now() + 3_600_000 }, byType });
+  await run.page.getByRole('button', { name: /World Capitals/i }).click();
+  await run.page.waitForSelector('.pack-actions:not([hidden])');
+  report.geometry.doneActions = await run.page.locator('.pack-actions').evaluate((node) => {
+    const buttons = [...node.querySelectorAll('button')].map((button) => {
+      const r = button.getBoundingClientRect();
+      return { label: button.textContent.trim(), left: r.left, right: r.right, top: r.top, bottom: r.bottom };
+    });
+    const menu = document.querySelector('#pack-screen .home-nav-btn').getBoundingClientRect();
+    return { buttons, menu: { left: menu.left, right: menu.right, top: menu.top, bottom: menu.bottom } };
+  });
+  await run.shot('h-capitals-done-actions-390x844.png');
   report.errors.push(...run.errors);
   await run.context.close();
 }
