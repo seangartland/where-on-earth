@@ -16,6 +16,8 @@ const {
   STAMINA_PERIOD, accrue, spend, applySkips, readPack, writePack, ensurePack,
   savePackResult, completePack, packOutcome, packSummary, packPool,
   awardDailySkips, grantDailySkips,
+  isOpenPack, hasOtherOpenPack,
+  packChoiceState, canTearPack,
 } = await import('../src/meta/pack-store.js');
 const cities = JSON.parse(readFileSync(new URL('../assets/locations.json', import.meta.url)));
 const pool = packPool(cities);
@@ -152,6 +154,62 @@ test('results summarize and completion clears only that type', () => {
   completePack(record, 'capitals');
   assert.equal(record.byType.capitals, null);
   assert.ok(record.byType.landmarks);
+});
+
+test('only torn unfinished packs block tearing another type', () => {
+  const record = empty();
+  const dealt = { ids: ['one', 'two', 'three'], results: [null, null, null], torn: false };
+  record.byType.capitals = dealt;
+  assert.equal(isOpenPack(dealt), false);
+  assert.equal(hasOtherOpenPack(record, 'landmarks'), false);
+
+  dealt.torn = true;
+  assert.equal(isOpenPack(dealt), true);
+  assert.equal(hasOtherOpenPack(record, 'capitals'), false);
+  assert.equal(hasOtherOpenPack(record, 'landmarks'), true);
+
+  dealt.results = [{}, {}, {}];
+  assert.equal(isOpenPack(dealt), false);
+  assert.equal(hasOtherOpenPack(record, 'landmarks'), false);
+});
+
+test('legacy multiple open packs stay resumable but block every new type', () => {
+  const open = () => ({ ids: ['one', 'two', 'three'], results: [null, null, null], torn: true });
+  const record = empty();
+  record.byType.capitals = open();
+  record.byType.landmarks = open();
+  assert.equal(hasOtherOpenPack(record, 'capitals'), true);
+  assert.equal(hasOtherOpenPack(record, 'landmarks'), true);
+  assert.equal(hasOtherOpenPack(record, 'landforms'), true);
+});
+
+test('select state locks other cards until the open pack completes', () => {
+  const record = empty();
+  record.byType.capitals = { ids: ['one', 'two', 'three'], results: [null, null, null], torn: true };
+  assert.deepEqual(packChoiceState(record, 'capitals'), { inProgress: true, locked: false });
+  assert.deepEqual(packChoiceState(record, 'landmarks'), { inProgress: false, locked: true });
+  assert.deepEqual(packChoiceState(record, 'landforms'), { inProgress: false, locked: true });
+  completePack(record, 'capitals');
+  assert.deepEqual(packChoiceState(record, 'landmarks'), { inProgress: false, locked: false });
+});
+
+test('an untorn dealt pack does not lock select cards', () => {
+  const record = empty();
+  record.byType.capitals = { ids: ['one', 'two', 'three'], results: [null, null, null], torn: false };
+  assert.equal(packChoiceState(record, 'landmarks').locked, false);
+});
+
+test('the tear guard refuses another type while a pack is open', () => {
+  const record = empty();
+  record.byType.capitals = { ids: ['one', 'two', 'three'], results: [null, null, null], torn: true };
+  assert.equal(canTearPack(record, 'capitals'), true);
+  assert.equal(canTearPack(record, 'landmarks'), false);
+});
+
+test('select render drops skip-one-hour but retains open-now', () => {
+  const source = readFileSync(new URL('../src/modes/pack.js', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /Skip 1 hour/);
+  assert.match(source, /Open a pack now/);
 });
 
 test('outcome kinds remain stable', () => {

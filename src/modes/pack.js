@@ -15,6 +15,7 @@ import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
   PACK_CARDS, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
   savePackResult, completePack, spend, applySkips, writePack, packOutcome, packSummary,
+  packChoiceState, canTearPack,
 } from '../meta/pack-store.js';
 
 let host = null;
@@ -232,15 +233,6 @@ export function showPackSelect() {
     if (pack.record.stamina.stored < 2 && pack.record.skips > 0) {
       const actions = document.createElement('div');
       actions.className = 'pack-skip-actions';
-      const skipButton = document.createElement('button');
-      skipButton.type = 'button';
-      skipButton.textContent = 'Skip 1 hour';
-      skipButton.addEventListener('click', () => {
-        applySkips(pack.record, 1);
-        writePack(pack.record);
-        render();
-      });
-      actions.append(skipButton);
       if (waitHours && pack.record.skips >= waitHours) {
         const openButton = document.createElement('button');
         openButton.type = 'button';
@@ -252,16 +244,15 @@ export function showPackSelect() {
         });
         actions.append(openButton);
       }
-      els.selectStamina.append(actions);
+      if (actions.children.length) els.selectStamina.append(actions);
     }
     els.choices.replaceChildren(...PACKS.map((config) => {
-      const saved = pack.record.byType[config.type];
-      const inProgress = Boolean(saved && (saved.torn || saved.results.some(Boolean)));
+      const { inProgress, locked } = packChoiceState(pack.record, config.type);
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'pack-choice';
-      button.disabled = !inProgress && pack.record.stamina.stored < 1;
-      button.innerHTML = `<img src="${config.art}" alt=""><strong>${config.name}</strong><small>${inProgress ? 'In progress' : ''}</small>`;
+      button.disabled = locked || (!inProgress && pack.record.stamina.stored < 1);
+      button.innerHTML = `<img src="${config.art}" alt=""><strong>${config.name}</strong><small>${locked ? 'Finish your open pack first' : inProgress ? 'In progress' : ''}</small>`;
       button.addEventListener('click', () => {
         pack.type = config.type;
         ensurePack(pack.record, config.type, poolFor(config.type));
@@ -475,6 +466,13 @@ function wireSealedPack(sealed, screen) {
   const finishTear = () => {
     const current = currentPack();
     if (current.torn) return;
+    if (!canTearPack(pack.record, pack.type)) {
+      tearing = false;
+      sealed.classList.remove('tearing', 'torn');
+      sealed.style.removeProperty('--tear');
+      showPackSelect();
+      return;
+    }
     if (!spend(pack.record)) {
       tearing = false;
       sealed.classList.remove('tearing', 'torn');

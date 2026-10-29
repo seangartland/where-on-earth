@@ -168,3 +168,25 @@ export function packSummary(pack) {
     counts,
   };
 }
+
+export function isOpenPack(pack) {
+  return Boolean(pack?.torn) && packSummary(pack).played < PACK_CARDS;
+}
+
+export function hasOtherOpenPack(record, type) {
+  return PACK_TYPES.some((candidate) => candidate !== type && isOpenPack(record.byType[candidate]));
+}
+
+export function packChoiceState(record, type) {
+  const saved = record.byType[type];
+  const inProgress = Boolean(saved && (saved.torn || saved.results.some(Boolean)));
+  const anyOpen = PACK_TYPES.some((candidate) => isOpenPack(record.byType[candidate]));
+  return {
+    inProgress,
+    locked: anyOpen && !isOpenPack(saved),
+  };
+}
+
+export function canTearPack(record, type) {
+  return !hasOtherOpenPack(record, type);
+}
