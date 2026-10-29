@@ -1,0 +1,1428 @@
+[
+  {
+    "id": "abu-simbel-temples",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "acropolis-athens-gr",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "ait-benhaddou-ksar",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "ak-baital-pass",
+    "verdict": "borderline",
+    "reason": "A named high Pamir crossing, but recognition is largely confined to overland-travel enthusiasts."
+  },
+  {
+    "id": "alamo-san-antonio",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "alcatraz-island",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "alcazaba-of-malaga-d34-67",
+    "verdict": "borderline",
+    "reason": "A substantial historic fortress, though much less broadly recognized than Spain’s canonical landmark sites."
+  },
+  {
+    "id": "alert-nunavut",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "A working military and signals outpost whose extreme latitude is more notable than the place itself."
+  },
+  {
+    "id": "alhambra-granada",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "amalfi-coast-d34-58",
+    "verdict": "drop",
+    "category": "region",
+    "reason": "A celebrated but diffuse 30 km coastline, not a discrete point landmark; it fits an extent feature instead."
+  },
+  {
+    "id": "amsterdam-canals-d34-7",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "amundsen-scott-south",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "anapurna-base-camp-nepal",
+    "verdict": "borderline",
+    "reason": "A popular trekking destination, but a campsite and viewpoint secondary to the Annapurna massif."
+  },
+  {
+    "id": "angkor-wat",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "anne-frank-house",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "anzac-cove",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "area-51",
+    "verdict": "borderline",
+    "reason": "Globally famous and placeable, but a restricted military facility rather than a conventional landmark."
+  },
+  {
+    "id": "atomium-iron-crystal",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "augusta-national-golf-club",
+    "verdict": "drop",
+    "category": "venue",
+    "reason": "A private, single-purpose golf venue whose fame is concentrated among sports followers."
+  },
+  {
+    "id": "austin-capitol-texas",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "axum-obelisks",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "bagan-myanmar",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "banaue-rice-terraces-ph",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "banteay-chhmar-face-towers",
+    "verdict": "borderline",
+    "reason": "A real monumental temple complex, but recognition is limited compared with nearby Angkor sites."
+  },
+  {
+    "id": "battle-of-hastings",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "ben-youssef-madrasa-marrakech",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "bering-strait",
+    "verdict": "borderline",
+    "reason": "Globally recognized geography, but a 45 km international strait is not a place one can stand."
+  },
+  {
+    "id": "big-ben",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "birds-nest-beijing",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "bodh-gaya-india",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "bondi-beach",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "borobudur",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "brandenburg-gate",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "brasilia-national-congress",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "bryggen-wharf-d34-36",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "bull-run",
+    "verdict": "borderline",
+    "reason": "Historically famous, but the entry names a creek and broad battlefield landscape rather than a precise site."
+  },
+  {
+    "id": "bumthang-valley-bhutan",
+    "verdict": "drop",
+    "category": "region",
+    "reason": "A broad multi-district valley rather than a specific named site a point can honestly represent."
+  },
+  {
+    "id": "bunker-hill-monument",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "burj-al-arab",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "burj-khalifa-dubai",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "byrd-station",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "A buried former research base with little visible site identity or broad public recognition."
+  },
+  {
+    "id": "cabo-catoche",
+    "verdict": "borderline",
+    "reason": "A named cape with exploration history, but little broad recognition as a collectible landmark."
+  },
+  {
+    "id": "cabo-polonia-lighthouse",
+    "verdict": "borderline",
+    "reason": "A distinct lighthouse destination, though its fame is mostly national and regional."
+  },
+  {
+    "id": "calama-chuquicamata-viewpoint",
+    "verdict": "drop",
+    "category": "corporate",
+    "reason": "A working industrial mine rather than a broadly collectible public landmark."
+  },
+  {
+    "id": "camp-nou",
+    "verdict": "borderline",
+    "reason": "One of football’s best-known grounds, but still a single-purpose sports venue."
+  },
+  {
+    "id": "capitol-building-washington",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chaco-canyon-pueblo-bonito",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "champasak-laos",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chan-chan-tshudi-palace",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chand-baori-abhaneri",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chateau-de-chambord",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chateau-frontenac",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chavin-de-huantar",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chernobyl-reactor-4",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chichen-itza",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "christ-the-redeemer",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chrysler-building-nyc",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "chuuk-wrecks",
+    "verdict": "borderline",
+    "reason": "A renowned diving destination, but a dispersed underwater group recognized mainly within that hobby."
+  },
+  {
+    "id": "cinderella-castle-us",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "concordia-station",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "An active specialist research base with little recognition outside polar science."
+  },
+  {
+    "id": "copacabana-beach-rio",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "cotopaxi-refuge",
+    "verdict": "drop",
+    "category": "duplicate",
+    "reason": "The climbers’ hut is secondary to and effectively re-pins the much stronger Cotopaxi subject."
+  },
+  {
+    "id": "davis-station",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "A routine active Antarctic research base without broad independent landmark recognition."
+  },
+  {
+    "id": "daytona-international-speedway",
+    "verdict": "drop",
+    "category": "venue",
+    "reason": "A functional race circuit whose recognition is strong mainly within motorsport."
+  },
+  {
+    "id": "delphi",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "dholavira-india",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "disneyland",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "dome-of-the-rock",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "dyatlov-pass-tent-site",
+    "verdict": "borderline",
+    "reason": "The incident is famous, but the remote approximate tent site has weak physical landmark identity."
+  },
+  {
+    "id": "eilean-donan-tidal-castle",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "el-castillo-chichen-itza",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "flannan-isles-lighthouse-mystery",
+    "verdict": "borderline",
+    "reason": "A specific historic lighthouse, though broad interest depends heavily on one mystery story."
+  },
+  {
+    "id": "french-quarter-nola",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "fukushima-daiichi",
+    "verdict": "borderline",
+    "reason": "Globally consequential and placeable, but an inaccessible industrial disaster complex under decommissioning."
+  },
+  {
+    "id": "gandhi-assassination-birla-house",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "gateway-arch-st-louis",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "genoa-harbor-d34-46",
+    "verdict": "borderline",
+    "reason": "A famous historic port, but the entry covers a large working harbor rather than one discrete site."
+  },
+  {
+    "id": "georgetown-st-georges-cathedral",
+    "verdict": "borderline",
+    "reason": "The cathedral is notable, but the entry is labeled as the whole city and has limited global recognition."
+  },
+  {
+    "id": "gettysburg-battlefield",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "gobekli-tepe",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "gold-coast",
+    "verdict": "drop",
+    "category": "region",
+    "reason": "An entire resort city and coastal strip, not a discrete landmark suitable for a point."
+  },
+  {
+    "id": "gothenburg-canals-d34-34",
+    "verdict": "borderline",
+    "reason": "A legible urban canal system, though recognition is mostly regional and the subject is spatially diffuse."
+  },
+  {
+    "id": "great-ocean-road",
+    "verdict": "drop",
+    "category": "region",
+    "reason": "A 122 km scenic drive is a linear extent, not a place represented honestly by one point."
+  },
+  {
+    "id": "great-sphinx-giza",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "gyeongbokgung-palace",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "halley-station",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "The ozone discovery is important, but the place remains a movable working research station."
+  },
+  {
+    "id": "harmony-point-nelson",
+    "verdict": "drop",
+    "category": "obscure",
+    "reason": "A remote Antarctic headland and protected area with little broad recognition as a landmark."
+  },
+  {
+    "id": "hohensalzburg-fortress",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "hoi-an",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "housesteads-hadrians-wall",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "humberstone-saltpeter-works",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "hungarian-parliament",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "independence-hall",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "indianapolis-motor-speedway",
+    "verdict": "drop",
+    "category": "venue",
+    "reason": "A specialist motor-racing facility rather than a broadly recognized general landmark."
+  },
+  {
+    "id": "jfk-assassination-dealey-plaza",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "k2-base-camp-pakistan",
+    "verdict": "borderline",
+    "reason": "A famous expedition destination, but a seasonal campsite secondary to the mountain itself."
+  },
+  {
+    "id": "kanyakumari-india",
+    "verdict": "borderline",
+    "reason": "A well-known national pilgrimage and geographic endpoint, but the entry names an entire town."
+  },
+  {
+    "id": "kasubi-royal-tombs",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "kennedy-space-center",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "kilwa-kisiwani-ruins",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "knossos",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "kondoa-rock-art",
+    "verdict": "borderline",
+    "reason": "A genuine large rock-art landscape, but dispersed and little known outside heritage specialists."
+  },
+  {
+    "id": "kourou-space-centre",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "An operating launch complex whose significance is institutional and technical rather than landmark-like."
+  },
+  {
+    "id": "kremlin-moscow",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "kuelap-fortress-peru",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "las-lajas-sanctuary",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "lascaux",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "le-mans-circuit",
+    "verdict": "drop",
+    "category": "venue",
+    "reason": "A race circuit assembled partly from public roads and recognized chiefly through one annual event."
+  },
+  {
+    "id": "little-bighorn-battlefield",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "lituya-bay-megatsunami",
+    "verdict": "drop",
+    "category": "event",
+    "reason": "A large bay pinned chiefly as the site of a past megatsunami, not a broadly recognized landmark."
+  },
+  {
+    "id": "longmen-grottos",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "lumbini-nepal",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "lunch-atop-skyscraper-rockefeller",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "machu-picchu",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "magna-carta-runnymede",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "maheno-shipwreck",
+    "verdict": "borderline",
+    "reason": "A visible named wreck and visitor stop, but its recognition is largely local and tourism-specific."
+  },
+  {
+    "id": "mall-of-america",
+    "verdict": "borderline",
+    "reason": "Widely known and placeable, but commercial scale alone makes a weak landmark case."
+  },
+  {
+    "id": "mandela-rivonia-arrest-liliesleaf",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "masada-israel",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "mawson-station",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "A working polar base with historic longevity but limited recognition beyond Antarctic circles."
+  },
+  {
+    "id": "mcmurdo-hut-point",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "medellin-botero-plaza",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "miraflores-locks",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "moai-quarry-rano-raraku",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "mont-saint-michel",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "monticello",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "nalanda-bihar",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "nan-madol",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "napa-valley-ava",
+    "verdict": "drop",
+    "category": "region",
+    "reason": "A broad wine appellation covering many communities and vineyards, better represented as an extent."
+  },
+  {
+    "id": "ness-of-brodgar",
+    "verdict": "borderline",
+    "reason": "An important archaeological complex, but specialist recognition and an excavated, subtle physical presence."
+  },
+  {
+    "id": "new-grange-colonia-lighthouse",
+    "verdict": "borderline",
+    "reason": "A specific historic lighthouse, but with limited recognition outside Uruguay and regional visitors."
+  },
+  {
+    "id": "newgrange",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "ouro-preto-tiradentes-square",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "palm-jumeirah",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "palmer-station",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "A routine active Antarctic research station without broad independent landmark stature."
+  },
+  {
+    "id": "pantanal-porto-jofre",
+    "verdict": "drop",
+    "category": "obscure",
+    "reason": "A small tourism gateway borrowing its interest from the much larger Pantanal region."
+  },
+  {
+    "id": "paracas-candelabra",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "paramaribo-presidential-palace",
+    "verdict": "borderline",
+    "reason": "A specific national monument, though the entry is mislabeled as the city and has modest global recognition."
+  },
+  {
+    "id": "parliament-hill-ottawa",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "pearl-harbor-uss-arizona",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "petra-jordan",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "pingyao-ancient-city",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "pitcairn-bounty-bay",
+    "verdict": "borderline",
+    "reason": "Historically evocative and specific, but a tiny functional landing place with niche recognition."
+  },
+  {
+    "id": "plaza-de-espana-seville",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "plaza-mayor-of-salamanca-d34-70",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "plymouth-rock",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "pompeii",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "pont-du-gard-aqueduct",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "prado-museum",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "punta-arenas-magellan-monument",
+    "verdict": "borderline",
+    "reason": "The monument is specific, but the entry is labeled as the city and is not broadly recognized worldwide."
+  },
+  {
+    "id": "pyramids-of-giza",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "queenstown-bay",
+    "verdict": "borderline",
+    "reason": "A recognizable resort waterfront, but secondary to Queenstown and its surrounding landscape."
+  },
+  {
+    "id": "rani-ki-vav-stepwell",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "red-square-moscow",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "registan-samarkand",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "rock-of-cashel",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "sacsayhuaman-cusco",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "saint-laurent-camp-transportation",
+    "verdict": "borderline",
+    "reason": "A preserved penal-history site, though recognition is largely regional or specialist."
+  },
+  {
+    "id": "san-ignacio-mini-mission",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "sanctuary-of-fátima-d34-77",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "santa-monica-pier",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "savusavu-bay",
+    "verdict": "drop",
+    "category": "region",
+    "reason": "A broad harbor area with mostly regional sailing interest rather than a discrete famous site."
+  },
+  {
+    "id": "scott-hut-cape-evans",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "shackleton-hut-cape-royds",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "shibuya-crossing-tokyo",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "sigiriya",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "south-beach",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "st-marks-square-venice",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "star-wars-lars-homestead-interior",
+    "verdict": "borderline",
+    "reason": "A real vernacular building and film-tourism stop whose recognition depends heavily on fandom."
+  },
+  {
+    "id": "stonehenge",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "strait-of-gibraltar",
+    "verdict": "borderline",
+    "reason": "Globally recognized geography, but a wide international waterway cannot be represented faithfully by one point."
+  },
+  {
+    "id": "suez-canal",
+    "verdict": "borderline",
+    "reason": "Exceptionally famous and placeable in broad terms, but a 193 km linear corridor rather than a point site."
+  },
+  {
+    "id": "thermopylae",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "tiananmen-square-beijing",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "tikal",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "times-square-nyc",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "tiwanaku-kalasasaya",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "trafalgar-square-london",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "trevi-fountain-rome",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "valley-of-kings",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "valley-of-queens-luxor",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "vardzia-cliff-monastery",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "versailles-palace",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "vlkolinec-slovakia",
+    "verdict": "drop",
+    "category": "obscure",
+    "reason": "A tiny preserved village with little broad recognition outside Slovakia and heritage specialists."
+  },
+  {
+    "id": "vostok-station",
+    "verdict": "borderline",
+    "reason": "Lake Vostok and the cold record give it unusual fame, but it remains an inaccessible working research station."
+  },
+  {
+    "id": "wall-street-us",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "western-wall-jerusalem",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "whalers-bay-deception",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "white-house-dc",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "wimbledon-all-england-club",
+    "verdict": "borderline",
+    "reason": "One of the world’s most famous sporting places, but still a private event-focused venue."
+  },
+  {
+    "id": "wittenberg-castle-church",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "xochimilco-mx",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "yapahuwa-rock-citadel",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "empire-state-building-ny",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "fuji-tv-building-tokyo",
+    "verdict": "borderline",
+    "reason": "Distinctive architecture with public access, but recognition is largely corporate and domestic."
+  },
+  {
+    "id": "pentagon-us",
+    "verdict": "borderline",
+    "reason": "Globally recognizable architecture, but also a functioning restricted military office complex."
+  },
+  {
+    "id": "reichstag-de",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "stonewall-uprising",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "sacre-coeur-fr",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "arc-de-triomphe-paris",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "london-eye-gb",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "manneken-pis-be",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "old-trafford",
+    "verdict": "borderline",
+    "reason": "Globally famous among football audiences, but still a specialized functional stadium."
+  },
+  {
+    "id": "roman-baths-bath",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "sarajevo-baščaršija-d34-26",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "fushimi-inari-taisha",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "haamonga-trilithon",
+    "verdict": "borderline",
+    "reason": "A specific monumental structure, though little recognized outside Tonga and archaeology circles."
+  },
+  {
+    "id": "katskhi-pillar-hermitage",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "kinkakuji",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "mecca-kaaba-saudi",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "port-lockroy",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "scott-base",
+    "verdict": "drop",
+    "category": "research",
+    "reason": "A modern working research base whose themed-set value exceeds its broad landmark recognition."
+  },
+  {
+    "id": "terracotta-army",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "tian-tan-buddha-hk",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "wat-arun-th",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "grise-fiord",
+    "verdict": "borderline",
+    "reason": "A notable High Arctic community with important history, but a settlement rather than a landmark."
+  },
+  {
+    "id": "graceland",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "hollywood-sign-la",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "liberty-bell",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "one-world-trade-center-us",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "elvis-sun-studio-first-single",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "two-lovers-point",
+    "verdict": "borderline",
+    "reason": "A distinct scenic lookout and monument, but its recognition is mainly regional tourism."
+  },
+  {
+    "id": "wrigley-field",
+    "verdict": "borderline",
+    "reason": "A strongly place-identified historic ballpark, but still a specialized sports facility."
+  },
+  {
+    "id": "tsodilo-hills-bw",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "fasil-ghebbi-gondar",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "punakha-dzong-confluence",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "leshan-giant-buddha",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "gateway-of-india",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "qutub-minar-delhi",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "taj-mahal",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "kamakura-daibutsu-jp",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "mlk-assassination-lorraine-motel",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "space-needle-seattle",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "concepcion-jesuit-mission",
+    "verdict": "borderline",
+    "reason": "A preserved mission complex, though less broadly recognized than the canonical Jesuit sites."
+  },
+  {
+    "id": "potosi-casa-de-la-moneda",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "moai-rapa-nui-ahu-tongariki",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "fuerte-bulnes",
+    "verdict": "borderline",
+    "reason": "A specific reconstructed fort with national history, but limited international recognition."
+  },
+  {
+    "id": "equator-mitad-del-mundo",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "huacachina-peru",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "isla-foca",
+    "verdict": "borderline",
+    "reason": "A named wildlife island, but obscure outside local ecotourism and not a broadly recognized landmark."
+  },
+  {
+    "id": "lord-of-rings-hobbiton-film-set",
+    "verdict": "borderline",
+    "reason": "A durable and widely visited film set, but its landmark claim remains fandom-dependent and commercial."
+  },
+  {
+    "id": "forbidden-city-beijing",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "hegra-qasr-al-farid",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "tabas",
+    "verdict": "borderline",
+    "reason": "A historic desert oasis, but the entry names a whole lesser-known city rather than a specific site."
+  },
+  {
+    "id": "tigers-nest",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "pucara-de-tilcara",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "santiago-de-cuba-cu",
+    "verdict": "borderline",
+    "reason": "A major historic city, but too broad a subject and not a single named landmark."
+  },
+  {
+    "id": "sewell-mining-stairways",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "teotihuacan",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "kizhi-pogost",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "peros-banhos",
+    "verdict": "drop",
+    "category": "obscure",
+    "reason": "A remote atoll with little recognition beyond specialists and no single legible landmark."
+  },
+  {
+    "id": "puente-nuevo-d34-66",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "real-alcázar-of-seville-d34-64",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "sagrada-familia",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "stone-of-destiny",
+    "verdict": "borderline",
+    "reason": "A famous historic object, though its movable location makes it an awkward geographic landmark."
+  },
+  {
+    "id": "guggenheim-bilbao",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "hallgrímskirkja-d34-40",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "little-mermaid-dk",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "lucca-walls-d34-50",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "mohenjo-daro",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "mole-antonelliana-d34-56",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "pantheon-rome",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "piazza-del-campo-d34-51",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "york-minster-d34-3",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "tristan-da-cunha",
+    "verdict": "borderline",
+    "reason": "A famous remote island group, but a broad area rather than a discrete point landmark."
+  },
+  {
+    "id": "salvador-pelourinho",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "waikiki",
+    "verdict": "borderline",
+    "reason": "Internationally famous, but a broad neighborhood and beachfront rather than one specific site."
+  },
+  {
+    "id": "champs-elysees-paris",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "coyoacan-mx",
+    "verdict": "borderline",
+    "reason": "A famous historic district, but the entry borrows recognition from the Blue House instead of pinning it."
+  },
+  {
+    "id": "murano-d34-55",
+    "verdict": "borderline",
+    "reason": "A famous glassmaking island district, but a diffuse settlement rather than a discrete landmark."
+  },
+  {
+    "id": "soweto-za",
+    "verdict": "borderline",
+    "reason": "Globally significant and recognizable, but a vast township better represented by a specific historic site."
+  },
+  {
+    "id": "cesky-krumlov-d34-18",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "leptis-magna",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "monschau-d34-79",
+    "verdict": "borderline",
+    "reason": "A picturesque preserved town, though recognition is mostly regional rather than broad."
+  },
+  {
+    "id": "san-gimignano-d34-52",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "vagator",
+    "verdict": "borderline",
+    "reason": "A known Goa beach destination, but limited recognition outside regional tourism and nightlife."
+  },
+  {
+    "id": "colosseum-rome",
+    "verdict": "keep",
+    "reason": ""
+  },
+  {
+    "id": "easter-island",
+    "verdict": "borderline",
+    "reason": "Globally famous, but the island-wide point overlaps its stronger, specific moai-site entries."
+  },
+  {
+    "id": "galapagos-islands",
+    "verdict": "borderline",
+    "reason": "Globally famous and highly collectible, but a 148 km archipelago is intrinsically an extent rather than a point."
+  },
+  {
+    "id": "lord-howe-island",
+    "verdict": "borderline",
+    "reason": "A distinctive World Heritage island, though still an area and less broadly recognized than top-tier landmarks."
+  }
+]
