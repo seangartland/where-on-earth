@@ -113,6 +113,7 @@ export const gameEls = {
   status: document.getElementById('share-status'),
   startStreak: document.getElementById('start-streak'),
   resultStreak: document.getElementById('result-streak'),
+  dailyReward: document.getElementById('daily-reward'),
   travelDistance: document.getElementById('travel-distance'),
   survivalEntry: document.getElementById('survival-button'),
   survivalHub: document.getElementById('survival-hub'),

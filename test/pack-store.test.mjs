@@ -15,6 +15,7 @@ const { PACK_KEY } = await import('../src/core/config.js');
 const {
   STAMINA_PERIOD, accrue, spend, applySkips, readPack, writePack, ensurePack,
   savePackResult, completePack, packOutcome, packSummary, packPool,
+  awardDailySkips, grantDailySkips,
 } = await import('../src/meta/pack-store.js');
 const cities = JSON.parse(readFileSync(new URL('../assets/locations.json', import.meta.url)));
 const pool = packPool(cities);
@@ -76,6 +77,29 @@ test('fresh and migrated records get one starter grant while saved balances rema
   assert.equal(readPack(0).skips, 12);
   assert.equal(raw().skips, 12);
   assert.equal(readPack(0).skips, 12);
+});
+
+test('daily skips grant once per date and grant again the next day', () => {
+  const record = empty();
+  assert.equal(awardDailySkips(record, '2026-10-29'), 4);
+  assert.equal(record.skips, 16);
+  assert.equal(record.lastDailyReward, '2026-10-29');
+  assert.equal(awardDailySkips(record, '2026-10-29'), 0);
+  assert.equal(record.skips, 16);
+  assert.equal(awardDailySkips(record, '2026-10-30'), 4);
+  assert.equal(record.skips, 20);
+  assert.equal(record.lastDailyReward, '2026-10-30');
+});
+
+test('daily skips preserve a legacy balance and persist through the pack store', () => {
+  const legacy = empty();
+  legacy.skips = 7;
+  writePack(legacy);
+  assert.equal(grantDailySkips('2026-10-29'), 4);
+  assert.equal(raw().skips, 11);
+  assert.equal(raw().lastDailyReward, '2026-10-29');
+  assert.equal(grantDailySkips('2026-10-29'), 0);
+  assert.equal(raw().skips, 11);
 });
 
 test('fresh migration starts full and persists the new shape', () => {

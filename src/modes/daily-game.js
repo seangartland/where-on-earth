@@ -19,6 +19,7 @@ import { readJSON, writeJSON } from '../core/storage.js';
 import { setThumb } from '../core/dom.js';
 import { formatKm, localDateKey, flagForLocation } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
+import { grantDailySkips } from '../meta/pack-store.js';
 import { gameEls, hideScreens, showRound, revealGuess } from '../game/round.js';
 import { shareResult } from '../game/share.js';
 import { survival } from './survival.js';
@@ -195,6 +196,8 @@ export function showResults() {
   window.__canGuess = false;
   gameEls.results.hidden = false;
   document.body.classList.add('game-results');
+  const dailySkips = grantDailySkips(state.daily.date);
+  gameEls.dailyReward.hidden = dailySkips === 0;
   state.daily.complete = true;
   saveDaily();
   const streak = finishStreak();

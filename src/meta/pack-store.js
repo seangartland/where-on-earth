@@ -61,6 +61,20 @@ export function applySkips(record, count, now = Date.now()) {
   return consumed;
 }
 
+export function awardDailySkips(record, dateStr) {
+  if (record.lastDailyReward === dateStr) return 0;
+  record.skips += 4;
+  record.lastDailyReward = dateStr;
+  return 4;
+}
+
+export function grantDailySkips(dateStr) {
+  const record = readPack();
+  const awarded = awardDailySkips(record, dateStr);
+  if (awarded) writePack(record);
+  return awarded;
+}
+
 const freshRecord = () => ({
   skips: 12,
   stamina: { stored: STAMINA_MAX, nextAt: null },
