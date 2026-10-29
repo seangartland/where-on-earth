@@ -560,5 +560,24 @@
   "difficultyWhy": "p.00·fb199·K1·iso213 → 177.3 → 9",
   "category": "city",
   "kind": "settlement"
+ },
+ {
+  "id": "badaling-great-wall",
+  "clue": "Badaling, China 🇨🇳",
+  "category": "city",
+  "lat": 40.3598,
+  "lng": 116.02,
+  "fact": "Built and rebuilt over two thousand years by successive dynasties, the wall's total length across all branches exceeds 21,000 kilometers.",
+  "difficulty": 9,
+  "short": "Badaling",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Peking_Grosse_Mauer-20071019-RM-115708.jpg/500px-Peking_Grosse_Mauer-20071019-RM-115708.jpg",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [
+   "History Was Here",
+   "Wonders of the World"
+  ],
+  "difficultyWhy": "p.40·fb892·K0·iso60 → 120.7 → 9",
+  "kind": "landmark"
  }
 ]
