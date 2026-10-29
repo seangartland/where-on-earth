@@ -579,5 +579,21 @@
   ],
   "difficultyWhy": "p.40·fb892·K0·iso60 → 120.7 → 9",
   "kind": "landmark"
+ },
+ {
+  "id": "mutianyu",
+  "short": "Great Wall at Mutianyu",
+  "clue": "Great Wall at Mutianyu, China 🇨🇳",
+  "fact": "Roughly 5,400 m of wall survives here, and sliding doorways let guards block enemy access along the ramparts.",
+  "lat": 40.4319,
+  "lng": 116.5704,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Great_Wall_of_China_July_2006.JPG/500px-Great_Wall_of_China_July_2006.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.24·fb910·K0·iso60 → 153.2 → 9",
+  "category": "city",
+  "kind": "landmark"
  }
 ]
