@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
-// The Daily postcard pack (docs/daily-pack-spec.md): three cards a day from
-// cities plus the Landmarks pool, played on the shared round screen with the
+// The World Capitals pack (docs/daily-pack-spec.md): three cards a day from
+// the world capitals (src/meta/pack-capitals.js), played on the shared round screen with the
 // PvP clue-only header, no timer and the normal earning rules (recordVisit).
 // The pack screen serves before, during and after the pack; each flipped
 // card opens the existing postcard detail. The saved record is
@@ -15,7 +15,6 @@ import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
   PACK_CARDS, packPool, readPack, ensurePack, savePackResult, packOutcome, packSummary,
 } from '../meta/pack-store.js';
-import { landmarkPool } from './landmarks.js';
 
 let host = null;
 // The card in play. record is the saved record the card belongs to, so a
@@ -48,9 +47,8 @@ function currentPack() {
 // The home row (P1): quiet, and dimmed once today's pack is opened.
 export function syncPackButton() {
   rowDate = localDateKey();
-  // Called from both load chains: whichever of locations/landmarks lands
-  // second re-syncs, so tolerate the other bank still being in flight.
-  entry.disabled = !((host.locations || []).length && (host.landmarks || []).length);
+  // Called from both load chains; the pack needs only the city bank.
+  entry.disabled = !(host.locations || []).length;
   const { played } = packSummary(readPack(rowDate).packs[0]);
   const done = played >= PACK_CARDS;
   entry.querySelector('.mode-desc').textContent = done ? '✓ Opened · new pack at midnight'
@@ -64,7 +62,7 @@ export function syncPackButton() {
     const marker = playButton?.querySelector('.pack-marker');
     if (marker) {
       marker.hidden = done;
-      marker.setAttribute('aria-label', done ? 'Pack opened' : 'Open daily postcard pack');
+      marker.setAttribute('aria-label', done ? 'Pack opened' : 'Open the World Capitals pack');
     }
   }
 }
@@ -72,7 +70,7 @@ export function syncPackButton() {
 // First tap on a new date generates today's pack and saves it before any clue.
 function openPack() {
   const record = readPack();
-  if (!ensurePack(record, 0, packPool(host.locations, landmarkPool()))) return;
+  if (!ensurePack(record, 0, packPool(host.locations))) return;
   pack.record = record;
   pack.packIndex = 0;
   showPackScreen();
@@ -131,11 +129,18 @@ function packSlot(id, result, index) {
     if (sub === name) sub = '';
     li.innerHTML = `
       <div class="pack-flip">
-        <div class="pack-flip-face pack-flip-back"><span class="pack-flip-mark">?</span></div>
+        <div class="pack-flip-face pack-flip-back" aria-hidden="true">
+          <span class="pack-airmail-edge"></span>
+          <span class="pack-stamp-outline"></span>
+          <span class="pack-postmark-ring"></span>
+          <span class="pack-message-lines"></span>
+          <span class="pack-address-lines"></span>
+        </div>
         <div class="pack-flip-face pack-flip-front">
-          <p class="pack-clue-flag">${flag}</p>
           <p class="pack-clue-name">${name}</p>
-          ${sub ? `<p class="pack-clue-text">${sub}</p>` : ''}
+          <p class="pack-clue-text">${sub || 'World capital'}</p>
+          <p class="pack-clue-meta">${flag} World Capitals</p>
+          <button class="pack-play-card" type="button">Play this card</button>
         </div>
       </div>`;
     li.tabIndex = 0;
@@ -333,10 +338,8 @@ export function packNext() {
   showPackScreen();
 }
 
-// The tear line: the middle of the holographic crimp strip under the WHERE ON
-// EARTH header, as a fraction of the pack art's height (measured on
-// assets/pack-daily-dispatch.webp, strip rows 465 to 544 of 1966).
-const TEAR_LINE = 0.257;
+// Bottom edge of the top holographic seal, measured in the cropped art.
+const TEAR_LINE = 0.086;
 // How far above or below the line (CSS px) the finger may stray and still cut.
 const TRACE_BAND = 64;
 
@@ -400,16 +403,17 @@ function wireSealedPack(sealed, screen) {
     const anims = [sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 450, delay: 700, easing: 'ease-out', fill: 'forwards' })];
     const timers = [];
     const RISE_MS = 1500;
-    // Top card first (it is last in the DOM).
+    // Top card first (it is last in the DOM). Postcards leave the portrait
+    // wrapper turned, then rotate right-side-up once clear of the mouth.
     [...els.slots.children].reverse().forEach((card, depth) => {
       const top = card.getBoundingClientRect().top;
       const h = card.offsetHeight;
       const inside = tearY - top;
       const out = tearY - h - top;
       anims.push(card.animate([
-        { transform: `translateY(${inside}px)`, clipPath: `inset(0 0 ${h}px 0)`, easing: 'cubic-bezier(.25,.7,.35,1)' },
-        { transform: `translateY(${out}px)`, clipPath: 'inset(0 0 0px 0)', offset: 0.4, easing: 'ease-out' },
-        { transform: `translateY(${out - 14}px)`, clipPath: 'inset(0 0 0px 0)', offset: 0.55, easing: 'cubic-bezier(.3,.1,.3,1)' },
+        { transform: `translateY(${inside}px) rotate(90deg)`, clipPath: `inset(0 0 ${h}px 0)`, easing: 'cubic-bezier(.25,.7,.35,1)' },
+        { transform: `translateY(${out}px) rotate(90deg)`, clipPath: 'inset(0 0 0px 0)', offset: 0.48, easing: 'ease-out' },
+        { transform: `translateY(${out - 14}px) rotate(90deg)`, clipPath: 'inset(0 0 0px 0)', offset: 0.62, easing: 'cubic-bezier(.3,.1,.3,1)' },
         { transform: 'none', clipPath: 'inset(0 0 0px 0)' },
       ], { duration: RISE_MS, delay: depth * 90, fill: 'both' }));
     });

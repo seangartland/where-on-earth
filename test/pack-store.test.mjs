@@ -18,13 +18,11 @@ const { PACK_KEY, VERSIONED_KEYS } = await import('../src/core/config.js');
 const {
   PACK_CARDS, packPool, readPack, ensurePack, savePackResult, packOutcome, packSummary,
 } = await import('../src/meta/pack-store.js');
-const { isPoolLandmark } = await import('../src/modes/landmarks.js');
-const { isPlayableLocation } = await import('../src/daily.js');
+const { PACK_CAPITAL_IDS } = await import('../src/meta/pack-capitals.js');
 
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
 const cities = load('locations.json');
-const landmarks = load('locations-landmarks-sol.json').filter(isPoolLandmark);
-const pool = packPool(cities, landmarks);
+const pool = packPool(cities);
 const stored = () => JSON.parse(localStorage.getItem(PACK_KEY));
 
 test('key is versioned and off the sync list', () => {
@@ -34,14 +32,11 @@ test('key is versioned and off the sync list', () => {
   assert.ok(!sync.includes('PACK_KEY') && !sync.includes('pack-v1'));
 });
 
-test('pool counts: every playable city plus the Landmarks pool, no shared ids', () => {
-  const packLandmarks = pool.filter((item) => item.kind === 'landmark');
-  assert.equal(cities.filter(isPlayableLocation).length, 804);
-  assert.equal(packLandmarks.length, 330);
-  assert.equal(pool.length, 804 + 330);
-  assert.ok(pool.every((item) => item.kind !== 'area'));
+test('pool counts: the World Capitals set, no shared ids', () => {
+  assert.equal(pool.length, PACK_CAPITAL_IDS.size);
+  assert.ok(pool.every((item) => PACK_CAPITAL_IDS.has(item.id)));
   assert.equal(new Set(pool.map((item) => item.id)).size, pool.length);
-  console.log(`pool: ${cities.filter(isPlayableLocation).length} cities + ${packLandmarks.length} landmarks = ${pool.length}`);
+  console.log(`pool: ${pool.length} capitals`);
 });
 
 test('generation: shape, three distinct pool ids, saved before any play', () => {
