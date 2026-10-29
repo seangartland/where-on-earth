@@ -13,7 +13,7 @@ import { distanceScore, scoreGuess, scoringDistanceKm } from './scoring.js';
 
 let host = null;
 let pins, correctPin, answerLine, peekSlot, latLngToVec3, buildAnswerPath, placeRevealVisual;
-let frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showLineLabel, showRevealSheet;
+let frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showExtentOutline, showLineLabel, showRevealSheet;
 let startRevealBeat, collapseRoundHeader, REVEAL_HEADER_H, beginBullseyeReveal, beginTravelReveal;
 let whenPostcardDone, clearReveal, survival, borders, expeditionRun, endless, expeditionRoundHeader;
 let bordersRoundHeader, survivalRoundHeader, endlessRoundHeader, bordersClue, survivalRecordGuess;
@@ -347,10 +347,11 @@ export function revealGuess(guess, restoring = false) {
       answerLine.visible = true;
       frameNorthUpRevealPoints(a, b);
       showCountryOutline(countryKey(answer), answer, false);
+      showExtentOutline(answer, false);
     } else {
       ({ a, b } = placeRevealVisual(guess, answer));
     }
-    gameEls.distance.textContent = formatKm(km);
+    gameEls.distance.textContent = answer.kind === 'extent' ? `${formatKm(km)} from nearest point` : formatKm(km);
     if (restoring) {
       // Coming back to a finished round: no beat to replay.
       showLineLabel(a, b);
@@ -464,7 +465,7 @@ export function pvpRevealTimeout(answer) {
 export function initRound(main) {
   host = main;
   ({ pins, correctPin, answerLine, peekSlot, latLngToVec3, buildAnswerPath, placeRevealVisual,
-    frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showLineLabel, showRevealSheet,
+    frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showExtentOutline, showLineLabel, showRevealSheet,
     startRevealBeat, collapseRoundHeader, REVEAL_HEADER_H, beginBullseyeReveal, beginTravelReveal,
     whenPostcardDone, clearReveal, survival, borders, expeditionRun, endless, expeditionRoundHeader,
     bordersRoundHeader, survivalRoundHeader, endlessRoundHeader, bordersClue, survivalRecordGuess,

@@ -10,6 +10,7 @@ import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { DEG } from '../core/config.js';
 import { clamp, distanceKm } from '../core/math.js';
 import { state } from '../core/state.js';
+import { extentLines } from '../game/extents.js';
 import { ANSWER_COLOR, latLngToVec3, globe, projectToScreen } from './scene.js';
 import { MIN_ISLAND, ringExtent, outlineMeshes, LOAD, loadJSON, criticalBytesP } from './surface.js';
 
@@ -173,6 +174,7 @@ export function densifyOutlineLine(line, maxKm = OUTLINE_MAX_SEGMENT_KM) {
 }
 export let countryOutline = null; // { group, mats, geom, reveal }
 export let countryOutlineWant = null; // { key, anchor, fade } until the data lands
+export let extentOutline = null;
 
 export function buildCountryOutline(lines) {
   const radius = 1.002;
@@ -261,6 +263,25 @@ export function showRegionOutline(key, anchor, fade) {
   if (stateData) placeRegionOutline(regionOutlineWant);
 }
 
+export function showExtentOutline(item, fade) {
+  clearExtentOutline();
+  const lines = extentLines(item);
+  if (!lines.length) return;
+  const built = buildCountryOutline(lines);
+  extentOutline = { ...built, reveal: fade ? 0 : 1 };
+  globe.add(built.group);
+  updateCountryOutline(0);
+}
+
+export function clearExtentOutline() {
+  if (!extentOutline) return;
+  globe.remove(extentOutline.group);
+  for (const mesh of extentOutline.group.children) outlineMeshes.splice(outlineMeshes.indexOf(mesh), 1);
+  extentOutline.geo.dispose();
+  extentOutline.mats.forEach((m) => m.dispose());
+  extentOutline = null;
+}
+
 export function clearRegionOutline() {
   regionOutlineWant = null;
   if (!regionOutline) return;
@@ -290,7 +311,7 @@ function updateOneOutline(o, dt) {
   o.mats.forEach((m) => { m.opacity = ease * m.userData.baseOpacity; });
   // Under 12 css px across, an outline is a squiggle under the pin: hide it.
   // Only small countries can get there (2,000 km spans 29 px at the widest framing).
-  if (o.geom.diagKm < 2000) {
+  if (o.geom?.diagKm < 2000) {
     const b = o.geom.box;
     const pa = projectToScreen(latLngToVec3(b[1], b[0], 1, _cornerA), _cornerA);
     const pb = projectToScreen(latLngToVec3(b[3], b[2], 1, _cornerB), _cornerB);
@@ -300,6 +321,7 @@ function updateOneOutline(o, dt) {
 export function updateCountryOutline(dt) {
   updateOneOutline(countryOutline, dt);
   updateOneOutline(regionOutline, dt);
+  updateOneOutline(extentOutline, dt);
 }
 
 export let countriesP;

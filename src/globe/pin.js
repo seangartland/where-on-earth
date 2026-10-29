@@ -382,6 +382,7 @@ export function resize() {
   if (host.answerLineMaterial) host.answerLineMaterial.resolution.set(state.viewW, state.viewH);
   if (host.countryOutline) host.countryOutline.mats.forEach((m) => m.resolution.set(state.viewW, state.viewH));
   if (host.regionOutline) host.regionOutline.mats.forEach((m) => m.resolution.set(state.viewW, state.viewH));
+  if (host.extentOutline) host.extentOutline.mats.forEach((m) => m.resolution.set(state.viewW, state.viewH));
 }
 
 // Zoom scales altitude, not distance from the centre: map scale goes with

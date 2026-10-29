@@ -5536,7 +5536,8 @@
   ],
   "difficultyWhy": "p.56·fb307·K0·iso291 → 32.4 → 6",
   "category": "city",
-  "kind": "landmark"
+  "kind": "extent",
+  "extentType": "line"
  },
  {
   "id": "niagara-falls",
@@ -5606,7 +5607,8 @@
   "sets": [],
   "difficultyWhy": "p.82·fb1763·K0·iso1157 → 70.5 → 7",
   "category": "city",
-  "kind": "landmark"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "angel-falls",
@@ -5663,5 +5665,25 @@
   "difficultyWhy": "p.86·fb609·K0·iso507 → 22.2 → 5",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "great-wall-of-china",
+  "short": "Great Wall of China",
+  "clue": "Great Wall of China 🇨🇳",
+  "fact": "The Ming main line crosses northern China through mountain passes and watchtowers; it is only one part of wall systems built across many dynasties.",
+  "lat": 40.4319,
+  "lng": 116.5704,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Great_Wall_of_China_July_2006.JPG/500px-Great_Wall_of_China_July_2006.JPG",
+  "imageLicense": "CC0 1.0",
+  "imageAuthor": "Nicolas Perrault III (Velatrix)",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [
+   "History Was Here",
+   "Wonders of the World"
+  ],
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
  }
 ]

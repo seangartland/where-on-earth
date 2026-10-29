@@ -9,18 +9,14 @@ import { readFileSync } from 'node:fs';
 import { isPlayableLocation } from '../src/daily.js';
 import { isPoolLandmark } from '../src/modes/landmarks.js';
 
-const KINDS = new Set(['landmark', 'area', 'settlement']);
+const KINDS = new Set(['landmark', 'area', 'extent', 'settlement']);
 const V2_WHY = /^p(?:1|\.\d{2})(?:\(via [^)]+\))?·fb\d+·K[\d.]+·iso\d+ → \d+(?:\.\d)? → (\d+)$/;
 const APPROVED_AREAS = new Map([
-  ['amalfi-coast-d34-58', 30],
   ['bering-strait', 45],
   ['black-forest', 80],
   ['daintree-rainforest', 35],
   ['danube-delta', 50],
   ['dead-sea', 55],
-  ['great-ocean-road', 122],
-  ['napa-valley-ava', 30],
-  ['suez-canal', 97],
   ['lake-baikal', 342.7],
   ['lake-superior', 338],
   ['lake-victoria', 246.7],
@@ -41,13 +37,11 @@ const APPROVED_AREAS = new Map([
   ['masai-mara', 40.6],
   ['sagarmatha-national-park', 29.3],
   ['grand-teton-national-park', 33],
-  ['easter-island', 14],
-  ['lord-howe-island', 5],
-  ['galapagos-islands', 148],
   ['loch-ness', 20],
 ]);
 
 const items = JSON.parse(readFileSync(new URL('../assets/locations-landmarks-sol.json', import.meta.url), 'utf8'));
+const extents = JSON.parse(readFileSync(new URL('../assets/extents.json', import.meta.url), 'utf8'));
 const failures = [];
 const seen = new Set();
 const count = (key) => items.reduce((m, x) => m.set(x[key], (m.get(x[key]) || 0) + 1), new Map());
@@ -62,7 +56,15 @@ for (const x of items) {
     if (!m) failures.push(`playable landmark without v2 difficultyWhy: ${x.id} (${x.difficultyWhy})`);
     else if (Number(m[1]) !== x.difficulty) failures.push(`difficulty ${x.difficulty} does not match difficultyWhy: ${x.id}`);
   }
+  if (x.kind === 'extent') {
+    if (!['line', 'polygon'].includes(x.extentType)) failures.push(`invalid extentType: ${x.id}`);
+    if (Object.hasOwn(x, 'extentKm')) failures.push(`extent also has extentKm: ${x.id}`);
+    if (!extents[x.id] || extents[x.id].type !== x.extentType) failures.push(`missing or mismatched extent geometry: ${x.id}`);
+    if (!isPlayableLocation(x)) failures.push(`extent is not playable: ${x.id}`);
+  }
 }
+
+for (const id of Object.keys(extents)) if (!items.some((x) => x.id === id && x.kind === 'extent')) failures.push(`orphan extent geometry: ${id}`);
 
 const admittedAreas = items.filter((x) => x.kind === 'area' && isPoolLandmark(x));
 const admittedAreaMap = new Map(admittedAreas.map((x) => [x.id, x.extentKm]));

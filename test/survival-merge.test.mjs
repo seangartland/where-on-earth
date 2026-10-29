@@ -40,10 +40,10 @@ test('merged pool is every playable city plus the whole Landmark pool, no duplic
   // extent-aware entries are banked (341 at the merge, 363 after lakes and
   // parks batch 1, the island extents, Galapagos and Loch Ness).
   const pool = mergedSurvivalPool();
-  const citiesInPool = pool.filter((item) => item.kind !== 'landmark' && item.kind !== 'area').length;
+  const citiesInPool = pool.filter((item) => !['landmark', 'area', 'extent'].includes(item.kind)).length;
   assert.equal(citiesInPool, 804);
   assert.equal(pool.length, 804 + landmarkPool().length);
-  assert.equal(pool.filter((item) => item.kind === 'landmark' || item.kind === 'area').length, landmarkPool().length);
+  assert.equal(pool.filter((item) => ['landmark', 'area', 'extent'].includes(item.kind)).length, landmarkPool().length);
   assert.equal(new Set(pool.map((item) => item.id)).size, pool.length);
 });
 

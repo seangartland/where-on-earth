@@ -17,6 +17,7 @@ export function isPoolLandmark(item) {
       && Number.isFinite(item.extentKm)
       && item.extentKm > 0;
   }
+  if (item?.kind === 'extent') return isPlayableLocation(item) && (item.extentType === 'line' || item.extentType === 'polygon');
   return false;
 }
 

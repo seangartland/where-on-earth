@@ -7,12 +7,15 @@ globalThis.location = { search: '' };
 const { distanceKm } = await import('../src/core/math.js');
 const { flyoverTier, WEIGHTS } = await import('../src/core/config.js');
 const { distanceScore, scoreGuess, scoringDistanceKm } = await import('../src/game/scoring.js');
+const { nearestExtentPoint, setExtentData } = await import('../src/game/extents.js');
 const { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } = await import('../src/daily.js');
 const { isPoolLandmark } = await import('../src/modes/landmarks.js');
 
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
 const cities = load('locations.json');
 const landmarks = load('locations-landmarks-sol.json');
+const extents = load('extents.json');
+setExtentData(extents);
 const trivia = load('trivia-bank.json');
 const expeditions = load('expeditions.json');
 const weekly = load('weekly-expeditions.json');
@@ -137,6 +140,23 @@ test('cities and point landmarks preserve the raw number and frozen score fixtur
   }
 });
 
+test('pilot extents score their shipped line and polygon geometry', () => {
+  const wall = byLandmarkId.get('great-wall-of-china');
+  assert.equal(scoringDistanceKm({ lat: 40.3598, lng: 116.02 }, wall), 0);
+  assert.equal(scoringDistanceKm({ lat: 40.4319, lng: 116.5704 }, wall), 0);
+
+  const reef = byLandmarkId.get('great-barrier-reef');
+  assert.equal(scoringDistanceKm({ lat: -18, lng: 149 }, reef), 0);
+  const outside = { lat: -18, lng: 154 };
+  const near = nearestExtentPoint(reef, outside);
+  close(scoringDistanceKm(outside, reef), distanceKm(outside, near), 1e-8);
+  assert.ok(near.km > 100);
+
+  const canyon = byLandmarkId.get('grand-canyon');
+  const [lng, lat] = extents['grand-canyon'].lines[0][20];
+  assert.equal(scoringDistanceKm({ lat, lng }, canyon), 0);
+});
+
 test('fixed pinned and derived Daily selections and serialized round fields stay frozen', () => {
   const fixtures = [
     ['2026-10-18', ['tokyo-japan', 'boise-usa', 'enugu-ng', 'ciudad-juarez-mx', 'krasnoyarsk-ru'], [251.05352006657486, 231.86657960125547, 292.9841319554443, 259.6144718086858, 198.46724682154738], [[251, 950, 950], [232, 955, 955], [293, 941, 941], [260, 948, 948], [198, 962, 962]]],
@@ -160,11 +180,12 @@ test('fixed pinned and derived Daily selections and serialized round fields stay
   }
 });
 
-test('landmark pool preserves point landmarks and adds exactly the approved areas', () => {
+test('landmark pool preserves point landmarks and adds approved areas and pilot extents', () => {
   const oldPool = landmarks.filter((item) => item.kind === 'landmark' && isPlayableLocation(item));
   const newPool = landmarks.filter(isPoolLandmark);
   assert.deepEqual(newPool.filter((item) => item.kind === 'landmark').map((x) => x.id), oldPool.map((x) => x.id));
   assert.deepEqual(newPool.filter((item) => item.kind === 'area').map((x) => x.id).sort(), Object.keys(APPROVED_AREAS).sort());
+  assert.deepEqual(newPool.filter((item) => item.kind === 'extent').map((x) => x.id).sort(), Object.keys(extents).sort());
 
   const playable = { image: 'real.jpg', lat: 0, lng: 0 };
   for (const item of [

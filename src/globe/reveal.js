@@ -17,8 +17,9 @@ import { audio } from '../core/audio.js';
 import { fadeElement } from '../core/dom.js';
 import { formatKm, countryKey, regionKey, flagForLocation } from '../core/format.js';
 import { buildPostcardCard, ensurePostcardCardStyles } from '../meta/postcard-card.js';
+import { nearestExtentPoint } from '../game/extents.js';
 import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe, pointers, projectToScreen } from './scene.js';
-import { showCountryOutline, clearCountryOutline, showRegionOutline, clearRegionOutline } from './outlines.js';
+import { showCountryOutline, clearCountryOutline, showRegionOutline, clearRegionOutline, showExtentOutline, clearExtentOutline } from './outlines.js';
 import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle, _unitSphere } from './pin.js';
 
 let host = null;
@@ -39,6 +40,7 @@ let thumbSlots;
 
 let travelAnimation = null;
 let northUpRevealToken = 0;
+const distanceCopy = (km, answer) => answer.kind === 'extent' ? `${formatKm(km)} from nearest point` : formatKm(km);
 
 // ---------------------------------------------------------------------------
 // Flyover extras: accuracy tiers, synthesized sound, photo postcard
@@ -319,6 +321,7 @@ export function clearReveal() {
   answerLine.visible = false;
   clearCountryOutline();
   clearRegionOutline();
+  clearExtentOutline();
   state.revealView = null;
   for (const pin of pins) pin.release();
   state.activePin = -1;
@@ -351,7 +354,8 @@ export function routeRadius(angle, t) {
 
 export function buildAnswerPath(guess, answer) {
   const a = latLngToVec3(guess.lat, guess.lng);
-  const b = latLngToVec3(answer.lat, answer.lng);
+  const near = nearestExtentPoint(answer, guess);
+  const b = latLngToVec3(near?.lat ?? answer.lat, near?.lng ?? answer.lng);
   const angle = a.angleTo(b);
   const axis = routeAxis(a, b);
   // Dense enough that the progressively revealed head remains smooth even on
@@ -372,6 +376,7 @@ export function buildAnswerPath(guess, answer) {
 // answer is a US city (regionKey is null for landmarks by design).
 function showAnswerOutlines(item, fade) {
   showCountryOutline(countryKey(item), item, fade);
+  showExtentOutline(item, fade);
   const rk = regionKey(item);
   if (rk) showRegionOutline(rk, item, fade);
   else clearRegionOutline();
@@ -393,7 +398,7 @@ export function beginNorthUpReveal(guess, answer, km, newlyEarned, tier, options
   if (tier === 'bullseye' || tier === 'pinpoint') correctPin.setColor(GOLD_COLOR, '#fff6d8');
   correctPin.drop(b);
   answerLine.visible = true;
-  gameEls.distance.textContent = formatKm(km);
+  gameEls.distance.textContent = distanceCopy(km, answer);
   preparePostcard(answer, newlyEarned, km, options.plain);
   frameNorthUpRevealPoints(a, b);
   showAnswerOutlines(answer, true);
@@ -428,7 +433,7 @@ export function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyover
   answerLine.geometry.instanceCount = 0;
   correctPin.root.visible = false;
   correctPin.state = 'idle';
-  gameEls.distance.textContent = formatKm(km);
+  gameEls.distance.textContent = distanceCopy(km, answer);
   gameEls.travelDistance.querySelector('span').textContent = '0 km';
   gameEls.travelDistance.hidden = true;
   preparePostcard(answer, newlyEarned, km, options.plain);
@@ -473,7 +478,7 @@ export function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyov
   correctPin.root.visible = false;
   correctPin.state = 'idle';
   correctPin.setColor(GOLD_COLOR, '#fff6d8');
-  gameEls.distance.textContent = formatKm(km);
+  gameEls.distance.textContent = distanceCopy(km, answer);
   preparePostcard(answer, newlyEarned, km, options.plain);
   travelAnimation = {
     ...path,

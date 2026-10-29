@@ -23,8 +23,8 @@ import {
   locationsP, pinsP, loadJobDone, renderLoad, getJSON, unwrap, addToPath, ISLAND_BLOB_TEXELS,
 } from './globe/surface.js';
 import {
-  initOutlines, countryData, countryBands, countriesP, countryBandsP, countryGeom, bordersHit, showCountryOutline,
-  updateCountryOutline, countryOutline, regionOutline, stateData, statesP, hasKey, keyName, landAreas, landAreasP,
+  initOutlines, countryData, countryBands, countriesP, countryBandsP, countryGeom, bordersHit, showCountryOutline, showExtentOutline,
+  updateCountryOutline, countryOutline, regionOutline, extentOutline, stateData, statesP, hasKey, keyName, landAreas, landAreasP,
 } from './globe/outlines.js';
 import {
   initPin, Pin, makeBadgeTexture, pins, correctPin, pinch, applyDrag, sphereHit, nearAngle,
@@ -40,6 +40,7 @@ import {
   hideScreens, showRound, revealGuess, nextRound, currentItem, revealThumbCurrent, pvpRevealTimeout,
 } from './game/round.js';
 import { scoreGuess } from './game/scoring.js';
+import { setExtentData } from './game/extents.js';
 import { shareResult } from './game/share.js';
 import {
   survival, initSurvival, startSurvival, survivalRoundHeader, survivalRecordGuess, survivalRevealCard, survivalNext,
@@ -142,6 +143,7 @@ const pinHost = {
   get answerLineMaterial() { return answerLineMaterial; },
   get countryOutline() { return countryOutline; },
   get regionOutline() { return regionOutline; },
+  get extentOutline() { return extentOutline; },
 };
 initPin(pinHost);
 
@@ -186,7 +188,7 @@ syncMuteButtons();
 // passport store sit outside the game layer, so they reach it through this host.
 const roundHost = {
   pins, correctPin, answerLine, peekSlot, latLngToVec3, buildAnswerPath, placeRevealVisual,
-  frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showLineLabel, showRevealSheet,
+  frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showExtentOutline, showLineLabel, showRevealSheet,
   startRevealBeat, collapseRoundHeader, REVEAL_HEADER_H, beginBullseyeReveal, beginTravelReveal,
   whenPostcardDone, clearReveal,
   survival, borders, expeditionRun, endless, expeditionRoundHeader, bordersRoundHeader,
@@ -787,6 +789,11 @@ function openSharedMode() {
     const entry = (state.landmarks || []).find((x) => x.id === areaId && x.kind === 'area' && Number(x.extentKm) > 0);
     if (entry) { survival.forced = entry; startSurvival(); return; }
   }
+  const extentId = params.get('extent');
+  if (extentId) {
+    const entry = (state.landmarks || []).find((x) => x.id === extentId && x.kind === 'extent');
+    if (entry) { survival.forced = entry; startSurvival(); return; }
+  }
   const mode = params.get('mode');
   const opener = sharedModeOpeners[mode];
   if (!opener) return;
@@ -849,7 +856,8 @@ getJSON('assets/weekly-expeditions.json').then(weeklyRoutesLoaded).catch((err) =
   if (window.__showErr) window.__showErr('WEEKLY: ' + err.message);
 });
 // Landmarks: Expeditions stops, the merged Survival pool and the Passport's Landmarks shelf (state.js).
-const landmarksP = getJSON('assets/locations-landmarks-sol.json').then((data) => {
+const extentsP = getJSON('assets/extents.json').then((data) => setExtentData(data));
+const landmarksP = Promise.all([getJSON('assets/locations-landmarks-sol.json'), extentsP]).then(([data]) => {
   state.landmarks = Array.isArray(data) ? data : [];
   syncPassport();
   updateExpeditionEntry();
@@ -858,7 +866,7 @@ const landmarksP = getJSON('assets/locations-landmarks-sol.json').then((data) =>
   gameEls.expeditionsEntry.disabled = true;
   if (window.__showErr) window.__showErr('LANDMARKS: ' + err.message);
 });
-Promise.allSettled([locationsP, pinsP, countriesP, countryBandsP, statesP, landAreasP, triviaBankP, landmarksP]).then(openSharedMode);
+Promise.allSettled([locationsP, pinsP, countriesP, countryBandsP, statesP, landAreasP, triviaBankP, landmarksP, extentsP]).then(openSharedMode);
 gameEls.play.disabled = true;
 gameEls.survivalEntry.disabled = true;
 bordersEntry.disabled = true;

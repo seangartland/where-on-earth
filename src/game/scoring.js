@@ -5,8 +5,11 @@
 // ---------------------------------------------------------------------------
 import { WEIGHTS } from '../core/config.js';
 import { distanceKm } from '../core/math.js';
+import { nearestExtentPoint } from './extents.js';
 
 export function scoringDistanceKm(guess, target) {
+  const extentNear = nearestExtentPoint(target, guess);
+  if (extentNear) return extentNear.km;
   const pinDistanceKm = distanceKm(guess, target);
   if (!Object.hasOwn(target, 'extentKm') || !Number.isFinite(target.extentKm) || target.extentKm <= 0) {
     return pinDistanceKm;
