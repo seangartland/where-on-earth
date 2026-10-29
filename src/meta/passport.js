@@ -97,6 +97,7 @@ function buildPassportEntry(item, age) {
     first: meta.f,
     earned: host.AUDIT_MODE ? host.EARN_NEAR : (meta.e || 0),
     earnedAt: meta.ea,
+    tierAt: [meta.eb1, meta.eb2, meta.eb3],
     // Timestamped visits are always newer than legacy ones, which fall back to
     // their place in the recency order (and to the very end if that was capped).
     recency: meta.t ?? (age?.has(item.id) ? age.get(item.id) : -1),
@@ -831,40 +832,62 @@ function tierDateKey(timestamp) {
   return host.localDateKey(date);
 }
 
+function postmarkLines(timestamp) {
+  const date = new Date(timestamp);
+  if (!Number.isFinite(date.getTime())) return null;
+  return [date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(), String(date.getDate()), String(date.getFullYear())];
+}
+
+function setPostcardFlipped(flipped) {
+  ppdEls.flip.classList.toggle('is-flipped', flipped);
+  ppdEls.flip.setAttribute('aria-pressed', String(flipped));
+  ppdEls.flip.setAttribute('aria-label', flipped ? 'Postcard back. Show the front' : 'Postcard front. Show the back');
+  ppdEls.front.setAttribute('aria-hidden', String(flipped));
+  ppdEls.back.setAttribute('aria-hidden', String(!flipped));
+}
+
 function fillPostcard(entry) {
   const { item } = entry;
   const earn = host.EARN_NAMES[entry.earned] || 'seen';
   ppdEls.card.dataset.earn = earn;
   host.applyCardTier(ppdEls.card, item, entry.earned);
-  ppdEls.photo.replaceChildren();
-  if (item.image) {
+  setPostcardFlipped(false);
+  const photoImg = (alt) => {
     const img = document.createElement('img');
     img.src = item.image;
-    img.alt = item.short || item.clue || '';
+    img.alt = alt;
     img.decoding = 'async';
     img.addEventListener('error', () => img.remove(), { once: true });
-    ppdEls.photo.append(img);
+    return img;
+  };
+  ppdEls.photo.replaceChildren();
+  ppdEls.stamp.replaceChildren();
+  if (item.image) {
+    ppdEls.photo.append(photoImg(item.short || item.clue || ''));
+    ppdEls.stamp.append(photoImg(''));
   }
-  const badgeDistance = Number.isFinite(entry.km) ? formatShareKm(entry.km) : '';
-  ppdEls.distanceBadge.hidden = !badgeDistance;
-  ppdEls.distanceBadge.dataset.tier = entry.earned >= host.EARN_PINPOINT
-    ? 'pinpoint'
-    : entry.earned >= host.EARN_BULLSEYE ? 'bullseye' : 'ordinary';
-  ppdEls.distanceBadge.replaceChildren();
-  if (badgeDistance) {
-    const [distance, unit] = badgeDistance.split(/\s+/, 2);
-    ppdEls.distanceBadge.append(document.createTextNode(distance));
-    if (unit) ppdEls.distanceBadge.append(document.createElement('br'), document.createTextNode(unit));
-  }
-  const short = item.short || '';
-  ppdEls.name.textContent = postcardDisplayName(item, host.flagForLocation);
-  const clue = (item.clue || '').replace(FLAG_RE, '').trim();
-  ppdEls.clue.textContent = clue;
-  ppdEls.clue.hidden = !clue || clue === short;
+  const flag = host.flagForLocation(item);
+  ppdEls.name.textContent = item.short || '';
+  ppdEls.country.textContent = entry.country || '';
+  ppdEls.country.hidden = !entry.country;
   ppdEls.fact.textContent = item.fact || '';
   ppdEls.fact.hidden = !item.fact;
+  ppdEls.addrName.textContent = item.short || '';
+  ppdEls.addrCountry.textContent = `${entry.country || ''}${flag ? ` ${flag}` : ''}`.trim();
+  ppdEls.addrCountry.hidden = !ppdEls.addrCountry.textContent;
+
+  // Postmark: the stored first-earn timestamp (meta.ea), in the badge language.
+  const stamped = entry.earned ? postmarkLines(entry.earnedAt) : null;
+  ppdEls.postmark.hidden = !stamped;
+  ppdEls.postmark.dataset.tier = entry.earned >= host.EARN_BULLSEYE ? 'gold' : 'ink';
+  ppdEls.postmark.replaceChildren();
+  stamped?.forEach((line, i) => {
+    if (i) ppdEls.postmark.append(document.createElement('br'));
+    ppdEls.postmark.append(document.createTextNode(line));
+  });
+
+  // Earn history: only the dates the store keeps (meta.f, meta.eb1 to eb3).
   ppdEls.history.replaceChildren();
-  const historyDate = entry.earned ? tierDateKey(entry.earnedAt) : entry.first || '';
   const addHistoryRow = (label, date) => {
     if (!date) return;
     const row = document.createElement('div');
@@ -876,18 +899,25 @@ function fillPostcard(entry) {
     row.append(labelEl, dateEl);
     ppdEls.history.append(row);
   };
-  addHistoryRow(entry.earned ? 'Postcard earned' : 'First visited', historyDate);
-  ppdEls.history.hidden = !historyDate;
-  const cells = [
-    ['Best score', `${entry.best}<small> /1000</small>`],
-    ['Closest guess', Number.isFinite(entry.km) ? `${entry.km.toLocaleString()}<small> km</small>` : ''],
-  ];
-  ppdEls.stats.replaceChildren(...cells.map(([label, value, t]) => {
-    const div = document.createElement('div');
-    if (t) div.dataset.tier = t;
-    div.innerHTML = `<dt>${label}</dt><dd>${value}</dd>`;
-    return div;
-  }));
+  addHistoryRow('First visited', entry.first);
+  entry.tierAt.forEach((at, i) => {
+    if (Number.isFinite(at)) addHistoryRow(`${tierTitle(host.EARN_NAMES[i + 1])} earned`, tierDateKey(at));
+  });
+  ppdEls.history.hidden = !ppdEls.history.childElementCount;
+
+  // Stat strip: best km and earned tier. The store keeps no source mode, so none is shown.
+  ppdEls.stats.replaceChildren();
+  if (entry.earned) {
+    const parts = [];
+    if (Number.isFinite(entry.km)) parts.push(['ppd-stat-num', formatShareKm(entry.km)]);
+    parts.push(['', tierTitle(earn)]);
+    parts.forEach(([className, text], i) => {
+      if (i) ppdEls.stats.append(Object.assign(document.createElement('span'), { textContent: '·' }));
+      ppdEls.stats.append(Object.assign(document.createElement('b'), { className, textContent: text }));
+    });
+  } else {
+    ppdEls.stats.append(Object.assign(document.createElement('span'), { className: 'ppd-uncollected', textContent: 'Not yet collected' }));
+  }
   ppdEls.hint.hidden = earn !== 'seen';
   ppdEls.hint.textContent = 'Land within 150 km to earn this postcard in colour.';
   // Only a postcard with a known closest guess has a distance to brag about.
@@ -895,6 +925,10 @@ function fillPostcard(entry) {
   clearTimeout(ppdCopiedTimer);
   ppdEls.share.hidden = !Number.isFinite(entry.km);
   ppdEls.share.textContent = SHARE_LABEL;
+}
+
+function tierTitle(name) {
+  return name ? name[0].toUpperCase() + name.slice(1) : '';
 }
 
 // Keyframe for the detail card sitting exactly over the grid card: scaled down
@@ -1521,15 +1555,65 @@ body.game-collections #hud { opacity: 0; }
   postcardStyle.textContent = `
 .ppd { z-index: 11; box-sizing: border-box; display: flex; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) var(--ppd-screen-gutter, 12px) calc(env(safe-area-inset-bottom, 0px) + 20px); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .ppd-scrim { position: fixed; inset: 0; background: rgba(2,4,9,.74); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-.ppd-card { --ppd-accent: var(--mail-gold); position: relative; touch-action: pan-y; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; padding: 7px; border-radius: 10px; background: var(--mail-stripe-border); box-shadow: 0 24px 70px rgba(0,0,0,.72); color: #43331a; transform-origin: 0 0; }
-.ppd-inner { min-height: 100%; padding: 9px 9px 12px; border-radius: 5px; background: var(--mail-paper); }
-.ppd-card[data-earn="seen"] .pp-photo img { filter: grayscale(1) contrast(.92) brightness(.82); }
-.ppd-front { position: relative; }
-.ppd-front .pp-photo { aspect-ratio: 4 / 3; overflow: hidden; border: 4px solid #fffdf6; border-radius: 0; background: #d9cdb2; box-shadow: 0 0 0 1px rgba(101,78,38,.25), 0 2px 6px rgba(101,78,38,.3); }
-.ppd-front .pp-photo::after { font-size: 44px; }
+.ppd-card { position: relative; touch-action: pan-y; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; color: var(--mail-ink); transform-origin: 0 0; }
+/* The postcard itself: landscape 3:2, photo print on the front, divided mail back. */
+.ppd-stage { position: relative; }
+.ppd-flip { position: relative; display: block; width: 100%; aspect-ratio: 3 / 2; perspective: 1200px; cursor: pointer; outline: none; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+.ppd-flip-inner { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.4,.2,.2,1); }
+.ppd-flip.is-flipped .ppd-flip-inner { transform: rotateY(180deg); }
+.ppd-face { position: absolute; inset: 0; overflow: hidden; border-radius: 6px; -webkit-backface-visibility: hidden; backface-visibility: hidden; box-shadow: 0 24px 70px rgba(0,0,0,.72); }
+.ppd-flip:focus-visible .ppd-face { outline: 2px solid #67e8ff; outline-offset: 3px; }
+.ppd-face-front .pp-photo { position: absolute; inset: 0; aspect-ratio: auto; border-radius: 0; }
+.ppd-face-front .pp-photo::after { font-size: 44px; }
+.ppd-card[data-earn="seen"] .pp-photo img, .ppd-card[data-earn="seen"] .ppd-stamp img { filter: grayscale(1) contrast(.92) brightness(.82); }
+.ppd-caption { position: absolute; z-index: 2; right: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 9px 5px; border-radius: 2px; background: rgba(250,243,225,.92); box-shadow: 0 1px 4px rgba(0,0,0,.3); text-align: right; }
+.ppd-caption h3 { margin: 0; overflow: hidden; color: var(--mail-ink); font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: .02em; text-overflow: ellipsis; white-space: nowrap; }
+.ppd-caption p { margin: 1px 0 0; overflow: hidden; color: var(--mail-ink-2); font-size: 9px; font-weight: 750; letter-spacing: .08em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.ppd-caption p[hidden] { display: none; }
+.ppd-flip-hint { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 3px 8px; border-radius: 999px; background: rgba(2,4,9,.5); color: rgba(255,253,246,.88); font-size: 10px; font-weight: 750; letter-spacing: .02em; pointer-events: none; }
+.ppd-face-back { display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; padding: 12px 12px 0; background: var(--mail-paper); color: var(--mail-ink); transform: rotateY(180deg); }
+.ppd-fact { grid-column: 1; grid-row: 1; margin: 0; padding-right: 10px; overflow: hidden; color: var(--mail-ink); font-size: 11.5px; line-height: 1.5; }
+.ppd-fact[hidden] { display: none; }
+.ppd-divider { grid-column: 2; grid-row: 1; background: rgba(34,53,92,.22); }
+.ppd-right { grid-column: 3; grid-row: 1; display: flex; flex-direction: column; min-width: 0; padding-left: 10px; }
+.ppd-stamp-row { position: relative; display: flex; justify-content: flex-end; height: 62px; flex: none; }
+.ppd-stamp { position: relative; box-sizing: border-box; width: 52px; height: 52px; margin: 3px 3px 0 0; padding: 4px; background: var(--mail-stamp); box-shadow: 0 2px 5px rgba(0,0,0,.28); }
+.ppd-stamp img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.ppd-stamp::before, .ppd-stamp::after { content: ''; position: absolute; z-index: 1; pointer-events: none; --perf: radial-gradient(circle, #f4ebd3 2.3px, transparent 2.6px); }
+.ppd-stamp::before { inset: -3.5px 0; background: var(--perf) 0 0 / 7px 7px repeat-x, var(--perf) 0 100% / 7px 7px repeat-x; }
+.ppd-stamp::after { inset: 0 -3.5px; background: var(--perf) 0 0 / 7px 7px repeat-y, var(--perf) 100% 0 / 7px 7px repeat-y; }
+/* The game's rotated postmark badge, dated with the first earn. */
+.ppd-postmark { position: absolute; z-index: 2; top: 22px; right: 30px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 52px; height: 52px; border: 1.8px solid rgba(52,72,96,.85); border-radius: 50%; outline: 1.4px solid rgba(52,72,96,.85); outline-offset: 2.5px; color: rgba(40,58,80,.95); font-size: 7.5px; font-weight: 850; line-height: 1.15; letter-spacing: .04em; text-align: center; font-variant-numeric: tabular-nums; transform: rotate(-11deg); }
+.ppd-postmark::after { content: ''; position: absolute; inset: 4px; border: 1px dashed rgba(52,72,96,.6); border-radius: 50%; pointer-events: none; }
+.ppd-postmark[data-tier="gold"] { border-color: var(--mail-gold); outline-color: var(--mail-gold); color: var(--mail-gold); }
+.ppd-postmark[data-tier="gold"]::after { border-color: rgba(178,124,32,.55); }
+.ppd-postmark[hidden] { display: none; }
+.ppd-addr { margin-top: 4px; }
+.ppd-addr p { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ppd-addr-name { color: var(--mail-ink); font-size: 12px; font-weight: 800; line-height: 1.3; }
+.ppd-addr-country { color: var(--mail-ink-2); font-size: 10.5px; font-weight: 700; line-height: 1.3; }
+.ppd-addr-country[hidden] { display: none; }
+.ppd-addr-rule { height: 8px; margin-bottom: 4px; border-bottom: 1px solid rgba(34,53,92,.3); }
+.ppd-history { display: grid; gap: 3px; margin-top: auto; padding: 6px 0 8px; color: rgba(101,78,38,.85); font-size: 8.5px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.ppd-history-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-width: 0; }
+.ppd-history-row span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ppd-history-row strong { flex: none; color: var(--mail-ink); font-weight: 750; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.ppd-history[hidden] { display: none; }
+.ppd-stats { grid-column: 1 / span 3; grid-row: 2; display: flex; justify-content: center; gap: 8px; margin: 0; padding: 7px 2px 9px; border-top: 1px dashed rgba(34,53,92,.3); color: var(--mail-ink-2); font-size: 10.5px; font-weight: 700; }
+.ppd-stats b { color: var(--mail-ink); font-weight: 800; }
+.ppd-stat-num { font-variant-numeric: tabular-nums; }
+.ppd-uncollected { color: var(--mail-ink-2); font-size: 9.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+@media (prefers-reduced-motion: reduce) {
+  .ppd-flip-inner { transition: none; }
+  .ppd-flip.is-flipped .ppd-flip-inner { transform: none; }
+  .ppd-face { transition: opacity .18s ease; }
+  .ppd-face-back { transform: none; opacity: 0; }
+  .ppd-flip.is-flipped .ppd-face-back { opacity: 1; }
+  .ppd-flip.is-flipped .ppd-face-front { opacity: 0; }
+}
 .ppd-close { position: absolute; z-index: 4; top: -12px; right: -2px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; touch-action: manipulation; }
 .ppd-close::before, .ppd-nav::before { content: '×'; display: grid; place-items: center; width: 32px; height: 32px; margin: auto; border-radius: 50%; background: rgba(44,74,124,.85); color: #fffdf6; font-size: 22px; line-height: 1; }
-/* Previous and next: the close button's circle, quieter, centred on the photo edges. */
+/* Previous and next: the close button's circle, quieter, centred on the postcard edges. */
 .ppd-nav { position: absolute; z-index: 3; top: 50%; width: 44px; height: 44px; margin-top: -22px; padding: 0; border: 0; background: none; cursor: pointer; opacity: .55; touch-action: manipulation; }
 .ppd-nav[data-dir="-1"] { left: 0; }
 .ppd-nav[data-dir="1"] { right: 0; }
@@ -1539,29 +1623,10 @@ body.game-collections #hud { opacity: 0; }
 .ppd-nav[hidden] { display: none; }
 .ppd-close:focus-visible { outline: none; }
 .ppd-close:focus-visible::before { box-shadow: 0 0 0 2px #67e8ff; }
-.ppd-distance-badge { position: absolute; z-index: 2; top: 8px; right: 8px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 54px; height: 54px; padding: 3px; border: 1.8px solid rgba(52,72,96,.85); border-radius: 50%; background: rgba(245,242,235,.92); outline: 1.4px solid rgba(52,72,96,.85); outline-offset: 2.5px; color: rgba(40,58,80,.95); font-size: 12px; font-weight: 850; line-height: 1.15; text-align: center; transform: rotate(-11deg); }
-.ppd-distance-badge::after { content: ''; position: absolute; inset: 4px; border: 1px dashed rgba(52,72,96,.6); border-radius: 50%; pointer-events: none; }
-.ppd-distance-badge[data-tier="bullseye"], .ppd-distance-badge[data-tier="pinpoint"] { border-color: #b27c20; outline-color: #b27c20; color: #b27c20; }
-.ppd-distance-badge[data-tier="bullseye"]::after, .ppd-distance-badge[data-tier="pinpoint"]::after { border-color: rgba(178,124,32,.55); }
-.ppd-distance-badge[hidden] { display: none; }
-.ppd-body { padding: 0 5px; color: #43331a; }
-.ppd-from, .ppd-pos { margin: 0; color: #7a5f36; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
-.ppd-pos { position: absolute; top: 100%; left: 0; right: 0; padding-top: 7px; font-variant-numeric: tabular-nums; text-align: center; }
+.ppd-pos { position: absolute; top: 100%; left: 0; right: 0; margin: 0; padding-top: 7px; color: #7a5f36; font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; font-variant-numeric: tabular-nums; text-align: center; }
 .ppd-pos[hidden] { display: none; }
-.ppd-body h3 { margin: 11px 0 0; color: #22355c; font-family: Inter, sans-serif; font-size: 18px; font-weight: 800; line-height: 1.1; letter-spacing: -.02em; overflow-wrap: anywhere; }
-.ppd-clue { margin: 3px 0 0; color: rgba(52,72,96,.75); font-size: 11px; font-weight: 650; letter-spacing: .04em; text-transform: none; }
-.ppd-history { display: grid; gap: 5px; margin: 11px 0 0; padding-top: 8px; border-top: 1.5px solid rgba(101,78,38,.35); color: rgba(101,78,38,.85); font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
-.ppd-history-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
-.ppd-history-row strong { min-width: 0; color: #43331a; font-weight: 750; text-align: right; white-space: nowrap; }
-.ppd-history[hidden] { display: none; }
-.ppd-fact { margin: 10px 0 0; padding: 0; border: 0; color: #4c3d20; font-family: Georgia, "Times New Roman", serif; font-size: 13.5px; font-style: italic; line-height: 1.55; }
-.ppd-fact::before { display: none; }
-.ppd-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 9px 0 0; }
-.ppd-stats div { min-width: 0; padding: 0; border: 0; border-radius: 0; background: none; }
-.ppd-stats dt { color: rgba(101,78,38,.65); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.ppd-stats dd { margin: 1px 0 0; color: #22355c; font-size: 14.5px; font-weight: 850; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ppd-stats dd small { color: rgba(52,72,96,.6); font-size: 9.5px; font-weight: 650; }
-.ppd-hint { margin: 10px 0 0; color: rgba(101,78,38,.72); font-size: 12px; font-weight: 700; text-align: center; }
+.ppd-hint { margin: 12px 0 0; color: rgba(255,253,246,.72); font-size: 12px; font-weight: 700; text-align: center; }
+.ppd-hint[hidden] { display: none; }
 .ppd-share { display: block; width: 100%; min-height: 45px; margin: 13px 0 0; padding: 0 16px; border: 1px solid #2c4a7c; border-radius: 4px; background: #fffdf6; color: #22355c; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; }
 .ppd-share:active { transform: scale(.98); }
 .ppd-share:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
@@ -1575,23 +1640,42 @@ body.game-collections #hud { opacity: 0; }
   <div class="ppd-scrim" data-ppd="scrim"></div>
   <article class="ppd-card" role="dialog" aria-modal="true" aria-labelledby="ppd-title" data-ppd="card">
     <button class="ppd-close" aria-label="Close postcard" data-ppd="close"></button>
-    <div class="ppd-inner">
-      <div class="ppd-front">
-        <div class="pp-photo" data-ppd="photo"></div>
-        <span class="ppd-distance-badge" data-ppd="distanceBadge"></span>
-        <button class="ppd-nav" data-dir="-1" aria-label="Previous postcard" tabindex="-1" data-ppd="prev"></button>
-        <button class="ppd-nav" data-dir="1" aria-label="Next postcard" tabindex="-1" data-ppd="next"></button>
+    <div class="ppd-stage">
+      <div class="ppd-flip" role="button" tabindex="0" aria-pressed="false" data-ppd="flip">
+        <div class="ppd-flip-inner">
+          <div class="ppd-face ppd-face-front" data-ppd="front">
+            <div class="pp-photo" data-ppd="photo"></div>
+            <span class="ppd-flip-hint" aria-hidden="true">Tap to flip</span>
+            <div class="ppd-caption">
+              <h3 id="ppd-title" data-ppd="name"></h3>
+              <p data-ppd="country"></p>
+            </div>
+          </div>
+          <div class="ppd-face ppd-face-back" data-ppd="back">
+            <p class="ppd-fact" data-ppd="fact"></p>
+            <div class="ppd-divider"></div>
+            <div class="ppd-right">
+              <div class="ppd-stamp-row">
+                <div class="ppd-stamp" data-ppd="stamp"></div>
+                <span class="ppd-postmark" data-ppd="postmark"></span>
+              </div>
+              <div class="ppd-addr">
+                <p class="ppd-addr-name" data-ppd="addrName"></p>
+                <p class="ppd-addr-country" data-ppd="addrCountry"></p>
+                <div class="ppd-addr-rule"></div>
+                <div class="ppd-addr-rule"></div>
+              </div>
+              <div class="ppd-history" data-ppd="history" aria-label="Visit history"></div>
+            </div>
+            <div class="ppd-stats" data-ppd="stats"></div>
+          </div>
+        </div>
       </div>
-      <div class="ppd-body">
-        <h3 id="ppd-title" data-ppd="name"></h3>
-        <p class="ppd-clue" data-ppd="clue"></p>
-        <p class="ppd-fact" data-ppd="fact"></p>
-        <div class="ppd-history" data-ppd="history" aria-label="Visit history"></div>
-        <dl class="ppd-stats" data-ppd="stats"></dl>
-        <p class="ppd-hint" data-ppd="hint"></p>
-        <button class="ppd-share" data-ppd="share"></button>
-      </div>
+      <button class="ppd-nav" data-dir="-1" aria-label="Previous postcard" tabindex="-1" data-ppd="prev"></button>
+      <button class="ppd-nav" data-dir="1" aria-label="Next postcard" tabindex="-1" data-ppd="next"></button>
     </div>
+    <p class="ppd-hint" data-ppd="hint"></p>
+    <button class="ppd-share" data-ppd="share"></button>
     <p class="ppd-pos" aria-live="polite" data-ppd="pos"></p>
   </article>`;
   document.getElementById('game').appendChild(postcardScreen);
@@ -1599,6 +1683,12 @@ body.game-collections #hud { opacity: 0; }
   ppdEls = Object.fromEntries([...postcardScreen.querySelectorAll('[data-ppd]')].map((el) => [el.dataset.ppd, el]));
 
   ppdEls.close.addEventListener('click', closePostcard);
+  ppdEls.flip.addEventListener('click', () => setPostcardFlipped(!ppdEls.flip.classList.contains('is-flipped')));
+  ppdEls.flip.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    setPostcardFlipped(!ppdEls.flip.classList.contains('is-flipped'));
+  });
   ppdEls.prev.addEventListener('click', () => stepPostcard(-1));
   ppdEls.next.addEventListener('click', () => stepPostcard(1));
   // Swipe: judged on pointerup only, so vertical scrolling (pan-y) and taps
@@ -1643,9 +1733,9 @@ body.game-collections #hud { opacity: 0; }
       e.preventDefault();
       stepPostcard(e.key === 'ArrowRight' ? 1 : -1);
     } else if (e.key === 'Tab') {
-      // Close and (when shown) share are the only controls; keep focus between them.
+      // Close, the postcard and (when shown) share are the only controls; keep focus between them.
       e.preventDefault();
-      const stops = [ppdEls.close, ppdEls.share].filter((el) => !el.hidden);
+      const stops = [ppdEls.close, ppdEls.flip, ppdEls.share].filter((el) => !el.hidden);
       const at = stops.indexOf(document.activeElement);
       stops[(at + (e.shiftKey ? stops.length - 1 : 1)) % stops.length].focus();
     }
