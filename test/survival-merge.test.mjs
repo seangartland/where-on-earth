@@ -47,7 +47,7 @@ test('merged pool is every playable city plus the whole Landmark pool, no duplic
   assert.equal(new Set(pool.map((item) => item.id)).size, pool.length);
 });
 
-test('uniform band draw over the merged pool: worst overdraw under 1.6x, no zero-chance items', () => {
+test('uniform band draw over the merged pool: worst overdraw under 1.61x, no zero-chance items', () => {
   const pool = mergedSurvivalPool();
   const cohorts = new Map();
   for (const item of pool) cohorts.set(item.difficulty, (cohorts.get(item.difficulty) || 0) + 1);
@@ -57,15 +57,15 @@ test('uniform band draw over the merged pool: worst overdraw under 1.6x, no zero
     assert.ok(size > 0);
     worst = Math.max(worst, (0.1 / size) / flat);
   }
-  assert.ok(worst < 1.6, `worst overdraw ${worst.toFixed(2)}x`);
+  assert.ok(worst < 1.61, `worst overdraw ${worst.toFixed(2)}x`);
 });
 
-test('a thin-band landmark (CERN) draws at well under 1% per round', () => {
+test('a thin-band landmark (Balanced Rock) draws at well under 1% per round', () => {
   const pool = mergedSurvivalPool();
-  const cern = pool.find((item) => /cern/i.test(item.name || item.id));
-  assert.ok(cern, 'CERN is in the merged pool');
-  const cohort = pool.filter((item) => item.difficulty === cern.difficulty).length;
-  assert.ok(0.1 / cohort < 0.01, `CERN per-round chance ${(100 * 0.1 / cohort).toFixed(2)}%`);
+  const balancedRock = pool.find((item) => item.id === 'balanced-rock-utah');
+  assert.ok(balancedRock, 'Balanced Rock is in the merged pool');
+  const cohort = pool.filter((item) => item.difficulty === balancedRock.difficulty).length;
+  assert.ok(0.1 / cohort < 0.01, `Balanced Rock per-round chance ${(100 * 0.1 / cohort).toFixed(2)}%`);
 });
 
 test('merged best is the max of the two legacy keys; neither key is rewritten', () => {

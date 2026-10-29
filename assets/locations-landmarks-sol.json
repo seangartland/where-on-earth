@@ -309,22 +309,6 @@
   "kind": "landmark"
  },
  {
-  "id": "arpanet-first-message-ucla",
-  "short": "Boelter Hall, UCLA",
-  "clue": "UCLA, Los Angeles, United States 🇺🇸",
-  "fact": "A UCLA team tried to send LOGIN to Stanford on October 29, 1969. The network failed after two letters, making 'LO' the internet ancestor's first message.",
-  "lat": 34.0689,
-  "lng": -118.4432,
-  "difficulty": 8,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Boelter_Hall%2C_UCLA.jpg/500px-Boelter_Hall%2C_UCLA.jpg",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.83·fb2283·K0·iso18 → 81.0 → 8",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "atomium-iron-crystal",
   "short": "Atomium",
   "clue": "Atomium, Belgium 🇧🇪",
@@ -369,22 +353,6 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.39·fb1022·K0·iso119 → 139.2 → 9",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "avatiu-harbour",
-  "clue": "Avatiu Harbour, Cook Islands 🇨🇰",
-  "fact": "Avatiu Harbour is the main port of the Cook Islands, sheltered by a coral reef.",
-  "lat": -21.2075,
-  "lng": -159.7775,
-  "difficulty": 10,
-  "short": "Avatiu Harbour",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Avatiu_Harbour%2C_Rarotonga_%28482134%29_%289449672405%29.jpg/500px-Avatiu_Harbour%2C_Rarotonga_%28482134%29_%289449672405%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Cook Islands",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb0·K2·iso3009 → 842.0 → 10",
   "category": "city",
   "kind": "landmark"
  },
@@ -880,22 +848,6 @@
   "kind": "landmark"
  },
  {
-  "id": "burning-man-first-baker-beach",
-  "short": "Baker Beach",
-  "clue": "Baker Beach, San Francisco, United States 🇺🇸",
-  "fact": "Larry Harvey and friends burned an eight-foot wooden man on Baker Beach in 1986. The event later moved to Nevada's Black Rock Desert.",
-  "lat": 37.7936,
-  "lng": -122.4836,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/BakeBeachAtMidday.jpg/500px-BakeBeachAtMidday.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.16·fb2519·K0·iso565 → 419.0 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "byrd-station",
   "clue": "Byrd Station, Antarctica 🇦🇶",
   "fact": "Byrd Station was a key American research base buried deep under snow; its original buildings are now entombed by ice.",
@@ -926,22 +878,6 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.00·fb1387·K0·iso270 → 296.3 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "cabo-manglares",
-  "short": "Cabo Manglares",
-  "clue": "Cabo Manglares, Colombia 🇨🇴",
-  "fact": "Cabo Manglares is Colombia's southernmost point on the Pacific coast, in a remote wetland region.",
-  "lat": 1.6203,
-  "lng": -79.0042,
-  "difficulty": 9,
-  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Manglares_en_el_maritorio_de_Bah%C3%ADa_M%C3%A1laga%2C_Colombia.jpg",
-  "country": "Colombia",
-  "continent": "South America",
-  "sets": [],
-  "difficultyWhy": "p.00·fb665·K0·iso213 → 142.0 → 9",
   "category": "city",
   "kind": "landmark"
  },
@@ -1006,22 +942,6 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.83·fb1429·K0·iso198 → 55.4 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "casey-station",
-  "short": "Casey Station",
-  "clue": "Casey Station, Antarctica 🇦🇶",
-  "fact": "Casey Station is an Australian research station in Wilkes Land, featuring a unique 'wind farm' for renewable power.",
-  "lat": -66.2825,
-  "lng": 110.5239,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Casey_Station_November_2005.jpg/500px-Casey_Station_November_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Antarctica",
-  "continent": "Antarctica",
-  "sets": [],
-  "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
   "kind": "landmark"
  },
@@ -1590,38 +1510,6 @@
   "kind": "landmark"
  },
  {
-  "id": "dolly-cloning-roslin",
-  "short": "Roslin Institute",
-  "clue": "Roslin Institute, Scotland",
-  "fact": "Dolly was born at the Roslin Institute in 1996 after scientists transferred a nucleus from an adult sheep cell into an egg cell.",
-  "lat": 55.8664,
-  "lng": -3.2006,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Roslin_Institute.JPG/500px-Roslin_Institute.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Scotland",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.00·fb40·K0·iso343 → 17.8 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "dome-fuji",
-  "short": "Dome Fuji Station",
-  "clue": "Dome Fuji Station, Antarctica 🇦🇶",
-  "fact": "Dome Fuji Station is a Japanese Antarctic base on one of the highest points of the East Antarctic ice sheet.",
-  "lat": -77.3167,
-  "lng": 39.7,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Antarctica_base%28Japan%29_English_ver.png/500px-Antarctica_base%28Japan%29_English_ver.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Antarctica",
-  "continent": "Antarctica",
-  "sets": [],
-  "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "dome-of-the-rock",
   "short": "Dome of the Rock",
   "clue": "Dome of the Rock, Israel 🇮🇱",
@@ -2057,38 +1945,6 @@
   "kind": "landmark"
  },
  {
-  "id": "higgs-boson-cern-atlas",
-  "short": "CERN ATLAS Experiment",
-  "clue": "CERN, Geneva, Switzerland 🇨🇭",
-  "fact": "The ATLAS and CMS teams at CERN jointly reported a new Higgs-like particle. This point marks the ATLAS detector site on the Large Hadron Collider ring.",
-  "lat": 46.2348,
-  "lng": 6.0557,
-  "difficulty": 3,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Atlas_Experiment_CERN_%2810%29.JPG/500px-Atlas_Experiment_CERN_%2810%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Switzerland",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.87·fb172·K0·iso257 → 8.4 → 3",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "hindenburg-lakehurst",
-  "short": "Lakehurst Hindenburg Site",
-  "clue": "Lakehurst, New Jersey, United States 🇺🇸",
-  "fact": "The zeppelin burned at Lakehurst Naval Air Station in 34 seconds, killing 35 aboard and one ground worker. Newsreel footage helped end the passenger-airship era.",
-  "lat": 40.0304,
-  "lng": -74.3259,
-  "difficulty": 5,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Hindenburg_landing_May_6_1937.jpg/500px-Hindenburg_landing_May_6_1937.jpg",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.17·fb55·K0·iso72 → 17.4 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "hohensalzburg-fortress",
   "clue": "Hohensalzburg, Austria 🇦🇹",
   "fact": "Hohensalzburg was finished in 1077 and never taken by assault; a legend says Salzburg's archbishop ordered all but one of its bells silenced as raving mad.",
@@ -2204,22 +2060,6 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.70·fb637·K0·iso257 → 45.8 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "jaws-menemsha-harbor",
-  "short": "Menemsha Harbor",
-  "clue": "Menemsha, Martha's Vineyard, United States 🇺🇸",
-  "fact": "Steven Spielberg used Martha's Vineyard locations throughout the 1975 film. Menemsha's working harbor appeared as the movie's Amity waterfront.",
-  "lat": 41.3554,
-  "lng": -70.7675,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Sunset_at_Menemsha_Harbor.jpg/500px-Sunset_at_Menemsha_Harbor.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.00·fb1952·K0·iso266 → 403.7 → 10",
   "category": "city",
   "kind": "landmark"
  },
@@ -2793,22 +2633,6 @@
   "kind": "landmark"
  },
  {
-  "id": "migrant-mother-nipomo",
-  "short": "Nipomo Migrant Camp Site",
-  "clue": "Nipomo, California, United States 🇺🇸",
-  "fact": "Lange met Florence Owens Thompson at a pea-pickers' camp in Nipomo in 1936. The photograph became an enduring image of the Great Depression.",
-  "lat": 35.0353,
-  "lng": -120.4856,
-  "difficulty": 5,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/NipomoLocationOfMigrantMotherPhotoJan52025.jpg/500px-NipomoLocationOfMigrantMotherPhotoJan52025.jpg",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.15·fb121·K0·iso233 → 21.1 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "miraflores-locks",
   "short": "Miraflores Locks",
   "clue": "Miraflores Locks, Panama 🇵🇦",
@@ -2906,22 +2730,6 @@
    "History Was Here"
   ],
   "difficultyWhy": "p.98·fb361·K0·iso284 → 4.8 → 2",
-  "kind": "landmark"
- },
- {
-  "id": "monterey-pop-festival",
-  "short": "Monterey County Fairgrounds",
-  "clue": "Monterey, California, United States 🇺🇸",
-  "fact": "Hendrix's dramatic finale helped turn his U.S. festival debut into rock history. The same festival also introduced major audiences to Janis Joplin and the Who.",
-  "lat": 36.5948,
-  "lng": -121.8627,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/SCOUT-O-RAMA_AT_FAIRGROUNDS_IN_MONTEREY_-_NARA_-_543162.jpg/500px-SCOUT-O-RAMA_AT_FAIRGROUNDS_IN_MONTEREY_-_NARA_-_543162.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.69·fb285·K0·iso433 → 22.9 → 5",
-  "category": "city",
   "kind": "landmark"
  },
  {
@@ -3056,22 +2864,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.17·fb313·K0·iso640 → 55.1 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "neumayer-iii",
-  "short": "Neumayer Station III",
-  "clue": "Neumayer Station III, Antarctica 🇦🇶",
-  "fact": "Neumayer Station III is a German Antarctic research station located on the Ekström Ice Shelf.",
-  "lat": -70.6744,
-  "lng": -8.2742,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Neumayer_Station_Antarctica_2009-12_2.jpg/500px-Neumayer_Station_Antarctica_2009-12_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Antarctica",
-  "continent": "Antarctica",
-  "sets": [],
-  "difficultyWhy": "F4·A3·K0·C1·S0 → 9",
   "category": "city",
   "kind": "landmark"
  },
@@ -3996,22 +3788,6 @@
   "kind": "area"
  },
  {
-  "id": "syowa-station",
-  "short": "Syowa Station",
-  "clue": "Syowa Station, Antarctica 🇦🇶",
-  "fact": "Syowa Station is Japan's main Antarctic research base on East Ongul Island.",
-  "lat": -69.0042,
-  "lng": 39.59,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Showa_station_aerial_photography.jpg/500px-Showa_station_aerial_photography.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Antarctica",
-  "continent": "Antarctica",
-  "sets": [],
-  "difficultyWhy": "F5·A3·K0·C1·S0 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "thabana-ntlenyana-summit",
   "clue": "Thabana Ntlenyana, Lesotho",
   "fact": "The highest point in Southern Africa at 3,482 meters, located in Lesotho.",
@@ -4144,22 +3920,6 @@
   "kind": "landmark"
  },
  {
-  "id": "transistor-bell-labs-murray-hill",
-  "short": "Bell Labs, Murray Hill",
-  "clue": "Murray Hill, New Jersey, United States 🇺🇸",
-  "fact": "John Bardeen, Walter Brattain, and William Shockley's group developed the device at Bell Telephone Laboratories, launching the solid-state electronics era.",
-  "lat": 40.6842,
-  "lng": -74.4003,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Lucent_HQ.gif/500px-Lucent_HQ.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.08·fb18·K0·iso33 → 17.7 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "trevi-fountain-rome",
   "short": "Trevi Fountain",
   "clue": "Trevi Fountain, Italy 🇮🇹",
@@ -4174,24 +3934,6 @@
   "difficultyWhy": "p.85·fb101·K0·iso477 → 6.9 → 2",
   "category": "city",
   "kind": "landmark"
- },
- {
-  "id": "uyuni-salt-hotel",
-  "short": "Uyuni Salt Flats",
-  "clue": "Uyuni Salt Flats, Bolivia 🇧🇴",
-  "fact": "The former Hotel de Sal Playa Blanca is built largely from blocks of salt. It now serves as a museum near the flats' Dakar monument.",
-  "lat": -20.3319,
-  "lng": -67.0477,
-  "difficulty": 6,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Salar_Uyuni_au01.jpg/500px-Salar_Uyuni_au01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Bolivia",
-  "continent": "South America",
-  "sets": [
-   "Andes"
-  ],
-  "difficultyWhy": "p.63·fb352·K0·iso442 → 31.6 → 6",
-  "category": "city",
-  "kind": "area"
  },
  {
   "id": "valley-of-kings",
@@ -5387,22 +5129,6 @@
   "kind": "landmark"
  },
  {
-  "id": "el-porvenir-san-blas",
-  "short": "El Porvenir, San Blas",
-  "clue": "El Porvenir, San Blas, Panama 🇵🇦",
-  "fact": "El Porvenir is one of the Kuna Yala islands off Panama's Caribbean coast, known for its traditional Guna culture.",
-  "lat": 9.5528,
-  "lng": -78.9469,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/El_Porvenir.jpg/500px-El_Porvenir.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Panama",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.00·fb116·K0·iso482 → 21.1 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "horseshoe-bend",
   "short": "Horseshoe Bend",
   "fact": "Its water carved immense canyons and now supports tens of millions of people across an arid region.",
@@ -5741,22 +5467,6 @@
   "kind": "landmark"
  },
  {
-  "id": "east-london",
-  "short": "East London",
-  "clue": "East London, South Africa 🇿🇦",
-  "fact": "East London is South Africa's only river port, and its museum displays the first living coelacanth found in 1938.",
-  "lat": -33.01529,
-  "lng": 27.91162,
-  "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/East_London%2C_Union_of_South_Africa.jpg/500px-East_London%2C_Union_of_South_Africa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "South Africa",
-  "continent": "Africa",
-  "sets": [],
-  "difficultyWhy": "p.47·fb520·K0·iso238 → 62.8 → 7",
-  "category": "city",
-  "kind": "settlement"
- },
- {
   "id": "forbidden-city-beijing",
   "clue": "Forbidden City, China 🇨🇳",
   "fact": "Ming and Qing emperors lived inside these walls from 1420 to 1924, and the surviving complex still covers 72 hectares across some 980 buildings.",
@@ -5787,22 +5497,6 @@
   "difficultyWhy": "p.44·fb604·K0·iso307 → 76.6 → 7",
   "category": "city",
   "kind": "landmark"
- },
- {
-  "id": "pietermaritzburg-za",
-  "short": "Pietermaritzburg",
-  "clue": "Pietermaritzburg, South Africa 🇿🇦",
-  "fact": "Pietermaritzburg is where a young Gandhi was thrown off a train in 1893, an event that shaped his activism.",
-  "lat": -29.61679,
-  "lng": 30.39278,
-  "difficulty": 6,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Pietermaritzburg_1966.jpg/500px-Pietermaritzburg_1966.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "South Africa",
-  "continent": "Africa",
-  "sets": [],
-  "difficultyWhy": "p.56·fb353·K0·iso67 → 36.7 → 6",
-  "category": "city",
-  "kind": "settlement"
  },
  {
   "id": "tabas",
@@ -5841,38 +5535,6 @@
   "kind": "landmark"
  },
  {
-  "id": "ambunti-sepik",
-  "clue": "Ambunti, Papua New Guinea 🇵🇬",
-  "fact": "Ambunti is a cultural center along the Sepik River, renowned for its traditional wood carvings and crocodile culture.",
-  "lat": -4.2147,
-  "lng": 142.8425,
-  "difficulty": 9,
-  "short": "Ambunti",
-  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sepik_River_IMG_2117.jpg",
-  "country": "Papua New Guinea",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb637·K0·iso2287 → 135.7 → 9",
-  "category": "city",
-  "kind": "settlement"
- },
- {
-  "id": "atafu-loto",
-  "short": "Atafu",
-  "clue": "Atafu, New Zealand 🇳🇿",
-  "fact": "Atafu is the northernmost atoll of Tokelau and one of the world's most remote permanently inhabited atolls.",
-  "lat": -8.5514,
-  "lng": -172.5152,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Atafu.jpg/500px-Atafu.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "New Zealand",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.22·fb3613·K0·iso3398 → 503.5 → 10",
-  "category": "city",
-  "kind": "area"
- },
- {
   "id": "hunga-tonga-2022-eruption",
   "short": "Hunga Tonga–Hunga Ha'apai",
   "clue": "Hunga Tonga–Hunga Haʻapai, Tonga 🇹🇴",
@@ -5891,38 +5553,6 @@
   "kind": "landmark"
  },
  {
-  "id": "kiriwina-trobriands",
-  "clue": "Kiriwina, Papua New Guinea 🇵🇬",
-  "fact": "Kiriwina in the Trobriand Islands is famous for its complex kula exchange system studied by Bronislaw Malinowski.",
-  "lat": -8.5542,
-  "lng": 151.0817,
-  "difficulty": 8,
-  "short": "Kiriwina",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Karta_PG_Trobriand_isl.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "country": "Papua New Guinea",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb416·K0·iso2113 → 86.2 → 8",
-  "category": "city",
-  "kind": "area"
- },
- {
-  "id": "manihiki-oma",
-  "short": "Manihiki",
-  "clue": "Manihiki, Cook Islands 🇨🇰",
-  "fact": "Manihiki Atoll in the Cook Islands is famous for its black pearl farming industry.",
-  "lat": -10.4247,
-  "lng": -161.0144,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Manihiki_Aerial.jpg/500px-Manihiki_Aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Cook Islands",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb1206·K2·iso3812 → 913.2 → 10",
-  "category": "city",
-  "kind": "area"
- },
- {
   "id": "mauna-kea",
   "clue": "Mauna Kea, United States 🇺🇸",
   "fact": "Mauna Kea is the world's tallest mountain from base to summit, rising over 10,200 meters from the ocean floor.",
@@ -5937,54 +5567,6 @@
   "difficultyWhy": "p.80·fb6241·K0·iso3987 → 174.4 → 9",
   "category": "city",
   "kind": "landmark"
- },
- {
-  "id": "nanumea-tuvalu",
-  "short": "Nanumea, Tuvalu",
-  "clue": "Nanumea, Tuvalu, Tuvalu 🇹🇻",
-  "fact": "Nanumea is a remote northern atoll of Tuvalu known for its traditional Polynesian navigation history.",
-  "lat": -5.6554,
-  "lng": 176.115,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Nanumea_2022.png/500px-Nanumea_2022.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Tuvalu",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb466·K2·iso3441 → 883.8 → 10",
-  "category": "city",
-  "kind": "area"
- },
- {
-  "id": "pangai-haapai",
-  "clue": "Pangai, Tonga 🇹🇴",
-  "fact": "Pangai is the administrative center of Ha'apai, a stunning archipelago of coral islands in Tonga.",
-  "lat": -19.8047,
-  "lng": -174.3475,
-  "difficulty": 10,
-  "short": "Pangai",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Haapai.jpg",
-  "country": "Tonga",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb173·K2·iso2171 → 721.1 → 10",
-  "category": "city",
-  "kind": "settlement"
- },
- {
-  "id": "pavuvu-russells",
-  "clue": "Pavuvu, Solomon Islands 🇸🇧",
-  "fact": "Pavuvu was a major U.S. Marine staging base during the Guadalcanal Campaign in World War II.",
-  "lat": -9.05,
-  "lng": 159.2,
-  "difficulty": 10,
-  "short": "Pavuvu",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Pavuvu_Island%2C_Russell_Islands%2C_Sentinel-2.jpg/500px-Pavuvu_Island%2C_Russell_Islands%2C_Sentinel-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Solomon Islands",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.12·fb95·K2·iso2148 → 634.3 → 10",
-  "category": "city",
-  "kind": "area"
  },
  {
   "id": "pucara-de-tilcara",
@@ -6003,22 +5585,6 @@
   "kind": "landmark"
  },
  {
-  "id": "pukapuka-village",
-  "short": "Pukapuka Village",
-  "clue": "Pukapuka Village, Cook Islands 🇨🇰",
-  "fact": "Pukapuka Atoll is known for its distinct dialect and traditional Polynesian way of life.",
-  "lat": -10.8517,
-  "lng": -165.8367,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Pukapuka_Islet.jpg/500px-Pukapuka_Islet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Cook Islands",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.47·fb1321·K2·iso3484 → 474.9 → 10",
-  "category": "city",
-  "kind": "settlement"
- },
- {
   "id": "santiago-de-cuba-cu",
   "short": "Santiago de Cuba",
   "clue": "Santiago de Cuba, Cuba 🇨🇺",
@@ -6033,22 +5599,6 @@
    "Caribbean"
   ],
   "difficultyWhy": "p.52·fb519·K0·iso401 → 57.4 → 7",
-  "category": "city",
-  "kind": "settlement"
- },
- {
-  "id": "santiago-de-los-caballeros-do",
-  "short": "Santiago de los Caballeros",
-  "clue": "Santiago de los Caballeros, Dominican Republic 🇩🇴",
-  "fact": "Santiago de los Caballeros is the Dominican Republic's second city, the heart of its cigar industry and merengue típico music.",
-  "lat": 19.45036,
-  "lng": -70.69085,
-  "difficulty": 5,
-  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Citadelle_Laferri%C3%A8re.jpg",
-  "country": "Dominican Republic",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.41·fb101·K0·iso137 → 15.3 → 5",
   "category": "city",
   "kind": "settlement"
  },
@@ -6071,22 +5621,6 @@
   "kind": "landmark"
  },
  {
-  "id": "tabuaeran",
-  "short": "Tabuaeran, Kiribati",
-  "clue": "Tabuaeran, Kiribati, Kiribati 🇰🇮",
-  "fact": "Tabuaeran (Fanning Island) in Kiribati is known for its abundant birdlife and coconut plantations.",
-  "lat": 3.8667,
-  "lng": -159.3567,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Tabuaeran_Kiribati.jpg/500px-Tabuaeran_Kiribati.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Kiribati",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.20·fb3086·K2·iso5262 → 784.8 → 10",
-  "category": "city",
-  "kind": "area"
- },
- {
   "id": "teotihuacan",
   "short": "Teotihuacan",
   "clue": "Teotihuacan, Mexico 🇲🇽",
@@ -6103,22 +5637,6 @@
   "difficultyWhy": "p.88·fb281·K0·iso25 → 10.9 → 4",
   "category": "city",
   "kind": "landmark"
- },
- {
-  "id": "teraina",
-  "short": "Teraina, Kiribati",
-  "clue": "Teraina, Kiribati, Kiribati 🇰🇮",
-  "fact": "Teraina (Washington Island) is one of Kiribati's Line Islands with a small population and rich marine life.",
-  "lat": 4.6878,
-  "lng": -160.3742,
-  "difficulty": 10,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Kiribati",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.08·fb2982·K2·iso5290 → 899.7 → 10",
-  "category": "city",
-  "kind": "area"
  },
  {
   "id": "kizhi-pogost",
@@ -6231,22 +5749,6 @@
   "difficultyWhy": "p.70·fb51·K0·iso394 → 10.4 → 4",
   "category": "city",
   "kind": "landmark"
- },
- {
-  "id": "zaporizhzhya-ua",
-  "short": "Zaporizhzhya",
-  "clue": "Zaporizhzhya, Ukraine 🇺🇦",
-  "fact": "Zaporizhzhia is home to Khortytsia, the Dnieper island that was the stronghold of the Zaporozhian Cossacks.",
-  "lat": 47.85167,
-  "lng": 35.11714,
-  "difficulty": 5,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Ukraine",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.59·fb209·K0·iso251 → 21.6 → 5",
-  "category": "city",
-  "kind": "settlement"
  },
  {
   "id": "dettifoss",
@@ -6419,22 +5921,6 @@
   "kind": "landmark"
  },
  {
-  "id": "mata-utu-wallis",
-  "clue": "Mata-Utu, France 🇫🇷",
-  "fact": "Mata-Utu is the capital of Wallis and Futuna, perched on a small island in the lagoon of Wallis.",
-  "lat": -13.2833,
-  "lng": -176.1833,
-  "difficulty": 10,
-  "short": "Mata-Utu",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/304_Wharf_de_Mata-utu_(36941610301).jpg/500px-304_Wharf_de_Mata-utu_(36941610301).jpg",
-  "country": "France",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.20·fb16232·K0·iso2771 → 802.0 → 10",
-  "category": "city",
-  "kind": "settlement"
- },
- {
   "id": "mohenjo-daro",
   "clue": "Mohenjo-daro, Pakistan 🇵🇰",
   "fact": "The Indus metropolis on this mound was abandoned with no sign of warfare, and its drains were laid so carefully that a thousand years of traffic found no need for repairs.",
@@ -6535,22 +6021,6 @@
   "difficultyWhy": "p.25·fb133·K0·iso1366 → 21.9 → 5",
   "category": "city",
   "kind": "landmark"
- },
- {
-  "id": "thanh-hoa",
-  "short": "Thanh Hóa",
-  "clue": "Thanh Hóa, Vietnam 🇻🇳",
-  "fact": "Thanh Hóa is a Vietnamese city near the stone Hồ Dynasty Citadel, a UNESCO World Heritage Site.",
-  "lat": 19.8,
-  "lng": 105.76667,
-  "difficulty": 8,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Vietnam",
-  "continent": "Asia",
-  "sets": [],
-  "difficultyWhy": "p.07·fb511·K0·iso136 → 101.0 → 8",
-  "category": "city",
-  "kind": "settlement"
  },
  {
   "id": "uluru",
@@ -6721,38 +6191,6 @@
   "difficultyWhy": "p.59·fb251·K0·iso20 → 25.6 → 6",
   "category": "city",
   "kind": "landmark"
- },
- {
-  "id": "sri-jayawardenepura-kotte",
-  "short": "Sri Jayawardenepura Kotte",
-  "clue": "Sri Jayawardenepura Kotte, Sri Lanka 🇱🇰",
-  "fact": "Sri Lanka's Parliament sits on an island in Diyawanna Oya lake, in a building designed by architect Geoffrey Bawa and opened in 1982. Kotte was already a royal capital in the 15th century.",
-  "lat": 6.9108,
-  "lng": 79.8878,
-  "difficulty": 4,
-  "difficultyWhy": "p.54·fb55·K0·iso316 → 13.3 → 4",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/New_Sri_Lankan_Parliament_in_Kotte.jpg/500px-New_Sri_Lankan_Parliament_in_Kotte.jpg",
-  "country": "Sri Lanka",
-  "category": "city",
-  "continent": "Asia",
-  "sets": [],
-  "kind": "settlement"
- },
- {
-  "id": "abala",
-  "short": "Abala",
-  "clue": "Abala, Niger 🇳🇪",
-  "fact": "Abala is a town in Niger's Tillabéri Region, near the border with Mali.",
-  "lat": 14.9369,
-  "lng": 3.4336,
-  "difficulty": 9,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png",
-  "country": "Niger",
-  "continent": "Africa",
-  "sets": [],
-  "difficultyWhy": "p.00·fb199·K1·iso213 → 177.3 → 9",
-  "category": "city",
-  "kind": "settlement"
  },
  {
   "id": "cesky-krumlov-d34-18",

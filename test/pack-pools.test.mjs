@@ -22,7 +22,7 @@ test('landform ids exist, are bounded, and disambiguate Uyuni', () => {
 test('landmark and landform pools are exclusive', () => {
   const landforms = landformPackPool(landmarks);
   const other = landmarkPackPool(landmarks);
-  assert.ok(other.length > 300);
+  assert.equal(other.length, 341);
   assert.equal(landforms.length, PACK_LANDFORM_IDS.size);
   assert.ok(other.every((item) => !PACK_LANDFORM_IDS.has(item.id)));
 });
