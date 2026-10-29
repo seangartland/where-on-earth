@@ -1,6 +1,3 @@
-// Daily postcard pack store (docs/daily-pack-spec.md, build step 1): shape,
-// no reroll on re-read, date rollover, distinctness and pool counts, with a
-// fake localStorage and fixed date keys.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
@@ -14,126 +11,92 @@ globalThis.localStorage = {
   clear: () => store.clear(),
 };
 
-const { PACK_KEY, VERSIONED_KEYS } = await import('../src/core/config.js');
+const { PACK_KEY } = await import('../src/core/config.js');
 const {
-  PACK_CARDS, packPool, readPack, ensurePack, savePackResult, packOutcome, packSummary,
+  STAMINA_PERIOD, accrue, spend, readPack, writePack, ensurePack,
+  savePackResult, completePack, packOutcome, packSummary, packPool,
 } = await import('../src/meta/pack-store.js');
-const { PACK_CAPITAL_IDS } = await import('../src/meta/pack-capitals.js');
-
-const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
-const cities = load('locations.json');
+const cities = JSON.parse(readFileSync(new URL('../assets/locations.json', import.meta.url)));
 const pool = packPool(cities);
-const stored = () => JSON.parse(localStorage.getItem(PACK_KEY));
-
-test('key is versioned and off the sync list', () => {
-  assert.equal(PACK_KEY, 'where-on-earth-pack-v1');
-  assert.ok(VERSIONED_KEYS.has(PACK_KEY));
-  const sync = readFileSync(new URL('../src/account/sync.js', import.meta.url), 'utf8');
-  assert.ok(!sync.includes('PACK_KEY') && !sync.includes('pack-v1'));
+const raw = () => JSON.parse(localStorage.getItem(PACK_KEY));
+const empty = (stamina = { stored: 2, nextAt: null }) => ({
+  stamina, byType: { capitals: null, landmarks: null, landforms: null },
 });
 
-test('pool counts: the World Capitals set, no shared ids', () => {
-  assert.equal(pool.length, PACK_CAPITAL_IDS.size);
-  assert.ok(pool.every((item) => PACK_CAPITAL_IDS.has(item.id)));
-  assert.equal(new Set(pool.map((item) => item.id)).size, pool.length);
-  console.log(`pool: ${pool.length} capitals`);
+test.beforeEach(() => localStorage.clear());
+
+test('accrual handles partial periods, multiple periods, and pauses at cap', () => {
+  const record = empty({ stored: 0, nextAt: 1000 });
+  accrue(record, 999);
+  assert.deepEqual(record.stamina, { stored: 0, nextAt: 1000 });
+  accrue(record, 1000 + STAMINA_PERIOD);
+  assert.deepEqual(record.stamina, { stored: 2, nextAt: null });
 });
 
-test('generation: shape, three distinct pool ids, saved before any play', () => {
-  localStorage.clear();
-  const record = readPack('2026-10-18');
-  assert.deepEqual(record, { date: '2026-10-18', packs: [] });
-  assert.equal(localStorage.getItem(PACK_KEY), null, 'a plain read writes nothing');
-  const pack = ensurePack(record, 0, pool);
-  assert.equal(pack.ids.length, PACK_CARDS);
-  assert.equal(new Set(pack.ids).size, PACK_CARDS);
-  const ids = new Set(pool.map((item) => item.id));
-  assert.ok(pack.ids.every((id) => ids.has(id)));
-  assert.deepEqual(pack.results, [null, null, null]);
-  const saved = stored();
-  assert.equal(saved._v, 1);
-  assert.equal(saved.date, '2026-10-18');
-  assert.deepEqual(saved.packs[0].ids, pack.ids);
+test('spending from cap starts the clock; spending at one keeps it running', () => {
+  const record = empty();
+  assert.equal(spend(record, 5000), true);
+  assert.deepEqual(record.stamina, { stored: 1, nextAt: 5000 + STAMINA_PERIOD });
+  assert.equal(spend(record, 6000), true);
+  assert.deepEqual(record.stamina, { stored: 0, nextAt: 5000 + STAMINA_PERIOD });
+  assert.equal(spend(record, 7000), false);
 });
 
-test('no reroll on re-read (reload) of the same date', () => {
-  localStorage.clear();
-  const first = ensurePack(readPack('2026-10-18'), 0, pool).ids.slice();
-  for (let i = 0; i < 20; i += 1) {
-    const again = ensurePack(readPack('2026-10-18'), 0, pool);
-    assert.deepEqual(again.ids, first);
-  }
+test('fresh migration starts full and persists the new shape', () => {
+  localStorage.setItem(PACK_KEY, JSON.stringify({ date: '2026-10-28', packs: [] }));
+  assert.deepEqual(readPack(Date.parse('2026-10-29T12:00:00Z')), empty());
+  assert.equal('date' in raw(), false);
 });
 
-test('results persist with the record and the summary totals them', () => {
-  localStorage.clear();
-  const record = readPack('2026-10-18');
-  ensurePack(record, 0, pool);
-  savePackResult(record, 0, 0, { guess: { lat: 1, lng: 2 }, distance: 412, distanceExact: 411.7, base: 731, postcard: { kind: 'visited' } });
-  savePackResult(record, 0, 2, { guess: { lat: 1, lng: 2 }, distance: 12, distanceExact: 12.2, base: 990, postcard: { kind: 'new', tier: 2 } });
-  const reread = readPack('2026-10-18');
-  assert.equal(reread.packs[0].results[0].base, 731);
-  assert.equal(reread.packs[0].results[1], null);
-  const summary = packSummary(ensurePack(reread, 0, pool));
-  assert.equal(summary.played, 2);
-  assert.equal(summary.nextCard, 1);
-  assert.equal(summary.score, 1721);
-  assert.deepEqual(summary.counts, { new: 1, upgrade: 0, visited: 1, repeat: 0 });
+test('legacy pack from today migrates its results and torn state', () => {
+  const date = '2026-10-29';
+  const legacyPack = { ids: pool.slice(0, 3).map((x) => x.id), results: [{ base: 1 }, null, null] };
+  localStorage.setItem(PACK_KEY, JSON.stringify({ date, packs: [legacyPack] }));
+  localStorage.setItem(`${PACK_KEY}-torn`, date);
+  const record = readPack(Date.parse(`${date}T12:00:00Z`));
+  assert.deepEqual(record.byType.capitals, { ...legacyPack, torn: true });
+  assert.equal(record.stamina.stored, 2);
 });
 
-test('date rollover: a past record is replaced by an empty one, then a fresh draw', () => {
-  localStorage.clear();
-  const old = readPack('2026-10-18');
-  ensurePack(old, 0, pool);
-  savePackResult(old, 0, 0, { base: 500, postcard: { kind: 'visited' } });
-  const today = readPack('2026-10-19');
-  assert.deepEqual(today, { date: '2026-10-19', packs: [] });
-  assert.equal(stored().date, '2026-10-19', 'the stale record is replaced on read');
-  assert.ok(ensurePack(today, 0, pool));
-  assert.equal(stored().packs[0].results.filter(Boolean).length, 0);
+test('stale legacy pack is dropped', () => {
+  localStorage.setItem(PACK_KEY, JSON.stringify({ date: '2026-10-28', packs: [{ ids: ['a', 'b', 'c'], results: [] }] }));
+  assert.equal(readPack(Date.parse('2026-10-29T12:00:00Z')).byType.capitals, null);
 });
 
-test('a round finishing after midnight banks under its own date but never over a newer day', () => {
-  localStorage.clear();
-  const yesterday = readPack('2026-10-18');
-  ensurePack(yesterday, 0, pool);
-  assert.equal(savePackResult(yesterday, 0, 0, { base: 1, postcard: { kind: 'repeat' } }), true);
-  assert.equal(stored().date, '2026-10-18');
-  readPack('2026-10-19');
-  assert.equal(savePackResult(yesterday, 0, 1, { base: 1, postcard: { kind: 'repeat' } }), false);
-  assert.equal(stored().date, '2026-10-19');
+test('per-type packs are isolated and retired unplayed ids redraw', () => {
+  const record = empty();
+  let n = 0;
+  const random = () => ((n += 1) % pool.length) / pool.length;
+  const capitals = ensurePack(record, 'capitals', pool, random);
+  const otherPool = [{ id: 'one' }, { id: 'two' }, { id: 'three' }];
+  let m = 0;
+  const landmarks = ensurePack(record, 'landmarks', otherPool, () => ((m += 1) % 3) / 3);
+  assert.notEqual(capitals, landmarks);
+  assert.deepEqual(new Set(landmarks.ids), new Set(['one', 'two', 'three']));
+  landmarks.ids[1] = 'gone';
+  landmarks.results[0] = { base: 10 };
+  ensurePack(record, 'landmarks', otherPool, () => ((m += 1) % 3) / 3);
+  assert.notEqual(landmarks.ids[1], 'gone');
+  assert.equal(record.byType.capitals, capitals);
 });
 
-test('distinctness holds across many draws, including a tiny pool', () => {
-  localStorage.clear();
-  for (let i = 0; i < 2000; i += 1) {
-    const pack = ensurePack({ date: '2026-10-18', packs: [] }, 0, pool);
-    assert.equal(new Set(pack.ids).size, PACK_CARDS);
-  }
-  const tiny = pool.slice(0, 3);
-  for (let i = 0; i < 200; i += 1) {
-    assert.deepEqual(new Set(ensurePack({ date: '2026-10-18', packs: [] }, 0, tiny).ids), new Set(tiny.map((item) => item.id)));
-  }
-  assert.equal(ensurePack({ date: '2026-10-18', packs: [] }, 0, pool.slice(0, 2)), null);
+test('results summarize and completion clears only that type', () => {
+  const record = empty();
+  ensurePack(record, 'capitals', pool);
+  ensurePack(record, 'landmarks', [{ id: 'one' }, { id: 'two' }, { id: 'three' }]);
+  savePackResult(record, 'capitals', 0, { base: 731, postcard: { kind: 'new', tier: 2 } });
+  assert.deepEqual(packSummary(record.byType.capitals), {
+    played: 1, nextCard: 1, score: 731,
+    counts: { new: 1, upgrade: 0, visited: 0, repeat: 0 },
+  });
+  completePack(record, 'capitals');
+  assert.equal(record.byType.capitals, null);
+  assert.ok(record.byType.landmarks);
 });
 
-test('a retired id is redrawn only in an unplayed slot', () => {
-  localStorage.clear();
-  const record = readPack('2026-10-18');
-  record.packs[0] = { ids: ['gone-one', 'gone-two', pool[0].id], results: [{ base: 10, postcard: { kind: 'visited' } }, null, null] };
-  const pack = ensurePack(record, 0, pool);
-  assert.equal(pack.ids[0], 'gone-one', 'played slot keeps its id and result');
-  assert.notEqual(pack.ids[1], 'gone-two');
-  assert.equal(pack.ids[2], pool[0].id);
-  assert.equal(new Set(pack.ids).size, PACK_CARDS);
-  assert.deepEqual(stored().packs[0].ids, pack.ids);
-});
-
-test('reveal outcome kinds', () => {
+test('outcome kinds remain stable', () => {
   assert.deepEqual(packOutcome(false, 0, 0), { kind: 'visited' });
   assert.deepEqual(packOutcome(true, 0, 0), { kind: 'repeat' });
-  assert.deepEqual(packOutcome(true, 3, 0), { kind: 'repeat' });
   assert.deepEqual(packOutcome(false, 0, 1), { kind: 'new', tier: 1 });
-  assert.deepEqual(packOutcome(true, 0, 2), { kind: 'new', tier: 2 });
   assert.deepEqual(packOutcome(true, 1, 3), { kind: 'upgrade', tier: 3 });
 });

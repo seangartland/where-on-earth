@@ -1,48 +1,82 @@
-// ---------------------------------------------------------------------------
-// The Daily postcard pack store (docs/daily-pack-spec.md, 2b and 2c): today's
-// pack only, saved under PACK_KEY. A pack is three distinct ids from the pool
-// (the World Capitals set, 2026-10-29), generated on the first tap of
-// a new date and written before the first clue, so a reload cannot reroll it.
-// A record from any other date reads as an empty record for today: unplayed
-// cards from a past date are forfeit, as the Daily's are. No history, no
-// streak, no stats. The pack round and screen live in src/modes/pack.js.
-// ---------------------------------------------------------------------------
 import { PACK_KEY } from '../core/config.js';
 import { readJSON, writeJSON } from '../core/storage.js';
 import { localDateKey } from '../core/format.js';
 import { isPlayableLocation } from '../daily.js';
 import { PACK_CAPITAL_IDS } from './pack-capitals.js';
+import { PACK_LANDFORM_IDS } from './pack-landforms.js';
 
 export const PACK_CARDS = 3;
+export const STAMINA_MAX = 2;
+export const STAMINA_PERIOD = 12 * 60 * 60 * 1000;
+export const PACK_TYPES = ['capitals', 'landmarks', 'landforms'];
+const LEGACY_TORN_KEY = `${PACK_KEY}-torn`;
 
-// The World Capitals pack (2026-10-29): the playable cities in the capital
-// set (src/meta/pack-capitals.js), nothing else.
 export function packPool(locations) {
   return locations.filter((item) => PACK_CAPITAL_IDS.has(item.id) && isPlayableLocation(item));
+}
+const playableLandmark = (item) => Number.isFinite(item?.lat) && Number.isFinite(item?.lng)
+  && typeof item?.image === 'string' && item.image.length > 0;
+export function landmarkPackPool(locations) {
+  return locations.filter((item) => !PACK_LANDFORM_IDS.has(item.id) && playableLandmark(item));
+}
+export function landformPackPool(locations) {
+  return locations.filter((item) => PACK_LANDFORM_IDS.has(item.id) && playableLandmark(item));
 }
 
 const isPack = (pack) => Array.isArray(pack?.ids) && pack.ids.length === PACK_CARDS
   && pack.ids.every((id) => typeof id === 'string');
 
-// Today's record. Any other date, or a malformed value, is replaced by an
-// empty record for today.
-export function readPack(today = localDateKey()) {
+export function accrue(record, now = Date.now()) {
+  while (record.stamina.stored < STAMINA_MAX && record.stamina.nextAt != null && record.stamina.nextAt <= now) {
+    record.stamina.stored += 1;
+    record.stamina.nextAt += STAMINA_PERIOD;
+  }
+  if (record.stamina.stored >= STAMINA_MAX) record.stamina.nextAt = null;
+  return record;
+}
+
+export function spend(record, now = Date.now()) {
+  accrue(record, now);
+  if (record.stamina.stored <= 0) return false;
+  const paused = record.stamina.nextAt == null;
+  record.stamina.stored -= 1;
+  if (paused) record.stamina.nextAt = now + STAMINA_PERIOD;
+  writePack(record);
+  return true;
+}
+
+const freshRecord = () => ({
+  stamina: { stored: STAMINA_MAX, nextAt: null },
+  byType: { capitals: null, landmarks: null, landforms: null },
+});
+
+export function readPack(now = Date.now()) {
   const saved = readJSON(PACK_KEY);
-  if (saved && saved.date === today && Array.isArray(saved.packs)) return saved;
-  const record = { date: today, packs: [] };
+  if (saved?.byType && saved?.stamina) {
+    const before = JSON.stringify(saved.stamina);
+    accrue(saved, now);
+    for (const type of PACK_TYPES) if (!(type in saved.byType)) saved.byType[type] = null;
+    if (JSON.stringify(saved.stamina) !== before) writePack(saved);
+    return saved;
+  }
+  const record = freshRecord();
+  const today = localDateKey(new Date(now));
+  const legacy = saved?.date === today && isPack(saved?.packs?.[0]) ? saved.packs[0] : null;
+  if (legacy) {
+    let torn = false;
+    try { torn = localStorage.getItem(LEGACY_TORN_KEY) === saved.date; } catch { /* unavailable */ }
+    record.byType.capitals = {
+      ids: legacy.ids.slice(),
+      results: Array.from({ length: PACK_CARDS }, (_, i) => legacy.results?.[i] || null),
+      torn,
+    };
+  }
   if (saved) writePack(record);
   return record;
 }
 
-// A round still on screen at midnight banks into its own date's record, but
-// never over a newer day's record.
-export function writePack(record) {
-  const stored = readJSON(PACK_KEY);
-  if (typeof stored?.date === 'string' && stored.date > record.date) return false;
-  return writeJSON(PACK_KEY, record);
-}
+export function writePack(record) { return writeJSON(PACK_KEY, record); }
 
-// count distinct ids from pool, none of them in taken.
 function drawIds(pool, count, random, taken = []) {
   const ids = [];
   const used = new Set(taken);
@@ -56,44 +90,40 @@ function drawIds(pool, count, random, taken = []) {
   return ids;
 }
 
-// The pack at index (0 = free pack), generated and saved if it does not exist
-// yet. An unplayed slot whose id has left the pool gets a fresh draw; a played
-// slot keeps its stored result. Returns null while the pool is too small.
-export function ensurePack(record, index, pool, random = Math.random) {
-  if (pool.length < PACK_CARDS) return null;
-  let pack = record.packs[index];
+export function ensurePack(record, type, pool, random = Math.random) {
+  if (!PACK_TYPES.includes(type) || pool.length < PACK_CARDS) return null;
+  let current = record.byType[type];
   let changed = false;
-  if (!isPack(pack)) {
-    pack = { ids: drawIds(pool, PACK_CARDS, random), results: Array(PACK_CARDS).fill(null) };
+  if (!isPack(current)) {
+    current = { ids: drawIds(pool, PACK_CARDS, random), results: Array(PACK_CARDS).fill(null), torn: false };
     changed = true;
   } else {
     const inPool = new Set(pool.map((item) => item.id));
-    pack.results = Array.from({ length: PACK_CARDS }, (_, i) => pack.results?.[i] || null);
-    pack.ids.forEach((id, i) => {
-      if (pack.results[i] || inPool.has(id)) return;
-      pack.ids[i] = drawIds(pool, 1, random, pack.ids)[0];
+    current.results = Array.from({ length: PACK_CARDS }, (_, i) => current.results?.[i] || null);
+    current.torn = Boolean(current.torn);
+    current.ids.forEach((id, i) => {
+      if (current.results[i] || inPool.has(id)) return;
+      current.ids[i] = drawIds(pool, 1, random, current.ids)[0];
       changed = true;
     });
   }
-  record.packs[index] = pack;
+  record.byType[type] = current;
   if (changed) writePack(record);
-  return pack;
+  return current;
 }
 
-export function savePackResult(record, index, card, result) {
-  record.packs[index].results[card] = result;
+export function savePackResult(record, type, card, result) {
+  record.byType[type].results[card] = result;
   return writePack(record);
 }
-
-// The reveal's story, stored with the result: postcardRoundOutcome's 'miss'
-// split into a first visit ('visited', the grey card) and a repeat with
-// nothing new ('repeat').
+export function completePack(record, type) {
+  record.byType[type] = null;
+  return writePack(record);
+}
 export function packOutcome(wasVisited, previousEarn, newlyEarned) {
   if (newlyEarned) return { kind: previousEarn ? 'upgrade' : 'new', tier: newlyEarned };
   return { kind: wasVisited ? 'repeat' : 'visited' };
 }
-
-// Played count, pack score (out of 1,000 per card) and outcome counts.
 export function packSummary(pack) {
   const results = (pack?.results || []).filter(Boolean);
   const counts = { new: 0, upgrade: 0, visited: 0, repeat: 0 };

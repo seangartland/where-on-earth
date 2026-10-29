@@ -93,7 +93,7 @@
       <p class="how-to">Find five places. Spin the globe, zoom in, tap to place your pin, then lock it in.</p>
       <div class="mode-buttons" aria-label="Game modes">
         <button id="play-button" type="button"><span class="mode-name">Daily</span><small class="mode-desc">5 places daily</small></button>
-        <button id="pack-button" type="button" disabled><span class="mode-name">Daily postcard pack</span><small class="mode-desc">3 cards today</small></button>
+        <button id="pack-button" type="button" disabled><span class="mode-name">Postcard Packs</span><small class="mode-desc">2 packs banked</small></button>
         <button id="expeditions-button" type="button" hidden><span class="mode-name">Expeditions</span><small class="mode-desc">Themed journeys</small></button>
         <button id="survival-hub-button" type="button"><span class="mode-name">Practice</span><small class="mode-desc">Free play, no postcards</small></button>
         <button id="pvp-button" type="button" disabled><span class="mode-name">Challenge</span><small class="mode-desc">Play a friend</small></button>
@@ -148,11 +148,17 @@
 
     <section id="pack-screen" class="screen pack-screen" hidden>
       <div class="expedition-panel pack-panel" role="dialog" aria-modal="true" aria-labelledby="pack-heading">
-        <button class="home-nav-btn finished-home-nav" type="button" aria-label="Go home">×</button>
-        <h2 id="pack-heading">Daily postcard pack</h2>
+        <button class="home-nav-btn pack-back" type="button" aria-label="Back to packs">×</button>
+        <h2 id="pack-heading">World Capitals</h2>
+        <div class="pack-select" hidden>
+          <p class="pack-subline">A new pack every 12 hours.</p>
+          <div class="pack-stamina" aria-live="polite"></div>
+          <div class="pack-choices"></div>
+        </div>
         <p class="pack-line"></p>
         <ul class="pack-slots" data-pp-list aria-label="Today's cards"></ul>
         <p class="pack-ready" hidden>Today’s pack is ready</p>
+        <p class="pack-complete-stamina"></p>
         <button class="primary pack-primary" type="button">Open card 1</button>
       </div>
     </section>

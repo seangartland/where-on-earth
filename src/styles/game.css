@@ -474,6 +474,18 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
    screen with no scroll (the heading wraps to two lines at 390). */
 .pack-panel h2 { padding: 0 34px; color: #fff5d4; font-size: 25px; line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,.8); }
 .pack-panel > .pack-line { margin: 4px 0 8px; }
+.pack-subline { margin: 5px 0 10px; color: rgba(224,238,252,.76); font-size: 13px; }
+.pack-stamina { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 24px; margin-bottom: 14px; color: #fff5d4; font-size: 13px; font-weight: 750; }
+.pack-pips { display: inline-flex; gap: 4px; }
+.pack-pips i { width: 13px; height: 13px; border: 1px solid #ffd166; border-radius: 50%; background: transparent; }
+.pack-pips i.full { background: #ffd166; box-shadow: 0 0 7px rgba(255,209,102,.65); }
+.pack-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: min(354px, 90vw); }
+.pack-choice { display: grid; grid-template-rows: 142px auto 14px; gap: 6px; min-width: 0; padding: 7px; border: 1px solid rgba(255,209,102,.34); border-radius: 12px; background: rgba(5,15,31,.68); color: #fff5d4; cursor: pointer; }
+.pack-choice img { width: 100%; height: 142px; object-fit: contain; filter: drop-shadow(0 5px 7px rgba(0,0,0,.55)); }
+.pack-choice strong { font-size: 12px; line-height: 1.15; }
+.pack-choice small { color: #9dd3ff; font-size: 10px; }
+.pack-choice:disabled { opacity: .38; cursor: default; }
+.pack-complete-stamina { margin: 8px 0 0; color: #ffd166; font-size: 12px; font-weight: 750; }
 .pack-slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; text-align: left; }
 .pack-panel > .pack-ready { margin: 8px 0 0; color: #ffd166; font-weight: 750; }
 .pack-slot-note { margin: 3px 1px 0; font-size: 11px; font-weight: 750; }

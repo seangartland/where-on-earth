@@ -323,7 +323,7 @@ function setupRecsHome() {
       const marker = document.createElement('button');
       marker.type = 'button';
       marker.className = 'pack-marker';
-      marker.setAttribute('aria-label', 'Open the World Capitals pack');
+      marker.setAttribute('aria-label', 'Open the postcard packs');
       marker.innerHTML = '<span class="mode-name" aria-hidden="true">✦</span><small class="mode-desc">Pack ready</small>';
       marker.addEventListener('click', (e) => {
         e.stopPropagation();

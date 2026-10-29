@@ -21,6 +21,10 @@ const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, impo
 const cities = load('locations.json');
 const byId = new Map(cities.map((item) => [item.id, item]));
 const pool = packPool(cities);
+const emptyRecord = () => ({
+  stamina: { stored: 2, nextAt: null },
+  byType: { capitals: null, landmarks: null, landforms: null },
+});
 
 // Deterministic RNG (mulberry32) so the simulated days are reproducible.
 function rng(seed) {
@@ -51,7 +55,7 @@ test('the drawable pool holds only ids from the capital set', () => {
 test('500 simulated days: every card is a capital, three distinct', () => {
   for (let day = 0; day < 500; day++) {
     localStorage.clear();
-    const pack = ensurePack({ date: '2026-10-29', packs: [] }, 0, pool, rng(day + 1));
+    const pack = ensurePack(emptyRecord(), 'capitals', pool, rng(day + 1));
     assert.equal(new Set(pack.ids).size, 3, `day ${day}: duplicate in ${pack.ids}`);
     assert.ok(pack.ids.every((id) => PACK_CAPITAL_IDS.has(id)), `day ${day}: ${pack.ids}`);
     if (day === 0) console.log(`pack: ${pack.ids.join(', ')}`);
@@ -60,8 +64,9 @@ test('500 simulated days: every card is a capital, three distinct', () => {
 
 test('a repair draw stays inside the capital set', () => {
   localStorage.clear();
-  const record = { date: '2026-10-29', packs: [{ ids: ['gone-one', pool[0].id, pool[1].id], results: [null, null, null] }] };
-  const pack = ensurePack(record, 0, pool, rng(11));
+  const record = emptyRecord();
+  record.byType.capitals = { ids: ['gone-one', pool[0].id, pool[1].id], results: [null, null, null], torn: false };
+  const pack = ensurePack(record, 'capitals', pool, rng(11));
   assert.ok(pack.ids.every((id) => PACK_CAPITAL_IDS.has(id)));
   assert.equal(new Set(pack.ids).size, 3);
 });
