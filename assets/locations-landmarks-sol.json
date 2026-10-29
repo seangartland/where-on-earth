@@ -6819,5 +6819,168 @@
   "extentKm": 20,
   "category": "city",
   "kind": "area"
+ },
+ {
+  "id": "mount-everest-summit",
+  "short": "Mount Everest",
+  "clue": "Mount Everest, Nepal 🇳🇵",
+  "fact": "The summit marks the Nepal–China border, and a joint survey announced in 2020 fixed its snow height at 8,848.86 metres.",
+  "lat": 27.9881,
+  "lng": 86.925,
+  "difficulty": 1,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg/500px-Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg",
+  "country": "Nepal",
+  "continent": "Asia",
+  "sets": [
+   "Himalaya",
+   "Mountains"
+  ],
+  "difficultyWhy": "p.99·fb221·K0·iso161 → 3.4 → 1",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "grand-canyon",
+  "short": "Grand Canyon",
+  "clue": "Grand Canyon, Arizona 🇺🇸",
+  "fact": "From Mather Point on the South Rim, the canyon exposes a rock record reaching nearly two billion years into Earth's past.",
+  "lat": 36.0613,
+  "lng": -112.1078,
+  "difficulty": 6,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Grand_canyon.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.56·fb307·K0·iso291 → 32.4 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "niagara-falls",
+  "short": "Niagara Falls",
+  "clue": "Niagara Falls, Canada 🇨🇦",
+  "fact": "Horseshoe Falls carries most of the Niagara River's flow and curves across the international boundary between Canada and the United States.",
+  "lat": 43.0773,
+  "lng": -79.0757,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/3Falls_Niagara.jpg/500px-3Falls_Niagara.jpg",
+  "country": "Canada",
+  "continent": "North America",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.91·fb860·K0·iso75 → 21.2 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "victoria-falls",
+  "short": "Victoria Falls",
+  "clue": "Victoria Falls, Zimbabwe 🇿🇼",
+  "fact": "The Zambezi drops into a narrow basalt gorge here, throwing up the spray behind the Lozi name Mosi-oa-Tunya: “the smoke that thunders.”",
+  "lat": -17.92444,
+  "lng": 25.85667,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_04.jpg/500px-Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_04.jpg",
+  "country": "Zimbabwe",
+  "continent": "Africa",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.75·fb495·K1·iso381 → 55.5 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "iguazu-falls",
+  "short": "Iguazú Falls",
+  "clue": "Iguazú Falls, Argentina 🇦🇷",
+  "fact": "The river breaks into roughly 275 separate cascades, with the U-shaped Devil's Throat carrying the largest share of the flow.",
+  "lat": -25.6953,
+  "lng": -54.4367,
+  "difficulty": 7,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Iguaz%C3%BA_falls.jpg",
+  "country": "Argentina",
+  "continent": "South America",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.75·fb1050·K0·iso325 → 60.8 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "great-barrier-reef",
+  "short": "Great Barrier Reef",
+  "clue": "Great Barrier Reef, Australia 🇦🇺",
+  "fact": "Heart Reef is a naturally heart-shaped coral formation in the Whitsundays, one tiny sector of a reef system stretching for more than 2,300 kilometres.",
+  "lat": -19.7754,
+  "lng": 149.2478,
+  "difficulty": 7,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Heart_Reef_and_Lagoon_Great_Barrier_Reef.jpg",
+  "country": "Australia",
+  "continent": "Oceania",
+  "sets": [],
+  "difficultyWhy": "p.82·fb1763·K0·iso1157 → 70.5 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "angel-falls",
+  "short": "Angel Falls",
+  "clue": "Angel Falls, Venezuela 🇻🇪",
+  "fact": "Water leaves the rim of Auyán-tepui and falls 807 metres without interruption, the tallest unbroken waterfall drop on Earth.",
+  "lat": 5.9675,
+  "lng": -62.5356,
+  "difficulty": 7,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Angel_falls-distant_view.jpg",
+  "country": "Venezuela",
+  "continent": "South America",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.71·fb724·K0·iso694 → 49.9 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "k2",
+  "short": "K2",
+  "clue": "K2, Pakistan 🇵🇰",
+  "fact": "The Karakoram summit rises to 8,611 metres, second only to Everest, and its steep routes have earned it the mountaineering nickname “Savage Mountain.”",
+  "lat": 35.8808,
+  "lng": 76.5158,
+  "difficulty": 2,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/K2_Peak.jpg",
+  "country": "Pakistan",
+  "continent": "Asia",
+  "sets": [
+   "Himalaya",
+   "Mountains"
+  ],
+  "difficultyWhy": "p.99·fb785·K0·iso253 → 4.7 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-etna",
+  "short": "Mount Etna",
+  "clue": "Mount Etna, Italy 🇮🇹",
+  "fact": "Repeated eruptions continually remodel Etna's summit craters, so the volcano's measured height changes as cones grow and collapse.",
+  "lat": 37.751,
+  "lng": 14.9934,
+  "difficulty": 5,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Etna_in_winter.jpg",
+  "country": "Italy",
+  "continent": "Europe",
+  "sets": [
+   "Volcanoes",
+   "Mountains"
+  ],
+  "difficultyWhy": "p.86·fb609·K0·iso507 → 22.2 → 5",
+  "category": "city",
+  "kind": "landmark"
  }
 ]

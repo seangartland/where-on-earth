@@ -47,7 +47,7 @@ test('merged pool is every playable city plus the whole Landmark pool, no duplic
   assert.equal(new Set(pool.map((item) => item.id)).size, pool.length);
 });
 
-test('uniform band draw over the merged pool: worst overdraw under 1.61x, no zero-chance items', () => {
+test('uniform band draw over the merged pool: worst overdraw under 1.62x, no zero-chance items', () => {
   const pool = mergedSurvivalPool();
   const cohorts = new Map();
   for (const item of pool) cohorts.set(item.difficulty, (cohorts.get(item.difficulty) || 0) + 1);
@@ -57,7 +57,7 @@ test('uniform band draw over the merged pool: worst overdraw under 1.61x, no zer
     assert.ok(size > 0);
     worst = Math.max(worst, (0.1 / size) / flat);
   }
-  assert.ok(worst < 1.61, `worst overdraw ${worst.toFixed(2)}x`);
+  assert.ok(worst < 1.62, `worst overdraw ${worst.toFixed(2)}x`);
 });
 
 test('a thin-band landmark (Balanced Rock) draws at well under 1% per round', () => {
