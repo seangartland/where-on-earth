@@ -1558,10 +1558,13 @@ body.game-collections #hud { opacity: 0; }
 .ppd-card { position: relative; touch-action: pan-y; box-sizing: border-box; width: 100%; max-width: 380px; margin: auto; color: var(--mail-ink); transform-origin: 0 0; }
 /* The postcard itself: landscape 3:2, photo print on the front, divided mail back. */
 .ppd-stage { position: relative; }
-.ppd-flip { position: relative; display: block; width: 100%; aspect-ratio: 3 / 2; perspective: 1200px; cursor: pointer; outline: none; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
-.ppd-flip-inner { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.4,.2,.2,1); }
-.ppd-flip.is-flipped .ppd-flip-inner { transform: rotateY(180deg); }
-.ppd-face { position: absolute; inset: 0; overflow: hidden; border-radius: 6px; -webkit-backface-visibility: hidden; backface-visibility: hidden; box-shadow: 0 24px 70px rgba(0,0,0,.72); }
+.ppd-flip { position: relative; display: block; width: 100%; aspect-ratio: 3 / 2; -webkit-perspective: 1200px; perspective: 1200px; cursor: pointer; outline: none; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+.ppd-flip-inner { position: absolute; inset: 0; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; transition: -webkit-transform .6s cubic-bezier(.4,.2,.2,1), transform .6s cubic-bezier(.4,.2,.2,1); }
+.ppd-flip.is-flipped .ppd-flip-inner { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
+.ppd-face { position: absolute; inset: 0; overflow: hidden; border-radius: 6px; -webkit-backface-visibility: hidden; backface-visibility: hidden; box-shadow: 0 24px 70px rgba(0,0,0,.72); transition: visibility 0s linear .191s; }
+.ppd-face-front { visibility: visible; -webkit-transform: rotateY(0deg); transform: rotateY(0deg); }
+.ppd-face-back, .ppd-flip.is-flipped .ppd-face-front { visibility: hidden; }
+.ppd-flip.is-flipped .ppd-face-back { visibility: visible; }
 .ppd-flip:focus-visible .ppd-face { outline: 2px solid #67e8ff; outline-offset: 3px; }
 .ppd-face-front .pp-photo { position: absolute; inset: 0; aspect-ratio: auto; border-radius: 0; }
 .ppd-face-front .pp-photo::after { font-size: 44px; }
@@ -1571,7 +1574,7 @@ body.game-collections #hud { opacity: 0; }
 .ppd-caption p { margin: 1px 0 0; overflow: hidden; color: var(--mail-ink-2); font-size: 9px; font-weight: 750; letter-spacing: .08em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
 .ppd-caption p[hidden] { display: none; }
 .ppd-flip-hint { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 3px 8px; border-radius: 999px; background: rgba(2,4,9,.5); color: rgba(255,253,246,.88); font-size: 10px; font-weight: 750; letter-spacing: .02em; pointer-events: none; }
-.ppd-face-back { display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; padding: 12px 12px 0; background: var(--mail-paper); color: var(--mail-ink); transform: rotateY(180deg); }
+.ppd-face-back { display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; padding: 12px 12px 0; background: var(--mail-paper); color: var(--mail-ink); -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
 .ppd-fact { grid-column: 1; grid-row: 1; margin: 0; padding-right: 10px; overflow: hidden; color: var(--mail-ink); font-size: 11.5px; line-height: 1.5; }
 .ppd-fact[hidden] { display: none; }
 .ppd-divider { grid-column: 2; grid-row: 1; background: rgba(34,53,92,.22); }
@@ -1605,9 +1608,9 @@ body.game-collections #hud { opacity: 0; }
 .ppd-uncollected { color: var(--mail-ink-2); font-size: 9.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 @media (prefers-reduced-motion: reduce) {
   .ppd-flip-inner { transition: none; }
-  .ppd-flip.is-flipped .ppd-flip-inner { transform: none; }
-  .ppd-face { transition: opacity .18s ease; }
-  .ppd-face-back { transform: none; opacity: 0; }
+  .ppd-flip.is-flipped .ppd-flip-inner { -webkit-transform: none; transform: none; }
+  .ppd-face { transition: none; }
+  .ppd-face-back { -webkit-transform: none; transform: none; opacity: 0; }
   .ppd-flip.is-flipped .ppd-face-back { opacity: 1; }
   .ppd-flip.is-flipped .ppd-face-front { opacity: 0; }
 }
