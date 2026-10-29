@@ -485,7 +485,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
    line as a fraction of the pack height and --tear (0..1) the cut's progress
    along it, both set by pack.js. body and strip are the same art split at the
    line; on the tear the strip flies off and the body keeps a torn edge. */
-.pack-sealed { --art: url('../../assets/pack-daily-dispatch.webp'); position: relative; box-sizing: border-box; width: min(180px, 46vw); aspect-ratio: 831 / 1966; margin: 6px auto 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,.5)); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
+.pack-sealed { --art: url('../../assets/pack-daily-dispatch.webp'); position: relative; box-sizing: border-box; width: min(234px, 60vw); aspect-ratio: 831 / 1966; margin: 6px auto 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,.5)); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
 .pack-sealed[hidden] { display: none; }
 .pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pack-sealed-body, .pack-sealed-strip { position: absolute; inset: 0; background: var(--art) center / 100% 100% no-repeat; pointer-events: none; }
