@@ -12,6 +12,7 @@
 import { currentStreak } from './stats.js';
 import { buildPostcardCard, ensurePostcardCardStyles, postcardDisplayName } from './postcard-card.js';
 import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
+import { passportPackSections } from './passport-packs.js';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
@@ -167,6 +168,7 @@ let ppEls;
 // kind split (cities vs places) that used to be two tabs is now a Kind filter
 // inside Browse, same shape as the Status filter.
 let ppShelf;
+const ppPackOpen = new Map();
 let ppFilterOpenTop = 0;
 let ppFilterScrollFrame = 0;
 
@@ -249,6 +251,32 @@ function passportSlot(entry) {
   li.setAttribute('aria-haspopup', 'dialog');
   li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${tierLabel}${hasDistance ? `, ${pillText}` : ''}`);
   bindPostcard(li, entry);
+  return li;
+}
+
+function passportUnvisitedSlot(entry, packName) {
+  const name = entry.item.short || entry.item.clue || 'Unknown place';
+  const country = entry.country;
+  const li = document.createElement('li');
+  li.className = 'pp-slot pp-unvisited';
+  li.tabIndex = 0;
+  li.setAttribute('role', 'button');
+  li.setAttribute('aria-expanded', 'false');
+  li.setAttribute('aria-label', `${name}, ${country}. Not yet collected. Available in ${packName}.`);
+  li.innerHTML = `<div class="pp-slot-photo"><span class="pp-unvisited-mark" aria-hidden="true">✉</span></div><p class="pp-slot-name"></p><p class="pp-slot-country"></p><p class="pp-slot-deal"></p>`;
+  li.querySelector('.pp-slot-name').textContent = name;
+  li.querySelector('.pp-slot-country').textContent = country;
+  li.querySelector('.pp-slot-deal').textContent = `${packName} pack`;
+  const toggle = () => {
+    const revealed = li.classList.toggle('is-revealed');
+    li.setAttribute('aria-expanded', String(revealed));
+  };
+  li.addEventListener('click', toggle);
+  li.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    toggle();
+  });
   return li;
 }
 
@@ -542,32 +570,51 @@ function applyPassportFilters(dex) {
   dex.els.summary.textContent = `${grouping} - ${status}${nondefaultSort}`;
 }
 
-// Builds the one unified shelf: every city (host.locations) plus every place
-// in the landmark pool, tagged with entry.kind so the Browse panel's Kind
-// filter (All/Cities/Places) can toggle between them without a page change.
-// Header counts (found/total/postcards) stay cities-only, matching what they
-// always measured before the places merge.
+// Builds the pack dex from the same pool helpers as the pack screen. Pack
+// members render once in their pack; visited non-members go in the final,
+// collected-only section.
 function renderPassportPage() {
   if (!countryIndex) buildCountryIndex();
-  const visited = passportEntries(); // visited cities only, for the header stats
-  const cities = passportAllEntries(); // every city, visited or not, for the dex grid
-  cities.forEach((entry) => { entry.kind = 'city'; });
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
-  const shelfItems = host.AUDIT_MODE && host.landmarks?.length ? host.landmarks : host.landmarkShelf();
-  const places = shelfItems.map((item) => buildPassportEntry(item, age));
-  places.forEach((entry) => { entry.kind = 'place'; });
-  ppShelf.all = [...cities, ...places];
-  const total = host.locations.length;
-  const found = visited.length;
-  ppEls.found.textContent = found.toLocaleString();
-  ppEls.total.textContent = total.toLocaleString();
-  const earned = visited.filter((e) => e.earned).length;
-  ppEls.postcards.textContent = ` · ${earned.toLocaleString()} postcard${earned === 1 ? '' : 's'}`;
-  ppEls.bar.setAttribute('aria-valuemax', String(total));
-  ppEls.bar.setAttribute('aria-valuenow', String(earned));
-  ppEls.fill.style.width = `${total ? (found / total) * 100 : 0}%`;
-  ppEls.earnFill.style.width = `${total ? (earned / total) * 100 : 0}%`;
-  renderPassportDex(ppShelf);
+  const data = passportPackSections(host.locations, host.landmarks || [], host.passport.visits);
+  ppEls.packProgress.textContent = `${data.collected.toLocaleString()} / ${data.total.toLocaleString()} pack postcards collected`;
+  const frag = document.createDocumentFragment();
+  const addSection = ({ type, name, art, items, collected, total }, packSection = true) => {
+    const section = document.createElement('section');
+    section.className = 'pp-pack-section';
+    section.dataset.pack = type;
+    const head = document.createElement('button');
+    head.className = 'pp-pack-head';
+    head.type = 'button';
+    const progress = packSection ? `${collected.toLocaleString()} / ${total.toLocaleString()}` : `${collected.toLocaleString()} collected`;
+    head.innerHTML = `${art ? `<img src="${art}" alt="">` : '<span class="pp-pack-mail" aria-hidden="true">✉</span>'}<span class="pp-pack-title"></span><span class="pp-pack-count"></span><span class="pp-pack-chevron" aria-hidden="true"></span>`;
+    head.querySelector('.pp-pack-title').textContent = name;
+    head.querySelector('.pp-pack-count').textContent = progress;
+    const grid = document.createElement('ul');
+    grid.className = 'pp-dex pp-pack-grid';
+    grid.append(...items.map((item) => {
+      const entry = buildPassportEntry(item, age);
+      return entry.visited ? passportSlot(entry) : passportUnvisitedSlot(entry, name);
+    }));
+    const apply = (open) => {
+      head.setAttribute('aria-expanded', String(open));
+      grid.hidden = !open;
+    };
+    head.addEventListener('click', () => {
+      const open = head.getAttribute('aria-expanded') !== 'true';
+      ppPackOpen.set(type, open);
+      apply(open);
+    });
+    apply(ppPackOpen.get(type) === true);
+    section.append(head, grid);
+    frag.append(section);
+  };
+  data.sections.forEach((section) => addSection(section));
+  addSection({
+    type: 'everything-else', name: 'Daily & Expeditions', art: null,
+    items: data.everythingElse, collected: data.everythingElse.length,
+  }, false);
+  ppShelf.els.dex.replaceChildren(frag);
 }
 
 // ---------------------------------------------------------------------------
@@ -1293,6 +1340,28 @@ export function initPassport(main) {
 .pp-slot.is-mystery { cursor: default; }
 .pp-slot.is-mystery .pp-slot-photo { border-color: rgba(214,220,232,.16); }
 .pp-slot.is-mystery .pp-slot-name { color: rgba(214,220,232,.4); letter-spacing: .1em; text-align: center; }
+.pp-pack-progress { margin: 7px 40px 12px 0; color: rgba(193,224,250,.68); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pp-pack-section { margin-top: 8px; border: 1px solid rgba(157,211,255,.12); border-radius: 12px; overflow: hidden; background: rgba(157,211,255,.025); }
+.pp-pack-head { display: grid; grid-template-columns: 42px minmax(0,1fr) auto 12px; align-items: center; gap: 10px; width: 100%; min-height: 58px; padding: 7px 10px; border: 0; background: var(--mail-paper); color: #22355c; font: inherit; text-align: left; cursor: pointer; touch-action: manipulation; }
+.pp-pack-head img { width: 38px; height: 44px; border-radius: 4px; object-fit: cover; box-shadow: 0 2px 5px rgba(32,36,48,.28); }
+.pp-pack-mail { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(52,72,96,.25); border-radius: 50%; color: #9b3d42; font-size: 19px; }
+.pp-pack-title { overflow: hidden; font-size: 14px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
+.pp-pack-count { color: rgba(52,72,96,.72); font-size: 12px; font-weight: 750; font-variant-numeric: tabular-nums; }
+.pp-pack-chevron { width: 7px; height: 7px; margin-top: -4px; border-right: 2px solid rgba(52,72,96,.6); border-bottom: 2px solid rgba(52,72,96,.6); transform: rotate(45deg); transition: transform .15s ease-out; }
+.pp-pack-head[aria-expanded="true"] .pp-pack-chevron { margin-top: 4px; transform: rotate(225deg); }
+.pp-pack-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 8px; padding: 12px 9px 14px; }
+.pp-pack-grid .pp-slot-photo { aspect-ratio: 3 / 2; }
+.pp-unvisited { cursor: pointer; }
+.pp-unvisited .pp-slot-photo { display: grid; place-items: center; border: 1px dashed rgba(155,61,66,.38); background: repeating-linear-gradient(135deg, rgba(155,61,66,.09) 0 7px, rgba(50,73,105,.07) 7px 14px), #f3ead7; }
+.pp-unvisited-mark { color: rgba(155,61,66,.6); font-size: 22px; }
+.pp-unvisited .pp-slot-name { color: #31456e; font-size: 10px; text-align: left; white-space: normal; }
+.pp-slot-country, .pp-slot-deal { margin: 2px 1px 0; overflow: hidden; color: rgba(193,224,250,.5); font-size: 8.5px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.pp-unvisited .pp-slot-country { color: rgba(52,72,96,.62); }
+.pp-unvisited.is-revealed .pp-slot-name { color: #eef2ff; }
+.pp-unvisited.is-revealed .pp-slot-country { color: rgba(238,242,255,.65); }
+.pp-slot-deal { display: none; color: #d9b864; font-weight: 750; }
+.pp-unvisited.is-revealed { margin: -4px; padding: 4px; border-radius: 8px; background: rgba(155,61,66,.16); }
+.pp-unvisited.is-revealed .pp-slot-deal { display: block; }
 body.game-passport #hud { opacity: 0; }
 @media (max-width: 560px) {
   .passport-screen { width: 100dvw; height: 100dvh; overflow-y: auto; padding: 0; background: #0b1120; }
@@ -1326,17 +1395,15 @@ body.game-passport #hud { opacity: 0; }
     <button class="stats-close" aria-label="Close passport">×</button>
     <div class="pp-header-row">
       <h2 id="pp-title">Your passport</h2>
-      <p class="pp-count"><b data-pp="found">0</b>/<span data-pp="total">0</span><span class="pp-count-sub" data-pp="postcards"></span></p>
       <div class="pp-header-actions">
         <button class="pp-share-icon" data-pp="collections" aria-label="View collections" hidden>🛡</button>
       </div>
     </div>
-    <div class="pp-progress" data-pp="progress">
-      <div class="pp-bar" role="progressbar" aria-label="Postcards earned" aria-valuemin="0"><i class="pp-bar-seen" data-pp="fill"></i><i class="pp-bar-earned" data-pp="earnfill"></i></div>
-    </div>
+    <p class="pp-pack-progress" data-pp="pack-progress"></p>
+    <div class="pp-progress" data-pp="progress"></div>
     <div data-pp="shelf-view">
-      <div class="pp-stick-sentinel" data-pp="shelf-sentinel"></div>
-      <div class="pp-toolbar" data-pp="toolbar">
+      <div class="pp-stick-sentinel" data-pp="shelf-sentinel" hidden></div>
+      <div class="pp-toolbar" data-pp="toolbar" hidden>
         ${ppFilterControls('pp-filters')}
       </div>
       <p class="pp-empty" data-pp="empty" hidden>No stamps match these filters yet.</p>
@@ -1349,12 +1416,7 @@ body.game-passport #hud { opacity: 0; }
   ppEls = {
     close: passportScreen.querySelector('.stats-close'),
     progress: passportScreen.querySelector('[data-pp="progress"]'),
-    found: passportScreen.querySelector('[data-pp="found"]'),
-    total: passportScreen.querySelector('[data-pp="total"]'),
-    bar: passportScreen.querySelector('.pp-bar'),
-    fill: passportScreen.querySelector('[data-pp="fill"]'),
-    postcards: passportScreen.querySelector('[data-pp="postcards"]'),
-    earnFill: passportScreen.querySelector('[data-pp="earnfill"]'),
+    packProgress: passportScreen.querySelector('[data-pp="pack-progress"]'),
     shelfView: passportScreen.querySelector('[data-pp="shelf-view"]'),
     collections: passportScreen.querySelector('[data-pp="collections"]'),
   };
