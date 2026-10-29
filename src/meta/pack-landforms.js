@@ -2,12 +2,14 @@
 // scripts/pack-landforms/derive.py; edit the derivation rules, not this file.
 export const PACK_LANDFORM_IDS = new Set([
   'aitutaki-lagoon',
+  'ak-baital-pass',
   'angel-falls',
   'badlands-national-park',
   'badwater-basin',
   'balanced-rock-utah',
   'barringer-meteor-impact',
   'ben-nevis',
+  'bering-strait',
   'black-forest',
   'blue-lagoon-iceland',
   'blyde-river-canyon',
@@ -114,6 +116,7 @@ export const PACK_LANDFORM_IDS = new Set([
   'sossusvlei',
   'sossusvlei-dead-vlei',
   'spitzkoppe',
+  'strait-of-gibraltar',
   'thabana-ntlenyana-summit',
   'thingvellir',
   'torres-del-paine-base-viewpoint',
