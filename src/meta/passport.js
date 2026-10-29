@@ -20,20 +20,20 @@ function passportSummary() {
   let found = 0;
   let earned = 0;
   for (const id of Object.keys(host.passport.visits)) {
-    const item = host.passportLocation(id);
-    if (!item) continue; // location retired from locations.json
+    const item = host.findLocation(id);
+    if (!item) continue; // collectible retired from its bank
     found += 1;
     if (host.passport.meta[id]?.e) earned += 1;
   }
   const recent = host.passport.order
     .slice(-40)
     .reverse()
-    .map((id) => ({ item: host.passportLocation(id), base: host.passport.visits[id] }))
+    .map((id) => ({ item: host.findLocation(id), base: host.passport.visits[id] }))
     .filter((spot) => spot.item);
   return {
     found,
     earned,
-    total: host.locations.length,
+    total: host.locations.length + (host.landmarks?.length || 0),
     recent: recent.slice(0, PASSPORT_STAMPS).filter((spot) => spot.item.image),
   };
 }

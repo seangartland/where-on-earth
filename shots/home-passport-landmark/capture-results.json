@@ -1,0 +1,34 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "deviceScaleFactor": 2
+  },
+  "landmark": {
+    "id": "abu-simbel-temples",
+    "name": "Abu Simbel"
+  },
+  "expectedText": "1 / 1,136 places found · 1 earned",
+  "defaultHome": {
+    "visible": true,
+    "text": "1 / 1,136 places found · 1 earned",
+    "recentStampCount": 1,
+    "rect": {
+      "x": 43.0625,
+      "y": 304.640625,
+      "width": 303.875,
+      "height": 120
+    }
+  },
+  "recsHome": {
+    "visible": true,
+    "text": "1 / 1,136 places found · 1 earned",
+    "recentStampCount": 1,
+    "rect": {
+      "x": 28,
+      "y": 522.140625,
+      "width": 334,
+      "height": 65
+    }
+  }
+}

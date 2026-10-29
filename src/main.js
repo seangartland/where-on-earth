@@ -851,6 +851,7 @@ getJSON('assets/weekly-expeditions.json').then(weeklyRoutesLoaded).catch((err) =
 // Landmarks: Expeditions stops, the merged Survival pool and the Passport's Landmarks shelf (state.js).
 const landmarksP = getJSON('assets/locations-landmarks-sol.json').then((data) => {
   state.landmarks = Array.isArray(data) ? data : [];
+  syncPassport();
   updateExpeditionEntry();
   syncPackButton();
 }).catch((err) => {
