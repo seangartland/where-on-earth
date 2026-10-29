@@ -27,8 +27,8 @@ test('landmark and landform pools are exclusive', () => {
   assert.ok(other.every((item) => !PACK_LANDFORM_IDS.has(item.id)));
 });
 
-test('capital pool remains 201 playable entries', () => {
+test('capital pool remains 206 playable entries', () => {
   const capitals = packPool(cities);
-  assert.equal(capitals.length, 201);
+  assert.equal(capitals.length, 206);
   assert.equal(capitals.length, PACK_CAPITAL_IDS.size);
 });

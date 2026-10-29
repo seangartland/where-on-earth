@@ -13,14 +13,14 @@ globalThis.localStorage = {
 
 const { PACK_KEY } = await import('../src/core/config.js');
 const {
-  STAMINA_PERIOD, accrue, spend, readPack, writePack, ensurePack,
+  STAMINA_PERIOD, accrue, spend, applySkips, readPack, writePack, ensurePack,
   savePackResult, completePack, packOutcome, packSummary, packPool,
 } = await import('../src/meta/pack-store.js');
 const cities = JSON.parse(readFileSync(new URL('../assets/locations.json', import.meta.url)));
 const pool = packPool(cities);
 const raw = () => JSON.parse(localStorage.getItem(PACK_KEY));
 const empty = (stamina = { stored: 2, nextAt: null }) => ({
-  stamina, byType: { capitals: null, landmarks: null, landforms: null },
+  skips: 12, stamina, byType: { capitals: null, landmarks: null, landforms: null },
 });
 
 test.beforeEach(() => localStorage.clear());
@@ -40,6 +40,42 @@ test('spending from cap starts the clock; spending at one keeps it running', () 
   assert.equal(spend(record, 6000), true);
   assert.deepEqual(record.stamina, { stored: 0, nextAt: 5000 + STAMINA_PERIOD });
   assert.equal(spend(record, 7000), false);
+});
+
+test('five skips reproduce the worked rollover example', () => {
+  const now = Date.parse('2026-10-29T12:00:00Z');
+  const record = empty({ stored: 0, nextAt: now + 4.25 * 60 * 60 * 1000 });
+  assert.equal(applySkips(record, 5, now), 5);
+  assert.deepEqual(record.stamina, { stored: 1, nextAt: now + 11.25 * 60 * 60 * 1000 });
+  assert.equal(record.skips, 7);
+});
+
+test('skips stop at the stamina cap', () => {
+  const now = Date.parse('2026-10-29T12:00:00Z');
+  const record = { ...empty({ stored: 1, nextAt: now + 60 * 60 * 1000 }), skips: 5 };
+  assert.equal(applySkips(record, 5, now), 1);
+  assert.deepEqual(record.stamina, { stored: 2, nextAt: null });
+  assert.equal(record.skips, 4);
+});
+
+test('partial skips move the running timer without accruing', () => {
+  const now = Date.parse('2026-10-29T12:00:00Z');
+  const record = empty({ stored: 0, nextAt: now + 4.25 * 60 * 60 * 1000 });
+  assert.equal(applySkips(record, 2, now), 2);
+  assert.deepEqual(record.stamina, { stored: 0, nextAt: now + 2.25 * 60 * 60 * 1000 });
+});
+
+test('fresh and migrated records get one starter grant while saved balances remain', () => {
+  assert.equal(readPack(0).skips, 12);
+  const saved = empty();
+  saved.skips = 3;
+  writePack(saved);
+  assert.equal(readPack(0).skips, 3);
+  delete saved.skips;
+  writePack(saved);
+  assert.equal(readPack(0).skips, 12);
+  assert.equal(raw().skips, 12);
+  assert.equal(readPack(0).skips, 12);
 });
 
 test('fresh migration starts full and persists the new shape', () => {

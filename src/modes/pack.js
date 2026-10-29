@@ -14,7 +14,7 @@ import { formatKm } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
   PACK_CARDS, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
-  savePackResult, completePack, spend, writePack, packOutcome, packSummary,
+  savePackResult, completePack, spend, applySkips, writePack, packOutcome, packSummary,
 } from '../meta/pack-store.js';
 
 let host = null;
@@ -29,6 +29,7 @@ export const pack = { active: false, type: 'capitals', card: 0, item: null, reco
 
 let entry;
 let els;
+let tickSelect = null;
 // The opening ritual (2026-10-18): a fresh pack starts sealed for this
 // session, the unplayed cards wait in one stack and the top card flips to
 // its clue before its round (2026-10-29), and a played card stamps into its
@@ -225,7 +226,34 @@ export function showPackSelect() {
   const render = () => {
     if (els.select.hidden) return;
     pack.record = readPack();
-    els.selectStamina.innerHTML = `<span class="pack-pips" aria-hidden="true"><i class="${pack.record.stamina.stored > 0 ? 'full' : ''}"></i><i class="${pack.record.stamina.stored > 1 ? 'full' : ''}"></i></span>${staminaText(pack.record)}`;
+    const waitHours = pack.record.stamina.nextAt == null ? 0
+      : Math.max(0, Math.ceil((pack.record.stamina.nextAt - Date.now()) / (60 * 60 * 1000)));
+    els.selectStamina.innerHTML = `<div class="pack-stamina-line"><span class="pack-pips" aria-hidden="true"><i class="${pack.record.stamina.stored > 0 ? 'full' : ''}"></i><i class="${pack.record.stamina.stored > 1 ? 'full' : ''}"></i></span><span class="pack-stamina-text">${staminaText(pack.record)}</span><span class="pack-skip-balance">⏳ ${pack.record.skips}</span></div>`;
+    if (pack.record.stamina.stored < 2 && pack.record.skips > 0) {
+      const actions = document.createElement('div');
+      actions.className = 'pack-skip-actions';
+      const skipButton = document.createElement('button');
+      skipButton.type = 'button';
+      skipButton.textContent = 'Skip 1 hour';
+      skipButton.addEventListener('click', () => {
+        applySkips(pack.record, 1);
+        writePack(pack.record);
+        render();
+      });
+      actions.append(skipButton);
+      if (waitHours && pack.record.skips >= waitHours) {
+        const openButton = document.createElement('button');
+        openButton.type = 'button';
+        openButton.textContent = `Open a pack now (${waitHours} ⏳)`;
+        openButton.addEventListener('click', () => {
+          applySkips(pack.record, waitHours);
+          writePack(pack.record);
+          render();
+        });
+        actions.append(openButton);
+      }
+      els.selectStamina.append(actions);
+    }
     els.choices.replaceChildren(...PACKS.map((config) => {
       const saved = pack.record.byType[config.type];
       const inProgress = Boolean(saved && (saved.torn || saved.results.some(Boolean)));
@@ -241,6 +269,16 @@ export function showPackSelect() {
       });
       return button;
     }));
+  };
+  tickSelect = () => {
+    if (els.select.hidden) return;
+    const stored = pack.record.stamina.stored;
+    pack.record = readPack();
+    if (pack.record.stamina.stored !== stored) render();
+    else {
+      const text = els.selectStamina.querySelector('.pack-stamina-text');
+      if (text) text.textContent = staminaText(pack.record);
+    }
   };
   render();
   els.screen.hidden = false;
@@ -617,7 +655,7 @@ export function initPack(main) {
     else host.goHome();
   });
   setInterval(() => {
-    if (!screen.hidden && !els.select.hidden) showPackSelect();
+    if (!screen.hidden && !els.select.hidden) tickSelect?.();
     else if (!host.gameEls.start.hidden) syncPackButton();
   }, 1000);
 }

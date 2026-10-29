@@ -475,7 +475,11 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-panel h2 { padding: 0 34px; color: #fff5d4; font-size: 25px; line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,.8); }
 .pack-panel > .pack-line { margin: 4px 0 8px; }
 .pack-subline { margin: 5px 0 10px; color: rgba(224,238,252,.76); font-size: 13px; }
-.pack-stamina { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 24px; margin-bottom: 14px; color: #fff5d4; font-size: 13px; font-weight: 750; }
+.pack-stamina { min-height: 24px; margin-bottom: 14px; color: #fff5d4; font-size: 13px; font-weight: 750; }
+.pack-stamina-line { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.pack-skip-balance { padding: 3px 7px; border: 1px solid rgba(255,209,102,.42); border-radius: 999px; background: rgba(5,15,31,.58); }
+.pack-skip-actions { display: flex; justify-content: center; gap: 7px; margin-top: 8px; }
+.pack-skip-actions button { padding: 6px 9px; border: 1px solid rgba(255,209,102,.48); border-radius: 8px; background: rgba(5,15,31,.72); color: #fff5d4; font: inherit; cursor: pointer; }
 .pack-pips { display: inline-flex; gap: 4px; }
 .pack-pips i { width: 13px; height: 13px; border: 1px solid #ffd166; border-radius: 50%; background: transparent; }
 .pack-pips i.full { background: #ffd166; box-shadow: 0 0 7px rgba(255,209,102,.65); }

@@ -83,6 +83,19 @@ for (const [type, name] of [['landmarks', 'c-landmarks-sealed.png'], ['landforms
   report.errors.push(...run.errors);
   await run.context.close();
 }
+{
+  const run = await openPage({ _v: 1, skips: 12, stamina: { stored: 0, nextAt: Date.now() + 4.25 * 3_600_000 }, byType: blankTypes() });
+  await run.shot('f-select-skip-actions.png');
+  report.errors.push(...run.errors);
+  await run.context.close();
+}
+{
+  const run = await openPage({ _v: 1, skips: 12, stamina: { stored: 0, nextAt: Date.now() + 4.25 * 3_600_000 }, byType: blankTypes() });
+  await run.page.getByRole('button', { name: /Open a pack now/ }).click();
+  await run.shot('g-select-after-open-now.png');
+  report.errors.push(...run.errors);
+  await run.context.close();
+}
 
 console.log(JSON.stringify(report, null, 2));
 await browser.close();

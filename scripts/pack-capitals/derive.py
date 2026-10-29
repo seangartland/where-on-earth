@@ -30,6 +30,9 @@ CAPITAL_OVERRIDES = {
     'Mongolia': ['Ulaanbaatar'], 'Myanmar': ['Nay Pyi Taw'], 'San Marino': ['San Marino'], 'Yemen': ['Sanaa'],
     'India': ['Delhi'], 'Equatorial Guinea': ['Malabo'], 'Eswatini': ['Mbabane'], 'South Africa': ['Pretoria'],
 }
+# Territory capitals are filed under their administering country in the bank,
+# so the per-country capital pass above cannot discover them.
+EXTRA_IDS = ['nuuk-greenland', 'noumea-new-caledonia', 'papeete-tahiti', 'longyearbyen-svalbard', 'san-juan']
 
 
 def norm(text):
@@ -76,6 +79,11 @@ def main(ref_path):
         if not playable(hits[0]):
             notes.append(f'{country}: {hits[0]["id"]} is not playable')
         ids.append(hits[0]['id'])
+    by_id = {item['id']: item for item in bank}
+    for item_id in EXTRA_IDS:
+        item = by_id.get(item_id)
+        if item and playable(item):
+            ids.append(item_id)
     body = ',\n'.join(f"  '{i}'" for i in sorted(ids))
     with open('src/meta/pack-capitals.js', 'w') as out:
         out.write(

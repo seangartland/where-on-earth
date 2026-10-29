@@ -8,6 +8,7 @@ import { PACK_LANDFORM_IDS } from './pack-landforms.js';
 export const PACK_CARDS = 3;
 export const STAMINA_MAX = 2;
 export const STAMINA_PERIOD = 12 * 60 * 60 * 1000;
+export const SKIP_PERIOD = 60 * 60 * 1000;
 export const PACK_TYPES = ['capitals', 'landmarks', 'landforms'];
 const LEGACY_TORN_KEY = `${PACK_KEY}-torn`;
 
@@ -45,7 +46,23 @@ export function spend(record, now = Date.now()) {
   return true;
 }
 
+export function applySkips(record, count, now = Date.now()) {
+  let consumed = 0;
+  while (consumed < count && record.skips > 0 && record.stamina.stored < STAMINA_MAX) {
+    record.stamina.nextAt -= SKIP_PERIOD;
+    record.skips -= 1;
+    consumed += 1;
+    if (record.stamina.nextAt <= now) {
+      record.stamina.stored += 1;
+      record.stamina.nextAt = record.stamina.stored >= STAMINA_MAX
+        ? null : record.stamina.nextAt + STAMINA_PERIOD;
+    }
+  }
+  return consumed;
+}
+
 const freshRecord = () => ({
+  skips: 12,
   stamina: { stored: STAMINA_MAX, nextAt: null },
   byType: { capitals: null, landmarks: null, landforms: null },
 });
@@ -53,10 +70,12 @@ const freshRecord = () => ({
 export function readPack(now = Date.now()) {
   const saved = readJSON(PACK_KEY);
   if (saved?.byType && saved?.stamina) {
+    const missingSkips = !Object.hasOwn(saved, 'skips');
+    if (missingSkips) saved.skips = 12;
     const before = JSON.stringify(saved.stamina);
     accrue(saved, now);
     for (const type of PACK_TYPES) if (!(type in saved.byType)) saved.byType[type] = null;
-    if (JSON.stringify(saved.stamina) !== before) writePack(saved);
+    if (missingSkips || JSON.stringify(saved.stamina) !== before) writePack(saved);
     return saved;
   }
   const record = freshRecord();
