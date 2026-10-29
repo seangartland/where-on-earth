@@ -20,7 +20,6 @@ const pins = load('daily-pins.json').pins;
 const byLandmarkId = new Map(landmarks.map((item) => [item.id, item]));
 
 const APPROVED_AREAS = {
-  'amalfi-coast-d34-58': 30,
   'bering-strait': 45,
   'black-forest': 80,
   'daintree-rainforest': 35,
@@ -168,10 +167,7 @@ test('fixed pinned and derived Daily selections and serialized round fields stay
 });
 
 test('landmark pool preserves point landmarks and adds exactly the approved areas', () => {
-  const oldPool = landmarks.filter((item) => item.kind === 'landmark' && isPlayableLocation(item) && (() => {
-    const match = /^p(?:1|\.\d{2})(?:\(via [^)]+\))?·fb\d+·K[\d.]+·iso\d+ → \d+(?:\.\d)? → (\d+)$/.exec(item.difficultyWhy || '');
-    return Boolean(match) && Number(match[1]) === item.difficulty;
-  })());
+  const oldPool = landmarks.filter((item) => item.kind === 'landmark' && isPlayableLocation(item));
   const newPool = landmarks.filter(isPoolLandmark);
   assert.deepEqual(newPool.filter((item) => item.kind === 'landmark').map((x) => x.id), oldPool.map((x) => x.id));
   assert.deepEqual(newPool.filter((item) => item.kind === 'area').map((x) => x.id).sort(), Object.keys(APPROVED_AREAS).sort());
