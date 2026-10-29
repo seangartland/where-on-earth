@@ -26,8 +26,9 @@ let entry;
 let els;
 let rowDate = '';
 // The opening ritual (2026-10-18): a fresh pack starts sealed for this
-// session, each unplayed card flips to its clue before its round, and a
-// just-played card stamps into its slot on return. Session state only; the
+// session, the unplayed cards wait in one stack and the top card flips to
+// its clue before its round (2026-10-29), and a played card stamps into its
+// slot once the pack is done. Session state only; the
 // saved pack record is untouched by all of it.
 let tornDate = null;
 let flipping = false;
@@ -112,8 +113,8 @@ function packSlot(id, result, index) {
   let li;
   if (!result) {
     // Face down until tapped: the flip reveals the clue face only (name,
-    // clue, flag; never the photo), then the round starts. Any order works;
-    // the draw is fixed and results save per slot.
+    // clue, flag; never the photo), then the round starts. The stack keeps
+    // the order: only its top card takes the tap. Results save per slot.
     li = document.createElement('li');
     li.className = 'pp-slot pack-slot pack-flip-slot';
     const name = item ? (item.short || item.clue || '') : '';
@@ -200,10 +201,27 @@ function renderPackScreen(deal = false) {
   const stale = pack.record.date !== localDateKey();
   const done = summary.played >= PACK_CARDS;
   const sealedNow = !stale && !done && summary.played === 0 && tornDate !== pack.record.date;
+  const stackNow = !sealedNow && !done;
   els.sealed.hidden = !sealedNow;
   els.slots.hidden = sealedNow;
-  if (!sealedNow) {
+  els.slots.classList.toggle('is-stack', stackNow);
+  if (stackNow) {
+    // The unplayed cards as one stack, next card on top (last in the DOM so
+    // it paints over the rest). Cards under the top one are inert.
+    const remaining = current.ids.map((id, i) => i).filter((i) => !current.results[i]);
+    els.slots.replaceChildren(...remaining.map((i, depth) => {
+      const li = packSlot(current.ids[i], null, i);
+      li.style.setProperty('--depth', depth);
+      if (depth) {
+        li.inert = true;
+        li.setAttribute('aria-hidden', 'true');
+      }
+      return li;
+    }).reverse());
+  } else if (!sealedNow) {
     els.slots.replaceChildren(...current.ids.map((id, i) => packSlot(id, current.results[i], i)));
+  }
+  if (!sealedNow) {
     // Deal-in and stamp-in run through element.animate with a timer that
     // cancels them back to the natural (visible) state: a CSS animation left
     // holding its first frame could strand a card invisible if the browser
@@ -218,11 +236,14 @@ function renderPackScreen(deal = false) {
       });
     }
     if (landingCard >= 0) {
-      const li = els.slots.children[landingCard];
+      // Mid-pack the stack slides back in with the cards still to play; on
+      // the last card the played card stamps into its slot.
+      const li = stackNow ? els.slots : els.slots.children[landingCard];
       if (li && !reducedMotion()) {
-        const anim = li.animate(
-          [{ transform: 'scale(1.16) rotate(-4deg)', opacity: 0 }, { transform: 'scale(1) rotate(0deg)', opacity: 1, offset: 0.6 }, { transform: 'none', opacity: 1 }],
-          { duration: 500, easing: 'cubic-bezier(.2, 1.4, .4, 1)' },
+        const anim = li.animate(stackNow
+          ? [{ transform: 'translateX(70vw)', opacity: 0 }, { transform: 'none', opacity: 1 }]
+          : [{ transform: 'scale(1.16) rotate(-4deg)', opacity: 0 }, { transform: 'scale(1) rotate(0deg)', opacity: 1, offset: 0.6 }, { transform: 'none', opacity: 1 }],
+          { duration: stackNow ? 420 : 500, easing: stackNow ? 'cubic-bezier(.2,.8,.3,1)' : 'cubic-bezier(.2, 1.4, .4, 1)' },
         );
         window.setTimeout(() => anim.cancel(), 650);
       }
@@ -240,7 +261,7 @@ function renderPackScreen(deal = false) {
   }
   els.line.textContent = sealedNow ? 'Three postcards. Pin each one.'
     : done ? doneLine(summary)
-    : summary.played ? `${summary.played} of ${PACK_CARDS} opened · Tap a card to flip its clue` : 'Tap a card to flip its clue.';
+    : summary.played ? `${summary.played} of ${PACK_CARDS} opened · Tap the top card` : 'Tap the top card to flip its clue.';
   els.ready.hidden = !stale;
   els.screen.classList.toggle('sealed-on', sealedNow);
   if (sealedNow) els.primary.hidden = true;
@@ -344,14 +365,18 @@ function wireSealedPack(sealed, screen) {
     opening = null;
     window.clearTimeout(openingTimer);
     sealed.hidden = true;
-    sealed.classList.remove('torn');
+    sealed.classList.remove('torn', 'opening');
     sealed.style.removeProperty('--tear');
     sealed.style.pointerEvents = '';
+    sealed.style.left = '';
+    sealed.style.top = '';
   };
 
-  // The packet opens and the three cards come out stacked on top of each
-  // other, then deal out one at a time into their slots while the wrapper
-  // fades away.
+  // The packet opens and the three cards rise out of its torn top as one
+  // stack: each card is clipped at the tear line, so it shows only once it
+  // is out of the opening. The stack already sits in its final place (the
+  // pack's own footprint); the torn wrapper is laid over it until it fades,
+  // and the stack settles back down where the pack stood.
   const finishTear = () => {
     if (tornDate === pack.record?.date) return;
     tornDate = pack.record.date;
@@ -364,38 +389,31 @@ function wireSealedPack(sealed, screen) {
     }
     const packRect = sealed.getBoundingClientRect();
     renderPackScreen(false);
-    const cards = [...els.slots.querySelectorAll('.pack-flip-slot')];
-    const rects = cards.map((card) => card.getBoundingClientRect());
-    const mid = rects[1] || rects[0];
-    const midCx = mid.left + mid.width / 2;
-    const packCy = packRect.top + packRect.height / 2;
+    const panel = sealed.parentElement;
     sealed.hidden = false;
+    sealed.classList.add('opening');
     sealed.style.pointerEvents = 'none';
-    const anims = [sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 750, delay: 300, easing: 'ease-out', fill: 'forwards' })];
+    const panelRect = panel.getBoundingClientRect();
+    sealed.style.left = `${packRect.left - panelRect.left - panel.clientLeft + panel.scrollLeft}px`;
+    sealed.style.top = `${packRect.top - panelRect.top - panel.clientTop + panel.scrollTop}px`;
+    const tearY = packRect.top + packRect.height * TEAR_LINE;
+    const anims = [sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 450, delay: 700, easing: 'ease-out', fill: 'forwards' })];
     const timers = [];
-    cards.forEach((card, i) => {
-      const r = rects[i];
-      const dx = midCx - (r.left + r.width / 2);
-      const dy = packCy - (r.top + r.height / 2);
-      const rot = (i - 1) * 3;
+    const RISE_MS = 1500;
+    // Top card first (it is last in the DOM).
+    [...els.slots.children].reverse().forEach((card, depth) => {
+      const top = card.getBoundingClientRect().top;
+      const h = card.offsetHeight;
+      const inside = tearY - top;
+      const out = tearY - h - top;
       anims.push(card.animate([
-        { transform: `translate(${dx}px, ${dy}px) scale(.82)`, opacity: 0 },
-        { transform: `translate(${dx}px, 0px) rotate(${rot}deg)`, opacity: 1 },
-      ], { duration: 420, delay: 60 + i * 80, easing: 'cubic-bezier(.2,.8,.3,1)', fill: 'forwards' }));
-      timers.push(window.setTimeout(() => {
-        anims.push(card.animate([
-          { transform: `translate(${dx}px, 0px) rotate(${rot}deg)` },
-          { transform: 'translate(0px, 0px) rotate(0deg)' },
-        ], { duration: 430, easing: 'cubic-bezier(.2,.8,.3,1)', fill: 'forwards' }));
-      }, 820 + i * 160));
+        { transform: `translateY(${inside}px)`, clipPath: `inset(0 0 ${h}px 0)`, easing: 'cubic-bezier(.25,.7,.35,1)' },
+        { transform: `translateY(${out}px)`, clipPath: 'inset(0 0 0px 0)', offset: 0.4, easing: 'ease-out' },
+        { transform: `translateY(${out - 14}px)`, clipPath: 'inset(0 0 0px 0)', offset: 0.55, easing: 'cubic-bezier(.3,.1,.3,1)' },
+        { transform: 'none', clipPath: 'inset(0 0 0px 0)' },
+      ], { duration: RISE_MS, delay: depth * 90, fill: 'both' }));
     });
-    timers.push(window.setTimeout(() => {
-      anims.push(els.slots.animate([
-        { transform: 'translateY(0px)' },
-        { transform: `translateY(${-(packRect.height + 18)}px)` },
-      ], { duration: 320, easing: 'ease-out', fill: 'forwards' }));
-      timers.push(window.setTimeout(endOpening, 340));
-    }, 820 + 2 * 160 + 460));
+    timers.push(window.setTimeout(endOpening, RISE_MS + 2 * 90 + 60));
     opening = { anims, timers };
   };
 
