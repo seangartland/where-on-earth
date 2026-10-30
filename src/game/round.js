@@ -176,6 +176,7 @@ export function showRound() {
   } else if (pack.active) {
     packRoundHeader();
   } else {
+    document.body.classList.add('daily');
     gameEls.number.textContent = `Round ${state.daily.round + 1} of 5`;
     gameEls.weight.style.display = 'none';
     gameEls.dailyDate.textContent = formatDailyDate(state.daily.date);
@@ -183,7 +184,15 @@ export function showRound() {
   }
   if (borders.active) bordersClue();
   else gameEls.clue.textContent = item.clue;
-  setGuessHint(borders.active || survival.active ? '' : 'Tap the globe to place your pin');
+  // The Daily is the fall-through branch above (no mode active). It drops the
+  // standalone tap-to-place line and folds the instruction into the bottom
+  // gesture line instead; every other mode keeps both exactly as they were.
+  const dailyRound = !pvp.active && !expeditionRun.active && !borders.active
+    && !survival.active && !endless.active && !trivia.active && !pack.active;
+  setGuessHint(borders.active || survival.active || trivia.active || dailyRound ? '' : 'Tap the globe to place your pin');
+  document.getElementById('hud').textContent = dailyRound
+    ? 'Tap to place · Drag to spin · Pinch to zoom'
+    : 'Drag to spin · Pinch to zoom';
 }
 
 // Compact earn toast: appears after the flyover completes, doesn't block the globe.

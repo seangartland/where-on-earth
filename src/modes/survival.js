@@ -182,9 +182,8 @@ export function survivalRoundHeader() {
   document.body.classList.add('survival');
   gameEls.number.textContent = `Streak ${survival.survived}`;
   gameEls.weight.style.display = 'none';
-  gameEls.survivalStreak.textContent = survival.round === 1
-    ? 'One miss over 150 km ends the run · Tap the globe to place your pin'
-    : '';
+  // Directions live in the Practice hub subtitle; this line is reveal text.
+  gameEls.survivalStreak.textContent = '';
   gameEls.dailyDate.hidden = true;
 }
 

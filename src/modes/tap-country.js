@@ -222,9 +222,8 @@ export function bordersRoundHeader() {
   document.body.classList.add('survival', 'borders');
   gameEls.number.textContent = borders.scope ? host.blackoutProgressText() : `Streak ${borders.found}`;
   gameEls.weight.style.display = 'none';
-  gameEls.survivalStreak.textContent = borders.round === 1
-    ? 'One miss ends the run · Tap the globe to place your pin'
-    : '';
+  // Directions live in the Practice hub subtitle; this line is reveal text.
+  gameEls.survivalStreak.textContent = '';
   gameEls.dailyDate.hidden = true;
 }
 
