@@ -13,8 +13,8 @@ const landmarks = load('locations-landmarks-sol.json');
 test('Passport sections use the live pack pools in pack order', () => {
   const result = passportPackSections(cities, landmarks, {});
   assert.deepEqual(result.sections.map((section) => section.name), ['World Capitals', 'Landmarks', 'Landforms']);
-  assert.deepEqual(result.sections.map((section) => section.total), [207, 208, 206]);
-  assert.equal(result.total, 621);
+  assert.deepEqual(result.sections.map((section) => section.total), [207, 223, 206]);
+  assert.equal(result.total, 636);
   const ids = result.sections.flatMap((section) => section.items.map((item) => item.id));
   assert.equal(new Set(ids).size, ids.length);
   assert.ok(result.sections.every((section) => section.items.every((item, index, items) =>
