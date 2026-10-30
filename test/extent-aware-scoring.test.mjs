@@ -63,6 +63,12 @@ const APPROVED_AREAS = {
   'belize-barrier-reef': 120,
   'okavango-delta': 90,
   'bay-of-fundy': 100,
+  // Added 2026-10-30 with the audit-2 glaring landforms chunk; radii
+  // follow the same precedent (Amazon at the Baikal-scale cap).
+  'amazon-rainforest': 340,
+  'aral-sea': 200,
+  'socotra': 60,
+  'mojave-desert': 250,
 };
 
 function destination(start, km, bearingDegrees = 73) {

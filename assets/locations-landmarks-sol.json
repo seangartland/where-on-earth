@@ -8245,5 +8245,188 @@
   "difficultyWhy": "p.63·fb298·K0·iso246 → 27.3 → 6",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "amazon-rainforest",
+  "short": "Amazon Rainforest",
+  "clue": "Amazon Rainforest, South America",
+  "fact": "The largest rainforest on Earth holds an estimated 390 billion individual trees across some 5.5 million km², about 60 percent of it in Brazil. About one in ten of all known species lives here, and its canopy drives weather far beyond South America: the forest exhales so much moisture that its “flying rivers” carry rain to farms thousands of kilometres south.",
+  "lat": -3.16,
+  "lng": -60.03,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aerial_view_of_the_Amazon_Rainforest.jpg/500px-Aerial_view_of_the_Amazon_Rainforest.jpg",
+  "country": "Brazil",
+  "continent": "South America",
+  "sets": [],
+  "difficultyWhy": "p.93·fb1890·K0·iso954 → 29.4 → 6",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 340
+ },
+ {
+  "id": "aral-sea",
+  "short": "Aral Sea",
+  "clue": "Aral Sea, Central Asia",
+  "fact": "Once the world’s fourth-largest lake at about 68,000 km², the Aral has shrunk to roughly a tenth of that since the 1960s, when its two feeder rivers were diverted to irrigate cotton. Its old port of Muynak now sits over 100 km from the shore, its fishing fleet rusting in sand.",
+  "lat": 45.0,
+  "lng": 60.0,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Graveyard_of_ships_%28431543%29.jpg/500px-Graveyard_of_ships_%28431543%29.jpg",
+  "country": "Kazakhstan",
+  "continent": "Asia",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.90·fb637·K0·iso595 → 17.1 → 5",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 200
+ },
+ {
+  "id": "socotra",
+  "short": "Socotra",
+  "clue": "Socotra, Yemen 🇾🇪",
+  "fact": "About a third of this island’s plant species grow nowhere else on Earth. Its umbrella-shaped dragon blood trees bleed a deep red resin that was traded across the ancient world as dye, medicine and varnish, and the island sat cut off from mainland Africa for millions of years, evolving in isolation.",
+  "lat": 12.51,
+  "lng": 53.92,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Dragon%27s_Blood_Tree%2C_Socotra_Island_%2830133804756%29.jpg/500px-Dragon%27s_Blood_Tree%2C_Socotra_Island_%2830133804756%29.jpg",
+  "country": "Yemen",
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.90·fb966·K0·iso904 → 25.5 → 6",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 60
+ },
+ {
+  "id": "mojave-desert",
+  "short": "Mojave Desert",
+  "clue": "Mojave Desert, California 🇺🇸",
+  "fact": "North America’s driest desert is named for the Mohave people of the Colorado River. Its Joshua trees are giant yuccas that grow almost nowhere else, and at Kelso its dunes “sing”: avalanching sand on the slip faces hums and booms at up to about 105 decibels.",
+  "lat": 35.0083,
+  "lng": -115.475,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Joshua_Tree_National_Park_%28California%2C_USA%29_--_2012_--_5663.jpg/500px-Joshua_Tree_National_Park_%28California%2C_USA%29_--_2012_--_5663.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.78·fb87·K0·iso15 → 8.7 → 3",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 250
+ },
+ {
+  "id": "rhine-river",
+  "short": "Rhine River",
+  "clue": "Rhine River, Germany 🇩🇪",
+  "fact": "Europe’s busiest waterway runs 1,230 km from the Swiss Alps to Rotterdam, the continent’s largest port. Its 65 km Middle Rhine gorge is lined with more than 40 castles, and at the Lorelei rock the river narrows into its most storied and once most dangerous bend.",
+  "lat": 50.9085,
+  "lng": 6.9756,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Rhine_River_%26_Cologne_Cathedral_%289812095795%29.jpg/500px-Rhine_River_%26_Cologne_Cathedral_%289812095795%29.jpg",
+  "country": "Germany",
+  "continent": "Europe",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.85·fb169·K0·iso117 → 8.9 → 3",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "euphrates-river",
+  "short": "Euphrates River",
+  "clue": "Euphrates River, Iraq 🇮🇶",
+  "fact": "The longest river in western Asia, at about 2,800 km, is formed in Turkey where the Karasu and Murat streams join, and Babylon stood on its banks in what is now Iraq. At Qurna in the south it meets the Tigris, and the two flow on together as the Shatt al-Arab to the Gulf.",
+  "lat": 35.3266,
+  "lng": 40.1702,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Deir_Ez-Zor_Euphrates_9915.jpg/500px-Deir_Ez-Zor_Euphrates_9915.jpg",
+  "country": "Iraq",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.79·fb96·K0·iso19 → 8.4 → 3",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "colorado-river",
+  "short": "Colorado River",
+  "clue": "Colorado River, United States 🇺🇸",
+  "fact": "The river that carved the Grand Canyon is now so fully allocated among seven US states and Mexico that it rarely reaches its delta in the Gulf of California. In 2014 a deliberate “pulse flow” released from Morelos Dam reconnected it with the sea for the first time in decades.",
+  "lat": 38.6368,
+  "lng": -109.4844,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Bridge_of_US_191_crossing_Colorado_river_near_Moab%2C_East_view_20110816_2.jpg/500px-Bridge_of_US_191_crossing_Colorado_river_near_Moab%2C_East_view_20110816_2.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.78·fb1065·K0·iso52 → 55.8 → 7",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "missouri-river",
+  "short": "Missouri River",
+  "clue": "Missouri River, United States 🇺🇸",
+  "fact": "At 3,767 km the Missouri is the longest river in North America, longer than the Mississippi it joins at St Louis. In 1805 Lewis and Clark spent about a month portaging its five Great Falls in Montana, hauling boats and gear some 18 miles overland around them.",
+  "lat": 47.528,
+  "lng": -111.2878,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Aerial_view_of_the_Missouri_River_at_Great_Falls%2C_Montana.jpg/500px-Aerial_view_of_the_Missouri_River_at_Great_Falls%2C_Montana.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.75·fb48·K0·iso397 → 9.2 → 3",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "mount-sinai",
+  "short": "Mount Sinai",
+  "clue": "Mount Sinai, Egypt 🇪🇬",
+  "fact": "This 2,285 m granite peak is traditionally identified as the mountain where Moses received the Ten Commandments. At its foot stands St Catherine’s Monastery, founded in the sixth century and still home to monks, beside the site pilgrims venerate as the Burning Bush.",
+  "lat": 28.5384,
+  "lng": 33.9752,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Mount_Moses.jpg/500px-Mount_Moses.jpg",
+  "country": "Egypt",
+  "continent": "Africa",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.79·fb303·K0·iso314 → 17.4 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "kangchenjunga",
+  "short": "Kangchenjunga",
+  "clue": "Kangchenjunga, Nepal 🇳🇵",
+  "fact": "At 8,586 m it is the third-highest mountain on Earth, and until surveys in 1852 it was thought to be the highest. Its name means “the five treasures of snow” for its five summits, and by a tradition honoured since the first ascent in 1955, climbers stop a few feet short of the very top.",
+  "lat": 27.703,
+  "lng": 88.1474,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Kangchenjunga_2018.jpg/500px-Kangchenjunga_2018.jpg",
+  "country": "Nepal",
+  "continent": "Asia",
+  "sets": [
+   "Himalaya",
+   "Mountains"
+  ],
+  "difficultyWhy": "p.78·fb338·K0·iso244 → 19.8 → 5",
+  "category": "city",
+  "kind": "landmark"
  }
 ]

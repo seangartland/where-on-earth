@@ -38,6 +38,12 @@ const APPROVED_AREAS = new Map([
   ['sagarmatha-national-park', 29.3],
   ['grand-teton-national-park', 33],
   ['loch-ness', 20],
+  // Added 2026-10-30 with the audit-2 glaring landforms chunk; radii
+  // follow the same ~0.5-0.6x longest-dimension precedent, Baikal cap.
+  ['amazon-rainforest', 340],
+  ['aral-sea', 200],
+  ['socotra', 60],
+  ['mojave-desert', 250],
 ]);
 
 const items = JSON.parse(readFileSync(new URL('../assets/locations-landmarks-sol.json', import.meta.url), 'utf8'));

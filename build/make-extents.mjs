@@ -134,6 +134,18 @@ const saharaVertices = saharaPolygons.flat(2).length;
 // reaches between its named segments above Whitehorse. Assembled length vs
 // the conventional published length is gated at 80%: Parana (66%) and Murray
 // (59%) failed and are held out; see docs/rivers-additions-report-2026-10-30.md.
+// The 2026-10-30 second rivers round adds four more stems on the same rules:
+// the Rhine under Rhine + Rhein + Rhin (its French-bank reach name), the
+// Euphrates under Euphrates + Firat + Al Furat assembled from the Karasu
+// headstream (the Murat arm's Keban lake centerline ends ~7 km short of the
+// weld node and gaps are never bridged), the Colorado (the US river's
+// component; NE also draws an Argentine Colorado under the same name) and
+// the Missouri as its own card (NE's named Missouri begins at Canyon Ferry
+// Lake; the Three Forks reach is not drawn under the name). The Thames is
+// held out on the same gate as Parana and Murray: NE's single Thames
+// centerline measures 267 km against the 346 km conventional length (77%),
+// generalized and ending at Gravesend with the tidal reach undrawn; see
+// docs/landforms-additions2-report-2026-10-30.md.
 const RIVER_TOLERANCE = 0.015;
 const neRivers = JSON.parse(readFileSync(new URL('./extent-sources/ne_10m_rivers_lake_centerlines.geojson', import.meta.url)));
 const neSegments = [];
@@ -234,6 +246,10 @@ const RIVERS = {
   'indus-river': { names: ['Indus'], dissolves: [], source: [79.73, 32.44], mouth: [67.65, 23.93], conventionalKm: 3180 },
   'zambezi-river': { names: ['Zambezi'], dissolves: [], source: [24.27, -11.38], mouth: [36.13, -18.81], conventionalKm: 2574 },
   'ob-irtysh-river': { names: ['Ob', 'Irtysh', 'Ertis', 'Ertix'], dissolves: [], source: [90.33, 47.65], mouth: [68.96, 66.81], conventionalKm: 5410 },
+  'rhine-river': { names: ['Rhine', 'Rhein', 'Rhin'], dissolves: [], source: [8.67, 46.63], mouth: [4.06, 51.98], conventionalKm: 1230 },
+  'euphrates-river': { names: ['Euphrates', 'Firat', 'Murat', 'Al Furat'], dissolves: [], source: [41.46, 40.18], mouth: [47.47, 30.97], conventionalKm: 2800 },
+  'colorado-river': { names: ['Colorado'], dissolves: [], source: [-105.83, 40.47], mouth: [-114.85, 31.85], conventionalKm: 2330 },
+  'missouri-river': { names: ['Missouri'], dissolves: [], source: [-111.51, 45.93], mouth: [-90.18, 38.81], conventionalKm: 3767 },
 };
 
 const riverRecords = {};

@@ -26,6 +26,10 @@ EXCLUSIONS = {
     # names trip the pattern ('Caves' sites and two mountains in name only);
     # they belong to Landmarks, not Landforms.
     'Ajanta Caves', 'Ellora Caves', 'Mount Rushmore', 'Sugarloaf Mountain',
+    # Same pattern trap from the 2026-10-30 audit-2 landmark additions,
+    # caught when chunk 7 regenerated the set: a cave temple and an estate
+    # that is a mountain in name only; both belong to Landmarks.
+    'Batu Caves', 'Mount Vernon',
 }
 # Entries Sean added to the mechanically derived core in the curated 121 review.
 # These are stable bank ids so similarly named places cannot be pulled in by
@@ -89,6 +93,14 @@ CURATED_ADDITION_IDS = {
     'mekong-river', 'mississippi-river', 'niger-river', 'nile-river',
     'ob-irtysh-river', 'volga-river', 'yangtze-river', 'yellow-river',
     'yenisei-river', 'yukon-river', 'zambezi-river',
+    # The 10 landforms added 2026-10-30 (chunk 7, the audit-2 glaring
+    # tier): four radius areas, four whole-river extent cards and two
+    # point mountains, listed explicitly on the same precedent. The
+    # tier's eleventh entry, the River Thames, was held at the Natural
+    # Earth coverage gate (267 of 346 km, 77%) and is NOT a member.
+    'amazon-rainforest', 'aral-sea', 'socotra', 'mojave-desert',
+    'rhine-river', 'euphrates-river', 'colorado-river', 'missouri-river',
+    'mount-sinai', 'kangchenjunga',
 }
 
 
