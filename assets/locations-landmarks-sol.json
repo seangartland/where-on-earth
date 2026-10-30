@@ -5755,5 +5755,193 @@
   "difficultyWhy": "p.77·fb1613·K0·iso270 → 81.4 → 8",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "eiffel-tower",
+  "short": "Eiffel Tower",
+  "clue": "Eiffel Tower, France 🇫🇷",
+  "fact": "Completed in 1889 as the entrance arch to the Paris World's Fair, it was meant to be dismantled after 20 years; it survived because the French military found the wireless aerials on its summit too useful to lose.",
+  "lat": 48.8583,
+  "lng": 2.2945,
+  "difficulty": 1,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Eiffel_tower_from_trocadero.jpg/500px-Eiffel_tower_from_trocadero.jpg",
+  "country": "France",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.99·fb179·K0·iso266 → 3.4 → 1",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "statue-of-liberty",
+  "short": "Statue of Liberty",
+  "clue": "Statue of Liberty, United States 🇺🇸",
+  "fact": "Its copper skin is just 2.4 millimetres thick, about two stacked pennies, hung on an iron skeleton designed by Gustave Eiffel; the metal arrived from Paris a dull brown and oxidized to its present green within 30 years.",
+  "lat": 40.6892,
+  "lng": -74.0444,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Statue_of_Liberty_National_Monument_STLI2254.jpg/500px-Statue_of_Liberty_National_Monument_STLI2254.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.99·fb1676·K0·iso18 → 6.5 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "golden-gate-bridge",
+  "short": "Golden Gate Bridge",
+  "clue": "Golden Gate Bridge, United States 🇺🇸",
+  "fact": "Its paint is a custom shade called International Orange, chosen to stay visible in San Francisco's fog; when it opened in 1937 its 1,280-metre main span was the longest suspension span in the world.",
+  "lat": 37.8197,
+  "lng": -122.4786,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Golden_Gate_Bridge_as_seen_from_Marshall%E2%80%99s_Beach%2C_March_2018.jpg/500px-Golden_Gate_Bridge_as_seen_from_Marshall%E2%80%99s_Beach%2C_March_2018.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.92·fb2518·K0·iso566 → 43.7 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "sydney-opera-house",
+  "short": "Sydney Opera House",
+  "clue": "Sydney Opera House, Australia 🇦🇺",
+  "fact": "Every white shell 'sail' is a rib cut from the surface of a single sphere, the trick Jørn Utzon found in 1961 to make the shapes buildable; the final bill came to A$102 million against a A$7 million estimate.",
+  "lat": -33.8571,
+  "lng": 151.2149,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Sydney_Opera_House_01.jpg/500px-Sydney_Opera_House_01.jpg",
+  "country": "Australia",
+  "continent": "Oceania",
+  "sets": [],
+  "difficultyWhy": "p.83·fb568·K0·iso715 → 25.2 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "hagia-sophia",
+  "short": "Hagia Sophia",
+  "clue": "Hagia Sophia, Turkey 🇹🇷",
+  "fact": "Raised in just five years and completed in 537 under Justinian I, its dome spans 31 metres, and the building stood as the world's largest cathedral for nearly a thousand years.",
+  "lat": 41.0083,
+  "lng": 28.98,
+  "difficulty": 1,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/500px-Hagia_Sophia_Mars_2013.jpg",
+  "country": "Turkey",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.99·fb310·K0·iso91 → 3.6 → 1",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "leaning-tower-of-pisa",
+  "short": "Leaning Tower of Pisa",
+  "clue": "Leaning Tower of Pisa, Italy 🇮🇹",
+  "fact": "It began tilting before the third storey was finished in the 1170s, because one side of the foundation sits on soft clay; a rescue in the 1990s pulled the lean back by about 44 centimetres and left it stable for at least 200 years.",
+  "lat": 43.723,
+  "lng": 10.3966,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/The_Leaning_Tower_of_Pisa_SB.jpeg/500px-The_Leaning_Tower_of_Pisa_SB.jpeg",
+  "country": "Italy",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.89·fb174·K0·iso216 → 7.4 → 3",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "notre-dame-de-paris",
+  "short": "Notre-Dame de Paris",
+  "clue": "Notre-Dame de Paris, France 🇫🇷",
+  "fact": "Its 96-metre spire, added by Viollet-le-Duc in 1859, crashed through the burning roof in the fire of April 2019; the cathedral reopened in December 2024 with the spire rebuilt to the same design, 861 years after building began.",
+  "lat": 48.853,
+  "lng": 2.3498,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Paris_Notre-Dame_Southeast_View_01.JPG/500px-Paris_Notre-Dame_Southeast_View_01.JPG",
+  "country": "France",
+  "continent": "Europe",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.92·fb177·K0·iso264 → 6.3 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "neuschwanstein-castle",
+  "short": "Neuschwanstein Castle",
+  "clue": "Neuschwanstein Castle, Germany 🇩🇪",
+  "fact": "Ludwig II of Bavaria began this medieval fantasy in 1868 with flush toilets, central heating and telephone lines hidden inside; he slept there only 172 nights before his death in 1886, and the castle later modelled Disney's Sleeping Beauty Castle.",
+  "lat": 47.5575,
+  "lng": 10.7494,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Neuschwanstein_Castle_2024-02.jpg/500px-Neuschwanstein_Castle_2024-02.jpg",
+  "country": "Germany",
+  "continent": "Europe",
+  "sets": [
+   "Castles"
+  ],
+  "difficultyWhy": "p.97·fb420·K0·iso89 → 6.1 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "nazca-lines",
+  "short": "Nazca Lines",
+  "clue": "Nazca Lines, Peru 🇵🇪",
+  "fact": "The Nazca culture scraped these figures into the desert floor between about 500 BC and AD 500 by clearing dark stones to expose the pale earth beneath; the largest figure, a pelican, stretches 285 metres, and the lines went unnoticed until aircraft flew over them in the 1920s.",
+  "lat": -14.6975,
+  "lng": -75.135,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/L%C3%ADneas_de_Nazca%2C_Nazca%2C_Per%C3%BA%2C_2015-07-29%2C_DD_52.JPG/500px-L%C3%ADneas_de_Nazca%2C_Nazca%2C_Per%C3%BA%2C_2015-07-29%2C_DD_52.JPG",
+  "country": "Peru",
+  "continent": "South America",
+  "sets": [
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.79·fb414·K0·iso359 → 22.9 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "lalibela",
+  "short": "Lalibela",
+  "clue": "Lalibela, Ethiopia 🇪🇹",
+  "fact": "Its eleven medieval churches were not built up but carved down into solid volcanic tuff under King Lalibela in the late 12th century; the last and best preserved, Bete Giyorgis, is hewn in the shape of a cross and reached only through a tunnel cut in the rock.",
+  "lat": 12.0294,
+  "lng": 39.0404,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Bete_Giyorgis_01.jpg/500px-Bete_Giyorgis_01.jpg",
+  "country": "Ethiopia",
+  "continent": "Africa",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.45·fb308·K0·iso336 → 39.1 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-rushmore",
+  "short": "Mount Rushmore",
+  "clue": "Mount Rushmore, United States 🇺🇸",
+  "fact": "Gutzon Borglum and 400 workers carved the four 18-metre faces between 1927 and 1941, blasting away some 410,000 tons of Black Hills granite with dynamite, then smoothing the stone with drills in a pattern called honeycombing.",
+  "lat": 43.8789,
+  "lng": -103.4592,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Dean_Franklin_-_06.04.03_Mount_Rushmore_Monument_%28by-sa%29.jpg/500px-Dean_Franklin_-_06.04.03_Mount_Rushmore_Monument_%28by-sa%29.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.99·fb1003·K0·iso1127 → 5.2 → 2",
+  "category": "city",
+  "kind": "landmark"
  }
 ]
