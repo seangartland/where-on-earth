@@ -5943,5 +5943,24 @@
   "difficultyWhy": "p.99·fb1003·K0·iso1127 → 5.2 → 2",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "persepolis",
+  "short": "Persepolis",
+  "clue": "Persepolis, Iran 🇮🇷",
+  "fact": "This ceremonial capital of the Achaemenid empire was burned by Alexander in 330 BC, yet its gate, treasury columns and audience-hall stairs survive almost intact.",
+  "lat": 29.935,
+  "lng": 52.89,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Pers%C3%A9polis%2C_Ir%C3%A1n%2C_2016-09-24%2C_DD_53.jpg/500px-Pers%C3%A9polis%2C_Ir%C3%A1n%2C_2016-09-24%2C_DD_53.jpg",
+  "country": "Iran",
+  "continent": "Asia",
+  "sets": [
+   "Ancient Ruins",
+   "Middle East"
+  ],
+  "difficultyWhy": "p.85·fb516·K0·iso50 → 20.9 → 5 · median rescore 25.0 → 6 (Nowruz spike)",
+  "category": "city",
+  "kind": "landmark"
  }
 ]

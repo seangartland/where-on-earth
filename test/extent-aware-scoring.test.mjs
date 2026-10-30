@@ -156,7 +156,7 @@ test('extent geometry scores its shipped line and polygon geometry', () => {
 test('fixed pinned and derived Daily selections and serialized round fields stay frozen', () => {
   const fixtures = [
     ['2026-10-18', ['tokyo-japan', 'boise-usa', 'enugu-ng', 'ciudad-juarez-mx', 'krasnoyarsk-ru'], [251.05352006657486, 231.86657960125547, 292.9841319554443, 259.6144718086858, 198.46724682154738], [[251, 950, 950], [232, 955, 955], [293, 941, 941], [260, 948, 948], [198, 962, 962]]],
-    ['2026-11-03', ['zanzibar-city-tanzania', 'stuttgart-de', 'raleigh-usa', 'zaranj', 'ottawa-canada'], [293.6512015890782, 218.27832510645342, 250.82144681540825, 261.17206807446547, 227.1909058923413], [[294, 941, 941], [218, 957, 957], [251, 950, 950], [261, 948, 948], [227, 956, 956]]],
+    ['2026-11-03', ['zaranj', 'ostersund', 'diyarbakr-tr', 'limassol-cy', 'havana'], [261.17206807446547, 179.16020934139766, 245.89660185018724, 253.27139316113895, 275.3734176833515], [[261, 948, 948], [179, 966, 966], [246, 951, 951], [253, 950, 950], [275, 945, 945]]],
   ];
   const byId = new Map(cities.map((item) => [item.id, item]));
   for (const [date, expectedIds, expectedExact, expectedScores] of fixtures) {

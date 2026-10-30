@@ -8782,29 +8782,6 @@
   "category": "city"
  },
  {
-  "id": "persepolis",
-  "clue": "Persepolis, Iran 🇮🇷",
-  "fact": "This ceremonial capital of the Achaemenid empire was burned by Alexander in 330 BC, yet its gate, treasury columns and audience-hall stairs survive almost intact.",
-  "lat": 29.9356,
-  "lng": 52.8916,
-  "difficulty": 5,
-  "short": "Persepolis",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/2018-09-21_Iran%2C_Persepolis%2C_Tachara_%28from_the_southeast%29.jpg/500px-2018-09-21_Iran%2C_Persepolis%2C_Tachara_%28from_the_southeast%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Iran",
-  "region": {
-   "id": "IR.07",
-   "name": "Fars",
-   "outline": "IR.07"
-  },
-  "continent": "Asia",
-  "sets": [
-   "Ancient Ruins",
-   "Middle East"
-  ],
-  "difficultyWhy": "p.85·fb516·K0·iso50 → 20.9 → 5",
-  "category": "city"
- },
- {
   "id": "perth-australia",
   "clue": "Perth, Australia 🇦🇺",
   "fact": "Perth is the most isolated major city in the world, closer to Singapore than to any other Australian capital.",
