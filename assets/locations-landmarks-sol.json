@@ -5962,5 +5962,669 @@
   "difficultyWhy": "p.85·fb516·K0·iso50 → 20.9 → 5 · median rescore 25.0 → 6 (Nowruz spike)",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "st-peters-basilica",
+  "short": "St Peter's Basilica",
+  "clue": "St Peter's Basilica, Vatican City 🇻🇦",
+  "fact": "Michelangelo designed its dome, completed in 1590 and rising 136 metres over the nave; at 186 metres long internally, it is the largest church in the world by interior measure.",
+  "lat": 41.9022,
+  "lng": 12.4534,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Rome%2C_Vatican%2C_Italy%2C_Facade_of_St._Peter%27s_Basilica.jpg/500px-Rome%2C_Vatican%2C_Italy%2C_Facade_of_St._Peter%27s_Basilica.jpg",
+  "country": "Vatican City",
+  "continent": "Europe",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.93·fb0·K0·iso475 → 4.8 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "shwedagon-pagoda",
+  "short": "Shwedagon Pagoda",
+  "clue": "Shwedagon Pagoda, Myanmar 🇲🇲",
+  "fact": "Its 99-metre stupa is sheathed in gold plates and topped by an umbrella crown tipped with a 76-carat diamond; legend says the shrine holds eight hairs of the Buddha.",
+  "lat": 16.7983,
+  "lng": 96.1494,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/20160813_Shwedagon_Pagoda_9949_DxO.jpg/500px-20160813_Shwedagon_Pagoda_9949_DxO.jpg",
+  "country": "Myanmar",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.46·fb217·K0·iso576 → 27.7 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "golden-temple",
+  "short": "Golden Temple",
+  "clue": "Golden Temple, India 🇮🇳",
+  "fact": "The gold sanctum stands in the middle of a man-made holy pool, the Amrit Sarovar; Maharaja Ranjit Singh had its upper floors covered with about 750 kg of gold leaf from 1830.",
+  "lat": 31.62,
+  "lng": 74.8767,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Hamandir_Sahib_%28Golden_Temple%29.jpg/500px-Hamandir_Sahib_%28Golden_Temple%29.jpg",
+  "country": "India",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.83·fb1226·K0·iso50 → 49.5 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "potala-palace",
+  "short": "Potala Palace",
+  "clue": "Potala Palace, China 🇨🇳",
+  "fact": "Raised from 1645 for the fifth Dalai Lama on Lhasa's Red Hill, its 13 storeys contain more than 1,000 rooms, and its Red Palace holds the gilded burial stupas of eight Dalai Lamas.",
+  "lat": 29.6578,
+  "lng": 91.1169,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Potala_Palace_in_Lhasa%2C_Tibet.jpg/500px-Potala_Palace_in_Lhasa%2C_Tibet.jpg",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.65·fb2224·K0·iso472 → 160.7 → 9",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "petronas-towers",
+  "short": "Petronas Towers",
+  "clue": "Petronas Towers, Malaysia 🇲🇾",
+  "fact": "The 452-metre twins were the world's tallest buildings from 1998 to 2004 and are joined at the 41st and 42nd floors by a two-storey skybridge that is deliberately not fixed rigidly to either tower, so it can slide as they sway.",
+  "lat": 3.1578,
+  "lng": 101.7117,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Petronas_Panorama_II.jpg/500px-Petronas_Panorama_II.jpg",
+  "country": "Malaysia",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.85·fb183·K0·iso295 → 9.5 → 4 · median rescore 10.1 → 4 (spike check)",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "himeji-castle",
+  "short": "Himeji Castle",
+  "clue": "Himeji Castle, Japan 🇯🇵",
+  "fact": "Finished in 1609, its six-storey white keep has survived earthquakes and war; in the 1945 air raid on Himeji an incendiary bomb landed on its top floor and failed to explode.",
+  "lat": 34.8394,
+  "lng": 134.6936,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Himeji_Castle_The_Keep_Towers.jpg/500px-Himeji_Castle_The_Keep_Towers.jpg",
+  "country": "Japan",
+  "continent": "Asia",
+  "sets": [
+   "Castles"
+  ],
+  "difficultyWhy": "p.71·fb242·K0·iso48 → 18.6 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "itsukushima-shrine",
+  "short": "Itsukushima Shrine",
+  "clue": "Itsukushima Shrine, Japan 🇯🇵",
+  "fact": "The shrine's 16-metre vermilion torii, rebuilt in camphor wood in 1875, stands in the Seto Inland Sea and seems to float at high tide; the shrine buildings themselves stand on piers over the water.",
+  "lat": 34.2958,
+  "lng": 132.3201,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Itsukushima-jinja_torii_at_sunset%2C_Miyajima%2C_Japan%2C_20240816_1812_4144.jpg/500px-Itsukushima-jinja_torii_at_sunset%2C_Miyajima%2C_Japan%2C_20240816_1812_4144.jpg",
+  "country": "Japan",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.56·fb467·K0·iso17 → 48.5 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "temple-of-heaven",
+  "short": "Temple of Heaven",
+  "clue": "Temple of Heaven, China 🇨🇳",
+  "fact": "Its Hall of Prayer for Good Harvests is a 38-metre circular wooden hall, first built in 1420 and rebuilt in 1890 entirely without nails, where emperors prayed at the winter solstice.",
+  "lat": 39.8822,
+  "lng": 116.4066,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Temple_of_Heaven_-_Hall_of_Prayer_for_Good_Harvests.jpg/500px-Temple_of_Heaven_-_Hall_of_Prayer_for_Good_Harvests.jpg",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.66·fb847·K0·iso106 → 67.8 → 8 · median rescore 79.4 → 8 (spike check)",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "prambanan",
+  "short": "Prambanan",
+  "clue": "Prambanan, Indonesia 🇮🇩",
+  "fact": "Built around AD 850, the complex once held some 240 temples; its central temple to Shiva rises 47 metres, ringed by reliefs telling the Ramayana.",
+  "lat": -7.752,
+  "lng": 110.4912,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Yogyakarta_Indonesia_Prambanan-temple-complex-02.jpg/500px-Yogyakarta_Indonesia_Prambanan-temple-complex-02.jpg",
+  "country": "Indonesia",
+  "continent": "Asia",
+  "sets": [
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.53·fb344·K0·iso85 → 38.2 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "grand-palace-bangkok",
+  "short": "Grand Palace",
+  "clue": "Grand Palace, Thailand 🇹🇭",
+  "fact": "Founded in 1782 when Bangkok became Siam's capital, its Temple of the Emerald Buddha guards a 66-centimetre jadeite Buddha whose gold robes the king personally changes three times a year with the seasons.",
+  "lat": 13.7501,
+  "lng": 100.492,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Temple_of_the_Emerald_Buddha.jpg/500px-Temple_of_the_Emerald_Buddha.jpg",
+  "country": "Thailand",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.53·fb23·K0·iso538 → 13.5 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "blue-mosque",
+  "short": "Blue Mosque",
+  "clue": "Blue Mosque, Turkey 🇹🇷",
+  "fact": "Finished in 1616 for Sultan Ahmed I, it is lined with more than 20,000 hand-made Iznik tiles; its six minarets matched the number at Mecca, and tradition says a seventh was then built at Mecca to restore the difference.",
+  "lat": 41.0054,
+  "lng": 28.9768,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul%2C_Turkey_002.jpg/500px-Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul%2C_Turkey_002.jpg",
+  "country": "Turkey",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.70·fb310·K0·iso90 → 23.4 → 6 · median rescore 25.3 → 6 (spike check)",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "karnak",
+  "short": "Karnak",
+  "clue": "Karnak, Egypt 🇪🇬",
+  "fact": "Some 30 pharaohs added to it over 1,500 years; the great hypostyle hall's 134 columns cover an area big enough to hold Notre-Dame Cathedral, and one of Hatshepsut's obelisks still stands at 29 metres.",
+  "lat": 25.7183,
+  "lng": 32.6583,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Karnak_Temple_Complex%2C_Egypt73.jpg/500px-Karnak_Temple_Complex%2C_Egypt73.jpg",
+  "country": "Egypt",
+  "continent": "Africa",
+  "sets": [
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.62·fb480·K0·iso498 → 43.0 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "palenque",
+  "short": "Palenque",
+  "clue": "Palenque, Mexico 🇲🇽",
+  "fact": "Beneath its Temple of the Inscriptions, archaeologists found the tomb of King Pakal in 1952, the king wearing a mosaic death mask of jade and a sarcophagus lid carved with his fall into the underworld.",
+  "lat": 17.4842,
+  "lng": -92.0464,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Palenque_temple_1.jpg/500px-Palenque_temple_1.jpg",
+  "country": "Mexico",
+  "continent": "North America",
+  "sets": [
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.51·fb1002·K0·iso463 → 111.0 → 9 · median rescore 114.2 → 9 (spike check)",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "tulum",
+  "short": "Tulum",
+  "clue": "Tulum, Mexico 🇲🇽",
+  "fact": "Its castle, El Castillo, tops a 12-metre cliff and is thought to have worked as a lighthouse: two small windows align with the only gap in the reef, guiding Maya trading canoes in to shore.",
+  "lat": 20.2147,
+  "lng": -87.4289,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/El_Palacio_-_Tulum_QR_2023.jpg/500px-El_Palacio_-_Tulum_QR_2023.jpg",
+  "country": "Mexico",
+  "continent": "North America",
+  "sets": [
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.68·fb1369·K0·iso243 → 99.9 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "copan",
+  "short": "Copán",
+  "clue": "Copán, Honduras 🇭🇳",
+  "fact": "Its Hieroglyphic Stairway carries more than 2,200 carved glyphs across 63 steps, the longest single inscribed text the Maya left behind.",
+  "lat": 14.838,
+  "lng": -89.1424,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Copan%2C_Stela_F%2C_18_Rabbit_%2815771345348%29.jpg/500px-Copan%2C_Stela_F%2C_18_Rabbit_%2815771345348%29.jpg",
+  "country": "Honduras",
+  "continent": "North America",
+  "sets": [
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.43·fb186·K0·iso683 → 25.2 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "palmyra",
+  "short": "Palmyra",
+  "clue": "Palmyra, Syria 🇸🇾",
+  "fact": "This oasis city grew rich taxing Silk Road caravans between Rome and Persia; in the 270s AD its queen Zenobia seized Rome's eastern provinces and briefly ruled an empire of her own.",
+  "lat": 34.5504,
+  "lng": 38.2698,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Temple_of_Bel%2C_Palmyra_02.jpg/500px-Temple_of_Bel%2C_Palmyra_02.jpg",
+  "country": "Syria",
+  "continent": "Asia",
+  "sets": [
+   "Ancient Ruins",
+   "Middle East"
+  ],
+  "difficultyWhy": "p.68·fb120·K0·iso209 → 12.0 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "baalbek",
+  "short": "Baalbek",
+  "clue": "Baalbek, Lebanon 🇱🇧",
+  "fact": "The Temple of Jupiter's podium includes three stones of about 800 tons each, among the largest ever moved, and six of its original 54 columns still stand, each over 20 metres tall.",
+  "lat": 34.0061,
+  "lng": 36.2086,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Baalbek%2C_panor%C3%A1micas_%282001%29_02.jpg/500px-Baalbek%2C_panor%C3%A1micas_%282001%29_02.jpg",
+  "country": "Lebanon",
+  "continent": "Asia",
+  "sets": [
+   "Ancient Ruins",
+   "Middle East"
+  ],
+  "difficultyWhy": "p.63·fb64·K0·iso56 → 11.7 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "great-zimbabwe",
+  "short": "Great Zimbabwe",
+  "clue": "Great Zimbabwe, Zimbabwe 🇿🇼",
+  "fact": "Its Great Enclosure wall runs about 250 metres and stands up to 11 metres high, laid entirely without mortar; from here Shona kings traded gold that reached as far as China in the 1400s.",
+  "lat": -20.27,
+  "lng": 30.933,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Gro%C3%9F_Simbabwe%2C_Konischer_Turm.JPG/500px-Gro%C3%9F_Simbabwe%2C_Konischer_Turm.JPG",
+  "country": "Zimbabwe",
+  "continent": "Africa",
+  "sets": [
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.68·fb196·K1·iso272 → 61.0 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "djenne-great-mosque",
+  "short": "Djenné Great Mosque",
+  "clue": "Djenné Great Mosque, Mali 🇲🇱",
+  "fact": "The world's largest mud-brick building, its three great towers are each topped with an ostrich egg; every year the town replasters the whole mosque by hand in a single-day festival.",
+  "lat": 13.9053,
+  "lng": -4.5556,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Great_Mosque_of_Djenn%C3%A9_1.jpg/500px-Great_Mosque_of_Djenn%C3%A9_1.jpg",
+  "country": "Mali",
+  "continent": "Africa",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.42·fb300·K1·iso369 → 111.5 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "prague-castle",
+  "short": "Prague Castle",
+  "clue": "Prague Castle, Czech Republic 🇨🇿",
+  "fact": "Founded around 880, the castle complex covers some 70,000 square metres, the largest ancient castle in the world; St Vitus Cathedral inside it was under construction, on and off, for nearly 600 years.",
+  "lat": 50.09,
+  "lng": 14.4,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Czech-2013-Prague-View_from_Charles_Bridge_of_Prague_Castle.jpg/500px-Czech-2013-Prague-View_from_Charles_Bridge_of_Prague_Castle.jpg",
+  "country": "Czech Republic",
+  "continent": "Europe",
+  "sets": [
+   "Castles"
+  ],
+  "difficultyWhy": "p.66·fb76·K0·iso254 → 11.0 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "charles-bridge",
+  "short": "Charles Bridge",
+  "clue": "Charles Bridge, Czech Republic 🇨🇿",
+  "fact": "Court astrologers chose the moment to lay its foundation stone: 5:31 on 9 July 1357, a sequence of odd numbers picked for luck; the 30 statues lining its 516 metres were added centuries later.",
+  "lat": 50.0864,
+  "lng": 14.4119,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Prague_Charles_Bridge_2021_04.jpg/500px-Prague_Charles_Bridge_2021_04.jpg",
+  "country": "Czech Republic",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.57·fb75·K0·iso253 → 12.8 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "cologne-cathedral",
+  "short": "Cologne Cathedral",
+  "clue": "Cologne Cathedral, Germany 🇩🇪",
+  "fact": "Begun in 1248 and only finished in 1880, faithfully to the original medieval plan, its twin spires reach 157 metres and briefly made it the tallest building in the world.",
+  "lat": 50.9414,
+  "lng": 6.9583,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/2025-06-10-Dom_Burgmauer-3409.jpg/500px-2025-06-10-Dom_Burgmauer-3409.jpg",
+  "country": "Germany",
+  "continent": "Europe",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.96·fb191·K0·iso183 → 5.0 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "schonbrunn-palace",
+  "short": "Schönbrunn Palace",
+  "clue": "Schönbrunn Palace, Austria 🇦🇹",
+  "fact": "The Habsburgs' summer seat holds 1,441 rooms; in 1762 a six-year-old Mozart performed here for Empress Maria Theresa, and legend says he proposed marriage to the young Marie Antoinette after slipping on its polished floor.",
+  "lat": 48.1848,
+  "lng": 16.3123,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Wien%2C_Schloss_Sch%C3%B6nbrunn_--_2018_--_3226.jpg/500px-Wien%2C_Schloss_Sch%C3%B6nbrunn_--_2018_--_3226.jpg",
+  "country": "Austria",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.68·fb66·K0·iso217 → 10.8 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "tower-bridge",
+  "short": "Tower Bridge",
+  "clue": "Tower Bridge, England 🏴󐁧󐁢󐁥󐁮󐁧󐁿",
+  "fact": "Completed in 1894, its two bascules of more than 1,000 tons each still lift around 800 times a year for river traffic and open in about a minute; the red, white and blue paint dates from the 1977 Silver Jubilee.",
+  "lat": 51.5056,
+  "lng": -0.0753,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Tower_Bridge_London_Feb_2006.jpg/500px-Tower_Bridge_London_Feb_2006.jpg",
+  "country": "England",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.78·fb105·K0·iso165 → 8.7 → 3",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "tower-of-london",
+  "short": "Tower of London",
+  "clue": "Tower of London, England 🏴󐁧󐁢󐁥󐁮󐁧󐁿",
+  "fact": "William the Conqueror raised its White Tower from 1078; the fortress has served as royal palace, prison and menagerie, and Anne Boleyn and Catherine Howard were both executed on its green.",
+  "lat": 51.5082,
+  "lng": -0.0762,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Tower_of_London_viewed_from_the_River_Thames.jpg/500px-Tower_of_London_viewed_from_the_River_Thames.jpg",
+  "country": "England",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.91·fb105·K0·iso165 → 5.4 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "buckingham-palace",
+  "short": "Buckingham Palace",
+  "clue": "Buckingham Palace, England 🏴󐁧󐁢󐁥󐁮󐁧󐁿",
+  "fact": "Queen Victoria was the first monarch to live here, moving in in 1837; the palace has 775 rooms, and its east front, the face everyone photographs, was only added in 1913.",
+  "lat": 51.501,
+  "lng": -0.142,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Buckingham_Palace%2C_London_-_April_2009.jpg/500px-Buckingham_Palace%2C_London_-_April_2009.jpg",
+  "country": "England",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.93·fb103·K0·iso162 → 4.9 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "westminster-abbey",
+  "short": "Westminster Abbey",
+  "clue": "Westminster Abbey, England 🏴󐁧󐁢󐁥󐁮󐁧󐁿",
+  "fact": "Consecrated in 1065, it has hosted every English coronation since William the Conqueror's in 1066; Geoffrey Chaucer's burial here in 1400 began its Poets' Corner.",
+  "lat": 51.4994,
+  "lng": -0.1274,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Westminster_abbey_towers.jpg/500px-Westminster_abbey_towers.jpg",
+  "country": "England",
+  "continent": "Europe",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.90·fb104·K0·iso163 → 5.6 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "lincoln-memorial",
+  "short": "Lincoln Memorial",
+  "clue": "Lincoln Memorial, United States 🇺🇸",
+  "fact": "Daniel Chester French's seated Lincoln is 5.8 metres of Georgia marble; the 36 Doric columns around the memorial stand for the 36 states in the Union when Lincoln died.",
+  "lat": 38.8893,
+  "lng": -77.0501,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Statue_of_Abraham_Lincoln%2C_Lincoln_Memorial_%282024%29-L1005511.jpg/500px-Statue_of_Abraham_Lincoln%2C_Lincoln_Memorial_%282024%29-L1005511.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.70·fb1425·K0·iso201 → 97.0 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "washington-monument",
+  "short": "Washington Monument",
+  "clue": "Washington Monument, United States 🇺🇸",
+  "fact": "The world's tallest stone obelisk at 169 metres; work stopped for 23 years in the Civil War era, and the marble visibly changes shade about 46 metres up, where building resumed from a different quarry.",
+  "lat": 38.8895,
+  "lng": -77.0352,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Washington_Monument_-_01.jpg/500px-Washington_Monument_-_01.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.83·fb1426·K0·iso200 → 56.8 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "cn-tower",
+  "short": "CN Tower",
+  "clue": "CN Tower, Canada 🇨🇦",
+  "fact": "At 553 metres it was the world's tallest freestanding structure for 32 years; its glass floor, installed in 1994, is rated to hold the weight of 41 polar bears.",
+  "lat": 43.6428,
+  "lng": -79.3871,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Toronto_-_ON_-_CN_Tower_bei_Nacht2.jpg/500px-Toronto_-_ON_-_CN_Tower_bei_Nacht2.jpg",
+  "country": "Canada",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.85·fb799·K0·iso352 → 30.5 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "hoover-dam",
+  "short": "Hoover Dam",
+  "clue": "Hoover Dam, United States 🇺🇸",
+  "fact": "Poured in the mid-1930s, its concrete would pave a two-lane road from San Francisco to New York; the dam stands 221 metres tall and holds back Lake Mead, the largest US reservoir by capacity.",
+  "lat": 36.0158,
+  "lng": -114.7378,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Hoover_Dam_and_Black_Canyon_seen_from_the_Mike_O%27Callaghan%E2%80%93Pat_Tillman_Memorial_Bridge%2C_panorama%2C_Arizona%E2%80%93Nevada.jpg/500px-Hoover_Dam_and_Black_Canyon_seen_from_the_Mike_O%27Callaghan%E2%80%93Pat_Tillman_Memorial_Bridge%2C_panorama%2C_Arizona%E2%80%93Nevada.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.85·fb1895·K0·iso375 → 62.0 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "berlin-wall",
+  "short": "Berlin Wall",
+  "clue": "Berlin Wall, Germany 🇩🇪",
+  "fact": "The East Side Gallery is a 1.3-kilometre stretch of the Wall painted by 118 artists in 1990; its most famous panel, Dmitri Vrubel's Fraternal Kiss, shows Brezhnev and Honecker mid-embrace.",
+  "lat": 52.5031,
+  "lng": 13.4447,
+  "difficulty": 1,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/East_Side_Gallery_-_Dmitri_Vrubel_-_Le_baiser_%28Berlin%29.jpg/500px-East_Side_Gallery_-_Dmitri_Vrubel_-_Le_baiser_%28Berlin%29.jpg",
+  "country": "Germany",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.99·fb295·K0·iso259 → 3.6 → 1",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "sugarloaf-mountain",
+  "short": "Sugarloaf Mountain",
+  "clue": "Sugarloaf Mountain, Brazil 🇧🇷",
+  "fact": "This 396-metre granite spike guards the entrance to Guanabara Bay; its cable car has run since 1912, only the third built anywhere, and it doubled as a film set for the Bond film Moonraker in 1979.",
+  "lat": -22.9494,
+  "lng": -43.1567,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Rio_de_Janeiro_-_P%C3%A3o_de_A%C3%A7ucar_-_Cablecar.jpg/500px-Rio_de_Janeiro_-_P%C3%A3o_de_A%C3%A7ucar_-_Cablecar.jpg",
+  "country": "Brazil",
+  "continent": "South America",
+  "sets": [],
+  "difficultyWhy": "p.47·fb658·K0·iso346 → 80.0 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "st-basils-cathedral",
+  "short": "St Basil's Cathedral",
+  "clue": "St Basil's Cathedral, Russia 🇷🇺",
+  "fact": "Ivan the Terrible ordered it built in 1555 after capturing Kazan; nine chapels with patterned onion domes cluster around a central 47-metre tent-roofed tower.",
+  "lat": 55.7525,
+  "lng": 37.6231,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Moscow_July_2011-4a.jpg/500px-Moscow_July_2011-4a.jpg",
+  "country": "Russia",
+  "continent": "Europe",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.72·fb821·K0·iso401 → 54.5 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "ajanta-caves",
+  "short": "Ajanta Caves",
+  "clue": "Ajanta Caves, India 🇮🇳",
+  "fact": "Thirty rock-cut caves in a horseshoe cliff, painted between the 2nd century BC and AD 480, were abandoned and forgotten until a British hunting party stumbled on them in 1819.",
+  "lat": 20.5534,
+  "lng": 75.7005,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Cave_26%2C_Ajanta.jpg/500px-Cave_26%2C_Ajanta.jpg",
+  "country": "India",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.74·fb281·K0·iso84 → 19.6 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "ellora-caves",
+  "short": "Ellora Caves",
+  "clue": "Ellora Caves, India 🇮🇳",
+  "fact": "The Kailasa temple here was carved from the top down out of a single basalt cliff in the 8th century; workers removed an estimated 200,000 tons of rock to free the finished temple from the stone.",
+  "lat": 20.0264,
+  "lng": 75.1792,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Courtyard_and_Mahabharata_Reliefs_at_the_Kailasa_Temple%2C_Ellora_01.jpg/500px-Courtyard_and_Mahabharata_Reliefs_at_the_Kailasa_Temple%2C_Ellora_01.jpg",
+  "country": "India",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.66·fb349·K0·iso24 → 29.5 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "hampi",
+  "short": "Hampi",
+  "clue": "Hampi, India 🇮🇳",
+  "fact": "Capital of the Vijayanagara Empire and one of the richest cities of its age around 1500, its Vittala Temple holds 56 stone pillars tuned to ring like bells when struck.",
+  "lat": 15.3345,
+  "lng": 76.4622,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Iconic_Stone_Chariot_%40_Vittala_Temple%2C_Hampi%2C_Karnataka.jpg/500px-Iconic_Stone_Chariot_%40_Vittala_Temple%2C_Hampi%2C_Karnataka.jpg",
+  "country": "India",
+  "continent": "Asia",
+  "sets": [
+   "Ancient Ruins"
+  ],
+  "difficultyWhy": "p.57·fb665·K0·iso290 → 65.5 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "sheikh-zayed-grand-mosque",
+  "short": "Sheikh Zayed Grand Mosque",
+  "clue": "Sheikh Zayed Grand Mosque, United Arab Emirates 🇦🇪",
+  "fact": "Finished in 2007 and able to hold more than 50,000 worshippers, its main hall carpet is the largest hand-knotted carpet in the world at 5,627 square metres, woven by 1,200 artisans.",
+  "lat": 24.412,
+  "lng": 54.474,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Abu_Dhabi_2011_%288208400996%29.jpg/500px-Abu_Dhabi_2011_%288208400996%29.jpg",
+  "country": "United Arab Emirates",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.60·fb100·K0·iso112 → 12.3 → 4",
+  "category": "city",
+  "kind": "landmark"
  }
 ]

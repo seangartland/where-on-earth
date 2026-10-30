@@ -62,7 +62,7 @@ test('packCardNumber matches the position passportPackSections renders', () => {
     }
   }
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'abuja-ng'), 2);
-  assert.equal(packCardNumber(cities, landmarks, 'landmarks', 'angkor-wat'), 10);
+  assert.equal(packCardNumber(cities, landmarks, 'landmarks', 'angkor-wat'), 11);
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'angkor-wat'), null);
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'no-such-id'), null);
 });
