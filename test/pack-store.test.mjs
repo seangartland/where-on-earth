@@ -17,13 +17,13 @@ const {
   savePackResult, completePack, packOutcome, packSummary, packPool,
   awardDailySkips, grantDailySkips,
   isOpenPack, hasOtherOpenPack,
-  packChoiceState, canTearPack,
+  packChoiceState, packProgressCount, canTearPack,
 } = await import('../src/meta/pack-store.js');
 const cities = JSON.parse(readFileSync(new URL('../assets/locations.json', import.meta.url)));
 const pool = packPool(cities);
 const raw = () => JSON.parse(localStorage.getItem(PACK_KEY));
 const empty = (stamina = { stored: 2, nextAt: null }) => ({
-  skips: 12, stamina, byType: { capitals: null, landmarks: null, landforms: null },
+  skips: 12, skipCredit: 0, stamina, byType: { capitals: null, landmarks: null, landforms: null },
 });
 
 test.beforeEach(() => localStorage.clear());
@@ -38,6 +38,7 @@ test('accrual handles partial periods, multiple periods, and pauses at cap', () 
 
 test('spending from cap starts the clock; spending at one keeps it running', () => {
   const record = empty();
+  writePack(record);
   assert.equal(spend(record, 5000), true);
   assert.deepEqual(record.stamina, { stored: 1, nextAt: 5000 + STAMINA_PERIOD });
   assert.equal(spend(record, 6000), true);
@@ -48,6 +49,7 @@ test('spending from cap starts the clock; spending at one keeps it running', () 
 test('five skips reproduce the worked rollover example', () => {
   const now = Date.parse('2026-10-29T12:00:00Z');
   const record = empty({ stored: 0, nextAt: now + 4.25 * 60 * 60 * 1000 });
+  writePack(record);
   assert.equal(applySkips(record, 5, now), 5);
   assert.deepEqual(record.stamina, { stored: 1, nextAt: now + 11.25 * 60 * 60 * 1000 });
   assert.equal(record.skips, 7);
@@ -56,6 +58,7 @@ test('five skips reproduce the worked rollover example', () => {
 test('skips stop at the stamina cap', () => {
   const now = Date.parse('2026-10-29T12:00:00Z');
   const record = { ...empty({ stored: 1, nextAt: now + 60 * 60 * 1000 }), skips: 5 };
+  writePack(record);
   assert.equal(applySkips(record, 5, now), 1);
   assert.deepEqual(record.stamina, { stored: 2, nextAt: null });
   assert.equal(record.skips, 4);
@@ -64,6 +67,7 @@ test('skips stop at the stamina cap', () => {
 test('partial skips move the running timer without accruing', () => {
   const now = Date.parse('2026-10-29T12:00:00Z');
   const record = empty({ stored: 0, nextAt: now + 4.25 * 60 * 60 * 1000 });
+  writePack(record);
   assert.equal(applySkips(record, 2, now), 2);
   assert.deepEqual(record.stamina, { stored: 0, nextAt: now + 2.25 * 60 * 60 * 1000 });
 });
@@ -83,6 +87,7 @@ test('fresh and migrated records get one starter grant while saved balances rema
 
 test('daily skips grant once per date and grant again the next day', () => {
   const record = empty();
+  writePack(record);
   assert.equal(awardDailySkips(record, '2026-10-29'), 4);
   assert.equal(record.skips, 16);
   assert.equal(record.lastDailyReward, '2026-10-29');
@@ -91,6 +96,62 @@ test('daily skips grant once per date and grant again the next day', () => {
   assert.equal(awardDailySkips(record, '2026-10-30'), 4);
   assert.equal(record.skips, 20);
   assert.equal(record.lastDailyReward, '2026-10-30');
+});
+
+test('daily skips never reward an older date when completions alternate', () => {
+  const record = empty();
+  writePack(record);
+  for (const date of ['2026-10-29', '2026-10-30', '2026-10-29', '2026-10-30', '2026-10-29']) {
+    awardDailySkips(record, date);
+  }
+  assert.equal(record.skips, 20);
+});
+
+test('accrual clamps a clock restored from the distant future', () => {
+  const now = Date.parse('2026-10-29T12:00:00Z');
+  const record = empty();
+  writePack(record);
+  spend(record, now);
+  readPack(now + 30 * 24 * 60 * 60 * 1000);
+  const minted = readPack(now + 30 * 24 * 60 * 60 * 1000);
+  spend(minted, now + 30 * 24 * 60 * 60 * 1000);
+  spend(minted, now + 30 * 24 * 60 * 60 * 1000);
+  const restored = readPack(now);
+  assert.ok(restored.stamina.nextAt - now <= STAMINA_PERIOD);
+});
+
+test('skip credit survives filling the bank and shortens the next countdown', () => {
+  const now = Date.parse('2026-10-29T12:00:00Z');
+  const record = empty({ stored: 1, nextAt: now + 4.25 * 60 * 60 * 1000 });
+  writePack(record);
+  assert.equal(applySkips(record, 5, now), 5);
+  assert.equal(record.skipCredit, 45 * 60 * 1000);
+  assert.deepEqual(record.stamina, { stored: 2, nextAt: null });
+  assert.equal(spend(record, now), true);
+  assert.deepEqual(record.stamina, { stored: 1, nextAt: now + 11.25 * 60 * 60 * 1000 });
+  assert.equal(record.skipCredit, 0);
+});
+
+test('read normalizes stamina, skip balances, and a missing countdown', () => {
+  const now = Date.parse('2026-10-29T12:00:00Z');
+  const malformed = empty({ stored: 0, nextAt: null });
+  malformed.skips = '12';
+  writePack(malformed);
+  const record = readPack(now);
+  assert.deepEqual(record.stamina, { stored: 0, nextAt: now + STAMINA_PERIOD });
+  awardDailySkips(record, '2026-10-29');
+  assert.equal(record.skips, 16);
+});
+
+test('a corrupt pack record is backed up, replaced, and remains spendable only twice', () => {
+  localStorage.setItem(PACK_KEY, '{garbage');
+  const record = readPack(1000);
+  assert.equal(localStorage.getItem(`${PACK_KEY}.corrupt-backup`), '{garbage');
+  assert.equal(spend(record, 1000), true);
+  const reloaded = readPack(1000);
+  assert.equal(reloaded.stamina.stored, 1);
+  assert.equal(spend(reloaded, 1000), true);
+  assert.equal(spend(reloaded, 1000), false);
 });
 
 test('daily skips preserve a legacy balance and persist through the pack store', () => {
@@ -118,6 +179,7 @@ test('legacy pack from today migrates its results and torn state', () => {
   const record = readPack(Date.parse(`${date}T12:00:00Z`));
   assert.deepEqual(record.byType.capitals, { ...legacyPack, torn: true });
   assert.equal(record.stamina.stored, 2);
+  assert.equal(localStorage.getItem(`${PACK_KEY}-torn`), null);
 });
 
 test('stale legacy pack is dropped', () => {
@@ -186,11 +248,12 @@ test('legacy multiple open packs stay resumable but block every new type', () =>
 test('select state locks other cards until the open pack completes', () => {
   const record = empty();
   record.byType.capitals = { ids: ['one', 'two', 'three'], results: [null, null, null], torn: true };
-  assert.deepEqual(packChoiceState(record, 'capitals'), { inProgress: true, locked: false });
-  assert.deepEqual(packChoiceState(record, 'landmarks'), { inProgress: false, locked: true });
-  assert.deepEqual(packChoiceState(record, 'landforms'), { inProgress: false, locked: true });
+  writePack(record);
+  assert.deepEqual(packChoiceState(record, 'capitals'), { inProgress: true, complete: false, locked: false });
+  assert.deepEqual(packChoiceState(record, 'landmarks'), { inProgress: false, complete: false, locked: true });
+  assert.deepEqual(packChoiceState(record, 'landforms'), { inProgress: false, complete: false, locked: true });
   completePack(record, 'capitals');
-  assert.deepEqual(packChoiceState(record, 'landmarks'), { inProgress: false, locked: false });
+  assert.deepEqual(packChoiceState(record, 'landmarks'), { inProgress: false, complete: false, locked: false });
 });
 
 test('an untorn dealt pack does not lock select cards', () => {
@@ -204,6 +267,33 @@ test('the tear guard refuses another type while a pack is open', () => {
   record.byType.capitals = { ids: ['one', 'two', 'three'], results: [null, null, null], torn: true };
   assert.equal(canTearPack(record, 'capitals'), true);
   assert.equal(canTearPack(record, 'landmarks'), false);
+});
+
+test('fresh mutations preserve another actor and expose the tear lock', () => {
+  const first = empty();
+  writePack(first);
+  ensurePack(first, 'capitals', pool);
+  const second = readPack();
+  first.byType.capitals.torn = true;
+  writePack(first);
+  savePackResult(second, 'capitals', 0, { base: 10 });
+  const current = readPack();
+  assert.equal(current.byType.capitals.torn, true);
+  assert.equal(current.byType.capitals.results[0].base, 10);
+  assert.equal(canTearPack(current, 'landmarks'), false);
+});
+
+test('a finished pack is complete rather than in progress', () => {
+  const record = empty();
+  record.byType.capitals = { ids: ['one', 'two', 'three'], results: [{}, {}, {}], torn: true };
+  assert.deepEqual(packChoiceState(record, 'capitals'), { inProgress: false, complete: true, locked: false });
+});
+
+test('home progress ignores merely dealt packs', () => {
+  const record = empty();
+  record.byType.capitals = { ids: ['one', 'two', 'three'], results: [null, null, null], torn: false };
+  record.byType.landmarks = { ids: ['four', 'five', 'six'], results: [{}, null, null], torn: false };
+  assert.equal(packProgressCount(record), 1);
 });
 
 test('select render drops skip-one-hour but retains open-now', () => {

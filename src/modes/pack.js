@@ -1,12 +1,3 @@
-// ---------------------------------------------------------------------------
-// The World Capitals pack (docs/daily-pack-spec.md): three cards a day from
-// the world capitals (src/meta/pack-capitals.js), played on the shared round screen with the
-// PvP clue-only header, no timer and the normal earning rules (recordVisit).
-// The pack screen serves before, during and after the pack; each flipped
-// card opens the existing postcard detail. The saved record is
-// src/meta/pack-store.js. main.js reaches this module only through
-// initPack(host); round.js through its own host.
-// ---------------------------------------------------------------------------
 import { EARN_NAMES, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
 import { audio } from '../core/audio.js';
 import { state } from '../core/state.js';
@@ -15,12 +6,10 @@ import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
   PACK_CARDS, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
   savePackResult, completePack, spend, applySkips, writePack, packOutcome, packSummary,
-  packChoiceState, canTearPack,
+  packChoiceState, packProgressCount, canTearPack,
 } from '../meta/pack-store.js';
 
 let host = null;
-// The card in play. record is the saved record the card belongs to, so a
-// round still on screen at midnight banks under its own date.
 export const PACKS = [
   { type: 'capitals', name: 'World Capitals', art: 'assets/pack-world-capitals.webp', tearLine: 0.086 },
   { type: 'landmarks', name: 'Landmarks', art: 'assets/pack-landmarks.webp', tearLine: 0.086, aspect: '900 / 1350' },
@@ -31,7 +20,7 @@ export const pack = { active: false, type: 'capitals', card: 0, item: null, reco
 let entry;
 let els;
 let tickSelect = null;
-// The opening ritual (2026-10-18): a fresh pack starts sealed for this
+// A fresh pack starts sealed for this
 // session, the unplayed cards wait in one stack and the top card flips to
 // its clue before its round (2026-10-29), and a played card stamps into its
 // slot once the pack is done. Session state only; the
@@ -63,11 +52,10 @@ function staminaText(record, now = Date.now()) {
   return `Next pack in ${h}:${m}:${s}`;
 }
 
-// The home row (P1): quiet, and dimmed once today's pack is opened.
 export function syncPackButton() {
   entry.disabled = !(host.locations || []).length || !(host.landmarks || []).length;
   const record = readPack();
-  const progress = Object.values(record.byType).filter(Boolean).length;
+  const progress = packProgressCount(record);
   entry.querySelector('.mode-desc').textContent = progress ? `${progress} in progress` : staminaText(record);
   entry.classList.remove('played');
 
@@ -83,7 +71,6 @@ export function syncPackButton() {
   }
 }
 
-// First tap on a new date generates today's pack and saves it before any clue.
 function openPack() {
   showPackSelect();
 }
@@ -220,7 +207,6 @@ export function showPackSelect() {
   els.sealed.hidden = true;
   els.slots.hidden = true;
   els.line.hidden = true;
-  els.ready.hidden = true;
   els.actions.hidden = true;
   els.stamina.hidden = true;
   els.screen.classList.remove('sealed-on');
@@ -239,7 +225,6 @@ export function showPackSelect() {
         openButton.textContent = `Open a pack now (${waitHours} ⏳)`;
         openButton.addEventListener('click', () => {
           applySkips(pack.record, waitHours);
-          writePack(pack.record);
           render();
         });
         actions.append(openButton);
@@ -247,12 +232,12 @@ export function showPackSelect() {
       if (actions.children.length) els.selectStamina.append(actions);
     }
     els.choices.replaceChildren(...PACKS.map((config) => {
-      const { inProgress, locked } = packChoiceState(pack.record, config.type);
+      const { inProgress, complete, locked } = packChoiceState(pack.record, config.type);
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'pack-choice';
       button.disabled = locked || (!inProgress && pack.record.stamina.stored < 1);
-      button.innerHTML = `<img src="${config.art}" alt=""><strong>${config.name}</strong><small>${locked ? 'Finish your open pack first' : inProgress ? 'In progress' : ''}</small>`;
+      button.innerHTML = `<img src="${config.art}" alt=""><strong>${config.name}</strong><small>${locked ? 'Finish your open pack first' : complete ? 'Complete' : inProgress ? 'In progress' : ''}</small>`;
       button.addEventListener('click', () => {
         pack.type = config.type;
         ensurePack(pack.record, config.type, poolFor(config.type));
@@ -263,22 +248,15 @@ export function showPackSelect() {
   };
   tickSelect = () => {
     if (els.select.hidden) return;
-    const stored = pack.record.stamina.stored;
     pack.record = readPack();
-    if (pack.record.stamina.stored !== stored) render();
-    else {
-      const text = els.selectStamina.querySelector('.pack-stamina-text');
-      if (text) text.textContent = staminaText(pack.record);
-    }
+    render();
   };
   render();
   els.screen.hidden = false;
   document.body.classList.add('game-results');
 }
 
-// One screen for every moment: sealed, fresh, mid-pack and done (spec 2g). A
-// record from an earlier date (a round finished after midnight) shows as it
-// ended, with today's pack one tap away.
+// One screen for every moment: sealed, fresh, mid-pack and done.
 function renderPackScreen(deal = false) {
   const current = currentPack();
   const summary = packSummary(current);
@@ -345,7 +323,6 @@ function renderPackScreen(deal = false) {
   els.line.textContent = sealedNow ? 'Three postcards. Pin each one.'
     : done ? doneLine(summary)
     : summary.played ? `${summary.played} of ${PACK_CARDS} opened · Tap the top card` : 'Tap the top card to flip its clue.';
-  els.ready.hidden = true;
   els.stamina.textContent = done ? staminaText(pack.record) : '';
   els.screen.classList.toggle('sealed-on', sealedNow);
   if (sealedNow) els.actions.hidden = true;
@@ -464,7 +441,8 @@ function wireSealedPack(sealed, screen) {
   // pack's own footprint); the torn wrapper is laid over it until it fades,
   // and the stack settles back down where the pack stood.
   const finishTear = () => {
-    const current = currentPack();
+    pack.record = readPack();
+    let current = currentPack();
     if (current.torn) return;
     if (!canTearPack(pack.record, pack.type)) {
       tearing = false;
@@ -480,6 +458,8 @@ function wireSealedPack(sealed, screen) {
       showPackSelect();
       return;
     }
+    pack.record = readPack();
+    current = currentPack();
     current.torn = true;
     writePack(pack.record);
     tearing = false;
@@ -638,7 +618,6 @@ export function initPack(main) {
     sealed,
     line: screen.querySelector('.pack-line'),
     slots: screen.querySelector('.pack-slots'),
-    ready: screen.querySelector('.pack-ready'),
     actions: screen.querySelector('.pack-actions'),
     primary: screen.querySelector('.pack-primary'),
     passport: screen.querySelector('.pack-passport'),

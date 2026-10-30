@@ -33,50 +33,67 @@ export function accrue(record, now = Date.now()) {
     record.stamina.nextAt += STAMINA_PERIOD;
   }
   if (record.stamina.stored >= STAMINA_MAX) record.stamina.nextAt = null;
+  else record.stamina.nextAt = Math.min(record.stamina.nextAt, now + STAMINA_PERIOD);
   return record;
 }
 
 export function spend(record, now = Date.now()) {
-  accrue(record, now);
-  if (record.stamina.stored <= 0) return false;
-  const paused = record.stamina.nextAt == null;
-  record.stamina.stored -= 1;
-  if (paused) record.stamina.nextAt = now + STAMINA_PERIOD;
-  writePack(record);
+  const fresh = readPack(now);
+  if (fresh.stamina.stored <= 0) return false;
+  const paused = fresh.stamina.nextAt == null;
+  fresh.stamina.stored -= 1;
+  if (paused) {
+    fresh.stamina.nextAt = now + STAMINA_PERIOD - fresh.skipCredit;
+    fresh.skipCredit = 0;
+  }
+  writePack(fresh);
+  Object.assign(record, fresh);
   return true;
 }
 
 export function applySkips(record, count, now = Date.now()) {
+  const fresh = readPack(now);
   let consumed = 0;
-  while (consumed < count && record.skips > 0 && record.stamina.stored < STAMINA_MAX) {
-    record.stamina.nextAt -= SKIP_PERIOD;
-    record.skips -= 1;
+  while (consumed < count && fresh.skips > 0 && fresh.stamina.stored < STAMINA_MAX) {
+    fresh.stamina.nextAt -= SKIP_PERIOD;
+    fresh.skips -= 1;
     consumed += 1;
-    if (record.stamina.nextAt <= now) {
-      record.stamina.stored += 1;
-      record.stamina.nextAt = record.stamina.stored >= STAMINA_MAX
-        ? null : record.stamina.nextAt + STAMINA_PERIOD;
+    if (fresh.stamina.nextAt <= now) {
+      fresh.stamina.stored += 1;
+      if (fresh.stamina.stored >= STAMINA_MAX) {
+        fresh.skipCredit = Math.min(STAMINA_PERIOD - 1, Math.max(0, now - fresh.stamina.nextAt));
+        fresh.stamina.nextAt = null;
+      } else {
+        fresh.stamina.nextAt += STAMINA_PERIOD;
+      }
     }
   }
+  if (consumed) writePack(fresh);
+  Object.assign(record, fresh);
   return consumed;
 }
 
 export function awardDailySkips(record, dateStr) {
-  if (record.lastDailyReward === dateStr) return 0;
-  record.skips += 4;
-  record.lastDailyReward = dateStr;
+  const fresh = readPack();
+  if (fresh.lastDailyReward && dateStr <= fresh.lastDailyReward) {
+    Object.assign(record, fresh);
+    return 0;
+  }
+  fresh.skips += 4;
+  fresh.lastDailyReward = dateStr;
+  writePack(fresh);
+  Object.assign(record, fresh);
   return 4;
 }
 
 export function grantDailySkips(dateStr) {
   const record = readPack();
-  const awarded = awardDailySkips(record, dateStr);
-  if (awarded) writePack(record);
-  return awarded;
+  return awardDailySkips(record, dateStr);
 }
 
 const freshRecord = () => ({
   skips: 12,
+  skipCredit: 0,
   stamina: { stored: STAMINA_MAX, nextAt: null },
   byType: { capitals: null, landmarks: null, landforms: null },
 });
@@ -86,10 +103,17 @@ export function readPack(now = Date.now()) {
   if (saved?.byType && saved?.stamina) {
     const missingSkips = !Object.hasOwn(saved, 'skips');
     if (missingSkips) saved.skips = 12;
-    const before = JSON.stringify(saved.stamina);
+    const before = JSON.stringify([saved.skips, saved.skipCredit, saved.stamina]);
+    saved.skips = Math.max(0, Math.floor(Number(saved.skips) || 0));
+    saved.skipCredit = Math.min(STAMINA_PERIOD - 1, Math.max(0, Number(saved.skipCredit) || 0));
+    saved.stamina.stored = Math.min(STAMINA_MAX, Math.max(0, Math.floor(Number(saved.stamina.stored) || 0)));
+    saved.stamina.nextAt = saved.stamina.nextAt == null ? null : Number(saved.stamina.nextAt);
+    if (saved.stamina.stored < STAMINA_MAX && !Number.isFinite(saved.stamina.nextAt)) {
+      saved.stamina.nextAt = now + STAMINA_PERIOD;
+    }
     accrue(saved, now);
     for (const type of PACK_TYPES) if (!(type in saved.byType)) saved.byType[type] = null;
-    if (missingSkips || JSON.stringify(saved.stamina) !== before) writePack(saved);
+    if (missingSkips || JSON.stringify([saved.skips, saved.skipCredit, saved.stamina]) !== before) writePack(saved);
     return saved;
   }
   const record = freshRecord();
@@ -103,8 +127,14 @@ export function readPack(now = Date.now()) {
       results: Array.from({ length: PACK_CARDS }, (_, i) => legacy.results?.[i] || null),
       torn,
     };
+    try { localStorage.removeItem(LEGACY_TORN_KEY); } catch { /* unavailable */ }
   }
-  if (saved) writePack(record);
+  let rawExists = false;
+  try { rawExists = localStorage.getItem(PACK_KEY) !== null; } catch { /* unavailable */ }
+  if (rawExists && !saved) {
+    try { localStorage.removeItem(PACK_KEY); } catch { /* unavailable */ }
+  }
+  if (saved || rawExists) writePack(record);
   return record;
 }
 
@@ -146,12 +176,19 @@ export function ensurePack(record, type, pool, random = Math.random) {
 }
 
 export function savePackResult(record, type, card, result) {
-  record.byType[type].results[card] = result;
-  return writePack(record);
+  const fresh = readPack();
+  if (!fresh.byType[type]) return false;
+  fresh.byType[type].results[card] = result;
+  const written = writePack(fresh);
+  Object.assign(record, fresh);
+  return written;
 }
 export function completePack(record, type) {
-  record.byType[type] = null;
-  return writePack(record);
+  const fresh = readPack();
+  fresh.byType[type] = null;
+  const written = writePack(fresh);
+  Object.assign(record, fresh);
+  return written;
 }
 export function packOutcome(wasVisited, previousEarn, newlyEarned) {
   if (newlyEarned) return { kind: previousEarn ? 'upgrade' : 'new', tier: newlyEarned };
@@ -179,12 +216,19 @@ export function hasOtherOpenPack(record, type) {
 
 export function packChoiceState(record, type) {
   const saved = record.byType[type];
-  const inProgress = Boolean(saved && (saved.torn || saved.results.some(Boolean)));
+  const complete = Boolean(saved && packSummary(saved).played >= PACK_CARDS);
+  const inProgress = Boolean(saved && !complete && (saved.torn || saved.results.some(Boolean)));
   const anyOpen = PACK_TYPES.some((candidate) => isOpenPack(record.byType[candidate]));
   return {
     inProgress,
+    complete,
     locked: anyOpen && !isOpenPack(saved),
   };
+}
+
+export function packProgressCount(record) {
+  return Object.values(record.byType)
+    .filter((saved) => saved && (saved.torn || saved.results?.some(Boolean))).length;
 }
 
 export function canTearPack(record, type) {

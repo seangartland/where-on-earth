@@ -21,16 +21,21 @@ test('Passport sections use the live pack pools in pack order', () => {
     index === 0 || (items[index - 1].short || '').localeCompare(item.short || '') <= 0)));
 });
 
-test('seeded visits count once and route landforms before landmarks', () => {
+test('only earned postcards count as collected and landforms route before landmarks', () => {
   const capital = cities.find((item) => PACK_CAPITAL_IDS.has(item.id));
   const landform = landmarks.find((item) => PACK_LANDFORM_IDS.has(item.id));
   const landmark = landmarks.find((item) => !PACK_LANDFORM_IDS.has(item.id));
   const dailyOnly = cities.find((item) => !PACK_CAPITAL_IDS.has(item.id));
   const visits = Object.fromEntries([capital, landform, landmark, dailyOnly].map((item) => [item.id, 500]));
-  const result = passportPackSections(cities, landmarks, visits);
+  const meta = {
+    [capital.id]: { e: 1 },
+    [landform.id]: { e: 0 },
+    [landmark.id]: { e: 2 },
+  };
+  const result = passportPackSections(cities, landmarks, visits, meta);
 
-  assert.deepEqual(result.sections.map((section) => section.collected), [1, 1, 1]);
-  assert.equal(result.collected, 3);
+  assert.deepEqual(result.sections.map((section) => section.collected), [1, 1, 0]);
+  assert.equal(result.collected, 2);
   assert.ok(result.sections[0].items.some((item) => item.id === capital.id));
   assert.ok(!result.everythingElse.some((item) => item.id === capital.id));
   assert.ok(result.sections[2].items.some((item) => item.id === landform.id));

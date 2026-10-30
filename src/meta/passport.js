@@ -563,7 +563,7 @@ function applyPassportFilters(dex) {
 function renderPassportPage() {
   if (!countryIndex) buildCountryIndex();
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
-  const data = passportPackSections(host.locations, host.landmarks || [], host.passport.visits);
+  const data = passportPackSections(host.locations, host.landmarks || [], host.passport.visits, host.passport.meta);
   ppEls.packProgress.textContent = `${data.collected.toLocaleString()} / ${data.total.toLocaleString()} pack postcards collected`;
   const frag = document.createDocumentFragment();
   const addSection = ({ type, name, art, items, collected, total }, packSection = true) => {
