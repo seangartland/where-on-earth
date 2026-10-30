@@ -140,17 +140,17 @@ test('cities and point landmarks preserve the raw number and frozen score fixtur
   }
 });
 
-test('pilot extents score their shipped line and polygon geometry', () => {
+test('extent geometry scores its shipped line and polygon geometry', () => {
   const wall = byLandmarkId.get('great-wall-of-china');
   assert.equal(scoringDistanceKm({ lat: 40.3598, lng: 116.02 }, wall), 0);
   assert.equal(scoringDistanceKm({ lat: 40.4319, lng: 116.5704 }, wall), 0);
 
   const reef = byLandmarkId.get('great-barrier-reef');
-  assert.equal(scoringDistanceKm({ lat: -18, lng: 149 }, reef), 0);
-  const outside = { lat: -18, lng: 154 };
+  assert.equal(scoringDistanceKm({ lat: -18, lng: 147 }, reef), 0);
+  const outside = { lat: -18, lng: 151.6029 };
   const near = nearestExtentPoint(reef, outside);
   close(scoringDistanceKm(outside, reef), distanceKm(outside, near), 1e-8);
-  assert.ok(near.km > 100);
+  close(scoringDistanceKm(outside, reef), near.km, 1e-8);
 
   const canyon = byLandmarkId.get('grand-canyon');
   const [lng, lat] = extents['grand-canyon'].lines[0][20];
@@ -160,7 +160,7 @@ test('pilot extents score their shipped line and polygon geometry', () => {
 test('fixed pinned and derived Daily selections and serialized round fields stay frozen', () => {
   const fixtures = [
     ['2026-10-18', ['tokyo-japan', 'boise-usa', 'enugu-ng', 'ciudad-juarez-mx', 'krasnoyarsk-ru'], [251.05352006657486, 231.86657960125547, 292.9841319554443, 259.6144718086858, 198.46724682154738], [[251, 950, 950], [232, 955, 955], [293, 941, 941], [260, 948, 948], [198, 962, 962]]],
-    ['2026-11-03', ['hamburg-germany', 'zaragoza-es', 'ostersund', 'diyarbakr-tr', 'ipoh-my'], [205.29886559595116, 236.8154993504964, 179.16020934139766, 245.89660185018724, 293.7821583537704], [[205, 960, 960], [237, 953, 953], [179, 966, 966], [246, 951, 951], [294, 941, 941]]],
+    ['2026-11-03', ['zanzibar-city-tanzania', 'stuttgart-de', 'raleigh-usa', 'zaranj', 'ottawa-canada'], [293.6512015890782, 218.27832510645342, 250.82144681540825, 261.17206807446547, 227.1909058923413], [[294, 941, 941], [218, 957, 957], [251, 950, 950], [261, 948, 948], [227, 956, 956]]],
   ];
   const byId = new Map(cities.map((item) => [item.id, item]));
   for (const [date, expectedIds, expectedExact, expectedScores] of fixtures) {

@@ -13,3 +13,4 @@ scripts/sat/work/
 scripts/sat/pilot/*
 !scripts/sat/pilot/qa.json
 !scripts/sat/pilot/report.json
+build/extent-sources/
