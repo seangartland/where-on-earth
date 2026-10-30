@@ -1,0 +1,38 @@
+// Ancient cities held out of the Landmarks pack (Sean, 2026-10-30: ancient
+// cities are not landmarks). These entries stay in the landmarks bank, so
+// Survival and Trivia keep drawing them, and the set seeds a future pack.
+// landmarkPackPool in pack-store.js excludes these ids.
+export const PACK_ANCIENT_CITY_IDS = new Set([
+  'ait-benhaddou-ksar',
+  'baalbek',
+  'bagan-myanmar',
+  'chan-chan-tshudi-palace',
+  'chichen-itza',
+  'copan',
+  'dholavira-india',
+  'fasil-ghebbi-gondar',
+  'great-zimbabwe',
+  'hampi',
+  'hegra-qasr-al-farid',
+  'kilwa-kisiwani-ruins',
+  'knossos',
+  'kuelap-fortress-peru',
+  'leptis-magna',
+  'machu-picchu',
+  'mohenjo-daro',
+  'nalanda-bihar',
+  'nan-madol',
+  'palenque',
+  'palmyra',
+  'persepolis',
+  'petra-jordan',
+  'pingyao-ancient-city',
+  'pompeii',
+  'san-ignacio-mini-mission',
+  'sigiriya',
+  'teotihuacan',
+  'tikal',
+  'tiwanaku-kalasasaya',
+  'tulum',
+  'vardzia-cliff-monastery',
+]);
