@@ -73,6 +73,15 @@ CURATED_ADDITION_IDS = {
     'sahara', 'santorini-caldera', 'seljalandsfoss', 'stromboli',
     'the-wave', 'tugela-falls', 'verdon-gorge', 'waitomo-glowworm-caves',
     'yosemite-falls',
+    # The 19 whole-river extent cards added 2026-10-30 (chunk 4 of the pack
+    # additions): listed explicitly so membership never depends on the name
+    # pattern (river names carry no formation word). Paraná and Murray were
+    # held at the Natural Earth coverage gate and are NOT members.
+    'amazon-river', 'amur-river', 'congo-river', 'danube-river',
+    'ganges-river', 'indus-river', 'lena-river', 'mackenzie-river',
+    'mekong-river', 'mississippi-river', 'niger-river', 'nile-river',
+    'ob-irtysh-river', 'volga-river', 'yangtze-river', 'yellow-river',
+    'yenisei-river', 'yukon-river', 'zambezi-river',
 }
 
 

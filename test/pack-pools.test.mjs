@@ -10,9 +10,9 @@ const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, impo
 const landmarks = load('locations-landmarks-sol.json');
 const cities = load('locations.json');
 
-test('the canonical 187 landform ids exist and disambiguate Uyuni', () => {
+test('the canonical 206 landform ids exist and disambiguate Uyuni', () => {
   const byId = new Map(landmarks.map((item) => [item.id, item]));
-  assert.equal(PACK_LANDFORM_IDS.size, 187);
+  assert.equal(PACK_LANDFORM_IDS.size, 206);
   assert.ok([...PACK_LANDFORM_IDS].every((id) => byId.has(id)));
   const names = new Set([...PACK_LANDFORM_IDS].map((id) => byId.get(id).short));
   assert.ok(names.has('Salar de Uyuni'));

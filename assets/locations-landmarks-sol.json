@@ -7504,5 +7504,366 @@
   "difficultyWhy": "p.23·fb283·K0·iso429 → 47.0 → 7",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "nile-river",
+  "short": "Nile River",
+  "clue": "Nile River, Egypt 🇪🇬",
+  "fact": "The Nile is conventionally measured at 6,650 km from the Kagera River, its farthest headstream, which rises in Burundi and drains through Lake Victoria. On its way north the White Nile spreads into the Sudd of South Sudan, one of the world's largest wetlands, where about half its water is lost to evaporation.",
+  "lat": 24.1262,
+  "lng": 32.8862,
+  "difficulty": 1,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Aswan_Nile_R05.jpg/500px-Aswan_Nile_R05.jpg",
+  "country": "Egypt",
+  "continent": "Africa",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.95·fb6·K0·iso61 → 4.2 → 1",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "amazon-river",
+  "short": "Amazon River",
+  "clue": "Amazon River, Brazil 🇧🇷",
+  "fact": "The Amazon discharges about 209,000 cubic metres of water per second, more than the next seven largest rivers combined. At Manaus its blackwater Rio Negro tributary runs beside the muddy main stem for over 6 km at the Meeting of Waters without mixing.",
+  "lat": -3.105,
+  "lng": -59.8968,
+  "difficulty": 7,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meeting_of_Waters_%28Manaus%29.jpg/500px-Meeting_of_Waters_%28Manaus%29.jpg",
+  "country": "Brazil",
+  "continent": "South America",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.85·fb1909·K0·iso119 → 65.0 → 7",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "yangtze-river",
+  "short": "Yangtze River",
+  "clue": "Yangtze River, China 🇨🇳",
+  "fact": "At about 6,300 km the Yangtze is Asia's longest river. The Three Gorges cut up to 300 m deep through limestone west of Yichang, and the cliffs of Qutang Gorge, the shortest and most dramatic of the three, now rise out of the Three Gorges Dam reservoir.",
+  "lat": 31.0427,
+  "lng": 109.574,
+  "difficulty": 4,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Qutang_Gorge_on_Changjiang.jpg/500px-Qutang_Gorge_on_Changjiang.jpg",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.76·fb197·K0·iso18 → 13.8 → 4",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "mississippi-river",
+  "short": "Mississippi River",
+  "clue": "Mississippi River, United States 🇺🇸",
+  "fact": "The Mississippi drains all or part of 32 US states, about two-fifths of the country's land area. At Memphis it runs over a kilometre wide below the bluffs, crossed by three road and rail bridges to the Arkansas shore.",
+  "lat": 35.1483,
+  "lng": -90.0854,
+  "difficulty": 2,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Three_bridges_of_Memphis_2022g.jpg/500px-Three_bridges_of_Memphis_2022g.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.93·fb214·K0·iso207 → 6.5 → 2",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "congo-river",
+  "short": "Congo River",
+  "clue": "Congo River, DR Congo 🇨🇩",
+  "fact": "The Congo is the world's deepest river, with measured depths over 220 m in its lower reaches. It is the only major river to cross the equator twice, looping north of it around the Congo Basin before swinging south again on its way to the Atlantic.",
+  "lat": -4.3388,
+  "lng": 15.2034,
+  "difficulty": 6,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Congo_River_with_upstream_half_of_Pool_Malebo_and_Mbamu.jpg/500px-Congo_River_with_upstream_half_of_Pool_Malebo_and_Mbamu.jpg",
+  "country": "DR Congo",
+  "continent": "Africa",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.73·fb466·K0·iso134 → 31.1 → 6",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "ganges-river",
+  "short": "Ganges River",
+  "clue": "Ganges River, India 🇮🇳",
+  "fact": "More than 400 million people live in the Ganges basin, the most populous river basin on Earth. At Varanasi, one of the oldest continuously inhabited cities in the world, more than 80 ghats, broad stone steps for bathing and ceremony, line its western bank.",
+  "lat": 25.2893,
+  "lng": 83.0063,
+  "difficulty": 5,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Varanasi%2C_India%2C_Ganges_River%2C_ghats%2C_temples_and_embankments.jpg/500px-Varanasi%2C_India%2C_Ganges_River%2C_ghats%2C_temples_and_embankments.jpg",
+  "country": "India",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.85·fb604·K0·iso30 → 22.9 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "danube-river",
+  "short": "Danube River",
+  "clue": "Danube River, Germany 🇩🇪",
+  "fact": "The Danube flows through ten countries, more than any other river, and past four capitals: Vienna, Bratislava, Budapest and Belgrade, a record no other river matches. In Budapest it splits around Margaret Island, with the Parliament building standing directly on its Pest bank.",
+  "lat": 47.4685,
+  "lng": 19.0623,
+  "difficulty": 2,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Danube_and_Hungarian_Parliament_Building_by_night.jpg/500px-Danube_and_Hungarian_Parliament_Building_by_night.jpg",
+  "country": "Germany",
+  "continent": "Europe",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.96·fb295·K0·iso46 → 5.9 → 2",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "yenisei-river",
+  "short": "Yenisei River",
+  "clue": "Yenisei River, Russia 🇷🇺",
+  "fact": "The Yenisei is the largest river flowing into the Arctic Ocean, discharging about 19,600 cubic metres of water per second. At Krasnoyarsk it runs almost a kilometre wide beneath the Communal Bridge, and in spring its breaking ice jams back water up for kilometres upstream.",
+  "lat": 56.0131,
+  "lng": 92.929,
+  "difficulty": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Krasnoyarsk%2C_Bridge_over_Yenisei_River_at_twilight%2C_Russia.jpg/500px-Krasnoyarsk%2C_Bridge_over_Yenisei_River_at_twilight%2C_Russia.jpg",
+  "country": "Russia",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.38·fb2332·K0·iso511 → 294.4 → 10",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "yellow-river",
+  "short": "Yellow River",
+  "clue": "Yellow River, China 🇨🇳",
+  "fact": "The Yellow River carries more silt than any other major river, historically about 1.6 billion tonnes a year, most of it loess washed off the plateau it crosses. At Hukou its whole muddy flow squeezes into a gorge barely 30 m wide and pours over a ledge, the largest waterfall on the river.",
+  "lat": 36.1418,
+  "lng": 110.4469,
+  "difficulty": 5,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hukou_Waterfall.jpg/500px-Hukou_Waterfall.jpg",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.74·fb271·K0·iso15 → 19.0 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "amur-river",
+  "short": "Amur River",
+  "clue": "Amur River, Russia 🇷🇺",
+  "fact": "The Amur forms about 1,600 km of the border between Russia and China. At Khabarovsk the Ussuri joins it from the south, and the combined road-and-rail bridge carrying the Trans-Siberian Railway across the river is over 2,500 m long.",
+  "lat": 48.4859,
+  "lng": 135.043,
+  "difficulty": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Amurbridge2.jpg/500px-Amurbridge2.jpg",
+  "country": "Russia",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.50·fb4310·K0·iso399 → 361.5 → 10",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "mekong-river",
+  "short": "Mekong River",
+  "clue": "Mekong River, Vietnam 🇻🇳",
+  "fact": "Each monsoon the Mekong pushes so much water up Cambodia's Tonlé Sap channel that the great lake at its end expands to several times its dry-season area, a seasonal flow reversal. Its basin lands about 2 million tonnes of wild fish a year, the largest inland fishery on Earth.",
+  "lat": 19.8641,
+  "lng": 102.1177,
+  "difficulty": 4,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Pirogue_and_boat_on_the_Mekong_with_colorful_sky_at_sunset_in_Luang_Prabang_Laos.jpg/500px-Pirogue_and_boat_on_the_Mekong_with_colorful_sky_at_sunset_in_Luang_Prabang_Laos.jpg",
+  "country": "Vietnam",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.66·fb70·K0·iso125 → 11.2 → 4",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "mackenzie-river",
+  "short": "Mackenzie River",
+  "clue": "Mackenzie River, Canada 🇨🇦",
+  "fact": "The Mackenzie is Canada's longest river and drains about a fifth of the country. At Fort Simpson it is joined by the Liard River, and its delta on the Beaufort Sea is scattered with thousands of lakes and pingos, ice-cored hills that grow out of the permafrost.",
+  "lat": 61.8483,
+  "lng": -121.2878,
+  "difficulty": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mackenzie_River_%286457846151%29.jpg/500px-Mackenzie_River_%286457846151%29.jpg",
+  "country": "Canada",
+  "continent": "North America",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.52·fb2433·K0·iso849 → 235.4 → 10",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "lena-river",
+  "short": "Lena River",
+  "clue": "Lena River, Russia 🇷🇺",
+  "fact": "The Lena ends in a delta about 400 km wide holding more than 1,500 islands, the largest delta on the Arctic coast. Upstream, the Lena Pillars, weathered limestone towers up to 100 m high, line its bank for tens of kilometres south of Yakutsk.",
+  "lat": 61.0987,
+  "lng": 127.1731,
+  "difficulty": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Lenapilaren_-_uitzicht_over_de_Lena_%282%29.jpg/500px-Lenapilaren_-_uitzicht_over_de_Lena_%282%29.jpg",
+  "country": "Russia",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.42·fb3305·K0·iso762 → 354.9 → 10",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "niger-river",
+  "short": "Niger River",
+  "clue": "Niger River, Nigeria 🇳🇬",
+  "fact": "The Niger runs in a great boomerang bend, flowing northeast into Mali before turning sharply south at the edge of the Sahara. Around Djenné and Mopti its inland delta floods each year to roughly the size of Belgium, then slowly drains as the river falls.",
+  "lat": 12.6217,
+  "lng": -8.0281,
+  "difficulty": 4,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Fleuve_Niger_-_Environs_de_Bamako%2C_MALI.jpg/500px-Fleuve_Niger_-_Environs_de_Bamako%2C_MALI.jpg",
+  "country": "Nigeria",
+  "continent": "Africa",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.60·fb89·K0·iso77 → 12.3 → 4",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "volga-river",
+  "short": "Volga River",
+  "clue": "Volga River, Russia 🇷🇺",
+  "fact": "At 3,530 km the Volga is Europe's longest river, and about half of Russia's river freight still moves on it. It meets the Kama, its largest tributary, just below Kazan, and past Volgograd it spreads into the Akhtuba floodplain and a broad Caspian delta.",
+  "lat": 55.744,
+  "lng": 49.0094,
+  "difficulty": 4,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Volga._Kazan_P8111799_2200.jpg/500px-Volga._Kazan_P8111799_2200.jpg",
+  "country": "Russia",
+  "continent": "Europe",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.76·fb165·K0·iso115 → 12.3 → 4",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "yukon-river",
+  "short": "Yukon River",
+  "clue": "Yukon River, United States 🇺🇸",
+  "fact": "When gold was found on the Klondike in 1896, Dawson City at its meeting with the Yukon boomed to some 30,000 people within two years. Yukon chinook salmon still swim as far as 3,000 km inland to spawn, among the longest salmon migrations in the world.",
+  "lat": 64.0718,
+  "lng": -139.4542,
+  "difficulty": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Ferry_crossing_Yukon_River%2C_Dawson_City%2C_Yukon_-a.jpg/500px-Ferry_crossing_Yukon_River%2C_Dawson_City%2C_Yukon_-a.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.47·fb4296·K0·iso1592 → 386.5 → 10",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "indus-river",
+  "short": "Indus River",
+  "clue": "Indus River, Pakistan 🇵🇰",
+  "fact": "The Indus gave India its name, from the Persian word for this river. Mohenjo-daro, one of the largest cities of the Bronze Age, stood on its Sindh plain, and the Lloyd Barrage at Sukkur, completed in 1932, remains one of the largest irrigation works in the world.",
+  "lat": 27.7103,
+  "lng": 68.9326,
+  "difficulty": 3,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/SukkurHolz.jpg/500px-SukkurHolz.jpg",
+  "country": "Pakistan",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.74·fb57·K0·iso50 → 9.3 → 3",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "zambezi-river",
+  "short": "Zambezi River",
+  "clue": "Zambezi River, Zambia 🇿🇲",
+  "fact": "The Zambezi pours over a basalt lip 1,708 m wide at Victoria Falls, the largest sheet of falling water on Earth. Below the falls it is dammed twice, at Kariba and Cahora Bassa, two of the largest reservoirs in the world by volume.",
+  "lat": -17.9066,
+  "lng": 25.8492,
+  "difficulty": 8,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_05.jpg/500px-Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_05.jpg",
+  "country": "Zambia",
+  "continent": "Africa",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.58·fb231·K1·iso93 → 79.7 → 8",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "ob-irtysh-river",
+  "short": "Ob-Irtysh",
+  "clue": "Ob-Irtysh River, Russia 🇷🇺",
+  "fact": "Measured up the Irtysh, the Ob system runs about 5,410 km, the longest river system in Asia. At Khanty-Mansiysk the Irtysh meets the Ob and the two run side by side, dark water beside pale, for kilometres before they finally blend.",
+  "lat": 61.0096,
+  "lng": 69.0069,
+  "difficulty": 9,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Irtysh_and_Moskva-112_on_the_Irtysh_River_Omskaya_Oblast_Omsk_18_August_2012.jpg/500px-Irtysh_and_Moskva-112_on_the_Irtysh_River_Omskaya_Oblast_Omsk_18_August_2012.jpg",
+  "country": "Russia",
+  "continent": "Asia",
+  "sets": [
+   "Great Rivers"
+  ],
+  "difficultyWhy": "p.28·fb1068·K0·iso369 → 170.3 → 9",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
  }
 ]
