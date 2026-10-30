@@ -149,6 +149,7 @@ export const PACK_CAPITAL_IDS = new Set([
   'port-moresby-papua-new-guinea',
   'port-of-spain-trinidad-and-tobago',
   'port-vila-vanuatu',
+  'porto-novo-bj',
   'prague-czech-republic',
   'praia-cabo-verde',
   'pretoria',
