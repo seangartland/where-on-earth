@@ -43,7 +43,6 @@ export const PACK_LANDFORM_IDS = new Set([
   'great-blue-hole',
   'great-salt-lake',
   'great-sea-reef',
-  'great-wall-of-china',
   'gullfoss',
   'ha-long-bay',
   'halemaumau-crater',

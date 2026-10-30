@@ -141,10 +141,6 @@ test('cities and point landmarks preserve the raw number and frozen score fixtur
 });
 
 test('extent geometry scores its shipped line and polygon geometry', () => {
-  const wall = byLandmarkId.get('great-wall-of-china');
-  assert.equal(scoringDistanceKm({ lat: 40.3598, lng: 116.02 }, wall), 0);
-  assert.equal(scoringDistanceKm({ lat: 40.4319, lng: 116.5704 }, wall), 0);
-
   const reef = byLandmarkId.get('great-barrier-reef');
   assert.equal(scoringDistanceKm({ lat: -18, lng: 147 }, reef), 0);
   const outside = { lat: -18, lng: 151.6029 };

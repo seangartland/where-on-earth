@@ -27,7 +27,7 @@ EXCLUSIONS = {
 # These are stable bank ids so similarly named places cannot be pulled in by
 # accident; the name+country resolution was audited against pack-lists.json.
 CURATED_ADDITION_IDS = {
-    'ak-baital-pass', 'angel-falls', 'bering-strait', 'grand-canyon', 'great-wall-of-china',
+    'ak-baital-pass', 'angel-falls', 'bering-strait', 'grand-canyon',
     'great-barrier-reef', 'iguazu-falls',
     'k2', 'mount-etna', 'mount-everest-summit', 'niagara-falls',
     'strait-of-gibraltar',

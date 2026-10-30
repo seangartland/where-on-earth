@@ -1914,5 +1914,25 @@
   "extentKm": 5,
   "category": "city",
   "kind": "area"
+ },
+ {
+  "id": "great-wall-of-china",
+  "short": "Great Wall of China",
+  "clue": "Great Wall of China 🇨🇳",
+  "fact": "The Ming main line crosses northern China through mountain passes and watchtowers; it is only one part of wall systems built across many dynasties.",
+  "lat": 40.4319,
+  "lng": 116.5704,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Great_Wall_of_China_July_2006.JPG/500px-Great_Wall_of_China_July_2006.JPG",
+  "imageLicense": "CC0 1.0",
+  "imageAuthor": "Nicolas Perrault III (Velatrix)",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [
+   "History Was Here",
+   "Wonders of the World"
+  ],
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
  }
 ]
