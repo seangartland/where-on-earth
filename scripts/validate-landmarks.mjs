@@ -32,10 +32,7 @@ const APPROVED_AREAS = new Map([
   ['yellowstone-national-park', 74.8],
   ['serengeti-national-park', 110.9],
   ['kruger-national-park', 191],
-  ['fiordland-national-park', 128.5],
-  ['etosha-national-park', 203.3],
   ['masai-mara', 40.6],
-  ['sagarmatha-national-park', 29.3],
   ['grand-teton-national-park', 33],
   ['loch-ness', 20],
   // Added 2026-10-30 with the audit-2 glaring landforms chunk; radii
