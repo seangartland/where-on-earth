@@ -1,0 +1,249 @@
+{
+  "label": "after",
+  "select": {
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "cx": 195,
+      "cy": 422
+    },
+    "screen": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 844,
+      "bottom": 844,
+      "right": 390,
+      "cx": 195,
+      "cy": 422,
+      "scrollHeight": 844,
+      "clientHeight": 844,
+      "scrollTop": 0
+    },
+    "panel": {
+      "x": 8,
+      "y": 229.75,
+      "width": 374,
+      "height": 384.484375,
+      "bottom": 614.234375,
+      "right": 382,
+      "cx": 195,
+      "cy": 421.9921875
+    },
+    "block": {
+      "top": 241.75,
+      "bottom": 598.234375,
+      "height": 356.484375,
+      "cy": 419.9921875
+    },
+    "offsetX": 0,
+    "choicesCx": 195,
+    "blockOffsetY": -2.0078125,
+    "blockOffsetX": 0,
+    "choices": {
+      "x": 12,
+      "y": 384.4375,
+      "width": 366,
+      "height": 213.796875,
+      "bottom": 598.234375,
+      "right": 378,
+      "cx": 195,
+      "cy": 491.3359375
+    },
+    "choiceImgs": [
+      {
+        "x": 15,
+        "y": 387.4375,
+        "width": 112,
+        "height": 168,
+        "bottom": 555.4375,
+        "right": 127,
+        "cx": 71,
+        "cy": 471.4375
+      },
+      {
+        "x": 139,
+        "y": 387.4375,
+        "width": 112,
+        "height": 168,
+        "bottom": 555.4375,
+        "right": 251,
+        "cx": 195,
+        "cy": 471.4375
+      },
+      {
+        "x": 263,
+        "y": 387.4375,
+        "width": 112,
+        "height": 168,
+        "bottom": 555.4375,
+        "right": 375,
+        "cx": 319,
+        "cy": 471.4375
+      }
+    ],
+    "choiceCards": [
+      {
+        "x": 12,
+        "y": 384.4375,
+        "width": 118,
+        "height": 213.796875,
+        "bottom": 598.234375,
+        "right": 130,
+        "cx": 71,
+        "cy": 491.3359375
+      },
+      {
+        "x": 136,
+        "y": 384.4375,
+        "width": 118,
+        "height": 213.796875,
+        "bottom": 598.234375,
+        "right": 254,
+        "cx": 195,
+        "cy": 491.3359375
+      },
+      {
+        "x": 260,
+        "y": 384.4375,
+        "width": 118,
+        "height": 213.796875,
+        "bottom": 598.234375,
+        "right": 378,
+        "cx": 319,
+        "cy": 491.3359375
+      }
+    ],
+    "children": [
+      {
+        "cls": "home-nav-btn pack-back",
+        "hidden": false,
+        "display": "block",
+        "position": "absolute",
+        "rect": {
+          "x": 333,
+          "y": 234.75,
+          "width": 44,
+          "height": 44,
+          "bottom": 278.75,
+          "right": 377,
+          "cx": 355,
+          "cy": 256.75
+        }
+      },
+      {
+        "cls": "",
+        "hidden": false,
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "x": 12,
+          "y": 241.75,
+          "width": 366,
+          "height": 29.6875,
+          "bottom": 271.4375,
+          "right": 378,
+          "cx": 195,
+          "cy": 256.59375
+        }
+      },
+      {
+        "cls": "pack-select",
+        "hidden": false,
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "x": 12,
+          "y": 276.4375,
+          "width": 366,
+          "height": 321.796875,
+          "bottom": 598.234375,
+          "right": 378,
+          "cx": 195,
+          "cy": 437.3359375
+        }
+      },
+      {
+        "cls": "pack-line",
+        "hidden": true,
+        "display": "none",
+        "position": "static",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0,
+          "cx": 0,
+          "cy": 0
+        }
+      },
+      {
+        "cls": "pack-sealed",
+        "hidden": true,
+        "display": "none",
+        "position": "relative",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0,
+          "cx": 0,
+          "cy": 0
+        }
+      },
+      {
+        "cls": "pack-slots",
+        "hidden": true,
+        "display": "none",
+        "position": "static",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0,
+          "cx": 0,
+          "cy": 0
+        }
+      },
+      {
+        "cls": "pack-complete-stamina",
+        "hidden": true,
+        "display": "none",
+        "position": "static",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0,
+          "cx": 0,
+          "cy": 0
+        }
+      },
+      {
+        "cls": "pack-actions",
+        "hidden": true,
+        "display": "none",
+        "position": "static",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "bottom": 0,
+          "right": 0,
+          "cx": 0,
+          "cy": 0
+        }
+      }
+    ]
+  },
+  "errors": []
+}
