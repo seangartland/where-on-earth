@@ -66,24 +66,6 @@
   "kind": "area"
  },
  {
-  "id": "ak-baital-pass",
-  "clue": "Ak-Baital Pass, Tajikistan 🇹🇯",
-  "fact": "At 4,655 m this is the highest point on the road from Kashgar to Dushanbe, and in winter the pass is closed entirely as ice cliffs hang over the tarmac.",
-  "lat": 38.2833,
-  "lng": 73.5,
-  "difficulty": 9,
-  "short": "Ak-Baital Pass",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Ak_Baital_Pass_2.jpg/500px-Ak_Baital_Pass_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Tajikistan",
-  "continent": "Asia",
-  "sets": [
-   "Silk Road"
-  ],
-  "difficultyWhy": "p.00·fb368·K1·iso481 → 189.6 → 9",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "alamo-san-antonio",
   "clue": "The Alamo, United States 🇺🇸",
   "fact": "The Alamo is a historic mission in San Antonio, Texas, famous for the 1836 battle during the Texas Revolution.",
@@ -337,22 +319,6 @@
   "kind": "landmark"
  },
  {
-  "id": "balanced-rock-utah",
-  "clue": "Balanced Rock, United States 🇺🇸",
-  "fact": "Balanced Rock in Arches National Park features a 3,600-ton boulder balanced atop a narrow pedestal.",
-  "lat": 38.701,
-  "lng": -109.5645,
-  "difficulty": 10,
-  "short": "Balanced Rock",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Balanced_Rock_sunset.jpg/500px-Balanced_Rock_sunset.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.00·fb1389·K0·iso626 → 296.7 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "banaue-rice-terraces-ph",
   "short": "Banaue Rice Terraces",
   "clue": "Banaue Rice Terraces, Philippines 🇵🇭",
@@ -519,24 +485,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.38·fb53·K0·iso1493 → 15.6 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "blyde-river-canyon",
-  "clue": "Three Rondavels, South Africa 🇿🇦",
-  "fact": "Iconic rock formations in one of the largest canyons on Earth, located in Mpumalanga.",
-  "lat": -24.5667,
-  "lng": 30.8167,
-  "difficulty": 9,
-  "short": "Three Rondavels",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/The_Three_Rondavels%2C_Blyde_River_Canyon.jpg",
-  "country": "South Africa",
-  "continent": "Africa",
-  "sets": [
-   "Canyons & Gorges"
-  ],
-  "difficultyWhy": "p.00·fb568·K0·iso227 → 120.3 → 9",
   "category": "city",
   "kind": "landmark"
  },
@@ -740,22 +688,6 @@
    "History Was Here"
   ],
   "difficultyWhy": "p.79·fb11996·K0·iso1881 → 207.2 → 10",
-  "kind": "landmark"
- },
- {
-  "id": "champagne-pool",
-  "clue": "Champagne Pool, New Zealand 🇳🇿",
-  "fact": "The Champagne Pool gets its name from its bubbling carbon dioxide gas, creating a champagne-like fizz.",
-  "lat": -38.3583,
-  "lng": 176.3694,
-  "difficulty": 6,
-  "short": "Champagne Pool",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/ChampagnePool-Wai-O-Tapu_rotated_MC.jpg/500px-ChampagnePool-Wai-O-Tapu_rotated_MC.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "New Zealand",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb167·K0·iso220 → 31.6 → 6",
-  "category": "city",
   "kind": "landmark"
  },
  {
@@ -1369,22 +1301,6 @@
   "kind": "area"
  },
  {
-  "id": "great-sea-reef",
-  "clue": "Great Sea Reef, Fiji 🇫🇯",
-  "fact": "The Great Sea Reef is the third longest barrier reef in the world, stretching over 1,200 km around Fiji.",
-  "lat": -16.1667,
-  "lng": 179.3667,
-  "difficulty": 10,
-  "short": "Great Sea Reef",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/ISS-45_StoryOfWater%2C_Great_Barrier_Reef%2C_Australia.jpg/500px-ISS-45_StoryOfWater%2C_Great_Barrier_Reef%2C_Australia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Fiji",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb225·K1·iso2344 → 472.2 → 10",
-  "category": "city",
-  "kind": "area"
- },
- {
   "id": "great-sphinx-giza",
   "clue": "Great Sphinx, Egypt 🇪🇬",
   "category": "city",
@@ -1437,24 +1353,6 @@
   "kind": "area"
  },
  {
-  "id": "halemaumau-crater",
-  "clue": "Halemaʻumaʻu, United States 🇺🇸",
-  "fact": "Halemaʻumaʻu is the home of Pele, Hawaiian goddess of fire, and has hosted an active lava lake for much of the past decade.",
-  "lat": 19.4098,
-  "lng": -155.283,
-  "difficulty": 10,
-  "short": "Halemaʻumaʻu",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Halema%CA%BBuma%CA%BBu_crater2.jpg/500px-Halema%CA%BBuma%CA%BBu_crater2.jpg",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [
-   "Volcanoes"
-  ],
-  "difficultyWhy": "p.13·fb6251·K0·iso3994 → 741.2 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "hohensalzburg-fortress",
   "clue": "Hohensalzburg, Austria 🇦🇹",
   "fact": "Hohensalzburg was finished in 1077 and never taken by assault; a legend says Salzburg's archbishop ordered all but one of its bells silenced as raving mad.",
@@ -1504,24 +1402,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.03·fb320·K0·iso282 → 63.3 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "humberstone-saltpeter-works",
-  "short": "Humberstone",
-  "clue": "Humberstone, Chile 🇨🇱",
-  "fact": "Its surviving buildings document the saltpeter boom that drew workers from several nations in the late nineteenth and early twentieth centuries.",
-  "lat": -20.209722,
-  "lng": -69.795833,
-  "difficulty": 10,
-  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vista_Humberstone.jpg",
-  "country": "Chile",
-  "continent": "South America",
-  "sets": [
-   "Mining Towns"
-  ],
-  "difficultyWhy": "p.00·fb1509·K0·iso448 → 320.6 → 10",
   "category": "city",
   "kind": "landmark"
  },
@@ -1895,22 +1775,6 @@
   "kind": "landmark"
  },
  {
-  "id": "mandela-rivonia-arrest-liliesleaf",
-  "short": "Liliesleaf Farm",
-  "clue": "Liliesleaf Farm, Johannesburg, South Africa 🇿🇦",
-  "fact": "Security police raided the secret African National Congress meeting place in Rivonia in 1963. Documents seized there became key evidence in the Rivonia Trial.",
-  "lat": -26.0436,
-  "lng": 28.0537,
-  "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Liliesleaf_hut1.jpg/500px-Liliesleaf_hut1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "South Africa",
-  "continent": "Africa",
-  "sets": [],
-  "difficultyWhy": "p.00·fb281·K0·iso18 → 56.2 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "masada-israel",
   "short": "Masada",
   "clue": "Masada, Israel 🇮🇱",
@@ -2023,22 +1887,6 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "p.23·fb780·K0·iso1000 → 133.0 → 9",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "monkey-gorge-zimbabwe",
-  "short": "Mana Pools - Chitake Gorge",
-  "clue": "Mana Pools - Chitake Gorge, Zimbabwe 🇿🇼",
-  "fact": "Chitake Gorge is a year-round water source in Zimbabwe that attracts large concentrations of wildlife during dry seasons.",
-  "lat": -15.75,
-  "lng": 29.3667,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/ZmbziRvr.jpg/500px-ZmbziRvr.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Zimbabwe",
-  "continent": "Africa",
-  "sets": [],
-  "difficultyWhy": "p.00·fb335·K1·iso122 → 186.7 → 9",
   "category": "city",
   "kind": "landmark"
  },
@@ -2193,22 +2041,6 @@
    "African Safari"
   ],
   "difficultyWhy": "p.51·fb303·K0·iso256 → 34.9 → 6",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "nourlangie-rock",
-  "clue": "Nourlangie Rock, Australia 🇦🇺",
-  "fact": "Nourlangie Rock contains some of Australia's oldest Aboriginal rock art, with paintings dating back thousands of years.",
-  "lat": -12.8653,
-  "lng": 132.8139,
-  "difficulty": 10,
-  "short": "Nourlangie Rock",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Kakadu_2488.jpg/500px-Kakadu_2488.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Australia",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb2653·K0·iso1701 → 518.7 → 10",
   "category": "city",
   "kind": "landmark"
  },
@@ -2431,22 +2263,6 @@
   "kind": "landmark"
  },
  {
-  "id": "plaza-mayor-of-salamanca-d34-70",
-  "short": "Plaza Mayor of Salamanca",
-  "clue": "Plaza Mayor of Salamanca, Spain 🇪🇸",
-  "fact": "Baroque town square.",
-  "lat": 40.9651,
-  "lng": -5.6641,
-  "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Plaza_Mayor%2C_Salamanca.JPG/500px-Plaza_Mayor%2C_Salamanca.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Spain",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.00·fb262·K0·iso176 → 52.0 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "plymouth-rock",
   "clue": "Plymouth Rock, United States 🇺🇸",
   "fact": "Plymouth Rock is traditionally said to be the landing site of the Pilgrims who arrived on the Mayflower in 1620.",
@@ -2459,22 +2275,6 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.68·fb1962·K0·iso294 → 136.8 → 9",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "pohutu-geyser",
-  "clue": "Pohutu Geyser, New Zealand 🇳🇿",
-  "fact": "Pohutu Geyser erupts up to 20 times a day, shooting water up to 30 meters into the air.",
-  "lat": -38.1608,
-  "lng": 176.2581,
-  "difficulty": 6,
-  "short": "Pohutu Geyser",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Pohutu_Geyser_erupting.jpg/500px-Pohutu_Geyser_erupting.jpg",
-  "country": "New Zealand",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.00·fb168·K0·iso197 → 31.8 → 6",
   "category": "city",
   "kind": "landmark"
  },
@@ -3232,22 +3032,6 @@
   "kind": "landmark"
  },
  {
-  "id": "yapahuwa-rock-citadel",
-  "short": "Yapahuwa",
-  "clue": "Yapahuwa, Sri Lanka 🇱🇰",
-  "fact": "The stronghold briefly served as a royal capital in the thirteenth century and once guarded a sacred tooth relic.",
-  "lat": 7.816784,
-  "lng": 80.310746,
-  "difficulty": 5,
-  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yapahuwa_Rock_Fortress.jpg",
-  "country": "Sri Lanka",
-  "continent": "Asia",
-  "sets": [],
-  "difficultyWhy": "p.00·fb63·K0·iso306 → 17.8 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "yosemite-valley",
   "short": "Yosemite Valley",
   "clue": "Yosemite Valley, United States 🇺🇸",
@@ -3526,22 +3310,6 @@
   "kind": "landmark"
  },
  {
-  "id": "piedra-del-cocuy",
-  "short": "Piedra del Cocuy",
-  "clue": "Piedra del Cocuy, Venezuela 🇻🇪",
-  "fact": "This isolated granite dome rises above Amazon forest near the meeting of Venezuela, Colombia, and Brazil. It is a striking navigation landmark along the Rio Negro region.",
-  "lat": 1.2236,
-  "lng": -66.8125,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Pedra_de_Cucu%C3%AD_-_panoramio.jpg/500px-Pedra_de_Cucu%C3%AD_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Venezuela",
-  "continent": "South America",
-  "sets": [],
-  "difficultyWhy": "p.00·fb965·K0·iso891 → 208.0 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "port-lockroy",
   "clue": "Port Lockroy, Antarctica 🇦🇶",
   "fact": "Port Lockroy was the first British Antarctic research station and is now a museum and penguin colony.",
@@ -3810,22 +3578,6 @@
   "kind": "landmark"
  },
  {
-  "id": "tsodilo-hills-bw",
-  "short": "Tsodilo Hills",
-  "clue": "Tsodilo Hills, Botswana",
-  "fact": "The Tsodilo Hills in northwestern Botswana contain over 4,500 rock paintings dating from 100,000 BCE to the present, and the San people consider them sacred.",
-  "lat": -18.75,
-  "lng": 21.7333,
-  "difficulty": 10,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Tsodilo_rock_paintings_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "country": "Botswana",
-  "continent": "Africa",
-  "sets": [],
-  "difficultyWhy": "p.00·fb682·K1·iso789 → 225.9 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "emi-koussi-chad",
   "clue": "Emi Koussi, Chad 🇹🇩",
   "fact": "Chad's highest mountain and the highest point in the Sahara Desert, a massive shield volcano.",
@@ -4042,22 +3794,6 @@
   "kind": "area"
  },
  {
-  "id": "yolyn-am-mongolia",
-  "clue": "Yolyn Am, Mongolia 🇲🇳",
-  "fact": "The red rocks of this 'Flaming Wall' have given up dozens of dinosaur fossils since the 1920s, and the site is now closed to everyone but scientists for fear of theft.",
-  "lat": 43.5003,
-  "lng": 104.0974,
-  "difficulty": 8,
-  "short": "Yolyn Am",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Yoliinam.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "country": "Mongolia",
-  "continent": "Asia",
-  "sets": [],
-  "difficultyWhy": "p.00·fb513·K0·iso409 → 107.9 → 8",
-  "category": "city",
-  "kind": "area"
- },
- {
   "id": "son-doong-vietnam",
   "clue": "Son Doong, Vietnam 🇻🇳",
   "fact": "The largest known cave passage system on Earth lay unexplored until 1991, when a climber squeezed through the entrance hole that a sinkhole in Laos had opened into its roof.",
@@ -4229,22 +3965,6 @@
   "difficultyWhy": "p.63·fb1704·K0·iso528 → 137.7 → 9",
   "category": "city",
   "kind": "area"
- },
- {
-  "id": "serra-da-capivara-boqueirao",
-  "short": "Pedra Furada",
-  "clue": "Pedra Furada, Brazil 🇧🇷",
-  "fact": "This natural rock arch stands amid one of South America's richest concentrations of prehistoric rock art. Nearby sites have fueled debate about the timing of human settlement.",
-  "lat": -8.8422,
-  "lng": -42.5525,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/20030924PPedraFurada9.jpg/500px-20030924PPedraFurada9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Brazil",
-  "continent": "South America",
-  "sets": [],
-  "difficultyWhy": "p.03·fb1034·K0·iso639 → 216.4 → 10",
-  "category": "city",
-  "kind": "landmark"
  },
  {
   "id": "moai-rapa-nui-ahu-tongariki",
@@ -4444,40 +4164,6 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.80·fb6241·K0·iso3987 → 174.4 → 9",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "pucara-de-tilcara",
-  "short": "Pucara de Tilcara",
-  "clue": "Pucara de Tilcara, Argentina 🇦🇷",
-  "fact": "This reconstructed pre-Hispanic hilltop settlement overlooks Argentina's Quebrada de Humahuaca. Its position controlled movement through the valley.",
-  "lat": -23.5882,
-  "lng": -65.402,
-  "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Pucar%C3%A1_de_Tilcara_01.JPG/500px-Pucar%C3%A1_de_Tilcara_01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Argentina",
-  "continent": "South America",
-  "sets": [],
-  "difficultyWhy": "p.00·fb1125·K0·iso685 → 242.2 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "sewell-mining-stairways",
-  "short": "Sewell Mining Town",
-  "clue": "Sewell Mining Town, Chile 🇨🇱",
-  "fact": "Founded to serve a vast underground copper mine, the settlement once housed more than 15,000 residents.",
-  "lat": -34.084444,
-  "lng": -70.3825,
-  "difficulty": 5,
-  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sewell_Chile.jpg",
-  "country": "Chile",
-  "continent": "South America",
-  "sets": [
-   "Mining Towns"
-  ],
-  "difficultyWhy": "p.00·fb84·K0·iso74 → 17.8 → 5",
   "category": "city",
   "kind": "landmark"
  },
@@ -4900,24 +4586,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.62·fb190·K0·iso173 → 19.2 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "salvador-pelourinho",
-  "short": "Pelourinho",
-  "clue": "Pelourinho, Brazil 🇧🇷",
-  "fact": "Pastel-colored colonial buildings line this steep square in Salvador's historic center. It is a major center of Afro-Brazilian culture.",
-  "lat": -12.9711,
-  "lng": -38.5108,
-  "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Pelourinho.png/500px-Pelourinho.png",
-  "country": "Brazil",
-  "continent": "South America",
-  "sets": [
-   "Colonial Towns"
-  ],
-  "difficultyWhy": "p.66(via Salvador)·fb936·K0·iso476 → 72.6 → 7",
   "category": "city",
   "kind": "landmark"
  },

@@ -30,34 +30,41 @@ EXCLUSIONS = {
 # Entries Sean added to the mechanically derived core in the curated 121 review.
 # These are stable bank ids so similarly named places cannot be pulled in by
 # accident; the name+country resolution was audited against pack-lists.json.
+# Scrub 3 (2026-10-30) removed eight curated ids together with their
+# bank entries (quarantined on measured obscurity): ak-baital-pass,
+# balanced-rock-utah, champagne-pool, great-sea-reef, nourlangie-rock,
+# piedra-del-cocuy, serra-da-capivara-boqueirao, yolyn-am-mongolia.
+# Four more dropped landforms (blyde-river-canyon, halemaumau-crater,
+# monkey-gorge-zimbabwe, pohutu-geyser) entered only through the name
+# pattern and leave with their bank entries on their own.
 CURATED_ADDITION_IDS = {
-    'ak-baital-pass', 'angel-falls', 'bering-strait', 'grand-canyon',
+    'angel-falls', 'bering-strait', 'grand-canyon',
     'great-barrier-reef', 'iguazu-falls',
     'k2', 'mount-etna', 'mount-everest-summit', 'niagara-falls',
     'strait-of-gibraltar',
     'victoria-falls',
     'giants-causeway', 'milford-sound', 'mount-elbrus',
     'perito-moreno-glacier', 'table-mountain',
-    'badlands-national-park', 'badwater-basin', 'balanced-rock-utah',
-    'ben-nevis', 'black-forest', 'challenger-deep', 'champagne-pool',
+    'badlands-national-park', 'badwater-basin',
+    'ben-nevis', 'black-forest', 'challenger-deep',
     'daintree-rainforest', 'danakil-depression', 'danube-delta',
     'delicate-arch-utah', 'denali', 'emi-koussi-chad',
     'fitz-roy-laguna-de-los-tres', 'geysir-d34-42',
-    'grand-prismatic-yellowstone', 'great-blue-hole', 'great-sea-reef',
+    'grand-prismatic-yellowstone', 'great-blue-hole',
     'half-dome-us', 'horseshoe-bend', 'hunga-tonga-2022-eruption',
     'jungfrau', 'kakadu', 'kirkjufell-iceland', 'krakatoa-1883-eruption',
     'laguna-colorada-viewpoint', 'lencois-maranhenses', 'masai-mara',
     'mauna-kea', 'moeraki-boulders', 'mont-blanc',
-    'monument-valley-mitten', 'nourlangie-rock', 'okefenokee-swamp',
+    'monument-valley-mitten', 'okefenokee-swamp',
     'old-faithful-yellowstone', 'pamukkale-turkey', 'phong-nha-ke-bang',
-    'pico-do-fogo-cape-verde', 'piedra-del-cocuy',
+    'pico-do-fogo-cape-verde',
     'piton-de-la-fournaise', 'pitons-of-saint-lucia',
     'preikestolen-pulpit-rock', 'redwood-national-and-state-parks',
     'richat-structure', 'rock-of-gibraltar', 'sea-of-galilee',
-    'serra-da-capivara-boqueirao', 'snowdon', 'son-doong-vietnam',
+    'snowdon', 'son-doong-vietnam',
     'sossusvlei', 'sossusvlei-dead-vlei', 'spitzkoppe', 'thingvellir',
     'tsingy-de-bemaraha', 'twelve-apostles', 'valle-de-la-luna-chile',
-    'vatnajökull-d34-44', 'wadi-rum', 'yolyn-am-mongolia',
+    'vatnajökull-d34-44', 'wadi-rum',
     # The 49 landforms added 2026-10-30 (chunk 3 of the pack additions):
     # listed explicitly so membership never depends on the name pattern.
     'aconcagua', 'aletsch-glacier', 'antelope-canyon', 'aoraki-mount-cook',
