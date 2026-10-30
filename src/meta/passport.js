@@ -12,7 +12,7 @@
 import { currentStreak } from './stats.js';
 import { buildPostcardCard, ensurePostcardCardStyles, postcardDisplayName } from './postcard-card.js';
 import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
-import { passportPackSections } from './passport-packs.js';
+import { passportPackSections, packCardNumberMap, formatPackCardNumber } from './passport-packs.js';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
@@ -214,7 +214,7 @@ export function passportMysterySlot() {
 
 // passportCard() → passportSlot(): a compact 3-up tile for the dex grid, with a
 // mystery branch for unvisited places (Idea 1, docs/passport-redesign-opus.md §2).
-function passportSlot(entry) {
+function passportSlot(entry, cardNumber = null) {
   if (!entry.visited) return ppMysteryTemplate.cloneNode(true);
   const earn = host.EARN_NAMES[entry.earned] || 'seen';
   const tier = entry.earned >= host.EARN_PINPOINT ? 'pinpoint' : entry.earned >= host.EARN_BULLSEYE ? 'bullseye' : 'ordinary';
@@ -239,23 +239,45 @@ function passportSlot(entry) {
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
   li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${tierLabel}${hasDistance ? `, ${pillText}` : ''}`);
+  if (cardNumber != null) {
+    // Pack dex only: the card's number, small on the paper at the slot's
+    // bottom-right corner. The postmark score pill owns the photo's
+    // top-right, so the number stays off the photo entirely.
+    li.classList.add('has-card-number');
+    const number = document.createElement('span');
+    number.className = 'pp-slot-number';
+    number.setAttribute('aria-hidden', 'true');
+    number.textContent = formatPackCardNumber(cardNumber);
+    li.append(number);
+  }
   bindPostcard(li, entry);
   return li;
 }
 
-function passportUnvisitedSlot(entry, packName) {
-  const name = entry.item.short || entry.item.clue || 'Unknown place';
-  const country = entry.country;
+// An unvisited pack card is an empty slot carrying only its number
+// (Sean, 2026-10-29, modeled on the TCG Pocket dex): the place's name and
+// country appear nowhere in this slot's DOM or aria-label, because the dex
+// must not hand out answers for places the player has not earned yet.
+// Tapping reveals only the pack and the not-yet-collected state.
+export function passportUnvisitedSlot(entry, packName, cardNumber) {
+  const formatted = cardNumber == null ? '' : formatPackCardNumber(cardNumber);
   const li = document.createElement('li');
   li.className = 'pp-slot pp-unvisited';
   li.tabIndex = 0;
   li.setAttribute('role', 'button');
   li.setAttribute('aria-expanded', 'false');
-  li.setAttribute('aria-label', `${name}, ${country}. Not yet collected. Available in ${packName}.`);
-  li.innerHTML = `<div class="pp-slot-photo"><span class="pp-unvisited-mark" aria-hidden="true">✉</span></div><p class="pp-slot-name"></p><p class="pp-slot-country"></p><p class="pp-slot-deal"></p>`;
-  li.querySelector('.pp-slot-name').textContent = name;
-  li.querySelector('.pp-slot-country').textContent = country;
-  li.querySelector('.pp-slot-deal').textContent = `${packName} pack`;
+  li.setAttribute('aria-label', `${packName} card ${formatted}, not yet collected`);
+  const photo = document.createElement('div');
+  photo.className = 'pp-slot-photo';
+  const number = document.createElement('span');
+  number.className = 'pp-unvisited-number';
+  number.setAttribute('aria-hidden', 'true');
+  number.textContent = formatted;
+  photo.append(number);
+  const note = document.createElement('p');
+  note.className = 'pp-unvisited-note';
+  note.textContent = `${packName} pack · Not yet collected`;
+  li.append(photo, note);
   const toggle = () => {
     const revealed = li.classList.toggle('is-revealed');
     li.setAttribute('aria-expanded', String(revealed));
@@ -564,6 +586,7 @@ function renderPassportPage() {
   if (!countryIndex) buildCountryIndex();
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
   const data = passportPackSections(host.locations, host.landmarks || [], host.passport.visits, host.passport.meta);
+  const cardNumbers = packCardNumberMap(host.locations, host.landmarks || []);
   ppEls.packProgress.textContent = `${data.collected.toLocaleString()} / ${data.total.toLocaleString()} pack postcards collected`;
   const frag = document.createDocumentFragment();
   const addSection = ({ type, name, art, items, collected, total }, packSection = true) => {
@@ -581,7 +604,8 @@ function renderPassportPage() {
     grid.className = 'pp-dex pp-pack-grid';
     grid.append(...items.map((item) => {
       const entry = buildPassportEntry(item, age);
-      return entry.visited ? passportSlot(entry) : passportUnvisitedSlot(entry, name);
+      const cardNumber = packSection ? cardNumbers.get(item.id)?.number ?? null : null;
+      return entry.visited ? passportSlot(entry, cardNumber) : passportUnvisitedSlot(entry, name, cardNumber);
     }));
     const apply = (open) => {
       head.setAttribute('aria-expanded', String(open));
@@ -1348,16 +1372,13 @@ export function initPassport(main) {
 .pp-pack-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 8px; padding: 12px 9px 14px; }
 .pp-pack-grid .pp-slot-photo { aspect-ratio: 3 / 2; }
 .pp-unvisited { cursor: pointer; }
-.pp-unvisited .pp-slot-photo { display: grid; place-items: center; border: 1px dashed rgba(155,61,66,.38); background: repeating-linear-gradient(135deg, rgba(116,104,84,.09) 0 7px, rgba(145,132,106,.07) 7px 14px), #f3ead7; }
-.pp-unvisited-mark { color: rgba(155,61,66,.6); font-size: 22px; }
-.pp-unvisited .pp-slot-name { color: #31456e; font-size: 10px; text-align: left; white-space: normal; }
-.pp-slot-country, .pp-slot-deal { margin: 2px 1px 0; overflow: hidden; color: rgba(193,224,250,.5); font-size: 8.5px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
-.pp-unvisited .pp-slot-country { color: rgba(52,72,96,.62); }
-.pp-unvisited.is-revealed .pp-slot-name { color: #eef2ff; }
-.pp-unvisited.is-revealed .pp-slot-country { color: rgba(238,242,255,.65); }
-.pp-slot-deal { display: none; color: #d9b864; font-weight: 750; }
-.pp-unvisited.is-revealed { margin: -4px; padding: 4px; border-radius: 8px; background: rgba(155,61,66,.16); }
-.pp-unvisited.is-revealed .pp-slot-deal { display: block; }
+.pp-unvisited .pp-slot-photo { display: grid; place-items: center; border: 1px dashed rgba(101,78,38,.4); background: repeating-linear-gradient(135deg, rgba(116,104,84,.09) 0 7px, rgba(145,132,106,.07) 7px 14px), #f3ead7; }
+.pp-unvisited-number { color: rgba(52,72,96,.48); font-size: 21px; font-weight: 800; letter-spacing: .05em; font-variant-numeric: tabular-nums; }
+.pp-unvisited-note { display: none; margin: 6px 1px 0; color: rgba(52,72,96,.66); font-size: 8.5px; font-weight: 700; line-height: 1.25; text-align: center; }
+.pp-unvisited.is-revealed { margin: -4px; padding: 4px; border-radius: 8px; background: rgba(101,78,38,.14); }
+.pp-unvisited.is-revealed .pp-unvisited-note { display: block; }
+.pp-slot-number { position: absolute; right: 6px; bottom: 4px; color: rgba(101,78,38,.78); font-size: 8.5px; font-weight: 800; letter-spacing: .04em; font-variant-numeric: tabular-nums; pointer-events: none; }
+.pp-slot.has-card-number .pp-slot-name { padding-right: 26px; }
 body.game-passport #hud { opacity: 0; }
 @media (max-width: 560px) {
   .passport-screen { width: 100dvw; height: 100dvh; overflow-y: auto; padding: 0; background: #0b1120; }

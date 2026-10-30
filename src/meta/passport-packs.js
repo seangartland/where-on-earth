@@ -8,6 +8,29 @@ export const PASSPORT_PACKS = [
 
 const nameOf = (item) => item.short || item.clue || '';
 
+// Card numbers are derived, never stored: a card's number is its 1-based
+// position in its pack's pool, in the order passportPackSections renders
+// the pack (alphabetical within the pack). Membership changes renumber
+// automatically; when Sean locks the packs, only this helper's source
+// changes (to the frozen numbers) and every surface keeps calling it.
+export function formatPackCardNumber(number) {
+  return String(number).padStart(3, '0');
+}
+
+export function packCardNumberMap(locations, landmarks) {
+  const { sections } = passportPackSections(locations, landmarks, {});
+  const map = new Map();
+  for (const section of sections) {
+    section.items.forEach((item, index) => map.set(item.id, { pack: section.type, number: index + 1 }));
+  }
+  return map;
+}
+
+export function packCardNumber(locations, landmarks, packType, entryId) {
+  const hit = packCardNumberMap(locations, landmarks).get(entryId);
+  return hit && hit.pack === packType ? hit.number : null;
+}
+
 export function passportPackSections(locations, landmarks, visits, meta = {}) {
   const pools = {
     capitals: packPool(locations),

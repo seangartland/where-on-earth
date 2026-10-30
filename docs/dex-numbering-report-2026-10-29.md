@@ -1,0 +1,26 @@
+# Passport dex numbering report (2026-10-29)
+
+Brief: .build-tmp/dexnum-brief.md. Worktree woe-dexnum at 09fab42. Nothing committed, pushed, or deployed.
+
+## What changed
+
+- `src/meta/passport-packs.js`: the numbering helper lives here. `packCardNumberMap(locations, landmarks)` returns a Map of entry id to `{ pack, number }`; `packCardNumber(locations, landmarks, packType, entryId)` is the single-card lookup; `formatPackCardNumber(n)` zero-pads to 3 digits. A card's number is its 1-based position in its pack's pool in the order `passportPackSections` renders the pack (alphabetical within the pack, derived live from the same pool helpers as the dex). Nothing is stored in the bank data, so additions renumber automatically. When the packs lock, only this helper's source changes.
+- `src/meta/passport.js`:
+  - `passportUnvisitedSlot(entry, packName, cardNumber)` rebuilt: the slot's DOM is now a paper photo frame holding only the number (large, centered, muted) plus a hidden note line. No name, no country, no clue, no photo, and no `✉` mark. The aria-label is `${packName} card ${number}, not yet collected` (pack + number + state only). Tapping toggles a note reading `${packName} pack · Not yet collected`; nothing else about the place is ever put in the DOM. The builder now constructs nodes with createElement/textContent instead of innerHTML, and is exported so the regression test can render it.
+  - `passportSlot(entry, cardNumber)`: visited pack cards get a `.pp-slot-number` span with the formatted number. Corner chosen: the slot's bottom-right corner, on the paper below the photo, beside the name line (the name gets 26px right padding so it ellipsizes before the number). The photo's top-right already carries the postmark score pill and the tier styling, so the number stays off the photo entirely.
+  - `renderPassportPage` builds the number map once per render and passes numbers only for the three pack sections. The everything-else section (Daily & Expeditions) is untouched: no numbers, collected only, same rendering as before.
+  - CSS: the old unvisited rules (`.pp-unvisited-mark`, the name/country/deal styles, the reveal recoloring of name and country) are deleted. The dashed frame keeps the neutral warm-grey hatch from the stripe removal. The reveal highlight is now a neutral paper tone instead of the old red tint.
+
+## Verification
+
+- Suite: `node --test test/*.test.mjs` is 83/83 (79 before, plus 4 new). Both syntax gates pass on both changed files.
+- New test `test/passport-dex-numbering.test.mjs`: zero-padding; `packCardNumber` matches the rendered position in `passportPackSections` for sampled entries in all three packs (including Abuja = Capitals 002, Angkor Wat = Landmarks 010, wrong-pack and unknown-id return null); and rendered-text leak assertions using a minimal DOM stub against the real `passportUnvisitedSlot`: the slot's text contains `002` and never `Abuja` or `Nigeria`, the aria-label is exactly `World Capitals card 002, not yet collected`, and after a simulated tap the revealed text is still only the pack name plus `Not yet collected`. A Landmarks case (Abu Simbel, 002) checks the same within-pack numbering.
+- Captures (`shots/dex-numbering/capture.mjs`, fake origin, 390x844, seeded partial collection: Capitals visited at 001 Abu Dhabi, 003 Accra, 008 Amsterdam; Landmarks at 003 Acropolis, 010 Angkor Wat; Landforms none):
+  - BEFORE (base tree): every unvisited slot printed its name and country (002 `Abuja / Nigeria`, 004 `Addis Ababa / Ethiopia`, and the aria-label named the place too). Files: before-01-capitals.png, before-02-landmarks.png, before.json.
+  - AFTER: numbered empty slots interleaved with collected postcards in pool order. Capitals shows the Abu Dhabi postcard with `001` at its bottom-right, an empty `002`, Accra with `003`, empties `004` to `007`, Amsterdam with `008`, then numbered empties onward. Landmarks shows empties `001` and `002`, the Acropolis postcard at `003`, Angkor Wat at `010`. Numbers match pool positions in both the screenshots (viewed) and the DOM dump (after.json). No page errors in either run.
+
+## Remaining leaks and notes (flagged, not redesigned, per the brief)
+
+- The browse dex (Places / Collections view, `renderPassportDex`) already hides unvisited names textually: those slots render the shared mystery template (`???`, aria-label `Mystery location, not visited`). But every sort order in `passportEntryCompare` (atlas, name, and the country/name fallbacks in the other sorts) orders entries by country and name, so a mystery slot's position among visited neighbors still follows its hidden name's alphabetical place. That is an ordering inference, not a textual leak, and it predates this change; the pack dex renders pool order with numbers by design. Flagging it here as the brief asks; no behavior changed.
+- No search box exists in the Passport, and the pack section headers, the combined progress line, and the home Passport card expose counts only, so no other Passport surface prints an unvisited pack card's name or country.
+- Visited-slot names truncate slightly earlier in the pack grid now (the 26px right padding reserving the number's corner); the full name remains in the slot's aria-label and the postcard detail.

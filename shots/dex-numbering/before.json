@@ -1,0 +1,90 @@
+{
+  "viewport": "390x844",
+  "errors": [],
+  "dump": {
+    "capitals": [
+      {
+        "text": "14kmAbu Dhabi",
+        "aria": "Open postcard: Abu Dhabi, Bullseye, 14 km"
+      },
+      {
+        "text": "✉AbujaNigeriaWorld Capitals pack",
+        "aria": "Abuja, Nigeria. Not yet collected. Available in World Capitals."
+      },
+      {
+        "text": "14kmAccra",
+        "aria": "Open postcard: Accra, Bullseye, 14 km"
+      },
+      {
+        "text": "✉Addis AbabaEthiopiaWorld Capitals pack",
+        "aria": "Addis Ababa, Ethiopia. Not yet collected. Available in World Capitals."
+      },
+      {
+        "text": "✉AlgiersAlgeriaWorld Capitals pack",
+        "aria": "Algiers, Algeria. Not yet collected. Available in World Capitals."
+      },
+      {
+        "text": "✉Alofi, NiueNiueWorld Capitals pack",
+        "aria": "Alofi, Niue, Niue. Not yet collected. Available in World Capitals."
+      },
+      {
+        "text": "✉AmmanJordanWorld Capitals pack",
+        "aria": "Amman, Jordan. Not yet collected. Available in World Capitals."
+      },
+      {
+        "text": "14kmAmsterdam",
+        "aria": "Open postcard: Amsterdam, Bullseye, 14 km"
+      },
+      {
+        "text": "✉Andorra la VellaAndorraWorld Capitals pack",
+        "aria": "Andorra la Vella, Andorra. Not yet collected. Available in World Capitals."
+      },
+      {
+        "text": "✉AnkaraTurkeyWorld Capitals pack",
+        "aria": "Ankara, Turkey. Not yet collected. Available in World Capitals."
+      }
+    ],
+    "landmarks": [
+      {
+        "text": "✉30 Rockefeller PlazaUnited StatesLandmarks pack",
+        "aria": "30 Rockefeller Plaza, United States. Not yet collected. Available in Landmarks."
+      },
+      {
+        "text": "✉Abu SimbelEgyptLandmarks pack",
+        "aria": "Abu Simbel, Egypt. Not yet collected. Available in Landmarks."
+      },
+      {
+        "text": "14kmAcropolis of Athens",
+        "aria": "Open postcard: Acropolis of Athens, Bullseye, 14 km"
+      },
+      {
+        "text": "✉Ahu TongarikiChileLandmarks pack",
+        "aria": "Ahu Tongariki, Chile. Not yet collected. Available in Landmarks."
+      },
+      {
+        "text": "✉Aït BenhaddouMoroccoLandmarks pack",
+        "aria": "Aït Benhaddou, Morocco. Not yet collected. Available in Landmarks."
+      },
+      {
+        "text": "✉AlcatrazUnited StatesLandmarks pack",
+        "aria": "Alcatraz, United States. Not yet collected. Available in Landmarks."
+      },
+      {
+        "text": "✉AlhambraSpainLandmarks pack",
+        "aria": "Alhambra, Spain. Not yet collected. Available in Landmarks."
+      },
+      {
+        "text": "✉Amsterdam CanalsNetherlandsLandmarks pack",
+        "aria": "Amsterdam Canals, Netherlands. Not yet collected. Available in Landmarks."
+      },
+      {
+        "text": "✉Amundsen–Scott South PoleAntarcticaLandmarks pack",
+        "aria": "Amundsen–Scott South Pole, Antarctica. Not yet collected. Available in Landmarks."
+      },
+      {
+        "text": "14kmAngkor Wat",
+        "aria": "Open postcard: Angkor Wat, Bullseye, 14 km"
+      }
+    ]
+  }
+}

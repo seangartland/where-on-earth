@@ -1,0 +1,90 @@
+{
+  "viewport": "390x844",
+  "errors": [],
+  "dump": {
+    "capitals": [
+      {
+        "text": "14kmAbu Dhabi001",
+        "aria": "Open postcard: Abu Dhabi, Bullseye, 14 km"
+      },
+      {
+        "text": "002World Capitals pack · Not yet collected",
+        "aria": "World Capitals card 002, not yet collected"
+      },
+      {
+        "text": "14kmAccra003",
+        "aria": "Open postcard: Accra, Bullseye, 14 km"
+      },
+      {
+        "text": "004World Capitals pack · Not yet collected",
+        "aria": "World Capitals card 004, not yet collected"
+      },
+      {
+        "text": "005World Capitals pack · Not yet collected",
+        "aria": "World Capitals card 005, not yet collected"
+      },
+      {
+        "text": "006World Capitals pack · Not yet collected",
+        "aria": "World Capitals card 006, not yet collected"
+      },
+      {
+        "text": "007World Capitals pack · Not yet collected",
+        "aria": "World Capitals card 007, not yet collected"
+      },
+      {
+        "text": "14kmAmsterdam008",
+        "aria": "Open postcard: Amsterdam, Bullseye, 14 km"
+      },
+      {
+        "text": "009World Capitals pack · Not yet collected",
+        "aria": "World Capitals card 009, not yet collected"
+      },
+      {
+        "text": "010World Capitals pack · Not yet collected",
+        "aria": "World Capitals card 010, not yet collected"
+      }
+    ],
+    "landmarks": [
+      {
+        "text": "001Landmarks pack · Not yet collected",
+        "aria": "Landmarks card 001, not yet collected"
+      },
+      {
+        "text": "002Landmarks pack · Not yet collected",
+        "aria": "Landmarks card 002, not yet collected"
+      },
+      {
+        "text": "14kmAcropolis of Athens003",
+        "aria": "Open postcard: Acropolis of Athens, Bullseye, 14 km"
+      },
+      {
+        "text": "004Landmarks pack · Not yet collected",
+        "aria": "Landmarks card 004, not yet collected"
+      },
+      {
+        "text": "005Landmarks pack · Not yet collected",
+        "aria": "Landmarks card 005, not yet collected"
+      },
+      {
+        "text": "006Landmarks pack · Not yet collected",
+        "aria": "Landmarks card 006, not yet collected"
+      },
+      {
+        "text": "007Landmarks pack · Not yet collected",
+        "aria": "Landmarks card 007, not yet collected"
+      },
+      {
+        "text": "008Landmarks pack · Not yet collected",
+        "aria": "Landmarks card 008, not yet collected"
+      },
+      {
+        "text": "009Landmarks pack · Not yet collected",
+        "aria": "Landmarks card 009, not yet collected"
+      },
+      {
+        "text": "14kmAngkor Wat010",
+        "aria": "Open postcard: Angkor Wat, Bullseye, 14 km"
+      }
+    ]
+  }
+}
