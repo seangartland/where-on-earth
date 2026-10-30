@@ -1,0 +1,19 @@
+{
+  "home": {
+    "linkText": "Credits",
+    "linkHref": "./credits.html",
+    "linkVisible": true,
+    "startScreenVisible": true,
+    "satCreditCount": 0
+  },
+  "round": {
+    "mode": "guess",
+    "roundScreenVisible": true,
+    "startScreenHidden": true,
+    "satMix": 1,
+    "provider": "EOxCloudless <a href=\"https://cloudless.eox.at\" target=\"_blank\" rel=\"noopener\">https://cloudless.eox.at</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)",
+    "satCreditCount": 0,
+    "bodyTextHasEOXLine": false
+  },
+  "errors": []
+}

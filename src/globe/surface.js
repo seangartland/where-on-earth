@@ -566,7 +566,6 @@ let mapStyle; // read in initImagery(), after main.js has handled ?reset=daily
 export let satTarget = 0; // uSatMix eases toward this
 export let satT = 0;
 export let satApplied = 0; // last satT pushed to the uniforms and overlays
-export let satCreditEl = null;
 export let satProvider = null; // tile provider used only by the detail insets
 export let satDisabled = false; // for the session, after a second context loss
 
@@ -595,10 +594,6 @@ export async function initSatellite() {
     const base = await loadSatBase(satProvider);
     if (satDisabled) { base.dispose(); return false; }
     globeMat.uniforms.uSatBase.value = base;
-    satCreditEl = document.createElement('p');
-    satCreditEl.className = 'sat-credit';
-    satCreditEl.innerHTML = satProvider.credit;
-    document.body.appendChild(satCreditEl);
     satTarget = 1;
     return true;
   } catch (err) {
@@ -1200,7 +1195,6 @@ export function updateSatellite(dt) {
     if (m.transparent === opaque) { m.transparent = !opaque; m.needsUpdate = true; }
     m.opacity = outlineRevealOpacity(m) * (1 - s);
   }
-  if (satCreditEl) satCreditEl.classList.toggle('show', s > 0);
   document.body.classList.toggle('sat-on', s > 0);
 }
 
