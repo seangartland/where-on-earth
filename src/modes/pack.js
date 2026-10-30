@@ -128,7 +128,6 @@ function packSlot(id, result, index) {
     li.innerHTML = `
       <div class="pack-flip">
         <div class="pack-flip-face pack-flip-back" aria-hidden="true">
-          <span class="pack-airmail-edge"></span>
           <span class="pack-stamp-outline"></span>
           <span class="pack-postmark-ring"></span>
           <span class="pack-message-lines"></span>

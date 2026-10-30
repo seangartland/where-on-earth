@@ -1171,7 +1171,6 @@ export function initPassportHome(main) {
 .passport:active { transform: scale(.99); }
 .passport:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .passport { overflow: hidden; padding: 0 0 11px; border: 0; border-radius: 8px; background: var(--mail-paper); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); }
-.passport::before { content: ''; display: block; height: var(--mail-band-height); background: var(--mail-stripe); }
 .passport-count { margin: 11px 76px 0 14px; color: rgba(52,72,96,.78); font-size: 13px; font-weight: 700; }
 .passport-earned, .passport-streak { color: #b27c20; }
 .passport-count b { color: #22355c; font-size: 27px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.02em; text-shadow: none; }
@@ -1185,11 +1184,11 @@ export function initPassportHome(main) {
 
 /* Recommended home variant: the card as a one-line strip at the mode grid's
    width, with the default card's padding and type. The postmark centers in
-   the paper below the band, inset 14px like the count. */
+   the paper, inset 14px like the count. */
 .home-recs .passport { box-sizing: border-box; width: min(100%, 354px); max-width: calc(100vw - 32px); }
 .home-recs .passport-count { margin-right: 72px; overflow: hidden; text-align: left; text-overflow: ellipsis; white-space: nowrap; }
 .home-recs .passport-stamps, .home-recs .passport-streak { display: none; }
-.home-recs .passport-postmark { top: var(--mail-band-height); bottom: 0; right: 14px; width: 44px; height: 44px; margin: auto 0; }
+.home-recs .passport-postmark { top: 0; bottom: 0; right: 14px; width: 44px; height: 44px; margin: auto 0; }
 @media (max-height: 700px) {
   .passport { margin-bottom: 18px; }
   .passport-count b { font-size: 23px; }
@@ -1349,7 +1348,7 @@ export function initPassport(main) {
 .pp-pack-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 8px; padding: 12px 9px 14px; }
 .pp-pack-grid .pp-slot-photo { aspect-ratio: 3 / 2; }
 .pp-unvisited { cursor: pointer; }
-.pp-unvisited .pp-slot-photo { display: grid; place-items: center; border: 1px dashed rgba(155,61,66,.38); background: repeating-linear-gradient(135deg, rgba(155,61,66,.09) 0 7px, rgba(50,73,105,.07) 7px 14px), #f3ead7; }
+.pp-unvisited .pp-slot-photo { display: grid; place-items: center; border: 1px dashed rgba(155,61,66,.38); background: repeating-linear-gradient(135deg, rgba(116,104,84,.09) 0 7px, rgba(145,132,106,.07) 7px 14px), #f3ead7; }
 .pp-unvisited-mark { color: rgba(155,61,66,.6); font-size: 22px; }
 .pp-unvisited .pp-slot-name { color: #31456e; font-size: 10px; text-align: left; white-space: normal; }
 .pp-slot-country, .pp-slot-deal { margin: 2px 1px 0; overflow: hidden; color: rgba(193,224,250,.5); font-size: 8.5px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }

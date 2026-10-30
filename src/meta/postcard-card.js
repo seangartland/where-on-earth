@@ -86,8 +86,7 @@ export function ensurePostcardCardStyles() {
 .pp-meta span { white-space: nowrap; }
 /* Passport shelf cards retain the compact component but use the mailed-paper face. */
 .pp-dex .pp-slot { overflow: hidden; padding: 0 0 6px; border-radius: 4px; background: var(--mail-paper); box-shadow: 0 2px 6px rgba(0,0,0,.4), inset 0 0 0 1px rgba(101,78,38,.18); }
-.pp-dex .pp-slot::before { content: ''; display: block; height: var(--mail-band-height); background: var(--mail-stripe); }
-.pp-dex .pp-slot.is-mystery::before { background: repeating-linear-gradient(45deg, #a89e8c 0 9px, #e9e2d0 9px 18px, #8b93a3 18px 27px, #e9e2d0 27px 36px); opacity: .55; }
+.pp-dex .pp-slot.is-mystery::before { content: ''; display: block; height: 6px; background: repeating-linear-gradient(45deg, #a89e8c 0 9px, #e9e2d0 9px 18px, #8b93a3 18px 27px, #e9e2d0 27px 36px); opacity: .55; }
 .pp-dex .pp-slot-photo { margin: 5px 5px 0; overflow: visible; border: 3px solid #fffdf6; border-radius: 0; background: #d9cdb2; box-shadow: 0 0 0 1px rgba(101,78,38,.22), 0 1px 3px rgba(101,78,38,.25), inset 0 0 8px rgba(90,70,30,.16); }
 .pp-dex .pp-slot-score { top: -6px; right: -4px; bottom: auto; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; padding: 1px; border: 1.4px solid rgba(90,90,90,.55); background: rgba(245,242,235,.9); outline: 1.2px solid rgba(90,90,90,.55); outline-offset: 2px; color: rgba(90,90,90,.8); font-size: 7px; line-height: 1.15; text-align: center; white-space: normal; transform: rotate(-11deg); box-shadow: none; }
 .pp-dex .pp-slot-score::after { content: ''; position: absolute; inset: 2.5px; border: 1px dashed rgba(90,90,90,.5); border-radius: 50%; pointer-events: none; }
