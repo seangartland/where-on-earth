@@ -642,6 +642,8 @@ export const inset = {
   win: null, // window being fed (fetch/decode/upload target); null = off
   gen: 0,
   queue: [], // tiles of `win` waiting for a fetch slot, centre first
+  prefetch: [], // z+1 sources warmed only after the needed queue is empty
+  prefetchGen: 0,
   inflight: new Map(), // tile key -> { ctrl }
   uploads: [], // decoded bitmaps waiting for a frame's upload budget
   lru: new Map(), // tile key -> compressed Blob, oldest first
@@ -811,11 +813,11 @@ export function startInsetWindow(want) {
   const buf = bufs[inset.over];
   clearInset(buf);
   buf.mix = 0;
-  buf.fadeTo = 1;
+  buf.fadeTo = 0; // stay hidden until every visible tile can crossfade together
   const { z, n } = want;
   const x0 = imod(want.tx0, n) / n;
   buf.bounds.set(x0, want.ty0 / n, x0 + INSET_COLS / n, (want.ty0 + INSET_ROWS) / n);
-  const win = { ...want, providerId: satProvider.id, gen: ++inset.gen, buf, tiles: [], visLeft: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
+  const win = { ...want, providerId: satProvider.id, gen: ++inset.gen, buf, tiles: [], visLeft: 0, visMissing: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
   for (let sy = 0; sy < want.rows; sy++) {
     for (let sx = 0; sx < want.cols; sx++) {
       const tx = want.tx0 + sx;
@@ -828,6 +830,7 @@ export function startInsetWindow(want) {
         pri: (visible ? 0 : 1000) + Math.hypot(tx + 0.5 - want.ccx, ty + 0.5 - want.ccy),
         state: 0, // 0 idle, 1 decoding / awaiting upload, 2 done (uploaded or given up)
         tries: 0,
+        gen: win.gen,
       };
       setInsetSrc(win, tile);
       while (inset.missing.has(tile.src) && tile.k < z) { tile.k++; setInsetSrc(win, tile); }
@@ -843,6 +846,8 @@ export function startInsetWindow(want) {
   for (const [key, f] of inset.inflight) {
     if (!srcs.has(key)) { f.ctrl.abort(); inset.inflight.delete(key); }
   }
+  inset.prefetch = [];
+  inset.prefetchGen = 0;
   inset.win = win;
   inset.lastBuild = performance.now();
   feedInsetWindow(win);
@@ -869,12 +874,16 @@ export function loadInsetTile(win, t) {
     t.k++;
     setInsetSrc(win, t);
   }
-  if (inset.inflight.has(t.src)) return;
+  const inflight = inset.inflight.get(t.src);
+  if (inflight) { inflight.prefetch = false; return; }
   const blob = lruGet(t.src);
   if (blob) { decodeInsetTile(win, t, blob); return; }
   const q = inset.queue;
   const i = q.findIndex((o) => o.pri > t.pri);
   q.splice(i < 0 ? q.length : i, 0, t);
+  for (const [key, f] of inset.inflight) {
+    if (f.prefetch) { f.ctrl.abort(); inset.inflight.delete(key); }
+  }
 }
 
 // Queue every idle tile: straight to decode from the blob cache, else fetch.
@@ -888,20 +897,23 @@ export function insetsOff() {
     for (const f of inset.inflight.values()) f.ctrl.abort();
     inset.inflight.clear();
     inset.queue = [];
+    inset.prefetch = [];
+    inset.prefetchGen = 0;
     inset.win = null;
   }
   if (inset.bufs) for (const b of inset.bufs) b.fadeTo = 0;
 }
 
-export function finishInsetTile(win, t) {
+export function finishInsetTile(win, t, covered = false) {
   if (t.state === 2) return;
   t.state = 2;
   win.allLeft--;
-  if (t.visible) win.visLeft--;
+  if (t.visible) { win.visLeft--; if (!covered) win.visMissing++; }
   if (!win.ready && win.visLeft === 0) {
     win.ready = true;
     const other = inset.bufs[inset.bufs[0] === win.buf ? 1 : 0];
-    other.fadeTo = 0; // crossfade the old window out underneath
+    win.buf.fadeTo = 1;
+    other.fadeTo = win.visMissing ? 1 : 0; // retain old coverage under transparent holes
   }
   if (!win.mipped && win.allLeft === 0) {
     win.mipped = true;
@@ -977,8 +989,14 @@ export function noteInsetLatency(ms) {
 export function fetchInsetTile(t) {
   const key = t.src;
   const ctrl = new AbortController();
-  const entry = { ctrl };
+  const entry = { ctrl, prefetch: !!t.prefetch };
   inset.inflight.set(key, entry);
+  const wanted = !!(inset.win && inset.win.tiles.some((tile) => tile.src === key));
+  window.__tileRound2Log?.({ event: 'start', z: t.z ?? inset.win?.z - t.k, x: t.x, y: t.y, src: key, wanted, prefetch: !!t.prefetch });
+  ctrl.signal.addEventListener('abort', () => {
+    const wantedNow = !!(inset.win && inset.win.tiles.some((tile) => tile.src === key));
+    window.__tileRound2Log?.({ event: 'abort', z: t.z ?? inset.win?.z - t.k, x: t.x, y: t.y, src: key, wanted: wantedNow, prefetch: entry.prefetch });
+  }, { once: true });
   const t0 = performance.now();
   fetch(t.url, { signal: ctrl.signal, mode: 'cors', priority: t.visible ? 'high' : 'low' })
     .then((r) => {
@@ -1019,9 +1037,54 @@ export function pumpInsetFetches(now) {
   const max = inset.slow ? INSET_FETCHES_SLOW : INSET_FETCHES;
   while (inset.inflight.size < max && inset.queue.length) {
     const t = inset.queue.shift();
-    if (t.state !== 0 || inset.inflight.has(t.src)) continue;
+    if (t.gen !== inset.win.gen || t.state !== 0 || inset.inflight.has(t.src)) continue;
     fetchInsetTile(t);
   }
+  if (inset.slow || state.gameMode !== 'guess' || inset.queue.length || !inset.win.ready) return;
+  prepareInsetPrefetch(false);
+  while (inset.inflight.size < max && inset.prefetch.length) {
+    const t = inset.prefetch.shift();
+    if (inset.inflight.has(t.src) || inset.lru.has(t.src) || inset.missing.has(t.src)) continue;
+    fetchInsetTile(t);
+  }
+}
+
+// Warm the next zoom level without occupying a slot needed by the live
+// window. A gesture refreshes the list centre-first and drops unrelated
+// speculative fetches; ordinary calls preserve the current list.
+export function prepareInsetPrefetch(prioritize) {
+  const win = inset.win;
+  if (!win || !win.ready || inset.slow || state.gameMode !== 'guess' || win.z >= satProvider.maxZ) return;
+  if (inset.prefetchGen === win.gen && !prioritize) return;
+  const z = win.z + 1;
+  const n = 1 << z;
+  const seen = new Set();
+  const next = [];
+  for (const tile of win.tiles) {
+    if (!tile.visible) continue;
+    for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 2; dx++) {
+      const x = imod(tile.x * 2 + dx, n);
+      const y = tile.y * 2 + dy;
+      const src = `${win.providerId}/${z}/${x}/${y}`;
+      if (seen.has(src)) continue;
+      seen.add(src);
+      next.push({ x, y, z, src, url: tileURL(satProvider, z, y, x), prefetch: true,
+        pri: Math.hypot(x + 0.5 - win.ccx * 2, y + 0.5 - win.ccy * 2) });
+    }
+  }
+  next.sort((a, b) => a.pri - b.pri);
+  inset.prefetch = next;
+  inset.prefetchGen = win.gen;
+  if (prioritize) {
+    for (const [key, f] of inset.inflight) {
+      if (f.prefetch && !seen.has(key)) { f.ctrl.abort(); inset.inflight.delete(key); }
+    }
+  }
+}
+
+export function prioritizeInsetZoom() {
+  prepareInsetPrefetch(true);
+  if (!inset.queue.length) pumpInsetFetches(performance.now());
 }
 
 // Frame budget: at most 4 tile sub-uploads (texSubImage2D) per frame.
@@ -1034,7 +1097,7 @@ export function pumpInsetUploads() {
     _tileSrc.image = null;
     bmp.close(); // never hoard decoded pixels
     win.loaded++;
-    finishInsetTile(win, t);
+    finishInsetTile(win, t, true);
     done++;
   }
 }

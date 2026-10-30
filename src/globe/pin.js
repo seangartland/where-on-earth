@@ -13,7 +13,7 @@ import { state } from '../core/state.js';
 import {
   PIN_COLOR, ANSWER_COLOR, latLngToVec3, vec3ToLatLng, setGlobeQuaternion, canvas, hud, renderer, camera, globe, pointers, radPerPx,
 } from './scene.js';
-import { outlineMaterials } from './surface.js';
+import { outlineMaterials, prioritizeInsetZoom } from './surface.js';
 
 let host = null;
 let guessBadgeTex;
@@ -501,6 +501,7 @@ export function initPin(main) {
     state.autoSpin = 0;
     tap = pointers.size === 1 ? { x: e.clientX, y: e.clientY, t: performance.now() } : null;
     resetAnchor();
+    if (pointers.size === 2) prioritizeInsetZoom();
     canvas.classList.add('dragging');
     markInteraction();
   });
@@ -566,6 +567,7 @@ export function initPin(main) {
     (e) => {
       e.preventDefault();
       const unit = e.deltaMode === 1 ? 0.05 : e.ctrlKey ? 0.012 : 0.0015;
+      if (e.deltaY < 0) prioritizeInsetZoom();
       state.targetDist = zoomTo(state.targetDist, Math.exp(e.deltaY * unit));
       markInteraction();
     },
