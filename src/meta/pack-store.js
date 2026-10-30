@@ -5,6 +5,7 @@ import { isPlayableLocation } from '../daily.js';
 import { PACK_CAPITAL_IDS } from './pack-capitals.js';
 import { PACK_LANDFORM_IDS } from './pack-landforms.js';
 import { PACK_ANCIENT_CITY_IDS } from './pack-ancient-cities.js';
+import { PACK_BATTLE_SITE_IDS } from './pack-battle-sites.js';
 
 export const PACK_CARDS = 3;
 export const STAMINA_MAX = 2;
@@ -19,7 +20,7 @@ export function packPool(locations) {
 const playableLandmark = (item) => Number.isFinite(item?.lat) && Number.isFinite(item?.lng)
   && typeof item?.image === 'string' && item.image.length > 0;
 export function landmarkPackPool(locations) {
-  return locations.filter((item) => !PACK_LANDFORM_IDS.has(item.id) && !PACK_ANCIENT_CITY_IDS.has(item.id) && playableLandmark(item));
+  return locations.filter((item) => !PACK_LANDFORM_IDS.has(item.id) && !PACK_ANCIENT_CITY_IDS.has(item.id) && !PACK_BATTLE_SITE_IDS.has(item.id) && playableLandmark(item));
 }
 export function landformPackPool(locations) {
   return locations.filter((item) => PACK_LANDFORM_IDS.has(item.id) && playableLandmark(item));
