@@ -65,6 +65,21 @@ const APPROVED_AREAS = {
   'aral-sea': 200,
   'socotra': 60,
   'mojave-desert': 250,
+  // Added 2026-10-30 with the diffuse conversions; radii per
+  // docs/diffuse-review-2026-10-30.md (canal ring, chinampa core, terrace
+  // clusters incl. Batad, beach crescent, Cappadocia core valleys, hill
+  // field, Copper Canyon core, recentred Danakil, Nemegt outcrop belt,
+  // Gibraltar narrows on the Bering Strait precedent).
+  'amsterdam-canals-d34-7': 2,
+  'xochimilco-mx': 4,
+  'banaue-rice-terraces-ph': 10,
+  'copacabana-beach-rio': 2.5,
+  'cappadocia': 12,
+  'chocolate-hills': 9,
+  'copper-canyon': 30,
+  'danakil-depression': 50,
+  'gobi-desert-dinosaur-nemegt': 20,
+  'strait-of-gibraltar': 30,
 };
 
 function destination(start, km, bearingDegrees = 73) {

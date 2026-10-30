@@ -8,6 +8,10 @@
 // curl -L 'https://api.openstreetmap.org/api/0.6/relation/318110/full' -o build/extent-sources/wall-full.osm
 // curl -L 'https://api.openstreetmap.org/api/0.6/relation/318110.json' -o build/extent-sources/wall-relation.json
 // curl -G 'https://services1.arcgis.com/HrMiNYsSqqPpLTDE/ArcGIS/rest/services/GBR_Marine_Park_web/FeatureServer/2/query' --data-urlencode 'where=1=1' --data-urlencode 'outFields=*' --data-urlencode 'returnGeometry=true' --data-urlencode 'geometryPrecision=5' --data-urlencode 'f=geojson' -o build/extent-sources/gbrmpa-boundary.geojson
+// python3 build/fetch-diffuse-polygons.py
+//   writes build/extent-sources/<id>-osm.geojson for the eight diffuse-
+//   conversion polygons (UNESCO property / protected-area boundaries as
+//   mapped in OpenStreetMap; ODbL, (c) OpenStreetMap contributors).
 //
 // The authoritative Wall source is parked in build/extent-sources/ (gitignored)
 // pending Sean's revisit. Reef and Canyon remain the live extent paths.
@@ -272,6 +276,47 @@ for (const [id, river] of Object.entries(RIVERS)) {
   riverSummary[id] = { lengthKm: Math.round(lengthKm), coveragePct: Number((coverage * 100).toFixed(1)), vertices: simplified.length, maxDeviationKm: Number(dev.toFixed(3)) };
 }
 
+// Diffuse-conversion polygons (2026-10-30, docs/diffuse-review-2026-10-30.md):
+// UNESCO World Heritage property / protected-area boundaries as mapped in
+// OpenStreetMap, fetched by build/fetch-diffuse-polygons.py. Same treatment
+// as the Reef and the Sahara: 0.015 degree tolerance, deviation measured per
+// ring against the source ring and gated at 2.5 km.
+const DIFFUSE_TOLERANCE = 0.015;
+const DIFFUSE_POLYGONS = {
+  'nazca-lines': { file: 'nazca-lines-osm.geojson', source: 'Lines and Geoglyphs of Nasca and Palpa, UNESCO World Heritage property boundary (ref 700) via OpenStreetMap relation 2729059', sourceUrl: 'https://www.openstreetmap.org/relation/2729059' },
+  'ha-long-bay': { file: 'ha-long-bay-osm.geojson', source: 'Ha Long Bay - Cat Ba Archipelago, UNESCO World Heritage property boundary (ref 672) via OpenStreetMap relation 19465352', sourceUrl: 'https://www.openstreetmap.org/relation/19465352' },
+  'kakadu': { file: 'kakadu-osm.geojson', source: 'Kakadu National Park boundary (WDPA site 67763; UNESCO World Heritage property ref 147) via OpenStreetMap relation 13000016', sourceUrl: 'https://www.openstreetmap.org/relation/13000016' },
+  'lencois-maranhenses': { file: 'lencois-maranhenses-osm.geojson', source: 'Lençóis Maranhenses National Park boundary (UNESCO World Heritage property ref 1611) via OpenStreetMap relation 7458131', sourceUrl: 'https://www.openstreetmap.org/relation/7458131' },
+  'redwood-national-and-state-parks': { file: 'redwood-osm.geojson', source: 'Redwood National and State Parks, UNESCO World Heritage property boundary (ref 134) via OpenStreetMap relation 9592632', sourceUrl: 'https://www.openstreetmap.org/relation/9592632' },
+  'wadi-rum': { file: 'wadi-rum-osm.geojson', source: 'Wadi Rum Protected Area, UNESCO World Heritage property boundary (ref 1377) via OpenStreetMap way 243200322', sourceUrl: 'https://www.openstreetmap.org/way/243200322' },
+  'zhangjiajie-national-forest-park': { file: 'zhangjiajie-osm.geojson', source: 'Wulingyuan Scenic and Historic Interest Area, UNESCO World Heritage property boundary (ref 640) via OpenStreetMap relation 18589298', sourceUrl: 'https://www.openstreetmap.org/relation/18589298' },
+  'guilin-karst': { file: 'guilin-karst-osm.geojson', source: 'Guilin Karst core areas (Putao and Lijiang), South China Karst UNESCO World Heritage property boundary (ref 1248) via OpenStreetMap relations 21132393 and 21263564', sourceUrl: 'https://www.openstreetmap.org/relation/21263564' },
+};
+const diffuseRecords = {};
+const diffuseSummary = {};
+for (const [id, spec] of Object.entries(DIFFUSE_POLYGONS)) {
+  const src = JSON.parse(readFileSync(new URL(`./extent-sources/${spec.file}`, import.meta.url)));
+  const rawPolygons = src.geometry.coordinates;
+  let maxDev = 0;
+  let sourceVertices = 0;
+  const polygons = rawPolygons.map((polygon) => polygon.map((ring) => {
+    sourceVertices += ring.length;
+    const simplified = simplifyRing(ring, DIFFUSE_TOLERANCE);
+    maxDev = Math.max(maxDev, deviation(ring, simplified));
+    return simplified;
+  }));
+  if (maxDev > 2.5) throw new Error(`${id} deviation gate failed: ${maxDev}`);
+  const quantized = polygons.map((polygon) => quantize(polygon));
+  const vertices = quantized.flat(2).length;
+  diffuseRecords[id] = {
+    type: 'polygon', polygons: quantized,
+    source: spec.source, sourceUrl: spec.sourceUrl,
+    license: 'ODbL', attribution: '© OpenStreetMap contributors',
+    sourceVertices, vertices, maxDeviationKm: Number(maxDev.toFixed(3)),
+  };
+  diffuseSummary[id] = { sourceVertices, vertices, maxDeviationKm: Number(maxDev.toFixed(3)) };
+}
+
 const records = {
   'great-barrier-reef': {
     type: 'polygon', polygons: [[quantize([reef])[0]]],
@@ -294,6 +339,7 @@ const records = {
     sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: Number(saharaDeviation.toFixed(3)),
   },
   ...riverRecords,
+  ...diffuseRecords,
 };
 
 const text = `${JSON.stringify(records, null, 2)}\n`;
@@ -307,5 +353,5 @@ console.log(JSON.stringify({
   rawBytes: Buffer.byteLength(text), gzipBytes: gzipSync(text).length,
   reef: { sourceVertices: rawReef.length, vertices: reef.length, maxDeviationKm: reefDeviation },
   canyon: { vertices: canyon.flat().length },
-  sahara: { sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: saharaDeviation }, rivers: riverSummary, recordBytes,
+  sahara: { sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: saharaDeviation }, rivers: riverSummary, diffuse: diffuseSummary, recordBytes,
 }, null, 2));

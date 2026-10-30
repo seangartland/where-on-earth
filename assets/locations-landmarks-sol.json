@@ -129,7 +129,8 @@
   "sets": [],
   "difficultyWhy": "p.34·fb35·K0·iso173 → 16.0 → 5",
   "category": "city",
-  "kind": "landmark"
+  "kind": "area",
+  "extentKm": 2
  },
  {
   "id": "amundsen-scott-south",
@@ -332,7 +333,8 @@
   "sets": [],
   "difficultyWhy": "p.35·fb520·K0·iso253 → 75.5 → 7",
   "category": "city",
-  "kind": "landmark"
+  "kind": "area",
+  "extentKm": 10
  },
  {
   "id": "barringer-meteor-impact",
@@ -743,7 +745,8 @@
   ],
   "difficultyWhy": "p.45·fb356·K0·iso281 → 44.9 → 7",
   "category": "city",
-  "kind": "landmark"
+  "kind": "area",
+  "extentKm": 9
  },
  {
   "id": "christ-the-redeemer",
@@ -828,7 +831,8 @@
    "Beaches"
   ],
   "difficultyWhy": "p.50·fb659·K0·iso347 → 75.7 → 7",
-  "kind": "landmark"
+  "kind": "area",
+  "extentKm": 2.5
  },
  {
   "id": "copper-canyon",
@@ -846,7 +850,8 @@
   ],
   "difficultyWhy": "p.33·fb981·K0·iso487 → 146.2 → 9",
   "category": "city",
-  "kind": "area"
+  "kind": "area",
+  "extentKm": 30
  },
  {
   "id": "daintree-rainforest",
@@ -869,8 +874,8 @@
   "id": "danakil-depression",
   "clue": "Danakil Depression, Ethiopia 🇪🇹",
   "category": "city",
-  "lat": 14.2417,
-  "lng": 40.3,
+  "lat": 13.92,
+  "lng": 40.48,
   "fact": "This Ethiopian desert basin sits over 100 meters below sea level and includes Erta Ale, one of the few volcanoes with a permanent lava lake.",
   "difficulty": 7,
   "short": "Danakil Depression",
@@ -881,7 +886,8 @@
    "History Was Here"
   ],
   "difficultyWhy": "p.46·fb571·K0·iso438 → 70.0 → 7",
-  "kind": "area"
+  "kind": "area",
+  "extentKm": 50
  },
  {
   "id": "danube-delta",
@@ -1152,7 +1158,8 @@
   "sets": [],
   "difficultyWhy": "p.29·fb585·K0·iso574 → 92.4 → 8",
   "category": "city",
-  "kind": "area"
+  "kind": "area",
+  "extentKm": 20
  },
  {
   "id": "great-sphinx-giza",
@@ -1192,8 +1199,8 @@
   "id": "ha-long-bay",
   "clue": "Ha Long Bay, Vietnam 🇻🇳",
   "fact": "Marine paleontologists once proposed pouring fossil fuel into these caves to date the world's oldest tropical limestone, and no one has found a better explanation for the karsts' odd chemistry.",
-  "lat": 20.9101,
-  "lng": 107.1839,
+  "lat": 20.905,
+  "lng": 107.175,
   "difficulty": 7,
   "short": "Ha Long Bay",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/500px-Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -1204,7 +1211,8 @@
   ],
   "difficultyWhy": "p.59·fb633·K0·iso52 → 61.1 → 7",
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "hohensalzburg-fortress",
@@ -1323,7 +1331,8 @@
   "sets": [],
   "difficultyWhy": "p.33·fb2663·K0·iso1672 → 350.4 → 10",
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "kennedy-space-center",
@@ -2313,7 +2322,8 @@
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S1·G1 → 5",
   "category": "city",
-  "kind": "area"
+  "kind": "area",
+  "extentKm": 30
  },
  {
   "id": "thermopylae",
@@ -2593,7 +2603,8 @@
   "sets": [],
   "difficultyWhy": "p.50·fb306·K0·iso19 → 35.8 → 6",
   "category": "city",
-  "kind": "landmark"
+  "kind": "area",
+  "extentKm": 4
  },
  {
   "id": "yosemite-valley",
@@ -2625,7 +2636,8 @@
   "sets": [],
   "difficultyWhy": "p.58·fb506·K0·iso128 → 49.6 → 7",
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "zugspitze-summit",
@@ -3153,7 +3165,8 @@
    "Middle East"
   ],
   "difficultyWhy": "p.52·fb277·K0·iso269 → 31.8 → 6",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "son-doong-vietnam",
@@ -3220,7 +3233,8 @@
   "sets": [],
   "difficultyWhy": "p.50·fb2596·K0·iso951 → 262.3 → 10",
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "space-needle-seattle",
@@ -3307,7 +3321,8 @@
   "sets": [],
   "difficultyWhy": "p.63·fb1704·K0·iso528 → 137.7 → 9",
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "huacachina-peru",
@@ -4602,7 +4617,8 @@
   ],
   "difficultyWhy": "p.79·fb414·K0·iso359 → 22.9 → 5",
   "category": "city",
-  "kind": "landmark"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lalibela",
@@ -5446,7 +5462,8 @@
   "sets": [],
   "difficultyWhy": "p.81·fb255·K0·iso56 → 14.3 → 4",
   "category": "city",
-  "kind": "landmark"
+  "kind": "area",
+  "extentKm": 12
  },
  {
   "id": "carlsbad-caverns",
@@ -5544,8 +5561,8 @@
   "short": "Guilin Karst",
   "clue": "Guilin Karst, China 🇨🇳",
   "fact": "Between Guilin and Yangshuo the Li River threads a forest of limestone towers, the karst landscape printed on China's 20-yuan banknote. The towers are the eroded floor of a tropical sea that covered the region some 300 million years ago.",
-  "lat": 25.2667,
-  "lng": 110.2833,
+  "lat": 24.95,
+  "lng": 110.45,
   "difficulty": 8,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Li_River_and_mountains_in_Yangshuo_County%2C_Guilin38.jpg/500px-Li_River_and_mountains_in_Yangshuo_County%2C_Guilin38.jpg",
   "country": "China",
@@ -5553,7 +5570,8 @@
   "sets": [],
   "difficultyWhy": "p.55·fb889·K0·iso137 → 91.3 → 8",
   "category": "city",
-  "kind": "landmark"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "huangshan",
