@@ -49,6 +49,20 @@ const APPROVED_AREAS = {
   'sagarmatha-national-park': 29.3,
   'grand-teton-national-park': 33,
   'loch-ness': 20,
+  // Added 2026-10-30 with the 49-landform chunk; radii follow the same
+  // ~0.5-0.6x longest-dimension precedent as the entries above.
+  'caspian-sea': 340,
+  'atacama': 250,
+  'namib': 250,
+  'gobi': 340,
+  'kalahari': 300,
+  'rub-al-khali': 280,
+  'lake-tanganyika': 330,
+  'lake-toba': 50,
+  'santorini-caldera': 5,
+  'belize-barrier-reef': 120,
+  'okavango-delta': 90,
+  'bay-of-fundy': 100,
 };
 
 function destination(start, km, bearingDegrees = 73) {

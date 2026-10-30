@@ -6626,5 +6626,883 @@
   "difficultyWhy": "p.60·fb100·K0·iso112 → 12.3 → 4",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "aconcagua",
+  "short": "Aconcagua",
+  "clue": "Aconcagua, Argentina 🇦🇷",
+  "fact": "At 6,961 m (22,837 ft) Aconcagua is the highest mountain outside Asia and the tallest in both the Western and Southern Hemispheres. Despite the altitude its normal route is a walk-up needing no technical climbing, though its weather kills climbers most seasons.",
+  "lat": -32.6531,
+  "lng": -70.0117,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Aconcagua_13.JPG/500px-Aconcagua_13.JPG",
+  "country": "Argentina",
+  "continent": "South America",
+  "sets": [
+   "Mountains",
+   "Andes"
+  ],
+  "difficultyWhy": "p.82·fb817·K0·iso107 → 36.0 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "aletsch-glacier",
+  "short": "Aletsch Glacier",
+  "clue": "Aletsch Glacier, Switzerland 🇨🇭",
+  "fact": "The largest glacier in the Alps, about 20 km long and covering some 80 km²; at Konkordiaplatz, where three ice streams merge, the ice is around 900 m thick. It is retreating so fast that the Märjelensee, a lake once famous for calving icebergs beside it, has drained away.",
+  "lat": 46.4422,
+  "lng": 8.0772,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Aletschgletscher_mit_Pinus_cembra1.jpg/500px-Aletschgletscher_mit_Pinus_cembra1.jpg",
+  "country": "Switzerland",
+  "continent": "Europe",
+  "sets": [
+   "Fjords & Glaciers",
+   "The Alps"
+  ],
+  "difficultyWhy": "p.22·fb71·K0·iso139 → 17.1 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "antelope-canyon",
+  "short": "Antelope Canyon",
+  "clue": "Antelope Canyon, Arizona 🇺🇸",
+  "fact": "Flash floods rushing through a crack in Navajo sandstone polished this slot canyon into flowing waves of red rock. Around midday in summer, shafts of sunlight fall straight to the floor of Upper Antelope Canyon, on Navajo land near Page and visitable only on guided tours.",
+  "lat": 36.8578,
+  "lng": -111.3722,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/USA_Antelope-Canyon.jpg/500px-USA_Antelope-Canyon.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Canyons & Gorges",
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.50·fb399·K0·iso384 → 46.6 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "aoraki-mount-cook",
+  "short": "Aoraki / Mount Cook",
+  "clue": "Aoraki / Mount Cook, New Zealand 🇳🇿",
+  "fact": "New Zealand's highest mountain at 3,724 m, called Aoraki, 'cloud-piercer', in te reo Māori. A huge rock avalanche in 1991 sheared about 10 m from its summit, and ice and rock loss has lowered it since.",
+  "lat": -43.595,
+  "lng": 170.1419,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Aoraki_from_Mueller_Hut%2C_Aoraki_-_Mount_Cook_National_Park%2C_New_Zealand.jpg/500px-Aoraki_from_Mueller_Hut%2C_Aoraki_-_Mount_Cook_National_Park%2C_New_Zealand.jpg",
+  "country": "New Zealand",
+  "continent": "Oceania",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.55·fb640·K0·iso846 → 66.6 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "atacama",
+  "short": "Atacama Desert",
+  "clue": "Atacama Desert, Chile 🇨🇱",
+  "fact": "The driest non-polar desert on Earth: some of its weather stations have never recorded rain, and its hyper-arid core averages under 15 mm a year. The same clear, dry skies put the ALMA observatory's 66 radio antennas on its Chajnantor plateau, 5,000 m up.",
+  "lat": -24.5,
+  "lng": -69.25,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/ALMA%E2%80%99s_dishes_huddle_together_in_the_desolate_landscape_of_Chile%E2%80%99s_Atacama_Desert_%28ann16035b%29.jpg/500px-ALMA%E2%80%99s_dishes_huddle_together_in_the_desolate_landscape_of_Chile%E2%80%99s_Atacama_Desert_%28ann16035b%29.jpg",
+  "country": "Chile",
+  "continent": "South America",
+  "sets": [],
+  "difficultyWhy": "p.76·fb793·K0·iso647 → 45.9 → 7",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 250
+ },
+ {
+  "id": "bay-of-fundy",
+  "short": "Bay of Fundy",
+  "clue": "Bay of Fundy, Canada 🇨🇦",
+  "fact": "Fundy's tides are the highest on Earth, rising as much as 16 m at Burntcoat Head, as much water as all the world's rivers combined pours in and out twice a day. At the Hopewell Rocks, flowerpot sea stacks stand on an ocean floor you can walk at low tide.",
+  "lat": 45,
+  "lng": -65.75,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/NB-00046_-_Hopewell_Rocks_%2851304954724%29.jpg/500px-NB-00046_-_Hopewell_Rocks_%2851304954724%29.jpg",
+  "country": "Canada",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.56·fb1592·K0·iso516 → 154.7 → 9",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 100
+ },
+ {
+  "id": "belize-barrier-reef",
+  "short": "Belize Barrier Reef",
+  "clue": "Belize Barrier Reef, Belize 🇧🇿",
+  "fact": "At roughly 300 km, this is the largest barrier reef system in the Northern Hemisphere, a chain of mangrove cayes, atolls and patch reefs. Its Great Blue Hole, a marine sinkhole 124 m deep, became world famous after Jacques Cousteau named it a top-ten dive site in 1971.",
+  "lat": 17.3153,
+  "lng": -87.5344,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Belize_Caye_Caulker-211.jpg/500px-Belize_Caye_Caulker-211.jpg",
+  "country": "Belize",
+  "continent": "North America",
+  "sets": [
+   "Caribbean"
+  ],
+  "difficultyWhy": "p.20·fb0·K1·iso342 → 139.9 → 9",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 120
+ },
+ {
+  "id": "bryce-canyon",
+  "short": "Bryce Canyon",
+  "clue": "Bryce Canyon, Utah 🇺🇸",
+  "fact": "Not a canyon at all, but a row of amphitheatres bitten into the Paunsaugunt Plateau, filled with pink limestone spires called hoodoos. At 2,400-2,700 m elevation, some 200 freeze-thaw cycles a year wedge the rock apart grain by grain.",
+  "lat": 37.6167,
+  "lng": -112.1425,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Bryce_Amphitheater_from_Sunrise_Point%2C_Bryce_Canyon_National_Park%2C_Utah.jpg/500px-Bryce_Amphitheater_from_Sunrise_Point%2C_Bryce_Canyon_National_Park%2C_Utah.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Canyons & Gorges",
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.56·fb319·K0·iso464 → 33.5 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "cappadocia",
+  "short": "Cappadocia",
+  "clue": "Cappadocia, Turkey 🇹🇷",
+  "fact": "Erosion carved compressed volcanic ash into 'fairy chimney' spires, and people carved back: the soft tuff holds rock-cut churches and whole underground cities such as Derinkuyu, which descends about 60 m. At dawn, fleets of hot-air balloons drift over the valleys of Göreme.",
+  "lat": 38.6706,
+  "lng": 34.8392,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/The_extraordinary_landscape_of_Cappadocia%2C_Turkey_-_panoramio.jpg/500px-The_extraordinary_landscape_of_Cappadocia%2C_Turkey_-_panoramio.jpg",
+  "country": "Turkey",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.81·fb255·K0·iso56 → 14.3 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "carlsbad-caverns",
+  "short": "Carlsbad Caverns",
+  "clue": "Carlsbad Caverns, New Mexico 🇺🇸",
+  "fact": "The Big Room, roughly 1,200 m long and up to 79 m high, is among the largest cave chambers in North America. On summer evenings some 400,000 Brazilian free-tailed bats spiral out of the Natural Entrance in a column that can take three hours to empty.",
+  "lat": 32.1753,
+  "lng": -104.4439,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Big_Room%2C_Carlsbad_Cavern_%2851202435701%29.jpg/500px-Big_Room%2C_Carlsbad_Cavern_%2851202435701%29.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.49·fb328·K0·iso197 → 38.8 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "caspian-sea",
+  "short": "Caspian Sea",
+  "clue": "Caspian Sea, Central Asia",
+  "fact": "The world's largest inland body of water at about 371,000 km² is a lake in all but name: the Volga makes its northern third nearly fresh while the south is almost as salty as the ocean. Its surface sits about 28 m below sea level.",
+  "lat": 42,
+  "lng": 50.5,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Caspian_Sea_Khezershahr_beach.jpg/500px-Caspian_Sea_Khezershahr_beach.jpg",
+  "country": "Kazakhstan",
+  "continent": "Asia",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.98·fb1332·K0·iso0 → 8.4 → 3",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 340
+ },
+ {
+  "id": "colca-canyon",
+  "short": "Colca Canyon",
+  "clue": "Colca Canyon, Peru 🇵🇪",
+  "fact": "At roughly 3,270 m deep, more than twice the Grand Canyon, Colca is among the deepest canyons on Earth. At the Cruz del Cóndor lookout, Andean condors ride morning thermals past the rim, and terraces cut before the Inca still green its slopes.",
+  "lat": -15.5972,
+  "lng": -72.0559,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Andean_condor_at_Colca_Canyon_-_53032077390.jpg/500px-Andean_condor_at_Colca_Canyon_-_53032077390.jpg",
+  "country": "Peru",
+  "continent": "South America",
+  "sets": [
+   "Canyons & Gorges",
+   "Andes"
+  ],
+  "difficultyWhy": "p.24·fb681·K0·iso105 → 113.8 → 9",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "devils-tower",
+  "short": "Devils Tower",
+  "clue": "Devils Tower, Wyoming 🇺🇸",
+  "fact": "A boss of fluted igneous columns rising 386 m above the Belle Fourche River, formed as an intrusion that cooled and cracked into hexagons underground and was exposed by erosion. Proclaimed the first US national monument in 1906, it is Bear Lodge, sacred to the Lakota and other Plains tribes.",
+  "lat": 44.5903,
+  "lng": -104.7153,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Devils_Tower_CROP.jpg/500px-Devils_Tower_CROP.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.79·fb266·K0·iso1001 → 15.6 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "eiger",
+  "short": "Eiger",
+  "clue": "Eiger, Switzerland 🇨🇭",
+  "fact": "The Eiger's 1,800 m north wall was the last of the Alps' great north faces to be climbed, in 1938, after a run of fatal attempts earned it the nickname Mordwand, 'murder wall'. A cog railway tunnels through the mountain itself, with windows cut into the face.",
+  "lat": 46.5776,
+  "lng": 8.0053,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Eiger_Nordwand_-_panoramio_%281%29.jpg/500px-Eiger_Nordwand_-_panoramio_%281%29.jpg",
+  "country": "Switzerland",
+  "continent": "Europe",
+  "sets": [
+   "Mountains",
+   "The Alps"
+  ],
+  "difficultyWhy": "p.59·fb55·K0·iso154 → 12.5 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "fish-river-canyon",
+  "short": "Fish River Canyon",
+  "clue": "Fish River Canyon, Namibia 🇳🇦",
+  "fact": "Africa's largest canyon runs 160 km, up to 27 km wide and 550 m deep, cut first by tectonic rifting and then by the Fish River's meanders. Its 85 km hiking trail opens only in the cool season; summer heat on the canyon floor is dangerous.",
+  "lat": -27.7187,
+  "lng": 17.5786,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Fish_River_Canyon_%2837687631182%29.jpg/500px-Fish_River_Canyon_%2837687631182%29.jpg",
+  "country": "Namibia",
+  "continent": "Africa",
+  "sets": [
+   "Canyons & Gorges"
+  ],
+  "difficultyWhy": "p.16·fb709·K0·iso695 → 130.1 → 9",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "franz-josef-glacier",
+  "short": "Franz Josef Glacier",
+  "clue": "Franz Josef Glacier, New Zealand 🇳🇿",
+  "fact": "This glacier pours from the Southern Alps down to about 300 m above sea level, ending amid temperate rainforest, a rare pairing of ice and lush green. Explorer Julius von Haast named it in 1865 for Emperor Franz Joseph I of Austria.",
+  "lat": -43.475,
+  "lng": 170.2,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Franz_Josef_Glacier_14.jpg/500px-Franz_Josef_Glacier_14.jpg",
+  "country": "New Zealand",
+  "continent": "Oceania",
+  "sets": [
+   "Fjords & Glaciers"
+  ],
+  "difficultyWhy": "p.24·fb626·K0·iso832 → 104.1 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "gobi",
+  "short": "Gobi Desert",
+  "clue": "Gobi Desert, Mongolia 🇲🇳",
+  "fact": "A cold desert of gravel plains and bare rock where winter brings -40 °C and herders' camels grow shaggy coats. At Bayanzag's Flaming Cliffs in 1923, Roy Chapman Andrews' expedition found the first dinosaur eggs recognised by science.",
+  "lat": 42.5,
+  "lng": 103,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Camels_in_Gobi_Desert_01.jpg/500px-Camels_in_Gobi_Desert_01.jpg",
+  "country": "Mongolia",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.77·fb302·K0·iso74 → 18.8 → 5",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 340
+ },
+ {
+  "id": "guilin-karst",
+  "short": "Guilin Karst",
+  "clue": "Guilin Karst, China 🇨🇳",
+  "fact": "Between Guilin and Yangshuo the Li River threads a forest of limestone towers, the karst landscape printed on China's 20-yuan banknote. The towers are the eroded floor of a tropical sea that covered the region some 300 million years ago.",
+  "lat": 25.2667,
+  "lng": 110.2833,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Li_River_and_mountains_in_Yangshuo_County%2C_Guilin38.jpg/500px-Li_River_and_mountains_in_Yangshuo_County%2C_Guilin38.jpg",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.55·fb889·K0·iso137 → 91.3 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "huangshan",
+  "short": "Huangshan",
+  "clue": "Huangshan, China 🇨🇳",
+  "fact": "Granite pinnacles, gnarled pines gripping bare rock, and seas of cloud made Huangshan the model for classical Chinese shan shui painting. More than 60,000 stone steps stitch its paths together, and porters still carry loads up them slung from bamboo shoulder poles.",
+  "lat": 30.125,
+  "lng": 118.1667,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Mount-huangshan_53319729912.jpg/500px-Mount-huangshan_53319729912.jpg",
+  "country": "China",
+  "continent": "Asia",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.44·fb451·K0·iso139 → 57.4 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "ilulissat-icefjord",
+  "short": "Ilulissat Icefjord",
+  "clue": "Ilulissat Icefjord, Greenland 🇬🇱",
+  "fact": "The fjord is the sea terminus of Sermeq Kujalleq, one of Earth's fastest glaciers, which calves more ice than any glacier outside Antarctica. Bergs ground for years on a shallow moraine at the fjord's mouth before escaping to Disko Bay; the berg that sank the Titanic is often traced to this fjord.",
+  "lat": 69.15,
+  "lng": -49.55,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Ilulissat_Icefjord.jpg/500px-Ilulissat_Icefjord.jpg",
+  "country": "Greenland",
+  "continent": "North America",
+  "sets": [
+   "Fjords & Glaciers"
+  ],
+  "difficultyWhy": "p.03·fb560·K0·iso2810 → 115.7 → 9",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "kaieteur-falls",
+  "short": "Kaieteur Falls",
+  "clue": "Kaieteur Falls, Guyana 🇬🇾",
+  "fact": "The Potaro River pours over a sheer 226 m ledge in Guyana's rainforest, making Kaieteur the largest single-drop waterfall on Earth by volume, about five times Niagara's height. No road reaches it: visitors arrive by small plane or a trek of several days.",
+  "lat": 5.1781,
+  "lng": -59.4823,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Kaieteur_Falls_Aerial_02.jpg/500px-Kaieteur_Falls_Aerial_02.jpg",
+  "country": "Guyana",
+  "continent": "South America",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.43·fb222·K1·iso923 → 121.5 → 9",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "kalahari",
+  "short": "Kalahari Desert",
+  "clue": "Kalahari Desert, Botswana 🇧🇼",
+  "fact": "A 900,000 km² sea of red sand that is only semi-desert: summer rains green it enough for great herds and the black-maned Kalahari lions. The Okavango River ends here, spreading into an inland delta instead of ever reaching the sea.",
+  "lat": -23,
+  "lng": 22,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/106_Angolan_giraffe_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg/500px-106_Angolan_giraffe_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+  "country": "Botswana",
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.62·fb110·K1·iso395 → 71.3 → 7",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 300
+ },
+ {
+  "id": "kilauea",
+  "short": "Kīlauea",
+  "clue": "Kīlauea, Hawaii 🇺🇸",
+  "fact": "Among the world's most active volcanoes, Kīlauea erupted almost continuously from 1983 to 2018 at Puʻu ʻŌʻō. The 2018 lower East Rift eruption destroyed more than 700 homes, and the summit's Halemaʻumaʻu crater periodically hosts a roiling lava lake.",
+  "lat": 19.4211,
+  "lng": -155.2868,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/K%C4%ABlauea_summit_eruption_fissures_within_Halema%27uma%27u_crater_lava_lake_%2896756%29.jpg/500px-K%C4%ABlauea_summit_eruption_fissures_within_Halema%27uma%27u_crater_lava_lake_%2896756%29.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.73·fb331·K0·iso3994 → 22.8 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "lake-tahoe",
+  "short": "Lake Tahoe",
+  "clue": "Lake Tahoe, United States 🇺🇸",
+  "fact": "North America's largest alpine lake by volume is 501 m deep and famed for cobalt clarity, with visibility sometimes past 20 m. It straddles the California-Nevada line, its surface 1,897 m up in the Sierra Nevada, and despite hard winters it never freezes over.",
+  "lat": 39.0833,
+  "lng": -120.0333,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Emerald_Bay%2C_Lake_Tahoe%2C_California._2015.jpg/500px-Emerald_Bay%2C_Lake_Tahoe%2C_California._2015.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.87·fb2285·K0·iso582 → 63.8 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "lake-tanganyika",
+  "short": "Lake Tanganyika",
+  "clue": "Lake Tanganyika, Tanzania 🇹🇿",
+  "fact": "The world's longest freshwater lake (about 673 km) and second deepest at 1,470 m, holding roughly 16% of Earth's unfrozen surface fresh water. Its clear waters evolved more than 250 species of cichlid fish found almost nowhere else.",
+  "lat": -6.1,
+  "lng": 29.5,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Lake_Tanganyika_at_Gombe_Stream_National_Park.jpg/500px-Lake_Tanganyika_at_Gombe_Stream_National_Park.jpg",
+  "country": "Tanzania",
+  "continent": "Africa",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.66·fb398·K0·iso136 → 33.0 → 6",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 330
+ },
+ {
+  "id": "lake-toba",
+  "short": "Lake Toba",
+  "clue": "Lake Toba, Indonesia 🇮🇩",
+  "fact": "The world's largest volcanic lake fills the caldera of a super-eruption about 74,000 years ago that may have cooled the planet for years. Samosir Island, uplifted from the caldera floor, is nearly the size of Singapore and home to the Christian Batak people.",
+  "lat": 2.67,
+  "lng": 98.8875,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Danau_Toba%2C_Sumatera.jpg/500px-Danau_Toba%2C_Sumatera.jpg",
+  "country": "Indonesia",
+  "continent": "Asia",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.57·fb1397·K0·iso54 → 132.3 → 9",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 50
+ },
+ {
+  "id": "mammoth-cave",
+  "short": "Mammoth Cave",
+  "clue": "Mammoth Cave, Kentucky 🇺🇸",
+  "fact": "The longest known cave system on Earth, with more than 676 km (420 miles) of surveyed passages and more still being mapped. Gypsum crystals coat its dry upper levels, while the Echo River, home to blind white fish, runs through its depths.",
+  "lat": 37.1833,
+  "lng": -86.1,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Historic_Entrance_%28Mammoth_Cave%2C_Kentucky%2C_USA%29_35_%2837548438050%29.jpg/500px-Historic_Entrance_%28Mammoth_Cave%2C_Kentucky%2C_USA%29_35_%2837548438050%29.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.22·fb142·K0·iso536 → 23.8 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mauna-loa",
+  "short": "Mauna Loa",
+  "clue": "Mauna Loa, Hawaii 🇺🇸",
+  "fact": "The largest volcano on Earth by volume: it rises 4,169 m above the sea and about 17 km from its base on the ocean floor, a taller pile than Everest. On its northern flank the Mauna Loa Observatory has measured atmospheric CO₂ since 1958, producing the Keeling Curve.",
+  "lat": 19.4833,
+  "lng": -155.6,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Mauna_loa_from_hilo_bay.JPG/500px-Mauna_loa_from_hilo_bay.JPG",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.69·fb302·K0·iso4018 → 23.6 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-ararat",
+  "short": "Mount Ararat",
+  "clue": "Mount Ararat, Turkey 🇹🇷",
+  "fact": "A dormant twin-coned volcano: Greater Ararat (5,137 m) is Turkey's highest peak, and tradition holds that Noah's Ark came to rest on it. It stands in Turkey but is Armenia's national symbol, printed on its coat of arms and visible from Yerevan on clear days.",
+  "lat": 39.7019,
+  "lng": 44.2983,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Mount_Ararat%2C_Two_volcanic_cones%2C_Ararat_Plain%2C_Armenia.jpg/500px-Mount_Ararat%2C_Two_volcanic_cones%2C_Ararat_Plain%2C_Armenia.jpg",
+  "country": "Turkey",
+  "continent": "Asia",
+  "sets": [
+   "Mountains",
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.79·fb1042·K0·iso56 → 51.7 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-olympus",
+  "short": "Mount Olympus",
+  "clue": "Mount Olympus, Greece 🇬🇷",
+  "fact": "Greece's highest summit, Mytikas (2,917 m), was the throne of the twelve Olympian gods, its peak usually hidden by cloud. Nobody is known to have stood on top until 1913; the massif is now a national park famed for its wildflowers and chamois.",
+  "lat": 40.0833,
+  "lng": 22.35,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Olympus_National_Park_30.jpg/500px-Olympus_National_Park_30.jpg",
+  "country": "Greece",
+  "continent": "Europe",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.85·fb184·K0·iso302 → 9.6 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-rainier",
+  "short": "Mount Rainier",
+  "clue": "Mount Rainier, Washington 🇺🇸",
+  "fact": "The most glaciated peak in the contiguous United States, wrapped in 26 named glaciers, and the most topographically prominent: it rises about 4,000 m from the surrounding lowlands. It is an active volcano whose mudflows (lahars) threaten towns in the Puyallup valley below.",
+  "lat": 46.8517,
+  "lng": -121.7603,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Rainier20200906.jpg/500px-Rainier20200906.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.88·fb52·K0·iso729 → 6.1 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-roraima",
+  "short": "Mount Roraima",
+  "clue": "Mount Roraima, Venezuela 🇻🇪",
+  "fact": "A tepui whose flat summit, about 31 km², is ringed by cliffs up to 1,000 m tall at the junction of Venezuela, Brazil and Guyana. It inspired Conan Doyle's 'The Lost World'; its blackened summit rocks host a tiny frog that, unable to hop well, curls into a ball and rolls away from danger.",
+  "lat": 5.1419,
+  "lng": -60.7642,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Monte_Roraima_e_Kukenan_Tepui_com_sol_radiante.jpg/500px-Monte_Roraima_e_Kukenan_Tepui_com_sol_radiante.jpg",
+  "country": "Venezuela",
+  "continent": "South America",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.56·fb937·K0·iso898 → 94.8 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-st-helens",
+  "short": "Mount St. Helens",
+  "clue": "Mount St. Helens, Washington 🇺🇸",
+  "fact": "On 18 May 1980 its north flank slid away in the largest landslide in recorded history, and the eruption that followed cut the summit from 2,950 m to 2,549 m. A new lava dome has been growing inside the horseshoe crater ever since, most recently in 2004-2008.",
+  "lat": 46.2003,
+  "lng": -122.1894,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Mount_St._Helens_Summit_Panorama.jpg/500px-Mount_St._Helens_Summit_Panorama.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.93·fb131·K0·iso803 → 5.3 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-tambora",
+  "short": "Mount Tambora",
+  "clue": "Mount Tambora, Indonesia 🇮🇩",
+  "fact": "Tambora's April 1815 eruption, the largest in recorded history, blasted about 1,000 m off the summit and left a caldera 6 km wide. Its stratospheric sulphur veil caused 1816, the 'Year Without a Summer', with crop failures and famine across the northern hemisphere.",
+  "lat": -8.2453,
+  "lng": 117.9928,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Mount_Tambora_Volcano%2C_Sumbawa_Island%2C_Indonesia.jpg/500px-Mount_Tambora_Volcano%2C_Sumbawa_Island%2C_Indonesia.jpg",
+  "country": "Indonesia",
+  "continent": "Asia",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.65·fb1008·K0·iso379 → 82.2 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-vinson",
+  "short": "Mount Vinson",
+  "clue": "Mount Vinson, Antarctica",
+  "fact": "The highest mountain in Antarctica at 4,892 m, it was first sighted from the air in 1958 and not climbed until 1966. It crowns the Sentinel Range of the Ellsworth Mountains, roughly 1,200 km from the South Pole, where summer temperatures hover near -30 °C.",
+  "lat": -78.5253,
+  "lng": -85.6172,
+  "difficulty": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Mount_Vinson_from_NW_at_Vinson_Plateau_by_Christian_Stangl_%28flickr%29.jpg/500px-Mount_Vinson_from_NW_at_Vinson_Plateau_by_Christian_Stangl_%28flickr%29.jpg",
+  "country": "Antarctica",
+  "continent": "Antarctica",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.17·fb1276·K0·iso5042 → 230.4 → 10",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "namib",
+  "short": "Namib",
+  "clue": "Namib, Namibia 🇳🇦",
+  "fact": "Often called the world's oldest desert, arid for at least 55 million years, it runs some 2,000 km along Namibia's Atlantic coast. At Sossusvlei its apricot dunes exceed 300 m, among Earth's tallest, and fog rolling in off the ocean keeps its desert life alive.",
+  "lat": -23,
+  "lng": 15,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Sossusvlei_Dunes_Namib.jpg/500px-Sossusvlei_Dunes_Namib.jpg",
+  "country": "Namibia",
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.47·fb41·K0·iso1010 → 14.4 → 4",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 250
+ },
+ {
+  "id": "okavango-delta",
+  "short": "Okavango Delta",
+  "clue": "Okavango Delta, Botswana 🇧🇼",
+  "fact": "One of the world's largest inland deltas: floodwater from Angola fans out into the Kalahari and evaporates rather than reaching any sea. The flood peaks in the dry winter, drawing one of Africa's densest concentrations of elephants, lions and wild dogs to the shrinking lagoons.",
+  "lat": -19.4,
+  "lng": 22.9,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Vista_a%C3%A9rea_del_delta_del_Okavango%2C_Botsuana%2C_2018-08-01%2C_DD_42.jpg/500px-Vista_a%C3%A9rea_del_delta_del_Okavango%2C_Botsuana%2C_2018-08-01%2C_DD_42.jpg",
+  "country": "Botswana",
+  "continent": "Africa",
+  "sets": [
+   "African Safari"
+  ],
+  "difficultyWhy": "p.54·fb461·K1·iso634 → 96.3 → 8",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 90
+ },
+ {
+  "id": "puncak-jaya",
+  "short": "Puncak Jaya",
+  "clue": "Puncak Jaya, Indonesia 🇮🇩",
+  "fact": "At 4,884 m, Puncak Jaya (the Carstensz Pyramid) is the highest point between the Himalayas and the Andes and the highest island peak on Earth. Glaciers beside this equatorial summit, extensive in the 1930s, have shrunk to a few remnants expected to vanish within years.",
+  "lat": -4.0833,
+  "lng": 137.1833,
+  "difficulty": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/The_Pyramids_of_the_Equator.jpg/500px-The_Pyramids_of_the_Equator.jpg",
+  "country": "Indonesia",
+  "continent": "Asia",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.62·fb3063·K0·iso1785 → 222.2 → 10",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "rhine-falls",
+  "short": "Rhine Falls",
+  "clue": "Rhine Falls, Switzerland 🇨🇭",
+  "fact": "Europe's most powerful waterfall: about 600 tonnes of water per second pour over a 23 m ledge spanning 150 m. The falls formed roughly 15,000 years ago as the Rhine was diverted into a new channel at the end of the last ice age.",
+  "lat": 47.6772,
+  "lng": 8.6158,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Chutes_du_Rhin_-_Octobre_2021.jpg/500px-Chutes_du_Rhin_-_Octobre_2021.jpg",
+  "country": "Switzerland",
+  "continent": "Europe",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.44·fb84·K0·iso226 → 14.8 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "rub-al-khali",
+  "short": "Rub' al Khali",
+  "clue": "Rub' al Khali, Saudi Arabia 🇸🇦",
+  "fact": "The Empty Quarter is the largest continuous sand desert on Earth, some 650,000 km² of dunes up to 250 m high across four countries. Parts of its interior can go a decade without rain; Wilfred Thesiger's camel crossings of the 1940s remain its benchmark journeys.",
+  "lat": 20,
+  "lng": 50,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Ar-Rub%27_Al-Khali_%28Oman%29_kz04.jpg/500px-Ar-Rub%27_Al-Khali_%28Oman%29_kz04.jpg",
+  "country": "Saudi Arabia",
+  "continent": "Asia",
+  "sets": [
+   "Middle East"
+  ],
+  "difficultyWhy": "p.57·fb559·K0·iso341 → 55.8 → 7",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 280
+ },
+ {
+  "id": "sahara",
+  "short": "Sahara",
+  "clue": "Sahara, North Africa",
+  "fact": "The largest hot desert on Earth at about 9.2 million km², nearly the size of the United States, spread across 11 countries. Its sand seas cover only about a quarter of it; most of the Sahara is gravel plain and rock plateau, and the dunes of Erg Chebbi in Morocco rise some 150 m.",
+  "lat": 23.0797,
+  "lng": 12.6122,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Erg_chebbi_sunrise.jpg/500px-Erg_chebbi_sunrise.jpg",
+  "country": "Algeria",
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.89·fb468·K0·iso123 → 14.9 → 4",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "santorini-caldera",
+  "short": "Santorini Caldera",
+  "clue": "Santorini Caldera, Greece 🇬🇷",
+  "fact": "Santorini's crescent is the rim of a volcano that drowned its own centre: the eruption of around 1600 BCE buried the port of Akrotiri and is a candidate source for the Atlantis story. The dark islets in the bay, Nea Kameni, are new lava domes that last erupted in 1950.",
+  "lat": 36.4036,
+  "lng": 25.3964,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Oia_-_Santorini_2019.jpg/500px-Oia_-_Santorini_2019.jpg",
+  "country": "Greece",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.83·fb299·K0·iso266 → 14.7 → 4",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 5
+ },
+ {
+  "id": "seljalandsfoss",
+  "short": "Seljalandsfoss",
+  "clue": "Seljalandsfoss, Iceland 🇮🇸",
+  "fact": "A 60 m curtain of the Seljalandsá dropping off a cliff that was once Iceland's coastline, with a path worn behind the falls into a dripping alcove. Its river rises on Eyjafjallajökull, the ice cap whose 2010 eruption shut down European airspace.",
+  "lat": 63.6158,
+  "lng": -19.9928,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Seljalandsfoss_Waterfall%2C_Iceland%2C_20240720_1501_3097.jpg/500px-Seljalandsfoss_Waterfall%2C_Iceland%2C_20240720_1501_3097.jpg",
+  "country": "Iceland",
+  "continent": "Europe",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.18·fb108·K0·iso1389 → 18.7 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "stromboli",
+  "short": "Stromboli",
+  "clue": "Stromboli, Italy 🇮🇹",
+  "fact": "This Aeolian island erupts in small explosions every few minutes and has done so for centuries, earning it the name 'Lighthouse of the Mediterranean'. Its Sciara del Fuoco, a vast scar down the northwest flank, funnels lava flows straight into the Tyrrhenian Sea.",
+  "lat": 38.804,
+  "lng": 15.2233,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Eruption_of_Stromboli_volcano_-_2012-06-01_A.jpg/500px-Eruption_of_Stromboli_volcano_-_2012-06-01_A.jpg",
+  "country": "Italy",
+  "continent": "Europe",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.59·fb513·K0·iso413 → 49.9 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "the-wave",
+  "short": "The Wave",
+  "clue": "The Wave, Arizona 🇺🇸",
+  "fact": "A trough of swirled red-and-cream sandstone in Arizona's Coyote Buttes, sculpted by wind and water from dunes laid down some 190 million years ago. Access is by lottery only, a few dozen hikers a day, and there is no trail: visitors navigate by photo guide and GPS.",
+  "lat": 36.9961,
+  "lng": -112.006,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/The_Wave_-_Coyote_Buttes_North_%2849995394933%29.jpg/500px-The_Wave_-_Coyote_Buttes_North_%2849995394933%29.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.00·fb411·K0·iso395 → 85.1 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "tugela-falls",
+  "short": "Tugela Falls",
+  "clue": "Tugela Falls, South Africa 🇿🇦",
+  "fact": "Five leaps totalling 948 m down the Drakensberg's Amphitheatre wall make the Tugela usually the world's second-tallest waterfall, and some surveys argue it edges past Angel Falls. The flow is seasonal: after summer rains it streams, in dry winters it thins to a thread.",
+  "lat": -28.7522,
+  "lng": 28.8941,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Amphitheatre_Drakensberg_View.jpg/500px-Amphitheatre_Drakensberg_View.jpg",
+  "country": "South Africa",
+  "continent": "Africa",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.31·fb185·K0·iso241 → 28.6 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "verdon-gorge",
+  "short": "Verdon Gorge",
+  "clue": "Verdon Gorge, France 🇫🇷",
+  "fact": "Europe's grandest canyon: limestone walls up to 700 m high above a river turned milky turquoise by glacial flour. The gorge was unknown to outsiders until Édouard-Alfred Martel's 1905 expedition traversed it in wooden boats; its cliffs are now a cradle of sport climbing.",
+  "lat": 43.7378,
+  "lng": 6.3639,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Aerial_view_of_the_outlet_of_the_Verdon_gorge.jpg/500px-Aerial_view_of_the_outlet_of_the_Verdon_gorge.jpg",
+  "country": "France",
+  "continent": "Europe",
+  "sets": [
+   "Canyons & Gorges"
+  ],
+  "difficultyWhy": "p.33·fb479·K0·iso295 → 71.3 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "waitomo-glowworm-caves",
+  "short": "Waitomo Glowworm Caves",
+  "clue": "Waitomo Glowworm Caves, New Zealand 🇳🇿",
+  "fact": "In the Glowworm Grotto, larvae of Arachnocampa luminosa, a fungus gnat found only in New Zealand, dangle sticky silk threads from the ceiling and glow blue-green to snare prey. Tour boats drift beneath the living light show in enforced silence.",
+  "lat": -38.2608,
+  "lng": 175.1036,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Waitomo_Caves_-_panoramio.jpg/500px-Waitomo_Caves_-_panoramio.jpg",
+  "country": "New Zealand",
+  "continent": "Oceania",
+  "sets": [],
+  "difficultyWhy": "p.00·fb85·K0·iso160 → 17.8 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "yosemite-falls",
+  "short": "Yosemite Falls",
+  "clue": "Yosemite Falls, California 🇺🇸",
+  "fact": "At 739 m (2,425 ft) in three tiers (Upper Fall, the Middle Cascades and Lower Fall), this is one of the tallest waterfalls in North America. Snowmelt swells it to a thundering torrent in late spring; by some autumns it dwindles to a wisp or dries entirely.",
+  "lat": 37.755,
+  "lng": -119.5973,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Yosemite_Falls_from_trail%2C_Yosemite_NP%2C_CA%2C_US_-_Diliff.jpg/500px-Yosemite_Falls_from_trail%2C_Yosemite_NP%2C_CA%2C_US_-_Diliff.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Waterfalls"
+  ],
+  "difficultyWhy": "p.23·fb283·K0·iso429 → 47.0 → 7",
+  "category": "city",
+  "kind": "landmark"
  }
 ]

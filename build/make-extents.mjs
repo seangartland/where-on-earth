@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 // Sources:
+// curl -L 'https://storage.googleapis.com/teow2016/Ecoregions2017.zip' -o build/extent-sources/Ecoregions2017.zip
+//   then unzip it in build/extent-sources/ and run build/extract-sahara-ecoregions.py
+//   to produce build/extent-sources/sahara-resolve2017.geojson (RESOLVE Ecoregions
+//   2017, ECO_ID 822+842+845: the East, South and West Sahara desert ecoregions).
 // curl -L 'https://api.openstreetmap.org/api/0.6/relation/318110/full' -o build/extent-sources/wall-full.osm
 // curl -L 'https://api.openstreetmap.org/api/0.6/relation/318110.json' -o build/extent-sources/wall-relation.json
 // curl -G 'https://services1.arcgis.com/HrMiNYsSqqPpLTDE/ArcGIS/rest/services/GBR_Marine_Park_web/FeatureServer/2/query' --data-urlencode 'where=1=1' --data-urlencode 'outFields=*' --data-urlencode 'returnGeometry=true' --data-urlencode 'geometryPrecision=5' --data-urlencode 'f=geojson' -o build/extent-sources/gbrmpa-boundary.geojson
@@ -13,6 +17,8 @@ const DEGREES = Math.PI / 180;
 // A 0.02 degree Reef simplification measured 2.963 km deviation and failed the
 // 2.5 km gate. The verified 0.015 degree result measures 1.662 km.
 const REEF_TOLERANCE = 0.015;
+// Same tolerance for the Sahara rings: measured deviation 1.665 km.
+const SAHARA_TOLERANCE = 0.015;
 function distanceKm(a, b) {
   const p = a[1] * DEGREES;
   const q = b[1] * DEGREES;
@@ -97,6 +103,26 @@ const rivers = JSON.parse(readFileSync(new URL('../assets/rivers-10m-scalerank.g
 const colorado = rivers.features[73].geometry.coordinates;
 const canyon = quantize([colorado[2].filter(([lng]) => lng <= -111.6), colorado[3], colorado[4], colorado[5]]);
 
+function simplifyRing(ring, tolerance) {
+  const midpoint = ring.length >> 1;
+  return [
+    ...simplify(ring.slice(0, midpoint + 1), tolerance).slice(0, -1),
+    ...simplify(ring.slice(midpoint), tolerance),
+  ];
+}
+
+const saharaSrc = JSON.parse(readFileSync(new URL('./extent-sources/sahara-resolve2017.geojson', import.meta.url)));
+const saharaRawPolygons = saharaSrc.features[0].geometry.coordinates;
+let saharaDeviation = 0;
+let saharaSourceVertices = 0;
+const saharaPolygons = saharaRawPolygons.map((polygon) => polygon.map((ring) => {
+  saharaSourceVertices += ring.length;
+  const simplified = simplifyRing(ring, SAHARA_TOLERANCE);
+  saharaDeviation = Math.max(saharaDeviation, deviation(ring, simplified));
+  return simplified;
+}));
+const saharaVertices = saharaPolygons.flat(2).length;
+
 const records = {
   'great-barrier-reef': {
     type: 'polygon', polygons: [[quantize([reef])[0]]],
@@ -111,16 +137,25 @@ const records = {
     sourceUrl: 'https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-rivers-lake-centerlines/',
     license: 'Public domain', attribution: 'Natural Earth', vertices: canyon.flat().length,
   },
+  'sahara': {
+    type: 'polygon', polygons: saharaPolygons.map((polygon) => quantize(polygon)),
+    source: 'RESOLVE Ecoregions 2017, East Sahara Desert + South Sahara desert + West Sahara desert ecoregions (ECO_ID 822, 842, 845)',
+    sourceUrl: 'https://storage.googleapis.com/teow2016/Ecoregions2017.zip',
+    license: 'CC BY 4.0', attribution: 'Ecoregions 2017 © RESOLVE',
+    sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: Number(saharaDeviation.toFixed(3)),
+  },
 };
 
 const text = `${JSON.stringify(records, null, 2)}\n`;
 const recordBytes = Object.fromEntries(Object.entries(records).map(([id, record]) => [id, Buffer.byteLength(JSON.stringify(record))]));
 for (const [id, bytes] of Object.entries(recordBytes)) if (bytes > 100_000) throw new Error(`${id} exceeds 100 KB`);
 if (reefDeviation > 2.5) throw new Error(`Reef deviation gate failed: ${reefDeviation}`);
+if (saharaDeviation > 2.5) throw new Error(`Sahara deviation gate failed: ${saharaDeviation}`);
 if (Buffer.byteLength(text) > 500_000) throw new Error('extent sidecar exceeds 500 KB');
 writeFileSync(new URL('../assets/extents.json', import.meta.url), text);
 console.log(JSON.stringify({
   rawBytes: Buffer.byteLength(text), gzipBytes: gzipSync(text).length,
   reef: { sourceVertices: rawReef.length, vertices: reef.length, maxDeviationKm: reefDeviation },
-  canyon: { vertices: canyon.flat().length }, recordBytes,
+  canyon: { vertices: canyon.flat().length },
+  sahara: { sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: saharaDeviation }, recordBytes,
 }, null, 2));

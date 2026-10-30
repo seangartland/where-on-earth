@@ -22,6 +22,10 @@ ADDITIONS = {
 EXCLUSIONS = {
     'Dome of the Rock', 'Dome Fuji Station', 'Gateway Arch', 'Grise Fiord',
     'Uyuni Salt Flats', 'Lakehurst Hindenburg Site', 'Pueblo Bonito', 'Vardzia',
+    # Built structures banked with the 2026-10-30 landmark additions whose
+    # names trip the pattern ('Caves' sites and two mountains in name only);
+    # they belong to Landmarks, not Landforms.
+    'Ajanta Caves', 'Ellora Caves', 'Mount Rushmore', 'Sugarloaf Mountain',
 }
 # Entries Sean added to the mechanically derived core in the curated 121 review.
 # These are stable bank ids so similarly named places cannot be pulled in by
@@ -54,6 +58,21 @@ CURATED_ADDITION_IDS = {
     'sossusvlei', 'sossusvlei-dead-vlei', 'spitzkoppe', 'thingvellir',
     'tsingy-de-bemaraha', 'twelve-apostles', 'valle-de-la-luna-chile',
     'vatnajökull-d34-44', 'wadi-rum', 'yolyn-am-mongolia',
+    # The 49 landforms added 2026-10-30 (chunk 3 of the pack additions):
+    # listed explicitly so membership never depends on the name pattern.
+    'aconcagua', 'aletsch-glacier', 'antelope-canyon', 'aoraki-mount-cook',
+    'atacama', 'bay-of-fundy', 'belize-barrier-reef', 'bryce-canyon',
+    'cappadocia', 'carlsbad-caverns', 'caspian-sea', 'colca-canyon',
+    'devils-tower', 'eiger', 'fish-river-canyon', 'franz-josef-glacier',
+    'gobi', 'guilin-karst', 'huangshan', 'ilulissat-icefjord',
+    'kaieteur-falls', 'kalahari', 'kilauea', 'lake-tahoe',
+    'lake-tanganyika', 'lake-toba', 'mammoth-cave', 'mauna-loa',
+    'mount-ararat', 'mount-olympus', 'mount-rainier', 'mount-roraima',
+    'mount-st-helens', 'mount-tambora', 'mount-vinson', 'namib',
+    'okavango-delta', 'puncak-jaya', 'rhine-falls', 'rub-al-khali',
+    'sahara', 'santorini-caldera', 'seljalandsfoss', 'stromboli',
+    'the-wave', 'tugela-falls', 'verdon-gorge', 'waitomo-glowworm-caves',
+    'yosemite-falls',
 }
 
 
