@@ -113,6 +113,10 @@ CURATED_ADDITION_IDS = {
     'amazon-rainforest', 'aral-sea', 'socotra', 'mojave-desert',
     'rhine-river', 'euphrates-river', 'colorado-river', 'missouri-river',
     'mount-sinai', 'kangchenjunga',
+    # The four remaining Great Lakes, added 2026-10-30 as radius areas on
+    # the Lake Superior pattern (Michigan, Huron, Erie, Ontario): listed
+    # explicitly on the same precedent.
+    'lake-michigan', 'lake-huron', 'lake-erie', 'lake-ontario',
 }
 
 

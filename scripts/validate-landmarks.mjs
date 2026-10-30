@@ -53,6 +53,12 @@ const APPROVED_AREAS = new Map([
   ['danakil-depression', 50],
   ['gobi-desert-dinosaur-nemegt', 20],
   ['strait-of-gibraltar', 30],
+  // Added 2026-10-30 with the Great Lakes completion chunk; measured
+  // farthest-shore radii from the P625 anchors (Lake Superior precedent).
+  ['lake-michigan', 268.2],
+  ['lake-huron', 245.3],
+  ['lake-erie', 211.6],
+  ['lake-ontario', 203.5],
 ]);
 
 const items = JSON.parse(readFileSync(new URL('../assets/locations-landmarks-sol.json', import.meta.url), 'utf8'));

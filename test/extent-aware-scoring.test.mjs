@@ -80,6 +80,13 @@ const APPROVED_AREAS = {
   'danakil-depression': 50,
   'gobi-desert-dinosaur-nemegt': 20,
   'strait-of-gibraltar': 30,
+  // Added 2026-10-30 with the Great Lakes completion chunk; radii are the
+  // measured farthest-shore distances from each lake's Wikidata P625
+  // anchor (the Lake Superior precedent, extentKm 338).
+  'lake-michigan': 268.2,
+  'lake-huron': 245.3,
+  'lake-erie': 211.6,
+  'lake-ontario': 203.5,
 };
 
 function destination(start, km, bearingDegrees = 73) {

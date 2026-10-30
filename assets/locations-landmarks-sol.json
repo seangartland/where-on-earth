@@ -7311,5 +7311,81 @@
   "difficultyWhy": "p.78·fb338·K0·iso244 → 19.8 → 5",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "lake-michigan",
+  "short": "Lake Michigan",
+  "clue": "Lake Michigan, United States 🇺🇸",
+  "fact": "The only Great Lake lying entirely inside the United States. In 1900 Chicago reversed the flow of its river to carry the city's sewage away from its drinking-water source, and the diversion still pulls roughly 2.1 billion gallons a day out of the lake under a Supreme Court decree.",
+  "lat": 44.007874,
+  "lng": -86.756451,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/ISS-61_Lake_Michigan%2C_United_States.jpg/500px-ISS-61_Lake_Michigan%2C_United_States.jpg",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.76·fb541·K0·iso0 → 32.2 → 6",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 268.2
+ },
+ {
+  "id": "lake-huron",
+  "short": "Lake Huron",
+  "clue": "Lake Huron, Canada and United States 🇨🇦🇺🇸",
+  "fact": "Huron holds Manitoulin Island, the largest island in any lake in the world, and its Georgian Bay is big enough to be sometimes counted as a sixth Great Lake. In the White Hurricane of November 1913, a single storm sank 12 ships on this lake and killed more than 250 sailors.",
+  "lat": 44.592584,
+  "lng": -82.756293,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Lake_Huron_NASA_2011.jpg/500px-Lake_Huron_NASA_2011.jpg",
+  "country": "Canada and United States",
+  "continent": "North America",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.61·fb707·K0·iso40 → 64.4 → 7",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 245.3
+ },
+ {
+  "id": "lake-erie",
+  "short": "Lake Erie",
+  "clue": "Lake Erie, Canada and United States 🇨🇦🇺🇸",
+  "fact": "The shallowest of the Great Lakes, Erie warms the fastest in summer, and farm runoff turns its western basin green with algal blooms. Off its western islands in 1813, Oliver Hazard Perry's American squadron defeated the British in the Battle of Lake Erie.",
+  "lat": 42.25,
+  "lng": -80.99972222222222,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Lake_Erie_seen_from_the_ISS.jpg/500px-Lake_Erie_seen_from_the_ISS.jpg",
+  "country": "Canada and United States",
+  "continent": "North America",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.72·fb794·K0·iso0 → 52.9 → 7",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 211.6
+ },
+ {
+  "id": "lake-ontario",
+  "short": "Lake Ontario",
+  "clue": "Lake Ontario, Canada and United States 🇨🇦🇺🇸",
+  "fact": "The smallest Great Lake by surface area is fed by the Niagara River and drains east through the St Lawrence River toward the Atlantic. It is deep for its size, 244 m at its deepest, and its surface seldom freezes across even in hard winters.",
+  "lat": 43.72888888888889,
+  "lng": -78.10638888888889,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Lake_Ontario_-_ISS_-_June_14_2012_%2855492560614%29.jpg/500px-Lake_Ontario_-_ISS_-_June_14_2012_%2855492560614%29.jpg",
+  "country": "Canada and United States",
+  "continent": "North America",
+  "sets": [
+   "Lakes"
+  ],
+  "difficultyWhy": "p.60·fb1065·K0·iso0 → 96.4 → 8",
+  "category": "city",
+  "kind": "area",
+  "extentKm": 203.5
  }
 ]
