@@ -32,6 +32,8 @@ CURATED_ADDITION_IDS = {
     'k2', 'mount-etna', 'mount-everest-summit', 'niagara-falls',
     'strait-of-gibraltar',
     'victoria-falls',
+    'giants-causeway', 'milford-sound', 'mount-elbrus',
+    'perito-moreno-glacier', 'table-mountain',
     'badlands-national-park', 'badwater-basin', 'balanced-rock-utah',
     'ben-nevis', 'black-forest', 'challenger-deep', 'champagne-pool',
     'daintree-rainforest', 'danakil-depression', 'danube-delta',

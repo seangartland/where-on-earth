@@ -5665,5 +5665,95 @@
   "difficultyWhy": "p.86·fb609·K0·iso507 → 22.2 → 5",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "table-mountain",
+  "short": "Table Mountain",
+  "clue": "Table Mountain, South Africa 🇿🇦",
+  "fact": "Its level summit plateau runs about three kilometres from side to side, and it is the only land feature to give its name to a constellation: Mensa, “the table.”",
+  "lat": -33.9622,
+  "lng": 18.4135,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Table_Mountain_from_Blouberg_beach.jpg/500px-Table_Mountain_from_Blouberg_beach.jpg",
+  "country": "South Africa",
+  "continent": "Africa",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.58·fb1027·K0·iso664 → 98.5 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "giants-causeway",
+  "short": "Giant's Causeway",
+  "clue": "Giant's Causeway, Northern Ireland",
+  "fact": "Roughly 40,000 interlocking basalt columns, most of them hexagonal, formed here as lava from a fissure eruption cooled and cracked 50 to 60 million years ago.",
+  "lat": 55.2408,
+  "lng": -6.5116,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Giant%27s_Causeway_landscape.jpg/500px-The_Giant%27s_Causeway_landscape.jpg",
+  "country": "Northern Ireland",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.77·fb67·K0·iso213 → 8.8 → 3",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "milford-sound",
+  "short": "Milford Sound",
+  "clue": "Milford Sound, New Zealand 🇳🇿",
+  "fact": "Despite its name it is a glacier-carved fiord, not a river-cut sound; the sealer John Grono named it in 1823 after Milford Haven in his native Wales.",
+  "lat": -44.6715,
+  "lng": 167.9237,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Mitre_Peak_from_Freshwater_Basin_in_Milford_Sound.jpg/500px-Mitre_Peak_from_Freshwater_Basin_in_Milford_Sound.jpg",
+  "country": "New Zealand",
+  "continent": "Oceania",
+  "sets": [
+   "Fjords & Glaciers"
+  ],
+  "difficultyWhy": "p.47·fb845·K0·iso1042 → 101.1 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "perito-moreno-glacier",
+  "short": "Perito Moreno Glacier",
+  "clue": "Perito Moreno Glacier, Argentina 🇦🇷",
+  "fact": "Its five-kilometre ice front periodically pushes across Lago Argentino and dams the Brazo Rico arm until the trapped water bursts through in a dramatic rupture.",
+  "lat": -50.4688,
+  "lng": -73.0322,
+  "difficulty": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Looking_out_from_the_observation_deck_of_the_Perito_Moreno_Glacier_in_Los_Glaciers_National_Park_in_Southern_Argentine_Patagonia.jpg/500px-Looking_out_from_the_observation_deck_of_the_Perito_Moreno_Glacier_in_Los_Glaciers_National_Park_in_Southern_Argentine_Patagonia.jpg",
+  "country": "Argentina",
+  "continent": "South America",
+  "sets": [
+   "Fjords & Glaciers",
+   "Andes"
+  ],
+  "difficultyWhy": "p.40·fb2164·K0·iso1902 → 270.5 → 10",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mount-elbrus",
+  "short": "Mount Elbrus",
+  "clue": "Mount Elbrus, Russia 🇷🇺",
+  "fact": "Europe's highest peak is a dormant volcano with twin domes: the western summit reaches 5,642 metres, just 21 metres above the eastern one.",
+  "lat": 43.3524,
+  "lng": 42.4378,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D0%B3%D0%BE%D1%80%D1%83_%D0%AD%D0%BB%D1%8C%D0%B1%D1%80%D1%83%D1%81.JPG/500px-%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D0%B3%D0%BE%D1%80%D1%83_%D0%AD%D0%BB%D1%8C%D0%B1%D1%80%D1%83%D1%81.JPG",
+  "country": "Russia",
+  "continent": "Europe",
+  "sets": [
+   "Mountains",
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.77·fb1613·K0·iso270 → 81.4 → 8",
+  "category": "city",
+  "kind": "landmark"
  }
 ]
