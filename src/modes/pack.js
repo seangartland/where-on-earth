@@ -4,7 +4,7 @@ import { state } from '../core/state.js';
 import { formatKm } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
-  PACK_CARDS, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
+  PACK_CARDS, STAMINA_MAX, STAMINA_PERIOD, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
   savePackResult, completePack, spend, applySkips, writePack, packOutcome, packSummary,
   packChoiceState, packProgressCount, canTearPack,
 } from '../meta/pack-store.js';
@@ -35,6 +35,12 @@ const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)'
 
 const plural = (count, word) => `${count} ${word}${count === 1 ? '' : 's'}`;
 
+// Inline icons from the approved mockup (pack-stamina-mockups): the sealed
+// pack stands in for the old stamina pips, the hourglass for the old emoji.
+const PACK_ICON_FULL = '<svg class="pk pk-full" viewBox="0 0 24 32" width="13" height="17" aria-hidden="true"><path d="M4 3.2h16V7L17.3 5.4 14.7 7 12 5.4 9.3 7 6.7 5.4 4 7Z" fill="#ffe3a3"/><path d="M4 10.2l2.7-1.6 2.6 1.6L12 8.6l2.7 1.6 2.6-1.6L20 10.2V27a2.6 2.6 0 0 1-2.6 2.6H6.6A2.6 2.6 0 0 1 4 27Z" fill="#ffc76a"/></svg>';
+const PACK_ICON_EMPTY = '<svg class="pk pk-empty" viewBox="0 0 24 32" width="13" height="17" fill="none" stroke="rgba(255,199,106,.85)" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 3.2h16V7L17.3 5.4 14.7 7 12 5.4 9.3 7 6.7 5.4 4 7Z"/><path d="M4 10.2l2.7-1.6 2.6 1.6L12 8.6l2.7 1.6 2.6-1.6L20 10.2V27a2.6 2.6 0 0 1-2.6 2.6H6.6A2.6 2.6 0 0 1 4 27Z"/></svg>';
+const HOURGLASS_ICON = '<svg class="hg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffc76a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 2.8h11M6.5 21.2h11M7.3 2.8v3c0 2.5 2.1 3.6 4.7 6 2.6-2.4 4.7-3.5 4.7-6v-3M7.3 21.2v-3c0-2.5 2.1-3.6 4.7-6 2.6 2.4 4.7 3.5 4.7 6v3"/><path d="M9.8 18.4 12 15.9l2.2 2.5Z" fill="#ffc76a" stroke="none" opacity=".9"/></svg>';
+
 function currentPack() {
   return pack.record?.byType[pack.type];
 }
@@ -43,20 +49,27 @@ const packConfig = () => PACKS.find((item) => item.type === pack.type);
 const poolFor = (type) => type === 'capitals' ? packPool(host.locations)
   : type === 'landforms' ? landformPackPool(host.landmarks) : landmarkPackPool(host.landmarks);
 
-function staminaText(record, now = Date.now()) {
-  if (record.stamina.stored) return `${record.stamina.stored} ${record.stamina.stored === 1 ? 'pack' : 'packs'} banked`;
+function countdownText(record, now = Date.now()) {
   const seconds = Math.max(0, Math.ceil((record.stamina.nextAt - now) / 1000));
   const h = Math.floor(seconds / 3600);
   const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
   const s = String(seconds % 60).padStart(2, '0');
-  return `Next pack in ${h}:${m}:${s}`;
+  return `${h}:${m}:${s}`;
+}
+
+function staminaText(record, now = Date.now()) {
+  if (record.stamina.stored) return `${record.stamina.stored} ${record.stamina.stored === 1 ? 'pack' : 'packs'} available`;
+  return `Next pack in ${countdownText(record, now)}`;
 }
 
 export function syncPackButton() {
   entry.disabled = !(host.locations || []).length || !(host.landmarks || []).length;
   const record = readPack();
   const progress = packProgressCount(record);
-  entry.querySelector('.mode-desc').textContent = progress ? `${progress} in progress` : staminaText(record);
+  let subtitle = progress ? `${progress} in progress` : staminaText(record);
+  if (!progress && record.stamina.stored === 1) subtitle += ` · next in ${countdownText(record)}`;
+  entry.querySelector('.mode-desc').textContent = subtitle;
+  entry.querySelector('.pack-token-count').textContent = record.skips;
   entry.classList.remove('played');
 
   // Recommended home variant: update pack marker on Daily button
@@ -214,14 +227,14 @@ export function showPackSelect() {
     pack.record = readPack();
     const waitHours = pack.record.stamina.nextAt == null ? 0
       : Math.max(0, Math.ceil((pack.record.stamina.nextAt - Date.now()) / (60 * 60 * 1000)));
-    els.selectStamina.innerHTML = `<div class="pack-stamina-line"><span class="pack-pips" aria-hidden="true"><i class="${pack.record.stamina.stored > 0 ? 'full' : ''}"></i><i class="${pack.record.stamina.stored > 1 ? 'full' : ''}"></i></span><span class="pack-stamina-text">${staminaText(pack.record)}</span><span class="pack-skip-balance">⏳ ${pack.record.skips}</span></div>`;
+    els.selectStamina.innerHTML = `<div class="pack-stamina-line"><span class="pack-icons" aria-hidden="true">${pack.record.stamina.stored > 0 ? PACK_ICON_FULL : PACK_ICON_EMPTY}${pack.record.stamina.stored > 1 ? PACK_ICON_FULL : PACK_ICON_EMPTY}</span><span class="pack-stamina-text">${staminaText(pack.record)}</span><span class="pack-skip-balance">${HOURGLASS_ICON}<span>${pack.record.skips}</span></span></div>`;
     if (pack.record.stamina.stored < 2 && pack.record.skips > 0) {
       const actions = document.createElement('div');
       actions.className = 'pack-skip-actions';
       if (waitHours && pack.record.skips >= waitHours) {
         const openButton = document.createElement('button');
         openButton.type = 'button';
-        openButton.textContent = `Open a pack now (${waitHours} ⏳)`;
+        openButton.innerHTML = `Open a pack now (${waitHours} ${HOURGLASS_ICON})`;
         openButton.addEventListener('click', () => {
           applySkips(pack.record, waitHours);
           render();
@@ -230,6 +243,15 @@ export function showPackSelect() {
       }
       if (actions.children.length) els.selectStamina.append(actions);
     }
+    // Refill bar under the stamina block: full at cap (the timer pauses
+    // there, so no countdown label), otherwise the elapsed fraction of the
+    // current cycle, with the countdown beside it when one pack is stored.
+    // At zero stored the line above already reads as the countdown.
+    const { stored, nextAt } = pack.record.stamina;
+    const refillPct = stored >= STAMINA_MAX || nextAt == null ? 100
+      : Math.min(100, Math.max(0, (1 - (nextAt - Date.now()) / STAMINA_PERIOD) * 100));
+    els.selectStamina.insertAdjacentHTML('beforeend',
+      `<div class="pack-refill"><div class="pack-refill-track"><i style="width:${refillPct.toFixed(1)}%"></i></div>${stored === 1 ? `<span class="pack-refill-count">Next pack in ${countdownText(pack.record)}</span>` : ''}</div>`);
     els.choices.replaceChildren(...PACKS.map((config) => {
       const { inProgress, complete, locked } = packChoiceState(pack.record, config.type);
       const button = document.createElement('button');

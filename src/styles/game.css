@@ -510,7 +510,10 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 /* Daily takes the full first row so Survival and Challenge pair below it. */
 #play-button { grid-column: 1 / -1; background: linear-gradient(135deg, var(--gold), #ff9f6a); border: 0; color: #21152f; font-weight: 800; }
 /* The Daily postcard pack: a slim, quiet full-width row under the Daily (outline, no fill). */
-#pack-button { grid-column: 1 / -1; min-height: 48px; border-color: rgba(var(--rgb-gold),.55); background: none; color: #ffe2a0; }
+#pack-button { position: relative; grid-column: 1 / -1; min-height: 48px; border-color: rgba(var(--rgb-gold),.55); background: none; color: #ffe2a0; }
+/* Skip-token pill pinned to the pack button's right edge; the pill chrome
+   itself is the shared .pack-skip-balance rule. */
+.pack-token-pill { position: absolute; top: 50%; right: 14px; transform: translateY(-50%); font-size: var(--fs-caption); }
 #pack-button.played { opacity: .55; }
 
 /* The pack screen alone uses a dark studio stage. */
@@ -526,12 +529,19 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-subline { margin: 5px 0 10px; color: rgba(224,238,252,.76); font-size: var(--fs-body); }
 .pack-stamina { min-height: 24px; margin-bottom: 14px; color: #fff5d4; font-size: var(--fs-body); font-weight: 750; }
 .pack-stamina-line { display: flex; align-items: center; justify-content: center; gap: 8px; }
-.pack-skip-balance { padding: 3px 7px; border: 1px solid rgba(var(--rgb-gold),.42); border-radius: 999px; background: rgba(5,15,31,.58); }
+.pack-skip-balance { display: inline-flex; align-items: center; gap: 3px; padding: 3px 7px; border: 1px solid rgba(var(--rgb-gold),.42); border-radius: 999px; background: rgba(5,15,31,.58); }
 .pack-skip-actions { display: flex; justify-content: center; gap: 7px; margin-top: 8px; }
-.pack-skip-actions button { padding: 6px 9px; border: 1px solid rgba(var(--rgb-gold),.48); border-radius: 8px; background: rgba(5,15,31,.72); color: #fff5d4; font: inherit; cursor: pointer; }
-.pack-pips { display: inline-flex; gap: 4px; }
-.pack-pips i { width: 13px; height: 13px; border: 1px solid var(--gold); border-radius: 50%; background: transparent; }
-.pack-pips i.full { background: var(--gold); box-shadow: 0 0 7px rgba(var(--rgb-gold),.65); }
+.pack-skip-actions button { display: inline-flex; align-items: center; gap: 4px; padding: 6px 9px; border: 1px solid rgba(var(--rgb-gold),.48); border-radius: 8px; background: rgba(5,15,31,.72); color: #fff5d4; font: inherit; cursor: pointer; }
+.pack-icons { display: inline-flex; gap: 4px; align-items: center; }
+.pack-icons .pk { display: block; }
+.pack-icons .pk-full { filter: drop-shadow(0 0 4px rgba(var(--rgb-gold),.55)); }
+.pack-icons .pk-empty { opacity: .55; }
+.hg { display: block; }
+#daily-reward .hg { display: inline-block; vertical-align: -2px; }
+.pack-refill { display: flex; align-items: center; gap: 8px; width: min(330px, 92%); margin: 9px auto 0; }
+.pack-refill-track { flex: 1; height: 4px; border-radius: 999px; background: rgba(var(--rgb-gold),.16); overflow: hidden; }
+.pack-refill-track i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #e8a84b, var(--gold)); box-shadow: 0 0 6px rgba(var(--rgb-gold),.55); }
+.pack-refill-count { font-size: var(--fs-caption); font-weight: 650; color: rgba(255,245,212,.78); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pack-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; width: min(366px, 100%); margin-inline: auto; }
 .pack-choice { display: grid; grid-template-rows: 168px auto minmax(14px, auto); gap: 6px; min-width: 0; padding: 2px; border: 1px solid rgba(var(--rgb-gold),.34); border-radius: 12px; background: rgba(5,15,31,.68); color: #fff5d4; cursor: pointer; }
 .pack-choice img { width: 100%; height: 168px; object-fit: contain; filter: drop-shadow(0 5px 7px rgba(0,0,0,.55)); }
