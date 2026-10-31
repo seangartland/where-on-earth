@@ -120,7 +120,7 @@
   "short": "Amsterdam Canals",
   "clue": "Amsterdam Canals, Netherlands 🇳🇱",
   "fact": "Amsterdam holds more than 100 km of canals and about 1,500 bridges; its concentric 17th-century canal ring, dug in the Dutch Golden Age, became a UNESCO World Heritage Site in 2010.",
-  "lat": 52.3676,
+  "lat": 52.3662,
   "lng": 4.9041,
   "difficulty": 5,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/500px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -129,8 +129,8 @@
   "sets": [],
   "difficultyWhy": "p.34·fb35·K0·iso173 → 16.0 → 5",
   "category": "city",
-  "kind": "area",
-  "extentKm": 2
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "amundsen-scott-south",
@@ -324,8 +324,8 @@
   "short": "Banaue Rice Terraces",
   "clue": "Banaue Rice Terraces, Philippines 🇵🇭",
   "fact": "The Banaue Rice Terraces in the Philippines were carved into mountains over 2,000 years ago by the Ifugao people.",
-  "lat": 16.923,
-  "lng": 121.058,
+  "lat": 16.93264,
+  "lng": 121.13571,
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Banaue-terrace.JPG/500px-Banaue-terrace.JPG",
   "country": "Philippines",
@@ -333,8 +333,8 @@
   "sets": [],
   "difficultyWhy": "p.35·fb520·K0·iso253 → 75.5 → 7",
   "category": "city",
-  "kind": "area",
-  "extentKm": 10
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "barringer-meteor-impact",
@@ -734,8 +734,8 @@
   "short": "Chocolate Hills",
   "clue": "Chocolate Hills, Philippines 🇵🇭",
   "fact": "The cones grew as coral limestone lifted during earthquakes, and the name was coined by a film crew filming a 2012 ad.",
-  "lat": 9.7,
-  "lng": 124.0333,
+  "lat": 9.7982126,
+  "lng": 124.168487,
   "difficulty": 7,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Chocolate_Hills_Bohol.JPG/500px-Chocolate_Hills_Bohol.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "Philippines",
@@ -745,8 +745,8 @@
   ],
   "difficultyWhy": "p.45·fb356·K0·iso281 → 44.9 → 7",
   "category": "city",
-  "kind": "area",
-  "extentKm": 9
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "christ-the-redeemer",
@@ -866,9 +866,9 @@
   "continent": "Oceania",
   "sets": [],
   "difficultyWhy": "p.40·fb1975·K0·iso1479 → 250.6 → 10",
-  "extentKm": 35,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "danakil-depression",

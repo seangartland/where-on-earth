@@ -24,7 +24,6 @@ const byLandmarkId = new Map(landmarks.map((item) => [item.id, item]));
 
 const APPROVED_AREAS = {
   'black-forest': 80,
-  'daintree-rainforest': 35,
   // Added 2026-10-30 with the 49-landform chunk; radii follow the same
   // ~0.5-0.6x longest-dimension precedent as the entries above.
   'gobi': 340,
@@ -39,11 +38,8 @@ const APPROVED_AREAS = {
   // clusters incl. Batad, beach crescent, Cappadocia core valleys, hill
   // field, Copper Canyon core, recentred Danakil, Nemegt outcrop belt,
   // Gibraltar narrows on the Bering Strait precedent).
-  'amsterdam-canals-d34-7': 2,
   'xochimilco-mx': 4,
-  'banaue-rice-terraces-ph': 10,
   'cappadocia': 12,
-  'chocolate-hills': 9,
   'copper-canyon': 30,
   'danakil-depression': 50,
   'gobi-desert-dinosaur-nemegt': 20,

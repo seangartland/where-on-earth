@@ -19,6 +19,11 @@ feature is way 1134960966, an 8-node open GNS label line, and an Overpass
 query over the whole strait bbox returns no water or strait polygon
 relation; see docs/borders-batch-b-report-2026-10-30.md for the hold.
 
+Fixes lane (2026-10-30, docs/borders-fixes-report-2026-10-30.md): the
+daintree-rainforest job below fetches the Daintree National Park boundary
+(relation 8478278), not the reserve-parcel relation 10179476 lane B first
+fetched; Sean ruled on the national-park footprint.
+
 Usage: python3 build/fetch-borders-polygons.py   (run from the repo root)
 """
 import json, math, time, urllib.request
@@ -134,7 +139,7 @@ SINGLE_RELATIONS = {
     'masai-mara': 15467577,
     'okavango-delta': 349348,
     'danube-delta': 12436972,
-    'daintree-rainforest': 10179476,
+    'daintree-rainforest': 8478278,
     'chocolate-hills': 15100962,
     'bering-strait': 11315299,
     'socotra': 1577075,

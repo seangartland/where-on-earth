@@ -13,18 +13,14 @@ const KINDS = new Set(['landmark', 'area', 'extent', 'settlement']);
 const V2_WHY = /^p(?:1|\.\d{2})(?:\(via [^)]+\))?·fb\d+·K[\d.]+·iso\d+ → \d+(?:\.\d)? → (\d+)$/;
 const APPROVED_AREAS = new Map([
   ['black-forest', 80],
-  ['daintree-rainforest', 35],
   // Added 2026-10-30 with the audit-2 glaring landforms chunk; radii
   // follow the same ~0.5-0.6x longest-dimension precedent, Baikal cap.
   ['amazon-rainforest', 340],
   ['aral-sea', 200],
   // Added 2026-10-30 with the diffuse conversions; radii per
   // docs/diffuse-review-2026-10-30.md.
-  ['amsterdam-canals-d34-7', 2],
   ['xochimilco-mx', 4],
-  ['banaue-rice-terraces-ph', 10],
   ['cappadocia', 12],
-  ['chocolate-hills', 9],
   ['copper-canyon', 30],
   ['danakil-depression', 50],
   ['gobi-desert-dinosaur-nemegt', 20],

@@ -459,12 +459,13 @@ for (const [id, spec] of Object.entries(RESOLVE_DESERTS)) {
 // polygon relation covers the channel).
 const BORDERS_OSM_TOLERANCE = 0.015;
 // Small features (a few km across: Moraine Lake, Lake Bled, Crater Lake,
-// the Copacabana beach polygon) are smaller than
+// the Copacabana beach polygon, the individual Banaue terrace clusters and
+// the Amsterdam canal ring) are smaller than
 // the standard tolerance and collapse to triangles at 0.015 degrees; they
 // use a finer tolerance so the shipped ring keeps the feature's shape. The
 // 2.5 km deviation gate is unchanged and measured the same way.
 const BORDERS_OSM_FINE_TOLERANCE = 0.002;
-const BORDERS_OSM_FINE = new Set(['moraine-lake', 'lake-bled', 'crater-lake', 'copacabana-beach-rio']);
+const BORDERS_OSM_FINE = new Set(['moraine-lake', 'lake-bled', 'crater-lake', 'copacabana-beach-rio', 'banaue-rice-terraces-ph', 'amsterdam-canals-d34-7', 'daintree-rainforest']);
 const BORDERS_OSM_POLYGONS = {
   'kruger-national-park': { file: 'kruger-national-park-osm.geojson', source: 'Kruger National Park boundary via OpenStreetMap relation 1752987', sourceUrl: 'https://www.openstreetmap.org/relation/1752987' },
   'serengeti-national-park': { file: 'serengeti-national-park-osm.geojson', source: 'Serengeti National Park boundary via OpenStreetMap relation 4475047', sourceUrl: 'https://www.openstreetmap.org/relation/4475047' },
@@ -484,6 +485,15 @@ const BORDERS_OSM_POLYGONS = {
   'socotra': { file: 'socotra-osm.geojson', source: 'Socotra island coastline via OpenStreetMap relation 1577075', sourceUrl: 'https://www.openstreetmap.org/relation/1577075' },
   'santorini-caldera': { file: 'santorini-caldera-osm.geojson', source: 'Santorini caldera ring island coastlines (Thera, Thirasia, Aspronisi, Nea Kameni, Palea Kameni) via OpenStreetMap relations 453964, 533902, 533905, 533903, 533904', sourceUrl: 'https://www.openstreetmap.org/relation/453964' },
   'copacabana-beach-rio': { file: 'copacabana-beach-rio-osm.geojson', source: 'Copacabana Beach polygon via OpenStreetMap relation 5514745', sourceUrl: 'https://www.openstreetmap.org/relation/5514745' },
+  // The four fixes lane (2026-10-30): conversions lane B held on measured QA
+  // and Sean ruled on each. Daintree uses the Daintree National Park
+  // boundary (relation 8478278), not the inventory's three reserve parcels
+  // (relation 10179476). Banaue is the five UNESCO cluster relations.
+  // Amsterdam Canals is the Grachtengordel protected-area way.
+  'daintree-rainforest': { file: 'daintree-rainforest-osm.geojson', source: 'Daintree National Park boundary via OpenStreetMap relation 8478278', sourceUrl: 'https://www.openstreetmap.org/relation/8478278' },
+  'banaue-rice-terraces-ph': { file: 'banaue-rice-terraces-ph-osm.geojson', source: 'Rice Terraces of the Philippine Cordilleras UNESCO cluster boundaries (Batad, Bangaan, Hungduan, Mayoyao, Nagacadan) via OpenStreetMap relations 8167057, 7628655, 7137867, 8171344, 7575218', sourceUrl: 'https://www.openstreetmap.org/relation/8167057' },
+  'chocolate-hills': { file: 'chocolate-hills-osm.geojson', source: 'Chocolate Hills Natural Monument boundary via OpenStreetMap relation 15100962', sourceUrl: 'https://www.openstreetmap.org/relation/15100962' },
+  'amsterdam-canals-d34-7': { file: 'amsterdam-canals-d34-7-osm.geojson', source: 'Amsterdam Grachtengordel canal ring boundary via OpenStreetMap way 222278733', sourceUrl: 'https://www.openstreetmap.org/way/222278733' },
 };
 const bordersOsmRecords = {};
 const bordersOsmSummary = {};
