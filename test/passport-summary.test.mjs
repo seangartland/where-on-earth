@@ -3,8 +3,8 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
 const source = readFileSync(new URL('../src/meta/passport.js', import.meta.url), 'utf8');
-const summarySource = source.match(/function passportSummary\(\) \{[\s\S]*?\n\}\nlet passportStyle;/)?.[0]
-  .replace(/\nlet passportStyle;$/, '');
+const summarySource = source.match(/function passportSummary\(\) \{[\s\S]*?\n\}\n\nlet passportBox;/)?.[0]
+  .replace(/\n\nlet passportBox;$/, '');
 assert.ok(summarySource, 'passportSummary source found');
 
 function summarize({ cities, landmarks, visits, order, meta = {} }) {

@@ -22,7 +22,7 @@ export function setThumb(img, url) {
 export function createHomeButton() {
   const button = document.createElement('button');
   button.type = 'button';
-  button.className = 'home-nav-btn';
+  button.className = 'icon-close home-nav';
   button.setAttribute('aria-label', 'Go home');
   button.textContent = '×';
   // Click handled by document-level delegation above

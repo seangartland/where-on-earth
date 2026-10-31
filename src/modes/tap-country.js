@@ -134,7 +134,6 @@ export function revealBorders(tap) {
   gameEls.number.textContent = borders.scope ? host.blackoutProgressText() : `Streak ${borders.found}`;
   host.gameMode = 'reveal';
   window.__canGuess = false;
-  const headerFrom = gameEls.header.offsetHeight;
   document.body.className = `game-reveal survival borders${borders.missed ? ' survival-miss' : ''}`;
   gameEls.hint.textContent = '';
   const km = Math.round(res.km);
@@ -158,7 +157,6 @@ export function revealBorders(tap) {
   pill.textContent = !borders.missed ? `✓ ${displayName}` : res.tapped ? `✗ That's ${res.tapped}` : '✗ Ocean';
   pill.classList.add(borders.missed ? 'miss' : 'safe');
   gameEls.next.textContent = borders.missed || complete ? 'See run' : 'Keep going';
-  if (headerFrom > host.REVEAL_HEADER_H) host.collapseRoundHeader(headerFrom);
 
   const a = host.latLngToVec3(tap.lat, tap.lng);
   const pin = toleranceHit ? host.latLngToVec3(res.near.lat, res.near.lng) : a;

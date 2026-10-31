@@ -16,7 +16,7 @@ import { state } from '../core/state.js';
 import { audio } from '../core/audio.js';
 import { fadeElement } from '../core/dom.js';
 import { formatKm, countryKey, regionKey, flagForLocation } from '../core/format.js';
-import { buildPostcardCard, ensurePostcardCardStyles } from '../meta/postcard-card.js';
+import { buildPostcardCard } from '../meta/postcard-card.js';
 import { nearestExtentPoint } from '../game/extents.js';
 import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe, pointers, projectToScreen } from './scene.js';
 import { showCountryOutline, clearCountryOutline, showRegionOutline, clearRegionOutline, showExtentOutline, clearExtentOutline } from './outlines.js';
@@ -578,18 +578,12 @@ export function setSheetExpanded(expanded) {
   gameEls.sheetContent.setAttribute('aria-hidden', String(!expanded));
 }
 
-// The clue header snaps to its one-line height (so the framing below can
-// rely on it) and the change is played back as a FLIP height animation.
-export function collapseRoundHeader(fromHeight) {
-  const header = gameEls.header;
-  header.getAnimations().forEach((a) => a.cancel());
-  header.animate([{ height: `${fromHeight}px` }, { height: `${REVEAL_HEADER_H}px` }],
-    { duration: 340, easing: 'cubic-bezier(.3,.8,.2,1)' });
-  gameEls.revealName.animate([
-    { opacity: 0, transform: 'translateY(6px)' },
-    { opacity: 1, transform: 'translateY(0)' },
-  ], { duration: 300, delay: 140, easing: 'ease-out', fill: 'backwards' });
-}
+// The clue header's collapsed one-line height is pure CSS
+// (body.game-reveal .round-header is REVEAL_HEADER_H tall, the place name
+// shown for the whole reveal), so it is already in place on the first
+// reveal frame and the framing below can rely on it. It used to be played
+// back as a FLIP height animation from the guess height; that opening
+// state was the empty slab the styling audit flagged (step 10).
 
 // The unobscured strip the reveal frames its pins into: below the collapsed
 // header and score pill, and inside the top 60% of the screen so the peek bar
@@ -1217,7 +1211,6 @@ export function homeRevealView(a, b, solved) {
 export function initReveal(main) {
   host = main;
   gameEls = main.gameEls;
-  ensurePostcardCardStyles();
   answerLineMaterial = new LineMaterial({
     color: '#b9f7ff',
     linewidth: 2.4, // CSS pixels; stays legible when the final view pulls back

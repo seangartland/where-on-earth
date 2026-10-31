@@ -133,7 +133,6 @@ function statsSummary() {
     first: history.length ? history[0].date : null,
   };
 }
-let statsStyle;
 export let statsEntry;
 let statsScreen;
 let statsEls;
@@ -202,40 +201,6 @@ function closeStats() {
 
 export function initStats(main) {
   host = main;
-  statsStyle = document.createElement('style');
-  statsStyle.textContent = `
-.stats-entry { min-height: 44px; margin-top: 10px; padding: 0 20px; border: 1px solid rgba(255,199,106,.4); border-radius: 999px; background: rgba(255,199,106,.1); color: #ffe0ae; font-size: 13px; font-weight: 750; cursor: pointer; touch-action: manipulation; }
-.stats-entry:active { transform: scale(.98); }
-.stats-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px); background: rgba(2,4,9,.68); pointer-events: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
-.stats-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 26px 18px 20px; border-radius: 24px; }
-.stats-card h2 { margin: 0; color: #f5fbff; font-size: 21px; text-align: center; letter-spacing: -.02em; }
-.stats-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
-.stat { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 92px; padding: 14px 10px; border: 1px solid rgba(157,211,255,.16); border-radius: 16px; background: rgba(157,211,255,.06); text-align: center; }
-.stat b { display: block; font-size: 30px; line-height: 1.05; font-weight: 800; font-variant-numeric: tabular-nums; color: #ffc76a; text-shadow: 0 0 22px rgba(255,199,106,.28); }
-.stat span { display: block; margin-top: 5px; color: rgba(193,224,250,.62); font-size: 10px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
-.stat.cool b { color: #67e8ff; text-shadow: 0 0 22px rgba(103,232,255,.28); }
-.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-.stats-grid .stat b { font-size: 25px; }
-.stat small { display: block; margin-top: 4px; color: rgba(193,224,250,.42); font-size: 10px; letter-spacing: .06em; text-transform: none; }
-.stats-head { margin: 24px 0 10px; color: #77caff; font-size: 11px; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
-.stats-hist-bars { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px; margin: 0; padding: 0; list-style: none; }
-.stats-hist-bars li { display: grid; grid-template-rows: 96px 16px; min-width: 0; text-align: center; }
-.stats-hist-count { position: absolute; right: 0; left: 0; color: #f5fbff; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: center; }
-.stats-hist-bar { position: relative; display: block; margin: 0 1px; border-bottom: 1px solid rgba(157,211,255,.3); }
-.stats-hist-bar::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; border-radius: 2px; background: rgba(157,211,255,.5); content: ''; }
-.stats-hist-fill { position: absolute; right: 0; bottom: 0; left: 0; min-height: 0; border-radius: 5px 5px 0 0; background: rgba(103,232,255,.55); transition: height .35s ease-out; }
-.stats-hist-label { padding-top: 4px; color: rgba(193,224,250,.58); font-size: 10px; font-variant-numeric: tabular-nums; }
-.stats-best { margin: 16px 0 0; padding: 12px 14px; border: 1px solid rgba(255,199,106,.26); border-radius: 14px; background: rgba(255,199,106,.08); color: rgba(240,248,255,.86); font-size: 13px; line-height: 1.45; }
-.stats-best b { color: #ffc76a; }
-.stats-note { margin: 16px 0 0; color: rgba(193,224,250,.42); font-size: 11px; line-height: 1.5; text-align: center; }
-.stats-close { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 28px; line-height: 1; cursor: pointer; touch-action: manipulation; }
-body.game-stats #hud { opacity: 0; }
-@media (max-height: 700px) {
-  .stats-card { padding-top: 20px; }
-  .stat b { font-size: 26px; }
-  .stats-head { margin-top: 18px; }
-}`;
-  document.head.appendChild(statsStyle);
 
   statsEntry = document.createElement('button');
   statsEntry.className = 'stats-entry';
@@ -248,7 +213,7 @@ body.game-stats #hud { opacity: 0; }
   statsScreen.hidden = true;
   statsScreen.innerHTML = `
   <div class="stats-card glass" role="dialog" aria-modal="true" aria-labelledby="stats-title">
-    <button class="stats-close" aria-label="Close stats">×</button>
+    <button class="icon-close" aria-label="Close stats">×</button>
     <h2 id="stats-title">Your stats</h2>
     <div class="stats-hero">
       <div class="stat"><b data-stats="streak">0</b><span>Day streak</span></div>
@@ -273,7 +238,7 @@ body.game-stats #hud { opacity: 0; }
   statsEls = {
     screen: statsScreen,
     card: statsScreen.querySelector('.stats-card'),
-    close: statsScreen.querySelector('.stats-close'),
+    close: statsScreen.querySelector('.icon-close'),
     hist: statsScreen.querySelector('[data-stats="hist"]'),
     histBars: statsScreen.querySelector('[data-stats="hist-bars"]'),
     bestRound: statsScreen.querySelector('[data-stats="best-round"]'),

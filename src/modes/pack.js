@@ -523,7 +523,7 @@ function wireSealedPack(sealed, screen) {
     if (opening) { endOpening(); return; }
     if (sealed.hidden) return;
     if (tearing) { finishTear(); return; }
-    if (event.target.closest('.home-nav-btn')) return;
+    if (event.target.closest('.home-nav')) return;
     dragging = true;
     downOnPack = Boolean(event.target.closest('.pack-sealed'));
     startX = event.clientX;

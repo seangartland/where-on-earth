@@ -514,47 +514,6 @@ export function initDailyCountdown() {
 
 // The results header, the review screen, its pins and routes, and listeners.
 export function initReview() {
-  const reviewStyle = document.createElement('style');
-  reviewStyle.textContent = `
-.results-card { position: relative; }
-.results-title { margin: 2px 48px 3px; color: rgba(198,226,250,.58); font-size: 11px; font-weight: 850; letter-spacing: .14em; text-align: center; text-transform: uppercase; }
-.results-card .result-score { display: flex; align-items: baseline; justify-content: center; gap: 5px; margin: 0 0 4px; }
-.results-card .result-score b { color: #ffc76a; font-size: clamp(42px, 14vw, 58px); font-weight: 850; line-height: 1; letter-spacing: -.055em; }
-.results-card .result-score span { color: rgba(198,226,250,.58); font-size: 14px; font-weight: 700; }
-.results-card .streak { margin-bottom: 10px; }
-.results-card .round-breakdown { margin-top: 10px; }
-.results-card .round-breakdown h2 { display: none; }
-#results-breakdown li { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 10px 0; }
-#results-breakdown li > b { font-size: 13px; }
-#results-breakdown .place { min-width: 0; overflow: visible; color: rgba(225,240,255,.92); font-weight: 650; line-height: 1.25; overflow-wrap: anywhere; white-space: normal; }
-#results-breakdown .result-metrics { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; min-width: 62px; white-space: nowrap; }
-#results-breakdown .points { color: #ffc76a; font-size: 17px; font-weight: 850; line-height: 1.1; }
-#results-breakdown .distance { color: rgba(193,224,250,.58); font-size: 11px; font-weight: 600; }
-.results-globe { margin: 8px auto 0; }
-.next-game { margin: 12px 0 0; padding: 10px 16px 8px; }
-.next-game-time { font-size: 28px; }
-.next-game-sub { font-size: 11px; }
-.results-globe { display: block; margin: 0 auto; }
-.review-screen { pointer-events: none; }
-.review-bar { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px; right: 14px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 10px 10px 10px 16px; border-radius: 18px; pointer-events: auto; }
-.review-bar .review-title { flex: 1; min-width: 0; }
-.review-bar .eyebrow { margin: 0 0 3px; }
-.review-hint { margin: 0; overflow: hidden; color: rgba(193,224,250,.62); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
-.review-pill { min-height: 40px; padding: 0 14px; border: 1px solid rgba(157,211,255,.28); border-radius: 999px; background: rgba(236,247,255,.08); color: #ecf7ff; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
-.recap-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
-.recap-tag { margin: 0 0 4px; color: rgba(193,224,250,.67); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
-.recap-head h3 { margin: 0; color: #f3f9ff; font-size: 18px; line-height: 1.2; letter-spacing: -.02em; }
-.recap-close { flex: none; width: 44px; height: 44px; margin: -10px -10px 0 0; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(198,226,250,.7); font-size: 26px; line-height: 1; cursor: pointer; touch-action: manipulation; }
-.recap-card .recap-score { color: #ffc76a; font-size: 28px; }
-.recap-thumb { display: block; width: 100%; height: 130px; margin: 12px 0 0; border-radius: 10px; object-fit: cover; object-position: center 20%; }
-.recap-thumb[hidden] { display: none; }
-.recap-fact { margin: 12px 0 14px; color: rgba(224,240,255,.8); font-size: 13px; line-height: 1.45; }
-body.game-review #hud { opacity: 0; }
-@media (max-height: 700px) {
-  .recap-thumb { height: 92px; }
-  .recap-fact { margin: 9px 0 11px; }
-}`;
-  document.head.appendChild(reviewStyle);
 
   const resultScore = gameEls.total.closest('.result-score');
   const resultsTitle = document.createElement('p');
@@ -578,7 +537,7 @@ body.game-review #hud { opacity: 0; }
     <span class="review-countdown" data-act="next-daily" role="timer"></span>
   </header>
   <article class="reveal-card recap-card glass" hidden>
-    <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div><button class="recap-close" aria-label="Close round recap">×</button></div>
+    <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div><button class="icon-close" aria-label="Close round recap">×</button></div>
     <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><div class="score-math"><span class="base"><b class="recap-base"></b>/1000</span><strong class="recap-score"></strong></div></div>
     <img class="recap-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
     <p class="recap-fact"></p>
@@ -631,7 +590,7 @@ body.game-review #hud { opacity: 0; }
   });
   reviewEls.screen.addEventListener('click', (e) => {
     const act = e.target.closest('[data-act]');
-    if (e.target.closest('.recap-close') || (act && act.dataset.act === 'back')) closeRecap();
+    if (e.target.closest('.icon-close') || (act && act.dataset.act === 'back')) closeRecap();
     else if (act && act.dataset.act === 'results') showResults();
     else if (act && act.dataset.act === 'next-daily' && act.classList.contains('ready')) openNewDaily();
   });

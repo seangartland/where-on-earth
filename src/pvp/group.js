@@ -20,9 +20,9 @@ export function initPvpGroup(main) {
   pvpGroupScreen = document.createElement('section');
   pvpGroupScreen.className = 'screen results-screen';
   pvpGroupScreen.hidden = true;
-  pvpGroupScreen.innerHTML = '<div class="results-card glass pvp-match-card"><button class="home-nav-btn finished-home-nav" type="button" aria-label="Go home">×</button><div class="pvp-group-body"></div></div>';
+  pvpGroupScreen.innerHTML = '<div class="results-card glass pvp-match-card"><button class="icon-close home-nav finished-home-nav" type="button" aria-label="Go home">×</button><div class="pvp-group-body"></div></div>';
   pvpMatchScreen.after(pvpGroupScreen);
-  pvpGroupScreen.querySelector('.home-nav-btn').addEventListener('click', () => showPvpHome());
+  pvpGroupScreen.querySelector('.home-nav').addEventListener('click', () => showPvpHome());
   pvpGroupBody = pvpGroupScreen.querySelector('.pvp-group-body');
   host.pvpScreenEls.push(pvpGroupScreen);
 }

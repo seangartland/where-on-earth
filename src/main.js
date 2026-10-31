@@ -31,7 +31,7 @@ import {
 } from './globe/pin.js';
 import {
   initReveal, answerLine, answerLineMaterial, peekSlot, timeScale, clearReveal, buildAnswerPath, placeRevealVisual, frameRevealPoints,
-  frameNorthUpRevealPoints, showRevealSheet, showLineLabel, startRevealBeat, collapseRoundHeader, REVEAL_HEADER_H,
+  frameNorthUpRevealPoints, showRevealSheet, showLineLabel, startRevealBeat,
   beginBullseyeReveal, beginTravelReveal, whenPostcardDone, travelView, routeAxis, routeRadius, safeStrip, applyCameraNear,
   updateTravelAnimation, travelPinScale, updateLineLabel,
 } from './globe/reveal.js';
@@ -189,7 +189,7 @@ syncMuteButtons();
 const roundHost = {
   pins, correctPin, answerLine, peekSlot, latLngToVec3, buildAnswerPath, placeRevealVisual,
   frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showExtentOutline, showLineLabel, showRevealSheet,
-  startRevealBeat, collapseRoundHeader, REVEAL_HEADER_H, beginBullseyeReveal, beginTravelReveal,
+  startRevealBeat, beginBullseyeReveal, beginTravelReveal,
   whenPostcardDone, clearReveal,
   survival, borders, expeditionRun, endless, expeditionRoundHeader, bordersRoundHeader,
   survivalRoundHeader, endlessRoundHeader, bordersClue, survivalRecordGuess, completeExpeditionRound,
@@ -239,7 +239,6 @@ const modeHost = {
   get blackoutEntry() { return blackoutEntry; },
   COUNTRY_FLAGS,
   ISLAND_BLOB_TEXELS,
-  REVEAL_HEADER_H,
   gameEls,
   peekSlot,
   pins,
@@ -274,7 +273,6 @@ const modeHost = {
   radPerPx,
   bordersHit,
   setThumb,
-  collapseRoundHeader,
   latLngToVec3,
   buildAnswerPath,
   frameRevealPoints,
@@ -430,11 +428,11 @@ async function confirmGoHome() {
   }
 }
 
-// Event delegation: catches all .home-nav-btn clicks, even dynamically added ones.
+// Event delegation: catches all .home-nav clicks, even dynamically added ones.
 // Also normalizes the button appearance.
 document.addEventListener('click', (e) => {
   const target = e.target instanceof Element ? e.target : e.target?.parentElement;
-  const btn = target?.closest?.('.home-nav-btn');
+  const btn = target?.closest?.('.home-nav');
   if (!btn) return;
   e.preventDefault();
   // Results are terminal states: the player has no in-progress run to lose.
@@ -444,7 +442,7 @@ document.addEventListener('click', (e) => {
   }
   confirmGoHome();
 });
-document.querySelectorAll('.home-nav-btn').forEach((button) => {
+document.querySelectorAll('.home-nav').forEach((button) => {
   button.setAttribute('aria-label', 'Go home');
   button.textContent = '×';
 });
@@ -515,7 +513,7 @@ settingsScreen.className = 'screen settings-screen';
 settingsScreen.hidden = true;
 settingsScreen.innerHTML = `
   <div class="settings-card glass" role="dialog" aria-modal="true" aria-labelledby="settings-title">
-    <button class="settings-close" aria-label="Close settings">×</button>
+    <button class="icon-close" aria-label="Close settings">×</button>
     <h2 id="settings-title">Settings</h2>
     <div class="settings-main">
       <fieldset class="settings-group">
@@ -530,7 +528,7 @@ settingsScreen.innerHTML = `
         <button class="settings-account-action" type="button">Sign in</button>
       </div>` : ''}
       <a class="settings-credits" href="./credits.html">Imagery credits</a>
-      <button class="settings-reset" type="button">Reset all data</button>
+      <button class="settings-danger" type="button">Reset all data</button>
     </div>
     <div class="settings-confirm" hidden>
       <p>Are you sure? This will erase all progress, postcards, collections, and stats.</p>
@@ -546,11 +544,11 @@ state.settingsScreenEl = settingsScreen;
 const settingsEls = {
   screen: settingsScreen,
   card: settingsScreen.querySelector('.settings-card'),
-  close: settingsScreen.querySelector('.settings-close'),
+  close: settingsScreen.querySelector('.icon-close'),
   main: settingsScreen.querySelector('.settings-main'),
   confirm: settingsScreen.querySelector('.settings-confirm'),
-  reset: settingsScreen.querySelector('.settings-reset'),
-  danger: settingsScreen.querySelector('.settings-danger'),
+  reset: settingsScreen.querySelector('.settings-main .settings-danger'),
+  danger: settingsScreen.querySelector('.settings-confirm .settings-danger'),
   cancel: settingsScreen.querySelector('.settings-cancel'),
   revealViews: [...settingsScreen.querySelectorAll('[data-reveal-view]')],
   account: settingsScreen.querySelector('.settings-account'),
@@ -704,38 +702,9 @@ initPassportHome(passportHost);
 // ---------------------------------------------------------------------------
 // Expeditions (picker, progress, the round variant) live in
 // src/modes/expeditions.js. Their picker styles, shared with the Blackout
-// picker and the Survival hub, stay injected here in their original order.
+// picker and the Survival hub, live in src/styles/game.css.
 // ---------------------------------------------------------------------------
 
-const expeditionStyle = document.createElement('style');
-expeditionStyle.textContent = `
-.expedition-picker { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 18px; background: rgba(2,4,9,.78); backdrop-filter: blur(12px); }
-.expedition-picker[hidden] { display: none; }
-.expedition-panel { position: relative; width: min(100%, 390px); max-height: calc(100vh - 36px); overflow: auto; box-sizing: border-box; padding: 18px; border: 1px solid rgba(103,232,255,.25); border-radius: 24px; background: rgba(8,16,34,.96); color: #f3f9ff; }
-.expedition-panel .home-nav-btn { position: absolute; top: 5px; right: 5px; }
-.expedition-panel h2 { margin: 0; font-size: 27px; }
-.expedition-panel > p { margin: 6px 0 18px; color: rgba(193,224,250,.68); }
-.expedition-list { display: grid; gap: 10px; }
-.expedition-choice { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; width: 100%; padding: 13px 14px; border: 1px solid rgba(157,211,255,.18); border-radius: 16px; background: rgba(157,211,255,.07); color: inherit; text-align: left; cursor: pointer; }
-.expedition-choice .emoji { font-size: 27px; }
-.expedition-choice strong, .expedition-choice small { display: block; }
-.expedition-choice small { margin-top: 3px; color: rgba(193,224,250,.62); }
-.expedition-choice .badge { color: #ffd166; font-size: 20px; }
-.expedition-section { margin: 18px 0 8px; color: rgba(193,224,250,.68); font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-.expedition-weekly-card { grid-template-columns: 1fr auto; border-color: rgba(255,209,102,.45); background: rgba(255,209,102,.08); }
-.expedition-weekly-card:disabled { cursor: default; }
-.expedition-choice .weekly-eyebrow { margin: 0 0 3px; color: #ffd166; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-.weekly-dots { display: flex; gap: 6px; margin-top: 10px; }
-.weekly-dot { display: grid; place-items: center; width: 28px; height: 28px; box-sizing: border-box; border: 1.5px dashed rgba(157,211,255,.28); border-radius: 50%; color: rgba(193,224,250,.38); font-size: 11px; font-weight: 800; }
-.weekly-dot[data-state="played"] { border: 1.5px solid #ffd166; background: #ffd166; color: #1f1708; }
-.weekly-dot[data-state="open"] { border: 1.5px solid #67e8ff; color: #67e8ff; }
-.weekly-dot[data-today] { box-shadow: 0 0 0 2px rgba(103,232,255,.35); }
-.expedition-archive summary { cursor: pointer; }
-.expedition-archive-row { box-sizing: border-box; grid-template-columns: 1fr auto; cursor: default; }
-body.expedition-mode .round-header, body.expedition-mode #reveal-card { border-color: rgba(255,209,102,.45); background: rgba(31,23,8,.88); }
-body.expedition-mode #reveal-card .score-math { display: none; }
-body.expedition-mode .round-meta span:first-child { color: #ffd166; }`;
-document.head.appendChild(expeditionStyle);
 
 initExpeditions(modeHost);
 

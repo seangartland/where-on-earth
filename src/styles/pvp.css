@@ -2,21 +2,21 @@
 .pvp-panel .pvp-block { margin: 0 0 16px; }
 .pvp-panel .eyebrow { margin: 0 0 8px; }
 .pvp-field { display: flex; gap: 8px; }
-.pvp-field input { flex: 1; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; border: 1px solid rgba(157,211,255,.22); border-radius: 14px; background: rgba(157,211,255,.08); color: #f3f9ff; font: inherit; font-size: 16px; }
-.pvp-field input::placeholder { color: rgba(193,224,250,.45); }
+.pvp-field input { flex: 1; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; border: 1px solid rgba(var(--rgb-line),.22); border-radius: 14px; background: rgba(var(--rgb-line),.08); color: var(--ink); font: inherit; font-size: 16px; }
+.pvp-field input::placeholder { color: rgba(var(--rgb-muted),.45); }
 .pvp-field input.pvp-code { text-transform: uppercase; letter-spacing: .18em; font-weight: 800; }
-.pvp-field .primary, .pvp-panel .pvp-wide, .pvp-actions .primary { min-width: 0; min-height: 48px; padding: 0 18px; font-size: 15px; }
-.pvp-panel .pvp-wide, .pvp-actions .primary { width: 100%; }
+.pvp-field .primary { min-width: 0; padding: 0 18px; }
+.pvp-panel .pvp-wide, .pvp-actions .primary { min-width: 0; width: 100%; padding: 0 18px; }
 .pvp-actions { display: grid; gap: 10px; margin: 14px 0 0; }
-.pvp-note { margin: 8px 0 0; color: rgba(193,224,250,.62); font-size: 12px; line-height: 1.4; }
-.pvp-who { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; color: rgba(224,240,255,.86); font-size: 15px; }
-.pvp-who b { color: #f3f9ff; }
-.pvp-status { min-height: 18px; margin: 10px 0 0; color: #8bd9ff; font-size: 13px; line-height: 1.4; }
+.pvp-note { margin: 8px 0 0; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-small); line-height: 1.4; }
+.pvp-who { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; color: rgba(224,240,255,.86); font-size: var(--fs-base); }
+.pvp-who b { color: var(--ink); }
+.pvp-status { min-height: 18px; margin: 10px 0 0; color: #8bd9ff; font-size: var(--fs-body); line-height: 1.4; }
 .pvp-status.error { color: #ff9db4; }
 .pvp-status:empty { display: none; }
-.expedition-choice .pvp-progress { min-width: 30px; color: #ffc76a; font-size: 15px; font-weight: 800; text-align: center; }
-.pvp-code-big { margin: 4px 0 0; color: #f3f9ff; font-size: 30px; font-weight: 850; letter-spacing: .22em; text-align: center; font-variant-numeric: tabular-nums; }
-.pvp-empty { margin: 0; color: rgba(193,224,250,.62); font-size: 13px; }
+.expedition-choice .pvp-progress { min-width: 30px; color: var(--gold); font-size: var(--fs-base); font-weight: 800; text-align: center; }
+.pvp-code-big { margin: 4px 0 0; color: var(--ink); font-size: 30px; font-weight: 850; letter-spacing: .22em; text-align: center; font-variant-numeric: tabular-nums; }
+.pvp-empty { margin: 0; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-body); }
 /* Home fits one phone screen: the games list sits first and scrolls inside
    the panel when it runs long, so create, code join and the footer stay in reach. */
 .pvp-panel:has(.pvp-lists) { display: flex; flex-direction: column; max-height: calc(100dvh - 36px); overflow: hidden; }
@@ -27,39 +27,39 @@
 .pvp-panel:has(.pvp-lists) .pvp-who .text-button { margin: 0; padding: 2px 0; }
 .pvp-panel .pvp-join { margin: 4px 0 10px; }
 .pvp-lists .eyebrow { margin-bottom: 6px; }
-.pvp-join .pvp-field input, .pvp-join .pvp-field .primary { min-height: 42px; }
+.pvp-join .pvp-field input { min-height: 42px; }
 .pvp-panel .pvp-body > .pvp-lists { flex: 0 1 auto; min-height: 0; margin: 0; overflow-y: auto; overscroll-behavior: contain; }
 .pvp-panel .pvp-body > .pvp-lists:not(:empty) { margin-bottom: 14px; }
 .pvp-create .text-button { display: block; margin: 6px auto 0; }
 .pvp-create .pvp-note { margin: 0; }
-.pvp-panel .pvp-body > .pvp-footer { flex-wrap: wrap; justify-content: space-between; margin: 0; color: rgba(193,224,250,.62); font-size: 13px; }
+.pvp-panel .pvp-body > .pvp-footer { flex-wrap: wrap; justify-content: space-between; margin: 0; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-body); }
 .pvp-footer b { font-weight: 700; }
 .pvp-lists .expedition-list { gap: 8px; }
 .pvp-lists .expedition-choice { gap: 10px; padding: 10px 12px; }
-.pvp-lists .expedition-choice small { margin-top: 2px; font-size: 13px; }
+.pvp-lists .expedition-choice small { margin-top: 2px; font-size: var(--fs-body); }
 .pvp-lists .challenge-envelope { position: relative; grid-template-columns: auto 1fr auto auto; overflow: hidden; border: 0; border-radius: 7px; background: var(--mail-paper); box-shadow: 0 3px 10px rgba(0,0,0,.3), inset 0 0 0 1px rgba(101,78,38,.18); color: var(--mail-ink); }
 .pvp-lists .challenge-envelope::after { content: ''; position: absolute; z-index: 0; top: 0; left: 0; width: 100%; height: 38px; background: rgba(101,78,38,.11); clip-path: polygon(0 0, 100% 0, 50% 100%); pointer-events: none; }
 .pvp-lists .challenge-envelope > * { position: relative; z-index: 1; }
 .pvp-lists .challenge-envelope strong { color: var(--mail-ink); }
 .pvp-lists .challenge-envelope small { color: var(--mail-ink-2); }
 .pvp-lists .challenge-envelope .pvp-progress, .pvp-lists .challenge-envelope .badge { color: var(--mail-gold); }
-.challenge-stamp { display: grid; place-items: center; width: 34px; height: 40px; border: 1.5px dashed rgba(90,70,30,.5); background: var(--mail-stamp); box-shadow: 0 1px 3px rgba(101,78,38,.25); color: var(--mail-gold); font-size: 15px; font-weight: 900; }
+.challenge-stamp { display: grid; place-items: center; width: 34px; height: 40px; border: 1.5px dashed rgba(90,70,30,.5); background: var(--mail-stamp); box-shadow: 0 1px 3px rgba(101,78,38,.25); color: var(--mail-gold); font-size: var(--fs-base); font-weight: 900; }
 .pvp-board { margin: 12px 0 0; }
 .pvp-board-list { margin: 0; padding: 0; list-style: none; }
 .pvp-board-list li { display: grid; grid-template-columns: 32px minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 42px; border-bottom: 1px solid rgba(173,216,255,.11); }
-.pvp-board-list b { overflow: hidden; color: #f3f9ff; text-overflow: ellipsis; white-space: nowrap; }
-.pvp-board-list small { color: rgba(193,224,250,.62); }
-.pvp-board-rank { color: #ffc76a; font-weight: 850; text-align: center; }
-.pvp-board-score { color: #ffc76a; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pvp-board-list b { overflow: hidden; color: var(--ink); text-overflow: ellipsis; white-space: nowrap; }
+.pvp-board-list small { color: rgba(var(--rgb-muted),.62); }
+.pvp-board-rank { color: var(--gold); font-weight: 850; text-align: center; }
+.pvp-board-score { color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
 .pvp-me { background: rgba(103,232,255,.07); }
 .pvp-standings { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(173,216,255,.11); }
 .pvp-confirm { padding: 12px; border-radius: 14px; background: rgba(255,157,180,.08); }
-.pvp-confirm p { margin: 0 0 10px; color: rgba(224,240,255,.86); font-size: 13px; }
+.pvp-confirm p { margin: 0 0 10px; color: rgba(224,240,255,.86); font-size: var(--fs-body); }
 
 /* PvP round standings and opponent line (was appended to the same style element). */
-.pvp-vs { display: none; overflow: hidden; color: rgba(193,224,250,.82); font-size: 14px; font-weight: 700; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.pvp-vs { display: none; overflow: hidden; color: rgba(var(--rgb-muted),.82); font-size: 14px; font-weight: 700; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
 body.pvp .pvp-vs { display: block; }
 body.pvp #reveal-card .score-math { display: none; }
 body.pvp .round-meta #round-weight { font-variant-numeric: tabular-nums; }
-.pvp-round-row { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; color: rgba(224,240,255,.86); font-size: 12px; }
-.pvp-round-row span:last-child { color: #ffc76a; font-weight: 800; }
+.pvp-round-row { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; color: rgba(224,240,255,.86); font-size: var(--fs-small); }
+.pvp-round-row span:last-child { color: var(--gold); font-weight: 800; }

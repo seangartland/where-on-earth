@@ -14,7 +14,7 @@ import { distanceScore, scoreGuess, scoringDistanceKm } from './scoring.js';
 let host = null;
 let pins, correctPin, answerLine, peekSlot, latLngToVec3, buildAnswerPath, placeRevealVisual;
 let frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showExtentOutline, showLineLabel, showRevealSheet;
-let startRevealBeat, collapseRoundHeader, REVEAL_HEADER_H, beginBullseyeReveal, beginTravelReveal;
+let startRevealBeat, beginBullseyeReveal, beginTravelReveal;
 let whenPostcardDone, clearReveal, survival, borders, expeditionRun, endless, expeditionRoundHeader;
 let bordersRoundHeader, survivalRoundHeader, endlessRoundHeader, bordersClue, survivalRecordGuess;
 let completeExpeditionRound, expeditionRevealCard, survivalRevealCard, bordersNext, survivalNext;
@@ -64,7 +64,7 @@ export function nearLockButton(x, y) {
 // Prevents pins dropping behind the X when zoomed in.
 const TOP_UI_SLOP = 8; // css px
 export function nearTopUI(x, y) {
-  for (const el of document.querySelectorAll('.home-nav-btn, .round-header')) {
+  for (const el of document.querySelectorAll('.home-nav, .round-header')) {
     if (el.offsetParent === null) continue; // hidden
     const r = el.getBoundingClientRect();
     if (x > r.left - TOP_UI_SLOP && x < r.right + TOP_UI_SLOP
@@ -200,18 +200,6 @@ export function showRound() {
 // Tier 0 is the pack's first-visit variant: the grey card (spec 2d).
 export function showEarnToast(answer, tier) {
   document.querySelector('.earn-toast')?.remove();
-  const style = document.createElement('style');
-  style.textContent = `
-    .earn-toast { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 112px); transform: translateX(-50%) translateY(20px); z-index: 50; display: flex; align-items: center; gap: 10px; padding: 10px 16px 10px 10px; border-radius: 999px; background: rgba(20,28,52,.92); border: 1px solid rgba(255,199,106,.4); box-shadow: 0 8px 32px rgba(0,0,0,.5); opacity: 0; transition: opacity .3s, transform .3s; pointer-events: none; max-width: 90vw; }
-    .earn-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-    .earn-toast img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex: none; }
-    .earn-toast .earn-toast-text { color: #f3f9ff; font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .earn-toast .earn-toast-text small { display: block; color: #ffc76a; font-size: 11px; font-weight: 600; }
-    .earn-toast.seen { border-color: rgba(193,224,250,.32); }
-    .earn-toast.seen img { filter: grayscale(1) contrast(.92) brightness(.82); }
-    .earn-toast.seen .earn-toast-text small { color: rgba(193,224,250,.72); }
-  `;
-  document.head.appendChild(style);
   const toast = document.createElement('div');
   toast.className = `earn-toast${tier ? '' : ' seen'}`;
   const tierLabel = !tier ? 'Visited · added to your Passport' : tier === EARN_PINPOINT ? '📍 Pinpoint!' : tier === EARN_BULLSEYE ? '🎯 Bullseye!' : 'New postcard earned!';
@@ -225,7 +213,7 @@ export function showEarnToast(answer, tier) {
   // Auto-dismiss after 3s
   setTimeout(() => {
     toast.classList.remove('show');
-    setTimeout(() => { toast.remove(); style.remove(); }, 300);
+    setTimeout(() => { toast.remove(); }, 300);
   }, 3000);
 }
 
@@ -255,7 +243,6 @@ export function revealGuess(guess, restoring = false) {
   if (!restoring && trivia.active) triviaRecordGuess(km, base);
   state.gameMode = 'reveal';
   window.__canGuess = false;
-  const headerFrom = gameEls.header.offsetHeight;
   document.body.className = pvp.active ? 'game-reveal pvp'
     : expeditionRun.active ? 'game-reveal expedition-mode'
     : survival.active
@@ -329,7 +316,6 @@ export function revealGuess(guess, restoring = false) {
     pill.textContent = endless.active ? '' : `+${score}`;
     gameEls.next.textContent = endless.active ? 'Next' : state.daily.round === 4 ? 'Results' : 'Next';
   }
-  if (!restoring && headerFrom > REVEAL_HEADER_H) collapseRoundHeader(headerFrom);
   const tier = flyoverTier(kmExact);
   const animate = window.__travelAnim !== false && !restoring;
   // Queue the earn celebration for after the flyover completes.
@@ -442,7 +428,6 @@ export function pvpRevealTimeout(answer) {
   state.gameMode = 'reveal';
   window.__canGuess = false;
   clearPendingGuess();
-  const headerFrom = gameEls.header.offsetHeight;
   document.body.className = 'game-reveal pvp';
   gameEls.hint.textContent = '';
   const placeName = answer.clue || answer.short;
@@ -460,7 +445,6 @@ export function pvpRevealTimeout(answer) {
   gameEls.revealPill.textContent = 'Out of time · 0';
   gameEls.next.textContent = pvp.result || pvp.round >= 5 ? 'Results' : 'Next';
   pvpRenderVs();
-  if (headerFrom > REVEAL_HEADER_H) collapseRoundHeader(headerFrom);
   if (state.activePin >= 0) pins[state.activePin].release();
   state.activePin = -1;
   const b = latLngToVec3(answer.lat, answer.lng);
@@ -475,7 +459,7 @@ export function initRound(main) {
   host = main;
   ({ pins, correctPin, answerLine, peekSlot, latLngToVec3, buildAnswerPath, placeRevealVisual,
     frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showExtentOutline, showLineLabel, showRevealSheet,
-    startRevealBeat, collapseRoundHeader, REVEAL_HEADER_H, beginBullseyeReveal, beginTravelReveal,
+    startRevealBeat, beginBullseyeReveal, beginTravelReveal,
     whenPostcardDone, clearReveal, survival, borders, expeditionRun, endless, expeditionRoundHeader,
     bordersRoundHeader, survivalRoundHeader, endlessRoundHeader, bordersClue, survivalRecordGuess,
     completeExpeditionRound, expeditionRevealCard, survivalRevealCard, bordersNext, survivalNext,

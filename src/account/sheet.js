@@ -10,7 +10,7 @@ const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
 
 function render(state, values = {}) {
   const panel = sheet.querySelector('.account-panel');
-  const close = '<button class="settings-close account-close" aria-label="Close sign in">×</button>';
+  const close = '<button class="icon-close account-close" aria-label="Close sign in">×</button>';
   if (state === 'code') {
     panel.innerHTML = `${close}<p class="eyebrow">Check your email</p><h2 id="account-title">Enter your code</h2>
       <p class="account-copy">We sent a 6-digit code to <strong>${escapeHtml(values.email)}</strong>.</p>

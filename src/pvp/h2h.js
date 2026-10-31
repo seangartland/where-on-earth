@@ -26,7 +26,7 @@ export function initPvpH2h(main) {
   pvpMatchScreen = document.createElement('section');
   pvpMatchScreen.className = 'screen results-screen';
   pvpMatchScreen.hidden = true;
-  pvpMatchScreen.innerHTML = '<div class="results-card glass pvp-match-card"><button class="home-nav-btn finished-home-nav" type="button" aria-label="Go home">×</button><div class="pvp-match-body"></div></div>';
+  pvpMatchScreen.innerHTML = '<div class="results-card glass pvp-match-card"><button class="icon-close home-nav finished-home-nav" type="button" aria-label="Go home">×</button><div class="pvp-match-body"></div></div>';
   host.gameEls.survivalResults.after(pvpMatchScreen);
   pvpMatchBody = pvpMatchScreen.querySelector('.pvp-match-body');
   host.pvpScreenEls.push(pvpMatchScreen);

@@ -54,7 +54,7 @@
   <style>
     html, body { margin: 0; height: 100%; background: #050a19; }
     #boot {
-      position: fixed; inset: 0; z-index: 100;
+      position: fixed; inset: 0; z-index: var(--z-boot);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       background: radial-gradient(120% 80% at 50% 45%, #0a1531 0%, #050a19 48%, #020409 100%);
       color: #cfe6ff;
@@ -63,7 +63,7 @@
     }
     #boot[hidden] { display: none; }
     #err {
-      position: fixed; top: 8px; left: 8px; right: 8px; z-index: 200;
+      position: fixed; top: 8px; left: 8px; right: 8px; z-index: var(--z-error);
       background: rgba(90, 12, 12, 0.94); color: #ffd9d9;
       font: 12px/1.5 -apple-system, system-ui, sans-serif;
       padding: 10px 12px; border-radius: 10px; white-space: pre-wrap;
@@ -110,7 +110,7 @@
         <p id="guess-hint">Tap the globe to place your pin</p>
         <p id="reveal-name" class="reveal-name"></p>
       </header>
-      <button id="lock-button" class="primary lock-button" type="button" hidden>Lock in guess</button>
+      <button id="lock-button" class="primary primary--gold lock-button" type="button" hidden>Lock in guess</button>
       <p id="reveal-pill" class="reveal-pill" hidden></p>
       <article id="reveal-card" class="reveal-sheet glass" hidden>
         <div id="peek-bar" class="peek-bar" role="button" tabindex="0" aria-expanded="false" aria-controls="sheet-content">
@@ -134,7 +134,7 @@
 
     <section id="postcard-summary-screen" class="screen results-screen postcard-summary-screen" hidden>
       <div class="results-card glass">
-        <button class="home-nav-btn finished-home-nav" type="button" aria-label="Back to home">×</button>
+        <button class="icon-close home-nav finished-home-nav" type="button" aria-label="Back to home">×</button>
         <header class="postcard-summary-header">
           <p class="eyebrow">Journey complete</p>
           <h2>New Postcards</h2>
@@ -148,7 +148,7 @@
 
     <section id="pack-screen" class="screen pack-screen" hidden>
       <div class="expedition-panel pack-panel" role="dialog" aria-modal="true" aria-labelledby="pack-heading">
-        <button class="home-nav-btn pack-back" type="button" aria-label="Back to packs">×</button>
+        <button class="icon-close home-nav pack-back" type="button" aria-label="Back to packs">×</button>
         <h2 id="pack-heading">World Capitals</h2>
         <div class="pack-select" hidden>
           <p class="pack-subline">A new pack every 12 hours.</p>
@@ -167,7 +167,7 @@
 
     <section id="results-screen" class="screen results-screen" hidden>
       <div class="results-card glass">
-        <button id="results-home" class="home-nav-btn finished-home-nav" type="button" aria-label="Back to home">×</button>
+        <button id="results-home" class="icon-close home-nav finished-home-nav" type="button" aria-label="Back to home">×</button>
         <p class="result-score">Score <b id="total-score">0</b> <span id="max-score">/5,000</span></p>
         <p id="result-streak" class="streak"></p>
         <p id="daily-reward" class="streak" hidden>⏳ 4 hour-skip tokens earned</p>
@@ -184,7 +184,7 @@
 
     <section id="survival-results-screen" class="screen results-screen" hidden>
       <div class="survival-results-card glass">
-        <button id="survival-home" class="home-nav-btn finished-home-nav" type="button" aria-label="Back to home">×</button>
+        <button id="survival-home" class="icon-close home-nav finished-home-nav" type="button" aria-label="Back to home">×</button>
         <p id="survival-result-eyebrow" class="eyebrow">Survival run over</p>
         <h2 id="survival-result-title">0 rounds survived</h2>
         <p id="survival-result-summary" class="survival-summary">One miss over 150 km ends the run.</p>
@@ -197,8 +197,8 @@
           <ol id="run-results-breakdown"></ol>
         </section>
         <div class="survival-result-actions">
-          <button id="survival-share" class="primary" type="button">Share result</button>
-          <button id="survival-again" class="primary" type="button">Play again</button>
+          <button id="survival-share" class="primary primary--gold" type="button">Share result</button>
+          <button id="survival-again" class="primary primary--gold" type="button">Play again</button>
         </div>
         <p id="survival-share-status" role="status"></p>
       </div>
@@ -206,7 +206,7 @@
   </main>
   <section id="survival-hub" class="expedition-picker" hidden>
     <div class="expedition-panel" role="dialog" aria-modal="true" aria-labelledby="survival-hub-heading">
-      <button class="home-nav-btn finished-home-nav" type="button" aria-label="Go home">×</button>
+      <button class="icon-close home-nav finished-home-nav" type="button" aria-label="Go home">×</button>
       <h2 id="survival-hub-heading">Practice</h2>
       <p>Play freely. Practice records visits and bests, but postcards are earned in the Daily, the pack and Expeditions.</p>
       <div class="expedition-list">

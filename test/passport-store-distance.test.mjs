@@ -61,5 +61,8 @@ test('non-earning revisit preserves an earned entry and its order position', () 
 });
 
 test('hidden Passport chunks retain the display fix', () => {
-  assert.match(passportSource, /\.pp-chunk\[hidden\] \{ display: none; \}/);
+  // The rule lives in the stylesheet since the styling cleanup moved the
+  // injected passport sheets into src/styles/game.css.
+  const styles = readFileSync(new URL('../src/styles/game.css', import.meta.url), 'utf8');
+  assert.match(styles, /\.pp-chunk\[hidden\] \{ display: none; \}/);
 });
