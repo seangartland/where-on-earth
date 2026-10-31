@@ -27,44 +27,30 @@ const APPROVED_AREAS = {
   'black-forest': 80,
   'daintree-rainforest': 35,
   'danube-delta': 50,
-  'dead-sea': 55,
-  'lake-baikal': 342.7,
-  'lake-superior': 338,
-  'lake-victoria': 246.7,
   'lake-titicaca': 83.7,
   'lake-bled': 1.1,
   'crater-lake': 4.9,
-  'great-salt-lake': 58.1,
   'moraine-lake': 0.8,
   'plitvice-lakes': 16.5,
   'lake-como': 25.7,
-  'lake-malawi': 301.2,
-  'lake-balkhash': 334.3,
   'yellowstone-national-park': 74.8,
   'serengeti-national-park': 110.9,
   'kruger-national-park': 191,
   'masai-mara': 40.6,
   'grand-teton-national-park': 33,
-  'loch-ness': 20,
   // Added 2026-10-30 with the 49-landform chunk; radii follow the same
   // ~0.5-0.6x longest-dimension precedent as the entries above.
-  'caspian-sea': 340,
-  'atacama': 250,
-  'namib': 250,
   'gobi': 340,
   'kalahari': 300,
   'rub-al-khali': 280,
-  'lake-tanganyika': 330,
   'lake-toba': 50,
   'santorini-caldera': 5,
   'okavango-delta': 90,
-  'bay-of-fundy': 100,
   // Added 2026-10-30 with the audit-2 glaring landforms chunk; radii
   // follow the same precedent (Amazon at the Baikal-scale cap).
   'amazon-rainforest': 340,
   'aral-sea': 200,
   'socotra': 60,
-  'mojave-desert': 250,
   // Added 2026-10-30 with the diffuse conversions; radii per
   // docs/diffuse-review-2026-10-30.md (canal ring, chinampa core, terrace
   // clusters incl. Batad, beach crescent, Cappadocia core valleys, hill
@@ -80,13 +66,6 @@ const APPROVED_AREAS = {
   'danakil-depression': 50,
   'gobi-desert-dinosaur-nemegt': 20,
   'strait-of-gibraltar': 30,
-  // Added 2026-10-30 with the Great Lakes completion chunk; radii are the
-  // measured farthest-shore distances from each lake's Wikidata P625
-  // anchor (the Lake Superior precedent, extentKm 338).
-  'lake-michigan': 268.2,
-  'lake-huron': 245.3,
-  'lake-erie': 211.6,
-  'lake-ontario': 203.5,
 };
 
 function destination(start, km, bearingDegrees = 73) {

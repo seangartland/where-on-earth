@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 // Sources:
 // curl -L 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_rivers_lake_centerlines.geojson' -o build/extent-sources/ne_10m_rivers_lake_centerlines.geojson
+// curl -L 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_lakes.geojson' -o build/extent-sources/ne_10m_lakes.geojson
+// curl -L 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_geography_marine_polys.geojson' -o build/extent-sources/ne_10m_geography_marine_polys.geojson
 // curl -L 'https://storage.googleapis.com/teow2016/Ecoregions2017.zip' -o build/extent-sources/Ecoregions2017.zip
 //   then unzip it in build/extent-sources/ and run build/extract-sahara-ecoregions.py
 //   to produce build/extent-sources/sahara-resolve2017.geojson (RESOLVE Ecoregions
-//   2017, ECO_ID 822+842+845: the East, South and West Sahara desert ecoregions).
+//   2017, ECO_ID 822+842+845: the East, South and West Sahara desert ecoregions),
+//   and build/extract-desert-ecoregions.py to produce the single-ecoregion
+//   desert sources (Mojave ECO_ID 433, Namib 103, Atacama 598).
 // curl -L 'https://api.openstreetmap.org/api/0.6/relation/318110/full' -o build/extent-sources/wall-full.osm
 // curl -L 'https://api.openstreetmap.org/api/0.6/relation/318110.json' -o build/extent-sources/wall-relation.json
 // curl -G 'https://services1.arcgis.com/HrMiNYsSqqPpLTDE/ArcGIS/rest/services/GBR_Marine_Park_web/FeatureServer/2/query' --data-urlencode 'where=1=1' --data-urlencode 'outFields=*' --data-urlencode 'returnGeometry=true' --data-urlencode 'geometryPrecision=5' --data-urlencode 'f=geojson' -o build/extent-sources/gbrmpa-boundary.geojson
@@ -321,6 +325,113 @@ for (const [id, spec] of Object.entries(DIFFUSE_POLYGONS)) {
   diffuseSummary[id] = { sourceVertices, vertices, maxDeviationKm: Number(maxDev.toFixed(3)) };
 }
 
+// Border-conversion polygons, program lane A (2026-10-30,
+// docs/scan5-borders-inventory-2026-10-30.md): subjects with defined borders
+// get their actual borders instead of radius circles. Natural Earth 1:10m
+// lakes and geography marine polygons (public domain); the Dead Sea is the
+// union of its two named basin polygons. Same treatment as the Sahara and
+// the diffuse polygons: 0.015 degree tolerance, deviation measured per ring
+// against the source ring and gated at 2.5 km. Two inventory entries are
+// held out of this block, on measured evidence in
+// docs/borders-batch-a-report-2026-10-30.md: aral-sea (the NE polygons are
+// the shrunken remnant seas; the card's anchor, the historic lake's P625,
+// sits 104.6 km from the nearest remnant shoreline, so the conversion
+// cannot pass anchor QA without a pin move Sean has not ruled on) and
+// strait-of-gibraltar (NE's named marine feature is five small fragments
+// that do not cover the strait's channel or the card's anchor).
+const NE_POLYGON_TOLERANCE = 0.015;
+function processPolygons(rawPolygons, tolerance) {
+  let maxDev = 0;
+  let sourceVertices = 0;
+  const polygons = rawPolygons.map((polygon) => polygon.map((ring) => {
+    sourceVertices += ring.length;
+    const simplified = simplifyRing(ring, tolerance);
+    maxDev = Math.max(maxDev, deviation(ring, simplified));
+    return simplified;
+  }));
+  const quantized = polygons.map((polygon) => quantize(polygon));
+  return { polygons: quantized, sourceVertices, vertices: quantized.flat(2).length, maxDeviationKm: maxDev };
+}
+const neFeaturePolygons = (collection, names) => collection.features
+  .filter((feature) => names.includes(feature.properties.name))
+  .flatMap((feature) => (feature.geometry.type === 'Polygon' ? [feature.geometry.coordinates] : feature.geometry.coordinates));
+const neLakes = JSON.parse(readFileSync(new URL('./extent-sources/ne_10m_lakes.geojson', import.meta.url)));
+const neMarine = JSON.parse(readFileSync(new URL('./extent-sources/ne_10m_geography_marine_polys.geojson', import.meta.url)));
+const LAKES_URL = 'https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-lakes/';
+const MARINE_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_geography_marine_polys.geojson';
+const NE_LAKE_POLYGONS = {
+  'dead-sea': { names: ['Dead Sea'], source: 'Natural Earth 1:10m lakes, "Dead Sea" (northern and southern basin polygons)' },
+  'lake-victoria': { names: ['Lake Victoria'], source: 'Natural Earth 1:10m lakes, "Lake Victoria"' },
+  'lake-malawi': { names: ['Lake Malawi'], source: 'Natural Earth 1:10m lakes, "Lake Malawi"' },
+  'lake-tanganyika': { names: ['Lake Tanganyika'], source: 'Natural Earth 1:10m lakes, "Lake Tanganyika"' },
+  'lake-baikal': { names: ['Lake Baikal'], source: 'Natural Earth 1:10m lakes, "Lake Baikal"' },
+  'lake-balkhash': { names: ['Lake Balkhash'], source: 'Natural Earth 1:10m lakes, "Lake Balkhash"' },
+  'lake-superior': { names: ['Lake Superior'], source: 'Natural Earth 1:10m lakes, "Lake Superior"' },
+  'lake-michigan': { names: ['Lake Michigan'], source: 'Natural Earth 1:10m lakes, "Lake Michigan"' },
+  'lake-huron': { names: ['Lake Huron'], source: 'Natural Earth 1:10m lakes, "Lake Huron"' },
+  'lake-erie': { names: ['Lake Erie'], source: 'Natural Earth 1:10m lakes, "Lake Erie"' },
+  'lake-ontario': { names: ['Lake Ontario'], source: 'Natural Earth 1:10m lakes, "Lake Ontario"' },
+  'great-salt-lake': { names: ['Great Salt Lake'], source: 'Natural Earth 1:10m lakes, "Great Salt Lake"' },
+  'loch-ness': { names: ['Loch Ness'], source: 'Natural Earth 1:10m lakes, "Loch Ness"' },
+};
+const NE_MARINE_POLYGONS = {
+  'caspian-sea': { names: ['Caspian Sea'], source: 'Natural Earth 1:10m geography marine polygons, "Caspian Sea"' },
+  'bay-of-fundy': { names: ['Bay of Fundy'], source: 'Natural Earth 1:10m geography marine polygons, "Bay of Fundy"' },
+};
+const nePolygonRecords = {};
+const nePolygonSummary = {};
+for (const [id, spec] of Object.entries(NE_LAKE_POLYGONS)) {
+  const foundNames = spec.names.filter((name) => neLakes.features.some((feature) => feature.properties.name === name));
+  if (foundNames.length !== spec.names.length) throw new Error(`${id}: NE lake feature(s) missing for ${spec.names.filter((name) => !foundNames.includes(name)).join(', ')}`);
+  const processed = processPolygons(neFeaturePolygons(neLakes, spec.names), NE_POLYGON_TOLERANCE);
+  if (processed.maxDeviationKm > 2.5) throw new Error(`${id} deviation gate failed: ${processed.maxDeviationKm}`);
+  nePolygonRecords[id] = {
+    type: 'polygon', polygons: processed.polygons,
+    source: spec.source, sourceUrl: LAKES_URL,
+    license: 'Public domain', attribution: 'Natural Earth',
+    sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)),
+  };
+  nePolygonSummary[id] = { sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)) };
+}
+for (const [id, spec] of Object.entries(NE_MARINE_POLYGONS)) {
+  const foundNames = spec.names.filter((name) => neMarine.features.some((feature) => feature.properties.name === name));
+  if (foundNames.length !== spec.names.length) throw new Error(`${id}: NE marine feature(s) missing for ${spec.names.filter((name) => !foundNames.includes(name)).join(', ')}`);
+  const processed = processPolygons(neFeaturePolygons(neMarine, spec.names), NE_POLYGON_TOLERANCE);
+  if (processed.maxDeviationKm > 2.5) throw new Error(`${id} deviation gate failed: ${processed.maxDeviationKm}`);
+  nePolygonRecords[id] = {
+    type: 'polygon', polygons: processed.polygons,
+    source: spec.source, sourceUrl: MARINE_URL,
+    license: 'Public domain', attribution: 'Natural Earth',
+    sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)),
+  };
+  nePolygonSummary[id] = { sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)) };
+}
+
+// RESOLVE-exact deserts (same program lane): the single ecoregion actually
+// named for each subject, extracted by build/extract-desert-ecoregions.py
+// and handled exactly like the Sahara (0.015 degree tolerance, per-ring
+// deviation gated at 2.5 km).
+const RESOLVE_DESERTS = {
+  'mojave-desert': { ecoId: 433, ecoName: 'Mojave desert' },
+  'namib': { ecoId: 103, ecoName: 'Namib Desert' },
+  'atacama': { ecoId: 598, ecoName: 'Atacama desert' },
+};
+const desertRecords = {};
+const desertSummary = {};
+for (const [id, spec] of Object.entries(RESOLVE_DESERTS)) {
+  const src = JSON.parse(readFileSync(new URL(`./extent-sources/${id}-resolve2017.geojson`, import.meta.url)));
+  const processed = processPolygons(src.features[0].geometry.coordinates, NE_POLYGON_TOLERANCE);
+  if (processed.maxDeviationKm > 2.5) throw new Error(`${id} deviation gate failed: ${processed.maxDeviationKm}`);
+  desertRecords[id] = {
+    type: 'polygon', polygons: processed.polygons,
+    source: `RESOLVE Ecoregions 2017, ${spec.ecoName} ecoregion (ECO_ID ${spec.ecoId})`,
+    sourceUrl: 'https://storage.googleapis.com/teow2016/Ecoregions2017.zip',
+    license: 'CC BY 4.0', attribution: 'Ecoregions 2017 © RESOLVE',
+    sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)),
+  };
+  desertSummary[id] = { sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)) };
+}
+
 const records = {
   'great-barrier-reef': {
     type: 'polygon', polygons: [[quantize([reef])[0]]],
@@ -344,6 +455,8 @@ const records = {
   },
   ...riverRecords,
   ...diffuseRecords,
+  ...nePolygonRecords,
+  ...desertRecords,
 };
 
 const text = `${JSON.stringify(records, null, 2)}\n`;
@@ -351,11 +464,14 @@ const recordBytes = Object.fromEntries(Object.entries(records).map(([id, record]
 for (const [id, bytes] of Object.entries(recordBytes)) if (bytes > 100_000) throw new Error(`${id} exceeds 100 KB`);
 if (reefDeviation > 2.5) throw new Error(`Reef deviation gate failed: ${reefDeviation}`);
 if (saharaDeviation > 2.5) throw new Error(`Sahara deviation gate failed: ${saharaDeviation}`);
-if (Buffer.byteLength(text) > 500_000) throw new Error('extent sidecar exceeds 500 KB');
+// The sidecar cap was 500 KB when it held 34 records; the 2026-10-30
+// borders program takes it to 52 records in this lane (the OSM lane adds
+// more), so the cap moves to 1 MB. It stays a blowup guard, not a budget.
+if (Buffer.byteLength(text) > 1_000_000) throw new Error('extent sidecar exceeds 1 MB');
 writeFileSync(new URL('../assets/extents.json', import.meta.url), text);
 console.log(JSON.stringify({
   rawBytes: Buffer.byteLength(text), gzipBytes: gzipSync(text).length,
   reef: { sourceVertices: rawReef.length, vertices: reef.length, maxDeviationKm: reefDeviation },
   canyon: { vertices: canyon.flat().length },
-  sahara: { sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: saharaDeviation }, rivers: riverSummary, diffuse: diffuseSummary, recordBytes,
+  sahara: { sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: saharaDeviation }, rivers: riverSummary, diffuse: diffuseSummary, nePolygons: nePolygonSummary, deserts: desertSummary, recordBytes,
 }, null, 2));

@@ -16,31 +16,22 @@ const APPROVED_AREAS = new Map([
   ['black-forest', 80],
   ['daintree-rainforest', 35],
   ['danube-delta', 50],
-  ['dead-sea', 55],
-  ['lake-baikal', 342.7],
-  ['lake-superior', 338],
-  ['lake-victoria', 246.7],
   ['lake-titicaca', 83.7],
   ['lake-bled', 1.1],
   ['crater-lake', 4.9],
-  ['great-salt-lake', 58.1],
   ['moraine-lake', 0.8],
   ['plitvice-lakes', 16.5],
   ['lake-como', 25.7],
-  ['lake-malawi', 301.2],
-  ['lake-balkhash', 334.3],
   ['yellowstone-national-park', 74.8],
   ['serengeti-national-park', 110.9],
   ['kruger-national-park', 191],
   ['masai-mara', 40.6],
   ['grand-teton-national-park', 33],
-  ['loch-ness', 20],
   // Added 2026-10-30 with the audit-2 glaring landforms chunk; radii
   // follow the same ~0.5-0.6x longest-dimension precedent, Baikal cap.
   ['amazon-rainforest', 340],
   ['aral-sea', 200],
   ['socotra', 60],
-  ['mojave-desert', 250],
   // Added 2026-10-30 with the diffuse conversions; radii per
   // docs/diffuse-review-2026-10-30.md.
   ['amsterdam-canals-d34-7', 2],
@@ -55,10 +46,6 @@ const APPROVED_AREAS = new Map([
   ['strait-of-gibraltar', 30],
   // Added 2026-10-30 with the Great Lakes completion chunk; measured
   // farthest-shore radii from the P625 anchors (Lake Superior precedent).
-  ['lake-michigan', 268.2],
-  ['lake-huron', 245.3],
-  ['lake-erie', 211.6],
-  ['lake-ontario', 203.5],
 ]);
 
 const items = JSON.parse(readFileSync(new URL('../assets/locations-landmarks-sol.json', import.meta.url), 'utf8'));

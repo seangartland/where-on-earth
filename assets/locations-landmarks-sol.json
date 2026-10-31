@@ -941,8 +941,8 @@
    "Middle East"
   ],
   "difficultyWhy": "p.88·fb69·K0·iso63 → 6.1 → 2",
-  "extentKm": 55,
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "delicate-arch-utah",
@@ -3879,9 +3879,9 @@
    "Lakes"
   ],
   "difficultyWhy": "p.93·fb2228·K0·iso343 → 8.2 → 3",
-  "extentKm": 342.7,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-superior",
@@ -3898,9 +3898,9 @@
    "Lakes"
   ],
   "difficultyWhy": "p.91·fb1522·K0·iso338 → 8.9 → 3",
-  "extentKm": 338,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-victoria",
@@ -3917,9 +3917,9 @@
    "Lakes"
   ],
   "difficultyWhy": "p.86·fb807·K0·iso247 → 12.4 → 4",
-  "extentKm": 246.7,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-titicaca",
@@ -3995,9 +3995,9 @@
    "Lakes"
   ],
   "difficultyWhy": "p.72·fb751·K0·iso58 → 23.0 → 5",
-  "extentKm": 58.1,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "moraine-lake",
@@ -4074,9 +4074,9 @@
    "Lakes"
   ],
   "difficultyWhy": "p.48·fb254·K0·iso301 → 41.1 → 6",
-  "extentKm": 301.2,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-balkhash",
@@ -4093,9 +4093,9 @@
    "Lakes"
   ],
   "difficultyWhy": "p.31·fb186·K0·iso334 → 91.8 → 8",
-  "extentKm": 334.3,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "yellowstone-national-park",
@@ -4208,9 +4208,9 @@
    "Lakes"
   ],
   "difficultyWhy": "p.74·fb150·K0·iso456 → 12.0 → 4",
-  "extentKm": 20,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "mount-everest-summit",
@@ -5409,8 +5409,8 @@
   "sets": [],
   "difficultyWhy": "p.76·fb793·K0·iso647 → 45.9 → 7",
   "category": "city",
-  "kind": "area",
-  "extentKm": 250
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "bay-of-fundy",
@@ -5426,8 +5426,8 @@
   "sets": [],
   "difficultyWhy": "p.56·fb1592·K0·iso516 → 154.7 → 9",
   "category": "city",
-  "kind": "area",
-  "extentKm": 100
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "bryce-canyon",
@@ -5499,8 +5499,8 @@
   ],
   "difficultyWhy": "p.98·fb1332·K0·iso0 → 8.4 → 3",
   "category": "city",
-  "kind": "area",
-  "extentKm": 340
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "devils-tower",
@@ -5678,8 +5678,8 @@
   ],
   "difficultyWhy": "p.66·fb398·K0·iso136 → 33.0 → 6",
   "category": "city",
-  "kind": "area",
-  "extentKm": 330
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-toba",
@@ -5875,8 +5875,8 @@
   "sets": [],
   "difficultyWhy": "p.47·fb41·K0·iso1010 → 14.4 → 4",
   "category": "city",
-  "kind": "area",
-  "extentKm": 250
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "okavango-delta",
@@ -7196,8 +7196,8 @@
   "sets": [],
   "difficultyWhy": "p.78·fb87·K0·iso15 → 8.7 → 3",
   "category": "city",
-  "kind": "area",
-  "extentKm": 250
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "rhine-river",
@@ -7328,8 +7328,8 @@
   ],
   "difficultyWhy": "p.76·fb541·K0·iso0 → 32.2 → 6",
   "category": "city",
-  "kind": "area",
-  "extentKm": 268.2
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-huron",
@@ -7347,8 +7347,8 @@
   ],
   "difficultyWhy": "p.61·fb707·K0·iso40 → 64.4 → 7",
   "category": "city",
-  "kind": "area",
-  "extentKm": 245.3
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-erie",
@@ -7366,8 +7366,8 @@
   ],
   "difficultyWhy": "p.72·fb794·K0·iso0 → 52.9 → 7",
   "category": "city",
-  "kind": "area",
-  "extentKm": 211.6
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-ontario",
@@ -7385,8 +7385,8 @@
   ],
   "difficultyWhy": "p.60·fb1065·K0·iso0 → 96.4 → 8",
   "category": "city",
-  "kind": "area",
-  "extentKm": 203.5
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "willis-tower",
