@@ -4254,7 +4254,7 @@
  {
   "id": "harare-zimbabwe",
   "clue": "Harare, Zimbabwe 🇿🇼",
-  "fact": "Zimbabwe's capital, known for its wide streets lined with jacaranda trees.",
+  "fact": "Founded in 1890 as Fort Salisbury by the British South Africa Company's Pioneer Column, the city was renamed Harare in 1982, on the second anniversary of Zimbabwean independence.",
   "lat": -17.8216,
   "lng": 31.0492,
   "difficulty": 6,
@@ -5593,7 +5593,7 @@
  {
   "id": "kigali-rwanda",
   "clue": "Kigali, Rwanda 🇷🇼",
-  "fact": "Rwanda's capital, known for its cleanliness and well-organized urban layout.",
+  "fact": "Kigali became Rwanda's capital at independence in 1962, and on the last Saturday of every month the city shuts down for umuganda, a mandatory morning of community cleaning and building work.",
   "lat": -1.9441,
   "lng": 30.0619,
   "difficulty": 7,
@@ -6178,7 +6178,7 @@
   "id": "lilongwe-mw",
   "short": "Lilongwe",
   "clue": "Lilongwe, Malawi 🇲🇼",
-  "fact": "Lilongwe became Malawi's capital in 1975 and is a spread-out garden city.",
+  "fact": "Named after the Lilongwe River, the city was picked as Malawi's new capital in 1965 and took over from Zomba in 1975, growing into the country's largest city.",
   "lat": -13.96692,
   "lng": 33.78725,
   "difficulty": 8,
