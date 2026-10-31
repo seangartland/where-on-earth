@@ -149,7 +149,11 @@ const saharaVertices = saharaPolygons.flat(2).length;
 // held out on the same gate as Parana and Murray: NE's single Thames
 // centerline measures 267 km against the 346 km conventional length (77%),
 // generalized and ending at Gravesend with the tidal reach undrawn; see
-// docs/landforms-additions2-report-2026-10-30.md.
+// docs/landforms-additions2-report-2026-10-30.md. The Rio Grande is held
+// out on the same gate: NE draws the whole river under its own name,
+// source to mouth, but the assembled stem measures 2,426 km against the
+// 3,057 km conventional length (79%), the 1:10m generalization of a
+// heavily meandering course; see docs/sweep-glaring-report-2026-10-30.md.
 const RIVER_TOLERANCE = 0.015;
 const neRivers = JSON.parse(readFileSync(new URL('./extent-sources/ne_10m_rivers_lake_centerlines.geojson', import.meta.url)));
 const neSegments = [];

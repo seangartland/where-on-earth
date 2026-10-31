@@ -30,6 +30,10 @@ EXCLUSIONS = {
     # caught when chunk 7 regenerated the set: a cave temple and an estate
     # that is a mountain in name only; both belong to Landmarks.
     'Batu Caves', 'Mount Vernon',
+    # Same pattern trap from the 2026-10-30 completeness-sweep additions:
+    # a bridge whose name begins with the lake it crosses; it belongs to
+    # Landmarks, not Landforms.
+    'Lake Pontchartrain Causeway',
 }
 # Entries Sean added to the mechanically derived core in the curated 121 review.
 # These are stable bank ids so similarly named places cannot be pulled in by
@@ -117,6 +121,12 @@ CURATED_ADDITION_IDS = {
     # the Lake Superior pattern (Michigan, Huron, Erie, Ontario): listed
     # explicitly on the same precedent.
     'lake-michigan', 'lake-huron', 'lake-erie', 'lake-ontario',
+    # Two eight-thousanders from the 2026-10-30 completeness sweep's
+    # glaring tier, point entries on the K2 / Everest / Kangchenjunga
+    # precedent: listed explicitly on the same precedent. The sweep's
+    # seventh entry, the Rio Grande, was held at the Natural Earth
+    # coverage gate (2,426 of 3,057 km, 79%) and is NOT a member.
+    'annapurna', 'nanga-parbat',
 }
 
 
