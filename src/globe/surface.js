@@ -530,7 +530,7 @@ export const SAT_PROVIDERS = [
     // policy without Access-Control-Allow-Origin (immutable, 1 year); a new
     // query string is a new cache key, so every tile is fetched with CORS.
     tiles: 'https://tiles.where-on.earth/tiles/{z}/{x}/{y}.jpg?v=3',
-    base: './assets/eox-z4-base-2k.jpg',
+    base: './assets/eox-z4-base-4k.jpg',
     credit: 'EOxCloudless <a href="https://cloudless.eox.at" target="_blank" rel="noopener">https://cloudless.eox.at</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)',
     // z9 mirrored wide (13x17 per location) and z10 over the same ground,
     // 2026-10-27 (eox-z9/download_tiles.py); beyond the mirror the game
