@@ -205,6 +205,9 @@ body.game-settings #hud { opacity: 0; }
 .start-screen { display: flex; box-sizing: border-box; flex-direction: column; align-items: center; justify-content: safe center; overflow-y: auto; padding: calc(env(safe-area-inset-top, 0px) + 16px) 28px calc(env(safe-area-inset-bottom, 0px) + 28px); text-align: center; background: linear-gradient(180deg, rgba(2,4,9,.12), rgba(2,4,9,.56)); }
 .eyebrow { margin: 0 0 10px; color: #77caff; font-size: var(--fs-caption); font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
 h1 { max-width: 330px; margin: 0; color: var(--ink-title); font-size: clamp(46px, 15vw, 68px); line-height: .9; letter-spacing: -.065em; text-shadow: 0 0 30px rgba(77,176,255,.35); }
+/* Returning players get a compact one-line title; the big two-line title is
+   a first-run treatment. */
+.start-screen.has-passport h1 { max-width: 100%; font-size: clamp(27px, 8.2vw, 34px); letter-spacing: -.04em; white-space: nowrap; }
 .how-to { max-width: 310px; margin: 24px 0 28px; color: rgba(218,237,255,.78); font-size: var(--fs-base); line-height: 1.5; }
 .primary { min-width: 172px; min-height: 52px; padding: 0 24px; border: 0; border-radius: 999px; background: var(--ink-btn); color: #071426; font-weight: 800; cursor: pointer; box-shadow: 0 8px 28px rgba(89,185,255,.28); touch-action: manipulation; }
 .primary:active { transform: scale(.98); }
@@ -212,10 +215,6 @@ h1 { max-width: 330px; margin: 0; color: var(--ink-title); font-size: clamp(46px
    button. An explicit variant, so the base skin stays the one white pill. */
 .primary--gold { background: linear-gradient(135deg, var(--gold), #ff9f6a); color: #21152f; }
 .streak { min-height: 20px; margin: 18px 0 0; color: var(--gold); font-size: var(--fs-body); font-weight: 700; }
-/* Home credits link: small text link at the foot of the start-screen stack,
-   same text-link treatment as .settings-credits. */
-.home-credits { margin: 16px 0 0; font-size: var(--fs-body); }
-.home-credits a { color: rgba(220,239,255,.75); }
 /* Returning players: the passport card replaces the how-to and carries the streak. */
 .start-screen.has-passport .how-to, .start-screen.has-passport .streak { display: none; }
 .round-screen { pointer-events: none; }
@@ -505,16 +504,36 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 }
 .mode-buttons > button:active { transform: scale(.98); }
 .mode-buttons > button[hidden] { display: none; }
+/* A not-yet-ready entry keeps its grid cell but stays invisible, so the row
+   does not shift when it appears (the Expeditions slot during load). */
+.mode-buttons > button.entry-pending { visibility: hidden; }
 .mode-buttons > button:disabled { opacity: .45; cursor: progress; }
 .mode-buttons > button:disabled:active { transform: none; }
 /* Daily takes the full first row so Survival and Challenge pair below it. */
-#play-button { grid-column: 1 / -1; background: linear-gradient(135deg, var(--gold), #ff9f6a); border: 0; color: #21152f; font-weight: 800; }
-/* The Daily postcard pack: a slim, quiet full-width row under the Daily (outline, no fill). */
-#pack-button { position: relative; grid-column: 1 / -1; min-height: 48px; border-color: rgba(var(--rgb-gold),.55); background: none; color: #ffe2a0; }
+#play-button { grid-column: 1 / -1; }
+/* The gold primary treatment is state-driven, never on two buttons at once:
+   syncPackButton moves .is-gold between the Daily (unplayed) and Packs
+   (Daily played and a pack can be opened or resumed). */
+.mode-buttons > button.is-gold { background: linear-gradient(135deg, var(--gold), #ff9f6a); border: 0; color: #21152f; font-weight: 800; }
+/* A played Daily shrinks to a slim, quiet single row; it still opens the
+   day's results. */
+#play-button.daily-done { min-height: 40px; flex-direction: row; gap: 6px; }
+/* Postcard Packs: a full-width row under the Daily, sharing the one
+   dark-glass treatment with Expeditions and Practice; the title stays gold. */
+#pack-button { position: relative; grid-column: 1 / -1; color: #ffe2a0; }
+/* On gold the pack button's own text flips to ink, like the Daily's; the
+   token pill keeps its gold-on-dark chrome via .pack-token-pill. */
+#pack-button.is-gold { color: #21152f; }
 /* Skip-token pill pinned to the pack button's right edge; the pill chrome
-   itself is the shared .pack-skip-balance rule. */
-.pack-token-pill { position: absolute; top: 50%; right: 14px; transform: translateY(-50%); font-size: var(--fs-caption); }
-#pack-button.played { opacity: .55; }
+   itself is the shared .pack-skip-balance rule. The pill keeps its own gold
+   text so it stays readable when the button itself goes gold. */
+.pack-token-pill { position: absolute; top: 50%; right: 14px; transform: translateY(-50%); font-size: var(--fs-caption); color: #ffe2a0; }
+/* Slim refill bar along the pack button's bottom edge, clipped by the pill
+   radius; the fill uses the same 12h fraction as the pack screen bar. */
+.pack-home-bar { position: absolute; right: 0; bottom: 0; left: 0; height: 3px; background: rgba(var(--rgb-gold),.18); pointer-events: none; }
+.pack-home-bar i { display: block; height: 100%; background: var(--gold); }
+#pack-button.is-gold .pack-home-bar { background: rgba(33,21,47,.18); }
+#pack-button.is-gold .pack-home-bar i { background: #21152f; }
 
 /* The pack screen alone uses a dark studio stage. */
 .pack-screen { display: grid; place-items: center; box-sizing: border-box; padding: 14px 8px; overflow: auto; background: radial-gradient(circle at 50% 43%, #19365c 0, #0b1930 36%, #040914 76%); pointer-events: auto; }
@@ -845,7 +864,7 @@ body.game-stats #hud { opacity: 0; }
    same reason) and the dots show through the tint anyway. */
 .passport[hidden] { display: none; }
 .pp-chunk[hidden] { display: none; }
-.passport { position: relative; overflow: hidden; padding: 0 0 11px; border: 0; border-radius: 8px; background: var(--mail-paper); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.passport { position: relative; overflow: hidden; box-sizing: border-box; width: min(100%, 354px); max-width: calc(100vw - 32px); margin: 20px auto 0; padding: 0 0 11px; border: 0; border-radius: 19px; background: var(--mail-paper); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .passport:active { transform: scale(.99); }
 .passport:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .passport-count { margin: 11px 76px 0 14px; color: rgba(52,72,96,.78); font-size: var(--fs-body); font-weight: 700; }
@@ -857,7 +876,9 @@ body.game-stats #hud { opacity: 0; }
 .passport-stamps img[data-tier="cyan"] { border-color: #34486a; }
 .passport-stamps img[data-tier="dim"] { filter: saturate(.65) brightness(.7); }
 .passport-postmark { position: absolute; top: 17px; right: 13px; display: grid; place-items: center; width: 56px; height: 56px; border: 2px solid rgba(52,72,96,.45); border-radius: 50%; color: rgba(52,72,96,.68); font-size: 7px; font-weight: 800; letter-spacing: .08em; line-height: 1.35; text-align: center; transform: rotate(-11deg); }
-.passport-postmark time { display: block; font-size: 9px; }
+.passport-postmark .postmark-text { display: block; font-size: 9px; white-space: pre-line; }
+/* The card names itself and shows it opens: a quiet ink cue at the foot. */
+.passport-cue { position: absolute; right: 15px; bottom: 9px; color: rgba(52,72,96,.8); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .02em; }
 
 /* Recommended home variant: the card as a one-line strip at the mode grid's
    width, with the default card's padding and type. The postmark centers in

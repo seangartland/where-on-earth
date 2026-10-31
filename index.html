@@ -92,14 +92,13 @@
       <h1>Where on Earth?</h1>
       <p class="how-to">Find five places. Spin the globe, zoom in, tap to place your pin, then lock it in.</p>
       <div class="mode-buttons" aria-label="Game modes">
-        <button id="play-button" type="button"><span class="mode-name">Daily</span><small class="mode-desc">5 places daily</small></button>
-        <button id="pack-button" type="button" disabled><span class="mode-name">Postcard Packs</span><small class="mode-desc">2 packs available</small><span class="pack-skip-balance pack-token-pill"><svg class="hg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffc76a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 2.8h11M6.5 21.2h11M7.3 2.8v3c0 2.5 2.1 3.6 4.7 6 2.6-2.4 4.7-3.5 4.7-6v-3M7.3 21.2v-3c0-2.5 2.1-3.6 4.7-6 2.6 2.4 4.7 3.5 4.7 6v3"/><path d="M9.8 18.4 12 15.9l2.2 2.5Z" fill="#ffc76a" stroke="none" opacity=".9"/></svg><span class="pack-token-count">12</span></span></button>
-        <button id="expeditions-button" type="button" hidden><span class="mode-name">Expeditions</span></button>
+        <button id="play-button" class="is-gold" type="button"><span class="mode-name">Daily</span><small class="mode-desc">Loading…</small></button>
+        <button id="pack-button" type="button" disabled><span class="mode-name">Postcard Packs</span><small class="mode-desc">2 packs available</small><span class="pack-skip-balance pack-token-pill"><svg class="hg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffc76a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 2.8h11M6.5 21.2h11M7.3 2.8v3c0 2.5 2.1 3.6 4.7 6 2.6-2.4 4.7-3.5 4.7-6v-3M7.3 21.2v-3c0-2.5 2.1-3.6 4.7-6 2.6 2.4 4.7 3.5 4.7 6v3"/><path d="M9.8 18.4 12 15.9l2.2 2.5Z" fill="#ffc76a" stroke="none" opacity=".9"/></svg><span class="pack-token-count">12</span></span><span class="pack-home-bar" aria-hidden="true"><i></i></span></button>
+        <button id="expeditions-button" class="entry-pending" type="button"><span class="mode-name">Weekly Expedition</span></button>
         <button id="survival-hub-button" type="button"><span class="mode-name">Practice</span></button>
-        <button id="pvp-button" type="button" disabled><span class="mode-name">Challenge</span><small class="mode-desc">Play a friend</small></button>
+        <button id="pvp-button" type="button" disabled hidden><span class="mode-name">Challenge</span><small class="mode-desc">Play a friend</small></button>
       </div>
       <p id="start-streak" class="streak"></p>
-      <p class="home-credits"><a href="./credits.html">Credits</a></p>
     </section>
 
     <section id="round-screen" class="screen round-screen" hidden>

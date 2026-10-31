@@ -1,7 +1,7 @@
 import { EARN_NAMES, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
 import { audio } from '../core/audio.js';
 import { state } from '../core/state.js';
-import { formatKm } from '../core/format.js';
+import { formatKm, localDateKey } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
   PACK_CARDS, STAMINA_MAX, STAMINA_PERIOD, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
@@ -66,11 +66,32 @@ export function syncPackButton() {
   entry.disabled = !(host.locations || []).length || !(host.landmarks || []).length;
   const record = readPack();
   const progress = packProgressCount(record);
-  let subtitle = progress ? `${progress} in progress` : staminaText(record);
-  if (!progress && record.stamina.stored === 1) subtitle += ` · next in ${countdownText(record)}`;
+  // Availability and an open pack are independent facts; show both when both
+  // are true. The countdown append only applies when nothing is in progress.
+  let subtitle;
+  if (progress && record.stamina.stored > 0) subtitle = `${staminaText(record)} · ${progress} in progress`;
+  else if (progress) subtitle = `${progress} in progress`;
+  else {
+    subtitle = staminaText(record);
+    if (record.stamina.stored === 1) subtitle += ` · next in ${countdownText(record)}`;
+  }
   entry.querySelector('.mode-desc').textContent = subtitle;
   entry.querySelector('.pack-token-count').textContent = record.skips;
-  entry.classList.remove('played');
+  // Slim refill bar on the home button's bottom edge: same fraction as the
+  // pack screen bar, full at cap.
+  const { stored, nextAt } = record.stamina;
+  const refillPct = stored >= STAMINA_MAX || nextAt == null ? 100
+    : Math.min(100, Math.max(0, (1 - (nextAt - Date.now()) / STAMINA_PERIOD) * 100));
+  entry.querySelector('.pack-home-bar i').style.width = `${refillPct.toFixed(1)}%`;
+  // The gold primary treatment is state-driven: the unplayed Daily holds it;
+  // once the Daily is played, Packs takes it when a pack can be opened or
+  // resumed, and nothing is gold when no pack is available. This runs on the
+  // 1s tick, so it flips live as the Daily completes or a pack refills.
+  if (!document.body.classList.contains('home-recs')) {
+    const dailyPlayed = Boolean(state.daily?.complete && state.daily?.date === localDateKey());
+    entry.classList.toggle('is-gold', dailyPlayed && (stored > 0 || progress > 0));
+    document.getElementById('play-button')?.classList.toggle('is-gold', !dailyPlayed);
+  }
 
   // Recommended home variant: update pack marker on Daily button
   const isRecsHome = document.body.classList.contains('home-recs');

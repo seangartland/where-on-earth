@@ -59,13 +59,13 @@ function expeditionLocation(expedition, index) {
 export function updateExpeditionEntry() {
   const ready = Boolean(host.locations.length && host.landmarks
     && expeditions.some((expedition) => expeditionLocations(expedition).length));
-  // The button starts hidden in the markup so it never shows before it can be
-  // played; readiness is also what reveals it (previously nothing un-hid it,
-  // so the mode was unreachable from the home screen).
-  host.gameEls.expeditionsEntry.hidden = !ready;
+  // The button starts invisible in the markup (.entry-pending) so it never
+  // shows before it can be played, but it keeps its grid cell so the
+  // Expeditions/Practice row does not shift when it appears; readiness is
+  // also what reveals it (previously nothing un-hid it, so the mode was
+  // unreachable from the home screen).
+  host.gameEls.expeditionsEntry.classList.toggle('entry-pending', !ready);
   host.gameEls.expeditionsEntry.disabled = !ready;
-  // The label names the live week, the time-bound content in the picker.
-  const route = thisWeek().route;
 }
 
 export function completeExpeditionRound() {
@@ -353,7 +353,7 @@ export function initExpeditions(main) {
   expeditionPicker.className = 'expedition-picker';
   expeditionPicker.hidden = true;
   expeditionPicker.innerHTML = `<div class="expedition-panel" role="dialog" aria-modal="true" aria-labelledby="expedition-heading">
-  <h2 id="expedition-heading">Choose an expedition</h2>
+  <h2 id="expedition-heading">Weekly Expedition</h2>
   <p>Hand-picked stops, played in order.</p>
   <div class="expedition-weekly"></div>
   <h3 class="expedition-section">Classic expeditions</h3>

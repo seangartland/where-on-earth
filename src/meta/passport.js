@@ -40,6 +40,7 @@ function passportSummary() {
 
 let passportBox;
 let passportEls;
+let passportDateStamp = '';
 
 export function syncPassport() {
   if (host.passportDirty) host.buildPassportDots();
@@ -53,9 +54,13 @@ export function syncPassport() {
   host.gameEls.start.classList.toggle('has-passport', summary.found > 0);
   passportEls.found.textContent = summary.found.toLocaleString();
   passportEls.total.textContent = summary.total.toLocaleString();
-  passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} earned` : '';
+  passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} postcards` : '';
+  // The postmark is the streak stamp now (it only ever showed today's date
+  // before); with no live streak it falls back to the date.
   const streak = currentStreak();
-  passportEls.streak.textContent = streak ? ` · ${streak.toLocaleString()}` : '';
+  passportEls.postmark.textContent = streak
+    ? `${streak.toLocaleString()}\n${streak === 1 ? 'DAY' : 'DAYS'}`
+    : passportDateStamp;
   passportEls.stamps.replaceChildren(...summary.recent.map((spot) => {
     const img = document.createElement('img');
     img.src = spot.item.image;
@@ -1189,28 +1194,29 @@ export function initPassportHome(main) {
   passportBox.tabIndex = 0;
   passportBox.setAttribute('aria-label', 'Open your passport');
   passportBox.innerHTML = `
-  <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places found<span class="passport-earned" data-passport="earned"></span><span class="passport-streak" data-passport="streak"></span></p>
+  <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places<span class="passport-earned" data-passport="earned"></span></p>
   <div class="passport-stamps" data-passport="stamps"></div>
-  <span class="passport-postmark" aria-hidden="true"><time></time></span>`;
-  passportBox.querySelector('.passport-postmark time').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
+  <span class="passport-cue" aria-hidden="true">Passport ›</span>
+  <span class="passport-postmark" aria-hidden="true"><span class="postmark-text" data-passport="postmark"></span></span>`;
+  passportDateStamp = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
+  passportBox.querySelector('[data-passport="postmark"]').textContent = passportDateStamp;
   passportBox.addEventListener('click', () => openPassport(null));
   passportBox.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPassport(); }
   });
-  // In the recs variant, place the passport strip at the bottom of the
-  // start-screen stack (after the mode-buttons). In the default home, keep
-  // it above the mode-buttons as before.
+  // The card sits below the mode-buttons in both variants now: it is what
+  // the player keeps, not what they do next, so the play actions come first.
   if (isRecsHome) {
     host.gameEls.start.appendChild(passportBox);
   } else {
-    host.gameEls.play.closest('.mode-buttons').before(passportBox);
+    host.gameEls.play.closest('.mode-buttons').after(passportBox);
   }
   passportEls = {
     box: passportBox,
     found: passportBox.querySelector('[data-passport="found"]'),
     total: passportBox.querySelector('[data-passport="total"]'),
     earned: passportBox.querySelector('[data-passport="earned"]'),
-    streak: passportBox.querySelector('[data-passport="streak"]'),
+    postmark: passportBox.querySelector('[data-passport="postmark"]'),
     stamps: passportBox.querySelector('[data-passport="stamps"]'),
   };
 }
