@@ -12,7 +12,7 @@
 import { currentStreak } from './stats.js';
 import { buildPostcardCard, postcardDisplayName } from './postcard-card.js';
 import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
-import { passportPackSections, packCardNumberMap, formatPackCardNumber } from './passport-packs.js';
+import { PASSPORT_PACKS, passportPackSections, packCardNumberMap, formatPackCardNumber } from './passport-packs.js';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
@@ -217,7 +217,7 @@ export function passportMysterySlot() {
 
 // passportCard() → passportSlot(): a compact 3-up tile for the dex grid, with a
 // mystery branch for unvisited places (Idea 1, docs/passport-redesign-opus.md §2).
-function passportSlot(entry, cardNumber = null) {
+function passportSlot(entry) {
   if (!entry.visited) return ppMysteryTemplate.cloneNode(true);
   const earn = host.EARN_NAMES[entry.earned] || 'seen';
   const tier = entry.earned >= host.EARN_PINPOINT ? 'pinpoint' : entry.earned >= host.EARN_BULLSEYE ? 'bullseye' : 'ordinary';
@@ -242,17 +242,10 @@ function passportSlot(entry, cardNumber = null) {
   li.setAttribute('role', 'button');
   li.setAttribute('aria-haspopup', 'dialog');
   li.setAttribute('aria-label', `Open postcard: ${li.querySelector('.pp-slot-name').textContent}, ${tierLabel}${hasDistance ? `, ${pillText}` : ''}`);
-  if (cardNumber != null) {
-    // Pack dex only: the card's number, small on the paper at the slot's
-    // bottom-right corner. The postmark score pill owns the photo's
-    // top-right, so the number stays off the photo entirely.
-    li.classList.add('has-card-number');
-    const number = document.createElement('span');
-    number.className = 'pp-slot-number';
-    number.setAttribute('aria-hidden', 'true');
-    number.textContent = formatPackCardNumber(cardNumber);
-    li.append(number);
-  }
+  // No card number on the thumbnail (Sean, 2026-10-31): the name gets the
+  // full width of the paper instead of truncating early to clear a number
+  // in the bottom-right corner. The number lives on the postcard's back
+  // (see fillPostcard's addrPack line).
   bindPostcard(li, entry);
   return li;
 }
@@ -890,6 +883,7 @@ let ppdSource = null; // the grid card the open postcard came from
 let ppdOpening = null; // the open animations while they run
 let ppdClosing = false;
 let ppdEntry = null; // the passport entry on show
+let ppdPackNumbers = null; // cached packCardNumberMap for the back's registry line
 
 function longDate(date) {
   return new Date(`${date}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -944,6 +938,15 @@ function fillPostcard(entry) {
   ppdEls.addrName.textContent = item.short || '';
   ppdEls.addrCountry.textContent = `${entry.country || ''}${flag ? ` ${flag}` : ''}`.trim();
   ppdEls.addrCountry.hidden = !ppdEls.addrCountry.textContent;
+
+  // Pack registry line on the back: for pack cards, the set name and the
+  // card's dex number (Sean, 2026-10-31: the number moved here from the
+  // Passport thumbnail so thumbnail names stop truncating early).
+  if (!ppdPackNumbers) ppdPackNumbers = packCardNumberMap(host.locations, host.landmarks || []);
+  const packHit = ppdPackNumbers.get(item.id);
+  const packName = packHit ? PASSPORT_PACKS.find((p) => p.type === packHit.pack)?.name || '' : '';
+  ppdEls.addrPack.hidden = !packHit;
+  ppdEls.addrPack.textContent = packHit ? `${packName} · No. ${formatPackCardNumber(packHit.number)}` : '';
 
   // Postmark: the stored first-earn timestamp (meta.ea), in the badge language.
   const stamped = entry.earned ? postmarkLines(entry.earnedAt) : null;
@@ -1437,6 +1440,7 @@ export function initPassport(main) {
               <div class="ppd-addr">
                 <p class="ppd-addr-name" data-ppd="addrName"></p>
                 <p class="ppd-addr-country" data-ppd="addrCountry"></p>
+                <p class="ppd-addr-pack" data-ppd="addrPack"></p>
                 <div class="ppd-addr-rule"></div>
                 <div class="ppd-addr-rule"></div>
               </div>
