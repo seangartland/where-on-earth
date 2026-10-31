@@ -258,7 +258,10 @@ export function showPackSelect() {
       button.type = 'button';
       button.className = 'pack-choice';
       button.disabled = locked || (!inProgress && pack.record.stamina.stored < 1);
-      button.innerHTML = `<img src="${config.art}" alt=""><strong>${config.name}</strong><small>${locked ? 'Finish your open pack first' : complete ? 'Complete' : inProgress ? 'In progress' : ''}</small>`;
+      // The art carries the pack name in large type, so there is no visible
+      // label; the name stays on the button for assistive tech.
+      button.setAttribute('aria-label', config.name);
+      button.innerHTML = `<img src="${config.art}" alt=""><small>${locked ? 'Finish your open pack first' : complete ? 'Complete' : inProgress ? 'In progress' : ''}</small>`;
       button.addEventListener('click', () => {
         pack.type = config.type;
         ensurePack(pack.record, config.type, poolFor(config.type));
