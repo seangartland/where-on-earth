@@ -401,9 +401,9 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "F2·A1·K0·C1·S1·G1 → 5",
-  "extentKm": 45,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "big-ben",
@@ -831,8 +831,8 @@
    "Beaches"
   ],
   "difficultyWhy": "p.50·fb659·K0·iso347 → 75.7 → 7",
-  "kind": "area",
-  "extentKm": 2.5
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "copper-canyon",
@@ -904,9 +904,9 @@
    "Great Rivers"
   ],
   "difficultyWhy": "p.48·fb315·K0·iso172 → 37.9 → 6",
-  "extentKm": 50,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "darvaza-gas-crater",
@@ -3937,9 +3937,9 @@
    "Andes"
   ],
   "difficultyWhy": "p.85·fb863·K0·iso84 → 12.8 → 4",
-  "extentKm": 83.7,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-bled",
@@ -3957,9 +3957,9 @@
    "The Alps"
   ],
   "difficultyWhy": "p.74·fb309·K0·iso1 → 13.1 → 4",
-  "extentKm": 1.1,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "crater-lake",
@@ -3976,9 +3976,9 @@
    "Lakes"
   ],
   "difficultyWhy": "p.66·fb804·K0·iso5 → 34.0 → 6",
-  "extentKm": 4.9,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "great-salt-lake",
@@ -4015,9 +4015,9 @@
    "Mountains"
   ],
   "difficultyWhy": "p.35·fb127·K0·iso1 → 87.5 → 8",
-  "extentKm": 0.8,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "plitvice-lakes",
@@ -4035,9 +4035,9 @@
    "Balkans"
   ],
   "difficultyWhy": "p.61·fb169·K0·iso17 → 24.6 → 5",
-  "extentKm": 16.5,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-como",
@@ -4055,9 +4055,9 @@
    "The Alps"
   ],
   "difficultyWhy": "p.80·fb945·K0·iso26 → 20.0 → 5",
-  "extentKm": 25.7,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "lake-malawi",
@@ -4112,9 +4112,9 @@
    "US Road Trip"
   ],
   "difficultyWhy": "p.96·fb2010·K0·iso75 → 35.0 → 6",
-  "extentKm": 74.8,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "serengeti-national-park",
@@ -4131,9 +4131,9 @@
    "African Safari"
   ],
   "difficultyWhy": "p.69·fb286·K0·iso111 → 34.1 → 6",
-  "extentKm": 110.9,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "kruger-national-park",
@@ -4150,9 +4150,9 @@
    "African Safari"
   ],
   "difficultyWhy": "p.63·fb343·K0·iso191 → 59.2 → 7",
-  "extentKm": 191,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "masai-mara",
@@ -4169,9 +4169,9 @@
    "African Safari"
   ],
   "difficultyWhy": "p.52·fb386·K0·iso41 → 63.0 → 7",
-  "extentKm": 40.6,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "grand-teton-national-park",
@@ -4189,9 +4189,9 @@
    "Mountains"
   ],
   "difficultyWhy": "p.57·fb446·K0·iso33 → 61.0 → 7",
-  "extentKm": 33,
   "category": "city",
-  "kind": "area"
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "loch-ness",
@@ -5697,8 +5697,8 @@
   ],
   "difficultyWhy": "p.57·fb1397·K0·iso54 → 132.3 → 9",
   "category": "city",
-  "kind": "area",
-  "extentKm": 50
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "mammoth-cave",
@@ -5894,8 +5894,8 @@
   ],
   "difficultyWhy": "p.54·fb461·K1·iso634 → 96.3 → 8",
   "category": "city",
-  "kind": "area",
-  "extentKm": 90
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "puncak-jaya",
@@ -5983,8 +5983,8 @@
   "sets": [],
   "difficultyWhy": "p.83·fb299·K0·iso266 → 14.7 → 4",
   "category": "city",
-  "kind": "area",
-  "extentKm": 5
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "stromboli",
@@ -7179,8 +7179,8 @@
   "sets": [],
   "difficultyWhy": "p.90·fb966·K0·iso904 → 25.5 → 6",
   "category": "city",
-  "kind": "area",
-  "extentKm": 60
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "mojave-desert",

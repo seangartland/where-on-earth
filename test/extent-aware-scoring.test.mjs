@@ -23,34 +23,17 @@ const pins = load('daily-pins.json').pins;
 const byLandmarkId = new Map(landmarks.map((item) => [item.id, item]));
 
 const APPROVED_AREAS = {
-  'bering-strait': 45,
   'black-forest': 80,
   'daintree-rainforest': 35,
-  'danube-delta': 50,
-  'lake-titicaca': 83.7,
-  'lake-bled': 1.1,
-  'crater-lake': 4.9,
-  'moraine-lake': 0.8,
-  'plitvice-lakes': 16.5,
-  'lake-como': 25.7,
-  'yellowstone-national-park': 74.8,
-  'serengeti-national-park': 110.9,
-  'kruger-national-park': 191,
-  'masai-mara': 40.6,
-  'grand-teton-national-park': 33,
   // Added 2026-10-30 with the 49-landform chunk; radii follow the same
   // ~0.5-0.6x longest-dimension precedent as the entries above.
   'gobi': 340,
   'kalahari': 300,
   'rub-al-khali': 280,
-  'lake-toba': 50,
-  'santorini-caldera': 5,
-  'okavango-delta': 90,
   // Added 2026-10-30 with the audit-2 glaring landforms chunk; radii
   // follow the same precedent (Amazon at the Baikal-scale cap).
   'amazon-rainforest': 340,
   'aral-sea': 200,
-  'socotra': 60,
   // Added 2026-10-30 with the diffuse conversions; radii per
   // docs/diffuse-review-2026-10-30.md (canal ring, chinampa core, terrace
   // clusters incl. Batad, beach crescent, Cappadocia core valleys, hill
@@ -59,7 +42,6 @@ const APPROVED_AREAS = {
   'amsterdam-canals-d34-7': 2,
   'xochimilco-mx': 4,
   'banaue-rice-terraces-ph': 10,
-  'copacabana-beach-rio': 2.5,
   'cappadocia': 12,
   'chocolate-hills': 9,
   'copper-canyon': 30,

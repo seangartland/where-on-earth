@@ -16,6 +16,11 @@
 //   writes build/extent-sources/<id>-osm.geojson for the eight diffuse-
 //   conversion polygons (UNESCO property / protected-area boundaries as
 //   mapped in OpenStreetMap; ODbL, (c) OpenStreetMap contributors).
+// python3 build/fetch-borders-polygons.py
+//   writes build/extent-sources/<id>-osm.geojson for the borders-program
+//   lane B polygons (protected-area and lake boundaries, heritage
+//   boundaries and island coastlines as mapped in OpenStreetMap; ODbL,
+//   (c) OpenStreetMap contributors).
 //
 // The authoritative Wall source is parked in build/extent-sources/ (gitignored)
 // pending Sean's revisit. Reef and Canyon remain the live extent paths.
@@ -432,6 +437,69 @@ for (const [id, spec] of Object.entries(RESOLVE_DESERTS)) {
   desertSummary[id] = { sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)) };
 }
 
+// Border-conversion polygons, program lane B (2026-10-30,
+// docs/scan5-borders-inventory-2026-10-30.md, batches 3, 6, 7, 8):
+// protected-area boundaries, lake shorelines, heritage boundaries and
+// island coastlines as mapped in OpenStreetMap, fetched by
+// build/fetch-borders-polygons.py. Same treatment as the diffuse polygons
+// and lane A: 0.015 degree tolerance, deviation measured per ring against
+// the source ring and gated at 2.5 km. Three of the brief's targets are
+// held out of this block, on measured evidence in
+// docs/borders-batch-b-report-2026-10-30.md: daintree-rainforest (the
+// inventoried relation 10179476 maps three small reserve parcels totalling
+// ~0.5 km2; the card's anchor sits 3.58 km from the nearest parcel edge),
+// banaue-rice-terraces-ph (the five UNESCO cluster polygons are the honest
+// footprint but the card's anchor sits 4.83 km from the nearest cluster
+// edge), chocolate-hills (the card's anchor sits 8.30 km outside the raw
+// Natural Monument relation 15100962 boundary), amsterdam-canals-d34-7
+// (the city's anchor sits 0.017 km outside the raw Grachtengordel way
+// 222278733 boundary, 0.119 km against the simplified ring; this lane does
+// not nudge anchors), and strait-of-gibraltar (OSM's only strait feature
+// is way 1134960966, an 8-node open GNS label line; no water or strait
+// polygon relation covers the channel).
+const BORDERS_OSM_TOLERANCE = 0.015;
+// Small features (a few km across: Moraine Lake, Lake Bled, Crater Lake,
+// the Copacabana beach polygon) are smaller than
+// the standard tolerance and collapse to triangles at 0.015 degrees; they
+// use a finer tolerance so the shipped ring keeps the feature's shape. The
+// 2.5 km deviation gate is unchanged and measured the same way.
+const BORDERS_OSM_FINE_TOLERANCE = 0.002;
+const BORDERS_OSM_FINE = new Set(['moraine-lake', 'lake-bled', 'crater-lake', 'copacabana-beach-rio']);
+const BORDERS_OSM_POLYGONS = {
+  'kruger-national-park': { file: 'kruger-national-park-osm.geojson', source: 'Kruger National Park boundary via OpenStreetMap relation 1752987', sourceUrl: 'https://www.openstreetmap.org/relation/1752987' },
+  'serengeti-national-park': { file: 'serengeti-national-park-osm.geojson', source: 'Serengeti National Park boundary via OpenStreetMap relation 4475047', sourceUrl: 'https://www.openstreetmap.org/relation/4475047' },
+  'lake-titicaca': { file: 'lake-titicaca-osm.geojson', source: 'Lake Titicaca shoreline via OpenStreetMap relation 3000330', sourceUrl: 'https://www.openstreetmap.org/relation/3000330' },
+  'lake-toba': { file: 'lake-toba-osm.geojson', source: 'Lake Toba shoreline via OpenStreetMap relation 306034', sourceUrl: 'https://www.openstreetmap.org/relation/306034' },
+  'crater-lake': { file: 'crater-lake-osm.geojson', source: 'Crater Lake shoreline via OpenStreetMap relation 147401', sourceUrl: 'https://www.openstreetmap.org/relation/147401' },
+  'lake-bled': { file: 'lake-bled-osm.geojson', source: 'Lake Bled shoreline via OpenStreetMap relation 646', sourceUrl: 'https://www.openstreetmap.org/relation/646' },
+  'lake-como': { file: 'lake-como-osm.geojson', source: 'Lake Como shoreline via OpenStreetMap relation 541757', sourceUrl: 'https://www.openstreetmap.org/relation/541757' },
+  'moraine-lake': { file: 'moraine-lake-osm.geojson', source: 'Moraine Lake shoreline via OpenStreetMap way 356877446', sourceUrl: 'https://www.openstreetmap.org/way/356877446' },
+  'yellowstone-national-park': { file: 'yellowstone-national-park-osm.geojson', source: 'Yellowstone National Park boundary via OpenStreetMap relation 1453306', sourceUrl: 'https://www.openstreetmap.org/relation/1453306' },
+  'grand-teton-national-park': { file: 'grand-teton-national-park-osm.geojson', source: 'Grand Teton National Park boundary via OpenStreetMap relation 1492555', sourceUrl: 'https://www.openstreetmap.org/relation/1492555' },
+  'plitvice-lakes': { file: 'plitvice-lakes-osm.geojson', source: 'Plitvice Lakes National Park boundary via OpenStreetMap relation 10047860', sourceUrl: 'https://www.openstreetmap.org/relation/10047860' },
+  'masai-mara': { file: 'masai-mara-osm.geojson', source: 'Masai Mara National Reserve boundary via OpenStreetMap relation 15467577', sourceUrl: 'https://www.openstreetmap.org/relation/15467577' },
+  'okavango-delta': { file: 'okavango-delta-osm.geojson', source: 'Okavango Delta boundary via OpenStreetMap relation 349348', sourceUrl: 'https://www.openstreetmap.org/relation/349348' },
+  'danube-delta': { file: 'danube-delta-osm.geojson', source: 'Danube Delta Biosphere Reserve boundary via OpenStreetMap relation 12436972', sourceUrl: 'https://www.openstreetmap.org/relation/12436972' },
+  'bering-strait': { file: 'bering-strait-osm.geojson', source: 'Bering Strait polygon via OpenStreetMap relation 11315299', sourceUrl: 'https://www.openstreetmap.org/relation/11315299' },
+  'socotra': { file: 'socotra-osm.geojson', source: 'Socotra island coastline via OpenStreetMap relation 1577075', sourceUrl: 'https://www.openstreetmap.org/relation/1577075' },
+  'santorini-caldera': { file: 'santorini-caldera-osm.geojson', source: 'Santorini caldera ring island coastlines (Thera, Thirasia, Aspronisi, Nea Kameni, Palea Kameni) via OpenStreetMap relations 453964, 533902, 533905, 533903, 533904', sourceUrl: 'https://www.openstreetmap.org/relation/453964' },
+  'copacabana-beach-rio': { file: 'copacabana-beach-rio-osm.geojson', source: 'Copacabana Beach polygon via OpenStreetMap relation 5514745', sourceUrl: 'https://www.openstreetmap.org/relation/5514745' },
+};
+const bordersOsmRecords = {};
+const bordersOsmSummary = {};
+for (const [id, spec] of Object.entries(BORDERS_OSM_POLYGONS)) {
+  const src = JSON.parse(readFileSync(new URL(`./extent-sources/${spec.file}`, import.meta.url)));
+  const processed = processPolygons(src.geometry.coordinates, BORDERS_OSM_FINE.has(id) ? BORDERS_OSM_FINE_TOLERANCE : BORDERS_OSM_TOLERANCE);
+  if (processed.maxDeviationKm > 2.5) throw new Error(`${id} deviation gate failed: ${processed.maxDeviationKm}`);
+  bordersOsmRecords[id] = {
+    type: 'polygon', polygons: processed.polygons,
+    source: spec.source, sourceUrl: spec.sourceUrl,
+    license: 'ODbL', attribution: '© OpenStreetMap contributors',
+    sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)),
+  };
+  bordersOsmSummary[id] = { sourceVertices: processed.sourceVertices, vertices: processed.vertices, maxDeviationKm: Number(processed.maxDeviationKm.toFixed(3)) };
+}
+
 const records = {
   'great-barrier-reef': {
     type: 'polygon', polygons: [[quantize([reef])[0]]],
@@ -457,6 +525,7 @@ const records = {
   ...diffuseRecords,
   ...nePolygonRecords,
   ...desertRecords,
+  ...bordersOsmRecords,
 };
 
 const text = `${JSON.stringify(records, null, 2)}\n`;
@@ -473,5 +542,5 @@ console.log(JSON.stringify({
   rawBytes: Buffer.byteLength(text), gzipBytes: gzipSync(text).length,
   reef: { sourceVertices: rawReef.length, vertices: reef.length, maxDeviationKm: reefDeviation },
   canyon: { vertices: canyon.flat().length },
-  sahara: { sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: saharaDeviation }, rivers: riverSummary, diffuse: diffuseSummary, nePolygons: nePolygonSummary, deserts: desertSummary, recordBytes,
+  sahara: { sourceVertices: saharaSourceVertices, vertices: saharaVertices, maxDeviationKm: saharaDeviation }, rivers: riverSummary, diffuse: diffuseSummary, nePolygons: nePolygonSummary, deserts: desertSummary, bordersOsm: bordersOsmSummary, recordBytes,
 }, null, 2));
