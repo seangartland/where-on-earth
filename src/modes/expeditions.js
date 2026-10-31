@@ -66,7 +66,6 @@ export function updateExpeditionEntry() {
   host.gameEls.expeditionsEntry.disabled = !ready;
   // The label names the live week, the time-bound content in the picker.
   const route = thisWeek().route;
-  host.gameEls.expeditionsEntry.querySelector('.mode-desc').textContent = route ? `This week: ${route.name}` : 'Themed journeys';
 }
 
 export function completeExpeditionRound() {
