@@ -7115,21 +7115,6 @@
   "category": "city"
  },
  {
-  "id": "meteora-greece",
-  "short": "Meteora",
-  "clue": "Meteora, Greece 🇬🇷",
-  "fact": "Meteora's monastic community began forming in the 14th century; six of its dramatically situated monasteries remain active today.",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Meteora_Panoramic_View.jpg/1280px-Meteora_Panoramic_View.jpg",
-  "lat": 39.7217,
-  "lng": 21.6306,
-  "difficulty": 5,
-  "country": "Greece",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.65·fb196·K0·iso360 → 18.4 → 5",
-  "category": "city"
- },
- {
   "id": "mexicali-mx",
   "short": "Mexicali",
   "clue": "Mexicali, Mexico 🇲🇽",

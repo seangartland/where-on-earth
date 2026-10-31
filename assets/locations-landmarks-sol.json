@@ -7489,5 +7489,23 @@
   "difficultyWhy": "p.74·fb628·K0·iso130 → 39.4 → 6",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "meteora-greece",
+  "short": "Meteora",
+  "clue": "Meteora, Greece 🇬🇷",
+  "fact": "Of the 24 monasteries built atop Meteora's giant rock pillars from the late 14th century on, six still function today; monks once reached them by removable ladders and hoisting ropes before steps were carved into the rock in the 1920s.",
+  "lat": 39.7217,
+  "lng": 21.6306,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Meteora_Panoramic_View.jpg/1280px-Meteora_Panoramic_View.jpg",
+  "country": "Greece",
+  "continent": "Europe",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.65·fb196·K0·iso360 → 18.4 → 5",
+  "category": "city",
+  "kind": "landmark"
  }
 ]
