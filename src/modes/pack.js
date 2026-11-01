@@ -481,10 +481,10 @@ function wireSealedPack(sealed, screen) {
   };
 
   // The packet opens and the three cards rise out of its torn top as one
-  // stack: each card is clipped at the tear line, so it shows only once it
-  // is out of the opening. The stack already sits in its final place (the
-  // pack's own footprint); the torn wrapper is laid over it until it fades,
-  // and the stack settles back down where the pack stood.
+  // stack: the torn wrapper is layered over them, so its body below the tear
+  // line hides each card until it slides out of the opening. The stack
+  // already sits in its final place (the pack's own footprint); the wrapper
+  // fades, and the stack settles back down where the pack stood.
   const finishTear = () => {
     pack.record = readPack();
     let current = currentPack();
@@ -528,17 +528,22 @@ function wireSealedPack(sealed, screen) {
     const timers = [];
     const RISE_MS = 1500;
     // Top card first (it is last in the DOM). Postcards leave the portrait
-    // wrapper turned, then rotate right-side-up once clear of the mouth.
+    // wrapper turned on their side; the wrapper (layered above them) hides
+    // whatever is still below the tear line. About two-thirds out they start
+    // turning right-side-up, rising clear of the lip as they turn. Travel
+    // is measured on the turned card: its height on screen is its width.
     [...els.slots.children].reverse().forEach((card, depth) => {
-      const top = card.getBoundingClientRect().top;
-      const h = card.offsetHeight;
-      const inside = tearY - top;
-      const out = tearY - h - top;
+      const r = card.getBoundingClientRect();
+      const mid = (r.top + r.bottom) / 2;
+      const half = card.offsetWidth / 2;
+      const inside = tearY + half - mid;
+      const twoThirds = inside - card.offsetWidth * 2 / 3;
+      const clear = tearY - card.offsetHeight / 2 - mid;
       anims.push(card.animate([
-        { transform: `translateY(${inside}px) rotate(90deg)`, clipPath: `inset(0 0 ${h}px 0)`, easing: 'cubic-bezier(.25,.7,.35,1)' },
-        { transform: `translateY(${out}px) rotate(90deg)`, clipPath: 'inset(0 0 0px 0)', offset: 0.48, easing: 'ease-out' },
-        { transform: `translateY(${out - 14}px) rotate(90deg)`, clipPath: 'inset(0 0 0px 0)', offset: 0.62, easing: 'cubic-bezier(.3,.1,.3,1)' },
-        { transform: 'none', clipPath: 'inset(0 0 0px 0)' },
+        { transform: `translateY(${inside}px) rotate(90deg)`, easing: 'cubic-bezier(.25,.7,.35,1)' },
+        { transform: `translateY(${twoThirds}px) rotate(90deg)`, offset: 0.42, easing: 'ease-in-out' },
+        { transform: `translateY(${clear - 14}px) rotate(0deg)`, offset: 0.66, easing: 'cubic-bezier(.3,.1,.3,1)' },
+        { transform: 'none' },
       ], { duration: RISE_MS, delay: depth * 90, fill: 'both' }));
     });
     timers.push(window.setTimeout(endOpening, RISE_MS + 2 * 90 + 60));
