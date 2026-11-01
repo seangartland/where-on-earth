@@ -1284,22 +1284,6 @@
   "kind": "landmark"
  },
  {
-  "id": "jfk-assassination-dealey-plaza",
-  "short": "Dealey Plaza",
-  "clue": "Dealey Plaza, Dallas, United States 🇺🇸",
-  "fact": "Kennedy was fatally shot as his limousine passed through Dealey Plaza. The former Texas School Book Depository now houses a museum about the assassination.",
-  "lat": 32.7787,
-  "lng": -96.8083,
-  "difficulty": 8,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dealey_Plaza_2003.jpg/500px-Dealey_Plaza_2003.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.50·fb731·K0·iso48 → 83.6 → 8",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "jungfrau",
   "short": "Jungfrau",
   "fact": "Jungfrau is a mountain summit in the Bernese Alps, between the Swiss cantons of Bern and Valais.",
