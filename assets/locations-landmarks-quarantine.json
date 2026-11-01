@@ -3547,5 +3547,107 @@
   "difficultyWhy": "p.56·fb37·K0·iso174 → 13.0 → 4",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "independence-hall",
+  "clue": "Independence Hall, United States 🇺🇸",
+  "fact": "Independence Hall is where both the Declaration of Independence and the U.S. Constitution were debated and adopted.",
+  "lat": 39.9489,
+  "lng": -75.15,
+  "difficulty": 9,
+  "short": "Independence Hall",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Independence_Hall.jpg/500px-Independence_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.60·fb1582·K0·iso128 → 139.7 → 9",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "sanctuary-of-fátima-d34-77",
+  "short": "Sanctuary of Fátima",
+  "clue": "Sanctuary of Fátima, Portugal 🇵🇹",
+  "fact": "The shrine stands at Cova da Iria, where three shepherd children reported apparitions of the Virgin Mary from 13 May 1917, culminating in the 'Miracle of the Sun' that October.",
+  "lat": 39.627,
+  "lng": -8.6786,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Fatima_BW_2018-10-07_10-36-14.jpg/500px-Fatima_BW_2018-10-07_10-36-14.jpg",
+  "country": "Portugal",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.38·fb43·K0·iso433 → 15.5 → 5",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "lumbini-nepal",
+  "short": "Lumbini",
+  "clue": "Lumbini, Nepal 🇳🇵",
+  "fact": "An inscribed pillar left by Emperor Ashoka in 249 BCE marks the spot, near the Maya Devi Temple.",
+  "lat": 27.4696,
+  "lng": 83.2757,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/BRP_Lumbini_Mayadevi_temple.jpg/500px-BRP_Lumbini_Mayadevi_temple.jpg",
+  "country": "Nepal",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.62·fb143·K0·iso203 → 15.1 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "lunch-atop-skyscraper-rockefeller",
+  "short": "30 Rockefeller Plaza",
+  "clue": "Rockefeller Center, New York City, United States 🇺🇸",
+  "fact": "Lunch Atop a Skyscraper was staged during construction of 30 Rockefeller Plaza in 1932. The men were genuinely sitting hundreds of feet above the street.",
+  "lat": 40.759,
+  "lng": -73.9794,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/30_Rockefeller_Plaza_view_from_Empire_State_Building%2C_around_1_pm.jpg/500px-30_Rockefeller_Plaza_view_from_Empire_State_Building%2C_around_1_pm.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.68·fb1681·K0·iso135 → 118.8 → 9",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "hunga-tonga-2022-eruption",
+  "short": "Hunga Tonga–Hunga Ha'apai",
+  "clue": "Hunga Tonga–Hunga Haʻapai, Tonga 🇹🇴",
+  "fact": "The eruption generated a towering plume, a Pacific-wide tsunami, and atmospheric waves detected globally. Much of the young volcanic island was destroyed.",
+  "lat": -20.536,
+  "lng": -175.382,
+  "difficulty": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/ISS-66_Atmospheric_plume_from_2022_Hunga_Tonga_eruption_-_edited.jpg/500px-ISS-66_Atmospheric_plume_from_2022_Hunga_Tonga_eruption_-_edited.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "Tonga",
+  "continent": "Oceania",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.45·fb69·K2·iso2050 → 385.3 → 10",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "krakatoa-1883-eruption",
+  "short": "Krakatau Caldera",
+  "clue": "Krakatoa, Indonesia 🇮🇩",
+  "fact": "Krakatau's climactic blasts collapsed much of the island and generated deadly tsunamis. Pressure waves circled the globe multiple times.",
+  "lat": -6.102,
+  "lng": 105.423,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Anak_krakatau_sebelum_tsunami.jpg/500px-Anak_krakatau_sebelum_tsunami.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Indonesia",
+  "continent": "Asia",
+  "sets": [
+   "Volcanoes"
+  ],
+  "difficultyWhy": "p.89·fb480·K0·iso77 → 14.7 → 4",
+  "category": "city",
+  "kind": "landmark"
  }
 ]

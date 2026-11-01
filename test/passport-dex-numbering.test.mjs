@@ -62,7 +62,7 @@ test('packCardNumber matches the position passportPackSections renders', () => {
     }
   }
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'abuja-ng'), 2);
-  assert.equal(packCardNumber(cities, landmarks, 'landmarks', 'angkor-wat'), 10);
+  assert.equal(packCardNumber(cities, landmarks, 'landmarks', 'angkor-wat'), 9);
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'angkor-wat'), null);
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'no-such-id'), null);
 });
@@ -87,10 +87,10 @@ test('an unvisited slot renders only its number, never the place name or country
 test('an unvisited landmark slot is numbered within Landmarks, not globally', () => {
   const item = landmarks.find((entry) => entry.id === 'abu-simbel-temples');
   const number = packCardNumber(cities, landmarks, 'landmarks', item.id);
-  assert.equal(number, 2);
+  assert.equal(number, 1);
   const slot = passportUnvisitedSlot({ item, country: 'Egypt', visited: false }, 'Landmarks', number);
-  assert.ok(slot.textContent.includes('002'), slot.textContent);
+  assert.ok(slot.textContent.includes('001'), slot.textContent);
   assert.ok(!slot.textContent.includes('Abu Simbel'), slot.textContent);
   assert.ok(!slot.textContent.includes('Egypt'), slot.textContent);
-  assert.equal(slot.getAttribute('aria-label'), 'Landmarks card 002, not yet collected');
+  assert.equal(slot.getAttribute('aria-label'), 'Landmarks card 001, not yet collected');
 });
