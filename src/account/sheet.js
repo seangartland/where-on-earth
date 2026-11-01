@@ -1,6 +1,6 @@
 import { accountApi } from './api.js';
 import { firstSignInMerge } from './sync.js';
-import { readAccountSession, saveAccountSession } from './session.js';
+import { clearAccountSession, readAccountSession, saveAccountSession } from './session.js';
 import { ACCOUNT_API } from '../core/config.js';
 
 let sheet;
@@ -20,7 +20,8 @@ function render(state, values = {}) {
   } else if (state === 'signed-in') {
     panel.innerHTML = `${close}<p class="eyebrow">Account</p><h2 id="account-title">Progress saved</h2>
       <p class="account-copy">Signed in as <strong>${escapeHtml(values.emailHint || '')}</strong>. Your progress is now on your account.</p>
-      <button class="primary account-done" type="button">Done</button>`;
+      <button class="primary account-done" type="button">Done</button>
+      <button class="account-signout" type="button">Sign out</button>`;
   } else {
     panel.innerHTML = `${close}<p class="eyebrow">Where on Earth account</p><h2 id="account-title">Save your progress</h2>
       <p class="account-copy">Keep your passport and scores safe across your devices.</p>
@@ -121,6 +122,12 @@ export async function consumeAuthReturn() {
 function bind(values) {
   sheet.querySelector('.account-close')?.addEventListener('click', closeAccountSheet);
   sheet.querySelector('.account-done')?.addEventListener('click', closeAccountSheet);
+  sheet.querySelector('.account-signout')?.addEventListener('click', () => {
+    clearAccountSession();
+    window.dispatchEvent(new CustomEvent('account-session-change'));
+    render('email', {});
+    enableGoogle();
+  });
   const form = sheet.querySelector('.account-form');
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
