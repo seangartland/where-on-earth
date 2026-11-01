@@ -24,7 +24,9 @@ const FRIEND_COLOR = new THREE.Color('#f3e7d3');
 const FRIEND_CORE = '#fffaf0';
 const FRIEND_BRIGHT = new THREE.Color('#ffffff');
 const FRIEND_PIN_SCALE = 0.7;
-const FRIEND_BADGE_SCALE = 0.85; // of a full-size badge, so the initial stays readable
+const FRIEND_BADGE_SCALE = 0.85; // of a full-size badge, for the stored-guess '1ST' badge
+const MEDALLION = 0.12; // a friend's initial medallion diameter, in pin tip units
+const MEDALLION_X = -0.075; // hung off the halo's edge, clear of the guess point
 const SLOW_MS = 4000; // a reveal response later than this is dropped
 const GLOW_MS = 1200;
 const POP_MS = 2600;
@@ -213,7 +215,11 @@ function updateFriends(dt, scale) {
     if (pin.glowUntil && now > pin.glowUntil) setGlow(pin, false);
     pin.update(dt, state.elapsed, scale * FRIEND_PIN_SCALE * (pin.glowUntil ? 1.25 : 1));
     if (pin.state === 'idle') continue;
-    pin.badge.scale.multiplyScalar(FRIEND_BADGE_SCALE / FRIEND_PIN_SCALE);
+    if (pin === firstPin) pin.badge.scale.multiplyScalar(FRIEND_BADGE_SCALE / FRIEND_PIN_SCALE);
+    else {
+      pin.badge.scale.setScalar(MEDALLION);
+      pin.badge.position.x = MEDALLION_X;
+    }
     // badge sprites ignore depth, so fade them out as their pin rounds the limb
     _up.set(0, 1, 0).applyQuaternion(pin.root.quaternion);
     pin.badge.material.opacity *= clamp((reviewFacing(_up) + 0.02) / 0.12, 0, 1);

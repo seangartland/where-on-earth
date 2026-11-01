@@ -29,6 +29,7 @@ export let correctPin;
 // round (1-5) adds a number disc to the badge for the post-game review;
 // a friend badge carries the friend's initial as its text
 export function makeBadgeTexture(kind, round = 0, text = '') {
+  if (kind === 'friend') return makeMedallionTexture(text);
   const c = document.createElement('canvas');
   c.width = 160;
   c.height = 72;
@@ -55,9 +56,36 @@ export function makeBadgeTexture(kind, round = 0, text = '') {
     g.fillStyle = '#fff';
     x = 102;
   }
-  g.font = kind === 'answer' || kind === 'friend' ? 'bold 42px sans-serif' : `bold ${round ? 25 : 29}px sans-serif`;
+  g.font = kind === 'answer' ? 'bold 42px sans-serif' : `bold ${round ? 25 : 29}px sans-serif`;
   g.fillText(text || (kind === 'answer' ? '\u2713' : 'YOU'), x, 38);
+  return badgeTexture(c);
+}
 
+// A friend's initial medallion: a square texture holding a filled disc with a
+// dark rim and a dark bold initial. The disc is drawn white so the sprite's
+// tint (the friend colour, or white while glowing) sets its fill; the dark
+// rim and letter stay dark under any tint.
+function makeMedallionTexture(text) {
+  const c = document.createElement('canvas');
+  c.width = c.height = 128;
+  const g = c.getContext('2d');
+  g.beginPath();
+  g.arc(64, 64, 58, 0, Math.PI * 2);
+  g.fillStyle = 'rgba(3,10,22,.9)';
+  g.fill();
+  g.beginPath();
+  g.arc(64, 64, 51, 0, Math.PI * 2);
+  g.fillStyle = '#fff';
+  g.fill();
+  g.fillStyle = '#1a1206';
+  g.textAlign = 'center';
+  g.textBaseline = 'middle';
+  g.font = '900 72px sans-serif';
+  g.fillText(text, 64, 69);
+  return badgeTexture(c);
+}
+
+function badgeTexture(c) {
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.generateMipmaps = false;
