@@ -41,7 +41,7 @@ export const PACK_KEY = 'where-on-earth-pack-v1';
 export const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY, WEEKLY_KEY, ACCOUNT_KEY, PACK_KEY]);
 export const WEIGHTS = [1, 1, 1, 1, 1];
 
-export const ACCOUNTS_ENABLED = new URLSearchParams(location.search).get('accounts') === '1';
+export const ACCOUNTS_ENABLED = new URLSearchParams(location.search).get('accounts') !== '0';
 export const ACCOUNT_API = 'https://api.where-on.earth';
 
 // ?reset=daily (main.js drops today's saved game and strips the query; the

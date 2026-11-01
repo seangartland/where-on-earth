@@ -23,13 +23,14 @@ function render(state, values = {}) {
       <button class="primary account-done" type="button">Done</button>
       <button class="account-signout" type="button">Sign out</button>`;
   } else {
+    panel.dataset.email = 'off';
     panel.innerHTML = `${close}<p class="eyebrow">Where on Earth account</p><h2 id="account-title">Save your progress</h2>
       <p class="account-copy">Keep your passport and scores safe across your devices.</p>
       <button class="account-google" type="button" disabled>Continue with Google</button>
       <p class="account-google-note">Checking Google sign-in...</p>
       <div class="account-divider"><span>or use email</span></div>
       <form class="account-form" data-step="email"><label>Email address<input name="email" required type="email" autocomplete="email" placeholder="you@example.com"></label>
-      <button class="primary" type="submit">Email me a code</button></form><p class="account-status" aria-live="polite"></p>`;
+      <button class="primary" type="submit">Email me a code</button></form><p class="account-email-note">Email sign-in is coming soon.</p><p class="account-status" aria-live="polite"></p>`;
   }
   bind(values);
 }
@@ -93,6 +94,7 @@ async function enableGoogle() {
     armRedirect("Couldn't check the sign-in service — tap Continue to try in your browser.");
     return;
   }
+  if (health.emailSender === 'resend') sheet.querySelector('.account-panel').dataset.email = 'on';
   if (!health.googleAvailable) {
     note.textContent = 'Google sign-in is turned off right now.';
     return;

@@ -188,6 +188,9 @@ button { font: inherit; }
 .account-google:disabled { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); color: rgba(255,255,255,.46); cursor: default; }
 .account-panel .account-form .primary { border: 1px solid rgba(255,255,255,.28); background: transparent; color: var(--ink-hi); box-shadow: none; }
 .account-signout { margin-top: 14px; padding: 6px 10px; border: 0; background: none; color: rgba(220,239,255,.55); font: inherit; font-size: var(--fs-small); text-decoration: underline; cursor: pointer; }
+.account-panel[data-email="off"] .account-divider, .account-panel[data-email="off"] .account-form { display: none; }
+.account-email-note { display: none; }
+.account-panel[data-email="off"] .account-email-note { display: block; margin: 18px 0 0; color: rgba(220,239,255,.55); font-size: var(--fs-small); }
 .account-google-note { margin: 8px 0 0; color: rgba(220,239,255,.55); font-size: var(--fs-small); }
 .account-divider { display: flex; align-items: center; gap: 10px; margin: 20px 0; color: rgba(220,239,255,.45); font-size: var(--fs-small); }
 .account-divider::before, .account-divider::after { content: ''; flex: 1; height: 1px; background: rgba(var(--rgb-line),.16); }
