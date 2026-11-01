@@ -27,6 +27,15 @@ const FRIEND_PIN_SCALE = 0.7;
 const FRIEND_BADGE_SCALE = 0.85; // of a full-size badge, for the stored-guess '1ST' badge
 const MEDALLION = 0.12; // a friend's initial medallion diameter, in pin tip units
 const MEDALLION_X = -0.075; // hung off the halo's edge, clear of the guess point
+// Spots the medallion may hang on, as tip-local [x, z], in order of
+// preference: the usual side first, then the other seven compass points
+// around the halo, then the same eight a little farther out. All but the
+// first are used only when the player's distance label would cover it.
+const MEDALLION_SIDES = [1, 1.6].flatMap((reach) => [0, 4, 2, 6, 1, 7, 3, 5].map((k) => {
+  const a = (k * Math.PI) / 4;
+  return [MEDALLION_X * reach * Math.cos(a), MEDALLION_X * reach * Math.sin(a)];
+}));
+const LABEL_PAD = 4; // css px kept between a medallion and the distance label
 const SLOW_MS = 4000; // a reveal response later than this is dropped
 const GLOW_MS = 1200;
 const POP_MS = 2600;
@@ -207,9 +216,40 @@ function pickFriend(x, y) {
   return true;
 }
 
+// The player's guess-to-answer distance label in canvas px, or null when hidden.
+function distanceLabelBox() {
+  const el = gameEls.lineDistance;
+  if (el.hidden) return null;
+  const r = el.getBoundingClientRect();
+  const c = canvas.getBoundingClientRect();
+  return { l: r.left - c.left, t: r.top - c.top, r: r.right - c.left, b: r.bottom - c.top };
+}
+
+// Hang the medallion on the first side whose disc clears the label; if none
+// does, on the side farthest from the label's centre.
+function placeMedallion(pin, label) {
+  const at = MEDALLION_SIDES.map(([x, z]) => {
+    pin.badge.position.x = x;
+    pin.badge.position.z = z;
+    return screenOf(pin.badge.getWorldPosition(_w));
+  });
+  const [cx, cy] = screenOf(pin.core.getWorldPosition(_w));
+  // disc radius in px, from the least foreshortened near-side offset
+  const radius = Math.max(...at.slice(0, 8).map(([x, y]) => Math.hypot(x - cx, y - cy))) * (MEDALLION / 2 / -MEDALLION_X) + LABEL_PAD;
+  const gap = ([x, y]) => Math.hypot(Math.max(label.l - x, 0, x - label.r), Math.max(label.t - y, 0, y - label.b));
+  let side = at.findIndex((p) => gap(p) >= radius);
+  if (side < 0) {
+    const mx = (label.l + label.r) / 2, my = (label.t + label.b) / 2;
+    const far = at.map(([x, y]) => Math.hypot(x - mx, y - my));
+    side = far.indexOf(Math.max(...far));
+  }
+  [pin.badge.position.x, pin.badge.position.z] = MEDALLION_SIDES[side];
+}
+
 // Called every frame from updateReview, with the main pin scale.
 function updateFriends(dt, scale) {
   const now = performance.now();
+  const label = distanceLabelBox();
   for (const pin of [...pinPool, firstPin]) {
     if (!pin || pin.state === 'idle') continue;
     if (pin.glowUntil && now > pin.glowUntil) setGlow(pin, false);
@@ -219,6 +259,7 @@ function updateFriends(dt, scale) {
     else {
       pin.badge.scale.setScalar(MEDALLION);
       pin.badge.position.x = MEDALLION_X;
+      if (label) placeMedallion(pin, label);
     }
     // badge sprites ignore depth, so fade them out as their pin rounds the limb
     _up.set(0, 1, 0).applyQuaternion(pin.root.quaternion);
