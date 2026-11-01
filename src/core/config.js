@@ -42,7 +42,7 @@ export const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPO
 export const WEIGHTS = [1, 1, 1, 1, 1];
 
 export const ACCOUNTS_ENABLED = new URLSearchParams(location.search).get('accounts') === '1';
-export const ACCOUNT_API = 'https://woe-account.gartland-79.workers.dev';
+export const ACCOUNT_API = 'https://api.where-on.earth';
 
 // ?reset=daily (main.js drops today's saved game and strips the query; the
 // boot fetches then skip the HTTP cache).
