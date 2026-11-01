@@ -3,8 +3,6 @@ import { firstSignInMerge } from './sync.js';
 import { readAccountSession, saveAccountSession } from './session.js';
 import { ACCOUNT_API } from '../core/config.js';
 
-const GSI_LOAD_TIMEOUT_MS = 5000;
-
 let sheet;
 let returnFocus;
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
@@ -27,7 +25,7 @@ function render(state, values = {}) {
     panel.innerHTML = `${close}<p class="eyebrow">Where on Earth account</p><h2 id="account-title">Save your progress</h2>
       <p class="account-copy">Keep your passport and scores safe across your devices.</p>
       <button class="account-google" type="button" disabled>Continue with Google</button>
-      <p class="account-google-note">Google sign-in is not available yet.</p>
+      <p class="account-google-note">Checking Google sign-in...</p>
       <div class="account-divider"><span>or use email</span></div>
       <form class="account-form" data-step="email"><label>Email address<input name="email" required type="email" autocomplete="email" placeholder="you@example.com"></label>
       <button class="primary" type="submit">Email me a code</button></form><p class="account-status" aria-live="polite"></p>`;
@@ -50,73 +48,73 @@ function loading(button, active, label) {
   } else button.textContent = button.dataset.label || button.textContent;
 }
 
-async function completeSignIn(result) {
+async function finishSignIn(result) {
   const saved = saveAccountSession(result.session || result, result.user || result.account, readAccountSession() || {});
-  status('Merging your progress...');
   await firstSignInMerge();
-  render('signed-in', saved);
   window.dispatchEvent(new CustomEvent('account-session-change'));
+  return saved;
 }
 
-function loadGsiScript() {
-  return new Promise((resolve, reject) => {
-    if (window.google?.accounts?.id) return resolve();
-    const timer = setTimeout(() => reject(new Error('gsi-timeout')), GSI_LOAD_TIMEOUT_MS);
-    const script = document.createElement('script');
-    script.src = 'https://accounts.google.com/gsi/client';
-    script.async = true;
-    script.onload = () => { clearTimeout(timer); resolve(); };
-    script.onerror = () => { clearTimeout(timer); reject(new Error('gsi-blocked')); };
-    document.head.appendChild(script);
-  });
+async function completeSignIn(result) {
+  status('Merging your progress...');
+  const saved = await finishSignIn(result);
+  render('signed-in', saved);
 }
 
-function redirectToGoogleSignIn() {
-  const url = new URL('/api/auth/sign-in/social', ACCOUNT_API);
-  url.searchParams.set('provider', 'google');
-  url.searchParams.set('callbackURL', `${window.location.origin}/`);
-  window.location.href = url.toString();
+// The Google path is a plain full-page redirect to the account worker,
+// which runs the OAuth round trip and lands back here carrying a one-time
+// exchange code in the URL fragment (see consumeAuthReturn). No Google
+// script ever loads on this page, so nothing here can be blocked or left
+// hanging by a script that never arrives, and there is no in-page prompt
+// that can silently show nothing.
+function googleSignInUrl() {
+  const url = new URL('/v1/auth/google/start', ACCOUNT_API);
+  url.searchParams.set('return', `${window.location.origin}/?accounts=1`);
+  return url.toString();
 }
 
 async function enableGoogle() {
   const button = sheet.querySelector('.account-google');
   const note = sheet.querySelector('.account-google-note');
   if (!button) return;
+  const armRedirect = (noteText) => {
+    button.disabled = false;
+    note.textContent = noteText;
+    button.addEventListener('click', () => { window.location.href = googleSignInUrl(); }, { once: true });
+  };
   let health;
   try {
     health = await accountApi('/health');
   } catch {
-    note.textContent = "Couldn't reach the sign-in service. Try again later.";
+    // The check itself failed or timed out. The button still gets its real
+    // action: the redirect is a browser navigation, which is exactly the
+    // path that can succeed when an in-page fetch cannot.
+    armRedirect("Couldn't check the sign-in service — tap Continue to try in your browser.");
     return;
   }
-  if (!health.googleAvailable || !health.googleClientId) {
+  if (!health.googleAvailable) {
     note.textContent = 'Google sign-in is turned off right now.';
     return;
   }
+  armRedirect('');
+}
+
+// After the worker's Google round trip, the browser lands back on the game
+// with a one-time exchange code in the URL fragment. Consume it once at
+// boot: strip the fragment before anything can read or log it, trade the
+// code for the session, and finish the sign-in exactly like the email path.
+export async function consumeAuthReturn() {
+  const params = new URLSearchParams((window.location.hash || '').replace(/^#/, ''));
+  const code = params.get('woe_auth');
+  if (!code && !params.has('woe_auth_error')) return false;
+  window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  if (!code) return false;
   try {
-    await loadGsiScript();
-    button.disabled = false;
-    note.textContent = '';
-    button.addEventListener('click', () => {
-      window.google.accounts.id.initialize({
-        client_id: health.googleClientId,
-        callback: async ({ credential }) => {
-          loading(button, true, 'Signing in...');
-          try {
-            const result = await accountApi('/v1/auth/google', { method: 'POST', body: { idToken: credential } });
-            await completeSignIn(result);
-          } catch (error) {
-            loading(button, false);
-            status(error.message || 'Google sign-in did not work', true);
-          }
-        },
-      });
-      window.google.accounts.id.prompt();
-    }, { once: true });
+    const result = await accountApi('/v1/auth/exchange', { method: 'POST', body: { code } });
+    await finishSignIn(result);
+    return true;
   } catch {
-    button.disabled = false;
-    note.textContent = "Google's sign-in script is blocked here — tap Continue to finish in your browser.";
-    button.addEventListener('click', redirectToGoogleSignIn, { once: true });
+    return false;
   }
 }
 

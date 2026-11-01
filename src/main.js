@@ -964,6 +964,10 @@ renderLoad();
 window.__audio = audio; // test hook: context state, live whoosh
 if (ACCOUNTS_ENABLED) {
   setTimeout(async () => {
+    // A Google sign-in round trip lands back here with a one-time code in
+    // the URL fragment; trade it for a session before the sync below runs.
+    const { consumeAuthReturn } = await import('./account/sheet.js');
+    await consumeAuthReturn().catch(() => false);
     const { isSignedIn } = await import('./account/session.js');
     if (!isSignedIn()) return;
     const { syncAccountProgress } = await import('./account/sync.js');
