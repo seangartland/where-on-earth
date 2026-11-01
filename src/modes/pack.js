@@ -161,15 +161,25 @@ function packSlot(id, result, index) {
     if (sub === name) sub = '';
     li.innerHTML = `
       <div class="pack-flip">
-        <div class="pack-flip-face pack-flip-back" aria-hidden="true">
-          <span class="pack-stamp-outline"></span>
-          <span class="pack-postmark-ring"></span>
-          <span class="pack-message-lines"></span>
-          <span class="pack-address-lines"></span>
+        <div class="pack-flip-face pack-flip-back pc-back" aria-hidden="true">
+          <div class="pc-divider"></div>
+          <div class="pc-right">
+            <div class="pc-stamp-row">
+              <div class="pc-stamp"></div>
+              <span class="pc-postmark is-blank"></span>
+            </div>
+            <div class="pc-addr">
+              <div class="pc-addr-rule"></div>
+              <div class="pc-addr-rule"></div>
+              <p class="pc-addr-pack">${packConfig().name}</p>
+              <div class="pc-addr-rule"></div>
+              <div class="pc-addr-rule"></div>
+            </div>
+          </div>
         </div>
         <div class="pack-flip-face pack-flip-front">
-          <p class="pack-clue-name">${name}</p>
-          <p class="pack-clue-text">${sub || 'World capital'}</p>
+          <p class="pack-clue-name pc-caption-name">${name}</p>
+          <p class="pack-clue-text pc-caption-sub">${sub || 'World capital'}</p>
           <p class="pack-clue-meta">${flag} ${packConfig().name}</p>
           <button class="pack-play-card" type="button">Play this card</button>
         </div>

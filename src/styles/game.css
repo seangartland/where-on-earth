@@ -618,21 +618,47 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-sealed-hint { position: absolute; top: calc(100% + 6px); right: 0; left: 0; margin: 0; color: rgba(var(--rgb-muted),.7); font-size: var(--fs-caption); font-weight: 600; text-align: center; white-space: nowrap; pointer-events: none; }
 .pack-sealed.torn .pack-sealed-hint { visibility: hidden; }
 
+/* The postcard's mail side and caption type, shared by the earned postcard
+   (Passport detail) and the dealt pack card so both read as one object. A
+   dealt back fills none of it: no fact, no date in the postmark (is-blank),
+   no stamp photo, no name or registry number; only the pack name. */
+.pc-back { display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; padding: 12px 12px 0; background: var(--mail-paper); color: var(--mail-ink); }
+.pc-fact { grid-column: 1; grid-row: 1; margin: 0; padding-right: 10px; overflow: hidden; color: var(--mail-ink); font-size: 11.5px; line-height: 1.5; }
+.pc-fact[hidden] { display: none; }
+.pc-divider { grid-column: 2; grid-row: 1; background: rgba(34,53,92,.22); }
+.pc-right { grid-column: 3; grid-row: 1; display: flex; flex-direction: column; min-width: 0; padding-left: 10px; }
+.pc-stamp-row { position: relative; display: flex; justify-content: flex-end; height: 62px; flex: none; }
+.pc-stamp { position: relative; box-sizing: border-box; width: 52px; height: 52px; margin: 3px 3px 0 0; padding: 4px; background: linear-gradient(135deg, #1b2c5a, #3b2a6e) content-box, var(--mail-stamp); box-shadow: 0 2px 5px rgba(0,0,0,.28); }
+.pc-stamp img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.pc-stamp::before { content: ''; position: absolute; z-index: 1; inset: -3.5px 0; background: var(--perf) 0 0 / 7px 7px repeat-x, var(--perf) 0 100% / 7px 7px repeat-x; pointer-events: none; --perf: radial-gradient(circle, #f4ebd3 2.3px, transparent 2.6px); }
+.pc-stamp::after { content: ''; position: absolute; z-index: 1; inset: 0 -3.5px; background: var(--perf) 0 0 / 7px 7px repeat-y, var(--perf) 100% 0 / 7px 7px repeat-y; pointer-events: none; --perf: radial-gradient(circle, #f4ebd3 2.3px, transparent 2.6px); }
+/* The game's rotated postmark badge, dated with the first earn. */
+.pc-postmark { position: absolute; z-index: 2; top: 22px; right: 30px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 52px; height: 52px; border: 1.8px solid rgba(52,72,96,.85); border-radius: 50%; outline: 1.4px solid rgba(52,72,96,.85); outline-offset: 2.5px; color: rgba(40,58,80,.95); font-size: 7.5px; font-weight: 850; line-height: 1.15; letter-spacing: .04em; text-align: center; font-variant-numeric: tabular-nums; transform: rotate(-11deg); }
+.pc-postmark::after { content: ''; position: absolute; inset: 4px; border: 1px dashed rgba(52,72,96,.6); border-radius: 50%; pointer-events: none; }
+.pc-postmark[data-tier="gold"] { border-color: var(--mail-gold); outline-color: var(--mail-gold); color: var(--mail-gold); }
+.pc-postmark[data-tier="gold"]::after { border-color: rgba(178,124,32,.55); }
+.pc-postmark.is-blank { opacity: .45; }
+.pc-postmark[hidden] { display: none; }
+.pc-addr { margin-top: 4px; }
+.pc-addr p { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pc-addr-name { color: var(--mail-ink); font-size: var(--fs-small); font-weight: 800; line-height: 1.3; }
+.pc-addr-country { color: var(--mail-ink-2); font-size: var(--fs-micro); font-weight: 700; line-height: 1.3; }
+.pc-addr-country[hidden] { display: none; }
+.pc-addr-pack { color: var(--mail-ink-2); font-size: var(--fs-micro); font-weight: 700; letter-spacing: .05em; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.pc-addr-pack[hidden] { display: none; }
+.pc-addr-rule { height: 8px; margin-bottom: 4px; border-bottom: 1px solid rgba(34,53,92,.3); }
+.pc-caption-name { color: var(--mail-ink); font-size: var(--fs-body); font-weight: 800; line-height: 1.2; letter-spacing: .02em; }
+.pc-caption-sub { color: var(--mail-ink-2); font-size: 9px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+
 .pack-flip-slot { perspective: 900px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .pack-flip-slot:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; border-radius: 10px; }
 /* The dealt objects are landscape postcards, not square playing cards. */
 .pack-flip { position: relative; width: 100%; aspect-ratio: 3 / 2; transform-style: preserve-3d; transition: transform .33s ease; }
 .pack-flip-slot.flipped .pack-flip { transform: rotateY(180deg); }
-.pack-flip-face { position: absolute; inset: 0; box-sizing: border-box; overflow: hidden; padding: 18px; border: 1px solid rgba(101,78,38,.28); border-radius: 7px; background: var(--mail-paper); box-shadow: inset 0 0 24px rgba(91,65,25,.08); color: var(--mail-ink); backface-visibility: hidden; -webkit-backface-visibility: hidden; text-align: left; }
-.pack-flip-back { display: block; }
-.pack-stamp-outline { position: absolute; top: 20px; right: 22px; width: 48px; height: 38px; border: 2px dashed rgba(52,72,96,.48); }
-.pack-postmark-ring { position: absolute; top: 42px; right: 54px; width: 54px; height: 54px; border: 2px solid rgba(52,72,96,.34); border-radius: 50%; }
-.pack-message-lines { position: absolute; top: 58px; bottom: 24px; left: 24px; width: 34%; background: repeating-linear-gradient(to bottom, transparent 0 18px, rgba(52,72,96,.25) 18px 19px); }
-.pack-address-lines { position: absolute; top: 78px; bottom: 24px; right: 24px; width: 34%; background: repeating-linear-gradient(to bottom, transparent 0 18px, rgba(52,72,96,.25) 18px 19px); }
-.pack-flip-back::after { position: absolute; top: 26px; bottom: 23px; left: 50%; border-left: 1px solid rgba(52,72,96,.22); content: ''; }
-.pack-flip-front { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; transform: rotateY(180deg); text-align: center; }
-.pack-clue-name { margin: 0; color: #22355c; font-size: 20px; font-weight: 850; line-height: 1.1; }
-.pack-clue-text { margin: 0; color: rgba(52,72,96,.78); font-size: var(--fs-body); font-weight: 650; line-height: 1.3; }
+.pack-flip-face { position: absolute; inset: 0; box-sizing: border-box; overflow: hidden; border: 1px solid rgba(101,78,38,.28); border-radius: 7px; background: var(--mail-paper); box-shadow: inset 0 0 24px rgba(91,65,25,.08); color: var(--mail-ink); backface-visibility: hidden; -webkit-backface-visibility: hidden; text-align: left; }
+.pack-flip-front { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 18px; transform: rotateY(180deg); text-align: center; }
+.pack-clue-name { margin: 0; font-size: 20px; }
+.pack-clue-text { margin: 0; font-size: var(--fs-caption); }
 .pack-clue-meta { margin: 1px 0 4px; color: rgba(52,72,96,.58); font-size: var(--fs-micro); font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
 .pack-play-card { padding: 7px 14px; border: 0; border-radius: 999px; background: #22355c; color: #fffaf0; font: inherit; font-size: var(--fs-small); font-weight: 800; }
 
@@ -647,7 +673,6 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-slots.is-stack > .pack-slot { grid-area: 1 / 1; width: min(300px, 77vw); translate: calc(var(--depth) * 7px) calc(var(--depth) * -8px); rotate: calc(var(--depth) * 2deg); }
 .pack-slots.is-stack .pack-flip-face { box-shadow: 0 10px 22px rgba(0,0,0,.45); }
 .pack-slots.is-stack .pack-clue-name { font-size: 24px; }
-.pack-slots.is-stack .pack-clue-text { font-size: var(--fs-body); }
 
 @media (max-height: 700px) {
   .expedition-panel.pack-panel { --pack-w: min(211px, 54vw); padding-top: 6px; padding-bottom: 8px; }
@@ -1093,42 +1118,19 @@ body.game-collections #hud { opacity: 0; }
 .ppd-flip:focus-visible .ppd-face { outline: 2px solid #67e8ff; outline-offset: 3px; }
 .ppd-face-front .pp-photo { position: absolute; inset: 0; aspect-ratio: auto; border-radius: 0; }
 .ppd-face-front .pp-photo::after { font-size: 44px; }
-.ppd-card[data-earn="seen"] .pp-photo img, .ppd-card[data-earn="seen"] .ppd-stamp img { filter: grayscale(1) contrast(.92) brightness(.82); }
+.ppd-card[data-earn="seen"] .pp-photo img, .ppd-card[data-earn="seen"] .pc-stamp img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-caption { position: absolute; z-index: 2; right: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 9px 5px; border-radius: 2px; background: rgba(250,243,225,.92); box-shadow: 0 1px 4px rgba(0,0,0,.3); text-align: right; }
-.ppd-caption h3 { margin: 0; overflow: hidden; color: var(--mail-ink); font-size: var(--fs-body); font-weight: 800; line-height: 1.2; letter-spacing: .02em; text-overflow: ellipsis; white-space: nowrap; }
-.ppd-caption p { margin: 1px 0 0; overflow: hidden; color: var(--mail-ink-2); font-size: 9px; font-weight: 750; letter-spacing: .08em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.ppd-caption h3, .ppd-caption p { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ppd-caption p { margin-top: 1px; }
 .ppd-caption p[hidden] { display: none; }
+.ppd-face-back { visibility: hidden; -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
+.ppd-stats { grid-column: 1 / span 3; grid-row: 2; display: flex; justify-content: center; gap: 8px; margin: 0; padding: 7px 2px 9px; border-top: 1px dashed rgba(34,53,92,.3); color: var(--mail-ink-2); font-size: var(--fs-micro); font-weight: 700; }
 .ppd-flip-hint { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 3px 8px; border-radius: 999px; background: rgba(2,4,9,.5); color: rgba(255,253,246,.88); font-size: var(--fs-micro); font-weight: 750; letter-spacing: .02em; pointer-events: none; }
-.ppd-face-back { visibility: hidden; display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; padding: 12px 12px 0; background: var(--mail-paper); color: var(--mail-ink); -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
-.ppd-fact { grid-column: 1; grid-row: 1; margin: 0; padding-right: 10px; overflow: hidden; color: var(--mail-ink); font-size: 11.5px; line-height: 1.5; }
-.ppd-fact[hidden] { display: none; }
-.ppd-divider { grid-column: 2; grid-row: 1; background: rgba(34,53,92,.22); }
-.ppd-right { grid-column: 3; grid-row: 1; display: flex; flex-direction: column; min-width: 0; padding-left: 10px; }
-.ppd-stamp-row { position: relative; display: flex; justify-content: flex-end; height: 62px; flex: none; }
-.ppd-stamp { position: relative; box-sizing: border-box; width: 52px; height: 52px; margin: 3px 3px 0 0; padding: 4px; background: linear-gradient(135deg, #1b2c5a, #3b2a6e) content-box, var(--mail-stamp); box-shadow: 0 2px 5px rgba(0,0,0,.28); }
-.ppd-stamp img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.ppd-stamp::before { content: ''; position: absolute; z-index: 1; inset: -3.5px 0; background: var(--perf) 0 0 / 7px 7px repeat-x, var(--perf) 0 100% / 7px 7px repeat-x; pointer-events: none; --perf: radial-gradient(circle, #f4ebd3 2.3px, transparent 2.6px); }
-.ppd-stamp::after { content: ''; position: absolute; z-index: 1; inset: 0 -3.5px; background: var(--perf) 0 0 / 7px 7px repeat-y, var(--perf) 100% 0 / 7px 7px repeat-y; pointer-events: none; --perf: radial-gradient(circle, #f4ebd3 2.3px, transparent 2.6px); }
-/* The game's rotated postmark badge, dated with the first earn. */
-.ppd-postmark { position: absolute; z-index: 2; top: 22px; right: 30px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 52px; height: 52px; border: 1.8px solid rgba(52,72,96,.85); border-radius: 50%; outline: 1.4px solid rgba(52,72,96,.85); outline-offset: 2.5px; color: rgba(40,58,80,.95); font-size: 7.5px; font-weight: 850; line-height: 1.15; letter-spacing: .04em; text-align: center; font-variant-numeric: tabular-nums; transform: rotate(-11deg); }
-.ppd-postmark::after { content: ''; position: absolute; inset: 4px; border: 1px dashed rgba(52,72,96,.6); border-radius: 50%; pointer-events: none; }
-.ppd-postmark[data-tier="gold"] { border-color: var(--mail-gold); outline-color: var(--mail-gold); color: var(--mail-gold); }
-.ppd-postmark[data-tier="gold"]::after { border-color: rgba(178,124,32,.55); }
-.ppd-postmark[hidden] { display: none; }
-.ppd-addr { margin-top: 4px; }
-.ppd-addr p { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ppd-addr-name { color: var(--mail-ink); font-size: var(--fs-small); font-weight: 800; line-height: 1.3; }
-.ppd-addr-country { color: var(--mail-ink-2); font-size: var(--fs-micro); font-weight: 700; line-height: 1.3; }
-.ppd-addr-country[hidden] { display: none; }
-.ppd-addr-pack { color: var(--mail-ink-2); font-size: var(--fs-micro); font-weight: 700; letter-spacing: .05em; line-height: 1.3; font-variant-numeric: tabular-nums; }
-.ppd-addr-pack[hidden] { display: none; }
-.ppd-addr-rule { height: 8px; margin-bottom: 4px; border-bottom: 1px solid rgba(34,53,92,.3); }
 .ppd-history { display: grid; gap: 3px; margin-top: auto; padding: 6px 0 8px; color: rgba(101,78,38,.85); font-size: 8.5px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 .ppd-history-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-width: 0; }
 .ppd-history-row span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ppd-history-row strong { flex: none; color: var(--mail-ink); font-weight: 750; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
 .ppd-history[hidden] { display: none; }
-.ppd-stats { grid-column: 1 / span 3; grid-row: 2; display: flex; justify-content: center; gap: 8px; margin: 0; padding: 7px 2px 9px; border-top: 1px dashed rgba(34,53,92,.3); color: var(--mail-ink-2); font-size: var(--fs-micro); font-weight: 700; }
 .ppd-stats b { color: var(--mail-ink); font-weight: 800; }
 .ppd-stat-num { font-variant-numeric: tabular-nums; }
 .ppd-uncollected { color: var(--mail-ink-2); font-size: var(--fs-micro); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }

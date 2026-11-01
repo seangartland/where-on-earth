@@ -1425,24 +1425,24 @@ export function initPassport(main) {
             <div class="pp-photo" data-ppd="photo"></div>
             <span class="ppd-flip-hint" aria-hidden="true">Tap to flip</span>
             <div class="ppd-caption">
-              <h3 id="ppd-title" data-ppd="name"></h3>
-              <p data-ppd="country"></p>
+              <h3 class="pc-caption-name" id="ppd-title" data-ppd="name"></h3>
+              <p class="pc-caption-sub" data-ppd="country"></p>
             </div>
           </div>
-          <div class="ppd-face ppd-face-back" data-ppd="back">
-            <p class="ppd-fact" data-ppd="fact"></p>
-            <div class="ppd-divider"></div>
-            <div class="ppd-right">
-              <div class="ppd-stamp-row">
-                <div class="ppd-stamp" data-ppd="stamp"></div>
-                <span class="ppd-postmark" data-ppd="postmark"></span>
+          <div class="ppd-face ppd-face-back pc-back" data-ppd="back">
+            <p class="pc-fact" data-ppd="fact"></p>
+            <div class="pc-divider"></div>
+            <div class="pc-right">
+              <div class="pc-stamp-row">
+                <div class="pc-stamp" data-ppd="stamp"></div>
+                <span class="pc-postmark" data-ppd="postmark"></span>
               </div>
-              <div class="ppd-addr">
-                <p class="ppd-addr-name" data-ppd="addrName"></p>
-                <p class="ppd-addr-country" data-ppd="addrCountry"></p>
-                <p class="ppd-addr-pack" data-ppd="addrPack"></p>
-                <div class="ppd-addr-rule"></div>
-                <div class="ppd-addr-rule"></div>
+              <div class="pc-addr">
+                <p class="pc-addr-name" data-ppd="addrName"></p>
+                <p class="pc-addr-country" data-ppd="addrCountry"></p>
+                <p class="pc-addr-pack" data-ppd="addrPack"></p>
+                <div class="pc-addr-rule"></div>
+                <div class="pc-addr-rule"></div>
               </div>
               <div class="ppd-history" data-ppd="history" aria-label="Visit history"></div>
             </div>
