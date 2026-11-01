@@ -1,6 +1,7 @@
 import { betterAuth } from 'better-auth';
 import { bearer, emailOTP } from 'better-auth/plugins';
 import { createSender } from './sender.js';
+import { handleFriends } from './friends.js';
 import { getSync, postSync } from './sync.js';
 
 const ALLOWED_ORIGINS = new Set([
@@ -279,6 +280,12 @@ export default {
     }
     if (url.pathname === '/v1/sync' && request.method === 'POST') {
       const response = await postSync(request, env, auth);
+      for (const [key, value] of Object.entries(cors(request))) response.headers.set(key, value);
+      return response;
+    }
+    if (url.pathname === '/v1/friends' || url.pathname.startsWith('/v1/friends/')
+      || url.pathname === '/v1/daily/guesses' || url.pathname === '/v1/daily/friends') {
+      const response = await handleFriends(request, env, auth);
       for (const [key, value] of Object.entries(cors(request))) response.headers.set(key, value);
       return response;
     }
