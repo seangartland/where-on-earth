@@ -81,7 +81,9 @@ def query(sql, params=None):
 
 def apply_migrations():
     for path in sorted((ROOT / "migrations").glob("*.sql")):
-        statements = [part.strip() for part in path.read_text().split(";") if part.strip()]
+        def has_sql(part):
+            return any(line.strip() and not line.strip().startswith("--") for line in part.splitlines())
+        statements = [part.strip() for part in path.read_text().split(";") if part.strip() and has_sql(part)]
         for statement in statements:
             query(statement)
         print(f"applied {path.name}: {len(statements)} statements")
