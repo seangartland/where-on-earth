@@ -1,6 +1,9 @@
 import { accountApi } from './api.js';
 import { firstSignInMerge } from './sync.js';
 import { readAccountSession, saveAccountSession } from './session.js';
+import { ACCOUNT_API } from '../core/config.js';
+
+const GSI_LOAD_TIMEOUT_MS = 5000;
 
 let sheet;
 let returnFocus;
@@ -55,22 +58,43 @@ async function completeSignIn(result) {
   window.dispatchEvent(new CustomEvent('account-session-change'));
 }
 
+function loadGsiScript() {
+  return new Promise((resolve, reject) => {
+    if (window.google?.accounts?.id) return resolve();
+    const timer = setTimeout(() => reject(new Error('gsi-timeout')), GSI_LOAD_TIMEOUT_MS);
+    const script = document.createElement('script');
+    script.src = 'https://accounts.google.com/gsi/client';
+    script.async = true;
+    script.onload = () => { clearTimeout(timer); resolve(); };
+    script.onerror = () => { clearTimeout(timer); reject(new Error('gsi-blocked')); };
+    document.head.appendChild(script);
+  });
+}
+
+function redirectToGoogleSignIn() {
+  const url = new URL('/api/auth/sign-in/social', ACCOUNT_API);
+  url.searchParams.set('provider', 'google');
+  url.searchParams.set('callbackURL', `${window.location.origin}/`);
+  window.location.href = url.toString();
+}
+
 async function enableGoogle() {
   const button = sheet.querySelector('.account-google');
   const note = sheet.querySelector('.account-google-note');
   if (!button) return;
+  let health;
   try {
-    const health = await accountApi('/health');
-    if (!health.googleAvailable || !health.googleClientId) return;
-    await new Promise((resolve, reject) => {
-      if (window.google?.accounts?.id) return resolve();
-      const script = document.createElement('script');
-      script.src = 'https://accounts.google.com/gsi/client';
-      script.async = true;
-      script.onload = resolve;
-      script.onerror = reject;
-      document.head.appendChild(script);
-    });
+    health = await accountApi('/health');
+  } catch {
+    note.textContent = "Couldn't reach the sign-in service. Try again later.";
+    return;
+  }
+  if (!health.googleAvailable || !health.googleClientId) {
+    note.textContent = 'Google sign-in is turned off right now.';
+    return;
+  }
+  try {
+    await loadGsiScript();
     button.disabled = false;
     note.textContent = '';
     button.addEventListener('click', () => {
@@ -90,7 +114,9 @@ async function enableGoogle() {
       window.google.accounts.id.prompt();
     }, { once: true });
   } catch {
-    note.textContent = 'Google sign-in is not available yet.';
+    button.disabled = false;
+    note.textContent = "Google's sign-in script is blocked here — tap Continue to finish in your browser.";
+    button.addEventListener('click', redirectToGoogleSignIn, { once: true });
   }
 }
 
