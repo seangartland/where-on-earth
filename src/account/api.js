@@ -1,11 +1,12 @@
 import { ACCOUNT_API } from '../core/config.js';
 
 export class AccountError extends Error {
-  constructor(code, message, status = 0) {
+  constructor(code, message, status = 0, data = null) {
     super(message || code);
     this.name = 'AccountError';
     this.code = code;
     this.status = status;
+    this.data = data;
   }
 }
 
@@ -35,6 +36,6 @@ export async function accountApi(path, { method = 'GET', body, token, timeoutMs 
   } finally {
     clearTimeout(timer);
   }
-  if (!response.ok) throw new AccountError(data?.code || 'REQUEST_FAILED', data?.message, response.status);
+  if (!response.ok) throw new AccountError(data?.code || 'REQUEST_FAILED', data?.message, response.status, data);
   return data;
 }

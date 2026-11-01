@@ -86,6 +86,21 @@ if (window.__boot) window.__boot('3D engine loaded');
 // before anything reads storage; the fetch below skips the HTTP cache so a
 // stale locations.json can't rebuild the old set.
 // Audit mode (retired 2026-10-12, QUARANTINED) and its flag: src/modes/audit.js.
+export let pendingFriendInviteToken = null;
+if (ACCOUNTS_ENABLED) {
+  const url = new URL(location.href);
+  pendingFriendInviteToken = url.searchParams.get('friend');
+  if (pendingFriendInviteToken !== null) {
+    url.searchParams.delete('friend');
+    history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+  }
+  // Banking integration (lanes 2 and 3): the account sheet reads the pending
+  // token through these window hooks, which close over the live module
+  // binding above, so clearing here clears it for every consumer.
+  window.getPendingFriendToken = () => pendingFriendInviteToken;
+  window.clearPendingFriendToken = () => { pendingFriendInviteToken = null; };
+}
+
 if (RESET_DAILY) {
   try { localStorage.removeItem('where-on-earth-v1'); } catch (error) { console.error('[reset] daily', error); }
   history.replaceState(null, '', location.pathname + location.hash);

@@ -88,6 +88,8 @@ export async function firstSignInMerge() {
   }
   localStorage.setItem(SYNC_QUEUE_KEY, JSON.stringify({ _v: 1, keys: [] }));
   updateAccountSession({ merged: true, lastSyncAt: Date.now() });
+  const { backfillToday } = await import('./friends.js');
+  await backfillToday();
   return result;
 }
 

@@ -5,7 +5,7 @@
 // host supplies the globe, the modes, the Daily screens and the passport
 // store, which sit outside the game layer.
 // ---------------------------------------------------------------------------
-import { LOCK_ARM_MS, WEIGHTS, flyoverTier, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
+import { ACCOUNTS_ENABLED, LOCK_ARM_MS, WEIGHTS, flyoverTier, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
 import { state } from '../core/state.js';
 import { setThumb } from '../core/dom.js';
 import { formatKm, formatDailyDate, countryKey } from '../core/format.js';
@@ -264,7 +264,8 @@ export function revealGuess(guess, restoring = false) {
   const newlyEarned = record ? recordVisit(answer.id, base, pvpScored ? pvpScored.distanceKm : kmExact, !endless.active && !pvp.active && !survival.active) : 0; // exact, so earning matches the flyover tier
   const packCard = !restoring && pack.active ? packRecordGuess(guess, km, kmExact, base, wasVisited, previousEarn, newlyEarned) : null;
   if (!restoring && !oneOff) {
-    state.daily.results[state.daily.round] = {
+    const slot = state.daily.round;
+    const result = {
       guess,
       distance: km,
       score,
@@ -272,7 +273,14 @@ export function revealGuess(guess, restoring = false) {
       distanceExact: kmExact,
       postcard: postcardRoundOutcome(previousEarn, newlyEarned),
     };
+    state.daily.results[slot] = result;
     saveDaily();
+    if (ACCOUNTS_ENABLED) {
+      import('../account/session.js').then(({ isSignedIn }) => {
+        if (!isSignedIn()) return;
+        return import('../account/friends.js').then(({ submitDailyGuess }) => submitDailyGuess(result, slot));
+      }).catch(() => {});
+    }
   }
   if (!restoring && (survival.active || expeditionRun.active)) {
     const postcard = postcardRoundOutcome(previousEarn, newlyEarned);
