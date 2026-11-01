@@ -3531,5 +3531,21 @@
   "difficultyWhy": "p.39·fb510·K0·iso675 → 70.0 → 7",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "anne-frank-house",
+  "clue": "Anne Frank House, Netherlands 🇳🇱",
+  "fact": "Anne Frank's diary survived because Fritz Frank and Gies Huber abandoned papers before they were deported in 1942, and it was not published until 1947.",
+  "lat": 52.3752,
+  "lng": 4.8839,
+  "difficulty": 4,
+  "short": "Anne Frank House",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Amsterdam_%28NL%29%2C_Anne-Frank-Huis_--_2015_--_7185.jpg/500px-Amsterdam_%28NL%29%2C_Anne-Frank-Huis_--_2015_--_7185.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Netherlands",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.56·fb37·K0·iso174 → 13.0 → 4",
+  "category": "city",
+  "kind": "landmark"
  }
 ]
