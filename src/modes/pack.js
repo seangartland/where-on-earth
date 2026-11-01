@@ -474,17 +474,22 @@ function wireSealedPack(sealed, screen) {
     window.clearTimeout(openingTimer);
     sealed.hidden = true;
     sealed.classList.remove('torn', 'opening');
+    els.slots.classList.remove('is-opening');
     sealed.style.removeProperty('--tear');
     sealed.style.pointerEvents = '';
     sealed.style.left = '';
     sealed.style.top = '';
   };
 
-  // The packet opens and the three cards rise out of its torn top as one
-  // stack: the torn wrapper is layered over them, so its body below the tear
-  // line hides each card until it slides out of the opening. The stack
-  // already sits in its final place (the pack's own footprint); the wrapper
-  // fades, and the stack settles back down where the pack stood.
+  // The packet opens and the three cards come out of its torn top one at a
+  // time, top card first. The torn wrapper is layered over them, so its body
+  // below the tear line hides whatever is still inside. A rising card stays
+  // on its side, centered on the pack and scaled to fit its silhouette, so
+  // nothing of it can show beside the pack; only once it is fully clear of
+  // the lip does it move above the wrapper, turn upright (rising as it turns
+  // so no corner dips back below the lip), take its fan offset and settle
+  // into the stack where the pack stood. The wrapper fades as the last card
+  // clears.
   const finishTear = () => {
     pack.record = readPack();
     let current = currentPack();
@@ -519,6 +524,7 @@ function wireSealedPack(sealed, screen) {
     const panel = sealed.parentElement;
     sealed.hidden = false;
     sealed.classList.add('opening');
+    els.slots.classList.add('is-opening');
     sealed.style.pointerEvents = 'none';
     const panelRect = panel.getBoundingClientRect();
     sealed.style.left = `${packRect.left - panelRect.left - panel.clientLeft + panel.scrollLeft}px`;
@@ -526,27 +532,49 @@ function wireSealedPack(sealed, screen) {
     const tearY = packRect.top + packRect.height * packConfig().tearLine;
     const anims = [sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 450, delay: 700, easing: 'ease-out', fill: 'forwards' })];
     const timers = [];
-    const RISE_MS = 1500;
-    // Top card first (it is last in the DOM). Postcards leave the portrait
-    // wrapper turned on their side; the wrapper (layered above them) hides
-    // whatever is still below the tear line. About two-thirds out they start
-    // turning right-side-up, rising clear of the lip as they turn. Travel
-    // is measured on the turned card: its height on screen is its width.
-    [...els.slots.children].reverse().forEach((card, depth) => {
-      const r = card.getBoundingClientRect();
-      const mid = (r.top + r.bottom) / 2;
-      const half = card.offsetWidth / 2;
-      const inside = tearY + half - mid;
-      const twoThirds = inside - card.offsetWidth * 2 / 3;
-      const clear = tearY - card.offsetHeight / 2 - mid;
-      anims.push(card.animate([
-        { transform: `translateY(${inside}px) rotate(90deg)`, easing: 'cubic-bezier(.25,.7,.35,1)' },
-        { transform: `translateY(${twoThirds}px) rotate(90deg)`, offset: 0.42, easing: 'ease-in-out' },
-        { transform: `translateY(${clear - 14}px) rotate(0deg)`, offset: 0.66, easing: 'cubic-bezier(.3,.1,.3,1)' },
-        { transform: 'none' },
-      ], { duration: RISE_MS, delay: depth * 90, fill: 'both' }));
+    const STAGGER = 150;
+    const RISE = 380;
+    const TURN = 300;
+    const FAN = 120;
+    const SETTLE = 400;
+    const TOTAL = RISE + TURN + FAN + SETTLE;
+    const SIDE = 34; // room each side for the card's shadow, which swings sideways when it is turned
+    const GAP = 16; // clearance above the lip; covers the fan's small tilt
+    // Every card sits centered in the stack (grid-area 1 / 1), so the stack's
+    // own box is each card's untransformed layout box.
+    const stack = els.slots.getBoundingClientRect();
+    const dx = packRect.left + packRect.width / 2 - (stack.left + stack.width / 2);
+    const mid = stack.top + stack.height / 2;
+    const cards = [...els.slots.children].reverse();
+    cards.forEach((card, order) => {
+      const w = card.offsetWidth;
+      const h = card.offsetHeight;
+      // On its side the card is h wide and w tall: fit both inside the pack.
+      const fit = Math.min(1, (packRect.width - 2 * SIDE) / h, (packRect.bottom - tearY - 6) / w);
+      const css = getComputedStyle(card);
+      const at = (y, deg, scale) => `translate(${dx}px, ${y - mid}px) rotate(${deg}deg) scale(${scale})`;
+      const flat = { translate: '0px 0px', rotate: '0deg' };
+      const keys = [{ ...flat, zIndex: 1, transform: at(tearY + w * fit / 2 + 2, 90, fit), offset: 0, easing: 'cubic-bezier(.25,.7,.35,1)' }];
+      // The turn, sampled so the card's bottom stays GAP above the lip while
+      // its on-screen height changes with the angle. It starts out of the
+      // pack, so it moves above the wrapper there.
+      const STEPS = 9;
+      for (let k = 0; k <= STEPS; k++) {
+        const t = k / STEPS;
+        const deg = 90 * (1 - t);
+        const scale = fit + (1 - fit) * t;
+        const rad = deg * Math.PI / 180;
+        const half = scale * (w * Math.sin(rad) + h * Math.cos(rad)) / 2;
+        const key = { ...flat, zIndex: 3, transform: at(tearY - GAP - half, deg, scale), offset: (RISE + TURN * t) / TOTAL, easing: 'linear' };
+        if (!k) keys.push({ ...key, zIndex: 1 });
+        keys.push(key);
+      }
+      keys[keys.length - 1].easing = 'ease-out';
+      keys.push({ translate: css.translate, rotate: css.rotate, zIndex: 3, transform: at(tearY - GAP - h / 2, 0, 1), offset: (RISE + TURN + FAN) / TOTAL, easing: 'cubic-bezier(.3,.1,.3,1)' });
+      keys.push({ translate: css.translate, rotate: css.rotate, zIndex: 3, transform: 'translate(0px, 0px) rotate(0deg) scale(1)', offset: 1 });
+      anims.push(card.animate(keys, { duration: TOTAL, delay: order * STAGGER, fill: 'both' }));
     });
-    timers.push(window.setTimeout(endOpening, RISE_MS + 2 * 90 + 60));
+    timers.push(window.setTimeout(endOpening, TOTAL + (cards.length - 1) * STAGGER + 60));
     opening = { anims, timers };
   };
 

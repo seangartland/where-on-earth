@@ -640,6 +640,10 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
    the sealed pack's own footprint, next card on top. --depth (set by
    pack.js) fans the cards under it; only the top card takes the tap. */
 .pack-slots.is-stack { position: relative; z-index: 1; display: grid; grid-template-columns: none; place-items: center; width: min(300px, 77vw); aspect-ratio: 3 / 2; margin: 30px auto 22px; }
+/* While the pack opens the stack drops its stacking context, so each card
+   layers against the wrapper on its own: under it while inside, above it
+   once clear (pack.js sets the per-card z-index). */
+.pack-slots.is-stack.is-opening { z-index: auto; }
 .pack-slots.is-stack > .pack-slot { grid-area: 1 / 1; width: min(300px, 77vw); translate: calc(var(--depth) * 7px) calc(var(--depth) * -8px); rotate: calc(var(--depth) * 2deg); }
 .pack-slots.is-stack .pack-flip-face { box-shadow: 0 10px 22px rgba(0,0,0,.45); }
 .pack-slots.is-stack .pack-clue-name { font-size: 24px; }
