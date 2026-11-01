@@ -51210,20 +51210,20 @@
             45.8924
           ],
           [
-            9.1019,
-            45.8599
+            9.1022,
+            45.8603
           ],
           [
             9.0802,
             45.8133
           ],
           [
-            9.1559,
-            45.8696
+            9.1526,
+            45.8659
           ],
           [
-            9.1521,
-            45.9351
+            9.1508,
+            45.9338
           ],
           [
             9.2655,
@@ -51280,9 +51280,9 @@
     "sourceUrl": "https://www.openstreetmap.org/relation/541757",
     "license": "ODbL",
     "attribution": "© OpenStreetMap contributors",
-    "sourceVertices": 10067,
+    "sourceVertices": 10090,
     "vertices": 24,
-    "maxDeviationKm": 1.287
+    "maxDeviationKm": 1.288
   },
   "moraine-lake": {
     "type": "polygon",
