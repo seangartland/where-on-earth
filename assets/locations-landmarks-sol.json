@@ -2405,8 +2405,8 @@
   "sets": [],
   "difficultyWhy": "p.50·fb306·K0·iso19 → 35.8 → 6",
   "category": "city",
-  "kind": "area",
-  "extentKm": 4
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "yosemite-valley",
@@ -5214,8 +5214,8 @@
   "sets": [],
   "difficultyWhy": "p.81·fb255·K0·iso56 → 14.3 → 4",
   "category": "city",
-  "kind": "area",
-  "extentKm": 12
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "carlsbad-caverns",
@@ -5375,8 +5375,8 @@
   "sets": [],
   "difficultyWhy": "p.62·fb110·K1·iso395 → 71.3 → 7",
   "category": "city",
-  "kind": "area",
-  "extentKm": 300
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "kilauea",
@@ -5701,8 +5701,8 @@
   ],
   "difficultyWhy": "p.57·fb559·K0·iso341 → 55.8 → 7",
   "category": "city",
-  "kind": "area",
-  "extentKm": 280
+  "kind": "extent",
+  "extentType": "polygon"
  },
  {
   "id": "sahara",

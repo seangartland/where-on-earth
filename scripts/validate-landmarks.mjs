@@ -18,9 +18,9 @@ const APPROVED_AREAS = new Map([
   ['amazon-rainforest', 340],
   ['aral-sea', 200],
   // Added 2026-10-30 with the diffuse conversions; radii per
-  // docs/diffuse-review-2026-10-30.md.
-  ['xochimilco-mx', 4],
-  ['cappadocia', 12],
+  // docs/diffuse-review-2026-10-30.md. Xochimilco and Cappadocia left
+  // this map on 2026-11-01, converted to OSM polygons in the borders
+  // five round.
   ['copper-canyon', 30],
   ['danakil-depression', 50],
   ['gobi-desert-dinosaur-nemegt', 20],

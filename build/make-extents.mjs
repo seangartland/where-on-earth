@@ -8,7 +8,8 @@
 //   to produce build/extent-sources/sahara-resolve2017.geojson (RESOLVE Ecoregions
 //   2017, ECO_ID 822+842+845: the East, South and West Sahara desert ecoregions),
 //   and build/extract-desert-ecoregions.py to produce the single-ecoregion
-//   desert sources (Mojave ECO_ID 433, Namib 103, Atacama 598).
+//   desert sources (Mojave ECO_ID 433, Namib 103, Atacama 598, Kalahari
+//   ECO_ID 97, Arabian sand desert ECO_ID 810).
 // curl -L 'https://api.openstreetmap.org/api/0.6/relation/318110/full' -o build/extent-sources/wall-full.osm
 // curl -L 'https://api.openstreetmap.org/api/0.6/relation/318110.json' -o build/extent-sources/wall-relation.json
 // curl -G 'https://services1.arcgis.com/HrMiNYsSqqPpLTDE/ArcGIS/rest/services/GBR_Marine_Park_web/FeatureServer/2/query' --data-urlencode 'where=1=1' --data-urlencode 'outFields=*' --data-urlencode 'returnGeometry=true' --data-urlencode 'geometryPrecision=5' --data-urlencode 'f=geojson' -o build/extent-sources/gbrmpa-boundary.geojson
@@ -420,12 +421,46 @@ const RESOLVE_DESERTS = {
   'mojave-desert': { ecoId: 433, ecoName: 'Mojave desert' },
   'namib': { ecoId: 103, ecoName: 'Namib Desert' },
   'atacama': { ecoId: 598, ecoName: 'Atacama desert' },
+  // Borders five (2026-11-01): the Kalahari and the Rub' al Khali join
+  // through the same desert extract path (Sean's ruling: a polygon
+  // wherever one is available).
+  'kalahari': { ecoId: 97, ecoName: 'Kalahari xeric savanna' },
+  'rub-al-khali': { ecoId: 810, ecoName: 'Arabian sand desert' },
 };
+// Ring-level refinement for the desert block only: a ring whose
+// simplification at the standard tolerance measures over the 2.5 km
+// deviation gate is re-simplified at halved tolerances until it passes
+// (floor 0.002 degrees, the borders fine tolerance). This is the small-
+// feature fine-tolerance precedent applied per ring: at 0.015 degrees the
+// Rub' al Khali measures 2.663 km, from narrow necks in a few of its 138
+// ecoregion fragments, while a uniformly finer tolerance for the whole
+// record would break the 100 KB per-record cap. Rings that pass at the
+// standard tolerance are untouched, so Mojave, Namib, Atacama and the
+// Kalahari ship exactly what plain processing produces.
+function processDesertPolygons(rawPolygons) {
+  let maxDev = 0;
+  let sourceVertices = 0;
+  const polygons = rawPolygons.map((polygon) => polygon.map((ring) => {
+    sourceVertices += ring.length;
+    let tolerance = NE_POLYGON_TOLERANCE;
+    let simplified = simplifyRing(ring, tolerance);
+    let dev = deviation(ring, simplified);
+    while (dev > 2.5 && tolerance > 0.002) {
+      tolerance = Math.max(0.002, tolerance / 2);
+      simplified = simplifyRing(ring, tolerance);
+      dev = deviation(ring, simplified);
+    }
+    maxDev = Math.max(maxDev, dev);
+    return simplified;
+  }));
+  const quantized = polygons.map((polygon) => quantize(polygon));
+  return { polygons: quantized, sourceVertices, vertices: quantized.flat(2).length, maxDeviationKm: maxDev };
+}
 const desertRecords = {};
 const desertSummary = {};
 for (const [id, spec] of Object.entries(RESOLVE_DESERTS)) {
   const src = JSON.parse(readFileSync(new URL(`./extent-sources/${id}-resolve2017.geojson`, import.meta.url)));
-  const processed = processPolygons(src.features[0].geometry.coordinates, NE_POLYGON_TOLERANCE);
+  const processed = processDesertPolygons(src.features[0].geometry.coordinates);
   if (processed.maxDeviationKm > 2.5) throw new Error(`${id} deviation gate failed: ${processed.maxDeviationKm}`);
   desertRecords[id] = {
     type: 'polygon', polygons: processed.polygons,
@@ -494,6 +529,12 @@ const BORDERS_OSM_POLYGONS = {
   'banaue-rice-terraces-ph': { file: 'banaue-rice-terraces-ph-osm.geojson', source: 'Rice Terraces of the Philippine Cordilleras UNESCO cluster boundaries (Batad, Bangaan, Hungduan, Mayoyao, Nagacadan) via OpenStreetMap relations 8167057, 7628655, 7137867, 8171344, 7575218', sourceUrl: 'https://www.openstreetmap.org/relation/8167057' },
   'chocolate-hills': { file: 'chocolate-hills-osm.geojson', source: 'Chocolate Hills Natural Monument boundary via OpenStreetMap relation 15100962', sourceUrl: 'https://www.openstreetmap.org/relation/15100962' },
   'amsterdam-canals-d34-7': { file: 'amsterdam-canals-d34-7-osm.geojson', source: 'Amsterdam Grachtengordel canal ring boundary via OpenStreetMap way 222278733', sourceUrl: 'https://www.openstreetmap.org/way/222278733' },
+  // Borders five (2026-11-01): the last two held radius entries with a
+  // real boundary. Cappadocia is the Goreme National Park core, the
+  // fairy-chimney area the card is about; Xochimilco is the borough
+  // boundary, matching the place the clue and fact describe.
+  'cappadocia': { file: 'cappadocia-osm.geojson', source: 'Göreme National Park boundary via OpenStreetMap relation 252585', sourceUrl: 'https://www.openstreetmap.org/relation/252585' },
+  'xochimilco-mx': { file: 'xochimilco-mx-osm.geojson', source: 'Xochimilco borough boundary via OpenStreetMap relation 5606640', sourceUrl: 'https://www.openstreetmap.org/relation/5606640' },
 };
 const bordersOsmRecords = {};
 const bordersOsmSummary = {};
@@ -546,7 +587,11 @@ if (saharaDeviation > 2.5) throw new Error(`Sahara deviation gate failed: ${saha
 // The sidecar cap was 500 KB when it held 34 records; the 2026-10-30
 // borders program takes it to 52 records in this lane (the OSM lane adds
 // more), so the cap moves to 1 MB. It stays a blowup guard, not a budget.
-if (Buffer.byteLength(text) > 1_000_000) throw new Error('extent sidecar exceeds 1 MB');
+// The 2026-11-01 borders five conversions take it past 1 MB on the two
+// RESOLVE desert records alone (the Rub' al Khali ships about 4,900
+// vertices even at the standard tolerance), so the cap moves to 1.5 MB,
+// same reasoning.
+if (Buffer.byteLength(text) > 1_500_000) throw new Error('extent sidecar exceeds 1.5 MB');
 writeFileSync(new URL('../assets/extents.json', import.meta.url), text);
 console.log(JSON.stringify({
   rawBytes: Buffer.byteLength(text), gzipBytes: gzipSync(text).length,

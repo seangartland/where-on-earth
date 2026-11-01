@@ -10,9 +10,10 @@ Writes one build/extent-sources/<id>-resolve2017.geojson per desert below:
 a FeatureCollection with one feature whose MultiPolygon is the ecoregion
 actually named for the subject (the Sahara treatment, build/extract-sahara-
 ecoregions.py, applied to a single ECO_ID per file): Mojave desert
-(ECO_ID 433), Namib Desert (103), Atacama desert (598); names verified
-against the dataset's ECO_NAME field at extraction time. build/make-
-extents.mjs consumes these files.
+(ECO_ID 433), Namib Desert (103), Atacama desert (598), Kalahari xeric
+savanna (97), Arabian sand desert (810); names verified against the
+dataset's ECO_NAME field at extraction time. build/make-extents.mjs
+consumes these files.
 """
 import json
 import sys
@@ -24,6 +25,11 @@ DESERTS = {
     'mojave-desert': 433,
     'namib': 103,
     'atacama': 598,
+    # Borders five (2026-11-01): the Kalahari and the Rub' al Khali join
+    # via the same single-ecoregion path (Sean's ruling: a polygon
+    # wherever one is available).
+    'kalahari': 97,
+    'rub-al-khali': 810,
 }
 
 

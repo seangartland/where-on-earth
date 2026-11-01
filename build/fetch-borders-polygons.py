@@ -24,6 +24,12 @@ daintree-rainforest job below fetches the Daintree National Park boundary
 (relation 8478278), not the reserve-parcel relation 10179476 lane B first
 fetched; Sean ruled on the national-park footprint.
 
+Borders five (2026-11-01, Sean's ruling: a polygon wherever one is
+available): the cappadocia job fetches the Goreme National Park core
+(relation 252585); the xochimilco-mx job fetches the Xochimilco borough
+boundary (relation 5606640), the footprint the card's clue and fact
+describe.
+
 Usage: python3 build/fetch-borders-polygons.py   (run from the repo root)
 """
 import json, math, time, urllib.request
@@ -144,6 +150,9 @@ SINGLE_RELATIONS = {
     'bering-strait': 11315299,
     'socotra': 1577075,
     'copacabana-beach-rio': 5514745,
+    # Borders five (2026-11-01): see the docstring note above.
+    'cappadocia': 252585,
+    'xochimilco-mx': 5606640,
 }
 for key, oid in SINGLE_RELATIONS.items():
     tags, polys = relation_polygons(oid)

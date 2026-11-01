@@ -25,10 +25,10 @@ const byLandmarkId = new Map(landmarks.map((item) => [item.id, item]));
 const APPROVED_AREAS = {
   'black-forest': 80,
   // Added 2026-10-30 with the 49-landform chunk; radii follow the same
-  // ~0.5-0.6x longest-dimension precedent as the entries above.
+  // ~0.5-0.6x longest-dimension precedent as the entries above. Kalahari
+  // and Rub' al Khali left this map on 2026-11-01, converted to RESOLVE
+  // ecoregion polygons in the borders five round.
   'gobi': 340,
-  'kalahari': 300,
-  'rub-al-khali': 280,
   // Added 2026-10-30 with the audit-2 glaring landforms chunk; radii
   // follow the same precedent (Amazon at the Baikal-scale cap).
   'amazon-rainforest': 340,
@@ -37,9 +37,9 @@ const APPROVED_AREAS = {
   // docs/diffuse-review-2026-10-30.md (canal ring, chinampa core, terrace
   // clusters incl. Batad, beach crescent, Cappadocia core valleys, hill
   // field, Copper Canyon core, recentred Danakil, Nemegt outcrop belt,
-  // Gibraltar narrows on the Bering Strait precedent).
-  'xochimilco-mx': 4,
-  'cappadocia': 12,
+  // Gibraltar narrows on the Bering Strait precedent). Xochimilco and
+  // Cappadocia left this map on 2026-11-01, converted to OSM polygons in
+  // the borders five round.
   'copper-canyon': 30,
   'danakil-depression': 50,
   'gobi-desert-dinosaur-nemegt': 20,
