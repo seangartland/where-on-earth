@@ -695,22 +695,6 @@
   "kind": "landmark"
  },
  {
-  "id": "chernobyl-reactor-4",
-  "clue": "Chernobyl, Ukraine 🇺🇦",
-  "fact": "In 2016 a 25,000-tonne sarcophagus was slid across Chernobyl's destroyed fourth reactor in a single 36-hour operation.",
-  "lat": 51.2763,
-  "lng": 30.2219,
-  "difficulty": 5,
-  "short": "Chernobyl",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Administrative_center%2C_Radiation_Control_%2811383715816%29.jpg/500px-Administrative_center%2C_Radiation_Control_%2811383715816%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Ukraine",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.80·fb313·K0·iso94 → 17.4 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "chichen-itza",
   "clue": "Chichen Itza, Mexico 🇲🇽",
   "category": "city",
@@ -1075,22 +1059,6 @@
   "continent": "North America",
   "sets": [],
   "difficultyWhy": "p.57·fb1244·K0·iso114 → 120.9 → 9",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "gandhi-assassination-birla-house",
-  "short": "Gandhi Smriti",
-  "clue": "Gandhi Smriti, New Delhi, India 🇮🇳",
-  "fact": "Nathuram Godse shot Gandhi in the grounds of Birla House on January 30, 1948. Stone footprints trace Gandhi's final walk through the garden.",
-  "lat": 28.6017,
-  "lng": 77.214,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Birla_HouseGandhi_Smriti%2C_New_Delhi.jpg/500px-Birla_HouseGandhi_Smriti%2C_New_Delhi.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "India",
-  "continent": "Asia",
-  "sets": [],
-  "difficultyWhy": "p.31·fb849·K0·iso23 → 130.8 → 9",
   "category": "city",
   "kind": "landmark"
  },
@@ -1538,22 +1506,6 @@
   "kind": "landmark"
  },
  {
-  "id": "magna-carta-runnymede",
-  "short": "Runnymede",
-  "clue": "Runnymede, England",
-  "fact": "King John met rebel barons in the meadow beside the Thames at Runnymede. The charter became a lasting symbol of limits on arbitrary power.",
-  "lat": 51.4441,
-  "lng": -0.5654,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/RunnymedeMagnacartaisle.jpg/500px-RunnymedeMagnacartaisle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "England",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.39·fb95·K0·iso31 → 15.4 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "masada-israel",
   "short": "Masada",
   "clue": "Masada, Israel 🇮🇱",
@@ -1921,22 +1873,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.51·fb371·K0·iso180 → 42.4 → 6",
-  "kind": "landmark"
- },
- {
-  "id": "plymouth-rock",
-  "clue": "Plymouth Rock, United States 🇺🇸",
-  "fact": "Plymouth Rock is traditionally said to be the landing site of the Pilgrims who arrived on the Mayflower in 1620.",
-  "lat": 41.9584,
-  "lng": -70.6631,
-  "difficulty": 9,
-  "short": "Plymouth Rock",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Plymouth_Rock%2C_Plymouth%2C_MA%2C_jjron_03.05.2012.jpg/500px-Plymouth_Rock%2C_Plymouth%2C_MA%2C_jjron_03.05.2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.68·fb1962·K0·iso294 → 136.8 → 9",
-  "category": "city",
   "kind": "landmark"
  },
  {
@@ -2556,24 +2492,6 @@
   "kind": "landmark"
  },
  {
-  "id": "wittenberg-castle-church",
-  "short": "Wittenberg",
-  "clue": "Wittenberg, Germany 🇩🇪",
-  "fact": "The Castle Church's original wooden doors burned in 1760 and were replaced with bronze doors bearing the theses.",
-  "lat": 51.8662,
-  "lng": 12.643,
-  "difficulty": 6,
-  "category": "city",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Schlosskirche_Wittenberg_I.jpg/500px-Schlosskirche_Wittenberg_I.jpg",
-  "country": "Germany",
-  "continent": "Europe",
-  "sets": [
-   "History Was Here"
-  ],
-  "difficultyWhy": "p.47·fb218·K0·iso90 → 27.5 → 6",
-  "kind": "landmark"
- },
- {
   "id": "xochimilco-mx",
   "short": "Xochimilco",
   "clue": "Xochimilco, Mexico 🇲🇽",
@@ -2686,22 +2604,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.75·fb292·K0·iso254 → 19.2 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "stonewall-uprising",
-  "short": "Stonewall Inn",
-  "clue": "Stonewall Inn, New York City, United States 🇺🇸",
-  "fact": "Patrons and neighbors resisted a routine raid at the Stonewall Inn in Greenwich Village. Annual Pride marches grew from commemorations held one year later.",
-  "lat": 40.7338,
-  "lng": -74.0022,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Stonewall_Inn_5_pride_weekend_2016.jpg/500px-Stonewall_Inn_5_pride_weekend_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.57·fb1679·K0·iso15 → 157.8 → 9",
   "category": "city",
   "kind": "landmark"
  },
@@ -3184,22 +3086,6 @@
    "US Road Trip"
   ],
   "difficultyWhy": "p.29·fb1591·K0·iso385 → 242.1 → 10",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "mlk-assassination-lorraine-motel",
-  "short": "Lorraine Motel",
-  "clue": "Lorraine Motel, Memphis, United States 🇺🇸",
-  "fact": "King was shot while standing on the motel's second-floor balcony in Memphis. The preserved Lorraine Motel is now part of the National Civil Rights Museum.",
-  "lat": 35.1345,
-  "lng": -90.0576,
-  "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/National_Civil_Rights_Museum_2022a.jpg/500px-National_Civil_Rights_Museum_2022a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.39·fb510·K0·iso675 → 70.0 → 7",
   "category": "city",
   "kind": "landmark"
  },

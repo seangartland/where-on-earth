@@ -162,12 +162,6 @@
     "locationIds": ["battle-of-hastings", "thermopylae", "magna-carta-runnymede", "wittenberg-castle-church", "dunkirk-evacuation", "anzac-cove", "gettysburg-battlefield"]
   },
   {
-    "id": "twentieth-century",
-    "name": "Twentieth Century",
-    "sub": "Seven places where the last century made headlines.",
-    "locationIds": ["anne-frank-house", "brandenburg-gate", "hiroshima-japan", "chernobyl-reactor-4", "red-square-moscow", "jfk-assassination-dealey-plaza", "pearl-harbor-uss-arizona"]
-  },
-  {
     "id": "music-week",
     "name": "Music Week",
     "sub": "From Mozart's Salzburg to the studio where Elvis cut his first record.",
