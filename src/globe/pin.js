@@ -26,8 +26,9 @@ export let correctPin;
 // ---------------------------------------------------------------------------
 // Pin
 // ---------------------------------------------------------------------------
-// round (1-5) adds a number disc to the badge for the post-game review
-export function makeBadgeTexture(kind, round = 0) {
+// round (1-5) adds a number disc to the badge for the post-game review;
+// a friend badge carries the friend's initial as its text
+export function makeBadgeTexture(kind, round = 0, text = '') {
   const c = document.createElement('canvas');
   c.width = 160;
   c.height = 72;
@@ -54,8 +55,8 @@ export function makeBadgeTexture(kind, round = 0) {
     g.fillStyle = '#fff';
     x = 102;
   }
-  g.font = kind === 'answer' ? 'bold 42px sans-serif' : `bold ${round ? 25 : 29}px sans-serif`;
-  g.fillText(kind === 'answer' ? '\u2713' : 'YOU', x, 38);
+  g.font = kind === 'answer' || kind === 'friend' ? 'bold 42px sans-serif' : `bold ${round ? 25 : 29}px sans-serif`;
+  g.fillText(text || (kind === 'answer' ? '\u2713' : 'YOU'), x, 38);
 
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;

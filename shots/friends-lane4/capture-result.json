@@ -1,0 +1,72 @@
+{
+  "revealRound1": {
+    "lockToPostMs": 290,
+    "dailyRequestsBeforeLockIn": 0,
+    "timing": {
+      "eventAt": 302,
+      "sheetAt": 154623,
+      "stripAt": 156773
+    },
+    "stripAfterSheet": true,
+    "fps": 0.4,
+    "strip": true,
+    "chips": [
+      "Ana 157 km",
+      "Bea 463 km",
+      "Cal 846 km",
+      "+2"
+    ],
+    "empty": null,
+    "note": null,
+    "expectedChips": [
+      "Ana 157 km",
+      "Bea 463 km",
+      "Cal 846 km"
+    ],
+    "expectedPops": [
+      "Ana · 157 km · 971",
+      "Bea · 463 km · 903",
+      "Cal · 846 km · 818",
+      "Dev · 917 km · 802",
+      "Eve · 1,760 km · 631"
+    ],
+    "chipsMatch": true,
+    "friendPinsVisible": 5,
+    "chipPop": "Ana · 157 km · 971",
+    "chipPopMatch": true,
+    "pinPop": "Ana · 157 km · 971",
+    "pinPopMatch": true,
+    "expandedChips": [
+      "Ana 157 km",
+      "Bea 463 km",
+      "Cal 846 km",
+      "Dev 917 km",
+      "Eve 1,760 km"
+    ],
+    "expandedCount": 5
+  },
+  "revealRound2Locked": {
+    "note": "Your first guess (other device)",
+    "localResultUntouched": true,
+    "chips": [
+      "Ana 160 km",
+      "Bea 478 km",
+      "Cal 868 km",
+      "+2"
+    ]
+  },
+  "revealRound3Slow": {
+    "strip": false,
+    "friendPinsVisible": 0,
+    "errorText": null,
+    "waitedAfterSheetMs": 54188
+  },
+  "revealErrors": [],
+  "revealAccountRequests": [
+    "GET /v1/sync?today=2026-11-01&yesterday=2026-10-31",
+    "POST /v1/daily/guesses",
+    "GET /v1/friends",
+    "POST /v1/daily/guesses",
+    "POST /v1/daily/guesses"
+  ]
+}

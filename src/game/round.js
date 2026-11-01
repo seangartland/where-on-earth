@@ -328,10 +328,17 @@ export function revealGuess(guess, restoring = false) {
   const animate = window.__travelAnim !== false && !restoring;
   // Queue the earn celebration for after the flyover completes.
   // The earn toast is non-blocking, but holds off until the postcard has settled.
-  if (newlyEarned || packCard?.kind === 'visited') {
+  // Friends' pins (signed-in Daily only) drop at that same moment.
+  const earn = newlyEarned || packCard?.kind === 'visited';
+  const friends = ACCOUNTS_ENABLED && !oneOff ? friendReveal(answer, guess, restoring) : null;
+  if (earn || friends) {
     setTimeout(() => {
-      if (animate) whenPostcardDone(() => showEarnToast(answer, newlyEarned));
-      else showEarnToast(answer, newlyEarned);
+      const settled = () => {
+        if (earn) showEarnToast(answer, newlyEarned);
+        friends?.();
+      };
+      if (animate) whenPostcardDone(settled);
+      else settled();
     }, animate ? 800 : 100);
   }
   if (animate && (tier === 'bullseye' || tier === 'pinpoint')) {
@@ -361,6 +368,17 @@ export function revealGuess(guess, restoring = false) {
       showRevealSheet(false);
     } else startRevealBeat(a, b, tier !== 'bullseye');
   }
+}
+
+// Friends' pins for a Daily round, from the lazily loaded overlay (signed in
+// only). Returns the settle callback; nothing here delays the reveal.
+function friendReveal(answer, guess, restoring) {
+  const round = { date: state.daily.date, slot: state.daily.round, answer, guess, restoring };
+  const ready = import('../account/session.js')
+    .then(({ isSignedIn }) => (isSignedIn() ? import('../modes/daily-friends.js') : null))
+    .then((overlay) => overlay?.beginFriendReveal(round))
+    .catch(() => null);
+  return () => ready.then((reveal) => reveal?.settle());
 }
 
 // Centralized thumbnail state update: applies earn tier and grayscale in one place.

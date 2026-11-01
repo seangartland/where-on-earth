@@ -12,7 +12,7 @@ import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from '../daily.js';
-import { DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_NAMES } from '../core/config.js';
+import { ACCOUNTS_ENABLED, DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_NAMES } from '../core/config.js';
 import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { readJSON, writeJSON } from '../core/storage.js';
@@ -36,6 +36,19 @@ let nextGameSub;
 let countdownDay;
 export let reviewEls;
 let reviewRounds;
+let friendLayer = null; // Friends on the Daily (daily-friends.js), once a signed-in build loads it
+
+export function setFriendLayer(layer) {
+  friendLayer = layer;
+}
+
+// The friends overlay, for a signed-in accounts build only; null otherwise.
+function loadFriendLayer() {
+  if (!ACCOUNTS_ENABLED) return Promise.resolve(null);
+  return import('../account/session.js')
+    .then(({ isSignedIn }) => (isSignedIn() ? import('./daily-friends.js') : null))
+    .catch(() => null);
+}
 
 export function saveDaily() {
   writeJSON(GAME_KEY, state.daily);
@@ -234,6 +247,7 @@ export function showResults() {
     return round;
   }));
   tickCountdown();
+  loadFriendLayer().then((friends) => friends?.syncCompareButton()).catch(() => {});
 }
 
 export function syncDailyButton() {
@@ -367,6 +381,7 @@ export function showReviewVisuals() {
 
 export function hideReviewVisuals() {
   reviewOpen = -1;
+  friendLayer?.clear();
   for (const r of reviewRounds) {
     r.guess.release();
     r.answer.release();
@@ -391,6 +406,9 @@ export function enterReview(focus = -1) {
   reviewEls.hint.textContent = `${total} pts · tap pins`;
   tickCountdown();
   showReviewVisuals();
+  loadFriendLayer().then((friends) => {
+    if (friends && state.gameMode === 'review') friends.enterFriendReview(state.daily.date, reviewOpen);
+  });
   state.vYaw = state.vPitch = state.autoSpin = 0;
   if (focus >= 0) {
     openRecap(focus);
@@ -419,6 +437,7 @@ export function openRecap(i) {
   reviewEls.fact.textContent = item.fact;
   setThumb(reviewEls.thumb, item.image);
   reviewEls.card.hidden = false;
+  friendLayer?.recap(i);
   reviewRounds.forEach((other, j) => setReviewDim(other, j === i ? 1 : REVIEW_DIM));
   // the card is laid out now, so the strip between bar and card is known
   frameRevealPoints(r.a, r.b, safeStrip(reviewEls.bar, reviewEls.card));
@@ -427,6 +446,7 @@ export function openRecap(i) {
 export function closeRecap() {
   reviewOpen = -1;
   reviewEls.card.hidden = true;
+  friendLayer?.clear();
   reviewRounds.forEach((r) => setReviewDim(r, 1));
 }
 
@@ -450,6 +470,7 @@ export function updateReview(dt, scale) {
     }
     if (r.line.visible) r.line.material.opacity = damp(r.line.material.opacity, 0.75 * r.dim, 10, dt);
   }
+  friendLayer?.update(dt, scale); // friends' pins, on the reveal and in a recap
 }
 
 export const _rp = new THREE.Vector3();
@@ -468,6 +489,7 @@ export function segmentDist(px, py, [ax, ay], [bx, by]) {
 // Nearest round under a tap: pin heads, badges and bases first, then the
 // route. A miss closes any open recap.
 export function pickReviewRound(x, y) {
+  if (friendLayer?.pick(x, y)) return; // a friend's pin in the open recap
   let best = -1;
   let bestD = Infinity;
   const w = new THREE.Vector3();

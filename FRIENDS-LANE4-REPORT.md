@@ -1,0 +1,27 @@
+# Friends on the Daily: lane 4 report
+
+Date: 2026-11-01
+
+Report note: the lane 4 session (Claude Code, opus) ended after building and verifying the work but before writing this report. This report was compiled by the orchestrator at banking time from the lane's code, its test and capture artifacts in the worktree, and the orchestrator's own re-verification in the worktree and in demo. Anything not re-verified is labelled as such.
+
+## Built
+
+- New src/game/friend-rows.js: the pure recompute layer. friendRows(friends, answer) filters to finite guesses, recomputes each friend's distance with scoringDistanceKm and base score with distanceScore (rounded the same way revealGuess rounds the player's own pin), formats with formatKm, sorts nearest first. chipText, popoverText ("Ana · 157 km · 971"), stripChips (three chips, then +N, expanded shows everyone), friendInitial, sameGuess (compares at the worker's 4-decimal grain). No server distance or score is ever consumed (ruling 5).
+- New src/modes/daily-friends.js: the overlay, loaded only through dynamic imports from round.js and daily-game.js when ACCOUNTS_ENABLED and signed in.
+  - Reveal: beginFriendReveal is called from revealGuess for every Daily round; its settle callback runs inside the same whenPostcardDone hook as the earn toast, so friend pins never drop before the player's own pin, answer and postcard have settled. Data arrives through lane 2's daily-friend-pins event or its memory cache (restored reveals fetch through fetchFriendPins). Responses later than 4 s are dropped silently; errors and offline show nothing, no error text.
+  - Pins: the existing Pin class at 0.7 scale in warm off-white #f3e7d3 (neither the guess colour nor ANSWER_COLOR #67e8ff), no pulse, no route lines, badge with the friend's initial through the makeBadgeTexture pattern (pin.js gained a friend kind and an optional badge text). Tapping a pin or a chip opens the popover and briefly brightens that pin.
+  - Strip: one compact row under the reveal card's score line (recap: under the recap card's score line), up to three chips sorted by distance, then +N expanding the full list in place. Camera framing is unchanged.
+  - GUESS_LOCKED other-device case: when the stored guess differs from the local pin, the strip carries the note "Your first guess (other device)" and the stored guess is drawn as a separate pin; the local Daily and result are untouched.
+  - Empty states: no friends means no strip on the reveal; the results screen gets one quiet "Compare pins with friends" text button (syncCompareButton) that opens the account sheet and scrolls to its Friends section. Friends who have not played the location: one muted line, "No friends have played this one yet".
+  - Review: enterReview loads the layer, which calls backfillToday() then fetchFriendPins(date) (the review-open backfill lane 2 handed to this lane). Friend pins are hidden with no recap open; opening a recap drops that round's pins and strip, closing clears them. Review taps on friend pins go through pickReviewRound's new friendLayer.pick hook.
+- Integration edits: src/game/round.js (friendReveal hook beside the earn toast), src/modes/daily-game.js (setFriendLayer registry, loadFriendLayer, enterReview, openRecap, closeRecap, hideReviewVisuals, updateReview, pickReviewRound, showResults compare button), src/globe/pin.js (friend badge kind), src/styles/game.css (friends-strip, chips on the shared review-pill, friend-pop, friends-empty and friends-note styles).
+
+## Verification
+
+- Lane artifacts: test/friend-rows.test.mjs adds tests for the recomputed displayed distance, extent-aware scoring parity, chip sorting, popover score, and strip overflow. The lane's own full run (shots/friends-lane4/node-test.log in the worktree) measured 94/94.
+- Orchestrator re-verification in the worktree: node --check src/main.js pass, node --check --input-type=module < src/main.js pass, node --test test/*.test.mjs 94/94 pass.
+- Captures (shots/friends-lane4/capture.mjs, stubbed account worker, 390px): the reveal phase result (capture-result.json, banked) shows zero account requests before lock-in, chips "Ana 157 km", "Bea 463 km", "Cal 846 km", "+2" matching the recomputed expectations exactly, chip and pin popovers both "Ana · 157 km · 971", five friend pins visible, the expanded list, the GUESS_LOCKED note with the local result untouched, and the slow-response round showing no strip, no pins and no error text. The orchestrator viewed a1-reveal-strip-390.png and b1-review-recap-390.png: both render the strip under the score line with warm off-white friend pins and initial badges on the globe.
+- Capture gap: the harness's second full run crashed in the review phase (page closed at the frames step after openRecap) and overwrote capture-result.json with reveal-phase results only. The review, results-button and accounts-off screenshots (b1, b2, c1, c2, d1) survive from the earlier complete run, but their JSON assertions were overwritten and the code changed after that run (the reveal phase was re-run later). The review and accounts-off behavior therefore still needs the design section 7 end-to-end pass, which the lane 4 check-back cron owns; do not treat the b to d screenshots alone as proof of those phases on the final code.
+- The pin colour (#f3e7d3) and chip layout are ready for Sean's frontier visual review, per design section 6a.
+
+No deployment and no commit were performed by the lane; the orchestrator banks this worktree.

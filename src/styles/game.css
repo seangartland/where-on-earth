@@ -1219,7 +1219,7 @@ body.game-collections #hud { opacity: 0; }
 #results-breakdown .result-metrics { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; min-width: 62px; white-space: nowrap; }
 #results-breakdown .points { color: var(--gold); font-size: var(--fs-title); font-weight: 850; line-height: 1.1; }
 #results-breakdown .distance { color: rgba(var(--rgb-muted),.58); font-size: var(--fs-caption); font-weight: 600; }
-.results-globe { display: block; margin: 0 auto; }
+.results-globe, .friends-compare { display: block; margin: 0 auto; }
 .review-screen { pointer-events: none; }
 .review-bar { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px; right: 14px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 10px 10px 10px 16px; border-radius: 18px; pointer-events: auto; }
 .review-bar .review-title { flex: 1; min-width: 0; }
@@ -1235,6 +1235,19 @@ body.game-collections #hud { opacity: 0; }
 .recap-thumb[hidden] { display: none; }
 .recap-fact { margin: 12px 0 14px; color: rgba(224,240,255,.8); font-size: var(--fs-body); line-height: 1.45; }
 body.game-review #hud { opacity: 0; }
+/* Friends on the Daily: one compact row of friends' pins on the reveal sheet
+   (under the peek bar's score line) and on the recap card. Chips are the
+   shared review pill, sized down for the row. */
+.friends-strip { position: relative; padding: 0 14px 12px; animation: friends-in .28s ease-out; }
+.recap-card .friends-strip { padding: 10px 0 0; }
+.friends-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.friends-strip .review-pill { min-height: 34px; padding: 0 12px; font-size: var(--fs-small); font-weight: 650; color: rgba(var(--rgb-muted),.85); }
+.friends-strip .review-pill b { color: #f3e7d3; font-weight: 800; }
+.friends-empty, .friends-note { margin: 0; color: rgba(var(--rgb-muted),.55); font-size: var(--fs-small); }
+.friends-note { margin-bottom: 6px; color: rgba(var(--rgb-gold),.8); }
+.friend-pop { position: absolute; left: 50%; bottom: calc(100% + 6px); z-index: 1; margin: 0; padding: 6px 12px; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 999px; background: rgba(5,12,29,.94); color: var(--ink-hi); font-size: var(--fs-small); font-weight: 700; white-space: nowrap; transform: translateX(-50%); pointer-events: none; }
+.friend-pop[hidden] { display: none; }
+@keyframes friends-in { from { opacity: 0; } to { opacity: 1; } }
 @media (max-height: 700px) {
   .recap-thumb { height: 92px; }
   .recap-fact { margin: 9px 0 11px; }
