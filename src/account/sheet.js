@@ -5,9 +5,51 @@ import { ACCOUNT_API } from '../core/config.js';
 
 let sheet;
 let returnFocus;
+let friendsState;
+let pendingFriendToken;
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[char]));
+
+function sessionToken() {
+  return readAccountSession()?.sessionToken;
+}
+
+async function friendApi(path, options = {}) {
+  return accountApi(path, { ...options, token: sessionToken() });
+}
+
+async function readPendingFriendToken() {
+  if (pendingFriendToken) return pendingFriendToken;
+  const windowValue = window.getPendingFriendToken?.()
+    || window.getPendingFriendInvite?.()
+    || window.__woePendingFriendToken
+    || window.__WOE_PENDING_FRIEND_TOKEN__;
+  if (windowValue) return String(windowValue);
+  try {
+    const friends = await import('./friends.js');
+    const value = friends.getPendingFriendToken?.()
+      || friends.getPendingFriendInvite?.()
+      || friends.pendingFriendToken;
+    if (value) return String(value);
+  } catch {
+    // Lane 2 owns this optional module. The account sheet still works without it.
+  }
+  return '';
+}
+
+async function clearPendingInvite() {
+  pendingFriendToken = '';
+  window.clearPendingFriendToken?.();
+  window.clearPendingFriendInvite?.();
+  try {
+    const friends = await import('./friends.js');
+    friends.clearPendingFriendToken?.();
+    friends.clearPendingFriendInvite?.();
+  } catch {
+    // Lane 2 owns this optional module.
+  }
+}
 
 function render(state, values = {}) {
   const panel = sheet.querySelector('.account-panel');
@@ -17,15 +59,39 @@ function render(state, values = {}) {
       <p class="account-copy">We sent a 6-digit code to <strong>${escapeHtml(values.email)}</strong>.</p>
       <form class="account-form" data-step="code"><label>6-digit code<input name="code" required maxlength="6" pattern="[0-9]{6}" inputmode="numeric" autocomplete="one-time-code" placeholder="000000"></label>
       <button class="primary" type="submit">Verify and save</button></form><p class="account-status" aria-live="polite"></p>`;
+  } else if (state === 'invite' || state === 'invite-name') {
+    panel.innerHTML = `${close}<p class="eyebrow">Friend invite</p><h2 id="account-title">Add ${escapeHtml(values.inviterName)} as a friend?</h2>
+      <p class="account-copy">You'll see each other's pins after you both play a Daily location.</p>
+      ${state === 'invite-name' ? '<form class="account-invite-name"><label for="account-invite-display-name">Your name for friends</label><input id="account-invite-display-name" name="displayName" maxlength="20" placeholder="Add your name" required><button class="primary" type="submit">Save and add</button></form>' : ''}
+      <div class="account-invite-actions">${state === 'invite' ? '<button class="primary account-accept" type="button">Add</button>' : ''}<button class="text-button account-not-now" type="button">Not now</button></div>
+      <p class="account-status" aria-live="polite"></p>`;
+  } else if (state === 'invite-invalid') {
+    panel.innerHTML = `${close}<p class="eyebrow">Friend invite</p><h2 id="account-title">This invite link is no longer valid.</h2>
+      <button class="primary account-done" type="button">Done</button>`;
   } else if (state === 'signed-in') {
+    const me = friendsState?.me || {};
+    const friends = friendsState?.friends || [];
+    const friendRows = friends.length ? friends.map((friend) => `<li class="account-friend" data-friend-id="${escapeHtml(friend.friendId)}">
+      <span>${escapeHtml(friend.displayName)}</span><button class="text-button account-remove" type="button">Remove</button></li>`).join('')
+      : '<li class="account-friends-empty">No friends yet. Invite someone to see their pins on the Daily reveal.</li>';
     panel.innerHTML = `${close}<p class="eyebrow">Account</p><h2 id="account-title">Progress saved</h2>
       <p class="account-copy">Signed in as <strong>${escapeHtml(values.emailHint || '')}</strong>. Your progress is now on your account.</p>
+      <section class="account-friends" aria-labelledby="account-friends-title">
+        <h3 id="account-friends-title">Friends</h3>
+        <form class="account-name-form"><label for="account-friend-name">Your name for friends</label><div class="account-inline-edit"><input id="account-friend-name" name="displayName" maxlength="20" value="${escapeHtml(me.displayName || '')}" placeholder="Add your name" required><button class="text-button" type="submit">Save</button></div></form>
+        <button class="primary account-invite" type="button">Invite a friend</button>
+        <p class="account-small-print">Links work once and expire in 7 days.</p>
+        <p class="account-status" aria-live="polite"></p>
+        <ul class="account-friends-list">${friendRows}</ul>
+        <label class="account-share-row"><span><strong>Share my Daily pins with friends</strong><small>Turning this off also stops you seeing friends' pins.</small></span><input class="account-share-input" type="checkbox" ${me.sharePins !== false ? 'checked' : ''}><span class="account-toggle" aria-hidden="true"></span></label>
+      </section>
       <button class="primary account-done" type="button">Done</button>
       <button class="account-signout" type="button">Sign out</button>`;
   } else {
     panel.dataset.email = 'off';
+    const inviteCopy = pendingFriendToken ? 'Sign in to accept a friend invite' : 'Keep your passport and scores safe across your devices.';
     panel.innerHTML = `${close}<p class="eyebrow">Where on Earth account</p><h2 id="account-title">Save your progress</h2>
-      <p class="account-copy">Keep your passport and scores safe across your devices.</p>
+      <p class="account-copy">${inviteCopy}</p>
       <button class="account-google" type="button" disabled>Continue with Google</button>
       <p class="account-google-note">Checking Google sign-in...</p>
       <div class="account-divider"><span>or use email</span></div>
@@ -57,10 +123,41 @@ async function finishSignIn(result) {
   return saved;
 }
 
+async function showPendingInvite(saved) {
+  if (!pendingFriendToken) return false;
+  try {
+    const [preview, state] = await Promise.all([
+      friendApi('/v1/friends/invites/preview', { method: 'POST', body: { token: pendingFriendToken } }),
+      friendApi('/v1/friends'),
+    ]);
+    friendsState = state;
+    render('invite', { ...saved, inviterName: preview.inviterName });
+  } catch (error) {
+    if (error.code === 'INVITE_INVALID') render('invite-invalid');
+    else {
+      await loadFriends(saved);
+      status(error.message || 'Could not load this invite', true);
+    }
+  }
+  return true;
+}
+
+async function loadFriends(saved, message = '') {
+  try {
+    friendsState = await friendApi('/v1/friends');
+    render('signed-in', saved);
+    if (message) status(message);
+  } catch (error) {
+    friendsState = { me: { displayName: '', sharePins: true }, friends: [] };
+    render('signed-in', saved);
+    status(error.message || 'Could not load friends', true);
+  }
+}
+
 async function completeSignIn(result) {
   status('Merging your progress...');
   const saved = await finishSignIn(result);
-  render('signed-in', saved);
+  if (!await showPendingInvite(saved)) await loadFriends(saved);
 }
 
 // The Google path is a plain full-page redirect to the account worker,
@@ -71,7 +168,10 @@ async function completeSignIn(result) {
 // that can silently show nothing.
 function googleSignInUrl() {
   const url = new URL('/v1/auth/google/start', ACCOUNT_API);
-  url.searchParams.set('return', `${window.location.origin}/?accounts=1`);
+  const returnUrl = new URL('/', window.location.origin);
+  returnUrl.searchParams.set('accounts', '1');
+  if (pendingFriendToken) returnUrl.searchParams.set('friend', pendingFriendToken);
+  url.searchParams.set('return', returnUrl.toString());
   return url.toString();
 }
 
@@ -91,7 +191,7 @@ async function enableGoogle() {
     // The check itself failed or timed out. The button still gets its real
     // action: the redirect is a browser navigation, which is exactly the
     // path that can succeed when an in-page fetch cannot.
-    armRedirect("Couldn't check the sign-in service — tap Continue to try in your browser.");
+    armRedirect("Couldn't check the sign-in service - tap Continue to try in your browser.");
     return;
   }
   if (health.emailSender === 'resend') sheet.querySelector('.account-panel').dataset.email = 'on';
@@ -121,6 +221,80 @@ export async function consumeAuthReturn() {
   }
 }
 
+async function saveName() {
+  const input = sheet.querySelector('#account-friend-name');
+  const displayName = input?.value.trim() || '';
+  if (!displayName) {
+    status('Add your name first.', true);
+    input?.focus();
+    return false;
+  }
+  try {
+    const result = await friendApi('/v1/friends/profile', { method: 'POST', body: { displayName } });
+    friendsState.me = result.me;
+    input.value = result.me.displayName;
+    status('Name saved');
+    return true;
+  } catch (error) {
+    status(error.code === 'INVALID_NAME' ? 'Use a name from 1 to 20 characters.' : (error.message || 'Could not save your name'), true);
+    input?.focus();
+    return false;
+  }
+}
+
+async function copyInviteLink(url) {
+  try {
+    await navigator.clipboard.writeText(url);
+    status('Link copied');
+  } catch {
+    status('Could not copy the link', true);
+  }
+}
+
+async function createInvite(button) {
+  if (!friendsState?.me?.displayName && !await saveName()) return;
+  loading(button, true, 'Making link...');
+  try {
+    const invite = await friendApi('/v1/friends/invites', { method: 'POST' });
+    const url = `https://where-on.earth/?accounts=1&friend=${encodeURIComponent(invite.token)}`;
+    loading(button, false);
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'Where on Earth?', text: 'Add me as a friend on Where on Earth?', url });
+        status('Invite ready');
+        return;
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+      }
+    }
+    await copyInviteLink(url);
+  } catch (error) {
+    loading(button, false);
+    if (error.code === 'NAME_REQUIRED') {
+      status('Add your name first.', true);
+      sheet.querySelector('#account-friend-name')?.focus();
+    } else if (error.code === 'INVITE_LIMIT') status('You already have too many open invite links.', true);
+    else status(error.message || 'Could not create an invite', true);
+  }
+}
+
+function confirmRemove(row) {
+  const friend = friendsState.friends.find((item) => item.friendId === row.dataset.friendId);
+  if (!friend) return;
+  row.innerHTML = `<span class="account-remove-copy">Remove ${escapeHtml(friend.displayName)}? You'll stop seeing each other's pins.</span><span class="account-remove-actions"><button class="text-button account-remove-confirm" type="button">Remove</button><button class="text-button account-remove-cancel" type="button">Cancel</button></span>`;
+  row.querySelector('.account-remove-cancel').addEventListener('click', () => render('signed-in', readAccountSession() || {}));
+  row.querySelector('.account-remove-confirm').addEventListener('click', async () => {
+    try {
+      await friendApi('/v1/friends/remove', { method: 'POST', body: { friendId: friend.friendId } });
+      friendsState.friends = friendsState.friends.filter((item) => item.friendId !== friend.friendId);
+      render('signed-in', readAccountSession() || {});
+      status(`${friend.displayName} removed`);
+    } catch (error) {
+      status(error.message || 'Could not remove this friend', true);
+    }
+  });
+}
+
 function bind(values) {
   sheet.querySelector('.account-close')?.addEventListener('click', closeAccountSheet);
   sheet.querySelector('.account-done')?.addEventListener('click', closeAccountSheet);
@@ -129,6 +303,67 @@ function bind(values) {
     window.dispatchEvent(new CustomEvent('account-session-change'));
     render('email', {});
     enableGoogle();
+  });
+  sheet.querySelector('.account-not-now')?.addEventListener('click', closeAccountSheet);
+  sheet.querySelector('.account-accept')?.addEventListener('click', async (event) => {
+    if (!friendsState?.me?.displayName) {
+      render('invite-name', values);
+      sheet.querySelector('#account-invite-display-name')?.focus();
+      return;
+    }
+    const button = event.currentTarget;
+    loading(button, true, 'Adding...');
+    try {
+      await friendApi('/v1/friends/invites/accept', { method: 'POST', body: { token: pendingFriendToken } });
+      await clearPendingInvite();
+      await loadFriends(readAccountSession() || {}, `${values.inviterName} added`);
+    } catch (error) {
+      loading(button, false);
+      if (error.code === 'INVITE_INVALID') render('invite-invalid');
+      else if (error.code === 'FRIEND_LIMIT') status('You or this friend already has 50 friends.', true);
+      else if (error.code === 'SELF_INVITE') status("You can't accept your own invite.", true);
+      else if (error.code === 'NAME_REQUIRED') {
+        render('invite-name', values);
+        sheet.querySelector('#account-invite-display-name')?.focus();
+      } else status(error.message || 'Could not add this friend', true);
+    }
+  });
+  sheet.querySelector('.account-invite-name')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const button = form.querySelector('button');
+    const displayName = String(new FormData(form).get('displayName')).trim();
+    loading(button, true, 'Saving...');
+    try {
+      await friendApi('/v1/friends/profile', { method: 'POST', body: { displayName } });
+      await friendApi('/v1/friends/invites/accept', { method: 'POST', body: { token: pendingFriendToken } });
+      await clearPendingInvite();
+      await loadFriends(readAccountSession() || {}, `${values.inviterName} added`);
+    } catch (error) {
+      loading(button, false);
+      if (error.code === 'INVALID_NAME') status('Use a name from 1 to 20 characters.', true);
+      else if (error.code === 'INVITE_INVALID') render('invite-invalid');
+      else if (error.code === 'FRIEND_LIMIT') status('You or this friend already has 50 friends.', true);
+      else if (error.code === 'SELF_INVITE') status("You can't accept your own invite.", true);
+      else status(error.message || 'Could not add this friend', true);
+    }
+  });
+  sheet.querySelector('.account-name-form')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    await saveName();
+  });
+  sheet.querySelector('.account-invite')?.addEventListener('click', (event) => createInvite(event.currentTarget));
+  sheet.querySelectorAll('.account-remove').forEach((button) => button.addEventListener('click', () => confirmRemove(button.closest('.account-friend'))));
+  sheet.querySelector('.account-share-input')?.addEventListener('change', async (event) => {
+    const input = event.currentTarget;
+    try {
+      const result = await friendApi('/v1/friends/profile', { method: 'POST', body: { sharePins: input.checked } });
+      friendsState.me = result.me;
+      status('Sharing preference saved');
+    } catch (error) {
+      input.checked = !input.checked;
+      status(error.message || 'Could not save sharing preference', true);
+    }
   });
   const form = sheet.querySelector('.account-form');
   form?.addEventListener('submit', async (event) => {
@@ -172,9 +407,12 @@ export async function openAccountSheet(trigger) {
     sheet.addEventListener('click', (event) => { if (event.target === sheet) closeAccountSheet(); });
   }
   sheet.hidden = false;
+  pendingFriendToken = await readPendingFriendToken();
   const session = readAccountSession();
-  render(session?.sessionToken ? 'signed-in' : 'email', session || {});
-  if (!session?.sessionToken) enableGoogle();
+  if (!session?.sessionToken) {
+    render('email', session || {});
+    enableGoogle();
+  } else if (!await showPendingInvite(session)) await loadFriends(session);
   sheet.querySelector('input, button')?.focus();
 }
 
