@@ -19,6 +19,9 @@ import { readJSON, writeJSON } from '../core/storage.js';
 import { setThumb } from '../core/dom.js';
 import { formatKm, localDateKey, flagForLocation } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
+import { reviewEls, setReviewEls, getFriendLayer, reviewFacing, screenOf, _rv } from '../game/review-shared.js';
+
+export { reviewEls } from '../game/review-shared.js';
 import { grantDailySkips } from '../meta/pack-store.js';
 import { gameEls, hideScreens, showRound, revealGuess } from '../game/round.js';
 import { shareResult } from '../game/share.js';
@@ -34,13 +37,7 @@ let nextGame;
 let nextGameTime;
 let nextGameSub;
 let countdownDay;
-export let reviewEls;
 let reviewRounds;
-let friendLayer = null; // Friends on the Daily (daily-friends.js), once a signed-in build loads it
-
-export function setFriendLayer(layer) {
-  friendLayer = layer;
-}
 
 // The friends overlay, for a signed-in accounts build only; null otherwise.
 function loadFriendLayer() {
@@ -381,7 +378,7 @@ export function showReviewVisuals() {
 
 export function hideReviewVisuals() {
   reviewOpen = -1;
-  friendLayer?.clear();
+  getFriendLayer()?.clear();
   for (const r of reviewRounds) {
     r.guess.release();
     r.answer.release();
@@ -437,7 +434,7 @@ export function openRecap(i) {
   reviewEls.fact.textContent = item.fact;
   setThumb(reviewEls.thumb, item.image);
   reviewEls.card.hidden = false;
-  friendLayer?.recap(i);
+  getFriendLayer()?.recap(i);
   reviewRounds.forEach((other, j) => setReviewDim(other, j === i ? 1 : REVIEW_DIM));
   // the card is laid out now, so the strip between bar and card is known
   frameRevealPoints(r.a, r.b, safeStrip(reviewEls.bar, reviewEls.card));
@@ -446,38 +443,10 @@ export function openRecap(i) {
 export function closeRecap() {
   reviewOpen = -1;
   reviewEls.card.hidden = true;
-  friendLayer?.clear();
+  getFriendLayer()?.clear();
   reviewRounds.forEach((r) => setReviewDim(r, 1));
 }
 
-// Facing factor of a globe-local surface point: > 0 in front of the limb.
-export const _rv = new THREE.Vector3();
-export function reviewFacing(local) {
-  _rv.copy(local).applyQuaternion(globe.quaternion);
-  return (_rv.z * state.dist - 1) / Math.hypot(_rv.x, _rv.y, state.dist - _rv.z);
-}
-
-export function updateReview(dt, scale) {
-  for (const r of reviewRounds) {
-    for (const pin of [r.guess, r.answer]) {
-      if (pin.state === 'idle') continue;
-      pin.update(dt, state.elapsed, scale * REVIEW_PIN_SCALE);
-      if (pin.state === 'idle') continue;
-      pin.badge.scale.multiplyScalar(1 / REVIEW_PIN_SCALE); // smaller pins, but numbers stay readable
-      // badge sprites ignore depth, so fade them out as their pin rounds the limb
-      _rv.set(0, 1, 0).applyQuaternion(pin.root.quaternion);
-      pin.badge.material.opacity *= clamp((reviewFacing(_rv) + 0.02) / 0.12, 0, 1);
-    }
-    if (r.line.visible) r.line.material.opacity = damp(r.line.material.opacity, 0.75 * r.dim, 10, dt);
-  }
-  friendLayer?.update(dt, scale); // friends' pins, on the reveal and in a recap
-}
-
-export const _rp = new THREE.Vector3();
-export function screenOf(world) {
-  _rp.copy(world).project(camera);
-  return [((_rp.x + 1) / 2) * state.viewW, ((1 - _rp.y) / 2) * state.viewH];
-}
 
 export function segmentDist(px, py, [ax, ay], [bx, by]) {
   const dx = bx - ax;
@@ -489,7 +458,7 @@ export function segmentDist(px, py, [ax, ay], [bx, by]) {
 // Nearest round under a tap: pin heads, badges and bases first, then the
 // route. A miss closes any open recap.
 export function pickReviewRound(x, y) {
-  if (friendLayer?.pick(x, y)) return; // a friend's pin in the open recap
+  if (getFriendLayer()?.pick(x, y)) return; // a friend's pin in the open recap
   let best = -1;
   let bestD = Infinity;
   const w = new THREE.Vector3();
@@ -575,7 +544,7 @@ export function initReview() {
     <button class="primary" data-act="back">Back to globe</button>
   </article>`;
   document.getElementById('game').append(reviewScreen);
-  reviewEls = {
+  setReviewEls({
     screen: reviewScreen,
     bar: reviewScreen.querySelector('.review-bar'),
     hint: reviewScreen.querySelector('.review-hint'),
@@ -588,7 +557,7 @@ export function initReview() {
     score: reviewScreen.querySelector('.recap-score'),
     thumb: reviewScreen.querySelector('.recap-thumb'),
     fact: reviewScreen.querySelector('.recap-fact'),
-  };
+  });
   reviewCountdown = reviewEls.countdown;
 
   // One guess pin, answer pin and route per round, built once and re-dropped

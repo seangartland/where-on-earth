@@ -7,7 +7,9 @@
 // ---------------------------------------------------------------------------
 import { ACCOUNTS_ENABLED, LOCK_ARM_MS, WEIGHTS, flyoverTier, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
 import { state } from '../core/state.js';
-import { setThumb } from '../core/dom.js';
+import { setThumb, gameEls } from '../core/dom.js';
+
+export { gameEls };
 import { formatKm, formatDailyDate, countryKey } from '../core/format.js';
 import { distanceScore, scoreGuess, scoringDistanceKm } from './scoring.js';
 
@@ -75,63 +77,6 @@ export function nearTopUI(x, y) {
   return false;
 }
 
-// The round screen and its reveal card.
-export const gameEls = {
-  start: document.getElementById('start-screen'),
-  round: document.getElementById('round-screen'),
-  postcardSummaryScreen: document.getElementById('postcard-summary-screen'),
-  results: document.getElementById('results-screen'),
-  play: document.getElementById('play-button'),
-  number: document.getElementById('round-number'),
-  weight: document.getElementById('round-weight'),
-  dailyDate: document.getElementById('daily-date'),
-  clue: document.getElementById('clue'),
-  hint: document.getElementById('guess-hint'),
-  header: document.querySelector('.round-header'),
-  revealName: document.getElementById('reveal-name'),
-  revealPill: document.getElementById('reveal-pill'),
-  reveal: document.getElementById('reveal-card'),
-  peekBar: document.getElementById('peek-bar'),
-  peekName: document.getElementById('peek-name'),
-  peekThumb: document.getElementById('peek-thumb'),
-  sheetContent: document.getElementById('sheet-content'),
-  lineDistance: document.getElementById('line-distance'),
-  distance: document.getElementById('distance'),
-  baseScore: document.getElementById('base-score'),
-  score: document.getElementById('round-score'),
-  fact: document.getElementById('fact'),
-  thumb: document.getElementById('place-thumb'),
-  next: document.getElementById('next-button'),
-  total: document.getElementById('total-score'),
-  maxScore: document.getElementById('max-score'),
-  breakdown: document.getElementById('breakdown'),
-  resultsBreakdown: document.getElementById('results-breakdown'),
-  postcardSummaryLede: document.getElementById('postcard-summary-lede'),
-  postcardSummaryCounts: document.getElementById('postcard-summary-counts'),
-  postcardSummaryContinue: document.getElementById('postcard-summary-continue'),
-  share: document.getElementById('share-button'),
-  status: document.getElementById('share-status'),
-  startStreak: document.getElementById('start-streak'),
-  resultStreak: document.getElementById('result-streak'),
-  dailyReward: document.getElementById('daily-reward'),
-  travelDistance: document.getElementById('travel-distance'),
-  survivalEntry: document.getElementById('survival-button'),
-  survivalHub: document.getElementById('survival-hub'),
-  survivalHubEntry: document.getElementById('survival-hub-button'),
-  triviaEntry: document.getElementById('trivia-button'),
-  survivalStreak: document.getElementById('survival-streak'),
-  survivalResults: document.getElementById('survival-results-screen'),
-  survivalResultTitle: document.getElementById('survival-result-title'),
-  survivalFinalStreak: document.getElementById('survival-final-streak'),
-  survivalBestStreak: document.getElementById('survival-best-streak'),
-  survivalShare: document.getElementById('survival-share'),
-  survivalShareStatus: document.getElementById('survival-share-status'),
-  survivalAgain: document.getElementById('survival-again'),
-  survivalHome: document.getElementById('survival-home'),
-  runBreakdown: document.getElementById('run-breakdown'),
-  runBreakdownList: document.getElementById('run-results-breakdown'),
-  expeditionsEntry: document.getElementById('expeditions-button'),
-};
 
 export const pvpScreenEls = []; // set once the PvP screens are built
 

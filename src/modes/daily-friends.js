@@ -13,10 +13,10 @@ import { clamp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { latLngToVec3, canvas, globe } from '../globe/scene.js';
 import { Pin, makeBadgeTexture } from '../globe/pin.js';
-import { gameEls } from '../game/round.js';
+import { gameEls } from '../core/dom.js';
 import { friendRows, chipText, popoverText, stripChips, sameGuess } from '../game/friend-rows.js';
 import { backfillToday, cachedFriendPins, fetchFriendPins, listFriends } from '../account/friends.js';
-import { reviewEls, reviewFacing, screenOf, setFriendLayer } from './daily-game.js';
+import { reviewEls, reviewFacing, screenOf, setFriendLayer } from '../game/review-shared.js';
 
 // Warm off-white: neither the guess orange nor ANSWER_COLOR. The exact shade
 // is a visual-review call.

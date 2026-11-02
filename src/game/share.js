@@ -3,7 +3,7 @@
 // fallback. Callers pass their own text; per-mode share text stays in each
 // mode, word for word.
 // ---------------------------------------------------------------------------
-import { gameEls } from './round.js';
+import { gameEls } from '../core/dom.js';
 
 export async function shareResult(text, button = gameEls.share, status = gameEls.status) {
   try {
