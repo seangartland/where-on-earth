@@ -585,15 +585,20 @@ function renderPassportPage() {
   const cardNumbers = packCardNumberMap(host.locations, host.landmarks || []);
   ppEls.packProgress.textContent = `${data.collected.toLocaleString()} / ${data.total.toLocaleString()} pack postcards collected`;
   const frag = document.createDocumentFragment();
-  const addSection = ({ type, name, art, items, collected, total }, packSection = true) => {
+  const addSection = ({ type, name, art, ink, glow, items, collected, total }, packSection = true) => {
     const section = document.createElement('section');
     section.className = 'pp-pack-section';
     section.dataset.pack = type;
     const head = document.createElement('button');
-    head.className = 'pp-pack-head';
+    head.className = packSection ? 'pp-pack-head' : 'pp-pack-head pp-pack-head-mail';
     head.type = 'button';
     const progress = packSection ? `${collected.toLocaleString()} / ${total.toLocaleString()}` : `${collected.toLocaleString()} collected`;
-    head.innerHTML = `${art ? `<img src="${art}" alt="">` : '<span class="pp-pack-mail" aria-hidden="true">✉</span>'}<span class="pp-pack-title"></span><span class="pp-pack-count"></span><span class="pp-pack-chevron" aria-hidden="true"></span>`;
+    if (packSection) {
+      const pct = total ? Math.round((collected / total) * 1000) / 10 : 0;
+      head.innerHTML = `<span class="pp-pack-bar" style="background:${glow}" aria-hidden="true"></span><span class="pp-pack-title" style="color:${ink}"></span><span class="pp-pack-count"></span><span class="pp-pack-chevron" aria-hidden="true"></span><span class="pp-pack-track" aria-hidden="true"><span class="pp-pack-fill" style="background:${glow};width:${pct}%"></span></span>`;
+    } else {
+      head.innerHTML = '<span class="pp-pack-mail" aria-hidden="true">✉</span><span class="pp-pack-title"></span><span class="pp-pack-count"></span><span class="pp-pack-chevron" aria-hidden="true"></span>';
+    }
     head.querySelector('.pp-pack-title').textContent = name;
     head.querySelector('.pp-pack-count').textContent = progress;
     const grid = document.createElement('ul');
