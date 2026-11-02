@@ -7259,5 +7259,21 @@
   "difficultyWhy": "p.65·fb196·K0·iso360 → 18.4 → 5",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "tokyo-tower",
+  "short": "Tokyo Tower",
+  "clue": "Tokyo Tower, Japan 🇯🇵",
+  "fact": "Completed in 1958 and modelled on the Eiffel Tower, at 333 metres it edged out its Paris inspiration, and part of its steel was recycled from American tanks wrecked in the Korean War.",
+  "lat": 35.6586,
+  "lng": 139.7456,
+  "difficulty": 5,
+  "difficultyWhy": "p.70·fb230·K0·iso16 → 18.6 → 5",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Tokyo_Tower%2C_Minato_City.jpg/500px-Tokyo_Tower%2C_Minato_City.jpg",
+  "country": "Japan",
+  "continent": "Asia",
+  "sets": [],
+  "category": "city",
+  "kind": "landmark"
  }
 ]
