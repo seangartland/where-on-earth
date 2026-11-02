@@ -581,7 +581,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-screen::after { position: fixed; right: 12%; bottom: 8%; left: 12%; height: 15%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,.62), transparent 68%); filter: blur(10px); content: ''; pointer-events: none; }
 .pack-screen.sealed-on { touch-action: none; }
 .pack-screen[hidden] { display: none; }
-.expedition-panel.pack-panel { --pack-w: min(234px, 60vw); z-index: 1; max-height: none; overflow: visible; padding: 12px 4px 16px; border: 0; background: transparent; box-shadow: none; text-align: center; }
+.expedition-panel.pack-panel { --pack-w: min(264px, 68vw); z-index: 1; max-height: none; overflow: visible; padding: 12px 4px 16px; border: 0; background: transparent; box-shadow: none; text-align: center; }
 /* Spacing kept tight so the sealed pack at full --pack-w fits a 390x844
    screen with no scroll (the heading wraps to two lines at 390). */
 .pack-panel h2 { padding: 0 34px; color: #fff5d4; font-size: var(--fs-display); line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,.8); }
