@@ -85,13 +85,16 @@ function bordersGo() {
   borders.missed = false;
   if (!borders.key) {
     borders.round -= 1;
+    if (borders.scope) host.clearBlackoutRun();
     showBordersGameOver();
     return;
   }
+  if (borders.scope) host.saveBlackoutRun();
   host.showRound();
 }
 
-export function startBorders(scope = null) {
+// saved: a Country Blackout run to resume (blackout.js savedBlackoutRun).
+export function startBorders(scope = null, saved = null) {
   if (!host.countryData || !host.countryBands || !host.locations.length) return;
   host.expeditionRun.active = false;
   host.endless.active = false;
@@ -107,7 +110,20 @@ export function startBorders(scope = null) {
   setRunResultsMode(scope ? 'blackout' : 'borders');
   if (scope) {
     host.resetBlackout();
-    host.startBlackoutTimer();
+    host.startBlackoutTimer(saved ? saved.elapsedMs : 0);
+  }
+  if (saved) {
+    saved.found.forEach(host.blackoutFill);
+    borders.found = saved.found.length;
+    // Drawn keys leave the pool, as they would have left its bags.
+    borders.pool = new Set(scope.keys.filter((k) => !saved.found.includes(k) && k !== saved.key));
+    borders.round = saved.found.length;
+    if (!saved.resolved) { // the round it was on
+      borders.round += 1;
+      borders.key = saved.key;
+      host.showRound();
+      return;
+    }
   }
   bordersGo();
 }
@@ -131,6 +147,10 @@ export function revealBorders(tap) {
   }
   const complete = host.blackoutComplete();
   if (complete) host.completeBlackoutTimer(borders.scope);
+  if (borders.scope) {
+    if (borders.missed || complete) host.clearBlackoutRun();
+    else host.saveBlackoutRun();
+  }
   gameEls.number.textContent = borders.scope ? host.blackoutProgressText() : `Streak ${borders.found}`;
   host.gameMode = 'reveal';
   window.__canGuess = false;

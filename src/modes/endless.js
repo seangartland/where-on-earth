@@ -9,6 +9,7 @@
 import { isLandmark, isPlayableLocation } from '../daily.js';
 
 let host = null;
+const ENDLESS_RUN_KEY = 'where-on-earth-endless-run-v1';
 export const endless = { active: false, item: null, bag: [], count: 0 };
 
 // Endless reuses the survival mode restyle (index.html).
@@ -32,6 +33,27 @@ function endlessPick() {
   return pick;
 }
 
+// The run in progress, saved at every draw so a refresh resumes it. Endless
+// never ends, so the save is only replaced, never cleared.
+function saveEndlessRun() {
+  host.safeSetItem(ENDLESS_RUN_KEY, JSON.stringify({ item: endless.item.id, count: endless.count, recent: endless.recent }));
+}
+
+// The saved run with its item resolved, or null; a bad save is dropped.
+function savedEndlessRun() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(ENDLESS_RUN_KEY));
+    if (!raw) return null;
+    const item = host.locations.find((x) => x.id === raw.item && isPlayableLocation(x) && !isLandmark(x));
+    if (!item || !Number.isInteger(raw.count) || raw.count < 1 || !Array.isArray(raw.recent)
+      || !raw.recent.every((id) => typeof id === 'string')) throw new Error('invalid run');
+    return { item, count: raw.count, recent: raw.recent.slice(-50) };
+  } catch {
+    try { localStorage.removeItem(ENDLESS_RUN_KEY); } catch { /* unavailable */ }
+    return null;
+  }
+}
+
 function endlessGo(item) {
   if (!item) return;
   host.expeditionRun.active = false;
@@ -40,6 +62,7 @@ function endlessGo(item) {
   endless.active = true;
   endless.item = item;
   endless.count += 1;
+  saveEndlessRun();
   host.showRound();
 }
 
@@ -65,6 +88,13 @@ export function initEndless(main) {
   // The home button was removed (cleanup C4); the mode itself stays quarantined.
   endlessEntry?.addEventListener('click', () => {
     if (!host.locations.length) return;
+    const saved = savedEndlessRun();
+    if (saved) { // resume on the saved round
+      endless.count = saved.count - 1;
+      endless.recent = saved.recent;
+      endlessGo(saved.item);
+      return;
+    }
     endless.count = 0;
     endlessNext();
   });

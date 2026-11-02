@@ -43,7 +43,7 @@ import { scoreGuess } from './game/scoring.js';
 import { setExtentData } from './game/extents.js';
 import { shareResult } from './game/share.js';
 import {
-  survival, initSurvival, startSurvival, survivalRoundHeader, survivalRecordGuess, survivalRevealCard, survivalNext,
+  survival, initSurvival, startSurvival, enterSurvival, survivalRoundHeader, survivalRecordGuess, survivalRevealCard, survivalNext,
 } from './modes/survival.js';
 import {
   borders, bordersEntry, initTapCountry, startBorders, revealBorders, bordersBest, bordersShareText, syncBordersEntry,
@@ -51,6 +51,7 @@ import {
 } from './modes/tap-country.js';
 import {
   blackoutEntry, blackoutPicker, initBlackout, syncBlackoutMask, resetBlackout, saveBlackoutBest, blackoutFill, blackoutComplete,
+  saveBlackoutRun, clearBlackoutRun,
   blackoutProgressText, blackoutBestSummary, showBlackoutGameOver, blackoutShareText, showBlackoutPicker,
   startBlackoutTimer, completeBlackoutTimer,
 } from './modes/blackout.js';
@@ -304,6 +305,8 @@ const modeHost = {
   completeBlackoutTimer,
   saveBlackoutBest,
   blackoutFill,
+  saveBlackoutRun,
+  clearBlackoutRun,
   blackoutComplete,
   blackoutProgressText,
   blackoutBestSummary,
@@ -760,9 +763,9 @@ initPvpPlay(pvpHost);
 
 const sharedModeOpeners = {
   blackout: showBlackoutPicker,
-  survival: () => startSurvival(),
+  survival: enterSurvival,
   'tap-country': () => startBorders(),
-  landmarks: () => startSurvival(),
+  landmarks: enterSurvival,
   trivia: startTrivia,
   challenge: showPvpHome,
 };

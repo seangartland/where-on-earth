@@ -1,0 +1,63 @@
+{
+ "blackout": {
+  "afterHit": {
+   "found": 1,
+   "missed": false
+  },
+  "savedBeforeReload": {
+   "scope": "europe",
+   "found": [
+    "Kosovo"
+   ],
+   "key": "Scotland",
+   "round": 2,
+   "elapsedMs": 2951
+  },
+  "pickerRow": "Resume · 1/49 found",
+  "resumed": {
+   "found": 1,
+   "round": 2,
+   "key": "Scotland",
+   "sameKey": true,
+   "firstFoundKey": "Kosovo",
+   "hud": "Streak 1 · 1/49 found · 0.0% of land cleared"
+  },
+  "afterMiss": {
+   "missed": true,
+   "save": null
+  }
+ },
+ "survival": {
+  "afterGuess": {
+   "survived": 1,
+   "missed": false
+  },
+  "savedBeforeReload": {
+   "round": 2,
+   "survived": 1,
+   "item": "karachi-pakistan",
+   "results": [
+    {
+     "id": "baltic-sea",
+     "distance": 0
+    }
+   ],
+   "haul": []
+  },
+  "resumed": {
+   "round": 2,
+   "survived": 1,
+   "item": "karachi-pakistan",
+   "sameItem": true,
+   "resultIds": [
+    "baltic-sea"
+   ],
+   "firstItem": "baltic-sea"
+  },
+  "afterMiss": {
+   "missed": true,
+   "save": null
+  }
+ },
+ "errs": []
+}

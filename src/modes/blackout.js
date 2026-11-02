@@ -20,11 +20,13 @@ import { borders, startBorders } from './tap-country.js';
 let host = null;
 const BLACKOUT_BEST_KEY = 'where-on-earth-blackout-best-v1';
 const BLACKOUT_TIMES_KEY = 'where-on-earth-blackout-times-v1';
+const BLACKOUT_RUN_KEY = 'where-on-earth-blackout-run-v1';
 const BLACKOUT_MIN_COUNTRIES = 10; // smaller scopes aren't a real run
 const BLACKOUT_EMOJI = { Africa: '🌍', Europe: '🌍', Asia: '🌏', Oceania: '🌏', 'North America': '🌎', 'South America': '🌎' };
 export let blackoutEntry = null;
 let blackoutTex = null;
 let blackoutFoundArea = 0; // km2, running sum for the HUD/results % stat (see blackoutAreaPct)
+let blackoutFoundKeys = []; // in the order found, for the saved run
 let blackoutStartedAt = null;
 let blackoutClearResult = null;
 
@@ -88,8 +90,9 @@ export function formatBlackoutTime(seconds) {
   return `${Math.floor(minutes / 60)}:${String(minutes % 60).padStart(2, '0')}:${s}`;
 }
 
-export function startBlackoutTimer() {
-  blackoutStartedAt = performance.now();
+// elapsedMs: the clock a resumed run had already run.
+export function startBlackoutTimer(elapsedMs = 0) {
+  blackoutStartedAt = performance.now() - elapsedMs;
   blackoutClearResult = null;
 }
 
@@ -105,6 +108,44 @@ export function completeBlackoutTimer(scope) {
   }
   blackoutClearResult = { seconds, best: isNew ? seconds : previous, isNew };
   return blackoutClearResult;
+}
+
+// The run in progress, saved at every draw and every find so a refresh or
+// crash resumes it (Daily's saveDaily pattern). The clock saves its elapsed
+// play time, so time away from the page is not counted.
+export function saveBlackoutRun() {
+  if (!borders.active || !borders.scope || borders.missed || blackoutComplete()) return;
+  host.safeSetItem(BLACKOUT_RUN_KEY, JSON.stringify({
+    scope: borders.scope.id,
+    found: blackoutFoundKeys,
+    key: borders.key,
+    round: borders.round,
+    elapsedMs: Math.round(performance.now() - blackoutStartedAt),
+  }));
+}
+
+export function clearBlackoutRun() {
+  try { localStorage.removeItem(BLACKOUT_RUN_KEY); } catch { /* unavailable */ }
+}
+
+// The saved run, checked against the scope list, or null. A save that fails
+// to parse or validate is dropped, and the mode starts fresh.
+function savedBlackoutRun(scopes) {
+  try {
+    const raw = JSON.parse(localStorage.getItem(BLACKOUT_RUN_KEY));
+    if (!raw) return null;
+    const scope = scopes.find((s) => s.id === raw.scope);
+    const keys = new Set(scope.keys);
+    const found = raw.found;
+    const resolved = found.includes(raw.key);
+    if (!found.every((k) => keys.has(k)) || new Set(found).size !== found.length || !keys.has(raw.key)
+      || found.length >= keys.size || raw.round !== found.length + (resolved ? 0 : 1)
+      || !Number.isFinite(raw.elapsedMs) || raw.elapsedMs < 0) throw new Error('invalid run');
+    return { scope, found, key: raw.key, resolved, elapsedMs: raw.elapsedMs };
+  } catch {
+    clearBlackoutRun();
+    return null;
+  }
 }
 
 export const blackoutComplete = () => Boolean(borders.scope && !borders.missed && borders.found === borders.scope.keys.length);
@@ -133,6 +174,7 @@ export const blackoutProgressText = () => {
 export function resetBlackout() {
   const { renderer } = host;
   blackoutFoundArea = 0;
+  blackoutFoundKeys = [];
   if (!blackoutTex) {
     const W = renderer.capabilities.maxTextureSize >= 4096 ? 4096 : 2048; // as the land texture
     const cv = document.createElement('canvas');
@@ -155,6 +197,7 @@ export function resetBlackout() {
 // Do not stroke the path: a centered stroke expands the fill past its border.
 export function blackoutFill(key) {
   blackoutFoundArea += areaOf(key);
+  blackoutFoundKeys.push(key);
   const geom = host.countryGeom(key);
   if (!geom || !blackoutTex) return;
   const cv = blackoutTex.image;
@@ -176,6 +219,7 @@ export function syncBlackoutMask() {
 export let blackoutPicker = null;
 let blackoutList = null;
 let blackoutScopeList = [];
+let blackoutSaved = null; // the saved run the picker offers to resume
 
 export function showBlackoutPicker() {
   if (!host.countryData || !host.countryBands || !host.stateData || !host.landAreas || !host.locations.length) return;
@@ -184,6 +228,7 @@ export function showBlackoutPicker() {
   host.gameMode = 'blackout-scope';
   window.__canGuess = false;
   blackoutScopeList = blackoutScopes();
+  blackoutSaved = savedBlackoutRun(blackoutScopeList);
   blackoutList.replaceChildren(...blackoutScopeList.map((scope) => {
     const total = scope.keys.length;
     const best = blackoutBest(scope);
@@ -197,7 +242,8 @@ export function showBlackoutPicker() {
     const countText = best >= total ? `${total}/${total} found · Replay`
       : best ? `${total} ${scope.unitPlural} · Best ${best}/${total}` : `${total} ${scope.unitPlural}`;
     const bestTime = blackoutBestTime(scope);
-    button.querySelector('small').textContent = bestTime == null ? countText : `${countText} · Best clear ${formatBlackoutTime(bestTime)}`;
+    button.querySelector('small').textContent = blackoutSaved?.scope === scope ? `Resume · ${blackoutSaved.found.length}/${total} found`
+      : bestTime == null ? countText : `${countText} · Best clear ${formatBlackoutTime(bestTime)}`;
     button.querySelector('.badge').textContent = best >= total ? '🏅' : '›';
     return button;
   }));
@@ -276,13 +322,16 @@ export function initBlackout(main) {
   blackoutList = blackoutPicker.querySelector('.expedition-list');
 
   blackoutEntry.addEventListener('click', showBlackoutPicker);
+  // Bank the clock when the page hides; play since the last save would be lost.
+  document.addEventListener('visibilitychange', () => { if (document.hidden) saveBlackoutRun(); });
   blackoutPicker.addEventListener('click', (event) => {
     const choice = event.target.closest('[data-blackout-scope]');
     if (choice) {
       const scope = blackoutScopeList.find((s) => s.id === choice.dataset.blackoutScope);
       if (!scope) return;
       blackoutPicker.hidden = true;
-      startBorders(scope);
+      // The saved scope resumes; any other scope starts fresh, replacing the save.
+      startBorders(scope, blackoutSaved?.scope === scope ? blackoutSaved : null);
     } else if (event.target === blackoutPicker) host.goHome();
   });
 }

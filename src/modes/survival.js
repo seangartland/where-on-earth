@@ -16,6 +16,7 @@ import { landmarkPool, LANDMARKS_BEST_KEY } from './landmarks.js';
 
 let host = null;
 const SURVIVAL_BEST_KEY = 'where-on-earth-survival-best-v1';
+const SURVIVAL_RUN_KEY = 'where-on-earth-survival-run-v1';
 const SURVIVAL_LIMIT_KM = 150;
 
 // The merged Survival pool (pacing doc, 2026-10-18): every playable city plus
@@ -67,6 +68,50 @@ function saveSurvivalBest(value) {
   return best;
 }
 
+// The run in progress, saved at every draw and every survived guess so a
+// refresh or crash resumes it (Daily's saveDaily pattern). Items are stored
+// by id; the haul is the run-over screen's postcards.
+function saveSurvivalRun() {
+  host.safeSetItem(SURVIVAL_RUN_KEY, JSON.stringify({
+    round: survival.round,
+    survived: survival.survived,
+    item: survival.item.id,
+    results: survival.results.map((r) => ({ id: r.item.id, distance: r.distance })),
+    haul: host.runHaul.map((h) => ({ id: h.item.id, result: h.result })),
+  }));
+}
+
+export function clearSurvivalRun() {
+  try { localStorage.removeItem(SURVIVAL_RUN_KEY); } catch { /* unavailable */ }
+}
+
+// The saved run with its ids resolved, or null. A save that fails to parse or
+// names an unknown item is dropped, and the mode starts fresh.
+function savedSurvivalRun() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(SURVIVAL_RUN_KEY));
+    if (!raw) return null;
+    const byId = new Map([...host.locations, ...(host.landmarks || [])].map((item) => [item.id, item]));
+    const find = (id) => { const item = byId.get(id); if (!item) throw new Error(`unknown id ${id}`); return item; };
+    const results = raw.results.map((r) => {
+      if (!Number.isFinite(r.distance)) throw new Error('bad distance');
+      return { item: find(r.id), distance: r.distance };
+    });
+    const haul = raw.haul.map((h) => {
+      if (!h.result || typeof h.result !== 'object' || !h.result.postcard) throw new Error('bad haul entry');
+      return { item: find(h.id), result: h.result };
+    });
+    const item = find(raw.item);
+    const resolved = results.at(-1)?.item === item;
+    if (!Number.isInteger(raw.round) || raw.round !== results.length + (resolved ? 0 : 1)
+      || !Number.isInteger(raw.survived) || raw.survived !== results.length) throw new Error('inconsistent run');
+    return { round: raw.round, survived: raw.survived, item, results, haul, resolved };
+  } catch {
+    clearSurvivalRun();
+    return null;
+  }
+}
+
 export function randomDifficultyBand() {
   return Math.floor(Math.random() * 10) + 1;
 }
@@ -87,13 +132,16 @@ function survivalGo() {
   survival.missed = false;
   if (!survival.item) {
     survival.round -= 1;
+    clearSurvivalRun();
     host.showRunHaul(showSurvivalGameOver, 'See run');
     return;
   }
+  saveSurvivalRun();
   host.showRound();
 }
 
-export function startSurvival(from = CLASSIC) {
+// saved: a savedSurvivalRun() to resume; without one the run starts fresh.
+export function startSurvival(from = CLASSIC, saved = null) {
   if (!host.locations.length) return;
   source = from;
   host.expeditionRun.active = false;
@@ -108,7 +156,20 @@ export function startSurvival(from = CLASSIC) {
   survival.missed = false;
   survival.results.length = 0;
   host.runHaul.length = 0;
+  if (saved) {
+    survival.round = saved.round - (saved.resolved ? 0 : 1);
+    survival.survived = saved.survived;
+    survival.results.push(...saved.results);
+    host.runHaul.push(...saved.haul);
+    if (!saved.resolved) survival.forced = saved.item; // the round it was on
+  }
   survivalGo();
+}
+
+// The Survival entry: resume the saved run if there is one.
+export function enterSurvival() {
+  if (!host.locations.length) return;
+  startSurvival(CLASSIC, savedSurvivalRun());
 }
 
 function showSurvivalGameOver() {
@@ -207,6 +268,9 @@ export function survivalRevealCard(pill) {
   pill.textContent = survival.missed ? '✗ Over 150 km' : '✓ Survived';
   pill.classList.add(survival.missed ? 'miss' : 'safe');
   gameEls.next.textContent = survival.missed ? 'See run' : 'Keep going';
+  // revealGuess has recorded the guess and its haul entry by now.
+  if (survival.missed) clearSurvivalRun();
+  else saveSurvivalRun();
 }
 
 export function survivalNext() {
@@ -218,7 +282,7 @@ export function survivalNext() {
 export function initSurvival(main) {
   host = main;
   const { gameEls } = host;
-  gameEls.survivalEntry.addEventListener('click', () => startSurvival());
+  gameEls.survivalEntry.addEventListener('click', enterSurvival);
   gameEls.survivalAgain.addEventListener('click', () => {
     if (runResultsMode === 'blackout') host.startBorders(host.borders.scope);
     else if (runResultsMode === 'borders') host.startBorders();

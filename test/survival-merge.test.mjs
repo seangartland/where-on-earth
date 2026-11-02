@@ -81,3 +81,78 @@ test('merged best is the max of the two legacy keys; neither key is rewritten', 
   assert.equal(survivalBest(LANDMARKS_BEST_KEY), 17);
   assert.equal(localStorage.getItem(LANDMARKS_BEST_KEY), '17');
 });
+
+// Runs in progress persist (save at every draw and survived guess, resume
+// from the entry, clear when the run ends).
+const RUN_KEY = 'where-on-earth-survival-run-v1';
+const { enterSurvival, startSurvival, survivalRecordGuess, survivalRevealCard } = await import('../src/modes/survival.js');
+const runHost = () => {
+  const text = () => ({ textContent: '', classList: { add() {} } });
+  Object.assign(host, {
+    runHaul: [],
+    expeditionRun: {}, endless: {}, borders: {},
+    showRound() {},
+    showRunHaul() {},
+  });
+  Object.assign(host.gameEls, { number: text(), survivalStreak: text(), score: text(), next: text() });
+  return text();
+};
+
+test('a run saves on every draw and survived guess, and resumes on the round it was on', () => {
+  const pill = runHost();
+  localStorage.removeItem(RUN_KEY);
+  startSurvival();
+  const first = survival.item;
+  let saved = JSON.parse(localStorage.getItem(RUN_KEY));
+  assert.deepEqual(saved, { round: 1, survived: 0, item: first.id, results: [], haul: [] });
+
+  survivalRecordGuess(first, 40, 40.2);
+  host.runHaul.push({ item: first, result: { distance: 40, distanceExact: 40.2, postcard: { kind: 'new', tier: 1 } } });
+  survivalRevealCard(pill);
+  saved = JSON.parse(localStorage.getItem(RUN_KEY));
+  assert.equal(saved.survived, 1);
+  assert.deepEqual(saved.results, [{ id: first.id, distance: 40 }]);
+  assert.equal(saved.haul[0].id, first.id);
+
+  // A refresh during that reveal resumes on a fresh draw, history intact.
+  survival.results.length = 0;
+  host.runHaul.length = 0;
+  enterSurvival();
+  assert.equal(survival.active, true);
+  assert.equal(survival.round, 2);
+  assert.equal(survival.survived, 1);
+  assert.equal(survival.results[0].item, first);
+  assert.equal(host.runHaul[0].item, first);
+  assert.notEqual(survival.item, first);
+
+  // A refresh mid-round resumes that same target, not a reroll.
+  const second = survival.item;
+  survival.results.length = 0;
+  enterSurvival();
+  assert.equal(survival.item, second);
+  assert.equal(survival.round, 2);
+});
+
+test('a miss clears the save; the next entry starts fresh', () => {
+  const pill = runHost();
+  startSurvival();
+  survivalRecordGuess(survival.item, 900, 900);
+  survivalRevealCard(pill);
+  assert.equal(localStorage.getItem(RUN_KEY), null);
+  enterSurvival();
+  assert.equal(survival.round, 1);
+  assert.equal(survival.survived, 0);
+});
+
+test('a corrupt or invalid save is dropped and the mode starts fresh', () => {
+  runHost();
+  for (const bad of ['{not json', '{"round":1,"survived":0,"item":"no-such-id","results":[],"haul":[]}',
+    JSON.stringify({ round: 5, survived: 0, item: cities[0].id, results: [], haul: [] }), '[]']) {
+    localStorage.setItem(RUN_KEY, bad);
+    enterSurvival();
+    assert.equal(survival.active, true);
+    assert.equal(survival.round, 1);
+    assert.equal(survival.results.length, 0);
+    assert.equal(JSON.parse(localStorage.getItem(RUN_KEY)).round, 1); // replaced by the fresh run
+  }
+});
