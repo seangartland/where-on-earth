@@ -11425,5 +11425,57 @@
    62269,
    56057
   ]
+ },
+ "bora-bora": {
+  "asked": "Bora Bora",
+  "how": "clue lead",
+  "title": "Bora Bora",
+  "qid": "Q183113",
+  "description": "Island in French Polynesia",
+  "distKm": 1,
+  "flags": [],
+  "views": 1069.0,
+  "medianPerDay": 1034.7,
+  "maxOverMedian": 1.27,
+  "months": [
+   37653,
+   30446,
+   30212,
+   33240,
+   31378,
+   28026,
+   28147,
+   29764,
+   40097,
+   35687,
+   33992,
+   31529
+  ]
+ },
+ "baltic-sea": {
+  "asked": "Baltic Sea",
+  "how": "clue lead",
+  "title": "Baltic Sea",
+  "qid": "Q545",
+  "description": "Sea in northern Europe",
+  "distKm": 0,
+  "flags": [],
+  "views": 972.1,
+  "medianPerDay": 949.0,
+  "maxOverMedian": 1.13,
+  "months": [
+   32302,
+   32502,
+   28637,
+   29064,
+   26330,
+   28484,
+   27468,
+   31885,
+   27882,
+   29861,
+   32564,
+   27830
+  ]
  }
 }

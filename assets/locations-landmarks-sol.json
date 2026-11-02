@@ -7633,5 +7633,41 @@
   "difficultyWhy": "p.97·fb18·K0·iso561 → 3.6 → 1",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "bora-bora",
+  "short": "Bora Bora",
+  "clue": "Bora Bora, France 🇵🇫",
+  "fact": "The extinct volcanic core of this island, topped by the 727 m basalt peak of Mount Otemanu, is ringed by a turquoise lagoon and a chain of coral motu. In World War II the US Navy built a supply base here, code named Bobcat, and its airstrip on Motu Mute is still the island's airport.",
+  "lat": -16.498,
+  "lng": -151.736,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Borabora.jpg/500px-Borabora.jpg",
+  "country": "France",
+  "continent": "Oceania",
+  "sets": [
+   "Pacific Islands"
+  ],
+  "difficultyWhy": "p.80·fb258·K0·iso3991 → 14.8 → 4",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "baltic-sea",
+  "short": "Baltic Sea",
+  "clue": "Baltic Sea, Northern Europe",
+  "fact": "One of the largest bodies of brackish water on Earth, it connects to the North Sea only through the narrow Danish straits, and its surface water is only about a fifth as salty as the ocean. Shipworms cannot survive in it, which is why the Swedish warship Vasa, sunk in Stockholm harbour in 1628, was raised almost intact in 1961.",
+  "lat": 58,
+  "lng": 20,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Stormy_Baltic_sea_on_Bornholm.jpg/500px-Stormy_Baltic_sea_on_Bornholm.jpg",
+  "country": "Sweden",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.78·fb256·K0·iso185 → 15.9 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
  }
 ]

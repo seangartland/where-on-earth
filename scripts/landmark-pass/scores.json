@@ -7577,6 +7577,42 @@
    "why": "p.97·fb18·K0·iso561 → 3.6 → 1",
    "medianD": 1,
    "medianWhy": "p.96·fb18·K0·iso561 → 4.0 → 1"
+  },
+  "bora-bora": {
+   "title": "Bora Bora",
+   "meanViews": 1069.0,
+   "medianViews": 1034.7,
+   "meanD": 4,
+   "meanWhy": "p.80·fb258·K0·iso3991 → 14.8 → 4",
+   "spike": false,
+   "basis": "mean",
+   "p": 0.8,
+   "K": 0,
+   "dFb": 258,
+   "d1M": 3991,
+   "loss": 14.8,
+   "D": 4,
+   "why": "p.80·fb258·K0·iso3991 → 14.8 → 4",
+   "medianD": 5,
+   "medianWhy": "p.79·fb258·K0·iso3991 → 15.2 → 5"
+  },
+  "baltic-sea": {
+   "title": "Baltic Sea",
+   "meanViews": 972.1,
+   "medianViews": 949.0,
+   "meanD": 5,
+   "meanWhy": "p.78·fb256·K0·iso185 → 15.9 → 5",
+   "spike": false,
+   "basis": "mean",
+   "p": 0.78,
+   "K": 0,
+   "dFb": 256,
+   "d1M": 185,
+   "loss": 15.9,
+   "D": 5,
+   "why": "p.78·fb256·K0·iso185 → 15.9 → 5",
+   "medianD": 5,
+   "medianWhy": "p.77·fb256·K0·iso185 → 16.2 → 5"
   }
  },
  "unrated": {

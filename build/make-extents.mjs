@@ -394,6 +394,7 @@ const NE_MARINE_POLYGONS = {
   'red-sea': { names: ['Red Sea'], source: 'Natural Earth 1:10m geography marine polygons, "Red Sea"' },
   'gulf-of-mexico': { names: ['Gulf of Mexico'], source: 'Natural Earth 1:10m geography marine polygons, "Gulf of Mexico"' },
   'drake-passage': { names: ['Drake Passage'], source: 'Natural Earth 1:10m geography marine polygons, "Drake Passage"' },
+  'baltic-sea': { names: ['Baltic Sea', 'Gulf of Bothnia', 'Gulf of Finland', 'Gulf of Riga'], source: 'Natural Earth 1:10m geography marine polygons, Baltic Sea plus its named gulfs (Gulf of Bothnia, Gulf of Finland, Gulf of Riga)' },
 };
 const nePolygonRecords = {};
 const nePolygonSummary = {};
@@ -581,6 +582,7 @@ const BORDERS_OSM_POLYGONS = {
   'ascension-island': { file: 'ascension-island-osm.geojson', source: 'Ascension Island coastline via OpenStreetMap relation 6391626', sourceUrl: 'https://www.openstreetmap.org/relation/6391626' },
   'bonaire': { file: 'bonaire-osm.geojson', source: 'Bonaire and Klein Bonaire island coastlines via OpenStreetMap relations 4266671, 5176051', sourceUrl: 'https://www.openstreetmap.org/relation/4266671' },
   'strait-of-hormuz': { file: 'strait-of-hormuz-osm.geojson', source: 'Strait of Hormuz water polygon via OpenStreetMap relation 9326284', sourceUrl: 'https://www.openstreetmap.org/relation/9326284' },
+  'bora-bora': { file: 'bora-bora-osm.geojson', source: 'Bora Bora coastline via OpenStreetMap relation 19251452', sourceUrl: 'https://www.openstreetmap.org/relation/19251452' },
 };
 const bordersOsmRecords = {};
 const bordersOsmSummary = {};

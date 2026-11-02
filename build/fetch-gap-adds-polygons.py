@@ -79,6 +79,7 @@ JOBS = {
     'isle-of-wight': [('relation', 3955402)],
     'shetland': [('relation', 2235077)],
     'tahiti': [('relation', 3992237)],
+    'bora-bora': [('relation', 19251452)],
     'hawaiian-islands': [('relation', 7259209)],
     'new-guinea': [('relation', 3986076)],
     'java': [('relation', 9444963)],

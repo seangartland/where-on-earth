@@ -34,7 +34,8 @@ UNIT = {'barringer-meteor-impact': 'US/AZ', 'hindenburg-lakehurst': 'US/NJ', 'li
         'falkland-islands': 'FK', 'saint-helena': 'SH',
         'tahiti': 'PF', 'hawaiian-islands': 'US/HI',
         'saint-martin': 'MF', 'ascension-island': None, 'bonaire': 'BQ',
-        'salton-sea': 'US/CA', 'mount-whitney': 'US/CA'}
+        'salton-sea': 'US/CA', 'mount-whitney': 'US/CA',
+        'bora-bora': 'PF'}
 
 BAND = lambda d: 'Common' if d <= 3 else 'Uncommon' if d <= 6 else 'Rare' if d <= 8 else 'Legendary'
 
