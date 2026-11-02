@@ -390,6 +390,23 @@ export function setReviewDim(r, dim) {
   r.dim = r.guess.dim = r.answer.dim = dim;
 }
 
+// Per-frame review update, called from the host loop: animates the ten
+// review pins and fades badges and lines as they round the limb.
+export function updateReview(dt, scale) {
+  for (const r of reviewRounds) {
+    for (const pin of [r.guess, r.answer]) {
+      if (pin.state === 'idle') continue;
+      pin.update(dt, state.elapsed, scale * REVIEW_PIN_SCALE);
+      if (pin.state === 'idle') continue;
+      pin.badge.scale.multiplyScalar(1 / REVIEW_PIN_SCALE); // smaller pins, but numbers stay readable
+      // badge sprites ignore depth, so fade them out as their pin rounds the limb
+      _rv.set(0, 1, 0).applyQuaternion(pin.root.quaternion);
+      pin.badge.material.opacity *= clamp((reviewFacing(_rv) + 0.02) / 0.12, 0, 1);
+    }
+    if (r.line.visible) r.line.material.opacity = damp(r.line.material.opacity, 0.75 * r.dim, 10, dt);
+  }
+}
+
 export function enterReview(focus = -1) {
   if (state.daily.results.length !== 5) return;
   clearReveal();
