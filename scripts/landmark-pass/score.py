@@ -28,7 +28,10 @@ RES = json.load(open(os.path.join(H, 'resolved.json'), encoding='utf-8'))
 # because GeoNames names the country Cabo Verde and score_v2's name table has no Cape Verde alias.
 UNIT = {'barringer-meteor-impact': 'US/AZ', 'hindenburg-lakehurst': 'US/NJ', 'little-bighorn-battlefield': 'US/MT',
         'migrant-mother-nipomo': 'US/CA', 'monterey-pop-festival': 'US/CA', 'transistor-bell-labs-murray-hill': 'US/NJ',
-        'piton-de-la-fournaise': 'RE', 'tristan-da-cunha': None, 'pico-do-fogo-cape-verde': 'CV'}
+        'piton-de-la-fournaise': 'RE', 'tristan-da-cunha': None, 'pico-do-fogo-cape-verde': 'CV',
+        # Gap adds 2026-11-01: territory-flag clues use the territory (the Reunion precedent),
+        # US clues showing a state use the state, Ascension (no GeoNames unit) uses its own pin.
+        'falkland-islands': 'FK', 'saint-helena': 'SH'}
 
 BAND = lambda d: 'Common' if d <= 3 else 'Uncommon' if d <= 6 else 'Rare' if d <= 8 else 'Legendary'
 

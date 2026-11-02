@@ -77,32 +77,6 @@
    8020
   ]
  },
- "aitutaki-lagoon": {
-  "asked": "Aitutaki",
-  "how": "hand",
-  "title": "Aitutaki",
-  "qid": "Q223379",
-  "description": "Island in the Cook Islands",
-  "distKm": 3,
-  "flags": [],
-  "views": 123.8,
-  "medianPerDay": 112.1,
-  "maxOverMedian": 1.8,
-  "months": [
-   2711,
-   2510,
-   2415,
-   3382,
-   3846,
-   3432,
-   2755,
-   3294,
-   4730,
-   4739,
-   5246,
-   6142
-  ]
- },
  "alamo-san-antonio": {
   "asked": "Alamo Mission in San Antonio",
   "how": "hand",
@@ -179,32 +153,6 @@
    50047,
    44902,
    50342
-  ]
- },
- "amsterdam-canals-d34-7": {
-  "asked": "Canals of Amsterdam",
-  "how": "hand",
-  "title": "Canals of Amsterdam",
-  "qid": "Q340013",
-  "description": "17th-century canals in the Netherlands; UNESCO World Heritage Site",
-  "distKm": 1,
-  "flags": [],
-  "views": 135.9,
-  "medianPerDay": 134.5,
-  "maxOverMedian": 1.23,
-  "months": [
-   5047,
-   4107,
-   4145,
-   3667,
-   3354,
-   3799,
-   4772,
-   4297,
-   4068,
-   4030,
-   4398,
-   3907
   ]
  },
  "amundsen-scott-south": {
@@ -349,32 +297,6 @@
    4154
   ]
  },
- "axum-obelisks": {
-  "asked": "Obelisk of Axum",
-  "how": "hand",
-  "title": "Obelisk of Axum",
-  "qid": "Q2308606",
-  "description": "4th-century phonolite stele in Axum, Tigray Region, Ethiopia",
-  "distKm": 0,
-  "flags": [],
-  "views": 134.5,
-  "medianPerDay": 127.4,
-  "maxOverMedian": 1.62,
-  "months": [
-   3951,
-   3787,
-   4130,
-   3398,
-   3426,
-   3641,
-   6264,
-   4907,
-   3899,
-   3766,
-   3848,
-   4079
-  ]
- },
  "badlands-national-park": {
   "asked": "Badlands National Park",
   "how": "hand",
@@ -453,32 +375,6 @@
    6715,
    6864,
    6099
-  ]
- },
- "banaue-rice-terraces-ph": {
-  "asked": "Banaue Rice Terraces",
-  "how": "clue lead",
-  "title": "Banaue Rice Terraces",
-  "qid": "Q826551",
-  "description": "Rice terraces in Ifugao, the Philippines",
-  "distKm": 10,
-  "flags": [],
-  "views": 143.2,
-  "medianPerDay": 138.3,
-  "maxOverMedian": 1.33,
-  "months": [
-   5594,
-   5198,
-   3989,
-   5125,
-   4956,
-   4027,
-   3293,
-   3417,
-   3486,
-   4959,
-   4383,
-   3856
   ]
  },
  "barringer-meteor-impact": {
@@ -1215,32 +1111,6 @@
    7308
   ]
  },
- "copper-canyon": {
-  "asked": "Barrancas del Cobre",
-  "how": "clue lead",
-  "title": "Copper Canyon",
-  "qid": "Q674485",
-  "description": "Series of large canyons in Chihuahua, Mexico",
-  "distKm": 5,
-  "flags": [],
-  "views": 129.9,
-  "medianPerDay": 126.4,
-  "maxOverMedian": 1.22,
-  "months": [
-   4427,
-   3946,
-   3750,
-   4172,
-   4115,
-   3918,
-   3759,
-   4694,
-   3697,
-   3493,
-   3766,
-   3694
-  ]
- },
  "daintree-rainforest": {
   "asked": "Daintree Rainforest",
   "how": "clue lead",
@@ -1505,32 +1375,6 @@
    41392
   ]
  },
- "dome-of-the-rock": {
-  "asked": "Dome of the Rock",
-  "how": "clue lead",
-  "title": "Dome of the Rock",
-  "qid": "Q172077",
-  "description": "Islamic building in Al-Aqsa, Jerusalem",
-  "distKm": 0,
-  "flags": [],
-  "views": 1502.7,
-  "medianPerDay": 1257.6,
-  "maxOverMedian": 3.06,
-  "months": [
-   52928,
-   40759,
-   39440,
-   36525,
-   39074,
-   117065,
-   51209,
-   36366,
-   32548,
-   30636,
-   34555,
-   37391
-  ]
- },
  "eilean-donan-tidal-castle": {
   "asked": "Eilean Donan",
   "how": "clue lead",
@@ -1659,34 +1503,6 @@
    81878,
    146818,
    84770
-  ]
- },
- "gobi-desert-dinosaur-nemegt": {
-  "asked": "Nemegt Formation",
-  "how": "clue lead",
-  "title": "Nemegt Formation",
-  "qid": "Q3077414",
-  "description": "Geological formation in Mongolia",
-  "distKm": 40,
-  "flags": [
-   "DIST 40"
-  ],
-  "views": 107.6,
-  "medianPerDay": 105.1,
-  "maxOverMedian": 1.28,
-  "months": [
-   3540,
-   3170,
-   4103,
-   3646,
-   2924,
-   3302,
-   3222,
-   3025,
-   3136,
-   3295,
-   3103,
-   2798
   ]
  },
  "great-sphinx-giza": {
@@ -2577,32 +2393,6 @@
    10171,
    11219,
    11533
-  ]
- },
- "paracas-candelabra": {
-  "asked": "Paracas Candelabra",
-  "how": "hand",
-  "title": "Paracas Candelabra",
-  "qid": "Q2574847",
-  "description": "Prehistoric geoglyph in Peru",
-  "distKm": 1,
-  "flags": [],
-  "views": 145.0,
-  "medianPerDay": 126.3,
-  "maxOverMedian": 1.8,
-  "months": [
-   6572,
-   4462,
-   4567,
-   5169,
-   3580,
-   3776,
-   3383,
-   3765,
-   3238,
-   3610,
-   6896,
-   3904
   ]
  },
  "parliament-hill-ottawa": {
@@ -3595,32 +3385,6 @@
    21115,
    24017,
    22846
-  ]
- },
- "western-wall-jerusalem": {
-  "asked": "Western Wall",
-  "how": "clue lead",
-  "title": "Western Wall",
-  "qid": "Q134821",
-  "description": "Holy site of Judaism in Jerusalem",
-  "distKm": 0,
-  "flags": [],
-  "views": 1398.1,
-  "medianPerDay": 1271.6,
-  "maxOverMedian": 1.84,
-  "months": [
-   56847,
-   38165,
-   39148,
-   39258,
-   38051,
-   71113,
-   53955,
-   39373,
-   31977,
-   37299,
-   29727,
-   35404
   ]
  },
  "white-cliffs-of-dover": {
@@ -4773,58 +4537,6 @@
    14706
   ]
  },
- "huacachina-peru": {
-  "asked": "Huacachina",
-  "how": "hand",
-  "title": "Huacachina",
-  "qid": "Q1632715",
-  "description": "Village in Peru",
-  "distKm": 0,
-  "flags": [],
-  "views": 142.1,
-  "medianPerDay": 133.9,
-  "maxOverMedian": 1.79,
-  "months": [
-   3774,
-   3443,
-   3348,
-   4619,
-   3755,
-   4460,
-   4092,
-   4457,
-   4763,
-   3811,
-   4050,
-   7288
-  ]
- },
- "lord-of-rings-hobbiton-film-set": {
-  "asked": "Hobbiton Movie Set",
-  "how": "hand",
-  "title": "Hobbiton Movie Set",
-  "qid": "Q18924400",
-  "description": "Movie Set / Tourist Attraction in Waikato, New Zealand",
-  "distKm": 0,
-  "flags": [],
-  "views": 140.9,
-  "medianPerDay": 134.5,
-  "maxOverMedian": 1.65,
-  "months": [
-   4870,
-   5060,
-   5017,
-   5430,
-   4247,
-   3933,
-   3653,
-   3412,
-   3126,
-   2817,
-   3100,
-   6753
-  ]
- },
  "forbidden-city-beijing": {
   "asked": "Forbidden City",
   "how": "clue lead",
@@ -5035,32 +4747,6 @@
    132875
   ]
  },
- "geysir-d34-42": {
-  "asked": "Geysir",
-  "how": "clue lead",
-  "title": "Geysir",
-  "qid": "Q216846",
-  "description": "Geyser in Iceland",
-  "distKm": 0,
-  "flags": [],
-  "views": 123.9,
-  "medianPerDay": 120.8,
-  "maxOverMedian": 1.55,
-  "months": [
-   3880,
-   5680,
-   2930,
-   2752,
-   2556,
-   2821,
-   3591,
-   4209,
-   3752,
-   4583,
-   4901,
-   3576
-  ]
- },
  "guggenheim-bilbao": {
   "asked": "Guggenheim Bilbao",
   "how": "clue lead",
@@ -5085,32 +4771,6 @@
    13910,
    15156,
    13353
-  ]
- },
- "gullfoss": {
-  "asked": "Gullfoss",
-  "how": "clue lead",
-  "title": "Gullfoss",
-  "qid": "Q38519",
-  "description": "Waterfall in Bláskógabyggð and Hrunamannahreppur, Iceland",
-  "distKm": 0,
-  "flags": [],
-  "views": 116.5,
-  "medianPerDay": 109.4,
-  "maxOverMedian": 1.45,
-  "months": [
-   4060,
-   3185,
-   2683,
-   3145,
-   2645,
-   3133,
-   3050,
-   3465,
-   3704,
-   4761,
-   4838,
-   3852
   ]
  },
  "hallgrímskirkja-d34-40": {
@@ -5269,32 +4929,6 @@
    36187
   ]
  },
- "vatnajökull-d34-44": {
-  "asked": "Vatnajökull",
-  "how": "clue lead",
-  "title": "Vatnajökull",
-  "qid": "Q179734",
-  "description": "Icelandic glacier",
-  "distKm": 0,
-  "flags": [],
-  "views": 126.3,
-  "medianPerDay": 115.6,
-  "maxOverMedian": 1.76,
-  "months": [
-   4306,
-   3129,
-   3208,
-   3463,
-   2760,
-   3171,
-   2872,
-   3563,
-   4673,
-   4345,
-   6190,
-   4416
-  ]
- },
  "york-minster-d34-3": {
   "asked": "York Minster",
   "how": "clue lead",
@@ -5425,32 +5059,6 @@
    12448,
    11750,
    17610
-  ]
- },
- "trolltunga": {
-  "asked": "Trolltunga",
-  "how": "stored v2 title",
-  "title": "Trolltunga",
-  "qid": "Q1512593",
-  "description": "Rock formation in Norway",
-  "distKm": 1,
-  "flags": [],
-  "views": 114.4,
-  "medianPerDay": 109.4,
-  "maxOverMedian": 1.5,
-  "months": [
-   3515,
-   2716,
-   2514,
-   3189,
-   2640,
-   2768,
-   3462,
-   4286,
-   3892,
-   5004,
-   4619,
-   3137
   ]
  },
  "mount-fuji": {
@@ -5739,32 +5347,6 @@
    23123,
    22267,
    21953
-  ]
- },
- "moraine-lake": {
-  "asked": "Moraine Lake",
-  "how": "clue lead",
-  "title": "Moraine Lake",
-  "qid": "Q1072342",
-  "description": "Glacial lake in Alberta, Canada",
-  "distKm": 0,
-  "flags": [],
-  "views": 126.5,
-  "medianPerDay": 107.8,
-  "maxOverMedian": 1.69,
-  "months": [
-   4466,
-   2833,
-   3051,
-   3152,
-   2958,
-   2966,
-   3319,
-   3236,
-   4936,
-   5546,
-   5215,
-   4505
   ]
  },
  "plitvice-lakes": {
@@ -8628,61 +8210,6 @@
    14854
   ]
  },
- "the-wave": {
-  "asked": "The Wave",
-  "how": "clue lead",
-  "title": "The Wave",
-  "qid": "Q1902481",
-  "description": "Topics referred to by the same term",
-  "distKm": null,
-  "flags": [
-   "DISAMBIGUATION",
-   "DIST None"
-  ],
-  "views": 12.9,
-  "medianPerDay": 12.4,
-  "maxOverMedian": 1.67,
-  "months": [
-   397,
-   347,
-   329,
-   448,
-   301,
-   380,
-   376,
-   379,
-   630,
-   418,
-   365,
-   321
-  ]
- },
- "tugela-falls": {
-  "asked": "Tugela Falls",
-  "how": "clue lead",
-  "title": "Tugela Falls",
-  "qid": "Q223649",
-  "description": "Waterfalls in KwaZulu-Natal, South Africa",
-  "distKm": 0,
-  "flags": [],
-  "views": 118.2,
-  "medianPerDay": 108.5,
-  "maxOverMedian": 1.56,
-  "months": [
-   3869,
-   5139,
-   4044,
-   4804,
-   3068,
-   3222,
-   3353,
-   3373,
-   3112,
-   2797,
-   3246,
-   3116
-  ]
- },
  "verdon-gorge": {
   "asked": "Verdon Gorge",
   "how": "clue lead",
@@ -9588,32 +9115,6 @@
    14447,
    14060,
    13827
-  ]
- },
- "church-of-the-holy-sepulchre": {
-  "asked": "Church of the Holy Sepulchre",
-  "how": "clue lead",
-  "title": "Church of the Holy Sepulchre",
-  "qid": "Q187702",
-  "description": "Church in Jerusalem",
-  "distKm": 0,
-  "flags": [],
-  "views": 2205.6,
-  "medianPerDay": 1800.0,
-  "maxOverMedian": 2.65,
-  "months": [
-   74933,
-   56930,
-   59307,
-   50938,
-   52544,
-   144900,
-   110017,
-   51724,
-   49011,
-   47819,
-   56898,
-   50034
   ]
  },
  "taipei-101": {
@@ -10889,6 +10390,270 @@
    21751,
    15066,
    15734
+  ]
+ },
+ "north-sentinel-island": {
+  "asked": "North Sentinel Island",
+  "how": "clue lead",
+  "title": "North Sentinel Island",
+  "qid": "Q1260331",
+  "description": "Island in the Bay of Bengal",
+  "distKm": 3,
+  "flags": [],
+  "views": 4013.9,
+  "medianPerDay": 4048.0,
+  "maxOverMedian": 1.33,
+  "months": [
+   131931,
+   127853,
+   129390,
+   144605,
+   108607,
+   118266,
+   128042,
+   163626,
+   100292,
+   102346,
+   105181,
+   104937
+  ]
+ },
+ "azores": {
+  "asked": "Azores",
+  "how": "clue lead",
+  "title": "Azores",
+  "qid": "Q25263",
+  "description": "Portuguese archipelago in the North Atlantic",
+  "distKm": 5,
+  "flags": [],
+  "views": 3306.3,
+  "medianPerDay": 3244.9,
+  "maxOverMedian": 1.2,
+  "months": [
+   113358,
+   98570,
+   86401,
+   106171,
+   91371,
+   98721,
+   97735,
+   101753,
+   118485,
+   117169,
+   92294,
+   84757
+  ]
+ },
+ "falkland-islands": {
+  "asked": "Falkland Islands",
+  "how": "clue lead",
+  "title": "Falkland Islands",
+  "qid": "Q9648",
+  "description": "Archipelago in the South Atlantic Ocean",
+  "distKm": 0,
+  "flags": [],
+  "views": 7226.6,
+  "medianPerDay": 3325.7,
+  "maxOverMedian": 13.01,
+  "months": [
+   94816,
+   102158,
+   94296,
+   107785,
+   76880,
+   77259,
+   222977,
+   100042,
+   79853,
+   1314944,
+   106232,
+   260451
+  ]
+ },
+ "canary-islands": {
+  "asked": "Canary Islands",
+  "how": "clue lead",
+  "title": "Canary Islands",
+  "qid": "Q5813",
+  "description": "Spanish archipelago off the coast of Northwest Africa",
+  "distKm": 1519,
+  "flags": [
+   "DIST 1519"
+  ],
+  "views": 3278.8,
+  "medianPerDay": 3076.1,
+  "maxOverMedian": 1.49,
+  "months": [
+   92763,
+   92166,
+   87461,
+   99241,
+   90566,
+   96462,
+   85155,
+   139694,
+   107699,
+   129679,
+   94265,
+   81615
+  ]
+ },
+ "great-britain": {
+  "asked": "Great Britain",
+  "how": "clue lead",
+  "title": "Great Britain",
+  "qid": "Q23666",
+  "description": "Island northwest of continental Europe",
+  "distKm": 33,
+  "flags": [
+   "DIST 33"
+  ],
+  "views": 2632.0,
+  "medianPerDay": 2567.4,
+  "maxOverMedian": 1.13,
+  "months": [
+   83256,
+   76850,
+   73543,
+   87451,
+   88530,
+   88295,
+   75807,
+   77895,
+   78076,
+   87261,
+   65707,
+   78024
+  ]
+ },
+ "madeira": {
+  "asked": "Madeira",
+  "how": "clue lead",
+  "title": "Madeira",
+  "qid": "Q26253",
+  "description": "Portuguese archipelago in the North Atlantic",
+  "distKm": 0,
+  "flags": [],
+  "views": 6825.7,
+  "medianPerDay": 2634.9,
+  "maxOverMedian": 12.28,
+  "months": [
+   983983,
+   674829,
+   80321,
+   87826,
+   75492,
+   77628,
+   69966,
+   79879,
+   111080,
+   119672,
+   71238,
+   59465
+  ]
+ },
+ "sicily": {
+  "asked": "Sicily",
+  "how": "clue lead",
+  "title": "Sicily",
+  "qid": "Q1460",
+  "description": "Island in the Mediterranean, region of Italy",
+  "distKm": 11,
+  "flags": [],
+  "views": 2587.4,
+  "medianPerDay": 2488.1,
+  "maxOverMedian": 1.27,
+  "months": [
+   82960,
+   71897,
+   66177,
+   72873,
+   67230,
+   71999,
+   75244,
+   82407,
+   95829,
+   89151,
+   92608,
+   76033
+  ]
+ },
+ "saint-helena": {
+  "asked": "Saint Helena",
+  "how": "clue lead",
+  "title": "Saint Helena",
+  "qid": "Q34497",
+  "description": "Island belonging to the United Kingdom",
+  "distKm": 0,
+  "flags": [],
+  "views": 2527.4,
+  "medianPerDay": 2313.1,
+  "maxOverMedian": 2.2,
+  "months": [
+   74695,
+   67598,
+   61488,
+   71817,
+   74893,
+   62827,
+   78856,
+   154475,
+   63992,
+   79641,
+   63402,
+   68822
+  ]
+ },
+ "svalbard": {
+  "asked": "Svalbard",
+  "how": "clue lead",
+  "title": "Svalbard",
+  "qid": "Q25231",
+  "description": "Norwegian archipelago in the Arctic Ocean",
+  "distKm": 9,
+  "flags": [],
+  "views": 2556.8,
+  "medianPerDay": 2331.1,
+  "maxOverMedian": 2.08,
+  "months": [
+   73343,
+   77320,
+   78560,
+   147708,
+   68386,
+   49634,
+   47312,
+   57022,
+   62594,
+   64766,
+   81581,
+   125019
+  ]
+ },
+ "corsica": {
+  "asked": "Corsica",
+  "how": "clue lead",
+  "title": "Corsica",
+  "qid": "Q14112",
+  "description": "Island and administrative region of France",
+  "distKm": 18,
+  "flags": [],
+  "views": 2199.2,
+  "medianPerDay": 2175.1,
+  "maxOverMedian": 1.3,
+  "months": [
+   63700,
+   55904,
+   59961,
+   73673,
+   55694,
+   55053,
+   59320,
+   74214,
+   72776,
+   77869,
+   86014,
+   68544
   ]
  }
 }

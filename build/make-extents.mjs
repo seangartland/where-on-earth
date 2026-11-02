@@ -23,6 +23,11 @@
 //   boundaries and island coastlines as mapped in OpenStreetMap; ODbL,
 //   (c) OpenStreetMap contributors).
 //
+// python3 build/fetch-gap-adds-polygons.py
+//   writes build/extent-sources/<id>-osm.geojson for the gap-adds island,
+//   archipelago and strait polygons (coastlines as mapped in OpenStreetMap;
+//   ODbL, (c) OpenStreetMap contributors).
+//
 // The authoritative Wall source is parked in build/extent-sources/ (gitignored)
 // pending Sean's revisit. Reef and Canyon remain the live extent paths.
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -501,6 +506,15 @@ const BORDERS_OSM_TOLERANCE = 0.015;
 // 2.5 km deviation gate is unchanged and measured the same way.
 const BORDERS_OSM_FINE_TOLERANCE = 0.002;
 const BORDERS_OSM_FINE = new Set(['moraine-lake', 'lake-bled', 'crater-lake', 'copacabana-beach-rio', 'banaue-rice-terraces-ph', 'amsterdam-canals-d34-7', 'daintree-rainforest']);
+// Gap adds (2026-11-01): three coastlines measure over the 2.5 km gate at the
+// standard tolerance (Falklands 4.180 km, Shetland 2.596 km, Strait of Hormuz
+// 3.393 km, from narrow sounds and necks in a few rings). They take the desert
+// block's ring-level refinement (processDesertPolygons) rather than a uniform
+// fine tolerance, so only the failing rings are re-simplified.
+// Moraine Lake, the Banaue rice terraces and the Amsterdam canal ring were
+// quarantined in gap adds step 0d (2026-11-01); their configs are removed
+// below so the build regenerates the sidecar without them.
+const BORDERS_OSM_REFINE = new Set(['falkland-islands', 'shetland', 'strait-of-hormuz']);
 const BORDERS_OSM_POLYGONS = {
   'kruger-national-park': { file: 'kruger-national-park-osm.geojson', source: 'Kruger National Park boundary via OpenStreetMap relation 1752987', sourceUrl: 'https://www.openstreetmap.org/relation/1752987' },
   'serengeti-national-park': { file: 'serengeti-national-park-osm.geojson', source: 'Serengeti National Park boundary via OpenStreetMap relation 4475047', sourceUrl: 'https://www.openstreetmap.org/relation/4475047' },
@@ -509,7 +523,6 @@ const BORDERS_OSM_POLYGONS = {
   'crater-lake': { file: 'crater-lake-osm.geojson', source: 'Crater Lake shoreline via OpenStreetMap relation 147401', sourceUrl: 'https://www.openstreetmap.org/relation/147401' },
   'lake-bled': { file: 'lake-bled-osm.geojson', source: 'Lake Bled shoreline via OpenStreetMap relation 646', sourceUrl: 'https://www.openstreetmap.org/relation/646' },
   'lake-como': { file: 'lake-como-osm.geojson', source: 'Lake Como shoreline via OpenStreetMap relation 541757', sourceUrl: 'https://www.openstreetmap.org/relation/541757' },
-  'moraine-lake': { file: 'moraine-lake-osm.geojson', source: 'Moraine Lake shoreline via OpenStreetMap way 356877446', sourceUrl: 'https://www.openstreetmap.org/way/356877446' },
   'yellowstone-national-park': { file: 'yellowstone-national-park-osm.geojson', source: 'Yellowstone National Park boundary via OpenStreetMap relation 1453306', sourceUrl: 'https://www.openstreetmap.org/relation/1453306' },
   'grand-teton-national-park': { file: 'grand-teton-national-park-osm.geojson', source: 'Grand Teton National Park boundary via OpenStreetMap relation 1492555', sourceUrl: 'https://www.openstreetmap.org/relation/1492555' },
   'plitvice-lakes': { file: 'plitvice-lakes-osm.geojson', source: 'Plitvice Lakes National Park boundary via OpenStreetMap relation 10047860', sourceUrl: 'https://www.openstreetmap.org/relation/10047860' },
@@ -526,21 +539,31 @@ const BORDERS_OSM_POLYGONS = {
   // (relation 10179476). Banaue is the five UNESCO cluster relations.
   // Amsterdam Canals is the Grachtengordel protected-area way.
   'daintree-rainforest': { file: 'daintree-rainforest-osm.geojson', source: 'Daintree National Park boundary via OpenStreetMap relation 8478278', sourceUrl: 'https://www.openstreetmap.org/relation/8478278' },
-  'banaue-rice-terraces-ph': { file: 'banaue-rice-terraces-ph-osm.geojson', source: 'Rice Terraces of the Philippine Cordilleras UNESCO cluster boundaries (Batad, Bangaan, Hungduan, Mayoyao, Nagacadan) via OpenStreetMap relations 8167057, 7628655, 7137867, 8171344, 7575218', sourceUrl: 'https://www.openstreetmap.org/relation/8167057' },
   'chocolate-hills': { file: 'chocolate-hills-osm.geojson', source: 'Chocolate Hills Natural Monument boundary via OpenStreetMap relation 15100962', sourceUrl: 'https://www.openstreetmap.org/relation/15100962' },
-  'amsterdam-canals-d34-7': { file: 'amsterdam-canals-d34-7-osm.geojson', source: 'Amsterdam Grachtengordel canal ring boundary via OpenStreetMap way 222278733', sourceUrl: 'https://www.openstreetmap.org/way/222278733' },
   // Borders five (2026-11-01): the last two held radius entries with a
   // real boundary. Cappadocia is the Goreme National Park core, the
   // fairy-chimney area the card is about; Xochimilco is the borough
   // boundary, matching the place the clue and fact describe.
   'cappadocia': { file: 'cappadocia-osm.geojson', source: 'Göreme National Park boundary via OpenStreetMap relation 252585', sourceUrl: 'https://www.openstreetmap.org/relation/252585' },
   'xochimilco-mx': { file: 'xochimilco-mx-osm.geojson', source: 'Xochimilco borough boundary via OpenStreetMap relation 5606640', sourceUrl: 'https://www.openstreetmap.org/relation/5606640' },
+  'north-sentinel-island': { file: 'north-sentinel-island-osm.geojson', source: 'North Sentinel Island coastline via OpenStreetMap way 193412500', sourceUrl: 'https://www.openstreetmap.org/way/193412500' },
+  'azores': { file: 'azores-osm.geojson', source: 'Azores coastline via OpenStreetMap relation 21692014', sourceUrl: 'https://www.openstreetmap.org/relation/21692014' },
+  'falkland-islands': { file: 'falkland-islands-osm.geojson', source: 'Falkland Islands coastline via OpenStreetMap relation 1979517', sourceUrl: 'https://www.openstreetmap.org/relation/1979517' },
+  'canary-islands': { file: 'canary-islands-osm.geojson', source: 'Canary Islands coastline via OpenStreetMap relation 5392189', sourceUrl: 'https://www.openstreetmap.org/relation/5392189' },
+  'great-britain': { file: 'great-britain-osm.geojson', source: 'Great Britain coastline via OpenStreetMap relation 6038068', sourceUrl: 'https://www.openstreetmap.org/relation/6038068' },
+  'madeira': { file: 'madeira-osm.geojson', source: 'Madeira and Porto Santo island coastlines via OpenStreetMap relations 1715038, 1715039', sourceUrl: 'https://www.openstreetmap.org/relation/1715038' },
+  'sicily': { file: 'sicily-osm.geojson', source: 'Sicily coastline via OpenStreetMap relation 6197225', sourceUrl: 'https://www.openstreetmap.org/relation/6197225' },
+  'saint-helena': { file: 'saint-helena-osm.geojson', source: 'Saint Helena coastline via OpenStreetMap relation 4868269', sourceUrl: 'https://www.openstreetmap.org/relation/4868269' },
+  'svalbard': { file: 'svalbard-osm.geojson', source: 'Svalbard main-island coastlines (the archipelago ring; OSM has no archipelago relation) via OpenStreetMap relation 1124190, relation 5856703, relation 5856837, relation 21236293, relation 3068296, relation 3358168, relation 9382299, relation 10256615, way 25123687', sourceUrl: 'https://www.openstreetmap.org/relation/1124190' },
+  'corsica': { file: 'corsica-osm.geojson', source: 'Corsica coastline via OpenStreetMap relation 7112309', sourceUrl: 'https://www.openstreetmap.org/relation/7112309' },
 };
 const bordersOsmRecords = {};
 const bordersOsmSummary = {};
 for (const [id, spec] of Object.entries(BORDERS_OSM_POLYGONS)) {
   const src = JSON.parse(readFileSync(new URL(`./extent-sources/${spec.file}`, import.meta.url)));
-  const processed = processPolygons(src.geometry.coordinates, BORDERS_OSM_FINE.has(id) ? BORDERS_OSM_FINE_TOLERANCE : BORDERS_OSM_TOLERANCE);
+  const processed = BORDERS_OSM_REFINE.has(id)
+    ? processDesertPolygons(src.geometry.coordinates)
+    : processPolygons(src.geometry.coordinates, BORDERS_OSM_FINE.has(id) ? BORDERS_OSM_FINE_TOLERANCE : BORDERS_OSM_TOLERANCE);
   if (processed.maxDeviationKm > 2.5) throw new Error(`${id} deviation gate failed: ${processed.maxDeviationKm}`);
   bordersOsmRecords[id] = {
     type: 'polygon', polygons: processed.polygons,
@@ -590,8 +613,10 @@ if (saharaDeviation > 2.5) throw new Error(`Sahara deviation gate failed: ${saha
 // The 2026-11-01 borders five conversions take it past 1 MB on the two
 // RESOLVE desert records alone (the Rub' al Khali ships about 4,900
 // vertices even at the standard tolerance), so the cap moves to 1.5 MB,
-// same reasoning.
-if (Buffer.byteLength(text) > 1_500_000) throw new Error('extent sidecar exceeds 1.5 MB');
+// same reasoning. The 2026-11-01 gap adds (28 islands and archipelagos, five
+// seas and straits, one lake) take it to about 2.4 MB raw, about 280 KB
+// gzipped, so the cap moves to 2.5 MB, same reasoning again.
+if (Buffer.byteLength(text) > 2_500_000) throw new Error('extent sidecar exceeds 2.5 MB');
 writeFileSync(new URL('../assets/extents.json', import.meta.url), text);
 console.log(JSON.stringify({
   rawBytes: Buffer.byteLength(text), gzipBytes: gzipSync(text).length,
