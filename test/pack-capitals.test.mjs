@@ -38,11 +38,11 @@ function rng(seed) {
   };
 }
 
-test('the capital set: 207 bank cities', () => {
-  assert.equal(PACK_CAPITAL_IDS.size, 207);
+test('the capital set: 200 bank cities', () => {
+  assert.equal(PACK_CAPITAL_IDS.size, 200);
   for (const id of PACK_CAPITAL_IDS) assert.ok(byId.has(id), `${id} is not in the city bank`);
   const countries = [...PACK_CAPITAL_IDS].map((id) => byId.get(id).country);
-  assert.equal(new Set(countries).size, 202);
+  assert.equal(new Set(countries).size, 200);
 });
 
 test('the drawable pool holds only ids from the capital set', () => {
