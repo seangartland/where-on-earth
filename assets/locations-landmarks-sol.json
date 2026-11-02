@@ -7293,5 +7293,153 @@
   "category": "city",
   "kind": "extent",
   "extentType": "polygon"
+ },
+ {
+  "id": "ibiza",
+  "short": "Ibiza",
+  "clue": "Ibiza, Spain 🇪🇸",
+  "fact": "A Posidonia seagrass meadow between this Balearic island and Formentera has been estimated at up to 100,000 years old, one of the oldest living things on Earth, and its meadows are part of a UNESCO World Heritage listing. Off its southwest coast rises Es Vedrà, a 382 m limestone islet wrapped in local legend.",
+  "lat": 38.98,
+  "lng": 1.43,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Cala_Boix%2C_Ibiza%2C_from_above.jpg/500px-Cala_Boix%2C_Ibiza%2C_from_above.jpg",
+  "country": "Spain",
+  "continent": "Europe",
+  "sets": [
+   "Mediterranean Islands"
+  ],
+  "difficultyWhy": "p.86·fb391·K0·iso275 → 15.3 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "okinawa-island",
+  "short": "Okinawa Island",
+  "clue": "Okinawa Island, Japan 🇯🇵",
+  "fact": "The largest of Japan's Ryukyu Islands was the seat of the Ryukyu Kingdom, whose kings ruled from Shuri Castle above Naha. In 1945 it saw the Battle of Okinawa, the largest amphibious assault of the Pacific War, and it stayed under US administration until 1972.",
+  "lat": 26.483333,
+  "lng": 127.95,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Views_from_Cape_Hedo.jpg/500px-Views_from_Cape_Hedo.jpg",
+  "country": "Japan",
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.84·fb1340·K0·iso663 → 50.4 → 7",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "hispaniola",
+  "short": "Hispaniola",
+  "clue": "Hispaniola, Dominican Republic 🇩🇴",
+  "fact": "Columbus landed here on his first voyage in 1492, and Santo Domingo became the oldest continuously inhabited European city in the Americas. Today the island is shared by Haiti and the Dominican Republic, and Pico Duarte, at 3,098 m, is the highest peak in the Caribbean.",
+  "lat": 19,
+  "lng": -71,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/San_Jose_de_Ocoa_Dominican_Republic_landscape.jpg/500px-San_Jose_de_Ocoa_Dominican_Republic_landscape.jpg",
+  "country": "Dominican Republic",
+  "continent": "North America",
+  "sets": [
+   "Caribbean"
+  ],
+  "difficultyWhy": "p.93·fb101·K0·iso60 → 4.9 → 2",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "rhodes",
+  "short": "Rhodes",
+  "clue": "Rhodes, Greece 🇬🇷",
+  "fact": "The Colossus of Rhodes, a bronze statue of the sun god Helios and one of the Seven Wonders of the Ancient World, stood at its harbour until an earthquake toppled it around 226 BC. The Knights Hospitaller ruled the island for two centuries and built the walled medieval town that still stands.",
+  "lat": 36.17,
+  "lng": 27.92,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Lindos_Rhodes_3.jpg/500px-Lindos_Rhodes_3.jpg",
+  "country": "Greece",
+  "continent": "Europe",
+  "sets": [
+   "Mediterranean Islands"
+  ],
+  "difficultyWhy": "p.82·fb483·K0·iso259 → 23.1 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "corfu",
+  "short": "Corfu",
+  "clue": "Corfu, Greece 🇬🇷",
+  "fact": "Unlike most of Greece, this Ionian island never fell to the Ottomans, and four centuries of Venetian rule left the arcaded old town of Corfu, now a UNESCO World Heritage Site. Empress Elisabeth of Austria built her Achilleion palace here, and Prince Philip was born on the island in 1921.",
+  "lat": 39.6,
+  "lng": 19.87,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Corfu_island_greece.jpeg/500px-Corfu_island_greece.jpeg",
+  "country": "Greece",
+  "continent": "Europe",
+  "sets": [
+   "Mediterranean Islands"
+  ],
+  "difficultyWhy": "p.83·fb325·K0·iso450 → 15.8 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "saint-martin",
+  "short": "Saint Martin",
+  "clue": "Saint Martin, France 🇲🇫",
+  "fact": "The smallest inhabited island divided between two nations, split between French Saint-Martin and Dutch Sint Maarten since a 1648 treaty. Jets landing at Princess Juliana Airport pass just metres above the sunbathers on Maho Beach.",
+  "lat": 18.06,
+  "lng": -63.05,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Marigot_Saint_Martin.JPG/500px-Marigot_Saint_Martin.JPG",
+  "country": "France",
+  "continent": "North America",
+  "sets": [
+   "Caribbean"
+  ],
+  "difficultyWhy": "p.82·fb4·K0·iso724 → 7.6 → 3",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "ascension-island",
+  "short": "Ascension Island",
+  "clue": "Ascension Island, United Kingdom 🇦🇨",
+  "fact": "This volcanic island in the middle of the South Atlantic was bare cinder until 19th century British planters covered its Green Mountain in imported trees, creating a man-made cloud forest. Its beaches are among the most important nesting grounds for green turtles in the Atlantic.",
+  "lat": -7.95,
+  "lng": -14.35,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Ascension_Island_Area.jpg/500px-Ascension_Island_Area.jpg",
+  "country": "United Kingdom",
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.82·fb0·K0·iso1633 → 7.5 → 3",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
+ },
+ {
+  "id": "bonaire",
+  "short": "Bonaire",
+  "clue": "Bonaire, Netherlands 🇧🇶",
+  "fact": "Nearly the whole coast of this Dutch Caribbean island is a protected marine park, and divers wade straight from shore to the reef at sites marked by yellow painted stones. Its salt pans in the south shelter one of the few breeding grounds of the Caribbean flamingo.",
+  "lat": 12.2,
+  "lng": -68.25,
+  "difficulty": 3,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Bonaire_1000_steps.jpg/500px-Bonaire_1000_steps.jpg",
+  "country": "Netherlands",
+  "continent": "North America",
+  "sets": [
+   "Caribbean"
+  ],
+  "difficultyWhy": "p.83·fb6·K0·iso228 → 7.5 → 3",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
  }
 ]
