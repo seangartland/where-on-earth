@@ -70,16 +70,16 @@ test('packCardNumber matches the position passportPackSections renders', () => {
 test('an unvisited slot renders only its number, never the place name or country', () => {
   const item = cities.find((entry) => entry.id === 'abuja-ng');
   const number = packCardNumber(cities, landmarks, 'capitals', item.id);
-  const slot = passportUnvisitedSlot({ item, country: 'Nigeria', visited: false }, 'World Capitals', number);
+  const slot = passportUnvisitedSlot({ item, country: 'Nigeria', visited: false }, 'Capitals', number);
   assert.ok(slot.textContent.includes('002'), slot.textContent);
   assert.ok(!slot.textContent.includes('Abuja'), slot.textContent);
   assert.ok(!slot.textContent.includes('Nigeria'), slot.textContent);
-  assert.equal(slot.getAttribute('aria-label'), 'World Capitals card 002, not yet collected');
+  assert.equal(slot.getAttribute('aria-label'), 'Capitals card 002, not yet collected');
   assert.ok(!slot.getAttribute('aria-label').includes('Abuja'));
   assert.ok(!slot.getAttribute('aria-label').includes('Nigeria'));
   // Tapping reveals the pack and state only; the leak stays closed.
   slot.listeners.click();
-  assert.ok(slot.textContent.includes('World Capitals pack · Not yet collected'), slot.textContent);
+  assert.ok(slot.textContent.includes('Capitals pack · Not yet collected'), slot.textContent);
   assert.ok(!slot.textContent.includes('Abuja'), slot.textContent);
   assert.ok(!slot.textContent.includes('Nigeria'), slot.textContent);
 });

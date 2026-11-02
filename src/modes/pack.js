@@ -11,7 +11,7 @@ import {
 
 let host = null;
 export const PACKS = [
-  { type: 'capitals', name: 'World Capitals', art: 'assets/pack-world-capitals.webp', tearLine: 0.081 },
+  { type: 'capitals', name: 'Capitals', art: 'assets/pack-world-capitals.webp', tearLine: 0.081 },
   { type: 'landmarks', name: 'Landmarks', art: 'assets/pack-landmarks.webp', tearLine: 0.081, aspect: '900 / 1350' },
   { type: 'landforms', name: 'Landforms', art: 'assets/pack-landforms.webp', tearLine: 0.081, aspect: '900 / 1350' },
 ];
