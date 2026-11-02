@@ -48,24 +48,6 @@
   "kind": "landmark"
  },
  {
-  "id": "aitutaki-lagoon",
-  "clue": "Aitutaki Lagoon, Cook Islands 🇨🇰",
-  "fact": "Aitutaki Lagoon is famous for its brilliant turquoise water and a necklace of small coral motu islands.",
-  "lat": -18.8683,
-  "lng": -159.7717,
-  "difficulty": 10,
-  "short": "Aitutaki Lagoon",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Maina_Island%2C_Aitutaki_Lagoon%2C_Cook_Islands.jpg/500px-Maina_Island%2C_Aitutaki_Lagoon%2C_Cook_Islands.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Cook Islands",
-  "continent": "Oceania",
-  "sets": [
-   "Pacific Islands"
-  ],
-  "difficultyWhy": "p.32·fb260·K2·iso3185 → 591.5 → 10",
-  "category": "city",
-  "kind": "area"
- },
- {
   "id": "alamo-san-antonio",
   "clue": "The Alamo, United States 🇺🇸",
   "fact": "The Alamo is a historic mission in San Antonio, Texas, famous for the 1836 battle during the Texas Revolution.",
@@ -114,23 +96,6 @@
   ],
   "difficultyWhy": "p.88·fb292·K0·iso252 → 10.9 → 4",
   "kind": "landmark"
- },
- {
-  "id": "amsterdam-canals-d34-7",
-  "short": "Amsterdam Canals",
-  "clue": "Amsterdam Canals, Netherlands 🇳🇱",
-  "fact": "Amsterdam holds more than 100 km of canals and about 1,500 bridges; its concentric 17th-century canal ring, dug in the Dutch Golden Age, became a UNESCO World Heritage Site in 2010.",
-  "lat": 52.3662,
-  "lng": 4.9041,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/500px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Netherlands",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.34·fb35·K0·iso173 → 16.0 → 5",
-  "category": "city",
-  "kind": "extent",
-  "extentType": "polygon"
  },
  {
   "id": "amundsen-scott-south",
@@ -238,22 +203,6 @@
   "kind": "landmark"
  },
  {
-  "id": "axum-obelisks",
-  "clue": "Axum Obelisks, Ethiopia 🇪🇹",
-  "fact": "Massive granite stelae marking the tombs of Aksumite kings, dating from 300-500 CE.",
-  "lat": 14.1302,
-  "lng": 38.7193,
-  "difficulty": 8,
-  "short": "Axum Obelisks",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Celebrate_The_Return_of_Axum_Obelisk_%28Detail%29_%283172365788%29.jpg/500px-Celebrate_The_Return_of_Axum_Obelisk_%28Detail%29_%283172365788%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Ethiopia",
-  "continent": "Africa",
-  "sets": [],
-  "difficultyWhy": "p.34·fb542·K0·iso568 → 80.2 → 8",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "badlands-national-park",
   "clue": "Badlands Wall, United States 🇺🇸",
   "fact": "The Badlands Wall near Cedar Pass is one of the most dramatic eroded landscapes in South Dakota.",
@@ -302,23 +251,6 @@
   "difficultyWhy": "p.47·fb303·K0·iso155 → 37.0 → 6",
   "category": "city",
   "kind": "landmark"
- },
- {
-  "id": "banaue-rice-terraces-ph",
-  "short": "Banaue Rice Terraces",
-  "clue": "Banaue Rice Terraces, Philippines 🇵🇭",
-  "fact": "The Banaue Rice Terraces in the Philippines were carved into mountains over 2,000 years ago by the Ifugao people.",
-  "lat": 16.93264,
-  "lng": 121.13571,
-  "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Banaue-terrace.JPG/500px-Banaue-terrace.JPG",
-  "country": "Philippines",
-  "continent": "Asia",
-  "sets": [],
-  "difficultyWhy": "p.35·fb520·K0·iso253 → 75.5 → 7",
-  "category": "city",
-  "kind": "extent",
-  "extentType": "polygon"
  },
  {
   "id": "barringer-meteor-impact",
@@ -801,25 +733,6 @@
   "difficultyWhy": "p.50·fb659·K0·iso347 → 75.7 → 7",
   "kind": "extent",
   "extentType": "polygon"
- },
- {
-  "id": "copper-canyon",
-  "short": "Barrancas del Cobre",
-  "clue": "Barrancas del Cobre, Mexico 🇲🇽",
-  "fact": "Six canyons covering 65,000 km², named for the copper-green colour of their walls. The Tarahumara, or Rarámuri, are their traditional inhabitants, and the ChePe railway threads through them between Chihuahua and Los Mochis.",
-  "lat": 27.497,
-  "lng": -107.8094,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Barranca_del_cobre_2.jpg/500px-Barranca_del_cobre_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Mexico",
-  "continent": "North America",
-  "sets": [
-   "Canyons & Gorges"
-  ],
-  "difficultyWhy": "p.33·fb981·K0·iso487 → 146.2 → 9",
-  "category": "city",
-  "kind": "area",
-  "extentKm": 30
  },
  {
   "id": "daintree-rainforest",
@@ -1654,22 +1567,6 @@
    "History Was Here"
   ],
   "difficultyWhy": "p.57·fb319·K0·iso179 → 32.8 → 6",
-  "kind": "landmark"
- },
- {
-  "id": "paracas-candelabra",
-  "short": "Candelabra Geoglyph",
-  "clue": "Candelabra Geoglyph, Peru 🇵🇪",
-  "fact": "The Paracas Candelabra is a massive geoglyph on a coastal hillside, visible for miles out to sea.",
-  "lat": -13.7917,
-  "lng": -76.3014,
-  "difficulty": 6,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Peru_Candelabro_de_Paracas.jpg/500px-Peru_Candelabro_de_Paracas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Peru",
-  "continent": "South America",
-  "sets": [],
-  "difficultyWhy": "p.35·fb290·K0·iso210 → 42.0 → 6",
-  "category": "city",
   "kind": "landmark"
  },
  {
@@ -3042,38 +2939,6 @@
   "extentType": "polygon"
  },
  {
-  "id": "huacachina-peru",
-  "short": "Huacachina Oasis",
-  "clue": "Huacachina Oasis, Peru 🇵🇪",
-  "fact": "This small oasis town in the Peruvian desert is built around a natural lake and surrounded by towering sand dunes over 500 meters high.",
-  "lat": -14.0875,
-  "lng": -75.7633,
-  "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Oasis_de_Huacachina%2C_Ica%2C_Per%C3%BA%2C_2015-07-29%2C_DD_18.JPG/500px-Oasis_de_Huacachina%2C_Ica%2C_Per%C3%BA%2C_2015-07-29%2C_DD_18.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Peru",
-  "continent": "South America",
-  "sets": [],
-  "difficultyWhy": "p.35·fb330·K0·iso265 → 48.0 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "lord-of-rings-hobbiton-film-set",
-  "short": "Hobbiton Movie Set",
-  "clue": "Hobbiton, Matamata, New Zealand 🇳🇿",
-  "fact": "Peter Jackson chose the Alexander family's sheep farm near Matamata for its rolling green landscape. The rebuilt set was made permanent after The Hobbit films.",
-  "lat": -37.8576,
-  "lng": 175.68,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Waterhouse_Lake_Front.jpg/500px-Waterhouse_Lake_Front.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "New Zealand",
-  "continent": "Oceania",
-  "sets": [],
-  "difficultyWhy": "p.35·fb151·K0·iso138 → 22.8 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "forbidden-city-beijing",
   "clue": "Forbidden City, China 🇨🇳",
   "fact": "Ming and Qing emperors lived inside these walls from 1420 to 1924, and the surviving complex still covers 72 hectares across some 980 buildings.",
@@ -3206,22 +3071,6 @@
   "kind": "landmark"
  },
  {
-  "id": "geysir-d34-42",
-  "short": "Geysir",
-  "clue": "Geysir, Iceland 🇮🇸",
-  "fact": "Every geyser in the world is named after this one: the word comes from Geysir, whose eruptions have hurled boiling water as high as 60 metres (200 ft), though it now stirs only rarely.",
-  "lat": 64.312,
-  "lng": -20.3,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Erupting_geysir.jpg/500px-Erupting_geysir.jpg",
-  "country": "Iceland",
-  "continent": "Europe",
-  "sets": [],
-  "difficultyWhy": "p.32·fb69·K0·iso1457 → 16.3 → 5",
-  "category": "city",
-  "kind": "landmark"
- },
- {
   "id": "guggenheim-bilbao",
   "short": "Guggenheim Bilbao",
   "clue": "Guggenheim Bilbao, Spain 🇪🇸",
@@ -3234,24 +3083,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.66·fb390·K0·iso323 → 32.8 → 6",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "gullfoss",
-  "short": "Gullfoss",
-  "clue": "Gullfoss, Iceland 🇮🇸",
-  "fact": "A local farmer's daughter, Sigríður Tómasdóttir, is credited with fighting plans to dam it for hydroelectric power.",
-  "lat": 64.3271,
-  "lng": -20.1199,
-  "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Gullfoss_from_the_Air_%28cropped%29.jpg/500px-Gullfoss_from_the_Air_%28cropped%29.jpg",
-  "country": "Iceland",
-  "continent": "Europe",
-  "sets": [
-   "Waterfalls"
-  ],
-  "difficultyWhy": "p.30·fb78·K0·iso1453 → 16.4 → 5",
   "category": "city",
   "kind": "landmark"
  },
@@ -3356,24 +3187,6 @@
   "kind": "landmark"
  },
  {
-  "id": "vatnajökull-d34-44",
-  "short": "Vatnajökull",
-  "clue": "Vatnajökull, Iceland 🇮🇸",
-  "fact": "Covering some 8% of Iceland, this 7,700 km² ice cap averages 380 metres in thickness and caps active volcanoes, among them Grímsvötn beneath the ice.",
-  "lat": 64.4,
-  "lng": -16.8,
-  "difficulty": 6,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Brei%C3%B0amerkurj%C3%B6kull_glacier%2C_Iceland%2C_20240719_1427_2618.jpg/500px-Brei%C3%B0amerkurj%C3%B6kull_glacier%2C_Iceland%2C_20240719_1427_2618.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Iceland",
-  "continent": "Europe",
-  "sets": [
-   "Fjords & Glaciers"
-  ],
-  "difficultyWhy": "p.32·fb238·K0·iso1368 → 35.9 → 6",
-  "category": "city",
-  "kind": "area"
- },
- {
   "id": "york-minster-d34-3",
   "short": "York Minster",
   "clue": "York Minster, England",
@@ -3460,30 +3273,6 @@
   "continent": "Europe",
   "sets": [],
   "difficultyWhy": "p.57·fb116·K0·iso212 → 14.1 → 4",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "trolltunga",
-  "short": "Trolltunga",
-  "clue": "Trolltunga, Norway 🇳🇴",
-  "fact": "A cliff formed when a glacier's rockfall hit the valley wall, the tongue's name comes from trolls supposedly using it as a lookout.",
-  "lat": 60.1242,
-  "lng": 6.74,
-  "difficulty": 6,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Trolltunga_2017.jpg/500px-Trolltunga_2017.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Norway",
-  "region": {
-   "id": "NO.46",
-   "name": "Vestland",
-   "outline": "NO.46"
-  },
-  "continent": "Europe",
-  "sets": [
-   "Nordic Coast",
-   "Fjords & Glaciers"
-  ],
-  "difficultyWhy": "p.30·fb155·K0·iso224 → 24.3 → 6",
   "category": "city",
   "kind": "landmark"
  },
@@ -3694,26 +3483,6 @@
    "Lakes"
   ],
   "difficultyWhy": "p.72·fb751·K0·iso58 → 23.0 → 5",
-  "category": "city",
-  "kind": "extent",
-  "extentType": "polygon"
- },
- {
-  "id": "moraine-lake",
-  "short": "Moraine Lake",
-  "clue": "Moraine Lake, Canada 🇨🇦",
-  "fact": "Glacial rock flour gives this lake in the Valley of the Ten Peaks its vivid turquoise color.",
-  "lat": 51.3225,
-  "lng": -116.18555555555555,
-  "difficulty": 8,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Moraine_Lake_17092005.jpg",
-  "country": "Canada",
-  "continent": "North America",
-  "sets": [
-   "Lakes",
-   "Mountains"
-  ],
-  "difficultyWhy": "p.35·fb127·K0·iso1 → 87.5 → 8",
   "category": "city",
   "kind": "extent",
   "extentType": "polygon"
@@ -5700,24 +5469,6 @@
    "Volcanoes"
   ],
   "difficultyWhy": "p.59·fb513·K0·iso413 → 49.9 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "tugela-falls",
-  "short": "Tugela Falls",
-  "clue": "Tugela Falls, South Africa 🇿🇦",
-  "fact": "Five leaps totalling 948 m down the Drakensberg's Amphitheatre wall make the Tugela usually the world's second-tallest waterfall, and some surveys argue it edges past Angel Falls. The flow is seasonal: after summer rains it streams, in dry winters it thins to a thread.",
-  "lat": -28.7522,
-  "lng": 28.8941,
-  "difficulty": 6,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Amphitheatre_Drakensberg_View.jpg/500px-Amphitheatre_Drakensberg_View.jpg",
-  "country": "South Africa",
-  "continent": "Africa",
-  "sets": [
-   "Waterfalls"
-  ],
-  "difficultyWhy": "p.31·fb185·K0·iso241 → 28.6 → 6",
   "category": "city",
   "kind": "landmark"
  },

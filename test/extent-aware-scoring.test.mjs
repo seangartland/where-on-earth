@@ -40,7 +40,6 @@ const APPROVED_AREAS = {
   // Gibraltar narrows on the Bering Strait precedent). Xochimilco and
   // Cappadocia left this map on 2026-11-01, converted to OSM polygons in
   // the borders five round.
-  'copper-canyon': 30,
   'danakil-depression': 50,
   'strait-of-gibraltar': 30,
 };
