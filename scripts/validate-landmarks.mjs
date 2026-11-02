@@ -23,7 +23,6 @@ const APPROVED_AREAS = new Map([
   // five round.
   ['copper-canyon', 30],
   ['danakil-depression', 50],
-  ['gobi-desert-dinosaur-nemegt', 20],
   ['strait-of-gibraltar', 30],
   // Added 2026-10-30 with the Great Lakes completion chunk; measured
   // farthest-shore radii from the P625 anchors (Lake Superior precedent).

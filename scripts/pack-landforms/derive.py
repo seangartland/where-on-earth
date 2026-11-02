@@ -99,7 +99,7 @@ CURATED_ADDITION_IDS = {
     'mount-st-helens', 'mount-tambora', 'mount-vinson', 'namib',
     'okavango-delta', 'puncak-jaya', 'rhine-falls', 'rub-al-khali',
     'sahara', 'santorini-caldera', 'stromboli',
-    'the-wave', 'tugela-falls', 'verdon-gorge',
+    'tugela-falls', 'verdon-gorge',
     # The 19 whole-river extent cards added 2026-10-30 (chunk 4 of the pack
     # additions): listed explicitly so membership never depends on the name
     # pattern (river names carry no formation word). Paraná and Murray were

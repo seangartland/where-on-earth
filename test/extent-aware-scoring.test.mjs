@@ -42,7 +42,6 @@ const APPROVED_AREAS = {
   // the borders five round.
   'copper-canyon': 30,
   'danakil-depression': 50,
-  'gobi-desert-dinosaur-nemegt': 20,
   'strait-of-gibraltar': 30,
 };
 

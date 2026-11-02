@@ -1097,23 +1097,6 @@
   "kind": "landmark"
  },
  {
-  "id": "gobi-desert-dinosaur-nemegt",
-  "short": "Nemegt Formation",
-  "clue": "Nemegt Formation, Mongolia 🇲🇳",
-  "fact": "The Nemegt Formation in the Gobi Desert is famous for producing exceptionally well-preserved dinosaur fossils including Tyrannosaurus bataar.",
-  "lat": 43.5,
-  "lng": 101.5,
-  "difficulty": 8,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Avimimus_excavation.jpg/500px-Avimimus_excavation.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Mongolia",
-  "continent": "Asia",
-  "sets": [],
-  "difficultyWhy": "p.29·fb585·K0·iso574 → 92.4 → 8",
-  "category": "city",
-  "kind": "area",
-  "extentKm": 20
- },
- {
   "id": "great-sphinx-giza",
   "clue": "Great Sphinx, Egypt 🇪🇬",
   "category": "city",
@@ -5753,22 +5736,6 @@
    "Volcanoes"
   ],
   "difficultyWhy": "p.59·fb513·K0·iso413 → 49.9 → 7",
-  "category": "city",
-  "kind": "landmark"
- },
- {
-  "id": "the-wave",
-  "short": "The Wave",
-  "clue": "The Wave, Arizona 🇺🇸",
-  "fact": "A trough of swirled red-and-cream sandstone in Arizona's Coyote Buttes, sculpted by wind and water from dunes laid down some 190 million years ago. Access is by lottery only, a few dozen hikers a day, and there is no trail: visitors navigate by photo guide and GPS.",
-  "lat": 36.9961,
-  "lng": -112.006,
-  "difficulty": 8,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/The_Wave_-_Coyote_Buttes_North_%2849995394933%29.jpg/500px-The_Wave_-_Coyote_Buttes_North_%2849995394933%29.jpg",
-  "country": "United States",
-  "continent": "North America",
-  "sets": [],
-  "difficultyWhy": "p.00·fb411·K0·iso395 → 85.1 → 8",
   "category": "city",
   "kind": "landmark"
  },
