@@ -3682,5 +3682,59 @@
   "category": "city",
   "kind": "area",
   "extentKm": 20
+ },
+ {
+  "id": "dome-of-the-rock",
+  "short": "Dome of the Rock",
+  "clue": "Dome of the Rock, Israel 🇮🇱",
+  "fact": "Completed in 691, its golden dome is one of the oldest surviving works of Islamic architecture.",
+  "lat": 31.778,
+  "lng": 35.2354,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Jerusalem_DomeoftheRock_J65_%28cropped%29.JPG/500px-Jerusalem_DomeoftheRock_J65_%28cropped%29.JPG",
+  "country": "Israel",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.88·fb41·K0·iso70 → 6.2 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "western-wall-jerusalem",
+  "short": "Western Wall",
+  "clue": "Western Wall, Israel 🇮🇱",
+  "fact": "The prayer plaza is a 57-metre exposed stretch of a 488-metre retaining wall begun by Herod the Great to hold up the expanded Temple Mount platform.",
+  "lat": 31.7767,
+  "lng": 35.2345,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Westernwall2.jpg/500px-Westernwall2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Israel",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.86·fb41·K0·iso70 → 6.6 → 2",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "church-of-the-holy-sepulchre",
+  "short": "Church of the Holy Sepulchre",
+  "clue": "Church of the Holy Sepulchre, Israel 🇮🇱",
+  "fact": "Consecrated in 335 over the sites of the Crucifixion and Christ's tomb, the church is shared by six Christian denominations under a centuries-old status quo so rigid that a wooden ladder on a ledge above its entrance has stood unmoved since the 1700s.",
+  "lat": 31.7784,
+  "lng": 35.2298,
+  "difficulty": 2,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Jerusalem_Holy_Sepulchre_BW_24.JPG/500px-Jerusalem_Holy_Sepulchre_BW_24.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "Israel",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.96·fb41·K0·iso70 → 4.0 → 1 · median rescore 5.0 → 2 (spike check)",
+  "category": "city",
+  "kind": "landmark"
  }
 ]
