@@ -384,10 +384,16 @@ const NE_LAKE_POLYGONS = {
   'lake-ontario': { names: ['Lake Ontario'], source: 'Natural Earth 1:10m lakes, "Lake Ontario"' },
   'great-salt-lake': { names: ['Great Salt Lake'], source: 'Natural Earth 1:10m lakes, "Great Salt Lake"' },
   'loch-ness': { names: ['Loch Ness'], source: 'Natural Earth 1:10m lakes, "Loch Ness"' },
+  'salton-sea': { names: ['Salton Sea'], source: 'Natural Earth 1:10m lakes, "Salton Sea"' },
 };
 const NE_MARINE_POLYGONS = {
   'caspian-sea': { names: ['Caspian Sea'], source: 'Natural Earth 1:10m geography marine polygons, "Caspian Sea"' },
   'bay-of-fundy': { names: ['Bay of Fundy'], source: 'Natural Earth 1:10m geography marine polygons, "Bay of Fundy"' },
+  'mediterranean-sea': { names: ['Mediterranean Sea', 'Adriatic Sea', 'Aegean Sea', 'Alboran Sea', 'Balearic Sea', 'Ionian Sea', 'Ligurian Sea', 'Tyrrhenian Sea', 'Sea of Crete'], source: 'Natural Earth 1:10m geography marine polygons, Mediterranean Sea plus its named sub-seas (Adriatic Sea, Aegean Sea, Alboran Sea, Balearic Sea, Ionian Sea, Ligurian Sea, Tyrrhenian Sea, Sea of Crete)' },
+  'black-sea': { names: ['Black Sea'], source: 'Natural Earth 1:10m geography marine polygons, "Black Sea"' },
+  'red-sea': { names: ['Red Sea'], source: 'Natural Earth 1:10m geography marine polygons, "Red Sea"' },
+  'gulf-of-mexico': { names: ['Gulf of Mexico'], source: 'Natural Earth 1:10m geography marine polygons, "Gulf of Mexico"' },
+  'drake-passage': { names: ['Drake Passage'], source: 'Natural Earth 1:10m geography marine polygons, "Drake Passage"' },
 };
 const nePolygonRecords = {};
 const nePolygonSummary = {};
@@ -556,6 +562,25 @@ const BORDERS_OSM_POLYGONS = {
   'saint-helena': { file: 'saint-helena-osm.geojson', source: 'Saint Helena coastline via OpenStreetMap relation 4868269', sourceUrl: 'https://www.openstreetmap.org/relation/4868269' },
   'svalbard': { file: 'svalbard-osm.geojson', source: 'Svalbard main-island coastlines (the archipelago ring; OSM has no archipelago relation) via OpenStreetMap relation 1124190, relation 5856703, relation 5856837, relation 21236293, relation 3068296, relation 3358168, relation 9382299, relation 10256615, way 25123687', sourceUrl: 'https://www.openstreetmap.org/relation/1124190' },
   'corsica': { file: 'corsica-osm.geojson', source: 'Corsica coastline via OpenStreetMap relation 7112309', sourceUrl: 'https://www.openstreetmap.org/relation/7112309' },
+  'sardinia': { file: 'sardinia-osm.geojson', source: 'Sardinia coastline via OpenStreetMap relation 6847723', sourceUrl: 'https://www.openstreetmap.org/relation/6847723' },
+  'crete': { file: 'crete-osm.geojson', source: 'Crete coastline via OpenStreetMap relation 453129', sourceUrl: 'https://www.openstreetmap.org/relation/453129' },
+  'borneo': { file: 'borneo-osm.geojson', source: 'Borneo coastline via OpenStreetMap relation 3986083', sourceUrl: 'https://www.openstreetmap.org/relation/3986083' },
+  'mallorca': { file: 'mallorca-osm.geojson', source: 'Mallorca coastline via OpenStreetMap relation 6803636', sourceUrl: 'https://www.openstreetmap.org/relation/6803636' },
+  'isle-of-wight': { file: 'isle-of-wight-osm.geojson', source: 'Isle of Wight coastline via OpenStreetMap relation 3955402', sourceUrl: 'https://www.openstreetmap.org/relation/3955402' },
+  'shetland': { file: 'shetland-osm.geojson', source: 'Shetland coastline via OpenStreetMap relation 2235077', sourceUrl: 'https://www.openstreetmap.org/relation/2235077' },
+  'tahiti': { file: 'tahiti-osm.geojson', source: 'Tahiti coastline via OpenStreetMap relation 3992237', sourceUrl: 'https://www.openstreetmap.org/relation/3992237' },
+  'hawaiian-islands': { file: 'hawaiian-islands-osm.geojson', source: 'Hawaiian Islands coastline via OpenStreetMap relation 7259209', sourceUrl: 'https://www.openstreetmap.org/relation/7259209' },
+  'new-guinea': { file: 'new-guinea-osm.geojson', source: 'New Guinea coastline via OpenStreetMap relation 3986076', sourceUrl: 'https://www.openstreetmap.org/relation/3986076' },
+  'java': { file: 'java-osm.geojson', source: 'Java coastline via OpenStreetMap relation 9444963', sourceUrl: 'https://www.openstreetmap.org/relation/9444963' },
+  'ibiza': { file: 'ibiza-osm.geojson', source: 'Ibiza coastline via OpenStreetMap relation 6076060', sourceUrl: 'https://www.openstreetmap.org/relation/6076060' },
+  'okinawa-island': { file: 'okinawa-island-osm.geojson', source: 'Okinawa Island coastline via OpenStreetMap relation 4098955', sourceUrl: 'https://www.openstreetmap.org/relation/4098955' },
+  'hispaniola': { file: 'hispaniola-osm.geojson', source: 'Hispaniola coastline via OpenStreetMap relation 3478916', sourceUrl: 'https://www.openstreetmap.org/relation/3478916' },
+  'rhodes': { file: 'rhodes-osm.geojson', source: 'Rhodes coastline via OpenStreetMap relation 452614', sourceUrl: 'https://www.openstreetmap.org/relation/452614' },
+  'corfu': { file: 'corfu-osm.geojson', source: 'Corfu coastline via OpenStreetMap relation 966358', sourceUrl: 'https://www.openstreetmap.org/relation/966358' },
+  'saint-martin': { file: 'saint-martin-osm.geojson', source: 'Saint Martin coastline via OpenStreetMap relation 63064', sourceUrl: 'https://www.openstreetmap.org/relation/63064' },
+  'ascension-island': { file: 'ascension-island-osm.geojson', source: 'Ascension Island coastline via OpenStreetMap relation 6391626', sourceUrl: 'https://www.openstreetmap.org/relation/6391626' },
+  'bonaire': { file: 'bonaire-osm.geojson', source: 'Bonaire and Klein Bonaire island coastlines via OpenStreetMap relations 4266671, 5176051', sourceUrl: 'https://www.openstreetmap.org/relation/4266671' },
+  'strait-of-hormuz': { file: 'strait-of-hormuz-osm.geojson', source: 'Strait of Hormuz water polygon via OpenStreetMap relation 9326284', sourceUrl: 'https://www.openstreetmap.org/relation/9326284' },
 };
 const bordersOsmRecords = {};
 const bordersOsmSummary = {};

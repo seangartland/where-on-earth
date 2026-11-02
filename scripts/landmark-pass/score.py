@@ -33,7 +33,8 @@ UNIT = {'barringer-meteor-impact': 'US/AZ', 'hindenburg-lakehurst': 'US/NJ', 'li
         # US clues showing a state use the state, Ascension (no GeoNames unit) uses its own pin.
         'falkland-islands': 'FK', 'saint-helena': 'SH',
         'tahiti': 'PF', 'hawaiian-islands': 'US/HI',
-        'saint-martin': 'MF', 'ascension-island': None, 'bonaire': 'BQ'}
+        'saint-martin': 'MF', 'ascension-island': None, 'bonaire': 'BQ',
+        'salton-sea': 'US/CA', 'mount-whitney': 'US/CA'}
 
 BAND = lambda d: 'Common' if d <= 3 else 'Uncommon' if d <= 6 else 'Rare' if d <= 8 else 'Legendary'
 
