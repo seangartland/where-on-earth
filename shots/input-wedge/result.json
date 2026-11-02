@@ -1,0 +1,116 @@
+{
+ "firstTapEvents": [
+  [
+   "pointerdown",
+   "CANVAS.ready",
+   23537
+  ],
+  [
+   "pointerup",
+   "CANVAS.ready dragging",
+   23754
+  ]
+ ],
+ "normalTap": {
+  "placed": true,
+  "after": {
+   "pointers": 0,
+   "pending": {
+    "lat": 8.982,
+    "lng": -6.183
+   },
+   "yaw": -1.4629,
+   "pitch": 0.3487,
+   "dragging": false
+  }
+ },
+ "control": {
+  "ids": [
+   3,
+   4
+  ],
+  "afterRelease": {
+   "pointers": 1,
+   "pending": {
+    "lat": 8.982,
+    "lng": -6.183
+   },
+   "yaw": -1.4734,
+   "pitch": 0.3526,
+   "dragging": true
+  },
+  "tapPlaced": false,
+  "afterBlur": {
+   "pointers": 0,
+   "pending": {
+    "lat": 8.982,
+    "lng": -6.183
+   },
+   "yaw": -1.4734,
+   "pitch": 0.3526,
+   "dragging": false
+  },
+  "tapAfterBlurPlaced": true
+ },
+ "fix": {
+  "ids": [
+   7,
+   8
+  ],
+  "afterLost": {
+   "pointers": 1,
+   "pending": {
+    "lat": 24.893,
+    "lng": -11.225
+   },
+   "yaw": -1.4781,
+   "pitch": 0.3543,
+   "dragging": true
+  },
+  "afterRelease": {
+   "pointers": 0,
+   "pending": {
+    "lat": 24.893,
+    "lng": -11.225
+   },
+   "yaw": -1.3652,
+   "pitch": 0.357,
+   "dragging": false
+  },
+  "tapPlaced": true,
+  "drag": {
+   "yawDelta": 0.372,
+   "pitchDelta": 0.0029,
+   "pointersAfter": 0,
+   "dragging": false
+  }
+ },
+ "hidden": {
+  "ids": [
+   11,
+   12
+  ],
+  "beforeHide": {
+   "pointers": 1,
+   "pending": {
+    "lat": 15.511,
+    "lng": -9.466
+   },
+   "yaw": -0.9679,
+   "pitch": 0.3615,
+   "dragging": true
+  },
+  "afterHide": {
+   "pointers": 0,
+   "pending": {
+    "lat": 15.511,
+    "lng": -9.466
+   },
+   "yaw": -0.9679,
+   "pitch": 0.3615,
+   "dragging": false
+  },
+  "tapPlaced": true
+ },
+ "errs": []
+}

@@ -498,6 +498,16 @@ export function applyDrag() {
   dragAt = c;
 }
 
+// Drop every tracked pointer and gesture. iOS can lose a touch without ever
+// delivering its pointerup; this clears such phantoms when the page blurs or hides.
+function resetInput() {
+  pointers.clear();
+  pinch = tap = null;
+  samples = [];
+  grab = grabWorld = dragAt = null;
+  canvas.classList.remove('dragging');
+}
+
 function recordSample() {
   const now = performance.now();
   samples.push({ t: now, yaw: state.yaw, pitch: state.pitch });
@@ -524,6 +534,7 @@ export function initPin(main) {
   canvas.addEventListener('pointerdown', (e) => {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
     canvas.setPointerCapture(e.pointerId);
+    pointers.delete(e.pointerId); // a stale entry under a reused id
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     state.revealView = null; // the reveal starts framed, but remains freely explorable
     state.vYaw = state.vPitch = 0; // grab stops the spin, and the idle drift with it
@@ -589,6 +600,10 @@ export function initPin(main) {
   }
   canvas.addEventListener('pointerup', endPointer);
   canvas.addEventListener('pointercancel', endPointer);
+  // Losing capture without a pointerup ends the pointer; the tap paths need e.type 'pointerup'.
+  canvas.addEventListener('lostpointercapture', endPointer);
+  window.addEventListener('blur', resetInput);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) resetInput(); });
   canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 
   canvas.addEventListener(
