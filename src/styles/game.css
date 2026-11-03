@@ -634,7 +634,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pack-sealed-body { position: absolute; inset: 0; background: var(--art) center / 100% 100% no-repeat; clip-path: inset(calc(var(--line) * 100%) 0 0 0); pointer-events: none; }
 .pack-sealed-strip { position: absolute; z-index: 1; inset: 0; background: var(--art) center / 100% 100% no-repeat; clip-path: inset(0 0 calc((1 - var(--line)) * 100% - 1px) 0); transform-origin: 100% calc(var(--line) * 100%); pointer-events: none; }
-.pack-sealed-flap { position: absolute; z-index: 2; inset: calc(var(--line) * 100% - 5px) 1.6% auto; height: 6px; background: linear-gradient(90deg, #f3c8ff, #b9e6ff, #d6ffd0, #fff0b0, #ffc6e4, #b9e6ff, #f3c8ff); -webkit-mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; opacity: 0; pointer-events: none; }
+.pack-sealed-flap { position: absolute; z-index: 2; inset: calc(var(--line) * 100% - 5px) 1.6% auto; height: 6px; background: linear-gradient(180deg, transparent 0 60%, #c9d1dc 60% 75%, #1b2c5a 75%), linear-gradient(90deg, #c99a3e, #f6e7c1, #ddb25a, #fff3d6, #d4a54b, #f6e7c1, #c99a3e); -webkit-mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; opacity: 0; pointer-events: none; }
 .pack-sealed-sheen { position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 42%, rgba(255,255,255,.16) 50%, transparent 58%) 100% 0 / 300% 100% no-repeat; -webkit-mask: var(--art) center / 100% 100% no-repeat; mask: var(--art) center / 100% 100% no-repeat; animation: pack-sheen 5s ease-in-out infinite; pointer-events: none; }
 @keyframes pack-sheen { 0%, 30% { background-position: 100% 0; } 70%, 100% { background-position: 0 0; } }
 /* The cut: a dark split opening along the line behind a bright flare head.
@@ -646,7 +646,8 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-sealed.teach .pack-sealed-glint { animation: pack-glint-teach .9s ease-in-out; }
 @keyframes pack-glint-teach { 0% { left: 0; opacity: 0; } 12%, 88% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
 /* The tear-off (tearOpen's 500ms): the strip lifts, tips and flies off past
-   the top; the body keeps a jagged iridescent edge. */
+   the top; the body keeps a jagged gold-to-cream foil edge over the pouch's
+   silver lining and navy inside. */
 .pack-sealed.torn .pack-sealed-strip { animation: pack-strip-off .5s cubic-bezier(.3,.1,.6,1) forwards; }
 @keyframes pack-strip-off { 0% { transform: none; opacity: 1; } 35% { transform: translateY(-3%) rotate(-3deg); opacity: 1; } 100% { transform: translate(-4%, -34%) rotate(-7deg); opacity: 0; } }
 .pack-sealed.torn .pack-sealed-flap { transition: opacity .15s; opacity: 1; }
