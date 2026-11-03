@@ -703,6 +703,9 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
    line below, and the last rule fills over the hold before the round starts. */
 .pack-flip-front { display: flex; flex-direction: column; padding: 12px 14px 14px; transform: rotateY(180deg); visibility: hidden; }
 .pack-flip-slot.flipped .pack-flip-front { visibility: visible; }
+/* The dealt back carries the pack's airmail mark: a gold and cream chevron
+   border along its top edge. */
+.pack-flip-back::before { position: absolute; top: 0; right: 0; left: 0; height: 5px; background: repeating-linear-gradient(-45deg, var(--mail-gold) 0 5px, #fff8e8 5px 10px); content: ''; }
 .pack-flip-slot.flipped .pack-flip-back { visibility: hidden; }
 .pack-clue-stamp { display: grid; place-items: center; }
 .pack-clue-stamp span { font-size: 26px; line-height: 1; }
