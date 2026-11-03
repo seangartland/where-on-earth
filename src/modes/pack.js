@@ -478,9 +478,25 @@ function wireSealedPack(sealed, screen) {
 
   const endOpening = () => {
     if (!opening) return;
+    const { line } = opening;
+    const headingFrom = getComputedStyle(els.heading).opacity;
+    const lineFrom = getComputedStyle(els.line).opacity;
     for (const anim of opening.anims) anim.cancel();
     for (const timer of opening.timers) window.clearTimeout(timer);
     opening = null;
+    // The cards have landed: the line takes its new text, the heading and
+    // line fade back in and the panel eases from its pinned sealed height to
+    // the stack's.
+    els.line.textContent = line;
+    const panel = sealed.parentElement;
+    const pinned = panel.style.minHeight;
+    panel.style.minHeight = '';
+    const settle = [
+      panel.animate([{ minHeight: pinned }, { minHeight: `${panel.offsetHeight}px` }], { duration: 250, easing: 'ease-in-out' }),
+      els.heading.animate([{ opacity: headingFrom }, { opacity: 1 }], { duration: 150, easing: 'ease-out' }),
+      els.line.animate([{ opacity: lineFrom }, { opacity: 1 }], { duration: 150, easing: 'ease-out' }),
+    ];
+    window.setTimeout(() => { for (const anim of settle) anim.cancel(); }, 400);
     window.clearTimeout(openingTimer);
     sealed.hidden = true;
     sealed.classList.remove('torn', 'opening');
@@ -530,8 +546,16 @@ function wireSealedPack(sealed, screen) {
       return;
     }
     const packRect = sealed.getBoundingClientRect();
-    renderPackScreen(false);
     const panel = sealed.parentElement;
+    // The stack is shorter than the sealed pack: pin the panel at its sealed
+    // height so the swap cannot re-center it and drop the header onto the
+    // torn lip (endOpening eases it back). The heading and line fade out as
+    // the rise starts and the line takes its new text while unseen.
+    panel.style.minHeight = `${panel.getBoundingClientRect().height}px`;
+    const sealedLine = els.line.textContent;
+    renderPackScreen(false);
+    const nextLine = els.line.textContent;
+    els.line.textContent = sealedLine;
     sealed.hidden = false;
     sealed.classList.add('opening');
     els.slots.classList.add('is-opening');
@@ -541,7 +565,11 @@ function wireSealedPack(sealed, screen) {
     sealed.style.top = `${packRect.top - panelRect.top - panel.clientTop + panel.scrollTop}px`;
     const tearY = packRect.top + packRect.height * packConfig().tearLine;
     const anims = [sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 450, delay: 700, easing: 'ease-out', fill: 'forwards' })];
-    const timers = [];
+    const HEADER_FADE = 150;
+    for (const el of [els.heading, els.line]) {
+      anims.push(el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: HEADER_FADE, easing: 'ease-out', fill: 'forwards' }));
+    }
+    const timers = [window.setTimeout(() => { els.line.textContent = nextLine; }, HEADER_FADE)];
     const STAGGER = 150;
     const RISE = 380;
     const TURN = 300;
@@ -585,7 +613,7 @@ function wireSealedPack(sealed, screen) {
       anims.push(card.animate(keys, { duration: TOTAL, delay: order * STAGGER, fill: 'both' }));
     });
     timers.push(window.setTimeout(endOpening, TOTAL + (cards.length - 1) * STAGGER + 60));
-    opening = { anims, timers };
+    opening = { anims, timers, line: nextLine };
   };
 
   const tearOpen = () => {
