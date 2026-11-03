@@ -514,8 +514,8 @@ function wireSealedPack(sealed, screen) {
   // nothing of it can show beside the pack; only once it is fully clear of
   // the lip does it move above the wrapper, turn upright (rising as it turns
   // so no corner dips back below the lip), take its fan offset and settle
-  // into the stack where the pack stood. The wrapper fades as the last card
-  // clears.
+  // into the stack where the pack stood. Once the last card clears, the spent
+  // wrapper drops away.
   const finishTear = () => {
     pack.record = readPack();
     let current = currentPack();
@@ -564,7 +564,7 @@ function wireSealedPack(sealed, screen) {
     sealed.style.left = `${packRect.left - panelRect.left - panel.clientLeft + panel.scrollLeft}px`;
     sealed.style.top = `${packRect.top - panelRect.top - panel.clientTop + panel.scrollTop}px`;
     const tearY = packRect.top + packRect.height * packConfig().tearLine;
-    const anims = [sealed.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 450, delay: 700, easing: 'ease-out', fill: 'forwards' })];
+    const anims = [];
     const HEADER_FADE = 150;
     for (const el of [els.heading, els.line]) {
       anims.push(el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: HEADER_FADE, easing: 'ease-out', fill: 'forwards' }));
@@ -612,6 +612,12 @@ function wireSealedPack(sealed, screen) {
       keys.push({ translate: css.translate, rotate: css.rotate, zIndex: 3, transform: 'translate(0px, 0px) rotate(0deg) scale(1)', offset: 1 });
       anims.push(card.animate(keys, { duration: TOTAL, delay: order * STAGGER, fill: 'both' }));
     });
+    // The spent wrapper stays fully opaque until the last card is clear of the
+    // lip (the end of its rise), then drops away under the turning cards.
+    anims.push(sealed.animate(
+      [{ transform: 'none', opacity: 1 }, { opacity: 1, offset: 0.6 }, { transform: 'translateY(40%) rotate(4deg)', opacity: 0 }],
+      { duration: 350, delay: (cards.length - 1) * STAGGER + RISE, easing: 'ease-in', fill: 'forwards' },
+    ));
     timers.push(window.setTimeout(endOpening, TOTAL + (cards.length - 1) * STAGGER + 60));
     opening = { anims, timers, line: nextLine };
   };

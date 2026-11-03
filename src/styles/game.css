@@ -652,7 +652,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-sealed.torn .pack-sealed-flap { transition: opacity .15s; opacity: 1; }
 .pack-sealed.torn .pack-sealed-cut, .pack-sealed.torn .pack-sealed-sheen { transition: opacity .2s; opacity: 0; }
 /* While the stack rises out of it, the torn wrapper lies over the stack's
-   footprint (left and top set by pack.js) until it fades. It layers above
+   footprint (left and top set by pack.js) until it drops away. It layers above
    the stack (z-index 1), so its body below the tear line hides the cards
    still inside. */
 .pack-sealed.opening { position: absolute; z-index: 2; margin: 0; }
