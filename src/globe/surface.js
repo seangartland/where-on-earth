@@ -567,7 +567,7 @@ export const SAT_PROVIDERS = [
     maxZ: 10,
   },
 ];
-export const DEFAULT_SAT_PROVIDER_ID = 's2gm2025-sf1b'; // ?sat=eox2025 / ?sat=s2gm2025 override
+export const DEFAULT_SAT_PROVIDER_ID = 'eox2025'; // sf1b stays opt-in via ?sat=s2gm2025-sf1b until its visible striping is fixed and Sean re-approves (2026-11-03)
 export const tileURL = (provider, z, y, x) => {
   if (provider.region && !provider.region(z, x, y)) provider = SAT_PROVIDERS.find((p) => p.id === provider.fallback);
   return provider.tiles.replace('{z}', z).replace('{x}', x).replace('{y}', y);
