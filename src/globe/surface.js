@@ -555,7 +555,7 @@ export const SAT_PROVIDERS = [
   },
   {
     id: 's2gm2025-sf1b',
-    // Preview only (?sat=s2gm2025-sf1b): the seam-fixed Phase 3 pilot,
+    // The default (Sean, 2026-11-03): the seam-fixed Phase 3 pilot,
     // variant B (eox1-work docs/pilot3-report-2026-10-31.md). Its own tiles
     // only inside the pilot region (src/globe/sf1b-region.js, z4-z9); every
     // other tile, the base and z10 are eox2025's.
@@ -567,7 +567,7 @@ export const SAT_PROVIDERS = [
     maxZ: 10,
   },
 ];
-export const DEFAULT_SAT_PROVIDER_ID = 'eox2025';
+export const DEFAULT_SAT_PROVIDER_ID = 's2gm2025-sf1b'; // ?sat=eox2025 / ?sat=s2gm2025 override
 export const tileURL = (provider, z, y, x) => {
   if (provider.region && !provider.region(z, x, y)) provider = SAT_PROVIDERS.find((p) => p.id === provider.fallback);
   return provider.tiles.replace('{z}', z).replace('{x}', x).replace('{y}', y);

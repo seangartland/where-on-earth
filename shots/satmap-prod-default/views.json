@@ -1,0 +1,8 @@
+[
+  {"name": "a-nigeria-z7", "lat": 7.0, "lon": 9.8, "dist": 1.5, "wantZ": 7},
+  {"name": "b-nigeria-z8", "lat": 10.5, "lon": 6.3, "dist": 1.25, "wantZ": 8},
+  {"name": "c-nigeria-z9", "lat": 6.7, "lon": 6.7, "dist": 1.12, "wantZ": 9},
+  {"name": "d-congo-z7", "lat": -1.4, "lon": 15.5, "dist": 1.5, "wantZ": 7},
+  {"name": "e-europe-z7", "lat": 48.0, "lon": 10.0, "dist": 1.5, "wantZ": 7},
+  {"name": "f-europe-z8", "lat": 46.5, "lon": 8.0, "dist": 1.25, "wantZ": 8}
+]
