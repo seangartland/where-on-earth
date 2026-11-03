@@ -14,6 +14,7 @@ import { DEG, FOV, RESET_DAILY } from '../core/config.js';
 import { clamp, smoothstep } from '../core/math.js';
 import { state } from '../core/state.js';
 import { latLngToVec3, canvas, renderer, camera, globe, pointers, radPerPx } from './scene.js';
+import { inSf1bRegion } from './sf1b-region.js';
 
 let blankTex;
 export let globeMat;
@@ -552,10 +553,25 @@ export const SAT_PROVIDERS = [
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
     maxZ: 9,
   },
+  {
+    id: 's2gm2025-sf1b',
+    // Preview only (?sat=s2gm2025-sf1b): the seam-fixed Phase 3 pilot,
+    // variant B (eox1-work docs/pilot3-report-2026-10-31.md). Its own tiles
+    // only inside the pilot region (src/globe/sf1b-region.js, z4-z9); every
+    // other tile, the base and z10 are eox2025's.
+    tiles: 'https://tiles.where-on.earth/s2gm2025-sf1b/{z}/{x}/{y}.jpg?v=1',
+    region: inSf1bRegion,
+    fallback: 'eox2025',
+    base: './assets/eox-z4-base-4k.jpg',
+    credit: 'Satellite imagery: our own mosaic (pilot region) and EOxCloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)',
+    maxZ: 10,
+  },
 ];
 export const DEFAULT_SAT_PROVIDER_ID = 'eox2025';
-export const tileURL = (provider, z, y, x) => provider.tiles
-  .replace('{z}', z).replace('{x}', x).replace('{y}', y);
+export const tileURL = (provider, z, y, x) => {
+  if (provider.region && !provider.region(z, x, y)) provider = SAT_PROVIDERS.find((p) => p.id === provider.fallback);
+  return provider.tiles.replace('{z}', z).replace('{x}', x).replace('{y}', y);
+};
 export const getSatProvider = () => {
   const id = new URLSearchParams(location.search).get('sat');
   return SAT_PROVIDERS.find((provider) => provider.id === id)
