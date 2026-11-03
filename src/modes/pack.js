@@ -125,10 +125,17 @@ function flipCard(li, index) {
   audio.tick();
   if (navigator.vibrate) navigator.vibrate(8);
   li.classList.add('flipped');
+  els.line.textContent = 'Starting…';
   window.setTimeout(() => {
     flipping = false;
     holdIndex = index;
-    holdTimer = window.setTimeout(() => { holdIndex = -1; startCard(index); }, reducedMotion() ? 0 : CLUE_HOLD_MS);
+    // The face's bottom address rule fills left to right over the hold.
+    const hold = reducedMotion() ? 0 : CLUE_HOLD_MS;
+    if (hold) {
+      li.querySelector('.pack-clue-progress i')?.animate(
+        [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: hold, easing: 'linear', fill: 'forwards' });
+    }
+    holdTimer = window.setTimeout(() => { holdIndex = -1; startCard(index); }, hold);
   }, reducedMotion() ? 0 : 330);
 }
 
@@ -143,7 +150,8 @@ function packSlot(id, result, index) {
   let li;
   if (!result) {
     // Face down until tapped: the flip reveals the clue face only (name,
-    // clue, flag; never the photo), then the round starts. The stack keeps
+    // clue, flag; never the photo), the back's address side filled in, then
+    // the round starts. The stack keeps
     // the order: only its top card takes the tap. Results save per slot.
     li = document.createElement('li');
     li.className = 'pp-slot pack-slot pack-flip-slot';
@@ -178,10 +186,14 @@ function packSlot(id, result, index) {
           </div>
         </div>
         <div class="pack-flip-face pack-flip-front">
-          <p class="pack-clue-name pc-caption-name">${name}</p>
-          <p class="pack-clue-text pc-caption-sub">${sub || 'World capital'}</p>
-          <p class="pack-clue-meta">${flag} ${packConfig().name}</p>
-          <button class="pack-play-card" type="button">Play this card</button>
+          <div class="pc-stamp-row">
+            <div class="pc-stamp pack-clue-stamp"><span>${flag}</span></div>
+          </div>
+          <div class="pc-addr pack-clue-addr">
+            <p class="pack-clue-name pc-caption-name">${name}</p>
+            <p class="pack-clue-text pc-caption-sub">${[sub, packConfig().name].filter(Boolean).join(' · ')}</p>
+            <div class="pc-addr-rule pack-clue-progress"><i></i></div>
+          </div>
         </div>
       </div>`;
     li.tabIndex = 0;
