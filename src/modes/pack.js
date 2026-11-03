@@ -425,7 +425,27 @@ function startCard(index) {
   pack.card = index;
   pack.item = host.findLocation(current.ids[index]);
   pack.active = true;
-  host.showRound();
+  // From the flipped card, the place name flies up into the round header
+  // while the globe fades in (View Transitions). A plain cut where the API
+  // is missing or motion is reduced.
+  const name = els.slots.querySelector('.flipped .pack-clue-name');
+  if (!name || !document.startViewTransition || reducedMotion()) {
+    host.showRound();
+    return;
+  }
+  const root = document.documentElement;
+  const { clue } = host.gameEls;
+  name.style.viewTransitionName = 'pack-place';
+  root.classList.add('pack-vt');
+  const cleanup = () => {
+    clue.style.viewTransitionName = '';
+    root.classList.remove('pack-vt');
+  };
+  document.startViewTransition(() => {
+    name.style.viewTransitionName = '';
+    clue.style.viewTransitionName = 'pack-place';
+    host.showRound();
+  }).finished.then(cleanup, cleanup);
 }
 
 function primaryAction() {

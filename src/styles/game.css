@@ -722,6 +722,10 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-slots.is-stack > .pack-slot { grid-area: 1 / 1; width: min(300px, 77vw); translate: calc(var(--depth) * 7px) calc(var(--depth) * -8px); rotate: calc(var(--depth) * 2deg); }
 .pack-slots.is-stack .pack-flip-face { box-shadow: 0 10px 22px rgba(0,0,0,.45); }
 .pack-slots.is-stack .pack-clue-name { font-size: 24px; }
+/* The card-to-round handoff (pack.js startCard): the place name flies into
+   the round header while the round fades in over the pack screen. */
+html.pack-vt::view-transition-group(pack-place) { animation-duration: .3s; animation-timing-function: cubic-bezier(.3,.7,.3,1); }
+html.pack-vt::view-transition-old(root), html.pack-vt::view-transition-new(root) { animation-duration: .3s; }
 
 @media (max-height: 700px) {
   .expedition-panel.pack-panel { --pack-w: min(211px, 54vw); padding-top: 6px; padding-bottom: 8px; }
