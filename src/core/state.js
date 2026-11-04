@@ -34,6 +34,7 @@ export const state = {
   pendingGuess: null, // { lat, lng } of the placed, unconfirmed pin
   activePin: -1,
   revealViewPreference: 'flyover',
+  packPlacement: true, // Settings: Pack placement animation (default on)
   passport: { visits: {}, order: [], meta: {} },
 
   // Overlay screens built after boot; hideScreens() hides whichever exist.

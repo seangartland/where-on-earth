@@ -591,7 +591,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-stamina-line { display: flex; align-items: center; justify-content: center; gap: 8px; }
 .pack-skip-balance { display: inline-flex; align-items: center; gap: 3px; padding: 3px 7px; border: 1px solid rgba(var(--rgb-gold),.42); border-radius: 999px; background: rgba(5,15,31,.58); }
 .pack-skip-actions { display: flex; justify-content: center; gap: 7px; margin-top: 8px; }
-.pack-skip-actions button { display: inline-flex; align-items: center; gap: 4px; padding: 6px 9px; border: 1px solid rgba(var(--rgb-gold),.48); border-radius: 8px; background: rgba(5,15,31,.72); color: #fff5d4; font: inherit; cursor: pointer; }
+.pack-skip-actions button, .pp-place-skip { display: inline-flex; align-items: center; gap: 4px; padding: 6px 9px; border: 1px solid rgba(var(--rgb-gold),.48); border-radius: 8px; background: rgba(5,15,31,.72); color: #fff5d4; font: inherit; cursor: pointer; }
 .pack-icons { display: inline-flex; gap: 4px; align-items: center; }
 .pack-icons .pk { display: block; }
 .pack-icons .pk-full { filter: drop-shadow(0 0 4px rgba(var(--rgb-gold),.55)); }
@@ -1102,6 +1102,16 @@ body.game-stats #hud { opacity: 0; }
 .pp-pack-head[aria-expanded="true"] .pp-pack-chevron { margin-top: 4px; transform: rotate(225deg); }
 .pp-pack-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 8px; padding: 12px 9px 14px; }
 .pp-pack-grid .pp-slot-photo { aspect-ratio: 3 / 2; }
+/* Pack placement (src/meta/pack-placement.js): a fixed layer over the dex
+   takes every tap. The flying card is the dex slot itself, in a list that
+   carries the dex classes, placed by viewport transforms from its top-left.
+   The Skip button shares the pack's gold-on-dark button rule. */
+.pp-place-layer { position: fixed; inset: 0; z-index: var(--z-modal); touch-action: none; cursor: pointer; }
+.pp-place-flight { position: absolute; inset: 0; display: block; margin: 0; padding: 0; pointer-events: none; }
+.pp-place-flight .pp-place-card { position: absolute; top: 0; left: 0; margin: 0; transform-origin: 0 0; box-shadow: 0 14px 30px rgba(0,0,0,.55), 0 0 0 1px rgba(var(--rgb-gold),.5), inset 0 0 0 1px rgba(101,78,38,.18); opacity: 0; will-change: transform; }
+.pp-dex .pp-place-target { box-sizing: border-box; outline: 2px solid rgba(var(--rgb-gold),.9); outline-offset: 2px; }
+.pp-place-glint { position: absolute; inset: 0; z-index: 3; background: linear-gradient(105deg, transparent 30%, rgba(255,240,196,.75) 48%, rgba(255,255,255,.9) 50%, rgba(255,240,196,.75) 52%, transparent 70%); mix-blend-mode: screen; pointer-events: none; transform: translateX(-110%); }
+.pp-place-skip { position: absolute; right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 18px); padding: 9px 16px; border-radius: 999px; font-size: var(--fs-body); font-weight: 800; touch-action: manipulation; }
 .pp-unvisited { cursor: pointer; }
 .pp-unvisited .pp-slot-photo { display: grid; place-items: center; border: 1px dashed rgba(101,78,38,.4); background: repeating-linear-gradient(135deg, rgba(116,104,84,.09) 0 7px, rgba(145,132,106,.07) 7px 14px), #f3ead7; }
 .pp-unvisited-number { color: rgba(52,72,96,.48); font-size: var(--fs-head); font-weight: 800; letter-spacing: .05em; font-variant-numeric: tabular-nums; }

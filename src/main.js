@@ -6,7 +6,7 @@ import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
 import {
   SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, AUTO_SPIN, RESET_DAILY, STREAK_KEY, HISTORY_KEY, EXPEDITION_KEY,
-  REVEAL_VIEW_KEY, WEIGHTS, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
+  REVEAL_VIEW_KEY, PACK_PLACEMENT_KEY, WEIGHTS, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
 } from './core/config.js';
 import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
 import { storageError, safeSetItem, migrateStorage, readJSON, writeJSON } from './core/storage.js';
@@ -77,7 +77,7 @@ import {
 } from './meta/passport-store.js';
 import {
   initPassportHome, initPassport, syncPassport, passportEntryFor, countryIndex, buildCountryIndex,
-  passportEntry, collectionsEntry, bindPostcard, postcardShareText, passportMysterySlot, openPassport,
+  passportEntry, collectionsEntry, bindPostcard, postcardShareText, passportMysterySlot, openPassport, openPackPlacement,
 } from './meta/passport.js';
 
 if (window.__boot) window.__boot('3D engine loaded');
@@ -174,6 +174,11 @@ try {
   if (savedRevealView === 'flyover' || savedRevealView === 'north-up') state.revealViewPreference = savedRevealView;
 } catch (error) {
   storageError('Read failed', REVEAL_VIEW_KEY, error);
+}
+try {
+  if (localStorage.getItem(PACK_PLACEMENT_KEY) === 'off') state.packPlacement = false;
+} catch (error) {
+  storageError('Read failed', PACK_PLACEMENT_KEY, error);
 }
 
 initAudio();
@@ -317,6 +322,7 @@ const modeHost = {
   triviaHubLine,
   passportEntryFor,
   openPassport,
+  openPackPlacement,
   bindPostcard,
   applyCardTier,
   passportMysterySlot,
@@ -542,6 +548,13 @@ settingsScreen.innerHTML = `
           <button type="button" data-reveal-view="north-up" aria-pressed="false">North-up</button>
         </div>
       </fieldset>
+      <fieldset class="settings-group">
+        <legend>Pack placement animation</legend>
+        <div class="settings-segmented">
+          <button type="button" data-pack-placement="on" aria-pressed="true">On</button>
+          <button type="button" data-pack-placement="off" aria-pressed="false">Off</button>
+        </div>
+      </fieldset>
       ${ACCOUNTS_ENABLED ? `<div class="settings-account">
         <div><strong>Account</strong><small class="settings-account-detail">Save your progress</small></div>
         <button class="settings-account-action" type="button">Sign in</button>
@@ -570,6 +583,7 @@ const settingsEls = {
   danger: settingsScreen.querySelector('.settings-confirm .settings-danger'),
   cancel: settingsScreen.querySelector('.settings-cancel'),
   revealViews: [...settingsScreen.querySelectorAll('[data-reveal-view]')],
+  packPlacement: [...settingsScreen.querySelectorAll('[data-pack-placement]')],
   account: settingsScreen.querySelector('.settings-account'),
   accountDetail: settingsScreen.querySelector('.settings-account-detail'),
   accountAction: settingsScreen.querySelector('.settings-account-action'),
@@ -618,6 +632,19 @@ settingsEls.revealViews.forEach((button) => button.addEventListener('click', () 
   syncRevealViewSetting();
 }));
 syncRevealViewSetting();
+
+function syncPackPlacementSetting() {
+  settingsEls.packPlacement.forEach((button) => {
+    button.setAttribute('aria-pressed', String((button.dataset.packPlacement === 'on') === state.packPlacement));
+  });
+}
+
+settingsEls.packPlacement.forEach((button) => button.addEventListener('click', () => {
+  state.packPlacement = button.dataset.packPlacement === 'on';
+  safeSetItem(PACK_PLACEMENT_KEY, state.packPlacement ? 'on' : 'off');
+  syncPackPlacementSetting();
+}));
+syncPackPlacementSetting();
 
 function openSettings() {
   settingsEls.main.hidden = false;

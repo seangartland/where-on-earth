@@ -1,0 +1,658 @@
+{
+ "viewport": [
+  390,
+  844
+ ],
+ "cards": [
+  {
+   "id": "algiers",
+   "name": "Algiers",
+   "kind": "new",
+   "tier": 1
+  },
+  {
+   "id": "moscow-russia",
+   "name": "Moscow",
+   "kind": "upgrade",
+   "tier": 3
+  },
+  {
+   "id": "nassau-bahamas",
+   "name": "Nassau",
+   "kind": "new",
+   "tier": 1
+  }
+ ],
+ "finish": {
+  "line": "2 new postcards · 1 upgraded",
+  "held": 1
+ },
+ "steps": [
+  {
+   "n": 0,
+   "kind": "appear",
+   "end": 220,
+   "first": {
+    "t": 0,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 153.1,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 226.4,
+     "left": 140.7,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "005",
+    "targetEarn": null
+   },
+   "mid": {
+    "t": 132,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 184.3,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 226.4,
+     "left": 140.7,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "005",
+    "targetEarn": null
+   },
+   "last": {
+    "t": 231,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 185.5,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 226.4,
+     "left": 140.7,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "005",
+    "targetEarn": null
+   }
+  },
+  {
+   "n": 1,
+   "kind": "descend",
+   "end": 320,
+   "first": {
+    "t": 0,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 185.5,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 226.4,
+     "left": 140.7,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "005",
+    "targetEarn": null
+   },
+   "mid": {
+    "t": 165,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 215.6,
+     "left": 129.2,
+     "w": 131.6,
+     "h": 115
+    },
+    "target": {
+     "top": 226.4,
+     "left": 140.7,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "005",
+    "targetEarn": null
+   },
+   "last": {
+    "t": 330,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 226.4,
+     "left": 140.7,
+     "w": 108.7,
+     "h": 95
+    },
+    "target": {
+     "top": 226.4,
+     "left": 140.7,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "005",
+    "targetEarn": null
+   }
+  },
+  {
+   "n": 2,
+   "kind": "land",
+   "end": 240,
+   "first": {
+    "t": 0,
+    "scrollTop": 0,
+    "targetNumber": null,
+    "targetEarn": null
+   },
+   "mid": {
+    "t": 132,
+    "scrollTop": 0,
+    "targetNumber": null,
+    "targetEarn": null
+   },
+   "last": {
+    "t": 264,
+    "scrollTop": 0,
+    "targetNumber": null,
+    "targetEarn": null
+   }
+  },
+  {
+   "n": 3,
+   "kind": "appear",
+   "end": 220,
+   "first": {
+    "t": 0,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 203.9,
+     "left": 121.7,
+     "w": 146.7,
+     "h": 128.2
+    },
+    "target": {
+     "top": 3553.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   },
+   "mid": {
+    "t": 132,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 227.3,
+     "left": 121.7,
+     "w": 146.7,
+     "h": 128.2
+    },
+    "target": {
+     "top": 3553.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   },
+   "last": {
+    "t": 231,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 228.3,
+     "left": 121.7,
+     "w": 146.7,
+     "h": 128.2
+    },
+    "target": {
+     "top": 3553.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   }
+  },
+  {
+   "n": 4,
+   "kind": "scroll",
+   "end": 700,
+   "first": {
+    "t": 0,
+    "scrollTop": 0,
+    "flyer": {
+     "top": 228.3,
+     "left": 121.7,
+     "w": 146.7,
+     "h": 128.2
+    },
+    "target": {
+     "top": 3553.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   },
+   "mid": {
+    "t": 363,
+    "scrollTop": 2012,
+    "flyer": {
+     "top": 228.3,
+     "left": 121.7,
+     "w": 146.7,
+     "h": 128.2
+    },
+    "target": {
+     "top": 1541.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   },
+   "last": {
+    "t": 726,
+    "scrollTop": 3178,
+    "flyer": {
+     "top": 228.3,
+     "left": 121.7,
+     "w": 146.7,
+     "h": 128.2
+    },
+    "target": {
+     "top": 375.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   }
+  },
+  {
+   "n": 5,
+   "kind": "descend",
+   "end": 240,
+   "first": {
+    "t": 0,
+    "scrollTop": 3179,
+    "flyer": {
+     "top": 228.3,
+     "left": 121.7,
+     "w": 146.7,
+     "h": 128.2
+    },
+    "target": {
+     "top": 374.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   },
+   "mid": {
+    "t": 132,
+    "scrollTop": 3179,
+    "flyer": {
+     "top": 343.1,
+     "left": 228.4,
+     "w": 116.8,
+     "h": 102
+    },
+    "target": {
+     "top": 374.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   },
+   "last": {
+    "t": 264,
+    "scrollTop": 3179,
+    "flyer": {
+     "top": 374.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "target": {
+     "top": 374.2,
+     "left": 257.3,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": null,
+    "targetEarn": "near"
+   }
+  },
+  {
+   "n": 6,
+   "kind": "land+stamp+glint",
+   "end": 420,
+   "first": {
+    "t": 0,
+    "scrollTop": 3179,
+    "targetNumber": null,
+    "targetEarn": null
+   },
+   "mid": {
+    "t": 231,
+    "scrollTop": 3179,
+    "targetNumber": null,
+    "targetEarn": null
+   },
+   "last": {
+    "t": 429,
+    "scrollTop": 3179,
+    "targetNumber": null,
+    "targetEarn": null
+   }
+  },
+  {
+   "n": 7,
+   "kind": "appear",
+   "end": 220,
+   "first": {
+    "t": 0,
+    "scrollTop": 3179,
+    "flyer": {
+     "top": 153.1,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 570.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   },
+   "mid": {
+    "t": 132,
+    "scrollTop": 3179,
+    "flyer": {
+     "top": 184.3,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 570.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   },
+   "last": {
+    "t": 231,
+    "scrollTop": 3179,
+    "flyer": {
+     "top": 185.5,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 570.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   }
+  },
+  {
+   "n": 8,
+   "kind": "scroll",
+   "end": 300,
+   "first": {
+    "t": 0,
+    "scrollTop": 3179,
+    "flyer": {
+     "top": 185.5,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 570.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   },
+   "mid": {
+    "t": 165,
+    "scrollTop": 3316,
+    "flyer": {
+     "top": 185.5,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 433.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   },
+   "last": {
+    "t": 330,
+    "scrollTop": 3375,
+    "flyer": {
+     "top": 185.5,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 374.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   }
+  },
+  {
+   "n": 9,
+   "kind": "descend",
+   "end": 320,
+   "first": {
+    "t": 0,
+    "scrollTop": 3375,
+    "flyer": {
+     "top": 185.5,
+     "left": 97.2,
+     "w": 195.6,
+     "h": 170.9
+    },
+    "target": {
+     "top": 374.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   },
+   "mid": {
+    "t": 165,
+    "scrollTop": 3375,
+    "flyer": {
+     "top": 324.7,
+     "left": 43.3,
+     "w": 131.6,
+     "h": 115
+    },
+    "target": {
+     "top": 374.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   },
+   "last": {
+    "t": 330,
+    "scrollTop": 3375,
+    "flyer": {
+     "top": 374.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "target": {
+     "top": 374.5,
+     "left": 24,
+     "w": 108.7,
+     "h": 95
+    },
+    "targetNumber": "121",
+    "targetEarn": null
+   }
+  },
+  {
+   "n": 10,
+   "kind": "land",
+   "end": 240,
+   "first": {
+    "t": 0,
+    "scrollTop": 3375,
+    "targetNumber": null,
+    "targetEarn": null
+   },
+   "mid": {
+    "t": 132,
+    "scrollTop": 3375,
+    "targetNumber": null,
+    "targetEarn": null
+   },
+   "last": {
+    "t": 264,
+    "scrollTop": 3375,
+    "targetNumber": null,
+    "targetEarn": null
+   }
+  }
+ ],
+ "violations": [],
+ "placed": {
+  "passportOpen": true,
+  "layerGone": true,
+  "open": [
+   {
+    "name": "Capitals3 / 200",
+    "expanded": "true"
+   },
+   {
+    "name": "Landmarks0 / 200",
+    "expanded": "false"
+   },
+   {
+    "name": "Landforms0 / 200",
+    "expanded": "false"
+   },
+   {
+    "name": "✉Daily & Expeditions0 collected",
+    "expanded": "false"
+   }
+  ],
+  "slots": [
+   {
+    "name": "Algiers",
+    "found": true,
+    "earn": "near",
+    "stamp": "ordinary",
+    "index": 5
+   },
+   {
+    "name": "Moscow",
+    "found": true,
+    "earn": "pinpoint",
+    "stamp": "pinpoint",
+    "index": 117
+   },
+   {
+    "name": "Nassau",
+    "found": true,
+    "earn": "near",
+    "stamp": "ordinary",
+    "index": 121
+   }
+  ]
+ },
+ "errs1": [],
+ "settingStored": "off",
+ "settingAfterReload": {
+  "on": "false",
+  "off": "true"
+ },
+ "off": {
+  "cards": [
+   "new",
+   "upgrade",
+   "new"
+  ],
+  "passportOpen": false,
+  "layer": false,
+  "packScreen": true,
+  "line": "2 new postcards · 1 upgraded",
+  "primary": true
+ },
+ "errs2": [],
+ "tapSkip": {
+  "ms": 319,
+  "errs": [],
+  "placed": [
+   "near",
+   "near",
+   "pinpoint"
+  ],
+  "leftovers": 0
+ },
+ "reduced": {
+  "ms": 55,
+  "errs": [],
+  "placed": [
+   "near",
+   "near",
+   "pinpoint"
+  ],
+  "leftovers": 0
+ }
+}

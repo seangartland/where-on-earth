@@ -13,6 +13,7 @@ import { currentStreak } from './stats.js';
 import { buildPostcardCard, postcardDisplayName } from './postcard-card.js';
 import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
 import { PASSPORT_PACKS, passportPackSections, packCardNumberMap, formatPackCardNumber } from './passport-packs.js';
+import { playPackPlacement } from './pack-placement.js';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
@@ -577,8 +578,10 @@ function applyPassportFilters(dex) {
 
 // Builds the pack dex from the same pool helpers as the pack screen. Pack
 // members render once in their pack; visited non-members go in the final,
-// collected-only section.
-function renderPassportPage() {
+// collected-only section. `held` (pack placement only) maps card ids to the
+// state they render in until their card lands: a new card's empty numbered
+// slot, or an upgrade's slot at its old tier.
+function renderPassportPage(held = null) {
   if (!countryIndex) buildCountryIndex();
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
   const data = passportPackSections(host.locations, host.landmarks || [], host.passport.visits, host.passport.meta);
@@ -606,6 +609,13 @@ function renderPassportPage() {
     grid.append(...items.map((item) => {
       const entry = buildPassportEntry(item, age);
       const cardNumber = packSection ? cardNumbers.get(item.id)?.number ?? null : null;
+      const before = packSection ? held?.get(item.id) : null;
+      if (before) {
+        before.build = () => passportSlot(buildPassportEntry(item, age));
+        before.slot = before.kind === 'new' ? passportUnvisitedSlot(entry, name, cardNumber)
+          : passportSlot({ ...entry, earned: before.fromTier });
+        return before.slot;
+      }
       return entry.visited ? passportSlot(entry, cardNumber) : passportUnvisitedSlot(entry, name, cardNumber);
     }));
     const apply = (open) => {
@@ -646,16 +656,44 @@ function hasRealPhoto(item) {
 
 let passportReturn = null;
 
-export function openPassport(returnTo = passportReturn) {
+export function openPassport(returnTo = passportReturn, held = null) {
   passportReturn = typeof returnTo === 'function' ? returnTo : null;
   ppShelf.accordion.clear(); // every group starts collapsed on each open (Sean, 2026-10-22)
-  renderPassportPage();
+  renderPassportPage(held);
   host.gameEls.start.hidden = true;
   passportScreen.hidden = false;
   document.body.className = 'game-passport';
   window.__canGuess = false;
   passportScreen.scrollTop = 0;
   ppEls.close.focus();
+}
+
+// The tier an upgraded card held before its pack round: the highest tier
+// first earned before the new one (meta.eb1 to eb3 are first-earn times; a
+// round that jumps tiers stamps them all at once). Read-only, no new data.
+function tierBefore(id, tier) {
+  const meta = host.passport.meta[id] || {};
+  const at = meta[`eb${tier}`];
+  for (let t = tier - 1; t >= 1; t--) {
+    const when = meta[`eb${t}`];
+    if (Number.isFinite(when) && !(when >= at)) return t;
+  }
+  return Math.max(1, tier - 1);
+}
+
+// Pack placement (src/meta/pack-placement.js): the Passport opens on the
+// pack's dex with only that pack expanded, and each new or upgraded card
+// ({ id, kind, tier }) is placed into its numbered slot in slot order.
+export function openPackPlacement(type, cards, returnTo) {
+  const numbers = packCardNumberMap(host.locations, host.landmarks || []);
+  const steps = cards
+    .filter((card) => numbers.get(card.id)?.pack === type)
+    .map((card) => ({ id: card.id, kind: card.kind, number: numbers.get(card.id).number, fromTier: card.kind === 'upgrade' ? tierBefore(card.id, card.tier) : 0 }))
+    .sort((a, b) => a.number - b.number);
+  if (!steps.length) { openPassport(returnTo); return; }
+  for (const pack of [...PASSPORT_PACKS, { type: 'everything-else' }]) ppPackOpen.set(pack.type, pack.type === type);
+  openPassport(returnTo, new Map(steps.map((step) => [step.id, step])));
+  playPackPlacement({ scroller: passportScreen, steps, onEnd: () => ppEls.close.focus({ preventScroll: true }) });
 }
 
 function closePassport(refocus = true) {
@@ -982,9 +1020,18 @@ function fillPostcard(entry) {
   });
   ppdEls.history.hidden = !ppdEls.history.childElementCount;
 
-  // Stat strip: best km and earned tier. The store keeps no source mode, so none is shown.
+  // Stat strip: the closest guess headlines it (thumbnail tier review,
+  // 2026-11-03). The history column cannot grow inside the fixed-height card,
+  // so the headline lives here at full card width. The store keeps no source
+  // mode, so none is shown.
   ppdEls.stats.replaceChildren();
-  if (entry.earned) {
+  ppdEls.stats.dataset.tier = earn;
+  if (entry.earned && Number.isFinite(entry.km) && entry.first) {
+    ppdEls.stats.append(Object.assign(document.createElement('span'), { className: 'ppd-closest-label', textContent: 'Closest guess' }));
+    ppdEls.stats.append(Object.assign(document.createElement('b'), { className: 'ppd-closest-num', textContent: formatShareKm(entry.km) }));
+    ppdEls.stats.append(Object.assign(document.createElement('span'), { textContent: '·' }));
+    ppdEls.stats.append(Object.assign(document.createElement('b'), { textContent: tierTitle(earn) }));
+  } else if (entry.earned) {
     const parts = [];
     if (Number.isFinite(entry.km)) parts.push(['ppd-stat-num', formatShareKm(entry.km)]);
     parts.push(['', tierTitle(earn)]);

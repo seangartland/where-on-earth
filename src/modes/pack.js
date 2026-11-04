@@ -31,6 +31,7 @@ let holdTimer = 0;
 let landingCard = -1;
 let landingKind = null;
 let landingTier = 0;
+let placeTimer = 0;
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const plural = (count, word) => `${count} ${word}${count === 1 ? '' : 's'}`;
@@ -240,6 +241,35 @@ function packSlot(id, result, index) {
   return li;
 }
 
+// Pack placement (src/meta/pack-placement.js): once the last card has
+// stamped in and the summary has had a moment to read, the new and upgraded
+// cards go into their Passport slots. Only right after the last card lands
+// (reopening a finished pack does not replay it), only with the setting on,
+// and the Passport button stays as it was for repeat and visited-only packs.
+const PLACE_DELAY = 1600;
+function packPlacements(current) {
+  return current.ids
+    .map((id, i) => ({ id, kind: current.results[i]?.postcard?.kind, tier: current.results[i]?.postcard?.tier || 0 }))
+    .filter((card) => card.kind === 'new' || card.kind === 'upgrade');
+}
+function cancelPlacement() {
+  window.clearTimeout(placeTimer);
+  placeTimer = 0;
+}
+function schedulePlacement(current) {
+  cancelPlacement();
+  if (!state.packPlacement) return;
+  const cards = packPlacements(current);
+  if (!cards.length) return;
+  const type = pack.type;
+  placeTimer = window.setTimeout(() => {
+    placeTimer = 0;
+    // Still on this pack's finish screen: not left for the Passport or home.
+    if (els.screen.hidden || !els.select.hidden || pack.type !== type || !document.body.classList.contains('game-results')) return;
+    host.openPackPlacement(type, cards, showPackSelect);
+  }, PLACE_DELAY);
+}
+
 function doneLine({ counts }) {
   const parts = [
     counts.new && plural(counts.new, 'new postcard'),
@@ -251,6 +281,7 @@ function doneLine({ counts }) {
 }
 
 export function showPackSelect() {
+  cancelPlacement();
   pack.active = false;
   host.clearReveal();
   host.hideScreens();
@@ -364,6 +395,7 @@ function renderPackScreen(deal = false) {
       });
     }
     if (landingCard >= 0) {
+      if (done) schedulePlacement(current);
       // Mid-pack the stack slides back in with the cards still to play; on
       // the last card the played card stamps into its slot.
       const li = stackNow ? els.slots : els.slots.children[landingCard];

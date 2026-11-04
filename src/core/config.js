@@ -32,6 +32,7 @@ export const PASSPORT_KEY = 'where-on-earth-passport-v1';
 export const MUTE_KEY = 'where-on-earth-muted';
 export const EXPEDITION_KEY = 'where-on-earth-expedition-v1';
 export const REVEAL_VIEW_KEY = 'where-on-earth-reveal-view';
+export const PACK_PLACEMENT_KEY = 'where-on-earth-pack-placement';
 export const WEEKLY_KEY = 'where-on-earth-weekly-v1';
 export const ACCOUNT_KEY = 'where-on-earth-account-v1';
 export const SYNC_QUEUE_KEY = 'where-on-earth-sync-queue-v1';
