@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinpoint options (mock)</title>
+<link rel="stylesheet" href="../../src/styles/game.css">
+<style>
+  body { background: #0c1425; margin: 0; font-family: system-ui, sans-serif; }
+  .wrap { width: 390px; margin: 0 auto; padding: 10px 8px 20px; box-sizing: border-box; }
+  .cap { color: #e8edf7; font-size: 14px; font-weight: 700; margin: 18px 2px 2px; }
+  .cap small { display: block; color: #9fb0cc; font-size: 12px; font-weight: 500; margin-top: 2px; line-height: 1.45; }
+  .cap:first-child { margin-top: 2px; }
+  /* Presentation geometry only (matches the measured 390px dex: slot 108.7px, photo 98.7x67.8). Treatments below are the only design changes. */
+  .pp-dex { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px 7px; padding: 6px 2px; }
+  .pp-dex .pp-slot-photo { aspect-ratio: 98.7 / 67.8; }
+  .pp-dex .pp-slot-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Option A: gold seal. The km stamp circle on a pinpoint becomes a solid gold seal with a star, no numbers. */
+  .opt-a .pp-slot[data-earn="pinpoint"] .pp-slot-score {
+    width: 26px; height: 26px; font-size: 13px;
+    background: radial-gradient(circle at 35% 30%, #f4e2ac, #b27c20 70%);
+    border-color: #8a5f16; outline-color: #8a5f16; color: #fff8e6;
+    text-shadow: 0 1px 1px rgba(90,60,0,.55);
+  }
+  .opt-a .pp-slot[data-earn="pinpoint"] .pp-slot-score::after { border-color: rgba(255,248,230,.7); }
+
+  /* Option B: gold card. The whole pinpoint tile turns pale gold; no stamp at all. */
+  .opt-b .pp-slot[data-earn="pinpoint"] {
+    background: linear-gradient(165deg, #f9ecc4, #eed086 75%);
+    box-shadow: 0 2px 8px rgba(178,124,32,.45), inset 0 0 0 1px rgba(146,102,32,.5);
+  }
+  .opt-b .pp-slot[data-earn="pinpoint"] .pp-slot-photo {
+    border-width: 4px;
+    box-shadow: 0 0 0 1px rgba(146,102,32,.6), 0 1px 3px rgba(101,78,38,.3), inset 0 0 8px rgba(90,70,30,.16);
+  }
+  .opt-b .pp-slot[data-earn="pinpoint"] .pp-slot-name { color: #6b4d12; font-weight: 800; }
+
+  /* Option C: postmark. A gold postmark ring lands on the photo corner; no stamp circle. */
+  .opt-c .pp-slot[data-earn="pinpoint"] .pp-slot-photo { overflow: visible; }
+  .opt-c .postmark {
+    position: absolute; z-index: 3; left: -7px; bottom: -9px; width: 40px; height: 40px;
+    border: 2px solid rgba(178,124,32,.92); border-radius: 50%;
+    display: grid; place-items: center; transform: rotate(-12deg);
+    color: #b27c20; background: rgba(250,243,225,.28);
+    font-size: 15px; line-height: 1; pointer-events: none;
+  }
+  .opt-c .postmark::after {
+    content: ''; position: absolute; inset: 3px; border: 1.2px solid rgba(178,124,32,.75); border-radius: 50%;
+  }
+  .opt-c .postmark i {
+    font-style: normal; font-size: 5.5px; font-weight: 800; letter-spacing: .08em;
+    position: absolute; bottom: 6px; left: 0; right: 0; text-align: center;
+  }
+  .opt-c .postmark b { transform: translateY(-3px); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap"></div>
+<script>
+  const CITIES = {
+    near:     { img: 'img/lisbon.jpg', name: 'Lisbon', earn: 'near', tier: 'ordinary' },
+    bullseye: { img: 'img/paris.jpg',  name: 'Paris',  earn: 'bullseye', tier: 'bullseye', km: '38<br>km' },
+    pinpoint: { img: 'img/tokyo.jpg',  name: 'Tokyo',  earn: 'pinpoint', tier: 'pinpoint', km: '3<br>km' },
+    pinpoint2:{ img: 'img/kyiv.jpg',   name: 'Kyiv',   earn: 'pinpoint', tier: 'pinpoint', km: '7<br>km' },
+    seen:     { img: 'img/rome.jpg',   name: 'Rome',   earn: 'seen', tier: 'ordinary', km: '812<br>km', gray: true },
+  };
+  function slot(c, { stamp = true, postmark = false, seal = false } = {}) {
+    const li = document.createElement('li');
+    li.className = 'pp-slot'; li.dataset.earn = c.earn;
+    const photo = document.createElement('div'); photo.className = 'pp-slot-photo';
+    const img = document.createElement('img'); img.src = c.img; img.alt = '';
+    if (c.gray) img.style.filter = 'grayscale(1) contrast(.92) brightness(.82)';
+    photo.append(img);
+    if (stamp && c.km) {
+      const s = document.createElement('span');
+      s.className = 'pp-slot-score'; s.dataset.tier = c.tier; s.innerHTML = seal ? '★' : c.km;
+      photo.append(s);
+    }
+    if (postmark) {
+      const pm = document.createElement('span');
+      pm.className = 'postmark'; pm.innerHTML = '<b>★</b><i>PINPOINT</i>';
+      photo.append(pm);
+    }
+    const name = document.createElement('p');
+    name.className = 'pp-slot-name'; name.textContent = c.name;
+    li.append(photo, name);
+    return li;
+  }
+  function unvisited(num) {
+    const li = document.createElement('li');
+    li.className = 'pp-slot pp-unvisited';
+    li.innerHTML = `<div class="pp-slot-photo"><span class="pp-unvisited-number">${num}</span></div><p class="pp-unvisited-note">Capitals pack · Not yet collected</p>`;
+    return li;
+  }
+  function block(cls, title, sub, rows) {
+    const sec = document.createElement('section'); sec.className = cls;
+    sec.innerHTML = `<p class="cap">${title}<small>${sub}</small></p>`;
+    for (const row of rows) {
+      const ul = document.createElement('ul'); ul.className = 'pp-dex';
+      row.forEach(n => ul.append(n));
+      sec.append(ul);
+    }
+    return sec;
+  }
+  const wrap = document.getElementById('wrap');
+  // Control: exactly what is live now (km stamp on every visited slot).
+  wrap.append(block('opt-now', 'Now (live)',
+    'Km stamp on every collected slot. Pinpoint = foil border, cream ring, solid gold stamp.',
+    [[slot(CITIES.near), slot(CITIES.bullseye), slot(CITIES.pinpoint)],
+     [slot(CITIES.seen), unvisited('042'), slot(CITIES.pinpoint2)]]));
+  // Shared rule for A/B/C: collected slots carry no km stamp. Seen (not collected) keeps its km stamp.
+  wrap.append(block('opt-a', 'Option A: gold seal',
+    'Pinpoint keeps its rings and the stamp circle becomes a solid gold seal with a star. No numbers on collected slots.',
+    [[slot(CITIES.near, { stamp: false }), slot(CITIES.bullseye, { stamp: false }), slot(CITIES.pinpoint, { seal: true })],
+     [slot(CITIES.seen), unvisited('042'), slot(CITIES.pinpoint2, { seal: true })]]));
+  wrap.append(block('opt-b', 'Option B: gold card',
+    'The whole pinpoint tile turns pale gold with a thicker foil frame. It reads from across the grid. No stamp.',
+    [[slot(CITIES.near, { stamp: false }), slot(CITIES.bullseye, { stamp: false }), slot(CITIES.pinpoint, { stamp: false })],
+     [slot(CITIES.seen), unvisited('042'), slot(CITIES.pinpoint2, { stamp: false })]]));
+  wrap.append(block('opt-c', 'Option C: postmark',
+    'A gold postmark ring lands on the photo corner, stamped like mail. No stamp circle.',
+    [[slot(CITIES.near, { stamp: false }), slot(CITIES.bullseye, { stamp: false }), slot(CITIES.pinpoint, { stamp: false, postmark: true })],
+     [slot(CITIES.seen), unvisited('042'), slot(CITIES.pinpoint2, { stamp: false, postmark: true })]]));
+</script>
+</body>
+</html>
