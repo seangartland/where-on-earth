@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import pathlib
+import sqlite3
 import subprocess
 import sys
 import time
@@ -79,11 +80,30 @@ def query(sql, params=None):
                    {"sql": sql, "params": params or []})["result"]
 
 
+def split_statements(sql_text):
+    # Accumulate lines until sqlite3's own parser says the buffer holds a
+    # complete statement. A naive split on ";" breaks on semicolons inside
+    # comments and string literals (migration 0002 has one in a comment).
+    statements = []
+    buffer = ""
+    for line in sql_text.splitlines(keepends=True):
+        buffer += line
+        if sqlite3.complete_statement(buffer):
+            statements.append(buffer.strip())
+            buffer = ""
+    if buffer.strip():
+        statements.append(buffer.strip())
+
+    def has_sql(statement):
+        return any(line.strip() and not line.strip().startswith("--")
+                   for line in statement.splitlines())
+
+    return [statement for statement in statements if has_sql(statement)]
+
+
 def apply_migrations():
     for path in sorted((ROOT / "migrations").glob("*.sql")):
-        def has_sql(part):
-            return any(line.strip() and not line.strip().startswith("--") for line in part.splitlines())
-        statements = [part.strip() for part in path.read_text().split(";") if part.strip() and has_sql(part)]
+        statements = split_statements(path.read_text())
         for statement in statements:
             query(statement)
         print(f"applied {path.name}: {len(statements)} statements")
