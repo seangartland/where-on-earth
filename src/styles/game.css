@@ -942,6 +942,12 @@ body.game-stats #hud { opacity: 0; }
 .pp-dex .pp-slot[data-earn="seen"] .pp-slot-name { color: #526071; }
 .pp-dex .pp-slot.is-mystery .pp-slot-photo { border-color: #fffdf6; }
 .pp-dex .pp-slot.is-mystery .pp-slot-name { color: rgba(34,53,92,.55); }
+/* Tier frames (thumbnail tier review, 2026-11-03): the stamp's 7px number cannot carry the tier at dex size, so the photo window's frame does. Near keeps the plain paper-white border; bullseye frames the photo in the pack's satin gold foil; pinpoint adds a second gold rule outside a cream gap and fills its stamp solid gold. */
+.pp-dex .pp-slot[data-earn="bullseye"] .pp-slot-photo, .pp-dex .pp-slot[data-earn="pinpoint"] .pp-slot-photo { border-image: linear-gradient(155deg, #efd38a, #b27c20 38%, #f4e2ac 62%, #96690f) 1; }
+.pp-dex .pp-slot[data-earn="bullseye"] .pp-slot-photo { box-shadow: 0 0 0 1px rgba(146,102,32,.5), 0 1px 3px rgba(101,78,38,.25), inset 0 0 8px rgba(90,70,30,.16); }
+.pp-dex .pp-slot[data-earn="pinpoint"] .pp-slot-photo { box-shadow: 0 0 0 1px rgba(146,102,32,.55), 0 0 0 3px #faf3e1, 0 0 0 4px rgba(178,124,32,.85), 0 1px 3px rgba(101,78,38,.25), inset 0 0 8px rgba(90,70,30,.16); }
+.pp-dex .pp-slot[data-earn="pinpoint"] .pp-slot-score { border-color: #8a5f16; background: #b27c20; outline-color: #8a5f16; color: #fdf6e0; }
+.pp-dex .pp-slot[data-earn="pinpoint"] .pp-slot-score::after { border-color: rgba(253,246,224,.65); }
 .pp-dex .pps-flag { inset: 4px; border: 1.5px dashed rgba(101,78,38,.4); background: rgba(44,74,124,.05); filter: drop-shadow(0 2px 4px rgba(0,0,0,.18)); }
 
 /* ---------------------------------------------------------------------------
@@ -1194,6 +1200,10 @@ body.game-collections #hud { opacity: 0; }
 .ppd-history-row span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ppd-history-row strong { flex: none; color: var(--mail-ink); font-weight: 750; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
 .ppd-history[hidden] { display: none; }
+.ppd-stats { align-items: baseline; }
+.ppd-closest-label { color: rgba(101,78,38,.85); font-size: 8.5px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.ppd-closest-num { font-family: 'Oswald', 'Arial Narrow', sans-serif; font-size: 19px; font-weight: 700; letter-spacing: .02em; color: var(--mail-ink); font-variant-numeric: tabular-nums; }
+.ppd-stats[data-tier="bullseye"] .ppd-closest-num, .ppd-stats[data-tier="pinpoint"] .ppd-closest-num { color: #b27c20; }
 .ppd-stats b { color: var(--mail-ink); font-weight: 800; }
 .ppd-stat-num { font-variant-numeric: tabular-nums; }
 .ppd-uncollected { color: var(--mail-ink-2); font-size: var(--fs-micro); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }

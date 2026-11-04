@@ -102,3 +102,17 @@ Tier data, thresholds (EARN_NEAR / EARN_BULLSEYE / EARN_PINPOINT), the dex
 grid layout, slot numbering, and the seen-to-near color step are all fine as
 they are. The work is: photo-border materials for tiers 2 and 3, the pinpoint
 stamp ground, and the postcard back's stats hierarchy. No data migration.
+
+## As built (2026-11-03, Muse Wonder, pulled forward off the Opus queue)
+
+Shipped in the tree the same night: bullseye photo borders use the satin
+gold foil gradient, pinpoint adds the outer cream-and-gold double rule and a
+solid gold stamp, and the postcard back's stat strip now headlines the
+closest guess (label, 19px Oswald number, tier; gold at bullseye and
+pinpoint). One placement change from the recommendation above: the headline
+sits in the back's bottom stat strip at full card width, not at the top of
+the history list. The history column cannot grow inside the fixed-height
+card; the first build put it there and the history rows overflowed the
+card's bottom edge, verified on a 390px capture and corrected before
+committing. Verified: suite 97/97, both node --check forms, 390px captures
+of the seeded dex and the pinpoint back read by the reviewer.

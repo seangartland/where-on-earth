@@ -1,0 +1,262 @@
+{
+  "seeds": [
+    {
+      "id": "abu-dhabi-ae",
+      "short": "Abu Dhabi",
+      "state": "seen",
+      "e": 0,
+      "d": 420
+    },
+    {
+      "id": "addis-ababa-ethiopia",
+      "short": "Addis Ababa",
+      "state": "near",
+      "e": 1,
+      "d": 87
+    },
+    {
+      "id": "amsterdam-netherlands",
+      "short": "Amsterdam",
+      "state": "bullseye",
+      "e": 2,
+      "d": 12
+    },
+    {
+      "id": "apia-samoa",
+      "short": "Apia",
+      "state": "pinpoint",
+      "e": 3,
+      "d": 2.4
+    },
+    {
+      "id": "asuncion-py",
+      "short": "Asunción",
+      "state": "seen",
+      "e": 0,
+      "d": 1260
+    },
+    {
+      "id": "baku",
+      "short": "Baku",
+      "state": "near",
+      "e": 1,
+      "d": 141
+    },
+    {
+      "id": "bangui-cf",
+      "short": "Bangui",
+      "state": "bullseye",
+      "e": 2,
+      "d": 21
+    },
+    {
+      "id": "belfast",
+      "short": "Belfast",
+      "state": "pinpoint",
+      "e": 3,
+      "d": 0.6
+    }
+  ],
+  "measure": [
+    {
+      "name": "Abu Dhabi",
+      "state": "seen",
+      "km": 420,
+      "classes": "pp-slot",
+      "dataEarn": "seen",
+      "slot": "108.7x95",
+      "photo": "98.7x67.8",
+      "slotBorder": "0px none rgb(207, 230, 255)",
+      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
+      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "imgFilter": "grayscale(1) contrast(0.92) brightness(0.82)",
+      "stamp": {
+        "text": "420km",
+        "tier": "ordinary",
+        "box": "28.1x28.1",
+        "fontSize": "7px",
+        "fontWeight": "800",
+        "color": "rgba(90, 90, 90, 0.8)",
+        "border": "rgba(90, 90, 90, 0.55)",
+        "bg": "rgba(245, 242, 235, 0.9)",
+        "textBox": "14.8x19"
+      }
+    },
+    {
+      "name": "Addis Ababa",
+      "state": "near",
+      "km": 87,
+      "classes": "pp-slot prox-postcard",
+      "dataEarn": "near",
+      "slot": "108.7x95",
+      "photo": "98.7x67.8",
+      "slotBorder": "0px none rgb(207, 230, 255)",
+      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
+      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "imgFilter": "none",
+      "stamp": {
+        "text": "87km",
+        "tier": "ordinary",
+        "box": "28.1x28.1",
+        "fontSize": "7px",
+        "fontWeight": "800",
+        "color": "rgba(90, 90, 90, 0.8)",
+        "border": "rgba(90, 90, 90, 0.55)",
+        "bg": "rgba(245, 242, 235, 0.9)",
+        "textBox": "12.9x18.6"
+      }
+    },
+    {
+      "name": "Amsterdam",
+      "state": "bullseye",
+      "km": 12,
+      "classes": "pp-slot prox-bullseye",
+      "dataEarn": "bullseye",
+      "slot": "108.7x95",
+      "photo": "98.7x67.8",
+      "slotBorder": "0px none rgb(207, 230, 255)",
+      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
+      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "imgFilter": "none",
+      "stamp": {
+        "text": "12km",
+        "tier": "bullseye",
+        "box": "28.1x28.1",
+        "fontSize": "7px",
+        "fontWeight": "800",
+        "color": "rgb(178, 124, 32)",
+        "border": "rgb(178, 124, 32)",
+        "bg": "rgba(250, 243, 225, 0.9)",
+        "textBox": "12.9x18.6"
+      }
+    },
+    {
+      "name": "Apia",
+      "state": "pinpoint",
+      "km": 2.4,
+      "classes": "pp-slot prox-pinpoint",
+      "dataEarn": "pinpoint",
+      "slot": "108.7x95",
+      "photo": "98.7x67.8",
+      "slotBorder": "0px none rgb(207, 230, 255)",
+      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
+      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "imgFilter": "none",
+      "stamp": {
+        "text": "2km",
+        "tier": "pinpoint",
+        "box": "28.1x28.1",
+        "fontSize": "7px",
+        "fontWeight": "800",
+        "color": "rgb(253, 246, 224)",
+        "border": "rgb(138, 95, 22)",
+        "bg": "rgb(178, 124, 32)",
+        "textBox": "12.9x18.2"
+      }
+    },
+    {
+      "name": "Asunción",
+      "state": "seen",
+      "km": 1260,
+      "classes": "pp-slot",
+      "dataEarn": "seen",
+      "slot": "108.7x95",
+      "photo": "98.7x67.8",
+      "slotBorder": "0px none rgb(207, 230, 255)",
+      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
+      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "imgFilter": "grayscale(1) contrast(0.92) brightness(0.82)",
+      "stamp": {
+        "text": "1.3kkm",
+        "tier": "ordinary",
+        "box": "28.1x28.1",
+        "fontSize": "7px",
+        "fontWeight": "800",
+        "color": "rgba(90, 90, 90, 0.8)",
+        "border": "rgba(90, 90, 90, 0.55)",
+        "bg": "rgba(245, 242, 235, 0.9)",
+        "textBox": "16x19.2"
+      }
+    },
+    {
+      "name": "Baku",
+      "state": "near",
+      "km": 141,
+      "classes": "pp-slot prox-postcard",
+      "dataEarn": "near",
+      "slot": "108.7x95",
+      "photo": "98.7x67.8",
+      "slotBorder": "0px none rgb(207, 230, 255)",
+      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
+      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "imgFilter": "none",
+      "stamp": {
+        "text": "141km",
+        "tier": "ordinary",
+        "box": "28.1x28.1",
+        "fontSize": "7px",
+        "fontWeight": "800",
+        "color": "rgba(90, 90, 90, 0.8)",
+        "border": "rgba(90, 90, 90, 0.55)",
+        "bg": "rgba(245, 242, 235, 0.9)",
+        "textBox": "14.8x19"
+      }
+    },
+    {
+      "name": "Bangui",
+      "state": "bullseye",
+      "km": 21,
+      "classes": "pp-slot prox-bullseye",
+      "dataEarn": "bullseye",
+      "slot": "108.7x95",
+      "photo": "98.7x67.8",
+      "slotBorder": "0px none rgb(207, 230, 255)",
+      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
+      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "imgFilter": "none",
+      "stamp": {
+        "text": "21km",
+        "tier": "bullseye",
+        "box": "28.1x28.1",
+        "fontSize": "7px",
+        "fontWeight": "800",
+        "color": "rgb(178, 124, 32)",
+        "border": "rgb(178, 124, 32)",
+        "bg": "rgba(250, 243, 225, 0.9)",
+        "textBox": "12.9x18.6"
+      }
+    },
+    {
+      "name": "Belfast",
+      "state": "pinpoint",
+      "km": 0.6,
+      "classes": "pp-slot prox-pinpoint",
+      "dataEarn": "pinpoint",
+      "slot": "108.7x95",
+      "photo": "98.7x67.8",
+      "slotBorder": "0px none rgb(207, 230, 255)",
+      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
+      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "imgFilter": "none",
+      "stamp": {
+        "text": "1km",
+        "tier": "pinpoint",
+        "box": "28.1x28.1",
+        "fontSize": "7px",
+        "fontWeight": "800",
+        "color": "rgb(253, 246, 224)",
+        "border": "rgb(138, 95, 22)",
+        "bg": "rgb(178, 124, 32)",
+        "textBox": "12.9x18.2"
+      }
+    }
+  ]
+}
