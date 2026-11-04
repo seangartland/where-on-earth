@@ -555,7 +555,7 @@ export const SAT_PROVIDERS = [
   },
   {
     id: 's2gm2025-sf1b',
-    // The default (Sean, 2026-11-03): the seam-fixed Phase 3 pilot,
+    // Opt-in via ?sat=s2gm2025-sf1b: the seam-fixed Phase 3 pilot,
     // variant B (eox1-work docs/pilot3-report-2026-10-31.md). Its own tiles
     // only inside the pilot region (src/globe/sf1b-region.js, z4-z9); every
     // other tile, the base and z10 are eox2025's.
