@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Postcard front tier options</title>
+<style>
+  :root { --mail-ink:#22355c; --fs-micro:10px; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; background:#11141c; color:#e6e8ee; }
+  .opt { padding: 14px 8px 20px; border-bottom: 2px solid #2a3040; }
+  .opt h2 { margin: 0 4px 4px; font-size: 15px; letter-spacing:.02em; }
+  .opt p.sub { margin: 0 4px 12px; font-size: 12px; color: rgba(230,232,238,.6); line-height:1.45; }
+  .tier-label { margin: 12px 4px 5px; font-size: 10px; font-weight: 800; letter-spacing:.14em; text-transform: uppercase; color: rgba(230,232,238,.5); }
+  /* ---- real postcard detail front, from game.css (.ppd-*) ---- */
+  .ppd-card { position: relative; width: 100%; max-width: 380px; margin: 0 auto; }
+  .ppd-flip { position: relative; display:block; width: 100%; aspect-ratio: 3/2; }
+  .ppd-face { position: absolute; inset: 0; overflow: hidden; border-radius: 6px; box-shadow: 0 24px 70px rgba(0,0,0,.72); background:#0a0e17; }
+  .pp-photo { position: absolute; inset: 0; }
+  .pp-photo img { display:block; width:100%; height:100%; object-fit: cover; object-position: center 20%; }
+  .ppd-caption { position: absolute; z-index: 2; right: 8px; bottom: 8px; max-width: calc(100% - 16px); padding: 4px 9px 5px; border-radius: 2px; background: rgba(250,243,225,.92); box-shadow: 0 1px 4px rgba(0,0,0,.3); text-align: right; color: var(--mail-ink); }
+  .ppd-caption h3 { margin:0; font-size: 15px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .ppd-caption p { margin: 1px 0 0; font-size: 10px; color: rgba(34,53,92,.75); }
+  .ppd-flip-hint { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 3px 8px; border-radius: 999px; background: rgba(2,4,9,.5); color: rgba(255,253,246,.88); font-size: var(--fs-micro); font-weight: 750; }
+  .foil { border: 5px solid transparent; border-image: linear-gradient(155deg, #efd38a, #b27c20 38%, #f4e2ac 62%, #96690f) 1; }
+  /* ---- Option A: match the dex ---- */
+  .a-pin .ppd-face { background: linear-gradient(165deg, #f9ecc4, #eed086 75%); }
+  .a-pin .pp-photo { inset: 11px; border: 4px solid transparent; border-image: linear-gradient(155deg, #efd38a, #b27c20 38%, #f4e2ac 62%, #96690f) 1; box-shadow: 0 0 0 1px rgba(146,102,32,.6), inset 0 0 8px rgba(90,70,30,.16); }
+  .a-pin .ppd-caption { right: 17px; bottom: 17px; }
+  .a-pin .ppd-flip-hint { top: 17px; left: 17px; }
+  .a-bull .pp-photo { inset: 0; border: 5px solid transparent; border-image: linear-gradient(155deg, #efd38a, #b27c20 38%, #f4e2ac 62%, #96690f) 1; }
+  /* ---- Option B: caption plate carries the tier ---- */
+  .b-pin .ppd-caption { background: linear-gradient(165deg, #f9ecc4, #eed086 78%); box-shadow: 0 1px 4px rgba(0,0,0,.3), inset 0 0 0 1px rgba(146,102,32,.55); }
+  .b-bull .ppd-caption { box-shadow: 0 1px 4px rgba(0,0,0,.3), inset 0 2px 0 #b27c20; }
+  .tier-word { display:block; margin-top: 2px; font-size: 8.5px; font-weight: 850; letter-spacing: .18em; color: #96690f; }
+  /* ---- Option C: seal on the photo ---- */
+  .seal { position: absolute; z-index: 3; top: 10px; right: 10px; display: grid; place-items: center; border-radius: 50%; transform: rotate(-11deg); }
+  .c-pin .seal { width: 46px; height: 46px; background: radial-gradient(circle at 35% 30%, #f4e2ac, #d9ae4e 55%, #b27c20); box-shadow: 0 2px 6px rgba(0,0,0,.4), inset 0 0 0 2px rgba(146,102,32,.65); color: #6b4d12; font-size: 19px; }
+  .c-bull .seal { width: 38px; height: 38px; background: rgba(250,243,225,.18); border: 2.5px solid #d9ae4e; box-shadow: 0 2px 6px rgba(0,0,0,.35); color: #f4e2ac; font-size: 15px; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+</style></head>
+<body>
+<script>
+  const CARDS = [
+    { tier:'near',     word:'Earned (near)',  name:'Abu Dhabi, UAE', meta:'Closest guess 212 km', img:'abu.jpg' },
+    { tier:'bullseye', word:'Bullseye',       name:'Amsterdam, Netherlands', meta:'Closest guess 31 km', img:'ams.png' },
+    { tier:'pinpoint', word:'Pinpoint',       name:'Apia, Samoa', meta:'Closest guess 3 km', img:'apia.jpg' },
+  ];
+  const OPTS = [
+    { id:'now', title:'Now (control)', sub:'The large front is the bare photo plus the caption plate for every tier. Tier shows only on the back.' },
+    { id:'a', title:'Option A: match the dex', sub:'Pinpoint gets the pale gold card stock as a mat around the photo with the thicker foil frame, exactly the thumbnail treatment scaled up. Bullseye gets the satin foil frame around the photo. Earned stays plain.' },
+    { id:'b', title:'Option B: the caption plate carries it', sub:'Photo untouched. Pinpoint caption plate turns gold with a PINPOINT line; bullseye plate gets a gold rule and a BULLSEYE line.' },
+    { id:'c', title:'Option C: a seal on the photo', sub:'A gold seal sits on the photo corner: solid with a star for pinpoint, a foil ring for bullseye. Earned gets none.' },
+  ];
+  for (const opt of OPTS) {
+    const sec = document.createElement('section'); sec.className = 'opt'; sec.id = 'opt-' + opt.id;
+    sec.innerHTML = `<h2>${opt.title}</h2><p class="sub">${opt.sub}</p>`;
+    for (const c of CARDS) {
+      const wrap = document.createElement('div');
+      const cls = opt.id === 'now' ? '' : `${opt.id}-${c.tier === 'pinpoint' ? 'pin' : c.tier === 'bullseye' ? 'bull' : 'near'}`;
+      wrap.innerHTML = `<p class="tier-label">${c.word}</p>
+        <div class="ppd-card ${cls}"><div class="ppd-flip"><div class="ppd-face">
+          <div class="pp-photo"><img src="${c.img}" alt=""></div>
+          ${opt.id === 'c' && c.tier !== 'near' ? '<div class="seal">★</div>' : ''}
+          <span class="ppd-flip-hint">Tap to flip</span>
+          <div class="ppd-caption"><h3>${c.name}</h3><p>${c.meta}</p>${opt.id === 'b' && c.tier !== 'near' ? `<span class="tier-word">★ ${c.tier.toUpperCase()}</span>` : ''}</div>
+        </div></div></div>`;
+      sec.append(wrap);
+    }
+    document.body.append(sec);
+  }
+</script>
+</body></html>
