@@ -3,6 +3,8 @@
 // button, element fades, thumbnails, and the one confirm dialog. Moved out
 // of main.js unchanged.
 // ---------------------------------------------------------------------------
+import { focalObjectPosition } from './focal.js';
+
 export function fadeElement(el, show, duration, delay = 0) {
   el.getAnimations().forEach((a) => a.cancel());
   const fade = el.animate(
@@ -13,10 +15,11 @@ export function fadeElement(el, show, duration, delay = 0) {
 }
 
 // Drop the old src when there's no image, so a previous round's photo can't linger.
-export function setThumb(img, url) {
+export function setThumb(img, url, item) {
   if (url) img.src = url;
   else img.removeAttribute('src');
   img.hidden = !url;
+  img.style.objectPosition = focalObjectPosition(item) || '';
 }
 
 export function createHomeButton() {

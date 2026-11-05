@@ -14,6 +14,7 @@ import { buildPostcardCard, postcardDisplayName } from './postcard-card.js';
 import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
 import { PASSPORT_PACKS, passportPackSections, packCardNumberMap, formatPackCardNumber } from './passport-packs.js';
 import { playPackPlacement } from './pack-placement.js';
+import { focalObjectPosition } from '../core/focal.js';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
@@ -849,6 +850,8 @@ function renderCollectionDetail(set) {
       img.alt = '';
       img.loading = 'lazy';
       img.decoding = 'async';
+      const focalPos = focalObjectPosition(item);
+      if (focalPos) img.style.objectPosition = focalPos;
       img.addEventListener('error', () => img.remove(), { once: true });
       photo.append(img);
     }
@@ -961,11 +964,13 @@ function fillPostcard(entry) {
   ppdEls.card.dataset.earn = earn;
   host.applyCardTier(ppdEls.card, item, entry.earned);
   setPostcardFlipped(false);
+  const focalPos = focalObjectPosition(item);
   const photoImg = (alt) => {
     const img = document.createElement('img');
     img.src = item.image;
     img.alt = alt;
     img.decoding = 'async';
+    if (focalPos) img.style.objectPosition = focalPos;
     img.addEventListener('error', () => img.remove(), { once: true });
     return img;
   };

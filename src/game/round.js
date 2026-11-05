@@ -240,7 +240,7 @@ export function revealGuess(guess, restoring = false) {
   if (packCard?.kind === 'repeat') gameEls.revealName.append(Object.assign(document.createElement('small'), { className: 'reveal-repeat', textContent: 'Already in your Passport' }));
   gameEls.peekName.textContent = placeName;
   gameEls.fact.textContent = answer.fact;
-  setThumb(gameEls.thumb, answer.image);
+  setThumb(gameEls.thumb, answer.image, answer);
   setThumb(gameEls.peekThumb, answer.image);
   peekSlot.hidden = !answer.image;
   setRevealThumbState(answer, wasVisited, previousEarn);
@@ -405,7 +405,7 @@ export function pvpRevealTimeout(answer) {
   gameEls.revealName.textContent = placeName;
   gameEls.peekName.textContent = placeName;
   gameEls.fact.textContent = answer.fact || '';
-  setThumb(gameEls.thumb, answer.image);
+  setThumb(gameEls.thumb, answer.image, answer);
   setThumb(gameEls.peekThumb, answer.image);
   peekSlot.hidden = !answer.image;
   setRevealThumbState(answer, isVisited(answer.id), state.passport.meta[answer.id]?.e || 0);

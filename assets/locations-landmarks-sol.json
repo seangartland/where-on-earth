@@ -184,7 +184,8 @@
   "sets": [],
   "difficultyWhy": "p.57·fb2·K0·iso183 → 12.9 → 4",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 85
  },
  {
   "id": "austin-capitol-texas",
@@ -337,7 +338,8 @@
    "History Was Here"
   ],
   "difficultyWhy": "p.91·fb104·K0·iso163 → 5.4 → 2",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "birds-nest-beijing",
@@ -665,7 +667,8 @@
    "Wonders of the World"
   ],
   "difficultyWhy": "p.95·fb656·K0·iso344 → 10.6 → 4",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "chrysler-building-nyc",
@@ -675,7 +678,7 @@
   "lat": 40.7516,
   "lng": -73.9755,
   "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Chrysler_Building_by_David_Shankbone_Retouched.jpg/500px-Chrysler_Building_by_David_Shankbone_Retouched.jpg",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/View_of_Chrysler_Building_from_Empire_State_Building%2C_New_York_City%2C_20231001_1510_1364.jpg/500px-View_of_Chrysler_Building_from_Empire_State_Building%2C_New_York_City%2C_20231001_1510_1364.jpg",
   "category": "city",
   "country": "United States",
   "continent": "North America",
@@ -955,7 +958,8 @@
   "sets": [],
   "difficultyWhy": "p.81·fb290·K0·iso418 → 15.8 → 5",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "gettysburg-battlefield",
@@ -1140,7 +1144,7 @@
   "lat": 28.5729,
   "lng": -80.649,
   "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/NASA_logo_%282023_colors%29.svg/500px-NASA_logo_%282023_colors%29.svg.png",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/A_view_of_the_Vehicle_Assembly_Building_%28VAB%29_at_NASA%E2%80%99s_Kennedy_Space_Center_in_Florida_on_June_22%2C_2020.jpg/500px-A_view_of_the_Vehicle_Assembly_Building_%28VAB%29_at_NASA%E2%80%99s_Kennedy_Space_Center_in_Florida_on_June_22%2C_2020.jpg",
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -1954,7 +1958,8 @@
   "sets": [],
   "difficultyWhy": "p.43·fb298·K0·iso246 → 39.2 → 6",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "stonehenge",
@@ -2397,7 +2402,8 @@
   "sets": [],
   "difficultyWhy": "p.71·fb6·K0·iso183 → 10.1 → 4",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "roman-baths-bath",
@@ -2445,7 +2451,8 @@
   "sets": [],
   "difficultyWhy": "p.56·fb146·K0·iso44 → 17.2 → 5",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 70
  },
  {
   "id": "mecca-kaaba-saudi",
@@ -2513,7 +2520,8 @@
   "sets": [],
   "difficultyWhy": "p.46·fb551·K0·iso188 → 67.9 → 7",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 85
  },
  {
   "id": "wat-arun-th",
@@ -2655,7 +2663,7 @@
   "lat": 40.7127,
   "lng": -74.0134,
   "difficulty": 5,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/One_WTC_logo.svg/500px-One_WTC_logo.svg.png",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Lower_Manhattan_from_Jersey_City_November_2014_panorama_3.jpg/500px-Lower_Manhattan_from_Jersey_City_November_2014_panorama_3.jpg",
   "country": "United States",
   "continent": "North America",
   "sets": [],
@@ -2725,7 +2733,8 @@
   "continent": "Asia",
   "sets": [],
   "difficultyWhy": "p.71·fb841·K0·iso18 → 56.8 → 7",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "taj-mahal",
@@ -2848,7 +2857,8 @@
   "sets": [],
   "difficultyWhy": "p.70·fb2515·K0·iso709 → 153.5 → 9",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "fitz-roy-laguna-de-los-tres",
@@ -3052,7 +3062,8 @@
   "sets": [],
   "difficultyWhy": "p.99·fb474·K0·iso506 → 4.0 → 1",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 30
  },
  {
   "id": "guggenheim-bilbao",
@@ -3134,7 +3145,8 @@
   "sets": [],
   "difficultyWhy": "p.43·fb436·K0·iso125 → 56.8 → 7",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 30
  },
  {
   "id": "pantheon-rome",
@@ -3150,7 +3162,8 @@
   "sets": [],
   "difficultyWhy": "p.99·fb101·K0·iso476 → 3.2 → 1",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 30
  },
  {
   "id": "uluru",
@@ -3933,7 +3946,8 @@
   "sets": [],
   "difficultyWhy": "p.99·fb179·K0·iso266 → 3.4 → 1",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 85
  },
  {
   "id": "statue-of-liberty",
@@ -4161,7 +4175,8 @@
   ],
   "difficultyWhy": "p.46·fb217·K0·iso576 → 27.7 → 6",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 30
  },
  {
   "id": "golden-temple",
@@ -4211,7 +4226,8 @@
   "sets": [],
   "difficultyWhy": "p.85·fb183·K0·iso295 → 9.5 → 4 · median rescore 10.1 → 4 (spike check)",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "himeji-castle",
@@ -4335,7 +4351,8 @@
   ],
   "difficultyWhy": "p.62·fb480·K0·iso498 → 43.0 → 6",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "palenque",
@@ -4497,7 +4514,8 @@
   "sets": [],
   "difficultyWhy": "p.57·fb75·K0·iso253 → 12.8 → 4",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "cologne-cathedral",
@@ -4633,7 +4651,8 @@
   ],
   "difficultyWhy": "p.83·fb1426·K0·iso200 → 56.8 → 7",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "cn-tower",
@@ -4899,7 +4918,8 @@
   "difficultyWhy": "p.81·fb255·K0·iso56 → 14.3 → 4",
   "category": "city",
   "kind": "extent",
-  "extentType": "polygon"
+  "extentType": "polygon",
+  "focalY": 30
  },
  {
   "id": "carlsbad-caverns",
@@ -6139,7 +6159,8 @@
   "sets": [],
   "difficultyWhy": "p.77·fb236·K0·iso23 → 15.3 → 5",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "milan-cathedral",
@@ -6191,7 +6212,8 @@
   "sets": [],
   "difficultyWhy": "p.78·fb854·K0·iso19 → 45.4 → 7",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 85
  },
  {
   "id": "grand-central-terminal",
@@ -6223,7 +6245,8 @@
   "sets": [],
   "difficultyWhy": "p.75·fb1680·K0·iso16 → 93.1 → 8",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "marina-bay-sands",
@@ -6357,7 +6380,8 @@
   "sets": [],
   "difficultyWhy": "p.67·fb74·K0·iso253 → 11.0 → 4",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 30
  },
  {
   "id": "india-gate",
@@ -6443,7 +6467,8 @@
   ],
   "difficultyWhy": "p.63·fb185·K0·iso304 → 18.3 → 5",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "casa-batllo",
@@ -6459,7 +6484,8 @@
   "sets": [],
   "difficultyWhy": "p.64·fb473·K0·iso505 → 41.1 → 6",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "mysore-palace",
@@ -6493,7 +6519,8 @@
   ],
   "difficultyWhy": "p.62·fb370·K0·iso181 → 34.1 → 6",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 85
  },
  {
   "id": "st-marks-basilica",
@@ -6511,7 +6538,8 @@
   ],
   "difficultyWhy": "p.63·fb298·K0·iso246 → 27.3 → 6",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 30
  },
  {
   "id": "amazon-rainforest",
@@ -6802,7 +6830,8 @@
   "sets": [],
   "difficultyWhy": "p.78·fb419·K0·iso67 → 23.5 → 5",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "merdeka-118",
@@ -6818,7 +6847,8 @@
   "sets": [],
   "difficultyWhy": "p.86·fb185·K0·iso293 → 9.0 → 3",
   "category": "city",
-  "kind": "landmark"
+  "kind": "landmark",
+  "focalY": 15
  },
  {
   "id": "annapurna",

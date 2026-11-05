@@ -3025,7 +3025,8 @@
    "Megacities"
   ],
   "difficultyWhy": "p.99·fb854·K0·iso20 → 4.9 → 2",
-  "category": "city"
+  "category": "city",
+  "focalY": 85
  },
  {
   "id": "denpasar-indonesia",

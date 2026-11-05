@@ -1,3 +1,4 @@
+import { focalObjectPosition } from '../core/focal.js';
 
 export function postcardDisplayName(item, flagForLocation) {
   const flag = flagForLocation(item);
@@ -31,6 +32,8 @@ export function buildPostcardCard(item, passportState, options) {
     img.alt = '';
     img.loading = loading;
     img.decoding = 'async';
+    const focalPos = focalObjectPosition(item);
+    if (focalPos) img.style.objectPosition = focalPos;
     img.addEventListener('error', () => img.remove(), { once: true });
     photo.append(img);
   } else if (compact && passportState.photo === 'flag') {
