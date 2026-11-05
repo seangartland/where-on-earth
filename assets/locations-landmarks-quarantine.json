@@ -3985,5 +3985,53 @@
   "category": "city",
   "kind": "area",
   "extentKm": 30
+ },
+ {
+  "id": "lake-pontchartrain-causeway",
+  "short": "Lake Pontchartrain Causeway",
+  "clue": "Lake Pontchartrain Causeway, United States 🇺🇸",
+  "fact": "Two parallel spans run 38.4 km across Lake Pontchartrain, and from the middle of the crossing no land is visible in any direction. The first span, opened in 1956, was the longest bridge in the world; a second, opened in 1969, runs beside it the whole way, with seven crossover bridges linking the two.",
+  "lat": 30.1997,
+  "lng": -90.1228,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Lake_Pontchartrain_Causeway.jpg/1280px-Lake_Pontchartrain_Causeway.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.78·fb1005·K0·iso507 → 53.0 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "sugarloaf-mountain",
+  "short": "Sugarloaf Mountain",
+  "clue": "Sugarloaf Mountain, Brazil 🇧🇷",
+  "fact": "This 396-metre granite spike guards the entrance to Guanabara Bay; its cable car has run since 1912, only the third built anywhere, and it doubled as a film set for the Bond film Moonraker in 1979.",
+  "lat": -22.9494,
+  "lng": -43.1567,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Rio_de_Janeiro_-_P%C3%A3o_de_A%C3%A7ucar_-_Cablecar.jpg/500px-Rio_de_Janeiro_-_P%C3%A3o_de_A%C3%A7ucar_-_Cablecar.jpg",
+  "country": "Brazil",
+  "continent": "South America",
+  "sets": [],
+  "difficultyWhy": "p.47·fb658·K0·iso346 → 80.0 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "medellin-botero-plaza",
+  "short": "Medellin",
+  "clue": "Medellin, Colombia 🇨🇴",
+  "fact": "The plaza displays 23 monumental bronze sculptures donated by Fernando Botero. The patterned Palace of Culture stands beside it.",
+  "lat": 6.2519,
+  "lng": -75.5689,
+  "difficulty": 3,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Vista_de_Plaza_Botero%2C_Palacio_de_la_Cultura%2C_Medellin%2C_Colombia%2C_2017-04-11.jpg/500px-Vista_de_Plaza_Botero%2C_Palacio_de_la_Cultura%2C_Medellin%2C_Colombia%2C_2017-04-11.jpg",
+  "country": "Colombia",
+  "continent": "South America",
+  "sets": [],
+  "difficultyWhy": "p.82·fb87·K0·iso246 → 7.6 → 3",
+  "category": "city",
+  "kind": "landmark"
  }
 ]

@@ -18,7 +18,6 @@ export const PACK_ANCIENT_CITY_IDS = new Set([
   'knossos',
   'kuelap-fortress-peru',
   'leptis-magna',
-  'machu-picchu',
   'mohenjo-daro',
   'nalanda-bihar',
   'nan-madol',
