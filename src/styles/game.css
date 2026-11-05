@@ -1195,6 +1195,16 @@ body.game-collections #hud { opacity: 0; }
 .ppd-flip:focus-visible .ppd-face { outline: 2px solid #67e8ff; outline-offset: 3px; }
 .ppd-face-front .pp-photo { position: absolute; inset: 0; aspect-ratio: auto; border-radius: 0; }
 .ppd-face-front .pp-photo::after { font-size: 44px; }
+/* Tier frames on the postcard front (Option A, Sean, 2026-11-04): the detail
+   front speaks the same language as the dex thumbnails. Bullseye frames the
+   photo in the satin gold foil; pinpoint mats the photo on the pale gold card
+   stock with the thicker foil frame, and the caption and flip hint move in
+   with the photo. Near and seen stay plain. */
+.ppd-card[data-earn="bullseye"] .ppd-face-front .pp-photo { box-sizing: border-box; border: 5px solid transparent; border-image: linear-gradient(155deg, #efd38a, #b27c20 38%, #f4e2ac 62%, #96690f) 1; }
+.ppd-card[data-earn="pinpoint"] .ppd-face-front { background: linear-gradient(165deg, #f9ecc4, #eed086 75%); }
+.ppd-card[data-earn="pinpoint"] .ppd-face-front .pp-photo { inset: 11px; box-sizing: border-box; border: 4px solid transparent; border-image: linear-gradient(155deg, #efd38a, #b27c20 38%, #f4e2ac 62%, #96690f) 1; box-shadow: 0 0 0 1px rgba(146,102,32,.6), inset 0 0 8px rgba(90,70,30,.16); }
+.ppd-card[data-earn="pinpoint"] .ppd-caption { right: 19px; bottom: 19px; }
+.ppd-card[data-earn="pinpoint"] .ppd-flip-hint { top: 19px; left: 19px; }
 .ppd-card[data-earn="seen"] .pp-photo img, .ppd-card[data-earn="seen"] .pc-stamp img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .ppd-caption { position: absolute; z-index: 2; right: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 9px 5px; border-radius: 2px; background: rgba(250,243,225,.92); box-shadow: 0 1px 4px rgba(0,0,0,.3); text-align: right; }
 .ppd-caption h3, .ppd-caption p { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

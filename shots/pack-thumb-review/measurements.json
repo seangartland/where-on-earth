@@ -96,17 +96,7 @@
       "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
       "photoBorder": "3px solid rgb(255, 253, 246)",
       "imgFilter": "none",
-      "stamp": {
-        "text": "87km",
-        "tier": "ordinary",
-        "box": "28.1x28.1",
-        "fontSize": "7px",
-        "fontWeight": "800",
-        "color": "rgba(90, 90, 90, 0.8)",
-        "border": "rgba(90, 90, 90, 0.55)",
-        "bg": "rgba(245, 242, 235, 0.9)",
-        "textBox": "12.9x18.6"
-      }
+      "stamp": null
     },
     {
       "name": "Amsterdam",
@@ -121,17 +111,7 @@
       "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
       "photoBorder": "3px solid rgb(255, 253, 246)",
       "imgFilter": "none",
-      "stamp": {
-        "text": "12km",
-        "tier": "bullseye",
-        "box": "28.1x28.1",
-        "fontSize": "7px",
-        "fontWeight": "800",
-        "color": "rgb(178, 124, 32)",
-        "border": "rgb(178, 124, 32)",
-        "bg": "rgba(250, 243, 225, 0.9)",
-        "textBox": "12.9x18.6"
-      }
+      "stamp": null
     },
     {
       "name": "Apia",
@@ -139,24 +119,14 @@
       "km": 2.4,
       "classes": "pp-slot prox-pinpoint",
       "dataEarn": "pinpoint",
-      "slot": "108.7x95",
-      "photo": "98.7x67.8",
+      "slot": "108.7x95.6",
+      "photo": "98.7x68.4",
       "slotBorder": "0px none rgb(207, 230, 255)",
-      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
-      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
-      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "slotShadow": "rgba(178, 124, 32, 0.45) 0px 2px 8px 0px, rgba(146, 102, 32, 0.5) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(249, 236, 196), rgb(238, 208, 13",
+      "photoBorder": "4px solid rgb(255, 253, 246)",
       "imgFilter": "none",
-      "stamp": {
-        "text": "2km",
-        "tier": "pinpoint",
-        "box": "28.1x28.1",
-        "fontSize": "7px",
-        "fontWeight": "800",
-        "color": "rgb(253, 246, 224)",
-        "border": "rgb(138, 95, 22)",
-        "bg": "rgb(178, 124, 32)",
-        "textBox": "12.9x18.2"
-      }
+      "stamp": null
     },
     {
       "name": "Asunción",
@@ -196,17 +166,7 @@
       "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
       "photoBorder": "3px solid rgb(255, 253, 246)",
       "imgFilter": "none",
-      "stamp": {
-        "text": "141km",
-        "tier": "ordinary",
-        "box": "28.1x28.1",
-        "fontSize": "7px",
-        "fontWeight": "800",
-        "color": "rgba(90, 90, 90, 0.8)",
-        "border": "rgba(90, 90, 90, 0.55)",
-        "bg": "rgba(245, 242, 235, 0.9)",
-        "textBox": "14.8x19"
-      }
+      "stamp": null
     },
     {
       "name": "Bangui",
@@ -221,17 +181,7 @@
       "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
       "photoBorder": "3px solid rgb(255, 253, 246)",
       "imgFilter": "none",
-      "stamp": {
-        "text": "21km",
-        "tier": "bullseye",
-        "box": "28.1x28.1",
-        "fontSize": "7px",
-        "fontWeight": "800",
-        "color": "rgb(178, 124, 32)",
-        "border": "rgb(178, 124, 32)",
-        "bg": "rgba(250, 243, 225, 0.9)",
-        "textBox": "12.9x18.6"
-      }
+      "stamp": null
     },
     {
       "name": "Belfast",
@@ -239,24 +189,32 @@
       "km": 0.6,
       "classes": "pp-slot prox-pinpoint",
       "dataEarn": "pinpoint",
-      "slot": "108.7x95",
-      "photo": "98.7x67.8",
+      "slot": "108.7x95.6",
+      "photo": "98.7x68.4",
       "slotBorder": "0px none rgb(207, 230, 255)",
-      "slotShadow": "rgba(0, 0, 0, 0.4) 0px 2px 6px 0px, rgba(101, 78, 38, 0.18) 0px 0px 0px 1px inset",
-      "slotBg": "linear-gradient(165deg, rgb(250, 243, 225), rgb(240, 228, 19",
-      "photoBorder": "3px solid rgb(255, 253, 246)",
+      "slotShadow": "rgba(178, 124, 32, 0.45) 0px 2px 8px 0px, rgba(146, 102, 32, 0.5) 0px 0px 0px 1px inset",
+      "slotBg": "linear-gradient(165deg, rgb(249, 236, 196), rgb(238, 208, 13",
+      "photoBorder": "4px solid rgb(255, 253, 246)",
       "imgFilter": "none",
-      "stamp": {
-        "text": "1km",
-        "tier": "pinpoint",
-        "box": "28.1x28.1",
-        "fontSize": "7px",
-        "fontWeight": "800",
-        "color": "rgb(253, 246, 224)",
-        "border": "rgb(138, 95, 22)",
-        "bg": "rgb(178, 124, 32)",
-        "textBox": "12.9x18.2"
-      }
+      "stamp": null
     }
-  ]
+  ],
+  "backs": {
+    "bullseye": {
+      "postmark": {
+        "text": "OCT\n26\n2026",
+        "hidden": false,
+        "tier": "gold",
+        "fontSize": "7.5px",
+        "box": 60.9666748046875
+      },
+      "stats": {
+        "text": "CLOSEST GUESS\n12 km\n·\nBullseye",
+        "fontSize": "10px",
+        "numFontSize": null
+      },
+      "history": "FIRST VISITED\nOCT 12, 2026\nNEAR EARNED\nOCT 26, 2026\nBULLSEYE EARNED\nOCT 31, 2026",
+      "card": "ppd-card prox-bullseye"
+    }
+  }
 }
