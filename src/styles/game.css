@@ -300,7 +300,11 @@ body.game-reveal .reveal-name { display: block; }
 .reveal-sheet { position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding-bottom: env(safe-area-inset-bottom, 0px); border-width: 1px 0 0; border-radius: 20px 20px 0 0; pointer-events: auto; touch-action: none; }
 .reveal-sheet[hidden] { display: none; }
 .peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 94px; padding: 16px 14px 10px; cursor: pointer; outline: none; }
-.peek-bar[aria-expanded="true"] { align-items: center; height: auto; min-height: 94px; padding-top: 20px; padding-bottom: 12px; }
+/* The bar's layout is identical in both states (Sean, 2026-11-06): it used
+   to grow its padding, enlarge the name and hide the thumb on expand, and
+   each change landed in one frame while the sheet content eased open, so
+   expanding felt like a snap. Only the name's wrapping changes now. */
+.peek-bar[aria-expanded="true"] { height: auto; }
 .peek-bar:focus-visible { box-shadow: inset 0 0 0 2px rgba(127,210,244,.5); border-radius: 20px 20px 0 0; }
 .peek-grip { position: absolute; top: 6px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: rgba(var(--rgb-muted),.32); transition: background .2s; }
 .reveal-sheet.expanded .peek-grip { background: rgba(var(--rgb-muted),.55); }
@@ -310,16 +314,15 @@ body.game-reveal .reveal-name { display: block; }
 .peek-slot:has(#peek-thumb.prox-postcard)::after { position: absolute; z-index: 2; right: -8px; bottom: -8px; display: grid; place-items: center; width: 21px; height: 21px; border: 1.6px solid rgba(178,124,32,.9); border-radius: 50%; background: rgba(250,243,225,.92); color: #22355c; font-size: var(--fs-micro); line-height: 1; transform: rotate(-11deg); pointer-events: none; }
 .peek-slot:has(#peek-thumb.prox-bullseye)::after { content: '🎯'; position: absolute; z-index: 2; right: -8px; bottom: -8px; display: grid; place-items: center; width: 21px; height: 21px; border: 1.6px solid rgba(178,124,32,.9); border-radius: 50%; background: rgba(250,243,225,.92); color: #22355c; font-size: var(--fs-micro); line-height: 1; transform: rotate(-11deg); pointer-events: none; }
 .peek-slot:has(#peek-thumb.prox-pinpoint)::after { content: '📍'; position: absolute; z-index: 2; right: -8px; bottom: -8px; display: grid; place-items: center; width: 21px; height: 21px; border: 1.6px solid rgba(178,124,32,.9); border-radius: 50%; background: rgba(250,243,225,.92); color: #22355c; font-size: var(--fs-micro); line-height: 1; transform: rotate(-11deg); pointer-events: none; }
-.peek-bar[aria-expanded="true"] .peek-slot { display: none; }
 .peek-slot.mystery::before { content: ""; position: absolute; inset: 0; box-sizing: border-box; border: 1.5px dashed rgba(var(--rgb-muted),.55); border-radius: 10px; background: rgba(var(--rgb-muted),.05); }
 .peek-slot.mystery #peek-thumb { visibility: hidden; }
 #peek-thumb.seen-no-postcard, #place-thumb.seen-no-postcard { filter: grayscale(1); opacity: 0.7; }
 #peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint,
 #place-thumb.prox-postcard, #place-thumb.prox-bullseye, #place-thumb.prox-pinpoint { filter: none; opacity: 1; }
 .peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
-.peek-name { overflow: hidden; color: var(--ink); font-size: 16px; font-weight: 750; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.peek-name { overflow: hidden; color: var(--ink); font-size: var(--fs-title); font-weight: 750; line-height: 1.3; text-overflow: ellipsis; white-space: nowrap; }
 .peek-bar[aria-expanded="true"] .peek-text { align-self: center; }
-.peek-bar[aria-expanded="true"] .peek-name { overflow: visible; font-size: var(--fs-title); line-height: 1.3; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; }
+.peek-bar[aria-expanded="true"] .peek-name { overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; }
 .peek-stats { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
 .peek-score { color: var(--gold); font-size: var(--fs-display); font-weight: 850; letter-spacing: -.03em; line-height: 1; }
 .peek-score:empty { display: none; }
@@ -330,8 +333,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .peek-text .score-math .base { font-size: var(--fs-base); }
 .peek-text .score-math .base b { font-size: var(--fs-base); }
 .peek-bar .peek-next { flex: none; min-width: 0; min-height: 44px; padding: 0 18px; font-size: var(--fs-base); }
-.peek-bar[aria-expanded="true"] .peek-next { align-self: center; padding: 0 14px; }
-.sheet-content { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .32s cubic-bezier(.2,.8,.2,1); }
+.sheet-content { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .38s cubic-bezier(.2,.9,.25,1); }
 .reveal-sheet.expanded .sheet-content { grid-template-rows: 1fr; }
 .sheet-inner { min-height: 0; overflow: hidden; padding: 0 14px 14px; }
 #place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid rgba(var(--rgb-line),.18); border-radius: 10px; object-fit: cover; object-position: center 20%; }
