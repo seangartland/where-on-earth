@@ -1311,6 +1311,7 @@ export function initPassport(main) {
   passportScreen.innerHTML = `
   <div class="pp-card glass" role="dialog" aria-modal="true" aria-labelledby="pp-title">
     <button class="icon-close" aria-label="Close passport">×</button>
+    <div class="pp-stick-sentinel"></div>
     <div class="pp-header-row">
       <h2 id="pp-title">Your passport</h2>
       <div class="pp-header-actions">
