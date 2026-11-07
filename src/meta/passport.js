@@ -1069,11 +1069,14 @@ function postcardFlipFrame(source) {
   const from = source.getBoundingClientRect();
   const to = ppdEls.card.getBoundingClientRect();
   if (!from.width || from.bottom < 0 || from.top > window.innerHeight) return null;
-  const s = from.width / to.width;
-  const clip = Math.max(0, to.height - from.height / s);
+  // Transform only (Sean, 2026-11-06): the old frame also animated a
+  // clip-path inset to mask the card to the tile's aspect, but clip-path
+  // repaints the card (photo, foil border, 70px shadow) on every frame and
+  // stuttered on phones. A non-uniform scale matches the tile's rect
+  // exactly and stays on the compositor; the brief squash mid-flight reads
+  // as a morph.
   return {
-    transform: `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${s})`,
-    clipPath: `inset(0 0 ${clip}px 0 round ${4 / s}px)`,
+    transform: `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${from.width / to.width}, ${from.height / to.height})`,
   };
 }
 
@@ -1178,7 +1181,7 @@ export function openPostcard(entry, source, siblings = postcardSiblings(source))
   const anims = [
     ppdEls.scrim.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, easing: 'ease-out' }),
     flip
-      ? ppdEls.card.animate([flip, { transform: 'none', clipPath: 'inset(0 0 0px 0 round 0px)' }], { duration: 440, easing: PPD_EASE })
+      ? ppdEls.card.animate([flip, { transform: 'none' }], { duration: 440, easing: PPD_EASE })
       : ppdEls.card.animate([{ opacity: 0, transform: 'scale(.94)' }, { opacity: 1, transform: 'none' }], { duration: reducedMotion() ? 160 : 300, easing: PPD_EASE }),
     ppdEls.close.animate([{ opacity: 0 }, { opacity: 0, offset: .6 }, { opacity: 1 }], { duration: 440 }),
   ];
@@ -1221,7 +1224,7 @@ function closePostcard() {
   const anims = [
     ppdEls.scrim.animate([{ opacity: 1 }, { opacity: 0 }], opts),
     flip
-      ? ppdEls.card.animate([{ transform: 'none', clipPath: 'inset(0 0 0px 0 round 0px)' }, flip], opts)
+      ? ppdEls.card.animate([{ transform: 'none' }, flip], opts)
       : ppdEls.card.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'scale(.94)' }], opts),
     ppdEls.close.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, fill: 'forwards' }),
   ];

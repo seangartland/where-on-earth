@@ -331,9 +331,9 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .peek-text .score-math .base b { font-size: var(--fs-base); }
 .peek-bar .peek-next { flex: none; min-width: 0; min-height: 44px; padding: 0 18px; font-size: var(--fs-base); }
 .peek-bar[aria-expanded="true"] .peek-next { align-self: center; padding: 0 14px; }
-.sheet-content { max-height: 0; overflow: hidden; transition: max-height .32s cubic-bezier(.2,.8,.2,1); }
-.reveal-sheet.expanded .sheet-content { max-height: 320px; }
-.sheet-inner { padding: 0 14px 14px; }
+.sheet-content { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .32s cubic-bezier(.2,.8,.2,1); }
+.reveal-sheet.expanded .sheet-content { grid-template-rows: 1fr; }
+.sheet-inner { min-height: 0; overflow: hidden; padding: 0 14px 14px; }
 #place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid rgba(var(--rgb-line),.18); border-radius: 10px; object-fit: cover; object-position: center 20%; }
 #place-thumb[hidden] { display: none; }
 #fact { margin: 10px 0 0; color: rgba(224,240,255,.8); font-size: var(--fs-body); line-height: 1.45; }
