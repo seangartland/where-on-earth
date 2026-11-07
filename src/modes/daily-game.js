@@ -107,12 +107,13 @@ export function postcardDistance(result) {
 
 export function postcardSummaryCard(result, item) {
   const outcome = result.postcard;
-  if (!outcome || !['new', 'upgrade'].includes(outcome.kind)) return null;
+  if (!outcome || !['new', 'upgrade', 'visited'].includes(outcome.kind)) return null;
   const distanceText = postcardDistance(result);
+  const tier = outcome.tier ?? 0;
   const card = buildPostcardCard(item, {
-    earned: outcome.tier,
-    earnName: EARN_NAMES[outcome.tier],
-    meta: `${outcome.kind === 'upgrade' ? 'Upgraded' : 'New'} • ${distanceText}`,
+    earned: tier,
+    earnName: EARN_NAMES[tier],
+    meta: `${outcome.kind === 'upgrade' ? 'Upgraded' : outcome.kind === 'visited' ? 'Visited' : 'New'} • ${distanceText}`,
   }, { flagForLocation, applyCardTier });
   card.classList.add('postcard-summary-entry');
   const scoreValue = result.base ?? result.score;
@@ -148,7 +149,7 @@ export function shareText() {
 export function postcardSummaryOutcomes() {
   return state.daily.results
     .map((result, index) => ({ result, item: state.selected[index] }))
-    .filter(({ result }) => ['new', 'upgrade'].includes(result.postcard?.kind));
+    .filter(({ result }) => ['new', 'upgrade', 'visited'].includes(result.postcard?.kind));
 }
 
 // Survival and Expeditions are unscored, so they have no daily.results to read
@@ -165,7 +166,7 @@ export function postcardSummaryCounts(outcomes) {
   return outcomes.reduce((counts, { result }) => {
     counts[result.postcard.kind] += 1;
     return counts;
-  }, { new: 0, upgrade: 0 });
+  }, { new: 0, upgrade: 0, visited: 0 });
 }
 
 export let postcardSummaryNext = showResults;
@@ -180,8 +181,14 @@ export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next =
   window.__canGuess = false;
   gameEls.postcardSummaryScreen.hidden = false;
   document.body.classList.add('game-results');
-  const { new: newCount, upgrade: upgradeCount } = postcardSummaryCounts(outcomes);
-  gameEls.postcardSummaryLede.textContent = `${note ? `${note} ` : ''}${newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : 'No new postcards'}${newCount && upgradeCount ? ' and ' : ''}${upgradeCount ? `${upgradeCount} upgraded` : ''}.`;
+  const { new: newCount, upgrade: upgradeCount, visited: visitedCount } = postcardSummaryCounts(outcomes);
+  const segments = [
+    newCount ? `${newCount} new postcard${newCount === 1 ? '' : 's'}` : '',
+    upgradeCount ? `${upgradeCount} upgraded` : '',
+    visitedCount ? `${visitedCount} first visit${visitedCount === 1 ? '' : 's'}` : '',
+  ].filter(Boolean);
+  const lede = segments.length > 1 ? `${segments.slice(0, -1).join(', ')} and ${segments[segments.length - 1]}` : segments[0] || 'No new postcards';
+  gameEls.postcardSummaryLede.textContent = `${note ? `${note} ` : ''}${lede}.`;
   gameEls.breakdown.hidden = outcomes.length === 0;
   gameEls.breakdown.replaceChildren(...outcomes.map(({ result, item }) => postcardSummaryCard(result, item)));
   const countLabel = (count, label) => {
@@ -192,7 +199,7 @@ export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next =
     el.append(number, ` ${label}`);
     return el;
   };
-  const counts = [countLabel(newCount, 'new'), countLabel(upgradeCount, 'upgraded')].filter(Boolean);
+  const counts = [countLabel(newCount, 'new'), countLabel(upgradeCount, 'upgraded'), countLabel(visitedCount, 'visited')].filter(Boolean);
   gameEls.postcardSummaryCounts.replaceChildren(...counts.flatMap((count, index) => index ? [Object.assign(document.createElement('span'), { className: 'postcard-summary-separator', textContent: '·' }), count] : [count]));
   const postmark = document.createElement('span');
   postmark.className = 'postcard-summary-postmark';

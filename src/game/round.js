@@ -165,8 +165,8 @@ export function showEarnToast(answer, tier) {
 // Save the outcome with the round rather than trying to reconstruct it from the
 // passport later. A postcard can only be new or upgraded at the instant the
 // guess is made; opening an already-finished daily must not change that story.
-export function postcardRoundOutcome(previousEarn, newlyEarned) {
-  if (!newlyEarned) return { kind: 'miss' };
+export function postcardRoundOutcome(previousEarn, newlyEarned, wasVisited) {
+  if (!newlyEarned) return { kind: wasVisited ? 'miss' : 'visited' };
   return {
     kind: previousEarn ? 'upgrade' : 'new',
     tier: newlyEarned,
@@ -216,7 +216,7 @@ export function revealGuess(guess, restoring = false) {
       score,
       base,
       distanceExact: kmExact,
-      postcard: postcardRoundOutcome(previousEarn, newlyEarned),
+      postcard: postcardRoundOutcome(previousEarn, newlyEarned, wasVisited),
     };
     state.daily.results[slot] = result;
     saveDaily();
@@ -228,8 +228,8 @@ export function revealGuess(guess, restoring = false) {
     }
   }
   if (!restoring && (survival.active || expeditionRun.active)) {
-    const postcard = postcardRoundOutcome(previousEarn, newlyEarned);
-    if (postcard.kind !== 'miss') runHaul.push({ result: { distance: km, distanceExact: kmExact, postcard }, item: answer });
+    const postcard = postcardRoundOutcome(previousEarn, newlyEarned, wasVisited);
+    if (postcard.kind === 'new' || postcard.kind === 'upgrade') runHaul.push({ result: { distance: km, distanceExact: kmExact, postcard }, item: answer });
   }
   if (!restoring && expeditionRun.active) completeExpeditionRound();
   gameEls.baseScore.textContent = base;
