@@ -4,7 +4,7 @@ import { state } from '../core/state.js';
 import { formatKm, localDateKey } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
-  PACK_CARDS, STAMINA_MAX, STAMINA_PERIOD, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
+  PACK_CARDS, PACK_TYPES, STAMINA_MAX, STAMINA_PERIOD, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
   savePackResult, completePack, spend, applySkips, writePack, packOutcome, packSummary,
   packChoiceState, packProgressCount, canTearPack,
 } from '../meta/pack-store.js';
@@ -299,6 +299,15 @@ export function showPackSelect() {
   const render = () => {
     if (els.select.hidden) return;
     pack.record = readPack();
+    // A pack with every card played is over, but its session only cleared
+    // when the player tapped the finished pack screen's primary button, so
+    // leaving by any other route left a stale 'Complete' label here for
+    // days. Clear finished sessions on arrival at this screen instead;
+    // rewards were already banked when each card result was saved.
+    for (const type of PACK_TYPES) {
+      const saved = pack.record.byType[type];
+      if (saved && packSummary(saved).played >= PACK_CARDS) completePack(pack.record, type);
+    }
     const waitHours = pack.record.stamina.nextAt == null ? 0
       : Math.max(0, Math.ceil((pack.record.stamina.nextAt - Date.now()) / (60 * 60 * 1000)));
     els.selectStamina.innerHTML = `<div class="pack-stamina-line"><span class="pack-icons" aria-hidden="true">${pack.record.stamina.stored > 0 ? PACK_ICON_FULL : PACK_ICON_EMPTY}${pack.record.stamina.stored > 1 ? PACK_ICON_FULL : PACK_ICON_EMPTY}</span><span class="pack-stamina-text">${staminaText(pack.record)}</span><span class="pack-skip-balance">${HOURGLASS_ICON}<span>${pack.record.skips}</span></span></div>`;
