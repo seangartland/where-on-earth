@@ -5,7 +5,7 @@
 // host supplies the globe, the modes, the Daily screens and the passport
 // store, which sit outside the game layer.
 // ---------------------------------------------------------------------------
-import { ACCOUNTS_ENABLED, LOCK_ARM_MS, WEIGHTS, flyoverTier, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
+import { ACCOUNTS_ENABLED, LOCK_ARM_MS, flyoverTier, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
 import { state } from '../core/state.js';
 import { setThumb, gameEls } from '../core/dom.js';
 

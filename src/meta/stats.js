@@ -45,7 +45,7 @@ export function recordHistory() {
     date: host.daily.date,
     total: host.daily.results.reduce((sum, result) => sum + result.score, 0),
     rounds: host.daily.results.map((result, i) => ({
-      base: result.base ?? Math.round((result.score * 10) / host.WEIGHTS[i]),
+      base: result.base ?? result.score,
       score: result.score,
       distance: result.distance,
     })),

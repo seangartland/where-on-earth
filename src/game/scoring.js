@@ -1,9 +1,9 @@
 // ---------------------------------------------------------------------------
 // Round scoring shared by the local modes (refactor Phase 5): distance to
-// points, and the daily weights. The frozen difficulty scorer is separate
+// points. Every round scores out of 1,000; there are no weighted rounds.
+// The frozen difficulty scorer is separate
 // and untouched; great-circle distance is core/math.js distanceKm.
 // ---------------------------------------------------------------------------
-import { WEIGHTS } from '../core/config.js';
 import { distanceKm } from '../core/math.js';
 import { nearestExtentPoint } from './extents.js';
 
@@ -24,7 +24,6 @@ export function distanceScore(km) {
   return 1000 * Math.exp(-((km / 3500) ** 1.13));
 }
 
-export function scoreGuess(km, round) {
-  const base = Math.round(distanceScore(km));
-  return Math.round(base * WEIGHTS[round]);
+export function scoreGuess(km) {
+  return Math.round(distanceScore(km));
 }

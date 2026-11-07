@@ -6,7 +6,7 @@ import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
 import {
   SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, AUTO_SPIN, RESET_DAILY, STREAK_KEY, HISTORY_KEY, EXPEDITION_KEY,
-  REVEAL_VIEW_KEY, PACK_PLACEMENT_KEY, WEIGHTS, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
+  REVEAL_VIEW_KEY, PACK_PLACEMENT_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
 } from './core/config.js';
 import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
 import { storageError, safeSetItem, migrateStorage, readJSON, writeJSON } from './core/storage.js';
@@ -516,7 +516,6 @@ initReview();
 const statsHost = {
   STREAK_KEY,
   HISTORY_KEY,
-  WEIGHTS,
   gameEls,
   get daily() { return state.daily; },
   set statsScreenEl(value) { state.statsScreenEl = value; },

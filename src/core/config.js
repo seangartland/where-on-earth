@@ -40,7 +40,6 @@ export const ACCOUNT_OFFER_KEY = 'where-on-earth-account-offer';
 export const PREMERGE_KEY = 'where-on-earth-premerge-v1';
 export const PACK_KEY = 'where-on-earth-pack-v1';
 export const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY, WEEKLY_KEY, ACCOUNT_KEY, PACK_KEY]);
-export const WEIGHTS = [1, 1, 1, 1, 1];
 
 export const ACCOUNTS_ENABLED = new URLSearchParams(location.search).get('accounts') !== '0';
 export const ACCOUNT_API = 'https://api.where-on.earth';

@@ -5,7 +5,7 @@ import test from 'node:test';
 globalThis.location = { search: '' };
 
 const { distanceKm } = await import('../src/core/math.js');
-const { flyoverTier, WEIGHTS } = await import('../src/core/config.js');
+const { flyoverTier } = await import('../src/core/config.js');
 const { distanceScore, scoreGuess, scoringDistanceKm } = await import('../src/game/scoring.js');
 const { nearestExtentPoint, setExtentData } = await import('../src/game/extents.js');
 const { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } = await import('../src/daily.js');
@@ -165,7 +165,7 @@ test('fixed pinned and derived Daily selections and serialized round fields stay
     assert.deepEqual(Object.keys(JSON.parse(JSON.stringify(results[0]))), ['guess', 'distance', 'base', 'score', 'distanceExact']);
     results.forEach((result, round) => close(result.distanceExact, expectedExact[round], 1e-10));
     assert.deepEqual(results.map((result) => [result.distance, result.base, result.score]), expectedScores);
-    assert.ok(results.every((result, round) => result.score === result.base * WEIGHTS[round]));
+    assert.ok(results.every((result) => result.score === result.base));
   }
 });
 

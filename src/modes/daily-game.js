@@ -12,7 +12,7 @@ import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from '../daily.js';
-import { ACCOUNTS_ENABLED, DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_NAMES } from '../core/config.js';
+import { ACCOUNTS_ENABLED, DEG, MIN_DIST, GAME_KEY, STREAK_KEY, EARN_NAMES } from '../core/config.js';
 import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { readJSON, writeJSON } from '../core/storage.js';
@@ -131,10 +131,7 @@ export function shareScore(base) {
 
 export function shareText() {
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
-  const scores = state.daily.results.map((result, index) => {
-    const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
-    return shareScore(base);
-  });
+  const scores = state.daily.results.map((result) => shareScore(result.score));
   return `I scored ${total.toLocaleString()} on\nwww.where-on.earth\n\n${scores.join(' | ')}`;
 }
 
@@ -215,7 +212,7 @@ export function showResults() {
   recordHistory();
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
-  gameEls.maxScore.textContent = `/${(WEIGHTS.reduce((sum, w) => sum + w, 0) * 1000).toLocaleString()}`;
+  gameEls.maxScore.textContent = '/5,000';
   gameEls.resultStreak.textContent = `${streak} day streak`;
   gameEls.resultsBreakdown.replaceChildren(...state.daily.results.map((result, i) => {
     const round = document.createElement('li');
@@ -229,7 +226,7 @@ export function showResults() {
     const city = item?.short || item?.clue || 'Unknown location';
     const country = item?.country || '';
     const flag = item ? flagForLocation(item) : '🌍';
-    const rawScore = result.base ?? Math.round(result.score / WEIGHTS[i]);
+    const rawScore = result.base ?? result.score;
 
     number.textContent = i + 1;
     place.className = 'place';
@@ -447,7 +444,7 @@ export function openRecap(i) {
   reviewEls.tag.textContent = `Round ${i + 1} of 5`;
   reviewEls.name.textContent = item.clue;
   reviewEls.distance.textContent = formatKm(result.distance);
-  reviewEls.base.textContent = result.base ?? Math.round((result.score * 10) / WEIGHTS[i]);
+  reviewEls.base.textContent = result.base ?? result.score;
   reviewEls.score.textContent = `+${result.score.toLocaleString()}`;
   reviewEls.fact.textContent = item.fact;
   setThumb(reviewEls.thumb, item.image);
