@@ -4033,5 +4033,91 @@
   "difficultyWhy": "p.82·fb87·K0·iso246 → 7.6 → 3",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "little-mermaid-dk",
+  "short": "The Little Mermaid",
+  "clue": "The Little Mermaid, Denmark 🇩🇰",
+  "fact": "The small bronze honoring Hans Christian Andersen's tale has been beheaded twice by vandals since 1913.",
+  "lat": 55.6929,
+  "lng": 12.5993,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Petite_sir%C3%A8ne_de_Copenhague_%28conforme_%C3%A0_la_loi_danoise%29.JPG/500px-Petite_sir%C3%A8ne_de_Copenhague_%28conforme_%C3%A0_la_loi_danoise%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "Denmark",
+  "continent": "Europe",
+  "sets": [],
+  "difficultyWhy": "p.50·fb74·K0·iso291 → 13.9 → 4",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "graceland",
+  "short": "Graceland",
+  "fact": "Elvis Presley's home from 1957 until his death in 1977, he is buried on the estate alongside his parents; opened to the public in 1982, it is the second most visited home in the United States, after the White House.",
+  "lat": 35.045944,
+  "lng": -90.022944,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/USA_Tour_2019_P095_Graceland.jpg/3840px-USA_Tour_2019_P095_Graceland.jpg",
+  "clue": "Graceland, United States 🇺🇸",
+  "difficulty": 6,
+  "country": "United States",
+  "continent": "North America",
+  "sets": [
+   "US Road Trip"
+  ],
+  "difficultyWhy": "p.80·fb520·K0·iso674 → 26.8 → 6",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "grand-central-terminal",
+  "short": "Grand Central Terminal",
+  "clue": "Grand Central Terminal, United States 🇺🇸",
+  "fact": "Opened in 1913, its main concourse ceiling paints the zodiac in reverse, defended by the Vanderbilts as the stars seen from God's viewpoint; the four-faced clock above the information booth is faced in opal.",
+  "lat": 40.7528,
+  "lng": -73.9772,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Grand_Central_Terminal_Main_Concourse_2019-10-03_20-02.jpg/500px-Grand_Central_Terminal_Main_Concourse_2019-10-03_20-02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "United States",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.74·fb1681·K0·iso134 → 98.4 → 8",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "amundsen-scott-south",
+  "short": "Amundsen–Scott South Pole",
+  "clue": "Amundsen–Scott South Pole, Antarctica 🇦🇶",
+  "fact": "The Amundsen–Scott South Pole Station sits at the geographic South Pole on the Antarctic Plateau, one of Earth's most extreme environments.",
+  "lat": -90,
+  "lng": 0,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Amundsen%E2%80%93Scott_South_Pole_Station_01.jpg/500px-Amundsen%E2%80%93Scott_South_Pole_Station_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Antarctica",
+  "continent": "Antarctica",
+  "sets": [
+   "Antarctic Outposts"
+  ],
+  "difficultyWhy": "F2·A3·K0·C1·S0 → 7",
+  "category": "city",
+  "kind": "landmark"
+ },
+ {
+  "id": "mecca-kaaba-saudi",
+  "short": "Kaaba",
+  "clue": "Kaaba, Saudi Arabia 🇸🇦",
+  "fact": "Muslims worldwide face this cube-shaped shrine to pray, and pilgrims circle it seven times in the rite of tawaf; its black Kiswah cloth is replaced each year on the Day of Arafah.",
+  "lat": 21.4225,
+  "lng": 39.8262,
+  "difficulty": 1,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Mosqu%C3%A9e_Masjid_el_Haram_%C3%A0_la_Mecque.jpg/500px-Mosqu%C3%A9e_Masjid_el_Haram_%C3%A0_la_Mecque.jpg",
+  "country": "Saudi Arabia",
+  "continent": "Asia",
+  "sets": [
+   "Sacred Sites"
+  ],
+  "difficultyWhy": "p.99·fb419·K0·iso67 → 3.9 → 1",
+  "category": "city",
+  "kind": "landmark"
  }
 ]

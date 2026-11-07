@@ -11,6 +11,7 @@ export const PACK_ANCIENT_CITY_IDS = new Set([
   'copan',
   'dholavira-india',
   'fasil-ghebbi-gondar',
+  'gobekli-tepe',
   'great-zimbabwe',
   'hampi',
   'hegra-qasr-al-farid',
