@@ -12,7 +12,7 @@ import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from '../daily.js';
-import { ACCOUNTS_ENABLED, DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_NAMES, flyoverTier } from '../core/config.js';
+import { ACCOUNTS_ENABLED, DEG, MIN_DIST, GAME_KEY, STREAK_KEY, WEIGHTS, EARN_NAMES } from '../core/config.js';
 import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { readJSON, writeJSON } from '../core/storage.js';
@@ -92,14 +92,6 @@ export function finishStreak() {
   return count;
 }
 
-export function scoreEmoji(base) {
-  if (base >= 900) return '🔥';
-  if (base >= 700) return '😁';
-  if (base >= 500) return '😅';
-  if (base >= 200) return '😬';
-  return '🥶';
-}
-
 export function postcardDistance(result) {
   const distance = Number.isFinite(result.distanceExact) ? result.distanceExact : result.distance;
   return formatKm(distance);
@@ -133,17 +125,17 @@ export function postcardSummaryCard(result, item) {
   return card;
 }
 
+export function shareScore(base) {
+  return base >= 1000 ? '1 K' : String(base);
+}
+
 export function shareText() {
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
-  const emojis = state.daily.results.map((result, index) => {
-    const distance = Number.isFinite(result.distanceExact) ? result.distanceExact : result.distance;
-    const tier = flyoverTier(distance);
-    if (tier === 'pinpoint') return '📍';
-    if (tier === 'bullseye') return '🎯';
+  const scores = state.daily.results.map((result, index) => {
     const base = result.base ?? Math.round((result.score * 10) / WEIGHTS[index]);
-    return scoreEmoji(base);
+    return shareScore(base);
   });
-  return `I scored ${total.toLocaleString()} on\nwww.where-on.earth\n\n${emojis.join('')}`;
+  return `I scored ${total.toLocaleString()} on\nwww.where-on.earth\n\n${scores.join(' | ')}`;
 }
 
 export function postcardSummaryOutcomes() {
