@@ -249,6 +249,22 @@ async function saveName() {
   }
 }
 
+function clearInviteGlow() {
+  sheet.querySelectorAll('.account-invite-copy, .account-invite-share')
+    .forEach((button) => button.classList.remove('cta-glow'));
+}
+
+function markInviteCopied() {
+  clearInviteGlow();
+  status('Link copied');
+  const copyButton = sheet.querySelector('.account-invite-copy');
+  if (!copyButton || copyButton.dataset.copied) return;
+  copyButton.dataset.copied = '1';
+  const label = copyButton.textContent;
+  copyButton.textContent = 'Copied';
+  setTimeout(() => { copyButton.textContent = label; delete copyButton.dataset.copied; }, 2500);
+}
+
 function showInviteLink(url) {
   const wrap = sheet.querySelector('.account-invite-link');
   const input = sheet.querySelector('.account-invite-link-input');
@@ -258,6 +274,18 @@ function showInviteLink(url) {
   wrap.hidden = false;
   if (shareButton) shareButton.hidden = !navigator.share;
   status('Invite link ready. Tap Copy, or long-press the link to copy it.');
+  // Make the next step obvious: illuminate Copy and Share until one is used,
+  // and try an optimistic copy for platforms that allow it outside a tap
+  // (iOS Safari refuses; the glow is the path there).
+  sheet.querySelectorAll('.account-invite-copy, .account-invite-share')
+    .forEach((button) => { if (!button.hidden) button.classList.add('cta-glow'); });
+  input.select();
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(inviteMessage(url)).then(
+      () => markInviteCopied(),
+      () => { /* refused: the illuminated buttons carry it from here */ },
+    );
+  }
 }
 
 function inviteMessage(url) {
@@ -268,7 +296,7 @@ async function copyInviteLinkNow(input) {
   const text = inviteMessage(input.value);
   try {
     await navigator.clipboard.writeText(text);
-    status('Link copied');
+    markInviteCopied();
     return;
   } catch {
     // Safari rejects clipboard writes outside a live tap gesture; fall back below.
@@ -285,7 +313,7 @@ async function copyInviteLinkNow(input) {
     const copied = document.execCommand('copy');
     document.body.removeChild(temp);
     if (copied) {
-      status('Link copied');
+      markInviteCopied();
       return;
     }
   } catch {
@@ -397,7 +425,10 @@ function bind(values) {
     const input = sheet.querySelector('.account-invite-link-input');
     if (!input?.value) return;
     try {
-      await navigator.share({ title: 'Where on Earth?', text: inviteMessage(input.value), url: input.value });
+      // No separate url field: iOS Messages drops the text when both are
+      // present and sends the bare link. The message text carries the URL.
+      await navigator.share({ title: 'Where on Earth?', text: inviteMessage(input.value) });
+      clearInviteGlow();
     } catch (error) {
       if (error.name !== 'AbortError') status('Could not share automatically. Long-press the link above to copy it.', true);
     }

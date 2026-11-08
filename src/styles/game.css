@@ -215,6 +215,9 @@ button { font: inherit; }
 .account-invite-link-actions { display: flex; gap: 10px; }
 .account-invite-copy, .account-invite-share { flex: 1; min-height: 40px; padding: 0 14px; border: 1px solid rgba(var(--rgb-line),.25); border-radius: 999px; background: rgba(119,202,255,.16); color: var(--ink-alt); font: inherit; font-weight: 800; cursor: pointer; touch-action: manipulation; }
 .account-invite-share[hidden] { display: none; }
+.account-invite-copy.cta-glow, .account-invite-share.cta-glow { border-color: rgba(119,202,255,.95); background: rgba(119,202,255,.34); color: var(--ink-hi); animation: invite-cta-pulse 1.5s ease-in-out infinite; }
+@keyframes invite-cta-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(119,202,255,.45); } 50% { box-shadow: 0 0 0 7px rgba(119,202,255,0); } }
+@media (prefers-reduced-motion: reduce) { .account-invite-copy.cta-glow, .account-invite-share.cta-glow { animation: none; box-shadow: 0 0 0 3px rgba(119,202,255,.35); } }
 .account-small-print { margin: 7px 0 0; color: rgba(220,239,255,.55); font-size: var(--fs-small); text-align: center; }
 .account-friends .account-status { text-align: center; }
 .account-friends-list { margin: 16px 0; padding: 0; border-top: 1px solid rgba(var(--rgb-line),.13); list-style: none; }
