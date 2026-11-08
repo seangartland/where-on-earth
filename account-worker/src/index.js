@@ -1,7 +1,7 @@
 import { betterAuth } from 'better-auth';
 import { bearer, emailOTP } from 'better-auth/plugins';
 import { createSender } from './sender.js';
-import { handleFriends } from './friends.js';
+import { handleFriends, inviteLandingPage } from './friends.js';
 import { getSync, postSync } from './sync.js';
 
 const ALLOWED_ORIGINS = new Set([
@@ -282,6 +282,9 @@ export default {
       const response = await postSync(request, env, auth);
       for (const [key, value] of Object.entries(cors(request))) response.headers.set(key, value);
       return response;
+    }
+    if (url.pathname.startsWith('/v1/friends/invite/') && request.method === 'GET') {
+      return inviteLandingPage(env, decodeURIComponent(url.pathname.slice('/v1/friends/invite/'.length)));
     }
     if (url.pathname === '/v1/friends' || url.pathname.startsWith('/v1/friends/')
       || url.pathname === '/v1/daily/guesses' || url.pathname === '/v1/daily/friends') {

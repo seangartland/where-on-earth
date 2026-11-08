@@ -8,9 +8,16 @@ const LOCATION_PATTERN = /^[a-z0-9-]{1,80}$/;
 const DEVICE_PATTERN = /^dev_[A-Za-z0-9_-]+$/;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
+const SHARE_CARD_IMAGE = 'https://where-on.earth/assets/og-v3.png';
+const GAME_URL = 'https://where-on.earth/';
+
 const json = (body, status = 200) => new Response(JSON.stringify(body), {
   status, headers: { 'content-type': 'application/json' },
 });
+
+const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+}[char]));
 
 async function accountId(auth, request) {
   const session = await auth.api.getSession({ headers: request.headers });
@@ -115,6 +122,64 @@ async function validInvite(env, token, now) {
     FROM friend_invites i JOIN profiles p ON p.account_id = i.inviter_id
     WHERE i.token_hash = ? AND i.used_at IS NULL AND i.expires_at > ?`)
     .bind(hash, now).first();
+}
+
+function inviteLandingHtml({ inviterName, gameUrl }) {
+  const title = 'Friend invite · Where on Earth';
+  const description = inviterName
+    ? `${inviterName} invited you to be friends on Where on Earth. Play the Daily and compare pins.`
+    : 'This invite link is no longer valid.';
+  const heading = inviterName
+    ? `${escapeHtml(inviterName)} invited you to play Where on Earth`
+    : 'This invite link is no longer valid';
+  const copy = inviterName
+    ? 'Play the Daily and compare your pins with friends.'
+    : 'Open the game to keep playing the Daily.';
+  const safeTitle = escapeHtml(title);
+  const safeDescription = escapeHtml(description);
+  const safeGameUrl = escapeHtml(gameUrl);
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${safeTitle}</title>
+<meta property="og:title" content="${safeTitle}">
+<meta property="og:description" content="${safeDescription}">
+<meta property="og:image" content="${SHARE_CARD_IMAGE}">
+<meta property="og:url" content="${safeGameUrl}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${safeTitle}">
+<meta name="twitter:description" content="${safeDescription}">
+<meta name="twitter:image" content="${SHARE_CARD_IMAGE}">
+<meta http-equiv="refresh" content="1;url=${safeGameUrl}">
+<script>setTimeout(function () { window.location.replace(${JSON.stringify(gameUrl)}); }, 600);</script>
+<style>
+body { background: #03060f; color: #fff; font-family: -apple-system, system-ui, sans-serif;
+  display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0;
+  text-align: center; padding: 24px; box-sizing: border-box; }
+a.button { display: inline-block; margin-top: 20px; padding: 12px 24px; background: #2d7dff;
+  color: #fff; border-radius: 999px; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+<div>
+<h1>${heading}</h1>
+<p>${escapeHtml(copy)}</p>
+<a class="button" href="${safeGameUrl}">Open Where on Earth</a>
+</div>
+</body>
+</html>`;
+}
+
+export async function inviteLandingPage(env, token) {
+  const invite = await validInvite(env, token, Date.now());
+  const gameUrl = invite
+    ? `${GAME_URL}?accounts=1&friend=${encodeURIComponent(token)}`
+    : GAME_URL;
+  const html = inviteLandingHtml({ inviterName: invite?.display_name || null, gameUrl });
+  return new Response(html, { status: 200, headers: { 'content-type': 'text/html; charset=utf-8' } });
 }
 
 const PINS_SQL = `SELECT mine.location_id, mine.lat AS mine_lat, mine.lng AS mine_lng,

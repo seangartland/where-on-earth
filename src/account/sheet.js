@@ -260,19 +260,31 @@ function showInviteLink(url) {
   status('Invite link ready. Tap Copy, or long-press the link to copy it.');
 }
 
+function inviteMessage(url) {
+  return `Add me as a friend on Where on Earth and compare Daily pins: ${url}`;
+}
+
 async function copyInviteLinkNow(input) {
+  const text = inviteMessage(input.value);
   try {
-    await navigator.clipboard.writeText(input.value);
+    await navigator.clipboard.writeText(text);
     status('Link copied');
     return;
   } catch {
     // Safari rejects clipboard writes outside a live tap gesture; fall back below.
   }
   try {
-    input.focus();
-    input.select();
-    input.setSelectionRange(0, input.value.length);
-    if (document.execCommand('copy')) {
+    const temp = document.createElement('textarea');
+    temp.value = text;
+    temp.setAttribute('readonly', '');
+    temp.style.position = 'absolute';
+    temp.style.left = '-9999px';
+    document.body.appendChild(temp);
+    temp.select();
+    temp.setSelectionRange(0, text.length);
+    const copied = document.execCommand('copy');
+    document.body.removeChild(temp);
+    if (copied) {
       status('Link copied');
       return;
     }
@@ -287,7 +299,7 @@ async function createInvite(button) {
   loading(button, true, 'Making link...');
   try {
     const invite = await friendApi('/v1/friends/invites', { method: 'POST' });
-    const url = `https://where-on.earth/?accounts=1&friend=${encodeURIComponent(invite.token)}`;
+    const url = `${ACCOUNT_API}/v1/friends/invite/${encodeURIComponent(invite.token)}`;
     loading(button, false);
     showInviteLink(url);
   } catch (error) {
@@ -385,7 +397,7 @@ function bind(values) {
     const input = sheet.querySelector('.account-invite-link-input');
     if (!input?.value) return;
     try {
-      await navigator.share({ title: 'Where on Earth?', text: 'Add me as a friend on Where on Earth?', url: input.value });
+      await navigator.share({ title: 'Where on Earth?', text: inviteMessage(input.value), url: input.value });
     } catch (error) {
       if (error.name !== 'AbortError') status('Could not share automatically. Long-press the link above to copy it.', true);
     }

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { DatabaseSync } from 'node:sqlite';
-import { handleFriends } from '../src/friends.js';
+import { handleFriends, inviteLandingPage } from '../src/friends.js';
 
 class D1Statement {
   constructor(database, sql, values = []) {
@@ -176,6 +176,30 @@ test('invite lifecycle, names, limits, unified invalid response, and mutual remo
   assert.deepEqual(await post(env, 'a', '/v1/friends/invites'), {
     status: 429, body: { code: 'INVITE_LIMIT' },
   });
+});
+
+test('invite landing page carries the inviter name in OG tags and falls back for invalid tokens', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a');
+  await name(env, 'a', 'Ana');
+  const created = await post(env, 'a', '/v1/friends/invites');
+
+  const validResponse = await inviteLandingPage(env, created.body.token);
+  assert.equal(validResponse.status, 200);
+  assert.equal(validResponse.headers.get('content-type'), 'text/html; charset=utf-8');
+  const validHtml = await validResponse.text();
+  assert.match(validHtml, /<meta property="og:title" content="Friend invite · Where on Earth">/);
+  assert.match(validHtml, /Ana invited you to be friends on Where on Earth\. Play the Daily and compare pins\./);
+  assert.match(validHtml, /<meta property="og:image" content="https:\/\/where-on\.earth\/assets\/og-v3\.png">/);
+  assert.match(validHtml, new RegExp(`friend=${created.body.token}`));
+  assert.doesNotMatch(validHtml, /no longer valid/);
+
+  const invalidResponse = await inviteLandingPage(env, 'AAAAAAAAAAAAAAAAAAAAAA');
+  assert.equal(invalidResponse.status, 200);
+  const invalidHtml = await invalidResponse.text();
+  assert.match(invalidHtml, /This invite link is no longer valid/);
+  assert.doesNotMatch(invalidHtml, /Ana/);
+  assert.doesNotMatch(invalidHtml, /friend=/);
 });
 
 test('invite attempt rate limit, existing friendship idempotency, and friend cap', async (t) => {
