@@ -604,6 +604,29 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .home-panels .pack-token-pill { top: 8px; right: 8px; z-index: 2; transform: none; }
 .home-panels #play-button.daily-done { min-height: 0; flex-direction: column; }
 .home-panels #play-button.daily-done .panel-art { filter: brightness(.72) saturate(.85); }
+/* On the panel the gold state must stay light text: the base #pack-button
+   .is-gold ink color (for the old gold-gradient button) outranks the generic
+   panel rule and made the pack name and status unreadable over the art. */
+.home-panels #pack-button.is-gold { color: #ffe9c9; }
+.home-panels #pack-button.is-gold .pack-home-bar { background: rgba(var(--rgb-gold),.18); }
+.home-panels #pack-button.is-gold .pack-home-bar i { background: var(--gold); }
+/* The pack art carries its own baked-in title, so the pack panel gets a
+   deeper scrim than the others to keep the overlaid name and status clear. */
+.home-panels #pack-button .panel-info { background: linear-gradient(180deg, transparent, rgba(3,6,14,.93) 48%); }
+
+/* The Passport summary card joins the site's dark glass treatment (Sean,
+   2026-11-08: the cream mail-paper card clashed with the rest of the home
+   screen). The cream paper stays inside the Passport screen itself, where
+   it is the book's own material. */
+.start-screen .passport { border-radius: 18px; background: linear-gradient(165deg, rgba(17,28,56,.92), rgba(7,12,26,.95)); box-shadow: 0 10px 24px rgba(0,0,0,.45), inset 0 0 0 1px rgba(150,175,255,.16); }
+.start-screen .passport-count { color: rgba(205,218,245,.78); }
+.start-screen .passport-count b { color: #fff; }
+.start-screen .passport-earned, .start-screen .passport-streak { color: #f0b64a; }
+.start-screen .passport-stamps img { background: #0d1730; border-color: rgba(180,198,240,.35); }
+.start-screen .passport-stamps img[data-tier="gold"] { border-color: #e9b558; }
+.start-screen .passport-stamps img[data-tier="cyan"] { border-color: rgba(125,211,252,.55); }
+.start-screen .passport-postmark { border-color: rgba(190,205,245,.5); color: rgba(205,218,245,.78); }
+.start-screen .passport-cue { color: rgba(205,218,245,.85); }
 
 /* The pack screen alone uses a dark studio stage. */
 .pack-screen { display: grid; place-items: center; box-sizing: border-box; padding: 14px 8px; overflow: auto; background: radial-gradient(circle at 50% 43%, #19365c 0, #0b1930 36%, #040914 76%); pointer-events: auto; }
