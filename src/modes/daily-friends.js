@@ -129,11 +129,13 @@ function render(v) {
   v.strip = null;
   firstPin?.release();
   loadFriendsInfo().then((info) => {
-    if (v === view && v.key === key && info?.count && info.sharePins) mountStrip(v);
+    if (v !== view || v.key !== key) return;
+    if (info?.count === 0 && nudgeDismissals('woe-nudge-review-dismissed') < 2) mountStrip(v, true);
+    else if (info?.count && info.sharePins) mountStrip(v);
   });
 }
 
-function mountStrip(v) {
+function mountStrip(v, showNudge = false) {
   const strip = v.strip || document.createElement('div');
   strip.className = 'friends-strip';
   strip.setAttribute('aria-label', "Friends' pins");
@@ -150,7 +152,26 @@ function mountStrip(v) {
     }
     firstPin.drop(latLngToVec3(v.stored.lat, v.stored.lng));
   } else firstPin?.release();
-  if (v.rows.length) {
+  if (showNudge) {
+    const nudge = document.createElement('aside');
+    nudge.className = 'friend-nudge';
+    nudge.append(Object.assign(document.createElement('span'), { textContent: 'Add a friend to see their pins next to yours.' }));
+    const addFriend = Object.assign(document.createElement('button'), { type: 'button', className: 'text-button', textContent: 'Add a friend' });
+    addFriend.addEventListener('click', async () => {
+      const { openAccountSheet } = await import('../account/sheet.js');
+      await openAccountSheet(addFriend);
+      document.querySelector('.account-friends')?.scrollIntoView({ block: 'nearest' });
+    });
+    const dismiss = Object.assign(document.createElement('button'), { type: 'button', className: 'friend-nudge-dismiss', textContent: '×' });
+    dismiss.setAttribute('aria-label', 'Dismiss friend reminder');
+    dismiss.addEventListener('click', () => {
+      saveNudgeDismissal('woe-nudge-review-dismissed');
+      strip.remove();
+      if (v.strip === strip) v.strip = null;
+    });
+    nudge.append(addFriend, dismiss);
+    strip.append(nudge);
+  } else if (v.rows.length) {
     v.chips = Object.assign(document.createElement('div'), { className: 'friends-chips' });
     strip.append(v.chips);
     renderChips(v);
@@ -165,6 +186,14 @@ function mountStrip(v) {
     else reviewEls.card.querySelector('.score-line').after(strip);
   }
   v.strip = strip;
+}
+
+function nudgeDismissals(key) {
+  try { return Math.max(0, Number.parseInt(localStorage.getItem(key), 10) || 0); } catch { return 0; }
+}
+
+function saveNudgeDismissal(key) {
+  try { localStorage.setItem(key, String(nudgeDismissals(key) + 1)); } catch { /* unavailable */ }
 }
 
 function renderChips(v) {
@@ -340,28 +369,6 @@ export function showFriendRecap(slot, date = state.daily.date) {
   const v = { mode: 'recap', date, slot, locationId: state.daily.ids[slot], answer: state.selected[slot], data: null, settled: true };
   view = v;
   if (adopt(v)) render(v);
-}
-
-// ---------------------------------------------------------------------------
-// Results: no friends yet gets one quiet way in, never a strip mid-game.
-// ---------------------------------------------------------------------------
-export async function syncCompareButton() {
-  const info = await loadFriendsInfo(true);
-  let button = gameEls.results.querySelector('.friends-compare');
-  if (!info || info.count) {
-    if (button) button.hidden = true;
-    return;
-  }
-  if (!button) {
-    button = Object.assign(document.createElement('button'), { type: 'button', className: 'text-button friends-compare', textContent: 'Compare pins with friends' });
-    gameEls.results.querySelector('.results-globe').after(button);
-    button.addEventListener('click', async () => {
-      const { openAccountSheet } = await import('../account/sheet.js');
-      await openAccountSheet(button);
-      document.querySelector('.account-friends')?.scrollIntoView({ block: 'nearest' });
-    });
-  }
-  button.hidden = false;
 }
 
 setFriendLayer({ update: updateFriends, clear: clearFriends, pick: pickFriend, recap: showFriendRecap });

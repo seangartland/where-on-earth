@@ -29,6 +29,7 @@ import { survival } from './survival.js';
 import { borders } from './tap-country.js';
 import { expeditionRun } from './expeditions.js';
 import { endless } from './endless.js';
+import { isSignedIn } from '../account/session.js';
 
 let applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin;
 let makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints;
@@ -242,7 +243,40 @@ export function showResults() {
     return round;
   }));
   tickCountdown();
-  loadFriendLayer().then((friends) => friends?.syncCompareButton()).catch(() => {});
+  syncSignedOutNudge();
+}
+
+function syncSignedOutNudge() {
+  const existing = gameEls.results.querySelector('.friend-nudge-results');
+  if (isSignedIn() || nudgeDismissals('woe-nudge-results-dismissed') >= 2) {
+    existing?.remove();
+    return;
+  }
+  if (existing) return;
+  const nudge = document.createElement('aside');
+  nudge.className = 'friend-nudge friend-nudge-results';
+  nudge.append(Object.assign(document.createElement('span'), { textContent: 'You played signed out, so these pins were not saved.' }));
+  const addFriends = Object.assign(document.createElement('button'), { type: 'button', className: 'text-button', textContent: 'Add friends to compare guesses' });
+  addFriends.addEventListener('click', async () => {
+    const { openAccountSheet } = await import('../account/sheet.js');
+    openAccountSheet(addFriends);
+  });
+  const dismiss = Object.assign(document.createElement('button'), { type: 'button', className: 'friend-nudge-dismiss', textContent: '×' });
+  dismiss.setAttribute('aria-label', 'Dismiss account reminder');
+  dismiss.addEventListener('click', () => {
+    saveNudgeDismissal('woe-nudge-results-dismissed');
+    nudge.remove();
+  });
+  nudge.append(addFriends, dismiss);
+  gameEls.results.querySelector('.results-actions').after(nudge);
+}
+
+function nudgeDismissals(key) {
+  try { return Math.max(0, Number.parseInt(localStorage.getItem(key), 10) || 0); } catch { return 0; }
+}
+
+function saveNudgeDismissal(key) {
+  try { localStorage.setItem(key, String(nudgeDismissals(key) + 1)); } catch { /* unavailable */ }
 }
 
 export function syncDailyButton() {
