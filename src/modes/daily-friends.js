@@ -155,7 +155,6 @@ function mountStrip(v, showNudge = false) {
   if (showNudge) {
     const nudge = document.createElement('aside');
     nudge.className = 'friend-nudge';
-    nudge.append(Object.assign(document.createElement('span'), { textContent: 'Add a friend to see their pins next to yours.' }));
     const addFriend = Object.assign(document.createElement('button'), { type: 'button', className: 'text-button', textContent: 'Add a friend' });
     addFriend.addEventListener('click', async () => {
       const { openAccountSheet } = await import('../account/sheet.js');
@@ -169,7 +168,8 @@ function mountStrip(v, showNudge = false) {
       strip.remove();
       if (v.strip === strip) v.strip = null;
     });
-    nudge.append(addFriend, dismiss);
+    // The action opens the sentence so text, action and dismiss share one line.
+    nudge.append(addFriend, Object.assign(document.createElement('span'), { textContent: ' to see their pins next to yours.' }), dismiss);
     strip.append(nudge);
   } else if (v.rows.length) {
     v.chips = Object.assign(document.createElement('div'), { className: 'friends-chips' });

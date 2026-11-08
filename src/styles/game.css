@@ -1313,12 +1313,11 @@ body.game-review #hud { opacity: 0; }
 .friends-strip .review-pill b { color: #f3e7d3; font-weight: 800; }
 .friends-empty, .friends-note { margin: 0; color: rgba(var(--rgb-muted),.55); font-size: var(--fs-small); }
 .friends-note { margin-bottom: 6px; color: rgba(var(--rgb-gold),.8); }
-.friend-nudge { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; margin-top: 8px; color: rgba(var(--rgb-muted),.55); font-size: var(--fs-small); line-height: 1.35; }
-.friend-nudge > span { flex: 1 1 100%; min-width: 0; white-space: nowrap; }
-.friend-nudge .text-button { flex: none; padding: 3px 0; margin: 0; color: rgba(var(--rgb-muted),.72); font-size: inherit; white-space: nowrap; }
-.friend-nudge-dismiss { flex: none; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(var(--rgb-muted),.58); font: 20px/1 system-ui, sans-serif; cursor: pointer; touch-action: manipulation; }
+.friend-nudge { display: block; min-width: 0; margin-top: 6px; color: rgba(var(--rgb-muted),.55); font-size: var(--fs-small); line-height: 1.4; }
+.friend-nudge .text-button { display: inline; padding: 2px 0; margin: 0; color: rgba(var(--rgb-muted),.72); font-size: inherit; white-space: nowrap; }
+.friend-nudge-dismiss { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-left: 2px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(var(--rgb-muted),.58); font: 20px/1 system-ui, sans-serif; vertical-align: -7px; cursor: pointer; touch-action: manipulation; }
 .friend-nudge-dismiss:active { background: rgba(var(--rgb-line),.12); transform: scale(.9); }
-.friend-nudge-results { margin: 10px 0 0; }
+.friend-nudge-results { margin: 8px 0 0; }
 .friend-pop { position: absolute; left: 50%; bottom: calc(100% + 6px); z-index: 1; margin: 0; padding: 6px 12px; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 999px; background: rgba(5,12,29,.94); color: var(--ink-hi); font-size: var(--fs-small); font-weight: 700; white-space: nowrap; transform: translateX(-50%); pointer-events: none; }
 .friend-pop[hidden] { display: none; }
 @keyframes friends-in { from { opacity: 0; } to { opacity: 1; } }
