@@ -601,19 +601,14 @@ async function syncAccountSetting() {
   const { readAccountSession } = await import('./account/session.js');
   const session = readAccountSession();
   settingsEls.accountDetail.textContent = session?.sessionToken ? session.emailHint : 'Save your progress';
-  settingsEls.accountAction.textContent = session?.sessionToken ? 'Sign out' : 'Sign in';
+  settingsEls.accountAction.textContent = session?.sessionToken ? 'Manage' : 'Sign in';
 }
 
+// The account sheet is the way in for both states: signed out it runs the
+// sign-in flow, signed in it shows friends, invites and its own Sign out
+// button. The Settings row must never sign the player out directly, or the
+// friends UI has no path from the home screen (Sean, 2026-11-08).
 settingsEls.accountAction?.addEventListener('click', async () => {
-  const { clearAccountSession, readAccountSession } = await import('./account/session.js');
-  const session = readAccountSession();
-  if (session?.sessionToken) {
-    const { accountApi } = await import('./account/api.js');
-    await accountApi('/v1/auth/signout', { method: 'POST', token: session.sessionToken }).catch(() => {});
-    clearAccountSession();
-    await syncAccountSetting();
-    return;
-  }
   const { openAccountSheet } = await import('./account/sheet.js');
   openAccountSheet(settingsEls.accountAction);
 });
