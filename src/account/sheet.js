@@ -299,7 +299,7 @@ async function createInvite(button) {
   loading(button, true, 'Making link...');
   try {
     const invite = await friendApi('/v1/friends/invites', { method: 'POST' });
-    const url = `${ACCOUNT_API}/v1/friends/invite/${encodeURIComponent(invite.token)}`;
+    const url = `${location.origin}/friend-invite/${encodeURIComponent(invite.token)}`;
     loading(button, false);
     showInviteLink(url);
   } catch (error) {

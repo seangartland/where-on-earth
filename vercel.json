@@ -25,6 +25,10 @@
     {
       "source": "/lib/:ver/:path*",
       "destination": "/vendor/:path*"
+    },
+    {
+      "source": "/friend-invite/:token",
+      "destination": "https://api.where-on.earth/v1/friends/invite/:token"
     }
   ],
   "headers": [
