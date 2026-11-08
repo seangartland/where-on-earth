@@ -42,6 +42,11 @@ export const PACK_KEY = 'where-on-earth-pack-v1';
 export const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY, WEEKLY_KEY, ACCOUNT_KEY, PACK_KEY]);
 
 export const ACCOUNTS_ENABLED = new URLSearchParams(location.search).get('accounts') !== '0';
+
+// Expeditions are hidden from the home screen until the mode gets its
+// cleanup pass (Sean, 2026-11-08). Flip to false to bring the entry back;
+// all state and progress code stays live underneath.
+export const EXPEDITIONS_HIDDEN = true;
 export const ACCOUNT_API = 'https://api.where-on.earth';
 
 // ?reset=daily (main.js drops today's saved game and strips the query; the

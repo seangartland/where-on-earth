@@ -7,6 +7,7 @@ import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/pl
 import {
   SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, AUTO_SPIN, RESET_DAILY, STREAK_KEY, HISTORY_KEY, EXPEDITION_KEY,
   REVEAL_VIEW_KEY, PACK_PLACEMENT_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
+  EXPEDITIONS_HIDDEN,
 } from './core/config.js';
 import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
 import { storageError, safeSetItem, migrateStorage, readJSON, writeJSON } from './core/storage.js';
@@ -359,9 +360,9 @@ function setupRecsHome() {
     }
   }
 
-  // Expeditions button: make visible in variant
+  // Expeditions button: make visible in variant (unless the mode is hidden)
   const expeditionsButton = document.getElementById('expeditions-button');
-  if (expeditionsButton) {
+  if (expeditionsButton && !EXPEDITIONS_HIDDEN) {
     expeditionsButton.classList.add('recs-visible');
     expeditionsButton.classList.remove('entry-pending');
     expeditionsButton.hidden = false;

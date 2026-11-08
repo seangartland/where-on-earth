@@ -12,7 +12,7 @@
 // today (weekly.js holds the calendar rules), and past weeks list below.
 // ---------------------------------------------------------------------------
 import { isPlayableLocation } from '../daily.js';
-import { WEEKLY_KEY } from '../core/config.js';
+import { WEEKLY_KEY, EXPEDITIONS_HIDDEN } from '../core/config.js';
 import { localDateKey } from '../core/format.js';
 import { weekOf, stopStates, WEEK_STOPS } from './weekly.js';
 
@@ -57,6 +57,11 @@ function expeditionLocation(expedition, index) {
 // Stops resolve against both the cities and the landmarks file, so the entry
 // stays disabled until both have loaded (a half-loaded list would skew progress).
 export function updateExpeditionEntry() {
+  if (EXPEDITIONS_HIDDEN) {
+    host.gameEls.expeditionsEntry.hidden = true;
+    host.gameEls.expeditionsEntry.disabled = true;
+    return;
+  }
   const ready = Boolean(host.locations.length && host.landmarks
     && expeditions.some((expedition) => expeditionLocations(expedition).length));
   // The button starts invisible in the markup (.entry-pending) so it never
