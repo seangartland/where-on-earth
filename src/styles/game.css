@@ -208,6 +208,13 @@ button { font: inherit; }
 .account-inline-edit input:focus { border-color: rgba(119,202,255,.7); box-shadow: 0 0 0 3px rgba(119,202,255,.12); }
 .account-inline-edit .text-button { flex: none; min-height: 44px; margin: 0; color: var(--ink-alt); font-weight: 800; }
 .account-invite { width: 100%; min-height: 48px; margin-top: 16px; }
+.account-invite-link { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; padding: 12px; border: 1px solid rgba(var(--rgb-line),.18); border-radius: 14px; background: rgba(5,12,29,.52); }
+.account-invite-link[hidden] { display: none; }
+.account-invite-link-input { box-sizing: border-box; width: 100%; min-height: 44px; padding: 0 13px; border: 1px solid rgba(var(--rgb-line),.24); border-radius: 12px; background: rgba(2,8,20,.7); color: var(--ink-hi); font: inherit; font-size: var(--fs-small); }
+.account-invite-link-input:focus { border-color: rgba(119,202,255,.7); box-shadow: 0 0 0 3px rgba(119,202,255,.12); }
+.account-invite-link-actions { display: flex; gap: 10px; }
+.account-invite-copy, .account-invite-share { flex: 1; min-height: 40px; padding: 0 14px; border: 1px solid rgba(var(--rgb-line),.25); border-radius: 999px; background: rgba(119,202,255,.16); color: var(--ink-alt); font: inherit; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.account-invite-share[hidden] { display: none; }
 .account-small-print { margin: 7px 0 0; color: rgba(220,239,255,.55); font-size: var(--fs-small); text-align: center; }
 .account-friends .account-status { text-align: center; }
 .account-friends-list { margin: 16px 0; padding: 0; border-top: 1px solid rgba(var(--rgb-line),.13); list-style: none; }

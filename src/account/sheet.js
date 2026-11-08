@@ -80,6 +80,13 @@ function render(state, values = {}) {
         <h3 id="account-friends-title">Friends</h3>
         <form class="account-name-form"><label for="account-friend-name">Your name for friends</label><div class="account-inline-edit"><input id="account-friend-name" name="displayName" maxlength="20" value="${escapeHtml(me.displayName || '')}" placeholder="Add your name" required><button class="text-button" type="submit">Save</button></div></form>
         <button class="primary account-invite" type="button">Invite a friend</button>
+        <div class="account-invite-link" hidden>
+          <input class="account-invite-link-input" type="text" readonly aria-label="Friend invite link">
+          <div class="account-invite-link-actions">
+            <button class="account-invite-copy" type="button">Copy</button>
+            <button class="account-invite-share" type="button" hidden>Share</button>
+          </div>
+        </div>
         <p class="account-small-print">Links work once and expire in 7 days.</p>
         <p class="account-status" aria-live="polite"></p>
         <ul class="account-friends-list">${friendRows}</ul>
@@ -242,13 +249,37 @@ async function saveName() {
   }
 }
 
-async function copyInviteLink(url) {
+function showInviteLink(url) {
+  const wrap = sheet.querySelector('.account-invite-link');
+  const input = sheet.querySelector('.account-invite-link-input');
+  const shareButton = sheet.querySelector('.account-invite-share');
+  if (!wrap || !input) return;
+  input.value = url;
+  wrap.hidden = false;
+  if (shareButton) shareButton.hidden = !navigator.share;
+  status('Invite link ready. Tap Copy, or long-press the link to copy it.');
+}
+
+async function copyInviteLinkNow(input) {
   try {
-    await navigator.clipboard.writeText(url);
+    await navigator.clipboard.writeText(input.value);
     status('Link copied');
+    return;
   } catch {
-    status('Could not copy the link', true);
+    // Safari rejects clipboard writes outside a live tap gesture; fall back below.
   }
+  try {
+    input.focus();
+    input.select();
+    input.setSelectionRange(0, input.value.length);
+    if (document.execCommand('copy')) {
+      status('Link copied');
+      return;
+    }
+  } catch {
+    // Fall through to the manual-copy hint; the link stays visible either way.
+  }
+  status('Could not copy automatically. Long-press the link above to copy it.', true);
 }
 
 async function createInvite(button) {
@@ -258,16 +289,7 @@ async function createInvite(button) {
     const invite = await friendApi('/v1/friends/invites', { method: 'POST' });
     const url = `https://where-on.earth/?accounts=1&friend=${encodeURIComponent(invite.token)}`;
     loading(button, false);
-    if (navigator.share) {
-      try {
-        await navigator.share({ title: 'Where on Earth?', text: 'Add me as a friend on Where on Earth?', url });
-        status('Invite ready');
-        return;
-      } catch (error) {
-        if (error.name === 'AbortError') return;
-      }
-    }
-    await copyInviteLink(url);
+    showInviteLink(url);
   } catch (error) {
     loading(button, false);
     if (error.code === 'NAME_REQUIRED') {
@@ -353,6 +375,21 @@ function bind(values) {
     await saveName();
   });
   sheet.querySelector('.account-invite')?.addEventListener('click', (event) => createInvite(event.currentTarget));
+  sheet.querySelector('.account-invite-copy')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    const input = sheet.querySelector('.account-invite-link-input');
+    if (input?.value) copyInviteLinkNow(input);
+  });
+  sheet.querySelector('.account-invite-share')?.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const input = sheet.querySelector('.account-invite-link-input');
+    if (!input?.value) return;
+    try {
+      await navigator.share({ title: 'Where on Earth?', text: 'Add me as a friend on Where on Earth?', url: input.value });
+    } catch (error) {
+      if (error.name !== 'AbortError') status('Could not share automatically. Long-press the link above to copy it.', true);
+    }
+  });
   sheet.querySelectorAll('.account-remove').forEach((button) => button.addEventListener('click', () => confirmRemove(button.closest('.account-friend'))));
   sheet.querySelector('.account-share-input')?.addEventListener('change', async (event) => {
     const input = event.currentTarget;
