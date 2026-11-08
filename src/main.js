@@ -557,6 +557,10 @@ settingsScreen.innerHTML = `
       ${ACCOUNTS_ENABLED ? `<div class="settings-account">
         <div><strong>Account</strong><small class="settings-account-detail">Save your progress</small></div>
         <button class="settings-account-action" type="button">Sign in</button>
+      </div>
+      <div class="settings-account settings-friends">
+        <div><strong>Friends</strong><small>Invite friends and compare Daily pins</small></div>
+        <button class="settings-account-action settings-friends-action" type="button">Open</button>
       </div>` : ''}
       <a class="settings-credits" href="./credits.html">Imagery credits</a>
       <button class="settings-danger" type="button">Reset all data</button>
@@ -586,6 +590,7 @@ const settingsEls = {
   account: settingsScreen.querySelector('.settings-account'),
   accountDetail: settingsScreen.querySelector('.settings-account-detail'),
   accountAction: settingsScreen.querySelector('.settings-account-action'),
+  friendsAction: settingsScreen.querySelector('.settings-friends-action'),
 };
 
 // Stats used to live as a pill in the Passport header; it moved into Settings
@@ -611,6 +616,15 @@ async function syncAccountSetting() {
 settingsEls.accountAction?.addEventListener('click', async () => {
   const { openAccountSheet } = await import('./account/sheet.js');
   openAccountSheet(settingsEls.accountAction);
+});
+
+// A named Friends row, because an account sheet nobody can find might as
+// well not exist (Sean, 2026-11-08). Opens the same sheet, scrolled to the
+// friends section; signed out, the sheet runs sign-in first.
+settingsEls.friendsAction?.addEventListener('click', async () => {
+  const { openAccountSheet } = await import('./account/sheet.js');
+  await openAccountSheet(settingsEls.friendsAction);
+  document.querySelector('.account-friends')?.scrollIntoView({ block: 'nearest' });
 });
 window.addEventListener('account-session-change', syncAccountSetting);
 
