@@ -588,6 +588,23 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 #pack-button.is-gold .pack-home-bar { background: rgba(33,21,47,.18); }
 #pack-button.is-gold .pack-home-bar i { background: #21152f; }
 
+/* Home panels (2026-11-08, Sean's pick from the home mockups): the three mode
+   buttons become tall portrait panels with full-bleed art and the name and
+   status overlaid at the bottom. Practice uses the plain satellite texture,
+   deliberately not pack art, since Practice earns no postcards. */
+.home-panels { display: flex; }
+.home-panels > button { position: relative; flex: 1 1 0; height: 258px; min-height: 0; padding: 0; border-radius: 18px; white-space: normal; text-overflow: clip; }
+.home-panels > button.is-gold { background: none; color: #ffe9c9; }
+.home-panels .panel-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.home-panels .panel-art-practice { object-position: 72% 50%; }
+.home-panels .panel-info { position: absolute; right: 0; bottom: 0; left: 0; display: flex; flex-direction: column; gap: 3px; padding: 26px 11px 12px; background: linear-gradient(180deg, transparent, rgba(2,5,12,.88) 55%); text-align: left; pointer-events: none; }
+.home-panels #play-button .panel-info { background: linear-gradient(180deg, transparent, rgba(24,10,2,.85) 55%); }
+.home-panels .mode-name { overflow: visible; font-size: 15.5px; font-weight: 800; line-height: 1.15; white-space: normal; text-overflow: clip; }
+.home-panels .mode-desc { font-size: 11.5px; line-height: 1.35; opacity: .85; -webkit-line-clamp: 4; }
+.home-panels .pack-token-pill { top: 8px; right: 8px; z-index: 2; transform: none; }
+.home-panels #play-button.daily-done { min-height: 0; flex-direction: column; }
+.home-panels #play-button.daily-done .panel-art { filter: brightness(.72) saturate(.85); }
+
 /* The pack screen alone uses a dark studio stage. */
 .pack-screen { display: grid; place-items: center; box-sizing: border-box; padding: 14px 8px; overflow: auto; background: radial-gradient(circle at 50% 43%, #19365c 0, #0b1930 36%, #040914 76%); pointer-events: auto; }
 .pack-screen::after { position: fixed; right: 12%; bottom: 8%; left: 12%; height: 15%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,.62), transparent 68%); filter: blur(10px); content: ''; pointer-events: none; }
