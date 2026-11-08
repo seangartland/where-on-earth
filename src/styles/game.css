@@ -1293,6 +1293,12 @@ body.game-collections #hud { opacity: 0; }
 .recap-thumb { display: block; width: 100%; height: 130px; margin: 12px 0 0; border-radius: 10px; object-fit: cover; object-position: center 20%; }
 .recap-thumb[hidden] { display: none; }
 .recap-fact { margin: 12px 0 14px; color: rgba(224,240,255,.8); font-size: var(--fs-body); line-height: 1.45; }
+.recap-pager { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.pager-arrow { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 50%; background: rgba(236,247,255,.08); color: var(--ink-btn); font-size: 20px; line-height: 1; cursor: pointer; touch-action: manipulation; }
+.pager-arrow:disabled { opacity: .35; cursor: default; }
+.pager-dots { display: flex; gap: 6px; }
+.pager-dot { display: grid; place-items: center; width: 30px; height: 30px; box-sizing: border-box; border: 1.5px solid rgba(var(--rgb-line),.28); border-radius: 50%; background: rgba(236,247,255,.06); color: rgba(var(--rgb-muted),.65); font-size: var(--fs-caption); font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.pager-dot.is-current { border-color: var(--gold); background: var(--gold); color: #1f1708; }
 body.game-review #hud { opacity: 0; }
 /* Friends on the Daily: one compact row of friends' pins on the reveal sheet
    (under the peek bar's score line) and on the recap card. Chips are the

@@ -12,7 +12,7 @@ import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from '../daily.js';
-import { ACCOUNTS_ENABLED, DEG, MIN_DIST, GAME_KEY, STREAK_KEY, EARN_NAMES } from '../core/config.js';
+import { ACCOUNTS_ENABLED, DEG, GAME_KEY, STREAK_KEY, EARN_NAMES } from '../core/config.js';
 import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { readJSON, writeJSON } from '../core/storage.js';
@@ -32,7 +32,7 @@ import { endless } from './endless.js';
 
 let applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin;
 let makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints;
-let safeStrip, travelView, nearAngle;
+let safeStrip;
 let nextGame;
 let nextGameTime;
 let nextGameSub;
@@ -336,41 +336,55 @@ export function tickCountdown() {
 }
 
 // ---------------------------------------------------------------------------
-// Post-game review: all five rounds on the globe, tap one to reopen its recap
+// Post-game review: the selected round is complete, while the other answers
+// stay as quiet geographic context for the pager.
 // ---------------------------------------------------------------------------
-const REVIEW_PIN_SCALE = 0.78; // ten pins at once: a little smaller than in play
-const REVIEW_DIM = 0.22; // unselected rounds while a recap is open
+const REVIEW_PIN_SCALE = 0.78; // a little smaller than in play, to match the reveal's framing
+const REVIEW_DIM = 0.25;
+const REVIEW_CONTEXT_SCALE = 0.56;
 const REVIEW_PIN_HIT = 34; // css px, generous for fingers
 const REVIEW_LINE_HIT = 20;
 
 let reviewOpen = -1;
 
-export function showReviewVisuals() {
-  reviewRounds.forEach((r, i) => {
-    const result = state.daily.results[i];
-    const a = latLngToVec3(result.guess.lat, result.guess.lng);
-    const b = latLngToVec3(state.selected[i].lat, state.selected[i].lng);
-    const angle = a.angleTo(b);
-    const axis = routeAxis(a, b);
-    const count = Math.max(16, Math.ceil(angle / DEG));
-    r.points = [];
-    for (let k = 0; k <= count; k++) {
-      // a hair above the surface at the ends so the depth test can't eat them
-      const lift = Math.max(routeRadius(angle, k / count), 1.002);
-      r.points.push(a.clone().applyAxisAngle(axis, (k / count) * angle).multiplyScalar(lift));
-    }
-    r.line.geometry.dispose();
-    r.line.geometry = new LineGeometry().setPositions(r.points.flatMap((p) => p.toArray()));
-    r.line.computeLineDistances();
-    r.line.visible = true;
-    r.a = a;
-    r.b = b;
-    r.guess.drop(a);
-    r.answer.drop(b);
-    // staggered landing, round 1 first (negative t stays invisible until 0)
-    r.guess.t = -i * 0.12;
-    r.answer.t = -i * 0.12 - 0.06;
-    setReviewDim(r, 1);
+// Drops the selected round's guess/answer pins and route. The remaining
+// answers stay small and quiet; their guesses and routes leave immediately.
+function showRoundVisuals(i) {
+  const r = reviewRounds[i];
+  const result = state.daily.results[i];
+  const a = latLngToVec3(result.guess.lat, result.guess.lng);
+  const b = latLngToVec3(state.selected[i].lat, state.selected[i].lng);
+  const angle = a.angleTo(b);
+  const axis = routeAxis(a, b);
+  const count = Math.max(16, Math.ceil(angle / DEG));
+  r.points = [];
+  for (let k = 0; k <= count; k++) {
+    // a hair above the surface at the ends so the depth test can't eat them
+    const lift = Math.max(routeRadius(angle, k / count), 1.002);
+    r.points.push(a.clone().applyAxisAngle(axis, (k / count) * angle).multiplyScalar(lift));
+  }
+  r.line.geometry.dispose();
+  r.line.geometry = new LineGeometry().setPositions(r.points.flatMap((p) => p.toArray()));
+  r.line.computeLineDistances();
+  r.line.visible = true;
+  r.a = a;
+  r.b = b;
+  r.guess.dim = r.guess.dimNow = 1;
+  r.answer.dim = r.answer.dimNow = 1;
+  r.answer.badge.visible = true;
+  r.guess.drop(a);
+  r.answer.drop(b);
+  r.answer.t = -0.06; // the answer lands a hair after the guess
+  reviewRounds.forEach((other, j) => {
+    if (j === i) return;
+    other.b = latLngToVec3(state.selected[j].lat, state.selected[j].lng);
+    other.guess.release();
+    other.guess.root.visible = false;
+    other.answer.drop(other.b);
+    other.answer.t = 1; // context pins should already be settled
+    other.answer.dim = REVIEW_DIM;
+    other.answer.badge.visible = false;
+    other.line.visible = false;
   });
 }
 
@@ -384,24 +398,31 @@ export function hideReviewVisuals() {
   }
 }
 
-export function setReviewDim(r, dim) {
-  r.dim = r.guess.dim = r.answer.dim = dim;
-}
-
-// Per-frame review update, called from the host loop: animates the ten
-// review pins and fades badges and lines as they round the limb.
+// Per-frame review update, called from the host loop: animates the selected
+// pair and keeps the other answers small, dim and quiet at the limb.
 export function updateReview(dt, scale) {
-  for (const r of reviewRounds) {
+  for (let i = 0; i < reviewRounds.length; i++) {
+    const r = reviewRounds[i];
+    const open = i === reviewOpen;
     for (const pin of [r.guess, r.answer]) {
       if (pin.state === 'idle') continue;
-      pin.update(dt, state.elapsed, scale * REVIEW_PIN_SCALE);
+      pin.update(dt, state.elapsed, scale * REVIEW_PIN_SCALE * (open ? 1 : REVIEW_CONTEXT_SCALE));
       if (pin.state === 'idle') continue;
+      if (!open && pin === r.answer) {
+        _rv.set(0, 1, 0).applyQuaternion(pin.root.quaternion);
+        const limbFade = clamp((reviewFacing(_rv) + 0.02) / 0.12, 0, 1);
+        pin.capMat.uniforms.uOpacity.value *= limbFade;
+        pin.stemMat.uniforms.uOpacity.value *= limbFade;
+        pin.halo.material.opacity *= limbFade;
+        pin.core.material.opacity *= limbFade;
+        continue;
+      }
       pin.badge.scale.multiplyScalar(1 / REVIEW_PIN_SCALE); // smaller pins, but numbers stay readable
       // badge sprites ignore depth, so fade them out as their pin rounds the limb
       _rv.set(0, 1, 0).applyQuaternion(pin.root.quaternion);
       pin.badge.material.opacity *= clamp((reviewFacing(_rv) + 0.02) / 0.12, 0, 1);
     }
-    if (r.line.visible) r.line.material.opacity = damp(r.line.material.opacity, 0.75 * r.dim, 10, dt);
+    if (r.line.visible) r.line.material.opacity = damp(r.line.material.opacity, 0.75, 10, dt);
   }
 }
 
@@ -413,34 +434,25 @@ export function enterReview(focus = -1) {
   window.__canGuess = false;
   document.body.classList.add('game-review');
   reviewEls.screen.hidden = false;
-  reviewEls.card.hidden = true;
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
-  reviewEls.hint.textContent = `${total} pts · tap pins`;
+  reviewEls.hint.textContent = `${total} pts`;
   tickCountdown();
-  showReviewVisuals();
   loadFriendLayer().then((friends) => {
     if (friends && state.gameMode === 'review') friends.enterFriendReview(state.daily.date, reviewOpen);
   });
   state.vYaw = state.vPitch = state.autoSpin = 0;
-  if (focus >= 0) {
-    openRecap(focus);
-    return;
-  }
-  // centre on the spread of all ten points, at the whole-disc distance
-  const centre = new THREE.Vector3();
-  for (const r of reviewRounds) centre.add(r.a).add(r.b);
-  if (centre.lengthSq() > 1e-4) {
-    const view = travelView(centre);
-    state.revealView = { yaw: nearAngle(view.yaw, state.yaw), pitch: clamp(view.pitch, -60 * DEG, 60 * DEG) };
-  }
-  state.targetDist = clamp(state.fitDist * 1.05, MIN_DIST, state.maxDist);
+  openRecap(focus >= 0 ? focus : 0);
 }
 
+// Opens round i's recap: drops its pins/line (releasing every other round's),
+// fills in the card, points the pager at it, and reframes the camera.
 export function openRecap(i) {
+  if (i < 0 || i >= reviewRounds.length) return;
   const result = state.daily.results[i];
   const item = state.selected[i];
   const r = reviewRounds[i];
   reviewOpen = i;
+  showRoundVisuals(i);
   reviewEls.tag.textContent = `Round ${i + 1} of 5`;
   reviewEls.name.textContent = item.clue;
   reviewEls.distance.textContent = formatKm(result.distance);
@@ -450,18 +462,15 @@ export function openRecap(i) {
   setThumb(reviewEls.thumb, item.image);
   reviewEls.card.hidden = false;
   getFriendLayer()?.recap(i);
-  reviewRounds.forEach((other, j) => setReviewDim(other, j === i ? 1 : REVIEW_DIM));
+  reviewEls.pagerPrev.disabled = i <= 0;
+  reviewEls.pagerNext.disabled = i >= 4;
+  reviewEls.pagerDots.forEach((dot, j) => {
+    dot.classList.toggle('is-current', j === i);
+    dot.setAttribute('aria-current', j === i ? 'true' : 'false');
+  });
   // the card is laid out now, so the strip between bar and card is known
   frameRevealPoints(r.a, r.b, safeStrip(reviewEls.bar, reviewEls.card));
 }
-
-export function closeRecap() {
-  reviewOpen = -1;
-  reviewEls.card.hidden = true;
-  getFriendLayer()?.clear();
-  reviewRounds.forEach((r) => setReviewDim(r, 1));
-}
-
 
 export function segmentDist(px, py, [ax, ay], [bx, by]) {
   const dx = bx - ax;
@@ -471,7 +480,8 @@ export function segmentDist(px, py, [ax, ay], [bx, by]) {
 }
 
 // Nearest round under a tap: pin heads, badges and bases first, then the
-// route. A miss closes any open recap.
+// route. Only the open round's pins and line are ever visible, so a hit
+// just reopens the round that's already showing; a miss does nothing.
 export function pickReviewRound(x, y) {
   if (getFriendLayer()?.pick(x, y)) return; // a friend's pin in the open recap
   let best = -1;
@@ -500,7 +510,7 @@ export function pickReviewRound(x, y) {
   if (best >= 0) {
     if (navigator.vibrate) navigator.vibrate(8);
     openRecap(best);
-  } else if (reviewOpen >= 0) closeRecap();
+  }
 }
 
 // The play and share buttons. The share button passes the Daily text that
@@ -508,7 +518,7 @@ export function pickReviewRound(x, y) {
 export function initDailyGame(main) {
   ({ applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin,
     makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints,
-    safeStrip, travelView, nearAngle } = main);
+    safeStrip } = main);
   gameEls.play.addEventListener('click', startGame);
   gameEls.share.addEventListener('click', () => shareResult(shareText()));
 }
@@ -552,11 +562,15 @@ export function initReview() {
     <span class="review-countdown" data-act="next-daily" role="timer"></span>
   </header>
   <article class="reveal-card recap-card glass" hidden>
-    <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div><button class="icon-close" aria-label="Close round recap">×</button></div>
+    <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div><button class="icon-close" aria-label="Close review">×</button></div>
     <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><div class="score-math"><span class="base"><b class="recap-base"></b>/1000</span><strong class="recap-score"></strong></div></div>
     <img class="recap-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
     <p class="recap-fact"></p>
-    <button class="primary" data-act="back">Back to globe</button>
+    <nav class="recap-pager" aria-label="Round">
+      <button type="button" class="pager-arrow" data-act="prev" aria-label="Previous round">‹</button>
+      <div class="pager-dots"></div>
+      <button type="button" class="pager-arrow" data-act="next" aria-label="Next round">›</button>
+    </nav>
   </article>`;
   document.getElementById('game').append(reviewScreen);
   setReviewEls({
@@ -572,7 +586,20 @@ export function initReview() {
     score: reviewScreen.querySelector('.recap-score'),
     thumb: reviewScreen.querySelector('.recap-thumb'),
     fact: reviewScreen.querySelector('.recap-fact'),
+    pagerPrev: reviewScreen.querySelector('[data-act="prev"]'),
+    pagerNext: reviewScreen.querySelector('[data-act="next"]'),
+    pagerDots: Array.from({ length: 5 }, (_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'pager-dot';
+      dot.textContent = i + 1;
+      dot.dataset.act = 'goto';
+      dot.dataset.round = i;
+      dot.setAttribute('aria-label', `Round ${i + 1}`);
+      return dot;
+    }),
   });
+  reviewScreen.querySelector('.pager-dots').append(...reviewEls.pagerDots);
   reviewCountdown = reviewEls.countdown;
 
   // One guess pin, answer pin and route per round, built once and re-dropped
@@ -593,7 +620,7 @@ export function initReview() {
     line.visible = false;
     line.renderOrder = 6;
     globe.add(guess.root, answer.root, line);
-    return { guess, answer, line, points: [], dim: 1 };
+    return { guess, answer, line, points: [] };
   });
   window.addEventListener('resize', () => reviewRounds.forEach((r) => r.line.material.resolution.set(state.viewW, state.viewH)));
   resultsGlobe.addEventListener('click', () => enterReview());
@@ -605,9 +632,12 @@ export function initReview() {
   });
   reviewEls.screen.addEventListener('click', (e) => {
     const act = e.target.closest('[data-act]');
-    if (e.target.closest('.icon-close') || (act && act.dataset.act === 'back')) closeRecap();
+    if (e.target.closest('.icon-close')) showResults();
     else if (act && act.dataset.act === 'results') showResults();
     else if (act && act.dataset.act === 'next-daily' && act.classList.contains('ready')) openNewDaily();
+    else if (act && act.dataset.act === 'prev') openRecap(reviewOpen - 1);
+    else if (act && act.dataset.act === 'next') openRecap(reviewOpen + 1);
+    else if (act && act.dataset.act === 'goto') openRecap(Number(act.dataset.round));
   });
 
 }
