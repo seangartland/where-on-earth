@@ -315,7 +315,9 @@ export function showPackSelect() {
     const waitHours = pack.record.stamina.nextAt == null ? 0
       : Math.max(0, Math.ceil((pack.record.stamina.nextAt - Date.now()) / (60 * 60 * 1000)));
     els.selectStamina.innerHTML = `<div class="pack-stamina-line"><span class="pack-icons" aria-hidden="true">${pack.record.stamina.stored > 0 ? PACK_ICON_FULL : PACK_ICON_EMPTY}${pack.record.stamina.stored > 1 ? PACK_ICON_FULL : PACK_ICON_EMPTY}</span><span class="pack-stamina-text">${staminaText(pack.record)}</span><span class="pack-skip-balance">${HOURGLASS_ICON}<span>${pack.record.skips}</span></span></div>`;
-    if (pack.record.stamina.stored < 2 && pack.record.skips > 0) {
+    // The buy-a-pack shortcut only appears when no pack is available at
+    // all (Sean, 2026-11-08); with a pack in hand it is just noise.
+    if (pack.record.stamina.stored === 0 && pack.record.skips > 0) {
       const actions = document.createElement('div');
       actions.className = 'pack-skip-actions';
       if (waitHours && pack.record.skips >= waitHours) {
