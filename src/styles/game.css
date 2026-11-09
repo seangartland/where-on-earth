@@ -593,12 +593,16 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
    names and status overlaid at the bottom. Practice deliberately gets no
    pack imagery, since Practice earns no postcards; the pack panel instead
    floats the sealed pack itself over the middle slice. */
-.home-panels { display: flex; position: relative; }
-/* One globe image runs continuously behind all three panels (Sean's
-   triptych call, 2026-11-08, Atlantic-centered crop); the buttons are
-   transparent and their borders and scrims draw the columns on top. */
-.home-panels .panels-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; border-radius: 18px; pointer-events: none; }
-.home-panels > button { position: relative; flex: 1 1 0; height: 258px; min-height: 0; padding: 0; border-radius: 18px; background: transparent; white-space: normal; text-overflow: clip; }
+.home-panels { display: flex; position: relative; --pg: 8px; gap: var(--pg); }
+/* One globe image, one slice per panel (Sean's triptych, 2026-11-08): each
+   button clips its own full-row-width copy of the image, offset by its
+   column, so the three slices line up as one continuous picture inside
+   the columns while the gaps between them and everything around the row
+   stay clear. Atlantic-centered crop. */
+.home-panels .panel-slice { position: absolute; top: 0; left: 0; width: calc(300% + 2 * var(--pg)); max-width: none; height: 100%; object-fit: cover; object-position: 40% 50%; pointer-events: none; }
+.home-panels #pack-button .panel-slice { left: calc(-100% - var(--pg)); }
+.home-panels #survival-hub-button .panel-slice { left: calc(-200% - 2 * var(--pg)); }
+.home-panels > button { position: relative; flex: 1 1 0; height: 258px; min-height: 0; padding: 0; border-radius: 18px; overflow: hidden; background: transparent; white-space: normal; text-overflow: clip; }
 .home-panels > button.is-gold { background: none; color: #ffe9c9; }
 /* The pack is an object floating over the middle slice, not a photo: the
    sealed pack art (static variant, no tear light, WORLD CAPITALS title),
@@ -610,8 +614,8 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .home-panels .mode-desc { font-size: 11.5px; line-height: 1.35; opacity: .85; -webkit-line-clamp: 4; }
 .home-panels .pack-token-pill { top: 8px; right: 8px; z-index: 2; transform: none; }
 .home-panels #play-button.daily-done { min-height: 0; flex-direction: column; }
-/* A played Daily dims its slice of the shared globe instead of its own art. */
-.home-panels #play-button.daily-done::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: rgba(3,6,14,.45); pointer-events: none; }
+/* A played Daily dims its own slice of the globe. */
+.home-panels #play-button.daily-done .panel-slice { filter: brightness(.58) saturate(.82); }
 /* On the panel the gold state must stay light text: the base #pack-button
    .is-gold ink color (for the old gold-gradient button) outranks the generic
    panel rule and made the pack name and status unreadable over the art. */
