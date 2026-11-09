@@ -253,7 +253,12 @@ export function showResults() {
 async function syncFriendsToday(total) {
   const card = gameEls.results.querySelector('.friends-today');
   if (!card) return;
-  if (!ACCOUNTS_ENABLED || !isSignedIn()) { card.hidden = true; return; }
+  // The card's own link replaces "See your rounds on the globe"; that link
+  // comes back whenever the card does not show (signed out, or no friend
+  // has played yet), since it is then the only way into the review.
+  const globeLink = gameEls.results.querySelector('.results-globe');
+  const setGlobe = (hidden) => { if (globeLink) globeLink.hidden = hidden; };
+  if (!ACCOUNTS_ENABLED || !isSignedIn()) { card.hidden = true; setGlobe(false); return; }
   try {
     const [{ fetchFriendPins }, { friendTotals, friendInitial }] = await Promise.all([
       import('../account/friends.js'),
@@ -262,7 +267,7 @@ async function syncFriendsToday(total) {
     const pins = await fetchFriendPins(state.daily.date);
     const rounds = (state.daily.ids || []).map((locationId, i) => ({ locationId, answer: state.selected[i] }));
     const totals = pins ? friendTotals(pins, rounds) : [];
-    if (!totals.length) { card.hidden = true; return; }
+    if (!totals.length) { card.hidden = true; setGlobe(false); return; }
     card.querySelector('.friends-today-count').textContent = totals.length === 1 ? '1 played' : `${totals.length} played`;
     const list = card.querySelector('.friends-today-list');
     const row = (cls, initial, name, score, delta) => {
@@ -284,7 +289,8 @@ async function syncFriendsToday(total) {
       card.querySelector('.friends-today-link')?.addEventListener('click', () => enterReview());
     }
     card.hidden = false;
-  } catch { card.hidden = true; }
+    setGlobe(true);
+  } catch { card.hidden = true; setGlobe(false); }
 }
 
 function syncSignedOutNudge() {
@@ -601,7 +607,9 @@ export function initDailyCountdown() {
   nextGame = document.createElement('div');
   nextGame.className = 'next-game';
   nextGame.innerHTML = '<p class="eyebrow">Next game in</p><span class="next-game-time" role="timer">--:--:--</span><p class="next-game-sub">Five new places at midnight</p>';
-  gameEls.status.after(nextGame);
+  // The panel closes the results card, under the round breakdown. (It used
+  // to anchor on #share-status, which now sits above the breakdown.)
+  (gameEls.results.querySelector('.round-breakdown') || gameEls.status).after(nextGame);
   nextGameTime = nextGame.querySelector('.next-game-time');
   nextGameSub = nextGame.querySelector('.next-game-sub');
   countdownDay = localDateKey();
