@@ -1022,6 +1022,15 @@ if (ACCOUNTS_ENABLED) {
     // the URL fragment; trade it for a session before the sync below runs.
     const { consumeAuthReturn } = await import('./account/sheet.js');
     await consumeAuthReturn().catch(() => false);
+    // A friend invite link lands here carrying a pending token. Open the
+    // account sheet so the invite is actually presented: signed in it shows
+    // the add-friend prompt, signed out it shows sign-in with invite copy.
+    // Nothing else opens the sheet on arrival, so without this the link
+    // silently drops the player on the home screen.
+    if (window.getPendingFriendToken?.()) {
+      const { openAccountSheet } = await import('./account/sheet.js');
+      await openAccountSheet().catch(() => {});
+    }
     const { isSignedIn } = await import('./account/session.js');
     if (!isSignedIn()) return;
     const { syncAccountProgress } = await import('./account/sync.js');
