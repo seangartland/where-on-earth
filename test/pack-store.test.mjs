@@ -194,12 +194,12 @@ test('per-type packs are isolated and retired unplayed ids redraw', () => {
   const capitals = ensurePack(record, 'capitals', pool, random);
   const otherPool = [{ id: 'one' }, { id: 'two' }, { id: 'three' }];
   let m = 0;
-  const landmarks = ensurePack(record, 'landmarks', otherPool, () => ((m += 1) % 3) / 3);
+  const landmarks = ensurePack(record, 'world-cities', otherPool, () => ((m += 1) % 3) / 3);
   assert.notEqual(capitals, landmarks);
   assert.deepEqual(new Set(landmarks.ids), new Set(['one', 'two', 'three']));
   landmarks.ids[1] = 'gone';
   landmarks.results[0] = { base: 10 };
-  ensurePack(record, 'landmarks', otherPool, () => ((m += 1) % 3) / 3);
+  ensurePack(record, 'world-cities', otherPool, () => ((m += 1) % 3) / 3);
   assert.notEqual(landmarks.ids[1], 'gone');
   assert.equal(record.byType.capitals, capitals);
 });
@@ -207,7 +207,7 @@ test('per-type packs are isolated and retired unplayed ids redraw', () => {
 test('results summarize and completion clears only that type', () => {
   const record = empty();
   ensurePack(record, 'capitals', pool);
-  ensurePack(record, 'landmarks', [{ id: 'one' }, { id: 'two' }, { id: 'three' }]);
+  ensurePack(record, 'world-cities', [{ id: 'one' }, { id: 'two' }, { id: 'three' }]);
   savePackResult(record, 'capitals', 0, { base: 731, postcard: { kind: 'new', tier: 2 } });
   assert.deepEqual(packSummary(record.byType.capitals), {
     played: 1, nextCard: 1, score: 731,
@@ -215,7 +215,7 @@ test('results summarize and completion clears only that type', () => {
   });
   completePack(record, 'capitals');
   assert.equal(record.byType.capitals, null);
-  assert.ok(record.byType.landmarks);
+  assert.ok(record.byType['world-cities']);
 });
 
 test('only torn unfinished packs block tearing another type', () => {

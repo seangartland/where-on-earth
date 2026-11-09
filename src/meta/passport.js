@@ -637,7 +637,7 @@ function renderPassportPage(held = null) {
   };
   data.sections.forEach((section) => addSection(section));
   addSection({
-    type: 'everything-else', name: 'Daily & Expeditions', art: null,
+    type: 'everything-else', name: 'Other Postcards', art: null,
     items: data.everythingElse, collected: data.everythingElse.length,
   }, false);
   ppShelf.els.dex.replaceChildren(frag);

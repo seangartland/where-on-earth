@@ -4,7 +4,7 @@ import { state } from '../core/state.js';
 import { formatKm, localDateKey } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
-  PACK_CARDS, PACK_TYPES, STAMINA_MAX, STAMINA_PERIOD, packPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
+  PACK_CARDS, PACK_TYPES, STAMINA_MAX, STAMINA_PERIOD, packPool, worldCityPackPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
   savePackResult, completePack, spend, applySkips, writePack, packOutcome, packSummary,
   packChoiceState, packProgressCount, canTearPack,
 } from '../meta/pack-store.js';
@@ -12,8 +12,11 @@ import {
 let host = null;
 export const PACKS = [
   { type: 'capitals', name: 'World Capitals', art: 'assets/pack-world-capitals-static.webp', tearLine: 0.0886 },
-  { type: 'landmarks', name: 'Landmarks', art: 'assets/pack-landmarks.webp', tearLine: 0.0886, aspect: '900 / 1350' },
-  { type: 'landforms', name: 'Landforms', art: 'assets/pack-landforms.webp', tearLine: 0.0886, aspect: '900 / 1350' },
+  { type: 'world-cities', name: 'World Cities', art: 'assets/pack-world-cities-static.webp', tearLine: 0.0886 },
+  // Retired 2026-11-08 (Sean): hidden from the select screen unless a pack
+  // of that type is already in progress, so a paid-for pack can finish.
+  { type: 'landmarks', name: 'Landmarks', art: 'assets/pack-landmarks-static.webp', tearLine: 0.0886, aspect: '900 / 1350', retired: true },
+  { type: 'landforms', name: 'Landforms', art: 'assets/pack-landforms-static.webp', tearLine: 0.0886, aspect: '900 / 1350', retired: true },
 ];
 export const pack = { active: false, type: 'capitals', card: 0, item: null, record: null };
 
@@ -48,6 +51,7 @@ function currentPack() {
 
 const packConfig = () => PACKS.find((item) => item.type === pack.type);
 const poolFor = (type) => type === 'capitals' ? packPool(host.locations)
+  : type === 'world-cities' ? worldCityPackPool(host.locations)
   : type === 'landforms' ? landformPackPool(host.landmarks) : landmarkPackPool(host.landmarks);
 
 function countdownText(record, now = Date.now()) {
@@ -304,7 +308,7 @@ export function showPackSelect() {
     // leaving by any other route left a stale 'Complete' label here for
     // days. Clear finished sessions on arrival at this screen instead;
     // rewards were already banked when each card result was saved.
-    for (const type of PACK_TYPES) {
+    for (const type of Object.keys(pack.record.byType)) {
       const saved = pack.record.byType[type];
       if (saved && packSummary(saved).played >= PACK_CARDS) completePack(pack.record, type);
     }
@@ -335,7 +339,11 @@ export function showPackSelect() {
       : Math.min(100, Math.max(0, (1 - (nextAt - Date.now()) / STAMINA_PERIOD) * 100));
     els.selectStamina.insertAdjacentHTML('beforeend',
       `<div class="pack-refill"><div class="pack-refill-track"><i style="width:${refillPct.toFixed(1)}%"></i></div>${stored === 1 ? `<span class="pack-refill-count">Next pack in ${countdownText(pack.record)}</span>` : ''}</div>`);
-    els.choices.replaceChildren(...PACKS.map((config) => {
+    els.choices.replaceChildren(...PACKS.filter((config) => {
+      if (!config.retired) return true;
+      const state = packChoiceState(pack.record, config.type);
+      return state.inProgress || state.complete;
+    }).map((config) => {
       const { inProgress, complete, locked } = packChoiceState(pack.record, config.type);
       const button = document.createElement('button');
       button.type = 'button';

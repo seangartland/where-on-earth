@@ -3,6 +3,7 @@ import { readJSON, writeJSON } from '../core/storage.js';
 import { localDateKey } from '../core/format.js';
 import { isPlayableLocation } from '../daily.js';
 import { PACK_CAPITAL_IDS } from './pack-capitals.js';
+import { PACK_WORLD_CITY_IDS } from './pack-world-cities.js';
 import { PACK_LANDFORM_IDS } from './pack-landforms.js';
 import { PACK_ANCIENT_CITY_IDS } from './pack-ancient-cities.js';
 import { PACK_BATTLE_SITE_IDS } from './pack-battle-sites.js';
@@ -11,11 +12,17 @@ export const PACK_CARDS = 3;
 export const STAMINA_MAX = 2;
 export const STAMINA_PERIOD = 12 * 60 * 60 * 1000;
 export const SKIP_PERIOD = 60 * 60 * 1000;
-export const PACK_TYPES = ['capitals', 'landmarks', 'landforms'];
+// Live packs (Sean, 2026-11-08): World Capitals + World Cities only.
+// Landmarks and Landforms are gated as future drops; their pools and
+// progress records stay intact below, only the offering is hidden.
+export const PACK_TYPES = ['capitals', 'world-cities'];
 const LEGACY_TORN_KEY = `${PACK_KEY}-torn`;
 
 export function packPool(locations) {
   return locations.filter((item) => PACK_CAPITAL_IDS.has(item.id) && isPlayableLocation(item));
+}
+export function worldCityPackPool(locations) {
+  return locations.filter((item) => PACK_WORLD_CITY_IDS.has(item.id) && isPlayableLocation(item));
 }
 const playableLandmark = (item) => Number.isFinite(item?.lat) && Number.isFinite(item?.lng)
   && typeof item?.image === 'string' && item.image.length > 0;
@@ -156,7 +163,10 @@ function drawIds(pool, count, random, taken = []) {
 }
 
 export function ensurePack(record, type, pool, random = Math.random) {
-  if (!PACK_TYPES.includes(type) || pool.length < PACK_CARDS) return null;
+  // A retired type (Sean, 2026-11-08) cannot be opened fresh, but a pack of
+  // that type already in progress stays resumable until it completes.
+  const resumable = isPack(record.byType[type]);
+  if ((!PACK_TYPES.includes(type) && !resumable) || pool.length < PACK_CARDS) return null;
   let current = record.byType[type];
   let changed = false;
   if (!isPack(current)) {
@@ -212,15 +222,19 @@ export function isOpenPack(pack) {
   return Boolean(pack?.torn) && packSummary(pack).played < PACK_CARDS;
 }
 
+// Open-pack checks scan every type the record knows about, not just the
+// live PACK_TYPES, so an in-progress pack of a retired type still counts.
+const knownTypes = (record) => [...new Set([...PACK_TYPES, ...Object.keys(record.byType || {})])];
+
 export function hasOtherOpenPack(record, type) {
-  return PACK_TYPES.some((candidate) => candidate !== type && isOpenPack(record.byType[candidate]));
+  return knownTypes(record).some((candidate) => candidate !== type && isOpenPack(record.byType[candidate]));
 }
 
 export function packChoiceState(record, type) {
   const saved = record.byType[type];
   const complete = Boolean(saved && packSummary(saved).played >= PACK_CARDS);
   const inProgress = Boolean(saved && !complete && (saved.torn || saved.results.some(Boolean)));
-  const anyOpen = PACK_TYPES.some((candidate) => isOpenPack(record.byType[candidate]));
+  const anyOpen = knownTypes(record).some((candidate) => isOpenPack(record.byType[candidate]));
   return {
     inProgress,
     complete,

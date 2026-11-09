@@ -62,7 +62,8 @@ test('packCardNumber matches the position passportPackSections renders', () => {
     }
   }
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'abuja-ng'), 2);
-  assert.equal(packCardNumber(cities, landmarks, 'landmarks', 'angkor-wat'), 7);
+  assert.equal(packCardNumber(cities, landmarks, 'world-cities', 'toronto'), 178);
+  assert.equal(packCardNumber(cities, landmarks, 'landmarks', 'angkor-wat'), null);
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'angkor-wat'), null);
   assert.equal(packCardNumber(cities, landmarks, 'capitals', 'no-such-id'), null);
 });
@@ -84,13 +85,13 @@ test('an unvisited slot renders only its number, never the place name or country
   assert.ok(!slot.textContent.includes('Nigeria'), slot.textContent);
 });
 
-test('an unvisited landmark slot is numbered within Landmarks, not globally', () => {
-  const item = landmarks.find((entry) => entry.id === 'abu-simbel-temples');
-  const number = packCardNumber(cities, landmarks, 'landmarks', item.id);
+test('an unvisited world city slot is numbered within World Cities, not globally', () => {
+  const item = cities.find((entry) => entry.id === 'aberdeen-scotland');
+  const number = packCardNumber(cities, landmarks, 'world-cities', item.id);
   assert.equal(number, 1);
-  const slot = passportUnvisitedSlot({ item, country: 'Egypt', visited: false }, 'Landmarks', number);
+  const slot = passportUnvisitedSlot({ item, country: 'Scotland', visited: false }, 'World Cities', number);
   assert.ok(slot.textContent.includes('001'), slot.textContent);
-  assert.ok(!slot.textContent.includes('Abu Simbel'), slot.textContent);
-  assert.ok(!slot.textContent.includes('Egypt'), slot.textContent);
-  assert.equal(slot.getAttribute('aria-label'), 'Landmarks card 001, not yet collected');
+  assert.ok(!slot.textContent.includes('Aberdeen'), slot.textContent);
+  assert.ok(!slot.textContent.includes('Scotland'), slot.textContent);
+  assert.equal(slot.getAttribute('aria-label'), 'World Cities card 001, not yet collected');
 });
