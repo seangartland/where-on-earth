@@ -1393,6 +1393,19 @@ body.game-review #hud { opacity: 0; }
 .friend-nudge-dismiss { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-left: 2px; padding: 0; border: 0; border-radius: 50%; background: none; color: rgba(var(--rgb-muted),.58); font: 20px/1 system-ui, sans-serif; vertical-align: -7px; cursor: pointer; touch-action: manipulation; }
 .friend-nudge-dismiss:active { background: rgba(var(--rgb-line),.12); transform: scale(.9); }
 .friend-nudge-results { margin: 8px 0 0; }
+.friends-today { margin-top: 12px; padding: 11px 12px 9px; border: 1px solid rgba(var(--rgb-gold),.45); border-radius: 16px; background: rgba(var(--rgb-gold),.08); animation: friends-in .28s ease-out; }
+.friends-today[hidden] { display: none; }
+.friends-today-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 5px; color: var(--gold); font-size: var(--fs-small); font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.friends-today-count { color: rgba(var(--rgb-muted),.68); font-weight: 600; letter-spacing: 0; text-transform: none; }
+.friends-today-list { list-style: none; margin: 0; padding: 0; }
+.friend-total-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: var(--fs-body); }
+.friend-total-row.you { margin: 0 -6px; padding: 4px 6px; border-radius: 10px; background: rgba(var(--rgb-gold),.14); }
+.ft-av { display: grid; place-items: center; width: 25px; height: 25px; flex: none; border-radius: 50%; background: #f3e7d3; color: #231a05; font-size: 12px; font-weight: 800; }
+.friend-total-row.you .ft-av { background: var(--gold); }
+.ft-name { font-weight: 650; }
+.ft-delta { margin-left: auto; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-small); }
+.ft-score { min-width: 52px; text-align: right; color: var(--gold); font-size: var(--fs-title); font-weight: 850; }
+.friends-today-link { display: block; margin: 7px auto 0; padding: 4px 6px; color: rgba(var(--rgb-gold),.92); font-size: var(--fs-small); font-weight: 700; }
 .friend-pop { position: absolute; left: 50%; bottom: calc(100% + 6px); z-index: 1; margin: 0; padding: 6px 12px; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 999px; background: rgba(5,12,29,.94); color: var(--ink-hi); font-size: var(--fs-small); font-weight: 700; white-space: nowrap; transform: translateX(-50%); pointer-events: none; }
 .friend-pop[hidden] { display: none; }
 @keyframes friends-in { from { opacity: 0; } to { opacity: 1; } }

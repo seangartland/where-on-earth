@@ -243,6 +243,48 @@ export function showResults() {
   }));
   tickCountdown();
   syncSignedOutNudge();
+  syncFriendsToday(total);
+}
+
+// The Friends today card on the results screen: a ranked list of today's
+// totals (you first, then friends) so a player can find how friends did
+// without opening the round-by-round review. Hidden unless signed in with
+// at least one friend who played today.
+async function syncFriendsToday(total) {
+  const card = gameEls.results.querySelector('.friends-today');
+  if (!card) return;
+  if (!ACCOUNTS_ENABLED || !isSignedIn()) { card.hidden = true; return; }
+  try {
+    const [{ fetchFriendPins }, { friendTotals, friendInitial }] = await Promise.all([
+      import('../account/friends.js'),
+      import('../game/friend-rows.js'),
+    ]);
+    const pins = await fetchFriendPins(state.daily.date);
+    const rounds = (state.daily.ids || []).map((locationId, i) => ({ locationId, answer: state.selected[i] }));
+    const totals = pins ? friendTotals(pins, rounds) : [];
+    if (!totals.length) { card.hidden = true; return; }
+    card.querySelector('.friends-today-count').textContent = totals.length === 1 ? '1 played' : `${totals.length} played`;
+    const list = card.querySelector('.friends-today-list');
+    const row = (cls, initial, name, score, delta) => {
+      const li = document.createElement('li');
+      li.className = `friend-total-row${cls ? ` ${cls}` : ''}`;
+      const av = Object.assign(document.createElement('span'), { className: 'ft-av', textContent: initial });
+      const nm = Object.assign(document.createElement('span'), { className: 'ft-name', textContent: name });
+      const dl = Object.assign(document.createElement('span'), { className: 'ft-delta', textContent: delta });
+      const sc = Object.assign(document.createElement('span'), { className: 'ft-score', textContent: score.toLocaleString() });
+      li.append(av, nm, dl, sc);
+      return li;
+    };
+    list.replaceChildren(
+      row('you', friendInitial('You'), 'You', total, ''),
+      ...totals.map((f) => row('', f.initial, f.name, f.total, `${f.total - total > 0 ? '+' : ''}${(f.total - total).toLocaleString()}`)),
+    );
+    if (!card.dataset.wired) {
+      card.dataset.wired = '1';
+      card.querySelector('.friends-today-link')?.addEventListener('click', () => enterReview());
+    }
+    card.hidden = false;
+  } catch { card.hidden = true; }
 }
 
 function syncSignedOutNudge() {

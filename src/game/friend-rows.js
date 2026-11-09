@@ -34,6 +34,23 @@ export function friendRows(friends, answer) {
     .sort((a, b) => a.kmExact - b.kmExact);
 }
 
+// One row per friend who played the date, best total first. Scores are the
+// same per-round recomputation friendRows does, summed across the rounds the
+// friend has a stored guess for. rounds: [{ locationId, answer }].
+export function friendTotals(pins, rounds) {
+  const byFriend = new Map();
+  for (const round of rounds || []) {
+    const friends = pins?.locations?.[round.locationId]?.friends || [];
+    for (const row of friendRows(friends, round.answer)) {
+      const entry = byFriend.get(row.friendId) || { friendId: row.friendId, name: row.name, initial: row.initial, total: 0, rounds: 0 };
+      entry.total += row.score;
+      entry.rounds += 1;
+      byFriend.set(row.friendId, entry);
+    }
+  }
+  return [...byFriend.values()].sort((a, b) => b.total - a.total);
+}
+
 export function chipText(row) {
   return `${row.name} ${row.distance}`;
 }

@@ -8,7 +8,7 @@ const { formatKm } = await import('../src/core/format.js');
 const { distanceKm } = await import('../src/core/math.js');
 const { distanceScore, scoringDistanceKm } = await import('../src/game/scoring.js');
 const { setExtentData } = await import('../src/game/extents.js');
-const { friendRows, friendInitial, chipText, popoverText, stripChips, sameGuess } = await import('../src/game/friend-rows.js');
+const { friendRows, friendTotals, friendInitial, chipText, popoverText, stripChips, sameGuess } = await import('../src/game/friend-rows.js');
 
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
 const extents = load('extents.json');
@@ -88,4 +88,25 @@ test('the other-device check compares at the stored 4 decimal places', () => {
   assert.equal(sameGuess({ lat: -24.81, lng: -65.41 }, { lat: -24.810001, lng: -65.409999 }), true);
   assert.equal(sameGuess({ lat: -24.81, lng: -65.41 }, { lat: -24.9, lng: -65.41 }), false);
   assert.equal(sameGuess(null, { lat: 0, lng: 0 }), false);
+});
+
+test('friendTotals sums each friend across rounds and ranks best first', () => {
+  const pins = { locations: {
+    'salta-ar': { friends },
+    'other-pl': { friends: [
+      { friendId: 'u_ana', displayName: 'Ana', guess: { lat: 10, lng: 10 } },
+      { friendId: 'u_bea2', displayName: 'Bea', guess: { lat: 10.2, lng: 10.1 } },
+    ] },
+  } };
+  const rounds = [
+    { locationId: 'salta-ar', answer: salta },
+    { locationId: 'other-pl', answer: { id: 'other-pl', lat: 10.1, lng: 10.05 } },
+  ];
+  const totals = friendTotals(pins, rounds);
+  assert.equal(totals[0].friendId, 'u_ana'); // nearest in round 1 and near in round 2
+  assert.equal(totals.find((t) => t.friendId === 'u_ana').rounds, 2);
+  assert.equal(totals.find((t) => t.friendId === 'u_far').rounds, 1);
+  for (let i = 1; i < totals.length; i++) assert.ok(totals[i - 1].total >= totals[i].total);
+  assert.deepEqual(friendTotals(null, rounds), []);
+  assert.deepEqual(friendTotals(pins, []), []);
 });
