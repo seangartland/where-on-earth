@@ -528,7 +528,7 @@ initStats(statsHost);
 
 const settingsEntry = document.createElement('button');
 settingsEntry.className = 'settings-entry';
-settingsEntry.innerHTML = '⚙️';
+settingsEntry.innerHTML = '<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="#DCE9F5" aria-hidden="true"><circle cx="12" cy="12" r="6.4" stroke-width="3.6" stroke-dasharray="3.05 1.98"/><circle cx="12" cy="12" r="2.7" stroke-width="1.8"/></svg>';
 settingsEntry.setAttribute('aria-label', 'Settings');
 settingsEntry.setAttribute('aria-haspopup', 'dialog');
 gameEls.startStreak.after(settingsEntry);

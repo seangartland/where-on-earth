@@ -1313,7 +1313,7 @@ export function initPassport(main) {
     <button class="icon-close" aria-label="Close passport">×</button>
     <div class="pp-stick-sentinel"></div>
     <div class="pp-header-row">
-      <h2 id="pp-title">Your passport</h2>
+      <h2 id="pp-title" class="logotype">Your passport</h2>
       <div class="pp-header-actions">
         <button class="pp-share-icon" data-pp="collections" aria-label="View collections" hidden>🛡</button>
       </div>
