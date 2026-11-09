@@ -706,6 +706,12 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-sealed-cut { position: absolute; z-index: 3; inset: calc(var(--line) * 100% - 2px) 1.6% auto; height: 4px; pointer-events: none; }
 .pack-sealed.tear-rtl .pack-sealed-cut { transform: scaleX(-1); }
 .pack-sealed-cut::before { position: absolute; inset: 0 auto 0 0; width: calc(var(--tear, 0) * 100%); border-radius: 2px; background: linear-gradient(180deg, #fff8d6, #0b1430 45% 55%, #d9f4ff); box-shadow: 0 0 6px rgba(255,236,170,.6); content: ''; }
+/* The tear guide: a glowing blue line rests on the tear line before any
+   tearing, so the player can see where to trace (Sean, 2026-11-08). It
+   lives only on this opening surface; the static pack art itself carries
+   no light. Inset to the pack's own width inside the art frame. */
+.pack-sealed-cut::after { position: absolute; top: 1px; right: 7.5%; left: 7.5%; height: 2px; border-radius: 2px; background: linear-gradient(90deg, rgba(103,232,255,0), rgba(103,232,255,.95) 14% 86%, rgba(103,232,255,0)); box-shadow: 0 0 8px 2px rgba(103,232,255,.55); content: ''; animation: pack-tear-guide 1.7s ease-in-out infinite; }
+@keyframes pack-tear-guide { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
 .pack-sealed-glint { position: absolute; top: 50%; left: calc(var(--tear, 0) * 100%); width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle, #fff 0 14%, rgba(255,240,180,.9) 26%, rgba(255,200,120,.35) 50%, transparent 70%); transform: translate(-50%, -50%); opacity: min(1, calc(var(--tear, 0) * 40)); }
 .pack-sealed.teach .pack-sealed-glint { animation: pack-glint-teach .9s ease-in-out; }
 @keyframes pack-glint-teach { 0% { left: 0; opacity: 0; } 12%, 88% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
@@ -806,6 +812,7 @@ html.pack-vt::view-transition-old(root), html.pack-vt::view-transition-new(root)
   .pack-flip { transition: none; }
   .pack-flip-face { transition: none; }
   .pack-sealed-sheen { animation: none; }
+  .pack-sealed-cut::after { animation: none; }
 }
 
 /* Survival and More modes hub rows: the shared picker row without the emoji column. */
