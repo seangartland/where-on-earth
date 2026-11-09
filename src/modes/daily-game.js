@@ -493,6 +493,8 @@ export function openRecap(i) {
   reviewEls.score.textContent = `+${result.score.toLocaleString()}`;
   reviewEls.fact.textContent = item.fact;
   setThumb(reviewEls.thumb, item.image);
+  reviewEls.card.classList.remove('expanded');
+  reviewEls.card.querySelector('.recap-expand')?.setAttribute('aria-expanded', 'false');
   reviewEls.card.hidden = false;
   getFriendLayer()?.recap(i);
   reviewEls.pagerPrev.disabled = i <= 0;
@@ -600,6 +602,7 @@ export function initReview() {
         <button type="button" class="pager-arrow" data-act="next" aria-label="Next round">›</button>
         <button class="icon-close" aria-label="Close review">×</button>
       </div>
+      <button type="button" class="recap-expand" data-act="expand" aria-expanded="false" aria-label="Expand photo and description">⌄</button>
     </div>
     <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><strong class="recap-score"></strong></div>
     <p class="recap-fact"></p>
@@ -657,6 +660,10 @@ export function initReview() {
     else if (act && act.dataset.act === 'next-daily' && act.classList.contains('ready')) openNewDaily();
     else if (act && act.dataset.act === 'prev') openRecap(reviewOpen - 1);
     else if (act && act.dataset.act === 'next') openRecap(reviewOpen + 1);
+    else if (act && act.dataset.act === 'expand') {
+      const expanded = reviewEls.card.classList.toggle('expanded');
+      act.setAttribute('aria-expanded', String(expanded));
+    }
     else if (act && act.dataset.act === 'goto') openRecap(Number(act.dataset.round));
   });
 

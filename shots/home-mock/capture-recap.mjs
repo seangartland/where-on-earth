@@ -80,4 +80,18 @@ const nav2 = await page.evaluate(() => {
 });
 console.log(JSON.stringify(nav2));
 await page.screenshot({ path: `${OUT}recap-band-2.png` });
+await page.click('.recap-card .recap-expand');
+await new Promise((r) => setTimeout(r, 900));
+const exp = await page.evaluate(() => {
+  const card = document.querySelector('.recap-card');
+  const fact = card.querySelector('.recap-fact');
+  return { expanded: card.classList.contains('expanded'), cardH: Math.round(card.getBoundingClientRect().height),
+    factLines: Math.round(fact.getBoundingClientRect().height / (15 * 1.45)), aria: card.querySelector('.recap-expand')?.getAttribute('aria-expanded') };
+});
+console.log('expanded:', JSON.stringify(exp));
+await page.screenshot({ path: `${OUT}recap-band-3-expanded.png` });
+await page.click('.recap-card .recap-expand');
+await new Promise((r) => setTimeout(r, 900));
+const col = await page.evaluate(() => ({ expanded: document.querySelector('.recap-card').classList.contains('expanded'), cardH: Math.round(document.querySelector('.recap-card').getBoundingClientRect().height) }));
+console.log('collapsed again:', JSON.stringify(col));
 await browser.close();
