@@ -374,7 +374,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-postmark { position: absolute; left: 15px; bottom: 12px; display: grid; place-items: center; width: 58px; height: 58px; border: 2px solid rgba(52,72,96,.45); border-radius: 50%; color: rgba(52,72,96,.68); font-size: 8px; font-weight: 800; letter-spacing: .05em; line-height: 1.2; text-align: center; transform: rotate(-11deg); }
 .postcard-summary-continue { display: block; width: min(100%, 300px); margin: 0 auto; }
 .result-score { margin: 0 0 10px; color: rgba(var(--rgb-mist),.58); font-size: var(--fs-small); font-weight: 700; text-align: center; }
-.result-score b { color: var(--gold); font-size: 18px; }
+.result-score b { font-family: 'Luckiest Guy', 'Arial Black', sans-serif; color: #F6EDD8; font-size: 38px; line-height: 1; -webkit-text-stroke: 1.3px #1E4E9C; text-shadow: 0 2px 0 #1E4E9C, 0 4px 10px rgba(0,0,0,.45); }
 .result-score span { font-size: var(--fs-caption); }
 .results-card .streak { margin: 0 0 10px; text-align: center; }
 .round-breakdown { margin: 16px 0 10px; }
@@ -1163,7 +1163,7 @@ body.game-stats #hud { opacity: 0; }
 @font-face { font-family: 'Oswald'; src: url('../../assets/oswald-bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
 @font-face { font-family: 'Luckiest Guy'; src: url('../../assets/luckiest-guy.woff2') format('woff2'); font-weight: 400; font-display: swap; }
 .logotype { text-transform: uppercase; font-family: 'Luckiest Guy', 'Arial Black', sans-serif; color: #F6EDD8; letter-spacing: .01em; -webkit-text-stroke: 1.6px #1E4E9C; text-shadow: 0 2px 0 #1E4E9C, 0 4px 10px rgba(0,0,0,.45); }
-#pack-heading.logotype, #pp-title.logotype { color: #F6EDD8; }
+#pack-heading.logotype, #pp-title.logotype, #survival-result-title.logotype { color: #F6EDD8; }
 #pp-title.logotype { font-size: 24px !important; -webkit-text-stroke-width: 1.1px; text-shadow: 0 2px 0 #1E4E9C, 0 3px 8px rgba(0,0,0,.45); }
 .pp-pack-head { display: grid; grid-template-columns: 4px minmax(0,1fr) auto 12px; align-items: center; gap: 10px; width: 100%; min-height: 48px; padding: 7px 10px 10px 0; border: 0; background: var(--mail-paper); color: #22355c; font: inherit; text-align: left; cursor: pointer; touch-action: manipulation; position: relative; }
 .pp-pack-head-mail { grid-template-columns: 42px minmax(0,1fr) auto 12px; min-height: 58px; padding: 7px 10px; }
@@ -1334,9 +1334,9 @@ body.game-collections #hud { opacity: 0; }
 /* ---------------------------------------------------------------------------
    Results review (was injected by src/modes/daily-game.js).
    --------------------------------------------------------------------------- */
-.results-title { margin: 2px 48px 3px; color: rgba(var(--rgb-mist),.58); font-size: var(--fs-caption); font-weight: 850; letter-spacing: .14em; text-align: center; text-transform: uppercase; }
+.results-title { margin: 2px 48px 5px; font-family: 'Luckiest Guy', 'Arial Black', sans-serif; color: #F6EDD8; font-size: 17px; letter-spacing: .05em; text-align: center; text-transform: uppercase; -webkit-text-stroke: 1px #1E4E9C; text-shadow: 0 2px 0 #1E4E9C, 0 3px 8px rgba(0,0,0,.45); }
 .results-card .result-score { display: flex; align-items: baseline; justify-content: center; gap: 5px; margin: 0 0 4px; }
-.results-card .result-score b { color: var(--gold); font-size: clamp(42px, 14vw, 58px); font-weight: 850; line-height: 1; letter-spacing: -.055em; }
+.results-card .result-score b { font-family: 'Luckiest Guy', 'Arial Black', sans-serif; color: #F6EDD8; font-size: clamp(42px, 14vw, 58px); line-height: 1; letter-spacing: .01em; -webkit-text-stroke: 1.6px #1E4E9C; text-shadow: 0 3px 0 #1E4E9C, 0 6px 14px rgba(0,0,0,.45); }
 .results-card .result-score span { color: rgba(var(--rgb-mist),.58); font-size: 14px; font-weight: 700; }
 .results-card .round-breakdown { margin-top: 10px; }
 .results-card .round-breakdown h2 { display: none; }
