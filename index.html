@@ -90,11 +90,11 @@
   <main id="game" aria-live="polite">
     <section id="start-screen" class="screen start-screen">
       <h1>Where on Earth?</h1>
-      <p class="how-to">Find five places. Spin the globe, zoom in, tap to place your pin, then lock it in.</p>
+      <p class="how-to">Spin, zoom in, place your pin, lock it in.</p>
       <div class="mode-buttons home-panels" aria-label="Game modes">
         <button id="play-button" class="is-gold" type="button"><img class="panel-slice" src="assets/blue-marble-2k.jpg" alt="" aria-hidden="true"><span class="panel-info"><span class="mode-name">Daily</span><small class="mode-desc">Loading…</small></span></button>
         <button id="pack-button" type="button" disabled><img class="panel-slice" src="assets/blue-marble-2k.jpg" alt="" aria-hidden="true"><img class="panel-packobj" src="assets/pack-world-capitals-static.webp" alt="" aria-hidden="true"><span class="pack-skip-balance pack-token-pill"><svg class="hg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffc76a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 2.8h11M6.5 21.2h11M7.3 2.8v3c0 2.5 2.1 3.6 4.7 6 2.6-2.4 4.7-3.5 4.7-6v-3M7.3 21.2v-3c0-2.5 2.1-3.6 4.7-6 2.6 2.4 4.7 3.5 4.7 6v3"/><path d="M9.8 18.4 12 15.9l2.2 2.5Z" fill="#ffc76a" stroke="none" opacity=".9"/></svg><span class="pack-token-count">12</span></span><span class="panel-info"><span class="mode-name">Postcard Packs</span><small class="mode-desc">2 packs available</small></span><span class="pack-home-bar" aria-hidden="true"><i></i></span></button>
-        <button id="survival-hub-button" type="button"><img class="panel-slice" src="assets/blue-marble-2k.jpg" alt="" aria-hidden="true"><span class="panel-info"><span class="mode-name">Practice</span><small class="mode-desc">Survival · Trivia · Blackout · Tap the Country</small></span></button>
+        <button id="survival-hub-button" type="button"><img class="panel-slice" src="assets/blue-marble-2k.jpg" alt="" aria-hidden="true"><span class="panel-info"><span class="mode-name">Practice</span><small class="mode-desc">Free play, endless runs</small></span></button>
         <button id="pvp-button" type="button" disabled hidden><span class="mode-name">Challenge</span><small class="mode-desc">Play a friend</small></button>
       </div>
       <button id="expeditions-button" class="entry-pending" type="button" hidden><span class="mode-name">Weekly Expedition</span></button>
@@ -206,12 +206,18 @@
     <div class="expedition-panel" role="dialog" aria-modal="true" aria-labelledby="survival-hub-heading">
       <button class="icon-close home-nav finished-home-nav" type="button" aria-label="Go home">×</button>
       <h2 id="survival-hub-heading" class="logotype">Practice</h2>
-      <p>Play freely. Practice records visits and bests, but postcards are earned in the Daily, the pack and Expeditions.</p>
-      <div class="expedition-list">
-        <button id="survival-button" class="expedition-choice" type="button"><span><strong>Survival</strong><small>Cities and places. One miss over 150 km ends the run. Tap the globe to place your pin.</small><small data-hub-best="survival"></small></span><span class="badge">›</span></button>
-        <button id="borders-button" class="expedition-choice" type="button"><span><strong>Tap the Country</strong><small>Tap each named country. One miss ends the run.</small><small data-hub-best="borders"></small></span><span class="badge">›</span></button>
+      <p id="hub-intro">Play freely. Practice records visits and bests, but postcards are earned in the Daily, the pack and Expeditions.</p>
+      <div class="expedition-list" id="hub-main-list">
+        <button id="survival-styles-entry" class="expedition-choice" type="button"><span><strong>Survival</strong><small>Endless runs in three styles: cities &amp; places, tap the country, trivia clues.</small></span><span class="badge">›</span></button>
         <button id="blackout-button" class="expedition-choice" type="button" disabled><span><strong>Country Blackout</strong><small>Find every country in a region. One miss ends the run.</small><small data-hub-best="blackout"></small></span><span class="badge">›</span></button>
-        <button id="trivia-button" class="expedition-choice" type="button" disabled><span><strong>Trivia clues</strong><small>Five clues, find each place. Tap the globe to place your pin.</small><small data-hub-best="trivia"></small></span><span class="badge">›</span></button>
+      </div>
+      <div id="hub-survival-view" hidden>
+        <button id="survival-styles-back" class="hub-back" type="button">‹ All practice</button>
+        <div class="expedition-list">
+          <button id="survival-button" class="expedition-choice" type="button"><span><strong>Cities &amp; places</strong><small>One miss over 150 km ends the run. Tap the globe to place your pin.</small><small data-hub-best="survival"></small></span><span class="badge">›</span></button>
+          <button id="borders-button" class="expedition-choice" type="button"><span><strong>Tap the Country</strong><small>Tap each named country. One miss ends the run.</small><small data-hub-best="borders"></small></span><span class="badge">›</span></button>
+          <button id="trivia-button" class="expedition-choice" type="button" disabled><span><strong>Trivia clues</strong><small>Five clues, find each place. Tap the globe to place your pin.</small><small data-hub-best="trivia"></small></span><span class="badge">›</span></button>
+        </div>
       </div>
     </div>
   </section>

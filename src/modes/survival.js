@@ -217,9 +217,21 @@ export function setRunResultsCopy(eyebrow, summary, label, bestLabel = 'Best str
   document.getElementById('survival-best-label').textContent = bestLabel;
 }
 
-// Practice hub: the one home entry for the practice modes (Survival, Tap the
-// Country, Country Blackout, Trivia). Its rows are the mode entries, so each
-// keeps its own click handler; hideScreens closes the hub on the way out.
+// Practice hub: the one home entry for the practice modes. Survival is a
+// family with three styles (Cities & places, Tap the Country, Trivia clues)
+// behind one hub row; Country Blackout stays a peer row. Each style keeps
+// its own click handler; hideScreens closes the hub on the way out.
+
+// The hub has two views: the main list and the Survival styles list.
+function setHubView(view) {
+  const styles = view === 'styles';
+  document.getElementById('hub-main-list').hidden = styles;
+  document.getElementById('hub-survival-view').hidden = !styles;
+  document.getElementById('survival-hub-heading').textContent = styles ? 'Survival' : 'Practice';
+  document.getElementById('hub-intro').textContent = styles
+    ? 'Three styles, one rule: a miss ends the run.'
+    : 'Play freely. Practice records visits and bests, but postcards are earned in the Daily, the pack and Expeditions.';
+}
 
 function showSurvivalHub() {
   const { gameEls } = host;
@@ -233,6 +245,7 @@ function showSurvivalHub() {
   hub.querySelector('[data-hub-best="borders"]').textContent = streak(host.bordersBest());
   hub.querySelector('[data-hub-best="blackout"]').textContent = host.blackoutBestSummary();
   hub.querySelector('[data-hub-best="trivia"]').textContent = host.triviaHubLine();
+  setHubView('main');
   hub.hidden = false;
 }
 
@@ -283,6 +296,8 @@ export function initSurvival(main) {
   host = main;
   const { gameEls } = host;
   gameEls.survivalEntry.addEventListener('click', enterSurvival);
+  globalThis.document?.getElementById('survival-styles-entry')?.addEventListener('click', () => setHubView('styles'));
+  globalThis.document?.getElementById('survival-styles-back')?.addEventListener('click', () => setHubView('main'));
   gameEls.survivalAgain.addEventListener('click', () => {
     if (runResultsMode === 'blackout') host.startBorders(host.borders.scope);
     else if (runResultsMode === 'borders') host.startBorders();
