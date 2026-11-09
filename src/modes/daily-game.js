@@ -12,7 +12,8 @@ import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from '../daily.js';
-import { ACCOUNTS_ENABLED, DEG, GAME_KEY, STREAK_KEY, EARN_NAMES } from '../core/config.js';
+import { ACCOUNTS_ENABLED, DEG, GAME_KEY, STREAK_KEY, EARN_NAMES, FRIEND_MIN_DIST } from '../core/config.js';
+import { cachedFriendPins } from '../account/friends.js';
 import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { readJSON, writeJSON } from '../core/storage.js';
@@ -549,6 +550,10 @@ export function openRecap(i) {
   reviewEls.pagerNext.disabled = i >= 4;
   // the card is laid out now, so the strip between bar and card is known
   frameRevealPoints(r.a, r.b, safeStrip(reviewEls.bar, reviewEls.card));
+  // Friend pins on this round: hold a minimum range so a very close guess
+  // does not crop the friends out. Further-out framing stays untouched.
+  const friendsHere = cachedFriendPins(state.daily.date)?.locations?.[state.daily.ids[i]]?.friends;
+  if (friendsHere?.length && state.targetDist < FRIEND_MIN_DIST) state.targetDist = FRIEND_MIN_DIST;
 }
 
 export function segmentDist(px, py, [ax, ay], [bx, by]) {

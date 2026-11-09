@@ -8,7 +8,7 @@
 // the worker: a slow, failed or offline response simply shows nothing.
 // ---------------------------------------------------------------------------
 import * as THREE from 'three';
-import { TAP_MAX_MS, TAP_MAX_MOVE } from '../core/config.js';
+import { TAP_MAX_MS, TAP_MAX_MOVE, FRIEND_MIN_DIST } from '../core/config.js';
 import { clamp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { latLngToVec3, canvas, globe } from '../globe/scene.js';
@@ -120,6 +120,9 @@ function render(v) {
   });
   releasePins(rows.length);
   if (rows.length) {
+    // A close guess frames tight on the two pins; with friends on the globe,
+    // hold the minimum range so their pins stay in view too.
+    if (v.mode === 'reveal' && state.targetDist < FRIEND_MIN_DIST) state.targetDist = FRIEND_MIN_DIST;
     mountStrip(v);
     return;
   }

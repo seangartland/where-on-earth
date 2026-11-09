@@ -14,6 +14,10 @@ export const MIN_DIST = 1.03;
 // Scripted cameras (bullseye snap, flight, reveal framing) keep the closest
 // framing they were tuned at; only the player's own zoom goes deeper.
 export const SCENE_MIN_DIST = 1.32;
+// When a round has friend pins on the globe, the camera never frames tighter
+// than this, so a very close guess still leaves the neighbourhood (and the
+// friends) in view. Framing that already sits further out is left alone.
+export const FRIEND_MIN_DIST = 2.1;
 export const PITCH_LIMIT = 75 * DEG; // look down at the poles, never flip north-down
 export const FRICTION = 2.1; // velocity decay per second (exponential)
 export const MAX_SPIN = 7; // rad/s
