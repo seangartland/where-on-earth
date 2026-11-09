@@ -457,6 +457,7 @@ export function updateReview(dt, scale) {
     }
     if (r.line.visible) r.line.material.opacity = damp(r.line.material.opacity, 0.75, 10, dt);
   }
+  getFriendLayer()?.update(dt, scale); // friends' pins, on the reveal and in a recap
 }
 
 export function enterReview(focus = -1) {
