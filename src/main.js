@@ -6,7 +6,7 @@ import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
 import {
   SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, AUTO_SPIN, RESET_DAILY, STREAK_KEY, HISTORY_KEY, EXPEDITION_KEY,
-  REVEAL_VIEW_KEY, PACK_PLACEMENT_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
+  REVEAL_VIEW_KEY, PACK_PLACEMENT_KEY, FILING_ANIM_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
   EXPEDITIONS_HIDDEN,
 } from './core/config.js';
 import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
@@ -180,6 +180,11 @@ try {
   if (localStorage.getItem(PACK_PLACEMENT_KEY) === 'off') state.packPlacement = false;
 } catch (error) {
   storageError('Read failed', PACK_PLACEMENT_KEY, error);
+}
+try {
+  if (localStorage.getItem(FILING_ANIM_KEY) === 'off') state.filingAnim = false;
+} catch (error) {
+  storageError('Read failed', FILING_ANIM_KEY, error);
 }
 
 initAudio();
@@ -555,6 +560,13 @@ settingsScreen.innerHTML = `
           <button type="button" data-pack-placement="off" aria-pressed="false">Off</button>
         </div>
       </fieldset>
+      <fieldset class="settings-group">
+        <legend>Postcard filing animation</legend>
+        <div class="settings-segmented">
+          <button type="button" data-filing-anim="on" aria-pressed="true">On</button>
+          <button type="button" data-filing-anim="off" aria-pressed="false">Off</button>
+        </div>
+      </fieldset>
       ${ACCOUNTS_ENABLED ? `<div class="settings-account">
         <div><strong>Account</strong><small class="settings-account-detail">Save your progress</small></div>
         <button class="settings-account-action" type="button">Sign in</button>
@@ -588,6 +600,7 @@ const settingsEls = {
   cancel: settingsScreen.querySelector('.settings-cancel'),
   revealViews: [...settingsScreen.querySelectorAll('[data-reveal-view]')],
   packPlacement: [...settingsScreen.querySelectorAll('[data-pack-placement]')],
+  filingAnim: [...settingsScreen.querySelectorAll('[data-filing-anim]')],
   account: settingsScreen.querySelector('.settings-account'),
   accountDetail: settingsScreen.querySelector('.settings-account-detail'),
   accountAction: settingsScreen.querySelector('.settings-account-action'),
@@ -654,6 +667,19 @@ settingsEls.packPlacement.forEach((button) => button.addEventListener('click', (
   syncPackPlacementSetting();
 }));
 syncPackPlacementSetting();
+
+function syncFilingAnimSetting() {
+  settingsEls.filingAnim.forEach((button) => {
+    button.setAttribute('aria-pressed', String((button.dataset.filingAnim === 'on') === state.filingAnim));
+  });
+}
+
+settingsEls.filingAnim.forEach((button) => button.addEventListener('click', () => {
+  state.filingAnim = button.dataset.filingAnim === 'on';
+  safeSetItem(FILING_ANIM_KEY, state.filingAnim ? 'on' : 'off');
+  syncFilingAnimSetting();
+}));
+syncFilingAnimSetting();
 
 function openSettings() {
   settingsEls.main.hidden = false;

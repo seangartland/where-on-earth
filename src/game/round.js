@@ -232,13 +232,13 @@ export function revealGuess(guess, restoring = false) {
     if (postcard.kind === 'new' || postcard.kind === 'upgrade') runHaul.push({ result: { distance: km, distanceExact: kmExact, postcard }, item: answer });
   }
   if (!restoring && expeditionRun.active) completeExpeditionRound();
-  gameEls.baseScore.textContent = base;
   // A trivia entry's clue is the riddle; the reveal names the place.
   const placeName = trivia.active ? answer.short : answer.clue || answer.short;
   gameEls.revealName.textContent = placeName;
   // A pack repeat with nothing new is labelled, never rerolled.
   if (packCard?.kind === 'repeat') gameEls.revealName.append(Object.assign(document.createElement('small'), { className: 'reveal-repeat', textContent: 'Already in your Passport' }));
   gameEls.peekName.textContent = placeName;
+  if (gameEls.bandTag) gameEls.bandTag.textContent = oneOff ? '' : gameEls.number.textContent;
   gameEls.fact.textContent = answer.fact;
   setThumb(gameEls.thumb, answer.image, answer);
   setThumb(gameEls.peekThumb, answer.image);
@@ -279,7 +279,9 @@ export function revealGuess(guess, restoring = false) {
   if (earn || friends) {
     setTimeout(() => {
       const settled = () => {
-        if (earn) showEarnToast(answer, newlyEarned);
+        // The Daily shows no mid-round postcard toast (Sean, 2026-11-09):
+        // earned cards are presented on the end-of-game summary instead.
+        if (earn && oneOff) showEarnToast(answer, newlyEarned);
         friends?.();
       };
       if (animate) whenPostcardDone(settled);
@@ -289,8 +291,8 @@ export function revealGuess(guess, restoring = false) {
   if (animate && (tier === 'bullseye' || tier === 'pinpoint')) {
     document.body.classList.add('bullseye');
     gameEls.hint.textContent = tier === 'pinpoint' ? 'Pinpoint! Incredible accuracy' : 'Bullseye! The gold marker shows the answer';
-    beginBullseyeReveal(guess, answer, km, newlyEarned, tier, { plain: trivia.active });
-  } else if (animate) beginTravelReveal(guess, answer, km, newlyEarned, tier, { plain: trivia.active });
+    beginBullseyeReveal(guess, answer, km, newlyEarned, tier, { plain: trivia.active, skipPostcard: !oneOff });
+  } else if (animate) beginTravelReveal(guess, answer, km, newlyEarned, tier, { plain: trivia.active, skipPostcard: !oneOff });
   else {
     revealThumbCurrent();
     let a;
@@ -404,6 +406,7 @@ export function pvpRevealTimeout(answer) {
   const placeName = answer.clue || answer.short;
   gameEls.revealName.textContent = placeName;
   gameEls.peekName.textContent = placeName;
+  if (gameEls.bandTag) gameEls.bandTag.textContent = '';
   gameEls.fact.textContent = answer.fact || '';
   setThumb(gameEls.thumb, answer.image, answer);
   setThumb(gameEls.peekThumb, answer.image);

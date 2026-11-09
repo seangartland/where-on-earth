@@ -25,7 +25,7 @@ export function initPvpPlay(main) {
   gameEls = main.gameEls;
   pvpVs = document.createElement('span');
   pvpVs.className = 'pvp-vs';
-  gameEls.peekBar.querySelector('.peek-text').append(pvpVs);
+  gameEls.peekBar.append(pvpVs);
   pvpRoundStandings = document.createElement('div');
   pvpRoundStandings.className = 'pvp-standings';
   pvpRoundStandings.hidden = true;

@@ -197,6 +197,41 @@ export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next =
   postmark.setAttribute('aria-hidden', 'true');
   postmark.textContent = new Date(`${state.daily.date}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
   gameEls.breakdown.append(gameEls.postcardSummaryCounts, postmark);
+  filePostcardsAway(outcomes);
+}
+
+// Earned cards file away into the Passport tally: a mini postcard lifts off
+// each new or upgraded row and shrinks into the counts stamp, staggered.
+// Settings can turn it off (state.filingAnim); reduced motion skips it too.
+function filePostcardsAway(outcomes) {
+  if (!state.filingAnim) return;
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+  const target = gameEls.postcardSummaryCounts?.getBoundingClientRect();
+  if (!target || !target.width) return;
+  const entries = [...gameEls.breakdown.children];
+  outcomes.forEach(({ result, item }, i) => {
+    const kind = result?.postcard?.kind;
+    if (kind !== 'new' && kind !== 'upgrade') return;
+    const row = entries[i];
+    if (!row || !item?.image) return;
+    const r = row.getBoundingClientRect();
+    if (!r.width) return;
+    const card = document.createElement('div');
+    card.className = 'filing-card';
+    const img = Object.assign(document.createElement('img'), { src: item.image, alt: '' });
+    const name = Object.assign(document.createElement('span'), { textContent: item.short || item.clue || '' });
+    card.append(img, name);
+    Object.assign(card.style, { left: `${r.left + 10}px`, top: `${r.top - 6}px` });
+    document.body.append(card);
+    const dx = target.left + target.width / 2 - (r.left + 70);
+    const dy = target.top + target.height / 2 - (r.top + 34);
+    const anim = card.animate([
+      { transform: 'translate(0, 0) rotate(-3deg) scale(1)', opacity: 1 },
+      { transform: `translate(${dx}px, ${dy}px) rotate(2deg) scale(.12)`, opacity: .25 },
+    ], { duration: 620, delay: 350 + i * 170, easing: 'cubic-bezier(.3,.7,.3,1)', fill: 'backwards' });
+    anim.onfinish = () => card.remove();
+    setTimeout(() => card.remove(), 350 + i * 170 + 900);
+  });
 }
 
 export function showResults() {
@@ -658,8 +693,8 @@ export function initReview() {
         <button class="icon-close" aria-label="Close review">×</button>
       </div>
       <button type="button" class="recap-expand" data-act="expand" aria-expanded="false" aria-label="Expand photo and description">⌄</button>
+      <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><strong class="recap-score"></strong></div>
     </div>
-    <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><strong class="recap-score"></strong></div>
     <p class="recap-fact"></p>
   </article>`;
   document.getElementById('game').append(reviewScreen);

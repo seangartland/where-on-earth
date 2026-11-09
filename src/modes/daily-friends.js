@@ -97,7 +97,10 @@ function adopt(v) {
 
 export function clearFriends() {
   clearTimeout(popTimer);
-  if (view) view.strip?.remove();
+  if (view) {
+    view.strip?.remove();
+    view.board?.remove();
+  }
   view = null;
   releasePins();
   firstPin?.release();
@@ -130,6 +133,8 @@ function render(v) {
   // their pins), otherwise no strip at all.
   v.strip?.remove();
   v.strip = null;
+  v.board?.remove();
+  v.board = null;
   firstPin?.release();
   loadFriendsInfo().then((info) => {
     if (v !== view || v.key !== key) return;
@@ -186,9 +191,34 @@ function mountStrip(v, showNudge = false) {
   strip.append(v.pop);
   if (!strip.isConnected) {
     if (v.mode === 'reveal') gameEls.peekBar.after(strip);
-    else reviewEls.card.querySelector('.score-line').after(strip);
+    else reviewEls.card.querySelector('.recap-band').after(strip);
   }
   v.strip = strip;
+  if (v.mode === 'reveal') renderBoard(v);
+}
+
+// The reveal sheet's flyup carries the round's ranked friend board under the
+// fact: your row plus each friend's, nearest first. The collapsed card keeps
+// the compact chips; the board is the expanded detail (Sean, 2026-11-09).
+function renderBoard(v) {
+  v.board?.remove();
+  v.board = null;
+  if (!v.rows?.length) return;
+  const mine = v.localGuess ? friendRows([{ friendId: 'you', displayName: 'You', guess: v.localGuess }], v.answer)[0] : null;
+  const ranked = [...(mine ? [mine] : []), ...v.rows].sort((a, b) => a.kmExact - b.kmExact);
+  const board = Object.assign(document.createElement('div'), { className: 'friends-board' });
+  board.append(Object.assign(document.createElement('p'), { className: 'friends-board-title', textContent: 'Friends this round' }));
+  for (const row of ranked) {
+    const el = Object.assign(document.createElement('div'), { className: `friend-board-row${row.friendId === 'you' ? ' you' : ''}` });
+    const av = Object.assign(document.createElement('span'), { className: 'ft-av', textContent: row.initial || row.name.charAt(0) });
+    const name = Object.assign(document.createElement('span'), { className: 'ft-name', textContent: row.name });
+    const km = Object.assign(document.createElement('span'), { className: 'ft-km', textContent: row.distance });
+    const score = Object.assign(document.createElement('span'), { className: 'ft-score', textContent: `+${row.score}` });
+    el.append(av, name, km, score);
+    board.append(el);
+  }
+  gameEls.fact.after(board);
+  v.board = board;
 }
 
 function nudgeDismissals(key) {

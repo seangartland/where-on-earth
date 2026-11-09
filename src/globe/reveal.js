@@ -83,11 +83,14 @@ export let postcardRun = null; // { b, landedAt, popAt, newUnlock, phase: 'pendi
 export let postcardNewUnlock = false;
 export let revealCardAt = null; // when the reveal card has finished fading in
 export let afterPostcard = null; // queued until the postcard is out of the way
-export function preparePostcard(item, newlyEarned, km, plain = false) {
+export function preparePostcard(item, newlyEarned, km, plain = false, skip = false) {
   clearPostcard();
   revealCardAt = null;
   afterPostcard = null;
   postcardNewUnlock = Boolean(newlyEarned);
+  // The Daily presents earned postcards on the end-of-game summary instead
+  // (Sean, 2026-11-09): no mid-round pop or settle, so nothing is prepared.
+  if (skip) return;
   if (!item.image) return;
   const earned = plain ? 0 : (state.passport.meta[item.id]?.e || newlyEarned || 0);
   const earnName = plain ? '' : (EARN_NAMES[earned] || 'seen');
@@ -237,7 +240,9 @@ export function settlePostcard() {
   }
   const thumb = postcardTarget();
   run.thumb = thumb;
-  if (!thumb) {
+  // A target with no layout box (the peek thumb is display:none in the
+  // band layout) cannot be flown into; fade out like the no-thumb path.
+  if (!thumb || !thumb.getBoundingClientRect().width) {
     postcard.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: 'forwards' }).onfinish = () => {
       if (postcardRun !== run) return;
       host.revealThumbCurrent();
@@ -399,7 +404,7 @@ export function beginNorthUpReveal(guess, answer, km, newlyEarned, tier, options
   correctPin.drop(b);
   answerLine.visible = true;
   gameEls.distance.textContent = distanceCopy(km, answer);
-  preparePostcard(answer, newlyEarned, km, options.plain);
+  preparePostcard(answer, newlyEarned, km, options.plain, options.skipPostcard);
   frameNorthUpRevealPoints(a, b);
   showAnswerOutlines(answer, true);
   startRevealBeat(a, b, tier !== 'bullseye');
@@ -436,7 +441,7 @@ export function beginTravelReveal(guess, answer, km, newlyEarned, tier = flyover
   gameEls.distance.textContent = distanceCopy(km, answer);
   gameEls.travelDistance.querySelector('span').textContent = '0 km';
   gameEls.travelDistance.hidden = true;
-  preparePostcard(answer, newlyEarned, km, options.plain);
+  preparePostcard(answer, newlyEarned, km, options.plain, options.skipPostcard);
   travelAnimation = {
     ...path,
     km,
@@ -479,7 +484,7 @@ export function beginBullseyeReveal(guess, answer, km, newlyEarned, tier = flyov
   correctPin.state = 'idle';
   correctPin.setColor(GOLD_COLOR, '#fff6d8');
   gameEls.distance.textContent = distanceCopy(km, answer);
-  preparePostcard(answer, newlyEarned, km, options.plain);
+  preparePostcard(answer, newlyEarned, km, options.plain, options.skipPostcard);
   travelAnimation = {
     ...path,
     km,
@@ -1304,6 +1309,13 @@ export function initReveal(main) {
       return;
     }
     if (e.target.closest('#next-button')) return;
+    setSheetExpanded(!gameEls.reveal.classList.contains('expanded'));
+  });
+  gameEls.reveal.querySelector('.reveal-band')?.addEventListener('click', () => {
+    if (sheetSwiped) {
+      sheetSwiped = false;
+      return;
+    }
     setSheetExpanded(!gameEls.reveal.classList.contains('expanded'));
   });
   gameEls.peekBar.addEventListener('keydown', (e) => {

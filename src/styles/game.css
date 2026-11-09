@@ -308,7 +308,20 @@ body.game-reveal .reveal-name { display: block; }
 
 .reveal-sheet { position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding-bottom: env(safe-area-inset-bottom, 0px); border-width: 1px 0 0; border-radius: 20px 20px 0 0; pointer-events: auto; touch-action: none; }
 .reveal-sheet[hidden] { display: none; }
-.peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 94px; padding: 16px 14px 10px; cursor: pointer; outline: none; }
+/* The reveal sheet leads with the place photo as a band, the same shape as
+   the review recap card: name over the photo, then one score line. */
+.reveal-band { position: relative; height: 112px; overflow: hidden; border-radius: 20px 20px 0 0; }
+.reveal-band .thumb-slot { position: absolute; inset: 0; }
+.reveal-band #place-thumb { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; border: 0; border-radius: 0; object-fit: cover; object-position: center 20%; }
+.reveal-band #place-thumb[hidden] { display: none; }
+.reveal-band .peek-slot { display: none; }
+.reveal-band-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,20,.10), rgba(3,8,20,.72)); pointer-events: none; }
+.reveal-band-head { position: absolute; left: 14px; right: 14px; bottom: 9px; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+.reveal-band-tag { color: rgba(220,238,255,.85); font-size: var(--fs-caption); font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+.reveal-band-tag:empty { display: none; }
+.reveal-band .peek-name { overflow: visible; color: var(--ink); font-size: 18px; font-weight: 750; line-height: 1.2; letter-spacing: -.02em; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; text-shadow: 0 1px 8px rgba(0,0,0,.45); }
+.peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; padding: 10px 14px 12px; cursor: pointer; outline: none; }
+.peek-bar .peek-next { margin-left: auto; }
 /* The bar's layout is identical in both states (Sean, 2026-11-06): it used
    to grow its padding, enlarge the name and hide the thumb on expand, and
    each change landed in one frame while the sheet content eased open, so
@@ -328,25 +341,18 @@ body.game-reveal .reveal-name { display: block; }
 #peek-thumb.seen-no-postcard, #place-thumb.seen-no-postcard { filter: grayscale(1); opacity: 0.7; }
 #peek-thumb.prox-postcard, #peek-thumb.prox-bullseye, #peek-thumb.prox-pinpoint,
 #place-thumb.prox-postcard, #place-thumb.prox-bullseye, #place-thumb.prox-pinpoint { filter: none; opacity: 1; }
-.peek-text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .peek-name { overflow: hidden; color: var(--ink); font-size: var(--fs-title); font-weight: 750; line-height: 1.3; text-overflow: ellipsis; white-space: nowrap; }
-.peek-bar[aria-expanded="true"] .peek-text { align-self: center; }
-.peek-bar[aria-expanded="true"] .peek-name { overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; }
 .peek-stats { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
 .peek-score { color: var(--gold); font-size: var(--fs-display); font-weight: 850; letter-spacing: -.03em; line-height: 1; }
 .peek-score:empty { display: none; }
 body.survival .peek-score { color: #8ef0b8; }
 body.survival-miss .peek-score { color: #ff9db4; }
 .peek-distance { color: rgba(var(--rgb-muted),.7); font-size: var(--fs-body); font-weight: 650; }
-.peek-text .score-math { display: flex; align-items: baseline; gap: 7px; min-width: 0; color: rgba(var(--rgb-muted),.8); line-height: 1.2; white-space: nowrap; }
-.peek-text .score-math .base { font-size: var(--fs-base); }
-.peek-text .score-math .base b { font-size: var(--fs-base); }
 .peek-bar .peek-next { flex: none; min-width: 0; min-height: 44px; padding: 0 18px; font-size: var(--fs-base); }
 .sheet-content { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .38s cubic-bezier(.2,.9,.25,1); }
 .reveal-sheet.expanded .sheet-content { grid-template-rows: 1fr; }
 .sheet-inner { min-height: 0; overflow: hidden; padding: 0 14px 14px; }
-#place-thumb { display: block; box-sizing: border-box; width: 100%; height: 80px; margin: 0; border: 2px solid rgba(var(--rgb-line),.18); border-radius: 10px; object-fit: cover; object-position: center 20%; }
-#place-thumb[hidden] { display: none; }
+
 #fact { margin: 10px 0 0; color: rgba(224,240,255,.8); font-size: var(--fs-body); line-height: 1.45; }
 
 /* Layer --z-screen: after the .screen sections in the DOM, so above the reveal sheet; below the postcard detail (--z-sheet) and the flying postcard (--z-stamp). */
@@ -370,6 +376,9 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-separator { color: rgba(178,124,32,.6); }
 .postcard-summary-postmark { position: absolute; left: 15px; bottom: 12px; display: grid; place-items: center; width: 58px; height: 58px; border: 2px solid rgba(52,72,96,.45); border-radius: 50%; color: rgba(52,72,96,.68); font-size: 8px; font-weight: 800; letter-spacing: .05em; line-height: 1.2; text-align: center; transform: rotate(-11deg); }
 .postcard-summary-continue { display: block; width: min(100%, 300px); margin: 0 auto; }
+.filing-card { position: fixed; z-index: var(--z-stamp); width: 120px; padding: 5px 5px 7px; border-radius: 4px; background: #fffdf6; box-shadow: 0 10px 28px rgba(0,0,0,.5); pointer-events: none; will-change: transform, opacity; }
+.filing-card img { display: block; width: 100%; height: 62px; object-fit: cover; object-position: center 20%; border-radius: 2px; }
+.filing-card span { display: block; margin-top: 4px; overflow: hidden; color: #22355c; font-size: var(--fs-caption); font-weight: 700; white-space: nowrap; text-overflow: ellipsis; }
 .result-score { margin: 0 0 10px; color: rgba(var(--rgb-mist),.58); font-size: var(--fs-small); font-weight: 700; text-align: center; }
 .result-score b { font-family: 'Luckiest Guy', 'Arial Black', sans-serif; color: #F6EDD8; font-size: 38px; line-height: 1; -webkit-text-stroke: 1.3px #1E4E9C; text-shadow: 0 2px 0 #1E4E9C, 0 4px 10px rgba(0,0,0,.45); }
 .result-score span { font-size: var(--fs-caption); }
@@ -1359,15 +1368,19 @@ body.game-collections #hud { opacity: 0; }
    round tag, the place name and the round navigation; the score shows once
    (no x/1000 base, a holdover from the removed multipliers). */
 .recap-card { padding: 0 14px 13px; overflow: hidden; }
-.recap-band { position: relative; height: 84px; margin: 0 -14px 10px; transition: height .32s cubic-bezier(.2,.9,.25,1); }
-.recap-card.expanded .recap-band { height: 200px; }
+.recap-band { position: relative; height: 152px; margin: 0 -14px 10px; transition: height .32s cubic-bezier(.2,.9,.25,1); }
+.recap-card.expanded .recap-band { height: 254px; }
+.recap-band .score-line { position: absolute; left: 14px; right: 14px; bottom: 10px; padding-right: 42px; }
+.recap-band .score-line div { text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.recap-band .score-line small { color: rgba(220,238,255,.82); }
+.recap-band .score-line strong { text-shadow: 0 1px 8px rgba(0,0,0,.55); }
 .recap-expand { position: absolute; right: 10px; bottom: 8px; z-index: 2; display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; background: rgba(3,8,20,.45); color: #fff; font-size: 17px; line-height: 1; cursor: pointer; touch-action: manipulation; transition: transform .32s cubic-bezier(.2,.9,.25,1); }
 .recap-card.expanded .recap-expand { transform: rotate(180deg); }
 .recap-card.expanded .recap-fact { display: block; -webkit-line-clamp: unset; }
 .recap-thumb { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; object-position: center 20%; }
 .recap-thumb[hidden] { display: none; }
 .recap-band-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,20,.08), rgba(3,8,20,.70)); pointer-events: none; }
-.recap-head { position: absolute; left: 14px; right: 48px; bottom: 9px; }
+.recap-head { position: absolute; left: 14px; right: 48px; bottom: 52px; }
 .recap-tag { margin: 0 0 4px; color: rgba(220,238,255,.85); font-size: var(--fs-caption); font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .recap-head h3 { margin: 0; color: var(--ink); font-size: 18px; line-height: 1.2; letter-spacing: -.02em; text-shadow: 0 1px 8px rgba(0,0,0,.45); }
 .recap-nav { position: absolute; top: 8px; right: 10px; display: flex; align-items: center; gap: 6px; }
@@ -1384,6 +1397,14 @@ body.game-review #hud { opacity: 0; }
    shared review pill, sized down for the row. */
 .friends-strip { position: relative; padding: 0 14px 12px; animation: friends-in .28s ease-out; }
 .recap-card .friends-strip { padding: 10px 0 0; }
+.friends-board { margin-top: 12px; border-top: 1px solid rgba(173,216,255,.12); padding-top: 10px; }
+.friends-board-title { margin: 0 0 6px; color: rgba(var(--rgb-mist),.58); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.friend-board-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: var(--fs-base); }
+.friend-board-row .ft-av { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(127,210,244,.25); color: #dceeff; font-size: var(--fs-caption); font-weight: 800; flex: none; }
+.friend-board-row.you .ft-av { background: var(--gold); color: #22355c; }
+.friend-board-row .ft-name { color: rgba(225,240,255,.92); font-weight: 600; }
+.friend-board-row .ft-km { margin-left: auto; color: rgba(var(--rgb-muted),.75); font-size: var(--fs-small); font-weight: 650; }
+.friend-board-row .ft-score { color: var(--gold); font-weight: 800; min-width: 44px; text-align: right; }
 .friends-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .friends-strip .review-pill { min-height: 34px; padding: 0 12px; font-size: var(--fs-small); font-weight: 650; color: rgba(var(--rgb-muted),.85); }
 .friends-strip .review-pill b { color: #f3e7d3; font-weight: 800; }
@@ -1412,7 +1433,7 @@ body.game-review #hud { opacity: 0; }
 .friend-pop[hidden] { display: none; }
 @keyframes friends-in { from { opacity: 0; } to { opacity: 1; } }
 @media (max-height: 700px) {
-  .recap-band { height: 72px; }
+  .recap-band { height: 128px; }
   .recap-fact { margin: 8px 0 0; }
 }
 

@@ -117,7 +117,7 @@ export const gameEls = {
   sheetContent: document.getElementById('sheet-content'),
   lineDistance: document.getElementById('line-distance'),
   distance: document.getElementById('distance'),
-  baseScore: document.getElementById('base-score'),
+  bandTag: document.getElementById('reveal-band-tag'),
   score: document.getElementById('round-score'),
   fact: document.getElementById('fact'),
   thumb: document.getElementById('place-thumb'),

@@ -35,6 +35,7 @@ export const state = {
   activePin: -1,
   revealViewPreference: 'flyover',
   packPlacement: true, // Settings: Pack placement animation (default on)
+  filingAnim: true, // Settings: Postcard filing animation on the summary (default on)
   passport: { visits: {}, order: [], meta: {} },
 
   // Overlay screens built after boot; hideScreens() hides whichever exist.

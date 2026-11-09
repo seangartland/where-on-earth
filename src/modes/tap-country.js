@@ -161,6 +161,7 @@ export function revealBorders(tap) {
   const name = `${displayName} ${countryFlag(key)}`;
   gameEls.revealName.textContent = name;
   gameEls.peekName.textContent = name;
+  if (gameEls.bandTag) gameEls.bandTag.textContent = '';
   gameEls.distance.textContent = borders.missed || toleranceHit ? formatKm(km) : '';
   gameEls.fact.textContent = complete ? `Found ${displayName}. That's every ${borders.scope.unit} in ${borders.scope.place}.`
     : !borders.missed ? `Found ${displayName}.`
