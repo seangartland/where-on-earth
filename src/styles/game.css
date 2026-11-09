@@ -1354,20 +1354,25 @@ body.game-collections #hud { opacity: 0; }
 .review-bar .eyebrow { margin: 0 0 3px; }
 .review-hint { margin: 0; overflow: hidden; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-small); text-overflow: ellipsis; white-space: nowrap; }
 .review-pill { min-height: 40px; padding: 0 14px; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 999px; background: rgba(236,247,255,.08); color: var(--ink-btn); font-size: var(--fs-body); font-weight: 700; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
-.recap-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
-.recap-tag { margin: 0 0 4px; color: rgba(var(--rgb-muted),.67); font-size: var(--fs-caption); font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
-.recap-head h3 { margin: 0; color: var(--ink); font-size: 18px; line-height: 1.2; letter-spacing: -.02em; }
-.recap-head .icon-close { position: relative; top: auto; right: auto; flex: none; margin: -10px -10px 0 0; }
-.recap-card .recap-score { color: var(--gold); font-size: 28px; }
-.recap-thumb { display: block; width: 100%; height: 130px; margin: 12px 0 0; border-radius: 10px; object-fit: cover; object-position: center 20%; }
+/* The recap card leads with the round's photo as a header band carrying the
+   round tag, the place name and the round navigation; the score shows once
+   (no x/1000 base, a holdover from the removed multipliers). */
+.recap-card { padding: 0 14px 13px; overflow: hidden; }
+.recap-band { position: relative; height: 84px; margin: 0 -14px 10px; }
+.recap-thumb { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; object-position: center 20%; }
 .recap-thumb[hidden] { display: none; }
-.recap-fact { margin: 12px 0 14px; color: rgba(224,240,255,.8); font-size: var(--fs-body); line-height: 1.45; }
-.recap-pager { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.recap-band-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,20,.08), rgba(3,8,20,.70)); pointer-events: none; }
+.recap-head { position: absolute; left: 14px; right: 14px; bottom: 9px; }
+.recap-tag { margin: 0 0 4px; color: rgba(220,238,255,.85); font-size: var(--fs-caption); font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+.recap-head h3 { margin: 0; color: var(--ink); font-size: 18px; line-height: 1.2; letter-spacing: -.02em; text-shadow: 0 1px 8px rgba(0,0,0,.45); }
+.recap-nav { position: absolute; top: 8px; right: 10px; display: flex; align-items: center; gap: 6px; }
+.recap-nav .pager-arrow { width: 32px; height: 32px; font-size: 18px; background: rgba(3,8,20,.45); border-color: rgba(255,255,255,.25); color: #fff; }
+.recap-nav .pager-arrow:disabled { display: none; }
+.recap-nav .icon-close { position: relative; top: auto; right: auto; width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.25); background: rgba(3,8,20,.45); color: #fff; font-size: 20px; }
+.recap-card .recap-score { color: var(--gold); font-size: 28px; }
+.recap-fact { display: -webkit-box; margin: 9px 0 2px; overflow: hidden; color: rgba(224,240,255,.8); font-size: var(--fs-body); line-height: 1.45; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .pager-arrow { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 50%; background: rgba(236,247,255,.08); color: var(--ink-btn); font-size: 20px; line-height: 1; cursor: pointer; touch-action: manipulation; }
 .pager-arrow:disabled { opacity: .35; cursor: default; }
-.pager-dots { display: flex; gap: 6px; }
-.pager-dot { display: grid; place-items: center; width: 30px; height: 30px; box-sizing: border-box; border: 1.5px solid rgba(var(--rgb-line),.28); border-radius: 50%; background: rgba(236,247,255,.06); color: rgba(var(--rgb-muted),.65); font-size: var(--fs-caption); font-weight: 800; cursor: pointer; touch-action: manipulation; }
-.pager-dot.is-current { border-color: var(--gold); background: var(--gold); color: #1f1708; }
 body.game-review #hud { opacity: 0; }
 /* Friends on the Daily: one compact row of friends' pins on the reveal sheet
    (under the peek bar's score line) and on the recap card. Chips are the
@@ -1388,8 +1393,8 @@ body.game-review #hud { opacity: 0; }
 .friend-pop[hidden] { display: none; }
 @keyframes friends-in { from { opacity: 0; } to { opacity: 1; } }
 @media (max-height: 700px) {
-  .recap-thumb { height: 92px; }
-  .recap-fact { margin: 9px 0 11px; }
+  .recap-band { height: 72px; }
+  .recap-fact { margin: 8px 0 0; }
 }
 
 /* ---------------------------------------------------------------------------

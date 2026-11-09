@@ -490,7 +490,6 @@ export function openRecap(i) {
   reviewEls.tag.textContent = `Round ${i + 1} of 5`;
   reviewEls.name.textContent = item.clue;
   reviewEls.distance.textContent = formatKm(result.distance);
-  reviewEls.base.textContent = result.base ?? result.score;
   reviewEls.score.textContent = `+${result.score.toLocaleString()}`;
   reviewEls.fact.textContent = item.fact;
   setThumb(reviewEls.thumb, item.image);
@@ -498,10 +497,6 @@ export function openRecap(i) {
   getFriendLayer()?.recap(i);
   reviewEls.pagerPrev.disabled = i <= 0;
   reviewEls.pagerNext.disabled = i >= 4;
-  reviewEls.pagerDots.forEach((dot, j) => {
-    dot.classList.toggle('is-current', j === i);
-    dot.setAttribute('aria-current', j === i ? 'true' : 'false');
-  });
   // the card is laid out now, so the strip between bar and card is known
   frameRevealPoints(r.a, r.b, safeStrip(reviewEls.bar, reviewEls.card));
 }
@@ -596,15 +591,18 @@ export function initReview() {
     <span class="review-countdown" data-act="next-daily" role="timer"></span>
   </header>
   <article class="reveal-card recap-card glass" hidden>
-    <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div><button class="icon-close" aria-label="Close review">×</button></div>
-    <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><div class="score-math"><span class="base"><b class="recap-base"></b>/1000</span><strong class="recap-score"></strong></div></div>
-    <img class="recap-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
+    <div class="recap-band">
+      <img class="recap-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
+      <div class="recap-band-shade"></div>
+      <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div></div>
+      <div class="recap-nav">
+        <button type="button" class="pager-arrow" data-act="prev" aria-label="Previous round">‹</button>
+        <button type="button" class="pager-arrow" data-act="next" aria-label="Next round">›</button>
+        <button class="icon-close" aria-label="Close review">×</button>
+      </div>
+    </div>
+    <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><strong class="recap-score"></strong></div>
     <p class="recap-fact"></p>
-    <nav class="recap-pager" aria-label="Round">
-      <button type="button" class="pager-arrow" data-act="prev" aria-label="Previous round">‹</button>
-      <div class="pager-dots"></div>
-      <button type="button" class="pager-arrow" data-act="next" aria-label="Next round">›</button>
-    </nav>
   </article>`;
   document.getElementById('game').append(reviewScreen);
   setReviewEls({
@@ -616,24 +614,12 @@ export function initReview() {
     tag: reviewScreen.querySelector('.recap-tag'),
     name: reviewScreen.querySelector('.recap-head h3'),
     distance: reviewScreen.querySelector('.recap-distance'),
-    base: reviewScreen.querySelector('.recap-base'),
     score: reviewScreen.querySelector('.recap-score'),
     thumb: reviewScreen.querySelector('.recap-thumb'),
     fact: reviewScreen.querySelector('.recap-fact'),
     pagerPrev: reviewScreen.querySelector('[data-act="prev"]'),
     pagerNext: reviewScreen.querySelector('[data-act="next"]'),
-    pagerDots: Array.from({ length: 5 }, (_, i) => {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.className = 'pager-dot';
-      dot.textContent = i + 1;
-      dot.dataset.act = 'goto';
-      dot.dataset.round = i;
-      dot.setAttribute('aria-label', `Round ${i + 1}`);
-      return dot;
-    }),
   });
-  reviewScreen.querySelector('.pager-dots').append(...reviewEls.pagerDots);
   reviewCountdown = reviewEls.countdown;
 
   // One guess pin, answer pin and route per round, built once and re-dropped
