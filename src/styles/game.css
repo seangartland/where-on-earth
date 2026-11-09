@@ -384,6 +384,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .pvp-breakdown .points, #run-results-breakdown .points { color: var(--gold); font-size: 14px; font-weight: 800; }
 .pvp-breakdown .distance, #run-results-breakdown .distance { color: rgba(var(--rgb-muted),.62); font-size: var(--fs-small); font-weight: 600; }
 .results-actions { position: relative; }
+.results-card .results-actions { margin-top: 10px; }
 .results-actions .primary { width: 100%; }
 .text-button { background: none; border: none; color: rgba(var(--rgb-muted),.55); font: 13px/1.4 system-ui, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 8px; margin-top: 4px; }
 #share-status { min-height: 16px; margin: 8px 0 0; color: #8bd9ff; font-size: var(--fs-caption); }
@@ -1341,11 +1342,11 @@ body.game-collections #hud { opacity: 0; }
 .results-card .result-score span { color: rgba(var(--rgb-mist),.58); font-size: 14px; font-weight: 700; }
 .results-card .round-breakdown { margin-top: 10px; }
 .results-card .round-breakdown h2 { display: none; }
-#results-breakdown li { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; min-width: 0; gap: 8px; padding: 10px 0; border-bottom: 1px solid rgba(173,216,255,.11); font-size: var(--fs-base); }
+#results-breakdown li { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; min-width: 0; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(173,216,255,.11); font-size: var(--fs-base); }
 #results-breakdown li > b { color: rgba(var(--rgb-mist),.58); font-size: var(--fs-body); }
 #results-breakdown .place { min-width: 0; overflow: visible; color: rgba(225,240,255,.92); font-weight: 650; line-height: 1.25; overflow-wrap: anywhere; white-space: normal; }
 #results-breakdown .result-metrics { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; min-width: 62px; white-space: nowrap; }
-#results-breakdown .points { color: var(--gold); font-size: var(--fs-title); font-weight: 850; line-height: 1.1; }
+#results-breakdown .points { color: var(--gold); font-size: var(--fs-base); font-weight: 850; line-height: 1.1; }
 #results-breakdown .distance { color: rgba(var(--rgb-muted),.58); font-size: var(--fs-caption); font-weight: 600; }
 .results-globe { display: block; margin: 0 auto; }
 .review-screen { pointer-events: none; }
