@@ -588,22 +588,30 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 #pack-button.is-gold .pack-home-bar { background: rgba(33,21,47,.18); }
 #pack-button.is-gold .pack-home-bar i { background: #21152f; }
 
-/* Home panels (2026-11-08, Sean's pick from the home mockups): the three mode
-   buttons become tall portrait panels with full-bleed art and the name and
-   status overlaid at the bottom. Practice uses the plain satellite texture,
-   deliberately not pack art, since Practice earns no postcards. */
-.home-panels { display: flex; }
-.home-panels > button { position: relative; flex: 1 1 0; height: 258px; min-height: 0; padding: 0; border-radius: 18px; white-space: normal; text-overflow: clip; }
+/* Home panels (2026-11-08, Sean's picks from the home mockups): the three
+   mode buttons are tall portrait panels over one continuous globe image,
+   names and status overlaid at the bottom. Practice deliberately gets no
+   pack imagery, since Practice earns no postcards; the pack panel instead
+   floats the sealed pack itself over the middle slice. */
+.home-panels { display: flex; position: relative; }
+/* One globe image runs continuously behind all three panels (Sean's
+   triptych call, 2026-11-08, Atlantic-centered crop); the buttons are
+   transparent and their borders and scrims draw the columns on top. */
+.home-panels .panels-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; border-radius: 18px; pointer-events: none; }
+.home-panels > button { position: relative; flex: 1 1 0; height: 258px; min-height: 0; padding: 0; border-radius: 18px; background: transparent; white-space: normal; text-overflow: clip; }
 .home-panels > button.is-gold { background: none; color: #ffe9c9; }
-.home-panels .panel-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.home-panels .panel-art-practice { object-position: 72% 50%; }
+/* The pack is an object floating over the middle slice, not a photo: the
+   sealed pack art (static variant, no tear light, WORLD CAPITALS title),
+   sized so its baked title clears the panel label below. */
+.home-panels .panel-packobj { position: absolute; left: 50%; top: 10px; transform: translateX(-50%) rotate(-3deg); height: 158px; width: auto; border-radius: 6px; filter: drop-shadow(0 10px 16px rgba(0,0,0,.7)); pointer-events: none; }
 .home-panels .panel-info { position: absolute; right: 0; bottom: 0; left: 0; display: flex; flex-direction: column; gap: 3px; padding: 26px 11px 12px; background: linear-gradient(180deg, transparent, rgba(2,5,12,.88) 55%); text-align: left; pointer-events: none; }
 .home-panels #play-button .panel-info { background: linear-gradient(180deg, transparent, rgba(24,10,2,.85) 55%); }
 .home-panels .mode-name { overflow: visible; font-size: 15.5px; font-weight: 800; line-height: 1.15; white-space: normal; text-overflow: clip; }
 .home-panels .mode-desc { font-size: 11.5px; line-height: 1.35; opacity: .85; -webkit-line-clamp: 4; }
 .home-panels .pack-token-pill { top: 8px; right: 8px; z-index: 2; transform: none; }
 .home-panels #play-button.daily-done { min-height: 0; flex-direction: column; }
-.home-panels #play-button.daily-done .panel-art { filter: brightness(.72) saturate(.85); }
+/* A played Daily dims its slice of the shared globe instead of its own art. */
+.home-panels #play-button.daily-done::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: rgba(3,6,14,.45); pointer-events: none; }
 /* On the panel the gold state must stay light text: the base #pack-button
    .is-gold ink color (for the old gold-gradient button) outranks the generic
    panel rule and made the pack name and status unreadable over the art. */
@@ -681,7 +689,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
    line as a fraction of the pack height and --tear (0..1) the cut's progress
    along it, both set by pack.js. body and strip are the same art split at the
    line; on the tear the strip flies off and the body keeps a torn edge. */
-.pack-sealed { --art: url('../../assets/pack-world-capitals.webp'); position: relative; box-sizing: border-box; width: var(--pack-w); aspect-ratio: 2 / 3; margin: 2px auto 12px; filter: drop-shadow(0 13px 22px rgba(0,0,0,.68)); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
+.pack-sealed { --art: url('../../assets/pack-world-capitals-static.webp'); position: relative; box-sizing: border-box; width: var(--pack-w); aspect-ratio: 2 / 3; margin: 2px auto 12px; filter: drop-shadow(0 13px 22px rgba(0,0,0,.68)); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
 .pack-sealed[hidden] { display: none; }
 .pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pack-sealed-body { position: absolute; inset: 0; background: var(--art) center / 100% 100% no-repeat; clip-path: inset(calc(var(--line) * 100%) 0 0 0); pointer-events: none; }

@@ -1,7 +1,7 @@
 import { packPool, landmarkPackPool, landformPackPool } from './pack-store.js';
 
 export const PASSPORT_PACKS = [
-  { type: 'capitals', name: 'Capitals', art: 'assets/pack-world-capitals.webp', ink: '#0B2A6B', glow: '#3FA9FF' },
+  { type: 'capitals', name: 'World Capitals', art: 'assets/pack-world-capitals-static.webp', ink: '#0B2A6B', glow: '#3FA9FF' },
   { type: 'landmarks', name: 'Landmarks', art: 'assets/pack-landmarks.webp', ink: '#5A1420', glow: '#FF6B57' },
   { type: 'landforms', name: 'Landforms', art: 'assets/pack-landforms.webp', ink: '#0F3D33', glow: '#3ED9A0' },
 ];
