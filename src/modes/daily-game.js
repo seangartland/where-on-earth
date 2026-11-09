@@ -213,7 +213,6 @@ export function showResults() {
   recordHistory();
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
-  gameEls.maxScore.textContent = '/5,000';
   gameEls.resultStreak.textContent = `${streak} day streak`;
   gameEls.resultsBreakdown.replaceChildren(...state.daily.results.map((result, i) => {
     const round = document.createElement('li');

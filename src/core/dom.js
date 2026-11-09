@@ -123,7 +123,6 @@ export const gameEls = {
   thumb: document.getElementById('place-thumb'),
   next: document.getElementById('next-button'),
   total: document.getElementById('total-score'),
-  maxScore: document.getElementById('max-score'),
   breakdown: document.getElementById('breakdown'),
   resultsBreakdown: document.getElementById('results-breakdown'),
   postcardSummaryLede: document.getElementById('postcard-summary-lede'),
