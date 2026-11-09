@@ -127,7 +127,7 @@ export function postcardSummaryCard(result, item) {
 }
 
 export function shareScore(base) {
-  return base >= 1000 ? '1 K' : String(base);
+  return base >= 1000 ? '1K' : String(base);
 }
 
 export function shareText() {
