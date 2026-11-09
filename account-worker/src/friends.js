@@ -8,7 +8,7 @@ const LOCATION_PATTERN = /^[a-z0-9-]{1,80}$/;
 const DEVICE_PATTERN = /^dev_[A-Za-z0-9_-]+$/;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
-const SHARE_CARD_IMAGE = 'https://where-on.earth/assets/og-v3.png';
+const SHARE_CARD_IMAGE = 'https://where-on.earth/assets/og-v4.jpg';
 const GAME_URL = 'https://where-on.earth/';
 
 const json = (body, status = 200) => new Response(JSON.stringify(body), {
