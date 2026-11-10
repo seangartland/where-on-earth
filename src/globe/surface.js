@@ -552,6 +552,13 @@ export const SAT_PROVIDERS = [
     // cover the tiles never had.
     base: './assets/base-ours-4k.jpg',
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
+    // Zoom ladder (Sean, 2026-11-09): inset windows draw only from these
+    // levels. z6 leaves the rotation as the audit's worst layer (hardest
+    // seams plus a dry-season tile row over the US Midwest that flipped the
+    // region brown at z6 distances only); its tiles stay in the bucket,
+    // just unserved. z4 needs no rung: the bundled base IS the z4 tiles
+    // stitched. z7 is the deepest full-coverage layer, z8 the cleanest.
+    zooms: [5, 7, 8, 9],
     maxZ: 9,
   },
   {
@@ -791,7 +798,10 @@ export function insetWindowAt(view, z) {
 }
 
 // z = ceil(log2(156543 cos(lat) / (mpp q))), clamped to [4, provider max],
-// one level lower on a slow network, then dropped until the footprint fits.
+// snapped UP to the provider's zoom ladder when it declares one (a computed
+// z6 lands on z7), one rung lower on a slow network, then dropped rung by
+// rung until the footprint fits. Providers without a ladder use every
+// integer level, as before.
 // Returns { view, want } with want = null when the inset should be off.
 export function pickInsetWindow() {
   const view = sampleInsetView();
@@ -799,6 +809,19 @@ export function pickInsetWindow() {
   const mpp = ((state.dist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / state.viewH;
   let z = Math.ceil(Math.log2((156543.03 * Math.cos(view.lat)) / (mpp * INSET_Q)));
   z = clamp(z, INSET_MIN_Z, satProvider.maxZ);
+  const ladder = satProvider.zooms
+    ? satProvider.zooms.filter((r) => r >= INSET_MIN_Z && r <= satProvider.maxZ)
+    : null;
+  if (ladder && ladder.length) {
+    let i = ladder.findIndex((r) => r >= z);
+    if (i < 0) i = ladder.length - 1;
+    if (inset.slow && i > 0) i--;
+    for (; i >= 0; i--) {
+      const want = insetWindowAt(view, ladder[i]);
+      if (want) return { view, want };
+    }
+    return { view, want: null };
+  }
   if (inset.slow) z = Math.max(INSET_MIN_Z, z - 1);
   for (; z >= INSET_MIN_Z; z--) {
     const want = insetWindowAt(view, z);
@@ -1068,20 +1091,24 @@ export function prepareInsetPrefetch(prioritize) {
   const win = inset.win;
   if (!win || !win.ready || inset.slow || state.gameMode !== 'guess' || win.z >= satProvider.maxZ) return;
   if (inset.prefetchGen === win.gen && !prioritize) return;
-  const z = win.z + 1;
+  // Warm the next SERVED level: the next ladder rung when the provider
+  // declares zooms (a z5 window warms z7, never the unserved z6), else z + 1.
+  const z = satProvider.zooms ? satProvider.zooms.find((r) => r > win.z) : win.z + 1;
+  if (z === undefined || z > satProvider.maxZ) return;
   const n = 1 << z;
+  const scale = 1 << (z - win.z);
   const seen = new Set();
   const next = [];
   for (const tile of win.tiles) {
     if (!tile.visible) continue;
-    for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 2; dx++) {
-      const x = imod(tile.x * 2 + dx, n);
-      const y = tile.y * 2 + dy;
+    for (let dy = 0; dy < scale; dy++) for (let dx = 0; dx < scale; dx++) {
+      const x = imod(tile.x * scale + dx, n);
+      const y = tile.y * scale + dy;
       const src = `${win.providerId}/${z}/${x}/${y}`;
       if (seen.has(src)) continue;
       seen.add(src);
       next.push({ x, y, z, src, url: tileURL(satProvider, z, y, x), prefetch: true,
-        pri: Math.hypot(x + 0.5 - win.ccx * 2, y + 0.5 - win.ccy * 2) });
+        pri: Math.hypot(x + 0.5 - win.ccx * scale, y + 0.5 - win.ccy * scale) });
     }
   }
   next.sort((a, b) => a.pri - b.pri);
