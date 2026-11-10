@@ -161,10 +161,21 @@ export function initGlobeSurface() {
       // and blacked-out countries are untouched.
       float legFade = mix(1.0, smoothstep(1.15, 1.38, length(cameraPosition)), uLegFadeOn);
       if (satMix > 0.001) {
-        // The shelf fringe and coastline rim that used to trace every
-        // coastline here are gone (Sean, 2026-11-09, third report): even
-        // at low weights the rim's teal tint read as a coastline glow.
-        // Only the minimum land tint below remains from this stack.
+        // Shelf fringe and coastline rim, restored the same night they
+        // were removed (Sean, 2026-11-09): without them islands smear
+        // into the ocean, so they are back as they were but a touch more
+        // subtle (fringe 0.60 -> 0.35, rim 0.30 -> 0.17). The baked
+        // G-channel cyan glow stays out; that was the neon one.
+        // shelf fringe: lighten the water just off the coast
+        col += vec3(0.020, 0.085, 0.160) * shelf * 0.35 * satMix * legFade;
+        // coastline rim: land-mask gradient, brightened on the land side
+        vec2 tx = uMapTexel * 1.6;
+        float nMin = min(min(texture2D(uMap, vUv - vec2(tx.x, 0.0)).r,
+                             texture2D(uMap, vUv + vec2(tx.x, 0.0)).r),
+                         min(texture2D(uMap, vUv - vec2(0.0, tx.y)).r,
+                             texture2D(uMap, vUv + vec2(0.0, tx.y)).r)) * uLand;
+        float rim = land * (1.0 - nMin);
+        col += vec3(0.35, 0.60, 0.66) * rim * 0.17 * satMix * legFade;
         // minimum land tint: where the mask says land but the photo reads
         // as dark water, lift the fill toward a pale land tone. Suppressed
         // in land interiors (neighbours all land at a wider radius), so
