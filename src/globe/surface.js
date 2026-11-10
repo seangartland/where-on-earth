@@ -96,7 +96,7 @@ export function initGlobeSurface() {
     void main() {
       vec4 m = texture2D(uMap, vUv) * uLand;
       float land = m.r;
-      float glow = m.g;
+      float glow = m.g; // baked coast-glow channel; no longer added to the image (Sean, 2026-11-09: the cyan halo read neon). The shelf fringe and coastline rim below keep small islands legible.
       float shelf = m.b;
 
       vec3 N = normalize(vNormalW);
@@ -117,9 +117,6 @@ export function initGlobeSurface() {
       // land
       vec3 landCol = vec3(0.105, 0.230, 0.340);
       col = mix(col, landCol, land * 0.94);
-
-      // coastal glow
-      col += vec3(0.22, 0.70, 1.00) * glow * 0.70;
 
       // soft ocean sheen (fixed light for depth)
       vec3 H = normalize(vec3(0.5, 0.8, 0.6) + V);
@@ -166,8 +163,6 @@ export function initGlobeSurface() {
       if (satMix > 0.001) {
         // shelf fringe: lighten the water just off the coast
         col += vec3(0.020, 0.085, 0.160) * shelf * 0.60 * satMix * legFade;
-        // coastal glow, softer than the classic style's own
-        col += vec3(0.22, 0.70, 1.00) * glow * 0.30 * satMix * legFade;
         // coastline rim: land-mask gradient, brightened on the land side
         vec2 tx = uMapTexel * 1.6;
         float nMin = min(min(texture2D(uMap, vUv - vec2(tx.x, 0.0)).r,
