@@ -669,6 +669,7 @@ export const inset = {
   win: null, // window being fed (fetch/decode/upload target); null = off
   gen: 0,
   queue: [], // tiles of `win` waiting for a fetch slot, centre first
+  homeFillTried: false, // loading pass part 3: the boot-time home pick runs once
   prefetch: [], // z+1 sources warmed only after the needed queue is empty
   prefetchGen: 0,
   inflight: new Map(), // tile key -> { ctrl }
@@ -1134,6 +1135,65 @@ export function prioritizeInsetZoom() {
   if (!inset.queue.length) pumpInsetFetches(performance.now());
 }
 
+// ---------------------------------------------------------------------------
+// Daily boot prefetch (loading pass part 1)
+// ---------------------------------------------------------------------------
+// Today's five Daily locations are known at boot, long before the first
+// reveal frames one of them. Warm the in-memory LRU with the 3x3 tile block
+// around each location at every served zoom that frames a reveal (z7, z8,
+// z9 on the ladder), so the reveal paints from local bytes instead of
+// waiting on the network. Plain low-priority fetches during idle; the
+// service worker (part 2) persists the same responses across visits. URLs
+// come from tileURL() so provider, ladder and ?v= keys always match what
+// the inset loader will request. Keyed to the Daily date: a rebuild for
+// the same date never refetches, and a stale set for another date is never
+// warmed. Skipped when the slow-network fallback has already tripped or
+// the user asked to save data.
+let dailyPrefetchDate = null;
+
+export function prefetchDailyTiles(locations, date) {
+  if (!satProvider || satDisabled || !date || date === dailyPrefetchDate) return;
+  if (!Array.isArray(locations) || !locations.length) return;
+  if (inset.slow || navigator.connection?.saveData) return;
+  const zooms = (satProvider.zooms || [7, 8, 9]).filter((z) => z >= 7 && z <= satProvider.maxZ);
+  if (!zooms.length) return;
+  dailyPrefetchDate = date;
+  const jobs = [];
+  const seen = new Set();
+  for (const loc of locations) {
+    const lat = clamp(Number(loc?.lat) || 0, -85.05112878, 85.05112878);
+    const lng = Number(loc?.lng) || 0;
+    const fx = (lng + 180) / 360;
+    const fy = 0.5 - Math.log(Math.tan(Math.PI / 4 + (lat * DEG) / 2)) / (2 * Math.PI);
+    for (const z of zooms) {
+      const n = 1 << z;
+      const cx = Math.floor(fx * n);
+      const cy = clamp(Math.floor(fy * n), 0, n - 1);
+      for (let dy = -1; dy <= 1; dy++) {
+        const y = clamp(cy + dy, 0, n - 1);
+        for (let dx = -1; dx <= 1; dx++) {
+          const x = imod(cx + dx, n);
+          const key = `${satProvider.id}/${z}/${x}/${y}`;
+          if (seen.has(key) || inset.lru.has(key) || inset.missing.has(key)) continue;
+          seen.add(key);
+          jobs.push({ key, url: tileURL(satProvider, z, y, x) });
+        }
+      }
+    }
+  }
+  if (!jobs.length) return;
+  const run = () => {
+    for (const job of jobs) {
+      fetch(job.url, { mode: 'cors', priority: 'low' })
+        .then((r) => (r.ok ? r.blob() : null))
+        .then((blob) => { if (blob) lruPut(job.key, blob); })
+        .catch(() => {});
+    }
+  };
+  if (window.requestIdleCallback) requestIdleCallback(run, { timeout: 5000 });
+  else setTimeout(run, 1000);
+}
+
 // Frame budget: at most 4 tile sub-uploads (texSubImage2D) per frame.
 export function pumpInsetUploads() {
   for (let done = 0; done < INSET_UPLOADS_PER_FRAME && inset.uploads.length;) {
@@ -1174,6 +1234,18 @@ export function evaluateInsets(now, drifting) {
 
 export function updateInsets(dt) {
   if (!satProvider || satDisabled || satTarget === 0) return;
+  // Home detail fill (loading pass part 3): one window pick for the home
+  // camera as soon as satellite is up, instead of waiting for the first
+  // settle. When the home footprint fits no ladder rung the pick returns
+  // null and the base alone paints, which is the correct outcome; either
+  // way the branch is recorded on window.__satHomeFill for the loading
+  // probe and the build report.
+  if (!inset.homeFillTried) {
+    inset.homeFillTried = true;
+    const { want } = pickInsetWindow();
+    window.__satHomeFill = want ? 'window' : 'null';
+    if (want) startInsetWindow(want);
+  }
   _insetQ.copy(globe.quaternion).invert();
   if (insetPointAt(0, 0, _insetP)) {
     const lat = Math.asin(clamp(_insetP.y, -1, 1));

@@ -26,6 +26,7 @@ export { reviewEls } from '../game/review-shared.js';
 import { grantDailySkips } from '../meta/pack-store.js';
 import { gameEls, hideScreens, showRound, revealGuess } from '../game/round.js';
 import { showAnswerOutlines } from '../globe/reveal.js';
+import { prefetchDailyTiles } from '../globe/surface.js';
 import { shareResult } from '../game/share.js';
 import { survival } from './survival.js';
 import { borders } from './tap-country.js';
@@ -76,6 +77,9 @@ export function loadDaily() {
     state.selected = state.daily.ids.map((id) => state.locations.find((item) => item.id === id));
   }
   saveDaily();
+  // Loading pass part 1: warm today's reveal tiles while the player is
+  // still on the home screen. Fire and forget; never blocks boot or Home.
+  prefetchDailyTiles(state.selected, state.daily.date);
 }
 
 export function streakText() {
