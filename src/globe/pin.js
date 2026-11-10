@@ -189,12 +189,15 @@ export class Pin {
     // These used to be additive canvas sprites. Their transparent texels could
     // produce dark, stippled fringes on some mobile/WebGL compositors. Simple
     // untextured geometry is deliberately less flashy, but completely clean.
+    // 48x32 segments: at 16x10 the sphere silhouette showed hard facets
+    // when zoomed in (Sean, 2026-11-10). A dozen pins at most, so the
+    // extra triangles cost nothing.
     this.halo = new THREE.Mesh(
-      new THREE.SphereGeometry(1, 16, 10),
+      new THREE.SphereGeometry(1, 48, 32),
       new THREE.MeshBasicMaterial({ color, transparent: true, opacity: answer ? 0.24 : 0.18, depthWrite: false }),
     );
     this.core = new THREE.Mesh(
-      new THREE.SphereGeometry(1, 16, 10),
+      new THREE.SphereGeometry(1, 48, 32),
       new THREE.MeshBasicMaterial({ color: answer ? '#d9fbff' : '#ffc568', depthWrite: false }),
     );
     this.badge = new THREE.Sprite(new THREE.SpriteMaterial({
