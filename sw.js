@@ -12,14 +12,14 @@
 // response. Tile responses are CORS-readable, so they cache as ordinary
 // responses, not opaque ones.
 //
-// LRU cap ~60 MB: Cache Storage keeps no LRU metadata, so insertion order
+// LRU cap ~100 MB: Cache Storage keeps no LRU metadata, so insertion order
 // is tracked with a timestamp header stamped on the stored clone. A trim
 // pass (on activate, then every 50 puts) sums stored sizes from
 // Content-Length (blob size when the header is absent) and evicts
 // oldest-first down to the cap.
 const CACHE_NAME = 'woe-tiles-v1';
 const TILE_HOST = 'tiles.where-on.earth';
-const CAP_BYTES = 60 << 20; // ~60 MB
+const CAP_BYTES = 100 << 20; // ~100 MB (Sean, 2026-11-10: up from 60)
 const STAMP_HEADER = 'x-woe-stamp';
 const TRIM_EVERY_PUTS = 50;
 let putsSinceTrim = 0;

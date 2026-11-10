@@ -663,7 +663,9 @@ let INSET_ROWS;
 export const INSET_FADE_S = 0.25;
 export const INSET_FETCHES = 12;
 export const INSET_FETCHES_SLOW = 6;
+export const INSET_FETCHES_BURST = 18; // while a window is still loading
 export const INSET_UPLOADS_PER_FRAME = 8;
+export const INSET_UPLOADS_BURST = 12; // while a window is still loading
 export const INSET_SETTLE_MS = 150;
 export const INSET_FAST_PX_S = 400; // screen speed above which nothing streams
 export const INSET_STILL_PX_S = 25;
@@ -1102,13 +1104,17 @@ export function fetchInsetTile(t) {
 
 export function pumpInsetFetches(now) {
   if (!inset.win || navigator.onLine === false || now < inset.pausedUntil) return;
-  const max = inset.slow ? INSET_FETCHES_SLOW : INSET_FETCHES;
+  // Burst while a window is still loading: the user is waiting on this
+  // window, so the pool widens until it completes (zoom-load round 2).
+  const loading = !inset.win.ready;
+  const max = inset.slow ? INSET_FETCHES_SLOW : (loading ? INSET_FETCHES_BURST : INSET_FETCHES);
   while (inset.inflight.size < max && inset.queue.length) {
     const t = inset.queue.shift();
     if (t.gen !== inset.win.gen || t.state !== 0 || inset.inflight.has(t.src)) continue;
     fetchInsetTile(t);
   }
-  if (inset.slow || !WARM_MODES.has(state.gameMode) || inset.queue.length || !inset.win.ready) return;
+  if (inset.slow || !WARM_MODES.has(state.gameMode) || inset.queue.length) return;
+  if (!inset.win.ready && !windowMostlyIn(inset.win)) return;
   prepareInsetPrefetch(false);
   while (inset.inflight.size < max && inset.prefetch.length) {
     const t = inset.prefetch.shift();
@@ -1122,12 +1128,24 @@ export function pumpInsetFetches(now) {
 // it, where the next rung can warm while the player reads the card.
 const WARM_MODES = new Set(['guess', 'reveal', 'review']);
 
+// True once half the visible tiles have landed: the point where warming
+// the next rung stops competing with this window in any practical sense
+// (the fetch pump only spends spare slots on prefetch anyway).
+export function windowMostlyIn(win) {
+  return !!(win && win.visTotal && win.visLoaded * 2 >= win.visTotal);
+}
+
 // Warm the next zoom level without occupying a slot needed by the live
 // window. A gesture refreshes the list centre-first and drops unrelated
 // speculative fetches; ordinary calls preserve the current list.
+// Round 2 (Sean, 2026-11-10): warming may begin while the current window
+// is still loading, once it is mostly in, so a continuing pinch lands on
+// a next rung that is already fetching instead of a cold one.
 export function prepareInsetPrefetch(prioritize) {
   const win = inset.win;
-  if (!win || !win.ready || inset.slow || !WARM_MODES.has(state.gameMode) || win.z >= satProvider.maxZ) return;
+  if (!win || inset.slow || !WARM_MODES.has(state.gameMode) || win.z >= satProvider.maxZ) return;
+  if (!win.ready && !windowMostlyIn(win)) return;
+  if (navigator.connection?.saveData) return;
   if (inset.prefetchGen === win.gen && !prioritize) return;
   // Warm the next SERVED level: the next ladder rung when the provider
   // declares zooms (a z5 window warms z7, never the unserved z6), else z + 1.
@@ -1226,9 +1244,11 @@ export function prefetchDailyTiles(locations, date) {
   else setTimeout(run, 1000);
 }
 
-// Frame budget: at most 4 tile sub-uploads (texSubImage2D) per frame.
+// Frame budget for tile sub-uploads (texSubImage2D): wider while a
+// window is still loading, when the user is waiting on those tiles.
 export function pumpInsetUploads() {
-  for (let done = 0; done < INSET_UPLOADS_PER_FRAME && inset.uploads.length;) {
+  const cap = inset.win && !inset.win.ready ? INSET_UPLOADS_BURST : INSET_UPLOADS_PER_FRAME;
+  for (let done = 0; done < cap && inset.uploads.length;) {
     const { win, t, bmp } = inset.uploads.shift();
     if (inset.win !== win || win.buf.win !== win) { bmp.close(); t.state = 0; continue; }
     _tileSrc.image = bmp;
