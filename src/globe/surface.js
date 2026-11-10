@@ -526,6 +526,10 @@ export function buildOutline(lines, radius, opts) {
 // ---------------------------------------------------------------------------
 export const SAT_PROVIDERS = [
   {
+    // RETIREMENT NOTE (Sean, 2026-11-09): the EOX fallback stays until he
+    // retires it. When it is retired, remove the EOX attribution from
+    // credits.html and this provider's credit line in the same change;
+    // the attribution is required only while EOX imagery can display.
     id: 'eox2025',
     // ?v=3: 2025 imagery replaced 2016, bust edge and browser cache
     // policy without Access-Control-Allow-Origin (immutable, 1 year); a new
@@ -549,8 +553,10 @@ export const SAT_PROVIDERS = [
     // first paint never waits on the tile host (Sean, 2026-11-09). The 4k
     // base is stitched from this provider's own z4 tiles (audit dir
     // build_base.py), replacing the 2048 base that carried winter snow
-    // cover the tiles never had.
-    base: './assets/base-ours-4k.jpg',
+    // cover the tiles never had. v2 composites the 2048 base's polar caps
+    // back in: the pyramid never rendered the caps, so v1's mirrored fill
+    // showed slabs over Antarctica and a ring at the North Pole.
+    base: './assets/base-ours-4k-v2.jpg',
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
     // Zoom ladder (Sean, 2026-11-09): inset windows draw only from these
     // levels. z6 leaves the rotation as the audit's worst layer (hardest
