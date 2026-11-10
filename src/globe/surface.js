@@ -546,8 +546,11 @@ export const SAT_PROVIDERS = [
     // a new query string is a new cache key for every tile.
     tiles: 'https://tiles.where-on.earth/s2gm2025/{z}/{x}/{y}.jpg?v=2',
     // The base ships inside the app (same pattern as the EOX base) so the
-    // first paint never waits on the tile host (Sean, 2026-11-09).
-    base: './assets/base-ours.jpg',
+    // first paint never waits on the tile host (Sean, 2026-11-09). The 4k
+    // base is stitched from this provider's own z4 tiles (audit dir
+    // build_base.py), replacing the 2048 base that carried winter snow
+    // cover the tiles never had.
+    base: './assets/base-ours-4k.jpg',
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
     maxZ: 9,
   },
