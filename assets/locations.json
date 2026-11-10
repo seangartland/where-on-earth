@@ -2471,13 +2471,12 @@
   "lat": 39.1,
   "lng": -84.5125,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Downtown_Cincinnati_viewed_from_Devou_Park_%28cropped%29.jpg/3840px-Downtown_Cincinnati_viewed_from_Devou_Park_%28cropped%29.jpg",
-  "clue": "Cincinnati, Kentucky 🇺🇸",
+  "clue": "Cincinnati, Ohio 🇺🇸",
   "difficulty": 2,
   "country": "United States",
   "region": {
-   "id": "US.KY",
-   "name": "Kentucky",
-   "outline": "US.KY"
+   "id": "US.OH",
+   "name": "Ohio"
   },
   "continent": "North America",
   "sets": [],
@@ -10767,7 +10766,7 @@
  },
  {
   "id": "st-louis-usa",
-  "clue": "St. Louis, Illinois 🇺🇸",
+  "clue": "St. Louis, Missouri 🇺🇸",
   "fact": "St. Louis is known as the Gateway to the West and played a major role in westward expansion.",
   "lat": 38.627,
   "lng": -90.1994,
@@ -10776,9 +10775,8 @@
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Gateway_Arch_-_St._Louis_-_Missouri_%2817275578342%29.jpg/500px-Gateway_Arch_-_St._Louis_-_Missouri_%2817275578342%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "country": "United States",
   "region": {
-   "id": "US.IL",
-   "name": "Illinois",
-   "outline": "US.IL"
+   "id": "US.MO",
+   "name": "Missouri"
   },
   "continent": "North America",
   "sets": [],
