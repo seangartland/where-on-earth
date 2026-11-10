@@ -48,6 +48,8 @@ if [ -n "$LIB_VER" ]; then
   cp -r "$SCRIPT_DIR/vendor/"* "$DEPLOY_DIR/lib/$LIB_VER/"
 fi
 cp "$SCRIPT_DIR/vercel.json" "$DEPLOY_DIR/"
+# Service worker: must live at the site root or /sw.js 404s and the tile cache never registers.
+cp "$SCRIPT_DIR/sw.js" "$DEPLOY_DIR/"
 
 # Copy assets but exclude backups and duplicates
 mkdir -p "$DEPLOY_DIR/assets"
