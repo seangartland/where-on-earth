@@ -1368,7 +1368,7 @@ body.game-collections #hud { opacity: 0; }
    round tag, the place name and the round navigation; the score shows once
    (no x/1000 base, a holdover from the removed multipliers). */
 .recap-card { padding: 0 14px 13px; overflow: hidden; }
-.recap-band { position: relative; height: 152px; margin: 0 -14px 10px; transition: height .32s cubic-bezier(.2,.9,.25,1); }
+.recap-band { position: relative; height: 110px; margin: 0 -14px 10px; transition: height .32s cubic-bezier(.2,.9,.25,1); }
 .recap-card.expanded .recap-band { height: 254px; }
 .recap-band .score-line { position: absolute; left: 14px; right: 14px; bottom: 10px; }
 .recap-band .score-line div { text-shadow: 0 1px 8px rgba(0,0,0,.55); }
@@ -1391,7 +1391,6 @@ body.game-collections #hud { opacity: 0; }
 .recap-nav .pager-arrow { width: 32px; height: 32px; font-size: 18px; background: rgba(3,8,20,.45); border-color: rgba(255,255,255,.25); color: #fff; }
 .recap-nav .pager-arrow:disabled { display: none; }
 .recap-nav .icon-close { position: relative; top: auto; right: auto; width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.25); background: rgba(3,8,20,.45); color: #fff; font-size: 20px; }
-.recap-card .recap-score { color: var(--gold); font-size: 28px; }
 .recap-fact { display: -webkit-box; margin: 9px 0 2px; overflow: hidden; color: rgba(224,240,255,.8); font-size: var(--fs-body); line-height: 1.45; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .pager-arrow { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 50%; background: rgba(236,247,255,.08); color: var(--ink-btn); font-size: 20px; line-height: 1; cursor: pointer; touch-action: manipulation; }
 .pager-arrow:disabled { opacity: .35; cursor: default; }
@@ -1439,7 +1438,7 @@ body.game-review #hud { opacity: 0; }
 .friend-pop[hidden] { display: none; }
 @keyframes friends-in { from { opacity: 0; } to { opacity: 1; } }
 @media (max-height: 700px) {
-  .recap-band { height: 128px; }
+  .recap-band { height: 100px; }
   .recap-fact { margin: 8px 0 0; }
 }
 

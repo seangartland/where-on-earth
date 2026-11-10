@@ -585,7 +585,6 @@ export function openRecap(i) {
   reviewEls.tag.textContent = `Round ${i + 1} of 5`;
   reviewEls.name.textContent = item.clue;
   reviewEls.distance.textContent = formatKm(result.distance);
-  reviewEls.score.textContent = `+${result.score.toLocaleString()}`;
   reviewEls.fact.textContent = item.fact;
   setThumb(reviewEls.thumb, item.image);
   reviewEls.card.classList.remove('expanded');
@@ -707,7 +706,7 @@ export function initReview() {
         <button type="button" class="pager-arrow" data-act="next" aria-label="Next round">›</button>
         <button class="icon-close" aria-label="Close review">×</button>
       </div></div>
-      <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><strong class="recap-score"></strong></div>
+      <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div></div>
       <button type="button" class="recap-expand" data-act="expand" aria-expanded="false" aria-label="Expand photo and description"><span class="recap-grip-bar"></span></button>
     </div>
     <p class="recap-fact"></p>
@@ -722,7 +721,6 @@ export function initReview() {
     tag: reviewScreen.querySelector('.recap-tag'),
     name: reviewScreen.querySelector('.recap-head h3'),
     distance: reviewScreen.querySelector('.recap-distance'),
-    score: reviewScreen.querySelector('.recap-score'),
     thumb: reviewScreen.querySelector('.recap-thumb'),
     fact: reviewScreen.querySelector('.recap-fact'),
     pagerPrev: reviewScreen.querySelector('[data-act="prev"]'),
