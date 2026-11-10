@@ -138,7 +138,7 @@ export function initScene() {
   // stencil: the reveal's country outline blends each pixel once (see buildCountryOutline)
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, stencil: true, powerPreference: 'high-performance' });
   renderer.setClearColor(0x020409, 1);
-  pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+  pixelRatio = Math.min(window.devicePixelRatio || 1, 3);
   renderer.setPixelRatio(pixelRatio);
 
   scene = new THREE.Scene();
