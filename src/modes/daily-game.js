@@ -758,7 +758,30 @@ export function initReview() {
   gameEls.results.addEventListener('click', (e) => {
     if (e.target === gameEls.results) enterReview(); // tap outside the card
   });
+  const setRecapExpanded = (expanded) => {
+    reviewEls.card.classList.toggle('expanded', expanded);
+    reviewEls.card.querySelector('.recap-expand')?.setAttribute('aria-expanded', String(expanded));
+  };
+  // A vertical flick on the card opens or closes it, same as the reveal
+  // sheet; the click that follows the pointerup is swallowed so it does
+  // not toggle straight back (Sean, 2026-11-09: tap or swipe expands).
+  let recapSwipeY = null;
+  let recapSwiped = false;
+  reviewEls.card.addEventListener('pointerdown', (e) => {
+    recapSwipeY = e.target.closest('button') ? null : e.clientY;
+    recapSwiped = false;
+  });
+  reviewEls.card.addEventListener('pointerup', (e) => {
+    if (recapSwipeY == null) return;
+    const dy = e.clientY - recapSwipeY;
+    recapSwipeY = null;
+    if (Math.abs(dy) < 24) return;
+    recapSwiped = true;
+    setRecapExpanded(dy < 0);
+  });
+  reviewEls.card.addEventListener('pointercancel', () => { recapSwipeY = null; });
   reviewEls.screen.addEventListener('click', (e) => {
+    if (recapSwiped) { recapSwiped = false; return; }
     const act = e.target.closest('[data-act]');
     if (e.target.closest('.icon-close')) showResults();
     else if (act && act.dataset.act === 'results') showResults();
@@ -766,12 +789,10 @@ export function initReview() {
     else if (act && act.dataset.act === 'prev') openRecap(reviewOpen - 1);
     else if (act && act.dataset.act === 'next') openRecap(reviewOpen + 1);
     else if (act && act.dataset.act === 'expand') {
-      const expanded = reviewEls.card.classList.toggle('expanded');
-      act.setAttribute('aria-expanded', String(expanded));
+      setRecapExpanded(!reviewEls.card.classList.contains('expanded'));
     }
-    else if (e.target.closest('.recap-band') && !e.target.closest('button')) {
-      const expanded = reviewEls.card.classList.toggle('expanded');
-      reviewEls.card.querySelector('.recap-expand')?.setAttribute('aria-expanded', String(expanded));
+    else if (e.target.closest('.recap-card') && !e.target.closest('button')) {
+      setRecapExpanded(!reviewEls.card.classList.contains('expanded'));
     }
     else if (act && act.dataset.act === 'goto') openRecap(Number(act.dataset.round));
   });
