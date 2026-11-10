@@ -1037,6 +1037,14 @@ function frame() {
   requestAnimationFrame(frame);
 }
 
+// Tile cache worker (loading pass part 2): persists tiles across visits.
+// It answers tile-host requests only and registration failure is silent -
+// the game must never depend on the worker existing.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
 window.__booted = true;
 if (window.__boot) window.__boot('ready');
 // the boot screen stays up until the land fill is on the globe (revealGlobe)
