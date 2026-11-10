@@ -647,9 +647,9 @@ let satReady;
 // swap read as slowness). Single-commit change: revert this commit to
 // restore the wait-for-complete swap. Once every visible tile has
 // landed, the old buffer fades out underneath.
-// Nothing fetches or uploads while the camera moves fast; a window is only
-// chosen once it settles (or, during the slow idle drift, when the view
-// outruns the current window).
+// While the camera moves fast, window evaluation runs on a 350 ms throttle
+// and a zoom-in chases deeper layers mid-gesture; other drift keeps the
+// conservative chase guards in evaluateInsets.
 // ---------------------------------------------------------------------------
 export const INSET_MIN_Z = 4;
 export const INSET_Q = devicePixelRatio >= 2 ? 0.5 : 1; // target texels per css px: 1 = css px, 0.5 = device px
@@ -820,7 +820,11 @@ export function insetWindowAt(view, z) {
 export function pickInsetWindow() {
   const view = sampleInsetView();
   if (!view) return { view, want: null };
-  const mpp = ((state.dist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / state.viewH;
+  // While a zoom-in is still easing, pick for the depth the user is heading
+  // to (targetDist), not the depth the camera has reached: deeper layers
+  // get their head start during the gesture (Sean, 2026-11-10).
+  const effDist = state.targetDist && state.targetDist < state.dist ? state.targetDist : state.dist;
+  const mpp = ((effDist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / state.viewH;
   let z = Math.ceil(Math.log2((156543.03 * Math.cos(view.lat)) / (mpp * INSET_Q)));
   z = clamp(z, INSET_MIN_Z, satProvider.maxZ);
   const ladder = satProvider.zooms
@@ -1247,10 +1251,16 @@ export function evaluateInsets(now, drifting) {
     return;
   }
   // While the globe drifts, only chase it when the view outruns the window
-  // or the zoom is two levels off, at most once a second.
+  // or the zoom is two levels off, at most once a second. Exception: a
+  // zoom-in chases its deeper layer promptly, one level at a time, so the
+  // detail arrives during the gesture instead of after it settles.
   if (drifting && cur && inset.win === cur) {
-    if (now - inset.lastBuild < 1000) return;
-    if (Math.abs(cur.z - want.z) < 2 && insetCovers(cur, insetWindowAt(view, cur.z))) return;
+    if (want.z > cur.z) {
+      if (now - inset.lastBuild < 350) return;
+    } else {
+      if (now - inset.lastBuild < 1000) return;
+      if (Math.abs(cur.z - want.z) < 2 && insetCovers(cur, insetWindowAt(view, cur.z))) return;
+    }
   }
   startInsetWindow(want);
 }
@@ -1293,14 +1303,17 @@ export function updateInsets(dt) {
   else if (inset.stillSince < 0) inset.stillSince = now;
   const settled = still && now - inset.stillSince >= INSET_SETTLE_MS;
 
-  if (!fast && (settled || !still) && now - inset.lastCheck > (settled ? 500 : 300)) {
+  // During a fast gesture the window is still evaluated on a 350 ms
+  // throttle and fetches/uploads still pump: that is what lets a zoom-in
+  // chase deeper layers mid-gesture. The per-frame upload cap bounds the
+  // render-thread cost while moving.
+  const chase = fast && now - inset.lastCheck > 350;
+  if (chase || (!fast && (settled || !still) && now - inset.lastCheck > (settled ? 500 : 300))) {
     inset.lastCheck = now;
-    evaluateInsets(now, !settled);
+    evaluateInsets(now, fast ? true : !settled);
   }
-  if (!fast) {
-    pumpInsetFetches(now);
-    pumpInsetUploads();
-  }
+  pumpInsetFetches(now);
+  pumpInsetUploads();
 
   if (!inset.bufs) return;
   const u = globeMat.uniforms;
