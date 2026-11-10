@@ -563,8 +563,10 @@ export function enterReview(focus = -1) {
   window.__canGuess = false;
   document.body.classList.add('game-review');
   reviewEls.screen.hidden = false;
-  const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
-  reviewEls.hint.textContent = `${total} pts`;
+  // This screen is about distance, not points (Sean, 2026-11-09): the
+  // header carries the total km off across the five rounds.
+  const totalKm = state.daily.results.reduce((sum, result) => sum + result.distance, 0);
+  reviewEls.hint.textContent = `${formatKm(totalKm)} off today`;
   tickCountdown();
   loadFriendLayer().then((friends) => {
     if (friends && state.gameMode === 'review') friends.enterFriendReview(state.daily.date, reviewOpen);
