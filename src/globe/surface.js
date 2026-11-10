@@ -175,11 +175,13 @@ export function initGlobeSurface() {
                                   texture2D(uMap, vUv + vec2(fx.x, 0.0)).r),
                               min(texture2D(uMap, vUv - vec2(0.0, fx.y)).r,
                                   texture2D(uMap, vUv + vec2(0.0, fx.y)).r)) * uLand;
-        // presence responds to a few percent of land: at gameplay zoom a
-        // small island's mask value is mip-diluted to a faint average even
-        // though the island is solid in the data (measured: Funafuti peaks
-        // at 255 but averages 2.8 over its neighbourhood).
-        float presence = smoothstep(0.008, 0.10, land);
+        // presence used to respond to a few percent of land (0.008) for
+        // mip-diluted atolls (Funafuti averages 2.8/255 nearby), but at far
+        // zoom that tail paints an olive-brown halo several times an
+        // island's size in dark ocean (Sean, 2026-11-09: Hawaii and other
+        // islands blobbed). The tint now requires a confident mask; at
+        // gameplay framing the inset tiles carry atoll detail anyway.
+        float presence = smoothstep(0.20, 0.55, land);
         float lum = dot(col, vec3(0.299, 0.587, 0.114));
         float watery = 1.0 - smoothstep(0.06, 0.20, lum);
         col = mix(col, vec3(0.44, 0.50, 0.36), presence * (1.0 - interior) * watery * 0.50 * satMix * legFade);
