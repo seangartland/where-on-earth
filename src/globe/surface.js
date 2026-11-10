@@ -651,8 +651,8 @@ export const INSET_Q = devicePixelRatio >= 2 ? 0.5 : 1; // target texels per css
 let INSET_COLS; // footprint cap in tiles, margin included
 let INSET_ROWS;
 export const INSET_FADE_S = 0.25;
-export const INSET_FETCHES = 6;
-export const INSET_FETCHES_SLOW = 3;
+export const INSET_FETCHES = 12;
+export const INSET_FETCHES_SLOW = 6;
 export const INSET_UPLOADS_PER_FRAME = 4;
 export const INSET_SETTLE_MS = 150;
 export const INSET_FAST_PX_S = 400; // screen speed above which nothing streams
