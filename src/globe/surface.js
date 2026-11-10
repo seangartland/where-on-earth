@@ -658,7 +658,7 @@ let INSET_ROWS;
 export const INSET_FADE_S = 0.25;
 export const INSET_FETCHES = 12;
 export const INSET_FETCHES_SLOW = 6;
-export const INSET_UPLOADS_PER_FRAME = 4;
+export const INSET_UPLOADS_PER_FRAME = 8;
 export const INSET_SETTLE_MS = 150;
 export const INSET_FAST_PX_S = 400; // screen speed above which nothing streams
 export const INSET_STILL_PX_S = 25;
