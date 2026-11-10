@@ -641,7 +641,12 @@ let satReady;
 // Two render-target textures hold a window of z4-z9 tiles around the view.
 // A new window fills the buffer that isn't showing, drawn on top (B) and
 // cleared to alpha 0, so unloaded tiles show the older inset or the base.
-// Once every visible tile has landed, the old buffer fades out underneath.
+// The new buffer starts its crossfade once a third of its visible tiles
+// have landed and streams the rest in as they arrive (Sean, 2026-11-10:
+// zoom speed is the site's top issue; the previous wait-for-every-tile
+// swap read as slowness). Single-commit change: revert this commit to
+// restore the wait-for-complete swap. Once every visible tile has
+// landed, the old buffer fades out underneath.
 // Nothing fetches or uploads while the camera moves fast; a window is only
 // chosen once it settles (or, during the slow idle drift, when the view
 // outruns the current window).
@@ -857,11 +862,11 @@ export function startInsetWindow(want) {
   const buf = bufs[inset.over];
   clearInset(buf);
   buf.mix = 0;
-  buf.fadeTo = 0; // stay hidden until every visible tile can crossfade together
+  buf.fadeTo = 0; // stays hidden until a third of the visible tiles land
   const { z, n } = want;
   const x0 = imod(want.tx0, n) / n;
   buf.bounds.set(x0, want.ty0 / n, x0 + INSET_COLS / n, (want.ty0 + INSET_ROWS) / n);
-  const win = { ...want, providerId: satProvider.id, gen: ++inset.gen, buf, tiles: [], visLeft: 0, visMissing: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
+  const win = { ...want, providerId: satProvider.id, gen: ++inset.gen, buf, tiles: [], visLeft: 0, visMissing: 0, visTotal: 0, visLoaded: 0, allLeft: 0, loaded: 0, ready: false, mipped: false };
   for (let sy = 0; sy < want.rows; sy++) {
     for (let sx = 0; sx < want.cols; sx++) {
       const tx = want.tx0 + sx;
@@ -883,6 +888,7 @@ export function startInsetWindow(want) {
       if (visible) win.visLeft++;
     }
   }
+  win.visTotal = win.visLeft;
   win.tiles.sort((a, b) => a.pri - b.pri);
   buf.win = win;
   // abort fetches the new window doesn't need; the rest land in it
@@ -952,7 +958,16 @@ export function finishInsetTile(win, t, covered = false) {
   if (t.state === 2) return;
   t.state = 2;
   win.allLeft--;
-  if (t.visible) { win.visLeft--; if (!covered) win.visMissing++; }
+  if (t.visible) {
+    win.visLeft--;
+    if (!covered) win.visMissing++;
+    else {
+      win.visLoaded++;
+      // Progressive display: start the crossfade at a third of the
+      // visible tiles; the rest stream into the buffer as they land.
+      if (!win.ready && win.visTotal && win.visLoaded * 3 >= win.visTotal) win.buf.fadeTo = 1;
+    }
+  }
   if (!win.ready && win.visLeft === 0) {
     win.ready = true;
     const other = inset.bufs[inset.bufs[0] === win.buf ? 1 : 0];
