@@ -378,8 +378,10 @@ export function buildAnswerPath(guess, answer) {
 }
 
 // The answer's borders: its country, plus its state inside it when the
-// answer is a US city (regionKey is null for landmarks by design).
-function showAnswerOutlines(item, fade) {
+// answer is a US city (regionKey is null for landmarks by design). Also
+// used by the results review recap (Sean, 2026-11-09) so friend pins can
+// be judged in or out of the correct country at a glance.
+export function showAnswerOutlines(item, fade) {
   showCountryOutline(countryKey(item), item, fade);
   showExtentOutline(item, fade);
   const rk = regionKey(item);

@@ -25,6 +25,7 @@ import { reviewEls, setReviewEls, getFriendLayer, reviewFacing, screenOf, _rv } 
 export { reviewEls } from '../game/review-shared.js';
 import { grantDailySkips } from '../meta/pack-store.js';
 import { gameEls, hideScreens, showRound, revealGuess } from '../game/round.js';
+import { showAnswerOutlines } from '../globe/reveal.js';
 import { shareResult } from '../game/share.js';
 import { survival } from './survival.js';
 import { borders } from './tap-country.js';
@@ -591,6 +592,10 @@ export function openRecap(i) {
   reviewEls.card.querySelector('.recap-expand')?.setAttribute('aria-expanded', 'false');
   reviewEls.card.hidden = false;
   getFriendLayer()?.recap(i);
+  // The correct country's outline (plus the state outline for US cities),
+  // same treatment as the in-round reveal, so friend pins read as in or
+  // out of the country at a glance. Cleared by clearReveal on showResults.
+  showAnswerOutlines(item, false);
   reviewEls.pagerPrev.disabled = i <= 0;
   reviewEls.pagerNext.disabled = i >= 4;
   // the card is laid out now, so the strip between bar and card is known
