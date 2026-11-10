@@ -1084,7 +1084,7 @@ export function pumpInsetFetches(now) {
     if (t.gen !== inset.win.gen || t.state !== 0 || inset.inflight.has(t.src)) continue;
     fetchInsetTile(t);
   }
-  if (inset.slow || state.gameMode !== 'guess' || inset.queue.length || !inset.win.ready) return;
+  if (inset.slow || !WARM_MODES.has(state.gameMode) || inset.queue.length || !inset.win.ready) return;
   prepareInsetPrefetch(false);
   while (inset.inflight.size < max && inset.prefetch.length) {
     const t = inset.prefetch.shift();
@@ -1093,12 +1093,17 @@ export function pumpInsetFetches(now) {
   }
 }
 
+// Modes where idle warming runs (zoom-feel pass, Sean 2026-11-10): guess
+// is where zooming happens, and reveal and review are the pauses around
+// it, where the next rung can warm while the player reads the card.
+const WARM_MODES = new Set(['guess', 'reveal', 'review']);
+
 // Warm the next zoom level without occupying a slot needed by the live
 // window. A gesture refreshes the list centre-first and drops unrelated
 // speculative fetches; ordinary calls preserve the current list.
 export function prepareInsetPrefetch(prioritize) {
   const win = inset.win;
-  if (!win || !win.ready || inset.slow || state.gameMode !== 'guess' || win.z >= satProvider.maxZ) return;
+  if (!win || !win.ready || inset.slow || !WARM_MODES.has(state.gameMode) || win.z >= satProvider.maxZ) return;
   if (inset.prefetchGen === win.gen && !prioritize) return;
   // Warm the next SERVED level: the next ladder rung when the provider
   // declares zooms (a z5 window warms z7, never the unserved z6), else z + 1.
@@ -1109,7 +1114,10 @@ export function prepareInsetPrefetch(prioritize) {
   const seen = new Set();
   const next = [];
   for (const tile of win.tiles) {
-    if (!tile.visible) continue;
+    // Visible tiles first; the window's one-tile margin warms too, at the
+    // same +1000 priority penalty the live queue gives margin tiles, so a
+    // pan in any direction lands on warm tiles (zoom-feel pass).
+    const penalty = tile.visible ? 0 : 1000;
     for (let dy = 0; dy < scale; dy++) for (let dx = 0; dx < scale; dx++) {
       const x = imod(tile.x * scale + dx, n);
       const y = tile.y * scale + dy;
@@ -1117,7 +1125,7 @@ export function prepareInsetPrefetch(prioritize) {
       if (seen.has(src)) continue;
       seen.add(src);
       next.push({ x, y, z, src, url: tileURL(satProvider, z, y, x), prefetch: true,
-        pri: Math.hypot(x + 0.5 - win.ccx * scale, y + 0.5 - win.ccy * scale) });
+        pri: penalty + Math.hypot(x + 0.5 - win.ccx * scale, y + 0.5 - win.ccy * scale) });
     }
   }
   next.sort((a, b) => a.pri - b.pri);
