@@ -11,7 +11,7 @@ import { DEG } from '../core/config.js';
 import { clamp, distanceKm } from '../core/math.js';
 import { state } from '../core/state.js';
 import { extentLines } from '../game/extents.js';
-import { ANSWER_COLOR, latLngToVec3, globe, projectToScreen } from './scene.js';
+import { latLngToVec3, globe, projectToScreen } from './scene.js';
 import { MIN_ISLAND, ringExtent, outlineMeshes, LOAD, loadJSON, criticalBytesP } from './surface.js';
 
 // ---------------------------------------------------------------------------
@@ -142,13 +142,14 @@ export function countryLines(geom, anchor) {
   return lines;
 }
 
-// Soft cyan glow under a crisp core, like the classic coast glow under its
-// line, but on its own materials so satellite never hides it (it is not in
-// outlineMaterials). depthTest on: Russia's far side must not show through.
-// Independent segments overlap at every vertex, which beads a transparent
-// line; the stencil lets each layer blend a pixel once.
+// A single crisp core line. A soft cyan glow pass (5px, 22% opacity) used
+// to sit under it; Sean ruled it made the coastlines read neon, so it was
+// dropped 2026-11-09 and only the core remains. On its own material so
+// satellite never hides it (it is not in outlineMaterials). depthTest on:
+// Russia's far side must not show through. Independent segments overlap at
+// every vertex, which beads a transparent line; the stencil lets the layer
+// blend a pixel once.
 export const COUNTRY_LAYERS = [
-  { color: ANSWER_COLOR, width: 5, opacity: 0.22, ref: 1 },
   { color: '#b9f7ff', width: 1.6, opacity: 1, ref: 2 },
 ];
 // Raster fills connect source vertices in lon/lat texture space. Keep drawn
