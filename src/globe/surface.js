@@ -545,11 +545,9 @@ export const SAT_PROVIDERS = [
     // ?v=2: the z4-z8 tiles were repaired (lakes, snow) and z9 detail added;
     // a new query string is a new cache key for every tile.
     tiles: 'https://tiles.where-on.earth/s2gm2025/{z}/{x}/{y}.jpg?v=2',
-    // ?v=2 on the base too: the bare URL can be served from the CDN edge
-    // cache without a CORS allow header (the cached variant predates the
-    // per-origin policy), which fails the texture load exactly like a
-    // missing whitelist entry. A fresh query string is a fresh cache key.
-    base: 'https://tiles.where-on.earth/s2gm2025/base-ours.jpg?v=2',
+    // The base ships inside the app (same pattern as the EOX base) so the
+    // first paint never waits on the tile host (Sean, 2026-11-09).
+    base: './assets/base-ours.jpg',
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
     maxZ: 9,
   },
@@ -567,7 +565,7 @@ export const SAT_PROVIDERS = [
     maxZ: 10,
   },
 ];
-export const DEFAULT_SAT_PROVIDER_ID = 'eox2025'; // sf1b stays opt-in via ?sat=s2gm2025-sf1b until its visible striping is fixed and Sean re-approves (2026-11-03)
+export const DEFAULT_SAT_PROVIDER_ID = 's2gm2025'; // our own mosaic is the default: Sean passed it on the render-test preview and approved the flip 2026-11-09. EOX stays one parameter away (?sat=eox2025); sf1b stays opt-in via ?sat=s2gm2025-sf1b.
 export const tileURL = (provider, z, y, x) => {
   if (provider.region && !provider.region(z, x, y)) provider = SAT_PROVIDERS.find((p) => p.id === provider.fallback);
   return provider.tiles.replace('{z}', z).replace('{x}', x).replace('{y}', y);

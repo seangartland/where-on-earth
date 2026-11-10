@@ -1370,20 +1370,24 @@ body.game-collections #hud { opacity: 0; }
 .recap-card { padding: 0 14px 13px; overflow: hidden; }
 .recap-band { position: relative; height: 152px; margin: 0 -14px 10px; transition: height .32s cubic-bezier(.2,.9,.25,1); }
 .recap-card.expanded .recap-band { height: 254px; }
-.recap-band .score-line { position: absolute; left: 14px; right: 14px; bottom: 10px; padding-right: 42px; }
+.recap-band .score-line { position: absolute; left: 14px; right: 14px; bottom: 10px; }
 .recap-band .score-line div { text-shadow: 0 1px 8px rgba(0,0,0,.55); }
 .recap-band .score-line small { color: rgba(220,238,255,.82); }
 .recap-band .score-line strong { text-shadow: 0 1px 8px rgba(0,0,0,.55); }
-.recap-expand { position: absolute; right: 10px; bottom: 8px; z-index: 2; display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; background: rgba(3,8,20,.45); color: #fff; font-size: 17px; line-height: 1; cursor: pointer; touch-action: manipulation; transition: transform .32s cubic-bezier(.2,.9,.25,1); }
-.recap-card.expanded .recap-expand { transform: rotate(180deg); }
+/* The expand affordance is a slim grip centered on the band's bottom edge;
+   the band itself is tappable too. The corner next to the score is the
+   score's alone (Sean, 2026-11-09). */
+.recap-expand { position: absolute; left: 50%; bottom: 1px; transform: translateX(-50%); z-index: 2; display: grid; place-items: center; width: 56px; height: 17px; padding: 0; border: 0; background: none; cursor: pointer; touch-action: manipulation; }
+.recap-grip-bar { display: block; width: 34px; height: 4px; border-radius: 2px; background: rgba(255,255,255,.5); transition: background .2s; }
+.recap-card.expanded .recap-grip-bar { background: rgba(255,255,255,.9); }
 .recap-card.expanded .recap-fact { display: block; -webkit-line-clamp: unset; }
 .recap-thumb { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; object-position: center 20%; }
 .recap-thumb[hidden] { display: none; }
 .recap-band-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,20,.08), rgba(3,8,20,.70)); pointer-events: none; }
-.recap-head { position: absolute; left: 14px; right: 48px; bottom: 52px; }
+.recap-head { position: absolute; left: 14px; right: 14px; bottom: 52px; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .recap-tag { margin: 0 0 4px; color: rgba(220,238,255,.85); font-size: var(--fs-caption); font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .recap-head h3 { margin: 0; color: var(--ink); font-size: 18px; line-height: 1.2; letter-spacing: -.02em; text-shadow: 0 1px 8px rgba(0,0,0,.45); }
-.recap-nav { position: absolute; top: 8px; right: 10px; display: flex; align-items: center; gap: 6px; }
+.recap-nav { display: flex; align-items: center; gap: 6px; flex: none; }
 .recap-nav .pager-arrow { width: 32px; height: 32px; font-size: 18px; background: rgba(3,8,20,.45); border-color: rgba(255,255,255,.25); color: #fff; }
 .recap-nav .pager-arrow:disabled { display: none; }
 .recap-nav .icon-close { position: relative; top: auto; right: auto; width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.25); background: rgba(3,8,20,.45); color: #fff; font-size: 20px; }

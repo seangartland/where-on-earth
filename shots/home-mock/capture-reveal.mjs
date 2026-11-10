@@ -15,6 +15,7 @@ await page.addInitScript(() => {
   }));
 });
 const seenIds = new Set();
+const tilePaths = [];
 await page.route('**/*', async (route) => {
   const url = new URL(route.request().url());
   if (url.hostname === 'api.where-on.earth') {
@@ -32,6 +33,7 @@ await page.route('**/*', async (route) => {
     }
     return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
   }
+  if (url.hostname === 'tiles.where-on.earth') { tilePaths.push(url.pathname.split('/').slice(0, 2).join('/')); return route.abort(); }
   if (url.hostname !== 'game.local') return route.abort();
   const path = decodeURIComponent(url.pathname.replace(/^\//, '')) || 'index.html';
   if (path === 'assets/version.txt') return route.fulfill({ status: 404, body: '' });
@@ -167,4 +169,5 @@ await page.click('.recap-card .recap-expand');
 await new Promise((r) => setTimeout(r, 900));
 const col = await page.evaluate(() => ({ expanded: document.querySelector('.recap-card').classList.contains('expanded'), cardH: Math.round(document.querySelector('.recap-card').getBoundingClientRect().height) }));
 console.log('collapsed again:', JSON.stringify(col));
+console.log('tile prefixes requested:', JSON.stringify([...new Set(tilePaths)]));
 await browser.close();

@@ -686,14 +686,14 @@ export function initReview() {
     <div class="recap-band">
       <img class="recap-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
       <div class="recap-band-shade"></div>
-      <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div></div>
+      <div class="recap-head"><div><p class="recap-tag"></p><h3></h3></div>
       <div class="recap-nav">
         <button type="button" class="pager-arrow" data-act="prev" aria-label="Previous round">‹</button>
         <button type="button" class="pager-arrow" data-act="next" aria-label="Next round">›</button>
         <button class="icon-close" aria-label="Close review">×</button>
-      </div>
-      <button type="button" class="recap-expand" data-act="expand" aria-expanded="false" aria-label="Expand photo and description">⌄</button>
+      </div></div>
       <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><strong class="recap-score"></strong></div>
+      <button type="button" class="recap-expand" data-act="expand" aria-expanded="false" aria-label="Expand photo and description"><span class="recap-grip-bar"></span></button>
     </div>
     <p class="recap-fact"></p>
   </article>`;
@@ -753,6 +753,10 @@ export function initReview() {
     else if (act && act.dataset.act === 'expand') {
       const expanded = reviewEls.card.classList.toggle('expanded');
       act.setAttribute('aria-expanded', String(expanded));
+    }
+    else if (e.target.closest('.recap-band') && !e.target.closest('button')) {
+      const expanded = reviewEls.card.classList.toggle('expanded');
+      reviewEls.card.querySelector('.recap-expand')?.setAttribute('aria-expanded', String(expanded));
     }
     else if (act && act.dataset.act === 'goto') openRecap(Number(act.dataset.round));
   });
