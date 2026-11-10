@@ -51,6 +51,23 @@ export function friendTotals(pins, rounds) {
   return [...byFriend.values()].sort((a, b) => b.total - a.total);
 }
 
+// The results leaderboard: the player ranked by total alongside friends,
+// best first, with competition ranks (ties share the better number:
+// 1, 2, 2, 4). The player used to be pinned first regardless of score;
+// Sean ruled 2026-11-09 that the board must rank honestly.
+export function rankLeaderboard(youTotal, totals) {
+  const entries = [
+    { you: true, name: 'You', initial: friendInitial('You'), total: youTotal },
+    ...(totals || []).map((f) => ({ you: false, friendId: f.friendId, name: f.name, initial: f.initial, total: f.total })),
+  ].sort((a, b) => b.total - a.total);
+  let rank = 0;
+  let prev = null;
+  return entries.map((entry, i) => {
+    if (entry.total !== prev) { rank = i + 1; prev = entry.total; }
+    return { ...entry, rank };
+  });
+}
+
 export function chipText(row) {
   return `${row.name} ${row.distance}`;
 }

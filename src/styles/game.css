@@ -1426,6 +1426,8 @@ body.game-review #hud { opacity: 0; }
 .friends-today-list { list-style: none; margin: 0; padding: 0; max-height: 145px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 .friend-total-row { display: flex; align-items: center; gap: 7px; padding: 2.5px 0; font-size: var(--fs-body); }
 .friend-total-row.you { margin: 0 -6px; padding: 2.5px 6px; border-radius: 10px; background: rgba(var(--rgb-gold),.14); }
+.friend-total-row .ft-rank { min-width: 20px; flex: none; color: rgba(var(--rgb-muted),.8); font-size: var(--fs-small); font-weight: 750; text-align: right; }
+.friend-total-row.you .ft-rank { color: var(--gold); }
 .ft-av { display: grid; place-items: center; width: 22px; height: 22px; flex: none; border-radius: 50%; background: #f3e7d3; color: #231a05; font-size: 11px; font-weight: 800; }
 .results-globe[hidden] { display: none; }
 .friend-total-row.you .ft-av { background: var(--gold); }

@@ -282,8 +282,9 @@ export function showResults() {
   syncFriendsToday(total);
 }
 
-// The Friends today card on the results screen: a ranked list of today's
-// totals (you first, then friends) so a player can find how friends did
+// The Friends today card on the results screen: a true leaderboard of
+// today's totals (rankLeaderboard ranks the player by score alongside
+// friends, with rank numbers) so a player can find how friends did
 // without opening the round-by-round review. Hidden unless signed in with
 // at least one friend who played today.
 async function syncFriendsToday(total) {
@@ -296,7 +297,7 @@ async function syncFriendsToday(total) {
   const setGlobe = (hidden) => { if (globeLink) globeLink.hidden = hidden; };
   if (!ACCOUNTS_ENABLED || !isSignedIn()) { card.hidden = true; setGlobe(false); return; }
   try {
-    const [{ fetchFriendPins }, { friendTotals, friendInitial }] = await Promise.all([
+    const [{ fetchFriendPins }, { friendTotals, rankLeaderboard }] = await Promise.all([
       import('../account/friends.js'),
       import('../game/friend-rows.js'),
     ]);
@@ -306,26 +307,35 @@ async function syncFriendsToday(total) {
     if (!totals.length) { card.hidden = true; setGlobe(false); return; }
     card.querySelector('.friends-today-count').textContent = totals.length === 1 ? '1 played' : `${totals.length} played`;
     const list = card.querySelector('.friends-today-list');
-    const row = (cls, initial, name, score, delta) => {
+    const row = (entry) => {
       const li = document.createElement('li');
-      li.className = `friend-total-row${cls ? ` ${cls}` : ''}`;
-      const av = Object.assign(document.createElement('span'), { className: 'ft-av', textContent: initial });
-      const nm = Object.assign(document.createElement('span'), { className: 'ft-name', textContent: name });
-      const dl = Object.assign(document.createElement('span'), { className: 'ft-delta', textContent: delta });
-      const sc = Object.assign(document.createElement('span'), { className: 'ft-score', textContent: score.toLocaleString() });
-      li.append(av, nm, dl, sc);
+      li.className = `friend-total-row${entry.you ? ' you' : ''}`;
+      const rk = Object.assign(document.createElement('span'), { className: 'ft-rank', textContent: `${entry.rank}.` });
+      const av = Object.assign(document.createElement('span'), { className: 'ft-av', textContent: entry.initial });
+      const nm = Object.assign(document.createElement('span'), { className: 'ft-name', textContent: entry.name });
+      const dl = Object.assign(document.createElement('span'), { className: 'ft-delta', textContent: entry.you ? '' : `${entry.total - total > 0 ? '+' : ''}${(entry.total - total).toLocaleString()}` });
+      const sc = Object.assign(document.createElement('span'), { className: 'ft-score', textContent: entry.total.toLocaleString() });
+      li.append(rk, av, nm, dl, sc);
       return li;
     };
-    list.replaceChildren(
-      row('you', friendInitial('You'), 'You', total, ''),
-      ...totals.map((f) => row('', f.initial, f.name, f.total, `${f.total - total > 0 ? '+' : ''}${(f.total - total).toLocaleString()}`)),
-    );
+    list.replaceChildren(...rankLeaderboard(total, totals).map(row));
     if (!card.dataset.wired) {
       card.dataset.wired = '1';
       card.querySelector('.friends-today-link')?.addEventListener('click', () => enterReview());
     }
     card.hidden = false;
     setGlobe(true);
+    // If the player's rank sits below the fold, open the list scrolled so
+    // their row is centered with a neighbor above and below; a rank inside
+    // the fold leaves the scroll alone.
+    const youRow = list.querySelector('.friend-total-row.you');
+    if (youRow && list.scrollHeight > list.clientHeight) {
+      const lr = list.getBoundingClientRect();
+      const rr = youRow.getBoundingClientRect();
+      if (rr.bottom > lr.bottom || rr.top < lr.top) {
+        list.scrollTop += (rr.top - lr.top) - (list.clientHeight - youRow.offsetHeight) / 2;
+      }
+    }
   } catch { card.hidden = true; setGlobe(false); }
 }
 

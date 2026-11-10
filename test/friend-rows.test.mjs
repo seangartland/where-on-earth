@@ -8,7 +8,7 @@ const { formatKm } = await import('../src/core/format.js');
 const { distanceKm } = await import('../src/core/math.js');
 const { distanceScore, scoringDistanceKm } = await import('../src/game/scoring.js');
 const { setExtentData } = await import('../src/game/extents.js');
-const { friendRows, friendTotals, friendInitial, chipText, popoverText, stripChips, sameGuess } = await import('../src/game/friend-rows.js');
+const { friendRows, friendTotals, rankLeaderboard, friendInitial, chipText, popoverText, stripChips, sameGuess } = await import('../src/game/friend-rows.js');
 
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
 const extents = load('extents.json');
@@ -109,4 +109,33 @@ test('friendTotals sums each friend across rounds and ranks best first', () => {
   for (let i = 1; i < totals.length; i++) assert.ok(totals[i - 1].total >= totals[i].total);
   assert.deepEqual(friendTotals(null, rounds), []);
   assert.deepEqual(friendTotals(pins, []), []);
+});
+
+test('rankLeaderboard ranks the player by total, not pinned first', () => {
+  const totals = [
+    { friendId: 'u_a', name: 'Ana', initial: 'A', total: 4200 },
+    { friendId: 'u_b', name: 'Bea', initial: 'B', total: 3100 },
+    { friendId: 'u_c', name: 'Cid', initial: 'C', total: 900 },
+  ];
+  const board = rankLeaderboard(2500, totals);
+  assert.deepEqual(board.map((r) => [r.rank, r.name]), [[1, 'Ana'], [2, 'Bea'], [3, 'You'], [4, 'Cid']]);
+  assert.equal(board[2].you, true);
+});
+
+test('rankLeaderboard shares the better rank on ties', () => {
+  const totals = [
+    { friendId: 'u_a', name: 'Ana', initial: 'A', total: 3000 },
+    { friendId: 'u_b', name: 'Bea', initial: 'B', total: 2000 },
+    { friendId: 'u_c', name: 'Cid', initial: 'C', total: 1000 },
+  ];
+  const board = rankLeaderboard(3000, totals);
+  assert.deepEqual(board.map((r) => r.rank), [1, 1, 3, 4]);
+});
+
+test('rankLeaderboard puts the player first only when they actually won', () => {
+  const totals = [{ friendId: 'u_a', name: 'Ana', initial: 'A', total: 100 }];
+  const board = rankLeaderboard(5000, totals);
+  assert.equal(board[0].you, true);
+  assert.equal(board[0].rank, 1);
+  assert.deepEqual(rankLeaderboard(700, []).map((r) => [r.rank, r.name]), [[1, 'You']]);
 });
