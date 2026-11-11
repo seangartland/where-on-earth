@@ -1530,6 +1530,9 @@ body.expedition-mode .round-meta span:first-child { color: var(--gold); }
     font-size: 17px;
   }
 
+  .pack-panel {
+    width: min(100%, 740px);
+  }
   .pack-choices {
     width: min(678px, 100%);
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
