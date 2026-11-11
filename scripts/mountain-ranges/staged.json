@@ -1,0 +1,3353 @@
+{
+ "himalayas": {
+  "entry": {
+   "id": "himalayas",
+   "short": "Himalayas",
+   "clue": "Himalayas, Asia",
+   "fact": "Ten of the world's fourteen peaks above 8,000 metres rise here, Everest among them, and the range is still being pushed upward as the Indian plate drives into Asia.",
+   "lat": 29.62979,
+   "lng": 82.71211,
+   "difficulty": 5,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Aerial_View_of_Peaks_of_Khumbu%2C_Ngozumpa_Glacier_and_Gokyo_Lakes_%28crop%29.jpg/500px-Aerial_View_of_Peaks_of_Khumbu%2C_Ngozumpa_Glacier_and_Gokyo_Lakes_%28crop%29.jpg",
+   "country": "India, China, Nepal, and Bhutan",
+   "continent": "Asia",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.94·fb1051·K0·iso333 → 17.1 → 5",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      75.3286,
+      34.1658
+     ],
+     [
+      75.5861,
+      34.2283
+     ],
+     [
+      76.0568,
+      34.013
+     ],
+     [
+      77.0569,
+      32.4364
+     ],
+     [
+      77.4121,
+      32.5456
+     ],
+     [
+      78.3951,
+      32.5304
+     ],
+     [
+      78.7353,
+      31.8844
+     ],
+     [
+      78.6125,
+      31.3536
+     ],
+     [
+      78.9972,
+      30.8581
+     ],
+     [
+      79.2911,
+      30.7497
+     ],
+     [
+      79.9708,
+      30.3739
+     ],
+     [
+      81.2992,
+      30.4383
+     ],
+     [
+      81.495,
+      29.8908
+     ],
+     [
+      82.1958,
+      30.1375
+     ],
+     [
+      82.7516,
+      29.766
+     ],
+     [
+      82.6392,
+      29.3783
+     ],
+     [
+      83.3883,
+      28.7633
+     ],
+     [
+      83.49,
+      28.6967
+     ],
+     [
+      84.5597,
+      28.55
+     ],
+     [
+      85.1272,
+      28.3917
+     ],
+     [
+      85.7797,
+      28.3522
+     ],
+     [
+      86.3508,
+      28.3042
+     ],
+     [
+      86.925,
+      27.9881
+     ],
+     [
+      88.1358,
+      27.8814
+     ],
+     [
+      88.1474,
+      27.703
+     ],
+     [
+      89.27,
+      27.8242
+     ],
+     [
+      90.0733,
+      28.1558
+     ],
+     [
+      90.455,
+      28.0469
+     ],
+     [
+      92.3876,
+      27.7949
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 29 named principal peaks of the Himalayas (P4552 chain to Q5451), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q5451",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 29,
+   "vertices": 29,
+   "maxDeviationKm": 0.006,
+   "lengthKm": 2121
+  },
+  "report": {
+   "image": {
+    "title": "File:Aerial View of Peaks of Khumbu, Ngozumpa Glacier and Gokyo Lakes (crop).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Peaks_of_Khumbu,_Ngozumpa_Glacier_and_Gokyo_Lakes_(crop).jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/92/Aerial_View_of_Peaks_of_Khumbu%2C_Ngozumpa_Glacier_and_Gokyo_Lakes_%28crop%29.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Original:  Megaurab09\nDerivative work:  UnpetitproleX",
+    "head": 200
+   },
+   "span": [
+    "India",
+    "China",
+    "Nepal",
+    "Bhutan"
+   ],
+   "wikidataP17iso3": [
+    "AFG",
+    "BTN",
+    "BUR",
+    "CHN",
+    "IND",
+    "MMR",
+    "NPL",
+    "PAK"
+   ],
+   "shares": [
+    [
+     "India",
+     0.376
+    ],
+    [
+     "China",
+     0.294
+    ],
+    [
+     "Nepal",
+     0.214
+    ],
+    [
+     "Bhutan",
+     0.115
+    ]
+   ],
+   "geometry": {
+    "id": "himalayas",
+    "qid": "Q5451",
+    "wikidataP625": [
+     [
+      29,
+      84
+     ]
+    ],
+    "p17iso3": [
+     "AFG",
+     "BTN",
+     "BUR",
+     "CHN",
+     "IND",
+     "MMR",
+     "NPL",
+     "PAK"
+    ],
+    "candidates": 277,
+    "filtered": 247,
+    "droppedSample": [
+     [
+      "Nanga Parbat",
+      "outside OSM area"
+     ],
+     [
+      "Namcha Barwa",
+      "outside OSM area"
+     ],
+     [
+      "Silberzacken",
+      "outside OSM area"
+     ],
+     [
+      "Noijin Kangsang",
+      "outside OSM area"
+     ],
+     [
+      "Sanglung",
+      "outside OSM area"
+     ],
+     [
+      "Rakhiot Peak",
+      "outside OSM area"
+     ],
+     [
+      "Bairiga",
+      "outside OSM area"
+     ],
+     [
+      "Chongra Peak",
+      "outside OSM area"
+     ],
+     [
+      "Ganalo Peak",
+      "outside OSM area"
+     ],
+     [
+      "Sarwali Peak",
+      "outside OSM area"
+     ],
+     [
+      "Kang Yatze",
+      "outside OSM area"
+     ],
+     [
+      "Shaigiri",
+      "outside OSM area"
+     ],
+     [
+      "Stok Kangri",
+      "outside OSM area"
+     ],
+     [
+      "Laila Peak",
+      "outside OSM area"
+     ],
+     [
+      "Dofana",
+      "outside OSM area"
+     ]
+    ],
+    "droppedCount": 30,
+    "osmArea": "way 1414235061",
+    "cells": 90,
+    "backboneKm": 2423,
+    "method": "simplified polyline through 29 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5451",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Kolahoi Peak",
+      "qid": "Q6427004",
+      "lat": 34.16583,
+      "lng": 75.32861,
+      "elev": 5425
+     },
+     {
+      "name": "Machoi Peak",
+      "qid": "Q8536525",
+      "lat": 34.22833,
+      "lng": 75.58611,
+      "elev": 5458
+     },
+     {
+      "name": "Kun",
+      "qid": "Q6444117",
+      "lat": 34.013,
+      "lng": 76.05684,
+      "elev": 7077
+     },
+     {
+      "name": "Shikar Beh",
+      "qid": "Q20191412",
+      "lat": 32.43638,
+      "lng": 77.05686,
+      "elev": 6201
+     },
+     {
+      "name": "Mulkila",
+      "qid": "Q20191081",
+      "lat": 32.5456,
+      "lng": 77.4121,
+      "elev": 6517
+     },
+     {
+      "name": "Mount Gya",
+      "qid": "Q13574054",
+      "lat": 32.5304,
+      "lng": 78.3951,
+      "elev": 6794
+     },
+     {
+      "name": "Reo Purgyil",
+      "qid": "Q17020614",
+      "lat": 31.88441,
+      "lng": 78.73531,
+      "elev": 6816
+     },
+     {
+      "name": "Rangrik Rang",
+      "qid": "Q20191205",
+      "lat": 31.35364,
+      "lng": 78.61255,
+      "elev": 6553
+     },
+     {
+      "name": "Thalay Sagar",
+      "qid": "Q686996",
+      "lat": 30.85806,
+      "lng": 78.99722,
+      "elev": 6904
+     },
+     {
+      "name": "Chaukhamba",
+      "qid": "Q5088154",
+      "lat": 30.74972,
+      "lng": 79.29111,
+      "elev": 7138
+     },
+     {
+      "name": "Nanda Devi",
+      "qid": "Q213262",
+      "lat": 30.37389,
+      "lng": 79.97083,
+      "elev": 7816
+     },
+     {
+      "name": "Gurla Mandhata",
+      "qid": "Q1555230",
+      "lat": 30.43833,
+      "lng": 81.29917,
+      "elev": 7694
+     },
+     {
+      "name": "Saipal",
+      "qid": "Q7402481",
+      "lat": 29.89083,
+      "lng": 81.495,
+      "elev": 7031
+     },
+     {
+      "name": "Changla",
+      "qid": "Q19457611",
+      "lat": 30.1375,
+      "lng": 82.1958,
+      "elev": 6563
+     },
+     {
+      "name": "Kubi Gangri",
+      "qid": "Q19605854",
+      "lat": 29.76605,
+      "lng": 82.75163,
+      "elev": 6859
+     },
+     {
+      "name": "Kanjiroba",
+      "qid": "Q19459405",
+      "lat": 29.3783,
+      "lng": 82.6392,
+      "elev": 6883
+     },
+     {
+      "name": "Dhaulagiri II",
+      "qid": "Q1207614",
+      "lat": 28.76333,
+      "lng": 83.38833,
+      "elev": 7751
+     },
+     {
+      "name": "Dhaulagiri",
+      "qid": "Q165440",
+      "lat": 28.69667,
+      "lng": 83.49,
+      "elev": 8167
+     },
+     {
+      "name": "Manaslu",
+      "qid": "Q170070",
+      "lat": 28.55,
+      "lng": 84.55972,
+      "elev": 8163
+     },
+     {
+      "name": "Yangra",
+      "qid": "Q1660406",
+      "lat": 28.39167,
+      "lng": 85.12722,
+      "elev": 7422
+     },
+     {
+      "name": "Shishapangma",
+      "qid": "Q105124",
+      "lat": 28.35222,
+      "lng": 85.77972,
+      "elev": 8027
+     },
+     {
+      "name": "Labuche Kang",
+      "qid": "Q1081475",
+      "lat": 28.3042,
+      "lng": 86.3508,
+      "elev": 7367
+     },
+     {
+      "name": "Mount Everest",
+      "qid": "Q513",
+      "lat": 27.98806,
+      "lng": 86.925,
+      "elev": 8850
+     },
+     {
+      "name": "Jongsong Peak",
+      "qid": "Q324765",
+      "lat": 27.88139,
+      "lng": 88.13583,
+      "elev": 7462
+     },
+     {
+      "name": "Kanchenjunga",
+      "qid": "Q82019",
+      "lat": 27.703,
+      "lng": 88.14735,
+      "elev": 8586
+     },
+     {
+      "name": "Chomolhari",
+      "qid": "Q1076018",
+      "lat": 27.82417,
+      "lng": 89.27,
+      "elev": 7326
+     },
+     {
+      "name": "Kangphu Kang",
+      "qid": "Q4212255",
+      "lat": 28.15583,
+      "lng": 90.07333,
+      "elev": 7220
+     },
+     {
+      "name": "Gangkhar Puensum",
+      "qid": "Q219986",
+      "lat": 28.04694,
+      "lng": 90.455,
+      "elev": 7570
+     },
+     {
+      "name": "Gori Chen",
+      "qid": "Q20190872",
+      "lat": 27.79485,
+      "lng": 92.38762,
+      "elev": 6488
+     }
+    ],
+    "sourceVertices": 29,
+    "vertices": 29,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 2121,
+    "midpoint": [
+     29.62979,
+     82.71211
+    ],
+    "midpointCountry": "Nepal",
+    "shares": [
+     [
+      "India",
+      0.376
+     ],
+     [
+      "China",
+      0.294
+     ],
+     [
+      "Nepal",
+      0.214
+     ],
+     [
+      "Bhutan",
+      0.115
+     ]
+    ],
+    "shareIso3": [
+     [
+      "IND",
+      0.376
+     ],
+     [
+      "CHN",
+      0.294
+     ],
+     [
+      "NPL",
+      0.214
+     ],
+     [
+      "BTN",
+      0.115
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.3,
+     0.9,
+     1.0,
+     1.4,
+     2.0,
+     2.5,
+     2.8,
+     3.1,
+     3.5,
+     3.7,
+     3.9,
+     4.0,
+     4.6,
+     4.7,
+     5.5,
+     6.1,
+     8.2,
+     9.4,
+     9.7
+    ],
+    "p625Km": [
+     41.0
+    ]
+   },
+   "score": {
+    "title": "Himalayas",
+    "months": [
+     71405,
+     64157,
+     59876,
+     63660,
+     53992,
+     51087,
+     54207,
+     57286,
+     52305,
+     49394,
+     89284,
+     62926
+    ],
+    "meanViews": 1998.8,
+    "medianViews": 1927.0,
+    "maxOverMedian": 1.52,
+    "scoringCountry": "India",
+    "scoringIso2": "IN",
+    "scoringShare": 0.376,
+    "centre": [
+     21.0393,
+     78.3506
+    ],
+    "meanD": 5,
+    "meanWhy": "p.94·fb1051·K0·iso333 → 17.1 → 5",
+    "medianD": 5,
+    "medianWhy": "p.93·fb1051·K0·iso333 → 19.0 → 5",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.94,
+    "K": 0,
+    "dFb": 1051,
+    "d1M": 333,
+    "loss": 17.1,
+    "D": 5,
+    "why": "p.94·fb1051·K0·iso333 → 17.1 → 5"
+   }
+  }
+ },
+ "andes": {
+  "entry": {
+   "id": "andes",
+   "short": "Andes",
+   "clue": "Andes, South America",
+   "fact": "The longest continental mountain range on Earth runs about 7,000 km down South America, and its highest summit, Aconcagua, is the tallest mountain outside Asia.",
+   "lat": -17.06236,
+   "lng": -70.496,
+   "difficulty": 6,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Cordillera_de_los_Andes.jpg/500px-Cordillera_de_los_Andes.jpg",
+   "country": "Peru, Argentina, Chile, Colombia, Ecuador, Venezuela, and Bolivia",
+   "continent": "South America",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.81·fb914·K0·iso133 → 41.1 → 6",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      -69.4833,
+      -54.75
+     ],
+     [
+      -73.0433,
+      -49.2714
+     ],
+     [
+      -73.504,
+      -49.019
+     ],
+     [
+      -73.3458,
+      -46.595
+     ],
+     [
+      -72.86,
+      -44.0758
+     ],
+     [
+      -71.8875,
+      -41.1608
+     ],
+     [
+      -71.5031,
+      -39.6372
+     ],
+     [
+      -70.433,
+      -36.6397
+     ],
+     [
+      -69.9722,
+      -34.7528
+     ],
+     [
+      -69.7704,
+      -33.3586
+     ],
+     [
+      -70.1128,
+      -31.9789
+     ],
+     [
+      -69.9,
+      -29.9333
+     ],
+     [
+      -68.7992,
+      -27.7553
+     ],
+     [
+      -68.5414,
+      -27.1097
+     ],
+     [
+      -68.5367,
+      -24.7197
+     ],
+     [
+      -66.4161,
+      -24.8444
+     ],
+     [
+      -68.3914,
+      -21.8878
+     ],
+     [
+      -68.4683,
+      -21.2208
+     ],
+     [
+      -68.6833,
+      -19.75
+     ],
+     [
+      -68.8831,
+      -18.1081
+     ],
+     [
+      -69.7667,
+      -17.7167
+     ],
+     [
+      -71.88,
+      -15.8206
+     ],
+     [
+      -72.6572,
+      -15.5203
+     ],
+     [
+      -70.9817,
+      -13.7667
+     ],
+     [
+      -71.2311,
+      -13.7886
+     ],
+     [
+      -72.8192,
+      -13.2492
+     ],
+     [
+      -73.4494,
+      -15.3235
+     ],
+     [
+      -75.9567,
+      -12.2564
+     ],
+     [
+      -76.9053,
+      -10.2689
+     ],
+     [
+      -77.6,
+      -9.1167
+     ],
+     [
+      -78.0064,
+      -8.8431
+     ],
+     [
+      -79.4694,
+      -3.5642
+     ],
+     [
+      -78.3408,
+      -2.0025
+     ],
+     [
+      -78.8175,
+      -1.4692
+     ],
+     [
+      -77.9888,
+      0.0239
+     ],
+     [
+      -77.8833,
+      0.9558
+     ],
+     [
+      -76.0333,
+      2.9333
+     ],
+     [
+      -75.3225,
+      4.8953
+     ],
+     [
+      -74.1101,
+      3.9348
+     ],
+     [
+      -72.2975,
+      6.4942
+     ],
+     [
+      -71.0465,
+      8.5409
+     ],
+     [
+      -72.9036,
+      10.4589
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 42 named principal peaks of the Andes (P4552 chain to Q5456), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q5456",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 42,
+   "vertices": 42,
+   "maxDeviationKm": 0.006,
+   "lengthKm": 9399
+  },
+  "report": {
+   "image": {
+    "title": "File:Cordillera de los Andes.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cordillera_de_los_Andes.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cordillera_de_los_Andes.jpg",
+    "license": "Public domain",
+    "author": "Jorge Morales Piderit",
+    "head": 200
+   },
+   "span": [
+    "Peru",
+    "Argentina",
+    "Chile",
+    "Colombia",
+    "Ecuador",
+    "Venezuela",
+    "Bolivia"
+   ],
+   "wikidataP17iso3": [
+    "ARG",
+    "BOL",
+    "CHL",
+    "COL",
+    "ECU",
+    "PER",
+    "VEN"
+   ],
+   "shares": [
+    [
+     "Peru",
+     0.259
+    ],
+    [
+     "Argentina",
+     0.243
+    ],
+    [
+     "Chile",
+     0.201
+    ],
+    [
+     "Colombia",
+     0.121
+    ],
+    [
+     "Ecuador",
+     0.079
+    ],
+    [
+     "Venezuela",
+     0.047
+    ],
+    [
+     "Bolivia",
+     0.03
+    ],
+    [
+     null,
+     0.02
+    ]
+   ],
+   "geometry": {
+    "id": "andes",
+    "qid": "Q5456",
+    "wikidataP625": [
+     [
+      -21.826,
+      -66.698
+     ],
+     [
+      -16.87815,
+      -70.30151
+     ]
+    ],
+    "p17iso3": [
+     "ARG",
+     "BOL",
+     "CHL",
+     "COL",
+     "ECU",
+     "PER",
+     "VEN"
+    ],
+    "candidates": 2806,
+    "filtered": 2804,
+    "droppedSample": [
+     [
+      "Viedma",
+      "country SPI"
+     ],
+     [
+      "Fueguino",
+      "country None"
+     ]
+    ],
+    "droppedCount": 2,
+    "cells": 556,
+    "backboneKm": 10403,
+    "method": "simplified polyline through 42 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5456",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Mount Darwin",
+      "qid": "Q1815821",
+      "lat": -54.75,
+      "lng": -69.48333,
+      "elev": 2488
+     },
+     {
+      "name": "Mount Fitz Roy",
+      "qid": "Q215138",
+      "lat": -49.27139,
+      "lng": -73.04333,
+      "elev": 3406
+     },
+     {
+      "name": "Lautaro",
+      "qid": "Q3044652",
+      "lat": -49.019,
+      "lng": -73.504,
+      "elev": 3607
+     },
+     {
+      "name": "Monte San Valentin",
+      "qid": "Q2092228",
+      "lat": -46.595,
+      "lng": -73.34583,
+      "elev": 4058
+     },
+     {
+      "name": "Melimoyu",
+      "qid": "Q3108968",
+      "lat": -44.07583,
+      "lng": -72.86,
+      "elev": 2440
+     },
+     {
+      "name": "Tronador",
+      "qid": "Q422835",
+      "lat": -41.16083,
+      "lng": -71.8875,
+      "elev": 3491
+     },
+     {
+      "name": "Lanín",
+      "qid": "Q389121",
+      "lat": -39.63718,
+      "lng": -71.50306,
+      "elev": 3776
+     },
+     {
+      "name": "Domuyo",
+      "qid": "Q312770",
+      "lat": -36.6397,
+      "lng": -70.433,
+      "elev": 4709
+     },
+     {
+      "name": "Caldera del Atuel",
+      "qid": "Q312932",
+      "lat": -34.75278,
+      "lng": -69.97222,
+      "elev": 5189
+     },
+     {
+      "name": "Tupungato Volcano",
+      "qid": "Q756244",
+      "lat": -33.35856,
+      "lng": -69.77042,
+      "elev": 6635
+     },
+     {
+      "name": "Mercedario",
+      "qid": "Q906336",
+      "lat": -31.97889,
+      "lng": -70.11278,
+      "elev": 6800
+     },
+     {
+      "name": "Cerro Las Tórtolas",
+      "qid": "Q825208",
+      "lat": -29.93333,
+      "lng": -69.9,
+      "elev": 6323
+     },
+     {
+      "name": "Monte Pissis",
+      "qid": "Q586212",
+      "lat": -27.75528,
+      "lng": -68.79917,
+      "elev": 6795
+     },
+     {
+      "name": "Ojos del Salado",
+      "qid": "Q233836",
+      "lat": -27.10972,
+      "lng": -68.54139,
+      "elev": 6893
+     },
+     {
+      "name": "Llullaillaco",
+      "qid": "Q214916",
+      "lat": -24.71972,
+      "lng": -68.53667,
+      "elev": 6723
+     },
+     {
+      "name": "Nevado de Cachi",
+      "qid": "Q4531383",
+      "lat": -24.84439,
+      "lng": -66.41612,
+      "elev": 6380
+     },
+     {
+      "name": "San Pedro",
+      "qid": "Q2742687",
+      "lat": -21.88778,
+      "lng": -68.39139,
+      "elev": 6145
+     },
+     {
+      "name": "Aucanquilcha",
+      "qid": "Q758574",
+      "lat": -21.22083,
+      "lng": -68.46833,
+      "elev": 6176
+     },
+     {
+      "name": "Cerro Candelaria",
+      "qid": "Q5064872",
+      "lat": -19.75,
+      "lng": -68.68333,
+      "elev": 5995
+     },
+     {
+      "name": "Nevado Sajama",
+      "qid": "Q272593",
+      "lat": -18.10806,
+      "lng": -68.88306,
+      "elev": 6542
+     },
+     {
+      "name": "Tacora",
+      "qid": "Q1552026",
+      "lat": -17.71667,
+      "lng": -69.76667,
+      "elev": 5988
+     },
+     {
+      "name": "Ampato",
+      "qid": "Q474428",
+      "lat": -15.82056,
+      "lng": -71.88,
+      "elev": 6288
+     },
+     {
+      "name": "Coropuna",
+      "qid": "Q946035",
+      "lat": -15.52028,
+      "lng": -72.65722,
+      "elev": 6425
+     },
+     {
+      "name": "Yayamari",
+      "qid": "Q8050513",
+      "lat": -13.7667,
+      "lng": -70.9817,
+      "elev": 6049
+     },
+     {
+      "name": "Ausangate",
+      "qid": "Q777794",
+      "lat": -13.78861,
+      "lng": -71.23111,
+      "elev": 6384
+     },
+     {
+      "name": "Pumasillo",
+      "qid": "Q7259781",
+      "lat": -13.24917,
+      "lng": -72.81917,
+      "elev": 5991
+     },
+     {
+      "name": "Sara Sara",
+      "qid": "Q2652409",
+      "lat": -15.32353,
+      "lng": -73.44936,
+      "elev": 5505
+     },
+     {
+      "name": "Ticlla",
+      "qid": "Q13190936",
+      "lat": -12.25639,
+      "lng": -75.95667,
+      "elev": 5897
+     },
+     {
+      "name": "Yerupajá",
+      "qid": "Q529797",
+      "lat": -10.26889,
+      "lng": -76.90528,
+      "elev": 6635
+     },
+     {
+      "name": "Huascarán",
+      "qid": "Q200935",
+      "lat": -9.11667,
+      "lng": -77.6,
+      "elev": 6768
+     },
+     {
+      "name": "Coñocranra",
+      "qid": "Q5180171",
+      "lat": -8.84306,
+      "lng": -78.00639,
+      "elev": 5822
+     },
+     {
+      "name": "Cerro de Arcos",
+      "qid": "Q5064999",
+      "lat": -3.56417,
+      "lng": -79.46944,
+      "elev": 3700
+     },
+     {
+      "name": "Sangay volcano",
+      "qid": "Q14052",
+      "lat": -2.0025,
+      "lng": -78.34083,
+      "elev": 5230
+     },
+     {
+      "name": "Chimborazo",
+      "qid": "Q14081",
+      "lat": -1.46917,
+      "lng": -78.8175,
+      "elev": 6263
+     },
+     {
+      "name": "Cayambe",
+      "qid": "Q754734",
+      "lat": 0.0239,
+      "lng": -77.9888,
+      "elev": 5790
+     },
+     {
+      "name": "Cumbal",
+      "qid": "Q2019666",
+      "lat": 0.95583,
+      "lng": -77.88333,
+      "elev": 4764
+     },
+     {
+      "name": "Nevado del Huila",
+      "qid": "Q648551",
+      "lat": 2.93333,
+      "lng": -76.03333,
+      "elev": 5364
+     },
+     {
+      "name": "Nevado del Ruiz",
+      "qid": "Q233351",
+      "lat": 4.89528,
+      "lng": -75.3225,
+      "elev": 5389
+     },
+     {
+      "name": "Nevado del Sumapaz",
+      "qid": "Q20022267",
+      "lat": 3.93476,
+      "lng": -74.11012,
+      "elev": 4506
+     },
+     {
+      "name": "Ritacuba Blanco",
+      "qid": "Q2648857",
+      "lat": 6.49417,
+      "lng": -72.2975,
+      "elev": 5410
+     },
+     {
+      "name": "Pico Bolívar",
+      "qid": "Q213704",
+      "lat": 8.54086,
+      "lng": -71.0465,
+      "elev": 4978
+     },
+     {
+      "name": "Cerro Pintado",
+      "qid": "Q257173",
+      "lat": 10.45888,
+      "lng": -72.90356,
+      "elev": 3660
+     }
+    ],
+    "sourceVertices": 42,
+    "vertices": 42,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 9399,
+    "midpoint": [
+     -17.06236,
+     -70.496
+    ],
+    "midpointCountry": "Peru",
+    "shares": [
+     [
+      "Peru",
+      0.259
+     ],
+     [
+      "Argentina",
+      0.243
+     ],
+     [
+      "Chile",
+      0.201
+     ],
+     [
+      "Colombia",
+      0.121
+     ],
+     [
+      "Ecuador",
+      0.079
+     ],
+     [
+      "Venezuela",
+      0.047
+     ],
+     [
+      "Bolivia",
+      0.03
+     ],
+     [
+      null,
+      0.02
+     ]
+    ],
+    "shareIso3": [
+     [
+      "PER",
+      0.259
+     ],
+     [
+      "ARG",
+      0.243
+     ],
+     [
+      "CHL",
+      0.201
+     ],
+     [
+      "COL",
+      0.121
+     ],
+     [
+      "ECU",
+      0.079
+     ],
+     [
+      "VEN",
+      0.047
+     ],
+     [
+      "BOL",
+      0.03
+     ],
+     [
+      null,
+      0.02
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.4,
+     2.6,
+     4.0,
+     4.7,
+     5.7,
+     15.8,
+     17.8,
+     22.5,
+     23.9,
+     24.3,
+     66.0,
+     200.8,
+     240.5,
+     243.7
+    ],
+    "p625Km": [
+     151.9,
+     29.1
+    ]
+   },
+   "score": {
+    "title": "Andes",
+    "months": [
+     38612,
+     35159,
+     37111,
+     39913,
+     34678,
+     32156,
+     33712,
+     36939,
+     29913,
+     31500,
+     30559,
+     35597
+    ],
+    "meanViews": 1139.3,
+    "medianViews": 1148.6,
+    "maxOverMedian": 1.14,
+    "scoringCountry": "Peru",
+    "scoringIso2": "PE",
+    "scoringShare": 0.259,
+    "centre": [
+     -11.1903,
+     -76.4246
+    ],
+    "meanD": 6,
+    "meanWhy": "p.81·fb914·K0·iso133 → 41.1 → 6",
+    "medianD": 6,
+    "medianWhy": "p.82·fb914·K0·iso133 → 40.7 → 6",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.81,
+    "K": 0,
+    "dFb": 914,
+    "d1M": 133,
+    "loss": 41.1,
+    "D": 6,
+    "why": "p.81·fb914·K0·iso133 → 41.1 → 6"
+   }
+  }
+ },
+ "alps": {
+  "entry": {
+   "id": "alps",
+   "short": "Alps",
+   "clue": "Alps, Central Europe",
+   "fact": "The Alps arc about 1,200 km across eight countries and feed the Rhine, the Rhône and the Po; Mont Blanc is their highest summit.",
+   "lat": 46.46774,
+   "lng": 10.33777,
+   "difficulty": 5,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/View_in_an_easterly_direction_towards_the_Western_Alps_at_the_location_of_Grenoble.jpg/500px-View_in_an_easterly_direction_towards_the_Western_Alps_at_the_location_of_Grenoble.jpg",
+   "country": "Austria, Italy, Switzerland, and France",
+   "continent": "Europe",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.85·fb423·K0·iso143 → 17.1 → 5",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      15.7899,
+      47.5743
+     ],
+     [
+      15.1422,
+      47.6181
+     ],
+     [
+      14.0633,
+      47.7169
+     ],
+     [
+      13.3214,
+      47.0158
+     ],
+     [
+      12.755,
+      47.1569
+     ],
+     [
+      12.6938,
+      47.0745
+     ],
+     [
+      11.7277,
+      46.9725
+     ],
+     [
+      10.8672,
+      46.8853
+     ],
+     [
+      10.545,
+      46.5089
+     ],
+     [
+      9.9081,
+      46.3824
+     ],
+     [
+      7.8668,
+      45.9369
+     ],
+     [
+      7.8589,
+      46.0939
+     ],
+     [
+      7.3693,
+      46.0162
+     ],
+     [
+      6.865,
+      45.8328
+     ],
+     [
+      7.2667,
+      45.5333
+     ],
+     [
+      6.3595,
+      44.9222
+     ],
+     [
+      5.8397,
+      44.775
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 17 named principal peaks of the Alps (P4552 chain to Q1286), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q1286",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 17,
+   "vertices": 17,
+   "maxDeviationKm": 0.006,
+   "lengthKm": 975
+  },
+  "report": {
+   "image": {
+    "title": "File:View in an easterly direction towards the Western Alps at the location of Grenoble.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:View_in_an_easterly_direction_towards_the_Western_Alps_at_the_location_of_Grenoble.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/03/View_in_an_easterly_direction_towards_the_Western_Alps_at_the_location_of_Grenoble.jpg",
+    "license": "CC0",
+    "author": "Dktue",
+    "head": 200
+   },
+   "span": [
+    "Austria",
+    "Italy",
+    "Switzerland",
+    "France"
+   ],
+   "wikidataP17iso3": [
+    "AUT",
+    "CHE",
+    "DEU",
+    "FRA",
+    "HUN",
+    "ITA",
+    "LIE",
+    "MCO",
+    "SVN"
+   ],
+   "shares": [
+    [
+     "Austria",
+     0.364
+    ],
+    [
+     "Italy",
+     0.328
+    ],
+    [
+     "Switzerland",
+     0.174
+    ],
+    [
+     "France",
+     0.133
+    ]
+   ],
+   "geometry": {
+    "id": "alps",
+    "qid": "Q1286",
+    "wikidataP625": [
+     [
+      46.57806,
+      8.615
+     ]
+    ],
+    "p17iso3": [
+     "AUT",
+     "CHE",
+     "DEU",
+     "FRA",
+     "HUN",
+     "ITA",
+     "LIE",
+     "MCO",
+     "SVN"
+    ],
+    "candidates": 3150,
+    "filtered": 3127,
+    "droppedSample": [
+     [
+      "Porezen",
+      "outside OSM area"
+     ],
+     [
+      "Blegoš",
+      "outside OSM area"
+     ],
+     [
+      "Wachthubel",
+      "outside OSM area"
+     ],
+     [
+      "Napf",
+      "outside OSM area"
+     ],
+     [
+      "Kojca",
+      "outside OSM area"
+     ],
+     [
+      "Kum",
+      "outside OSM area"
+     ],
+     [
+      "Riedholzer Kugel",
+      "outside OSM area"
+     ],
+     [
+      "Iberger Kugel",
+      "outside OSM area"
+     ],
+     [
+      "Zugerberg",
+      "outside OSM area"
+     ],
+     [
+      "Tošč",
+      "outside OSM area"
+     ],
+     [
+      "Lisca",
+      "outside OSM area"
+     ],
+     [
+      "Bantiger",
+      "outside OSM area"
+     ],
+     [
+      "Colle di Brianza",
+      "outside OSM area"
+     ],
+     [
+      "Rooterberg",
+      "outside OSM area"
+     ],
+     [
+      "Högl",
+      "outside OSM area"
+     ]
+    ],
+    "droppedCount": 23,
+    "osmArea": "relation 2698607",
+    "cells": 263,
+    "backboneKm": 1311,
+    "method": "simplified polyline through 17 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q1286",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Stuhleck",
+      "qid": "Q668536",
+      "lat": 47.5743,
+      "lng": 15.7899,
+      "elev": 1782
+     },
+     {
+      "name": "Hochschwab",
+      "qid": "Q685441",
+      "lat": 47.61806,
+      "lng": 15.14222,
+      "elev": 2277
+     },
+     {
+      "name": "Großer Priel",
+      "qid": "Q695334",
+      "lat": 47.71694,
+      "lng": 14.06333,
+      "elev": 2515
+     },
+     {
+      "name": "Hochalmspitze",
+      "qid": "Q667041",
+      "lat": 47.01583,
+      "lng": 13.32139,
+      "elev": 3360
+     },
+     {
+      "name": "Großes Wiesbachhorn",
+      "qid": "Q691776",
+      "lat": 47.15694,
+      "lng": 12.755,
+      "elev": 3564
+     },
+     {
+      "name": "Grossglockner",
+      "qid": "Q3388",
+      "lat": 47.07453,
+      "lng": 12.69385,
+      "elev": 3798
+     },
+     {
+      "name": "Hochfeiler",
+      "qid": "Q700225",
+      "lat": 46.97252,
+      "lng": 11.72767,
+      "elev": 3509
+     },
+     {
+      "name": "Wildspitze",
+      "qid": "Q679277",
+      "lat": 46.88528,
+      "lng": 10.86722,
+      "elev": 3768
+     },
+     {
+      "name": "Ortler",
+      "qid": "Q650695",
+      "lat": 46.50889,
+      "lng": 10.545,
+      "elev": 3905
+     },
+     {
+      "name": "Piz Bernina",
+      "qid": "Q15132",
+      "lat": 46.38239,
+      "lng": 9.90811,
+      "elev": 4048
+     },
+     {
+      "name": "Dufourspitze",
+      "qid": "Q3403",
+      "lat": 45.93692,
+      "lng": 7.86676,
+      "elev": 4634
+     },
+     {
+      "name": "Dom",
+      "qid": "Q15117",
+      "lat": 46.09391,
+      "lng": 7.85886,
+      "elev": 4546
+     },
+     {
+      "name": "Le Pleureur",
+      "qid": "Q2574909",
+      "lat": 46.01625,
+      "lng": 7.36928,
+      "elev": 3704
+     },
+     {
+      "name": "Mont Blanc",
+      "qid": "Q583",
+      "lat": 45.83278,
+      "lng": 6.865,
+      "elev": 4810
+     },
+     {
+      "name": "Gran Paradiso",
+      "qid": "Q1372",
+      "lat": 45.53333,
+      "lng": 7.26667,
+      "elev": 4061
+     },
+     {
+      "name": "Barre des Écrins",
+      "qid": "Q30480",
+      "lat": 44.92216,
+      "lng": 6.35955,
+      "elev": 4102
+     },
+     {
+      "name": "Grande Tête de l'Obiou",
+      "qid": "Q1813560",
+      "lat": 44.775,
+      "lng": 5.83972,
+      "elev": 2789
+     }
+    ],
+    "sourceVertices": 17,
+    "vertices": 17,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 975,
+    "midpoint": [
+     46.46774,
+     10.33777
+    ],
+    "midpointCountry": "Italy",
+    "shares": [
+     [
+      "Austria",
+      0.364
+     ],
+     [
+      "Italy",
+      0.328
+     ],
+     [
+      "Switzerland",
+      0.174
+     ],
+     [
+      "France",
+      0.133
+     ]
+    ],
+    "shareIso3": [
+     [
+      "AUT",
+      0.364
+     ],
+     [
+      "ITA",
+      0.328
+     ],
+     [
+      "CHE",
+      0.174
+     ],
+     [
+      "FRA",
+      0.133
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.1,
+     0.2,
+     0.3,
+     0.4,
+     0.6,
+     0.9,
+     1.1,
+     1.1,
+     1.3,
+     1.7,
+     1.9,
+     2.2,
+     2.3,
+     2.5,
+     2.9,
+     3.3,
+     3.6,
+     4.0,
+     5.2,
+     9.3
+    ],
+    "p625Km": [
+     50.7
+    ]
+   },
+   "score": {
+    "title": "Alps",
+    "months": [
+     45038,
+     41243,
+     46936,
+     46569,
+     64751,
+     36585,
+     35683,
+     37064,
+     33608,
+     36499,
+     35696,
+     34897
+    ],
+    "meanViews": 1355.0,
+    "medianViews": 1211.3,
+    "maxOverMedian": 1.76,
+    "scoringCountry": "Austria",
+    "scoringIso2": "AT",
+    "scoringShare": 0.364,
+    "centre": [
+     47.9457,
+     15.5058
+    ],
+    "meanD": 5,
+    "meanWhy": "p.85·fb423·K0·iso143 → 17.1 → 5",
+    "medianD": 5,
+    "medianWhy": "p.83·fb423·K0·iso143 → 19.5 → 5",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.85,
+    "K": 0,
+    "dFb": 423,
+    "d1M": 143,
+    "loss": 17.1,
+    "D": 5,
+    "why": "p.85·fb423·K0·iso143 → 17.1 → 5"
+   }
+  }
+ },
+ "rocky-mountains": {
+  "entry": {
+   "id": "rocky-mountains",
+   "short": "Rocky Mountains",
+   "clue": "Rocky Mountains, United States and Canada 🇺🇸🇨🇦",
+   "fact": "The Rockies stretch about 4,800 km from northern Canada to the American Southwest and carry the Continental Divide, which splits rivers bound for the Pacific from those bound for the Atlantic and Arctic.",
+   "lat": 46.18765,
+   "lng": -114.46237,
+   "difficulty": 7,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Rocky_Mountains_%28208692693%29.jpeg/500px-Rocky_Mountains_%28208692693%29.jpeg",
+   "country": "United States and Canada",
+   "continent": "North America",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.86·fb1896·K0·iso541 → 58.1 → 7",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      -127.0899,
+      59.3556
+     ],
+     [
+      -124.8926,
+      58.217
+     ],
+     [
+      -123.794,
+      56.897
+     ],
+     [
+      -122.168,
+      55.3042
+     ],
+     [
+      -118.5645,
+      53.0412
+     ],
+     [
+      -115.9278,
+      50.4575
+     ],
+     [
+      -114.7852,
+      47.8132
+     ],
+     [
+      -114.4336,
+      46.0428
+     ],
+     [
+      -114.6534,
+      44.5279
+     ],
+     [
+      -113.1153,
+      44.371
+     ],
+     [
+      -111.5332,
+      45.0891
+     ],
+     [
+      -110.3467,
+      45.213
+     ],
+     [
+      -109.7315,
+      44.2767
+     ],
+     [
+      -108.9405,
+      42.3586
+     ],
+     [
+      -106.6553,
+      39.2323
+     ],
+     [
+      -106.2159,
+      35.3891
+     ]
+    ]
+   ],
+   "source": "OpenStreetMap way 1458309038 (Rocky Mountains, natural=mountain_range): the mapped spine line, simplified",
+   "sourceUrl": "https://www.openstreetmap.org/way/1458309038",
+   "license": "ODbL",
+   "attribution": "© OpenStreetMap contributors",
+   "sourceVertices": 16,
+   "vertices": 16,
+   "maxDeviationKm": 0.004,
+   "lengthKm": 3430
+  },
+  "report": {
+   "image": {
+    "title": "File:Rocky Mountains (208692693).jpeg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rocky_Mountains_(208692693).jpeg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/17/Rocky_Mountains_%28208692693%29.jpeg",
+    "license": "CC0",
+    "author": "Michael Tighe",
+    "head": 200
+   },
+   "span": [
+    "United States",
+    "Canada"
+   ],
+   "wikidataP17iso3": [
+    "CAN",
+    "USA"
+   ],
+   "shares": [
+    [
+     "United States of America",
+     0.592
+    ],
+    [
+     "Canada",
+     0.408
+    ]
+   ],
+   "geometry": {
+    "id": "rocky-mountains",
+    "qid": "Q5463",
+    "wikidataP625": [
+     [
+      44.15,
+      -113.8
+     ]
+    ],
+    "p17iso3": [
+     "CAN",
+     "USA"
+    ],
+    "candidates": 1268,
+    "filtered": 1268,
+    "droppedSample": [],
+    "droppedCount": 0,
+    "method": "OSM way 1458309038 (natural=mountain_range line, chained as mapped)",
+    "sourceUrl": "https://www.openstreetmap.org/way/1458309038",
+    "license": "ODbL",
+    "attribution": "© OpenStreetMap contributors",
+    "peaks": [],
+    "sourceVertices": 16,
+    "vertices": 16,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.004,
+    "lengthKm": 3430,
+    "midpoint": [
+     46.18765,
+     -114.46237
+    ],
+    "midpointCountry": "United States of America",
+    "shares": [
+     [
+      "United States of America",
+      0.592
+     ],
+     [
+      "Canada",
+      0.408
+     ]
+    ],
+    "shareIso3": [
+     [
+      "USA",
+      0.592
+     ],
+     [
+      "CAN",
+      0.408
+     ]
+    ],
+    "topPeakKm": [
+     13.7,
+     15.0,
+     16.9,
+     19.6,
+     19.9,
+     22.7,
+     25.6,
+     25.8,
+     29.9,
+     29.9,
+     30.9,
+     48.6,
+     48.7,
+     50.7,
+     79.4,
+     80.8,
+     81.6,
+     81.9,
+     84.6,
+     84.8,
+     86.1,
+     95.5,
+     130.7,
+     131.9,
+     132.9
+    ],
+    "p625Km": [
+     32.0
+    ]
+   },
+   "score": {
+    "title": "Rocky Mountains",
+    "months": [
+     47462,
+     42593,
+     44152,
+     45785,
+     42502,
+     39499,
+     39571,
+     43039,
+     40143,
+     44569,
+     43006,
+     44614
+    ],
+    "meanViews": 1416.3,
+    "medianViews": 1415.2,
+    "maxOverMedian": 1.1,
+    "scoringCountry": "United States",
+    "scoringIso2": "US",
+    "scoringShare": 0.592,
+    "centre": [
+     38.7919,
+     -93.5256
+    ],
+    "meanD": 7,
+    "meanWhy": "p.86·fb1896·K0·iso541 → 58.1 → 7",
+    "medianD": 7,
+    "medianWhy": "p.86·fb1896·K0·iso541 → 58.2 → 7",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.86,
+    "K": 0,
+    "dFb": 1896,
+    "d1M": 541,
+    "loss": 58.1,
+    "D": 7,
+    "why": "p.86·fb1896·K0·iso541 → 58.1 → 7"
+   }
+  }
+ },
+ "appalachian-mountains": {
+  "entry": {
+   "id": "appalachian-mountains",
+   "short": "Appalachian Mountains",
+   "clue": "Appalachian Mountains, United States and Canada 🇺🇸🇨🇦",
+   "fact": "Among the oldest mountains on Earth, they rose more than 400 million years ago and have since been worn down by erosion; the Appalachian Trail follows them for about 3,500 km.",
+   "lat": 44.08665,
+   "lng": -72.49445,
+   "difficulty": 4,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Appalachian_Mountains.jpg/500px-Appalachian_Mountains.jpg",
+   "country": "United States and Canada",
+   "continent": "North America",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.98·fb1843·K0·iso180 → 10.3 → 4",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      -85.8083,
+      33.4865
+     ],
+     [
+      -84.3303,
+      34.4861
+     ],
+     [
+      -83.9939,
+      35.3058
+     ],
+     [
+      -83.4986,
+      35.5628
+     ],
+     [
+      -82.2649,
+      35.7648
+     ],
+     [
+      -81.8114,
+      36.1111
+     ],
+     [
+      -81.5446,
+      36.6598
+     ],
+     [
+      -81.4137,
+      37.0814
+     ],
+     [
+      -80.1628,
+      37.1796
+     ],
+     [
+      -79.5103,
+      37.5169
+     ],
+     [
+      -79.0625,
+      37.8198
+     ],
+     [
+      -79.48,
+      38.75
+     ],
+     [
+      -79.57,
+      39.1472
+     ],
+     [
+      -79.175,
+      39.7861
+     ],
+     [
+      -78.5737,
+      40.2959
+     ],
+     [
+      -76.5539,
+      41.3194
+     ],
+     [
+      -75.5619,
+      41.715
+     ],
+     [
+      -74.5496,
+      42.0393
+     ],
+     [
+      -74.0801,
+      42.162
+     ],
+     [
+      -73.1667,
+      42.6375
+     ],
+     [
+      -73.1112,
+      43.1703
+     ],
+     [
+      -72.9285,
+      44.1273
+     ],
+     [
+      -71.8309,
+      44.0245
+     ],
+     [
+      -72.5404,
+      44.9159
+     ],
+     [
+      -71.3137,
+      44.8012
+     ],
+     [
+      -71.3035,
+      44.2708
+     ],
+     [
+      -70.3133,
+      45.0317
+     ],
+     [
+      -70.3938,
+      45.7543
+     ],
+     [
+      -68.9213,
+      45.9044
+     ],
+     [
+      -66.8833,
+      47.3833
+     ],
+     [
+      -65.9484,
+      48.9874
+     ],
+     [
+      -64.23,
+      48.5344
+     ],
+     [
+      -60.4725,
+      46.9553
+     ],
+     [
+      -58.51,
+      48.8
+     ],
+     [
+      -57.7836,
+      49.5936
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 35 named principal peaks of the Appalachian Mountains (P4552 chain to Q93332), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q93332",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 35,
+   "vertices": 35,
+   "maxDeviationKm": 0.006,
+   "lengthKm": 3749
+  },
+  "report": {
+   "image": {
+    "title": "File:Appalachian Mountains.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Appalachian_Mountains.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/61/Appalachian_Mountains.jpg",
+    "license": "Public domain",
+    "author": "Carol M. Highsmith",
+    "head": 200
+   },
+   "span": [
+    "United States",
+    "Canada"
+   ],
+   "wikidataP17iso3": [
+    "CAN",
+    "FRA",
+    "USA"
+   ],
+   "shares": [
+    [
+     "United States of America",
+     0.703
+    ],
+    [
+     null,
+     0.152
+    ],
+    [
+     "Canada",
+     0.145
+    ]
+   ],
+   "geometry": {
+    "id": "appalachian-mountains",
+    "qid": "Q93332",
+    "wikidataP625": [
+     [
+      35.76472,
+      -82.26528
+     ],
+     [
+      38,
+      -79
+     ]
+    ],
+    "p17iso3": [
+     "CAN",
+     "FRA",
+     "USA"
+    ],
+    "candidates": 411,
+    "filtered": 411,
+    "droppedSample": [],
+    "droppedCount": 0,
+    "cells": 128,
+    "backboneKm": 4013,
+    "method": "simplified polyline through 35 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q93332",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Cheaha Mountain",
+      "qid": "Q927744",
+      "lat": 33.4865,
+      "lng": -85.8083,
+      "elev": 736
+     },
+     {
+      "name": "Mount Oglethorpe",
+      "qid": "Q6922487",
+      "lat": 34.48611,
+      "lng": -84.33028,
+      "elev": 1002
+     },
+     {
+      "name": "Hooper Bald",
+      "qid": "Q5898352",
+      "lat": 35.3058,
+      "lng": -83.9939,
+      "elev": 1655
+     },
+     {
+      "name": "Kuwohi",
+      "qid": "Q685166",
+      "lat": 35.56278,
+      "lng": -83.49861,
+      "elev": 2025
+     },
+     {
+      "name": "Mount Mitchell",
+      "qid": "Q615337",
+      "lat": 35.76476,
+      "lng": -82.26486,
+      "elev": 2037
+     },
+     {
+      "name": "Grandfather Mountain",
+      "qid": "Q833467",
+      "lat": 36.11111,
+      "lng": -81.81139,
+      "elev": 1818
+     },
+     {
+      "name": "Mount Rogers",
+      "qid": "Q688645",
+      "lat": 36.65984,
+      "lng": -81.54456,
+      "elev": 1825
+     },
+     {
+      "name": "Balsam Beartown Mountain",
+      "qid": "Q48791980",
+      "lat": 37.08142,
+      "lng": -81.41367,
+      "elev": 1436
+     },
+     {
+      "name": "Poor Mountain",
+      "qid": "Q7228801",
+      "lat": 37.1796,
+      "lng": -80.1628,
+      "elev": 1197
+     },
+     {
+      "name": "Apple Orchard Mountain",
+      "qid": "Q4781207",
+      "lat": 37.5169,
+      "lng": -79.5103,
+      "elev": 1287
+     },
+     {
+      "name": "The Priest",
+      "qid": "Q7758194",
+      "lat": 37.8198,
+      "lng": -79.0625,
+      "elev": 1238
+     },
+     {
+      "name": "Spruce Mountain",
+      "qid": "Q7581425",
+      "lat": 38.75,
+      "lng": -79.48,
+      "elev": 1482
+     },
+     {
+      "name": "Backbone Mountain",
+      "qid": "Q547943",
+      "lat": 39.1472,
+      "lng": -79.57,
+      "elev": 1116
+     },
+     {
+      "name": "Negro Mountain",
+      "qid": "Q6987605",
+      "lat": 39.78611,
+      "lng": -79.175,
+      "elev": 979
+     },
+     {
+      "name": "Herman Point",
+      "qid": "Q5740117",
+      "lat": 40.29586,
+      "lng": -78.57373,
+      "elev": 925
+     },
+     {
+      "name": "North Mountain",
+      "qid": "Q14951322",
+      "lat": 41.31944,
+      "lng": -76.55389,
+      "elev": 788
+     },
+     {
+      "name": "North Knob",
+      "qid": "Q7055801",
+      "lat": 41.71496,
+      "lng": -75.56195,
+      "elev": 821
+     },
+     {
+      "name": "Graham Mountain",
+      "qid": "Q5593091",
+      "lat": 42.0393,
+      "lng": -74.5496,
+      "elev": 1179
+     },
+     {
+      "name": "Kaaterskill High Peak",
+      "qid": "Q6343625",
+      "lat": 42.16203,
+      "lng": -74.08014,
+      "elev": 1111
+     },
+     {
+      "name": "Mount Greylock",
+      "qid": "Q1587225",
+      "lat": 42.6375,
+      "lng": -73.16667,
+      "elev": 1064
+     },
+     {
+      "name": "Equinox Mountain",
+      "qid": "Q5384538",
+      "lat": 43.17035,
+      "lng": -73.11122,
+      "elev": 1163
+     },
+     {
+      "name": "Lincoln Peak",
+      "qid": "Q6550951",
+      "lat": 44.1273,
+      "lng": -72.9285,
+      "elev": 1212
+     },
+     {
+      "name": "Mount Moosilauke",
+      "qid": "Q3321961",
+      "lat": 44.02451,
+      "lng": -71.83092,
+      "elev": 1464
+     },
+     {
+      "name": "Big Jay",
+      "qid": "Q4905896",
+      "lat": 44.91588,
+      "lng": -72.54039,
+      "elev": 1154
+     },
+     {
+      "name": "Mount Kelsey",
+      "qid": "Q6921624",
+      "lat": 44.80116,
+      "lng": -71.31369,
+      "elev": 1058
+     },
+     {
+      "name": "Mount Washington",
+      "qid": "Q572801",
+      "lat": 44.27083,
+      "lng": -71.30348,
+      "elev": 1917
+     },
+     {
+      "name": "Sugarloaf Mountain",
+      "qid": "Q3503069",
+      "lat": 45.03169,
+      "lng": -70.31333,
+      "elev": 1291
+     },
+     {
+      "name": "Sandy Bay Mountain",
+      "qid": "Q7417159",
+      "lat": 45.75433,
+      "lng": -70.39383,
+      "elev": 950
+     },
+     {
+      "name": "Katahdin",
+      "qid": "Q1858056",
+      "lat": 45.90436,
+      "lng": -68.92127,
+      "elev": 1606
+     },
+     {
+      "name": "Mount Carleton",
+      "qid": "Q667371",
+      "lat": 47.3833,
+      "lng": -66.8833,
+      "elev": 820
+     },
+     {
+      "name": "Mont Jacques-Cartier",
+      "qid": "Q1628389",
+      "lat": 48.9874,
+      "lng": -65.94842,
+      "elev": 1270
+     },
+     {
+      "name": "Pic de l'Aurore",
+      "qid": "Q3382400",
+      "lat": 48.5344,
+      "lng": -64.23,
+      "elev": 836
+     },
+     {
+      "name": "Wilkie Sugar Loaf",
+      "qid": "Q8002496",
+      "lat": 46.9553,
+      "lng": -60.4725,
+      "elev": 1351
+     },
+     {
+      "name": "Lewis Hills",
+      "qid": "Q6536695",
+      "lat": 48.8,
+      "lng": -58.51,
+      "elev": 814
+     },
+     {
+      "name": "Gros Morne",
+      "qid": "Q1547452",
+      "lat": 49.5936,
+      "lng": -57.7836,
+      "elev": 807
+     }
+    ],
+    "sourceVertices": 35,
+    "vertices": 35,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 3749,
+    "midpoint": [
+     44.08665,
+     -72.49445
+    ],
+    "midpointCountry": "United States of America",
+    "shares": [
+     [
+      "United States of America",
+      0.703
+     ],
+     [
+      null,
+      0.152
+     ],
+     [
+      "Canada",
+      0.145
+     ]
+    ],
+    "shareIso3": [
+     [
+      "USA",
+      0.703
+     ],
+     [
+      null,
+      0.152
+     ],
+     [
+      "CAN",
+      0.145
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.3,
+     0.8,
+     1.0,
+     1.0,
+     2.1,
+     2.5,
+     3.5,
+     5.5,
+     8.9,
+     9.2,
+     11.2,
+     12.2,
+     17.2,
+     28.2,
+     28.2,
+     30.4,
+     32.6,
+     36.8,
+     39.1,
+     39.9
+    ],
+    "p625Km": [
+     0.0,
+     11.8
+    ]
+   },
+   "score": {
+    "title": "Appalachian Mountains",
+    "months": [
+     104707,
+     78128,
+     73240,
+     64565,
+     58590,
+     62963,
+     66184,
+     72184,
+     67120,
+     67219,
+     82853,
+     79481
+    ],
+    "meanViews": 2403.4,
+    "medianViews": 2292.8,
+    "maxOverMedian": 1.5,
+    "scoringCountry": "United States",
+    "scoringIso2": "US",
+    "scoringShare": 0.703,
+    "centre": [
+     38.7919,
+     -93.5256
+    ],
+    "meanD": 4,
+    "meanWhy": "p.98·fb1843·K0·iso180 → 10.3 → 4",
+    "medianD": 4,
+    "medianWhy": "p.97·fb1843·K0·iso180 → 14.5 → 4",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.98,
+    "K": 0,
+    "dFb": 1843,
+    "d1M": 180,
+    "loss": 10.3,
+    "D": 4,
+    "why": "p.98·fb1843·K0·iso180 → 10.3 → 4"
+   }
+  }
+ },
+ "hindu-kush": {
+  "entry": {
+   "id": "hindu-kush",
+   "short": "Hindu Kush",
+   "clue": "Hindu Kush, Afghanistan and Pakistan 🇦🇫🇵🇰",
+   "fact": "Tirich Mir, at 7,708 metres, is its highest peak, and Alexander the Great marched his army across its passes in 329 BC.",
+   "lat": 35.61408,
+   "lng": 70.08032,
+   "difficulty": 5,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/File-Hindu_Kush_viewed_from_Camp_Marmal_at_Mazar-e_Sharif_in_Afghanistan2.JPG/500px-File-Hindu_Kush_viewed_from_Camp_Marmal_at_Mazar-e_Sharif_in_Afghanistan2.JPG",
+   "country": "Afghanistan and Pakistan",
+   "continent": "Asia",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.75·fb217·K0·iso146 → 15.5 → 5",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      67.3785,
+      33.0786
+     ],
+     [
+      68.5678,
+      34.1706
+     ],
+     [
+      68.8435,
+      35.274
+     ],
+     [
+      69.6779,
+      35.7448
+     ],
+     [
+      70.1646,
+      35.5867
+     ],
+     [
+      70.9833,
+      36.1792
+     ],
+     [
+      71.8439,
+      36.2458
+     ],
+     [
+      72.1167,
+      36.5475
+     ],
+     [
+      72.8283,
+      36.6483
+     ],
+     [
+      74.25,
+      36.8946
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 10 named principal peaks of the Hindu Kush (P4552 chain to Q5472), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q5472",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 10,
+   "vertices": 10,
+   "maxDeviationKm": 0.004,
+   "lengthKm": 840
+  },
+  "report": {
+   "image": {
+    "title": "File:File-Hindu Kush viewed from Camp Marmal at Mazar-e Sharif in Afghanistan2.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:File-Hindu_Kush_viewed_from_Camp_Marmal_at_Mazar-e_Sharif_in_Afghanistan2.JPG",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/63/File-Hindu_Kush_viewed_from_Camp_Marmal_at_Mazar-e_Sharif_in_Afghanistan2.JPG",
+    "license": "CC0",
+    "author": "Arabsalam",
+    "head": 200
+   },
+   "span": [
+    "Afghanistan",
+    "Pakistan"
+   ],
+   "wikidataP17iso3": [
+    "AFG",
+    "PAK"
+   ],
+   "shares": [
+    [
+     "Afghanistan",
+     0.686
+    ],
+    [
+     "Pakistan",
+     0.314
+    ]
+   ],
+   "geometry": {
+    "id": "hindu-kush",
+    "qid": "Q5472",
+    "wikidataP625": [
+     [
+      35,
+      71
+     ]
+    ],
+    "p17iso3": [
+     "AFG",
+     "PAK"
+    ],
+    "candidates": 31,
+    "excludedSubranges": [
+     "Q784189"
+    ],
+    "filtered": 31,
+    "droppedSample": [],
+    "droppedCount": 0,
+    "cells": 20,
+    "backboneKm": 855,
+    "method": "simplified polyline through 10 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5472",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Kharkush",
+      "qid": "Q16893335",
+      "lat": 33.0786,
+      "lng": 67.3785,
+      "elev": 4805
+     },
+     {
+      "name": "Gaw Kush (Wardak)",
+      "qid": "Q16891589",
+      "lat": 34.1706,
+      "lng": 68.5678,
+      "elev": 2779
+     },
+     {
+      "name": "Silsilah ye Koh e Hindukush",
+      "qid": "Q16900221",
+      "lat": 35.274,
+      "lng": 68.8435,
+      "elev": 4353
+     },
+     {
+      "name": "Khar Kush",
+      "qid": "Q16893333",
+      "lat": 35.7448,
+      "lng": 69.6779,
+      "elev": 4803
+     },
+     {
+      "name": "Mir Samir",
+      "qid": "Q15253520",
+      "lat": 35.58674,
+      "lng": 70.16457,
+      "elev": 5809
+     },
+     {
+      "name": "Kuh-e Bandaka",
+      "qid": "Q6442008",
+      "lat": 36.17917,
+      "lng": 70.98333,
+      "elev": 6843
+     },
+     {
+      "name": "Terich Mir",
+      "qid": "Q207132",
+      "lat": 36.24583,
+      "lng": 71.84389,
+      "elev": 7708
+     },
+     {
+      "name": "Saraghrar",
+      "qid": "Q2458240",
+      "lat": 36.5475,
+      "lng": 72.11667,
+      "elev": 7338
+     },
+     {
+      "name": "Shayaz",
+      "qid": "Q21042276",
+      "lat": 36.64833,
+      "lng": 72.82833,
+      "elev": 6026
+     },
+     {
+      "name": "Sakar Sar",
+      "qid": "Q20191261",
+      "lat": 36.8946,
+      "lng": 74.25,
+      "elev": 6272
+     }
+    ],
+    "sourceVertices": 10,
+    "vertices": 10,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.004,
+    "lengthKm": 840,
+    "midpoint": [
+     35.61408,
+     70.08032
+    ],
+    "midpointCountry": "Afghanistan",
+    "shares": [
+     [
+      "Afghanistan",
+      0.686
+     ],
+     [
+      "Pakistan",
+      0.314
+     ]
+    ],
+    "shareIso3": [
+     [
+      "AFG",
+      0.686
+     ],
+     [
+      "PAK",
+      0.314
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     4.7,
+     6.0,
+     8.7,
+     11.8,
+     13.3,
+     17.6,
+     20.0,
+     24.8,
+     26.4,
+     27.3,
+     28.5,
+     62.3,
+     105.1,
+     228.8,
+     480.1
+    ],
+    "p625Km": [
+     99.1
+    ]
+   },
+   "score": {
+    "title": "Hindu Kush",
+    "months": [
+     32090,
+     26539,
+     26299,
+     26206,
+     26976,
+     28854,
+     23821,
+     22691,
+     20665,
+     19959,
+     27511,
+     26607
+    ],
+    "meanViews": 844.4,
+    "medianViews": 869.0,
+    "maxOverMedian": 1.21,
+    "scoringCountry": "Afghanistan",
+    "scoringIso2": "AF",
+    "scoringShare": 0.686,
+    "centre": [
+     34.6553,
+     68.0075
+    ],
+    "meanD": 5,
+    "meanWhy": "p.75·fb217·K0·iso146 → 15.5 → 5",
+    "medianD": 5,
+    "medianWhy": "p.75·fb217·K0·iso146 → 15.2 → 5",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.75,
+    "K": 0,
+    "dFb": 217,
+    "d1M": 146,
+    "loss": 15.5,
+    "D": 5,
+    "why": "p.75·fb217·K0·iso146 → 15.5 → 5"
+   }
+  }
+ },
+ "karakoram": {
+  "entry": {
+   "id": "karakoram",
+   "short": "Karakoram",
+   "clue": "Karakoram, Pakistan, India, and China",
+   "fact": "Home to K2, the world's second-highest mountain, and to some of the longest glaciers outside the polar regions, among them the Siachen and the Baltoro.",
+   "lat": 35.8692,
+   "lng": 76.5272,
+   "difficulty": 7,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Passu_Panorama.jpg/500px-Passu_Panorama.jpg",
+   "country": "Pakistan, India, and China",
+   "continent": "Asia",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.73·fb784·K0·iso253 → 51.2 → 7",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      77.8996,
+      34.6062
+     ],
+     [
+      77.7333,
+      34.8333
+     ],
+     [
+      77.5775,
+      35.1408
+     ],
+     [
+      76.8475,
+      35.3996
+     ],
+     [
+      76.6964,
+      35.7244
+     ],
+     [
+      76.5133,
+      35.8811
+     ],
+     [
+      75.7536,
+      35.9478
+     ],
+     [
+      75.1883,
+      36.3258
+     ],
+     [
+      74.5225,
+      36.51
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 9 named principal peaks of the Karakoram (P4552 chain to Q5469), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q5469",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 9,
+   "vertices": 9,
+   "maxDeviationKm": 0.006,
+   "lengthKm": 399
+  },
+  "report": {
+   "image": {
+    "title": "File:Passu Panorama.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Passu_Panorama.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Passu_Panorama.jpg",
+    "license": "Public domain",
+    "author": "Isahmed",
+    "head": 200
+   },
+   "span": [
+    "Pakistan",
+    "India",
+    "China"
+   ],
+   "wikidataP17iso3": [
+    "AFG",
+    "CHN",
+    "IND",
+    "PAK",
+    "TJK"
+   ],
+   "shares": [
+    [
+     "Pakistan",
+     0.512
+    ],
+    [
+     "India",
+     0.237
+    ],
+    [
+     "China",
+     0.15
+    ],
+    [
+     "Siachen Glacier",
+     0.1
+    ]
+   ],
+   "geometry": {
+    "id": "karakoram",
+    "qid": "Q5469",
+    "wikidataP625": [
+     [
+      35.88306,
+      76.50889
+     ]
+    ],
+    "p17iso3": [
+     "AFG",
+     "CHN",
+     "IND",
+     "PAK",
+     "TJK"
+    ],
+    "candidates": 100,
+    "filtered": 90,
+    "droppedSample": [
+     [
+      "Batura II",
+      "outside OSM area"
+     ],
+     [
+      "Shispare",
+      "country None"
+     ],
+     [
+      "K12",
+      "country KAS"
+     ],
+     [
+      "Rimo I",
+      "country KAS"
+     ],
+     [
+      "Padmanabh",
+      "country KAS"
+     ],
+     [
+      "Gyong Kangri",
+      "country KAS"
+     ],
+     [
+      "Shani Peak",
+      "outside OSM area"
+     ],
+     [
+      "Mehrbani Peak",
+      "outside OSM area"
+     ],
+     [
+      "Snow Dome",
+      "outside OSM area"
+     ],
+     [
+      "Naltar Peak",
+      "outside OSM area"
+     ]
+    ],
+    "droppedCount": 10,
+    "osmArea": "relation 10770937",
+    "cells": 34,
+    "backboneKm": 491,
+    "method": "simplified polyline through 9 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5469",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Argan Kangri",
+      "qid": "Q19834782",
+      "lat": 34.60616,
+      "lng": 77.89956,
+      "elev": 6789
+     },
+     {
+      "name": "Saser Kangri",
+      "qid": "Q2102394",
+      "lat": 34.83333,
+      "lng": 77.73333,
+      "elev": 7672
+     },
+     {
+      "name": "Mamostong Kangri",
+      "qid": "Q937361",
+      "lat": 35.14083,
+      "lng": 77.5775,
+      "elev": 7516
+     },
+     {
+      "name": "Saltoro Kangri",
+      "qid": "Q728639",
+      "lat": 35.39958,
+      "lng": 76.84752,
+      "elev": 7742
+     },
+     {
+      "name": "Gasherbrum",
+      "qid": "Q187138",
+      "lat": 35.72444,
+      "lng": 76.69639,
+      "elev": 8080
+     },
+     {
+      "name": "K2",
+      "qid": "Q43512",
+      "lat": 35.88111,
+      "lng": 76.51333,
+      "elev": 8611
+     },
+     {
+      "name": "Baintha Brakk",
+      "qid": "Q1893268",
+      "lat": 35.94778,
+      "lng": 75.75361,
+      "elev": 7285
+     },
+     {
+      "name": "Distaghil Sar",
+      "qid": "Q782496",
+      "lat": 36.32583,
+      "lng": 75.18833,
+      "elev": 7885
+     },
+     {
+      "name": "Batura Sar",
+      "qid": "Q811064",
+      "lat": 36.51,
+      "lng": 74.5225,
+      "elev": 7795
+     }
+    ],
+    "sourceVertices": 9,
+    "vertices": 9,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 399,
+    "midpoint": [
+     35.8692,
+     76.5272
+    ],
+    "midpointCountry": "Pakistan",
+    "shares": [
+     [
+      "Pakistan",
+      0.512
+     ],
+     [
+      "India",
+      0.237
+     ],
+     [
+      "China",
+      0.15
+     ],
+     [
+      "Siachen Glacier",
+      0.1
+     ]
+    ],
+    "shareIso3": [
+     [
+      "PAK",
+      0.512
+     ],
+     [
+      "IND",
+      0.237
+     ],
+     [
+      "CHN",
+      0.15
+     ],
+     [
+      "KAS",
+      0.1
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.3,
+     0.4,
+     0.9,
+     1.2,
+     1.8,
+     2.6,
+     2.8,
+     3.0,
+     4.2,
+     6.1,
+     7.0,
+     7.0,
+     9.2,
+     14.8,
+     26.6,
+     28.3,
+     38.5,
+     39.6
+    ],
+    "p625Km": [
+     0.2
+    ]
+   },
+   "score": {
+    "title": "Karakoram",
+    "months": [
+     26491,
+     30870,
+     23103,
+     22075,
+     18202,
+     15734,
+     16439,
+     21887,
+     20099,
+     20135,
+     43877,
+     20526
+    ],
+    "meanViews": 765.6,
+    "medianViews": 697.6,
+    "maxOverMedian": 2.07,
+    "scoringCountry": "Pakistan",
+    "scoringIso2": "PK",
+    "scoringShare": 0.512,
+    "centre": [
+     30.271,
+     71.4022
+    ],
+    "meanD": 7,
+    "meanWhy": "p.73·fb784·K0·iso253 → 51.2 → 7",
+    "medianD": 7,
+    "medianWhy": "p.70·fb784·K0·iso253 → 54.7 → 7",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.73,
+    "K": 0,
+    "dFb": 784,
+    "d1M": 253,
+    "loss": 51.2,
+    "D": 7,
+    "why": "p.73·fb784·K0·iso253 → 51.2 → 7"
+   }
+  }
+ }
+}
