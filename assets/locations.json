@@ -959,18 +959,18 @@
   "category": "city"
  },
  {
-  "id": "banissa",
-  "short": "Banissa",
-  "clue": "Banissa, Kenya 🇰🇪",
-  "fact": "Banissa is a town in Kenya's Mandera County, near the borders with Ethiopia and Somalia.",
-  "lat": 3.94102,
-  "lng": 40.34248,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Nidaros_Cathedral%2C_Trondheim%2C_West_view_20150605_1.jpg/500px-Nidaros_Cathedral%2C_Trondheim%2C_West_view_20150605_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "id": "eldoret-ke",
+  "short": "Eldoret",
+  "clue": "Eldoret, Kenya 🇰🇪",
+  "fact": "Eldoret sits high on the Uasin Gishu plateau and is the training base for many of Kenya's champion distance runners, earning it the nickname City of Champions.",
+  "lat": 0.51667,
+  "lng": 35.28333,
+  "difficulty": 6,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Skyline_of_Eldoret_Facing_West_from_Mups_Plaza.jpg",
   "country": "Kenya",
   "continent": "Africa",
   "sets": [],
-  "difficultyWhy": "p.00·fb673·K0·iso592 → 143.7 → 9",
+  "difficultyWhy": "p.33·fb237·K0·iso64 → 35.3 → 6",
   "category": "city"
  },
  {
@@ -5207,18 +5207,18 @@
   "category": "city"
  },
  {
-  "id": "kakamega-ke",
-  "short": "Kakamega",
-  "clue": "Kakamega, Kenya 🇰🇪",
-  "fact": "Kakamega is a western Kenyan town next to Kakamega Forest, the country's last patch of Guineo-Congolian rainforest.",
-  "lat": 0.28422,
-  "lng": 34.75229,
-  "difficulty": 7,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Cykeltaxi_i_kakamega.jpg/500px-Cykeltaxi_i_kakamega.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "id": "kisumu-ke",
+  "short": "Kisumu",
+  "clue": "Kisumu, Kenya 🇰🇪",
+  "fact": "Kisumu is Kenya's main port on Lake Victoria, where the Uganda Railway from Mombasa finally reached the lake in 1901.",
+  "lat": -0.1,
+  "lng": 34.75,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Kisumu_city.jpg_2.jpg/1280px-Kisumu_city.jpg_2.jpg",
   "country": "Kenya",
   "continent": "Africa",
   "sets": [],
-  "difficultyWhy": "p.08·fb267·K0·iso241 → 50.3 → 7",
+  "difficultyWhy": "p.38·fb248·K0·iso43 → 35.0 → 6",
   "category": "city"
  },
  {
@@ -6605,23 +6605,23 @@
   "category": "city"
  },
  {
-  "id": "maiduguri-ng",
-  "short": "Maiduguri",
-  "clue": "Maiduguri, Nigeria 🇳🇬",
-  "fact": "Maiduguri is the largest city in northeastern Nigeria and a historic trading hub near Lake Chad.",
-  "lat": 11.84692,
-  "lng": 13.15712,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Keke_and_street_market_Maiduguri_Borno_State_Nigeria.jpg/500px-Keke_and_street_market_Maiduguri_Borno_State_Nigeria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "id": "ile-ife-ng",
+  "short": "Ile-Ife",
+  "clue": "Ile-Ife, Nigeria 🇳🇬",
+  "fact": "Ile-Ife is revered in Yoruba tradition as the place where the world was created, and its artists cast lifelike bronze heads between the 12th and 15th centuries.",
+  "lat": 7.46667,
+  "lng": 4.56667,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Ile_Ife_aerial_scape.jpg/1280px-Ile_Ife_aerial_scape.jpg",
   "country": "Nigeria",
   "region": {
-   "id": "NG.27",
-   "name": "Borno State",
-   "outline": "NG.27"
+   "id": "NG.42",
+   "name": "Osun State",
+   "outline": "NG.42"
   },
   "continent": "Africa",
   "sets": [],
-  "difficultyWhy": "p.32·fb910·K0·iso207 → 136.7 → 9",
+  "difficultyWhy": "p.31·fb154·K0·iso74 → 24.0 → 5",
   "category": "city"
  },
  {
@@ -6970,25 +6970,25 @@
   "category": "city"
  },
  {
-  "id": "mecca-saudi-arabia",
-  "clue": "Mecca, Saudi Arabia 🇸🇦",
-  "fact": "More than 1.8 million pilgrims circle the Kaaba counter-clockwise five times each Hajj season, inside the largest mosque complex in the world.",
-  "lat": 21.3891,
-  "lng": 39.8579,
-  "difficulty": 1,
-  "short": "Mecca",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Great_Mosque_of_Mecca1.jpg/500px-Great_Mosque_of_Mecca1.jpg",
+  "id": "abha-sa",
+  "short": "Abha",
+  "clue": "Abha, Saudi Arabia 🇸🇦",
+  "fact": "Abha sits about 2,200 metres up in the Asir Mountains, which gives this Saudi city cool summers, fog and green terraced slopes.",
+  "lat": 18.21667,
+  "lng": 42.5,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Abha_%2851289579187%29.jpg/1280px-Abha_%2851289579187%29.jpg",
   "country": "Saudi Arabia",
   "region": {
-   "id": "SA.14",
-   "name": "Mecca Region",
-   "outline": "SA.14"
+   "id": "SA.11",
+   "name": "'Asir Region",
+   "outline": "SA.11"
   },
   "continent": "Asia",
   "sets": [
    "Middle East"
   ],
-  "difficultyWhy": "p.99·fb419·K0·iso70 → 3.9 → 1",
+  "difficultyWhy": "p.43·fb624·K0·iso366 → 80.2 → 8",
   "category": "city"
  },
  {
@@ -7012,14 +7012,14 @@
   "category": "city"
  },
  {
-  "id": "medina-saudi-arabia",
-  "clue": "Medina, Saudi Arabia 🇸🇦",
-  "fact": "The Prophet's Mosque here was the first mosque built under Muslim rule in Arabia, and its courtyards were expanded so often that they now nest inside one another.",
-  "lat": 24.47058,
-  "lng": 39.61056,
-  "difficulty": 5,
-  "short": "Medina",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Medina_City_Streets.jpg/500px-Medina_City_Streets.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "id": "alula-sa",
+  "short": "AlUla",
+  "clue": "AlUla, Saudi Arabia 🇸🇦",
+  "fact": "AlUla is an oasis town of palm groves and sandstone cliffs beside Hegra, whose Nabataean tombs became Saudi Arabia's first UNESCO World Heritage Site.",
+  "lat": 26.60889,
+  "lng": 37.92361,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Al-Ula%2C_Saudi_Arabia%2C_seen_from_the_viewpoint_%288%29.jpg/1280px-Al-Ula%2C_Saudi_Arabia%2C_seen_from_the_viewpoint_%288%29.jpg",
   "country": "Saudi Arabia",
   "region": {
    "id": "SA.05",
@@ -7028,7 +7028,7 @@
   },
   "continent": "Asia",
   "sets": [],
-  "difficultyWhy": "p.84·fb355·K0·iso340 → 15.9 → 5",
+  "difficultyWhy": "p.58·fb596·K0·iso292 → 58.9 → 7",
   "category": "city"
  },
  {
@@ -7114,23 +7114,23 @@
   "category": "city"
  },
  {
-  "id": "mexicali-mx",
-  "short": "Mexicali",
-  "clue": "Mexicali, Mexico 🇲🇽",
-  "fact": "Mexicali is the capital of Baja California, right on the US border, and has a large Chinese community and food scene.",
-  "lat": 32.62781,
-  "lng": -115.45446,
+  "id": "la-paz-mx",
+  "short": "La Paz",
+  "clue": "La Paz, Mexico 🇲🇽",
+  "fact": "La Paz is the capital of Baja California Sur, and boats leave its waterfront malecón to swim with whale sharks in the Sea of Cortez.",
+  "lat": 24.14861,
+  "lng": -110.30667,
   "difficulty": 9,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Catedral_de_Mexicali_01.jpg/500px-Catedral_de_Mexicali_01.jpg",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/La_Paz_vista_desde_the_one.jpg/1280px-La_Paz_vista_desde_the_one.jpg",
   "country": "Mexico",
   "region": {
-   "id": "MX.02",
-   "name": "Baja California",
-   "outline": "MX.02"
+   "id": "MX.03",
+   "name": "Baja California Sur",
+   "outline": "MX.03"
   },
   "continent": "North America",
   "sets": [],
-  "difficultyWhy": "p.56·fb1911·K0·iso146 → 179.8 → 9",
+  "difficultyWhy": "p.50·fb1039·K0·iso807 → 116.7 → 9",
   "category": "city"
  },
  {
@@ -8085,18 +8085,18 @@
   "category": "city"
  },
  {
-  "id": "niue-alofi",
-  "short": "Alofi, Niue",
-  "clue": "Alofi, Niue 🇳🇺",
-  "fact": "Alofi is the tiny capital of Niue, one of the world's largest coral islands by land area relative to population.",
-  "lat": -19.0544,
-  "lng": -169.9187,
+  "id": "nadi-fj",
+  "short": "Nadi",
+  "clue": "Nadi, Fiji 🇫🇯",
+  "fact": "Nadi is where most visitors first land in Fiji, and its brightly painted Sri Siva Subramaniya temple reflects the town's large Indo-Fijian community.",
+  "lat": -17.8,
+  "lng": 177.41667,
   "difficulty": 10,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Alofi_Visitor_Information_Centre.jpg/500px-Alofi_Visitor_Information_Centre.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Niue",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/2010-11-03_Viti_Levu_on_approach_to_Nadi_Airport_-_11.jpg/1280px-2010-11-03_Viti_Levu_on_approach_to_Nadi_Airport_-_11.jpg",
+  "country": "Fiji",
   "continent": "Oceania",
   "sets": [],
-  "difficultyWhy": "p.31·fb0·K2·iso2478 → 538.8 → 10",
+  "difficultyWhy": "p.33·fb83·K1·iso2134 → 296.0 → 10",
   "category": "city"
  },
  {
@@ -9311,18 +9311,18 @@
   "category": "city"
  },
  {
-  "id": "puerto-lempira",
-  "short": "Puerto Lempira",
-  "clue": "Puerto Lempira, Honduras 🇭🇳",
-  "fact": "Puerto Lempira is the capital of Honduras' Gracias a Dios department, one of Central America's most isolated regions.",
-  "lat": 15.2667,
-  "lng": -83.7722,
-  "difficulty": 8,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Muelle_de_puerto_lempira.jpg/500px-Muelle_de_puerto_lempira.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "country": "Honduras",
+  "id": "quetzaltenango-gt",
+  "short": "Quetzaltenango",
+  "clue": "Quetzaltenango, Guatemala 🇬🇹",
+  "fact": "Guatemala's second city sits about 2,300 metres up in the western highlands, ringed by volcanoes, and most people call it by its Maya name, Xela.",
+  "lat": 14.83333,
+  "lng": -91.51667,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Air_view_of_Quetzaltenango_City%2C_Guatemala.jpg/1280px-Air_view_of_Quetzaltenango_City%2C_Guatemala.jpg",
+  "country": "Guatemala",
   "continent": "North America",
   "sets": [],
-  "difficultyWhy": "p.00·fb393·K0·iso885 → 81.0 → 8",
+  "difficultyWhy": "p.29·fb88·K0·iso711 → 16.5 → 5",
   "category": "city"
  },
  {
@@ -9747,25 +9747,25 @@
   "difficultyWhy": "p.57·fb213·K0·iso172 → 22.8 → 5"
  },
  {
-  "id": "sabha",
-  "short": "Sabha",
-  "clue": "Sabha, Libya 🇱🇾",
-  "fact": "Sabha is the largest city in Libya's southern Sahara and a crossroads for trade routes across the desert.",
-  "lat": 27.03766,
-  "lng": 14.42832,
-  "difficulty": 8,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Sebha_Bank_from_Kazem_hotel_2010-02-08.jpg/500px-Sebha_Bank_from_Kazem_hotel_2010-02-08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "Libya",
+  "id": "biskra-dz",
+  "short": "Biskra",
+  "clue": "Biskra, Algeria 🇩🇿",
+  "fact": "Biskra is an oasis city on the northern edge of the Sahara, nicknamed the Queen of the Ziban and famous for its Deglet Nour dates.",
+  "lat": 34.85,
+  "lng": 5.73333,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/View_of_Biskra_01.jpg/1280px-View_of_Biskra_01.jpg",
+  "country": "Algeria",
   "region": {
-   "id": "LY.75",
-   "name": "Sabha District",
-   "outline": "LY.75"
+   "id": "DZ.19",
+   "name": "Biskra",
+   "outline": "DZ.19"
   },
   "continent": "Africa",
   "sets": [
    "Desert Cities"
   ],
-  "difficultyWhy": "p.34·fb566·K0·iso661 → 82.9 → 8",
+  "difficultyWhy": "p.47·fb218·K0·iso317 → 27.5 → 6",
   "category": "city"
  },
  {
@@ -12340,25 +12340,25 @@
   "category": "city"
  },
  {
-  "id": "yantai-cn",
-  "short": "Yantai",
-  "clue": "Yantai, China 🇨🇳",
-  "fact": "Yantai is a Shandong port on the Bohai Strait and one of China's oldest wine regions, home to the Changyu winery founded in 1892.",
-  "lat": 37.47649,
-  "lng": 121.44081,
+  "id": "yinchuan-cn",
+  "short": "Yinchuan",
+  "clue": "Yinchuan, China 🇨🇳",
+  "fact": "Yinchuan sits at the foot of the Helan Mountains, whose eastern slopes have become China's most celebrated wine region, and the Western Xia royal tombs lie just outside the city.",
+  "lat": 38.485,
+  "lng": 106.225,
   "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/View_of_Yinchuan_looking_north_from_top_of_Chengtian_Temple_Pagoda.jpg/1280px-View_of_Yinchuan_looking_north_from_top_of_Chengtian_Temple_Pagoda.jpg",
   "country": "China",
   "region": {
-   "id": "CN.25",
-   "name": "Shandong",
-   "outline": "CN.25"
+   "id": "CN.21",
+   "name": "Ningxia",
+   "outline": "CN.21"
   },
   "continent": "Asia",
   "sets": [
    "Wine Country"
   ],
-  "difficultyWhy": "p.36·fb858·K0·iso160 → 122.3 → 9",
+  "difficultyWhy": "p.40·fb990·K0·iso55 → 133.5 → 9",
   "category": "city"
  },
  {
@@ -12554,20 +12554,20 @@
   "category": "city"
  },
  {
-  "id": "zajecar",
-  "short": "Zaječar",
-  "clue": "Zaječar, Serbia 🇷🇸",
-  "fact": "Zaječar is a Serbian town near Felix Romuliana, a UNESCO-listed Roman palace built by Emperor Galerius.",
-  "lat": 43.90358,
-  "lng": 22.26405,
+  "id": "subotica-rs",
+  "short": "Subotica",
+  "clue": "Subotica, Serbia 🇷🇸",
+  "fact": "Subotica, near the Hungarian border, is packed with Art Nouveau buildings, led by its ornate town hall and a synagogue in the Hungarian Secession style.",
+  "lat": 46.10021,
+  "lng": 19.66533,
   "difficulty": 6,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Zajecar_centar.jpg/500px-Zajecar_centar.jpg",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/View_of_Subotica_%282024%29.jpg/1280px-View_of_Subotica_%282024%29.jpg",
   "country": "Serbia",
   "continent": "Europe",
   "sets": [
    "Balkans"
   ],
-  "difficultyWhy": "p.08·fb148·K0·iso159 → 26.7 → 6",
+  "difficultyWhy": "p.45·fb191·K0·iso157 → 24.9 → 6",
   "category": "city"
  },
  {
@@ -12633,23 +12633,23 @@
   "category": "city"
  },
  {
-  "id": "zaranj",
-  "short": "Zaranj",
-  "clue": "Zaranj, Afghanistan 🇦🇫",
-  "fact": "Zaranj is the capital of Afghanistan's Nimruz province, on the border with Iran.",
-  "lat": 30.95962,
-  "lng": 61.86037,
-  "difficulty": 9,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Zaranj_in_June_2011.jpg/500px-Zaranj_in_June_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "id": "bamyan-af",
+  "short": "Bamyan",
+  "clue": "Bamyan, Afghanistan 🇦🇫",
+  "fact": "Bamyan lies in a high valley where two giant Buddhas carved into the cliffs stood for about 1,500 years, until the Taliban destroyed them in 2001.",
+  "lat": 34.81667,
+  "lng": 67.81667,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Bamikan.jpg/1280px-Bamikan.jpg",
   "country": "Afghanistan",
   "region": {
-   "id": "AF.19",
-   "name": "Nimroz",
-   "outline": "AF.19"
+   "id": "AF.05",
+   "name": "Bamyan",
+   "outline": "AF.05"
   },
   "continent": "Asia",
   "sets": [],
-  "difficultyWhy": "p.13·fb706·K0·iso500 → 133.6 → 9",
+  "difficultyWhy": "p.37·fb25·K0·iso128 → 15.7 → 5",
   "category": "city"
  },
  {

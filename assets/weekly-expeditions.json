@@ -135,7 +135,7 @@
     "id": "the-balkans",
     "name": "The Balkans",
     "sub": "Bridges, bazaars and capitals across the Balkans.",
-    "locationIds": ["belgrade", "sofia-bulgaria", "skopje-north-macedonia", "tirana-albania", "stari-most", "dubrovnik-croatia", "zajecar"]
+    "locationIds": ["belgrade", "sofia-bulgaria", "skopje-north-macedonia", "tirana-albania", "stari-most", "dubrovnik-croatia", "subotica-rs"]
   },
   {
     "id": "the-alps",

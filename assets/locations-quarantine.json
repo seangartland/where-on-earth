@@ -1,0 +1,225 @@
+[
+ {
+  "id": "yantai-cn",
+  "short": "Yantai",
+  "clue": "Yantai, China 🇨🇳",
+  "fact": "Yantai is a Shandong port on the Bohai Strait and one of China's oldest wine regions, home to the Changyu winery founded in 1892.",
+  "lat": 37.47649,
+  "lng": 121.44081,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/500px-The_Arch_of_Triumph_%2811360607534%29.jpg",
+  "country": "China",
+  "region": {
+   "id": "CN.25",
+   "name": "Shandong",
+   "outline": "CN.25"
+  },
+  "continent": "Asia",
+  "sets": [
+   "Wine Country"
+  ],
+  "difficultyWhy": "p.36·fb858·K0·iso160 → 122.3 → 9",
+  "category": "city"
+ },
+ {
+  "id": "banissa",
+  "short": "Banissa",
+  "clue": "Banissa, Kenya 🇰🇪",
+  "fact": "Banissa is a town in Kenya's Mandera County, near the borders with Ethiopia and Somalia.",
+  "lat": 3.94102,
+  "lng": 40.34248,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Nidaros_Cathedral%2C_Trondheim%2C_West_view_20150605_1.jpg/500px-Nidaros_Cathedral%2C_Trondheim%2C_West_view_20150605_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Kenya",
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.00·fb673·K0·iso592 → 143.7 → 9",
+  "category": "city"
+ },
+ {
+  "id": "zaranj",
+  "short": "Zaranj",
+  "clue": "Zaranj, Afghanistan 🇦🇫",
+  "fact": "Zaranj is the capital of Afghanistan's Nimruz province, on the border with Iran.",
+  "lat": 30.95962,
+  "lng": 61.86037,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Zaranj_in_June_2011.jpg/500px-Zaranj_in_June_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "Afghanistan",
+  "region": {
+   "id": "AF.19",
+   "name": "Nimroz",
+   "outline": "AF.19"
+  },
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.13·fb706·K0·iso500 → 133.6 → 9",
+  "category": "city"
+ },
+ {
+  "id": "mexicali-mx",
+  "short": "Mexicali",
+  "clue": "Mexicali, Mexico 🇲🇽",
+  "fact": "Mexicali is the capital of Baja California, right on the US border, and has a large Chinese community and food scene.",
+  "lat": 32.62781,
+  "lng": -115.45446,
+  "difficulty": 9,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Catedral_de_Mexicali_01.jpg/500px-Catedral_de_Mexicali_01.jpg",
+  "country": "Mexico",
+  "region": {
+   "id": "MX.02",
+   "name": "Baja California",
+   "outline": "MX.02"
+  },
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.56·fb1911·K0·iso146 → 179.8 → 9",
+  "category": "city"
+ },
+ {
+  "id": "maiduguri-ng",
+  "short": "Maiduguri",
+  "clue": "Maiduguri, Nigeria 🇳🇬",
+  "fact": "Maiduguri is the largest city in northeastern Nigeria and a historic trading hub near Lake Chad.",
+  "lat": 11.84692,
+  "lng": 13.15712,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Keke_and_street_market_Maiduguri_Borno_State_Nigeria.jpg/500px-Keke_and_street_market_Maiduguri_Borno_State_Nigeria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "Nigeria",
+  "region": {
+   "id": "NG.27",
+   "name": "Borno State",
+   "outline": "NG.27"
+  },
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.32·fb910·K0·iso207 → 136.7 → 9",
+  "category": "city"
+ },
+ {
+  "id": "kakamega-ke",
+  "short": "Kakamega",
+  "clue": "Kakamega, Kenya 🇰🇪",
+  "fact": "Kakamega is a western Kenyan town next to Kakamega Forest, the country's last patch of Guineo-Congolian rainforest.",
+  "lat": 0.28422,
+  "lng": 34.75229,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Cykeltaxi_i_kakamega.jpg/500px-Cykeltaxi_i_kakamega.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "Kenya",
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.08·fb267·K0·iso241 → 50.3 → 7",
+  "category": "city"
+ },
+ {
+  "id": "sabha",
+  "short": "Sabha",
+  "clue": "Sabha, Libya 🇱🇾",
+  "fact": "Sabha is the largest city in Libya's southern Sahara and a crossroads for trade routes across the desert.",
+  "lat": 27.03766,
+  "lng": 14.42832,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Sebha_Bank_from_Kazem_hotel_2010-02-08.jpg/500px-Sebha_Bank_from_Kazem_hotel_2010-02-08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "Libya",
+  "region": {
+   "id": "LY.75",
+   "name": "Sabha District",
+   "outline": "LY.75"
+  },
+  "continent": "Africa",
+  "sets": [
+   "Desert Cities"
+  ],
+  "difficultyWhy": "p.34·fb566·K0·iso661 → 82.9 → 8",
+  "category": "city"
+ },
+ {
+  "id": "niue-alofi",
+  "short": "Alofi, Niue",
+  "clue": "Alofi, Niue 🇳🇺",
+  "fact": "Alofi is the tiny capital of Niue, one of the world's largest coral islands by land area relative to population.",
+  "lat": -19.0544,
+  "lng": -169.9187,
+  "difficulty": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Alofi_Visitor_Information_Centre.jpg/500px-Alofi_Visitor_Information_Centre.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Niue",
+  "continent": "Oceania",
+  "sets": [],
+  "difficultyWhy": "p.31·fb0·K2·iso2478 → 538.8 → 10",
+  "category": "city"
+ },
+ {
+  "id": "puerto-lempira",
+  "short": "Puerto Lempira",
+  "clue": "Puerto Lempira, Honduras 🇭🇳",
+  "fact": "Puerto Lempira is the capital of Honduras' Gracias a Dios department, one of Central America's most isolated regions.",
+  "lat": 15.2667,
+  "lng": -83.7722,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Muelle_de_puerto_lempira.jpg/500px-Muelle_de_puerto_lempira.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "country": "Honduras",
+  "continent": "North America",
+  "sets": [],
+  "difficultyWhy": "p.00·fb393·K0·iso885 → 81.0 → 8",
+  "category": "city"
+ },
+ {
+  "id": "zajecar",
+  "short": "Zaječar",
+  "clue": "Zaječar, Serbia 🇷🇸",
+  "fact": "Zaječar is a Serbian town near Felix Romuliana, a UNESCO-listed Roman palace built by Emperor Galerius.",
+  "lat": 43.90358,
+  "lng": 22.26405,
+  "difficulty": 6,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Zajecar_centar.jpg/500px-Zajecar_centar.jpg",
+  "country": "Serbia",
+  "continent": "Europe",
+  "sets": [
+   "Balkans"
+  ],
+  "difficultyWhy": "p.08·fb148·K0·iso159 → 26.7 → 6",
+  "category": "city"
+ },
+ {
+  "id": "mecca-saudi-arabia",
+  "clue": "Mecca, Saudi Arabia 🇸🇦",
+  "fact": "More than 1.8 million pilgrims circle the Kaaba counter-clockwise five times each Hajj season, inside the largest mosque complex in the world.",
+  "lat": 21.3891,
+  "lng": 39.8579,
+  "difficulty": 1,
+  "short": "Mecca",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Great_Mosque_of_Mecca1.jpg/500px-Great_Mosque_of_Mecca1.jpg",
+  "country": "Saudi Arabia",
+  "region": {
+   "id": "SA.14",
+   "name": "Mecca Region",
+   "outline": "SA.14"
+  },
+  "continent": "Asia",
+  "sets": [
+   "Middle East"
+  ],
+  "difficultyWhy": "p.99·fb419·K0·iso70 → 3.9 → 1",
+  "category": "city"
+ },
+ {
+  "id": "medina-saudi-arabia",
+  "clue": "Medina, Saudi Arabia 🇸🇦",
+  "fact": "The Prophet's Mosque here was the first mosque built under Muslim rule in Arabia, and its courtyards were expanded so often that they now nest inside one another.",
+  "lat": 24.47058,
+  "lng": 39.61056,
+  "difficulty": 5,
+  "short": "Medina",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Medina_City_Streets.jpg/500px-Medina_City_Streets.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "country": "Saudi Arabia",
+  "region": {
+   "id": "SA.05",
+   "name": "Medina Region",
+   "outline": "SA.05"
+  },
+  "continent": "Asia",
+  "sets": [],
+  "difficultyWhy": "p.84·fb355·K0·iso340 → 15.9 → 5",
+  "category": "city"
+ }
+]
