@@ -210,6 +210,7 @@ def range_peaks(qid):
     rows = {}
     for b in sparql(q)['results']['bindings']:
         pid = b['p']['value'].rsplit('/', 1)[1]
+        if not b['coord']['value'].startswith('Point('): continue   # unknown-value coordinate (genid)
         lng, lat = map(float, b['coord']['value'][6:-1].split())
         elev = float(b['elev']['value'])
         if pid not in rows or elev > rows[pid]['elev']:

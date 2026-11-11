@@ -1,7 +1,7 @@
 """Mountain-ranges batch: image candidates from Wikimedia Commons search (skill Step 4: search by name, never the page
 image). Denylist before review: montage, collage, map, flag, logo, coat of arms, locator, diagram, any non-JPEG.
 The file title or description must name the range. PD/CC0 sort first (no-credit happy path), then CC BY / BY-SA.
-Usage (from demo/): python3 scripts/mountain-ranges/images.py <id> ["extra search terms"]
+Usage (from demo/): python3 scripts/mountain-ranges/images.py <id> ["extra query; another query"]
 Writes .build-tmp/mountain-ranges/images-<id>.json and 400px thumbnails for visual review (center-square judged)."""
 import hashlib, html, json, os, re, sys, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +31,7 @@ def strip(s): return html.unescape(re.sub('<[^>]+>', '', s or '')).strip()
 def candidates(rid, extra=''):
     name = RANGES[rid]; names = ALIASES.get(rid, [name])
     seen, out = set(), []
-    for q in [f'{name} panorama', f'{name} landscape', f'{name} mountains view', f'{name} {extra}'.strip()]:
+    for q in [f'{name} panorama', f'{name} landscape', f'{name} mountains view'] + [x.strip() for x in extra.split(';') if x.strip()]:
         r = get('https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=50'
                 '&prop=imageinfo&iiprop=url|size|mime|extmetadata&iiurlwidth=400&gsrsearch=' + urllib.parse.quote(q))
         for p in (r or {}).get('query', {}).get('pages', {}).values():

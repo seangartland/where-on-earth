@@ -3349,5 +3349,2015 @@
     "why": "p.73·fb784·K0·iso253 → 51.2 → 7"
    }
   }
+ },
+ "carpathian-mountains": {
+  "entry": {
+   "id": "carpathian-mountains",
+   "short": "Carpathian Mountains",
+   "clue": "Carpathian Mountains, Central and Eastern Europe",
+   "fact": "Arcing about 1,500 km from near Bratislava to the Iron Gates gorge of the Danube, the Carpathians shelter some of Europe's largest populations of brown bears, wolves and lynx.",
+   "lat": 47.13936,
+   "lng": 25.16872,
+   "difficulty": 4,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Carpathian_Mountains_%28Unsplash_hmyVTVUxQek%29.jpg/500px-Carpathian_Mountains_%28Unsplash_hmyVTVUxQek%29.jpg",
+   "country": "Romania, Slovakia, Serbia, Ukraine, Poland, and Czechia",
+   "continent": "Europe",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.79·fb196·K0·iso310 → 12.3 → 4",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      18.2228,
+      49.4918
+     ],
+     [
+      18.4475,
+      49.5458
+     ],
+     [
+      19.5306,
+      49.5731
+     ],
+     [
+      19.6402,
+      48.9366
+     ],
+     [
+      20.1339,
+      49.1642
+     ],
+     [
+      22.7381,
+      49.0694
+     ],
+     [
+      23.0008,
+      48.8294
+     ],
+     [
+      24.2318,
+      48.2323
+     ],
+     [
+      24.63,
+      47.6
+     ],
+     [
+      25.1854,
+      47.1251
+     ],
+     [
+      25.88,
+      46.13
+     ],
+     [
+      25.4564,
+      45.4458
+     ],
+     [
+      24.7362,
+      45.5994
+     ],
+     [
+      23.5408,
+      45.3403
+     ],
+     [
+      22.8944,
+      45.3661
+     ],
+     [
+      22.1392,
+      44.1772
+     ],
+     [
+      21.9333,
+      43.5939
+     ],
+     [
+      21.7092,
+      44.1185
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 18 named principal peaks of the Carpathian Mountains (P4552 chain to Q1288), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q1288",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 18,
+   "vertices": 18,
+   "maxDeviationKm": 0.006,
+   "lengthKm": 1375
+  },
+  "report": {
+   "image": {
+    "title": "File:Carpathian Mountains (Unsplash hmyVTVUxQek).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Carpathian_Mountains_(Unsplash_hmyVTVUxQek).jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Carpathian_Mountains_%28Unsplash_hmyVTVUxQek%29.jpg",
+    "license": "CC0",
+    "author": "Anastasia Petrova anastasia_p",
+    "head": 200
+   },
+   "span": [
+    "Romania",
+    "Slovakia",
+    "Serbia",
+    "Ukraine",
+    "Poland",
+    "Czechia"
+   ],
+   "wikidataP17iso3": [
+    "AUT",
+    "CZE",
+    "HUN",
+    "POL",
+    "ROU",
+    "SRB",
+    "SVK",
+    "UKR"
+   ],
+   "shares": [
+    [
+     "Romania",
+     0.436
+    ],
+    [
+     "Slovakia",
+     0.207
+    ],
+    [
+     "Serbia",
+     0.142
+    ],
+    [
+     "Ukraine",
+     0.124
+    ],
+    [
+     "Poland",
+     0.058
+    ],
+    [
+     "Czechia",
+     0.033
+    ]
+   ],
+   "geometry": {
+    "id": "carpathian-mountains",
+    "qid": "Q1288",
+    "wikidataP625": [
+     [
+      47,
+      25.5
+     ]
+    ],
+    "p17iso3": [
+     "AUT",
+     "CZE",
+     "HUN",
+     "POL",
+     "ROU",
+     "SRB",
+     "SVK",
+     "UKR"
+    ],
+    "candidates": 134,
+    "filtered": 134,
+    "droppedSample": [],
+    "droppedCount": 0,
+    "osmArea": "relation 16391635",
+    "cells": 49,
+    "backboneKm": 1474,
+    "method": "simplified polyline through 18 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q1288",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Radhošť",
+      "qid": "Q1578621",
+      "lat": 49.49184,
+      "lng": 18.22279,
+      "elev": 1129
+     },
+     {
+      "name": "Lysá hora",
+      "qid": "Q1573557",
+      "lat": 49.54583,
+      "lng": 18.4475,
+      "elev": 1324
+     },
+     {
+      "name": "Babia Góra",
+      "qid": "Q595780",
+      "lat": 49.57306,
+      "lng": 19.53056,
+      "elev": 1725
+     },
+     {
+      "name": "Ďumbier",
+      "qid": "Q341905",
+      "lat": 48.93661,
+      "lng": 19.64017,
+      "elev": 2046
+     },
+     {
+      "name": "Gerlachovský štít",
+      "qid": "Q81213",
+      "lat": 49.16417,
+      "lng": 20.13389,
+      "elev": 2655
+     },
+     {
+      "name": "Tarnica",
+      "qid": "Q577655",
+      "lat": 49.06944,
+      "lng": 22.73806,
+      "elev": 1346
+     },
+     {
+      "name": "Pikui",
+      "qid": "Q4362640",
+      "lat": 48.82944,
+      "lng": 23.00083,
+      "elev": 1408
+     },
+     {
+      "name": "Dragobrat",
+      "qid": "Q81828",
+      "lat": 48.23233,
+      "lng": 24.23181,
+      "elev": 1763
+     },
+     {
+      "name": "Pietrosul Rodnei",
+      "qid": "Q153170",
+      "lat": 47.6,
+      "lng": 24.63,
+      "elev": 2303
+     },
+     {
+      "name": "Pietrosu Peak",
+      "qid": "Q517345",
+      "lat": 47.12514,
+      "lng": 25.18545,
+      "elev": 2100
+     },
+     {
+      "name": "Ciomadul",
+      "qid": "Q874092",
+      "lat": 46.13,
+      "lng": 25.88,
+      "elev": 1289
+     },
+     {
+      "name": "Omu Peak",
+      "qid": "Q544244",
+      "lat": 45.4458,
+      "lng": 25.4564,
+      "elev": 2514
+     },
+     {
+      "name": "Moldoveanu Peak",
+      "qid": "Q746524",
+      "lat": 45.59944,
+      "lng": 24.73621,
+      "elev": 2544
+     },
+     {
+      "name": "Parângu Mare",
+      "qid": "Q897451",
+      "lat": 45.34028,
+      "lng": 23.54083,
+      "elev": 2519
+     },
+     {
+      "name": "Peleaga",
+      "qid": "Q1232288",
+      "lat": 45.36611,
+      "lng": 22.89444,
+      "elev": 2509
+     },
+     {
+      "name": "Stol",
+      "qid": "Q7618590",
+      "lat": 44.1772,
+      "lng": 22.1392,
+      "elev": 1156
+     },
+     {
+      "name": "Devica",
+      "qid": "Q3025426",
+      "lat": 43.59389,
+      "lng": 21.93333,
+      "elev": 1187
+     },
+     {
+      "name": "Beljanica",
+      "qid": "Q2894533",
+      "lat": 44.1185,
+      "lng": 21.70917,
+      "elev": 1339
+     }
+    ],
+    "sourceVertices": 18,
+    "vertices": 18,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 1375,
+    "midpoint": [
+     47.13936,
+     25.16872
+    ],
+    "midpointCountry": "Romania",
+    "shares": [
+     [
+      "Romania",
+      0.436
+     ],
+     [
+      "Slovakia",
+      0.207
+     ],
+     [
+      "Serbia",
+      0.142
+     ],
+     [
+      "Ukraine",
+      0.124
+     ],
+     [
+      "Poland",
+      0.058
+     ],
+     [
+      "Czechia",
+      0.033
+     ]
+    ],
+    "shareIso3": [
+     [
+      "ROU",
+      0.436
+     ],
+     [
+      "SVK",
+      0.207
+     ],
+     [
+      "SRB",
+      0.142
+     ],
+     [
+      "UKR",
+      0.124
+     ],
+     [
+      "POL",
+      0.058
+     ],
+     [
+      "CZE",
+      0.033
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.1,
+     0.2,
+     0.4,
+     0.4,
+     0.5,
+     0.5,
+     1.5,
+     2.6,
+     3.3,
+     3.7,
+     4.0,
+     4.1,
+     4.3,
+     4.5,
+     4.9,
+     5.2,
+     5.5,
+     5.5,
+     5.5
+    ],
+    "p625Km": [
+     15.6
+    ]
+   },
+   "score": {
+    "title": "Carpathian Mountains",
+    "months": [
+     38799,
+     33271,
+     30836,
+     30326,
+     27692,
+     26141,
+     26515,
+     28062,
+     26227,
+     28432,
+     31351,
+     52516
+    ],
+    "meanViews": 1041.6,
+    "medianViews": 966.4,
+    "maxOverMedian": 1.79,
+    "scoringCountry": "Romania",
+    "scoringIso2": "RO",
+    "scoringShare": 0.436,
+    "centre": [
+     45.3899,
+     25.4846
+    ],
+    "meanD": 4,
+    "meanWhy": "p.79·fb196·K0·iso310 → 12.3 → 4",
+    "medianD": 4,
+    "medianWhy": "p.78·fb196·K0·iso310 → 13.1 → 4",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.79,
+    "K": 0,
+    "dFb": 196,
+    "d1M": 310,
+    "loss": 12.3,
+    "D": 4,
+    "why": "p.79·fb196·K0·iso310 → 12.3 → 4"
+   }
+  }
+ },
+ "ural-mountains": {
+  "entry": {
+   "id": "ural-mountains",
+   "short": "Ural Mountains",
+   "clue": "Ural Mountains, Russia 🇷🇺",
+   "fact": "Running about 2,500 km from the Arctic tundra south toward the steppes of Kazakhstan, the range is the conventional boundary between Europe and Asia.",
+   "lat": 60.85498,
+   "lng": 58.96665,
+   "difficulty": 6,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/110_km_Polar_Ural.jpg/500px-110_km_Polar_Ural.jpg",
+   "country": "Russia",
+   "continent": "Europe",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.76·fb646·K0·iso454 → 37.5 → 6",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      64.3569,
+      66.7183
+     ],
+     [
+      60.1167,
+      65.0333
+     ],
+     [
+      58.9281,
+      61.1414
+     ],
+     [
+      59.1333,
+      59.6167
+     ],
+     [
+      58.102,
+      54.255
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 5 named principal peaks of the Ural Mountains (P4552 chain to Q35600), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q35600",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 5,
+   "vertices": 5,
+   "maxDeviationKm": 0.004,
+   "lengthKm": 1475
+  },
+  "report": {
+   "image": {
+    "title": "File:110 km Polar Ural.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:110_km_Polar_Ural.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/86/110_km_Polar_Ural.jpg",
+    "license": "Public domain",
+    "author": "Михаил Александр",
+    "head": 200
+   },
+   "span": [
+    "Russia"
+   ],
+   "wikidataP17iso3": [
+    "RUS",
+    "SUN"
+   ],
+   "shares": [
+    [
+     "Russia",
+     1.0
+    ]
+   ],
+   "geometry": {
+    "id": "ural-mountains",
+    "qid": "Q35600",
+    "wikidataP625": [
+     [
+      60,
+      59
+     ]
+    ],
+    "p17iso3": [
+     "RUS",
+     "SUN"
+    ],
+    "candidates": 15,
+    "filtered": 12,
+    "droppedSample": [
+     [
+      "Magnitnaya",
+      "outside OSM area"
+     ],
+     [
+      "Kushtau",
+      "outside OSM area"
+     ],
+     [
+      "Shakhtau",
+      "outside OSM area"
+     ]
+    ],
+    "droppedCount": 3,
+    "osmArea": "relation 21368163",
+    "cells": 8,
+    "backboneKm": 1501,
+    "method": "simplified polyline through 5 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q35600",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Gora Payer",
+      "qid": "Q4342241",
+      "lat": 66.71833,
+      "lng": 64.35694,
+      "elev": 1472
+     },
+     {
+      "name": "Mount Narodnaya",
+      "qid": "Q1142817",
+      "lat": 65.03333,
+      "lng": 60.11667,
+      "elev": 1895
+     },
+     {
+      "name": "Tulymsky Kamen",
+      "qid": "Q663113",
+      "lat": 61.14139,
+      "lng": 58.92806,
+      "elev": 1496
+     },
+     {
+      "name": "Konzhakovsky Kamen",
+      "qid": "Q4230794",
+      "lat": 59.61667,
+      "lng": 59.13333,
+      "elev": 1569
+     },
+     {
+      "name": "Mount Yamantau",
+      "qid": "Q1514176",
+      "lat": 54.255,
+      "lng": 58.102,
+      "elev": 1640
+     }
+    ],
+    "sourceVertices": 5,
+    "vertices": 5,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.004,
+    "lengthKm": 1475,
+    "midpoint": [
+     60.85498,
+     58.96665
+    ],
+    "midpointCountry": "Russia",
+    "shares": [
+     [
+      "Russia",
+      1.0
+     ]
+    ],
+    "shareIso3": [
+     [
+      "RUS",
+      1.0
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.1,
+     3.6,
+     16.0,
+     16.7,
+     44.1,
+     52.8,
+     94.9
+    ],
+    "p625Km": [
+     4.5
+    ]
+   },
+   "score": {
+    "title": "Ural Mountains",
+    "months": [
+     30003,
+     27504,
+     29565,
+     30968,
+     26437,
+     27520,
+     25690,
+     26352,
+     24605,
+     25471,
+     28180,
+     27009
+    ],
+    "meanViews": 902.2,
+    "medianViews": 896.6,
+    "maxOverMedian": 1.14,
+    "scoringCountry": "Russia",
+    "scoringIso2": "RU",
+    "scoringShare": 1.0,
+    "centre": [
+     56.8571,
+     50.8005
+    ],
+    "meanD": 6,
+    "meanWhy": "p.76·fb646·K0·iso454 → 37.5 → 6",
+    "medianD": 6,
+    "medianWhy": "p.76·fb646·K0·iso454 → 37.7 → 6",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.76,
+    "K": 0,
+    "dFb": 646,
+    "d1M": 454,
+    "loss": 37.5,
+    "D": 6,
+    "why": "p.76·fb646·K0·iso454 → 37.5 → 6"
+   }
+  }
+ },
+ "pyrenees": {
+  "entry": {
+   "id": "pyrenees",
+   "short": "Pyrenees",
+   "clue": "Pyrenees, France and Spain 🇫🇷🇪🇸",
+   "fact": "For most of its length the crest forms the border between France and Spain, with the microstate of Andorra tucked between them; Aneto, at 3,404 metres, is the highest peak.",
+   "lat": 42.66859,
+   "lng": 0.4209,
+   "difficulty": 6,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Cirque_de_Gavarnie%2C_Haute-Pyr%C3%A9n%C3%A9es%2C_France.jpg/500px-Cirque_de_Gavarnie%2C_Haute-Pyr%C3%A9n%C3%A9es%2C_France.jpg",
+   "country": "France and Spain",
+   "continent": "Europe",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.74·fb551·K0·iso202 → 35.0 → 6",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      2.459,
+      42.5187
+     ],
+     [
+      2.1385,
+      42.3834
+     ],
+     [
+      1.9531,
+      42.5713
+     ],
+     [
+      1.4463,
+      42.6655
+     ],
+     [
+      0.7061,
+      42.6302
+     ],
+     [
+      0.4809,
+      42.6564
+     ],
+     [
+      -0.1055,
+      42.7755
+     ],
+     [
+      -0.9803,
+      42.9858
+     ],
+     [
+      -1.6202,
+      43.3174
+     ]
+    ]
+   ],
+   "source": "OpenStreetMap way 1501963837 (Pyrenees, natural=mountain_range): the mapped spine line, simplified",
+   "sourceUrl": "https://www.openstreetmap.org/way/1501963837",
+   "license": "ODbL",
+   "attribution": "© OpenStreetMap contributors",
+   "sourceVertices": 10,
+   "vertices": 9,
+   "maxDeviationKm": 0.048,
+   "lengthKm": 367
+  },
+  "report": {
+   "image": {
+    "title": "File:Cirque de Gavarnie, Haute-Pyrénées, France.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cirque_de_Gavarnie,_Haute-Pyr%C3%A9n%C3%A9es,_France.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cirque_de_Gavarnie%2C_Haute-Pyr%C3%A9n%C3%A9es%2C_France.jpg",
+    "license": "CC BY-SA 2.0",
+    "author": "Benh LIEU SONG",
+    "head": 200
+   },
+   "span": [
+    "France",
+    "Spain"
+   ],
+   "wikidataP17iso3": [
+    "AND",
+    "ESP",
+    "FRA"
+   ],
+   "shares": [
+    [
+     "France",
+     0.635
+    ],
+    [
+     "Spain",
+     0.351
+    ],
+    [
+     "Andorra",
+     0.014
+    ]
+   ],
+   "geometry": {
+    "id": "pyrenees",
+    "qid": "Q12431",
+    "wikidataP625": [
+     [
+      42.7,
+      0.6
+     ]
+    ],
+    "p17iso3": [
+     "AND",
+     "ESP",
+     "FRA"
+    ],
+    "candidates": 156,
+    "filtered": 156,
+    "droppedSample": [],
+    "droppedCount": 0,
+    "method": "OSM way 1501963837 (natural=mountain_range line, chained as mapped)",
+    "sourceUrl": "https://www.openstreetmap.org/way/1501963837",
+    "license": "ODbL",
+    "attribution": "© OpenStreetMap contributors",
+    "peaks": [],
+    "sourceVertices": 10,
+    "vertices": 9,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.048,
+    "lengthKm": 367,
+    "midpoint": [
+     42.66859,
+     0.4209
+    ],
+    "midpointCountry": "Spain",
+    "shares": [
+     [
+      "France",
+      0.635
+     ],
+     [
+      "Spain",
+      0.351
+     ],
+     [
+      "Andorra",
+      0.014
+     ]
+    ],
+    "shareIso3": [
+     [
+      "FRA",
+      0.635
+     ],
+     [
+      "ESP",
+      0.351
+     ],
+     [
+      "AND",
+      0.014
+     ]
+    ],
+    "topPeakKm": [
+     0.2,
+     0.3,
+     0.4,
+     0.5,
+     0.9,
+     1.0,
+     1.2,
+     1.2,
+     1.2,
+     1.2,
+     1.4,
+     1.7,
+     1.8,
+     1.8,
+     2.0,
+     2.0,
+     2.6,
+     4.4,
+     6.3,
+     6.7,
+     6.9,
+     7.2,
+     7.6,
+     7.9,
+     8.0
+    ],
+    "p625Km": [
+     6.3
+    ]
+   },
+   "score": {
+    "title": "Pyrenees",
+    "months": [
+     26006,
+     24034,
+     23798,
+     25727,
+     24253,
+     23010,
+     23011,
+     24649,
+     24526,
+     31889,
+     25473,
+     23097
+    ],
+    "meanViews": 820.5,
+    "medianViews": 802.3,
+    "maxOverMedian": 1.31,
+    "scoringCountry": "France",
+    "scoringIso2": "FR",
+    "scoringShare": 0.635,
+    "centre": [
+     47.3009,
+     2.9072
+    ],
+    "meanD": 6,
+    "meanWhy": "p.74·fb551·K0·iso202 → 35.0 → 6",
+    "medianD": 6,
+    "medianWhy": "p.74·fb551·K0·iso202 → 35.6 → 6",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.74,
+    "K": 0,
+    "dFb": 551,
+    "d1M": 202,
+    "loss": 35.0,
+    "D": 6,
+    "why": "p.74·fb551·K0·iso202 → 35.0 → 6"
+   }
+  }
+ },
+ "atlas-mountains": {
+  "entry": {
+   "id": "atlas-mountains",
+   "short": "Atlas Mountains",
+   "clue": "Atlas Mountains, Algeria and Morocco 🇩🇿🇲🇦",
+   "fact": "Stretching about 2,500 km across Morocco, Algeria and Tunisia, the Atlas separates the Mediterranean coast from the Sahara and peaks at Jbel Toubkal, 4,167 metres.",
+   "lat": 32.96743,
+   "lng": -0.75887,
+   "difficulty": 6,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/High_Atlas_Mountains_Taroudant_Marrakesh.jpg/500px-High_Atlas_Mountains_Taroudant_Marrakesh.jpg",
+   "country": "Algeria and Morocco",
+   "continent": "Africa",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.70·fb495·K0·iso411 → 35.9 → 6",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      8.6831,
+      35.2067
+     ],
+     [
+      6.6375,
+      35.3183
+     ],
+     [
+      5.4667,
+      36.55
+     ],
+     [
+      4.2286,
+      36.4472
+     ],
+     [
+      -0.4676,
+      32.9117
+     ],
+     [
+      -3.8896,
+      33.5665
+     ],
+     [
+      -4.0914,
+      33.665
+     ],
+     [
+      -5.1427,
+      33.3599
+     ],
+     [
+      -4.9269,
+      32.4778
+     ],
+     [
+      -6.258,
+      32.3039
+     ],
+     [
+      -6.44,
+      31.51
+     ],
+     [
+      -7.9161,
+      31.0619
+     ],
+     [
+      -8.2842,
+      30.1236
+     ],
+     [
+      -9.0347,
+      29.795
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 14 named principal peaks of the Atlas Mountains (P4552 chain to Q130135), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q130135",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 14,
+   "vertices": 14,
+   "maxDeviationKm": 0.005,
+   "lengthKm": 2160
+  },
+  "report": {
+   "image": {
+    "title": "File:High Atlas Mountains Taroudant Marrakesh.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:High_Atlas_Mountains_Taroudant_Marrakesh.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/b4/High_Atlas_Mountains_Taroudant_Marrakesh.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Ayman Abdelilah",
+    "head": 200
+   },
+   "span": [
+    "Algeria",
+    "Morocco"
+   ],
+   "wikidataP17iso3": [
+    "DZA",
+    "MAR",
+    "TUN"
+   ],
+   "shares": [
+    [
+     "Algeria",
+     0.524
+    ],
+    [
+     "Morocco",
+     0.464
+    ],
+    [
+     "Tunisia",
+     0.012
+    ]
+   ],
+   "geometry": {
+    "id": "atlas-mountains",
+    "qid": "Q130135",
+    "wikidataP625": [
+     [
+      31.06194,
+      -7.91611
+     ]
+    ],
+    "p17iso3": [
+     "DZA",
+     "MAR",
+     "TUN"
+    ],
+    "candidates": 38,
+    "filtered": 38,
+    "droppedSample": [],
+    "droppedCount": 0,
+    "cells": 19,
+    "backboneKm": 2161,
+    "method": "simplified polyline through 14 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q130135",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Jebel ech Chambi",
+      "qid": "Q1232136",
+      "lat": 35.20667,
+      "lng": 8.68306,
+      "elev": 1544
+     },
+     {
+      "name": "Djebel Chélia",
+      "qid": "Q4115846",
+      "lat": 35.31833,
+      "lng": 6.6375,
+      "elev": 2328
+     },
+     {
+      "name": "Babors",
+      "qid": "Q2877938",
+      "lat": 36.55,
+      "lng": 5.46667,
+      "elev": 2004
+     },
+     {
+      "name": "Lalla-Khedidja",
+      "qid": "Q3216533",
+      "lat": 36.44722,
+      "lng": 4.22861,
+      "elev": 2308
+     },
+     {
+      "name": "Djebel Issa",
+      "qid": "Q3025701",
+      "lat": 32.91167,
+      "lng": -0.46764,
+      "elev": 2236
+     },
+     {
+      "name": "Jbel Bou Naceur",
+      "qid": "Q3163381",
+      "lat": 33.5665,
+      "lng": -3.8896,
+      "elev": 3356
+     },
+     {
+      "name": "Jbel Bou Iblane",
+      "qid": "Q12200267",
+      "lat": 33.66504,
+      "lng": -4.09138,
+      "elev": 3081
+     },
+     {
+      "name": "Jbel Hebri",
+      "qid": "Q19286542",
+      "lat": 33.3599,
+      "lng": -5.1427,
+      "elev": 2104
+     },
+     {
+      "name": "Jebel Ayachi",
+      "qid": "Q3088347",
+      "lat": 32.47778,
+      "lng": -4.92694,
+      "elev": 3747
+     },
+     {
+      "name": "Tassemit",
+      "qid": "Q3515968",
+      "lat": 32.30393,
+      "lng": -6.25797,
+      "elev": 2205
+     },
+     {
+      "name": "M'Goun",
+      "qid": "Q3050555",
+      "lat": 31.51,
+      "lng": -6.44,
+      "elev": 4068
+     },
+     {
+      "name": "Jbel Toubkal",
+      "qid": "Q503433",
+      "lat": 31.06194,
+      "lng": -7.91611,
+      "elev": 4167
+     },
+     {
+      "name": "Jbel Aklim",
+      "qid": "Q12180139",
+      "lat": 30.1236,
+      "lng": -8.2842,
+      "elev": 2531
+     },
+     {
+      "name": "Mount Lekst",
+      "qid": "Q107302438",
+      "lat": 29.795,
+      "lng": -9.03472,
+      "elev": 2359
+     }
+    ],
+    "sourceVertices": 14,
+    "vertices": 14,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 2160,
+    "midpoint": [
+     32.96743,
+     -0.75887
+    ],
+    "midpointCountry": "Algeria",
+    "shares": [
+     [
+      "Algeria",
+      0.524
+     ],
+     [
+      "Morocco",
+      0.464
+     ],
+     [
+      "Tunisia",
+      0.012
+     ]
+    ],
+    "shareIso3": [
+     [
+      "DZA",
+      0.524
+     ],
+     [
+      "MAR",
+      0.464
+     ],
+     [
+      "TUN",
+      0.012
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.4,
+     1.9,
+     18.2,
+     18.4,
+     20.9,
+     22.8,
+     32.9,
+     57.8,
+     88.2,
+     112.8,
+     181.3
+    ],
+    "p625Km": [
+     0.0
+    ]
+   },
+   "score": {
+    "title": "Atlas Mountains",
+    "months": [
+     21100,
+     20324,
+     21860,
+     23444,
+     20825,
+     21006,
+     20338,
+     20503,
+     19340,
+     23573,
+     20725,
+     18857
+    ],
+    "meanViews": 690.1,
+    "medianViews": 683.4,
+    "maxOverMedian": 1.13,
+    "scoringCountry": "Algeria",
+    "scoringIso2": "DZ",
+    "scoringShare": 0.524,
+    "centre": [
+     35.6544,
+     3.5416
+    ],
+    "meanD": 6,
+    "meanWhy": "p.70·fb495·K0·iso411 → 35.9 → 6",
+    "medianD": 6,
+    "medianWhy": "p.70·fb495·K0·iso411 → 36.2 → 6",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.7,
+    "K": 0,
+    "dFb": 495,
+    "d1M": 411,
+    "loss": 35.9,
+    "D": 6,
+    "why": "p.70·fb495·K0·iso411 → 35.9 → 6"
+   }
+  }
+ },
+ "caucasus-mountains": {
+  "entry": {
+   "id": "caucasus-mountains",
+   "short": "Caucasus Mountains",
+   "clue": "Caucasus Mountains, Russia and Georgia 🇷🇺🇬🇪",
+   "fact": "Mount Elbrus, a dormant volcano of 5,642 metres, is Europe's highest peak under the common definition that draws the continent's edge along this range's crest.",
+   "lat": 42.75966,
+   "lng": 43.92098,
+   "difficulty": 9,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Asbestnaya_Mount%2C_Adygea%2C_%D0%93%D0%BE%D1%80%D0%B0_%D0%90%D1%81%D0%B1%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D1%8F%2C_%D0%B2%D0%B8%D0%B4%D1%8B_%D1%81_%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%8B%2C_%D0%90%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F%2C_%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%9A%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.jpg/500px-Asbestnaya_Mount%2C_Adygea%2C_%D0%93%D0%BE%D1%80%D0%B0_%D0%90%D1%81%D0%B1%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D1%8F%2C_%D0%B2%D0%B8%D0%B4%D1%8B_%D1%81_%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%8B%2C_%D0%90%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F%2C_%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%9A%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.jpg",
+   "country": "Russia and Georgia",
+   "continent": "Europe",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.68·fb1641·K0·iso141 → 114.5 → 9",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      39.9031,
+      43.9536
+     ],
+     [
+      40.5778,
+      43.6719
+     ],
+     [
+      40.5816,
+      43.418
+     ],
+     [
+      42.4379,
+      43.3525
+     ],
+     [
+      43.1317,
+      43.0525
+     ],
+     [
+      43.6986,
+      42.783
+     ],
+     [
+      44.5189,
+      42.6969
+     ],
+     [
+      45.3119,
+      42.5733
+     ],
+     [
+      46.2494,
+      42.3392
+     ],
+     [
+      46.9222,
+      41.9594
+     ],
+     [
+      47.8583,
+      41.2205
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 11 named principal peaks of the Caucasus Mountains (P4552 chain to Q5477), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q5477",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 11,
+   "vertices": 11,
+   "maxDeviationKm": 0.005,
+   "lengthKm": 759
+  },
+  "report": {
+   "image": {
+    "title": "File:Asbestnaya Mount, Adygea, Гора Асбестная, виды с вершины, Адыгея, Западный Кавказ.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Asbestnaya_Mount,_Adygea,_%D0%93%D0%BE%D1%80%D0%B0_%D0%90%D1%81%D0%B1%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D1%8F,_%D0%B2%D0%B8%D0%B4%D1%8B_%D1%81_%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%8B,_%D0%90%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F,_%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%9A%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/24/Asbestnaya_Mount%2C_Adygea%2C_%D0%93%D0%BE%D1%80%D0%B0_%D0%90%D1%81%D0%B1%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D1%8F%2C_%D0%B2%D0%B8%D0%B4%D1%8B_%D1%81_%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%8B%2C_%D0%90%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F%2C_%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%9A%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.jpg",
+    "license": "CC BY 4.0",
+    "author": "Vyacheslav Argenberg",
+    "head": 200
+   },
+   "span": [
+    "Russia",
+    "Georgia"
+   ],
+   "wikidataP17iso3": [
+    "ARM",
+    "AZE",
+    "GEO",
+    "RUS"
+   ],
+   "shares": [
+    [
+     "Russia",
+     0.816
+    ],
+    [
+     "Georgia",
+     0.184
+    ]
+   ],
+   "geometry": {
+    "id": "caucasus-mountains",
+    "qid": "Q5477",
+    "wikidataP625": [
+     [
+      42.5,
+      45
+     ]
+    ],
+    "p17iso3": [
+     "ARM",
+     "AZE",
+     "GEO",
+     "RUS"
+    ],
+    "candidates": 86,
+    "filtered": 52,
+    "droppedSample": [
+     [
+      "Greater Ararat",
+      "country TUR"
+     ],
+     [
+      "Mount Ararat",
+      "country TUR"
+     ],
+     [
+      "Mount Aragats",
+      "outside OSM area"
+     ],
+     [
+      "Mount Süphan",
+      "country TUR"
+     ],
+     [
+      "Little Ararat",
+      "country TUR"
+     ],
+     [
+      "Mount Kaputjugh",
+      "outside OSM area"
+     ],
+     [
+      "Azhdahak",
+      "outside OSM area"
+     ],
+     [
+      "Mount Tendürek",
+      "country TUR"
+     ],
+     [
+      "Aramazd",
+      "outside OSM area"
+     ],
+     [
+      "Hinaldag",
+      "outside OSM area"
+     ],
+     [
+      "Dar-Alages",
+      "outside OSM area"
+     ],
+     [
+      "Didi Abuli",
+      "outside OSM area"
+     ],
+     [
+      "Mount Samsari",
+      "outside OSM area"
+     ],
+     [
+      "Khustup",
+      "outside OSM area"
+     ],
+     [
+      "Mount Achkasar",
+      "outside OSM area"
+     ]
+    ],
+    "droppedCount": 34,
+    "osmArea": "relation 21368162",
+    "cells": 29,
+    "backboneKm": 836,
+    "method": "simplified polyline through 11 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5477",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Fisht",
+      "qid": "Q2392222",
+      "lat": 43.95361,
+      "lng": 39.90306,
+      "elev": 2867
+     },
+     {
+      "name": "Tsakhvoa",
+      "qid": "Q4503357",
+      "lat": 43.67194,
+      "lng": 40.57778,
+      "elev": 3346
+     },
+     {
+      "name": "Mt Achibakhi",
+      "qid": "Q4073353",
+      "lat": 43.41802,
+      "lng": 40.5816,
+      "elev": 2377
+     },
+     {
+      "name": "Mount Elbrus",
+      "qid": "Q43105",
+      "lat": 43.35254,
+      "lng": 42.43787,
+      "elev": 5642
+     },
+     {
+      "name": "Dykh-Tau",
+      "qid": "Q476313",
+      "lat": 43.0525,
+      "lng": 43.13167,
+      "elev": 5204
+     },
+     {
+      "name": "Burchula",
+      "qid": "Q4998218",
+      "lat": 42.78303,
+      "lng": 43.69864,
+      "elev": 4364
+     },
+     {
+      "name": "Mount Kazbek",
+      "qid": "Q207680",
+      "lat": 42.69694,
+      "lng": 44.51889,
+      "elev": 5033
+     },
+     {
+      "name": "Tebulosmta",
+      "qid": "Q768463",
+      "lat": 42.57333,
+      "lng": 45.31194,
+      "elev": 4493
+     },
+     {
+      "name": "Mount Addala-Shukhgelmeer",
+      "qid": "Q12861347",
+      "lat": 42.33917,
+      "lng": 46.24944,
+      "elev": 4152
+     },
+     {
+      "name": "Mount Dyultydag",
+      "qid": "Q4172239",
+      "lat": 41.95944,
+      "lng": 46.92222,
+      "elev": 4127
+     },
+     {
+      "name": "Mount Bazardüzü",
+      "qid": "Q725591",
+      "lat": 41.22049,
+      "lng": 47.85834,
+      "elev": 4466
+     }
+    ],
+    "sourceVertices": 11,
+    "vertices": 11,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 759,
+    "midpoint": [
+     42.75966,
+     43.92098
+    ],
+    "midpointCountry": "Russia",
+    "shares": [
+     [
+      "Russia",
+      0.816
+     ],
+     [
+      "Georgia",
+      0.184
+     ]
+    ],
+    "shareIso3": [
+     [
+      "RUS",
+      0.816
+     ],
+     [
+      "GEO",
+      0.184
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.4,
+     1.8,
+     3.0,
+     3.2,
+     3.4,
+     4.8,
+     5.8,
+     6.1,
+     6.3,
+     6.7,
+     6.8,
+     7.1,
+     7.8,
+     11.9,
+     12.7,
+     12.9,
+     13.5
+    ],
+    "p625Km": [
+     13.3
+    ]
+   },
+   "score": {
+    "title": "Caucasus Mountains",
+    "months": [
+     23425,
+     20822,
+     19966,
+     20863,
+     18584,
+     18922,
+     16300,
+     17697,
+     16480,
+     18836,
+     20836,
+     19509
+    ],
+    "meanViews": 636.3,
+    "medianViews": 632.1,
+    "maxOverMedian": 1.22,
+    "scoringCountry": "Russia",
+    "scoringIso2": "RU",
+    "scoringShare": 0.816,
+    "centre": [
+     56.8571,
+     50.8005
+    ],
+    "meanD": 9,
+    "meanWhy": "p.68·fb1641·K0·iso141 → 114.5 → 9",
+    "medianD": 9,
+    "medianWhy": "p.68·fb1641·K0·iso141 → 115.0 → 9",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.68,
+    "K": 0,
+    "dFb": 1641,
+    "d1M": 141,
+    "loss": 114.5,
+    "D": 9,
+    "why": "p.68·fb1641·K0·iso141 → 114.5 → 9"
+   }
+  }
+ },
+ "zagros-mountains": {
+  "entry": {
+   "id": "zagros-mountains",
+   "short": "Zagros Mountains",
+   "clue": "Zagros Mountains, Iran and Iraq 🇮🇷🇮🇶",
+   "fact": "Folded up as the Arabian plate pushed into Eurasia, the range runs about 1,500 km to the Strait of Hormuz, and its folds trap some of the world's largest oil fields.",
+   "lat": 33.14753,
+   "lng": 49.29388,
+   "difficulty": 5,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Zagros_Mountains_-_Kohgiluyeh_and_Boyer-Ahmad_Province.jpg/500px-Zagros_Mountains_-_Kohgiluyeh_and_Boyer-Ahmad_Province.jpg",
+   "country": "Iran and Iraq",
+   "continent": "Asia",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.66·fb261·K0·iso229 → 22.6 → 5",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      51.6972,
+      28.2558
+     ],
+     [
+      53.055,
+      29.3024
+     ],
+     [
+      52.3818,
+      29.6956
+     ],
+     [
+      52.7502,
+      30.7773
+     ],
+     [
+      51.6369,
+      32.5922
+     ],
+     [
+      50.6967,
+      32.1997
+     ],
+     [
+      50.0775,
+      32.3644
+     ],
+     [
+      48.4817,
+      33.9592
+     ],
+     [
+      48.4867,
+      34.6642
+     ],
+     [
+      47.2432,
+      34.4184
+     ],
+     [
+      46.4,
+      35.1
+     ],
+     [
+      45.0,
+      36.55
+     ],
+     [
+      44.9186,
+      36.7753
+     ],
+     [
+      42.4543,
+      37.3775
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 14 named principal peaks of the Zagros Mountains (P4552 chain to Q167021), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q167021",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 14,
+   "vertices": 14,
+   "maxDeviationKm": 0.006,
+   "lengthKm": 1762
+  },
+  "report": {
+   "image": {
+    "title": "File:Zagros Mountains - Kohgiluyeh and Boyer-Ahmad Province.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Zagros_Mountains_-_Kohgiluyeh_and_Boyer-Ahmad_Province.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/29/Zagros_Mountains_-_Kohgiluyeh_and_Boyer-Ahmad_Province.jpg",
+    "license": "CC BY 2.0",
+    "author": "Ninara",
+    "head": 200
+   },
+   "span": [
+    "Iran",
+    "Iraq"
+   ],
+   "wikidataP17iso3": [
+    "IRN",
+    "IRQ",
+    "TUR"
+   ],
+   "shares": [
+    [
+     "Iran",
+     0.81
+    ],
+    [
+     "Iraq",
+     0.176
+    ],
+    [
+     "Turkey",
+     0.014
+    ]
+   ],
+   "geometry": {
+    "id": "zagros-mountains",
+    "qid": "Q167021",
+    "wikidataP625": [
+     [
+      33.66667,
+      47
+     ]
+    ],
+    "p17iso3": [
+     "IRN",
+     "IRQ",
+     "TUR"
+    ],
+    "candidates": 19,
+    "filtered": 19,
+    "droppedSample": [],
+    "droppedCount": 0,
+    "cells": 17,
+    "backboneKm": 1758,
+    "method": "simplified polyline through 14 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q167021",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Jashak salt dome",
+      "qid": "Q5960978",
+      "lat": 28.25583,
+      "lng": 51.69722,
+      "elev": 1496
+     },
+     {
+      "name": "Qal'eh gorikhteh",
+      "qid": "Q5722424",
+      "lat": 29.30242,
+      "lng": 53.05504,
+      "elev": 1934
+     },
+     {
+      "name": "Mount Derak",
+      "qid": "Q4118006",
+      "lat": 29.69555,
+      "lng": 52.38178,
+      "elev": 2900
+     },
+     {
+      "name": "Mount Bel",
+      "qid": "Q5703015",
+      "lat": 30.77731,
+      "lng": 52.75019,
+      "elev": 4050
+     },
+     {
+      "name": "Mount Soffeh",
+      "qid": "Q18639970",
+      "lat": 32.59222,
+      "lng": 51.63694,
+      "elev": 2257
+     },
+     {
+      "name": "Mount Jahan Bin",
+      "qid": "Q16938037",
+      "lat": 32.19972,
+      "lng": 50.69667,
+      "elev": 3342
+     },
+     {
+      "name": "Zard Kuh",
+      "qid": "Q147826",
+      "lat": 32.36444,
+      "lng": 50.0775,
+      "elev": 4221
+     },
+     {
+      "name": "Mount Garrin",
+      "qid": "Q3323055",
+      "lat": 33.95917,
+      "lng": 48.48167,
+      "elev": 3630
+     },
+     {
+      "name": "Alvand",
+      "qid": "Q2302910",
+      "lat": 34.66417,
+      "lng": 48.48667,
+      "elev": 3580
+     },
+     {
+      "name": "Mount Paraw",
+      "qid": "Q5777759",
+      "lat": 34.41844,
+      "lng": 47.24322,
+      "elev": 3386
+     },
+     {
+      "name": "Shaho",
+      "qid": "Q1477600",
+      "lat": 35.1,
+      "lng": 46.4,
+      "elev": 3390
+     },
+     {
+      "name": "Kuhe Haji Ebrahim",
+      "qid": "Q6442085",
+      "lat": 36.55,
+      "lng": 45.0,
+      "elev": 3587
+     },
+     {
+      "name": "Cheekha Dar",
+      "qid": "Q1068860",
+      "lat": 36.77528,
+      "lng": 44.91861,
+      "elev": 3611
+     },
+     {
+      "name": "Mount Judi",
+      "qid": "Q1143135",
+      "lat": 37.37753,
+      "lng": 42.45431,
+      "elev": 2118
+     }
+    ],
+    "sourceVertices": 14,
+    "vertices": 14,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 1762,
+    "midpoint": [
+     33.14753,
+     49.29388
+    ],
+    "midpointCountry": "Iran",
+    "shares": [
+     [
+      "Iran",
+      0.81
+     ],
+     [
+      "Iraq",
+      0.176
+     ],
+     [
+      "Turkey",
+      0.014
+     ]
+    ],
+    "shareIso3": [
+     [
+      "IRN",
+      0.81
+     ],
+     [
+      "IRQ",
+      0.176
+     ],
+     [
+      "TUR",
+      0.014
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     5.8,
+     7.0,
+     8.8,
+     12.1,
+     26.5
+    ],
+    "p625Km": [
+     86.5
+    ]
+   },
+   "score": {
+    "title": "Zagros Mountains",
+    "months": [
+     14081,
+     14119,
+     12653,
+     15772,
+     13218,
+     40737,
+     26762,
+     14308,
+     13788,
+     16176,
+     14051,
+     14863
+    ],
+    "meanViews": 576.8,
+    "medianViews": 467.5,
+    "maxOverMedian": 2.87,
+    "scoringCountry": "Iran",
+    "scoringIso2": "IR",
+    "scoringShare": 0.81,
+    "centre": [
+     34.4549,
+     51.6376
+    ],
+    "meanD": 5,
+    "meanWhy": "p.66·fb261·K0·iso229 → 22.6 → 5",
+    "medianD": 6,
+    "medianWhy": "p.61·fb261·K0·iso229 → 25.1 → 6",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.66,
+    "K": 0,
+    "dFb": 261,
+    "d1M": 229,
+    "loss": 22.6,
+    "D": 5,
+    "why": "p.66·fb261·K0·iso229 → 22.6 → 5"
+   }
+  }
  }
 }

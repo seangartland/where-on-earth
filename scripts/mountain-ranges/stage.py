@@ -39,6 +39,24 @@ TEXT = {
     'karakoram': dict(continent='Asia',
         fact="Home to K2, the world's second-highest mountain, and to some of the longest glaciers outside the polar "
              "regions, among them the Siachen and the Baltoro."),
+    'carpathian-mountains': dict(continent='Europe', region='Central and Eastern Europe',
+        fact="Arcing about 1,500 km from near Bratislava to the Iron Gates gorge of the Danube, the Carpathians shelter "
+             "some of Europe's largest populations of brown bears, wolves and lynx."),
+    'ural-mountains': dict(continent='Europe',
+        fact="Running about 2,500 km from the Arctic tundra south toward the steppes of Kazakhstan, the range is the "
+             "conventional boundary between Europe and Asia."),
+    'pyrenees': dict(continent='Europe',
+        fact="For most of its length the crest forms the border between France and Spain, with the microstate of "
+             "Andorra tucked between them; Aneto, at 3,404 metres, is the highest peak."),
+    'atlas-mountains': dict(continent='Africa',
+        fact="Stretching about 2,500 km across Morocco, Algeria and Tunisia, the Atlas separates the Mediterranean "
+             "coast from the Sahara and peaks at Jbel Toubkal, 4,167 metres."),
+    'caucasus-mountains': dict(continent='Europe',
+        fact="Mount Elbrus, a dormant volcano of 5,642 metres, is Europe's highest peak under the common definition "
+             "that draws the continent's edge along this range's crest."),
+    'zagros-mountains': dict(continent='Asia',
+        fact="Folded up as the Arabian plate pushed into Eurasia, the range runs about 1,500 km to the Strait of "
+             "Hormuz, and its folds trap some of the world's largest oil fields."),
 }
 # Reviewed picks: Commons file title, license and author as recorded on the file page.
 PICKS = {
@@ -49,8 +67,15 @@ PICKS = {
     'appalachian-mountains': 'File:Appalachian Mountains.jpg',
     'hindu-kush': 'File:File-Hindu Kush viewed from Camp Marmal at Mazar-e Sharif in Afghanistan2.JPG',
     'karakoram': 'File:Passu Panorama.jpg',
+    'carpathian-mountains': 'File:Carpathian Mountains (Unsplash hmyVTVUxQek).jpg',
+    'ural-mountains': 'File:110 km Polar Ural.jpg',
+    'pyrenees': 'File:Cirque de Gavarnie, Haute-Pyrénées, France.jpg',
+    'atlas-mountains': 'File:High Atlas Mountains Taroudant Marrakesh.jpg',
+    'caucasus-mountains': None,   # images-caucasus-mountains.json entry 08 (prefix below)
+    'zagros-mountains': 'File:Zagros Mountains - Kohgiluyeh and Boyer-Ahmad Province.jpg',
 }
-PICK_PREFIX = {'alps': 'File:View in an easterly direction towards the Western Alps'}
+PICK_PREFIX = {'alps': 'File:View in an easterly direction towards the Western Alps',
+               'caucasus-mountains': 'File:Asbestnaya Mount, Adygea'}
 
 
 def flag(iso2): return ''.join(chr(0x1F1E6 + ord(c) - 65) for c in iso2.upper())

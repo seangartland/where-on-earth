@@ -88,7 +88,8 @@ for (const [id, s] of Object.entries(staged)) {
   if (allImages.has(e.image)) problems.push(`image already used by ${allImages.get(e.image)}`);
   allImages.set(e.image, id);
   if (/montage|collage|No_image_available/i.test(e.image)) problems.push('denylisted image');
-  for (const st of STATES) if (new RegExp(`\\b${st}\\b`).test(e.clue)) problems.push(`clue names US state ${st}`);
+  // Georgia the country shows its own flag; only a state reading counts.
+  for (const st of STATES) if (new RegExp(`\\b${st}\\b`).test(e.clue) && !(st === 'Georgia' && e.clue.includes('\u{1F1EC}\u{1F1EA}'))) problems.push(`clue names US state ${st}`);
   if (BANNED.test(e.clue) || BANNED.test(e.fact)) problems.push('banned phrase');
   out[id] = { onSpineMaxKm: +onMax.toFixed(4), pinKm: +pinKm.toFixed(4), offSpine100Km: off.map((k) => +k.toFixed(1)), bruteKm: brute.map((k) => +k.toFixed(1)), problems };
   if (problems.length) fail++;
