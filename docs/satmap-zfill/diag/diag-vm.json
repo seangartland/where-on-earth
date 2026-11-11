@@ -1,0 +1,46 @@
+{
+ "madrid": {
+  "tile": "9/250/193",
+  "window": "9_249_192",
+  "quarters": {
+   "Q1": {
+    "lossless": 159.8,
+    "jpeg_q2": 140.6
+   },
+   "Q2": {
+    "lossless": 322.9,
+    "jpeg_q2": 291.8
+   },
+   "Q3": {
+    "lossless": 314.8,
+    "jpeg_q2": 282.6
+   },
+   "Q4": {
+    "lossless": 144.2,
+    "jpeg_q2": 126.7
+   }
+  }
+ },
+ "chicago": {
+  "tile": "9/131/190",
+  "window": "9_129_189",
+  "quarters": {
+   "Q1": {
+    "lossless": 180.3,
+    "jpeg_q2": 162.7
+   },
+   "Q2": {
+    "lossless": 233.2,
+    "jpeg_q2": 214.0
+   },
+   "Q3": {
+    "lossless": 200.9,
+    "jpeg_q2": 183.6
+   },
+   "Q4": {
+    "lossless": 163.2,
+    "jpeg_q2": 147.9
+   }
+  }
+ }
+}

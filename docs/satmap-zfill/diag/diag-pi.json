@@ -1,0 +1,294 @@
+{
+ "madrid": {
+  "tile": "9/250/193",
+  "footprint_deg": [
+   -4.218749999999985,
+   39.90973623453718,
+   -3.5156250000000044,
+   40.44694705960049
+  ],
+  "quarters": {
+   "Q1": {
+    "S0_native": {
+     "shape": [
+      149,
+      195
+     ],
+     "lapvar": 618.4
+    },
+    "S1_nearest": {
+     "lossless": 355.7,
+     "jpeg_q2": 308.0
+    },
+    "S1_bilinear": {
+     "lossless": 90.1,
+     "jpeg_q2": 82.4
+    },
+    "S1_cubic": {
+     "lossless": 131.8,
+     "jpeg_q2": 123.1
+    },
+    "S1_lanczos": {
+     "lossless": 151.1,
+     "jpeg_q2": 144.4
+    },
+    "S1_average": {
+     "lossless": 159.8,
+     "jpeg_q2": 140.5
+    }
+   },
+   "Q2": {
+    "S0_native": {
+     "shape": [
+      149,
+      195
+     ],
+     "lapvar": 1253.8
+    },
+    "S1_nearest": {
+     "lossless": 721.8,
+     "jpeg_q2": 643.7
+    },
+    "S1_bilinear": {
+     "lossless": 180.8,
+     "jpeg_q2": 168.0
+    },
+    "S1_cubic": {
+     "lossless": 266.5,
+     "jpeg_q2": 250.5
+    },
+    "S1_lanczos": {
+     "lossless": 306.4,
+     "jpeg_q2": 293.7
+    },
+    "S1_average": {
+     "lossless": 322.9,
+     "jpeg_q2": 291.9
+    }
+   },
+   "Q3": {
+    "S0_native": {
+     "shape": [
+      149,
+      195
+     ],
+     "lapvar": 1211.9
+    },
+    "S1_nearest": {
+     "lossless": 708.0,
+     "jpeg_q2": 624.3
+    },
+    "S1_bilinear": {
+     "lossless": 176.2,
+     "jpeg_q2": 163.0
+    },
+    "S1_cubic": {
+     "lossless": 258.6,
+     "jpeg_q2": 244.0
+    },
+    "S1_lanczos": {
+     "lossless": 297.6,
+     "jpeg_q2": 286.2
+    },
+    "S1_average": {
+     "lossless": 314.9,
+     "jpeg_q2": 282.5
+    }
+   },
+   "Q4": {
+    "S0_native": {
+     "shape": [
+      149,
+      195
+     ],
+     "lapvar": 559.8
+    },
+    "S1_nearest": {
+     "lossless": 321.7,
+     "jpeg_q2": 276.7
+    },
+    "S1_bilinear": {
+     "lossless": 81.5,
+     "jpeg_q2": 74.4
+    },
+    "S1_cubic": {
+     "lossless": 119.5,
+     "jpeg_q2": 111.2
+    },
+    "S1_lanczos": {
+     "lossless": 137.0,
+     "jpeg_q2": 130.8
+    },
+    "S1_average": {
+     "lossless": 144.1,
+     "jpeg_q2": 126.4
+    }
+   }
+  },
+  "src_meta": {
+   "crs": "EPSG:4326",
+   "res_deg": [
+    0.0036,
+    0.0036
+   ],
+   "size": [
+    10000,
+    10000
+   ],
+   "dtype": "int16",
+   "compress": "Compression.deflate",
+   "bounds": [
+    -36.0,
+    18.0,
+    0.0,
+    54.0
+   ]
+  }
+ },
+ "chicago": {
+  "tile": "9/131/190",
+  "footprint_deg": [
+   -87.89062500000001,
+   41.508577297439345,
+   -87.18749999999999,
+   42.0329743324414
+  ],
+  "quarters": {
+   "Q1": {
+    "S0_native": {
+     "shape": [
+      146,
+      195
+     ],
+     "lapvar": 695.1
+    },
+    "S1_nearest": {
+     "lossless": 388.8,
+     "jpeg_q2": 347.1
+    },
+    "S1_bilinear": {
+     "lossless": 98.9,
+     "jpeg_q2": 93.0
+    },
+    "S1_cubic": {
+     "lossless": 145.0,
+     "jpeg_q2": 137.4
+    },
+    "S1_lanczos": {
+     "lossless": 165.9,
+     "jpeg_q2": 161.3
+    },
+    "S1_average": {
+     "lossless": 180.4,
+     "jpeg_q2": 162.8
+    }
+   },
+   "Q2": {
+    "S0_native": {
+     "shape": [
+      146,
+      195
+     ],
+     "lapvar": 894.0
+    },
+    "S1_nearest": {
+     "lossless": 504.5,
+     "jpeg_q2": 455.4
+    },
+    "S1_bilinear": {
+     "lossless": 128.0,
+     "jpeg_q2": 120.2
+    },
+    "S1_cubic": {
+     "lossless": 186.4,
+     "jpeg_q2": 177.3
+    },
+    "S1_lanczos": {
+     "lossless": 213.0,
+     "jpeg_q2": 205.8
+    },
+    "S1_average": {
+     "lossless": 233.1,
+     "jpeg_q2": 213.5
+    }
+   },
+   "Q3": {
+    "S0_native": {
+     "shape": [
+      146,
+      195
+     ],
+     "lapvar": 773.3
+    },
+    "S1_nearest": {
+     "lossless": 435.6,
+     "jpeg_q2": 389.6
+    },
+    "S1_bilinear": {
+     "lossless": 109.8,
+     "jpeg_q2": 103.8
+    },
+    "S1_cubic": {
+     "lossless": 160.1,
+     "jpeg_q2": 151.6
+    },
+    "S1_lanczos": {
+     "lossless": 183.0,
+     "jpeg_q2": 176.3
+    },
+    "S1_average": {
+     "lossless": 201.0,
+     "jpeg_q2": 183.4
+    }
+   },
+   "Q4": {
+    "S0_native": {
+     "shape": [
+      146,
+      195
+     ],
+     "lapvar": 624.6
+    },
+    "S1_nearest": {
+     "lossless": 350.7,
+     "jpeg_q2": 312.8
+    },
+    "S1_bilinear": {
+     "lossless": 89.0,
+     "jpeg_q2": 83.8
+    },
+    "S1_cubic": {
+     "lossless": 130.0,
+     "jpeg_q2": 123.1
+    },
+    "S1_lanczos": {
+     "lossless": 148.2,
+     "jpeg_q2": 143.1
+    },
+    "S1_average": {
+     "lossless": 163.2,
+     "jpeg_q2": 147.6
+    }
+   }
+  },
+  "src_meta": {
+   "crs": "EPSG:4326",
+   "res_deg": [
+    0.0036,
+    0.0036
+   ],
+   "size": [
+    10000,
+    10000
+   ],
+   "dtype": "int16",
+   "compress": "Compression.deflate",
+   "bounds": [
+    -108.0,
+    18.0,
+    -72.0,
+    54.0
+   ]
+  }
+ }
+}

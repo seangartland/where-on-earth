@@ -1,0 +1,74 @@
+{
+ "madrid": {
+  "eox_native_grid": {
+   "lapvar": 6861.5,
+   "gray_std": 31.95,
+   "local_std": 23.58,
+   "mean": 102.8
+  },
+  "Q1": {
+   "lapvar": 618.4,
+   "gray_std": 16.05,
+   "local_std": 9.0,
+   "mean": 61.2,
+   "lapvar_at_eox_global_contrast": 2450.3
+  },
+  "Q2": {
+   "lapvar": 1253.8,
+   "gray_std": 21.96,
+   "local_std": 12.86,
+   "mean": 75.5,
+   "lapvar_at_eox_global_contrast": 2653.2
+  },
+  "Q3": {
+   "lapvar": 1211.9,
+   "gray_std": 25.33,
+   "local_std": 12.74,
+   "mean": 102.2,
+   "lapvar_at_eox_global_contrast": 1927.3
+  },
+  "Q4": {
+   "lapvar": 559.8,
+   "gray_std": 15.52,
+   "local_std": 8.52,
+   "mean": 65.0,
+   "lapvar_at_eox_global_contrast": 2372.3
+  }
+ },
+ "chicago": {
+  "eox_native_grid": {
+   "lapvar": 9070.5,
+   "gray_std": 44.34,
+   "local_std": 25.05,
+   "mean": 57.2
+  },
+  "Q1": {
+   "lapvar": 695.1,
+   "gray_std": 25.92,
+   "local_std": 9.45,
+   "mean": 56.7,
+   "lapvar_at_eox_global_contrast": 2034.3
+  },
+  "Q2": {
+   "lapvar": 894.0,
+   "gray_std": 26.11,
+   "local_std": 11.01,
+   "mean": 59.1,
+   "lapvar_at_eox_global_contrast": 2579.0
+  },
+  "Q3": {
+   "lapvar": 773.3,
+   "gray_std": 25.72,
+   "local_std": 10.22,
+   "mean": 48.8,
+   "lapvar_at_eox_global_contrast": 2299.3
+  },
+  "Q4": {
+   "lapvar": 624.6,
+   "gray_std": 22.38,
+   "local_std": 9.11,
+   "mean": 46.2,
+   "lapvar_at_eox_global_contrast": 2452.7
+  }
+ }
+}

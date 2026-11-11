@@ -1,0 +1,18 @@
+{
+ "madrid": {
+  "eox_as_served": 6539.5,
+  "eox_at_LR_native_grid": 6861.5,
+  "eox_LR_then_up_bilinear": 898.9,
+  "eox_LR_then_up_lanczos": 1690.1,
+  "eox_LR_then_up_nearest": 3616.2,
+  "eox_half_res_up_bilinear": 233.0
+ },
+ "chicago": {
+  "eox_as_served": 11435.6,
+  "eox_at_LR_native_grid": 9070.5,
+  "eox_LR_then_up_bilinear": 1196.0,
+  "eox_LR_then_up_lanczos": 2209.0,
+  "eox_LR_then_up_nearest": 4697.0,
+  "eox_half_res_up_bilinear": 232.4
+ }
+}
