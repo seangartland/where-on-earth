@@ -366,7 +366,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .postcard-summary-header h2 { margin: 0; color: var(--ink-hi); font-size: 29px; line-height: 1.05; letter-spacing: -.045em; }
 .postcard-summary-lede { min-height: 18px; margin: 7px 0 0; color: rgba(var(--rgb-mist),.57); font-size: var(--fs-body); line-height: 1.4; }
 .postcard-summary-list { position: relative; display: grid; gap: 0; margin: 4px 3px; padding: 14px 15px 88px; overflow: hidden; border-radius: 8px; background: var(--mail-paper); box-shadow: 0 3px 10px rgba(0,0,0,.45), inset 0 0 0 1px rgba(101,78,38,.18); }
-.postcard-summary-entry.pp-post { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 3px 10px; padding: 7px 1px; border: 0; border-bottom: 1px solid rgba(101,78,38,.18); border-radius: 0; background: none; box-shadow: none; color: #22355c; }
+.postcard-summary-entry.pp-post { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 3px 10px; padding: 7px 10px 7px 2px; border: 0; border-bottom: 1px solid rgba(101,78,38,.18); border-radius: 0; background: none; box-shadow: none; color: #22355c; }
 .postcard-summary-entry .pp-photo { display: none; }
 .postcard-summary-entry .pp-name { min-width: 0; margin: 0; color: #22355c; }
 .postcard-summary-entry .pp-meta { grid-column: 1; min-height: 0; margin: 0; color: rgba(52,72,96,.8); font-size: var(--fs-caption); }
@@ -1483,3 +1483,55 @@ body.expedition-mode .round-meta span:first-child { color: var(--gold); }
 .earn-toast.seen { border-color: rgba(var(--rgb-muted),.32); }
 .earn-toast.seen img { filter: grayscale(1) contrast(.92) brightness(.82); }
 .earn-toast.seen .earn-toast-text small { color: rgba(var(--rgb-muted),.72); }
+
+/* ---------------------------------------------------------------------------
+   Desktop layer (woe-desktop-audit, 2026-11-10): one min-width: 900px layer,
+   no changes below it. Bounds the full-width sheets and modals to a centered
+   column instead of stretching edge to edge (D2, D3's modal void, D4), scales
+   the home triptych and the pack-select packs up for the extra space (D1,
+   D5, D6), and gives the Passport's expanded pack grid more columns (D4).
+   --------------------------------------------------------------------------- */
+@media (min-width: 900px) {
+  :root { --desktop-sheet-w: min(820px, 86vw); }
+
+  .reveal-sheet {
+    left: 50%;
+    right: auto;
+    width: var(--desktop-sheet-w);
+    transform: translateX(-50%);
+  }
+  .reveal-card {
+    left: 50%;
+    right: auto;
+    width: var(--desktop-sheet-w);
+    transform: translateX(-50%);
+  }
+  .results-card, .pp-card {
+    max-width: var(--desktop-sheet-w);
+  }
+
+  .pp-pack-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .mode-buttons.home-panels {
+    width: min(100%, 531px);
+  }
+  .home-panels > button {
+    height: 387px;
+  }
+  .home-panels .panel-packobj {
+    height: 237px;
+  }
+  .home-panels .mode-name {
+    font-size: 23px;
+  }
+  .home-panels .mode-desc {
+    font-size: 17px;
+  }
+
+  .pack-choices {
+    width: min(678px, 100%);
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  }
+}
