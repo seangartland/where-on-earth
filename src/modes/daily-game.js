@@ -101,7 +101,7 @@ export function finishStreak() {
 
 export function postcardDistance(result) {
   const distance = Number.isFinite(result.distanceExact) ? result.distanceExact : result.distance;
-  return formatKm(distance);
+  return formatKm(Math.round(distance));
 }
 
 export function postcardSummaryCard(result, item) {

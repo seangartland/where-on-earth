@@ -15,6 +15,8 @@ import {
 } from './scene.js';
 import { outlineMaterials, prioritizeInsetZoom } from './surface.js';
 
+const pointerFine = () => window.matchMedia('(pointer: fine)').matches;
+
 let host = null;
 let guessBadgeTex;
 let answerBadgeTex;
@@ -323,7 +325,7 @@ export function placeGuessPin(clientX, clientY) {
   if (navigator.vibrate) navigator.vibrate(8);
   state.pendingGuess = vec3ToLatLng(normal);
   host.showLockButton();
-  host.setGuessHint('Tap elsewhere to move it, or lock it in');
+  host.setGuessHint(pointerFine() ? 'Click elsewhere to move it, or lock it in' : 'Tap elsewhere to move it, or lock it in');
 }
 
 // ---------------------------------------------------------------------------

@@ -13,6 +13,8 @@ export { gameEls };
 import { formatKm, formatDailyDate, countryKey } from '../core/format.js';
 import { distanceScore, scoreGuess, scoringDistanceKm } from './scoring.js';
 
+const pointerFine = () => window.matchMedia('(pointer: fine)').matches;
+
 let host = null;
 let pins, correctPin, answerLine, peekSlot, latLngToVec3, buildAnswerPath, placeRevealVisual;
 let frameRevealPoints, frameNorthUpRevealPoints, showCountryOutline, showExtentOutline, showLineLabel, showRevealSheet;
@@ -135,9 +137,11 @@ export function showRound() {
   const dailyRound = !pvp.active && !expeditionRun.active && !borders.active
     && !survival.active && !endless.active && !trivia.active && !pack.active;
   setGuessHint(borders.active || survival.active || trivia.active || dailyRound ? '' : 'Tap the globe to place your pin');
-  document.getElementById('hud').textContent = dailyRound
-    ? 'Tap to place · Drag to spin · Pinch to zoom'
-    : 'Drag to spin · Pinch to zoom';
+  document.getElementById('hud').textContent = pointerFine()
+    ? 'Drag to spin · Scroll to zoom'
+    : dailyRound
+      ? 'Tap to place · Drag to spin · Pinch to zoom'
+      : 'Drag to spin · Pinch to zoom';
 }
 
 // Compact earn toast: appears after the flyover completes, doesn't block the globe.
