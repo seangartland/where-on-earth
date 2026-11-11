@@ -5359,5 +5359,1917 @@
     "why": "p.66·fb261·K0·iso229 → 22.6 → 5"
    }
   }
+ },
+ "tian-shan": {
+  "entry": {
+   "id": "tian-shan",
+   "short": "Tian Shan",
+   "clue": "Tian Shan, Central Asia",
+   "fact": "Sacred in Tengrism, the range's second-highest peak is Khan Tengri, \"Lord of the Spirits\"; its highest, Jengish Chokusu in Kyrgyzstan, reaches 7,439 metres.",
+   "lat": 41.76492,
+   "lng": 79.45253,
+   "difficulty": 10,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Tian_Shan_in_Kyrgyzstan_01.jpg/500px-Tian_Shan_in_Kyrgyzstan_01.jpg",
+   "country": "China, Kyrgyzstan, Uzbekistan, and Tajikistan",
+   "continent": "Asia",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.61·fb3232·K0·iso266 → 236.2 → 10",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      94.3467,
+      43.0733
+     ],
+     [
+      88.335,
+      43.8016
+     ],
+     [
+      80.89,
+      42.2617
+     ],
+     [
+      80.2947,
+      42.0626
+     ],
+     [
+      80.1287,
+      42.0347
+     ],
+     [
+      77.6842,
+      41.0594
+     ],
+     [
+      77.3413,
+      43.1178
+     ],
+     [
+      77.0857,
+      42.9883
+     ],
+     [
+      74.5717,
+      42.5212
+     ],
+     [
+      74.1583,
+      42.4717
+     ],
+     [
+      70.9667,
+      42.1167
+     ],
+     [
+      70.0578,
+      41.4944
+     ],
+     [
+      70.7189,
+      39.6195
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 13 named principal peaks of the Tian Shan (P4552 chain to Q5474), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q5474",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 13,
+   "vertices": 13,
+   "maxDeviationKm": 0.005,
+   "lengthKm": 2505
+  },
+  "report": {
+   "image": {
+    "title": "File:Tian Shan in Kyrgyzstan 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tian_Shan_in_Kyrgyzstan_01.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/72/Tian_Shan_in_Kyrgyzstan_01.jpg",
+    "license": "CC0",
+    "author": "Bgag",
+    "head": 200
+   },
+   "span": [
+    "China",
+    "Kyrgyzstan",
+    "Uzbekistan",
+    "Tajikistan"
+   ],
+   "wikidataP17iso3": [
+    "CHN",
+    "KAZ",
+    "KGZ",
+    "UZB"
+   ],
+   "shares": [
+    [
+     "China",
+     0.537
+    ],
+    [
+     "Kyrgyzstan",
+     0.319
+    ],
+    [
+     "Uzbekistan",
+     0.082
+    ],
+    [
+     "Tajikistan",
+     0.036
+    ],
+    [
+     "Kazakhstan",
+     0.026
+    ]
+   ],
+   "geometry": {
+    "id": "tian-shan",
+    "qid": "Q5474",
+    "wikidataP625": [
+     [
+      42.0375,
+      80.12528
+     ]
+    ],
+    "p17iso3": [
+     "CHN",
+     "KAZ",
+     "KGZ",
+     "UZB"
+    ],
+    "candidates": 84,
+    "filtered": 78,
+    "droppedSample": [
+     [
+      "Pik Tandykul",
+      "country TJK"
+     ],
+     [
+      "Pik Chimtarga",
+      "country TJK"
+     ],
+     [
+      "Bodhona",
+      "country TJK"
+     ],
+     [
+      "Khazret Sultan",
+      "country TJK"
+     ],
+     [
+      "Murmansk — gorod-geroy",
+      "country TJK"
+     ],
+     [
+      "Boboiob",
+      "country TJK"
+     ]
+    ],
+    "droppedCount": 6,
+    "cells": 33,
+    "backboneKm": 2403,
+    "method": "simplified polyline through 13 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5474",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Tomort",
+      "qid": "Q7820308",
+      "lat": 43.07333,
+      "lng": 94.34667,
+      "elev": 4886
+     },
+     {
+      "name": "Bogda Peak",
+      "qid": "Q1037396",
+      "lat": 43.80157,
+      "lng": 88.33497,
+      "elev": 5448
+     },
+     {
+      "name": "Xuelian Feng",
+      "qid": "Q8045232",
+      "lat": 42.26167,
+      "lng": 80.89,
+      "elev": 6627
+     },
+     {
+      "name": "Pik Rapassov",
+      "qid": "Q25378915",
+      "lat": 42.06257,
+      "lng": 80.29466,
+      "elev": 6814
+     },
+     {
+      "name": "Jengish Chokusu",
+      "qid": "Q332762",
+      "lat": 42.03466,
+      "lng": 80.12871,
+      "elev": 7439
+     },
+     {
+      "name": "Pik Dankova",
+      "qid": "Q20625014",
+      "lat": 41.05944,
+      "lng": 77.68418,
+      "elev": 5982
+     },
+     {
+      "name": "Talgar peak",
+      "qid": "Q608494",
+      "lat": 43.11784,
+      "lng": 77.34133,
+      "elev": 4979
+     },
+     {
+      "name": "Oleg Koshevoy peak",
+      "qid": "Q16433556",
+      "lat": 42.9883,
+      "lng": 77.08567,
+      "elev": 4263
+     },
+     {
+      "name": "Pik Semionova Tien-Shanskogo",
+      "qid": "Q20619813",
+      "lat": 42.52116,
+      "lng": 74.57166,
+      "elev": 4895
+     },
+     {
+      "name": "Vladimir Putin Peak",
+      "qid": "Q1498647",
+      "lat": 42.47167,
+      "lng": 74.15833,
+      "elev": 4446
+     },
+     {
+      "name": "Mount Adelung",
+      "qid": "Q355590",
+      "lat": 42.11667,
+      "lng": 70.96667,
+      "elev": 4301
+     },
+     {
+      "name": "Greater Chimgan",
+      "qid": "Q18755528",
+      "lat": 41.49444,
+      "lng": 70.05778,
+      "elev": 3309
+     },
+     {
+      "name": "Pik Skalisty",
+      "qid": "Q13166235",
+      "lat": 39.61954,
+      "lng": 70.71885,
+      "elev": 5621
+     }
+    ],
+    "sourceVertices": 13,
+    "vertices": 13,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 2505,
+    "midpoint": [
+     41.76492,
+     79.45253
+    ],
+    "midpointCountry": "China",
+    "shares": [
+     [
+      "China",
+      0.537
+     ],
+     [
+      "Kyrgyzstan",
+      0.319
+     ],
+     [
+      "Uzbekistan",
+      0.082
+     ],
+     [
+      "Tajikistan",
+      0.036
+     ],
+     [
+      "Kazakhstan",
+      0.026
+     ]
+    ],
+    "shareIso3": [
+     [
+      "CHN",
+      0.537
+     ],
+     [
+      "KGZ",
+      0.319
+     ],
+     [
+      "UZB",
+      0.082
+     ],
+     [
+      "TJK",
+      0.036
+     ],
+     [
+      "KAZ",
+      0.026
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.1,
+     0.9,
+     1.4,
+     5.5,
+     7.0,
+     7.2,
+     9.5,
+     11.2,
+     11.6,
+     13.8,
+     17.1,
+     17.2,
+     17.4,
+     17.6,
+     17.9,
+     17.9,
+     18.3,
+     18.8,
+     19.7,
+     19.9,
+     23.1
+    ],
+    "p625Km": [
+     0.4
+    ]
+   },
+   "score": {
+    "title": "Tian Shan",
+    "months": [
+     14766,
+     14118,
+     15360,
+     14432,
+     12879,
+     13359,
+     13290,
+     15008,
+     12954,
+     12742,
+     16029,
+     15373
+    ],
+    "meanViews": 466.6,
+    "medianViews": 469.6,
+    "maxOverMedian": 1.12,
+    "scoringCountry": "China",
+    "scoringIso2": "CN",
+    "scoringShare": 0.537,
+    "centre": [
+     32.4556,
+     114.2833
+    ],
+    "meanD": 10,
+    "meanWhy": "p.61·fb3232·K0·iso266 → 236.2 → 10",
+    "medianD": 10,
+    "medianWhy": "p.62·fb3232·K0·iso266 → 235.3 → 10",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.61,
+    "K": 0,
+    "dFb": 3232,
+    "d1M": 266,
+    "loss": 236.2,
+    "D": 10,
+    "why": "p.61·fb3232·K0·iso266 → 236.2 → 10"
+   }
+  }
+ },
+ "altai-mountains": {
+  "entry": {
+   "id": "altai-mountains",
+   "short": "Altai Mountains",
+   "clue": "Altai Mountains, Mongolia and Russia 🇲🇳🇷🇺",
+   "fact": "Russia, China, Mongolia and Kazakhstan meet in these mountains, where the Irtysh and the Ob rise; Belukha, at 4,506 metres, is the highest summit.",
+   "lat": 48.23295,
+   "lng": 90.3439,
+   "difficulty": 8,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Altai_reserve._The_object_of_UNESCO_world_heritage_site_Golden_mountains_of_Altai.jpg/500px-Altai_reserve._The_object_of_UNESCO_world_heritage_site_Golden_mountains_of_Altai.jpg",
+   "country": "Mongolia and Russia",
+   "continent": "Asia",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.59·fb1112·K0·iso536 → 103.0 → 8",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      84.5345,
+      50.7771
+     ],
+     [
+      86.5897,
+      49.8069
+     ],
+     [
+      87.8192,
+      49.1458
+     ],
+     [
+      88.6616,
+      49.4911
+     ],
+     [
+      89.1561,
+      48.6475
+     ],
+     [
+      90.8664,
+      48.0506
+     ],
+     [
+      93.5942,
+      46.6175
+     ],
+     [
+      94.1342,
+      45.1325
+     ],
+     [
+      95.24,
+      44.7992
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 9 named principal peaks of the Altai Mountains (P4552 chain to Q5955), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q5955",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 9,
+   "vertices": 9,
+   "maxDeviationKm": 0.004,
+   "lengthKm": 1137
+  },
+  "report": {
+   "image": {
+    "title": "File:Altai reserve. The object of UNESCO world heritage site Golden mountains of Altai.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Altai_reserve._The_object_of_UNESCO_world_heritage_site_Golden_mountains_of_Altai.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/32/Altai_reserve._The_object_of_UNESCO_world_heritage_site_Golden_mountains_of_Altai.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Александр Байдуков",
+    "head": 200
+   },
+   "span": [
+    "Mongolia",
+    "Russia"
+   ],
+   "wikidataP17iso3": [
+    "CHN",
+    "KAZ",
+    "MNG",
+    "RUS"
+   ],
+   "shares": [
+    [
+     "Mongolia",
+     0.715
+    ],
+    [
+     "Russia",
+     0.268
+    ],
+    [
+     "Kazakhstan",
+     0.013
+    ],
+    [
+     "China",
+     0.004
+    ]
+   ],
+   "geometry": {
+    "id": "altai-mountains",
+    "qid": "Q5955",
+    "wikidataP625": [
+     [
+      49,
+      89
+     ]
+    ],
+    "p17iso3": [
+     "CHN",
+     "KAZ",
+     "MNG",
+     "RUS"
+    ],
+    "candidates": 21,
+    "filtered": 15,
+    "droppedSample": [
+     [
+      "Harhiraa",
+      "outside OSM area"
+     ],
+     [
+      "Türgen",
+      "outside OSM area"
+     ],
+     [
+      "Mongun-Taiga",
+      "outside OSM area"
+     ],
+     [
+      "Ikh Bogd",
+      "outside OSM area"
+     ],
+     [
+      "Hasagt Hairhan",
+      "outside OSM area"
+     ],
+     [
+      "Karlygan",
+      "outside OSM area"
+     ]
+    ],
+    "droppedCount": 6,
+    "osmArea": "relation 21368166",
+    "cells": 11,
+    "backboneKm": 1137,
+    "method": "simplified polyline through 9 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5955",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Mayak Shangina",
+      "qid": "Q16686310",
+      "lat": 50.7771,
+      "lng": 84.5345,
+      "elev": 2490
+     },
+     {
+      "name": "Belukha Mountain",
+      "qid": "Q724367",
+      "lat": 49.80694,
+      "lng": 86.58972,
+      "elev": 4506
+     },
+     {
+      "name": "Hüiten Peak",
+      "qid": "Q1091113",
+      "lat": 49.14583,
+      "lng": 87.81917,
+      "elev": 4374
+     },
+     {
+      "name": "Sarzhematy",
+      "qid": "Q62519123",
+      "lat": 49.4911,
+      "lng": 88.6616,
+      "elev": 3500
+     },
+     {
+      "name": "Tsengel Khairkhan",
+      "qid": "Q7849541",
+      "lat": 48.6475,
+      "lng": 89.1561,
+      "elev": 3943
+     },
+     {
+      "name": "Höh Serkh",
+      "qid": "Q5964635",
+      "lat": 48.05056,
+      "lng": 90.86639,
+      "elev": 4019
+     },
+     {
+      "name": "Sutai Mountain",
+      "qid": "Q7649884",
+      "lat": 46.6175,
+      "lng": 93.5942,
+      "elev": 4220
+     },
+     {
+      "name": "Erdeni Chuluuta Uula",
+      "qid": "Q27702792",
+      "lat": 45.1325,
+      "lng": 94.1342,
+      "elev": 2359
+     },
+     {
+      "name": "Aj Bogd",
+      "qid": "Q4699476",
+      "lat": 44.79917,
+      "lng": 95.24,
+      "elev": 3802
+     }
+    ],
+    "sourceVertices": 9,
+    "vertices": 9,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.004,
+    "lengthKm": 1137,
+    "midpoint": [
+     48.23295,
+     90.3439
+    ],
+    "midpointCountry": "Mongolia",
+    "shares": [
+     [
+      "Mongolia",
+      0.715
+     ],
+     [
+      "Russia",
+      0.268
+     ],
+     [
+      "Kazakhstan",
+      0.013
+     ],
+     [
+      "China",
+      0.004
+     ]
+    ],
+    "shareIso3": [
+     [
+      "MNG",
+      0.715
+     ],
+     [
+      "RUS",
+      0.268
+     ],
+     [
+      "KAZ",
+      0.013
+     ],
+     [
+      "CHN",
+      0.004
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.2,
+     1.5,
+     2.0,
+     53.3,
+     66.9
+    ],
+    "p625Km": [
+     3.4
+    ]
+   },
+   "score": {
+    "title": "Altai Mountains",
+    "months": [
+     13855,
+     14162,
+     13710,
+     14000,
+     12682,
+     12675,
+     12168,
+     12872,
+     11585,
+     11329,
+     12566,
+     12148
+    ],
+    "meanViews": 421.2,
+    "medianViews": 417.1,
+    "maxOverMedian": 1.12,
+    "scoringCountry": "Mongolia",
+    "scoringIso2": "MN",
+    "scoringShare": 0.715,
+    "centre": [
+     48.0279,
+     105.3511
+    ],
+    "meanD": 8,
+    "meanWhy": "p.59·fb1112·K0·iso536 → 103.0 → 8",
+    "medianD": 8,
+    "medianWhy": "p.59·fb1112·K0·iso536 → 103.5 → 8",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.59,
+    "K": 0,
+    "dFb": 1112,
+    "d1M": 536,
+    "loss": 103.0,
+    "D": 8,
+    "why": "p.59·fb1112·K0·iso536 → 103.0 → 8"
+   }
+  }
+ },
+ "drakensberg": {
+  "entry": {
+   "id": "drakensberg",
+   "short": "Drakensberg",
+   "clue": "Drakensberg, Lesotho and South Africa 🇱🇸🇿🇦",
+   "fact": "The eastern rim of the Great Escarpment around southern Africa's high plateau, it runs for more than 1,000 km and climbs to 3,482 metres on the border of South Africa and Lesotho.",
+   "lat": -28.82408,
+   "lng": 28.91969,
+   "difficulty": 8,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/South_Africa_-_Drakensberg_%2816261357780%29.jpg/500px-South_Africa_-_Drakensberg_%2816261357780%29.jpg",
+   "country": "Lesotho and South Africa",
+   "continent": "Africa",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.52·fb137·K1·iso235 → 88.7 → 8",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      30.6513,
+      -28.3587
+     ],
+     [
+      30.2122,
+      -28.1058
+     ],
+     [
+      29.2667,
+      -29.4667
+     ],
+     [
+      28.8846,
+      -28.7591
+     ],
+     [
+      27.8202,
+      -29.2595
+     ],
+     [
+      27.9261,
+      -29.7314
+     ],
+     [
+      27.9333,
+      -30.6333
+     ],
+     [
+      28.1569,
+      -30.4667
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 8 named principal peaks of the Drakensberg (P4552 chain to Q183295), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q183295",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 8,
+   "vertices": 8,
+   "maxDeviationKm": 0.007,
+   "lengthKm": 615
+  },
+  "report": {
+   "image": {
+    "title": "File:South Africa - Drakensberg (16261357780).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:South_Africa_-_Drakensberg_(16261357780).jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/22/South_Africa_-_Drakensberg_%2816261357780%29.jpg",
+    "license": "CC BY 2.0",
+    "author": "Diriye Amey from Locarno, Switzerland",
+    "head": 200
+   },
+   "span": [
+    "Lesotho",
+    "South Africa"
+   ],
+   "wikidataP17iso3": [
+    "LSO",
+    "ZAF"
+   ],
+   "shares": [
+    [
+     "Lesotho",
+     0.637
+    ],
+    [
+     "South Africa",
+     0.363
+    ]
+   ],
+   "geometry": {
+    "id": "drakensberg",
+    "qid": "Q183295",
+    "wikidataP625": [
+     [
+      -29.36667,
+      29.53333
+     ]
+    ],
+    "p17iso3": [
+     "LSO",
+     "ZAF"
+    ],
+    "candidates": 22,
+    "filtered": 21,
+    "droppedSample": [
+     [
+      "Emlembe",
+      "country SWZ"
+     ]
+    ],
+    "droppedCount": 1,
+    "cells": 15,
+    "backboneKm": 537,
+    "method": "simplified polyline through 8 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q183295",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Isandlwana",
+      "qid": "Q3782078",
+      "lat": -28.35868,
+      "lng": 30.6513,
+      "elev": 1284
+     },
+     {
+      "name": "Impati Mountain",
+      "qid": "Q8530162",
+      "lat": -28.1058,
+      "lng": 30.2122,
+      "elev": 1595
+     },
+     {
+      "name": "Thabana Ntlenyana",
+      "qid": "Q733132",
+      "lat": -29.46667,
+      "lng": 29.26667,
+      "elev": 3482
+     },
+     {
+      "name": "Mont-Aux-Sources",
+      "qid": "Q599532",
+      "lat": -28.75908,
+      "lng": 28.88464,
+      "elev": 3282
+     },
+     {
+      "name": "Sefikeng, mountain",
+      "qid": "Q27480128",
+      "lat": -29.25946,
+      "lng": 27.82015,
+      "elev": 2227
+     },
+     {
+      "name": "Thaba Putsoa",
+      "qid": "Q7708830",
+      "lat": -29.73142,
+      "lng": 27.92607,
+      "elev": 3096
+     },
+     {
+      "name": "Ben Macdhui",
+      "qid": "Q4802660",
+      "lat": -30.63333,
+      "lng": 27.93333,
+      "elev": 3001
+     },
+     {
+      "name": "KwaDuma",
+      "qid": "Q5201021",
+      "lat": -30.4667,
+      "lng": 28.1569,
+      "elev": 3019
+     }
+    ],
+    "sourceVertices": 8,
+    "vertices": 8,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.007,
+    "lengthKm": 615,
+    "midpoint": [
+     -28.82408,
+     28.91969
+    ],
+    "midpointCountry": "South Africa",
+    "shares": [
+     [
+      "Lesotho",
+      0.637
+     ],
+     [
+      "South Africa",
+      0.363
+     ]
+    ],
+    "shareIso3": [
+     [
+      "LSO",
+      0.637
+     ],
+     [
+      "ZAF",
+      0.363
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.6,
+     2.4,
+     7.1,
+     7.6,
+     11.0,
+     11.6,
+     14.8,
+     16.2,
+     16.5,
+     18.8,
+     26.5,
+     44.3,
+     57.1
+    ],
+    "p625Km": [
+     16.3
+    ]
+   },
+   "score": {
+    "title": "Drakensberg",
+    "months": [
+     9484,
+     12249,
+     9385,
+     10044,
+     7739,
+     8440,
+     9498,
+     10285,
+     7960,
+     8513,
+     9770,
+     8756
+    ],
+    "meanViews": 307.2,
+    "medianViews": 310.3,
+    "maxOverMedian": 1.3,
+    "scoringCountry": "Lesotho",
+    "scoringIso2": "LS",
+    "scoringShare": 0.637,
+    "centre": [
+     -29.3818,
+     27.6674
+    ],
+    "meanD": 8,
+    "meanWhy": "p.52·fb137·K1·iso235 → 88.7 → 8",
+    "medianD": 8,
+    "medianWhy": "p.52·fb137·K1·iso235 → 88.3 → 8",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.52,
+    "K": 1,
+    "dFb": 137,
+    "d1M": 235,
+    "loss": 88.7,
+    "D": 8,
+    "why": "p.52·fb137·K1·iso235 → 88.7 → 8"
+   }
+  }
+ },
+ "great-dividing-range": {
+  "entry": {
+   "id": "great-dividing-range",
+   "short": "Great Dividing Range",
+   "clue": "Great Dividing Range, Australia 🇦🇺",
+   "fact": "Running more than 3,500 km from the tip of Cape York to western Victoria, it is the longest mountain chain entirely within one country and holds Mount Kosciuszko, Australia's highest point at 2,228 metres.",
+   "lat": -27.48861,
+   "lng": 152.078,
+   "difficulty": 9,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Great_Dividing_Range_seen_from_Maryvale%2C_Queensland%2C_2025%2C_02.jpg/500px-Great_Dividing_Range_seen_from_Maryvale%2C_Queensland%2C_2025%2C_02.jpg",
+   "country": "Australia",
+   "continent": "Oceania",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.49·fb983·K0·iso94 → 113.2 → 9",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      148.74,
+      -37.26
+     ],
+     [
+      148.2635,
+      -36.4558
+     ],
+     [
+      148.7892,
+      -35.6608
+     ],
+     [
+      149.1806,
+      -35.2375
+     ],
+     [
+      148.982,
+      -33.3442
+     ],
+     [
+      150.2573,
+      -33.5953
+     ],
+     [
+      151.448,
+      -32.0032
+     ],
+     [
+      151.656,
+      -31.3265
+     ],
+     [
+      152.4385,
+      -31.1603
+     ],
+     [
+      153.2708,
+      -28.3972
+     ],
+     [
+      152.4664,
+      -28.2164
+     ],
+     [
+      148.633,
+      -21.0333
+     ],
+     [
+      145.8167,
+      -17.3833
+     ],
+     [
+      145.374,
+      -16.1642
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 14 named principal peaks of the Great Dividing Range (P4552 chain to Q192583), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q192583",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 14,
+   "vertices": 14,
+   "maxDeviationKm": 0.005,
+   "lengthKm": 2887
+  },
+  "report": {
+   "image": {
+    "title": "File:Great Dividing Range seen from Maryvale, Queensland, 2025, 02.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Great_Dividing_Range_seen_from_Maryvale,_Queensland,_2025,_02.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Great_Dividing_Range_seen_from_Maryvale%2C_Queensland%2C_2025%2C_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Chris Olszewski",
+    "head": 200
+   },
+   "span": [
+    "Australia"
+   ],
+   "wikidataP17iso3": [
+    "AUS"
+   ],
+   "shares": [
+    [
+     "Australia",
+     0.903
+    ],
+    [
+     null,
+     0.097
+    ]
+   ],
+   "geometry": {
+    "id": "great-dividing-range",
+    "qid": "Q192583",
+    "wikidataP625": [
+     [
+      -25,
+      147
+     ]
+    ],
+    "p17iso3": [
+     "AUS"
+    ],
+    "candidates": 91,
+    "excludedSubranges": [
+     "Q14935605",
+     "Q1445117"
+    ],
+    "filtered": 69,
+    "droppedSample": [
+     [
+      "Thabana Ntlenyana",
+      "country LSO"
+     ],
+     [
+      "Makheka",
+      "country LSO"
+     ],
+     [
+      "Mafadi",
+      "country LSO"
+     ],
+     [
+      "Njesuthi",
+      "country ZAF"
+     ],
+     [
+      "Champagne Castle",
+      "country ZAF"
+     ],
+     [
+      "Popple Peak",
+      "country ZAF"
+     ],
+     [
+      "Giant's Castle",
+      "country ZAF"
+     ],
+     [
+      "Mont-Aux-Sources",
+      "country ZAF"
+     ],
+     [
+      "Namahadi Peak",
+      "country LSO"
+     ],
+     [
+      "Thaba Putsoa",
+      "country LSO"
+     ],
+     [
+      "KwaDuma",
+      "country ZAF"
+     ],
+     [
+      "Cathedral Peak",
+      "country ZAF"
+     ],
+     [
+      "Ben Macdhui",
+      "country ZAF"
+     ],
+     [
+      "Sefikeng, mountain",
+      "country LSO"
+     ],
+     [
+      "Maboloka",
+      "country LSO"
+     ]
+    ],
+    "droppedCount": 22,
+    "cells": 33,
+    "backboneKm": 2784,
+    "method": "simplified polyline through 14 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q192583",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Brown Mountain forest",
+      "qid": "Q4976219",
+      "lat": -37.26,
+      "lng": 148.74,
+      "elev": 985
+     },
+     {
+      "name": "Mount Kosciuszko",
+      "qid": "Q178167",
+      "lat": -36.45583,
+      "lng": 148.26351,
+      "elev": 2228
+     },
+     {
+      "name": "Bimberi Peak",
+      "qid": "Q241762",
+      "lat": -35.66083,
+      "lng": 148.78917,
+      "elev": 1912
+     },
+     {
+      "name": "Mount Majura",
+      "qid": "Q492286",
+      "lat": -35.2375,
+      "lng": 149.18056,
+      "elev": 888
+     },
+     {
+      "name": "Mount Canobolas",
+      "qid": "Q1691036",
+      "lat": -33.3442,
+      "lng": 148.982,
+      "elev": 1397
+     },
+     {
+      "name": "One Tree Hill",
+      "qid": "Q39071026",
+      "lat": -33.59532,
+      "lng": 150.25728,
+      "elev": 1112
+     },
+     {
+      "name": "Brumlow Top",
+      "qid": "Q4978807",
+      "lat": -32.0032,
+      "lng": 151.448,
+      "elev": 1586
+     },
+     {
+      "name": "Mount Grundy",
+      "qid": "Q6921001",
+      "lat": -31.3265,
+      "lng": 151.656,
+      "elev": 1463
+     },
+     {
+      "name": "Mount Banda Banda",
+      "qid": "Q6919607",
+      "lat": -31.16033,
+      "lng": 152.4385,
+      "elev": 1258
+     },
+     {
+      "name": "Mount Warning",
+      "qid": "Q3322184",
+      "lat": -28.39722,
+      "lng": 153.27083,
+      "elev": 1156
+     },
+     {
+      "name": "Mount Superbus",
+      "qid": "Q3322122",
+      "lat": -28.21639,
+      "lng": 152.46639,
+      "elev": 1375
+     },
+     {
+      "name": "Mount Dalrymple",
+      "qid": "Q6920348",
+      "lat": -21.0333,
+      "lng": 148.633,
+      "elev": 1227
+     },
+     {
+      "name": "Mount Bartle Frere",
+      "qid": "Q1330376",
+      "lat": -17.38333,
+      "lng": 145.81667,
+      "elev": 1622
+     },
+     {
+      "name": "Thornton Peak",
+      "qid": "Q7796549",
+      "lat": -16.1642,
+      "lng": 145.374,
+      "elev": 1374
+     }
+    ],
+    "sourceVertices": 14,
+    "vertices": 14,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 2887,
+    "midpoint": [
+     -27.48861,
+     152.078
+    ],
+    "midpointCountry": "Australia",
+    "shares": [
+     [
+      "Australia",
+      0.903
+     ],
+     [
+      null,
+      0.097
+     ]
+    ],
+    "shareIso3": [
+     [
+      "AUS",
+      0.903
+     ],
+     [
+      null,
+      0.097
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.4,
+     0.6,
+     1.1,
+     1.3,
+     1.3,
+     1.8,
+     2.2,
+     5.6,
+     7.4,
+     8.1,
+     10.0,
+     12.7,
+     90.9,
+     102.2,
+     112.2,
+     113.1,
+     116.1,
+     138.1,
+     138.3,
+     164.3,
+     173.4
+    ],
+    "p625Km": [
+     341.7
+    ]
+   },
+   "score": {
+    "title": "Great Dividing Range",
+    "months": [
+     8856,
+     7986,
+     7704,
+     8893,
+     7669,
+     7486,
+     8169,
+     8729,
+     7186,
+     15410,
+     8343,
+     8071
+    ],
+    "meanViews": 286.3,
+    "medianViews": 267.1,
+    "maxOverMedian": 1.9,
+    "scoringCountry": "Australia",
+    "scoringIso2": "AU",
+    "scoringShare": 0.903,
+    "centre": [
+     -33.9634,
+     145.0604
+    ],
+    "meanD": 8,
+    "meanWhy": "p.50·fb983·K0·iso94 → 109.9 → 8",
+    "medianD": 9,
+    "medianWhy": "p.49·fb983·K0·iso94 → 113.2 → 9",
+    "spike": true,
+    "basis": "median month",
+    "p": 0.49,
+    "K": 0,
+    "dFb": 983,
+    "d1M": 94,
+    "loss": 113.2,
+    "D": 9,
+    "why": "p.49·fb983·K0·iso94 → 113.2 → 9"
+   }
+  }
+ },
+ "ethiopian-highlands": {
+  "entry": {
+   "id": "ethiopian-highlands",
+   "short": "Ethiopian Highlands",
+   "clue": "Ethiopian Highlands, Ethiopia 🇪🇹",
+   "fact": "Nicknamed the Roof of Africa, it is the continent's largest continuous area at its elevation, with little ground below 1,500 metres, and the Great Rift Valley cuts it diagonally in two.",
+   "lat": 10.99934,
+   "lng": 38.87751,
+   "difficulty": 6,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Simien-Gebirge.JPG/500px-Simien-Gebirge.JPG",
+   "country": "Ethiopia",
+   "continent": "Africa",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.37·fb194·K0·iso220 → 28.0 → 6",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      42.3333,
+      9.4333
+     ],
+     [
+      39.8194,
+      6.8265
+     ],
+     [
+      38.3725,
+      13.2367
+     ],
+     [
+      34.8117,
+      8.8775
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 4 named principal peaks of the Ethiopian Highlands (P4552 chain to Q319288), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q319288",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 4,
+   "vertices": 4,
+   "maxDeviationKm": 0.005,
+   "lengthKm": 1752
+  },
+  "report": {
+   "image": {
+    "title": "File:Simien-Gebirge.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Simien-Gebirge.JPG",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Simien-Gebirge.JPG",
+    "license": "CC BY-SA 4.0",
+    "author": "Fabian Lambeck",
+    "head": 200
+   },
+   "span": [
+    "Ethiopia"
+   ],
+   "wikidataP17iso3": [
+    "ETH"
+   ],
+   "shares": [
+    [
+     "Ethiopia",
+     1.0
+    ]
+   ],
+   "geometry": {
+    "id": "ethiopian-highlands",
+    "qid": "Q319288",
+    "wikidataP625": [
+     [
+      10,
+      38.16667
+     ]
+    ],
+    "p17iso3": [
+     "ETH"
+    ],
+    "candidates": 14,
+    "filtered": 12,
+    "droppedSample": [
+     [
+      "Emba Soira",
+      "country ERI"
+     ],
+     [
+      "Nabro Volcano",
+      "country ERI"
+     ]
+    ],
+    "droppedCount": 2,
+    "cells": 11,
+    "backboneKm": 987,
+    "method": "simplified polyline through 4 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q319288",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Kundudo",
+      "qid": "Q1164645",
+      "lat": 9.43333,
+      "lng": 42.33333,
+      "elev": 3000
+     },
+     {
+      "name": "Mount Tullu Demtu",
+      "qid": "Q3502707",
+      "lat": 6.8265,
+      "lng": 39.8194,
+      "elev": 4389
+     },
+     {
+      "name": "Ras Dashen",
+      "qid": "Q275435",
+      "lat": 13.23667,
+      "lng": 38.3725,
+      "elev": 4533
+     },
+     {
+      "name": "Mount Welel",
+      "qid": "Q6924537",
+      "lat": 8.8775,
+      "lng": 34.81167,
+      "elev": 3301
+     }
+    ],
+    "sourceVertices": 4,
+    "vertices": 4,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 1752,
+    "midpoint": [
+     10.99934,
+     38.87751
+    ],
+    "midpointCountry": "Ethiopia",
+    "shares": [
+     [
+      "Ethiopia",
+      1.0
+     ]
+    ],
+    "shareIso3": [
+     [
+      "ETH",
+      1.0
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     13.6,
+     56.8,
+     59.7,
+     116.5,
+     118.6,
+     118.9,
+     265.5,
+     436.3
+    ],
+    "p625Km": [
+     100.1
+    ]
+   },
+   "score": {
+    "title": "Ethiopian Highlands",
+    "months": [
+     5055,
+     5268,
+     4950,
+     4616,
+     4099,
+     4495,
+     4424,
+     4432,
+     3833,
+     3822,
+     6794,
+     4900
+    ],
+    "meanViews": 155.3,
+    "medianViews": 149.9,
+    "maxOverMedian": 1.49,
+    "scoringCountry": "Ethiopia",
+    "scoringIso2": "ET",
+    "scoringShare": 1.0,
+    "centre": [
+     9.2628,
+     39.0227
+    ],
+    "meanD": 6,
+    "meanWhy": "p.37·fb194·K0·iso220 → 28.0 → 6",
+    "medianD": 6,
+    "medianWhy": "p.36·fb194·K0·iso220 → 28.3 → 6",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.37,
+    "K": 0,
+    "dFb": 194,
+    "d1M": 220,
+    "loss": 28.0,
+    "D": 6,
+    "why": "p.37·fb194·K0·iso220 → 28.0 → 6"
+   }
+  }
+ },
+ "southern-alps": {
+  "entry": {
+   "id": "southern-alps",
+   "short": "Southern Alps",
+   "clue": "Southern Alps, New Zealand 🇳🇿",
+   "fact": "Running along much of New Zealand's South Island, the range carries the Main Divide between the eastern and West Coast catchments and peaks at Aoraki / Mount Cook, 3,724 metres.",
+   "lat": -43.90798,
+   "lng": 169.68213,
+   "difficulty": 8,
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Southern_Alps_from_Douglas_Peak_to_Mount_Cook_in_morning_light.jpg/500px-Southern_Alps_from_Douglas_Peak_to_Mount_Cook_in_morning_light.jpg",
+   "country": "New Zealand",
+   "continent": "Oceania",
+   "sets": [
+    "Mountains"
+   ],
+   "difficultyWhy": "p.36·fb690·K0·iso895 → 98.2 → 8",
+   "category": "city",
+   "kind": "extent",
+   "extentType": "line"
+  },
+  "extent": {
+   "type": "line",
+   "lines": [
+    [
+     [
+      167.886,
+      -44.568
+     ],
+     [
+      168.397,
+      -44.624
+     ],
+     [
+      168.728,
+      -44.384
+     ],
+     [
+      168.873,
+      -44.232
+     ],
+     [
+      169.45,
+      -44.066
+     ],
+     [
+      170.1419,
+      -43.595
+     ],
+     [
+      170.328,
+      -43.482
+     ],
+     [
+      170.527,
+      -43.268
+     ],
+     [
+      171.378,
+      -43.0039
+     ]
+    ]
+   ],
+   "source": "Wikidata P625 of 9 named principal peaks of the Southern Alps (P4552 chain to Q206650), joined in order along the range's axis, simplified",
+   "sourceUrl": "https://www.wikidata.org/wiki/Q206650",
+   "license": "CC0",
+   "attribution": "Wikidata",
+   "sourceVertices": 9,
+   "vertices": 9,
+   "maxDeviationKm": 0.002,
+   "lengthKm": 348
+  },
+  "report": {
+   "image": {
+    "title": "File:Southern Alps from Douglas Peak to Mount Cook in morning light.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Southern_Alps_from_Douglas_Peak_to_Mount_Cook_in_morning_light.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Southern_Alps_from_Douglas_Peak_to_Mount_Cook_in_morning_light.jpg",
+    "license": "Public domain",
+    "author": "Pseudopanax at English Wikipedia",
+    "head": 200
+   },
+   "span": [
+    "New Zealand"
+   ],
+   "wikidataP17iso3": [
+    "NZL"
+   ],
+   "shares": [
+    [
+     "New Zealand",
+     1.0
+    ]
+   ],
+   "geometry": {
+    "id": "southern-alps",
+    "qid": "Q206650",
+    "wikidataP625": [
+     [
+      -43.365,
+      170.624
+     ]
+    ],
+    "p17iso3": [
+     "NZL"
+    ],
+    "candidates": 56,
+    "filtered": 55,
+    "droppedSample": [
+     [
+      "Mitre Peak",
+      "country None"
+     ]
+    ],
+    "droppedCount": 1,
+    "cells": 19,
+    "backboneKm": 368,
+    "method": "simplified polyline through 9 named principal peaks in order (Wikidata P625)",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q206650",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "peaks": [
+     {
+      "name": "Mount Pembroke",
+      "qid": "Q8557330",
+      "lat": -44.568,
+      "lng": 167.886,
+      "elev": 2015
+     },
+     {
+      "name": "Mount Earnslaw / Pikirakatahi",
+      "qid": "Q6920530",
+      "lat": -44.624,
+      "lng": 168.397,
+      "elev": 2830
+     },
+     {
+      "name": "Mount Aspiring / Tititea",
+      "qid": "Q1210275",
+      "lat": -44.384,
+      "lng": 168.728,
+      "elev": 3033
+     },
+     {
+      "name": "Mount Pollux",
+      "qid": "Q31656164",
+      "lat": -44.232,
+      "lng": 168.873,
+      "elev": 2536
+     },
+     {
+      "name": "Mount Brewster",
+      "qid": "Q20057846",
+      "lat": -44.066,
+      "lng": 169.45,
+      "elev": 2516
+     },
+     {
+      "name": "Aoraki / Mount Cook",
+      "qid": "Q5059",
+      "lat": -43.595,
+      "lng": 170.14194,
+      "elev": 3724
+     },
+     {
+      "name": "Mount Elie De Beaumont",
+      "qid": "Q1950452",
+      "lat": -43.482,
+      "lng": 170.328,
+      "elev": 3109
+     },
+     {
+      "name": "Mount Adams",
+      "qid": "Q6919252",
+      "lat": -43.268,
+      "lng": 170.527,
+      "elev": 2208
+     },
+     {
+      "name": "Mount Murchison",
+      "qid": "Q3197303",
+      "lat": -43.0039,
+      "lng": 171.378,
+      "elev": 2408
+     }
+    ],
+    "sourceVertices": 9,
+    "vertices": 9,
+    "toleranceDeg": 0.001,
+    "maxDeviationKm": 0.002,
+    "lengthKm": 348,
+    "midpoint": [
+     -43.90798,
+     169.68213
+    ],
+    "midpointCountry": "New Zealand",
+    "shares": [
+     [
+      "New Zealand",
+      1.0
+     ]
+    ],
+    "shareIso3": [
+     [
+      "NZL",
+      1.0
+     ]
+    ],
+    "topPeakKm": [
+     0.0,
+     0.0,
+     0.0,
+     0.5,
+     0.6,
+     0.6,
+     0.7,
+     0.7,
+     0.8,
+     0.8,
+     1.1,
+     1.2,
+     1.3,
+     1.4,
+     1.5,
+     1.5,
+     1.5,
+     1.5,
+     1.7,
+     1.7,
+     2.0,
+     2.2,
+     2.8,
+     6.3,
+     6.4
+    ],
+    "p625Km": [
+     12.5
+    ]
+   },
+   "score": {
+    "title": "Southern Alps",
+    "months": [
+     4861,
+     5108,
+     5045,
+     4910,
+     5909,
+     4830,
+     4005,
+     4091,
+     3999,
+     4074,
+     4431,
+     4480
+    ],
+    "meanViews": 152.7,
+    "medianViews": 153.1,
+    "maxOverMedian": 1.27,
+    "scoringCountry": "New Zealand",
+    "scoringIso2": "NZ",
+    "scoringShare": 1.0,
+    "centre": [
+     -38.9046,
+     174.574
+    ],
+    "meanD": 8,
+    "meanWhy": "p.36·fb690·K0·iso895 → 98.2 → 8",
+    "medianD": 8,
+    "medianWhy": "p.36·fb690·K0·iso895 → 98.1 → 8",
+    "spike": false,
+    "basis": "mean",
+    "p": 0.36,
+    "K": 0,
+    "dFb": 690,
+    "d1M": 895,
+    "loss": 98.2,
+    "D": 8,
+    "why": "p.36·fb690·K0·iso895 → 98.2 → 8"
+   }
+  }
  }
 }

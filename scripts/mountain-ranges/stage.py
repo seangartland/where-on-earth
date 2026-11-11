@@ -57,6 +57,24 @@ TEXT = {
     'zagros-mountains': dict(continent='Asia',
         fact="Folded up as the Arabian plate pushed into Eurasia, the range runs about 1,500 km to the Strait of "
              "Hormuz, and its folds trap some of the world's largest oil fields."),
+    'tian-shan': dict(continent='Asia', region='Central Asia',
+        fact="Sacred in Tengrism, the range's second-highest peak is Khan Tengri, \"Lord of the Spirits\"; its highest, "
+             "Jengish Chokusu in Kyrgyzstan, reaches 7,439 metres."),
+    'altai-mountains': dict(continent='Asia',
+        fact="Russia, China, Mongolia and Kazakhstan meet in these mountains, where the Irtysh and the Ob rise; Belukha, "
+             "at 4,506 metres, is the highest summit."),
+    'drakensberg': dict(continent='Africa',
+        fact="The eastern rim of the Great Escarpment around southern Africa's high plateau, it runs for more than "
+             "1,000 km and climbs to 3,482 metres on the border of South Africa and Lesotho."),
+    'great-dividing-range': dict(continent='Oceania',
+        fact="Running more than 3,500 km from the tip of Cape York to western Victoria, it is the longest mountain chain "
+             "entirely within one country and holds Mount Kosciuszko, Australia's highest point at 2,228 metres."),
+    'ethiopian-highlands': dict(continent='Africa',
+        fact="Nicknamed the Roof of Africa, it is the continent's largest continuous area at its elevation, with little "
+             "ground below 1,500 metres, and the Great Rift Valley cuts it diagonally in two."),
+    'southern-alps': dict(continent='Oceania',
+        fact="Running along much of New Zealand's South Island, the range carries the Main Divide between the eastern and "
+             "West Coast catchments and peaks at Aoraki / Mount Cook, 3,724 metres."),
 }
 # Reviewed picks: Commons file title, license and author as recorded on the file page.
 PICKS = {
@@ -73,9 +91,16 @@ PICKS = {
     'atlas-mountains': 'File:High Atlas Mountains Taroudant Marrakesh.jpg',
     'caucasus-mountains': None,   # images-caucasus-mountains.json entry 08 (prefix below)
     'zagros-mountains': 'File:Zagros Mountains - Kohgiluyeh and Boyer-Ahmad Province.jpg',
+    'tian-shan': 'File:Tian Shan in Kyrgyzstan 01.jpg',
+    'altai-mountains': None,   # images-altai-mountains.json entry 11 (prefix below)
+    'drakensberg': 'File:South Africa - Drakensberg (16261357780).jpg',
+    'great-dividing-range': 'File:Great Dividing Range seen from Maryvale, Queensland, 2025, 02.jpg',
+    'ethiopian-highlands': 'File:Simien-Gebirge.JPG',
+    'southern-alps': 'File:Southern Alps from Douglas Peak to Mount Cook in morning light.jpg',
 }
 PICK_PREFIX = {'alps': 'File:View in an easterly direction towards the Western Alps',
-               'caucasus-mountains': 'File:Asbestnaya Mount, Adygea'}
+               'caucasus-mountains': 'File:Asbestnaya Mount, Adygea',
+               'altai-mountains': 'File:Altai reserve. The object of UNESCO world heritage site Golden mountains of'}
 
 
 def flag(iso2): return ''.join(chr(0x1F1E6 + ord(c) - 65) for c in iso2.upper())

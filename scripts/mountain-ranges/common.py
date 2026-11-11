@@ -199,21 +199,33 @@ def sparql(q):
     return get('https://query.wikidata.org/sparql?format=json&query=' + urllib.parse.quote(q))
 
 
-def range_peaks(qid):
+def range_peaks(qid, need_article=True):
     """Wikidata peaks whose P4552 (mountain range) is the range or one of its sub-ranges (P4552 chain), with
-    P625, P2044 and an en.wikipedia article (named principal peaks). Sub-range items themselves are excluded."""
+    P625, P2044 and an en.wikipedia article (named principal peaks); need_article=False takes an English label
+    (named peaks) instead and, for a peak with several P625 values, keeps the one nearest the median of the range's
+    candidates (Q724367 Belukha also carries a point 2,000 km east, in Zabaykalsky). need_article=True (chunks 1-2, as
+    banked) keeps the first-returned coordinate: their multi-P625 peaks differ by at most 2.4 km. Sub-range items
+    themselves are excluded."""
+    art_q = ('?article schema:about ?p ; schema:isPartOf <https://en.wikipedia.org/> .' if need_article else
+             'OPTIONAL { ?article schema:about ?p ; schema:isPartOf <https://en.wikipedia.org/> . }')
     q = f'''SELECT DISTINCT ?p ?label ?coord ?elev ?article WHERE {{
       ?p wdt:P4552/wdt:P4552* wd:{qid} ; wdt:P625 ?coord ; wdt:P2044 ?elev .
       FILTER NOT EXISTS {{ ?p wdt:P31 wd:Q46831 }}
-      ?article schema:about ?p ; schema:isPartOf <https://en.wikipedia.org/> .
+      {art_q}
       ?p rdfs:label ?label . FILTER(LANG(?label) = "en") }}'''
-    rows = {}
+    rows, coords = {}, {}
     for b in sparql(q)['results']['bindings']:
         pid = b['p']['value'].rsplit('/', 1)[1]
         if not b['coord']['value'].startswith('Point('): continue   # unknown-value coordinate (genid)
+        if b['elev']['value'].startswith('http'): continue          # unknown-value elevation (genid)
         lng, lat = map(float, b['coord']['value'][6:-1].split())
+        coords.setdefault(pid, set()).add((lat, lng))
         elev = float(b['elev']['value'])
+        art = urllib.parse.unquote(b['article']['value'].rsplit('/', 1)[1]).replace('_', ' ') if 'article' in b else None
         if pid not in rows or elev > rows[pid]['elev']:
-            rows[pid] = dict(qid=pid, name=b['label']['value'], lat=lat, lng=lng, elev=elev,
-                             article=urllib.parse.unquote(b['article']['value'].rsplit('/', 1)[1]).replace('_', ' '))
+            rows[pid] = dict(qid=pid, name=b['label']['value'], lat=lat, lng=lng, elev=elev, article=art)
+    if rows and not need_article:
+        mlat = sorted(r['lat'] for r in rows.values())[len(rows) // 2]; mlng = sorted(r['lng'] for r in rows.values())[len(rows) // 2]
+        for pid, r in rows.items():
+            if len(coords[pid]) > 1: r['lat'], r['lng'] = min(coords[pid], key=lambda c: hav(c[0], c[1], mlat, mlng))
     return sorted(rows.values(), key=lambda r: -r['elev'])

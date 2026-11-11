@@ -3,7 +3,7 @@ Method per range:
   osm-way  an OSM natural=mountain_range line way that runs the length of the range (open, not an outline).
   peaks    a polyline through the range's named principal peaks in order, peak coordinates from Wikidata P625.
 Peak candidates (common.range_peaks + class filter here): P4552 chain to the range, P625, P2044 (normalized to
-metres), an en.wikipedia article, instance of (a subclass of) mountain or summit. Data-driven outlier filters, no
+metres), an en.wikipedia article (chunk 3: an English label), instance of (a subclass of) mountain or summit. Data-driven outlier filters, no
 hand coordinates: the peak must fall in one of the range's own Wikidata P17 countries (game country outlines), and
 inside the OSM range-area outline where OSM has one (relation or closed way: an outline is a filter, never the spine).
 Principal peaks: highest peak per 0.25-degree cell; the range's axis is the path between the two farthest-apart leaves of
@@ -20,16 +20,25 @@ OSM_SPINE = {'rocky-mountains': 1458309038, 'pyrenees': 1501963837}
 # OSM range-area outlines (filters only): relations with type=boundary, closed natural=mountain_range ways.
 OSM_AREA = {'alps': ('relation', 2698607), 'karakoram': ('relation', 10770937), 'carpathian-mountains': ('relation', 16391635),
             'caucasus-mountains': ('relation', 21368162), 'ural-mountains': ('relation', 21368163),
-            'altai-mountains': ('relation', 21368166), 'himalayas': ('way', 1414235061), 'great-dividing-range': ('way', 211234843)}
+            'altai-mountains': ('relation', 21368166), 'himalayas': ('way', 1414235061)}
+# great-dividing-range: no outline. OSM way 211234843 covers only Victoria and New South Wales, so it filtered out every
+# Queensland peak (Bartle Frere, Thornton, Dalrymple, the McPherson peaks) though the article runs the range from Cape York.
 # Wikidata sub-ranges left out, each because the range's own en.wikipedia article defines the range without it.
 # hindu-kush: the article defines an 800 km range from central Afghanistan to the Pamir; the Sulaiman Mountains
 # article calls that range "a north-south extension of the southern Hindu Kush mountain system", not the range.
-EXCLUDE_SUBRANGES = {'hindu-kush': ['Q784189']}   # Q784189 Sulaiman Mountains (P4552 Q5472)
+# great-dividing-range: the article runs the range from Dauan Island to the Grampians in western Victoria; the Tasmanian
+# Arthur and Frankland Ranges (P4552 Q192583) lie across Bass Strait, outside that definition.
+EXCLUDE_SUBRANGES = {'hindu-kush': ['Q784189'],   # Q784189 Sulaiman Mountains (P4552 Q5472)
+                     'great-dividing-range': ['Q14935605', 'Q1445117']}   # Arthur Range (Tasmania), Frankland Range
+# Chunk 3's smaller ranges have few peaks with an en.wikipedia article (Tian Shan 26 against 84 named), so a named
+# peak (English label) suffices there. Chunks 1-2 were banked with the article required and keep it, so their staged
+# spines stay reproducible from this code.
+ARTICLE_OPTIONAL = set(CHUNKS[2])
 WINDOW_KM = 80      # backbone window: one principal peak (the highest) per 80 km of the range's axis
 MAX_TURN = 150      # degrees: an interior peak where the path reverses sharper than this is a spike, dropped
 
 
-def classed_peaks(qid, exclude=()):
+def classed_peaks(qid, exclude=(), need_article=True):
     q = f'''SELECT DISTINCT ?p WHERE {{
       ?p wdt:P4552/wdt:P4552* wd:{qid} .
       ?p wdt:P31/wdt:P279* ?top . VALUES ?top {{ wd:Q8502 wd:Q207326 }} }}'''
@@ -43,7 +52,7 @@ def classed_peaks(qid, exclude=()):
     for b in sparql(q)['results']['bindings']:
         pid = b['p']['value'].rsplit('/', 1)[1]; metres[pid] = max(metres.get(pid, -1e9), float(b['elev']['value']))
     out = []
-    for p in range_peaks(qid):
+    for p in range_peaks(qid, need_article=need_article):
         if p['qid'] in ok and p['qid'] in metres:
             out.append({**p, 'elev': round(metres[p['qid']])})
     return sorted(out, key=lambda r: -r['elev'])
@@ -167,7 +176,7 @@ def build(rid):
     ent = wd_entities([qid])[qid]
     p625 = claim(ent, 'P625'); rec['wikidataP625'] = [[round(c['latitude'], 5), round(c['longitude'], 5)] for c in p625]
     iso = range_iso3(qid); rec['p17iso3'] = sorted(iso)
-    cands = classed_peaks(qid, EXCLUDE_SUBRANGES.get(rid, ())); rec['candidates'] = len(cands)
+    cands = classed_peaks(qid, EXCLUDE_SUBRANGES.get(rid, ()), rid not in ARTICLE_OPTIONAL); rec['candidates'] = len(cands)
     if rid in EXCLUDE_SUBRANGES: rec['excludedSubranges'] = EXCLUDE_SUBRANGES[rid]
     area = osm_rings(*OSM_AREA[rid]) if rid in OSM_AREA else None
     kept, dropped = [], []
