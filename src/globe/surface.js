@@ -558,7 +558,7 @@ export const SAT_PROVIDERS = [
     // cover the tiles never had. v2 composites the 2048 base's polar caps
     // back in: the pyramid never rendered the caps, so v1's mirrored fill
     // showed slabs over Antarctica and a ring at the North Pole.
-    base: './assets/base-ours-4k-v4.jpg',
+    base: './assets/base-ours-4k-v4b.jpg',
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
     // Zoom ladder (Sean, 2026-11-09): inset windows draw only from these
     // levels. z6 leaves the rotation as the audit's worst layer (hardest
