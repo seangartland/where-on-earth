@@ -20,7 +20,8 @@ import { buildPostcardCard } from '../meta/postcard-card.js';
 import { nearestExtentPoint } from '../game/extents.js';
 import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe, pointers, projectToScreen } from './scene.js';
 import { showCountryOutline, clearCountryOutline, showRegionOutline, clearRegionOutline, showExtentOutline, clearExtentOutline } from './outlines.js';
-import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle, _unitSphere } from './pin.js';
+import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle } from './pin.js';
+import { solveRevealFraming } from './reveal-framing.js';
 
 let host = null;
 let gameEls = null;
@@ -1126,37 +1127,14 @@ export function safeStrip(headerEl, cardEl) {
 
 export function frameRevealPoints(a, b, strip = revealStrip()) {
   const { safeTop, safeBottom } = strip;
-  const safeY = (safeTop + safeBottom) / 2;
-  const safeRadius = Math.max(40, Math.min(state.viewW / 2 - 28, safeY - safeTop, safeBottom - safeY));
-  const separation = a.angleTo(b);
-  const halfAngle = Math.min(84 * DEG, separation / 2 + 4 * DEG);
-  const screenSlope = (safeRadius / (state.viewH / 2)) * Math.tan((FOV / 2) * DEG);
-  const screenFit = Math.cos(halfAngle) + Math.sin(halfAngle) / Math.max(screenSlope, 0.02);
-  const horizonFit = halfAngle < Math.PI / 2 ? 1 / Math.max(Math.cos(halfAngle), 0.04) : 14;
-  state.targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
-
-  // Slerp's halfway point is simply the normalized vector sum, except for the
-  // vanishingly rare antipodal case where a stable perpendicular is used.
-  const midpoint = a.clone().add(b);
-  if (midpoint.lengthSq() < 1e-8) midpoint.copy(a).cross(_UP);
-  midpoint.normalize();
-
-  // Aim that midpoint at the safe area's vertical centre rather than beneath
-  // the result card. This is the same two-axis solve used by globe dragging.
-  const ndcY = 1 - (safeY / state.viewH) * 2;
-  const rayDir = new THREE.Vector3(0, ndcY * Math.tan((FOV / 2) * DEG), -1).normalize();
-  const ray = new THREE.Ray(new THREE.Vector3(0, 0, state.targetDist), rayDir);
-  const target = ray.intersectSphere(_unitSphere, new THREE.Vector3()) || new THREE.Vector3(0, 0, 1);
-  const R = Math.hypot(target.y, target.z);
-  const alpha = Math.atan2(target.z, target.y);
-  const spread = Math.acos(clamp(midpoint.y / Math.max(R, 1e-6), -1, 1));
-  const candidates = [alpha + spread, alpha - spread].map((p) => clamp(nearAngle(p, state.pitch), -PITCH_LIMIT, PITCH_LIMIT));
-  const targetPitch = candidates.reduce((best, p) => Math.abs(p - state.pitch) < Math.abs(best - state.pitch) ? p : best);
-  const cp = Math.cos(targetPitch), sp = Math.sin(targetPitch);
-  const mx = target.x;
-  const mz = -target.y * sp + target.z * cp;
-  const targetYaw = nearAngle(Math.atan2(mx, mz) - Math.atan2(midpoint.x, midpoint.z), state.yaw);
-  state.revealView = { yaw: targetYaw, pitch: targetPitch };
+  const { yaw, pitch, dist } = solveRevealFraming({
+    a, b, safeTop, safeBottom,
+    viewW: state.viewW, viewH: state.viewH,
+    fov: FOV, deg: DEG, pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST,
+    currentYaw: state.yaw, currentPitch: state.pitch,
+  });
+  state.targetDist = dist;
+  state.revealView = { yaw, pitch };
   state.vYaw = state.vPitch = state.autoSpin = 0;
 }
 
