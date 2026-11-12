@@ -1515,7 +1515,7 @@ body.expedition-mode .round-meta span:first-child { color: var(--gold); }
   }
 
   .mode-buttons.home-panels {
-    width: min(100%, 531px);
+    width: min(100%, 800px);
   }
   .home-panels > button {
     height: 387px;
