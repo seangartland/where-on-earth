@@ -15,7 +15,6 @@ import { clamp, smoothstep } from '../core/math.js';
 import { state } from '../core/state.js';
 import { latLngToVec3, canvas, renderer, camera, globe, pointers, radPerPx } from './scene.js';
 import { inSf1bRegion } from './sf1b-region.js';
-import { inZfillPilotRegion } from './zfill-pilot-region.js';
 
 let blankTex;
 export let globeMat;
@@ -583,26 +582,8 @@ export const SAT_PROVIDERS = [
     credit: 'Satellite imagery: our own mosaic (pilot region) and EOxCloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2025)',
     maxZ: 10,
   },
-  {
-    id: 's2gm2025-pilot',
-    // The satmap 174 Phase 1 pilot (Great Lakes row, Iberia, Congo, plus the
-    // Majuro z10 window), region-scoped the same way as s2gm2025-sf1b: pilot
-    // tiles inside the region (src/globe/zfill-pilot-region.js), production's
-    // own s2gm2025 tiles everywhere else via the fallback. Made the default
-    // 2026-11-14 at Sean's call for a production trial of the pilot build
-    // (PILOT-REPORT.md section 2e); rollback is a revert of this commit.
-    // zooms keeps the production ladder and adds z10, which exists natively
-    // only inside the pilot windows; elsewhere z10 requests walk up to z9.
-    tiles: 'https://tiles.where-on.earth/s2gm2025-pilot/{z}/{x}/{y}.jpg?v=1',
-    region: inZfillPilotRegion,
-    fallback: 's2gm2025',
-    base: './assets/base-ours-4k-v4b.jpg',
-    credit: 'Satellite imagery: our own mosaic (Phase 1 pilot region), built from Copernicus Sentinel data 2025 and processed locally',
-    zooms: [5, 7, 8, 9, 10],
-    maxZ: 10,
-  },
 ];
-export const DEFAULT_SAT_PROVIDER_ID = 's2gm2025-pilot'; // our own mosaic is the default: Sean passed it on the render-test preview and approved the flip 2026-11-09. EOX stays one parameter away (?sat=eox2025); sf1b stays opt-in via ?sat=s2gm2025-sf1b.
+export const DEFAULT_SAT_PROVIDER_ID = 's2gm2025'; // our own mosaic is the default: Sean passed it on the render-test preview and approved the flip 2026-11-09. EOX stays one parameter away (?sat=eox2025); sf1b stays opt-in via ?sat=s2gm2025-sf1b.
 export const tileURL = (provider, z, y, x) => {
   if (provider.region && !provider.region(z, x, y)) provider = SAT_PROVIDERS.find((p) => p.id === provider.fallback);
   return provider.tiles.replace('{z}', z).replace('{x}', x).replace('{y}', y);
