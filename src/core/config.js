@@ -13,7 +13,7 @@ export const ATMO_RADIUS = 1.17;
 export const MIN_DIST = 1.03;
 // Scripted cameras (bullseye snap, flight, reveal framing) keep the closest
 // framing they were tuned at; only the player's own zoom goes deeper.
-export const SCENE_MIN_DIST = 1.32;
+export const SCENE_MIN_DIST = 1.16; // 1.32 until 2026-11-14; 1.16 ships with the satmap pilot prod trial so the z10 pilot windows are reachable (DESIGN.md 2.6). Rollback restores 1.32.
 // When a round has friend pins on the globe, the camera never frames tighter
 // than this, so a very close guess still leaves the neighbourhood (and the
 // friends) in view. Framing that already sits further out is left alone.
