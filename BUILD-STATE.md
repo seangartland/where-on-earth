@@ -71,3 +71,49 @@ but not applied to production D1.
   starter kit) and Phase 2 (the 18 Existing-derived achievements). None of
   that work has been started to avoid shipping a progression system based on
   untrusted client data.
+
+## Trust-foundation implementation (2026-11-15)
+
+- **Manifest path: 2a (exact worker replication).**
+  `account-worker/src/daily.js` mirrors the client selector in `src/daily.js`,
+  including its seeded shuffle, 29-day exclusion, country diversity rule, and
+  the 36 checked-in pinned dates. `account-worker/data/daily-locations.json`
+  is a 803-location snapshot of the complete eligible Daily pool from
+  `assets/locations.json`; every entry has an ID, answer coordinates, country,
+  and existing `continent` value. Migration `0004_daily_trust.sql` seeds the
+  equivalent D1 `daily_locations` table, retaining source order as
+  `pool_index`. `daily-trust.test.mjs` proves all five slots equal the client
+  picks for 60 UTC dates, including pinned dates.
+- **Server scoring and canonical storage.** A valid manifest-matching guess is
+  scored in the worker from its submitted coordinates with the same haversine
+  radius and `Math.round(1000 * exp(-(km / 3500)^1.13))` curve as
+  `src/game/scoring.js`. The pool contains only point-city targets: no eligible
+  Daily entry has an extent geometry or `extentKm`, so point-distance scoring is
+  exactly the client path. Tests compare sampled scores to the client function,
+  and cover strict `<25 km` bullseyes and `<150 km` postcards at 24.999/25 and
+  149.999/150. `canonical_daily_rounds` stores only worker-calculated distance,
+  score, country, and continent; client-supplied score and distance remain only
+  in the legacy `daily_guesses` compatibility table.
+- **Canonical completion and aggregates.** In the same D1 batch as a canonical
+  round insert, an idempotent `INSERT OR IGNORE ... SELECT` creates one
+  `canonical_daily_completions` row only after exactly five distinct slots are
+  present. It stores the server total and is unique on `(account_id,
+  daily_date)`. Aggregate helpers test total, bullseye count, distinct-country
+  count, and UTC-date consecutive streaks from canonical facts. The legacy
+  `daily_results` sync path is unchanged and cannot create or influence either
+  canonical table.
+- **History verdict: no legacy rows are promotable.** Contrary to the initial
+  expectation, `daily_guesses` does retain client-supplied guess `lat`/`lng`.
+  A row whose `(date, slot, location_id)` happens to match the current derived
+  manifest could therefore be *mechanically* re-scored from the location data.
+  It still has no server-time manifest binding and its target ID, coordinates,
+  distance, and score were all accepted as client claims, so it cannot prove a
+  valid Daily round and must not enter canonical/progression history.
+  `daily_results` is wholly client supplied. Neither table is a valid
+  progression-backfill source.
+- **Unverified production work.** No production D1 data was inspected or
+  written, and production sampled aggregate checks remain impossible until this
+  migration is deployed. The client still selects a local-calendar date; this
+  phase scores the exact UTC date submitted against the server's same-date
+  manifest, but a follow-on client UTC-date alignment is needed before treating
+  non-UTC client-day play as a product-complete canonical flow.

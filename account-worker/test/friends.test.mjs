@@ -3,6 +3,10 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { DatabaseSync } from 'node:sqlite';
 import { handleFriends, inviteLandingPage } from '../src/friends.js';
+import { manifestIds } from '../src/daily.js';
+
+const canonicalLocations = JSON.parse(readFileSync(new URL('../data/daily-locations.json', import.meta.url), 'utf8')).locations
+  .map((location) => ({ location_id: location.locationId, country: location.country }));
 
 class D1Statement {
   constructor(database, sql, values = []) {
@@ -54,6 +58,7 @@ async function fixture(t) {
   await DB.exec(readFileSync(new URL('../migrations/0001_init.sql', import.meta.url), 'utf8'));
   await DB.exec(readFileSync(new URL('../migrations/0002_auth_exchange.sql', import.meta.url), 'utf8'));
   await DB.exec(readFileSync(new URL('../migrations/0003_friends.sql', import.meta.url), 'utf8'));
+  await DB.exec(readFileSync(new URL('../migrations/0004_daily_trust.sql', import.meta.url), 'utf8'));
   return { DB };
 }
 
@@ -294,4 +299,27 @@ test('user deletion cascades profile, invites, guesses, and both friendship edge
     }`).bind(...values).first();
     assert.equal(row.n, 0);
   }
+});
+
+test('canonical rounds ignore client totals and complete once five manifest slots exist', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a');
+  const date = dateOffset(0);
+  const ids = manifestIds(date, canonicalLocations);
+  for (let slot = 0; slot < 5; slot += 1) {
+    const result = await post(env, 'a', '/v1/daily/guesses', {
+      ...guess(date, slot, ids[slot], 0, 0), distanceKm: 0, score: 1000,
+    });
+    assert.equal(result.status, 200);
+  }
+  const rounds = await env.DB.prepare(`SELECT slot, location_id, distance_km, score
+    FROM canonical_daily_rounds WHERE account_id = ? AND daily_date = ? ORDER BY slot`).bind('a', date).all();
+  assert.equal(rounds.results.length, 5);
+  assert.notEqual(rounds.results[0].score, 1000);
+  const completion = await env.DB.prepare(`SELECT total_score FROM canonical_daily_completions
+    WHERE account_id = ? AND daily_date = ?`).bind('a', date).first();
+  assert.equal(completion.total_score, rounds.results.reduce((total, round) => total + round.score, 0));
+  await post(env, 'a', '/v1/daily/guesses', guess(date, 0, ids[0], 80, 80));
+  assert.equal((await env.DB.prepare(`SELECT COUNT(*) AS n FROM canonical_daily_completions
+    WHERE account_id = ? AND daily_date = ?`).bind('a', date).first()).n, 1);
 });

@@ -1,3 +1,6 @@
+import { dailyManifest } from './daily.js';
+import { scoreGuess } from './daily-score.js';
+
 const DAY = 24 * 60 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
 const FRIEND_LIMIT = 50;
@@ -53,14 +56,18 @@ function finiteInteger(value, min, max) {
   return Number.isFinite(value) && Number.isInteger(value) && value >= min && value <= max;
 }
 
-function validGuess(value) {
+function validGuessCoordinates(value) {
   return finiteInteger(value?.slot, 0, 4)
     && LOCATION_PATTERN.test(value?.locationId || '')
     && Number.isFinite(value?.guess?.lat) && value.guess.lat >= -90 && value.guess.lat <= 90
     && Number.isFinite(value?.guess?.lng) && value.guess.lng >= -180 && value.guess.lng <= 180
-    && finiteInteger(value?.distanceKm, 0, 20040)
-    && finiteInteger(value?.score, 0, 1000)
     && DEVICE_PATTERN.test(value?.deviceId || '');
+}
+
+function validLegacyGuess(value) {
+  return validGuessCoordinates(value)
+    && finiteInteger(value?.distanceKm, 0, 20040)
+    && finiteInteger(value?.score, 0, 1000);
 }
 
 function defaultName(user) {
@@ -342,15 +349,37 @@ async function submitGuess(request, env, id) {
   const input = await body(request);
   const now = Date.now();
   if (!validDate(input?.date, now)) return json({ code: 'INVALID_DAILY_DATE' }, 400);
-  if (!validGuess(input)) return json({ code: 'INVALID_GUESS' }, 400);
+  if (!validGuessCoordinates(input)) return json({ code: 'INVALID_GUESS' }, 400);
   const lat = Math.round(input.guess.lat * 10000) / 10000;
   const lng = Math.round(input.guess.lng * 10000) / 10000;
   await profile(env, id);
-  await env.DB.prepare(`INSERT INTO daily_guesses
-    (account_id, date, slot, location_id, lat, lng, distance_km, score, device_id, submitted_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT DO NOTHING`)
-    .bind(id, input.date, input.slot, input.locationId, lat, lng,
-      input.distanceKm, input.score, input.deviceId, now).run();
+  const manifest = await dailyManifest(env, input.date);
+  const answer = manifest[input.slot];
+  const canonical = answer?.location_id === input.locationId ? scoreGuess(input.guess, answer) : null;
+  const statements = [];
+  if (validLegacyGuess(input)) {
+    statements.push(env.DB.prepare(`INSERT INTO daily_guesses
+      (account_id, date, slot, location_id, lat, lng, distance_km, score, device_id, submitted_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT DO NOTHING`)
+      .bind(id, input.date, input.slot, input.locationId, lat, lng,
+        input.distanceKm, input.score, input.deviceId, now));
+  }
+  if (canonical) {
+    statements.push(env.DB.prepare(`INSERT OR IGNORE INTO canonical_daily_rounds
+      (account_id, daily_date, slot, location_id, guess_lat, guess_lng, distance_km, score,
+       country, continent, submitted_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+      .bind(id, input.date, input.slot, answer.location_id, input.guess.lat, input.guess.lng,
+        canonical.distance, canonical.score, answer.country, answer.continent, now));
+    statements.push(env.DB.prepare(`INSERT OR IGNORE INTO canonical_daily_completions
+      (account_id, daily_date, total_score, completed_at)
+      SELECT account_id, daily_date, SUM(score), ? FROM canonical_daily_rounds
+      WHERE account_id = ? AND daily_date = ?
+      GROUP BY account_id, daily_date HAVING COUNT(*) = 5 AND COUNT(DISTINCT slot) = 5`)
+      .bind(now, id, input.date));
+  }
+  if (statements.length) await env.DB.batch(statements);
+  if (!validLegacyGuess(input)) return json({ canonical: Boolean(canonical) });
   const stored = await env.DB.prepare(`SELECT date, slot, location_id, lat, lng, submitted_at
     FROM daily_guesses WHERE account_id = ? AND date = ? AND location_id = ?`)
     .bind(id, input.date, input.locationId).first();

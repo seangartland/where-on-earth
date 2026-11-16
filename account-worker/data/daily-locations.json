@@ -1,0 +1,6429 @@
+{
+  "source": "assets/locations.json",
+  "locations": [
+    {
+      "locationId": "aberdeen-scotland",
+      "lat": 57.1497,
+      "lng": -2.0943,
+      "country": "Scotland",
+      "continent": "Europe",
+      "poolIndex": 0
+    },
+    {
+      "locationId": "abidjan-ivory-coast",
+      "lat": 5.36,
+      "lng": -4.0083,
+      "country": "Côte d'Ivoire",
+      "continent": "Africa",
+      "poolIndex": 1
+    },
+    {
+      "locationId": "abu-dhabi-ae",
+      "lat": 24.45118,
+      "lng": 54.39696,
+      "country": "United Arab Emirates",
+      "continent": "Asia",
+      "poolIndex": 2
+    },
+    {
+      "locationId": "abuja-ng",
+      "lat": 9.05785,
+      "lng": 7.49508,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 3
+    },
+    {
+      "locationId": "acapulco-de-juarez-mx",
+      "lat": 16.84942,
+      "lng": -99.90891,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 4
+    },
+    {
+      "locationId": "accra",
+      "lat": 5.55602,
+      "lng": -0.1969,
+      "country": "Ghana",
+      "continent": "Africa",
+      "poolIndex": 5
+    },
+    {
+      "locationId": "addis-ababa-ethiopia",
+      "lat": 9.032,
+      "lng": 38.7469,
+      "country": "Ethiopia",
+      "continent": "Africa",
+      "poolIndex": 6
+    },
+    {
+      "locationId": "adelaide-australia",
+      "lat": -34.9285,
+      "lng": 138.6007,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 7
+    },
+    {
+      "locationId": "aden",
+      "lat": 12.77957,
+      "lng": 45.03852,
+      "country": "Yemen",
+      "continent": "Asia",
+      "poolIndex": 8
+    },
+    {
+      "locationId": "agadez",
+      "lat": 16.97333,
+      "lng": 7.99111,
+      "country": "Niger",
+      "continent": "Africa",
+      "poolIndex": 9
+    },
+    {
+      "locationId": "agadir-ma",
+      "lat": 30.42018,
+      "lng": -9.59815,
+      "country": "Morocco",
+      "continent": "Africa",
+      "poolIndex": 10
+    },
+    {
+      "locationId": "agra-in",
+      "lat": 27.18333,
+      "lng": 78.01667,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 11
+    },
+    {
+      "locationId": "ahmedabad-in",
+      "lat": 23.02579,
+      "lng": 72.58727,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 12
+    },
+    {
+      "locationId": "ahvaz",
+      "lat": 31.31901,
+      "lng": 48.6842,
+      "country": "Iran",
+      "continent": "Asia",
+      "poolIndex": 13
+    },
+    {
+      "locationId": "ajman",
+      "lat": 25.40177,
+      "lng": 55.47878,
+      "country": "United Arab Emirates",
+      "continent": "Asia",
+      "poolIndex": 14
+    },
+    {
+      "locationId": "al-ain-city",
+      "lat": 24.19167,
+      "lng": 55.76056,
+      "country": "United Arab Emirates",
+      "continent": "Asia",
+      "poolIndex": 15
+    },
+    {
+      "locationId": "alberobello-trulli",
+      "lat": 40.7842,
+      "lng": 17.237,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 16
+    },
+    {
+      "locationId": "albuquerque-usa",
+      "lat": 35.0844,
+      "lng": -106.6504,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 17
+    },
+    {
+      "locationId": "aleppo-sy",
+      "lat": 36.20124,
+      "lng": 37.16117,
+      "country": "Syria",
+      "continent": "Asia",
+      "poolIndex": 18
+    },
+    {
+      "locationId": "alexandria-egypt",
+      "lat": 31.2001,
+      "lng": 29.9187,
+      "country": "Egypt",
+      "continent": "Africa",
+      "poolIndex": 19
+    },
+    {
+      "locationId": "algiers",
+      "lat": 36.77466,
+      "lng": 3.05873,
+      "country": "Algeria",
+      "continent": "Africa",
+      "poolIndex": 20
+    },
+    {
+      "locationId": "alice-springs",
+      "lat": -23.7,
+      "lng": 133.87,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 21
+    },
+    {
+      "locationId": "almaty",
+      "lat": 43.25249,
+      "lng": 76.9115,
+      "country": "Kazakhstan",
+      "continent": "Asia",
+      "poolIndex": 22
+    },
+    {
+      "locationId": "amman-jordan",
+      "lat": 31.9454,
+      "lng": 35.9284,
+      "country": "Jordan",
+      "continent": "Asia",
+      "poolIndex": 23
+    },
+    {
+      "locationId": "amritsar-india",
+      "lat": 31.634,
+      "lng": 74.8723,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 24
+    },
+    {
+      "locationId": "amsterdam-netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041,
+      "country": "Netherlands",
+      "continent": "Europe",
+      "poolIndex": 25
+    },
+    {
+      "locationId": "anchorage-usa",
+      "lat": 61.2181,
+      "lng": -149.9003,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 26
+    },
+    {
+      "locationId": "angeles-city",
+      "lat": 15.15,
+      "lng": 120.58333,
+      "country": "Philippines",
+      "continent": "Asia",
+      "poolIndex": 27
+    },
+    {
+      "locationId": "ankara-tr",
+      "lat": 39.91987,
+      "lng": 32.85427,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 28
+    },
+    {
+      "locationId": "antalya",
+      "lat": 36.90812,
+      "lng": 30.69556,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 29
+    },
+    {
+      "locationId": "antananarivo",
+      "lat": -18.91368,
+      "lng": 47.53613,
+      "country": "Madagascar",
+      "continent": "Africa",
+      "poolIndex": 30
+    },
+    {
+      "locationId": "antwerp-be",
+      "lat": 51.2194,
+      "lng": 4.4025,
+      "country": "Belgium",
+      "continent": "Europe",
+      "poolIndex": 31
+    },
+    {
+      "locationId": "apia-samoa",
+      "lat": -13.8507,
+      "lng": -171.7514,
+      "country": "Samoa",
+      "continent": "Oceania",
+      "poolIndex": 32
+    },
+    {
+      "locationId": "arar",
+      "lat": 30.97531,
+      "lng": 41.03808,
+      "country": "Saudi Arabia",
+      "continent": "Asia",
+      "poolIndex": 33
+    },
+    {
+      "locationId": "armenia",
+      "lat": 13.74361,
+      "lng": -89.49889,
+      "country": "El Salvador",
+      "continent": "North America",
+      "poolIndex": 34
+    },
+    {
+      "locationId": "arusha-tanzania",
+      "lat": -3.3869,
+      "lng": 36.683,
+      "country": "Tanzania",
+      "continent": "Africa",
+      "poolIndex": 35
+    },
+    {
+      "locationId": "asmara-eritrea",
+      "lat": 15.3229,
+      "lng": 38.9251,
+      "country": "Eritrea",
+      "continent": "Africa",
+      "poolIndex": 36
+    },
+    {
+      "locationId": "astana-kz",
+      "lat": 51.13333,
+      "lng": 71.43333,
+      "country": "Kazakhstan",
+      "continent": "Asia",
+      "poolIndex": 37
+    },
+    {
+      "locationId": "asuncion-py",
+      "lat": -25.28646,
+      "lng": -57.647,
+      "country": "Paraguay",
+      "continent": "South America",
+      "poolIndex": 38
+    },
+    {
+      "locationId": "aswan-egypt",
+      "lat": 24.0889,
+      "lng": 32.8998,
+      "country": "Egypt",
+      "continent": "Africa",
+      "poolIndex": 39
+    },
+    {
+      "locationId": "athens-greece",
+      "lat": 37.9838,
+      "lng": 23.7275,
+      "country": "Greece",
+      "continent": "Europe",
+      "poolIndex": 40
+    },
+    {
+      "locationId": "atlanta-usa",
+      "lat": 33.749,
+      "lng": -84.388,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 41
+    },
+    {
+      "locationId": "auckland-new-zealand",
+      "lat": -36.8485,
+      "lng": 174.7633,
+      "country": "New Zealand",
+      "continent": "Oceania",
+      "poolIndex": 42
+    },
+    {
+      "locationId": "austin-usa",
+      "lat": 30.2672,
+      "lng": -97.7431,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 43
+    },
+    {
+      "locationId": "avarua-cook-islands",
+      "lat": -21.2078,
+      "lng": -159.775,
+      "country": "Cook Islands",
+      "continent": "Oceania",
+      "poolIndex": 44
+    },
+    {
+      "locationId": "baghdad",
+      "lat": 33.34058,
+      "lng": 44.40088,
+      "country": "Iraq",
+      "continent": "Asia",
+      "poolIndex": 45
+    },
+    {
+      "locationId": "baku",
+      "lat": 40.37112,
+      "lng": 49.83399,
+      "country": "Azerbaijan",
+      "continent": "Asia",
+      "poolIndex": 46
+    },
+    {
+      "locationId": "baltimore",
+      "lat": 39.289444,
+      "lng": -76.615278,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 47
+    },
+    {
+      "locationId": "bamako",
+      "lat": 12.60915,
+      "lng": -7.97522,
+      "country": "Mali",
+      "continent": "Africa",
+      "poolIndex": 48
+    },
+    {
+      "locationId": "bandung-id",
+      "lat": -6.92222,
+      "lng": 107.60694,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 49
+    },
+    {
+      "locationId": "banff",
+      "lat": 51.177778,
+      "lng": -115.573611,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 50
+    },
+    {
+      "locationId": "bangkok-thailand",
+      "lat": 13.7563,
+      "lng": 100.5018,
+      "country": "Thailand",
+      "continent": "Asia",
+      "poolIndex": 51
+    },
+    {
+      "locationId": "bangui-cf",
+      "lat": 4.36122,
+      "lng": 18.55496,
+      "country": "Central African Republic",
+      "continent": "Africa",
+      "poolIndex": 52
+    },
+    {
+      "locationId": "eldoret-ke",
+      "lat": 0.51667,
+      "lng": 35.28333,
+      "country": "Kenya",
+      "continent": "Africa",
+      "poolIndex": 53
+    },
+    {
+      "locationId": "barquisimeto-ve",
+      "lat": 10.0647,
+      "lng": -69.35703,
+      "country": "Venezuela",
+      "continent": "South America",
+      "poolIndex": 54
+    },
+    {
+      "locationId": "barranquilla-co",
+      "lat": 10.96854,
+      "lng": -74.78132,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 55
+    },
+    {
+      "locationId": "barrow-alaska",
+      "lat": 71.2906,
+      "lng": -156.7887,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 56
+    },
+    {
+      "locationId": "basel-switzerland",
+      "lat": 47.5596,
+      "lng": 7.5886,
+      "country": "Switzerland",
+      "continent": "Europe",
+      "poolIndex": 57
+    },
+    {
+      "locationId": "basrah-iq",
+      "lat": 30.50852,
+      "lng": 47.7804,
+      "country": "Iraq",
+      "continent": "Asia",
+      "poolIndex": 58
+    },
+    {
+      "locationId": "batam-id",
+      "lat": 1.14937,
+      "lng": 104.02491,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 59
+    },
+    {
+      "locationId": "beijing-china",
+      "lat": 39.9042,
+      "lng": 116.4074,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 60
+    },
+    {
+      "locationId": "beira-mz",
+      "lat": -19.84361,
+      "lng": 34.83889,
+      "country": "Mozambique",
+      "continent": "Africa",
+      "poolIndex": 61
+    },
+    {
+      "locationId": "beirut-lebanon",
+      "lat": 33.8938,
+      "lng": 35.5018,
+      "country": "Lebanon",
+      "continent": "Asia",
+      "poolIndex": 62
+    },
+    {
+      "locationId": "belem-br",
+      "lat": -1.45583,
+      "lng": -48.50444,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 63
+    },
+    {
+      "locationId": "belfast",
+      "lat": 54.5967,
+      "lng": -5.93,
+      "country": "Northern Ireland",
+      "continent": "Europe",
+      "poolIndex": 64
+    },
+    {
+      "locationId": "belgrade",
+      "lat": 44.80401,
+      "lng": 20.46513,
+      "country": "Serbia",
+      "continent": "Europe",
+      "poolIndex": 65
+    },
+    {
+      "locationId": "belo-horizonte-br",
+      "lat": -19.92083,
+      "lng": -43.93778,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 66
+    },
+    {
+      "locationId": "bengaluru-in",
+      "lat": 12.97194,
+      "lng": 77.59369,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 67
+    },
+    {
+      "locationId": "benghazi-ly",
+      "lat": 32.11486,
+      "lng": 20.06859,
+      "country": "Libya",
+      "continent": "Africa",
+      "poolIndex": 68
+    },
+    {
+      "locationId": "benin-city-ng",
+      "lat": 6.33815,
+      "lng": 5.62575,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 69
+    },
+    {
+      "locationId": "bergen-norway",
+      "lat": 60.3913,
+      "lng": 5.3221,
+      "country": "Norway",
+      "continent": "Europe",
+      "poolIndex": 70
+    },
+    {
+      "locationId": "berlin-germany",
+      "lat": 52.52,
+      "lng": 13.405,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 71
+    },
+    {
+      "locationId": "bethlehem",
+      "lat": 31.704444,
+      "lng": 35.206389,
+      "country": "Palestine",
+      "continent": "Asia",
+      "poolIndex": 72
+    },
+    {
+      "locationId": "beverly-hills",
+      "lat": 34.073056,
+      "lng": -118.399444,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 73
+    },
+    {
+      "locationId": "bhuj",
+      "lat": 23.25397,
+      "lng": 69.66928,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 74
+    },
+    {
+      "locationId": "bilbao-spain",
+      "lat": 43.263,
+      "lng": -2.935,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 75
+    },
+    {
+      "locationId": "birmingham-gb",
+      "lat": 52.48142,
+      "lng": -1.89983,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 76
+    },
+    {
+      "locationId": "bishkek-kyrgyzstan",
+      "lat": 42.8746,
+      "lng": 74.5698,
+      "country": "Kyrgyzstan",
+      "continent": "Asia",
+      "poolIndex": 77
+    },
+    {
+      "locationId": "blantyre-mw",
+      "lat": -15.78499,
+      "lng": 35.00854,
+      "country": "Malawi",
+      "continent": "Africa",
+      "poolIndex": 78
+    },
+    {
+      "locationId": "bobo-dioulasso-bf",
+      "lat": 11.18064,
+      "lng": -4.29489,
+      "country": "Burkina Faso",
+      "continent": "Africa",
+      "poolIndex": 79
+    },
+    {
+      "locationId": "bordeaux-france",
+      "lat": 44.8378,
+      "lng": -0.5792,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 80
+    },
+    {
+      "locationId": "boston-usa",
+      "lat": 42.3601,
+      "lng": -71.0589,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 81
+    },
+    {
+      "locationId": "bouake-ci",
+      "lat": 7.69385,
+      "lng": -5.03031,
+      "country": "Côte d'Ivoire",
+      "continent": "Africa",
+      "poolIndex": 82
+    },
+    {
+      "locationId": "brampton-ca",
+      "lat": 43.68341,
+      "lng": -79.76633,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 83
+    },
+    {
+      "locationId": "brasilia-br",
+      "lat": -15.79394,
+      "lng": -47.88279,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 84
+    },
+    {
+      "locationId": "bratislava-slovakia",
+      "lat": 48.1486,
+      "lng": 17.1077,
+      "country": "Slovakia",
+      "continent": "Europe",
+      "poolIndex": 85
+    },
+    {
+      "locationId": "brazzaville-cg",
+      "lat": -4.26613,
+      "lng": 15.28318,
+      "country": "Congo",
+      "continent": "Africa",
+      "poolIndex": 86
+    },
+    {
+      "locationId": "brisbane-australia",
+      "lat": -27.4698,
+      "lng": 153.0251,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 87
+    },
+    {
+      "locationId": "bristol",
+      "lat": 51.45523,
+      "lng": -2.59665,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 88
+    },
+    {
+      "locationId": "bruges-belgium",
+      "lat": 51.2093,
+      "lng": 3.2247,
+      "country": "Belgium",
+      "continent": "Europe",
+      "poolIndex": 89
+    },
+    {
+      "locationId": "brussels-belgium",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "country": "Belgium",
+      "continent": "Europe",
+      "poolIndex": 90
+    },
+    {
+      "locationId": "bucaramanga-co",
+      "lat": 7.125,
+      "lng": -73.11895,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 91
+    },
+    {
+      "locationId": "bucharest-romania",
+      "lat": 44.4268,
+      "lng": 26.1025,
+      "country": "Romania",
+      "continent": "Europe",
+      "poolIndex": 92
+    },
+    {
+      "locationId": "budapest-hungary",
+      "lat": 47.4979,
+      "lng": 19.0402,
+      "country": "Hungary",
+      "continent": "Europe",
+      "poolIndex": 93
+    },
+    {
+      "locationId": "buenos-aires-argentina",
+      "lat": -34.6037,
+      "lng": -58.3816,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 94
+    },
+    {
+      "locationId": "bujumbura-bi",
+      "lat": -3.38193,
+      "lng": 29.36142,
+      "country": "Burundi",
+      "continent": "Africa",
+      "poolIndex": 95
+    },
+    {
+      "locationId": "bukavu-cd",
+      "lat": -2.49077,
+      "lng": 28.84281,
+      "country": "DR Congo",
+      "continent": "Africa",
+      "poolIndex": 96
+    },
+    {
+      "locationId": "bukhara-uzbekistan",
+      "lat": 39.7681,
+      "lng": 64.4556,
+      "country": "Uzbekistan",
+      "continent": "Asia",
+      "poolIndex": 97
+    },
+    {
+      "locationId": "bulawayo-zw",
+      "lat": -20.15,
+      "lng": 28.58333,
+      "country": "Zimbabwe",
+      "continent": "Africa",
+      "poolIndex": 98
+    },
+    {
+      "locationId": "burnley",
+      "lat": 53.8,
+      "lng": -2.23333,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 99
+    },
+    {
+      "locationId": "bursa-tr",
+      "lat": 40.19559,
+      "lng": 29.06013,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 100
+    },
+    {
+      "locationId": "busan",
+      "lat": 35.10168,
+      "lng": 129.03004,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 101
+    },
+    {
+      "locationId": "cagliari",
+      "lat": 39.23054,
+      "lng": 9.11917,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 102
+    },
+    {
+      "locationId": "cairns",
+      "lat": -16.92,
+      "lng": 145.78,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 103
+    },
+    {
+      "locationId": "cairo",
+      "lat": 30.06263,
+      "lng": 31.24967,
+      "country": "Egypt",
+      "continent": "Africa",
+      "poolIndex": 104
+    },
+    {
+      "locationId": "calgary-canada",
+      "lat": 51.0447,
+      "lng": -114.0719,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 105
+    },
+    {
+      "locationId": "cali-co",
+      "lat": 3.43054,
+      "lng": -76.5199,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 106
+    },
+    {
+      "locationId": "campo-grande-br",
+      "lat": -20.44278,
+      "lng": -54.64639,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 107
+    },
+    {
+      "locationId": "can-tho-vn",
+      "lat": 10.03711,
+      "lng": 105.78825,
+      "country": "Vietnam",
+      "continent": "Asia",
+      "poolIndex": 108
+    },
+    {
+      "locationId": "canberra-australia",
+      "lat": -35.2809,
+      "lng": 149.13,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 109
+    },
+    {
+      "locationId": "cancun-mexico",
+      "lat": 21.1619,
+      "lng": -86.8515,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 110
+    },
+    {
+      "locationId": "cannes-fr",
+      "lat": 43.5528,
+      "lng": 7.0174,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 111
+    },
+    {
+      "locationId": "cape-town-south-africa",
+      "lat": -33.9249,
+      "lng": 18.4241,
+      "country": "South Africa",
+      "continent": "Africa",
+      "poolIndex": 112
+    },
+    {
+      "locationId": "capri-it",
+      "lat": 40.5508,
+      "lng": 14.2425,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 113
+    },
+    {
+      "locationId": "caracas-ve",
+      "lat": 10.48801,
+      "lng": -66.87919,
+      "country": "Venezuela",
+      "continent": "South America",
+      "poolIndex": 114
+    },
+    {
+      "locationId": "carcassonne-cite",
+      "lat": 43.2063,
+      "lng": 2.3637,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 115
+    },
+    {
+      "locationId": "cardiff-wales",
+      "lat": 51.4816,
+      "lng": -3.1791,
+      "country": "Wales",
+      "continent": "Europe",
+      "poolIndex": 116
+    },
+    {
+      "locationId": "cartagena",
+      "lat": 10.42656,
+      "lng": -75.54417,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 117
+    },
+    {
+      "locationId": "casablanca",
+      "lat": 33.58831,
+      "lng": -7.61138,
+      "country": "Morocco",
+      "continent": "Africa",
+      "poolIndex": 118
+    },
+    {
+      "locationId": "caxias-do-sul-br",
+      "lat": -29.16806,
+      "lng": -51.17944,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 119
+    },
+    {
+      "locationId": "cebu-city",
+      "lat": 10.31672,
+      "lng": 123.89071,
+      "country": "Philippines",
+      "continent": "Asia",
+      "poolIndex": 120
+    },
+    {
+      "locationId": "changsha",
+      "lat": 28.19874,
+      "lng": 112.97087,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 121
+    },
+    {
+      "locationId": "charleston",
+      "lat": 32.813889,
+      "lng": -79.931944,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 122
+    },
+    {
+      "locationId": "charlotte",
+      "lat": 35.22709,
+      "lng": -80.84313,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 123
+    },
+    {
+      "locationId": "chattogram-bd",
+      "lat": 22.3384,
+      "lng": 91.83168,
+      "country": "Bangladesh",
+      "continent": "Asia",
+      "poolIndex": 124
+    },
+    {
+      "locationId": "chefchaouen-morocco",
+      "lat": 35.1714,
+      "lng": -5.2697,
+      "country": "Morocco",
+      "continent": "Africa",
+      "poolIndex": 125
+    },
+    {
+      "locationId": "chengdu-cn",
+      "lat": 30.66667,
+      "lng": 104.06667,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 126
+    },
+    {
+      "locationId": "chennai-in",
+      "lat": 13.08784,
+      "lng": 80.27847,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 127
+    },
+    {
+      "locationId": "chiang-mai-thailand",
+      "lat": 18.7883,
+      "lng": 98.9853,
+      "country": "Thailand",
+      "continent": "Asia",
+      "poolIndex": 128
+    },
+    {
+      "locationId": "chicago",
+      "lat": 41.85003,
+      "lng": -87.65005,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 129
+    },
+    {
+      "locationId": "chiclayo-pe",
+      "lat": -6.77008,
+      "lng": -79.85495,
+      "country": "Peru",
+      "continent": "South America",
+      "poolIndex": 130
+    },
+    {
+      "locationId": "chihuahua-mx",
+      "lat": 28.63528,
+      "lng": -106.08889,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 131
+    },
+    {
+      "locationId": "chisinau-md",
+      "lat": 47.00902,
+      "lng": 28.85938,
+      "country": "Moldova",
+      "continent": "Europe",
+      "poolIndex": 132
+    },
+    {
+      "locationId": "chongqing-cn",
+      "lat": 29.56026,
+      "lng": 106.55771,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 133
+    },
+    {
+      "locationId": "cincinnati",
+      "lat": 39.1,
+      "lng": -84.5125,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 134
+    },
+    {
+      "locationId": "ciudad-guayana-ve",
+      "lat": 8.32238,
+      "lng": -62.68966,
+      "country": "Venezuela",
+      "continent": "South America",
+      "poolIndex": 135
+    },
+    {
+      "locationId": "ciudad-juarez-mx",
+      "lat": 31.72024,
+      "lng": -106.46084,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 136
+    },
+    {
+      "locationId": "cleveland-usa",
+      "lat": 41.4993,
+      "lng": -81.6944,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 137
+    },
+    {
+      "locationId": "cochabamba-bo",
+      "lat": -17.38195,
+      "lng": -66.15995,
+      "country": "Bolivia",
+      "continent": "South America",
+      "poolIndex": 138
+    },
+    {
+      "locationId": "colmar-france",
+      "lat": 48.0794,
+      "lng": 7.3585,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 139
+    },
+    {
+      "locationId": "colombo-sri-lanka",
+      "lat": 6.9271,
+      "lng": 79.8612,
+      "country": "Sri Lanka",
+      "continent": "Asia",
+      "poolIndex": 140
+    },
+    {
+      "locationId": "columbus",
+      "lat": 39.96118,
+      "lng": -82.99879,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 141
+    },
+    {
+      "locationId": "conakry-gn",
+      "lat": 9.53795,
+      "lng": -13.67729,
+      "country": "Guinea",
+      "continent": "Africa",
+      "poolIndex": 142
+    },
+    {
+      "locationId": "copenhagen-denmark",
+      "lat": 55.6761,
+      "lng": 12.5683,
+      "country": "Denmark",
+      "continent": "Europe",
+      "poolIndex": 143
+    },
+    {
+      "locationId": "cordoba-ar",
+      "lat": -31.40648,
+      "lng": -64.18853,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 144
+    },
+    {
+      "locationId": "cork-ireland",
+      "lat": 51.8985,
+      "lng": -8.4756,
+      "country": "Ireland",
+      "continent": "Europe",
+      "poolIndex": 145
+    },
+    {
+      "locationId": "cotonou-bj",
+      "lat": 6.36536,
+      "lng": 2.41833,
+      "country": "Benin",
+      "continent": "Africa",
+      "poolIndex": 146
+    },
+    {
+      "locationId": "cucuta-co",
+      "lat": 7.90745,
+      "lng": -72.5049,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 147
+    },
+    {
+      "locationId": "cuiaba-br",
+      "lat": -15.59611,
+      "lng": -56.09667,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 148
+    },
+    {
+      "locationId": "curitiba-br",
+      "lat": -25.42778,
+      "lng": -49.27306,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 149
+    },
+    {
+      "locationId": "da-nang-vn",
+      "lat": 16.06778,
+      "lng": 108.22083,
+      "country": "Vietnam",
+      "continent": "Asia",
+      "poolIndex": 150
+    },
+    {
+      "locationId": "daegu-kr",
+      "lat": 35.87028,
+      "lng": 128.59111,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 151
+    },
+    {
+      "locationId": "daejeon-kr",
+      "lat": 36.34913,
+      "lng": 127.38493,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 152
+    },
+    {
+      "locationId": "dakar",
+      "lat": 14.6937,
+      "lng": -17.44406,
+      "country": "Senegal",
+      "continent": "Africa",
+      "poolIndex": 153
+    },
+    {
+      "locationId": "dalian-cn",
+      "lat": 38.91222,
+      "lng": 121.60222,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 154
+    },
+    {
+      "locationId": "dallas-usa",
+      "lat": 32.7767,
+      "lng": -96.797,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 155
+    },
+    {
+      "locationId": "damascus-syria",
+      "lat": 33.5138,
+      "lng": 36.2765,
+      "country": "Syria",
+      "continent": "Asia",
+      "poolIndex": 156
+    },
+    {
+      "locationId": "dammam-sa",
+      "lat": 26.43442,
+      "lng": 50.10326,
+      "country": "Saudi Arabia",
+      "continent": "Asia",
+      "poolIndex": 157
+    },
+    {
+      "locationId": "dar-es-salaam",
+      "lat": -6.82349,
+      "lng": 39.26951,
+      "country": "Tanzania",
+      "continent": "Africa",
+      "poolIndex": 158
+    },
+    {
+      "locationId": "darjeeling-in",
+      "lat": 27.041,
+      "lng": 88.2663,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 159
+    },
+    {
+      "locationId": "darwin",
+      "lat": -12.438056,
+      "lng": 130.841111,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 160
+    },
+    {
+      "locationId": "datong",
+      "lat": 40.09361,
+      "lng": 113.29139,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 161
+    },
+    {
+      "locationId": "davao-ph",
+      "lat": 7.07306,
+      "lng": 125.61278,
+      "country": "Philippines",
+      "continent": "Asia",
+      "poolIndex": 162
+    },
+    {
+      "locationId": "delhi",
+      "lat": 28.65195,
+      "lng": 77.23149,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 163
+    },
+    {
+      "locationId": "denpasar-indonesia",
+      "lat": -8.6705,
+      "lng": 115.2126,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 164
+    },
+    {
+      "locationId": "denver-usa",
+      "lat": 39.7392,
+      "lng": -104.9903,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 165
+    },
+    {
+      "locationId": "detroit-usa",
+      "lat": 42.3314,
+      "lng": -83.0458,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 166
+    },
+    {
+      "locationId": "dhaka",
+      "lat": 23.7104,
+      "lng": 90.40744,
+      "country": "Bangladesh",
+      "continent": "Asia",
+      "poolIndex": 167
+    },
+    {
+      "locationId": "dili-timor-leste",
+      "lat": -8.5569,
+      "lng": 125.5603,
+      "country": "Timor-Leste",
+      "continent": "Asia",
+      "poolIndex": 168
+    },
+    {
+      "locationId": "diyarbakr-tr",
+      "lat": 37.91363,
+      "lng": 40.21721,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 169
+    },
+    {
+      "locationId": "dnipro-ua",
+      "lat": 48.46664,
+      "lng": 35.04066,
+      "country": "Ukraine",
+      "continent": "Europe",
+      "poolIndex": 170
+    },
+    {
+      "locationId": "dodoma-tz",
+      "lat": -6.17221,
+      "lng": 35.73947,
+      "country": "Tanzania",
+      "continent": "Africa",
+      "poolIndex": 171
+    },
+    {
+      "locationId": "doha-qatar",
+      "lat": 25.2854,
+      "lng": 51.531,
+      "country": "Qatar",
+      "continent": "Asia",
+      "poolIndex": 172
+    },
+    {
+      "locationId": "donetsk-ua",
+      "lat": 48.023,
+      "lng": 37.80224,
+      "country": "Ukraine",
+      "continent": "Europe",
+      "poolIndex": 173
+    },
+    {
+      "locationId": "dongshi",
+      "lat": 23.45689,
+      "lng": 120.15003,
+      "country": "Taiwan",
+      "continent": "Asia",
+      "poolIndex": 174
+    },
+    {
+      "locationId": "dortmund-de",
+      "lat": 51.51494,
+      "lng": 7.466,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 175
+    },
+    {
+      "locationId": "douala-cm",
+      "lat": 4.04827,
+      "lng": 9.70428,
+      "country": "Cameroon",
+      "continent": "Africa",
+      "poolIndex": 176
+    },
+    {
+      "locationId": "dresden-germany",
+      "lat": 51.0504,
+      "lng": 13.7373,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 177
+    },
+    {
+      "locationId": "dubai",
+      "lat": 25.26972,
+      "lng": 55.30944,
+      "country": "United Arab Emirates",
+      "continent": "Asia",
+      "poolIndex": 178
+    },
+    {
+      "locationId": "dublin-ireland",
+      "lat": 53.3498,
+      "lng": -6.2603,
+      "country": "Ireland",
+      "continent": "Europe",
+      "poolIndex": 179
+    },
+    {
+      "locationId": "dubrovnik-croatia",
+      "lat": 42.6507,
+      "lng": 18.0944,
+      "country": "Croatia",
+      "continent": "Europe",
+      "poolIndex": 180
+    },
+    {
+      "locationId": "dundee",
+      "lat": 56.46913,
+      "lng": -2.97489,
+      "country": "Scotland",
+      "continent": "Europe",
+      "poolIndex": 181
+    },
+    {
+      "locationId": "dunedin-new-zealand",
+      "lat": -45.8788,
+      "lng": 170.5028,
+      "country": "New Zealand",
+      "continent": "Oceania",
+      "poolIndex": 182
+    },
+    {
+      "locationId": "dunkirk-evacuation",
+      "lat": 51.05,
+      "lng": 2.377,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 183
+    },
+    {
+      "locationId": "durban-south-africa",
+      "lat": -29.8587,
+      "lng": 31.0218,
+      "country": "South Africa",
+      "continent": "Africa",
+      "poolIndex": 184
+    },
+    {
+      "locationId": "dushanbe-tajikistan",
+      "lat": 38.5598,
+      "lng": 68.787,
+      "country": "Tajikistan",
+      "continent": "Asia",
+      "poolIndex": 185
+    },
+    {
+      "locationId": "dusseldorf-de",
+      "lat": 51.22319,
+      "lng": 6.77927,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 186
+    },
+    {
+      "locationId": "edinburgh-scotland",
+      "lat": 55.9533,
+      "lng": -3.1883,
+      "country": "Scotland",
+      "continent": "Europe",
+      "poolIndex": 187
+    },
+    {
+      "locationId": "edmonton-canada",
+      "lat": 53.5461,
+      "lng": -113.4937,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 188
+    },
+    {
+      "locationId": "ensenada-mx",
+      "lat": 31.87149,
+      "lng": -116.60071,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 189
+    },
+    {
+      "locationId": "enugu-ng",
+      "lat": 6.44132,
+      "lng": 7.49883,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 190
+    },
+    {
+      "locationId": "ephesus",
+      "lat": 37.941111,
+      "lng": 27.341944,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 191
+    },
+    {
+      "locationId": "erbil-iq",
+      "lat": 36.19117,
+      "lng": 44.00943,
+      "country": "Iraq",
+      "continent": "Asia",
+      "poolIndex": 192
+    },
+    {
+      "locationId": "erzurum",
+      "lat": 39.90861,
+      "lng": 41.27694,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 193
+    },
+    {
+      "locationId": "essen-de",
+      "lat": 51.45657,
+      "lng": 7.01228,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 194
+    },
+    {
+      "locationId": "faisalabad-pk",
+      "lat": 31.41554,
+      "lng": 73.08969,
+      "country": "Pakistan",
+      "continent": "Asia",
+      "poolIndex": 195
+    },
+    {
+      "locationId": "fatehpur-sikri",
+      "lat": 27.09111,
+      "lng": 77.66111,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 196
+    },
+    {
+      "locationId": "fez-morocco",
+      "lat": 34.0181,
+      "lng": -5.0078,
+      "country": "Morocco",
+      "continent": "Africa",
+      "poolIndex": 197
+    },
+    {
+      "locationId": "florence-italy",
+      "lat": 43.7696,
+      "lng": 11.2558,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 198
+    },
+    {
+      "locationId": "florianopolis-br",
+      "lat": -27.59667,
+      "lng": -48.54917,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 199
+    },
+    {
+      "locationId": "frankfurt-am-main-de",
+      "lat": 50.11552,
+      "lng": 8.68417,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 200
+    },
+    {
+      "locationId": "freetown-sl",
+      "lat": 8.48714,
+      "lng": -13.2356,
+      "country": "Sierra Leone",
+      "continent": "Africa",
+      "poolIndex": 201
+    },
+    {
+      "locationId": "fukuoka-jp",
+      "lat": 33.6,
+      "lng": 130.41667,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 202
+    },
+    {
+      "locationId": "funafuti-tuvalu",
+      "lat": -8.5211,
+      "lng": 179.1983,
+      "country": "Tuvalu",
+      "continent": "Oceania",
+      "poolIndex": 203
+    },
+    {
+      "locationId": "gaborone",
+      "lat": -24.658056,
+      "lng": 25.912222,
+      "country": "Botswana",
+      "continent": "Africa",
+      "poolIndex": 204
+    },
+    {
+      "locationId": "galway-ireland",
+      "lat": 53.2707,
+      "lng": -9.0568,
+      "country": "Ireland",
+      "continent": "Europe",
+      "poolIndex": 205
+    },
+    {
+      "locationId": "gaziantep-tr",
+      "lat": 37.05944,
+      "lng": 37.3825,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 206
+    },
+    {
+      "locationId": "geneva",
+      "lat": 46.201667,
+      "lng": 6.146944,
+      "country": "Switzerland",
+      "continent": "Europe",
+      "poolIndex": 207
+    },
+    {
+      "locationId": "george-town-malaysia",
+      "lat": 5.4141,
+      "lng": 100.3288,
+      "country": "Malaysia",
+      "continent": "Asia",
+      "poolIndex": 208
+    },
+    {
+      "locationId": "ghent-belgium",
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "country": "Belgium",
+      "continent": "Europe",
+      "poolIndex": 209
+    },
+    {
+      "locationId": "giza-eg",
+      "lat": 30.00944,
+      "lng": 31.20861,
+      "country": "Egypt",
+      "continent": "Africa",
+      "poolIndex": 210
+    },
+    {
+      "locationId": "glasgow-scotland",
+      "lat": 55.8642,
+      "lng": -4.2518,
+      "country": "Scotland",
+      "continent": "Europe",
+      "poolIndex": 211
+    },
+    {
+      "locationId": "goiania-br",
+      "lat": -16.67861,
+      "lng": -49.25389,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 212
+    },
+    {
+      "locationId": "gqeberha-za",
+      "lat": -33.96109,
+      "lng": 25.61494,
+      "country": "South Africa",
+      "continent": "Africa",
+      "poolIndex": 213
+    },
+    {
+      "locationId": "granada-es",
+      "lat": 37.1773,
+      "lng": -3.5986,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 214
+    },
+    {
+      "locationId": "guadalajara-mexico",
+      "lat": 20.6597,
+      "lng": -103.3496,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 215
+    },
+    {
+      "locationId": "guangzhou-cn",
+      "lat": 23.11667,
+      "lng": 113.25,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 216
+    },
+    {
+      "locationId": "guatemala-city-gt",
+      "lat": 14.64072,
+      "lng": -90.51327,
+      "country": "Guatemala",
+      "continent": "North America",
+      "poolIndex": 217
+    },
+    {
+      "locationId": "guayaquil-ec",
+      "lat": -2.19616,
+      "lng": -79.88621,
+      "country": "Ecuador",
+      "continent": "South America",
+      "poolIndex": 218
+    },
+    {
+      "locationId": "guilin-cn",
+      "lat": 25.28022,
+      "lng": 110.29639,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 219
+    },
+    {
+      "locationId": "gwangju",
+      "lat": 35.15472,
+      "lng": 126.91556,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 220
+    },
+    {
+      "locationId": "haikou",
+      "lat": 20.03421,
+      "lng": 110.34651,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 221
+    },
+    {
+      "locationId": "haiphong-vn",
+      "lat": 20.86481,
+      "lng": 106.68345,
+      "country": "Vietnam",
+      "continent": "Asia",
+      "poolIndex": 222
+    },
+    {
+      "locationId": "halifax-canada",
+      "lat": 44.6488,
+      "lng": -63.5752,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 223
+    },
+    {
+      "locationId": "hallstatt",
+      "lat": 47.5622,
+      "lng": 13.6493,
+      "country": "Austria",
+      "continent": "Europe",
+      "poolIndex": 224
+    },
+    {
+      "locationId": "hamamatsu",
+      "lat": 34.7,
+      "lng": 137.73333,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 225
+    },
+    {
+      "locationId": "hamburg-germany",
+      "lat": 53.5511,
+      "lng": 9.9937,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 226
+    },
+    {
+      "locationId": "hamilton-ca",
+      "lat": 43.25011,
+      "lng": -79.84963,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 227
+    },
+    {
+      "locationId": "hangzhou",
+      "lat": 30.25,
+      "lng": 120.1675,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 228
+    },
+    {
+      "locationId": "hanoi-vietnam",
+      "lat": 21.0285,
+      "lng": 105.8542,
+      "country": "Vietnam",
+      "continent": "Asia",
+      "poolIndex": 229
+    },
+    {
+      "locationId": "harare-zimbabwe",
+      "lat": -17.8216,
+      "lng": 31.0492,
+      "country": "Zimbabwe",
+      "continent": "Africa",
+      "poolIndex": 230
+    },
+    {
+      "locationId": "harbin-cn",
+      "lat": 45.75,
+      "lng": 126.65,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 231
+    },
+    {
+      "locationId": "hargeysa",
+      "lat": 9.56,
+      "lng": 44.065,
+      "country": "Somalia",
+      "continent": "Africa",
+      "poolIndex": 232
+    },
+    {
+      "locationId": "havana",
+      "lat": 23.13302,
+      "lng": -82.38304,
+      "country": "Cuba",
+      "continent": "North America",
+      "poolIndex": 233
+    },
+    {
+      "locationId": "heidelberg-de",
+      "lat": 49.3988,
+      "lng": 8.6724,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 234
+    },
+    {
+      "locationId": "heimaey-iceland",
+      "lat": 63.4411,
+      "lng": -20.2489,
+      "country": "Iceland",
+      "continent": "Europe",
+      "poolIndex": 235
+    },
+    {
+      "locationId": "helsinki-finland",
+      "lat": 60.1699,
+      "lng": 24.9384,
+      "country": "Finland",
+      "continent": "Europe",
+      "poolIndex": 236
+    },
+    {
+      "locationId": "hermosillo-mx",
+      "lat": 29.08874,
+      "lng": -110.96677,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 237
+    },
+    {
+      "locationId": "hiroshima-japan",
+      "lat": 34.3853,
+      "lng": 132.4553,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 238
+    },
+    {
+      "locationId": "ho-chi-minh-city-vn",
+      "lat": 10.77556,
+      "lng": 106.70194,
+      "country": "Vietnam",
+      "continent": "Asia",
+      "poolIndex": 239
+    },
+    {
+      "locationId": "hobart-australia",
+      "lat": -42.8821,
+      "lng": 147.3272,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 240
+    },
+    {
+      "locationId": "hohhot-cn",
+      "lat": 40.81056,
+      "lng": 111.65222,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 241
+    },
+    {
+      "locationId": "homs",
+      "lat": 34.72405,
+      "lng": 36.72559,
+      "country": "Syria",
+      "continent": "Asia",
+      "poolIndex": 242
+    },
+    {
+      "locationId": "hong-kong",
+      "lat": 22.3193,
+      "lng": 114.1694,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 243
+    },
+    {
+      "locationId": "honiara-solomon-islands",
+      "lat": -9.4456,
+      "lng": 159.9729,
+      "country": "Solomon Islands",
+      "continent": "Oceania",
+      "poolIndex": 244
+    },
+    {
+      "locationId": "honningsvag-norway",
+      "lat": 70.9828,
+      "lng": 25.9707,
+      "country": "Norway",
+      "continent": "Europe",
+      "poolIndex": 245
+    },
+    {
+      "locationId": "honolulu-usa",
+      "lat": 21.3099,
+      "lng": -157.8581,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 246
+    },
+    {
+      "locationId": "houston-usa",
+      "lat": 29.7604,
+      "lng": -95.3698,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 247
+    },
+    {
+      "locationId": "huddersfield",
+      "lat": 53.64904,
+      "lng": -1.78416,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 248
+    },
+    {
+      "locationId": "hue-vn",
+      "lat": 16.4619,
+      "lng": 107.59546,
+      "country": "Vietnam",
+      "continent": "Asia",
+      "poolIndex": 249
+    },
+    {
+      "locationId": "ibadan-ng",
+      "lat": 7.37756,
+      "lng": 3.90591,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 250
+    },
+    {
+      "locationId": "ibb",
+      "lat": 13.96667,
+      "lng": 44.18333,
+      "country": "Yemen",
+      "continent": "Asia",
+      "poolIndex": 251
+    },
+    {
+      "locationId": "ibiza-es",
+      "lat": 38.90883,
+      "lng": 1.43296,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 252
+    },
+    {
+      "locationId": "ilulissat-greenland",
+      "lat": 69.2167,
+      "lng": -51.1,
+      "country": "Denmark",
+      "continent": "Europe",
+      "poolIndex": 253
+    },
+    {
+      "locationId": "incheon-kr",
+      "lat": 37.45646,
+      "lng": 126.70515,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 254
+    },
+    {
+      "locationId": "indianapolis",
+      "lat": 39.76838,
+      "lng": -86.15804,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 255
+    },
+    {
+      "locationId": "innsbruck-austria",
+      "lat": 47.2692,
+      "lng": 11.4041,
+      "country": "Austria",
+      "continent": "Europe",
+      "poolIndex": 256
+    },
+    {
+      "locationId": "iqaluit-nunavut",
+      "lat": 63.7467,
+      "lng": -68.517,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 257
+    },
+    {
+      "locationId": "irkutsk-ru",
+      "lat": 52.29566,
+      "lng": 104.29076,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 258
+    },
+    {
+      "locationId": "isfahan-iran",
+      "lat": 32.6546,
+      "lng": 51.668,
+      "country": "Iran",
+      "continent": "Asia",
+      "poolIndex": 259
+    },
+    {
+      "locationId": "islamabad-pk",
+      "lat": 33.6844,
+      "lng": 73.0479,
+      "country": "Pakistan",
+      "continent": "Asia",
+      "poolIndex": 260
+    },
+    {
+      "locationId": "isle-of-skye-gb",
+      "lat": 57.3,
+      "lng": -6.35,
+      "country": "Scotland",
+      "continent": "Europe",
+      "poolIndex": 261
+    },
+    {
+      "locationId": "istanbul",
+      "lat": 41.01384,
+      "lng": 28.94966,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 262
+    },
+    {
+      "locationId": "izmir-tr",
+      "lat": 38.41273,
+      "lng": 27.13838,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 263
+    },
+    {
+      "locationId": "jacksonville",
+      "lat": 30.33218,
+      "lng": -81.65565,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 264
+    },
+    {
+      "locationId": "jaipur-india",
+      "lat": 26.9124,
+      "lng": 75.7873,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 265
+    },
+    {
+      "locationId": "jakarta-indonesia",
+      "lat": -6.2088,
+      "lng": 106.8456,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 266
+    },
+    {
+      "locationId": "jeddah-sa",
+      "lat": 21.49012,
+      "lng": 39.18624,
+      "country": "Saudi Arabia",
+      "continent": "Asia",
+      "poolIndex": 267
+    },
+    {
+      "locationId": "jeju-city",
+      "lat": 33.50972,
+      "lng": 126.52194,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 268
+    },
+    {
+      "locationId": "jerash-jordan",
+      "lat": 32.2806,
+      "lng": 35.8972,
+      "country": "Jordan",
+      "continent": "Asia",
+      "poolIndex": 269
+    },
+    {
+      "locationId": "jericoacoara",
+      "lat": -2.8,
+      "lng": -40.5,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 270
+    },
+    {
+      "locationId": "jerusalem",
+      "lat": 31.7683,
+      "lng": 35.2137,
+      "country": "Israel",
+      "continent": "Asia",
+      "poolIndex": 271
+    },
+    {
+      "locationId": "jijiga",
+      "lat": 9.35,
+      "lng": 42.8,
+      "country": "Ethiopia",
+      "continent": "Africa",
+      "poolIndex": 272
+    },
+    {
+      "locationId": "joao-pessoa-br",
+      "lat": -7.115,
+      "lng": -34.86306,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 273
+    },
+    {
+      "locationId": "johannesburg-south-africa",
+      "lat": -26.2041,
+      "lng": 28.0473,
+      "country": "South Africa",
+      "continent": "Africa",
+      "poolIndex": 274
+    },
+    {
+      "locationId": "johor-bahru",
+      "lat": 1.4655,
+      "lng": 103.7578,
+      "country": "Malaysia",
+      "continent": "Asia",
+      "poolIndex": 275
+    },
+    {
+      "locationId": "jos-ng",
+      "lat": 9.92849,
+      "lng": 8.89212,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 276
+    },
+    {
+      "locationId": "jyvaskyla",
+      "lat": 62.24147,
+      "lng": 25.72088,
+      "country": "Finland",
+      "continent": "Europe",
+      "poolIndex": 277
+    },
+    {
+      "locationId": "kabul-af",
+      "lat": 34.52813,
+      "lng": 69.17233,
+      "country": "Afghanistan",
+      "continent": "Asia",
+      "poolIndex": 278
+    },
+    {
+      "locationId": "kaduna-ng",
+      "lat": 10.52641,
+      "lng": 7.43879,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 279
+    },
+    {
+      "locationId": "kaifeng-cn",
+      "lat": 34.7986,
+      "lng": 114.30742,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 280
+    },
+    {
+      "locationId": "kisumu-ke",
+      "lat": -0.1,
+      "lng": 34.75,
+      "country": "Kenya",
+      "continent": "Africa",
+      "poolIndex": 281
+    },
+    {
+      "locationId": "kampala",
+      "lat": 0.31628,
+      "lng": 32.58219,
+      "country": "Uganda",
+      "continent": "Africa",
+      "poolIndex": 282
+    },
+    {
+      "locationId": "kandahar-afghanistan",
+      "lat": 31.6289,
+      "lng": 65.7372,
+      "country": "Afghanistan",
+      "continent": "Asia",
+      "poolIndex": 283
+    },
+    {
+      "locationId": "kano",
+      "lat": 12.00012,
+      "lng": 8.51672,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 284
+    },
+    {
+      "locationId": "kansas-city",
+      "lat": 39.099722,
+      "lng": -94.578333,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 285
+    },
+    {
+      "locationId": "kaohsiung-tw",
+      "lat": 22.61626,
+      "lng": 120.31333,
+      "country": "Taiwan",
+      "continent": "Asia",
+      "poolIndex": 286
+    },
+    {
+      "locationId": "karachi-pakistan",
+      "lat": 24.8607,
+      "lng": 67.0011,
+      "country": "Pakistan",
+      "continent": "Asia",
+      "poolIndex": 287
+    },
+    {
+      "locationId": "karagandy",
+      "lat": 49.80187,
+      "lng": 73.10211,
+      "country": "Kazakhstan",
+      "continent": "Asia",
+      "poolIndex": 288
+    },
+    {
+      "locationId": "karbala",
+      "lat": 32.61603,
+      "lng": 44.02488,
+      "country": "Iraq",
+      "continent": "Asia",
+      "poolIndex": 289
+    },
+    {
+      "locationId": "kathmandu-nepal",
+      "lat": 27.7172,
+      "lng": 85.324,
+      "country": "Nepal",
+      "continent": "Asia",
+      "poolIndex": 290
+    },
+    {
+      "locationId": "kayseri",
+      "lat": 38.73222,
+      "lng": 35.48528,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 291
+    },
+    {
+      "locationId": "kazan-ru",
+      "lat": 55.78874,
+      "lng": 49.12214,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 292
+    },
+    {
+      "locationId": "kerkici",
+      "lat": 37.85075,
+      "lng": 65.2433,
+      "country": "Turkmenistan",
+      "continent": "Asia",
+      "poolIndex": 293
+    },
+    {
+      "locationId": "key-west",
+      "lat": 24.555,
+      "lng": -81.781944,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 294
+    },
+    {
+      "locationId": "khabarovsk-ru",
+      "lat": 48.46204,
+      "lng": 135.0971,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 295
+    },
+    {
+      "locationId": "kharkhorin-mongolia",
+      "lat": 47.1947,
+      "lng": 102.8231,
+      "country": "Mongolia",
+      "continent": "Asia",
+      "poolIndex": 296
+    },
+    {
+      "locationId": "kharkiv-ua",
+      "lat": 49.98177,
+      "lng": 36.25475,
+      "country": "Ukraine",
+      "continent": "Europe",
+      "poolIndex": 297
+    },
+    {
+      "locationId": "khartoum",
+      "lat": 15.60308,
+      "lng": 32.52654,
+      "country": "Sudan",
+      "continent": "Africa",
+      "poolIndex": 298
+    },
+    {
+      "locationId": "khiva-uzbekistan",
+      "lat": 41.3783,
+      "lng": 60.3639,
+      "country": "Uzbekistan",
+      "continent": "Asia",
+      "poolIndex": 299
+    },
+    {
+      "locationId": "khulna-bd",
+      "lat": 22.80979,
+      "lng": 89.56439,
+      "country": "Bangladesh",
+      "continent": "Asia",
+      "poolIndex": 300
+    },
+    {
+      "locationId": "kigali-rwanda",
+      "lat": -1.9441,
+      "lng": 30.0619,
+      "country": "Rwanda",
+      "continent": "Africa",
+      "poolIndex": 301
+    },
+    {
+      "locationId": "kingston",
+      "lat": 17.99702,
+      "lng": -76.79358,
+      "country": "Jamaica",
+      "continent": "North America",
+      "poolIndex": 302
+    },
+    {
+      "locationId": "kinshasa-dr-congo",
+      "lat": -4.3197,
+      "lng": 15.34242,
+      "country": "DR Congo",
+      "continent": "Africa",
+      "poolIndex": 303
+    },
+    {
+      "locationId": "kirkenes-norway",
+      "lat": 69.725,
+      "lng": 30.0444,
+      "country": "Norway",
+      "continent": "Europe",
+      "poolIndex": 304
+    },
+    {
+      "locationId": "kirkuk",
+      "lat": 35.46806,
+      "lng": 44.39222,
+      "country": "Iraq",
+      "continent": "Asia",
+      "poolIndex": 305
+    },
+    {
+      "locationId": "kisangani-cd",
+      "lat": 0.51528,
+      "lng": 25.19099,
+      "country": "DR Congo",
+      "continent": "Africa",
+      "poolIndex": 306
+    },
+    {
+      "locationId": "kitakyushu",
+      "lat": 33.85181,
+      "lng": 130.85034,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 307
+    },
+    {
+      "locationId": "kitwe-zm",
+      "lat": -12.80243,
+      "lng": 28.21323,
+      "country": "Zambia",
+      "continent": "Africa",
+      "poolIndex": 308
+    },
+    {
+      "locationId": "kobe-jp",
+      "lat": 34.6913,
+      "lng": 135.183,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 309
+    },
+    {
+      "locationId": "kochi-india",
+      "lat": 9.9312,
+      "lng": 76.2673,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 310
+    },
+    {
+      "locationId": "koh-pha-ngan-thailand",
+      "lat": 9.734,
+      "lng": 100.021,
+      "country": "Thailand",
+      "continent": "Asia",
+      "poolIndex": 311
+    },
+    {
+      "locationId": "koh-phi-phi-th",
+      "lat": 7.7407,
+      "lng": 98.7784,
+      "country": "Thailand",
+      "continent": "Asia",
+      "poolIndex": 312
+    },
+    {
+      "locationId": "kolkata-india",
+      "lat": 22.5726,
+      "lng": 88.3639,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 313
+    },
+    {
+      "locationId": "kolwezi-cd",
+      "lat": -10.71484,
+      "lng": 25.46674,
+      "country": "DR Congo",
+      "continent": "Africa",
+      "poolIndex": 314
+    },
+    {
+      "locationId": "konya",
+      "lat": 37.87135,
+      "lng": 32.48464,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 315
+    },
+    {
+      "locationId": "krasnodar-ru",
+      "lat": 45.04534,
+      "lng": 38.98178,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 316
+    },
+    {
+      "locationId": "krasnoyarsk-ru",
+      "lat": 56.03742,
+      "lng": 92.93136,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 317
+    },
+    {
+      "locationId": "kuala-lumpur-malaysia",
+      "lat": 3.139,
+      "lng": 101.6869,
+      "country": "Malaysia",
+      "continent": "Asia",
+      "poolIndex": 318
+    },
+    {
+      "locationId": "kumasi-ghana",
+      "lat": 6.6885,
+      "lng": -1.6244,
+      "country": "Ghana",
+      "continent": "Africa",
+      "poolIndex": 319
+    },
+    {
+      "locationId": "kunming-cn",
+      "lat": 25.03889,
+      "lng": 102.71833,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 320
+    },
+    {
+      "locationId": "kurashiki",
+      "lat": 34.58333,
+      "lng": 133.76667,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 321
+    },
+    {
+      "locationId": "kyiv-ukraine",
+      "lat": 50.4501,
+      "lng": 30.5234,
+      "country": "Ukraine",
+      "continent": "Europe",
+      "poolIndex": 322
+    },
+    {
+      "locationId": "kyoto-japan",
+      "lat": 35.0116,
+      "lng": 135.7681,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 323
+    },
+    {
+      "locationId": "lagos",
+      "lat": 6.45407,
+      "lng": 3.39467,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 324
+    },
+    {
+      "locationId": "lahore",
+      "lat": 31.558,
+      "lng": 74.35071,
+      "country": "Pakistan",
+      "continent": "Asia",
+      "poolIndex": 325
+    },
+    {
+      "locationId": "lanzhou-cn",
+      "lat": 36.05701,
+      "lng": 103.83987,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 326
+    },
+    {
+      "locationId": "las-vegas-usa",
+      "lat": 36.1699,
+      "lng": -115.1398,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 327
+    },
+    {
+      "locationId": "leh-india",
+      "lat": 34.1526,
+      "lng": 77.5771,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 328
+    },
+    {
+      "locationId": "leipzig-germany",
+      "lat": 51.3397,
+      "lng": 12.3731,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 329
+    },
+    {
+      "locationId": "libreville-ga",
+      "lat": 0.39241,
+      "lng": 9.45356,
+      "country": "Gabon",
+      "continent": "Africa",
+      "poolIndex": 330
+    },
+    {
+      "locationId": "lilongwe-mw",
+      "lat": -13.96692,
+      "lng": 33.78725,
+      "country": "Malawi",
+      "continent": "Africa",
+      "poolIndex": 331
+    },
+    {
+      "locationId": "lisbon-portugal",
+      "lat": 38.7223,
+      "lng": -9.1393,
+      "country": "Portugal",
+      "continent": "Europe",
+      "poolIndex": 332
+    },
+    {
+      "locationId": "liverpool-england",
+      "lat": 53.4084,
+      "lng": -2.9916,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 333
+    },
+    {
+      "locationId": "lo-manthang-nepal",
+      "lat": 29.1848,
+      "lng": 83.9591,
+      "country": "Nepal",
+      "continent": "Asia",
+      "poolIndex": 334
+    },
+    {
+      "locationId": "lome-tg",
+      "lat": 6.12874,
+      "lng": 1.22154,
+      "country": "Togo",
+      "continent": "Africa",
+      "poolIndex": 335
+    },
+    {
+      "locationId": "london-uk",
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 336
+    },
+    {
+      "locationId": "longyearbyen-svalbard",
+      "lat": 78.2232,
+      "lng": 15.6267,
+      "country": "Norway",
+      "continent": "Europe",
+      "poolIndex": 337
+    },
+    {
+      "locationId": "los-angeles-usa",
+      "lat": 34.0522,
+      "lng": -118.2437,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 338
+    },
+    {
+      "locationId": "louisville-usa",
+      "lat": 38.2527,
+      "lng": -85.7585,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 339
+    },
+    {
+      "locationId": "luanda-angola",
+      "lat": -8.8147,
+      "lng": 13.2302,
+      "country": "Angola",
+      "continent": "Africa",
+      "poolIndex": 340
+    },
+    {
+      "locationId": "luang-prabang-laos",
+      "lat": 19.8867,
+      "lng": 102.135,
+      "country": "Laos",
+      "continent": "Asia",
+      "poolIndex": 341
+    },
+    {
+      "locationId": "lubumbashi-cd",
+      "lat": -11.66089,
+      "lng": 27.47938,
+      "country": "DR Congo",
+      "continent": "Africa",
+      "poolIndex": 342
+    },
+    {
+      "locationId": "lucerne-ch",
+      "lat": 47.0502,
+      "lng": 8.3093,
+      "country": "Switzerland",
+      "continent": "Europe",
+      "poolIndex": 343
+    },
+    {
+      "locationId": "lucknow-in",
+      "lat": 26.83928,
+      "lng": 80.92313,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 344
+    },
+    {
+      "locationId": "luoyang-cn",
+      "lat": 34.67345,
+      "lng": 112.43684,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 345
+    },
+    {
+      "locationId": "lusaka",
+      "lat": -15.40669,
+      "lng": 28.28713,
+      "country": "Zambia",
+      "continent": "Africa",
+      "poolIndex": 346
+    },
+    {
+      "locationId": "luxembourg-city",
+      "lat": 49.611389,
+      "lng": 6.13,
+      "country": "Luxembourg",
+      "continent": "Europe",
+      "poolIndex": 347
+    },
+    {
+      "locationId": "luxor-egypt",
+      "lat": 25.6872,
+      "lng": 32.6396,
+      "country": "Egypt",
+      "continent": "Africa",
+      "poolIndex": 348
+    },
+    {
+      "locationId": "lviv-ua",
+      "lat": 49.83826,
+      "lng": 24.02324,
+      "country": "Ukraine",
+      "continent": "Europe",
+      "poolIndex": 349
+    },
+    {
+      "locationId": "macapa-br",
+      "lat": 0.03889,
+      "lng": -51.06639,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 350
+    },
+    {
+      "locationId": "macau",
+      "lat": 22.19,
+      "lng": 113.54,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 351
+    },
+    {
+      "locationId": "maceio-br",
+      "lat": -9.66583,
+      "lng": -35.73528,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 352
+    },
+    {
+      "locationId": "madrid-spain",
+      "lat": 40.4168,
+      "lng": -3.7038,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 353
+    },
+    {
+      "locationId": "madurai-in",
+      "lat": 9.919,
+      "lng": 78.11953,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 354
+    },
+    {
+      "locationId": "ile-ife-ng",
+      "lat": 7.46667,
+      "lng": 4.56667,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 355
+    },
+    {
+      "locationId": "majuro-marshall-islands",
+      "lat": 7.0914,
+      "lng": 171.38092,
+      "country": "Marshall Islands",
+      "continent": "Oceania",
+      "poolIndex": 356
+    },
+    {
+      "locationId": "makassar-id",
+      "lat": -5.14861,
+      "lng": 119.43194,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 357
+    },
+    {
+      "locationId": "makhachkala-ru",
+      "lat": 42.97782,
+      "lng": 47.50027,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 358
+    },
+    {
+      "locationId": "male-maldives",
+      "lat": 4.1755,
+      "lng": 73.5093,
+      "country": "Maldives",
+      "continent": "Asia",
+      "poolIndex": 359
+    },
+    {
+      "locationId": "managua-ni",
+      "lat": 12.13282,
+      "lng": -86.2504,
+      "country": "Nicaragua",
+      "continent": "North America",
+      "poolIndex": 360
+    },
+    {
+      "locationId": "manaus-br",
+      "lat": -3.11889,
+      "lng": -60.02167,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 361
+    },
+    {
+      "locationId": "manchester-england",
+      "lat": 53.4808,
+      "lng": -2.2426,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 362
+    },
+    {
+      "locationId": "mandalay",
+      "lat": 21.97473,
+      "lng": 96.08359,
+      "country": "Myanmar",
+      "continent": "Asia",
+      "poolIndex": 363
+    },
+    {
+      "locationId": "manila-philippines",
+      "lat": 14.5995,
+      "lng": 120.9842,
+      "country": "Philippines",
+      "continent": "Asia",
+      "poolIndex": 364
+    },
+    {
+      "locationId": "maputo-mozambique",
+      "lat": -25.9655,
+      "lng": 32.5832,
+      "country": "Mozambique",
+      "continent": "Africa",
+      "poolIndex": 365
+    },
+    {
+      "locationId": "mar-del-plata-ar",
+      "lat": -38.00042,
+      "lng": -57.5562,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 366
+    },
+    {
+      "locationId": "maracaibo-ve",
+      "lat": 10.64232,
+      "lng": -71.61089,
+      "country": "Venezuela",
+      "continent": "South America",
+      "poolIndex": 367
+    },
+    {
+      "locationId": "marrakech-morocco",
+      "lat": 31.6295,
+      "lng": -7.9811,
+      "country": "Morocco",
+      "continent": "Africa",
+      "poolIndex": 368
+    },
+    {
+      "locationId": "marseille-fr",
+      "lat": 43.29695,
+      "lng": 5.38107,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 369
+    },
+    {
+      "locationId": "mashhad-ir",
+      "lat": 36.29807,
+      "lng": 59.60567,
+      "country": "Iran",
+      "continent": "Asia",
+      "poolIndex": 370
+    },
+    {
+      "locationId": "matera-sassi",
+      "lat": 40.6672,
+      "lng": 16.604,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 371
+    },
+    {
+      "locationId": "mazatlan-mx",
+      "lat": 23.22163,
+      "lng": -106.41885,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 372
+    },
+    {
+      "locationId": "mbuji-mayi-cd",
+      "lat": -6.13603,
+      "lng": 23.58979,
+      "country": "DR Congo",
+      "continent": "Africa",
+      "poolIndex": 373
+    },
+    {
+      "locationId": "abha-sa",
+      "lat": 18.21667,
+      "lng": 42.5,
+      "country": "Saudi Arabia",
+      "continent": "Asia",
+      "poolIndex": 374
+    },
+    {
+      "locationId": "medan-id",
+      "lat": 3.58333,
+      "lng": 98.66667,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 375
+    },
+    {
+      "locationId": "alula-sa",
+      "lat": 26.60889,
+      "lng": 37.92361,
+      "country": "Saudi Arabia",
+      "continent": "Asia",
+      "poolIndex": 376
+    },
+    {
+      "locationId": "melbourne-australia",
+      "lat": -37.8136,
+      "lng": 144.9631,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 377
+    },
+    {
+      "locationId": "memphis-us",
+      "lat": 35.1495,
+      "lng": -90.049,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 378
+    },
+    {
+      "locationId": "mendoza-argentina",
+      "lat": -32.8895,
+      "lng": -68.8458,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 379
+    },
+    {
+      "locationId": "merida-mx",
+      "lat": 20.967,
+      "lng": -89.62318,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 380
+    },
+    {
+      "locationId": "la-paz-mx",
+      "lat": 24.14861,
+      "lng": -110.30667,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 381
+    },
+    {
+      "locationId": "mexico-city-mexico",
+      "lat": 19.4326,
+      "lng": -99.1332,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 382
+    },
+    {
+      "locationId": "miami-usa",
+      "lat": 25.7617,
+      "lng": -80.1918,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 383
+    },
+    {
+      "locationId": "milan-it",
+      "lat": 45.4642,
+      "lng": 9.19,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 384
+    },
+    {
+      "locationId": "milwaukee",
+      "lat": 43.05,
+      "lng": -87.95,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 385
+    },
+    {
+      "locationId": "minneapolis-usa",
+      "lat": 44.9778,
+      "lng": -93.265,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 386
+    },
+    {
+      "locationId": "minsk-by",
+      "lat": 53.90019,
+      "lng": 27.56653,
+      "country": "Belarus",
+      "continent": "Europe",
+      "poolIndex": 387
+    },
+    {
+      "locationId": "mississauga-ca",
+      "lat": 43.5789,
+      "lng": -79.6583,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 388
+    },
+    {
+      "locationId": "mogadishu-so",
+      "lat": 2.03711,
+      "lng": 45.34375,
+      "country": "Somalia",
+      "continent": "Africa",
+      "poolIndex": 389
+    },
+    {
+      "locationId": "mombasa-kenya",
+      "lat": -4.0435,
+      "lng": 39.6682,
+      "country": "Kenya",
+      "continent": "Africa",
+      "poolIndex": 390
+    },
+    {
+      "locationId": "monaco",
+      "lat": 43.731111,
+      "lng": 7.42,
+      "country": "Monaco",
+      "continent": "Europe",
+      "poolIndex": 391
+    },
+    {
+      "locationId": "monrovia-lr",
+      "lat": 6.30054,
+      "lng": -10.7969,
+      "country": "Liberia",
+      "continent": "Africa",
+      "poolIndex": 392
+    },
+    {
+      "locationId": "monterrey-mexico",
+      "lat": 25.6866,
+      "lng": -100.3161,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 393
+    },
+    {
+      "locationId": "montreal-canada",
+      "lat": 45.5019,
+      "lng": -73.5674,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 394
+    },
+    {
+      "locationId": "morelia-mx",
+      "lat": 19.70078,
+      "lng": -101.18443,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 395
+    },
+    {
+      "locationId": "moscow-russia",
+      "lat": 55.7558,
+      "lng": 37.6173,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 396
+    },
+    {
+      "locationId": "mosul-iq",
+      "lat": 36.335,
+      "lng": 43.11889,
+      "country": "Iraq",
+      "continent": "Asia",
+      "poolIndex": 397
+    },
+    {
+      "locationId": "multan-pk",
+      "lat": 30.19679,
+      "lng": 71.47824,
+      "country": "Pakistan",
+      "continent": "Asia",
+      "poolIndex": 398
+    },
+    {
+      "locationId": "mumbai-india",
+      "lat": 19.076,
+      "lng": 72.8777,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 399
+    },
+    {
+      "locationId": "munich-germany",
+      "lat": 48.1351,
+      "lng": 11.582,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 400
+    },
+    {
+      "locationId": "muscat",
+      "lat": 23.61313,
+      "lng": 58.59302,
+      "country": "Oman",
+      "continent": "Asia",
+      "poolIndex": 401
+    },
+    {
+      "locationId": "mwanza-tz",
+      "lat": -2.51667,
+      "lng": 32.9,
+      "country": "Tanzania",
+      "continent": "Africa",
+      "poolIndex": 402
+    },
+    {
+      "locationId": "mykonos-gr",
+      "lat": 37.4467,
+      "lng": 25.3289,
+      "country": "Greece",
+      "continent": "Europe",
+      "poolIndex": 403
+    },
+    {
+      "locationId": "n-djamena-td",
+      "lat": 12.10672,
+      "lng": 15.0444,
+      "country": "Chad",
+      "continent": "Africa",
+      "poolIndex": 404
+    },
+    {
+      "locationId": "nagasaki-atomic-bombing",
+      "lat": 32.7738,
+      "lng": 129.8634,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 405
+    },
+    {
+      "locationId": "nagoya-jp",
+      "lat": 35.18147,
+      "lng": 136.90641,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 406
+    },
+    {
+      "locationId": "nagpur-in",
+      "lat": 21.14631,
+      "lng": 79.08491,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 407
+    },
+    {
+      "locationId": "nahuel-huapi-civic-centre",
+      "lat": -41.1335,
+      "lng": -71.3103,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 408
+    },
+    {
+      "locationId": "nairobi-kenya",
+      "lat": -1.2921,
+      "lng": 36.8219,
+      "country": "Kenya",
+      "continent": "Africa",
+      "poolIndex": 409
+    },
+    {
+      "locationId": "najaf",
+      "lat": 32.02594,
+      "lng": 44.34625,
+      "country": "Iraq",
+      "continent": "Asia",
+      "poolIndex": 410
+    },
+    {
+      "locationId": "nampula-mz",
+      "lat": -15.11646,
+      "lng": 39.2666,
+      "country": "Mozambique",
+      "continent": "Africa",
+      "poolIndex": 411
+    },
+    {
+      "locationId": "nanjing-cn",
+      "lat": 32.06167,
+      "lng": 118.77778,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 412
+    },
+    {
+      "locationId": "nanning-cn",
+      "lat": 22.81667,
+      "lng": 108.31667,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 413
+    },
+    {
+      "locationId": "nanortalik-greenland",
+      "lat": 60.1417,
+      "lng": -45.2433,
+      "country": "Denmark",
+      "continent": "Europe",
+      "poolIndex": 414
+    },
+    {
+      "locationId": "naples-italy",
+      "lat": 40.8518,
+      "lng": 14.2681,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 415
+    },
+    {
+      "locationId": "nara",
+      "lat": 34.684444,
+      "lng": 135.805,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 416
+    },
+    {
+      "locationId": "nashik-in",
+      "lat": 19.99727,
+      "lng": 73.79096,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 417
+    },
+    {
+      "locationId": "nashville-usa",
+      "lat": 36.1627,
+      "lng": -86.7816,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 418
+    },
+    {
+      "locationId": "natal-br",
+      "lat": -5.795,
+      "lng": -35.20944,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 419
+    },
+    {
+      "locationId": "nay-pyi-taw",
+      "lat": 19.745,
+      "lng": 96.12972,
+      "country": "Myanmar",
+      "continent": "Asia",
+      "poolIndex": 420
+    },
+    {
+      "locationId": "nazareth",
+      "lat": 32.701944,
+      "lng": 35.303333,
+      "country": "Israel",
+      "continent": "Asia",
+      "poolIndex": 421
+    },
+    {
+      "locationId": "new-orleans-usa",
+      "lat": 29.9511,
+      "lng": -90.0715,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 422
+    },
+    {
+      "locationId": "new-york-usa",
+      "lat": 40.7128,
+      "lng": -74.006,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 423
+    },
+    {
+      "locationId": "ngerulmud-palau",
+      "lat": 7.5006,
+      "lng": 134.6242,
+      "country": "Palau",
+      "continent": "Oceania",
+      "poolIndex": 424
+    },
+    {
+      "locationId": "niagara-on-the-lake",
+      "lat": 43.255278,
+      "lng": -79.071667,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 425
+    },
+    {
+      "locationId": "niamey-ne",
+      "lat": 13.51366,
+      "lng": 2.1098,
+      "country": "Niger",
+      "continent": "Africa",
+      "poolIndex": 426
+    },
+    {
+      "locationId": "nice",
+      "lat": 43.7034,
+      "lng": 7.2663,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 427
+    },
+    {
+      "locationId": "niigata",
+      "lat": 37.92259,
+      "lng": 139.04125,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 428
+    },
+    {
+      "locationId": "nimes",
+      "lat": 43.83665,
+      "lng": 4.35788,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 429
+    },
+    {
+      "locationId": "ningbo-cn",
+      "lat": 29.87819,
+      "lng": 121.54945,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 430
+    },
+    {
+      "locationId": "nadi-fj",
+      "lat": -17.8,
+      "lng": 177.41667,
+      "country": "Fiji",
+      "continent": "Oceania",
+      "poolIndex": 431
+    },
+    {
+      "locationId": "nizhniy-novgorod-ru",
+      "lat": 56.32867,
+      "lng": 44.00205,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 432
+    },
+    {
+      "locationId": "nouakchott-mr",
+      "lat": 18.08581,
+      "lng": -15.9785,
+      "country": "Mauritania",
+      "continent": "Africa",
+      "poolIndex": 433
+    },
+    {
+      "locationId": "noumea-new-caledonia",
+      "lat": -22.2758,
+      "lng": 166.458,
+      "country": "France",
+      "continent": "Oceania",
+      "poolIndex": 434
+    },
+    {
+      "locationId": "novosibirsk-ru",
+      "lat": 55.02259,
+      "lng": 82.93175,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 435
+    },
+    {
+      "locationId": "novovolynsk",
+      "lat": 50.72949,
+      "lng": 24.15976,
+      "country": "Ukraine",
+      "continent": "Europe",
+      "poolIndex": 436
+    },
+    {
+      "locationId": "nuku-alofa-tonga",
+      "lat": -21.1394,
+      "lng": -175.2032,
+      "country": "Tonga",
+      "continent": "Oceania",
+      "poolIndex": 437
+    },
+    {
+      "locationId": "nuremberg",
+      "lat": 49.453889,
+      "lng": 11.0775,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 438
+    },
+    {
+      "locationId": "nuuk-greenland",
+      "lat": 64.1835,
+      "lng": -51.7216,
+      "country": "Denmark",
+      "continent": "North America",
+      "poolIndex": 439
+    },
+    {
+      "locationId": "oaxaca-mexico",
+      "lat": 17.0732,
+      "lng": -96.7266,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 440
+    },
+    {
+      "locationId": "odesa-ua",
+      "lat": 46.48572,
+      "lng": 30.74383,
+      "country": "Ukraine",
+      "continent": "Europe",
+      "poolIndex": 441
+    },
+    {
+      "locationId": "odz-pl",
+      "lat": 51.77058,
+      "lng": 19.47395,
+      "country": "Poland",
+      "continent": "Europe",
+      "poolIndex": 442
+    },
+    {
+      "locationId": "oita",
+      "lat": 33.23333,
+      "lng": 131.6,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 443
+    },
+    {
+      "locationId": "olympia-greece",
+      "lat": 37.638333,
+      "lng": 21.63,
+      "country": "Greece",
+      "continent": "Europe",
+      "poolIndex": 444
+    },
+    {
+      "locationId": "omaha",
+      "lat": 41.25626,
+      "lng": -95.94043,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 445
+    },
+    {
+      "locationId": "omdurman-sd",
+      "lat": 15.64453,
+      "lng": 32.47773,
+      "country": "Sudan",
+      "continent": "Africa",
+      "poolIndex": 446
+    },
+    {
+      "locationId": "omsk-ru",
+      "lat": 54.99244,
+      "lng": 73.36859,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 447
+    },
+    {
+      "locationId": "oran-dz",
+      "lat": 35.69906,
+      "lng": -0.63588,
+      "country": "Algeria",
+      "continent": "Africa",
+      "poolIndex": 448
+    },
+    {
+      "locationId": "orlando",
+      "lat": 28.542222,
+      "lng": -81.379167,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 449
+    },
+    {
+      "locationId": "osaka-japan",
+      "lat": 34.6937,
+      "lng": 135.5023,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 450
+    },
+    {
+      "locationId": "oslo-norway",
+      "lat": 59.9139,
+      "lng": 10.7522,
+      "country": "Norway",
+      "continent": "Europe",
+      "poolIndex": 451
+    },
+    {
+      "locationId": "ostersund",
+      "lat": 63.1792,
+      "lng": 14.63566,
+      "country": "Sweden",
+      "continent": "Europe",
+      "poolIndex": 452
+    },
+    {
+      "locationId": "ottawa-canada",
+      "lat": 45.4215,
+      "lng": -75.6972,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 453
+    },
+    {
+      "locationId": "ouagadougou-burkina-faso",
+      "lat": 12.3714,
+      "lng": -1.5197,
+      "country": "Burkina Faso",
+      "continent": "Africa",
+      "poolIndex": 454
+    },
+    {
+      "locationId": "oxford-england",
+      "lat": 51.752,
+      "lng": -1.2577,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 455
+    },
+    {
+      "locationId": "oymyakon-russia",
+      "lat": 63.4608,
+      "lng": 142.7858,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 456
+    },
+    {
+      "locationId": "padang",
+      "lat": -0.94924,
+      "lng": 100.35427,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 457
+    },
+    {
+      "locationId": "palembang-id",
+      "lat": -2.98608,
+      "lng": 104.76065,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 458
+    },
+    {
+      "locationId": "palikir-micronesia",
+      "lat": 6.9248,
+      "lng": 158.1611,
+      "country": "Micronesia",
+      "continent": "Oceania",
+      "poolIndex": 459
+    },
+    {
+      "locationId": "palma-de-mallorca",
+      "lat": 39.566667,
+      "lng": 2.65,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 460
+    },
+    {
+      "locationId": "panama-city",
+      "lat": 8.9711,
+      "lng": -79.5347,
+      "country": "Panama",
+      "continent": "North America",
+      "poolIndex": 461
+    },
+    {
+      "locationId": "papeete-tahiti",
+      "lat": -17.5516,
+      "lng": -149.5585,
+      "country": "France",
+      "continent": "Oceania",
+      "poolIndex": 462
+    },
+    {
+      "locationId": "paraty-historic-center",
+      "lat": -23.2196,
+      "lng": -44.7132,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 463
+    },
+    {
+      "locationId": "paris-france",
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 464
+    },
+    {
+      "locationId": "patna-in",
+      "lat": 25.59408,
+      "lng": 85.13563,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 465
+    },
+    {
+      "locationId": "pereira-co",
+      "lat": 4.81428,
+      "lng": -75.69488,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 466
+    },
+    {
+      "locationId": "perth-australia",
+      "lat": -31.9505,
+      "lng": 115.8605,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 467
+    },
+    {
+      "locationId": "peshawar-pk",
+      "lat": 34.008,
+      "lng": 71.57849,
+      "country": "Pakistan",
+      "continent": "Asia",
+      "poolIndex": 468
+    },
+    {
+      "locationId": "petra-nabatean-treasury",
+      "lat": 30.3285,
+      "lng": 35.4419,
+      "country": "Jordan",
+      "continent": "Asia",
+      "poolIndex": 469
+    },
+    {
+      "locationId": "pevek-russia",
+      "lat": 69.7026,
+      "lng": 170.298,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 470
+    },
+    {
+      "locationId": "philadelphia-usa",
+      "lat": 39.9526,
+      "lng": -75.1652,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 471
+    },
+    {
+      "locationId": "phnom-penh-cambodia",
+      "lat": 11.5564,
+      "lng": 104.9282,
+      "country": "Cambodia",
+      "continent": "Asia",
+      "poolIndex": 472
+    },
+    {
+      "locationId": "phoenix-usa",
+      "lat": 33.4484,
+      "lng": -112.074,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 473
+    },
+    {
+      "locationId": "phuket-thailand",
+      "lat": 7.8804,
+      "lng": 98.3923,
+      "country": "Thailand",
+      "continent": "Asia",
+      "poolIndex": 474
+    },
+    {
+      "locationId": "pittsburgh",
+      "lat": 40.439722,
+      "lng": -79.976389,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 475
+    },
+    {
+      "locationId": "piura-pe",
+      "lat": -5.18192,
+      "lng": -80.65715,
+      "country": "Peru",
+      "continent": "South America",
+      "poolIndex": 476
+    },
+    {
+      "locationId": "playa-del-carmen",
+      "lat": 20.6274,
+      "lng": -87.07987,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 477
+    },
+    {
+      "locationId": "pointe-noire-cg",
+      "lat": -4.77609,
+      "lng": 11.86352,
+      "country": "Congo",
+      "continent": "Africa",
+      "poolIndex": 478
+    },
+    {
+      "locationId": "polonnaruwa-sri-lanka",
+      "lat": 7.93965,
+      "lng": 81.00274,
+      "country": "Sri Lanka",
+      "continent": "Asia",
+      "poolIndex": 479
+    },
+    {
+      "locationId": "port-arthur",
+      "lat": -43.1466,
+      "lng": 147.8512,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 480
+    },
+    {
+      "locationId": "port-au-prince-ht",
+      "lat": 18.54349,
+      "lng": -72.33881,
+      "country": "Haiti",
+      "continent": "North America",
+      "poolIndex": 481
+    },
+    {
+      "locationId": "port-harcourt-ng",
+      "lat": 4.77742,
+      "lng": 7.0134,
+      "country": "Nigeria",
+      "continent": "Africa",
+      "poolIndex": 482
+    },
+    {
+      "locationId": "port-moresby-papua-new-guinea",
+      "lat": -9.4438,
+      "lng": 147.1803,
+      "country": "Papua New Guinea",
+      "continent": "Oceania",
+      "poolIndex": 483
+    },
+    {
+      "locationId": "port-said-eg",
+      "lat": 31.26531,
+      "lng": 32.3019,
+      "country": "Egypt",
+      "continent": "Africa",
+      "poolIndex": 484
+    },
+    {
+      "locationId": "port-sudan",
+      "lat": 19.61745,
+      "lng": 37.21644,
+      "country": "Sudan",
+      "continent": "Africa",
+      "poolIndex": 485
+    },
+    {
+      "locationId": "port-vila-vanuatu",
+      "lat": -17.7333,
+      "lng": 168.3167,
+      "country": "Vanuatu",
+      "continent": "Oceania",
+      "poolIndex": 486
+    },
+    {
+      "locationId": "portland-oregon-usa",
+      "lat": 45.5155,
+      "lng": -122.6793,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 487
+    },
+    {
+      "locationId": "porto-alegre-br",
+      "lat": -30.03283,
+      "lng": -51.23019,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 488
+    },
+    {
+      "locationId": "porto-portugal",
+      "lat": 41.1579,
+      "lng": -8.6291,
+      "country": "Portugal",
+      "continent": "Europe",
+      "poolIndex": 489
+    },
+    {
+      "locationId": "porto-velho-br",
+      "lat": -8.76194,
+      "lng": -63.90389,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 490
+    },
+    {
+      "locationId": "prague-czech-republic",
+      "lat": 50.0755,
+      "lng": 14.4378,
+      "country": "Czech Republic",
+      "continent": "Europe",
+      "poolIndex": 491
+    },
+    {
+      "locationId": "prayagraj",
+      "lat": 25.44478,
+      "lng": 81.84322,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 492
+    },
+    {
+      "locationId": "pretoria",
+      "lat": -25.74486,
+      "lng": 28.18783,
+      "country": "South Africa",
+      "continent": "Africa",
+      "poolIndex": 493
+    },
+    {
+      "locationId": "pristina-xk",
+      "lat": 42.67272,
+      "lng": 21.16688,
+      "country": "Kosovo",
+      "continent": "Europe",
+      "poolIndex": 494
+    },
+    {
+      "locationId": "pucioasa",
+      "lat": 45.07807,
+      "lng": 25.43232,
+      "country": "Romania",
+      "continent": "Europe",
+      "poolIndex": 495
+    },
+    {
+      "locationId": "puebla-mexico",
+      "lat": 19.0414,
+      "lng": -98.2063,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 496
+    },
+    {
+      "locationId": "quetzaltenango-gt",
+      "lat": 14.83333,
+      "lng": -91.51667,
+      "country": "Guatemala",
+      "continent": "North America",
+      "poolIndex": 497
+    },
+    {
+      "locationId": "pune-in",
+      "lat": 18.51957,
+      "lng": 73.85535,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 498
+    },
+    {
+      "locationId": "pyongyang-north-korea",
+      "lat": 39.0392,
+      "lng": 125.7625,
+      "country": "North Korea",
+      "continent": "Asia",
+      "poolIndex": 499
+    },
+    {
+      "locationId": "qaqortoq-greenland",
+      "lat": 60.7214,
+      "lng": -46.0486,
+      "country": "Denmark",
+      "continent": "Europe",
+      "poolIndex": 500
+    },
+    {
+      "locationId": "qingdao-cn",
+      "lat": 36.06488,
+      "lng": 120.38042,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 501
+    },
+    {
+      "locationId": "qom",
+      "lat": 34.6401,
+      "lng": 50.8764,
+      "country": "Iran",
+      "continent": "Asia",
+      "poolIndex": 502
+    },
+    {
+      "locationId": "quebec-city-canada",
+      "lat": 46.8139,
+      "lng": -71.208,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 503
+    },
+    {
+      "locationId": "quetta-pk",
+      "lat": 30.18414,
+      "lng": 67.00141,
+      "country": "Pakistan",
+      "continent": "Asia",
+      "poolIndex": 504
+    },
+    {
+      "locationId": "quezon-city-ph",
+      "lat": 14.6488,
+      "lng": 121.0509,
+      "country": "Philippines",
+      "continent": "Asia",
+      "poolIndex": 505
+    },
+    {
+      "locationId": "quito",
+      "lat": -0.22985,
+      "lng": -78.52495,
+      "country": "Ecuador",
+      "continent": "South America",
+      "poolIndex": 506
+    },
+    {
+      "locationId": "rabat-morocco",
+      "lat": 34.0209,
+      "lng": -6.8416,
+      "country": "Morocco",
+      "continent": "Africa",
+      "poolIndex": 507
+    },
+    {
+      "locationId": "rajshahi",
+      "lat": 24.374,
+      "lng": 88.60114,
+      "country": "Bangladesh",
+      "continent": "Asia",
+      "poolIndex": 508
+    },
+    {
+      "locationId": "raleigh-usa",
+      "lat": 35.7796,
+      "lng": -78.6382,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 509
+    },
+    {
+      "locationId": "recife-marco-zero",
+      "lat": -8.0631,
+      "lng": -34.8711,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 510
+    },
+    {
+      "locationId": "reykjavik-iceland",
+      "lat": 64.1466,
+      "lng": -21.9426,
+      "country": "Iceland",
+      "continent": "Europe",
+      "poolIndex": 511
+    },
+    {
+      "locationId": "rimini",
+      "lat": 44.05755,
+      "lng": 12.56528,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 512
+    },
+    {
+      "locationId": "rio-de-janeiro-brazil",
+      "lat": -22.9068,
+      "lng": -43.1729,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 513
+    },
+    {
+      "locationId": "riyadh",
+      "lat": 24.63862,
+      "lng": 46.71551,
+      "country": "Saudi Arabia",
+      "continent": "Asia",
+      "poolIndex": 514
+    },
+    {
+      "locationId": "rome-italy",
+      "lat": 41.9028,
+      "lng": 12.4964,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 515
+    },
+    {
+      "locationId": "rosario-ar",
+      "lat": -32.94682,
+      "lng": -60.63932,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 516
+    },
+    {
+      "locationId": "rostov-on-don-ru",
+      "lat": 47.21997,
+      "lng": 39.70769,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 517
+    },
+    {
+      "locationId": "roswell-ufo-incident",
+      "lat": 33.3943,
+      "lng": -104.523,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 518
+    },
+    {
+      "locationId": "rothenburg-ob-der-tauber-germany",
+      "lat": 49.3772,
+      "lng": 10.1789,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 519
+    },
+    {
+      "locationId": "biskra-dz",
+      "lat": 34.85,
+      "lng": 5.73333,
+      "country": "Algeria",
+      "continent": "Africa",
+      "poolIndex": 520
+    },
+    {
+      "locationId": "sacramento-usa",
+      "lat": 38.5816,
+      "lng": -121.4944,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 521
+    },
+    {
+      "locationId": "saguenay",
+      "lat": 48.41675,
+      "lng": -71.06573,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 522
+    },
+    {
+      "locationId": "saint-petersburg-russia",
+      "lat": 59.9311,
+      "lng": 30.3609,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 523
+    },
+    {
+      "locationId": "salt-lake-city",
+      "lat": 40.760833,
+      "lng": -111.891111,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 524
+    },
+    {
+      "locationId": "salta-ar",
+      "lat": -24.80645,
+      "lng": -65.41999,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 525
+    },
+    {
+      "locationId": "salvador-br",
+      "lat": -12.97563,
+      "lng": -38.49096,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 526
+    },
+    {
+      "locationId": "salzburg-austria",
+      "lat": 47.8095,
+      "lng": 13.055,
+      "country": "Austria",
+      "continent": "Europe",
+      "poolIndex": 527
+    },
+    {
+      "locationId": "samara-ru",
+      "lat": 53.20767,
+      "lng": 50.13553,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 528
+    },
+    {
+      "locationId": "samarinda",
+      "lat": -0.49167,
+      "lng": 117.14583,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 529
+    },
+    {
+      "locationId": "samarkand-uz",
+      "lat": 39.6542,
+      "lng": 66.9597,
+      "country": "Uzbekistan",
+      "continent": "Asia",
+      "poolIndex": 530
+    },
+    {
+      "locationId": "san-antonio-usa",
+      "lat": 29.4241,
+      "lng": -98.4936,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 531
+    },
+    {
+      "locationId": "san-diego-usa",
+      "lat": 32.7157,
+      "lng": -117.1611,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 532
+    },
+    {
+      "locationId": "san-francisco-usa",
+      "lat": 37.7749,
+      "lng": -122.4194,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 533
+    },
+    {
+      "locationId": "san-jose",
+      "lat": 37.33939,
+      "lng": -121.89496,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 534
+    },
+    {
+      "locationId": "san-juan",
+      "lat": 18.46528,
+      "lng": -66.11667,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 535
+    },
+    {
+      "locationId": "san-luis-potosi-mx",
+      "lat": 22.15234,
+      "lng": -100.97135,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 536
+    },
+    {
+      "locationId": "san-miguel-de-tucuman-ar",
+      "lat": -26.81601,
+      "lng": -65.21051,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 537
+    },
+    {
+      "locationId": "san-pedro-sula-hn",
+      "lat": 15.50585,
+      "lng": -88.02588,
+      "country": "Honduras",
+      "continent": "North America",
+      "poolIndex": 538
+    },
+    {
+      "locationId": "san-salvador-sv",
+      "lat": 13.68935,
+      "lng": -89.18718,
+      "country": "El Salvador",
+      "continent": "North America",
+      "poolIndex": 539
+    },
+    {
+      "locationId": "sanaa-ye",
+      "lat": 15.35452,
+      "lng": 44.20646,
+      "country": "Yemen",
+      "continent": "Asia",
+      "poolIndex": 540
+    },
+    {
+      "locationId": "santa-cruz-de-la-sierra-bo",
+      "lat": -17.78629,
+      "lng": -63.18117,
+      "country": "Bolivia",
+      "continent": "South America",
+      "poolIndex": 541
+    },
+    {
+      "locationId": "santa-fe",
+      "lat": 35.667222,
+      "lng": -105.964444,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 542
+    },
+    {
+      "locationId": "santa-marta-co",
+      "lat": 11.23855,
+      "lng": -74.19427,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 543
+    },
+    {
+      "locationId": "santiago",
+      "lat": -33.45694,
+      "lng": -70.64827,
+      "country": "Chile",
+      "continent": "South America",
+      "poolIndex": 544
+    },
+    {
+      "locationId": "santiago-de-queretaro-mx",
+      "lat": 20.58806,
+      "lng": -100.38806,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 545
+    },
+    {
+      "locationId": "santo-domingo-de-los-colorados-ec",
+      "lat": -0.25368,
+      "lng": -79.17628,
+      "country": "Ecuador",
+      "continent": "South America",
+      "poolIndex": 546
+    },
+    {
+      "locationId": "santo-domingo-do",
+      "lat": 18.47186,
+      "lng": -69.89232,
+      "country": "Dominican Republic",
+      "continent": "North America",
+      "poolIndex": 547
+    },
+    {
+      "locationId": "santorini-gr",
+      "lat": 36.4166,
+      "lng": 25.4318,
+      "country": "Greece",
+      "continent": "Europe",
+      "poolIndex": 548
+    },
+    {
+      "locationId": "sao-luis-br",
+      "lat": -2.52972,
+      "lng": -44.30278,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 549
+    },
+    {
+      "locationId": "sao-paulo-br",
+      "lat": -23.5475,
+      "lng": -46.63611,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 550
+    },
+    {
+      "locationId": "sapporo-japan",
+      "lat": 43.0618,
+      "lng": 141.3545,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 551
+    },
+    {
+      "locationId": "sarajevo-ba",
+      "lat": 43.84864,
+      "lng": 18.35644,
+      "country": "Bosnia and Herzegovina",
+      "continent": "Europe",
+      "poolIndex": 552
+    },
+    {
+      "locationId": "savannah",
+      "lat": 32.081111,
+      "lng": -81.091111,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 553
+    },
+    {
+      "locationId": "seattle-usa",
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 554
+    },
+    {
+      "locationId": "semarang-id",
+      "lat": -6.99306,
+      "lng": 110.42083,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 555
+    },
+    {
+      "locationId": "sendai",
+      "lat": 38.26667,
+      "lng": 140.86667,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 556
+    },
+    {
+      "locationId": "seoul-south-korea",
+      "lat": 37.5665,
+      "lng": 126.978,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 557
+    },
+    {
+      "locationId": "seville-spain",
+      "lat": 37.3891,
+      "lng": -5.9845,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 558
+    },
+    {
+      "locationId": "shanghai-china",
+      "lat": 31.2304,
+      "lng": 121.4737,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 559
+    },
+    {
+      "locationId": "sharjah-ae",
+      "lat": 25.3342,
+      "lng": 55.41221,
+      "country": "United Arab Emirates",
+      "continent": "Asia",
+      "poolIndex": 560
+    },
+    {
+      "locationId": "sheffield-gb",
+      "lat": 53.38297,
+      "lng": -1.4659,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 561
+    },
+    {
+      "locationId": "shenyang-cn",
+      "lat": 41.79222,
+      "lng": 123.43278,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 562
+    },
+    {
+      "locationId": "shenzhen-cn",
+      "lat": 22.54554,
+      "lng": 114.0683,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 563
+    },
+    {
+      "locationId": "shigatse-tibet",
+      "lat": 29.2669,
+      "lng": 88.8808,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 564
+    },
+    {
+      "locationId": "shiraz",
+      "lat": 29.61031,
+      "lng": 52.53113,
+      "country": "Iran",
+      "continent": "Asia",
+      "poolIndex": 565
+    },
+    {
+      "locationId": "shymkent",
+      "lat": 42.30988,
+      "lng": 69.60042,
+      "country": "Kazakhstan",
+      "continent": "Asia",
+      "poolIndex": 566
+    },
+    {
+      "locationId": "siem-reap-cambodia",
+      "lat": 13.3671,
+      "lng": 103.8448,
+      "country": "Cambodia",
+      "continent": "Asia",
+      "poolIndex": 567
+    },
+    {
+      "locationId": "silkeborg",
+      "lat": 56.1697,
+      "lng": 9.54508,
+      "country": "Denmark",
+      "continent": "Europe",
+      "poolIndex": 568
+    },
+    {
+      "locationId": "singapore",
+      "lat": 1.28967,
+      "lng": 103.85007,
+      "country": "Singapore",
+      "continent": "Asia",
+      "poolIndex": 569
+    },
+    {
+      "locationId": "skellig-michael-ireland",
+      "lat": 51.7719,
+      "lng": -10.5406,
+      "country": "Ireland",
+      "continent": "Europe",
+      "poolIndex": 570
+    },
+    {
+      "locationId": "sofia-bulgaria",
+      "lat": 42.6977,
+      "lng": 23.3219,
+      "country": "Bulgaria",
+      "continent": "Europe",
+      "poolIndex": 571
+    },
+    {
+      "locationId": "srinagar",
+      "lat": 34.08565,
+      "lng": 74.80555,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 572
+    },
+    {
+      "locationId": "st-johns-canada",
+      "lat": 47.5615,
+      "lng": -52.7126,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 573
+    },
+    {
+      "locationId": "st-louis-usa",
+      "lat": 38.627,
+      "lng": -90.1994,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 574
+    },
+    {
+      "locationId": "stari-most",
+      "lat": 43.3373,
+      "lng": 17.815,
+      "country": "Bosnia and Herzegovina",
+      "continent": "Europe",
+      "poolIndex": 575
+    },
+    {
+      "locationId": "stockholm-sweden",
+      "lat": 59.3293,
+      "lng": 18.0686,
+      "country": "Sweden",
+      "continent": "Europe",
+      "poolIndex": 576
+    },
+    {
+      "locationId": "strasbourg-france",
+      "lat": 48.5734,
+      "lng": 7.7521,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 577
+    },
+    {
+      "locationId": "stuttgart-de",
+      "lat": 48.78232,
+      "lng": 9.17702,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 578
+    },
+    {
+      "locationId": "suez-eg",
+      "lat": 29.97371,
+      "lng": 32.52627,
+      "country": "Egypt",
+      "continent": "Africa",
+      "poolIndex": 579
+    },
+    {
+      "locationId": "sulaymaniyah",
+      "lat": 35.56496,
+      "lng": 45.4329,
+      "country": "Iraq",
+      "continent": "Asia",
+      "poolIndex": 580
+    },
+    {
+      "locationId": "surabaya-id",
+      "lat": -7.24917,
+      "lng": 112.75083,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 581
+    },
+    {
+      "locationId": "surat-in",
+      "lat": 21.19594,
+      "lng": 72.83023,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 582
+    },
+    {
+      "locationId": "surrey-ca",
+      "lat": 49.1873,
+      "lng": -122.84957,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 583
+    },
+    {
+      "locationId": "suva-fiji",
+      "lat": -18.1416,
+      "lng": 178.4419,
+      "country": "Fiji",
+      "continent": "Oceania",
+      "poolIndex": 584
+    },
+    {
+      "locationId": "suwon",
+      "lat": 37.29111,
+      "lng": 127.00889,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 585
+    },
+    {
+      "locationId": "suzhou-cn",
+      "lat": 31.30408,
+      "lng": 120.59538,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 586
+    },
+    {
+      "locationId": "sydney-australia",
+      "lat": -33.8688,
+      "lng": 151.2093,
+      "country": "Australia",
+      "continent": "Oceania",
+      "poolIndex": 587
+    },
+    {
+      "locationId": "tabriz-ir",
+      "lat": 38.08,
+      "lng": 46.2919,
+      "country": "Iran",
+      "continent": "Asia",
+      "poolIndex": 588
+    },
+    {
+      "locationId": "taichung-tw",
+      "lat": 24.1469,
+      "lng": 120.6839,
+      "country": "Taiwan",
+      "continent": "Asia",
+      "poolIndex": 589
+    },
+    {
+      "locationId": "tainan-tw",
+      "lat": 22.99083,
+      "lng": 120.21333,
+      "country": "Taiwan",
+      "continent": "Asia",
+      "poolIndex": 590
+    },
+    {
+      "locationId": "taipei",
+      "lat": 25.05306,
+      "lng": 121.52639,
+      "country": "Taiwan",
+      "continent": "Asia",
+      "poolIndex": 591
+    },
+    {
+      "locationId": "taiz",
+      "lat": 13.57952,
+      "lng": 44.02091,
+      "country": "Yemen",
+      "continent": "Asia",
+      "poolIndex": 592
+    },
+    {
+      "locationId": "takeo",
+      "lat": 10.99081,
+      "lng": 104.78498,
+      "country": "Cambodia",
+      "continent": "Asia",
+      "poolIndex": 593
+    },
+    {
+      "locationId": "tallinn-estonia",
+      "lat": 59.437,
+      "lng": 24.7536,
+      "country": "Estonia",
+      "continent": "Europe",
+      "poolIndex": 594
+    },
+    {
+      "locationId": "tambacounda",
+      "lat": 13.77073,
+      "lng": -13.66734,
+      "country": "Senegal",
+      "continent": "Africa",
+      "poolIndex": 595
+    },
+    {
+      "locationId": "tampa-usa",
+      "lat": 27.9506,
+      "lng": -82.4572,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 596
+    },
+    {
+      "locationId": "tangier-ma",
+      "lat": 35.76727,
+      "lng": -5.79975,
+      "country": "Morocco",
+      "continent": "Africa",
+      "poolIndex": 597
+    },
+    {
+      "locationId": "tarawa-kiribati",
+      "lat": 1.3278,
+      "lng": 172.9764,
+      "country": "Kiribati",
+      "continent": "Oceania",
+      "poolIndex": 598
+    },
+    {
+      "locationId": "tarkwa",
+      "lat": 5.30383,
+      "lng": -1.98956,
+      "country": "Ghana",
+      "continent": "Africa",
+      "poolIndex": 599
+    },
+    {
+      "locationId": "tashkent",
+      "lat": 41.31172,
+      "lng": 69.27922,
+      "country": "Uzbekistan",
+      "continent": "Asia",
+      "poolIndex": 600
+    },
+    {
+      "locationId": "tbilisi",
+      "lat": 41.69143,
+      "lng": 44.83412,
+      "country": "Georgia",
+      "continent": "Asia",
+      "poolIndex": 601
+    },
+    {
+      "locationId": "tegucigalpa-hn",
+      "lat": 14.0818,
+      "lng": -87.20681,
+      "country": "Honduras",
+      "continent": "North America",
+      "poolIndex": 602
+    },
+    {
+      "locationId": "tehran",
+      "lat": 35.69439,
+      "lng": 51.42151,
+      "country": "Iran",
+      "continent": "Asia",
+      "poolIndex": 603
+    },
+    {
+      "locationId": "tel-aviv",
+      "lat": 32.08,
+      "lng": 34.78,
+      "country": "Israel",
+      "continent": "Asia",
+      "poolIndex": 604
+    },
+    {
+      "locationId": "the-hague-nl",
+      "lat": 52.0705,
+      "lng": 4.3007,
+      "country": "Netherlands",
+      "continent": "Europe",
+      "poolIndex": 605
+    },
+    {
+      "locationId": "thessaloniki-gr",
+      "lat": 40.6401,
+      "lng": 22.9444,
+      "country": "Greece",
+      "continent": "Europe",
+      "poolIndex": 606
+    },
+    {
+      "locationId": "thimphu-bhutan",
+      "lat": 27.4712,
+      "lng": 89.6339,
+      "country": "Bhutan",
+      "continent": "Asia",
+      "poolIndex": 607
+    },
+    {
+      "locationId": "tianjin-cn",
+      "lat": 39.14222,
+      "lng": 117.17667,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 608
+    },
+    {
+      "locationId": "tijuana",
+      "lat": 32.5027,
+      "lng": -117.00371,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 609
+    },
+    {
+      "locationId": "tiksi-russia",
+      "lat": 71.6367,
+      "lng": 128.8639,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 610
+    },
+    {
+      "locationId": "timbuktu-mali",
+      "lat": 16.7666,
+      "lng": -3.0026,
+      "country": "Mali",
+      "continent": "Africa",
+      "poolIndex": 611
+    },
+    {
+      "locationId": "tokyo-japan",
+      "lat": 35.67686,
+      "lng": 139.76389,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 612
+    },
+    {
+      "locationId": "toledo-d34-62",
+      "lat": 39.8628,
+      "lng": -4.0273,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 613
+    },
+    {
+      "locationId": "tomsk-ru",
+      "lat": 56.50049,
+      "lng": 84.98216,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 614
+    },
+    {
+      "locationId": "toronto",
+      "lat": 43.66188,
+      "lng": -79.3853,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 615
+    },
+    {
+      "locationId": "touba-sn",
+      "lat": 14.86229,
+      "lng": -15.87532,
+      "country": "Senegal",
+      "continent": "Africa",
+      "poolIndex": 616
+    },
+    {
+      "locationId": "toulouse-france",
+      "lat": 43.6047,
+      "lng": 1.4442,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 617
+    },
+    {
+      "locationId": "tripoli-libya",
+      "lat": 32.8872,
+      "lng": 13.1913,
+      "country": "Libya",
+      "continent": "Africa",
+      "poolIndex": 618
+    },
+    {
+      "locationId": "tromso-norway",
+      "lat": 69.6492,
+      "lng": 18.9553,
+      "country": "Norway",
+      "continent": "Europe",
+      "poolIndex": 619
+    },
+    {
+      "locationId": "troy",
+      "lat": 39.9575,
+      "lng": 26.238889,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 620
+    },
+    {
+      "locationId": "trujillo-pe",
+      "lat": -8.11599,
+      "lng": -79.02998,
+      "country": "Peru",
+      "continent": "South America",
+      "poolIndex": 621
+    },
+    {
+      "locationId": "tucson-usa",
+      "lat": 32.2226,
+      "lng": -110.9747,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 622
+    },
+    {
+      "locationId": "tunis-tunisia",
+      "lat": 36.8065,
+      "lng": 10.1815,
+      "country": "Tunisia",
+      "continent": "Africa",
+      "poolIndex": 623
+    },
+    {
+      "locationId": "turin-italy",
+      "lat": 45.0703,
+      "lng": 7.6869,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 624
+    },
+    {
+      "locationId": "udaipur-india",
+      "lat": 24.5854,
+      "lng": 73.7125,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 625
+    },
+    {
+      "locationId": "ulaanbaatar-mongolia",
+      "lat": 47.8864,
+      "lng": 106.9057,
+      "country": "Mongolia",
+      "continent": "Asia",
+      "poolIndex": 626
+    },
+    {
+      "locationId": "ulsan",
+      "lat": 35.53722,
+      "lng": 129.31667,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 627
+    },
+    {
+      "locationId": "urumqi-cn",
+      "lat": 43.80096,
+      "lng": 87.60046,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 628
+    },
+    {
+      "locationId": "ushuaia-end-of-world-sign",
+      "lat": -54.8071,
+      "lng": -68.303,
+      "country": "Argentina",
+      "continent": "South America",
+      "poolIndex": 629
+    },
+    {
+      "locationId": "vaduz-liechtenstein",
+      "lat": 47.141,
+      "lng": 9.5209,
+      "country": "Liechtenstein",
+      "continent": "Europe",
+      "poolIndex": 630
+    },
+    {
+      "locationId": "valencia-es",
+      "lat": 39.47391,
+      "lng": -0.37966,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 631
+    },
+    {
+      "locationId": "valletta",
+      "lat": 35.898333,
+      "lng": 14.5125,
+      "country": "Malta",
+      "continent": "Europe",
+      "poolIndex": 632
+    },
+    {
+      "locationId": "valparaiso-ascensor-artilleria",
+      "lat": -33.0335,
+      "lng": -71.6306,
+      "country": "Chile",
+      "continent": "South America",
+      "poolIndex": 633
+    },
+    {
+      "locationId": "van-turkey",
+      "lat": 38.5017,
+      "lng": 43.4089,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 634
+    },
+    {
+      "locationId": "vancouver-canada",
+      "lat": 49.2827,
+      "lng": -123.1207,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 635
+    },
+    {
+      "locationId": "varanasi",
+      "lat": 25.31668,
+      "lng": 83.01041,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 636
+    },
+    {
+      "locationId": "venice-italy",
+      "lat": 45.4408,
+      "lng": 12.3155,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 637
+    },
+    {
+      "locationId": "veracruz-mx",
+      "lat": 19.18095,
+      "lng": -96.1429,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 638
+    },
+    {
+      "locationId": "victoria",
+      "lat": 48.428333,
+      "lng": -123.364722,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 639
+    },
+    {
+      "locationId": "vienna-austria",
+      "lat": 48.2082,
+      "lng": 16.3738,
+      "country": "Austria",
+      "continent": "Europe",
+      "poolIndex": 640
+    },
+    {
+      "locationId": "vientiane",
+      "lat": 17.96667,
+      "lng": 102.6,
+      "country": "Laos",
+      "continent": "Asia",
+      "poolIndex": 641
+    },
+    {
+      "locationId": "vinh",
+      "lat": 18.67337,
+      "lng": 105.69232,
+      "country": "Vietnam",
+      "continent": "Asia",
+      "poolIndex": 642
+    },
+    {
+      "locationId": "visakhapatnam",
+      "lat": 17.69372,
+      "lng": 83.29218,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 643
+    },
+    {
+      "locationId": "vladivostok-russia",
+      "lat": 43.1332,
+      "lng": 131.9113,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 644
+    },
+    {
+      "locationId": "volgograd-ru",
+      "lat": 48.71378,
+      "lng": 44.4976,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 645
+    },
+    {
+      "locationId": "warsaw-poland",
+      "lat": 52.2297,
+      "lng": 21.0122,
+      "country": "Poland",
+      "continent": "Europe",
+      "poolIndex": 646
+    },
+    {
+      "locationId": "washington-dc-usa",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 647
+    },
+    {
+      "locationId": "wellington-new-zealand",
+      "lat": -41.2865,
+      "lng": 174.7762,
+      "country": "New Zealand",
+      "continent": "Oceania",
+      "poolIndex": 648
+    },
+    {
+      "locationId": "whitehorse-yukon",
+      "lat": 60.7212,
+      "lng": -135.0568,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 649
+    },
+    {
+      "locationId": "windhoek-namibia",
+      "lat": -22.5609,
+      "lng": 17.0658,
+      "country": "Namibia",
+      "continent": "Africa",
+      "poolIndex": 650
+    },
+    {
+      "locationId": "winnipeg-ca",
+      "lat": 49.8844,
+      "lng": -97.14704,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 651
+    },
+    {
+      "locationId": "wrocaw-pl",
+      "lat": 51.10286,
+      "lng": 17.03006,
+      "country": "Poland",
+      "continent": "Europe",
+      "poolIndex": 652
+    },
+    {
+      "locationId": "wuhan-cn",
+      "lat": 30.58333,
+      "lng": 114.26667,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 653
+    },
+    {
+      "locationId": "xiamen-cn",
+      "lat": 24.47979,
+      "lng": 118.08187,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 654
+    },
+    {
+      "locationId": "xian-china",
+      "lat": 34.26106,
+      "lng": 108.94228,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 655
+    },
+    {
+      "locationId": "xining-cn",
+      "lat": 36.62554,
+      "lng": 101.75739,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 656
+    },
+    {
+      "locationId": "yangon",
+      "lat": 16.80528,
+      "lng": 96.15611,
+      "country": "Myanmar",
+      "continent": "Asia",
+      "poolIndex": 657
+    },
+    {
+      "locationId": "yinchuan-cn",
+      "lat": 38.485,
+      "lng": 106.225,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 658
+    },
+    {
+      "locationId": "yaounde-cm",
+      "lat": 3.86667,
+      "lng": 11.51667,
+      "country": "Cameroon",
+      "continent": "Africa",
+      "poolIndex": 659
+    },
+    {
+      "locationId": "yaren-nauru",
+      "lat": -0.5477,
+      "lng": 166.9209,
+      "country": "Nauru",
+      "continent": "Oceania",
+      "poolIndex": 660
+    },
+    {
+      "locationId": "yaroslavl-ru",
+      "lat": 57.62987,
+      "lng": 39.87368,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 661
+    },
+    {
+      "locationId": "yazd",
+      "lat": 31.89722,
+      "lng": 54.3675,
+      "country": "Iran",
+      "continent": "Asia",
+      "poolIndex": 662
+    },
+    {
+      "locationId": "yekaterinburg-ru",
+      "lat": 56.85733,
+      "lng": 60.61529,
+      "country": "Russia",
+      "continent": "Europe",
+      "poolIndex": 663
+    },
+    {
+      "locationId": "yellowknife-nwt",
+      "lat": 62.454,
+      "lng": -114.3718,
+      "country": "Canada",
+      "continent": "North America",
+      "poolIndex": 664
+    },
+    {
+      "locationId": "yerevan",
+      "lat": 40.17765,
+      "lng": 44.5126,
+      "country": "Armenia",
+      "continent": "Asia",
+      "poolIndex": 665
+    },
+    {
+      "locationId": "yichang-cn",
+      "lat": 30.71444,
+      "lng": 111.28472,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 666
+    },
+    {
+      "locationId": "yokohama-jp",
+      "lat": 35.43333,
+      "lng": 139.65,
+      "country": "Japan",
+      "continent": "Asia",
+      "poolIndex": 667
+    },
+    {
+      "locationId": "zagreb-croatia",
+      "lat": 45.815,
+      "lng": 15.9819,
+      "country": "Croatia",
+      "continent": "Europe",
+      "poolIndex": 668
+    },
+    {
+      "locationId": "subotica-rs",
+      "lat": 46.10021,
+      "lng": 19.66533,
+      "country": "Serbia",
+      "continent": "Europe",
+      "poolIndex": 669
+    },
+    {
+      "locationId": "zamboanga",
+      "lat": 6.91028,
+      "lng": 122.07389,
+      "country": "Philippines",
+      "continent": "Asia",
+      "poolIndex": 670
+    },
+    {
+      "locationId": "zanzibar-city-tanzania",
+      "lat": -6.1659,
+      "lng": 39.2026,
+      "country": "Tanzania",
+      "continent": "Africa",
+      "poolIndex": 671
+    },
+    {
+      "locationId": "zaragoza-es",
+      "lat": 41.65606,
+      "lng": -0.87734,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 672
+    },
+    {
+      "locationId": "bamyan-af",
+      "lat": 34.81667,
+      "lng": 67.81667,
+      "country": "Afghanistan",
+      "continent": "Asia",
+      "poolIndex": 673
+    },
+    {
+      "locationId": "zermatt-ch",
+      "lat": 46.0207,
+      "lng": 7.7491,
+      "country": "Switzerland",
+      "continent": "Europe",
+      "poolIndex": 674
+    },
+    {
+      "locationId": "zhengzhou-cn",
+      "lat": 34.75778,
+      "lng": 113.64861,
+      "country": "China",
+      "continent": "Asia",
+      "poolIndex": 675
+    },
+    {
+      "locationId": "zurich-switzerland",
+      "lat": 47.3769,
+      "lng": 8.5417,
+      "country": "Switzerland",
+      "continent": "Europe",
+      "poolIndex": 676
+    },
+    {
+      "locationId": "bogota-colombia",
+      "lat": 4.60971,
+      "lng": -74.08175,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 677
+    },
+    {
+      "locationId": "tirana-albania",
+      "lat": 41.3275,
+      "lng": 19.8187,
+      "country": "Albania",
+      "continent": "Europe",
+      "poolIndex": 678
+    },
+    {
+      "locationId": "andorra-la-vella-andorra",
+      "lat": 42.5063,
+      "lng": 1.5218,
+      "country": "Andorra",
+      "continent": "Europe",
+      "poolIndex": 679
+    },
+    {
+      "locationId": "st-johns-antigua-and-barbuda",
+      "lat": 17.1274,
+      "lng": -61.8468,
+      "country": "Antigua and Barbuda",
+      "continent": "North America",
+      "poolIndex": 680
+    },
+    {
+      "locationId": "nassau-bahamas",
+      "lat": 25.0443,
+      "lng": -77.3504,
+      "country": "Bahamas",
+      "continent": "North America",
+      "poolIndex": 681
+    },
+    {
+      "locationId": "manama-bahrain",
+      "lat": 26.2235,
+      "lng": 50.5876,
+      "country": "Bahrain",
+      "continent": "Asia",
+      "poolIndex": 682
+    },
+    {
+      "locationId": "bridgetown-barbados",
+      "lat": 13.0975,
+      "lng": -59.6167,
+      "country": "Barbados",
+      "continent": "North America",
+      "poolIndex": 683
+    },
+    {
+      "locationId": "bandar-seri-begawan-brunei",
+      "lat": 4.9031,
+      "lng": 114.9398,
+      "country": "Brunei",
+      "continent": "Asia",
+      "poolIndex": 684
+    },
+    {
+      "locationId": "praia-cabo-verde",
+      "lat": 14.9331,
+      "lng": -23.5133,
+      "country": "Cabo Verde",
+      "continent": "Africa",
+      "poolIndex": 685
+    },
+    {
+      "locationId": "moroni-comoros",
+      "lat": -11.7172,
+      "lng": 43.2473,
+      "country": "Comoros",
+      "continent": "Africa",
+      "poolIndex": 686
+    },
+    {
+      "locationId": "san-jose-costa-rica",
+      "lat": 9.9281,
+      "lng": -84.0907,
+      "country": "Costa Rica",
+      "continent": "North America",
+      "poolIndex": 687
+    },
+    {
+      "locationId": "nicosia-cyprus",
+      "lat": 35.1856,
+      "lng": 33.3823,
+      "country": "Cyprus",
+      "continent": "Europe",
+      "poolIndex": 688
+    },
+    {
+      "locationId": "djibouti-city-djibouti",
+      "lat": 11.5721,
+      "lng": 43.1456,
+      "country": "Djibouti",
+      "continent": "Africa",
+      "poolIndex": 689
+    },
+    {
+      "locationId": "roseau-dominica",
+      "lat": 15.3017,
+      "lng": -61.3881,
+      "country": "Dominica",
+      "continent": "North America",
+      "poolIndex": 690
+    },
+    {
+      "locationId": "malabo-equatorial-guinea",
+      "lat": 3.75,
+      "lng": 8.7833,
+      "country": "Equatorial Guinea",
+      "continent": "Africa",
+      "poolIndex": 691
+    },
+    {
+      "locationId": "mbabane-eswatini",
+      "lat": -26.3054,
+      "lng": 31.1367,
+      "country": "Eswatini",
+      "continent": "Africa",
+      "poolIndex": 692
+    },
+    {
+      "locationId": "banjul-gambia",
+      "lat": 13.4549,
+      "lng": -16.579,
+      "country": "Gambia",
+      "continent": "Africa",
+      "poolIndex": 693
+    },
+    {
+      "locationId": "st-georges-grenada",
+      "lat": 12.0561,
+      "lng": -61.7488,
+      "country": "Grenada",
+      "continent": "North America",
+      "poolIndex": 694
+    },
+    {
+      "locationId": "bissau-guinea-bissau",
+      "lat": 11.8817,
+      "lng": -15.617,
+      "country": "Guinea-Bissau",
+      "continent": "Africa",
+      "poolIndex": 695
+    },
+    {
+      "locationId": "georgetown-guyana",
+      "lat": 6.8013,
+      "lng": -58.1551,
+      "country": "Guyana",
+      "continent": "South America",
+      "poolIndex": 696
+    },
+    {
+      "locationId": "kuwait-city-kuwait",
+      "lat": 29.3759,
+      "lng": 47.9774,
+      "country": "Kuwait",
+      "continent": "Asia",
+      "poolIndex": 697
+    },
+    {
+      "locationId": "maseru-lesotho",
+      "lat": -29.3151,
+      "lng": 27.4869,
+      "country": "Lesotho",
+      "continent": "Africa",
+      "poolIndex": 698
+    },
+    {
+      "locationId": "port-louis-mauritius",
+      "lat": -20.1609,
+      "lng": 57.5012,
+      "country": "Mauritius",
+      "continent": "Africa",
+      "poolIndex": 699
+    },
+    {
+      "locationId": "podgorica-montenegro",
+      "lat": 42.4304,
+      "lng": 19.2594,
+      "country": "Montenegro",
+      "continent": "Europe",
+      "poolIndex": 700
+    },
+    {
+      "locationId": "skopje-north-macedonia",
+      "lat": 42,
+      "lng": 21.4333,
+      "country": "North Macedonia",
+      "continent": "Europe",
+      "poolIndex": 701
+    },
+    {
+      "locationId": "basseterre-st-kitts-and-nevis",
+      "lat": 17.3026,
+      "lng": -62.7177,
+      "country": "Saint Kitts and Nevis",
+      "continent": "North America",
+      "poolIndex": 702
+    },
+    {
+      "locationId": "kingstown-st-vincent-and-grenadines",
+      "lat": 13.16,
+      "lng": -61.2248,
+      "country": "Saint Vincent and the Grenadines",
+      "continent": "North America",
+      "poolIndex": 703
+    },
+    {
+      "locationId": "san-marino-san-marino",
+      "lat": 43.9424,
+      "lng": 12.4578,
+      "country": "San Marino",
+      "continent": "Europe",
+      "poolIndex": 704
+    },
+    {
+      "locationId": "sao-tome-sao-tome-and-principe",
+      "lat": 0.3365,
+      "lng": 6.7273,
+      "country": "Sao Tome and Principe",
+      "continent": "Africa",
+      "poolIndex": 705
+    },
+    {
+      "locationId": "victoria-seychelles",
+      "lat": -4.6191,
+      "lng": 55.4513,
+      "country": "Seychelles",
+      "continent": "Africa",
+      "poolIndex": 706
+    },
+    {
+      "locationId": "juba-south-sudan",
+      "lat": 4.8594,
+      "lng": 31.5713,
+      "country": "South Sudan",
+      "continent": "Africa",
+      "poolIndex": 707
+    },
+    {
+      "locationId": "paramaribo-suriname",
+      "lat": 5.852,
+      "lng": -55.2038,
+      "country": "Suriname",
+      "continent": "South America",
+      "poolIndex": 708
+    },
+    {
+      "locationId": "port-of-spain-trinidad-and-tobago",
+      "lat": 10.6549,
+      "lng": -61.5019,
+      "country": "Trinidad and Tobago",
+      "continent": "North America",
+      "poolIndex": 709
+    },
+    {
+      "locationId": "montevideo-uruguay",
+      "lat": -34.9011,
+      "lng": -56.1645,
+      "country": "Uruguay",
+      "continent": "South America",
+      "poolIndex": 710
+    },
+    {
+      "locationId": "belmopan-bz",
+      "lat": 17.25,
+      "lng": -88.77,
+      "country": "Belize",
+      "continent": "North America",
+      "poolIndex": 711
+    },
+    {
+      "locationId": "castries-lc",
+      "lat": 14.01,
+      "lng": -60.99,
+      "country": "Saint Lucia",
+      "continent": "North America",
+      "poolIndex": 712
+    },
+    {
+      "locationId": "funchal-pt",
+      "lat": 32.65,
+      "lng": -16.91,
+      "country": "Portugal",
+      "continent": "Europe",
+      "poolIndex": 713
+    },
+    {
+      "locationId": "gdansk-pl",
+      "lat": 54.35,
+      "lng": 18.65,
+      "country": "Poland",
+      "continent": "Europe",
+      "poolIndex": 714
+    },
+    {
+      "locationId": "krakow-pl",
+      "lat": 50.06,
+      "lng": 19.94,
+      "country": "Poland",
+      "continent": "Europe",
+      "poolIndex": 715
+    },
+    {
+      "locationId": "stavanger-no",
+      "lat": 58.97,
+      "lng": 5.73,
+      "country": "Norway",
+      "continent": "Europe",
+      "poolIndex": 716
+    },
+    {
+      "locationId": "ljubljana-si",
+      "lat": 46.05,
+      "lng": 14.51,
+      "country": "Slovenia",
+      "continent": "Europe",
+      "poolIndex": 717
+    },
+    {
+      "locationId": "sucre-bolivia",
+      "lat": -19.0475,
+      "lng": -65.26,
+      "country": "Bolivia",
+      "continent": "South America",
+      "poolIndex": 718
+    },
+    {
+      "locationId": "gitega-burundi",
+      "lat": -3.4283,
+      "lng": 29.925,
+      "country": "Burundi",
+      "continent": "Africa",
+      "poolIndex": 719
+    },
+    {
+      "locationId": "yamoussoukro-ivory-coast",
+      "lat": 6.8161,
+      "lng": -5.2742,
+      "country": "Côte d'Ivoire",
+      "continent": "Africa",
+      "poolIndex": 720
+    },
+    {
+      "locationId": "ramallah-palestine",
+      "lat": 31.9038,
+      "lng": 35.2034,
+      "country": "Palestine",
+      "continent": "Asia",
+      "poolIndex": 721
+    },
+    {
+      "locationId": "lima-peru",
+      "lat": -12.0464,
+      "lng": -77.0428,
+      "country": "Peru",
+      "continent": "South America",
+      "poolIndex": 722
+    },
+    {
+      "locationId": "bern-switzerland",
+      "lat": 46.9481,
+      "lng": 7.4475,
+      "country": "Switzerland",
+      "continent": "Europe",
+      "poolIndex": 723
+    },
+    {
+      "locationId": "ashgabat-turkmenistan",
+      "lat": 37.9375,
+      "lng": 58.38,
+      "country": "Turkmenistan",
+      "continent": "Asia",
+      "poolIndex": 724
+    },
+    {
+      "locationId": "vatican-city",
+      "lat": 41.9025,
+      "lng": 12.4525,
+      "country": "Vatican City",
+      "continent": "Europe",
+      "poolIndex": 725
+    },
+    {
+      "locationId": "barcelona-spain",
+      "lat": 41.3888,
+      "lng": 2.159,
+      "country": "Spain",
+      "continent": "Europe",
+      "poolIndex": 726
+    },
+    {
+      "locationId": "hyderabad-india",
+      "lat": 17.3841,
+      "lng": 78.4564,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 727
+    },
+    {
+      "locationId": "medellin-co",
+      "lat": 6.245,
+      "lng": -75.5715,
+      "country": "Colombia",
+      "continent": "South America",
+      "poolIndex": 728
+    },
+    {
+      "locationId": "cusco-peru",
+      "lat": -13.5319,
+      "lng": -71.967,
+      "country": "Peru",
+      "continent": "South America",
+      "poolIndex": 729
+    },
+    {
+      "locationId": "la-paz-bolivia",
+      "lat": -16.5,
+      "lng": -68.15,
+      "country": "Bolivia",
+      "continent": "South America",
+      "poolIndex": 730
+    },
+    {
+      "locationId": "fortaleza-br",
+      "lat": -3.7172,
+      "lng": -38.5431,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 731
+    },
+    {
+      "locationId": "yogyakarta-id",
+      "lat": -7.8014,
+      "lng": 110.3647,
+      "country": "Indonesia",
+      "continent": "Asia",
+      "poolIndex": 732
+    },
+    {
+      "locationId": "gyeongju-kr",
+      "lat": 35.8428,
+      "lng": 129.2117,
+      "country": "South Korea",
+      "continent": "Asia",
+      "poolIndex": 733
+    },
+    {
+      "locationId": "boise-usa",
+      "lat": 43.6135,
+      "lng": -116.2035,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 734
+    },
+    {
+      "locationId": "oklahoma-city-usa",
+      "lat": 35.4676,
+      "lng": -97.5164,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 735
+    },
+    {
+      "locationId": "des-moines-usa",
+      "lat": 41.6005,
+      "lng": -93.6091,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 736
+    },
+    {
+      "locationId": "little-rock-usa",
+      "lat": 34.7465,
+      "lng": -92.2896,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 737
+    },
+    {
+      "locationId": "buffalo-usa",
+      "lat": 42.8865,
+      "lng": -78.8784,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 738
+    },
+    {
+      "locationId": "juneau-usa",
+      "lat": 58.3019,
+      "lng": -134.4197,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 739
+    },
+    {
+      "locationId": "spokane-usa",
+      "lat": 47.6597,
+      "lng": -117.4291,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 740
+    },
+    {
+      "locationId": "providence-usa",
+      "lat": 41.824,
+      "lng": -71.4128,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 741
+    },
+    {
+      "locationId": "lyon-france",
+      "lat": 45.764,
+      "lng": 4.8357,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 742
+    },
+    {
+      "locationId": "antofagasta-cl",
+      "lat": -23.65094,
+      "lng": -70.39752,
+      "country": "Chile",
+      "continent": "South America",
+      "poolIndex": 743
+    },
+    {
+      "locationId": "arequipa-pe",
+      "lat": -16.39899,
+      "lng": -71.53747,
+      "country": "Peru",
+      "continent": "South America",
+      "poolIndex": 744
+    },
+    {
+      "locationId": "bari-it",
+      "lat": 41.12066,
+      "lng": 16.86982,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 745
+    },
+    {
+      "locationId": "bologna-it",
+      "lat": 44.49381,
+      "lng": 11.33875,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 746
+    },
+    {
+      "locationId": "catania-it",
+      "lat": 37.49223,
+      "lng": 15.07041,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 747
+    },
+    {
+      "locationId": "palermo-it",
+      "lat": 38.1166,
+      "lng": 13.3636,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 748
+    },
+    {
+      "locationId": "trieste-it",
+      "lat": 45.64953,
+      "lng": 13.77678,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 749
+    },
+    {
+      "locationId": "coventry-england",
+      "lat": 52.40656,
+      "lng": -1.51217,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 750
+    },
+    {
+      "locationId": "leicester-england",
+      "lat": 52.6386,
+      "lng": -1.13169,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 751
+    },
+    {
+      "locationId": "entebbe-ug",
+      "lat": 0.05621,
+      "lng": 32.47949,
+      "country": "Uganda",
+      "continent": "Africa",
+      "poolIndex": 752
+    },
+    {
+      "locationId": "guanajuato-mx",
+      "lat": 21.01858,
+      "lng": -101.2591,
+      "country": "Mexico",
+      "continent": "North America",
+      "poolIndex": 753
+    },
+    {
+      "locationId": "hanover-de",
+      "lat": 52.37052,
+      "lng": 9.73322,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 754
+    },
+    {
+      "locationId": "cologne-de",
+      "lat": 50.93333,
+      "lng": 6.95,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 755
+    },
+    {
+      "locationId": "ipoh-my",
+      "lat": 4.5841,
+      "lng": 101.0829,
+      "country": "Malaysia",
+      "continent": "Asia",
+      "poolIndex": 756
+    },
+    {
+      "locationId": "limassol-cy",
+      "lat": 34.68406,
+      "lng": 33.03794,
+      "country": "Cyprus",
+      "continent": "Europe",
+      "poolIndex": 757
+    },
+    {
+      "locationId": "nantes-fr",
+      "lat": 47.21725,
+      "lng": -1.55336,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 758
+    },
+    {
+      "locationId": "santos-br",
+      "lat": -23.96083,
+      "lng": -46.33361,
+      "country": "Brazil",
+      "continent": "South America",
+      "poolIndex": 759
+    },
+    {
+      "locationId": "tartu-ee",
+      "lat": 58.38062,
+      "lng": 26.72509,
+      "country": "Estonia",
+      "continent": "Europe",
+      "poolIndex": 760
+    },
+    {
+      "locationId": "timisoara-ro",
+      "lat": 45.75372,
+      "lng": 21.22571,
+      "country": "Romania",
+      "continent": "Europe",
+      "poolIndex": 761
+    },
+    {
+      "locationId": "trabzon-tr",
+      "lat": 41.005,
+      "lng": 39.72694,
+      "country": "Turkey",
+      "continent": "Asia",
+      "poolIndex": 762
+    },
+    {
+      "locationId": "uppsala-se",
+      "lat": 59.85882,
+      "lng": 17.63889,
+      "country": "Sweden",
+      "continent": "Europe",
+      "poolIndex": 763
+    },
+    {
+      "locationId": "aarhus-dk",
+      "lat": 56.15674,
+      "lng": 10.21076,
+      "country": "Denmark",
+      "continent": "Europe",
+      "poolIndex": 764
+    },
+    {
+      "locationId": "guwahati-in",
+      "lat": 26.1844,
+      "lng": 91.7458,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 765
+    },
+    {
+      "locationId": "mysuru-in",
+      "lat": 12.29791,
+      "lng": 76.63925,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 766
+    },
+    {
+      "locationId": "durres-al",
+      "lat": 41.32355,
+      "lng": 19.45469,
+      "country": "Albania",
+      "continent": "Europe",
+      "poolIndex": 767
+    },
+    {
+      "locationId": "vilnius-lt",
+      "lat": 54.68916,
+      "lng": 25.2798,
+      "country": "Lithuania",
+      "continent": "Europe",
+      "poolIndex": 768
+    },
+    {
+      "locationId": "riga-lv",
+      "lat": 56.946,
+      "lng": 24.10589,
+      "country": "Latvia",
+      "continent": "Europe",
+      "poolIndex": 769
+    },
+    {
+      "locationId": "verona-it",
+      "lat": 45.43854,
+      "lng": 10.9938,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 770
+    },
+    {
+      "locationId": "pisa-it",
+      "lat": 43.70853,
+      "lng": 10.4036,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 771
+    },
+    {
+      "locationId": "padua-it",
+      "lat": 45.40797,
+      "lng": 11.88586,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 772
+    },
+    {
+      "locationId": "messina-it",
+      "lat": 38.19394,
+      "lng": 15.55256,
+      "country": "Italy",
+      "continent": "Europe",
+      "poolIndex": 773
+    },
+    {
+      "locationId": "brighton-england",
+      "lat": 50.82838,
+      "lng": -0.13947,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 774
+    },
+    {
+      "locationId": "nottingham-england",
+      "lat": 52.9536,
+      "lng": -1.15047,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 775
+    },
+    {
+      "locationId": "southampton-england",
+      "lat": 50.90395,
+      "lng": -1.40428,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 776
+    },
+    {
+      "locationId": "bradford-england",
+      "lat": 53.79391,
+      "lng": -1.75206,
+      "country": "England",
+      "continent": "Europe",
+      "poolIndex": 777
+    },
+    {
+      "locationId": "reims-fr",
+      "lat": 49.26526,
+      "lng": 4.02853,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 778
+    },
+    {
+      "locationId": "grenoble-fr",
+      "lat": 45.17869,
+      "lng": 5.71479,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 779
+    },
+    {
+      "locationId": "dijon-fr",
+      "lat": 47.31344,
+      "lng": 5.01391,
+      "country": "France",
+      "continent": "Europe",
+      "poolIndex": 780
+    },
+    {
+      "locationId": "utrecht-nl",
+      "lat": 52.09083,
+      "lng": 5.12222,
+      "country": "Netherlands",
+      "continent": "Europe",
+      "poolIndex": 781
+    },
+    {
+      "locationId": "leiden-nl",
+      "lat": 52.15833,
+      "lng": 4.49306,
+      "country": "Netherlands",
+      "continent": "Europe",
+      "poolIndex": 782
+    },
+    {
+      "locationId": "gwalior-in",
+      "lat": 26.22983,
+      "lng": 78.17337,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 783
+    },
+    {
+      "locationId": "kozhikode-in",
+      "lat": 11.24802,
+      "lng": 75.7804,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 784
+    },
+    {
+      "locationId": "jamnagar-in",
+      "lat": 22.47292,
+      "lng": 70.06673,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 785
+    },
+    {
+      "locationId": "thiruvananthapuram-in",
+      "lat": 8.4855,
+      "lng": 76.94924,
+      "country": "India",
+      "continent": "Asia",
+      "poolIndex": 786
+    },
+    {
+      "locationId": "kuantan-my",
+      "lat": 3.8077,
+      "lng": 103.326,
+      "country": "Malaysia",
+      "continent": "Asia",
+      "poolIndex": 787
+    },
+    {
+      "locationId": "miri-my",
+      "lat": 4.39928,
+      "lng": 113.99163,
+      "country": "Malaysia",
+      "continent": "Asia",
+      "poolIndex": 788
+    },
+    {
+      "locationId": "kota-kinabalu-my",
+      "lat": 5.9749,
+      "lng": 116.0724,
+      "country": "Malaysia",
+      "continent": "Asia",
+      "poolIndex": 789
+    },
+    {
+      "locationId": "valdivia-cl",
+      "lat": -39.81422,
+      "lng": -73.24589,
+      "country": "Chile",
+      "continent": "South America",
+      "poolIndex": 790
+    },
+    {
+      "locationId": "concepcion-cl",
+      "lat": -36.82699,
+      "lng": -73.04977,
+      "country": "Chile",
+      "continent": "South America",
+      "poolIndex": 791
+    },
+    {
+      "locationId": "bremen-de",
+      "lat": 53.07582,
+      "lng": 8.80717,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 792
+    },
+    {
+      "locationId": "bonn-de",
+      "lat": 50.73438,
+      "lng": 7.09549,
+      "country": "Germany",
+      "continent": "Europe",
+      "poolIndex": 793
+    },
+    {
+      "locationId": "haifa-il",
+      "lat": 32.81303,
+      "lng": 34.99928,
+      "country": "Israel",
+      "continent": "Asia",
+      "poolIndex": 794
+    },
+    {
+      "locationId": "split-hr",
+      "lat": 43.50891,
+      "lng": 16.43915,
+      "country": "Croatia",
+      "continent": "Europe",
+      "poolIndex": 795
+    },
+    {
+      "locationId": "el-paso-usa",
+      "lat": 31.75872,
+      "lng": -106.48693,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 796
+    },
+    {
+      "locationId": "green-bay-usa",
+      "lat": 44.51916,
+      "lng": -88.01983,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 797
+    },
+    {
+      "locationId": "grand-rapids-usa",
+      "lat": 42.96336,
+      "lng": -85.66809,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 798
+    },
+    {
+      "locationId": "tulsa-usa",
+      "lat": 36.15398,
+      "lng": -95.99277,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 799
+    },
+    {
+      "locationId": "santa-barbara-usa",
+      "lat": 34.42083,
+      "lng": -119.69819,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 800
+    },
+    {
+      "locationId": "new-haven-usa",
+      "lat": 41.30815,
+      "lng": -72.92816,
+      "country": "United States",
+      "continent": "North America",
+      "poolIndex": 801
+    },
+    {
+      "locationId": "porto-novo-bj",
+      "lat": 6.48333,
+      "lng": 2.61667,
+      "country": "Benin",
+      "continent": "Africa",
+      "poolIndex": 802
+    }
+  ]
+}
