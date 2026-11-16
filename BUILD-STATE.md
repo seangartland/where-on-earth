@@ -33,6 +33,27 @@
 - No migrations were applied, production D1 was not touched, and nothing was
   deployed or pushed.
 
+## Progression review fixes — loop 2 (2026-11-16)
+
+- `0007_progression_integrity.sql` now rejects every attempted update to a
+  canonical completion's `account_id` or `daily_date` (`BEFORE UPDATE OF`),
+  the smaller accepted completion-key guard shape. A migration regression
+  creates a valid completion, rejects both account and date moves to keys
+  without rounds, and confirms its original key still has five rounds.
+- Before applying migrations to production, run this read-only assertion from
+  `account-worker/`; it must return zero rows or deployment must stop:
+  `python3 deploy.py query "$(cat check-canonical-completion-integrity.sql)"`.
+  The migration test runs the same assertion against its valid local seeded
+  substrate and receives zero rows.
+
+### Verification
+
+- Root suite: `node --test "test/*.mjs"` — **18 pass, 0 fail**.
+- Account-worker suite: `npm test` — **4 test files: 3 pass, 1 fail**. The
+  sole failure remains the known pre-existing `test/friends.test.mjs`
+  `og-v3.png` expectation versus the unchanged `og-v4.jpg` output; all other
+  account-worker test files, including `migrations.test.mjs`, pass.
+
 ## UI build — worktree checkpoint (2026-11-16)
 
 - Daily client date selection, rollover checks, account sync dates, and canonical

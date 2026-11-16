@@ -20,6 +20,12 @@ FOR EACH ROW BEGIN
     THEN NULL ELSE RAISE(ABORT, 'canonical completion requires slots 0-4') END;
 END;
 
+CREATE TRIGGER IF NOT EXISTS canonical_completions_preserve_key
+BEFORE UPDATE OF account_id, daily_date ON canonical_daily_completions
+FOR EACH ROW BEGIN
+  SELECT RAISE(ABORT, 'cannot move a canonical completion');
+END;
+
 CREATE TRIGGER IF NOT EXISTS canonical_rounds_preserve_completed_set_delete
 BEFORE DELETE ON canonical_daily_rounds
 FOR EACH ROW WHEN EXISTS (SELECT 1 FROM canonical_daily_completions

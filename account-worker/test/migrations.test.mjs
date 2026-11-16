@@ -4,6 +4,7 @@ import test from 'node:test';
 import { DatabaseSync } from 'node:sqlite';
 
 const migration = (name) => readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8');
+const completionIntegrityAssertion = readFileSync(new URL('../check-canonical-completion-integrity.sql', import.meta.url), 'utf8');
 const apply = (db, names) => names.forEach((name) => db.exec(migration(name)));
 
 function snapshot(db) {
@@ -28,12 +29,13 @@ for (const [name, setup] of [
   });
 }
 
-test('schema rejects orphan and non-five-round canonical completions', () => {
+test('schema rejects orphan, non-five-round, and moved canonical completions', () => {
   const db = new DatabaseSync(':memory:');
   db.exec('PRAGMA foreign_keys = ON');
   apply(db, ['0001_init.sql', '0003_friends.sql', '0004_daily_trust.sql', '0007_progression_integrity.sql']);
   db.exec(`INSERT INTO "user" (id, name, email, emailVerified, createdAt, updatedAt)
-    VALUES ('a', 'A', 'a@example.test', 1, 1, 1)`);
+    VALUES ('a', 'A', 'a@example.test', 1, 1, 1),
+           ('b', 'B', 'b@example.test', 1, 1, 1)`);
   assert.throws(() => db.exec(`INSERT INTO canonical_daily_completions
     (account_id, daily_date, total_score, completed_at) VALUES ('a', '2026-10-01', 0, 1)`), /requires slots/);
   const locations = db.prepare('SELECT location_id, country, continent FROM daily_locations ORDER BY pool_index LIMIT 5').all();
@@ -43,4 +45,13 @@ test('schema rejects orphan and non-five-round canonical completions', () => {
   db.exec(`INSERT INTO canonical_daily_completions
     (account_id, daily_date, total_score, completed_at) VALUES ('a', '2026-10-01', 5000, 1)`);
   assert.throws(() => db.exec(`DELETE FROM canonical_daily_rounds WHERE account_id = 'a' AND daily_date = '2026-10-01' AND slot = 0`), /cannot remove/);
+  assert.throws(() => db.exec(`UPDATE canonical_daily_completions SET account_id = 'b'
+    WHERE account_id = 'a' AND daily_date = '2026-10-01'`), /cannot move/);
+  assert.throws(() => db.exec(`UPDATE canonical_daily_completions SET daily_date = '2026-10-02'
+    WHERE account_id = 'a' AND daily_date = '2026-10-01'`), /cannot move/);
+  assert.equal(db.prepare(`SELECT COUNT(*) AS count FROM canonical_daily_rounds
+    WHERE account_id = 'a' AND daily_date = '2026-10-01'`).get().count, 5);
+  assert.equal(db.prepare(`SELECT COUNT(*) AS count FROM canonical_daily_completions
+    WHERE account_id = 'a' AND daily_date = '2026-10-01'`).get().count, 1);
+  assert.deepEqual(db.prepare(completionIntegrityAssertion).all(), []);
 });
