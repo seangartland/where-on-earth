@@ -234,3 +234,30 @@ but not applied to production D1.
   completion test passes, including the former missing-community-table path.
 - No migration was applied, deployed, fetched, pushed, or used against
   production D1.
+
+## Paper Atlas art fix (2026-11-16)
+
+- **Face shapes:** `angular`, `oval`, and `round` now each draw a low-contrast
+  ink nose suggestion from `(256,248)` to `(256,270)` and a quiet curved mouth
+  from `(235,298)` through `(256,307)` to `(277,298)`. The shared landmarks
+  stay on the vertical centerline and remain intentionally lighter than the
+  face outline.
+- **Facial hair:** `mustache` is two round-capped strokes at y=270–286, above
+  the y=298 mouth. `stubble` uses dotted side/chin arcs; `short-beard` is a
+  13px U-shaped jaw-and-chin stroke; `full-beard` is a 24px outer U from
+  y=272 through its y=369 chin. Each leaves the central y=298 mouth position
+  unpainted, rather than placing a filled blob over it.
+- **Clothing:** all five garments now begin at shoulder points around y=368
+  and use `H215 Q256 405 297 368` as a centered neck opening. This provides
+  continuous shoulder/torso coverage while leaving the neck visible between
+  the chin and the y=405 neckline dip; their former top silhouette began at
+  y=352.
+- **Brows:** `soft-brows` increased from 7px to a 9px, 0.8-opacity stroke;
+  `bold-brows` increased to 12px and widened slightly. Both retain their
+  y=174–191 curves directly above the y=220 eye line.
+- **Static export checks:** **PASS** — all 49/49 SVGs have a `0 0 512 512`
+  viewBox and their expected namespaced part ID; none contains script,
+  animation, text, raster image, external reference, or embedded-font
+  constructs; each is below 1 KiB. The root suite passed **18/18** in this
+  checkout. No JS, catalog, or layer-order changes are part of this art-only
+  fix.
