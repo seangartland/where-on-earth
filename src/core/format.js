@@ -18,6 +18,13 @@ export function localDateKey(date = new Date()) {
   return `${y}-${m}-${d}`;
 }
 
+// The Daily is a server-owned UTC calendar activity. Keep the local helper
+// above for purely local features, but never use it to choose or submit Daily
+// content.
+export function utcDateKey(date = new Date()) {
+  return date.toISOString().slice(0, 10);
+}
+
 // dateKey is the same YYYY-MM-DD shape used as the daily-archive.json keys.
 export function formatDailyDate(dateKey) {
   return new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, {

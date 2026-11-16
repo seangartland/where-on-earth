@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { levelForXp, validateAvatar, xpAtLevel, xpForCompletion } from '../src/progression.js';
+import { communityPercentage, levelForXp, validateAvatar, xpAtLevel, xpForCompletion } from '../src/progression.js';
 
 test('Daily XP uses canonical performance caps and the published level curve', () => {
   const awards = xpForCompletion(5000, [
@@ -19,4 +19,11 @@ test('avatar config accepts only the starter kit and gates Postmark at level 10'
   assert.equal(validateAvatar({ frame: 'postmark' }, 9), null);
   assert.equal(validateAvatar({ frame: 'postmark' }, 10).frame, 'postmark');
   assert.equal(validateAvatar({ eyes: 'not-a-part' }, 10), null);
+});
+
+test('community percentages keep small cohorts and zero earners private', () => {
+  assert.equal(communityPercentage(49, 1), null);
+  assert.equal(communityPercentage(50, 0), null);
+  assert.equal(communityPercentage(200, 1), '<1%');
+  assert.equal(communityPercentage(50, 1), '2%');
 });

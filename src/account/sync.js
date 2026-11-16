@@ -50,9 +50,8 @@ function dailyUpload(doc) {
   };
 }
 
-function localDate(offset = 0) {
-  const date = new Date(Date.now() + offset * 86400000);
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+function utcDate(offset = 0) {
+  return new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
 }
 
 export async function firstSignInMerge() {
@@ -61,7 +60,7 @@ export async function firstSignInMerge() {
   const local = localDocs();
   const daily = stored(GAME_KEY);
   localStorage.setItem(PREMERGE_KEY, JSON.stringify({ _v: 1, at: Date.now(), docs: local, daily }));
-  const remote = await accountApi(`/v1/sync?today=${localDate()}&yesterday=${localDate(-1)}`, { token: session.sessionToken });
+  const remote = await accountApi(`/v1/sync?today=${utcDate()}&yesterday=${utcDate(-1)}`, { token: session.sessionToken });
   const merged = {};
   const versions = {};
   for (const key of new Set([...Object.keys(local), ...Object.keys(remote.docs || {})])) {
@@ -97,7 +96,7 @@ export async function syncAccountProgress() {
   const session = readAccountSession();
   if (!session?.merged || !session.sessionToken) return;
   await flushSyncQueue();
-  const remote = await accountApi(`/v1/sync?today=${localDate()}&yesterday=${localDate(-1)}`, {
+  const remote = await accountApi(`/v1/sync?today=${utcDate()}&yesterday=${utcDate(-1)}`, {
     token: session.sessionToken,
   });
   const local = localDocs();

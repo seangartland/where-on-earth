@@ -61,6 +61,28 @@ export function ownsIdentity(type, id, level, earned) {
   if (type === 'frame' && id === 'postmark') return level >= 10;
   return earned.has(`${type}:${id}`);
 }
+export function communityPercentage(eligible, earners) {
+  if (eligible < 50 || earners < 1) return null;
+  const raw = (earners * 100) / eligible;
+  return raw < 1 ? '<1%' : `${Math.round(raw)}%`;
+}
+async function refreshCommunityPercentages(env, now) {
+  // An account becomes eligible only after its first canonical Daily. That is
+  // the first real opportunity under the no-backfill launch policy.
+  const eligible = Number((await env.DB.prepare('SELECT COUNT(DISTINCT account_id) AS n FROM canonical_daily_completions').first())?.n || 0);
+  const rows = await env.DB.prepare('SELECT achievement_id, COUNT(DISTINCT account_id) AS n FROM user_achievements GROUP BY achievement_id').all();
+  const earned = new Map((rows.results || []).map((row) => [row.achievement_id, Number(row.n)]));
+  const statements = ACHIEVEMENTS.map(([id]) => {
+    const earners = earned.get(id) || 0;
+    const percentage = eligible >= 50 && earners ? Math.round((earners * 100) / eligible) : null;
+    return env.DB.prepare(`INSERT INTO achievement_community
+      (achievement_id, eligible_accounts, earners, percentage, updated_at) VALUES (?, ?, ?, ?, ?)
+      ON CONFLICT(achievement_id) DO UPDATE SET eligible_accounts = excluded.eligible_accounts,
+      earners = excluded.earners, percentage = excluded.percentage, updated_at = excluded.updated_at`)
+      .bind(id, eligible, earners, percentage, now);
+  });
+  if (statements.length) await env.DB.batch(statements);
+}
 async function stats(env, accountId) {
   const completions = (await env.DB.prepare('SELECT daily_date, total_score FROM canonical_daily_completions WHERE account_id = ? ORDER BY daily_date').bind(accountId).all()).results || [];
   const rounds = (await env.DB.prepare('SELECT daily_date, distance_km, score, country, continent FROM canonical_daily_rounds WHERE account_id = ?').bind(accountId).all()).results || [];
@@ -81,12 +103,15 @@ export async function processCompletion(env, accountId, date, now = Date.now()) 
   const snapshot = await stats(env, accountId);
   const statements = ACHIEVEMENTS.filter(([, , , , , condition]) => condition(snapshot)).map(([id]) => env.DB.prepare('INSERT OR IGNORE INTO user_achievements (account_id, achievement_id, earned_at, qualifying_key) VALUES (?, ?, ?, ?)').bind(accountId, id, now, `daily:${date}`));
   if (statements.length) await env.DB.batch(statements);
+  await refreshCommunityPercentages(env, now);
   return awards;
 }
 export async function progressionProfile(env, accountId) {
   const xp = Number((await env.DB.prepare('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?').bind(accountId).first())?.xp || 0);
   const level = levelForXp(xp); const summary = await stats(env, accountId);
   const loadout = await env.DB.prepare('SELECT title_id, card_id, avatar_json FROM profile_loadouts WHERE account_id = ?').bind(accountId).first();
+  const account = await env.DB.prepare('SELECT display_name FROM profiles WHERE account_id = ?').bind(accountId).first();
   const achievements = (await env.DB.prepare('SELECT achievement_id, earned_at FROM user_achievements WHERE account_id = ? ORDER BY earned_at DESC').bind(accountId).all()).results || [];
-  return { level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar: loadout ? JSON.parse(loadout.avatar_json) : DEFAULT_AVATAR }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward })), progressionStartsAt: 'first canonical Daily' };
+  const community = new Map(((await env.DB.prepare('SELECT achievement_id, eligible_accounts, earners, percentage FROM achievement_community').all()).results || []).map((row) => [row.achievement_id, communityPercentage(Number(row.eligible_accounts), Number(row.earners))]));
+  return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar: loadout ? JSON.parse(loadout.avatar_json) : DEFAULT_AVATAR }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }

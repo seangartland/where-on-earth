@@ -1,5 +1,24 @@
 # Traveler progression build state
 
+## UI build — worktree checkpoint (2026-11-16)
+
+- Daily client date selection, rollover checks, account sync dates, and canonical
+  backfill submission now use a UTC date key. The selection algorithm is
+  unchanged; a boundary test fixes the shared UTC date at an instant that is
+  evening in UTC-8 and morning in UTC+14.
+- Migration `0006_achievement_community.sql` adds a cache for public
+  achievement percentages. Completion processing refreshes it from canonical
+  accounts and earned records; the API exposes only a thresholded display
+  string (minimum 50 eligible and one earner, with sub-one-percent as `<1%`),
+  never cohort counts.
+- Added a local Paper Atlas renderer/catalog (48 default selectable IDs plus
+  the server-gated Postmark frame), profile/cabinet/customize account-sheet
+  surfaces, and server profile display names. The renderer is deterministic
+  SVG layer markup from stored part IDs; it is not yet an exported per-part
+  SVG asset catalog or a four-browser golden/contact-sheet QA pipeline.
+- No migration was applied, no deployment/network action was attempted, and
+  `.git` remains read-only. Muse must stage/commit all worktree changes.
+
 ## Status
 
 - **Phase 0 — complete.** The trust foundation landed as `77dd515`; its
@@ -144,3 +163,17 @@ but not applied to production D1.
   phase scores the exact UTC date submitted against the server's same-date
   manifest, but a follow-on client UTC-date alignment is needed before treating
   non-UTC client-day play as a product-complete canonical flow.
+
+## UI build check-back verification (2026-11-15 22:55 PT)
+
+- Lane finished (Codex gpt-5.6-terra, log ~/workspace/map-game/.progression-ui-lane.log, 105,757 tokens). Worktree banked by Muse as the UI checkpoint commit; see git log origin/main.
+- Verdict: INCOMPLETE. Frontier review NOT dispatched; no deploy. Chain stopped at the verification gate per Sean's 2026-11-15 instruction.
+- Root suite: 105/105 pass (104 baseline + 1 new UTC boundary test). Account-worker suite excluding live-email.mjs: 11 pass / 2 fail of 13. Known og-v3.png/og-v4.jpg failure plus a NEW failure introduced by this lane: canonical rounds test fails with "no such table: achievement_community" because refreshCommunityPercentages in processCompletion assumes migration 0006 has been applied and the test harness (and any pre-migration deploy) has no such table.
+- WS1 UTC alignment: done, boundary test present (UTC-8 evening / UTC+14 morning share the UTC date).
+- WS2 community percentage: threshold function and tests pass in isolation (49 vs 50, 0 earners, <1%); API exposes only the display string, no counts. Gaps: refresh runs on canonical completion, not a separate scheduled job; stored percentage column rounds <1% to 1 (display path recomputes correctly); the missing-table failure above must be fixed (guard or test-harness migration) before deploy.
+- WS3 Paper Atlas kit: catalog IDs count to 48 default + Postmark = 49, matching AVATAR-SPEC counts, but implementation is a single deterministic inline-SVG renderer (src/account/avatar.js, 25 lines), NOT 48 exported sanitized per-part SVG assets. Build-time QA per AVATAR-SPEC section 9 (sanitizer/export preset, golden fixtures for four reference travelers, compatibility matrix, contact sheet at sizes) was not run and is reported not implemented by the lane itself. FAIL.
+- WS4 avatar builder: avatar-only customizer via the validated loadout endpoint; server validateAvatar rejects invalid/Postmark-below-10; no Randomize (correct). Gaps: no Titles or Calling Cards tabs (LEVELING-PLAN section 4 Customize covers Titles, Cards, and Avatar); locked-after-owned ordering is trivially satisfied for avatar parts only because Postmark is last in its slot.
+- WS5 profile: own/friend views present; friend server endpoint deletes xpToNext and client omits XP/edit controls. Gaps: own achievements summary sorts by earned-flag in definition order, not three most recent by earnedAt; no calling-card treatment beyond the header background; no results/share identity integration (lane admits).
+- WS6 cabinet: Consistency/Precision/Breadth only, no Collection/Social stubs (correct); community % omitted below threshold via the display helper. Gap: no numeric progress per achievement, only condition text.
+- WS7 Friends today compact identity: NOT DONE (lane admits). The results Friends today rows in src/modes/daily-game.js are unchanged (initial, name, delta, score; no avatar/title/Lv, no density rules, no identity tap-through). Only the account-sheet friends list gained a profile tap-through.
+- Exclusions held in the diff: no deploy, no prod D1 writes, no home-screen changes, no rarity/difficulty, no backfill.

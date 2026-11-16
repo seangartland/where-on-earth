@@ -2,6 +2,7 @@ import { accountApi } from './api.js';
 import { firstSignInMerge } from './sync.js';
 import { clearAccountSession, readAccountSession, saveAccountSession } from './session.js';
 import { ACCOUNT_API } from '../core/config.js';
+import { AVATAR_CATALOG, avatarName, renderAvatar } from './avatar.js';
 
 let sheet;
 let returnFocus;
@@ -72,10 +73,10 @@ function render(state, values = {}) {
     const me = friendsState?.me || {};
     const friends = friendsState?.friends || [];
     const friendRows = friends.length ? friends.map((friend) => `<li class="account-friend" data-friend-id="${escapeHtml(friend.friendId)}">
-      <span>${escapeHtml(friend.displayName)}</span><button class="text-button account-remove" type="button">Remove</button></li>`).join('')
+      <button class="account-friend-profile" type="button">${escapeHtml(friend.displayName)}</button><button class="text-button account-remove" type="button">Remove</button></li>`).join('')
       : '<li class="account-friends-empty">No friends yet. Invite someone to see their pins on the Daily reveal.</li>';
     panel.innerHTML = `${close}<p class="eyebrow">Account</p><h2 id="account-title">Progress saved</h2>
-      <p class="account-copy">Signed in as <strong>${escapeHtml(values.emailHint || '')}</strong>. Your progress is now on your account.</p>
+      <p class="account-copy">Signed in as <strong>${escapeHtml(values.emailHint || '')}</strong>. Your progress is now on your account.</p><button class="primary account-open-profile" type="button">Profile</button>
       <section class="account-friends" aria-labelledby="account-friends-title">
         <h3 id="account-friends-title">Friends</h3>
         <form class="account-name-form"><label for="account-friend-name">Your name for friends</label><div class="account-inline-edit"><input id="account-friend-name" name="displayName" maxlength="20" value="${escapeHtml(me.displayName || '')}" placeholder="Add your name" required><button class="text-button" type="submit">Save</button></div></form>
@@ -357,6 +358,42 @@ function confirmRemove(row) {
   });
 }
 
+function dateLabel(timestamp) { return timestamp ? new Date(timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : ''; }
+function statGrid(stats) {
+  return [['Dailies played', stats.dailies], ['Average Daily score', stats.averageScore], ['Best Daily score', stats.bestScore], ['Bullseyes', stats.bullseyes], ['Postcards', stats.postcards], ['Best streak', stats.bestStreak], ['Countries visited', stats.countries]].map(([label, value]) => `<div><strong>${Number(value).toLocaleString()}</strong><span>${label}</span></div>`).join('');
+}
+async function openTravelerProfile(friendId = '') {
+  try {
+    const profile = await friendApi(friendId ? `/v1/progression/friend?${new URLSearchParams({ friendId })}` : '/v1/progression');
+    const mine = !friendId; const panel = sheet.querySelector('.account-panel');
+    const earned = new Map(profile.achievements.map((item) => [item.id, item]));
+    const definitions = profile.achievementDefinitions || [];
+    panel.innerHTML = `<button class="icon-close account-profile-back" aria-label="Back">×</button><section class="traveler-profile ${mine ? 'own' : 'friend'}"><div class="traveler-card"><div class="traveler-avatar"></div><div><p class="traveler-level">LEVEL ${profile.level}</p><h2>${escapeHtml(profile.displayName)}</h2><p>${escapeHtml(avatarName(profile.loadout.titleId))}</p>${mine ? `<p class="traveler-xp">${profile.xpToNext} XP to next level</p>` : ''}</div></div><div class="traveler-stats">${statGrid(profile.stats)}</div><section><div class="traveler-section-head"><h3>Achievements</h3><span>${earned.size}/${definitions.length}</span></div><ul class="traveler-achievements">${definitions.filter((item) => mine || earned.has(item.id)).sort((a, b) => Number(earned.has(b.id)) - Number(earned.has(a.id))).slice(0, mine ? 3 : definitions.length).map((item) => { const achievement = earned.get(item.id); return `<li><strong>${escapeHtml(item.name)}</strong><span>${achievement ? `Earned ${dateLabel(achievement.earnedAt)}` : escapeHtml(item.condition)}${item.communityPercentage ? ` · ${item.communityPercentage} earned` : ''}</span></li>`; }).join('')}</ul>${mine ? '<button class="text-button account-open-cabinet" type="button">View cabinet</button><button class="primary account-customize" type="button">Customize</button>' : ''}</section></section>`;
+    panel.querySelector('.traveler-avatar').append(renderAvatar(profile.loadout.avatar, 132));
+    panel.querySelector('.account-profile-back').addEventListener('click', () => render('signed-in', readAccountSession() || {}));
+    panel.querySelector('.account-open-cabinet')?.addEventListener('click', () => renderCabinet(profile));
+    panel.querySelector('.account-customize')?.addEventListener('click', () => renderCustomizer(profile));
+  } catch (error) { status(error.message || 'Could not load profile', true); }
+}
+function renderCabinet(profile) {
+  const panel = sheet.querySelector('.account-panel'); const earned = new Map(profile.achievements.map((item) => [item.id, item]));
+  const groups = ['consistency', 'precision', 'breadth'].map((category) => `<section class="cabinet-group"><h3>${category}</h3>${profile.achievementDefinitions.filter((item) => item.category === category).map((item) => { const got = earned.get(item.id); return `<article class="cabinet-item ${got ? 'earned' : 'locked'}"><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(item.condition)} · ${escapeHtml(item.reward)}</span><small>${got ? `Earned ${dateLabel(got.earnedAt)}` : ''}${item.communityPercentage ? ` ${item.communityPercentage} earned` : ''}</small></article>`; }).join('')}</section>`).join('');
+  panel.innerHTML = `<button class="icon-close account-cabinet-back" aria-label="Back">×</button><section class="traveler-profile cabinet"><h2>Achievement cabinet</h2>${groups}</section>`;
+  panel.querySelector('.account-cabinet-back').addEventListener('click', () => openTravelerProfile());
+}
+function renderCustomizer(profile) {
+  const panel = sheet.querySelector('.account-panel'); const draft = { ...profile.loadout.avatar }; let active = 'backdrop';
+  const redraw = () => {
+    const slots = Object.keys(draft); const options = AVATAR_CATALOG;
+    panel.innerHTML = `<button class="icon-close account-customize-back" aria-label="Back">×</button><section class="traveler-profile customizer"><h2>Customize avatar</h2><div class="customize-preview"></div><div class="avatar-tabs">${slots.map((slot) => `<button type="button" data-slot="${slot}" aria-pressed="${slot === active}">${slot.replace(/([A-Z])/g, ' $1')}</button>`).join('')}</div><div class="avatar-parts">${(options[active] || []).map((id) => `<button type="button" data-part="${id}" class="${draft[active] === id ? 'selected' : ''}"><span>${avatarName(id)}</span><small>${id === 'postmark' && profile.level < 10 ? 'Reach Level 10' : 'Owned'}</small></button>`).join('')}</div><button class="primary account-save-avatar" type="button">Save avatar</button></section>`;
+    panel.querySelector('.customize-preview').append(renderAvatar(draft, 160));
+    panel.querySelector('.account-customize-back').addEventListener('click', () => openTravelerProfile());
+    panel.querySelectorAll('.avatar-tabs button').forEach((button) => button.addEventListener('click', () => { active = button.dataset.slot; redraw(); }));
+    panel.querySelectorAll('.avatar-parts button').forEach((button) => button.addEventListener('click', () => { if (button.dataset.part === 'postmark' && profile.level < 10) return; draft[active] = button.dataset.part; redraw(); }));
+    panel.querySelector('.account-save-avatar').addEventListener('click', async () => { try { await friendApi('/v1/progression/loadout', { method: 'POST', body: { avatar: draft } }); await openTravelerProfile(); } catch (error) { status(error.code === 'UNOWNED_COSMETIC' ? 'That part is not unlocked.' : 'Could not save avatar.', true); } });
+  }; redraw();
+}
+
 function bind(values) {
   sheet.querySelector('.account-close')?.addEventListener('click', closeAccountSheet);
   sheet.querySelector('.account-done')?.addEventListener('click', closeAccountSheet);
@@ -415,6 +452,8 @@ function bind(values) {
     await saveName();
   });
   sheet.querySelector('.account-invite')?.addEventListener('click', (event) => createInvite(event.currentTarget));
+  sheet.querySelector('.account-open-profile')?.addEventListener('click', () => openTravelerProfile());
+  sheet.querySelectorAll('.account-friend-profile').forEach((button) => button.addEventListener('click', () => openTravelerProfile(button.closest('.account-friend').dataset.friendId)));
   sheet.querySelector('.account-invite-copy')?.addEventListener('click', (event) => {
     event.preventDefault();
     const input = sheet.querySelector('.account-invite-link-input');

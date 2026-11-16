@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
 import { dailyIds, resolvePinnedIds } from '../src/daily.js';
+import { utcDateKey } from '../src/core/format.js';
 
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
 const locations = load('locations.json');
@@ -13,6 +14,13 @@ const dateAt = (offset) => new Date(Date.UTC(2026, 9, 1 + offset)).toISOString()
 
 test('daily selection is deterministic for a fixed date', () => {
   assert.deepEqual(dailyIds('2027-04-19', locations), dailyIds('2027-04-19', locations));
+});
+
+test('Daily key is UTC at both date boundaries', () => {
+  // 20:30 at UTC-8 and 08:30 at UTC+14 are the same instant: Nov 16 UTC.
+  const instant = new Date('2026-11-16T04:30:00.000Z');
+  assert.equal(utcDateKey(instant), '2026-11-16');
+  assert.deepEqual(dailyIds(utcDateKey(instant), locations), dailyIds('2026-11-16', locations));
 });
 
 test('daily selections have five unique ids and countries across a year', () => {
