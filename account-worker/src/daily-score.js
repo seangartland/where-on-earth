@@ -12,6 +12,7 @@ export function distanceKm(guess, answer) {
 }
 
 export function scoreForDistance(km) {
+  if (km < 25) return 1000;
   return Math.round(1000 * Math.exp(-((km / 3500) ** 1.13)));
 }
 

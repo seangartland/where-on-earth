@@ -5,6 +5,7 @@ import test from 'node:test';
 import { deriveDailyAggregate, consecutiveUtcStreak } from '../src/daily-aggregates.js';
 import { manifestIds } from '../src/daily.js';
 import { isBullseye, isPostcard, scoreForDistance } from '../src/daily-score.js';
+import { xpForCompletion } from '../src/progression.js';
 import { dailyIds, resolvePinnedIds } from '../../src/daily.js';
 
 globalThis.location = { search: '' };
@@ -33,6 +34,17 @@ test('server score curve matches client scoring and preserves strict postcard bo
   assert.equal(isBullseye(25, 1000), false);
   assert.equal(isPostcard(149.999), true);
   assert.equal(isPostcard(150), false);
+});
+
+test('sub-25-km scorer grants a real bullseye score and XP at the strict boundary', () => {
+  const under = scoreForDistance(24.999);
+  const at = scoreForDistance(25);
+  assert.equal(under, 1000);
+  assert.notEqual(at, 1000);
+  assert.equal(isBullseye(24.999, under), true);
+  assert.equal(isBullseye(25, at), false);
+  assert.equal(xpForCompletion(under, [{ distance_km: 24.999, score: under }]).bullseyes, 3);
+  assert.equal(xpForCompletion(at, [{ distance_km: 25, score: at }]).bullseyes, 0);
 });
 
 test('canonical aggregates require five slots and use server round facts', () => {

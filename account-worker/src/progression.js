@@ -53,10 +53,10 @@ export function validateAvatar(value, level) {
   }
   return avatar;
 }
-export function ownsIdentity(type, id, level, earned) {
+export function ownsIdentity(type, id, level, earned, levelTwoTitle = null) {
   const defaults = { title: ['traveler'], card: ['blue-horizon'], frame: ['plain-paper'] };
   if (defaults[type]?.includes(id)) return true;
-  if (type === 'title' && ['window-seat', 'aisle-seat'].includes(id)) return level >= 2;
+  if (type === 'title' && ['window-seat', 'aisle-seat'].includes(id)) return level >= 5 || (level >= 2 && id === levelTwoTitle);
   if (type === 'card' && id === 'airmail') return level >= 5;
   if (type === 'frame' && id === 'postmark') return level >= 10;
   return earned.has(`${type}:${id}`);
@@ -66,32 +66,12 @@ export function communityPercentage(eligible, earners) {
   const raw = (earners * 100) / eligible;
   return raw < 1 ? '<1%' : `${Math.round(raw)}%`;
 }
-async function refreshCommunityPercentages(env, now) {
-  // Migration 0006 can lag a worker deploy. Completion remains safe and the
-  // next completion refreshes the cache after the table exists.
-  const cache = await env.DB.prepare("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'achievement_community'").first();
-  if (!cache) return;
-  // An account becomes eligible only after its first canonical Daily. That is
-  // the first real opportunity under the no-backfill launch policy.
+export async function communityPercentages(env) {
+  // Compute from one read-time snapshot instead of caching absolute counts.
+  // This avoids a late overlapping completion writing an older snapshot.
   const eligible = Number((await env.DB.prepare('SELECT COUNT(DISTINCT account_id) AS n FROM canonical_daily_completions').first())?.n || 0);
   const rows = await env.DB.prepare('SELECT achievement_id, COUNT(DISTINCT account_id) AS n FROM user_achievements GROUP BY achievement_id').all();
-  const earned = new Map((rows.results || []).map((row) => [row.achievement_id, Number(row.n)]));
-  const statements = ACHIEVEMENTS.map(([id]) => {
-    const earners = earned.get(id) || 0;
-    const percentage = eligible >= 50 && earners ? Math.round((earners * 100) / eligible) : null;
-    return env.DB.prepare(`INSERT INTO achievement_community
-      (achievement_id, eligible_accounts, earners, percentage, updated_at) VALUES (?, ?, ?, ?, ?)
-      ON CONFLICT(achievement_id) DO UPDATE SET eligible_accounts = excluded.eligible_accounts,
-      earners = excluded.earners, percentage = excluded.percentage, updated_at = excluded.updated_at`)
-      .bind(id, eligible, earners, percentage, now);
-  });
-  if (statements.length) await env.DB.batch(statements);
-}
-async function communityPercentages(env) {
-  const cache = await env.DB.prepare("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'achievement_community'").first();
-  if (!cache) return new Map();
-  const rows = await env.DB.prepare('SELECT achievement_id, eligible_accounts, earners FROM achievement_community').all();
-  return new Map((rows.results || []).map((row) => [row.achievement_id, communityPercentage(Number(row.eligible_accounts), Number(row.earners))]));
+  return new Map((rows.results || []).map((row) => [row.achievement_id, communityPercentage(eligible, Number(row.n))]).filter(([, percentage]) => percentage));
 }
 function achievementProgress(id, s) {
   const values = {
@@ -122,15 +102,17 @@ export async function processCompletion(env, accountId, date, now = Date.now()) 
   const snapshot = await stats(env, accountId);
   const statements = ACHIEVEMENTS.filter(([, , , , , condition]) => condition(snapshot)).map(([id]) => env.DB.prepare('INSERT OR IGNORE INTO user_achievements (account_id, achievement_id, earned_at, qualifying_key) VALUES (?, ?, ?, ?)').bind(accountId, id, now, `daily:${date}`));
   if (statements.length) await env.DB.batch(statements);
-  await refreshCommunityPercentages(env, now);
   return awards;
 }
 export async function progressionProfile(env, accountId) {
   const xp = Number((await env.DB.prepare('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?').bind(accountId).first())?.xp || 0);
   const level = levelForXp(xp); const summary = await stats(env, accountId);
-  const loadout = await env.DB.prepare('SELECT title_id, card_id, avatar_json FROM profile_loadouts WHERE account_id = ?').bind(accountId).first();
+  const loadout = await env.DB.prepare(`SELECT l.title_id, l.card_id, l.avatar_json,
+    c.title_id AS level_two_title FROM profile_loadouts l
+    LEFT JOIN level_two_title_choices c ON c.account_id = l.account_id
+    WHERE l.account_id = ?`).bind(accountId).first();
   const account = await env.DB.prepare('SELECT display_name FROM profiles WHERE account_id = ?').bind(accountId).first();
   const achievements = (await env.DB.prepare('SELECT achievement_id, earned_at FROM user_achievements WHERE account_id = ? ORDER BY earned_at DESC').bind(accountId).all()).results || [];
   const community = await communityPercentages(env);
-  return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar: loadout ? JSON.parse(loadout.avatar_json) : DEFAULT_AVATAR }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
+  return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar: loadout ? JSON.parse(loadout.avatar_json) : DEFAULT_AVATAR, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }

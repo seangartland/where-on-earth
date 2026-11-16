@@ -407,10 +407,13 @@ async function getFriendProgression(request, env, id) {
     .bind(id, friendId).first();
   if (!relation) return json({ code: 'NOT_FOUND' }, 404);
   const profile = await progressionProfile(env, friendId);
-  // XP progress is private; friend profiles receive the same authoritative
-  // identity/stats but never an exact XP-derived progress value.
-  delete profile.xpToNext;
-  return json(profile);
+  const earned = new Set(profile.achievements.map(({ id: achievementId }) => achievementId));
+  return json({
+    displayName: profile.displayName, level: profile.level, stats: profile.stats,
+    loadout: profile.loadout,
+    achievements: profile.achievements,
+    achievementDefinitions: profile.achievementDefinitions.filter(({ id: achievementId }) => earned.has(achievementId)).map(({ id: achievementId, category, name, reward, communityPercentage }) => ({ id: achievementId, category, name, reward, ...(communityPercentage ? { communityPercentage } : {}) })),
+  });
 }
 
 async function updateLoadout(request, env, id) {
@@ -424,13 +427,15 @@ async function updateLoadout(request, env, id) {
   const titleId = input.titleId || profile.loadout.titleId;
   const cardId = input.cardId || profile.loadout.cardId;
   const avatar = validateAvatar(input.avatar || profile.loadout.avatar, profile.level);
+  const levelTwoTitle = profile.loadout.levelTwoTitle || (profile.level >= 2 && ['window-seat', 'aisle-seat'].includes(titleId) ? titleId : null);
   if (typeof titleId !== 'string' || typeof cardId !== 'string' || !avatar
-    || !ownsIdentity('title', titleId, profile.level, earned)
+    || !ownsIdentity('title', titleId, profile.level, earned, levelTwoTitle)
     || !ownsIdentity('card', cardId, profile.level, earned)) return json({ code: 'UNOWNED_COSMETIC' }, 403);
   await env.DB.prepare(`INSERT INTO profile_loadouts (account_id, title_id, card_id, avatar_json, updated_at)
     VALUES (?, ?, ?, ?, ?) ON CONFLICT(account_id) DO UPDATE SET title_id = excluded.title_id,
     card_id = excluded.card_id, avatar_json = excluded.avatar_json, updated_at = excluded.updated_at`)
     .bind(id, titleId, cardId, JSON.stringify(avatar || DEFAULT_AVATAR), Date.now()).run();
+  if (levelTwoTitle) await env.DB.prepare('INSERT OR IGNORE INTO level_two_title_choices (account_id, title_id) VALUES (?, ?)').bind(id, levelTwoTitle).run();
   return json({ loadout: { titleId, cardId, avatar } });
 }
 

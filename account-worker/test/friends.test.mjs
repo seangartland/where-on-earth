@@ -60,6 +60,8 @@ async function fixture(t) {
   await DB.exec(readFileSync(new URL('../migrations/0003_friends.sql', import.meta.url), 'utf8'));
   await DB.exec(readFileSync(new URL('../migrations/0004_daily_trust.sql', import.meta.url), 'utf8'));
   await DB.exec(readFileSync(new URL('../migrations/0005_traveler_progression.sql', import.meta.url), 'utf8'));
+  await DB.exec(readFileSync(new URL('../migrations/0006_achievement_community.sql', import.meta.url), 'utf8'));
+  await DB.exec(readFileSync(new URL('../migrations/0007_progression_integrity.sql', import.meta.url), 'utf8'));
   return { DB };
 }
 
@@ -323,4 +325,32 @@ test('canonical rounds ignore client totals and complete once five manifest slot
   await post(env, 'a', '/v1/daily/guesses', guess(date, 0, ids[0], 80, 80));
   assert.equal((await env.DB.prepare(`SELECT COUNT(*) AS n FROM canonical_daily_completions
     WHERE account_id = ? AND daily_date = ?`).bind('a', date).first()).n, 1);
+});
+
+test('friend progression allowlists earned labels without unearned counters', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a'); await addUser(env, 'b');
+  await name(env, 'a', 'Ana'); await name(env, 'b', 'Bo');
+  await invite(env, 'a', 'b');
+  await env.DB.prepare(`INSERT INTO user_achievements
+    (account_id, achievement_id, earned_at, qualifying_key) VALUES (?, ?, ?, ?)`)
+    .bind('b', 'first-departure', 1, 'daily:2026-10-01').run();
+  const result = await get(env, 'a', '/v1/progression/friend?friendId=b');
+  assert.equal(result.status, 200);
+  assert.deepEqual(Object.keys(result.body).sort(), ['achievementDefinitions', 'achievements', 'displayName', 'level', 'loadout', 'stats']);
+  assert.deepEqual(result.body.achievementDefinitions.map((item) => item.id), ['first-departure']);
+  assert.equal(JSON.stringify(result.body).includes('progress'), false);
+  assert.equal(JSON.stringify(result.body).includes('xpToNext'), false);
+});
+
+test('level-two title choice persists until both titles unlock at level five', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a');
+  await env.DB.prepare(`INSERT INTO xp_ledger
+    (account_id, source_type, source_key, amount, created_at) VALUES (?, ?, ?, ?, ?)`)
+    .bind('a', 'test', 'level-two', 100, 1).run();
+  assert.equal((await post(env, 'a', '/v1/progression/loadout', { titleId: 'window-seat' })).status, 200);
+  assert.equal((await post(env, 'a', '/v1/progression/loadout', { titleId: 'aisle-seat' })).status, 403);
+  await env.DB.prepare('UPDATE xp_ledger SET amount = 520 WHERE account_id = ?').bind('a').run();
+  assert.equal((await post(env, 'a', '/v1/progression/loadout', { titleId: 'aisle-seat' })).status, 200);
 });

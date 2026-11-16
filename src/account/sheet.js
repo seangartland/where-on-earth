@@ -383,14 +383,14 @@ function renderCabinet(profile) {
   panel.querySelector('.account-cabinet-back').addEventListener('click', () => openTravelerProfile());
 }
 const IDENTITY_CATALOG = {
-  Titles: [['traveler', 'Traveler', 'Available now'], ['window-seat', 'Window Seat', 'Reach Level 2'], ['aisle-seat', 'Aisle Seat', 'Reach Level 2'], ['day-tripper', 'Day Tripper', 'Earn First Departure'], ['weekender', 'Weekender', 'Earn One Week Abroad'], ['globetrotter', 'Globetrotter', 'Earn No Fixed Address'], ['postmarked', 'Postmarked', 'Earn Postmarked'], ['sharp-eye', 'Sharp Eye', 'Earn Sharp Eye'], ['dead-reckoner', 'Dead Reckoner', 'Earn Perfect Itinerary'], ['border-crosser', 'Border Crosser', 'Earn Border Crosser'], ['early-explorer', 'Early Explorer', 'Earn Continental Breakfast'], ['frequent-flyer', 'Frequent Flyer', 'Earn Frequent Flyer']],
+  Titles: [['traveler', 'Traveler', 'Available now'], ['window-seat', 'Window Seat', 'Choose at Level 2; both at Level 5'], ['aisle-seat', 'Aisle Seat', 'Choose at Level 2; both at Level 5'], ['day-tripper', 'Day Tripper', 'Earn First Departure'], ['weekender', 'Weekender', 'Earn One Week Abroad'], ['globetrotter', 'Globetrotter', 'Earn No Fixed Address'], ['postmarked', 'Postmarked', 'Earn Postmarked'], ['sharp-eye', 'Sharp Eye', 'Earn Sharp Eye'], ['dead-reckoner', 'Dead Reckoner', 'Earn Perfect Itinerary'], ['border-crosser', 'Border Crosser', 'Earn Border Crosser'], ['early-explorer', 'Early Explorer', 'Earn Continental Breakfast'], ['frequent-flyer', 'Frequent Flyer', 'Earn Frequent Flyer']],
   'Calling Cards': [['blue-horizon', 'Blue Horizon', 'Available now'], ['airmail', 'Airmail', 'Reach Level 5'], ['return-ticket', 'Return Ticket', 'Earn Return Ticket'], ['regular-route', 'Regular Route', 'Earn Regular Route'], ['seasoned-traveler', 'Seasoned Traveler', 'Earn Seasoned Traveler'], ['right-on-the-map', 'Right on the Map', 'Earn Right on the Map'], ['five-star-landing', 'Five-Star Landing', 'Earn Five-Star Landing'], ['high-flyer', 'High-Flyer', 'Earn High-Flyer'], ['worldly', 'Worldly', 'Earn Worldly'], ['around-the-world', 'Around the World', 'Earn Around the World']],
 };
 function renderCustomizer(profile) {
   const panel = sheet.querySelector('.account-panel'); const draft = { ...profile.loadout.avatar }; const loadout = { ...profile.loadout }; let active = 'backdrop'; let kind = 'Avatar';
   const earnedRewards = new Set(profile.achievements.map((achievement) => profile.achievementDefinitions.find((item) => item.id === achievement.id)?.reward).filter(Boolean));
   const identityOwned = (type, id) => id === (type === 'title' ? 'traveler' : 'blue-horizon')
-    || (type === 'title' && ['window-seat', 'aisle-seat'].includes(id) && profile.level >= 2)
+    || (type === 'title' && ['window-seat', 'aisle-seat'].includes(id) && profile.level >= 2 && (profile.level >= 5 || !profile.loadout.levelTwoTitle || id === profile.loadout.levelTwoTitle))
     || (type === 'card' && id === 'airmail' && profile.level >= 5)
     || earnedRewards.has(`${type}:${id}`);
   const redraw = () => {

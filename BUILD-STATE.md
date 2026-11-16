@@ -1,5 +1,38 @@
 # Traveler progression build state
 
+## Progression review fixes — loop 1 (2026-11-16)
+
+- Bullseyes now score exactly 1,000 strictly below 25 km in both client and
+  worker scorers; 25 km remains on the existing curve. Boundary regressions
+  cover scoring, predicate, and XP awards without synthetic scores.
+- Friend progression is now an explicit allowlist: identity, aggregate stats,
+  loadout, earned achievement dates, earned labels/rewards, and thresholded
+  community strings only. Unearned definitions and counters never leave the
+  endpoint.
+- All 803 `0004` seed writes use `INSERT OR IGNORE`, preserving the original
+  snapshot on a re-run. Regression coverage applies `0004`–`0007` twice after
+  `0001`/`0003` to fresh and production-shaped schemas and compares every row.
+- Community percentages are computed at read time from current canonical
+  counts rather than written to the cache. This removes stale absolute cache
+  writes from overlapping completions; an interleaving regression covers it.
+- The level-two title is stored in `level_two_title_choices`: the chosen
+  Window Seat or Aisle Seat title is the only one owned at level 2, and both
+  are owned at level 5. The customizer copy now states this rule.
+- `0007_progression_integrity.sql` adds idempotent D1 triggers that allow a
+  canonical completion only with slots 0–4 present and prevent deleting or
+  moving a completed round. The migration test rejects orphan/non-five-round
+  completions before deployment.
+
+### Verification
+
+- Root suite: `node --test "test/*.mjs"` — **18 pass, 0 fail**.
+- Account-worker suite: `npm test` — **3 test files pass, 1 fails** solely for
+  the pre-existing `og-v3.png` vs unchanged `og-v4.jpg` invite-image
+  assertion in `test/friends.test.mjs`. All new progression/migration files
+  pass; direct execution of that file has **8 pass, 1 known pre-existing fail**.
+- No migrations were applied, production D1 was not touched, and nothing was
+  deployed or pushed.
+
 ## UI build — worktree checkpoint (2026-11-16)
 
 - Daily client date selection, rollover checks, account sync dates, and canonical
