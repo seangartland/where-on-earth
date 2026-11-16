@@ -296,6 +296,8 @@ async function syncTravelerXp() {
     const profile = await progression();
     if (!profile) return;
     line.textContent = `Traveler ${profile.level} · ${profile.xpToNext} XP to next level`;
+    const card = gameEls.results.querySelector('.results-card');
+    if (card) card.dataset.callingCard = profile.loadout.cardId;
     line.hidden = false;
   } catch { line.hidden = true; }
 }
@@ -315,9 +317,10 @@ async function syncFriendsToday(total) {
   const setGlobe = (hidden) => { if (globeLink) globeLink.hidden = hidden; };
   if (!ACCOUNTS_ENABLED || !isSignedIn()) { card.hidden = true; setGlobe(false); return; }
   try {
-    const [{ fetchFriendPins }, { friendTotals, rankLeaderboard }] = await Promise.all([
+    const [{ fetchFriendPins, progression, friendProgression }, { friendTotals, rankLeaderboard }, { renderAvatar, avatarName }] = await Promise.all([
       import('../account/friends.js'),
       import('../game/friend-rows.js'),
+      import('../account/avatar.js'),
     ]);
     const pins = await fetchFriendPins(state.daily.date);
     const rounds = (state.daily.ids || []).map((locationId, i) => ({ locationId, answer: state.selected[i] }));
@@ -325,18 +328,31 @@ async function syncFriendsToday(total) {
     if (!totals.length) { card.hidden = true; setGlobe(false); return; }
     card.querySelector('.friends-today-count').textContent = totals.length === 1 ? '1 played' : `${totals.length} played`;
     const list = card.querySelector('.friends-today-list');
+    const identities = new Map();
+    const ranked = rankLeaderboard(total, totals);
+    await Promise.all(ranked.map(async (entry) => {
+      try { identities.set(entry.you ? 'you' : entry.friendId, entry.you ? await progression() : await friendProgression(entry.friendId)); } catch { /* identity is decorative; score remains usable */ }
+    }));
     const row = (entry) => {
       const li = document.createElement('li');
       li.className = `friend-total-row${entry.you ? ' you' : ''}`;
+      const identity = identities.get(entry.you ? 'you' : entry.friendId);
       const rk = Object.assign(document.createElement('span'), { className: 'ft-rank', textContent: `${entry.rank}.` });
-      const av = Object.assign(document.createElement('span'), { className: 'ft-av', textContent: entry.initial });
-      const nm = Object.assign(document.createElement('span'), { className: 'ft-name', textContent: entry.name });
+      const identityButton = Object.assign(document.createElement('button'), { type: 'button', className: 'ft-identity', 'aria-label': `Open ${entry.name}'s profile` });
+      const av = identity ? renderAvatar(identity.loadout.avatar, 28, true) : Object.assign(document.createElement('span'), { className: 'ft-av', textContent: entry.initial });
+      const copy = Object.assign(document.createElement('span'), { className: 'ft-identity-copy' });
+      const nm = Object.assign(document.createElement('span'), { className: 'ft-name', textContent: identity?.displayName || entry.name });
+      const title = Object.assign(document.createElement('span'), { className: 'ft-title', textContent: identity ? avatarName(identity.loadout.titleId) : '' });
+      const level = Object.assign(document.createElement('span'), { className: 'ft-level', textContent: identity ? `Lv ${identity.level}` : '' });
+      copy.append(nm, title); identityButton.append(av, copy, level);
+      if (!entry.you) identityButton.addEventListener('click', async () => { const { openFriendProfile } = await import('../account/sheet.js'); openFriendProfile(entry.friendId, identityButton); });
+      else identityButton.disabled = true;
       const dl = Object.assign(document.createElement('span'), { className: 'ft-delta', textContent: entry.you ? '' : `${entry.total - total > 0 ? '+' : ''}${(entry.total - total).toLocaleString()}` });
       const sc = Object.assign(document.createElement('span'), { className: 'ft-score', textContent: entry.total.toLocaleString() });
-      li.append(rk, av, nm, dl, sc);
+      li.append(rk, identityButton, dl, sc);
       return li;
     };
-    list.replaceChildren(...rankLeaderboard(total, totals).map(row));
+    list.replaceChildren(...ranked.map(row));
     if (!card.dataset.wired) {
       card.dataset.wired = '1';
       card.querySelector('.friends-today-link')?.addEventListener('click', () => enterReview());

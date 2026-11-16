@@ -368,7 +368,8 @@ async function openTravelerProfile(friendId = '') {
     const mine = !friendId; const panel = sheet.querySelector('.account-panel');
     const earned = new Map(profile.achievements.map((item) => [item.id, item]));
     const definitions = profile.achievementDefinitions || [];
-    panel.innerHTML = `<button class="icon-close account-profile-back" aria-label="Back">×</button><section class="traveler-profile ${mine ? 'own' : 'friend'}"><div class="traveler-card"><div class="traveler-avatar"></div><div><p class="traveler-level">LEVEL ${profile.level}</p><h2>${escapeHtml(profile.displayName)}</h2><p>${escapeHtml(avatarName(profile.loadout.titleId))}</p>${mine ? `<p class="traveler-xp">${profile.xpToNext} XP to next level</p>` : ''}</div></div><div class="traveler-stats">${statGrid(profile.stats)}</div><section><div class="traveler-section-head"><h3>Achievements</h3><span>${earned.size}/${definitions.length}</span></div><ul class="traveler-achievements">${definitions.filter((item) => mine || earned.has(item.id)).sort((a, b) => Number(earned.has(b.id)) - Number(earned.has(a.id))).slice(0, mine ? 3 : definitions.length).map((item) => { const achievement = earned.get(item.id); return `<li><strong>${escapeHtml(item.name)}</strong><span>${achievement ? `Earned ${dateLabel(achievement.earnedAt)}` : escapeHtml(item.condition)}${item.communityPercentage ? ` · ${item.communityPercentage} earned` : ''}</span></li>`; }).join('')}</ul>${mine ? '<button class="text-button account-open-cabinet" type="button">View cabinet</button><button class="primary account-customize" type="button">Customize</button>' : ''}</section></section>`;
+    const visible = definitions.filter((item) => mine || earned.has(item.id)).sort((a, b) => (earned.get(b.id)?.earnedAt || 0) - (earned.get(a.id)?.earnedAt || 0));
+    panel.innerHTML = `<button class="icon-close account-profile-back" aria-label="Back">×</button><section class="traveler-profile ${mine ? 'own' : 'friend'}"><div class="traveler-card" data-card="${escapeHtml(profile.loadout.cardId)}"><div class="traveler-avatar"></div><div><p class="traveler-level">LEVEL ${profile.level}</p><h2>${escapeHtml(profile.displayName)}</h2><p>${escapeHtml(avatarName(profile.loadout.titleId))}</p>${mine ? `<p class="traveler-xp">${profile.xpToNext} XP to next level</p>` : ''}</div></div><div class="traveler-stats">${statGrid(profile.stats)}</div><section><div class="traveler-section-head"><h3>Achievements</h3><span>${earned.size}/${definitions.length}</span></div><ul class="traveler-achievements">${visible.slice(0, mine ? 3 : definitions.length).map((item) => { const achievement = earned.get(item.id); return `<li><strong>${escapeHtml(item.name)}</strong><span>${achievement ? `Earned ${dateLabel(achievement.earnedAt)}` : escapeHtml(item.condition)}${item.communityPercentage ? ` · ${item.communityPercentage} earned` : ''}</span></li>`; }).join('')}</ul>${mine ? '<button class="text-button account-open-cabinet" type="button">View cabinet</button><button class="primary account-customize" type="button">Customize</button>' : ''}</section></section>`;
     panel.querySelector('.traveler-avatar').append(renderAvatar(profile.loadout.avatar, 132));
     panel.querySelector('.account-profile-back').addEventListener('click', () => render('signed-in', readAccountSession() || {}));
     panel.querySelector('.account-open-cabinet')?.addEventListener('click', () => renderCabinet(profile));
@@ -377,20 +378,33 @@ async function openTravelerProfile(friendId = '') {
 }
 function renderCabinet(profile) {
   const panel = sheet.querySelector('.account-panel'); const earned = new Map(profile.achievements.map((item) => [item.id, item]));
-  const groups = ['consistency', 'precision', 'breadth'].map((category) => `<section class="cabinet-group"><h3>${category}</h3>${profile.achievementDefinitions.filter((item) => item.category === category).map((item) => { const got = earned.get(item.id); return `<article class="cabinet-item ${got ? 'earned' : 'locked'}"><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(item.condition)} · ${escapeHtml(item.reward)}</span><small>${got ? `Earned ${dateLabel(got.earnedAt)}` : ''}${item.communityPercentage ? ` ${item.communityPercentage} earned` : ''}</small></article>`; }).join('')}</section>`).join('');
+  const groups = ['consistency', 'precision', 'breadth'].map((category) => `<section class="cabinet-group"><h3>${category}</h3>${profile.achievementDefinitions.filter((item) => item.category === category).map((item) => { const got = earned.get(item.id); const progress = item.progress ? `${item.progress.label}: ${item.progress.current} of ${item.progress.target}` : ''; return `<article class="cabinet-item ${got ? 'earned' : 'locked'}"><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(item.condition)} · ${escapeHtml(item.reward)}</span><small>${got ? `Earned ${dateLabel(got.earnedAt)}` : progress}${item.communityPercentage ? ` · ${item.communityPercentage} earned` : ''}</small></article>`; }).join('')}</section>`).join('');
   panel.innerHTML = `<button class="icon-close account-cabinet-back" aria-label="Back">×</button><section class="traveler-profile cabinet"><h2>Achievement cabinet</h2>${groups}</section>`;
   panel.querySelector('.account-cabinet-back').addEventListener('click', () => openTravelerProfile());
 }
+const IDENTITY_CATALOG = {
+  Titles: [['traveler', 'Traveler', 'Available now'], ['window-seat', 'Window Seat', 'Reach Level 2'], ['aisle-seat', 'Aisle Seat', 'Reach Level 2'], ['day-tripper', 'Day Tripper', 'Earn First Departure'], ['weekender', 'Weekender', 'Earn One Week Abroad'], ['globetrotter', 'Globetrotter', 'Earn No Fixed Address'], ['postmarked', 'Postmarked', 'Earn Postmarked'], ['sharp-eye', 'Sharp Eye', 'Earn Sharp Eye'], ['dead-reckoner', 'Dead Reckoner', 'Earn Perfect Itinerary'], ['border-crosser', 'Border Crosser', 'Earn Border Crosser'], ['early-explorer', 'Early Explorer', 'Earn Continental Breakfast'], ['frequent-flyer', 'Frequent Flyer', 'Earn Frequent Flyer']],
+  'Calling Cards': [['blue-horizon', 'Blue Horizon', 'Available now'], ['airmail', 'Airmail', 'Reach Level 5'], ['return-ticket', 'Return Ticket', 'Earn Return Ticket'], ['regular-route', 'Regular Route', 'Earn Regular Route'], ['seasoned-traveler', 'Seasoned Traveler', 'Earn Seasoned Traveler'], ['right-on-the-map', 'Right on the Map', 'Earn Right on the Map'], ['five-star-landing', 'Five-Star Landing', 'Earn Five-Star Landing'], ['high-flyer', 'High-Flyer', 'Earn High-Flyer'], ['worldly', 'Worldly', 'Earn Worldly'], ['around-the-world', 'Around the World', 'Earn Around the World']],
+};
 function renderCustomizer(profile) {
-  const panel = sheet.querySelector('.account-panel'); const draft = { ...profile.loadout.avatar }; let active = 'backdrop';
+  const panel = sheet.querySelector('.account-panel'); const draft = { ...profile.loadout.avatar }; const loadout = { ...profile.loadout }; let active = 'backdrop'; let kind = 'Avatar';
+  const earnedRewards = new Set(profile.achievements.map((achievement) => profile.achievementDefinitions.find((item) => item.id === achievement.id)?.reward).filter(Boolean));
+  const identityOwned = (type, id) => id === (type === 'title' ? 'traveler' : 'blue-horizon')
+    || (type === 'title' && ['window-seat', 'aisle-seat'].includes(id) && profile.level >= 2)
+    || (type === 'card' && id === 'airmail' && profile.level >= 5)
+    || earnedRewards.has(`${type}:${id}`);
   const redraw = () => {
-    const slots = Object.keys(draft); const options = AVATAR_CATALOG;
-    panel.innerHTML = `<button class="icon-close account-customize-back" aria-label="Back">×</button><section class="traveler-profile customizer"><h2>Customize avatar</h2><div class="customize-preview"></div><div class="avatar-tabs">${slots.map((slot) => `<button type="button" data-slot="${slot}" aria-pressed="${slot === active}">${slot.replace(/([A-Z])/g, ' $1')}</button>`).join('')}</div><div class="avatar-parts">${(options[active] || []).map((id) => `<button type="button" data-part="${id}" class="${draft[active] === id ? 'selected' : ''}"><span>${avatarName(id)}</span><small>${id === 'postmark' && profile.level < 10 ? 'Reach Level 10' : 'Owned'}</small></button>`).join('')}</div><button class="primary account-save-avatar" type="button">Save avatar</button></section>`;
-    panel.querySelector('.customize-preview').append(renderAvatar(draft, 160));
+    const slots = Object.keys(draft); const options = AVATAR_CATALOG; const choices = IDENTITY_CATALOG[kind] || [];
+    const type = kind === 'Titles' ? 'title' : 'card';
+    const content = kind === 'Avatar' ? `<div class="customize-preview"></div><div class="avatar-tabs">${slots.map((slot) => `<button type="button" data-slot="${slot}" aria-pressed="${slot === active}">${slot.replace(/([A-Z])/g, ' $1')}</button>`).join('')}</div><div class="avatar-parts">${(options[active] || []).map((id) => { const locked = id === 'postmark' && profile.level < 10; return `<button type="button" data-part="${id}" class="${draft[active] === id ? 'selected' : ''}" ${locked ? 'disabled' : ''}><span>${avatarName(id)}</span><small>${locked ? 'Reach Level 10' : 'Owned'}</small></button>`; }).join('')}</div>` : `<div class="avatar-parts">${choices.map(([id, name, condition]) => { const owned = identityOwned(type, id); return `<button type="button" data-identity="${id}" class="${loadout[kind === 'Titles' ? 'titleId' : 'cardId'] === id ? 'selected' : ''}" ${owned ? '' : 'disabled'}><span>${name}</span><small>${owned ? 'Owned' : condition}</small></button>`; }).join('')}</div>`;
+    panel.innerHTML = `<button class="icon-close account-customize-back" aria-label="Back">×</button><section class="traveler-profile customizer"><h2>Customize</h2><div class="customize-kind-tabs">${['Titles', 'Calling Cards', 'Avatar'].map((item) => `<button type="button" data-kind="${item}" aria-pressed="${kind === item}">${item}</button>`).join('')}</div>${content}<button class="primary account-save-avatar" type="button">Save ${kind === 'Avatar' ? 'avatar' : kind.toLowerCase()}</button></section>`;
+    panel.querySelector('.customize-preview')?.append(renderAvatar(draft, 160));
     panel.querySelector('.account-customize-back').addEventListener('click', () => openTravelerProfile());
+    panel.querySelectorAll('.customize-kind-tabs button').forEach((button) => button.addEventListener('click', () => { kind = button.dataset.kind; redraw(); }));
     panel.querySelectorAll('.avatar-tabs button').forEach((button) => button.addEventListener('click', () => { active = button.dataset.slot; redraw(); }));
     panel.querySelectorAll('.avatar-parts button').forEach((button) => button.addEventListener('click', () => { if (button.dataset.part === 'postmark' && profile.level < 10) return; draft[active] = button.dataset.part; redraw(); }));
-    panel.querySelector('.account-save-avatar').addEventListener('click', async () => { try { await friendApi('/v1/progression/loadout', { method: 'POST', body: { avatar: draft } }); await openTravelerProfile(); } catch (error) { status(error.code === 'UNOWNED_COSMETIC' ? 'That part is not unlocked.' : 'Could not save avatar.', true); } });
+    panel.querySelectorAll('[data-identity]').forEach((button) => button.addEventListener('click', () => { loadout[kind === 'Titles' ? 'titleId' : 'cardId'] = button.dataset.identity; redraw(); }));
+    panel.querySelector('.account-save-avatar').addEventListener('click', async () => { try { await friendApi('/v1/progression/loadout', { method: 'POST', body: { avatar: draft, titleId: loadout.titleId, cardId: loadout.cardId } }); await openTravelerProfile(); } catch (error) { status(error.code === 'UNOWNED_COSMETIC' ? 'That item is not unlocked.' : 'Could not save customization.', true); } });
   }; redraw();
 }
 
@@ -533,6 +547,11 @@ export async function openAccountSheet(trigger) {
     enableGoogle();
   } else if (!await showPendingInvite(session)) await loadFriends(session);
   sheet.querySelector('input, button')?.focus();
+}
+
+export async function openFriendProfile(friendId, trigger) {
+  await openAccountSheet(trigger);
+  await openTravelerProfile(friendId);
 }
 
 export function closeAccountSheet() {

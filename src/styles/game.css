@@ -185,13 +185,15 @@ button { font: inherit; }
 .account-friend-profile { min-width: 0; padding: 0; border: 0; background: none; color: var(--ink-hi); font: inherit; text-align: left; cursor: pointer; }
 .traveler-profile { color: #173e68; text-align: left; }
 .traveler-card { display: flex; align-items: center; gap: 15px; margin: -8px -4px 16px; padding: 18px; border-radius: 16px; background: #1e4e9c; color: #f6edd8; }
+.traveler-card[data-card="airmail"] { background-image: repeating-linear-gradient(135deg, transparent 0 11px, rgba(246,237,216,.18) 12px 14px); }.traveler-card[data-card]:not([data-card="blue-horizon"]):not([data-card="airmail"]) { background-image: radial-gradient(circle at 86% 20%, rgba(255,203,5,.82) 0 4px, transparent 5px), linear-gradient(120deg, #1e4e9c, #173e68); }
 .traveler-card h2 { margin: 0; color: #f6edd8; font-family: 'Luckiest Guy', Impact, sans-serif; font-size: 31px; letter-spacing: .02em; text-align: left; }
 .traveler-card p { margin: 3px 0 0; }.traveler-card .traveler-level { color: #ffcb05; font-family: 'Luckiest Guy', Impact, sans-serif; letter-spacing: .07em; }.traveler-card .traveler-xp { font-size: 12px; }
-.paper-atlas-avatar { display: inline-block; flex: none; overflow: hidden; border-radius: 50%; background: #f6edd8; }.paper-atlas-avatar svg { display: block; width: 100%; height: 100%; }
+.paper-atlas-avatar { position: relative; display: inline-block; flex: none; overflow: hidden; border-radius: 50%; background: #f6edd8; }.paper-atlas-layer { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 .traveler-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }.traveler-stats div { padding: 9px; border: 1px solid rgba(30,78,156,.2); border-radius: 10px; background: #f6edd8; }.traveler-stats strong,.traveler-stats span { display: block; }.traveler-stats strong { font-size: 18px; }.traveler-stats span { color: rgba(23,62,104,.76); font-size: 11px; }
 .traveler-section-head { display: flex; justify-content: space-between; align-items: baseline; margin-top: 18px; }.traveler-section-head h3,.cabinet h3 { margin: 0; text-transform: capitalize; }.traveler-achievements { margin: 8px 0; padding: 0; list-style: none; }.traveler-achievements li { padding: 9px 0; border-top: 1px solid rgba(30,78,156,.16); }.traveler-achievements strong,.traveler-achievements span { display: block; }.traveler-achievements span { font-size: 12px; color: rgba(23,62,104,.72); }.account-open-cabinet { margin: 5px 0 12px; color: #1e4e9c; font-weight: 800; }
 .cabinet-group { margin-top: 18px; }.cabinet-item { display: grid; gap: 3px; margin-top: 7px; padding: 10px; border-radius: 10px; background: #f6edd8; }.cabinet-item span,.cabinet-item small { font-size: 12px; }.cabinet-item.locked { opacity: .72; }.cabinet-item.earned { border-left: 4px solid #ffcb05; }
 .customizer h2,.cabinet h2 { color: #1e4e9c; font-family: 'Luckiest Guy', Impact, sans-serif; }.customize-preview { display: grid; place-items: center; margin: 8px 0; }.avatar-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; }.avatar-tabs button { flex: none; padding: 7px 9px; border: 1px solid #1e4e9c; border-radius: 999px; background: #f6edd8; color: #1e4e9c; font: inherit; font-size: 12px; }.avatar-tabs button[aria-pressed="true"] { background: #1e4e9c; color: #f6edd8; }.avatar-parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }.avatar-parts button { min-height: 72px; border: 1px solid rgba(30,78,156,.28); border-radius: 9px; background: #f6edd8; color: #173e68; font: inherit; }.avatar-parts button.selected { outline: 3px solid #ffcb05; }.avatar-parts span,.avatar-parts small { display: block; }.avatar-parts small { font-size: 10px; }.account-save-avatar { width: 100%; min-height: 46px; margin-top: 14px; }
+.customize-kind-tabs { display: flex; gap: 7px; margin-bottom: 10px; }.customize-kind-tabs button { flex: 1; min-height: 38px; border: 1px solid #1e4e9c; border-radius: 9px; background: #f6edd8; color: #1e4e9c; font: inherit; }.customize-kind-tabs button[aria-pressed="true"] { background: #1e4e9c; color: #f6edd8; }
 .account-copy { margin: 14px auto 22px; max-width: 310px; color: rgba(224,240,255,.76); font-size: var(--fs-base); line-height: 1.5; }
 .account-done { width: 100%; min-height: 50px; }
 .account-form .primary { width: 100%; }
@@ -371,6 +373,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .line-distance[hidden] { display: none; }
 .results-screen { box-sizing: border-box; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px); background: rgba(2,4,9,.42); pointer-events: auto; }
 .results-card { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; min-height: 100%; margin: auto; padding: 20px 14px 18px; border-radius: 24px; text-align: left; }
+.results-card[data-calling-card="airmail"] { background-image: repeating-linear-gradient(135deg, transparent 0 14px, rgba(246,237,216,.06) 15px 17px); }.results-card[data-calling-card]:not([data-calling-card="blue-horizon"]):not([data-calling-card="airmail"]) { background-image: radial-gradient(circle at 88% 7%, rgba(255,203,5,.28) 0 5px, transparent 6px), linear-gradient(120deg, rgba(30,78,156,.38), transparent 48%); }
 .results-card .icon-close, .survival-results-card .icon-close { position: absolute; top: 5px; right: 5px; }
 .postcard-summary-header { position: relative; padding: 3px 48px 15px 2px; }
 .postcard-summary-header .eyebrow { margin-bottom: 6px; }
@@ -1435,16 +1438,17 @@ body.game-review #hud { opacity: 0; }
 .friends-today-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 5px; color: var(--gold); font-size: var(--fs-small); font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .friends-today-count { color: rgba(var(--rgb-muted),.68); font-weight: 600; letter-spacing: 0; text-transform: none; }
 .friends-today-list { list-style: none; margin: 0; padding: 0; max-height: 145px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-.friend-total-row { display: flex; align-items: center; gap: 7px; padding: 2.5px 0; font-size: var(--fs-body); }
+.friend-total-row { display: flex; align-items: center; gap: 7px; min-height: 28px; padding: 2px 0; font-size: var(--fs-body); }
 .friend-total-row.you { margin: 0 -6px; padding: 2.5px 6px; border-radius: 10px; background: rgba(var(--rgb-gold),.14); }
 .friend-total-row .ft-rank { min-width: 20px; flex: none; color: rgba(var(--rgb-muted),.8); font-size: var(--fs-small); font-weight: 750; text-align: right; }
 .friend-total-row.you .ft-rank { color: var(--gold); }
 .ft-av { display: grid; place-items: center; width: 22px; height: 22px; flex: none; border-radius: 50%; background: #f3e7d3; color: #231a05; font-size: 11px; font-weight: 800; }
 .results-globe[hidden] { display: none; }
 .friend-total-row.you .ft-av { background: var(--gold); }
-.ft-name { font-weight: 650; }
+.ft-identity { display: flex; min-width: 0; flex: 1; align-items: center; gap: 5px; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }.ft-identity-copy { display: grid; min-width: 0; }.ft-name { overflow: hidden; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }.ft-title { overflow: hidden; color: rgba(var(--rgb-muted),.62); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }.ft-level { flex: none; color: rgba(var(--rgb-muted),.82); font-size: 11px; font-weight: 750; white-space: nowrap; }
 .ft-delta { margin-left: auto; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-small); }
 .ft-score { min-width: 52px; text-align: right; color: var(--gold); font-size: var(--fs-title); font-weight: 850; }
+@media (max-width: 370px) { .ft-title { display: none; } }
 .friends-today-link { display: block; margin: 7px auto 0; padding: 4px 6px; color: rgba(var(--rgb-gold),.92); font-size: var(--fs-small); font-weight: 700; }
 .friend-pop { position: absolute; left: 50%; bottom: calc(100% + 6px); z-index: 1; margin: 0; padding: 6px 12px; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 999px; background: rgba(5,12,29,.94); color: var(--ink-hi); font-size: var(--fs-small); font-weight: 700; white-space: nowrap; transform: translateX(-50%); pointer-events: none; }
 .friend-pop[hidden] { display: none; }

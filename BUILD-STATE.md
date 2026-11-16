@@ -177,3 +177,60 @@ but not applied to production D1.
 - WS6 cabinet: Consistency/Precision/Breadth only, no Collection/Social stubs (correct); community % omitted below threshold via the display helper. Gap: no numeric progress per achievement, only condition text.
 - WS7 Friends today compact identity: NOT DONE (lane admits). The results Friends today rows in src/modes/daily-game.js are unchanged (initial, name, delta, score; no avatar/title/Lv, no density rules, no identity tap-through). Only the account-sheet friends list gained a profile tap-through.
 - Exclusions held in the diff: no deploy, no prod D1 writes, no home-screen changes, no rarity/difficulty, no backfill.
+
+## UI completion pass (2026-11-16)
+
+1. **Paper Atlas assets — PARTIAL.** Added 49 standalone runtime SVGs under
+   `assets/avatar/`: all 48 Phase 1 selectable parts plus the level-10
+   Postmark frame. `src/account/avatar.js` now stacks those named files by
+   server-stored part ID in the required layer order; it no longer builds a
+   monolithic inline SVG. Static export checks passed: 49 SVGs, all use a
+   512 viewBox and namespaced IDs, and no SVG contains script, animation,
+   text, raster image, external reference, or embedded font. The runtime
+   assets are individually far below the specified byte caps.
+
+   | Section 9 Phase 1 production-gate rule | Result | Evidence / remaining issue |
+   | --- | --- | --- |
+   | Locked rig, palette, source template, sanitizer/export preset, manifest, naming, compact rule | **FAIL** | The checked-in runtime exports and static sanitizer check exist, but editable source masters, a versioned asset manifest/content hashes, and an approved export preset are not present in this worktree. |
+   | 48 defaults + linked layers + Postmark exported within budgets | **PASS** | `find assets/avatar -name '*.svg'` reports 49; exports are standalone sanitized SVG layers and are sub-kilobyte files. |
+   | Four reference-cast golden combinations reconstructed from catalog parts | **FAIL** | No browser renderer or golden-fixture/contact-sheet harness is available in this sandbox, and no prior golden fixtures exist to extend. |
+   | Compatibility matrix, review checklist, browser/size contact sheet | **FAIL** | No Chromium/WebKit/Firefox executables or image-review harness is installed; the required multi-browser visual proof cannot be produced truthfully here. |
+
+   Per the brief's stop-on-approximation rule, the art-QA item is banked as
+   partial rather than claiming production art approval. The remaining gate
+   is visual-production QA, not a client/server fallback.
+2. **Friends Today — DONE.** Results rows now render a 28px Paper Atlas
+   avatar, name, title, and `Lv N`; title truncates and is hidden under 370px
+   before level/score. The identity button opens the friend's profile, while
+   score remains non-interactive. The row has a 28px minimum, within the
+   requested approximately +8px growth.
+3. **Community refresh migration safety — DONE.** Both refresh and profile
+   reads first check `sqlite_master` for `achievement_community`, so an
+   unmigrated worker no-ops cleanly. Refresh remains in `processCompletion`,
+   not a scheduled job: each completion recomputes the same cache from
+   canonical records, so retries/two-device submissions are safe and
+   idempotent. Threshold/display behavior is unchanged.
+4. **Profile completion — DONE.** Own achievements use earned timestamp
+   descending order and show the three newest. Profile headers and the
+   existing results/share card take the equipped calling-card treatment; no
+   second results panel was added.
+5. **Cabinet progress — DONE.** Own cabinet rows show current/threshold
+   numeric progress for unearned items alongside condition, reward, earned
+   date, and any allowed community percentage. Friend profiles still omit
+   unearned cabinet progress.
+6. **Customize tabs — DONE.** Titles, Calling Cards, and Avatar tabs use the
+   existing loadout endpoint, preserve server-side ownership validation, and
+   disable locked choices while showing the plain approved condition.
+
+### Completion-pass verification
+
+- `node --check` passed for all edited JavaScript files.
+- Root suite available in this worktree: **18/18 pass** (`node --test
+  "test/*.mjs"`). The checkpoint's claimed 105-test root inventory is not
+  present in this checkout, so 105/105 cannot be rerun here.
+- Account worker direct suite excluding live-email: **7 checks total: 6 pass,
+  1 fail**, where the only failure remains the known unchanged og-image
+  assertion (`og-v3.png` expected, `og-v4.jpg` emitted). The canonical-round
+  completion test passes, including the former missing-community-table path.
+- No migration was applied, deployed, fetched, pushed, or used against
+  production D1.

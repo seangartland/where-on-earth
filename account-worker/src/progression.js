@@ -67,6 +67,10 @@ export function communityPercentage(eligible, earners) {
   return raw < 1 ? '<1%' : `${Math.round(raw)}%`;
 }
 async function refreshCommunityPercentages(env, now) {
+  // Migration 0006 can lag a worker deploy. Completion remains safe and the
+  // next completion refreshes the cache after the table exists.
+  const cache = await env.DB.prepare("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'achievement_community'").first();
+  if (!cache) return;
   // An account becomes eligible only after its first canonical Daily. That is
   // the first real opportunity under the no-backfill launch policy.
   const eligible = Number((await env.DB.prepare('SELECT COUNT(DISTINCT account_id) AS n FROM canonical_daily_completions').first())?.n || 0);
@@ -82,6 +86,21 @@ async function refreshCommunityPercentages(env, now) {
       .bind(id, eligible, earners, percentage, now);
   });
   if (statements.length) await env.DB.batch(statements);
+}
+async function communityPercentages(env) {
+  const cache = await env.DB.prepare("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'achievement_community'").first();
+  if (!cache) return new Map();
+  const rows = await env.DB.prepare('SELECT achievement_id, eligible_accounts, earners FROM achievement_community').all();
+  return new Map((rows.results || []).map((row) => [row.achievement_id, communityPercentage(Number(row.eligible_accounts), Number(row.earners))]));
+}
+function achievementProgress(id, s) {
+  const values = {
+    'first-departure': [s.dailies, 1, 'Dailies'], 'return-ticket': [s.bestStreak, 3, 'Day streak'], 'one-week-abroad': [s.bestStreak, 7, 'Day streak'], 'regular-route': [s.dailies, 25, 'Dailies'], 'no-fixed-address': [s.bestStreak, 30, 'Day streak'], 'seasoned-traveler': [s.dailies, 100, 'Dailies'],
+    postmarked: [s.postcards, 1, 'Postcards'], 'right-on-the-map': [s.bullseyes, 1, 'Bullseyes'], 'sharp-eye': [s.bullseyes, 10, 'Bullseyes'], 'five-star-landing': [s.fiveStar, 1, 'Five-star Dailies'], 'perfect-itinerary': [s.perfect, 1, 'Perfect Dailies'], 'high-flyer': [s.highFlyers, 10, 'High-score Dailies'],
+    'new-stamp': [s.countries, 5, 'Countries'], 'border-crosser': [s.countries, 25, 'Countries'], worldly: [s.countries, 50, 'Countries'], 'continental-breakfast': [s.continents, 3, 'Continents'], 'around-the-world': [s.continents, s.representedContinents, 'Continents'], 'frequent-flyer': [s.multiCountryDailies, 10, 'Multi-country Dailies'],
+  };
+  const [current, target, label] = values[id] || [0, 0, 'Progress'];
+  return { current, target, label };
 }
 async function stats(env, accountId) {
   const completions = (await env.DB.prepare('SELECT daily_date, total_score FROM canonical_daily_completions WHERE account_id = ? ORDER BY daily_date').bind(accountId).all()).results || [];
@@ -112,6 +131,6 @@ export async function progressionProfile(env, accountId) {
   const loadout = await env.DB.prepare('SELECT title_id, card_id, avatar_json FROM profile_loadouts WHERE account_id = ?').bind(accountId).first();
   const account = await env.DB.prepare('SELECT display_name FROM profiles WHERE account_id = ?').bind(accountId).first();
   const achievements = (await env.DB.prepare('SELECT achievement_id, earned_at FROM user_achievements WHERE account_id = ? ORDER BY earned_at DESC').bind(accountId).all()).results || [];
-  const community = new Map(((await env.DB.prepare('SELECT achievement_id, eligible_accounts, earners, percentage FROM achievement_community').all()).results || []).map((row) => [row.achievement_id, communityPercentage(Number(row.eligible_accounts), Number(row.earners))]));
-  return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar: loadout ? JSON.parse(loadout.avatar_json) : DEFAULT_AVATAR }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
+  const community = await communityPercentages(env);
+  return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar: loadout ? JSON.parse(loadout.avatar_json) : DEFAULT_AVATAR }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }
