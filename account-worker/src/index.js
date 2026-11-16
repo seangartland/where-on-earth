@@ -287,7 +287,9 @@ export default {
       return inviteLandingPage(env, decodeURIComponent(url.pathname.slice('/v1/friends/invite/'.length)));
     }
     if (url.pathname === '/v1/friends' || url.pathname.startsWith('/v1/friends/')
-      || url.pathname === '/v1/daily/guesses' || url.pathname === '/v1/daily/friends') {
+      || url.pathname === '/v1/daily/guesses' || url.pathname === '/v1/daily/friends'
+      || url.pathname === '/v1/progression' || url.pathname === '/v1/progression/friend'
+      || url.pathname === '/v1/progression/loadout') {
       const response = await handleFriends(request, env, auth);
       for (const [key, value] of Object.entries(cors(request))) response.headers.set(key, value);
       return response;

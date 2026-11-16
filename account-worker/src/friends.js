@@ -1,5 +1,6 @@
 import { dailyManifest } from './daily.js';
 import { scoreGuess } from './daily-score.js';
+import { DEFAULT_AVATAR, ownsIdentity, processCompletion, progressionProfile, validateAvatar } from './progression.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
@@ -379,6 +380,9 @@ async function submitGuess(request, env, id) {
       .bind(now, id, input.date));
   }
   if (statements.length) await env.DB.batch(statements);
+  // This is intentionally after the canonical completion insert.  Every write
+  // below is keyed by account/date, so retries and a second device are safe.
+  if (canonical) await processCompletion(env, id, input.date, now);
   if (!validLegacyGuess(input)) return json({ canonical: Boolean(canonical) });
   const stored = await env.DB.prepare(`SELECT date, slot, location_id, lat, lng, submitted_at
     FROM daily_guesses WHERE account_id = ? AND date = ? AND location_id = ?`)
@@ -391,6 +395,43 @@ async function submitGuess(request, env, id) {
     return json({ code: 'GUESS_LOCKED', ...output }, 409);
   }
   return json(output);
+}
+
+async function getProgression(request, env, id) {
+  return json(await progressionProfile(env, id));
+}
+
+async function getFriendProgression(request, env, id) {
+  const friendId = new URL(request.url).searchParams.get('friendId') || '';
+  const relation = await env.DB.prepare('SELECT 1 FROM friendships WHERE account_id = ? AND friend_id = ?')
+    .bind(id, friendId).first();
+  if (!relation) return json({ code: 'NOT_FOUND' }, 404);
+  const profile = await progressionProfile(env, friendId);
+  // XP progress is private; friend profiles receive the same authoritative
+  // identity/stats but never an exact XP-derived progress value.
+  delete profile.xpToNext;
+  return json(profile);
+}
+
+async function updateLoadout(request, env, id) {
+  const input = await body(request);
+  if (!input || typeof input !== 'object') return json({ code: 'INVALID_LOADOUT' }, 400);
+  const profile = await progressionProfile(env, id);
+  const earned = new Set(profile.achievements.flatMap(({ id }) => {
+    const definition = profile.achievementDefinitions.find((item) => item.id === id);
+    return definition?.reward ? [definition.reward] : [];
+  }));
+  const titleId = input.titleId || profile.loadout.titleId;
+  const cardId = input.cardId || profile.loadout.cardId;
+  const avatar = validateAvatar(input.avatar || profile.loadout.avatar, profile.level);
+  if (typeof titleId !== 'string' || typeof cardId !== 'string' || !avatar
+    || !ownsIdentity('title', titleId, profile.level, earned)
+    || !ownsIdentity('card', cardId, profile.level, earned)) return json({ code: 'UNOWNED_COSMETIC' }, 403);
+  await env.DB.prepare(`INSERT INTO profile_loadouts (account_id, title_id, card_id, avatar_json, updated_at)
+    VALUES (?, ?, ?, ?, ?) ON CONFLICT(account_id) DO UPDATE SET title_id = excluded.title_id,
+    card_id = excluded.card_id, avatar_json = excluded.avatar_json, updated_at = excluded.updated_at`)
+    .bind(id, titleId, cardId, JSON.stringify(avatar || DEFAULT_AVATAR), Date.now()).run();
+  return json({ loadout: { titleId, cardId, avatar } });
 }
 
 async function getDailyFriends(request, env, id) {
@@ -411,5 +452,8 @@ export async function handleFriends(request, env, auth) {
   if (pathname === '/v1/friends/remove' && request.method === 'POST') return removeFriend(request, env, id);
   if (pathname === '/v1/daily/guesses' && request.method === 'POST') return submitGuess(request, env, id);
   if (pathname === '/v1/daily/friends' && request.method === 'GET') return getDailyFriends(request, env, id);
+  if (pathname === '/v1/progression' && request.method === 'GET') return getProgression(request, env, id);
+  if (pathname === '/v1/progression/friend' && request.method === 'GET') return getFriendProgression(request, env, id);
+  if (pathname === '/v1/progression/loadout' && request.method === 'POST') return updateLoadout(request, env, id);
   return json({ code: 'NOT_FOUND' }, 404);
 }

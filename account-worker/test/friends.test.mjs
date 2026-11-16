@@ -59,6 +59,7 @@ async function fixture(t) {
   await DB.exec(readFileSync(new URL('../migrations/0002_auth_exchange.sql', import.meta.url), 'utf8'));
   await DB.exec(readFileSync(new URL('../migrations/0003_friends.sql', import.meta.url), 'utf8'));
   await DB.exec(readFileSync(new URL('../migrations/0004_daily_trust.sql', import.meta.url), 'utf8'));
+  await DB.exec(readFileSync(new URL('../migrations/0005_traveler_progression.sql', import.meta.url), 'utf8'));
   return { DB };
 }
 

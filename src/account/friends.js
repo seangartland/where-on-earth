@@ -95,3 +95,15 @@ export function acceptInvite(token) {
 export function removeFriend(friendId) {
   return request('/v1/friends/remove', { method: 'POST', body: { friendId } });
 }
+
+export function progression() {
+  return request('/v1/progression');
+}
+
+export function friendProgression(friendId) {
+  return request(`/v1/progression/friend?${new URLSearchParams({ friendId })}`);
+}
+
+export function updateLoadout(loadout) {
+  return request('/v1/progression/loadout', { method: 'POST', body: loadout });
+}

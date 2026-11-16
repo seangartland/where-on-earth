@@ -255,6 +255,7 @@ export function showResults() {
   const total = state.daily.results.reduce((sum, result) => sum + result.score, 0);
   gameEls.total.textContent = total.toLocaleString();
   gameEls.resultStreak.textContent = `${streak} day streak`;
+  syncTravelerXp();
   gameEls.resultsBreakdown.replaceChildren(...state.daily.results.map((result, i) => {
     const round = document.createElement('li');
     const number = document.createElement('b');
@@ -285,6 +286,18 @@ export function showResults() {
   tickCountdown();
   syncSignedOutNudge();
   syncFriendsToday(total);
+}
+
+async function syncTravelerXp() {
+  const line = document.getElementById('traveler-xp');
+  if (!line || !ACCOUNTS_ENABLED || !isSignedIn()) { if (line) line.hidden = true; return; }
+  try {
+    const { progression } = await import('../account/friends.js');
+    const profile = await progression();
+    if (!profile) return;
+    line.textContent = `Traveler ${profile.level} · ${profile.xpToNext} XP to next level`;
+    line.hidden = false;
+  } catch { line.hidden = true; }
 }
 
 // The Friends today card on the results screen: a true leaderboard of

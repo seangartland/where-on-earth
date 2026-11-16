@@ -2,8 +2,13 @@
 
 ## Status
 
-- **Phase 0 — blocked at trust-foundation discovery (2026-11-15).** No
-  user-facing progression code has shipped, and Phases 1–2 have not started.
+- **Phase 0 — complete.** The trust foundation landed as `77dd515`; its
+  canonical Daily rows are the only progression input.
+- **Phases 1–2 — resumption implementation in this worktree (2026-11-16).**
+  Migration `0005_traveler_progression.sql` adds an immutable, idempotent XP
+  ledger, achievement ownership, and server-owned loadouts.  No migration was
+  applied to D1.  The sandbox cannot write `.git`, so Muse must bank this
+  checkpoint.
 - **Local commit is blocked by sandbox permissions.** The worktree is writable,
   but `.git` is read-only (`index.lock` cannot be created); Muse must stage and
   commit this checkpoint before banking it. This sandbox also has no network
@@ -66,11 +71,33 @@ but not applied to production D1.
 
 ## Remaining work
 
-- Finish Phase 0 after the authoritative Daily source is supplied.
-- Then implement and test Phase 1 (Daily-only ledger/profile/loadout/avatar
-  starter kit) and Phase 2 (the 18 Existing-derived achievements). None of
-  that work has been started to avoid shipping a progression system based on
-  untrusted client data.
+- Wire the authenticated progression endpoints into the full profile/cabinet
+  and Paper Atlas builder surfaces.  The server contract, validation, and
+  compact results XP line are present; this checkpoint does not yet contain
+  the full visual profile/cabinet or the 48 SVG art assets.
+- Do not add retroactive grants: Sean waived historic Daily XP and no legacy
+  rows are promotable. Profiles must keep the friendly zero state supplied by
+  the endpoint (`level: 1`, zero stats), not a missing-history label.
+- Keep the noted client UTC-date alignment as follow-on work.
+
+## Progression resumption verification (2026-11-16)
+
+- `progression.js` calculates the Daily-only ledger entries from a completed
+  canonical five-round row: 100 completion XP, score XP capped at 50,
+  postcards capped at 25, and bullseyes capped at 15.  Keys include the UTC
+  Daily date and `INSERT OR IGNORE` makes retries/two devices idempotent.
+- It derives levels from the published curve (no mutable level column),
+  server-derived stats, the 18 consistency/precision/breadth achievements,
+  and validates loadout ownership.  Practice/PvP and legacy rows have no path
+  into this code.  Pack/collection/social progression remains excluded.
+- Added unit coverage for level thresholds, XP caps and strict 24.999/25 and
+  149.999/150 semantics through the scoring predicates, and avatar config
+  validation/Postmark's level-10 gate. Existing trust tests retain manifest,
+  canonical completion, and scoring boundary coverage.
+- `node --check` passed for every edited JS module. Account-worker tests pass
+  except the pre-existing invite-image assertion: the test expects
+  `og-v3.png`, while unchanged worker code emits `og-v4.jpg`. Root tests were
+  not rerun after that worker-suite failure in the combined command.
 
 ## Trust-foundation implementation (2026-11-15)
 
