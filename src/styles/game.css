@@ -180,7 +180,7 @@ button { font: inherit; }
 .account-sheet { z-index: var(--z-modal); display: flex; box-sizing: border-box; overflow: auto; align-items: flex-end; padding: 54px 14px calc(env(safe-area-inset-bottom, 0px) + 14px); background: rgba(2,4,9,.78); pointer-events: auto; scrollbar-color: rgba(var(--rgb-gold),.55) transparent; }
 .account-sheet[hidden] { display: none; }
 .account-panel.settings-card { min-height: 0; max-width: 440px; padding: 30px 20px 24px; overflow: hidden; text-align: center; }
-.account-panel[data-view="account"], .account-panel[data-view="profile"], .account-panel[data-view="cabinet"], .account-panel[data-view="customize"] { position: relative; border-color: rgba(101,78,38,.3); background: var(--mail-paper); box-shadow: 0 18px 60px rgba(0,0,0,.52), inset 0 0 0 1px rgba(255,255,255,.42); color: var(--mail-ink); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.account-panel[data-view="account"], .account-panel[data-view="profile"], .account-panel[data-view="cabinet"], .account-panel[data-view="customize"] { --mail-paper: linear-gradient(165deg, #101a30, #0a0f1e); --mail-ink: #f5fbff; --mail-ink-2: rgba(207,230,255,.78); --mail-gold: #ffc76a; --mail-stamp: #16233f; --mail-ring: 2px solid rgba(157,211,255,.35); position: relative; border-color: rgba(var(--rgb-line),.28); background: var(--mail-paper); box-shadow: 0 18px 60px rgba(0,0,0,.52), inset 0 0 0 1px rgba(var(--rgb-line),.1); color: var(--mail-ink); backdrop-filter: none; -webkit-backdrop-filter: none; }
 .account-panel[data-view]:not([data-view="auth"]) .icon-close { color: var(--mail-ink); }
 .account-panel h2 { margin-top: 4px; font-size: 26px; }
 .account-panel[data-view="account"] .eyebrow { color: rgba(52,72,96,.62); }
@@ -1633,8 +1633,39 @@ body.expedition-mode .round-meta span:first-child { color: var(--gold); }
   }
 }
 
-/* Check-back contrast fixes (2026-11-16): the cabinet link inherits the
-   muted .text-button color, which washes out on the paper sheet, and the
-   profile back button sits on the navy calling card, not on paper. */
-.account-panel[data-view="profile"] .traveler-actions .account-open-cabinet.text-button { color: #1e4e9c; border: 1px solid rgba(30,78,156,.32); background: rgba(255,253,246,.55); text-decoration: none; }
-.account-panel[data-view="profile"] .account-profile-back.icon-close { color: #f6edd8; }
+/* Account progression surfaces use the app's dark system while preserving
+   the calling card and seal artwork as their navy and gold anchors. */
+.account-panel[data-view="account"] .eyebrow { color: rgba(var(--rgb-muted),.74); }
+.account-panel[data-view="account"] #account-title, .account-panel[data-view="cabinet"] .cabinet h2, .account-panel[data-view="customize"] .customizer h2 { color: var(--ink-hi); }
+.account-panel[data-view="account"] .account-friends, .account-panel[data-view="account"] .account-friends-list, .account-panel[data-view="account"] .account-friend { border-color: rgba(var(--rgb-line),.18); }
+.account-panel[data-view="account"] .account-friends h3, .account-panel[data-view="account"] .account-name-form label, .account-panel[data-view="account"] .account-share-row strong { color: var(--ink-hi); }
+.account-panel[data-view="account"] .account-inline-edit input { border-color: rgba(var(--rgb-line),.3); background: #0d1526; color: var(--ink-hi); }
+.account-panel[data-view="account"] .account-inline-edit .text-button, .account-panel[data-view="account"] .account-friend, .account-panel[data-view="account"] .account-status { color: var(--ink-body); }
+.account-panel[data-view="account"] .account-share-row { border-color: rgba(var(--rgb-line),.24); background: rgba(var(--rgb-line),.08); }
+.account-panel[data-view="account"] .account-share-row small, .account-panel[data-view="account"] .account-small-print, .account-panel[data-view="account"] .account-signout { color: var(--mail-ink-2); }
+.account-panel[data-view="account"] .primary, .account-panel[data-view="profile"] .primary, .account-panel[data-view="customize"] .primary, .account-panel[data-view="account"] .account-done { border: 1px solid rgba(var(--rgb-line),.36); background: #16233f; color: var(--ink-btn); box-shadow: 0 8px 22px rgba(0,0,0,.25); }
+.account-panel[data-view="profile"] .traveler-profile, .account-panel[data-view="cabinet"] .traveler-profile, .account-panel[data-view="customize"] .traveler-profile { color: var(--ink-body); }
+.account-panel[data-view="profile"] .traveler-stats { border-color: rgba(var(--rgb-line),.25); }
+.account-panel[data-view="profile"] .traveler-stats div + div, .account-panel[data-view="profile"] .traveler-stats div:nth-child(n+4), .account-panel[data-view="profile"] .traveler-achievements, .account-panel[data-view="profile"] .traveler-achievements li { border-color: rgba(var(--rgb-line),.18); }
+.account-panel[data-view="profile"] .traveler-stats strong { color: var(--ink-hi); }
+.account-panel[data-view="profile"] .traveler-stats span, .account-panel[data-view="profile"] .traveler-achievements span { color: rgba(var(--rgb-muted),.78); }
+.account-panel[data-view="profile"] .traveler-section-head > span, .account-panel[data-view="cabinet"] .cabinet-group-head > span { color: var(--gold); }
+.account-panel[data-view="profile"] .traveler-achievements i, .account-panel[data-view="cabinet"] .cabinet-item i { border-color: rgba(var(--rgb-line),.48); }
+.account-panel[data-view="profile"] .traveler-achievements .earned i, .account-panel[data-view="cabinet"] .cabinet-item.earned i { border-color: var(--mail-gold); }
+.account-panel[data-view="profile"] .traveler-actions .account-open-cabinet.text-button { border: 1px solid rgba(var(--rgb-line),.36); background: #16233f; color: var(--ink-btn); text-decoration: none; }
+.account-panel[data-view="profile"] .account-profile-back.icon-close, .account-panel[data-view="cabinet"] .account-cabinet-back.icon-close, .account-panel[data-view="customize"] .account-customize-back.icon-close { color: var(--ink-hi); }
+.account-panel[data-view="cabinet"] .cabinet-group-head { border-color: rgba(var(--rgb-line),.5); }
+.account-panel[data-view="cabinet"] .cabinet-item { border-color: rgba(var(--rgb-line),.18); }
+.account-panel[data-view="cabinet"] .cabinet-item strong { color: var(--ink-hi); }
+.account-panel[data-view="cabinet"] .cabinet-item span, .account-panel[data-view="cabinet"] .cabinet-item small { color: rgba(var(--rgb-muted),.78); }
+.account-panel[data-view="customize"] .customize-kind-tabs { border-color: rgba(var(--rgb-line),.28); }
+.account-panel[data-view="customize"] .customize-kind-tabs button { color: rgba(var(--rgb-muted),.78); }
+.account-panel[data-view="customize"] .customize-kind-tabs button[aria-pressed="true"] { border-color: var(--gold); color: var(--ink-hi); }
+.account-panel[data-view="customize"] .customize-preview { background: repeating-linear-gradient(135deg, rgba(var(--rgb-line),.1) 0 12px, transparent 12px 24px); }
+.account-panel[data-view="customize"] .customize-preview .paper-atlas-avatar { filter: drop-shadow(0 7px 9px rgba(0,0,0,.42)); }
+.account-panel[data-view="customize"] .seal-initials, .account-panel[data-view="customize"] .seal-section { color: var(--ink-body); }
+.account-panel[data-view="customize"] .seal-initials input { border-color: rgba(var(--rgb-line),.38); background: #0d1526; color: var(--ink-hi); }
+.account-panel[data-view="customize"] .seal-initials input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(var(--rgb-gold),.16); }
+.account-panel[data-view="customize"] .seal-motifs button, .account-panel[data-view="customize"] .avatar-parts button { border-color: rgba(var(--rgb-line),.25); background: #0d1526; color: var(--ink-hi); }
+.account-panel[data-view="customize"] .seal-motifs button.selected, .account-panel[data-view="customize"] .avatar-parts button.selected { border-color: var(--gold); box-shadow: inset 0 -4px var(--gold); }
+.account-panel[data-view="customize"] .seal-motifs small, .account-panel[data-view="customize"] .avatar-parts small { color: rgba(var(--rgb-muted),.72); }

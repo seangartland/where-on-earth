@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 
 const ROOT = new URL('../', import.meta.url).pathname;
-const OUT = new URL(process.env.SEAL_SHOTS ? '../shots-seal/' : './', import.meta.url).pathname;
+const OUT = new URL(process.env.DARK_SHOTS ? '../shots-dark/' : process.env.SEAL_SHOTS ? '../shots-seal/' : './', import.meta.url).pathname;
 const variant = process.argv[2];
 if (!['before', 'after'].includes(variant)) throw new Error('Pass before or after');
 
