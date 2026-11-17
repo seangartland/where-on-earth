@@ -177,23 +177,91 @@ button { font: inherit; }
 .settings-account strong { display: block; }
 .settings-account small { display: block; margin-top: 3px; color: rgba(220,239,255,.62); font-size: var(--fs-small); }
 .settings-account-action { min-width: 82px; min-height: 40px; padding: 0 14px; border: 1px solid rgba(var(--rgb-line),.25); border-radius: 999px; background: rgba(119,202,255,.16); color: var(--ink-alt); font-weight: 800; }
-.account-sheet { z-index: var(--z-modal); display: flex; box-sizing: border-box; overflow: auto; align-items: flex-end; padding: 80px 14px calc(env(safe-area-inset-bottom, 0px) + 14px); background: rgba(2,4,9,.74); pointer-events: auto; }
+.account-sheet { z-index: var(--z-modal); display: flex; box-sizing: border-box; overflow: auto; align-items: flex-end; padding: 54px 14px calc(env(safe-area-inset-bottom, 0px) + 14px); background: rgba(2,4,9,.78); pointer-events: auto; scrollbar-color: rgba(var(--rgb-gold),.55) transparent; }
 .account-sheet[hidden] { display: none; }
-.account-panel.settings-card { min-height: 0; max-width: 440px; padding: 30px 20px 24px; text-align: center; }
+.account-panel.settings-card { min-height: 0; max-width: 440px; padding: 30px 20px 24px; overflow: hidden; text-align: center; }
+.account-panel[data-view="account"], .account-panel[data-view="profile"], .account-panel[data-view="cabinet"], .account-panel[data-view="customize"] { position: relative; border-color: rgba(101,78,38,.3); background: var(--mail-paper); box-shadow: 0 18px 60px rgba(0,0,0,.52), inset 0 0 0 1px rgba(255,255,255,.42); color: var(--mail-ink); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.account-panel[data-view]:not([data-view="auth"]) .icon-close { color: var(--mail-ink); }
 .account-panel h2 { margin-top: 4px; font-size: 26px; }
-.account-open-profile { width: 100%; min-height: 46px; margin-bottom: 14px; }
-.account-friend-profile { min-width: 0; padding: 0; border: 0; background: none; color: var(--ink-hi); font: inherit; text-align: left; cursor: pointer; }
+.account-panel[data-view="account"] .eyebrow { color: rgba(52,72,96,.62); }
+.account-panel[data-view="account"] #account-title { color: #1e4e9c; font-family: 'Luckiest Guy', 'Arial Black', sans-serif; letter-spacing: .02em; }
+.account-panel[data-view="account"] .account-copy { color: var(--mail-ink-2); }
+.account-open-profile { width: 100%; min-height: 48px; margin-bottom: 18px; }
+.account-friend-profile { min-width: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: 800; text-align: left; cursor: pointer; text-underline-offset: 3px; }
 .traveler-profile { color: #173e68; text-align: left; }
-.traveler-card { display: flex; align-items: center; gap: 15px; margin: -8px -4px 16px; padding: 18px; border-radius: 16px; background: #1e4e9c; color: #f6edd8; }
-.traveler-card[data-card="airmail"] { background-image: repeating-linear-gradient(135deg, transparent 0 11px, rgba(246,237,216,.18) 12px 14px); }.traveler-card[data-card]:not([data-card="blue-horizon"]):not([data-card="airmail"]) { background-image: radial-gradient(circle at 86% 20%, rgba(255,203,5,.82) 0 4px, transparent 5px), linear-gradient(120deg, #1e4e9c, #173e68); }
-.traveler-card h2 { margin: 0; color: #f6edd8; font-family: 'Luckiest Guy', Impact, sans-serif; font-size: 31px; letter-spacing: .02em; text-align: left; }
-.traveler-card p { margin: 3px 0 0; }.traveler-card .traveler-level { color: #ffcb05; font-family: 'Luckiest Guy', Impact, sans-serif; letter-spacing: .07em; }.traveler-card .traveler-xp { font-size: 12px; }
-.paper-atlas-avatar { position: relative; display: inline-block; flex: none; overflow: hidden; border-radius: 50%; background: #f6edd8; }.paper-atlas-layer { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
-.traveler-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }.traveler-stats div { padding: 9px; border: 1px solid rgba(30,78,156,.2); border-radius: 10px; background: #f6edd8; }.traveler-stats strong,.traveler-stats span { display: block; }.traveler-stats strong { font-size: 18px; }.traveler-stats span { color: rgba(23,62,104,.76); font-size: 11px; }
-.traveler-section-head { display: flex; justify-content: space-between; align-items: baseline; margin-top: 18px; }.traveler-section-head h3,.cabinet h3 { margin: 0; text-transform: capitalize; }.traveler-achievements { margin: 8px 0; padding: 0; list-style: none; }.traveler-achievements li { padding: 9px 0; border-top: 1px solid rgba(30,78,156,.16); }.traveler-achievements strong,.traveler-achievements span { display: block; }.traveler-achievements span { font-size: 12px; color: rgba(23,62,104,.72); }.account-open-cabinet { margin: 5px 0 12px; color: #1e4e9c; font-weight: 800; }
-.cabinet-group { margin-top: 18px; }.cabinet-item { display: grid; gap: 3px; margin-top: 7px; padding: 10px; border-radius: 10px; background: #f6edd8; }.cabinet-item span,.cabinet-item small { font-size: 12px; }.cabinet-item.locked { opacity: .72; }.cabinet-item.earned { border-left: 4px solid #ffcb05; }
-.customizer h2,.cabinet h2 { color: #1e4e9c; font-family: 'Luckiest Guy', Impact, sans-serif; }.customize-preview { display: grid; place-items: center; margin: 8px 0; }.avatar-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; }.avatar-tabs button { flex: none; padding: 7px 9px; border: 1px solid #1e4e9c; border-radius: 999px; background: #f6edd8; color: #1e4e9c; font: inherit; font-size: 12px; }.avatar-tabs button[aria-pressed="true"] { background: #1e4e9c; color: #f6edd8; }.avatar-parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }.avatar-parts button { min-height: 72px; border: 1px solid rgba(30,78,156,.28); border-radius: 9px; background: #f6edd8; color: #173e68; font: inherit; }.avatar-parts button.selected { outline: 3px solid #ffcb05; }.avatar-parts span,.avatar-parts small { display: block; }.avatar-parts small { font-size: 10px; }.account-save-avatar { width: 100%; min-height: 46px; margin-top: 14px; }
-.customize-kind-tabs { display: flex; gap: 7px; margin-bottom: 10px; }.customize-kind-tabs button { flex: 1; min-height: 38px; border: 1px solid #1e4e9c; border-radius: 9px; background: #f6edd8; color: #1e4e9c; font: inherit; }.customize-kind-tabs button[aria-pressed="true"] { background: #1e4e9c; color: #f6edd8; }
+.traveler-card { position: relative; display: flex; align-items: center; gap: 16px; margin: -8px -4px 18px; padding: 20px 18px; overflow: hidden; border-radius: 6px; background: #1e4e9c; color: #f6edd8; box-shadow: 0 7px 18px rgba(23,62,104,.28); }
+.traveler-card::after { position: absolute; right: -20px; bottom: -28px; width: 92px; height: 92px; border: 2px solid rgba(246,237,216,.18); border-radius: 50%; content: ''; }
+.traveler-card[data-card="airmail"] { background-image: repeating-linear-gradient(135deg, transparent 0 14px, rgba(246,237,216,.12) 14px 16px); }
+.traveler-card[data-card]:not([data-card="blue-horizon"]):not([data-card="airmail"]) { background-image: linear-gradient(120deg, #1e4e9c, #173e68); }
+.traveler-identity { position: relative; z-index: 1; flex: 1; min-width: 0; }
+.traveler-card h2 { margin: 1px 0 0; overflow: hidden; color: #f6edd8; font-family: 'Luckiest Guy', 'Arial Black', sans-serif; font-size: 30px; letter-spacing: .02em; line-height: 1; text-align: left; text-overflow: ellipsis; white-space: nowrap; }
+.traveler-card p { margin: 4px 0 0; }
+.traveler-card .traveler-level { color: #ffcb05; font-size: var(--fs-caption); font-weight: 900; letter-spacing: .13em; }
+.traveler-title { color: rgba(246,237,216,.86); font-size: var(--fs-body); font-weight: 750; }
+.traveler-card .traveler-xp { margin-top: 5px; color: rgba(246,237,216,.78); font-size: var(--fs-caption); text-align: left; }
+.traveler-progress { height: 5px; margin-top: 12px; overflow: hidden; border-radius: 3px; background: rgba(246,237,216,.22); }
+.traveler-progress span { display: block; height: 100%; border-radius: inherit; background: #ffcb05; }
+.paper-atlas-avatar { position: relative; z-index: 1; display: inline-block; flex: none; overflow: hidden; border: 4px solid #f6edd8; border-radius: 50%; background: #f6edd8; box-shadow: 0 3px 10px rgba(5,12,29,.35); }
+.paper-atlas-layer { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.traveler-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 22px; border-block: 1px solid rgba(30,78,156,.2); }
+.traveler-stats div { min-width: 0; padding: 11px 7px; text-align: center; }
+.traveler-stats div + div { border-left: 1px solid rgba(30,78,156,.16); }
+.traveler-stats div:nth-child(4) { border-left: 0; }
+.traveler-stats div:nth-child(n+4) { border-top: 1px solid rgba(30,78,156,.16); }
+.traveler-stats strong,.traveler-stats span { display: block; }
+.traveler-stats strong { color: #1e4e9c; font-size: 18px; font-variant-numeric: tabular-nums; }
+.traveler-stats span { margin-top: 2px; color: rgba(23,62,104,.76); font-size: 10px; line-height: 1.2; }
+.traveler-stats div:last-child { grid-column: span 3; }
+.traveler-section-head, .cabinet-group-head { display: flex; justify-content: space-between; align-items: baseline; }
+.traveler-section-head h3,.cabinet h3 { margin: 0; text-transform: capitalize; }
+.traveler-section-head > span, .cabinet-group-head > span { color: #1e4e9c; font-size: var(--fs-caption); font-weight: 850; font-variant-numeric: tabular-nums; }
+.traveler-achievements { margin: 7px 0 0; padding: 0; border-bottom: 1px solid rgba(30,78,156,.16); list-style: none; }
+.traveler-achievements li, .cabinet-item { display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 10px; align-items: center; padding: 11px 0; border-top: 1px solid rgba(30,78,156,.16); }
+.traveler-achievements i, .cabinet-item i { position: relative; display: grid; place-items: center; width: 30px; height: 30px; border: 1px dashed rgba(30,78,156,.38); border-radius: 50%; }
+.traveler-achievements .earned i, .cabinet-item.earned i { border-style: solid; border-color: #b27c20; background: #ffcb05; }
+.traveler-achievements .earned i::after, .cabinet-item.earned i::after { width: 11px; height: 8px; background: #173e68; clip-path: polygon(0 35%, 38% 68%, 100% 0, 100% 30%, 38% 100%, 0 65%); content: ''; }
+.traveler-achievements strong,.traveler-achievements span { display: block; }
+.traveler-achievements span { margin-top: 2px; color: rgba(23,62,104,.72); font-size: 12px; line-height: 1.35; }
+.traveler-actions { display: grid; grid-template-columns: 1fr 1.3fr; gap: 8px; margin-top: 14px; }
+.account-open-cabinet { min-height: 46px; margin: 0; border: 1px solid rgba(30,78,156,.32); border-radius: 999px; color: #1e4e9c; font-weight: 800; }
+.traveler-actions .account-customize { min-height: 46px; }
+.cabinet h2, .customizer h2 { margin: 0 42px 20px 0; color: #1e4e9c; font-family: 'Luckiest Guy', 'Arial Black', sans-serif; letter-spacing: .02em; }
+.cabinet-group { margin-top: 24px; }
+.cabinet-group-head { padding-bottom: 7px; border-bottom: 2px solid #1e4e9c; }
+.cabinet-item { margin: 0; }
+.cabinet-item > div { display: grid; gap: 3px; }
+.cabinet-item strong { color: #173e68; }
+.cabinet-item span,.cabinet-item small { color: rgba(23,62,104,.74); font-size: 11px; line-height: 1.35; }
+.cabinet-item small { color: #875f18; font-weight: 750; }
+.cabinet-item.locked { opacity: .62; }
+.customize-kind-tabs { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 16px; border-bottom: 1px solid rgba(30,78,156,.25); }
+.customize-kind-tabs button { min-height: 44px; padding: 0 4px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: rgba(23,62,104,.7); font: inherit; font-size: var(--fs-small); font-weight: 800; }
+.customize-kind-tabs button[aria-pressed="true"] { border-color: #1e4e9c; color: #1e4e9c; }
+.avatar-builder { display: grid; grid-template-columns: 100px minmax(0,1fr); gap: 10px 12px; align-items: start; }
+.customize-preview { position: sticky; top: 0; display: grid; grid-column: 1 / -1; place-items: center; min-height: 182px; margin: 0 -20px 4px; background: repeating-linear-gradient(135deg, rgba(30,78,156,.06) 0 12px, transparent 12px 24px); }
+.customize-preview .paper-atlas-avatar { border-width: 5px; box-shadow: 0 7px 18px rgba(23,62,104,.24); }
+.avatar-tabs { display: flex; flex-direction: column; gap: 2px; }
+.avatar-tabs button { min-height: 38px; padding: 6px 9px; border: 0; border-radius: 4px; background: transparent; color: rgba(23,62,104,.72); font: inherit; font-size: 11px; font-weight: 750; text-align: left; text-transform: capitalize; }
+.avatar-tabs button[aria-pressed="true"] { background: #1e4e9c; color: #f6edd8; }
+.avatar-parts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; }
+.avatar-parts button { position: relative; min-height: 70px; padding: 9px 6px; border: 1px solid rgba(30,78,156,.22); border-radius: 5px; background: rgba(255,253,246,.72); color: #173e68; font: inherit; }
+.avatar-parts button.selected { border-color: #b27c20; box-shadow: inset 0 -4px #ffcb05; }
+.avatar-parts button:disabled { opacity: .5; }
+.avatar-parts span,.avatar-parts small { display: block; }
+.avatar-parts span { font-size: var(--fs-small); font-weight: 800; }
+.avatar-parts small { margin-top: 4px; color: rgba(23,62,104,.65); font-size: 9px; line-height: 1.2; }
+.identity-parts { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.identity-parts button { min-height: 86px; }
+.account-save-avatar { width: 100%; min-height: 48px; margin-top: 16px; }
+.account-panel[data-view="account"] .account-friends { border-color: rgba(30,78,156,.18); }
+.account-panel[data-view="account"] .account-friends h3, .account-panel[data-view="account"] .account-name-form label, .account-panel[data-view="account"] .account-share-row strong { color: var(--mail-ink); }
+.account-panel[data-view="account"] .account-inline-edit input { border-color: rgba(30,78,156,.26); background: rgba(255,253,246,.72); color: var(--mail-ink); }
+.account-panel[data-view="account"] .account-inline-edit .text-button, .account-panel[data-view="account"] .account-friend { color: #1e4e9c; }
+.account-panel[data-view="account"] .account-friends-list, .account-panel[data-view="account"] .account-friend { border-color: rgba(30,78,156,.16); }
+.account-panel[data-view="account"] .account-share-row { border-color: rgba(30,78,156,.2); border-radius: 6px; background: rgba(30,78,156,.06); }
+.account-panel[data-view="account"] .account-share-row small, .account-panel[data-view="account"] .account-small-print { color: var(--mail-ink-2); }
+.account-panel[data-view="account"] .account-signout { color: rgba(52,72,96,.68); }
+.account-panel[data-view="account"] .account-status { color: #1e4e9c; }
 .account-copy { margin: 14px auto 22px; max-width: 310px; color: rgba(224,240,255,.76); font-size: var(--fs-base); line-height: 1.5; }
 .account-done { width: 100%; min-height: 50px; }
 .account-form .primary { width: 100%; }
@@ -397,7 +465,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .result-score b { font-family: 'Luckiest Guy', 'Arial Black', sans-serif; color: #F6EDD8; font-size: 38px; line-height: 1; -webkit-text-stroke: 1.3px #1E4E9C; text-shadow: 0 2px 0 #1E4E9C, 0 4px 10px rgba(0,0,0,.45); }
 .result-score span { font-size: var(--fs-caption); }
 .results-card .streak { margin: 0 0 10px; text-align: center; }
-.traveler-xp { margin: 0 0 10px; color: var(--gold); font-size: var(--fs-small); font-weight: 750; text-align: center; }
+.results-card > .traveler-xp { width: fit-content; margin: 0 auto 12px; padding: 6px 11px; border: 1px solid rgba(var(--rgb-gold),.32); border-radius: 999px; background: rgba(var(--rgb-gold),.08); color: var(--gold); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .02em; text-align: center; font-variant-numeric: tabular-nums; }
 .round-breakdown { margin: 16px 0 10px; }
 .round-breakdown h2, .survival-results-card .round-breakdown h2 { margin: 0 0 6px; color: rgba(var(--rgb-mist),.58); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
 #results-breakdown, .pvp-breakdown, #run-results-breakdown { margin: 0; padding: 0; list-style: none; }
@@ -1554,3 +1622,9 @@ body.expedition-mode .round-meta span:first-child { color: var(--gold); }
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   }
 }
+
+/* Check-back contrast fixes (2026-11-16): the cabinet link inherits the
+   muted .text-button color, which washes out on the paper sheet, and the
+   profile back button sits on the navy calling card, not on paper. */
+.account-panel[data-view="profile"] .traveler-actions .account-open-cabinet.text-button { color: #1e4e9c; border: 1px solid rgba(30,78,156,.32); background: rgba(255,253,246,.55); text-decoration: none; }
+.account-panel[data-view="profile"] .account-profile-back.icon-close { color: #f6edd8; }
