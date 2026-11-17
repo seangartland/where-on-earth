@@ -476,6 +476,35 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .result-score span { font-size: var(--fs-caption); }
 .results-card .streak { margin: 0 0 10px; text-align: center; }
 .results-card > .traveler-xp { width: fit-content; margin: 0 auto 12px; padding: 6px 11px; border: 1px solid rgba(var(--rgb-gold),.32); border-radius: 999px; background: rgba(var(--rgb-gold),.08); color: var(--gold); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .02em; text-align: center; font-variant-numeric: tabular-nums; }
+.xp-bar { display: flex; align-items: center; gap: 9px; color: var(--ink-hi); text-align: left; }
+.xp-bar-copy { flex: 1; min-width: 0; }
+.xp-bar-seal { display: grid; flex: none; place-items: center; width: 30px; height: 30px; }
+.xp-bar-top, .xp-bar-bottom { display: flex; justify-content: space-between; gap: 8px; font-size: 10px; line-height: 1.3; }
+.xp-bar-top b { color: var(--gold); font-size: 10px; letter-spacing: .1em; }
+.xp-bar-top span, .xp-bar-bottom { color: var(--ink-body); }
+.xp-bar-track { position: relative; height: 7px; margin: 5px 0; overflow: hidden; border: 1px solid rgba(var(--rgb-line),.45); border-radius: 999px; background: #111a30; }
+.xp-bar-fill, .xp-bar-earned { position: absolute; top: 0; bottom: 0; display: block; }
+.xp-bar-fill { left: 0; background: #b27c20; transition: width .65s ease; }
+.xp-bar-earned { background: #ffc76a; animation: xp-earned .65s ease both; }
+.xp-bar-bottom { font-size: 9px; }
+.xp-bar-compact { margin: 8px 14px 0; padding: 7px 0; border-block: 1px solid rgba(var(--rgb-line),.2); }
+.xp-bar-compact .xp-bar-top span { font-size: 9px; }
+.profile-xp { margin: -8px 0 18px; padding: 11px 12px; border: 1px solid rgba(var(--rgb-line),.26); border-radius: 8px; background: #111a30; }
+.profile-xp > p { margin: 8px 0 0; color: var(--ink-body); font-size: 11px; }
+.level-strip { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.level-strip i { position: relative; display: grid; place-items: center; width: 19px; height: 19px; border: 1px solid rgba(var(--rgb-line),.55); border-radius: 50%; color: var(--ink-body); font-size: 8px; font-style: normal; }
+.level-strip i:not(:last-child)::after { position: absolute; left: 18px; width: calc((100vw - 170px) / 9); max-width: 25px; height: 2px; background: rgba(var(--rgb-line),.42); content: ''; }
+.level-strip i.complete { border-color: #1e4e9c; background: #1e4e9c; color: #fff; }
+.level-strip i.complete:not(:last-child)::after { background: #1e4e9c; }
+.level-strip i.current { border: 2px solid var(--gold); color: var(--gold); box-shadow: 0 0 0 2px rgba(255,199,106,.16); }
+.level-strip i.silver { border-color: #e8ecf0; }.level-strip i.gold { border-color: #ffc76a; }
+.xp-award { box-sizing: border-box; width: 100% !important; max-width: 370px; padding: 13px !important; border-radius: 10px !important; text-align: left !important; }
+.xp-award > strong { display: block; color: #ffc76a; font-size: 23px; }
+.xp-award-breakdown { display: grid; gap: 3px; margin: 7px 0 10px; color: var(--ink-body); font-size: 11px; }
+.xp-award-breakdown span { display: flex; justify-content: space-between; }.xp-award-breakdown b { color: var(--ink-hi); }
+.level-up-card { display: flex; gap: 11px; margin-top: 13px; padding-top: 12px; border-top: 1px solid rgba(var(--rgb-line),.25); }
+.level-up-card > div:last-child { display: grid; gap: 3px; }.level-up-card b { color: #ffc76a; letter-spacing: .12em; }.level-up-card strong { color: var(--ink-hi); }.level-up-card span { color: var(--ink-body); font-weight: 500; }.level-up-card .text-button { justify-self: start; color: #ffc76a; }
+@keyframes xp-earned { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); transform-origin: left; } }
 .round-breakdown { margin: 16px 0 10px; }
 .round-breakdown h2, .survival-results-card .round-breakdown h2 { margin: 0 0 6px; color: rgba(var(--rgb-mist),.58); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
 #results-breakdown, .pvp-breakdown, #run-results-breakdown { margin: 0; padding: 0; list-style: none; }

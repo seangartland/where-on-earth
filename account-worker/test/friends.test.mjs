@@ -317,11 +317,13 @@ test('canonical rounds ignore client totals and complete once five manifest slot
   await addUser(env, 'a');
   const date = dateOffset(0);
   const ids = manifestIds(date, canonicalLocations);
+  let final;
   for (let slot = 0; slot < 5; slot += 1) {
     const result = await post(env, 'a', '/v1/daily/guesses', {
       ...guess(date, slot, ids[slot], 0, 0), distanceKm: 0, score: 1000,
     });
     assert.equal(result.status, 200);
+    if (slot === 4) final = result;
   }
   const rounds = await env.DB.prepare(`SELECT slot, location_id, distance_km, score
     FROM canonical_daily_rounds WHERE account_id = ? AND daily_date = ? ORDER BY slot`).bind('a', date).all();
@@ -330,6 +332,13 @@ test('canonical rounds ignore client totals and complete once five manifest slot
   const completion = await env.DB.prepare(`SELECT total_score FROM canonical_daily_completions
     WHERE account_id = ? AND daily_date = ?`).bind('a', date).first();
   assert.equal(completion.total_score, rounds.results.reduce((total, round) => total + round.score, 0));
+  assert.deepEqual(Object.keys(final.body.progressionAward).sort(), ['base', 'bullseyes', 'levelAfter', 'levelBefore', 'postcards', 'score', 'total', 'xpAfter', 'xpBefore']);
+  const award = final.body.progressionAward;
+  assert.equal(award.total, award.base + award.score + award.postcards + award.bullseyes);
+  assert.equal(award.total, award.xpAfter - award.xpBefore);
+  const profile = await get(env, 'a', '/v1/progression');
+  assert.equal(profile.body.totalXp, award.xpAfter);
+  assert.equal(profile.body.xpIntoLevel + profile.body.xpToNext, profile.body.levelSpan);
   await post(env, 'a', '/v1/daily/guesses', guess(date, 0, ids[0], 80, 80));
   assert.equal((await env.DB.prepare(`SELECT COUNT(*) AS n FROM canonical_daily_completions
     WHERE account_id = ? AND daily_date = ?`).bind('a', date).first()).n, 1);

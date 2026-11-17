@@ -388,7 +388,7 @@ async function submitGuess(request, env, id) {
   if (statements.length) await env.DB.batch(statements);
   // This is intentionally after the canonical completion insert.  Every write
   // below is keyed by account/date, so retries and a second device are safe.
-  if (canonical) await processCompletion(env, id, input.date, now);
+  const progressionAward = canonical ? await processCompletion(env, id, input.date, now) : null;
   if (!validLegacyGuess(input)) return json({ canonical: Boolean(canonical) });
   const stored = await env.DB.prepare(`SELECT date, slot, location_id, lat, lng, submitted_at
     FROM daily_guesses WHERE account_id = ? AND date = ? AND location_id = ?`)
@@ -396,7 +396,7 @@ async function submitGuess(request, env, id) {
   if (!stored) return json({ code: 'SLOT_CONFLICT' }, 409);
   const location = (await pins(env, id, input.date, input.locationId))[input.locationId];
   const friends = location?.friends || [];
-  const output = { stored: storedShape(stored), friends };
+  const output = { stored: storedShape(stored), friends, ...(progressionAward ? { progressionAward } : {}) };
   if (stored.slot !== input.slot || stored.lat !== lat || stored.lng !== lng) {
     return json({ code: 'GUESS_LOCKED', ...output }, 409);
   }

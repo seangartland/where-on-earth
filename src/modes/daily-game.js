@@ -292,10 +292,23 @@ async function syncTravelerXp() {
   const line = document.getElementById('traveler-xp');
   if (!line || !ACCOUNTS_ENABLED || !isSignedIn()) { if (line) line.hidden = true; return; }
   try {
-    const { progression } = await import('../account/friends.js');
+    const { progression, progressionAwardFor } = await import('../account/friends.js');
     const profile = await progression();
     if (!profile) return;
-    line.textContent = `Traveler ${profile.level} · ${profile.xpToNext} XP to next level`;
+    const award = progressionAwardFor(state.daily?.date);
+    if (award) {
+      const { renderXpBar, unlocksBetween } = await import('../account/progression-view.mjs');
+      const rows = [['Daily completed', award.base], ['Score bonus', award.score], ['Postcards earned', award.postcards], ['Bullseyes', award.bullseyes]].filter(([label, amount], index) => index === 0 || amount);
+      line.className = 'traveler-xp xp-award';
+      line.innerHTML = `<strong>+${award.total} XP</strong><div class="xp-award-breakdown">${rows.map(([label, amount]) => `<span>${label}<b>+${amount}</b></span>`).join('')}</div>${renderXpBar(profile, { awarded: award })}${award.levelAfter > award.levelBefore ? `<section class="level-up-card"><div class="level-up-seal"></div><div><b>LEVEL UP!</b><strong>You reached Level ${award.levelAfter}</strong>${unlocksBetween(award.levelBefore, award.levelAfter).map((unlock) => `<span>${unlock.detail}</span>`).join('')}<button type="button" class="text-button level-up-dismiss">Keep going</button></div></section>` : ''}`;
+      const seal = line.querySelector('.level-up-seal');
+      if (seal) { const { renderAvatar } = await import('../account/avatar.js'); seal.append(renderAvatar(profile.loadout.avatar, 52, false, { name: profile.displayName, level: award.levelAfter })); }
+      line.querySelector('.level-up-dismiss')?.addEventListener('click', () => line.querySelector('.level-up-card')?.remove());
+    } else {
+      line.className = 'traveler-xp';
+      line.textContent = `Traveler ${profile.level} · ${profile.xpToNext} XP to next level`;
+      window.addEventListener('daily-progression-award', () => syncTravelerXp(), { once: true });
+    }
     const card = gameEls.results.querySelector('.results-card');
     if (card) card.dataset.callingCard = profile.loadout.cardId;
     line.hidden = false;

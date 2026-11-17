@@ -15,6 +15,10 @@ import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
 import { PASSPORT_PACKS, passportPackSections, packCardNumberMap, formatPackCardNumber } from './passport-packs.js';
 import { playPackPlacement } from './pack-placement.js';
 import { focalObjectPosition } from '../core/focal.js';
+import { ACCOUNTS_ENABLED } from '../core/config.js';
+import { isSignedIn } from '../account/session.js';
+import { progression } from '../account/friends.js';
+import { renderXpBar } from '../account/progression-view.mjs';
 
 let host = null;
 const PASSPORT_STAMPS = 5; // recent photo stamps
@@ -1261,6 +1265,7 @@ export function initPassportHome(main) {
   passportBox.setAttribute('aria-label', 'Open your passport');
   passportBox.innerHTML = `
   <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places<span class="passport-earned" data-passport="earned"></span></p>
+  <div class="passport-xp" data-passport="xp" hidden></div>
   <div class="passport-stamps" data-passport="stamps"></div>
   <span class="passport-cue" aria-hidden="true">Passport ›</span>
   <span class="passport-postmark" aria-hidden="true"><span class="postmark-text" data-passport="postmark"></span></span>`;
@@ -1284,7 +1289,15 @@ export function initPassportHome(main) {
     earned: passportBox.querySelector('[data-passport="earned"]'),
     postmark: passportBox.querySelector('[data-passport="postmark"]'),
     stamps: passportBox.querySelector('[data-passport="stamps"]'),
+    xp: passportBox.querySelector('[data-passport="xp"]'),
   };
+  if (ACCOUNTS_ENABLED && isSignedIn()) {
+    progression().then((profile) => {
+      if (!profile || !passportEls?.xp) return;
+      passportEls.xp.innerHTML = renderXpBar(profile, { compact: true });
+      passportEls.xp.hidden = false;
+    }).catch(() => {});
+  }
 }
 
 export function initPassport(main) {

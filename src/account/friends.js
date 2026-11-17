@@ -5,6 +5,7 @@ import { accountApi } from './api.js';
 import { isSignedIn, readAccountSession } from './session.js';
 
 const dailyPins = new Map();
+const progressionAwards = new Map();
 
 function sessionToken() {
   if (!ACCOUNTS_ENABLED || !isSignedIn()) return null;
@@ -24,11 +25,17 @@ function rememberSubmission(date, locationId, response) {
     friends: response.friends || [],
   };
   dailyPins.set(date, existing);
+  if (response.progressionAward) {
+    progressionAwards.set(date, response.progressionAward);
+    window.dispatchEvent(new CustomEvent('daily-progression-award', { detail: { date, award: response.progressionAward } }));
+  }
   window.dispatchEvent(new CustomEvent('daily-friend-pins', {
     detail: { date, locationId, ...existing.locations[locationId], stored: response.stored },
   }));
   return response;
 }
+
+export function progressionAwardFor(date) { return progressionAwards.get(date) || null; }
 
 export function cachedFriendPins(date) {
   return dailyPins.get(date) || null;

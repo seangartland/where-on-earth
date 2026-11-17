@@ -28,7 +28,9 @@ export const ACHIEVEMENTS = Object.freeze([
 export function xpForCompletion(total, rounds) {
   const postcards = rounds.filter((r) => isPostcard(r.distance_km)).length;
   const bullseyes = rounds.filter((r) => isBullseye(r.distance_km, r.score)).length;
-  return { completion: 100, score: Math.min(50, Math.floor(total / 100)), postcards: Math.min(25, postcards * 5), bullseyes: Math.min(15, bullseyes * 3) };
+  const base = 100; const score = Math.min(50, Math.floor(total / 100));
+  const postcardXp = Math.min(25, postcards * 5); const bullseyeXp = Math.min(15, bullseyes * 3);
+  return { base, score, postcards: postcardXp, bullseyes: bullseyeXp, total: base + score + postcardXp + bullseyeXp };
 }
 export function levelForXp(xp) { let level = 1; let remaining = Math.max(0, xp); while (remaining >= 100 + 20 * (level - 1)) { remaining -= 100 + 20 * (level - 1); level += 1; } return level; }
 export function xpAtLevel(level) { return level <= 1 ? 0 : (level - 1) * (100 + 10 * (level - 2)); }
@@ -90,11 +92,15 @@ export async function processCompletion(env, accountId, date, now = Date.now()) 
   const rounds = (await env.DB.prepare('SELECT distance_km, score FROM canonical_daily_rounds WHERE account_id = ? AND daily_date = ?').bind(accountId, date).all()).results || [];
   if (rounds.length !== 5) return null;
   const awards = xpForCompletion(completion.total_score, rounds);
-  await env.DB.batch(Object.entries(awards).map(([sourceType, amount]) => env.DB.prepare('INSERT OR IGNORE INTO xp_ledger (account_id, source_type, source_key, amount, created_at) VALUES (?, ?, ?, ?, ?)').bind(accountId, sourceType, `daily:${date}:${sourceType}`, amount, now)));
+  const xpBefore = Number((await env.DB.prepare('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?').bind(accountId).first())?.xp || 0);
+  const ledger = { completion: awards.base, score: awards.score, postcards: awards.postcards, bullseyes: awards.bullseyes };
+  await env.DB.batch(Object.entries(ledger).map(([sourceType, amount]) => env.DB.prepare('INSERT OR IGNORE INTO xp_ledger (account_id, source_type, source_key, amount, created_at) VALUES (?, ?, ?, ?, ?)').bind(accountId, sourceType, `daily:${date}:${sourceType}`, amount, now)));
+  const xpAfter = Number((await env.DB.prepare('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?').bind(accountId).first())?.xp || 0);
   const snapshot = await stats(env, accountId);
   const statements = ACHIEVEMENTS.filter(([, , , , , condition]) => condition(snapshot)).map(([id]) => env.DB.prepare('INSERT OR IGNORE INTO user_achievements (account_id, achievement_id, earned_at, qualifying_key) VALUES (?, ?, ?, ?)').bind(accountId, id, now, `daily:${date}`));
   if (statements.length) await env.DB.batch(statements);
-  return awards;
+  if (xpAfter === xpBefore) return null;
+  return { ...awards, xpBefore, xpAfter, levelBefore: levelForXp(xpBefore), levelAfter: levelForXp(xpAfter) };
 }
 export async function progressionProfile(env, accountId) {
   const xp = Number((await env.DB.prepare('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?').bind(accountId).first())?.xp || 0);
@@ -107,5 +113,6 @@ export async function progressionProfile(env, accountId) {
   const achievements = (await env.DB.prepare('SELECT achievement_id, earned_at FROM user_achievements WHERE account_id = ? ORDER BY earned_at DESC').bind(accountId).all()).results || [];
   const community = await communityPercentages(env);
   const avatar = normalizeSeal(loadout?.avatar_json, new Set(achievements.map(({ achievement_id }) => achievement_id)));
-  return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
+  const xpIntoLevel = xp - xpAtLevel(level); const levelSpan = 100 + 20 * (level - 1);
+  return { displayName: account?.display_name || 'Traveler', level, totalXp: xp, xpIntoLevel, levelSpan, xpToNext: levelSpan - xpIntoLevel, stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }
