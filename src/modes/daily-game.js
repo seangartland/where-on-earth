@@ -290,6 +290,7 @@ export function showResults() {
 
 async function syncTravelerXp() {
   const line = document.getElementById('traveler-xp');
+  gameEls.results.querySelector('.level-up-overlay')?.remove();
   if (!line || !ACCOUNTS_ENABLED || !isSignedIn()) { if (line) line.hidden = true; return; }
   try {
     const { progression, progressionAwardFor } = await import('../account/friends.js');
@@ -300,10 +301,27 @@ async function syncTravelerXp() {
       const { renderXpBar, unlocksBetween } = await import('../account/progression-view.mjs');
       const rows = [['Daily completed', award.base], ['Score bonus', award.score], ['Postcards earned', award.postcards], ['Bullseyes', award.bullseyes]].filter(([label, amount], index) => index === 0 || amount);
       line.className = 'traveler-xp xp-award';
-      line.innerHTML = `<strong>+${award.total} XP</strong><div class="xp-award-breakdown">${rows.map(([label, amount]) => `<span>${label}<b>+${amount}</b></span>`).join('')}</div>${renderXpBar(profile, { awarded: award })}${award.levelAfter > award.levelBefore ? `<section class="level-up-card"><div class="level-up-seal"></div><div><b>LEVEL UP!</b><strong>You reached Level ${award.levelAfter}</strong>${unlocksBetween(award.levelBefore, award.levelAfter).map((unlock) => `<span>${unlock.detail}</span>`).join('')}<button type="button" class="text-button level-up-dismiss">Keep going</button></div></section>` : ''}`;
-      const seal = line.querySelector('.level-up-seal');
-      if (seal) { const { renderAvatar } = await import('../account/avatar.js'); seal.append(renderAvatar(profile.loadout.avatar, 52, false, { name: profile.displayName, level: award.levelAfter })); }
-      line.querySelector('.level-up-dismiss')?.addEventListener('click', () => line.querySelector('.level-up-card')?.remove());
+      line.innerHTML = `<button type="button" class="xp-award-toggle" aria-expanded="false" aria-label="Show XP award details"><strong>+${award.total} XP</strong>${renderXpBar(profile, { awarded: award, compact: true })}<span class="xp-award-next">${profile.xpToNext} to Level ${profile.level + 1}</span><span class="xp-award-chevron" aria-hidden="true">⌄</span></button><div class="xp-award-breakdown" hidden>${rows.map(([label, amount]) => `<span>${label}<b>+${amount}</b></span>`).join('')}</div>`;
+      const toggle = line.querySelector('.xp-award-toggle');
+      const breakdown = line.querySelector('.xp-award-breakdown');
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') !== 'true';
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.setAttribute('aria-label', `${expanded ? 'Hide' : 'Show'} XP award details`);
+        toggle.classList.toggle('is-expanded', expanded);
+        breakdown.hidden = !expanded;
+      });
+      if (award.levelAfter > award.levelBefore) {
+        const overlay = document.createElement('section');
+        overlay.className = 'level-up-overlay';
+        overlay.innerHTML = `<button type="button" class="level-up-scrim" aria-label="Dismiss level up"></button><article class="level-up-card" role="dialog" aria-modal="true" aria-labelledby="level-up-title"><div class="level-up-seal"></div><div><b>LEVEL UP!</b><strong id="level-up-title">You reached Level ${award.levelAfter}</strong>${unlocksBetween(award.levelBefore, award.levelAfter).map((unlock) => `<span>${unlock.detail}</span>`).join('')}<button type="button" class="text-button level-up-dismiss">Keep going</button></div></article>`;
+        const { renderAvatar } = await import('../account/avatar.js');
+        overlay.querySelector('.level-up-seal').append(renderAvatar(profile.loadout.avatar, 52, false, { name: profile.displayName, level: award.levelAfter }));
+        const dismiss = () => overlay.remove();
+        overlay.querySelector('.level-up-scrim').addEventListener('click', dismiss);
+        overlay.querySelector('.level-up-dismiss').addEventListener('click', dismiss);
+        gameEls.results.append(overlay);
+      }
     } else {
       line.className = 'traveler-xp';
       line.textContent = `Traveler ${profile.level} · ${profile.xpToNext} XP to next level`;

@@ -91,6 +91,9 @@ if (process.env.PROG_SHOTS) {
   });
   await page.waitForSelector('.xp-award');
   await page.screenshot({ path: `${OUT}${variant}-results-award.png`, fullPage: false });
+  await page.locator('.xp-award-toggle').click();
+  await page.waitForSelector('.xp-award-breakdown:not([hidden])');
+  await page.screenshot({ path: `${OUT}${variant}-results-award-expanded.png`, fullPage: false });
   // The level-up state needs a fresh page: the real game never submits
   // guesses after the results screen opens, and a submission made after
   // showResults() returns null in this flow.
