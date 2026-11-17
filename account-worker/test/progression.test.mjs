@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { communityPercentage, communityPercentages, levelForXp, ownsIdentity, validateAvatar, xpAtLevel, xpForCompletion } from '../src/progression.js';
+import { communityPercentage, communityPercentages, levelForXp, ownsIdentity, validateSeal, xpAtLevel, xpForCompletion } from '../src/progression.js';
 import { scoreForDistance } from '../src/daily-score.js';
 
 test('Daily XP uses canonical performance caps and the published level curve', () => {
@@ -24,10 +24,12 @@ test('level-two title ownership allows only the saved choice until level five', 
   assert.equal(ownsIdentity('title', 'aisle-seat', 5, earned, 'window-seat'), true);
 });
 
-test('avatar config accepts only the starter kit and gates Postmark at level 10', () => {
-  assert.equal(validateAvatar({ frame: 'postmark' }, 9), null);
-  assert.equal(validateAvatar({ frame: 'postmark' }, 10).frame, 'postmark');
-  assert.equal(validateAvatar({ eyes: 'not-a-part' }, 10), null);
+test('seal config validates discs, earned motifs, initials, and rejects legacy avatars', () => {
+  assert.deepEqual(validateSeal({ v: 2, initials: 'm', disc: 'burgundy', motif: 'plane' }, new Set(['frequent-flyer'])), { v: 2, initials: 'M', disc: 'burgundy', motif: 'plane' });
+  assert.equal(validateSeal({ disc: 'violet' }, new Set()), null);
+  assert.equal(validateSeal({ motif: 'plane' }, new Set()), null);
+  assert.equal(validateSeal({ initials: '123' }, new Set()), null);
+  assert.equal(validateSeal({ backdrop: 'atlas-navy' }, new Set()), null);
 });
 
 test('community percentages keep small cohorts and zero earners private', () => {

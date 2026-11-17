@@ -201,8 +201,8 @@ button { font: inherit; }
 .traveler-card .traveler-xp { margin-top: 5px; color: rgba(246,237,216,.78); font-size: var(--fs-caption); text-align: left; }
 .traveler-progress { height: 5px; margin-top: 12px; overflow: hidden; border-radius: 3px; background: rgba(246,237,216,.22); }
 .traveler-progress span { display: block; height: 100%; border-radius: inherit; background: #ffcb05; }
-.paper-atlas-avatar { position: relative; z-index: 1; display: inline-block; flex: none; overflow: hidden; border: 4px solid #f6edd8; border-radius: 50%; background: #f6edd8; box-shadow: 0 3px 10px rgba(5,12,29,.35); }
-.paper-atlas-layer { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.paper-atlas-avatar { position: relative; z-index: 1; display: inline-block; flex: none; border-radius: 50%; filter: drop-shadow(0 3px 5px rgba(5,12,29,.35)); }
+.paper-atlas-avatar svg { display: block; width: 100%; height: 100%; }
 .traveler-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 22px; border-block: 1px solid rgba(30,78,156,.2); }
 .traveler-stats div { min-width: 0; padding: 11px 7px; text-align: center; }
 .traveler-stats div + div { border-left: 1px solid rgba(30,78,156,.16); }
@@ -237,12 +237,22 @@ button { font: inherit; }
 .customize-kind-tabs { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 16px; border-bottom: 1px solid rgba(30,78,156,.25); }
 .customize-kind-tabs button { min-height: 44px; padding: 0 4px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: rgba(23,62,104,.7); font: inherit; font-size: var(--fs-small); font-weight: 800; }
 .customize-kind-tabs button[aria-pressed="true"] { border-color: #1e4e9c; color: #1e4e9c; }
-.avatar-builder { display: grid; grid-template-columns: 100px minmax(0,1fr); gap: 10px 12px; align-items: start; }
+.seal-builder { display: grid; gap: 14px; }
 .customize-preview { position: sticky; top: 0; display: grid; grid-column: 1 / -1; place-items: center; min-height: 182px; margin: 0 -20px 4px; background: repeating-linear-gradient(135deg, rgba(30,78,156,.06) 0 12px, transparent 12px 24px); }
-.customize-preview .paper-atlas-avatar { border-width: 5px; box-shadow: 0 7px 18px rgba(23,62,104,.24); }
-.avatar-tabs { display: flex; flex-direction: column; gap: 2px; }
-.avatar-tabs button { min-height: 38px; padding: 6px 9px; border: 0; border-radius: 4px; background: transparent; color: rgba(23,62,104,.72); font: inherit; font-size: 11px; font-weight: 750; text-align: left; text-transform: capitalize; }
-.avatar-tabs button[aria-pressed="true"] { background: #1e4e9c; color: #f6edd8; }
+.customize-preview .paper-atlas-avatar { filter: drop-shadow(0 7px 9px rgba(23,62,104,.24)); }
+.seal-initials { display: grid; gap: 5px; color: #173e68; font-size: var(--fs-small); font-weight: 800; }
+.seal-initials input { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid rgba(30,78,156,.3); border-radius: 5px; background: rgba(255,253,246,.72); color: #173e68; font: inherit; font-size: 18px; font-weight: 800; text-transform: uppercase; }
+.seal-section { display: grid; gap: 8px; color: #173e68; font-size: var(--fs-small); }
+.seal-swatches { display: flex; gap: 10px; }
+.seal-swatches button { width: 38px; height: 38px; padding: 0; border: 3px solid transparent; border-radius: 50%; background: var(--seal-disc); box-shadow: inset 0 0 0 1px rgba(255,255,255,.35); }
+.seal-swatches button.selected { border-color: #ffc76a; box-shadow: 0 0 0 2px #8a5a16; }
+.seal-motifs { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; }
+.seal-motifs button { min-height: 64px; padding: 8px 6px; border: 1px solid rgba(30,78,156,.22); border-radius: 5px; background: rgba(255,253,246,.72); color: #173e68; font: inherit; }
+.seal-motifs button.selected { border-color: #b27c20; box-shadow: inset 0 -4px #ffcb05; }
+.seal-motifs button:disabled { opacity: .5; }
+.seal-motifs span,.seal-motifs small { display: block; }
+.seal-motifs span { font-size: var(--fs-small); font-weight: 800; }
+.seal-motifs small { margin-top: 4px; color: rgba(23,62,104,.65); font-size: 9px; line-height: 1.2; }
 .avatar-parts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; }
 .avatar-parts button { position: relative; min-height: 70px; padding: 9px 6px; border: 1px solid rgba(30,78,156,.22); border-radius: 5px; background: rgba(255,253,246,.72); color: #173e68; font: inherit; }
 .avatar-parts button.selected { border-color: #b27c20; box-shadow: inset 0 -4px #ffcb05; }

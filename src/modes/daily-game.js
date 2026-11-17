@@ -339,7 +339,7 @@ async function syncFriendsToday(total) {
       const identity = identities.get(entry.you ? 'you' : entry.friendId);
       const rk = Object.assign(document.createElement('span'), { className: 'ft-rank', textContent: `${entry.rank}.` });
       const identityButton = Object.assign(document.createElement('button'), { type: 'button', className: 'ft-identity', 'aria-label': `Open ${entry.name}'s profile` });
-      const av = identity ? renderAvatar(identity.loadout.avatar, 28, true) : Object.assign(document.createElement('span'), { className: 'ft-av', textContent: entry.initial });
+      const av = identity ? renderAvatar(identity.loadout.avatar, 28, true, { name: identity.displayName || entry.name, level: identity.level }) : Object.assign(document.createElement('span'), { className: 'ft-av', textContent: entry.initial });
       const copy = Object.assign(document.createElement('span'), { className: 'ft-identity-copy' });
       const nm = Object.assign(document.createElement('span'), { className: 'ft-name', textContent: identity?.displayName || entry.name });
       const title = Object.assign(document.createElement('span'), { className: 'ft-title', textContent: identity ? avatarName(identity.loadout.titleId) : '' });

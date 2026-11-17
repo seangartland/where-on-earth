@@ -3,11 +3,11 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 
 const ROOT = new URL('../', import.meta.url).pathname;
-const OUT = new URL('./', import.meta.url).pathname;
+const OUT = new URL(process.env.SEAL_SHOTS ? '../shots-seal/' : './', import.meta.url).pathname;
 const variant = process.argv[2];
 if (!['before', 'after'].includes(variant)) throw new Error('Pass before or after');
 
-const avatar = { backdrop: 'atlas-navy', skinTone: 'tone-4', faceShape: 'oval', eyes: 'almond', faceDetail: 'freckles', facialHair: 'none', hairHeadwear: 'soft-curls', faceAccessory: 'round-glasses', clothing: 'ochre-scarf', travelAccessory: 'camera', frame: 'plain-paper' };
+const avatar = { v: 2, initials: 'M', disc: 'navy', motif: 'globe' };
 const definitions = [
   ['first-departure', 'consistency', 'First Departure', 'Play your first Daily', 'title:day-tripper'],
   ['one-week-abroad', 'consistency', 'One Week Abroad', 'Play 7 Dailies', 'title:weekender'],
@@ -75,7 +75,7 @@ await page.click('.account-cabinet-back');
 await page.waitForSelector('.traveler-profile.own');
 await page.click('.account-customize');
 await page.waitForSelector('.traveler-profile.customizer');
-await capture('customize-avatar');
+await capture('customize-seal');
 await page.getByRole('button', { name: 'Titles', exact: true }).click();
 await capture('customize-titles');
 await page.click('.account-customize-back');

@@ -1,19 +1,8 @@
 import { isBullseye, isPostcard } from './daily-score.js';
 
-export const DEFAULT_AVATAR = Object.freeze({
-  backdrop: 'cream-paper', skinTone: 'tone-4', faceShape: 'oval', eyes: 'open',
-  faceDetail: 'clean', facialHair: 'none', hairHeadwear: 'close-crop',
-  faceAccessory: 'none', clothing: 'cream-field-shirt', travelAccessory: 'none', frame: 'plain-paper',
-});
-
-export const AVATAR_PARTS = Object.freeze({
-  backdrop: ['cream-paper', 'atlas-navy', 'ochre-sun'], skinTone: ['tone-1', 'tone-2', 'tone-3', 'tone-4', 'tone-5', 'tone-6'],
-  faceShape: ['oval', 'round', 'angular'], eyes: ['open', 'almond', 'round-eyes', 'hooded'],
-  faceDetail: ['clean', 'soft-brows', 'bold-brows', 'freckles', 'travel-lines'], facialHair: ['none', 'stubble', 'mustache', 'short-beard', 'full-beard'],
-  hairHeadwear: ['close-crop', 'soft-curls', 'coil-crown', 'long-waves', 'center-part', 'gray-sweep', 'newsboy-cap', 'backward-cap', 'teal-wrap'],
-  faceAccessory: ['none', 'round-glasses', 'square-glasses'], clothing: ['cream-field-shirt', 'ochre-scarf', 'atlas-jacket', 'route-jacket', 'map-shirt'],
-  travelAccessory: ['none', 'backpack-straps', 'cream-headphones', 'camera'], frame: ['plain-paper', 'postmark'],
-});
+export const SEAL_DISCS = Object.freeze(['navy', 'burgundy', 'forest', 'charcoal']);
+export const SEAL_MOTIFS = Object.freeze({ globe: null, plane: 'frequent-flyer', compass: 'border-crosser', camera: 'postmarked', mountain: 'around-the-world', star: 'new-stamp' });
+export const DEFAULT_SEAL = Object.freeze({ v: 2, initials: null, disc: 'navy', motif: 'globe' });
 
 export const ACHIEVEMENTS = Object.freeze([
   ['first-departure', 'consistency', 'First Departure', 'Complete 1 Daily', 'title:day-tripper', (s) => s.dailies >= 1],
@@ -28,7 +17,7 @@ export const ACHIEVEMENTS = Object.freeze([
   ['five-star-landing', 'precision', 'Five-Star Landing', 'Earn postcards on all 5 rounds in one Daily', 'card:five-star-landing', (s) => s.fiveStar >= 1],
   ['perfect-itinerary', 'precision', 'Perfect Itinerary', 'Score 5,000 on one Daily', 'title:dead-reckoner', (s) => s.perfect >= 1],
   ['high-flyer', 'precision', 'High-Flyer', 'Score 4,500 on 10 Dailies', 'card:high-flyer', (s) => s.highFlyers >= 10],
-  ['new-stamp', 'breadth', 'New Stamp', 'Visit 5 countries', 'frame:five-stamp', (s) => s.countries >= 5],
+  ['new-stamp', 'breadth', 'New Stamp', 'Visit 5 countries', 'motif:star', (s) => s.countries >= 5],
   ['border-crosser', 'breadth', 'Border Crosser', 'Visit 25 countries', 'title:border-crosser', (s) => s.countries >= 25],
   ['worldly', 'breadth', 'Worldly', 'Visit 50 countries', 'card:worldly', (s) => s.countries >= 50],
   ['continental-breakfast', 'breadth', 'Continental Breakfast', 'Visit 3 continents', 'title:early-explorer', (s) => s.continents >= 3],
@@ -43,22 +32,19 @@ export function xpForCompletion(total, rounds) {
 }
 export function levelForXp(xp) { let level = 1; let remaining = Math.max(0, xp); while (remaining >= 100 + 20 * (level - 1)) { remaining -= 100 + 20 * (level - 1); level += 1; } return level; }
 export function xpAtLevel(level) { return level <= 1 ? 0 : (level - 1) * (100 + 10 * (level - 2)); }
-export function validateAvatar(value, level) {
+export function validateSeal(value, earnedIds) {
   if (!value || typeof value !== 'object') return null;
-  const avatar = {};
-  for (const [slot, parts] of Object.entries(AVATAR_PARTS)) {
-    const selected = value[slot] || DEFAULT_AVATAR[slot];
-    if (!parts.includes(selected) || (slot === 'frame' && selected === 'postmark' && level < 10)) return null;
-    avatar[slot] = selected;
-  }
-  return avatar;
+  if ('backdrop' in value || 'skinTone' in value || (value.v != null && value.v !== 2)) return null;
+  const disc = value.disc || DEFAULT_SEAL.disc; const motif = value.motif || DEFAULT_SEAL.motif;
+  if (!SEAL_DISCS.includes(disc) || !Object.hasOwn(SEAL_MOTIFS, motif) || (SEAL_MOTIFS[motif] && !earnedIds?.has(SEAL_MOTIFS[motif]))) return null;
+  if (value.initials != null && (typeof value.initials !== 'string' || !/^[A-Za-z]{1,2}$/.test(value.initials))) return null;
+  return { v: 2, initials: value.initials == null ? null : value.initials.toUpperCase(), disc, motif };
 }
 export function ownsIdentity(type, id, level, earned, levelTwoTitle = null) {
-  const defaults = { title: ['traveler'], card: ['blue-horizon'], frame: ['plain-paper'] };
+  const defaults = { title: ['traveler'], card: ['blue-horizon'] };
   if (defaults[type]?.includes(id)) return true;
   if (type === 'title' && ['window-seat', 'aisle-seat'].includes(id)) return level >= 5 || (level >= 2 && id === levelTwoTitle);
   if (type === 'card' && id === 'airmail') return level >= 5;
-  if (type === 'frame' && id === 'postmark') return level >= 10;
   return earned.has(`${type}:${id}`);
 }
 export function communityPercentage(eligible, earners) {
@@ -114,5 +100,7 @@ export async function progressionProfile(env, accountId) {
   const account = await env.DB.prepare('SELECT display_name FROM profiles WHERE account_id = ?').bind(accountId).first();
   const achievements = (await env.DB.prepare('SELECT achievement_id, earned_at FROM user_achievements WHERE account_id = ? ORDER BY earned_at DESC').bind(accountId).all()).results || [];
   const community = await communityPercentages(env);
-  return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar: loadout ? JSON.parse(loadout.avatar_json) : DEFAULT_AVATAR, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
+  let avatar = DEFAULT_SEAL;
+  try { const stored = loadout ? JSON.parse(loadout.avatar_json) : null; avatar = stored?.backdrop || stored?.skinTone ? DEFAULT_SEAL : validateSeal(stored, new Set(achievements.map(({ achievement_id }) => achievement_id))) || DEFAULT_SEAL; } catch { avatar = DEFAULT_SEAL; }
+  return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }

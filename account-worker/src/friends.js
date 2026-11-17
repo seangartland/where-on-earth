@@ -1,6 +1,6 @@
 import { dailyManifest } from './daily.js';
 import { scoreGuess } from './daily-score.js';
-import { DEFAULT_AVATAR, ownsIdentity, processCompletion, progressionProfile, validateAvatar } from './progression.js';
+import { DEFAULT_SEAL, ownsIdentity, processCompletion, progressionProfile, validateSeal } from './progression.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
@@ -426,7 +426,8 @@ async function updateLoadout(request, env, id) {
   }));
   const titleId = input.titleId || profile.loadout.titleId;
   const cardId = input.cardId || profile.loadout.cardId;
-  const avatar = validateAvatar(input.avatar || profile.loadout.avatar, profile.level);
+  const earnedIds = new Set(profile.achievements.map(({ id }) => id));
+  const avatar = validateSeal(input.avatar || profile.loadout.avatar, earnedIds);
   const levelTwoTitle = profile.loadout.levelTwoTitle || (profile.level >= 2 && ['window-seat', 'aisle-seat'].includes(titleId) ? titleId : null);
   if (typeof titleId !== 'string' || typeof cardId !== 'string' || !avatar
     || !ownsIdentity('title', titleId, profile.level, earned, levelTwoTitle)
@@ -434,7 +435,7 @@ async function updateLoadout(request, env, id) {
   await env.DB.prepare(`INSERT INTO profile_loadouts (account_id, title_id, card_id, avatar_json, updated_at)
     VALUES (?, ?, ?, ?, ?) ON CONFLICT(account_id) DO UPDATE SET title_id = excluded.title_id,
     card_id = excluded.card_id, avatar_json = excluded.avatar_json, updated_at = excluded.updated_at`)
-    .bind(id, titleId, cardId, JSON.stringify(avatar || DEFAULT_AVATAR), Date.now()).run();
+    .bind(id, titleId, cardId, JSON.stringify(avatar || DEFAULT_SEAL), Date.now()).run();
   if (levelTwoTitle) await env.DB.prepare('INSERT OR IGNORE INTO level_two_title_choices (account_id, title_id) VALUES (?, ?)').bind(id, levelTwoTitle).run();
   return json({ loadout: { titleId, cardId, avatar } });
 }
