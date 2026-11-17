@@ -84,6 +84,12 @@ test('badges use an upper-case initial; malformed guesses are skipped', () => {
   assert.equal(rows.find((row) => row.friendId === 'u_jo').initial, 'J');
 });
 
+test('friend pin rows retain an optional seal for the globe badge', () => {
+  const seal = { disc: 'forest', initials: 'AB' };
+  const [row] = friendRows([{ friendId: 'u', displayName: 'Ana', guess: { lat: -24.1, lng: -64.9 }, seal }], salta);
+  assert.equal(row.seal, seal);
+});
+
 test('the other-device check compares at the stored 4 decimal places', () => {
   assert.equal(sameGuess({ lat: -24.81, lng: -65.41 }, { lat: -24.810001, lng: -65.409999 }), true);
   assert.equal(sameGuess({ lat: -24.81, lng: -65.41 }, { lat: -24.9, lng: -65.41 }), false);

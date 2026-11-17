@@ -1,6 +1,6 @@
 import { dailyManifest } from './daily.js';
 import { scoreGuess } from './daily-score.js';
-import { DEFAULT_SEAL, ownsIdentity, processCompletion, progressionProfile, validateSeal } from './progression.js';
+import { DEFAULT_SEAL, normalizeSeal, ownsIdentity, processCompletion, progressionProfile, validateSeal } from './progression.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
@@ -192,7 +192,8 @@ export async function inviteLandingPage(env, token) {
 
 const PINS_SQL = `SELECT mine.location_id, mine.lat AS mine_lat, mine.lng AS mine_lng,
   g.account_id AS friend_id,
-  p.display_name, g.lat, g.lng, g.submitted_at
+  p.display_name, g.lat, g.lng, g.submitted_at, l.avatar_json,
+  (SELECT GROUP_CONCAT(achievement_id) FROM user_achievements a WHERE a.account_id = g.account_id) AS achievement_ids
 FROM daily_guesses mine
 LEFT JOIN friendships f ON f.account_id = mine.account_id
   AND EXISTS (SELECT 1 FROM profiles own
@@ -200,6 +201,7 @@ LEFT JOIN friendships f ON f.account_id = mine.account_id
 LEFT JOIN daily_guesses g ON g.account_id = f.friend_id
   AND g.date = mine.date AND g.location_id = mine.location_id
 LEFT JOIN profiles p ON p.account_id = g.account_id AND p.share_pins = 1
+LEFT JOIN profile_loadouts l ON l.account_id = g.account_id
 WHERE mine.account_id = ? AND mine.date = ?
   AND (? IS NULL OR mine.location_id = ?)
 ORDER BY mine.slot, g.submitted_at, g.account_id`;
@@ -211,12 +213,16 @@ async function pins(env, id, date, locationId = null) {
     if (!locations[row.location_id]) locations[row.location_id] = {
       mine: { lat: row.mine_lat, lng: row.mine_lng }, friends: [],
     };
-    if (row.friend_id && row.display_name) locations[row.location_id].friends.push({
-      friendId: row.friend_id,
-      displayName: row.display_name,
-      guess: { lat: row.lat, lng: row.lng },
-      submittedAt: row.submitted_at,
-    });
+    if (row.friend_id && row.display_name) {
+      const seal = normalizeSeal(row.avatar_json, new Set((row.achievement_ids || '').split(',').filter(Boolean)));
+      locations[row.location_id].friends.push({
+        friendId: row.friend_id,
+        displayName: row.display_name,
+        guess: { lat: row.lat, lng: row.lng },
+        submittedAt: row.submitted_at,
+        seal: { disc: seal.disc, initials: seal.initials },
+      });
+    }
   }
   return locations;
 }

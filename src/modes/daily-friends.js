@@ -16,6 +16,7 @@ import { Pin, makeBadgeTexture } from '../globe/pin.js';
 import { gameEls } from '../core/dom.js';
 import { friendRows, chipText, popoverText, stripChips, sameGuess } from '../game/friend-rows.js';
 import { backfillToday, cachedFriendPins, fetchFriendPins, listFriends } from '../account/friends.js';
+import { SEAL_DISCS } from '../account/avatar.js';
 import { reviewEls, reviewFacing, screenOf, setFriendLayer } from '../game/review-shared.js';
 
 // Warm off-white: neither the guess orange nor ANSWER_COLOR. The exact shade
@@ -61,9 +62,9 @@ function loadFriendsInfo(refresh = false) {
   return friendsInfo;
 }
 
-function badgeFor(kind, text) {
-  const key = `${kind}:${text}`;
-  if (!badges.has(key)) badges.set(key, makeBadgeTexture(kind, 0, text));
+function badgeFor(kind, text, discColor) {
+  const key = `${kind}:${text}:${discColor || ''}`;
+  if (!badges.has(key)) badges.set(key, makeBadgeTexture(kind, 0, text, discColor));
   return badges.get(key);
 }
 
@@ -80,6 +81,7 @@ function friendPin(i) {
 function setGlow(pin, on) {
   pin.glowUntil = on ? performance.now() + GLOW_MS : 0;
   pin.setColor(on ? FRIEND_BRIGHT : FRIEND_COLOR, on ? '#ffffff' : FRIEND_CORE);
+  if (pin.seal) pin.badge.material.color.set('#ffffff');
 }
 
 function releasePins(from = 0) {
@@ -116,7 +118,9 @@ function render(v) {
   v.expanded = false;
   rows.forEach((row, i) => {
     const pin = friendPin(i);
-    pin.badge.material.map = badgeFor('friend', row.initial);
+    const discColor = SEAL_DISCS[row.seal?.disc];
+    pin.seal = Boolean(discColor);
+    pin.badge.material.map = badgeFor('friend', row.seal?.initials || row.initial, discColor);
     setGlow(pin, false);
     pin.drop(latLngToVec3(row.guess.lat, row.guess.lng));
     pin.t = -i * 0.08; // a light stagger, nearest first

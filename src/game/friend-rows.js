@@ -25,6 +25,7 @@ export function friendRows(friends, answer) {
         friendId: friend.friendId,
         name: friend.displayName || 'Friend',
         initial: friendInitial(friend.displayName),
+        seal: friend.seal,
         guess: friend.guess,
         kmExact,
         distance: formatKm(Math.round(kmExact)),

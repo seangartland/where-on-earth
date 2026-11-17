@@ -259,6 +259,14 @@ test('guess locking, validation, integrity gates, opt-out, and retroactive remov
   assert.equal(first.status, 200);
   assert.deepEqual(first.body.stored.guess, { lat: 1.2346, lng: 2.3457 });
   assert.deepEqual(first.body.friends.map((friend) => friend.friendId), ['b']);
+  assert.deepEqual(first.body.friends[0].seal, { disc: 'navy', initials: null });
+  await env.DB.prepare(`INSERT INTO profile_loadouts (account_id, title_id, card_id, avatar_json, updated_at)
+    VALUES (?, ?, ?, ?, ?)`)
+    .bind('b', 'traveler', 'blue-horizon', JSON.stringify({ v: 2, initials: 'bo', disc: 'forest', motif: 'globe' }), Date.now()).run();
+  assert.deepEqual((await get(env, 'a', `/v1/daily/friends?date=${today}`)).body.locations.london.friends[0].seal, { disc: 'forest', initials: 'BO' });
+  await env.DB.prepare('UPDATE profile_loadouts SET avatar_json = ? WHERE account_id = ?')
+    .bind(JSON.stringify({ backdrop: 'legacy' }), 'b').run();
+  assert.deepEqual((await get(env, 'a', `/v1/daily/friends?date=${today}`)).body.locations.london.friends[0].seal, { disc: 'navy', initials: null });
   const replay = await post(env, 'a', '/v1/daily/guesses', guess(today, 0, 'london', 1.23456, 2.34567));
   assert.equal(replay.status, 200);
   assert.equal(replay.body.stored.submittedAt, first.body.stored.submittedAt);

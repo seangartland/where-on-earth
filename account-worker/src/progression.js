@@ -40,6 +40,12 @@ export function validateSeal(value, earnedIds) {
   if (value.initials != null && (typeof value.initials !== 'string' || !/^[A-Za-z]{1,2}$/.test(value.initials))) return null;
   return { v: 2, initials: value.initials == null ? null : value.initials.toUpperCase(), disc, motif };
 }
+export function normalizeSeal(value, earnedIds) {
+  try {
+    const stored = typeof value === 'string' ? JSON.parse(value) : value;
+    return stored?.backdrop || stored?.skinTone ? DEFAULT_SEAL : validateSeal(stored, earnedIds) || DEFAULT_SEAL;
+  } catch { return DEFAULT_SEAL; }
+}
 export function ownsIdentity(type, id, level, earned, levelTwoTitle = null) {
   const defaults = { title: ['traveler'], card: ['blue-horizon'] };
   if (defaults[type]?.includes(id)) return true;
@@ -100,7 +106,6 @@ export async function progressionProfile(env, accountId) {
   const account = await env.DB.prepare('SELECT display_name FROM profiles WHERE account_id = ?').bind(accountId).first();
   const achievements = (await env.DB.prepare('SELECT achievement_id, earned_at FROM user_achievements WHERE account_id = ? ORDER BY earned_at DESC').bind(accountId).all()).results || [];
   const community = await communityPercentages(env);
-  let avatar = DEFAULT_SEAL;
-  try { const stored = loadout ? JSON.parse(loadout.avatar_json) : null; avatar = stored?.backdrop || stored?.skinTone ? DEFAULT_SEAL : validateSeal(stored, new Set(achievements.map(({ achievement_id }) => achievement_id))) || DEFAULT_SEAL; } catch { avatar = DEFAULT_SEAL; }
+  const avatar = normalizeSeal(loadout?.avatar_json, new Set(achievements.map(({ achievement_id }) => achievement_id)));
   return { displayName: account?.display_name || 'Traveler', level, xpToNext: 100 + 20 * (level - 1) - (xp - xpAtLevel(level)), stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }
