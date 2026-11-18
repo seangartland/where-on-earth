@@ -9,7 +9,6 @@
 // main.js passes in. initPassportHome and initPassport run at the two spots
 // the sections used to run, so every element is built in the same order.
 // ---------------------------------------------------------------------------
-import { currentStreak } from './stats.js';
 import { buildPostcardCard, postcardDisplayName } from './postcard-card.js';
 import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
 import { PASSPORT_PACKS, passportPackSections, packCardNumberMap, formatPackCardNumber } from './passport-packs.js';
@@ -46,7 +45,6 @@ function passportSummary() {
 
 let passportBox;
 let passportEls;
-let passportDateStamp = '';
 
 export function syncPassport() {
   if (host.passportDirty) host.buildPassportDots();
@@ -61,12 +59,6 @@ export function syncPassport() {
   passportEls.found.textContent = summary.found.toLocaleString();
   passportEls.total.textContent = summary.total.toLocaleString();
   passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} postcards` : '';
-  // The postmark is the streak stamp now (it only ever showed today's date
-  // before); with no live streak it falls back to the date.
-  const streak = currentStreak();
-  passportEls.postmark.textContent = streak
-    ? `${streak.toLocaleString()}\n${streak === 1 ? 'DAY' : 'DAYS'}`
-    : passportDateStamp;
   passportEls.stamps.replaceChildren(...summary.recent.map((spot) => {
     const img = document.createElement('img');
     img.src = spot.item.image;
@@ -1267,10 +1259,7 @@ export function initPassportHome(main) {
   <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places<span class="passport-earned" data-passport="earned"></span></p>
   <div class="passport-xp" data-passport="xp" hidden></div>
   <div class="passport-stamps" data-passport="stamps"></div>
-  <span class="passport-cue" aria-hidden="true">Passport ›</span>
-  <span class="passport-postmark" aria-hidden="true"><span class="postmark-text" data-passport="postmark"></span></span>`;
-  passportDateStamp = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
-  passportBox.querySelector('[data-passport="postmark"]').textContent = passportDateStamp;
+  <span class="passport-cue" aria-hidden="true">Passport ›</span>`;
   passportBox.addEventListener('click', () => openPassport(null));
   passportBox.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPassport(); }
@@ -1287,7 +1276,6 @@ export function initPassportHome(main) {
     found: passportBox.querySelector('[data-passport="found"]'),
     total: passportBox.querySelector('[data-passport="total"]'),
     earned: passportBox.querySelector('[data-passport="earned"]'),
-    postmark: passportBox.querySelector('[data-passport="postmark"]'),
     stamps: passportBox.querySelector('[data-passport="stamps"]'),
     xp: passportBox.querySelector('[data-passport="xp"]'),
   };
