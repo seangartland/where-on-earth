@@ -15,6 +15,7 @@ import { clamp, smoothstep } from '../core/math.js';
 import { state } from '../core/state.js';
 import { latLngToVec3, canvas, renderer, camera, globe, pointers, radPerPx } from './scene.js';
 import { inSf1bRegion } from './sf1b-region.js';
+import { sortTilesCenterOut, tilePriority } from './tile-priority.js';
 
 let blankTex;
 export let globeMat;
@@ -662,7 +663,7 @@ let INSET_COLS; // footprint cap in tiles, margin included
 let INSET_ROWS;
 export const INSET_FADE_S = 0.25;
 export const INSET_FETCHES = 12;
-export const INSET_FETCHES_SLOW = 6;
+export const INSET_FETCHES_SLOW = 12;
 export const INSET_FETCHES_BURST = 18; // while a window is still loading
 export const INSET_UPLOADS_PER_FRAME = 8;
 export const INSET_UPLOADS_BURST = 12; // while a window is still loading
@@ -682,7 +683,7 @@ export const inset = {
   gen: 0,
   queue: [], // tiles of `win` waiting for a fetch slot, centre first
   homeFillTried: false, // loading pass part 3: the boot-time home pick runs once
-  prefetch: [], // z+1 sources warmed only after the needed queue is empty
+  prefetch: [], // z+1 sources warmed behind visible tiles in the shared pool
   prefetchGen: 0,
   inflight: new Map(), // tile key -> { ctrl }
   uploads: [], // decoded bitmaps waiting for a frame's upload budget
@@ -801,19 +802,20 @@ export function sampleInsetView() {
   return view;
 }
 
-// Tile window at zoom z: visible tiles plus a one-tile margin, or null when
-// that footprint doesn't fit the inset texture. tx is unwrapped (it may run
-// past either edge of the world); fetches wrap it.
+// Tile window at zoom z: visible tiles plus a one-tile margin, except at the
+// max rung where the already-visible lower rung covers a small pan while the
+// next max-rung window starts. tx is unwrapped; fetches wrap it.
 export function insetWindowAt(view, z) {
   const n = 1 << z;
   const vx0 = Math.floor((view.cx + view.rx0) * n);
   const vx1 = Math.floor((view.cx + view.rx1) * n);
   const vy0 = clamp(Math.floor(view.y0 * n), 0, n - 1);
   const vy1 = clamp(Math.floor(view.y1 * n), 0, n - 1);
-  const tx0 = vx0 - 1;
-  const cols = vx1 - vx0 + 3;
-  const ty0 = Math.max(0, vy0 - 1);
-  const rows = Math.min(n - 1, vy1 + 1) - ty0 + 1;
+  const margin = z === satProvider.maxZ ? 0 : 1;
+  const tx0 = vx0 - margin;
+  const cols = vx1 - vx0 + 1 + margin * 2;
+  const ty0 = Math.max(0, vy0 - margin);
+  const rows = Math.min(n - 1, vy1 + margin) - ty0 + 1;
   if (cols > INSET_COLS || rows > INSET_ROWS) return null;
   return { z, n, tx0, ty0, cols, rows, vx0, vx1, vy0, vy1, ccx: view.cx * n, ccy: view.cy * n };
 }
@@ -887,7 +889,7 @@ export function startInsetWindow(want) {
       const tile = {
         x, y: ty, sx, sy, visible,
         k: 0, src: '', url: '', // source: own tile (k = 0) or the ancestor k levels up
-        pri: (visible ? 0 : 1000) + Math.hypot(tx + 0.5 - want.ccx, ty + 0.5 - want.ccy),
+        pri: tilePriority(visible, tx, ty, want.ccx, want.ccy),
         state: 0, // 0 idle, 1 decoding / awaiting upload, 2 done (uploaded or given up)
         tries: 0,
         gen: win.gen,
@@ -900,7 +902,7 @@ export function startInsetWindow(want) {
     }
   }
   win.visTotal = win.visLeft;
-  win.tiles.sort((a, b) => a.pri - b.pri);
+  sortTilesCenterOut(win.tiles);
   buf.win = win;
   // abort fetches the new window doesn't need; the rest land in it
   const srcs = new Set(win.tiles.map((t) => t.src));
@@ -1042,8 +1044,8 @@ export function tripInsetBreaker() {
 }
 
 // Slow network (iOS has no navigator.connection): rolling median latency
-// over 1.5 s drops the inset a zoom level and halves concurrency; under 0.6 s
-// restores it.
+// over 1.5 s drops the inset a zoom level but keeps normal settled concurrency;
+// slow origin latency benefits from overlapping requests. Under 0.6 s restores it.
 export function noteInsetLatency(ms) {
   const l = inset.latency;
   l.push(ms);
@@ -1108,19 +1110,18 @@ export function pumpInsetFetches(now) {
   // window, so the pool widens until it completes (zoom-load round 2).
   const loading = !inset.win.ready;
   const max = inset.slow ? INSET_FETCHES_SLOW : (loading ? INSET_FETCHES_BURST : INSET_FETCHES);
-  while (inset.inflight.size < max && inset.queue.length) {
-    const t = inset.queue.shift();
-    if (t.gen !== inset.win.gen || t.state !== 0 || inset.inflight.has(t.src)) continue;
+  while (inset.inflight.size < max && (inset.queue.length || inset.prefetch.length)) {
+    // A next-rung center is low priority: live visible tiles always win, but
+    // it can use the slot ahead of the current window's low-priority margin.
+    const hasQueuedVisible = inset.queue.some((tile) => tile.visible);
+    const t = !hasQueuedVisible && inset.prefetch.length ? inset.prefetch.shift() : inset.queue.shift();
+    if (!t) continue;
+    if ((t.gen !== undefined && t.gen !== inset.win.gen) || (t.state !== undefined && t.state !== 0) || inset.inflight.has(t.src) || inset.lru.has(t.src) || inset.missing.has(t.src)) continue;
     fetchInsetTile(t);
   }
-  if (inset.slow || !WARM_MODES.has(state.gameMode) || inset.queue.length) return;
+  if (inset.slow || !WARM_MODES.has(state.gameMode)) return;
   if (!inset.win.ready && !windowMostlyIn(inset.win)) return;
   prepareInsetPrefetch(false);
-  while (inset.inflight.size < max && inset.prefetch.length) {
-    const t = inset.prefetch.shift();
-    if (inset.inflight.has(t.src) || inset.lru.has(t.src) || inset.missing.has(t.src)) continue;
-    fetchInsetTile(t);
-  }
 }
 
 // Modes where idle warming runs (zoom-feel pass, Sean 2026-11-10): guess
@@ -1144,7 +1145,7 @@ export function windowMostlyIn(win) {
 export function prepareInsetPrefetch(prioritize) {
   const win = inset.win;
   if (!win || inset.slow || !WARM_MODES.has(state.gameMode) || win.z >= satProvider.maxZ) return;
-  if (!win.ready && !windowMostlyIn(win)) return;
+  if (!prioritize && !win.ready && !windowMostlyIn(win)) return;
   if (navigator.connection?.saveData) return;
   if (inset.prefetchGen === win.gen && !prioritize) return;
   // Warm the next SERVED level: the next ladder rung when the provider
@@ -1155,22 +1156,28 @@ export function prepareInsetPrefetch(prioritize) {
   const scale = 1 << (z - win.z);
   const seen = new Set();
   const next = [];
-  for (const tile of win.tiles) {
+  // During an active zoom, only warm the arriving rung's focal 3x3. It uses
+  // the normal burst pool and starts before the current rung's pan margin.
+  const centerX = Math.floor(win.ccx * scale);
+  const centerY = Math.floor(win.ccy * scale);
+  const sourceTiles = prioritize
+    ? Array.from({ length: 9 }, (_, i) => ({ x: imod(centerX + i % 3 - 1, n), y: clamp(centerY + Math.floor(i / 3) - 1, 0, n - 1), visible: false }))
+    : win.tiles;
+  for (const tile of sourceTiles) {
     // Visible tiles first; the window's one-tile margin warms too, at the
     // same +1000 priority penalty the live queue gives margin tiles, so a
     // pan in any direction lands on warm tiles (zoom-feel pass).
-    const penalty = tile.visible ? 0 : 1000;
-    for (let dy = 0; dy < scale; dy++) for (let dx = 0; dx < scale; dx++) {
-      const x = imod(tile.x * scale + dx, n);
-      const y = tile.y * scale + dy;
+    for (let dy = 0; dy < (prioritize ? 1 : scale); dy++) for (let dx = 0; dx < (prioritize ? 1 : scale); dx++) {
+      const x = prioritize ? tile.x : imod(tile.x * scale + dx, n);
+      const y = prioritize ? tile.y : tile.y * scale + dy;
       const src = `${win.providerId}/${z}/${x}/${y}`;
       if (seen.has(src)) continue;
       seen.add(src);
       next.push({ x, y, z, src, url: tileURL(satProvider, z, y, x), prefetch: true,
-        pri: penalty + Math.hypot(x + 0.5 - win.ccx * scale, y + 0.5 - win.ccy * scale) });
+        pri: tilePriority(!prioritize && tile.visible, x, y, win.ccx * scale, win.ccy * scale) });
     }
   }
-  next.sort((a, b) => a.pri - b.pri);
+  sortTilesCenterOut(next);
   inset.prefetch = next;
   inset.prefetchGen = win.gen;
   if (prioritize) {
