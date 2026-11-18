@@ -262,7 +262,7 @@ function cancelPlacement() {
 }
 function schedulePlacement(current) {
   cancelPlacement();
-  if (!state.packPlacement) return;
+  if (!state.postcardAnim) return;
   const cards = packPlacements(current);
   if (!cards.length) return;
   const type = pack.type;

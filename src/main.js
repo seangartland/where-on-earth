@@ -6,7 +6,7 @@ import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
 import {
   SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, AUTO_SPIN, RESET_DAILY, STREAK_KEY, HISTORY_KEY, EXPEDITION_KEY,
-  REVEAL_VIEW_KEY, PACK_PLACEMENT_KEY, FILING_ANIM_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
+  REVEAL_VIEW_KEY, POSTCARD_ANIM_KEY, PACK_PLACEMENT_KEY, FILING_ANIM_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
   EXPEDITIONS_HIDDEN,
 } from './core/config.js';
 import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
@@ -14,7 +14,7 @@ import { storageError, safeSetItem, migrateStorage, readJSON, writeJSON } from '
 import { audio, initAudio } from './core/audio.js';
 import { setThumb, createHomeButton, showConfirmModal, initConfirmModal } from './core/dom.js';
 import { localDateKey, COUNTRY_FLAGS, flagForLocation, closestGuessLines, formatGameShare, countryKey } from './core/format.js';
-import { state } from './core/state.js';
+import { state, postcardAnimValue } from './core/state.js';
 import {
   ANSWER_COLOR, latLngToVec3, setGlobeQuaternion, canvas, hud, renderer, scene, camera, globe, stars, initScene, initAtmosphere,
   pointers, radPerPx,
@@ -177,14 +177,17 @@ try {
   storageError('Read failed', REVEAL_VIEW_KEY, error);
 }
 try {
-  if (localStorage.getItem(PACK_PLACEMENT_KEY) === 'off') state.packPlacement = false;
+  const savedPostcardAnim = localStorage.getItem(POSTCARD_ANIM_KEY);
+  if (savedPostcardAnim === 'on' || savedPostcardAnim === 'off') {
+    state.postcardAnim = postcardAnimValue(savedPostcardAnim);
+  } else {
+    const savedPackPlacement = localStorage.getItem(PACK_PLACEMENT_KEY);
+    const savedFilingAnim = localStorage.getItem(FILING_ANIM_KEY);
+    state.postcardAnim = postcardAnimValue(savedPostcardAnim, savedPackPlacement, savedFilingAnim);
+    if (savedPackPlacement !== null || savedFilingAnim !== null) safeSetItem(POSTCARD_ANIM_KEY, state.postcardAnim ? 'on' : 'off');
+  }
 } catch (error) {
-  storageError('Read failed', PACK_PLACEMENT_KEY, error);
-}
-try {
-  if (localStorage.getItem(FILING_ANIM_KEY) === 'off') state.filingAnim = false;
-} catch (error) {
-  storageError('Read failed', FILING_ANIM_KEY, error);
+  storageError('Read failed', POSTCARD_ANIM_KEY, error);
 }
 
 initAudio();
@@ -554,17 +557,10 @@ settingsScreen.innerHTML = `
         </div>
       </fieldset>
       <fieldset class="settings-group">
-        <legend>Pack placement animation</legend>
+        <legend>Postcard animations</legend>
         <div class="settings-segmented">
-          <button type="button" data-pack-placement="on" aria-pressed="true">On</button>
-          <button type="button" data-pack-placement="off" aria-pressed="false">Off</button>
-        </div>
-      </fieldset>
-      <fieldset class="settings-group">
-        <legend>Postcard filing animation</legend>
-        <div class="settings-segmented">
-          <button type="button" data-filing-anim="on" aria-pressed="true">On</button>
-          <button type="button" data-filing-anim="off" aria-pressed="false">Off</button>
+          <button type="button" data-postcard-anim="on" aria-pressed="true">On</button>
+          <button type="button" data-postcard-anim="off" aria-pressed="false">Off</button>
         </div>
       </fieldset>
       ${ACCOUNTS_ENABLED ? `<div class="settings-account">
@@ -599,8 +595,7 @@ const settingsEls = {
   danger: settingsScreen.querySelector('.settings-confirm .settings-danger'),
   cancel: settingsScreen.querySelector('.settings-cancel'),
   revealViews: [...settingsScreen.querySelectorAll('[data-reveal-view]')],
-  packPlacement: [...settingsScreen.querySelectorAll('[data-pack-placement]')],
-  filingAnim: [...settingsScreen.querySelectorAll('[data-filing-anim]')],
+  postcardAnim: [...settingsScreen.querySelectorAll('[data-postcard-anim]')],
   account: settingsScreen.querySelector('.settings-account'),
   accountDetail: settingsScreen.querySelector('.settings-account-detail'),
   accountAction: settingsScreen.querySelector('.settings-account-action'),
@@ -610,7 +605,7 @@ const settingsEls = {
 // Stats used to live as a pill in the Passport header; it moved into Settings
 // (Sean, 2026-10-22, minimal-passport brief) alongside Imagery credits and
 // Reset all data. statsEntry already carries its own click->openStats wiring
-// (src/meta/stats.js) — relocating the same button keeps that wiring, styled
+// (src/meta/stats.js), relocating the same button keeps that wiring, styled
 // here as a settings row instead of a pill (see .settings-main .stats-entry
 // in game.css).
 settingsScreen.querySelector('.settings-credits').after(statsEntry);
@@ -655,31 +650,18 @@ settingsEls.revealViews.forEach((button) => button.addEventListener('click', () 
 }));
 syncRevealViewSetting();
 
-function syncPackPlacementSetting() {
-  settingsEls.packPlacement.forEach((button) => {
-    button.setAttribute('aria-pressed', String((button.dataset.packPlacement === 'on') === state.packPlacement));
+function syncPostcardAnimSetting() {
+  settingsEls.postcardAnim.forEach((button) => {
+    button.setAttribute('aria-pressed', String((button.dataset.postcardAnim === 'on') === state.postcardAnim));
   });
 }
 
-settingsEls.packPlacement.forEach((button) => button.addEventListener('click', () => {
-  state.packPlacement = button.dataset.packPlacement === 'on';
-  safeSetItem(PACK_PLACEMENT_KEY, state.packPlacement ? 'on' : 'off');
-  syncPackPlacementSetting();
+settingsEls.postcardAnim.forEach((button) => button.addEventListener('click', () => {
+  state.postcardAnim = button.dataset.postcardAnim === 'on';
+  safeSetItem(POSTCARD_ANIM_KEY, state.postcardAnim ? 'on' : 'off');
+  syncPostcardAnimSetting();
 }));
-syncPackPlacementSetting();
-
-function syncFilingAnimSetting() {
-  settingsEls.filingAnim.forEach((button) => {
-    button.setAttribute('aria-pressed', String((button.dataset.filingAnim === 'on') === state.filingAnim));
-  });
-}
-
-settingsEls.filingAnim.forEach((button) => button.addEventListener('click', () => {
-  state.filingAnim = button.dataset.filingAnim === 'on';
-  safeSetItem(FILING_ANIM_KEY, state.filingAnim ? 'on' : 'off');
-  syncFilingAnimSetting();
-}));
-syncFilingAnimSetting();
+syncPostcardAnimSetting();
 
 function openSettings() {
   settingsEls.main.hidden = false;

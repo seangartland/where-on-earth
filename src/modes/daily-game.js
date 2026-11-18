@@ -204,9 +204,9 @@ export function showPostcardSummary(outcomes = postcardSummaryOutcomes(), next =
 
 // Earned cards file away into the Passport tally: a mini postcard lifts off
 // each new or upgraded row and shrinks into the counts stamp, staggered.
-// Settings can turn it off (state.filingAnim); reduced motion skips it too.
+// Settings can turn it off (state.postcardAnim); reduced motion skips it too.
 function filePostcardsAway(outcomes) {
-  if (!state.filingAnim) return;
+  if (!state.postcardAnim) return;
   if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
   const target = gameEls.postcardSummaryCounts?.getBoundingClientRect();
   if (!target || !target.width) return;

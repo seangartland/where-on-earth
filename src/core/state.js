@@ -34,8 +34,7 @@ export const state = {
   pendingGuess: null, // { lat, lng } of the placed, unconfirmed pin
   activePin: -1,
   revealViewPreference: 'flyover',
-  packPlacement: true, // Settings: Pack placement animation (default on)
-  filingAnim: true, // Settings: Postcard filing animation on the summary (default on)
+  postcardAnim: true, // Settings: Postcard animations (default on)
   passport: { visits: {}, order: [], meta: {} },
 
   // Overlay screens built after boot; hideScreens() hides whichever exist.
@@ -44,3 +43,9 @@ export const state = {
   passportScreenEl: null, // set once the passport page is built
   collectionsScreenEl: null, // set once the collections page is built
 };
+
+export function postcardAnimValue(saved, packPlacement, filingAnim) {
+  if (saved === 'on' || saved === 'off') return saved === 'on';
+  if (packPlacement === null && filingAnim === null) return true;
+  return packPlacement !== 'off' && filingAnim !== 'off';
+}
