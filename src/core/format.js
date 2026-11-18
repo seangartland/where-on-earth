@@ -18,9 +18,12 @@ export function localDateKey(date = new Date()) {
   return `${y}-${m}-${d}`;
 }
 
-// The Daily is a server-owned UTC calendar activity. Keep the local helper
-// above for purely local features, but never use it to choose or submit Daily
-// content.
+// The Daily follows the player's local calendar date for selection,
+// submission, streaks, and sync.
+export function localYesterday(date = new Date()) {
+  return localDateKey(new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1));
+}
+
 export function utcDateKey(date = new Date()) {
   return date.toISOString().slice(0, 10);
 }

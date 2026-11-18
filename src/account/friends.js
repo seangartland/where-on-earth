@@ -1,5 +1,5 @@
 import { ACCOUNTS_ENABLED } from '../core/config.js';
-import { utcDateKey } from '../core/format.js';
+import { localDateKey } from '../core/format.js';
 import { state } from '../core/state.js';
 import { accountApi } from './api.js';
 import { isSignedIn, readAccountSession } from './session.js';
@@ -74,7 +74,7 @@ export async function fetchFriendPins(date) {
 }
 
 export async function backfillToday() {
-  if (!sessionToken() || state.daily?.date !== utcDateKey()) return [];
+  if (!sessionToken() || state.daily?.date !== localDateKey()) return [];
   const results = state.daily.results || [];
   return Promise.all(results.map((result, slot) => submitDailyGuess(result, slot)));
 }

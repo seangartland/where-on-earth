@@ -3,6 +3,7 @@ import {
   STREAK_KEY, SYNC_QUEUE_KEY, WEEKLY_KEY,
 } from '../core/config.js';
 import { safeSetItem } from '../core/storage.js';
+import { localDateKey, localYesterday } from '../core/format.js';
 import { accountApi } from './api.js';
 import { mergeDocument } from './merge.js';
 import { readAccountSession, updateAccountSession } from './session.js';
@@ -50,17 +51,13 @@ function dailyUpload(doc) {
   };
 }
 
-function utcDate(offset = 0) {
-  return new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
-}
-
 export async function firstSignInMerge() {
   const session = readAccountSession();
   if (!session?.sessionToken) throw new Error('A session is required before merge');
   const local = localDocs();
   const daily = stored(GAME_KEY);
   localStorage.setItem(PREMERGE_KEY, JSON.stringify({ _v: 1, at: Date.now(), docs: local, daily }));
-  const remote = await accountApi(`/v1/sync?today=${utcDate()}&yesterday=${utcDate(-1)}`, { token: session.sessionToken });
+  const remote = await accountApi(`/v1/sync?today=${localDateKey()}&yesterday=${localYesterday()}`, { token: session.sessionToken });
   const merged = {};
   const versions = {};
   for (const key of new Set([...Object.keys(local), ...Object.keys(remote.docs || {})])) {
@@ -96,7 +93,7 @@ export async function syncAccountProgress() {
   const session = readAccountSession();
   if (!session?.merged || !session.sessionToken) return;
   await flushSyncQueue();
-  const remote = await accountApi(`/v1/sync?today=${utcDate()}&yesterday=${utcDate(-1)}`, {
+  const remote = await accountApi(`/v1/sync?today=${localDateKey()}&yesterday=${localYesterday()}`, {
     token: session.sessionToken,
   });
   const local = localDocs();

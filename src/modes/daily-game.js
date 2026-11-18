@@ -18,7 +18,7 @@ import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
 import { readJSON, writeJSON } from '../core/storage.js';
 import { setThumb } from '../core/dom.js';
-import { formatKm, utcDateKey, flagForLocation } from '../core/format.js';
+import { formatKm, localDateKey, localYesterday, flagForLocation } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
 import { reviewEls, setReviewEls, getFriendLayer, reviewFacing, screenOf, _rv } from '../game/review-shared.js';
 
@@ -64,7 +64,7 @@ export function dailyGame(date) {
 }
 
 export function loadDaily() {
-  const date = utcDateKey();
+  const date = localDateKey();
   const saved = readJSON(GAME_KEY);
   state.daily = saved && saved.date === date && Array.isArray(saved.ids)
     ? saved
@@ -91,10 +91,7 @@ export function streakText() {
 export function finishStreak() {
   const existing = readJSON(STREAK_KEY);
   if (existing && existing.last === state.daily.date) return existing.count || 1;
-  const today = new Date(`${state.daily.date}T12:00:00`);
-  const yesterday = new Date(today);
-  yesterday.setDate(today.getDate() - 1);
-  const count = existing && existing.last === utcDateKey(yesterday) ? (existing.count || 0) + 1 : 1;
+  const count = existing && existing.last === localYesterday() ? (existing.count || 0) + 1 : 1;
   writeJSON(STREAK_KEY, { last: state.daily.date, count });
   return count;
 }
@@ -438,7 +435,7 @@ function saveNudgeDismissal(key) {
 }
 
 export function syncDailyButton() {
-  const played = state.daily && state.daily.complete && state.daily.date === utcDateKey();
+  const played = state.daily && state.daily.complete && state.daily.date === localDateKey();
   const isRecsHome = document.body.classList.contains('home-recs');
   const desc = gameEls.play.querySelector('.mode-desc');
   if (isRecsHome) {
@@ -463,7 +460,7 @@ export function startGame() {
   expeditionRun.active = false;
   survival.active = false;
   endless.active = false;
-  if (state.daily.date !== utcDateKey()) loadDaily(); // page left open past UTC midnight
+  if (state.daily.date !== localDateKey()) loadDaily(); // page left open past local midnight
   if (state.daily.complete && state.daily.results.length === 5) showResults();
   else if (state.daily.results[state.daily.round]) {
     showRound();
@@ -504,7 +501,7 @@ export function openNewDaily() {
 }
 
 export function tickCountdown() {
-  const today = utcDateKey();
+  const today = localDateKey();
   const rolled = today !== countdownDay;
   countdownDay = today;
   if (!state.daily) return;
@@ -732,7 +729,7 @@ export function initDailyCountdown() {
   (gameEls.results.querySelector('.round-breakdown') || gameEls.status).after(nextGame);
   nextGameTime = nextGame.querySelector('.next-game-time');
   nextGameSub = nextGame.querySelector('.next-game-sub');
-  countdownDay = utcDateKey();
+  countdownDay = localDateKey();
   setInterval(tickCountdown, 1000);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) tickCountdown(); });
   nextGame.addEventListener('click', () => { if (nextGame.classList.contains('ready')) openNewDaily(); });

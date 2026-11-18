@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
 import { dailyIds, resolvePinnedIds } from '../src/daily.js';
-import { utcDateKey } from '../src/core/format.js';
+import { localDateKey, localYesterday } from '../src/core/format.js';
 
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
 const locations = load('locations.json');
@@ -16,11 +16,21 @@ test('daily selection is deterministic for a fixed date', () => {
   assert.deepEqual(dailyIds('2027-04-19', locations), dailyIds('2027-04-19', locations));
 });
 
-test('Daily key is UTC at both date boundaries', () => {
-  // 20:30 at UTC-8 and 08:30 at UTC+14 are the same instant: Nov 16 UTC.
-  const instant = new Date('2026-11-16T04:30:00.000Z');
-  assert.equal(utcDateKey(instant), '2026-11-16');
-  assert.deepEqual(dailyIds(utcDateKey(instant), locations), dailyIds('2026-11-16', locations));
+test('Daily key follows the local calendar date', () => {
+  const localDate = new Date(2026, 10, 16);
+  assert.equal(localDateKey(localDate), '2026-11-16');
+  assert.deepEqual(dailyIds(localDateKey(localDate), locations), dailyIds('2026-11-16', locations));
+});
+
+test('local yesterday crosses DST boundaries by calendar date', () => {
+  const originalZone = process.env.TZ;
+  process.env.TZ = 'America/New_York';
+  try {
+    assert.equal(localYesterday(new Date(2026, 2, 9)), '2026-03-08');
+    assert.equal(localYesterday(new Date(2026, 10, 2)), '2026-11-01');
+  } finally {
+    process.env.TZ = originalZone;
+  }
 });
 
 test('daily selections have five unique ids and countries across a year', () => {

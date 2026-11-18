@@ -294,6 +294,26 @@ test('guess locking, validation, integrity gates, opt-out, and retroactive remov
   assert.equal((await post(env, 'a', '/v1/daily/guesses', { ...guess(today, 2, 'BAD'), score: 1001 })).body.code, 'INVALID_GUESS');
 });
 
+test('daily date validation accepts real UTC+14 and UTC-12 local dates', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a');
+  const cases = [
+    ['UTC+14', '2026-03-08T10:30:00.000Z', '2026-03-09'],
+    ['UTC+14', '2026-11-17T12:30:00.000Z', '2026-11-18'],
+    ['UTC-12', '2026-03-08T00:30:00.000Z', '2026-03-07'],
+    ['UTC-12', '2026-11-17T01:30:00.000Z', '2026-11-16'],
+  ];
+  const originalNow = Date.now;
+  try {
+    for (const [zone, instant, date] of cases) {
+      Date.now = () => Date.parse(instant);
+      assert.equal((await get(env, 'a', `/v1/daily/friends?date=${date}`)).status, 200, `${zone} at ${instant}`);
+    }
+  } finally {
+    Date.now = originalNow;
+  }
+});
+
 test('user deletion cascades profile, invites, guesses, and both friendship edges', async (t) => {
   const env = await fixture(t);
   await addUser(env, 'a'); await addUser(env, 'b');
