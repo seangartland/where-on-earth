@@ -11,6 +11,7 @@
 // ---------------------------------------------------------------------------
 import { buildPostcardCard, postcardDisplayName } from './postcard-card.js';
 import { passportEntryCompare, passportGroups } from './passport-grouping.mjs';
+import { regionStrength } from './region-strength.mjs';
 import { PASSPORT_PACKS, passportPackSections, packCardNumberMap, formatPackCardNumber } from './passport-packs.js';
 import { playPackPlacement } from './pack-placement.js';
 import { focalObjectPosition } from '../core/focal.js';
@@ -70,6 +71,7 @@ export function syncPassport() {
     img.addEventListener('error', () => img.remove(), { once: true });
     return img;
   }));
+  if (passportScreen && !passportScreen.hidden) renderPassportRegions();
 }
 // Same overlay pattern as the stats screen (a fixed .screen over a frozen start
 // screen, closed by ×, backdrop tap or Escape). Cards are rebuilt on each open
@@ -153,6 +155,44 @@ export let collectionsEntry;
 let passportScreen;
 
 let ppEls;
+let regionsExpanded = false;
+
+function regionEntries() {
+  return Object.entries(host.passport.visits).map(([id, best]) => {
+    const item = host.findLocation(id);
+    return item ? { continent: host.continentOf(item), best: host.passport.meta[id]?.b ?? best } : null;
+  }).filter(Boolean);
+}
+
+function regionLine(prefix, row) {
+  return `${prefix} · ${row.continent} · ${row.avgBest.toLocaleString()} avg · ${row.found.toLocaleString()} places`;
+}
+
+function renderPassportRegions() {
+  if (!ppEls?.regions) return;
+  const result = regionStrength(regionEntries(), host.CONTINENT_ORDER);
+  ppEls.regions.hidden = result.rows.length === 0;
+  if (ppEls.regions.hidden) return;
+  ppEls.regionsToggle.setAttribute('aria-expanded', String(regionsExpanded));
+  ppEls.regionsList.hidden = !regionsExpanded;
+  if (regionsExpanded) {
+    ppEls.regionsList.replaceChildren(...result.rows.map((row) => {
+      const line = document.createElement('p');
+      line.className = 'pp-region-row';
+      line.textContent = row.qualifies ? `${row.continent} · ${row.avgBest.toLocaleString()} avg · ${row.found.toLocaleString()} places` : `${row.continent} · not enough yet · ${row.found.toLocaleString()} places`;
+      return line;
+    }));
+    return;
+  }
+  const lines = result.strongest ? [regionLine('Strongest', result.strongest)] : ['Not enough in any region yet'];
+  if (result.weakest) lines.push(regionLine('Weakest', result.weakest));
+  ppEls.regionsSummary.replaceChildren(...lines.map((text) => {
+    const line = document.createElement('p');
+    line.className = 'pp-region-row';
+    line.textContent = text;
+    return line;
+  }));
+}
 // The passport is one unified shelf (cities and places together, no tabs):
 // one dex with its own controls, slots and filter state (see ppDex()). The
 // kind split (cities vs places) that used to be two tabs is now a Kind filter
@@ -583,6 +623,7 @@ function applyPassportFilters(dex) {
 // slot, or an upgrade's slot at its old tier.
 function renderPassportPage(held = null) {
   if (!countryIndex) buildCountryIndex();
+  renderPassportRegions();
   const age = new Map(host.passport.order.map((id, i) => [id, i]));
   const data = passportPackSections(host.locations, host.landmarks || [], host.passport.visits, host.passport.meta);
   const cardNumbers = packCardNumberMap(host.locations, host.landmarks || []);
@@ -659,6 +700,7 @@ let passportReturn = null;
 export function openPassport(returnTo = passportReturn, held = null) {
   passportReturn = typeof returnTo === 'function' ? returnTo : null;
   ppShelf.accordion.clear(); // every group starts collapsed on each open (Sean, 2026-10-22)
+  regionsExpanded = false;
   renderPassportPage(held);
   host.gameEls.start.hidden = true;
   passportScreen.hidden = false;
@@ -1320,6 +1362,11 @@ export function initPassport(main) {
       </div>
     </div>
     <p class="pp-pack-progress" data-pp="pack-progress"></p>
+    <section class="pp-regions" data-pp="regions" hidden>
+      <button class="pp-regions-head" type="button" data-pp="regions-toggle" aria-expanded="false" aria-controls="pp-regions-list">Regions</button>
+      <div class="pp-regions-summary" data-pp="regions-summary"></div>
+      <div class="pp-regions-list" id="pp-regions-list" data-pp="regions-list" hidden></div>
+    </section>
     <div class="pp-progress" data-pp="progress"></div>
     <div data-pp="shelf-view">
       <div class="pp-stick-sentinel" data-pp="shelf-sentinel" hidden></div>
@@ -1337,9 +1384,17 @@ export function initPassport(main) {
     close: passportScreen.querySelector('.icon-close'),
     progress: passportScreen.querySelector('[data-pp="progress"]'),
     packProgress: passportScreen.querySelector('[data-pp="pack-progress"]'),
+    regions: passportScreen.querySelector('[data-pp="regions"]'),
+    regionsToggle: passportScreen.querySelector('[data-pp="regions-toggle"]'),
+    regionsSummary: passportScreen.querySelector('[data-pp="regions-summary"]'),
+    regionsList: passportScreen.querySelector('[data-pp="regions-list"]'),
     shelfView: passportScreen.querySelector('[data-pp="shelf-view"]'),
     collections: passportScreen.querySelector('[data-pp="collections"]'),
   };
+  ppEls.regionsToggle.addEventListener('click', () => {
+    regionsExpanded = !regionsExpanded;
+    renderPassportRegions();
+  });
   ppShelf = ppDex(ppEls.shelfView, { tab: 'shelf', noun: 'locations', sentinel: 'shelf-sentinel', dex: 'dex', statusKey: PP_STATUS_KEY });
 
   ppStickyObserver = new IntersectionObserver((entries) => {
