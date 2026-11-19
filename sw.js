@@ -43,6 +43,7 @@ self.addEventListener('fetch', (event) => {
   let url;
   try { url = new URL(event.request.url); } catch { return; }
   if (url.hostname !== TILE_HOST) return; // untouched: no respondWith
+  if (event.request.method !== 'GET') return; // tile bundles POST here: pass through, never cache
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
     const hit = await cache.match(event.request);
