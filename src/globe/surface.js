@@ -16,6 +16,9 @@ import { state } from '../core/state.js';
 import { latLngToVec3, canvas, renderer, camera, globe, pointers, radPerPx } from './scene.js';
 import { inSf1bRegion } from './sf1b-region.js';
 import { sortTilesCenterOut, tilePriority } from './tile-priority.js';
+import { tryUnpackTileBundle } from './tile-bundle.js';
+import { visibleTileCoordinates } from './inset-footprint.js';
+import { idlePrefetchAllowed, insetFetchLimit, servedRungIndex } from './inset-policy.js';
 
 let blankTex;
 export let globeMat;
@@ -673,6 +676,7 @@ export const INSET_STILL_PX_S = 25;
 export const INSET_LRU_TILES = 400;
 export const INSET_LRU_BYTES = 8 << 20;
 export const INSET_TRIES = 2;
+export const TILE_BUNDLE_URL = 'https://tiles.where-on.earth/tile-bundle';
 export const MERC_MAX_LAT = 85.05112878 * DEG;
 export const imod = (a, n) => ((a % n) + n) % n;
 
@@ -685,6 +689,7 @@ export const inset = {
   homeFillTried: false, // loading pass part 3: the boot-time home pick runs once
   prefetch: [], // z+1 sources warmed behind visible tiles in the shared pool
   prefetchGen: 0,
+  bundle: null, // one visible-footprint request for the arriving window
   inflight: new Map(), // tile key -> { ctrl }
   uploads: [], // decoded bitmaps waiting for a frame's upload budget
   lru: new Map(), // tile key -> compressed Blob, oldest first
@@ -822,7 +827,7 @@ export function insetWindowAt(view, z) {
 
 // z = ceil(log2(156543 cos(lat) / (mpp q))), clamped to [4, provider max],
 // snapped UP to the provider's zoom ladder when it declares one (a computed
-// z6 lands on z7), one rung lower on a slow network, then dropped rung by
+// z6 lands on z7), one rung lower only for explicit Save Data, then dropped rung by
 // rung until the footprint fits. Providers without a ladder use every
 // integer level, as before.
 // Returns { view, want } with want = null when the inset should be off.
@@ -840,16 +845,14 @@ export function pickInsetWindow() {
     ? satProvider.zooms.filter((r) => r >= INSET_MIN_Z && r <= satProvider.maxZ)
     : null;
   if (ladder && ladder.length) {
-    let i = ladder.findIndex((r) => r >= z);
-    if (i < 0) i = ladder.length - 1;
-    if (inset.slow && i > 0) i--;
+    let i = servedRungIndex(ladder, z, navigator.connection?.saveData);
     for (; i >= 0; i--) {
       const want = insetWindowAt(view, ladder[i]);
       if (want) return { view, want };
     }
     return { view, want: null };
   }
-  if (inset.slow) z = Math.max(INSET_MIN_Z, z - 1);
+  if (navigator.connection?.saveData) z = Math.max(INSET_MIN_Z, z - 1);
   for (; z >= INSET_MIN_Z; z--) {
     const want = insetWindowAt(view, z);
     if (want) return { view, want };
@@ -909,10 +912,11 @@ export function startInsetWindow(want) {
   for (const [key, f] of inset.inflight) {
     if (!srcs.has(key)) { f.ctrl.abort(); inset.inflight.delete(key); }
   }
-  inset.prefetch = [];
-  inset.prefetchGen = 0;
+  cancelInsetPrefetch();
+  cancelInsetBundle();
   inset.win = win;
   inset.lastBuild = performance.now();
+  requestInsetBundle(win);
   feedInsetWindow(win);
 }
 
@@ -941,6 +945,7 @@ export function loadInsetTile(win, t) {
   if (inflight) { inflight.prefetch = false; return; }
   const blob = lruGet(t.src);
   if (blob) { decodeInsetTile(win, t, blob); return; }
+  if (t.visible && win.bundleKeys?.has(t.src)) return;
   const q = inset.queue;
   const i = q.findIndex((o) => o.pri > t.pri);
   q.splice(i < 0 ? q.length : i, 0, t);
@@ -960,11 +965,62 @@ export function insetsOff() {
     for (const f of inset.inflight.values()) f.ctrl.abort();
     inset.inflight.clear();
     inset.queue = [];
-    inset.prefetch = [];
-    inset.prefetchGen = 0;
+    cancelInsetPrefetch();
+    cancelInsetBundle();
     inset.win = null;
   }
   if (inset.bufs) for (const b of inset.bufs) b.fadeTo = 0;
+}
+
+export function cancelInsetPrefetch() {
+  inset.prefetch = [];
+  inset.prefetchGen = 0;
+  for (const [key, f] of inset.inflight) {
+    if (f.prefetch) { f.ctrl.abort(); inset.inflight.delete(key); }
+  }
+}
+
+export function cancelInsetBundle() {
+  if (inset.bundle) inset.bundle.ctrl.abort();
+  inset.bundle = null;
+}
+
+// The bundle holds compressed JPEG bytes only. Each member goes straight into
+// the existing bitmap/decode/upload lifecycle, so decoded bundle memory never
+// outlives an ordinary tile bitmap.
+export function requestInsetBundle(win) {
+  if (!['s2gm2025', 'eox2025'].includes(satProvider.id)) return;
+  const sources = new Map();
+  for (const tile of win.tiles) if (tile.visible && !inset.lru.has(tile.src) && !inset.missing.has(tile.src)) {
+    const [, z, x, y] = tile.src.split('/');
+    sources.set(tile.src, { z: Number(z), x: Number(x), y: Number(y) });
+  }
+  if (!sources.size) return;
+  const ctrl = new AbortController();
+  const entry = { win, ctrl };
+  inset.bundle = entry;
+  win.bundleKeys = new Set(sources.keys());
+  fetch(TILE_BUNDLE_URL, {
+    method: 'POST', signal: ctrl.signal, mode: 'cors', priority: 'high',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ provider: satProvider.id, version: new URL(tileURL(satProvider, win.z, 0, 0)).searchParams.get('v'), tiles: [...sources.values()] }),
+  })
+    .then((response) => response.ok ? response.arrayBuffer() : Promise.reject(new Error(`HTTP ${response.status}`)))
+    .then((bytes) => tryUnpackTileBundle(bytes, win.bundleKeys))
+    .then((tiles) => {
+      if (!tiles || inset.bundle !== entry || inset.win !== win || win.buf.win !== win) throw new Error('bundle unavailable');
+      for (const [key, bytes] of tiles) {
+        const blob = new Blob([bytes], { type: 'image/jpeg' });
+        lruPut(key, blob);
+        for (const tile of win.tiles) if (tile.state === 0 && tile.src === key) decodeInsetTile(win, tile, blob);
+      }
+    })
+    .catch(() => {
+      if (inset.bundle !== entry || inset.win !== win) return;
+      win.bundleKeys.clear();
+      for (const tile of win.tiles) if (tile.state === 0 && tile.visible) loadInsetTile(win, tile);
+    })
+    .finally(() => { if (inset.bundle === entry) inset.bundle = null; });
 }
 
 export function finishInsetTile(win, t, covered = false) {
@@ -986,6 +1042,7 @@ export function finishInsetTile(win, t, covered = false) {
     const other = inset.bufs[inset.bufs[0] === win.buf ? 1 : 0];
     win.buf.fadeTo = 1;
     other.fadeTo = win.visMissing ? 1 : 0; // retain old coverage under transparent holes
+    resumeDailyPrefetch();
   }
   if (!win.mipped && win.allLeft === 0) {
     win.mipped = true;
@@ -1043,9 +1100,8 @@ export function tripInsetBreaker() {
   inset.pausedUntil = performance.now() + Math.min(60000 * 2 ** (inset.trips - 1), 480000);
 }
 
-// Slow network (iOS has no navigator.connection): rolling median latency
-// over 1.5 s drops the inset a zoom level but keeps normal settled concurrency;
-// slow origin latency benefits from overlapping requests. Under 0.6 s restores it.
+// Slow network sampling is retained for prefetch policy. It does not reduce
+// requested detail or the visible burst; only explicit Save Data does that.
 export function noteInsetLatency(ms) {
   const l = inset.latency;
   l.push(ms);
@@ -1109,7 +1165,7 @@ export function pumpInsetFetches(now) {
   // Burst while a window is still loading: the user is waiting on this
   // window, so the pool widens until it completes (zoom-load round 2).
   const loading = !inset.win.ready;
-  const max = inset.slow ? INSET_FETCHES_SLOW : (loading ? INSET_FETCHES_BURST : INSET_FETCHES);
+  const max = insetFetchLimit(loading, INSET_FETCHES, INSET_FETCHES_BURST);
   while (inset.inflight.size < max && (inset.queue.length || inset.prefetch.length)) {
     // A next-rung center is low priority: live visible tiles always win, but
     // it can use the slot ahead of the current window's low-priority margin.
@@ -1119,7 +1175,7 @@ export function pumpInsetFetches(now) {
     if ((t.gen !== undefined && t.gen !== inset.win.gen) || (t.state !== undefined && t.state !== 0) || inset.inflight.has(t.src) || inset.lru.has(t.src) || inset.missing.has(t.src)) continue;
     fetchInsetTile(t);
   }
-  if (inset.slow || !WARM_MODES.has(state.gameMode)) return;
+  if (!idlePrefetchAllowed(inset.slow) || !WARM_MODES.has(state.gameMode)) return;
   if (!inset.win.ready && !windowMostlyIn(inset.win)) return;
   prepareInsetPrefetch(false);
 }
@@ -1142,15 +1198,17 @@ export function windowMostlyIn(win) {
 // Round 2 (Sean, 2026-11-10): warming may begin while the current window
 // is still loading, once it is mostly in, so a continuing pinch lands on
 // a next rung that is already fetching instead of a cold one.
-export function prepareInsetPrefetch(prioritize) {
+export function prepareInsetPrefetch(prioritize, arriving = null) {
   const win = inset.win;
-  if (!win || inset.slow || !WARM_MODES.has(state.gameMode) || win.z >= satProvider.maxZ) return;
+  if (prioritize && !arriving) arriving = pickInsetWindow().want;
+  if (!win || (!prioritize && (inset.slow || !WARM_MODES.has(state.gameMode))) || win.z >= satProvider.maxZ) return;
+  if (prioritize && !arriving) return;
   if (!prioritize && !win.ready && !windowMostlyIn(win)) return;
   if (navigator.connection?.saveData) return;
   if (inset.prefetchGen === win.gen && !prioritize) return;
   // Warm the next SERVED level: the next ladder rung when the provider
   // declares zooms (a z5 window warms z7, never the unserved z6), else z + 1.
-  const z = satProvider.zooms ? satProvider.zooms.find((r) => r > win.z) : win.z + 1;
+  const z = arriving ? arriving.z : (satProvider.zooms ? satProvider.zooms.find((r) => r > win.z) : win.z + 1);
   if (z === undefined || z > satProvider.maxZ) return;
   const n = 1 << z;
   const scale = 1 << (z - win.z);
@@ -1158,10 +1216,8 @@ export function prepareInsetPrefetch(prioritize) {
   const next = [];
   // During an active zoom, only warm the arriving rung's focal 3x3. It uses
   // the normal burst pool and starts before the current rung's pan margin.
-  const centerX = Math.floor(win.ccx * scale);
-  const centerY = Math.floor(win.ccy * scale);
   const sourceTiles = prioritize
-    ? Array.from({ length: 9 }, (_, i) => ({ x: imod(centerX + i % 3 - 1, n), y: clamp(centerY + Math.floor(i / 3) - 1, 0, n - 1), visible: false }))
+    ? visibleTileCoordinates(arriving).map((tile) => ({ ...tile, visible: true }))
     : win.tiles;
   for (const tile of sourceTiles) {
     // Visible tiles first; the window's one-tile margin warms too, at the
@@ -1174,7 +1230,7 @@ export function prepareInsetPrefetch(prioritize) {
       if (seen.has(src)) continue;
       seen.add(src);
       next.push({ x, y, z, src, url: tileURL(satProvider, z, y, x), prefetch: true,
-        pri: tilePriority(!prioritize && tile.visible, x, y, win.ccx * scale, win.ccy * scale) });
+        pri: tilePriority(prioritize || tile.visible, x, y, arriving ? arriving.ccx : win.ccx * scale, arriving ? arriving.ccy : win.ccy * scale) });
     }
   }
   sortTilesCenterOut(next);
@@ -1188,8 +1244,10 @@ export function prepareInsetPrefetch(prioritize) {
 }
 
 export function prioritizeInsetZoom() {
-  prepareInsetPrefetch(true);
-  if (!inset.queue.length) pumpInsetFetches(performance.now());
+  const { want } = pickInsetWindow();
+  if (!want || !inset.win || want.z <= inset.win.z) { cancelInsetPrefetch(); return; }
+  prepareInsetPrefetch(true, want);
+  pumpInsetFetches(performance.now());
 }
 
 // ---------------------------------------------------------------------------
@@ -1207,17 +1265,36 @@ export function prioritizeInsetZoom() {
 // warmed. Skipped when the slow-network fallback has already tripped or
 // the user asked to save data.
 let dailyPrefetchDate = null;
+const dailyPrefetch = { jobs: [], active: 0, paused: false, scheduled: false };
+
+export function pauseDailyPrefetch() { dailyPrefetch.paused = true; }
+export function resumeDailyPrefetch() { dailyPrefetch.paused = false; pumpDailyPrefetch(); }
+
+export function pumpDailyPrefetch() {
+  dailyPrefetch.scheduled = false;
+  while (!dailyPrefetch.paused && dailyPrefetch.active < 3 && dailyPrefetch.jobs.length) {
+    const job = dailyPrefetch.jobs.shift();
+    dailyPrefetch.active++;
+    fetch(job.url, { mode: 'cors', priority: 'low' })
+      .then((r) => (r.ok ? r.blob() : null))
+      .then((blob) => { if (blob) lruPut(job.key, blob); })
+      .catch(() => {})
+      .finally(() => { dailyPrefetch.active--; pumpDailyPrefetch(); });
+  }
+}
 
 export function prefetchDailyTiles(locations, date) {
   if (!satProvider || satDisabled || !date || date === dailyPrefetchDate) return;
   if (!Array.isArray(locations) || !locations.length) return;
   if (inset.slow || navigator.connection?.saveData) return;
-  const zooms = (satProvider.zooms || [7, 8, 9]).filter((z) => z >= 7 && z <= satProvider.maxZ);
+  const zooms = (satProvider.zooms || [7, 8, 9]).filter((z) => z >= 7 && z <= satProvider.maxZ).sort((a, b) => a - b);
   if (!zooms.length) return;
   dailyPrefetchDate = date;
   const jobs = [];
   const seen = new Set();
-  for (const loc of locations) {
+  const round = clamp(Number(state.daily?.round) || 0, 0, locations.length - 1);
+  const orderedLocations = [...locations.slice(round), ...locations.slice(0, round)];
+  for (const loc of orderedLocations) {
     const lat = clamp(Number(loc?.lat) || 0, -85.05112878, 85.05112878);
     const lng = Number(loc?.lng) || 0;
     const fx = (lng + 180) / 360;
@@ -1239,14 +1316,10 @@ export function prefetchDailyTiles(locations, date) {
     }
   }
   if (!jobs.length) return;
-  const run = () => {
-    for (const job of jobs) {
-      fetch(job.url, { mode: 'cors', priority: 'low' })
-        .then((r) => (r.ok ? r.blob() : null))
-        .then((blob) => { if (blob) lruPut(job.key, blob); })
-        .catch(() => {});
-    }
-  };
+  dailyPrefetch.jobs.push(...jobs);
+  if (dailyPrefetch.scheduled) return;
+  dailyPrefetch.scheduled = true;
+  const run = () => pumpDailyPrefetch();
   if (window.requestIdleCallback) requestIdleCallback(run, { timeout: 5000 });
   else setTimeout(run, 1000);
 }

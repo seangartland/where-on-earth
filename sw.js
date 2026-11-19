@@ -8,8 +8,8 @@
 // never go stale against a re-render.
 //
 // Strategy: cache-first from the versioned cache 'woe-tiles-v1'. On a miss,
-// fetch, store a clone stamped with its insertion time, and return the
-// response. Tile responses are CORS-readable, so they cache as ordinary
+// return the network response first, then store a stamped clone through the
+// event lifetime. Tile responses are CORS-readable, so they cache as ordinary
 // responses, not opaque ones.
 //
 // LRU cap ~100 MB: Cache Storage keeps no LRU metadata, so insertion order
@@ -49,12 +49,14 @@ self.addEventListener('fetch', (event) => {
     if (hit) return hit;
     const response = await fetch(event.request);
     if (response && response.ok) {
-      await cache.put(event.request, await stampedClone(response));
-      putsSinceTrim++;
-      if (putsSinceTrim >= TRIM_EVERY_PUTS) {
-        putsSinceTrim = 0;
-        await trimCache(cache);
-      }
+      event.waitUntil((async () => {
+        await cache.put(event.request, await stampedClone(response));
+        putsSinceTrim++;
+        if (putsSinceTrim >= TRIM_EVERY_PUTS) {
+          putsSinceTrim = 0;
+          await trimCache(cache);
+        }
+      })().catch(() => {}));
     }
     return response;
   })());

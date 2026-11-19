@@ -13,7 +13,7 @@ import { state } from '../core/state.js';
 import {
   PIN_COLOR, ANSWER_COLOR, latLngToVec3, vec3ToLatLng, setGlobeQuaternion, canvas, hud, renderer, camera, globe, pointers, radPerPx,
 } from './scene.js';
-import { outlineMaterials, prioritizeInsetZoom } from './surface.js';
+import { outlineMaterials, pauseDailyPrefetch, prioritizeInsetZoom } from './surface.js';
 
 const pointerFine = () => window.matchMedia('(pointer: fine)').matches;
 
@@ -546,6 +546,7 @@ export function initPin(main) {
     tap = pointers.size === 1 ? { x: e.clientX, y: e.clientY, t: performance.now() } : null;
     resetAnchor();
     if (pointers.size === 2) prioritizeInsetZoom();
+    pauseDailyPrefetch();
     canvas.classList.add('dragging');
     markInteraction();
   });
@@ -561,7 +562,9 @@ export function initPin(main) {
     if (pinch && pointers.size >= 2) {
       const span = Math.max(pinchSpan(), 1);
       const want = 1 + (pinch.dist - 1) * (pinch.span / span);
+      const before = state.targetDist;
       state.targetDist = clamp(want, MIN_DIST, state.maxDist);
+      if (state.targetDist !== before) prioritizeInsetZoom();
       // Past a limit, re-base so reversing the pinch responds immediately.
       if (state.targetDist !== want) pinch = { span, dist: state.targetDist };
     }
@@ -615,8 +618,9 @@ export function initPin(main) {
     (e) => {
       e.preventDefault();
       const unit = e.deltaMode === 1 ? 0.05 : e.ctrlKey ? 0.012 : 0.0015;
-      if (e.deltaY < 0) prioritizeInsetZoom();
       state.targetDist = zoomTo(state.targetDist, Math.exp(e.deltaY * unit));
+      prioritizeInsetZoom();
+      pauseDailyPrefetch();
       markInteraction();
     },
     { passive: false }
