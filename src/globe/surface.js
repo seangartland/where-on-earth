@@ -15,8 +15,9 @@ import { clamp, smoothstep } from '../core/math.js';
 import { state } from '../core/state.js';
 import { latLngToVec3, canvas, renderer, camera, globe, pointers, radPerPx } from './scene.js';
 import { inSf1bRegion } from './sf1b-region.js';
+import { inPilotZ10 } from './pilot-region.js';
 import { sortTilesCenterOut, tilePriority } from './tile-priority.js';
-import { tryUnpackTileBundle } from './tile-bundle.js';
+import { bundleSourceGroups, tryUnpackTileBundle } from './tile-bundle.js';
 import { visibleTileCoordinates } from './inset-footprint.js';
 import { idlePrefetchAllowed, insetFetchLimit, servedRungIndex } from './inset-policy.js';
 
@@ -570,8 +571,20 @@ export const SAT_PROVIDERS = [
     // region brown at z6 distances only); its tiles stay in the bucket,
     // just unserved. z4 needs no rung: the bundled base IS the z4 tiles
     // stitched. z7 is the deepest full-coverage layer, z8 the cleanest.
-    zooms: [5, 7, 8, 9],
-    maxZ: 9,
+    zooms: [5, 7, 8, 9, 10],
+    maxZ: 10,
+    region: (z, x, y) => !(z === 10 && inPilotZ10(z, x, y)),
+    fallback: 's2gm2025-pilot',
+  },
+  {
+    // Fallback-only: z10 tiles inside the gate-verified pilot footprints.
+    id: 's2gm2025-pilot',
+    selectable: false,
+    // v=1 avoids stale edge-cache entries left by the audit scans.
+    tiles: 'https://tiles.where-on.earth/s2gm2025-pilot/{z}/{x}/{y}.jpg?v=1',
+    base: './assets/base-ours-4k-v4b.jpg',
+    credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
+    maxZ: 10,
   },
   {
     id: 's2gm2025-sf1b',
@@ -588,13 +601,17 @@ export const SAT_PROVIDERS = [
   },
 ];
 export const DEFAULT_SAT_PROVIDER_ID = 's2gm2025'; // our own mosaic is the default: Sean passed it on the render-test preview and approved the flip 2026-11-09. EOX stays one parameter away (?sat=eox2025); sf1b stays opt-in via ?sat=s2gm2025-sf1b.
+export const tileProvider = (provider, z, y, x) => {
+  if (provider.region && !provider.region(z, x, y)) return SAT_PROVIDERS.find((p) => p.id === provider.fallback);
+  return provider;
+};
 export const tileURL = (provider, z, y, x) => {
-  if (provider.region && !provider.region(z, x, y)) provider = SAT_PROVIDERS.find((p) => p.id === provider.fallback);
+  provider = tileProvider(provider, z, y, x);
   return provider.tiles.replace('{z}', z).replace('{x}', x).replace('{y}', y);
 };
 export const getSatProvider = () => {
   const id = new URLSearchParams(location.search).get('sat');
-  return SAT_PROVIDERS.find((provider) => provider.id === id)
+  return SAT_PROVIDERS.find((provider) => provider.id === id && provider.selectable !== false)
     || SAT_PROVIDERS.find((provider) => provider.id === DEFAULT_SAT_PROVIDER_ID);
 };
 export const SAT_FADE_S = 0.4;
@@ -928,7 +945,8 @@ export function setInsetSrc(win, t) {
   const z = win.z - t.k;
   const x = t.x >> t.k;
   const y = t.y >> t.k;
-  t.src = `${win.providerId}/${z}/${x}/${y}`;
+  const provider = tileProvider(satProvider, z, y, x);
+  t.src = `${provider.id}/${z}/${x}/${y}`;
   t.url = tileURL(satProvider, z, y, x);
 }
 
@@ -990,12 +1008,10 @@ export function cancelInsetBundle() {
 // outlives an ordinary tile bitmap.
 export function requestInsetBundle(win) {
   if (!['s2gm2025', 'eox2025'].includes(satProvider.id)) return;
-  const sources = new Map();
-  for (const tile of win.tiles) if (tile.visible && !inset.lru.has(tile.src) && !inset.missing.has(tile.src)) {
-    const [, z, x, y] = tile.src.split('/');
-    sources.set(tile.src, { z: Number(z), x: Number(x), y: Number(y) });
-  }
-  if (!sources.size) return;
+  const groups = bundleSourceGroups(win.tiles.filter((tile) => tile.visible && !inset.lru.has(tile.src) && !inset.missing.has(tile.src)));
+  // Pilot tiles deliberately stay per-tile; one request must have one prefix.
+  const sources = groups.get(satProvider.id);
+  if (!sources?.size) return;
   const ctrl = new AbortController();
   const entry = { win, ctrl };
   inset.bundle = entry;
@@ -1003,7 +1019,7 @@ export function requestInsetBundle(win) {
   fetch(TILE_BUNDLE_URL, {
     method: 'POST', signal: ctrl.signal, mode: 'cors', priority: 'high',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ provider: satProvider.id, version: new URL(tileURL(satProvider, win.z, 0, 0)).searchParams.get('v'), tiles: [...sources.values()] }),
+    body: JSON.stringify({ provider: satProvider.id, version: new URL(satProvider.tiles).searchParams.get('v'), tiles: [...sources.values()] }),
   })
     .then((response) => response.ok ? response.arrayBuffer() : Promise.reject(new Error(`HTTP ${response.status}`)))
     .then((bytes) => tryUnpackTileBundle(bytes, win.bundleKeys))
@@ -1287,7 +1303,8 @@ export function prefetchDailyTiles(locations, date) {
   if (!satProvider || satDisabled || !date || date === dailyPrefetchDate) return;
   if (!Array.isArray(locations) || !locations.length) return;
   if (inset.slow || navigator.connection?.saveData) return;
-  const zooms = (satProvider.zooms || [7, 8, 9]).filter((z) => z >= 7 && z <= satProvider.maxZ).sort((a, b) => a - b);
+  // Daily warming intentionally stops at full-coverage z9; z10 is pilot-only.
+  const zooms = (satProvider.zooms || [7, 8, 9]).filter((z) => z >= 7 && z <= Math.min(satProvider.maxZ, 9)).sort((a, b) => a - b);
   if (!zooms.length) return;
   dailyPrefetchDate = date;
   const jobs = [];

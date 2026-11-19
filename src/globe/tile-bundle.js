@@ -2,6 +2,20 @@ const MAGIC = 'WOE1';
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
+// Bundle requests map to one worker provider, so never mix URL prefixes.
+// The default z10 prefix is intentionally absent upstream; pilot sources use
+// individual fetches so their region routing cannot poison a default bundle.
+export function bundleSourceGroups(tiles) {
+  const groups = new Map();
+  for (const tile of tiles) {
+    const [provider, z, x, y] = tile.src.split('/');
+    if ((provider === 's2gm2025' && Number(z) === 10) || !['s2gm2025', 'eox2025'].includes(provider)) continue;
+    if (!groups.has(provider)) groups.set(provider, new Map());
+    groups.get(provider).set(tile.src, { z: Number(z), x: Number(x), y: Number(y) });
+  }
+  return groups;
+}
+
 export function buildTileBundle(tiles) {
   const manifest = encoder.encode(JSON.stringify({ v: 1, tiles: tiles.map(({ key, bytes }) => ({ key, length: bytes.byteLength })) }));
   if (manifest.byteLength > 0xffff) throw new Error('bundle manifest too large');
