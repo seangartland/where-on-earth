@@ -120,7 +120,7 @@ function pvpTick() {
   if (!pvp.active || host.gameMode !== 'guess') return pvpStopTimers();
   const left = pvp.deadline - performance.now();
   gameEls.weight.textContent = left > 0 ? `${Math.ceil(left / 1000)}s left` : 'Time is up';
-  gameEls.weight.style.color = left <= 5000 ? '#ffc76a' : '';
+  gameEls.weight.style.color = left <= (pvp.group ? 5000 : 3000) ? '#ffc76a' : '';
   if (left > 0 || pvp.timedOut) return;
   // Visible zero: no new guesses. A lock-in already in flight may still land in
   // the server's grace window; otherwise read the server-made timeout.

@@ -10,7 +10,7 @@
 // ---------------------------------------------------------------------------
 import {
   pvpStore, savePvp, pvpHasIdentity, pvpRememberMatch, pvpRememberGroup, pvpMessage, pvpCleanName, pvpEnsureIdentity,
-  pvpGetMatch, pvpCreateMatch, pvpCreateGroup, pvpListMyGroups,
+  pvpGetMatch, pvpGetRecord, pvpCreateMatch, pvpCreateGroup, pvpListMyGroups,
 } from './api.js';
 
 let host = null;
@@ -54,7 +54,7 @@ export function initPvpHome(main) {
   pvpHome.hidden = true;
   pvpHome.innerHTML = `<div class="expedition-panel pvp-panel" role="dialog" aria-modal="true" aria-labelledby="pvp-heading">
   <h2 id="pvp-heading">Challenge a friend</h2>
-  <p>Five places, 20 seconds each. Highest total out of 5,000 wins.</p>
+  <p>Five places, 8 seconds each. Highest total out of 5,000 wins.</p>
   <div class="pvp-body"></div>
 </div>`;
   document.body.appendChild(pvpHome);
@@ -200,7 +200,7 @@ function renderPvpHome() {
   }
   blocks.push(pvpEl('div', { className: 'pvp-block pvp-who pvp-footer' },
     pvpUi.showCode ? null : pvpEl('button', { type: 'button', className: 'text-button', text: 'Have a code?', onclick: () => { pvpUi.showCode = true; renderPvpHome(); pvpHomeBody.querySelector('.pvp-code')?.focus(); } }),
-    pvpHasIdentity() ? pvpEl('span', {}, 'Playing as ', pvpEl('b', { text: pvpStore.displayName }), ' · ',
+  pvpHasIdentity() ? pvpEl('span', {}, 'Playing as ', pvpEl('b', { text: pvpStore.displayName }), pvpUi.rating ? ` · Rating ${Math.round(pvpUi.rating.rating).toLocaleString()}${pvpUi.rating.provisional ? ' · Provisional' : ''}` : '', ' · ',
       pvpEl('button', { type: 'button', className: 'text-button', text: 'Change name', onclick: () => { pvpUi.editingName = true; renderPvpHome(); } })) : null,
   ));
   renderPvpCreateSlot();
@@ -326,6 +326,10 @@ async function refreshPvpList() {
       }
     }
   }));
+  const opponentId = [...pvpUi.states.values()].find((state) => state?.players)?.players.find((player) => player.playerId !== pvpStore.playerId)?.playerId;
+  if (opponentId) {
+    try { pvpUi.rating = (await pvpGetRecord(opponentId)).rating || null; } catch { /* rating is optional */ }
+  }
   try {
     pvpUi.groupItems = await pvpListMyGroups();
     for (const item of pvpUi.groupItems) pvpRememberGroup({ challengeId: item.challengeId, role: item.role, createdAt: item.createdAt });
@@ -352,7 +356,7 @@ export function showPvpHome(status = '', error = false) {
   pvpUi.showCode = false;
   pvpUi.capHit = false;
   pvpHome.querySelector('h2').textContent = 'Challenge a friend';
-  pvpHome.querySelector('h2 + p').textContent = 'Five places, 20 seconds each. Highest total out of 5,000 wins.';
+  pvpHome.querySelector('h2 + p').textContent = 'Five places, 8 seconds each. Highest total out of 5,000 wins.';
   renderPvpHome();
   pvpHome.hidden = false;
   refreshPvpList();

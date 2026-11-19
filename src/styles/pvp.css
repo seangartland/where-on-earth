@@ -9,6 +9,8 @@
 .pvp-panel .pvp-wide, .pvp-actions .primary { min-width: 0; width: 100%; padding: 0 18px; }
 .pvp-actions { display: grid; gap: 10px; margin: 14px 0 0; }
 .pvp-note { margin: 8px 0 0; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-small); line-height: 1.4; }
+.pvp-rating { font-variant-numeric: tabular-nums; }
+.survival-best-card .pvp-rating { margin: 7px 0 0; }
 .pvp-who { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; color: rgba(224,240,255,.86); font-size: var(--fs-base); }
 .pvp-who b { color: var(--ink); }
 .pvp-status { min-height: 18px; margin: 10px 0 0; color: #8bd9ff; font-size: var(--fs-body); line-height: 1.4; }

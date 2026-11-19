@@ -66,8 +66,14 @@ function pvpRecordLine() {
   return pvpEl('p', { className: 'pvp-note pvp-record', text });
 }
 
+function pvpRatingLine(rating, change) {
+  if (!rating) return null;
+  const signed = change == null ? '' : ` (${change >= 0 ? '+' : ''}${Math.round(change).toLocaleString()})`;
+  return pvpEl('p', { className: 'pvp-note pvp-rating', text: `Rating ${Math.round(rating.after ?? rating.rating).toLocaleString()}${signed}${rating.provisional ? ' · Provisional' : ''}` });
+}
+
 async function pvpShareInvite(entry, button) {
-  const text = `${pvpStore.displayName} challenged you on Where on Earth? Five places, 20 seconds each. Join code ${entry.joinCode}`;
+  const text = `${pvpStore.displayName} challenged you on Where on Earth? Five places, 8 seconds each. Join code ${entry.joinCode}`;
   try {
     if (navigator.share) {
       await navigator.share({ text, url: entry.shareUrl });
@@ -116,7 +122,7 @@ function renderPvpMatch() {
     } else if (key === 'ended') {
       blocks.push(header('Ended', 'This challenge was ended early. It does not count toward your record.'));
     } else if (key === 'your-turn') {
-      blocks.push(header('Your turn', `Round ${next} of 5 is next. Each round gives you 20 seconds, and the timer starts when you tap play.${state.status === 'OPEN' ? ' Nobody has joined yet, so you can play now and your friend can play later.' : ''}`));
+      blocks.push(header('Your turn', `Round ${next} of 5 is next. Each round gives you 8 seconds, and the timer starts when you tap play.${state.status === 'OPEN' ? ' Nobody has joined yet, so you can play now and your friend can play later.' : ''}`));
     } else if (key === 'waiting') {
       blocks.push(header('Waiting for opponent', 'You have played all five rounds. Send the link or code so a friend can play the same places.'));
     } else {
@@ -126,9 +132,9 @@ function renderPvpMatch() {
       const myTotal = state.result ? state.result.totals.find((t) => t.role === state.role).total : state.viewer.total;
       const oppTotal = state.result ? state.result.totals.find((t) => t.role !== state.role).total : null;
       blocks.push(pvpEl('div', { className: 'survival-best-card' },
-        pvpEl('div', {}, pvpEl('strong', { text: myTotal.toLocaleString() }), pvpEl('span', { text: state.result ? 'You' : 'You so far' })),
+        pvpEl('div', {}, pvpEl('strong', { text: myTotal.toLocaleString() }), pvpEl('span', { text: state.result ? 'You' : 'You so far' }), state.result ? pvpRatingLine(state.rating, state.rating?.change) : null),
         pvpEl('div', {}, pvpEl('strong', { text: oppTotal != null ? oppTotal.toLocaleString() : opp ? `${opp.resolvedRounds ?? 0}/5` : '0/5' }),
-          pvpEl('span', { text: oppTotal != null ? oppName : `${opponent || 'Opponent'} played` })),
+          pvpEl('span', { text: oppTotal != null ? oppName : `${opponent || 'Opponent'} played` }), state.result ? pvpRatingLine(state.opponentRating) : null),
       ));
     }
     if (state.status === 'OPEN' && state.role === 'CHALLENGER' && entry?.shareUrl) {
@@ -287,7 +293,7 @@ function renderPvpJoin() {
     const label = name === pvpStore.displayName ? `${name} ${invite.challenger.displaySuffix}` : name;
     const expires = new Date(invite.expiresAt).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
     pvpHome.querySelector('h2').textContent = `${label} challenged you`;
-    pvpHome.querySelector('h2 + p').textContent = `Five places, 20 seconds each. Highest total out of 5,000 wins. Open until ${expires}.`;
+    pvpHome.querySelector('h2 + p').textContent = `Five places, 8 seconds each. Highest total out of 5,000 wins. Open until ${expires}.`;
     if (!pvpHasIdentity() || pvpUi.editingName) {
       blocks.push(pvpNameBlock({ submitLabel: pvpHasIdentity() ? 'Save' : 'Accept', onSubmit: (picked) => (pvpHasIdentity() ? pvpRename(picked, renderPvpJoin) : pvpAccept(picked)) }));
     } else {

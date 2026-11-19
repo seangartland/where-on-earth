@@ -1,8 +1,9 @@
 import { CATALOG, CATALOG_VERSION } from "./catalog.js";
 import { scoreCoordinates } from "./scoring.js";
+import { DEFAULT_RATING, actualScore, updateRating } from "./rating.js";
 export { GroupChallengeRoom } from "./group-room.js";
 
-const RULES = { version: 1, rounds: 5, roundSeconds: 20, graceMilliseconds: 2000, maximumScore: 5000 };
+const RULES = { version: 1, rounds: 5, roundSeconds: 8, graceMilliseconds: 2000, maximumScore: 5000 };
 const WEEK = 7 * 86400000;
 const MONTH = 30 * 86400000;
 const BODY_LIMIT = 8192;
@@ -119,6 +120,8 @@ export class PlayerRecords {
     if (oldPairColumns.length && !oldPairColumns.some((column) => column.name === "player_a_id")) sql.exec("ALTER TABLE pair_records RENAME TO pair_records_scaffold");
     sql.exec("CREATE TABLE IF NOT EXISTS pair_records (pair_key TEXT PRIMARY KEY, player_a_id TEXT NOT NULL, player_b_id TEXT NOT NULL, player_a_name TEXT NOT NULL, player_b_name TEXT NOT NULL, played INTEGER NOT NULL, a_wins INTEGER NOT NULL, b_wins INTEGER NOT NULL, ties INTEGER NOT NULL, a_points INTEGER NOT NULL, b_points INTEGER NOT NULL, last_played_at INTEGER NOT NULL, last_match_id TEXT NOT NULL, updated_at INTEGER NOT NULL)");
     sql.exec("CREATE TABLE IF NOT EXISTS completion_ledger (match_id TEXT PRIMARY KEY, payload_hash TEXT NOT NULL, applied_at INTEGER NOT NULL)");
+    sql.exec("CREATE TABLE IF NOT EXISTS player_ratings (player_id TEXT PRIMARY KEY, rating REAL NOT NULL, matches INTEGER NOT NULL, updated_at INTEGER NOT NULL)");
+    sql.exec("CREATE TABLE IF NOT EXISTS completion_rating_results (match_id TEXT PRIMARY KEY, ratings TEXT NOT NULL)");
     sql.exec("CREATE TABLE IF NOT EXISTS invitations (credential_hash TEXT PRIMARY KEY, kind TEXT NOT NULL, match_id TEXT NOT NULL, expires_at INTEGER NOT NULL)");
     sql.exec("CREATE TABLE IF NOT EXISTS open_matches (player_id TEXT NOT NULL, match_id TEXT PRIMARY KEY, expires_at INTEGER NOT NULL)");
     sql.exec("CREATE TABLE IF NOT EXISTS rate_limits (bucket TEXT PRIMARY KEY, count INTEGER NOT NULL, reset_at INTEGER NOT NULL, strikes INTEGER NOT NULL)");
@@ -217,17 +220,23 @@ export class PlayerRecords {
         return json({ matchId: row.match_id, expired: now >= row.expires_at });
       }
       if (url.pathname === "/apply-completion") {
-        const payloadHash = await hmac(this.env.PAIR_KEY || this.env.SERVER_SECRET, JSON.stringify(data)); let duplicate = false;
+        const payloadHash = await hmac(this.env.PAIR_KEY || this.env.SERVER_SECRET, JSON.stringify(data)); let duplicate = false; let ratings;
         this.ctx.storage.transactionSync(() => {
           const ledger = sql.exec("SELECT payload_hash FROM completion_ledger WHERE match_id = ?", data.matchId).toArray()[0];
-          if (ledger) { if (ledger.payload_hash !== payloadHash) throw new ApiError(409, "COMPLETION_MISMATCH", "Completion payload does not match the applied result."); duplicate = true; return; }
+          if (ledger) { if (ledger.payload_hash !== payloadHash) throw new ApiError(409, "COMPLETION_MISMATCH", "Completion payload does not match the applied result."); duplicate = true; const storedRating = sql.exec("SELECT ratings FROM completion_rating_results WHERE match_id = ?", data.matchId).toArray()[0]; ratings = storedRating ? JSON.parse(storedRating.ratings) : undefined; return; }
           const ids = [data.players[0].playerId, data.players[1].playerId].sort(); const byId = new Map(data.players.map((p) => [p.playerId, p])); const a = byId.get(ids[0]); const b = byId.get(ids[1]); const old = sql.exec("SELECT * FROM pair_records WHERE pair_key = ?", data.pairKey).toArray()[0];
           const aw = data.winnerPlayerId === a.playerId ? 1 : 0, bw = data.winnerPlayerId === b.playerId ? 1 : 0, tie = data.winnerPlayerId ? 0 : 1;
           sql.exec("INSERT OR REPLACE INTO pair_records VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", data.pairKey, a.playerId, b.playerId, a.displayName, b.displayName, (old?.played || 0) + 1, (old?.a_wins || 0) + aw, (old?.b_wins || 0) + bw, (old?.ties || 0) + tie, (old?.a_points || 0) + a.total, (old?.b_points || 0) + b.total, data.completedAt, data.matchId, now);
+          const oldRatings = new Map(sql.exec("SELECT player_id, rating, matches FROM player_ratings WHERE player_id IN (?, ?)", a.playerId, b.playerId).toArray().map((row) => [row.player_id, row]));
+          const aRating = oldRatings.get(a.playerId) || { rating: DEFAULT_RATING, matches: 0 }, bRating = oldRatings.get(b.playerId) || { rating: DEFAULT_RATING, matches: 0 };
+          const aResult = updateRating(aRating, bRating, actualScore(a.total, b.total)); const bResult = updateRating(bRating, aRating, actualScore(b.total, a.total));
+          ratings = [{ playerId: a.playerId, ...aResult }, { playerId: b.playerId, ...bResult }];
+          for (const item of ratings) sql.exec("INSERT OR REPLACE INTO player_ratings VALUES (?, ?, ?, ?)", item.playerId, item.after, item.matches, now);
+          sql.exec("INSERT INTO completion_rating_results VALUES (?, ?)", data.matchId, JSON.stringify(ratings));
           sql.exec("INSERT INTO completion_ledger VALUES (?, ?, ?)", data.matchId, payloadHash, now); sql.exec("DELETE FROM open_matches WHERE match_id = ?", data.matchId);
-        }); return json({ applied: true, duplicate });
+        }); return json({ applied: true, duplicate, ratings });
       }
-      if (url.pathname === "/record") { const row = sql.exec("SELECT * FROM pair_records WHERE pair_key = ?", data.pairKey).toArray()[0]; return json({ record: row || null }); }
+      if (url.pathname === "/record") { const row = sql.exec("SELECT * FROM pair_records WHERE pair_key = ?", data.pairKey).toArray()[0]; const rating = sql.exec("SELECT rating, matches FROM player_ratings WHERE player_id = ?", data.playerId).toArray()[0]; return json({ record: row || null, rating: rating ? { rating: rating.rating, matches: rating.matches, provisional: rating.matches < 5 } : null }); }
       throw new ApiError(404, "NOT_FOUND", "Internal route not found.");
     } catch (error) { return errorResponse(error); }
   }
@@ -259,7 +268,7 @@ export class MatchRoom {
   async writeRecords(state) {
     try {
       const winner = state.result.winnerRole === "TIE" ? null : state.players.find((p) => p.role === state.result.winnerRole).playerId; const players = state.players.map((p) => ({ playerId: p.playerId, displayName: p.displayName, total: total(p) }));
-      await internal(recordStub(this.env), "/apply-completion", { matchId: state.matchId, pairKey: await pairHash(this.env, players[0].playerId, players[1].playerId), players, winnerPlayerId: winner, completedAt: state.completedAt }); state.recordsWriteState = "APPLIED"; delete state.recordsRetryAt; delete state.recordsAttempts;
+      const applied = await internal(recordStub(this.env), "/apply-completion", { matchId: state.matchId, pairKey: await pairHash(this.env, players[0].playerId, players[1].playerId), players, winnerPlayerId: winner, completedAt: state.completedAt }); state.ratingResults = applied.ratings; state.recordsWriteState = "APPLIED"; delete state.recordsRetryAt; delete state.recordsAttempts;
     } catch { state.recordsWriteState = "RETRY"; state.recordsAttempts = (state.recordsAttempts || 0) + 1; state.recordsRetryAt = Date.now() + Math.min(3600000, 1000 * 2 ** state.recordsAttempts); }
     this.save(state);
   }
@@ -281,14 +290,16 @@ export class MatchRoom {
       return { round: i + 1, state: round.state };
     }) : [];
     const next = viewer.rounds ? viewer.rounds.findIndex((round) => !round.result) + 1 : null;
-    return { matchId: state.matchId, status: state.status, role: viewer.role, createdAt: state.createdAt, expiresAt: state.expiresAt, catalogVersion: state.catalogVersion, rulesVersion: state.rulesVersion, players, viewer: { nextRound: next || null, ...(viewer.rounds ? { progress: progress(viewer), total: total(viewer) } : {}) }, rounds, result: state.result || null, ...(state.recordsWriteState === "RETRY" ? { recordUpdatePending: true } : {}) };
+    const mine = state.ratingResults?.find((item) => item.playerId === viewer.playerId); const theirs = state.ratingResults?.find((item) => item.playerId === opponent?.playerId);
+    const rating = mine ? { before: mine.before, after: mine.after, change: mine.change, matches: mine.matches, provisional: mine.provisional } : null;
+    return { matchId: state.matchId, status: state.status, role: viewer.role, createdAt: state.createdAt, expiresAt: state.expiresAt, catalogVersion: state.catalogVersion, rulesVersion: state.rulesVersion, players, viewer: { nextRound: next || null, ...(viewer.rounds ? { progress: progress(viewer), total: total(viewer) } : {}) }, rounds, result: state.result || null, ...(rating ? { rating, opponentRating: theirs?.matches ? { rating: theirs.after, matches: theirs.matches, provisional: theirs.provisional } : null } : {}), ...(state.recordsWriteState === "RETRY" ? { recordUpdatePending: true } : {}) };
   }
   async fetch(request) {
     try {
       const url = new URL(request.url); const data = await request.json(); let state = this.load();
       if (url.pathname === "/init") { if (state) throw new ApiError(409, "MATCH_EXISTS", "Match already exists."); state = { ...data, rulesVersion: 1, status: "OPEN", players: [{ ...data.challenger, role: "CHALLENGER", rounds: emptyRounds() }], recordsWriteState: null }; delete state.challenger; this.save(state); await this.schedule(state); return json({ ok: true }); }
       if (!state?.matchId) throw new ApiError(404, "MATCH_NOT_FOUND", "Match not found."); await this.due(state); state = this.load();
-      if (url.pathname === "/invite-preview") { if (state.status === "EXPIRED") throw new ApiError(410, "INVITATION_EXPIRED", "The invitation has expired."); if (state.status !== "OPEN") throw new ApiError(404, "INVITATION_NOT_FOUND", "Invitation not found."); const p = state.players[0]; return json({ matchId: state.matchId, challenger: { displayName: p.displayName, displaySuffix: suffix(p.playerId) }, expiresAt: state.expiresAt, rules: { rounds: 5, roundSeconds: 20, maximumScore: 5000 } }); }
+      if (url.pathname === "/invite-preview") { if (state.status === "EXPIRED") throw new ApiError(410, "INVITATION_EXPIRED", "The invitation has expired."); if (state.status !== "OPEN") throw new ApiError(404, "INVITATION_NOT_FOUND", "Invitation not found."); const p = state.players[0]; return json({ matchId: state.matchId, challenger: { displayName: p.displayName, displaySuffix: suffix(p.playerId) }, expiresAt: state.expiresAt, rules: { rounds: RULES.rounds, roundSeconds: RULES.roundSeconds, maximumScore: RULES.maximumScore } }); }
       const auth = data.auth; if (!auth) throw new ApiError(401, "UNAUTHORIZED", "Authentication is required.");
       if (url.pathname === "/join") {
         if (state.status === "EXPIRED") throw new ApiError(410, "MATCH_EXPIRED", "The match has expired."); if (state.status === "ABANDONED") throw new ApiError(410, "MATCH_ABANDONED", "The match was abandoned."); if (auth.playerId === state.players[0].playerId) throw new ApiError(409, "SELF_CHALLENGE", "You cannot join your own challenge.");
@@ -311,7 +322,7 @@ export class MatchRoom {
         if (state.status === "EXPIRED") throw new ApiError(410, "MATCH_EXPIRED", "The match has expired."); if (TERMINAL.has(state.status)) throw new ApiError(409, "MATCH_TERMINAL", "The match is terminal."); const index = Number(start[1]) - 1, round = player.rounds[index]; if (!round) throw new ApiError(400, "INVALID_REQUEST", "Round must be 1 through 5."); if (round.result) throw new ApiError(409, "ROUND_ALREADY_RESOLVED", "The round is already resolved.");
         const prompt = { id: state.locations[index].id, short: state.locations[index].short, clue: state.locations[index].clue };
         if (round.startedAt) return json({ round: index + 1, location: prompt, startedAt: round.startedAt, deadlineAt: round.deadlineAt, acceptUntil: round.acceptUntil, serverNow: Date.now() }); if (round.state !== "READY") throw new ApiError(409, "ROUND_SEQUENCE", "Rounds must be played in sequence.");
-        const now = Date.now(); Object.assign(round, { state: "STARTED", startedAt: now, deadlineAt: now + 20000, acceptUntil: now + 22000 }); this.save(state); await this.schedule(state); return json({ round: index + 1, location: prompt, startedAt: now, deadlineAt: now + 20000, acceptUntil: now + 22000, serverNow: now });
+        const now = Date.now(), deadlineAt = now + RULES.roundSeconds * 1000, acceptUntil = deadlineAt + RULES.graceMilliseconds; Object.assign(round, { state: "STARTED", startedAt: now, deadlineAt, acceptUntil }); this.save(state); await this.schedule(state); return json({ round: index + 1, location: prompt, startedAt: now, deadlineAt, acceptUntil, serverNow: now });
       }
       const submission = url.pathname.match(/^\/submission\/(\d)$/);
       if (submission) {
@@ -414,7 +425,7 @@ export default {
         } catch (error) { await internal(source, "/rematch-clear", { auth }).catch(() => {}); throw error; }
       }
       const record = url.pathname.match(/^\/v1\/records\/([^/]+)$/);
-      if (record && request.method === "GET") { const auth = await authenticate(request, env); if (record[1] === auth.playerId) throw new ApiError(400, "SELF_RECORD", "You cannot request a record against yourself."); const found = (await internal(recordStub(env), "/record", { pairKey: await pairHash(env, auth.playerId, record[1]) })).record; if (!found) return json({ opponent: { playerId: record[1] }, record: null }, 200, cors); const callerA = found.player_a_id === auth.playerId; const opponentId = callerA ? found.player_b_id : found.player_a_id; return json({ opponent: { playerId: opponentId, displayNameLastSeen: callerA ? found.player_b_name : found.player_a_name, displaySuffix: suffix(opponentId) }, record: { played: found.played, wins: callerA ? found.a_wins : found.b_wins, losses: callerA ? found.b_wins : found.a_wins, ties: found.ties, pointsFor: callerA ? found.a_points : found.b_points, pointsAgainst: callerA ? found.b_points : found.a_points, lastPlayedAt: found.last_played_at, lastMatchId: found.last_match_id } }, 200, cors); }
+      if (record && request.method === "GET") { const auth = await authenticate(request, env); if (record[1] === auth.playerId) throw new ApiError(400, "SELF_RECORD", "You cannot request a record against yourself."); const data = await internal(recordStub(env), "/record", { pairKey: await pairHash(env, auth.playerId, record[1]), playerId: auth.playerId }); const found = data.record; if (!found) return json({ opponent: { playerId: record[1] }, record: null, rating: data.rating }, 200, cors); const callerA = found.player_a_id === auth.playerId; const opponentId = callerA ? found.player_b_id : found.player_a_id; return json({ opponent: { playerId: opponentId, displayNameLastSeen: callerA ? found.player_b_name : found.player_a_name, displaySuffix: suffix(opponentId) }, record: { played: found.played, wins: callerA ? found.a_wins : found.b_wins, losses: callerA ? found.b_wins : found.a_wins, ties: found.ties, pointsFor: callerA ? found.a_points : found.b_points, pointsAgainst: callerA ? found.b_points : found.a_points, lastPlayedAt: found.last_played_at, lastMatchId: found.last_match_id }, rating: data.rating }, 200, cors); }
       throw new ApiError(404, "NOT_FOUND", "Route not found.");
     } catch (error) { const response = errorResponse(error, cors); if (error instanceof ApiError && error.code === "RATE_LIMITED") response.headers.set("retry-after", String(error.details.retryAfter)); return response; }
   },
