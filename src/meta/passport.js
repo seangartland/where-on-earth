@@ -57,7 +57,6 @@ export function syncPassport() {
   }
   host.gameEls.start.classList.toggle('has-passport', summary.found > 0);
   passportEls.found.textContent = summary.found.toLocaleString();
-  passportEls.total.textContent = summary.total.toLocaleString();
   passportEls.earned.textContent = summary.earned ? ` · ${summary.earned.toLocaleString()} postcards` : '';
   passportEls.stamps.replaceChildren(...summary.recent.map((spot) => {
     const img = document.createElement('img');
@@ -1256,7 +1255,7 @@ export function initPassportHome(main) {
   passportBox.tabIndex = 0;
   passportBox.setAttribute('aria-label', 'Open your passport');
   passportBox.innerHTML = `
-  <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places<span class="passport-earned" data-passport="earned"></span></p>
+  <p class="passport-count"><b data-passport="found">0</b> places visited<span class="passport-earned" data-passport="earned"></span></p>
   <div class="passport-stamps" data-passport="stamps"></div>
   <div class="passport-xp" data-passport="xp" role="button" tabindex="0" aria-label="Open your traveler profile" hidden><div data-passport="xp-bar"></div><span class="passport-xp-chevron" aria-hidden="true">›</span></div>
   <span class="passport-cue" aria-hidden="true">Passport ›</span>`;
@@ -1274,7 +1273,6 @@ export function initPassportHome(main) {
   passportEls = {
     box: passportBox,
     found: passportBox.querySelector('[data-passport="found"]'),
-    total: passportBox.querySelector('[data-passport="total"]'),
     earned: passportBox.querySelector('[data-passport="earned"]'),
     stamps: passportBox.querySelector('[data-passport="stamps"]'),
     xp: passportBox.querySelector('[data-passport="xp"]'),

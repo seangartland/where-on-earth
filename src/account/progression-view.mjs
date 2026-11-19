@@ -3,7 +3,7 @@ import { renderAvatar } from './avatar.js';
 export const LEVEL_UNLOCKS = Object.freeze([
   { level: 2, kind: 'title-pick', text: 'Level 2 title pick', detail: 'Choose your Level 2 title in Customize: Window Seat or Aisle Seat' },
   { level: 5, kind: 'silver-ring', text: 'Silver ring', detail: 'Seal ring upgraded to Silver' },
-  { level: 5, kind: 'card', text: 'Airmail calling card', detail: 'New calling card: Airmail' },
+  { level: 5, kind: 'card', text: 'Airmail banner', detail: 'New banner: Airmail' },
   { level: 5, kind: 'titles', text: 'both titles', detail: 'Window Seat and Aisle Seat titles are now both yours' },
   { level: 10, kind: 'gold-ring', text: 'Gold ring', detail: 'Seal ring upgraded to Gold' },
 ]);
@@ -13,9 +13,9 @@ export function stripWindow(level) { const start = Math.max(1, Math.min(level - 
 export function rewardLabel(reward, catalogs) {
   if (reward === 'motif:star') return 'Star seal motif';
   const [type, id] = String(reward || '').split(':');
-  const group = type === 'title' ? catalogs?.Titles : type === 'card' ? catalogs?.['Calling Cards'] : null;
+  const group = type === 'title' ? catalogs?.Titles : type === 'card' ? catalogs?.Banners : null;
   const found = group?.find(([itemId]) => itemId === id);
-  return found ? `${found[1]} ${type === 'title' ? 'title' : 'calling card'}` : 'Achievement reward';
+  return found ? `${found[1]} ${type === 'title' ? 'title' : 'banner'}` : 'Achievement reward';
 }
 
 function nextUnlock(level) { return LEVEL_UNLOCKS.find((unlock) => unlock.level > level); }

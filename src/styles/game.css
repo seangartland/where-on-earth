@@ -190,6 +190,7 @@ button { font: inherit; }
 .account-friend-profile { min-width: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: 800; text-align: left; cursor: pointer; text-underline-offset: 3px; }
 .traveler-profile { color: #173e68; text-align: left; }
 .traveler-card { position: relative; display: flex; align-items: center; gap: 16px; margin: -8px -4px 18px; padding: 20px 18px; overflow: hidden; border-radius: 6px; background: #1e4e9c; color: #f6edd8; box-shadow: 0 7px 18px rgba(23,62,104,.28); }
+.traveler-profile.own .traveler-card { margin-bottom: 30px; overflow: visible; }
 .traveler-card::after { position: absolute; right: -20px; bottom: -28px; width: 92px; height: 92px; border: 2px solid rgba(246,237,216,.18); border-radius: 50%; content: ''; }
 .traveler-card[data-card="airmail"] { background-image: repeating-linear-gradient(135deg, transparent 0 14px, rgba(246,237,216,.12) 14px 16px); }
 .traveler-card[data-card]:not([data-card="blue-horizon"]):not([data-card="airmail"]) { background-image: linear-gradient(120deg, #1e4e9c, #173e68); }
@@ -198,6 +199,8 @@ button { font: inherit; }
 .traveler-card p { margin: 4px 0 0; }
 .traveler-card .traveler-level { color: #ffcb05; font-size: var(--fs-caption); font-weight: 900; letter-spacing: .13em; }
 .traveler-title { color: rgba(246,237,216,.86); font-size: var(--fs-body); font-weight: 750; }
+.traveler-card .account-customize { position: absolute; z-index: 2; right: 14px; bottom: -14px; min-height: 28px; padding: 5px 11px; border: 1px solid rgba(23,62,104,.42); border-radius: 999px; background: #ffcb05; color: #173e68; font: inherit; font-size: var(--fs-small); font-weight: 850; line-height: 1; cursor: pointer; box-shadow: 0 3px 7px rgba(5,12,29,.28); touch-action: manipulation; }
+.traveler-card .account-customize:active { transform: scale(.96); }
 .traveler-card .traveler-xp { margin-top: 5px; color: rgba(246,237,216,.78); font-size: var(--fs-caption); text-align: left; }
 .traveler-progress { height: 5px; margin-top: 12px; overflow: hidden; border-radius: 3px; background: rgba(246,237,216,.22); }
 .traveler-progress span { display: block; height: 100%; border-radius: inherit; background: #ffcb05; }
@@ -224,7 +227,6 @@ button { font: inherit; }
 .traveler-achievements span { margin-top: 2px; color: rgba(23,62,104,.72); font-size: 12px; line-height: 1.35; }
 .traveler-actions { display: grid; grid-template-columns: 1fr 1.3fr; gap: 8px; margin-top: 14px; }
 .account-open-cabinet { min-height: 46px; margin: 0; border: 1px solid rgba(30,78,156,.32); border-radius: 999px; color: #1e4e9c; font-weight: 800; }
-.traveler-actions .account-customize { min-height: 46px; }
 .cabinet h2, .customizer h2 { margin: 0 42px 20px 0; color: #1e4e9c; font-family: 'Luckiest Guy', 'Arial Black', sans-serif; letter-spacing: .02em; }
 .cabinet-group { margin-top: 24px; }
 .cabinet-group-head { padding-bottom: 7px; border-bottom: 2px solid #1e4e9c; }
@@ -791,11 +793,12 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-screen::after { position: fixed; right: 12%; bottom: 8%; left: 12%; height: 15%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,.62), transparent 68%); filter: blur(10px); content: ''; pointer-events: none; }
 .pack-screen.sealed-on { touch-action: none; }
 .pack-screen[hidden] { display: none; }
-.expedition-panel.pack-panel { --pack-w: min(312px, 80vw); z-index: 1; max-height: none; overflow: visible; padding: 18px 4px 24px; border: 0; background: transparent; box-shadow: none; text-align: center; }
+.expedition-panel.pack-panel { --pack-w: min(387px, 96vw); z-index: 1; max-height: none; overflow: visible; padding: 24px 4px 32px; border: 0; background: transparent; box-shadow: none; text-align: center; }
 /* The sealed pack at full --pack-w still fits a 390x844 screen with no
    scroll (the heading wraps to two lines at 390). */
 .pack-panel h2 { padding: 0 34px; color: #fff5d4; font-size: var(--fs-display); line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,.8); }
 .pack-panel > .pack-line { margin: 6px 0 12px; }
+.pack-panel .pack-back { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 6px); right: 6px; }
 .pack-select { margin-top: 30px; }
 .pack-subline { margin: 5px 0 10px; color: rgba(224,238,252,.76); font-size: var(--fs-body); }
 .pack-stamina { min-height: 24px; margin-bottom: 34px; color: #fff5d4; font-size: var(--fs-body); font-weight: 750; }
@@ -845,12 +848,12 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-sealed:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .pack-sealed-body { position: absolute; inset: 0; background: var(--art) center / 100% 100% no-repeat; clip-path: inset(calc(var(--line) * 100%) 0 0 0); pointer-events: none; }
 .pack-sealed-strip { position: absolute; z-index: 1; inset: 0; background: var(--art) center / 100% 100% no-repeat; clip-path: inset(0 0 calc((1 - var(--line)) * 100% - 1px) 0); transform-origin: 100% calc(var(--line) * 100%); pointer-events: none; }
-.pack-sealed-flap { position: absolute; z-index: 2; inset: calc(var(--line) * 100% - 5px) 1.6% auto; height: 6px; background: linear-gradient(180deg, transparent 0 60%, #c9d1dc 60% 75%, #1b2c5a 75%), linear-gradient(90deg, #c99a3e, #f6e7c1, #ddb25a, #fff3d6, #d4a54b, #f6e7c1, #c99a3e); -webkit-mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; opacity: 0; pointer-events: none; }
+.pack-sealed-flap { position: absolute; z-index: 2; inset: calc(var(--line) * 100% - 5px) 12.1% auto 13.5%; height: 6px; background: linear-gradient(180deg, transparent 0 60%, #c9d1dc 60% 75%, #1b2c5a 75%), linear-gradient(90deg, #c99a3e, #f6e7c1, #ddb25a, #fff3d6, #d4a54b, #f6e7c1, #c99a3e); -webkit-mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; mask: conic-gradient(from 135deg at 50% 0, #000 90deg, #0000 0) 0 0 / 7px 100% repeat-x; opacity: 0; pointer-events: none; }
 .pack-sealed-sheen { position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 42%, rgba(255,255,255,.16) 50%, transparent 58%) 100% 0 / 300% 100% no-repeat; -webkit-mask: var(--art) center / 100% 100% no-repeat; mask: var(--art) center / 100% 100% no-repeat; animation: pack-sheen 5s ease-in-out infinite; pointer-events: none; }
 @keyframes pack-sheen { 0%, 30% { background-position: 100% 0; } 70%, 100% { background-position: 0 0; } }
 /* The cut: a dark split opening along the line behind a bright flare head.
    Traced right to left, the whole layer mirrors so it runs from the right. */
-.pack-sealed-cut { position: absolute; z-index: 3; inset: calc(var(--line) * 100% - 2px) 1.6% auto; height: 4px; pointer-events: none; }
+.pack-sealed-cut { position: absolute; z-index: 3; inset: calc(var(--line) * 100% - 2px) 12.1% auto 13.5%; height: 4px; pointer-events: none; }
 .pack-sealed.tear-rtl .pack-sealed-cut { transform: scaleX(-1); }
 .pack-sealed-cut::before { position: absolute; inset: 0 auto 0 0; width: calc(var(--tear, 0) * 100%); border-radius: 2px; background: linear-gradient(180deg, #fff8d6, #0b1430 45% 55%, #d9f4ff); box-shadow: 0 0 6px rgba(255,236,170,.6); content: ''; }
 /* The tear guide: a glowing blue line rests on the tear line before any
@@ -935,12 +938,12 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 /* The stack (2026-10-29): the unplayed cards as one pile of postcard backs in
    the sealed pack's own footprint, next card on top. --depth (set by
    pack.js) fans the cards under it; only the top card takes the tap. */
-.pack-slots.is-stack { position: relative; z-index: 1; display: grid; grid-template-columns: none; place-items: center; width: min(300px, 77vw); aspect-ratio: 3 / 2; margin: 30px auto 22px; }
+.pack-slots.is-stack { position: relative; z-index: 1; display: grid; grid-template-columns: none; place-items: center; width: min(372px, 95vw); aspect-ratio: 3 / 2; margin: 30px auto 22px; }
 /* While the pack opens the stack drops its stacking context, so each card
    layers against the wrapper on its own: under it while inside, above it
    once clear (pack.js sets the per-card z-index). */
 .pack-slots.is-stack.is-opening { z-index: auto; }
-.pack-slots.is-stack > .pack-slot { grid-area: 1 / 1; width: min(300px, 77vw); translate: calc(var(--depth) * 7px) calc(var(--depth) * -8px); rotate: calc(var(--depth) * 2deg); }
+.pack-slots.is-stack > .pack-slot { grid-area: 1 / 1; width: min(372px, 95vw); translate: calc(var(--depth) * 7px) calc(var(--depth) * -8px); rotate: calc(var(--depth) * 2deg); }
 .pack-slots.is-stack .pack-flip-face { box-shadow: 0 10px 22px rgba(0,0,0,.45); }
 .pack-slots.is-stack .pack-clue-name { font-size: 24px; }
 /* The card-to-round handoff (pack.js startCard): the place name flies into
@@ -949,7 +952,7 @@ html.pack-vt::view-transition-group(pack-place) { animation-duration: .3s; anima
 html.pack-vt::view-transition-old(root), html.pack-vt::view-transition-new(root) { animation-duration: .3s; }
 
 @media (max-height: 700px) {
-  .expedition-panel.pack-panel { --pack-w: min(211px, 54vw); padding-top: 6px; padding-bottom: 8px; }
+  .expedition-panel.pack-panel { --pack-w: min(262px, 67vw); padding-top: 12px; padding-bottom: 16px; }
   .pack-panel h2 { font-size: 22px; }
   .pack-panel > .pack-line { margin-bottom: 5px; }
   .pack-sealed { margin-bottom: 8px; }
@@ -1321,8 +1324,7 @@ body.game-stats #hud { opacity: 0; }
 .pp-pack-track { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(52,72,96,.12); }
 .pp-pack-fill { display: block; height: 100%; }
 .pp-pack-mail { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(52,72,96,.25); border-radius: 50%; color: #9b3d42; font-size: 19px; }
-.pp-pack-title { overflow: hidden; font-size: 14px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
-.pp-pack-head:not(.pp-pack-head-mail) .pp-pack-title { font-family: 'Oswald', 'Arial Narrow', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.pp-pack-title { overflow: hidden; font-family: 'Luckiest Guy', 'Arial Black', sans-serif; font-size: 17px; font-weight: 400; letter-spacing: .02em; text-overflow: ellipsis; white-space: nowrap; }
 .pp-pack-count { color: rgba(52,72,96,.72); font-size: var(--fs-small); font-weight: 750; font-variant-numeric: tabular-nums; }
 .pp-pack-chevron { width: 7px; height: 7px; margin-top: -4px; border-right: 2px solid rgba(52,72,96,.6); border-bottom: 2px solid rgba(52,72,96,.6); transform: rotate(45deg); transition: transform .15s ease-out; }
 .pp-pack-head[aria-expanded="true"] .pp-pack-chevron { margin-top: 4px; transform: rotate(225deg); }

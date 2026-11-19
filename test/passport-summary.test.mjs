@@ -53,5 +53,6 @@ test('mixed passport counts each city and landmark once', () => {
 test('recommended home still forces the shared summary card visible', () => {
   assert.match(source, /if \(isRecsHome\) \{\s*passportEls\.box\.hidden = false;/);
   assert.match(source, /passportEls\.found\.textContent = summary\.found\.toLocaleString\(\);/);
-  assert.match(source, /passportEls\.total\.textContent = summary\.total\.toLocaleString\(\);/);
+  assert.match(source, /<b data-passport="found">0<\/b> places visited/);
+  assert.doesNotMatch(source, /passportEls\.total|data-passport="total"/);
 });

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { rewardLabel, stripWindow, unlocksBetween } from '../src/account/progression-view.mjs';
 
-const catalogs = { Titles: [['window-seat', 'Window Seat']], 'Calling Cards': [['airmail', 'Airmail']] };
+const catalogs = { Titles: [['window-seat', 'Window Seat']], Banners: [['airmail', 'Airmail']] };
 test('progression unlock helpers cover levels 2, 5, and 10', () => {
   assert.deepEqual(unlocksBetween(1, 2).map(({ kind }) => kind), ['title-pick']);
   assert.deepEqual(unlocksBetween(2, 5).map(({ kind }) => kind), ['silver-ring', 'card', 'titles']);
@@ -15,6 +15,6 @@ test('level strip window follows the current level', () => {
 });
 test('reward labels use catalog names', () => {
   assert.equal(rewardLabel('title:window-seat', catalogs), 'Window Seat title');
-  assert.equal(rewardLabel('card:airmail', catalogs), 'Airmail calling card');
+  assert.equal(rewardLabel('card:airmail', catalogs), 'Airmail banner');
   assert.equal(rewardLabel('motif:star', catalogs), 'Star seal motif');
 });

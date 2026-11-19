@@ -440,7 +440,7 @@ function renderPackScreen(deal = false) {
   }
   els.line.textContent = sealedNow ? 'Three postcards. Pin each one.'
     : done ? doneLine(summary)
-    : summary.played ? `${summary.played} of ${PACK_CARDS} opened · Tap the top card` : 'Tap the top card to flip its clue.';
+    : 'Tap the top card to flip its clue.';
   els.stamina.textContent = done ? staminaText(pack.record) : '';
   els.screen.classList.toggle('sealed-on', sealedNow);
   if (sealedNow) els.actions.hidden = true;
