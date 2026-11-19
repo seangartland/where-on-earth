@@ -1302,12 +1302,6 @@ body.game-stats #hud { opacity: 0; }
 .pp-slot.is-mystery .pp-slot-photo { border-color: rgba(214,220,232,.16); }
 .pp-slot.is-mystery .pp-slot-name { color: rgba(214,220,232,.4); letter-spacing: .1em; text-align: center; }
 .pp-pack-progress { margin: 7px 40px 12px 0; color: rgba(var(--rgb-muted),.68); font-size: var(--fs-small); font-weight: 700; font-variant-numeric: tabular-nums; }
-.pp-regions { margin: 0 0 12px; border-top: 1px solid rgba(var(--rgb-line),.14); border-bottom: 1px solid rgba(var(--rgb-line),.14); }
-.pp-regions-head { display: flex; align-items: center; width: 100%; min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #eef2ff; font: inherit; font-size: var(--fs-base); font-weight: 800; text-align: left; cursor: pointer; touch-action: manipulation; }
-.pp-regions-head::after { content: ''; width: 6px; height: 6px; margin-left: auto; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .15s ease-out; }
-.pp-regions-head[aria-expanded="true"]::after { transform: rotate(225deg); }
-.pp-regions-summary, .pp-regions-list { padding: 0 4px 8px; }
-.pp-region-row { margin: 0; color: rgba(var(--rgb-muted),.7); font-size: var(--fs-small); font-weight: 600; line-height: 1.6; font-variant-numeric: tabular-nums; }
 .pp-pack-section { margin-top: 8px; border: 1px solid rgba(var(--rgb-line),.12); border-radius: 12px; overflow: hidden; background: rgba(var(--rgb-line),.025); }
 @font-face { font-family: 'Oswald'; src: url('../../assets/oswald-bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
 @font-face { font-family: 'Luckiest Guy'; src: url('../../assets/luckiest-guy.woff2') format('woff2'); font-weight: 400; font-display: swap; }
