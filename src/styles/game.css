@@ -1199,6 +1199,7 @@ body.game-stats #hud { opacity: 0; }
 .passport-xp-chevron { flex: none; color: rgba(52,72,96,.8); font-size: 22px; font-weight: 800; line-height: 1; }
 /* The card names itself and shows it opens: a quiet ink cue at the foot. */
 .passport-cue { position: absolute; right: 15px; bottom: 9px; color: rgba(52,72,96,.8); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .02em; }
+.passport-cue-top { top: 9px; bottom: auto; }
 
 /* Recommended home variant: the card as a one-line strip at the mode grid's
    width, with the default card's padding and type. */

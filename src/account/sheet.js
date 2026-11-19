@@ -375,7 +375,10 @@ export async function openTravelerProfile(friendId = '') {
     const strip = mine ? `<div class="profile-xp">${renderXpBar(profile)}<p>${profile.totalXp} XP total</p><div class="level-strip">${stripWindow(profile.level).map((level) => `<i class="${level < profile.level ? 'complete' : ''}${level === profile.level ? ' current' : ''}${level === 5 ? ' silver' : ''}${level === 10 ? ' gold' : ''}" title="Level ${level}">${level}</i>`).join('')}</div></div>` : '';
     panel.innerHTML = `<button class="icon-close account-profile-back" aria-label="Back">×</button><section class="traveler-profile ${mine ? 'own' : 'friend'}"><div class="traveler-card" data-card="${escapeHtml(profile.loadout.cardId)}"><div class="traveler-avatar"></div><div class="traveler-identity"><p class="traveler-level">LEVEL ${profile.level}</p><h2>${escapeHtml(profile.displayName)}</h2><p class="traveler-title">${escapeHtml(avatarName(profile.loadout.titleId))}</p></div>${mine ? '<button class="account-customize" type="button">Customize</button>' : ''}</div>${strip}<div class="traveler-stats">${statGrid(profile.stats)}</div><section class="traveler-achievement-preview"><div class="traveler-section-head"><h3>Achievements</h3><span>${earned.size}/${definitions.length}</span></div><ul class="traveler-achievements">${visible.slice(0, mine ? 3 : definitions.length).map((item) => { const achievement = earned.get(item.id); return `<li class="${achievement ? 'earned' : 'locked'}"><i aria-hidden="true"></i><div><strong>${escapeHtml(item.name)}</strong><span>${achievement ? `Earned ${dateLabel(achievement.earnedAt)}` : escapeHtml(item.condition)}${item.communityPercentage ? ` · ${item.communityPercentage} earned` : ''}</span></div></li>`; }).join('')}</ul>${mine ? '<div class="traveler-actions"><button class="text-button account-open-cabinet" type="button">View cabinet</button></div>' : ''}</section></section>`;
     panel.querySelector('.traveler-avatar').append(renderAvatar(profile.loadout.avatar, 132, false, { name: profile.displayName, level: profile.level }));
-    panel.querySelector('.account-profile-back').addEventListener('click', () => render('signed-in', readAccountSession() || {}));
+    panel.querySelector('.account-profile-back').addEventListener('click', () => {
+      if (mine) closeAccountSheet();
+      else render('signed-in', readAccountSession() || {});
+    });
     panel.querySelector('.account-open-cabinet')?.addEventListener('click', () => renderCabinet(profile));
     panel.querySelector('.account-customize')?.addEventListener('click', () => renderCustomizer(profile));
   } catch (error) { status(error.message || 'Could not load profile', true); }
@@ -537,16 +540,19 @@ function bind(values) {
   });
 }
 
+function ensureSheet() {
+  if (sheet) return;
+  sheet = document.createElement('section');
+  sheet.className = 'screen account-sheet';
+  sheet.setAttribute('role', 'presentation');
+  sheet.innerHTML = '<div class="settings-card glass account-panel" role="dialog" aria-modal="true" aria-labelledby="account-title"></div>';
+  document.getElementById('game').appendChild(sheet);
+  sheet.addEventListener('click', (event) => { if (event.target === sheet) closeAccountSheet(); });
+}
+
 export async function openAccountSheet(trigger) {
   returnFocus = trigger || document.activeElement;
-  if (!sheet) {
-    sheet = document.createElement('section');
-    sheet.className = 'screen account-sheet';
-    sheet.setAttribute('role', 'presentation');
-    sheet.innerHTML = '<div class="settings-card glass account-panel" role="dialog" aria-modal="true" aria-labelledby="account-title"></div>';
-    document.getElementById('game').appendChild(sheet);
-    sheet.addEventListener('click', (event) => { if (event.target === sheet) closeAccountSheet(); });
-  }
+  ensureSheet();
   sheet.hidden = false;
   pendingFriendToken = await readPendingFriendToken();
   const session = readAccountSession();
@@ -555,6 +561,16 @@ export async function openAccountSheet(trigger) {
     enableGoogle();
   } else if (!await showPendingInvite(session)) await loadFriends(session);
   sheet.querySelector('input, button')?.focus();
+}
+
+export async function openProfileSheet(trigger) {
+  returnFocus = trigger || document.activeElement;
+  ensureSheet();
+  sheet.hidden = false;
+  const panel = sheet.querySelector('.account-panel');
+  panel.dataset.view = 'profile';
+  panel.innerHTML = '<p class="account-copy" aria-live="polite">Loading profile…</p>';
+  await openTravelerProfile();
 }
 
 export async function openFriendProfile(friendId, trigger) {

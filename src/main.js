@@ -760,9 +760,8 @@ const passportHost = {
   addAuditFlagButton,
   mountAuditBanner,
   async openTravelerProfile(trigger) {
-    const { openAccountSheet, openTravelerProfile } = await import('./account/sheet.js');
-    await openAccountSheet(trigger);
-    await openTravelerProfile();
+    const { openProfileSheet } = await import('./account/sheet.js');
+    await openProfileSheet(trigger);
   },
 };
 initPassportHome(passportHost);

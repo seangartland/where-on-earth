@@ -56,3 +56,12 @@ test('recommended home still forces the shared summary card visible', () => {
   assert.match(source, /<b data-passport="found">0<\/b> places visited/);
   assert.doesNotMatch(source, /passportEls\.total|data-passport="total"/);
 });
+
+test('home card labels its passport and profile actions in their displayed order', () => {
+  const markup = source.match(/passportBox\.innerHTML = `([\s\S]*?)`;/)?.[1];
+  assert.ok(markup, 'passport home markup found');
+  assert.ok(markup.indexOf('Passport ›') < markup.indexOf('passport-count'));
+  assert.ok(markup.indexOf('passport-xp') < markup.indexOf('Profile ›'));
+  assert.equal((markup.match(/Passport ›/g) || []).length, 1);
+  assert.equal((markup.match(/Profile ›/g) || []).length, 1);
+});
