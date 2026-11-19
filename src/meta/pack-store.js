@@ -7,6 +7,7 @@ import { PACK_WORLD_CITY_IDS } from './pack-world-cities.js';
 import { PACK_LANDFORM_IDS } from './pack-landforms.js';
 import { PACK_ANCIENT_CITY_IDS } from './pack-ancient-cities.js';
 import { PACK_BATTLE_SITE_IDS } from './pack-battle-sites.js';
+import { PACK_MOUNTAIN_RANGE_IDS } from './pack-mountain-ranges.js';
 
 export const PACK_CARDS = 3;
 export const STAMINA_MAX = 2;
@@ -27,7 +28,7 @@ export function worldCityPackPool(locations) {
 const playableLandmark = (item) => Number.isFinite(item?.lat) && Number.isFinite(item?.lng)
   && typeof item?.image === 'string' && item.image.length > 0;
 export function landmarkPackPool(locations) {
-  return locations.filter((item) => !PACK_LANDFORM_IDS.has(item.id) && !PACK_ANCIENT_CITY_IDS.has(item.id) && !PACK_BATTLE_SITE_IDS.has(item.id) && playableLandmark(item));
+  return locations.filter((item) => !PACK_LANDFORM_IDS.has(item.id) && !PACK_ANCIENT_CITY_IDS.has(item.id) && !PACK_BATTLE_SITE_IDS.has(item.id) && !PACK_MOUNTAIN_RANGE_IDS.has(item.id) && playableLandmark(item));
 }
 export function landformPackPool(locations) {
   return locations.filter((item) => PACK_LANDFORM_IDS.has(item.id) && playableLandmark(item));

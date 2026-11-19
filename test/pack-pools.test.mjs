@@ -27,6 +27,15 @@ test('landmark and landform pools are exclusive', () => {
   assert.ok(other.every((item) => !PACK_LANDFORM_IDS.has(item.id)));
 });
 
+test('mountain ranges are in the bank but out of the landmark pool', async () => {
+  const { PACK_MOUNTAIN_RANGE_IDS } = await import('../src/meta/pack-mountain-ranges.js');
+  const byId = new Map(landmarks.map((item) => [item.id, item]));
+  assert.equal(PACK_MOUNTAIN_RANGE_IDS.size, 19);
+  assert.ok([...PACK_MOUNTAIN_RANGE_IDS].every((id) => byId.has(id)));
+  const other = landmarkPackPool(landmarks);
+  assert.ok(other.every((item) => !PACK_MOUNTAIN_RANGE_IDS.has(item.id)));
+});
+
 test('capital pool remains 200 playable entries', () => {
   const capitals = packPool(cities);
   assert.equal(capitals.length, 200);

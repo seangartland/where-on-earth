@@ -7696,5 +7696,366 @@
   "difficultyWhy": "manual add 2026-11-07; Sistine Chapel median 1305 views/day measured 2026-11-07",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "himalayas",
+  "short": "Himalayas",
+  "clue": "Himalayas, Asia",
+  "fact": "Ten of the world's fourteen peaks above 8,000 metres rise here, Everest among them, and the range is still being pushed upward as the Indian plate drives into Asia.",
+  "lat": 29.62979,
+  "lng": 82.71211,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Aerial_View_of_Peaks_of_Khumbu%2C_Ngozumpa_Glacier_and_Gokyo_Lakes_%28crop%29.jpg/500px-Aerial_View_of_Peaks_of_Khumbu%2C_Ngozumpa_Glacier_and_Gokyo_Lakes_%28crop%29.jpg",
+  "country": "India, China, Nepal, and Bhutan",
+  "continent": "Asia",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.94·fb1051·K0·iso333 → 17.1 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "andes",
+  "short": "Andes",
+  "clue": "Andes, South America",
+  "fact": "The longest continental mountain range on Earth runs about 7,000 km down South America, and its highest summit, Aconcagua, is the tallest mountain outside Asia.",
+  "lat": -17.06236,
+  "lng": -70.496,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Cordillera_de_los_Andes.jpg/500px-Cordillera_de_los_Andes.jpg",
+  "country": "Peru, Argentina, Chile, Colombia, Ecuador, Venezuela, and Bolivia",
+  "continent": "South America",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.81·fb914·K0·iso133 → 41.1 → 6",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "alps",
+  "short": "Alps",
+  "clue": "Alps, Central Europe",
+  "fact": "The Alps arc about 1,200 km across eight countries and feed the Rhine, the Rhône and the Po; Mont Blanc is their highest summit.",
+  "lat": 46.46774,
+  "lng": 10.33777,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/View_in_an_easterly_direction_towards_the_Western_Alps_at_the_location_of_Grenoble.jpg/500px-View_in_an_easterly_direction_towards_the_Western_Alps_at_the_location_of_Grenoble.jpg",
+  "country": "Austria, Italy, Switzerland, and France",
+  "continent": "Europe",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.85·fb423·K0·iso143 → 17.1 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "rocky-mountains",
+  "short": "Rocky Mountains",
+  "clue": "Rocky Mountains, United States and Canada 🇺🇸🇨🇦",
+  "fact": "The Rockies stretch about 4,800 km from northern Canada to the American Southwest and carry the Continental Divide, which splits rivers bound for the Pacific from those bound for the Atlantic and Arctic.",
+  "lat": 46.18765,
+  "lng": -114.46237,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Rocky_Mountains_%28208692693%29.jpeg/500px-Rocky_Mountains_%28208692693%29.jpeg",
+  "country": "United States and Canada",
+  "continent": "North America",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.86·fb1896·K0·iso541 → 58.1 → 7",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "appalachian-mountains",
+  "short": "Appalachian Mountains",
+  "clue": "Appalachian Mountains, United States and Canada 🇺🇸🇨🇦",
+  "fact": "Among the oldest mountains on Earth, they rose more than 400 million years ago and have since been worn down by erosion; the Appalachian Trail follows them for about 3,500 km.",
+  "lat": 44.08665,
+  "lng": -72.49445,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Appalachian_Mountains.jpg/500px-Appalachian_Mountains.jpg",
+  "country": "United States and Canada",
+  "continent": "North America",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.98·fb1843·K0·iso180 → 10.3 → 4",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "hindu-kush",
+  "short": "Hindu Kush",
+  "clue": "Hindu Kush, Afghanistan and Pakistan 🇦🇫🇵🇰",
+  "fact": "Tirich Mir, at 7,708 metres, is its highest peak, and Alexander the Great marched his army across its passes in 329 BC.",
+  "lat": 35.61408,
+  "lng": 70.08032,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/File-Hindu_Kush_viewed_from_Camp_Marmal_at_Mazar-e_Sharif_in_Afghanistan2.JPG/500px-File-Hindu_Kush_viewed_from_Camp_Marmal_at_Mazar-e_Sharif_in_Afghanistan2.JPG",
+  "country": "Afghanistan and Pakistan",
+  "continent": "Asia",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.75·fb217·K0·iso146 → 15.5 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "karakoram",
+  "short": "Karakoram",
+  "clue": "Karakoram, Pakistan, India, and China",
+  "fact": "Home to K2, the world's second-highest mountain, and to some of the longest glaciers outside the polar regions, among them the Siachen and the Baltoro.",
+  "lat": 35.8692,
+  "lng": 76.5272,
+  "difficulty": 7,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Passu_Panorama.jpg/500px-Passu_Panorama.jpg",
+  "country": "Pakistan, India, and China",
+  "continent": "Asia",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.73·fb784·K0·iso253 → 51.2 → 7",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "carpathian-mountains",
+  "short": "Carpathian Mountains",
+  "clue": "Carpathian Mountains, Central and Eastern Europe",
+  "fact": "Arcing about 1,500 km from near Bratislava to the Iron Gates gorge of the Danube, the Carpathians shelter some of Europe's largest populations of brown bears, wolves and lynx.",
+  "lat": 47.13936,
+  "lng": 25.16872,
+  "difficulty": 4,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Carpathian_Mountains_%28Unsplash_hmyVTVUxQek%29.jpg/500px-Carpathian_Mountains_%28Unsplash_hmyVTVUxQek%29.jpg",
+  "country": "Romania, Slovakia, Serbia, Ukraine, Poland, and Czechia",
+  "continent": "Europe",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.79·fb196·K0·iso310 → 12.3 → 4",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "ural-mountains",
+  "short": "Ural Mountains",
+  "clue": "Ural Mountains, Russia 🇷🇺",
+  "fact": "Running about 2,500 km from the Arctic tundra south toward the steppes of Kazakhstan, the range is the conventional boundary between Europe and Asia.",
+  "lat": 60.85498,
+  "lng": 58.96665,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/110_km_Polar_Ural.jpg/500px-110_km_Polar_Ural.jpg",
+  "country": "Russia",
+  "continent": "Europe",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.76·fb646·K0·iso454 → 37.5 → 6",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "pyrenees",
+  "short": "Pyrenees",
+  "clue": "Pyrenees, France and Spain 🇫🇷🇪🇸",
+  "fact": "For most of its length the crest forms the border between France and Spain, with the microstate of Andorra tucked between them; Aneto, at 3,404 metres, is the highest peak.",
+  "lat": 42.66859,
+  "lng": 0.4209,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Cirque_de_Gavarnie%2C_Haute-Pyr%C3%A9n%C3%A9es%2C_France.jpg/500px-Cirque_de_Gavarnie%2C_Haute-Pyr%C3%A9n%C3%A9es%2C_France.jpg",
+  "country": "France and Spain",
+  "continent": "Europe",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.74·fb551·K0·iso202 → 35.0 → 6",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "atlas-mountains",
+  "short": "Atlas Mountains",
+  "clue": "Atlas Mountains, Algeria and Morocco 🇩🇿🇲🇦",
+  "fact": "Stretching about 2,500 km across Morocco, Algeria and Tunisia, the Atlas separates the Mediterranean coast from the Sahara and peaks at Jbel Toubkal, 4,167 metres.",
+  "lat": 32.96743,
+  "lng": -0.75887,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/High_Atlas_Mountains_Taroudant_Marrakesh.jpg/500px-High_Atlas_Mountains_Taroudant_Marrakesh.jpg",
+  "country": "Algeria and Morocco",
+  "continent": "Africa",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.70·fb495·K0·iso411 → 35.9 → 6",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "caucasus-mountains",
+  "short": "Caucasus Mountains",
+  "clue": "Caucasus Mountains, Russia and Georgia 🇷🇺🇬🇪",
+  "fact": "Mount Elbrus, a dormant volcano of 5,642 metres, is Europe's highest peak under the common definition that draws the continent's edge along this range's crest.",
+  "lat": 42.75966,
+  "lng": 43.92098,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Asbestnaya_Mount%2C_Adygea%2C_%D0%93%D0%BE%D1%80%D0%B0_%D0%90%D1%81%D0%B1%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D1%8F%2C_%D0%B2%D0%B8%D0%B4%D1%8B_%D1%81_%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%8B%2C_%D0%90%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F%2C_%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%9A%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.jpg/500px-Asbestnaya_Mount%2C_Adygea%2C_%D0%93%D0%BE%D1%80%D0%B0_%D0%90%D1%81%D0%B1%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D1%8F%2C_%D0%B2%D0%B8%D0%B4%D1%8B_%D1%81_%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%8B%2C_%D0%90%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F%2C_%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%9A%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.jpg",
+  "country": "Russia and Georgia",
+  "continent": "Europe",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.68·fb1641·K0·iso141 → 114.5 → 9",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "zagros-mountains",
+  "short": "Zagros Mountains",
+  "clue": "Zagros Mountains, Iran and Iraq 🇮🇷🇮🇶",
+  "fact": "Folded up as the Arabian plate pushed into Eurasia, the range runs about 1,500 km to the Strait of Hormuz, and its folds trap some of the world's largest oil fields.",
+  "lat": 33.14753,
+  "lng": 49.29388,
+  "difficulty": 5,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Zagros_Mountains_-_Kohgiluyeh_and_Boyer-Ahmad_Province.jpg/500px-Zagros_Mountains_-_Kohgiluyeh_and_Boyer-Ahmad_Province.jpg",
+  "country": "Iran and Iraq",
+  "continent": "Asia",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.66·fb261·K0·iso229 → 22.6 → 5",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "tian-shan",
+  "short": "Tian Shan",
+  "clue": "Tian Shan, Central Asia",
+  "fact": "Sacred in Tengrism, the range's second-highest peak is Khan Tengri, \"Lord of the Spirits\"; its highest, Jengish Chokusu in Kyrgyzstan, reaches 7,439 metres.",
+  "lat": 41.76492,
+  "lng": 79.45253,
+  "difficulty": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Tian_Shan_in_Kyrgyzstan_01.jpg/500px-Tian_Shan_in_Kyrgyzstan_01.jpg",
+  "country": "China, Kyrgyzstan, Uzbekistan, and Tajikistan",
+  "continent": "Asia",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.61·fb3232·K0·iso266 → 236.2 → 10",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "altai-mountains",
+  "short": "Altai Mountains",
+  "clue": "Altai Mountains, Mongolia and Russia 🇲🇳🇷🇺",
+  "fact": "Russia, China, Mongolia and Kazakhstan meet in these mountains, where the Irtysh and the Ob rise; Belukha, at 4,506 metres, is the highest summit.",
+  "lat": 48.23295,
+  "lng": 90.3439,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Altai_reserve._The_object_of_UNESCO_world_heritage_site_Golden_mountains_of_Altai.jpg/500px-Altai_reserve._The_object_of_UNESCO_world_heritage_site_Golden_mountains_of_Altai.jpg",
+  "country": "Mongolia and Russia",
+  "continent": "Asia",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.59·fb1112·K0·iso536 → 103.0 → 8",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "drakensberg",
+  "short": "Drakensberg",
+  "clue": "Drakensberg, Lesotho and South Africa 🇱🇸🇿🇦",
+  "fact": "The eastern rim of the Great Escarpment around southern Africa's high plateau, it runs for more than 1,000 km and climbs to 3,482 metres on the border of South Africa and Lesotho.",
+  "lat": -28.82408,
+  "lng": 28.91969,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/South_Africa_-_Drakensberg_%2816261357780%29.jpg/500px-South_Africa_-_Drakensberg_%2816261357780%29.jpg",
+  "country": "Lesotho and South Africa",
+  "continent": "Africa",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.52·fb137·K1·iso235 → 88.7 → 8",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "great-dividing-range",
+  "short": "Great Dividing Range",
+  "clue": "Great Dividing Range, Australia 🇦🇺",
+  "fact": "Running more than 3,500 km from the tip of Cape York to western Victoria, it is the longest mountain chain entirely within one country and holds Mount Kosciuszko, Australia's highest point at 2,228 metres.",
+  "lat": -27.48861,
+  "lng": 152.078,
+  "difficulty": 9,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Great_Dividing_Range_seen_from_Maryvale%2C_Queensland%2C_2025%2C_02.jpg/500px-Great_Dividing_Range_seen_from_Maryvale%2C_Queensland%2C_2025%2C_02.jpg",
+  "country": "Australia",
+  "continent": "Oceania",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.49·fb983·K0·iso94 → 113.2 → 9",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "ethiopian-highlands",
+  "short": "Ethiopian Highlands",
+  "clue": "Ethiopian Highlands, Ethiopia 🇪🇹",
+  "fact": "Nicknamed the Roof of Africa, it is the continent's largest continuous area at its elevation, with little ground below 1,500 metres, and the Great Rift Valley cuts it diagonally in two.",
+  "lat": 10.99934,
+  "lng": 38.87751,
+  "difficulty": 6,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Simien-Gebirge.JPG/500px-Simien-Gebirge.JPG",
+  "country": "Ethiopia",
+  "continent": "Africa",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.37·fb194·K0·iso220 → 28.0 → 6",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
+ },
+ {
+  "id": "southern-alps",
+  "short": "Southern Alps",
+  "clue": "Southern Alps, New Zealand 🇳🇿",
+  "fact": "Running along much of New Zealand's South Island, the range carries the Main Divide between the eastern and West Coast catchments and peaks at Aoraki / Mount Cook, 3,724 metres.",
+  "lat": -43.90798,
+  "lng": 169.68213,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Southern_Alps_from_Douglas_Peak_to_Mount_Cook_in_morning_light.jpg/500px-Southern_Alps_from_Douglas_Peak_to_Mount_Cook_in_morning_light.jpg",
+  "country": "New Zealand",
+  "continent": "Oceania",
+  "sets": [
+   "Mountains"
+  ],
+  "difficultyWhy": "p.36·fb690·K0·iso895 → 98.2 → 8",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "line"
  }
 ]

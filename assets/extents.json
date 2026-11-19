@@ -174944,5 +174944,1434 @@
     "vertices": 31,
     "maxDeviationKm": 0.6,
     "lengthKm": 119
+  },
+  "himalayas": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          75.3286,
+          34.1658
+        ],
+        [
+          75.5861,
+          34.2283
+        ],
+        [
+          76.0568,
+          34.013
+        ],
+        [
+          77.0569,
+          32.4364
+        ],
+        [
+          77.4121,
+          32.5456
+        ],
+        [
+          78.3951,
+          32.5304
+        ],
+        [
+          78.7353,
+          31.8844
+        ],
+        [
+          78.6125,
+          31.3536
+        ],
+        [
+          78.9972,
+          30.8581
+        ],
+        [
+          79.2911,
+          30.7497
+        ],
+        [
+          79.9708,
+          30.3739
+        ],
+        [
+          81.2992,
+          30.4383
+        ],
+        [
+          81.495,
+          29.8908
+        ],
+        [
+          82.1958,
+          30.1375
+        ],
+        [
+          82.7516,
+          29.766
+        ],
+        [
+          82.6392,
+          29.3783
+        ],
+        [
+          83.3883,
+          28.7633
+        ],
+        [
+          83.49,
+          28.6967
+        ],
+        [
+          84.5597,
+          28.55
+        ],
+        [
+          85.1272,
+          28.3917
+        ],
+        [
+          85.7797,
+          28.3522
+        ],
+        [
+          86.3508,
+          28.3042
+        ],
+        [
+          86.925,
+          27.9881
+        ],
+        [
+          88.1358,
+          27.8814
+        ],
+        [
+          88.1474,
+          27.703
+        ],
+        [
+          89.27,
+          27.8242
+        ],
+        [
+          90.0733,
+          28.1558
+        ],
+        [
+          90.455,
+          28.0469
+        ],
+        [
+          92.3876,
+          27.7949
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 29 named principal peaks of the Himalayas (P4552 chain to Q5451), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5451",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 29,
+    "vertices": 29,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 2121
+  },
+  "andes": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          -69.4833,
+          -54.75
+        ],
+        [
+          -73.0433,
+          -49.2714
+        ],
+        [
+          -73.504,
+          -49.019
+        ],
+        [
+          -73.3458,
+          -46.595
+        ],
+        [
+          -72.86,
+          -44.0758
+        ],
+        [
+          -71.8875,
+          -41.1608
+        ],
+        [
+          -71.5031,
+          -39.6372
+        ],
+        [
+          -70.433,
+          -36.6397
+        ],
+        [
+          -69.9722,
+          -34.7528
+        ],
+        [
+          -69.7704,
+          -33.3586
+        ],
+        [
+          -70.1128,
+          -31.9789
+        ],
+        [
+          -69.9,
+          -29.9333
+        ],
+        [
+          -68.7992,
+          -27.7553
+        ],
+        [
+          -68.5414,
+          -27.1097
+        ],
+        [
+          -68.5367,
+          -24.7197
+        ],
+        [
+          -66.4161,
+          -24.8444
+        ],
+        [
+          -68.3914,
+          -21.8878
+        ],
+        [
+          -68.4683,
+          -21.2208
+        ],
+        [
+          -68.6833,
+          -19.75
+        ],
+        [
+          -68.8831,
+          -18.1081
+        ],
+        [
+          -69.7667,
+          -17.7167
+        ],
+        [
+          -71.88,
+          -15.8206
+        ],
+        [
+          -72.6572,
+          -15.5203
+        ],
+        [
+          -70.9817,
+          -13.7667
+        ],
+        [
+          -71.2311,
+          -13.7886
+        ],
+        [
+          -72.8192,
+          -13.2492
+        ],
+        [
+          -73.4494,
+          -15.3235
+        ],
+        [
+          -75.9567,
+          -12.2564
+        ],
+        [
+          -76.9053,
+          -10.2689
+        ],
+        [
+          -77.6,
+          -9.1167
+        ],
+        [
+          -78.0064,
+          -8.8431
+        ],
+        [
+          -79.4694,
+          -3.5642
+        ],
+        [
+          -78.3408,
+          -2.0025
+        ],
+        [
+          -78.8175,
+          -1.4692
+        ],
+        [
+          -77.9888,
+          0.0239
+        ],
+        [
+          -77.8833,
+          0.9558
+        ],
+        [
+          -76.0333,
+          2.9333
+        ],
+        [
+          -75.3225,
+          4.8953
+        ],
+        [
+          -74.1101,
+          3.9348
+        ],
+        [
+          -72.2975,
+          6.4942
+        ],
+        [
+          -71.0465,
+          8.5409
+        ],
+        [
+          -72.9036,
+          10.4589
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 42 named principal peaks of the Andes (P4552 chain to Q5456), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5456",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 42,
+    "vertices": 42,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 9399
+  },
+  "alps": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          15.7899,
+          47.5743
+        ],
+        [
+          15.1422,
+          47.6181
+        ],
+        [
+          14.0633,
+          47.7169
+        ],
+        [
+          13.3214,
+          47.0158
+        ],
+        [
+          12.755,
+          47.1569
+        ],
+        [
+          12.6938,
+          47.0745
+        ],
+        [
+          11.7277,
+          46.9725
+        ],
+        [
+          10.8672,
+          46.8853
+        ],
+        [
+          10.545,
+          46.5089
+        ],
+        [
+          9.9081,
+          46.3824
+        ],
+        [
+          7.8668,
+          45.9369
+        ],
+        [
+          7.8589,
+          46.0939
+        ],
+        [
+          7.3693,
+          46.0162
+        ],
+        [
+          6.865,
+          45.8328
+        ],
+        [
+          7.2667,
+          45.5333
+        ],
+        [
+          6.3595,
+          44.9222
+        ],
+        [
+          5.8397,
+          44.775
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 17 named principal peaks of the Alps (P4552 chain to Q1286), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q1286",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 17,
+    "vertices": 17,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 975
+  },
+  "rocky-mountains": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          -127.0899,
+          59.3556
+        ],
+        [
+          -124.8926,
+          58.217
+        ],
+        [
+          -123.794,
+          56.897
+        ],
+        [
+          -122.168,
+          55.3042
+        ],
+        [
+          -118.5645,
+          53.0412
+        ],
+        [
+          -115.9278,
+          50.4575
+        ],
+        [
+          -114.7852,
+          47.8132
+        ],
+        [
+          -114.4336,
+          46.0428
+        ],
+        [
+          -114.6534,
+          44.5279
+        ],
+        [
+          -113.1153,
+          44.371
+        ],
+        [
+          -111.5332,
+          45.0891
+        ],
+        [
+          -110.3467,
+          45.213
+        ],
+        [
+          -109.7315,
+          44.2767
+        ],
+        [
+          -108.9405,
+          42.3586
+        ],
+        [
+          -106.6553,
+          39.2323
+        ],
+        [
+          -106.2159,
+          35.3891
+        ]
+      ]
+    ],
+    "source": "OpenStreetMap way 1458309038 (Rocky Mountains, natural=mountain_range): the mapped spine line, simplified",
+    "sourceUrl": "https://www.openstreetmap.org/way/1458309038",
+    "license": "ODbL",
+    "attribution": "© OpenStreetMap contributors",
+    "sourceVertices": 16,
+    "vertices": 16,
+    "maxDeviationKm": 0.004,
+    "lengthKm": 3430
+  },
+  "appalachian-mountains": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          -85.8083,
+          33.4865
+        ],
+        [
+          -84.3303,
+          34.4861
+        ],
+        [
+          -83.9939,
+          35.3058
+        ],
+        [
+          -83.4986,
+          35.5628
+        ],
+        [
+          -82.2649,
+          35.7648
+        ],
+        [
+          -81.8114,
+          36.1111
+        ],
+        [
+          -81.5446,
+          36.6598
+        ],
+        [
+          -81.4137,
+          37.0814
+        ],
+        [
+          -80.1628,
+          37.1796
+        ],
+        [
+          -79.5103,
+          37.5169
+        ],
+        [
+          -79.0625,
+          37.8198
+        ],
+        [
+          -79.48,
+          38.75
+        ],
+        [
+          -79.57,
+          39.1472
+        ],
+        [
+          -79.175,
+          39.7861
+        ],
+        [
+          -78.5737,
+          40.2959
+        ],
+        [
+          -76.5539,
+          41.3194
+        ],
+        [
+          -75.5619,
+          41.715
+        ],
+        [
+          -74.5496,
+          42.0393
+        ],
+        [
+          -74.0801,
+          42.162
+        ],
+        [
+          -73.1667,
+          42.6375
+        ],
+        [
+          -73.1112,
+          43.1703
+        ],
+        [
+          -72.9285,
+          44.1273
+        ],
+        [
+          -71.8309,
+          44.0245
+        ],
+        [
+          -72.5404,
+          44.9159
+        ],
+        [
+          -71.3137,
+          44.8012
+        ],
+        [
+          -71.3035,
+          44.2708
+        ],
+        [
+          -70.3133,
+          45.0317
+        ],
+        [
+          -70.3938,
+          45.7543
+        ],
+        [
+          -68.9213,
+          45.9044
+        ],
+        [
+          -66.8833,
+          47.3833
+        ],
+        [
+          -65.9484,
+          48.9874
+        ],
+        [
+          -64.23,
+          48.5344
+        ],
+        [
+          -60.4725,
+          46.9553
+        ],
+        [
+          -58.51,
+          48.8
+        ],
+        [
+          -57.7836,
+          49.5936
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 35 named principal peaks of the Appalachian Mountains (P4552 chain to Q93332), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q93332",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 35,
+    "vertices": 35,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 3749
+  },
+  "hindu-kush": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          67.3785,
+          33.0786
+        ],
+        [
+          68.5678,
+          34.1706
+        ],
+        [
+          68.8435,
+          35.274
+        ],
+        [
+          69.6779,
+          35.7448
+        ],
+        [
+          70.1646,
+          35.5867
+        ],
+        [
+          70.9833,
+          36.1792
+        ],
+        [
+          71.8439,
+          36.2458
+        ],
+        [
+          72.1167,
+          36.5475
+        ],
+        [
+          72.8283,
+          36.6483
+        ],
+        [
+          74.25,
+          36.8946
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 10 named principal peaks of the Hindu Kush (P4552 chain to Q5472), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5472",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 10,
+    "vertices": 10,
+    "maxDeviationKm": 0.004,
+    "lengthKm": 840
+  },
+  "karakoram": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          77.8996,
+          34.6062
+        ],
+        [
+          77.7333,
+          34.8333
+        ],
+        [
+          77.5775,
+          35.1408
+        ],
+        [
+          76.8475,
+          35.3996
+        ],
+        [
+          76.6964,
+          35.7244
+        ],
+        [
+          76.5133,
+          35.8811
+        ],
+        [
+          75.7536,
+          35.9478
+        ],
+        [
+          75.1883,
+          36.3258
+        ],
+        [
+          74.5225,
+          36.51
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 9 named principal peaks of the Karakoram (P4552 chain to Q5469), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5469",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 9,
+    "vertices": 9,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 399
+  },
+  "carpathian-mountains": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          18.2228,
+          49.4918
+        ],
+        [
+          18.4475,
+          49.5458
+        ],
+        [
+          19.5306,
+          49.5731
+        ],
+        [
+          19.6402,
+          48.9366
+        ],
+        [
+          20.1339,
+          49.1642
+        ],
+        [
+          22.7381,
+          49.0694
+        ],
+        [
+          23.0008,
+          48.8294
+        ],
+        [
+          24.2318,
+          48.2323
+        ],
+        [
+          24.63,
+          47.6
+        ],
+        [
+          25.1854,
+          47.1251
+        ],
+        [
+          25.88,
+          46.13
+        ],
+        [
+          25.4564,
+          45.4458
+        ],
+        [
+          24.7362,
+          45.5994
+        ],
+        [
+          23.5408,
+          45.3403
+        ],
+        [
+          22.8944,
+          45.3661
+        ],
+        [
+          22.1392,
+          44.1772
+        ],
+        [
+          21.9333,
+          43.5939
+        ],
+        [
+          21.7092,
+          44.1185
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 18 named principal peaks of the Carpathian Mountains (P4552 chain to Q1288), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q1288",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 18,
+    "vertices": 18,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 1375
+  },
+  "ural-mountains": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          64.3569,
+          66.7183
+        ],
+        [
+          60.1167,
+          65.0333
+        ],
+        [
+          58.9281,
+          61.1414
+        ],
+        [
+          59.1333,
+          59.6167
+        ],
+        [
+          58.102,
+          54.255
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 5 named principal peaks of the Ural Mountains (P4552 chain to Q35600), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q35600",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 5,
+    "vertices": 5,
+    "maxDeviationKm": 0.004,
+    "lengthKm": 1475
+  },
+  "pyrenees": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          2.459,
+          42.5187
+        ],
+        [
+          2.1385,
+          42.3834
+        ],
+        [
+          1.9531,
+          42.5713
+        ],
+        [
+          1.4463,
+          42.6655
+        ],
+        [
+          0.7061,
+          42.6302
+        ],
+        [
+          0.4809,
+          42.6564
+        ],
+        [
+          -0.1055,
+          42.7755
+        ],
+        [
+          -0.9803,
+          42.9858
+        ],
+        [
+          -1.6202,
+          43.3174
+        ]
+      ]
+    ],
+    "source": "OpenStreetMap way 1501963837 (Pyrenees, natural=mountain_range): the mapped spine line, simplified",
+    "sourceUrl": "https://www.openstreetmap.org/way/1501963837",
+    "license": "ODbL",
+    "attribution": "© OpenStreetMap contributors",
+    "sourceVertices": 10,
+    "vertices": 9,
+    "maxDeviationKm": 0.048,
+    "lengthKm": 367
+  },
+  "atlas-mountains": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          8.6831,
+          35.2067
+        ],
+        [
+          6.6375,
+          35.3183
+        ],
+        [
+          5.4667,
+          36.55
+        ],
+        [
+          4.2286,
+          36.4472
+        ],
+        [
+          -0.4676,
+          32.9117
+        ],
+        [
+          -3.8896,
+          33.5665
+        ],
+        [
+          -4.0914,
+          33.665
+        ],
+        [
+          -5.1427,
+          33.3599
+        ],
+        [
+          -4.9269,
+          32.4778
+        ],
+        [
+          -6.258,
+          32.3039
+        ],
+        [
+          -6.44,
+          31.51
+        ],
+        [
+          -7.9161,
+          31.0619
+        ],
+        [
+          -8.2842,
+          30.1236
+        ],
+        [
+          -9.0347,
+          29.795
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 14 named principal peaks of the Atlas Mountains (P4552 chain to Q130135), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q130135",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 14,
+    "vertices": 14,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 2160
+  },
+  "caucasus-mountains": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          39.9031,
+          43.9536
+        ],
+        [
+          40.5778,
+          43.6719
+        ],
+        [
+          40.5816,
+          43.418
+        ],
+        [
+          42.4379,
+          43.3525
+        ],
+        [
+          43.1317,
+          43.0525
+        ],
+        [
+          43.6986,
+          42.783
+        ],
+        [
+          44.5189,
+          42.6969
+        ],
+        [
+          45.3119,
+          42.5733
+        ],
+        [
+          46.2494,
+          42.3392
+        ],
+        [
+          46.9222,
+          41.9594
+        ],
+        [
+          47.8583,
+          41.2205
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 11 named principal peaks of the Caucasus Mountains (P4552 chain to Q5477), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5477",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 11,
+    "vertices": 11,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 759
+  },
+  "zagros-mountains": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          51.6972,
+          28.2558
+        ],
+        [
+          53.055,
+          29.3024
+        ],
+        [
+          52.3818,
+          29.6956
+        ],
+        [
+          52.7502,
+          30.7773
+        ],
+        [
+          51.6369,
+          32.5922
+        ],
+        [
+          50.6967,
+          32.1997
+        ],
+        [
+          50.0775,
+          32.3644
+        ],
+        [
+          48.4817,
+          33.9592
+        ],
+        [
+          48.4867,
+          34.6642
+        ],
+        [
+          47.2432,
+          34.4184
+        ],
+        [
+          46.4,
+          35.1
+        ],
+        [
+          45.0,
+          36.55
+        ],
+        [
+          44.9186,
+          36.7753
+        ],
+        [
+          42.4543,
+          37.3775
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 14 named principal peaks of the Zagros Mountains (P4552 chain to Q167021), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q167021",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 14,
+    "vertices": 14,
+    "maxDeviationKm": 0.006,
+    "lengthKm": 1762
+  },
+  "tian-shan": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          94.3467,
+          43.0733
+        ],
+        [
+          88.335,
+          43.8016
+        ],
+        [
+          80.89,
+          42.2617
+        ],
+        [
+          80.2947,
+          42.0626
+        ],
+        [
+          80.1287,
+          42.0347
+        ],
+        [
+          77.6842,
+          41.0594
+        ],
+        [
+          77.3413,
+          43.1178
+        ],
+        [
+          77.0857,
+          42.9883
+        ],
+        [
+          74.5717,
+          42.5212
+        ],
+        [
+          74.1583,
+          42.4717
+        ],
+        [
+          70.9667,
+          42.1167
+        ],
+        [
+          70.0578,
+          41.4944
+        ],
+        [
+          70.7189,
+          39.6195
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 13 named principal peaks of the Tian Shan (P4552 chain to Q5474), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5474",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 13,
+    "vertices": 13,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 2505
+  },
+  "altai-mountains": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          84.5345,
+          50.7771
+        ],
+        [
+          86.5897,
+          49.8069
+        ],
+        [
+          87.8192,
+          49.1458
+        ],
+        [
+          88.6616,
+          49.4911
+        ],
+        [
+          89.1561,
+          48.6475
+        ],
+        [
+          90.8664,
+          48.0506
+        ],
+        [
+          93.5942,
+          46.6175
+        ],
+        [
+          94.1342,
+          45.1325
+        ],
+        [
+          95.24,
+          44.7992
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 9 named principal peaks of the Altai Mountains (P4552 chain to Q5955), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5955",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 9,
+    "vertices": 9,
+    "maxDeviationKm": 0.004,
+    "lengthKm": 1137
+  },
+  "drakensberg": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          30.6513,
+          -28.3587
+        ],
+        [
+          30.2122,
+          -28.1058
+        ],
+        [
+          29.2667,
+          -29.4667
+        ],
+        [
+          28.8846,
+          -28.7591
+        ],
+        [
+          27.8202,
+          -29.2595
+        ],
+        [
+          27.9261,
+          -29.7314
+        ],
+        [
+          27.9333,
+          -30.6333
+        ],
+        [
+          28.1569,
+          -30.4667
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 8 named principal peaks of the Drakensberg (P4552 chain to Q183295), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q183295",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 8,
+    "vertices": 8,
+    "maxDeviationKm": 0.007,
+    "lengthKm": 615
+  },
+  "great-dividing-range": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          148.74,
+          -37.26
+        ],
+        [
+          148.2635,
+          -36.4558
+        ],
+        [
+          148.7892,
+          -35.6608
+        ],
+        [
+          149.1806,
+          -35.2375
+        ],
+        [
+          148.982,
+          -33.3442
+        ],
+        [
+          150.2573,
+          -33.5953
+        ],
+        [
+          151.448,
+          -32.0032
+        ],
+        [
+          151.656,
+          -31.3265
+        ],
+        [
+          152.4385,
+          -31.1603
+        ],
+        [
+          153.2708,
+          -28.3972
+        ],
+        [
+          152.4664,
+          -28.2164
+        ],
+        [
+          148.633,
+          -21.0333
+        ],
+        [
+          145.8167,
+          -17.3833
+        ],
+        [
+          145.374,
+          -16.1642
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 14 named principal peaks of the Great Dividing Range (P4552 chain to Q192583), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q192583",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 14,
+    "vertices": 14,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 2887
+  },
+  "ethiopian-highlands": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          42.3333,
+          9.4333
+        ],
+        [
+          39.8194,
+          6.8265
+        ],
+        [
+          38.3725,
+          13.2367
+        ],
+        [
+          34.8117,
+          8.8775
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 4 named principal peaks of the Ethiopian Highlands (P4552 chain to Q319288), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q319288",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 4,
+    "vertices": 4,
+    "maxDeviationKm": 0.005,
+    "lengthKm": 1752
+  },
+  "southern-alps": {
+    "type": "line",
+    "lines": [
+      [
+        [
+          167.886,
+          -44.568
+        ],
+        [
+          168.397,
+          -44.624
+        ],
+        [
+          168.728,
+          -44.384
+        ],
+        [
+          168.873,
+          -44.232
+        ],
+        [
+          169.45,
+          -44.066
+        ],
+        [
+          170.1419,
+          -43.595
+        ],
+        [
+          170.328,
+          -43.482
+        ],
+        [
+          170.527,
+          -43.268
+        ],
+        [
+          171.378,
+          -43.0039
+        ]
+      ]
+    ],
+    "source": "Wikidata P625 of 9 named principal peaks of the Southern Alps (P4552 chain to Q206650), joined in order along the range's axis, simplified",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q206650",
+    "license": "CC0",
+    "attribution": "Wikidata",
+    "sourceVertices": 9,
+    "vertices": 9,
+    "maxDeviationKm": 0.002,
+    "lengthKm": 348
   }
 }
