@@ -197,7 +197,7 @@ let ppStickyObserver;
 
 // Shared by passportSlot() (postcard score pill) and the mystery-slot grid;
 // no longer shared with a share card (the Share pill and its card are gone,
-// Sean 2026-10-22 — see the minimal-passport report).
+// Sean 2026-10-22, see the minimal-passport report).
 function formatShareKm(km) {
   if (km < 1) return '<1 km';
   if (km < 1000) return `${Math.round(km)} km`;
@@ -643,7 +643,7 @@ function renderPassportPage(held = null) {
 // countryIndex (built once locations arrive, next to locationIndex) groups
 // every location by countryKey(); the Countries tab that used to list/detail
 // it with stamp-album cards is gone (Sean, 2026-10-22; minimal-passport
-// brief) — Group by Country in the Browse panel replaces it, rendering slim
+// brief), Group by Country in the Browse panel replaces it, rendering slim
 // country section rows through the same ppDexGroupHead/passportGroups path
 // as every other grouping. countryIndex itself stays: passportGroups() still
 // reads it for each country's flag.
@@ -1257,8 +1257,8 @@ export function initPassportHome(main) {
   passportBox.setAttribute('aria-label', 'Open your passport');
   passportBox.innerHTML = `
   <p class="passport-count"><b data-passport="found">0</b> / <span data-passport="total">0</span> places<span class="passport-earned" data-passport="earned"></span></p>
-  <div class="passport-xp" data-passport="xp" hidden></div>
   <div class="passport-stamps" data-passport="stamps"></div>
+  <div class="passport-xp" data-passport="xp" role="button" tabindex="0" aria-label="Open your traveler profile" hidden><div data-passport="xp-bar"></div><span class="passport-xp-chevron" aria-hidden="true">›</span></div>
   <span class="passport-cue" aria-hidden="true">Passport ›</span>`;
   passportBox.addEventListener('click', () => openPassport(null));
   passportBox.addEventListener('keydown', (event) => {
@@ -1278,11 +1278,22 @@ export function initPassportHome(main) {
     earned: passportBox.querySelector('[data-passport="earned"]'),
     stamps: passportBox.querySelector('[data-passport="stamps"]'),
     xp: passportBox.querySelector('[data-passport="xp"]'),
+    xpBar: passportBox.querySelector('[data-passport="xp-bar"]'),
   };
+  passportEls.xp.addEventListener('click', (event) => {
+    event.stopPropagation();
+    host.openTravelerProfile(passportEls.xp);
+  });
+  passportEls.xp.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    event.stopPropagation();
+    host.openTravelerProfile(passportEls.xp);
+  });
   if (ACCOUNTS_ENABLED && isSignedIn()) {
     progression().then((profile) => {
       if (!profile || !passportEls?.xp) return;
-      passportEls.xp.innerHTML = renderXpBar(profile, { compact: true });
+      passportEls.xpBar.innerHTML = renderXpBar(profile, { compact: true });
       passportEls.xp.hidden = false;
     }).catch(() => {});
   }

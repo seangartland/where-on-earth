@@ -364,7 +364,7 @@ function dateLabel(timestamp) { return timestamp ? new Date(timestamp).toLocaleD
 function statGrid(stats) {
   return [['Dailies played', stats.dailies], ['Average Daily score', stats.averageScore], ['Best Daily score', stats.bestScore], ['Bullseyes', stats.bullseyes], ['Postcards', stats.postcards], ['Best streak', stats.bestStreak], ['Countries visited', stats.countries]].map(([label, value]) => `<div><strong>${Number(value).toLocaleString()}</strong><span>${label}</span></div>`).join('');
 }
-async function openTravelerProfile(friendId = '') {
+export async function openTravelerProfile(friendId = '') {
   try {
     const profile = await friendApi(friendId ? `/v1/progression/friend?${new URLSearchParams({ friendId })}` : '/v1/progression');
     const mine = !friendId; const panel = sheet.querySelector('.account-panel');

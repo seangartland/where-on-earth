@@ -1188,6 +1188,12 @@ body.game-stats #hud { opacity: 0; }
 .passport-stamps img[data-tier="gold"] { border-color: #b27c20; box-shadow: none; }
 .passport-stamps img[data-tier="cyan"] { border-color: #34486a; }
 .passport-stamps img[data-tier="dim"] { filter: saturate(.65) brightness(.7); }
+.passport-xp[hidden] { display: none; }
+.passport-xp { display: flex; align-items: center; gap: 8px; margin: 11px 14px 26px; padding-top: 7px; border-top: 1px solid rgba(var(--rgb-line),.2); cursor: pointer; }
+.passport-xp:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
+.passport-xp [data-passport="xp-bar"] { flex: 1; min-width: 0; }
+.passport-xp .xp-bar-compact { margin: 0; padding: 0; border: 0; }
+.passport-xp-chevron { flex: none; color: rgba(52,72,96,.8); font-size: 22px; font-weight: 800; line-height: 1; }
 /* The card names itself and shows it opens: a quiet ink cue at the foot. */
 .passport-cue { position: absolute; right: 15px; bottom: 9px; color: rgba(52,72,96,.8); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .02em; }
 

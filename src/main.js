@@ -759,6 +759,11 @@ const passportHost = {
   tierOf,
   addAuditFlagButton,
   mountAuditBanner,
+  async openTravelerProfile(trigger) {
+    const { openAccountSheet, openTravelerProfile } = await import('./account/sheet.js');
+    await openAccountSheet(trigger);
+    await openTravelerProfile();
+  },
 };
 initPassportHome(passportHost);
 
