@@ -430,6 +430,8 @@ body.game-reveal .reveal-name { display: block; }
 .reveal-band-tag:empty { display: none; }
 .reveal-band .peek-name { overflow: visible; color: var(--ink); font-size: 18px; font-weight: 750; line-height: 1.2; letter-spacing: -.02em; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; text-shadow: 0 1px 8px rgba(0,0,0,.45); }
 .reveal-band-stats { position: absolute; right: 14px; bottom: 10px; left: 14px; display: flex; align-items: center; gap: 12px; pointer-events: auto; }
+.reveal-band-stats .peek-stats { min-width: 0; }
+.reveal-band-stats .peek-score, .reveal-band-stats .peek-distance { flex: none; }
 .reveal-band-stats .peek-next { flex: none; min-width: 0; min-height: 44px; margin-left: auto; padding: 0 18px; font-size: var(--fs-base); }
 .peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 28px; padding: 6px 14px; cursor: pointer; outline: none; }
 /* The bar's layout is identical in both states (Sean, 2026-11-06): it used
@@ -458,7 +460,7 @@ body.game-reveal .reveal-name { display: block; }
 body.survival .peek-score { color: #8ef0b8; }
 body.survival-miss .peek-score { color: #ff9db4; }
 .peek-distance { color: rgba(var(--rgb-muted),.7); font-size: var(--fs-body); font-weight: 650; }
-.reveal-survival-streak { display: none; color: #f6edff; font-size: var(--fs-body); font-weight: 850; letter-spacing: .01em; text-shadow: 0 0 12px rgba(170,120,255,.48); }
+.reveal-survival-streak { display: none; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #f6edff; font-size: var(--fs-body); font-weight: 850; letter-spacing: .01em; text-shadow: 0 0 12px rgba(170,120,255,.48); }
 body.survival .reveal-survival-streak:not(:empty) { display: inline; }
 .sheet-content { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .38s cubic-bezier(.2,.9,.25,1); }
 .reveal-sheet.expanded .sheet-content { grid-template-rows: 1fr; }
