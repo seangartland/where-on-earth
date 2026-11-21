@@ -1,6 +1,6 @@
 import { dailyManifest } from './daily.js';
 import { scoreGuess } from './daily-score.js';
-import { DEFAULT_SEAL, normalizeSeal, ownsIdentity, processCompletion, progressionProfile, validateSeal } from './progression.js';
+import { DEFAULT_SEAL, normalizeSeal, ownsIdentity, processCompletion, processReferralPayout, progressionProfile, validateSeal } from './progression.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
@@ -330,6 +330,10 @@ async function acceptInvite(request, env, id) {
       WHERE token_hash = ? AND used_at IS NULL AND EXISTS
         (SELECT 1 FROM friendships WHERE account_id = ? AND friend_id = ? AND created_at = ?)`)
       .bind(id, now, invite.token_hash, id, invite.inviter_id, now),
+    env.DB.prepare(`INSERT OR IGNORE INTO referral_credits (invitee_id, inviter_id, status, created_at)
+      SELECT ?, ?, 'pending', ? WHERE EXISTS
+        (SELECT 1 FROM friendships WHERE account_id = ? AND friend_id = ? AND created_at = ?)`)
+      .bind(id, invite.inviter_id, now, id, invite.inviter_id, now),
   ]);
   if (results[2].meta.changes !== 1) {
     const stillValid = await validInvite(env, input.token, now);
@@ -389,6 +393,7 @@ async function submitGuess(request, env, id) {
   // This is intentionally after the canonical completion insert.  Every write
   // below is keyed by account/date, so retries and a second device are safe.
   const progressionAward = canonical ? await processCompletion(env, id, input.date, now) : null;
+  if (canonical) await processReferralPayout(env, id, now);
   if (!validLegacyGuess(input)) return json({ canonical: Boolean(canonical) });
   const stored = await env.DB.prepare(`SELECT date, slot, location_id, lat, lng, submitted_at
     FROM daily_guesses WHERE account_id = ? AND date = ? AND location_id = ?`)
