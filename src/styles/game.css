@@ -498,7 +498,7 @@ body.survival-miss .peek-score { color: #ff9db4; }
 .xp-bar-copy { flex: 1; min-width: 0; }
 .xp-bar-seal { display: grid; flex: none; place-items: center; width: 30px; height: 30px; }
 .xp-bar-top, .xp-bar-bottom { display: flex; justify-content: space-between; gap: 8px; font-size: 10px; line-height: 1.3; }
-.xp-bar-top b { color: var(--gold); font-size: 10px; letter-spacing: .1em; }
+.xp-bar-top b { color: var(--gold); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
 .xp-bar-top span, .xp-bar-bottom { color: var(--ink-body); }
 .xp-bar-track { position: relative; height: 7px; margin: 5px 0; overflow: hidden; border: 1px solid rgba(var(--rgb-line),.45); border-radius: 999px; background: #111a30; }
 .xp-bar-fill, .xp-bar-earned { position: absolute; top: 0; bottom: 0; display: block; }
@@ -764,16 +764,21 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .home-panels .panel-slice { position: absolute; top: 0; left: 0; width: calc(300% + 2 * var(--pg)); max-width: none; height: 100%; object-fit: cover; object-position: 40% 50%; pointer-events: none; }
 .home-panels #pack-button .panel-slice { left: calc(-100% - var(--pg)); }
 .home-panels #survival-hub-button .panel-slice { left: calc(-200% - 2 * var(--pg)); }
-.home-panels > button { position: relative; flex: 1 1 0; height: 225px; min-height: 0; padding: 0; border-radius: 18px; overflow: hidden; background: transparent; white-space: normal; text-overflow: clip; }
-.home-panels > button.is-gold { background: none; color: #ffe9c9; }
+.home-panels > button { position: relative; flex: 1 1 0; height: 225px; min-height: 0; padding: 0; border-radius: 18px; overflow: hidden; background: transparent; color: var(--ink-hi); white-space: normal; text-overflow: clip; }
+.home-panels > button.is-gold { background: none; color: var(--ink-hi); }
 /* The pack is an object floating over the middle slice, not a photo: the
    sealed pack art (static variant, no tear light, WORLD CAPITALS title),
    sized so its baked title clears the panel label below. */
 .home-panels .panel-packobj { position: absolute; left: 50%; top: 10px; transform: translateX(-50%) rotate(-3deg); height: 140px; width: auto; border-radius: 6px; filter: drop-shadow(0 10px 16px rgba(0,0,0,.7)); pointer-events: none; }
-.home-panels .panel-info { position: absolute; right: 0; bottom: 0; left: 0; display: flex; flex-direction: column; gap: 3px; padding: 26px 11px 12px; background: linear-gradient(180deg, transparent, rgba(2,5,12,.88) 55%); text-align: left; pointer-events: none; }
+.home-panels .panel-info { position: absolute; right: 0; bottom: 0; left: 0; display: flex; flex-direction: column; gap: 2px; padding: 28px 10px 12px; background: linear-gradient(180deg, transparent, rgba(2,5,12,.88) 55%); text-align: left; pointer-events: none; }
 .home-panels #play-button .panel-info { background: linear-gradient(180deg, transparent, rgba(24,10,2,.85) 55%); }
-.home-panels .mode-name { overflow: visible; font-size: 15.5px; font-weight: 800; line-height: 1.15; white-space: normal; text-overflow: clip; }
-.home-panels .mode-desc { font-size: 11.5px; line-height: 1.35; opacity: .85; -webkit-line-clamp: 4; }
+/* One voice for all panel text (2026-11-21 cleanup): the system sans at two
+   sizes, a one-word name over at most two short status lines, same ink on
+   every panel. Luckiest Guy stays on the logotype and the pack art. */
+.home-panels .mode-name { overflow: visible; font-size: var(--fs-title); font-weight: 750; letter-spacing: -.01em; line-height: 1.15; white-space: nowrap; text-overflow: clip; }
+/* Every status reserves two lines, so the three names share one baseline
+   whatever state the pack panel is in. */
+.home-panels .mode-desc { min-height: 2.6em; font-size: var(--fs-small); font-weight: 600; line-height: 1.3; opacity: .78; font-variant-numeric: tabular-nums; white-space: pre-line; }
 .home-panels .pack-token-pill { top: 8px; right: 8px; z-index: 2; transform: none; }
 .home-panels #play-button.daily-done { min-height: 0; flex-direction: column; }
 /* A played Daily dims its own slice of the globe. */
@@ -781,7 +786,7 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 /* On the panel the gold state must stay light text: the base #pack-button
    .is-gold ink color (for the old gold-gradient button) outranks the generic
    panel rule and made the pack name and status unreadable over the art. */
-.home-panels #pack-button.is-gold { color: #ffe9c9; }
+.home-panels #pack-button, .home-panels #pack-button.is-gold { color: var(--ink-hi); }
 .home-panels #pack-button.is-gold .pack-home-bar { background: rgba(var(--rgb-gold),.18); }
 .home-panels #pack-button.is-gold .pack-home-bar i { background: var(--gold); }
 /* The pack art carries its own baked-in title, so the pack panel gets a
@@ -799,7 +804,19 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .start-screen .passport-stamps img { background: #0d1730; border-color: rgba(180,198,240,.35); }
 .start-screen .passport-stamps img[data-tier="gold"] { border-color: #e9b558; }
 .start-screen .passport-stamps img[data-tier="cyan"] { border-color: rgba(125,211,252,.55); }
-.start-screen .passport-cue { color: rgba(205,218,245,.85); }
+/* Home card, quieted (2026-11-21 cleanup): left-aligned on the panels' type
+   scale, no text cues; one chevron per tap target (the card opens the
+   Passport, the level row opens the profile). */
+.start-screen .passport { padding: 0 0 14px; text-align: left; }
+.start-screen .passport-count { margin: 14px 40px 0 16px; font-size: var(--fs-base); font-weight: 600; }
+.start-screen .passport-count b { font-size: var(--fs-display); }
+.start-screen .passport-stamps { margin: 10px 16px 0; }
+.start-screen .passport-stamps:empty { display: none; }
+.start-screen .passport-xp { margin: 12px 16px 0; padding-top: 12px; border-top-color: rgba(var(--rgb-line),.14); }
+.start-screen .passport-xp .xp-bar-top, .start-screen .passport-xp .xp-bar-top span { font-size: var(--fs-small); }
+.start-screen .passport-xp .xp-bar-top b { font-size: var(--fs-small); letter-spacing: 0; text-transform: none; }
+.start-screen .passport-chevron, .start-screen .passport-xp-chevron { color: rgba(205,218,245,.5); font-size: 22px; font-weight: 600; line-height: 1; }
+.start-screen .passport-chevron { position: absolute; top: 18px; right: 16px; }
 
 /* The pack screen alone uses a dark studio stage. */
 .pack-screen { display: grid; place-items: center; box-sizing: border-box; padding: 24px 10px; overflow: auto; background: radial-gradient(circle at 50% 43%, #19365c 0, #0b1930 36%, #040914 76%); pointer-events: auto; }
@@ -1063,6 +1080,8 @@ body.blackout-complete .survival-results-card h2 { color: var(--gold); }
   .mode-buttons { gap: 6px; }
   .mode-buttons > button { padding-inline: 7px; font-size: var(--fs-body); }
   .mode-buttons .mode-desc { font-size: var(--fs-micro); }
+  .home-panels .mode-name { font-size: var(--fs-base); }
+  .home-panels .panel-info { padding-inline: 8px; }
 }
 
 /* Recommended home variant: ?home=recs. Every surface sits on the default
@@ -1210,9 +1229,6 @@ body.game-stats #hud { opacity: 0; }
 .passport-xp [data-passport="xp-bar"] { flex: 1; min-width: 0; }
 .passport-xp .xp-bar-compact { margin: 0; padding: 0; border: 0; }
 .passport-xp-chevron { flex: none; color: rgba(52,72,96,.8); font-size: 22px; font-weight: 800; line-height: 1; }
-/* The card names itself and shows it opens: a quiet ink cue at the foot. */
-.passport-cue { position: absolute; right: 15px; bottom: 9px; color: rgba(52,72,96,.8); font-size: var(--fs-caption); font-weight: 800; letter-spacing: .02em; }
-.passport-cue-top { top: 9px; bottom: auto; }
 
 /* Recommended home variant: the card as a one-line strip at the mode grid's
    width, with the default card's padding and type. */

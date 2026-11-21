@@ -53,15 +53,15 @@ test('mixed passport counts each city and landmark once', () => {
 test('recommended home still forces the shared summary card visible', () => {
   assert.match(source, /if \(isRecsHome\) \{\s*passportEls\.box\.hidden = false;/);
   assert.match(source, /passportEls\.found\.textContent = summary\.found\.toLocaleString\(\);/);
-  assert.match(source, /<b data-passport="found">0<\/b> places visited/);
+  assert.match(source, /<b data-passport="found">0<\/b> places</);
   assert.doesNotMatch(source, /passportEls\.total|data-passport="total"/);
 });
 
-test('home card labels its passport and profile actions in their displayed order', () => {
+test('home card marks its passport and profile tap targets with one chevron each, no text cues', () => {
   const markup = source.match(/passportBox\.innerHTML = `([\s\S]*?)`;/)?.[1];
   assert.ok(markup, 'passport home markup found');
-  assert.ok(markup.indexOf('Passport ›') < markup.indexOf('passport-count'));
-  assert.ok(markup.indexOf('passport-xp') < markup.indexOf('Profile ›'));
-  assert.equal((markup.match(/Passport ›/g) || []).length, 1);
-  assert.equal((markup.match(/Profile ›/g) || []).length, 1);
+  assert.doesNotMatch(markup, /Passport ›|Profile ›|passport-cue/);
+  assert.ok(markup.indexOf('passport-chevron') > markup.indexOf('passport-count'));
+  assert.ok(markup.indexOf('passport-chevron') < markup.indexOf('passport-stamps'));
+  assert.match(markup, /class="passport-xp"[^>]*role="button"[\s\S]*?passport-xp-chevron/);
 });

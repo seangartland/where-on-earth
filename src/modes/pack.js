@@ -71,16 +71,15 @@ export function syncPackButton() {
   entry.disabled = !(host.locations || []).length || !(host.landmarks || []).length;
   const record = readPack();
   const progress = packProgressCount(record);
+  // Home panel status, at most two short lines so the panel never reflows as
+  // the countdown ticks or the state changes: packs ready on the first line,
+  // then an open pack or the next-pack countdown (none at cap, timer paused).
   // Availability and an open pack are independent facts; show both when both
-  // are true. The countdown append only applies when nothing is in progress.
-  let subtitle;
-  if (progress && record.stamina.stored > 0) subtitle = `${staminaText(record)} · ${progress} in progress`;
-  else if (progress) subtitle = `${progress} in progress`;
-  else {
-    subtitle = staminaText(record);
-    if (record.stamina.stored === 1) subtitle += ` · next in ${countdownText(record)}`;
-  }
-  entry.querySelector('.mode-desc').textContent = subtitle;
+  // are true. The countdown only shows when nothing is in progress.
+  const ready = record.stamina.stored ? `${record.stamina.stored} ready` : '';
+  const after = progress ? `${progress} in progress`
+    : record.stamina.nextAt == null ? '' : `Next ${countdownText(record)}`;
+  entry.querySelector('.mode-desc').textContent = [ready, after].filter(Boolean).join('\n');
   entry.querySelector('.pack-token-count').textContent = record.skips;
   // Slim refill bar on the home button's bottom edge: same fraction as the
   // pack screen bar, full at cap.

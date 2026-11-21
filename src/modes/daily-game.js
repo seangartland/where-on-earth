@@ -444,12 +444,12 @@ export function syncDailyButton() {
   } else if (played) {
     // A played Daily is a slim, quiet row; the gold primary treatment moves
     // to Packs when a pack can be opened (syncPackButton drives .is-gold).
-    gameEls.play.querySelector('.mode-name').textContent = '✓ Daily done';
-    desc.textContent = '· See results';
+    gameEls.play.querySelector('.mode-name').textContent = 'Daily';
+    desc.textContent = '✓ See results';
     gameEls.play.classList.add('daily-done');
   } else {
     gameEls.play.querySelector('.mode-name').textContent = 'Daily';
-    desc.textContent = gameEls.play.disabled ? 'Loading…' : '5 places daily';
+    desc.textContent = gameEls.play.disabled ? 'Loading…' : '5 places';
     gameEls.play.classList.remove('daily-done');
   }
   gameEls.play.classList.toggle('played', Boolean(played));

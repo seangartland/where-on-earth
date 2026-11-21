@@ -1255,11 +1255,9 @@ export function initPassportHome(main) {
   passportBox.tabIndex = 0;
   passportBox.setAttribute('aria-label', 'Open your passport');
   passportBox.innerHTML = `
-  <span class="passport-cue passport-cue-top" aria-hidden="true">Passport ›</span>
-  <p class="passport-count"><b data-passport="found">0</b> places visited<span class="passport-earned" data-passport="earned"></span></p>
+  <p class="passport-count"><b data-passport="found">0</b> places<span class="passport-earned" data-passport="earned"></span><span class="passport-chevron" aria-hidden="true">›</span></p>
   <div class="passport-stamps" data-passport="stamps"></div>
-  <div class="passport-xp" data-passport="xp" role="button" tabindex="0" aria-label="Open your traveler profile" hidden><div data-passport="xp-bar"></div><span class="passport-xp-chevron" aria-hidden="true">›</span></div>
-  <span class="passport-cue" aria-hidden="true">Profile ›</span>`;
+  <div class="passport-xp" data-passport="xp" role="button" tabindex="0" aria-label="Open your traveler profile" hidden><div data-passport="xp-bar"></div><span class="passport-xp-chevron" aria-hidden="true">›</span></div>`;
   passportBox.addEventListener('click', () => openPassport(null));
   passportBox.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPassport(); }
