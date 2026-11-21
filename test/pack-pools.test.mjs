@@ -36,6 +36,16 @@ test('mountain ranges are in the bank but out of the landmark pool', async () =>
   assert.ok(other.every((item) => !PACK_MOUNTAIN_RANGE_IDS.has(item.id)));
 });
 
+test('waterways are extent entries in the bank but out of the landmark and landform pools', async () => {
+  const { PACK_WATERS_IDS } = await import('../src/meta/pack-waters.js');
+  const extents = load('extents.json');
+  const byId = new Map(landmarks.map((item) => [item.id, item]));
+  assert.ok(PACK_WATERS_IDS.size > 0);
+  assert.ok([...PACK_WATERS_IDS].every((id) => byId.get(id)?.kind === 'extent' && extents[id]?.type === byId.get(id).extentType));
+  assert.ok(landmarkPackPool(landmarks).every((item) => !PACK_WATERS_IDS.has(item.id)));
+  assert.ok([...PACK_WATERS_IDS].every((id) => !PACK_LANDFORM_IDS.has(id)));
+});
+
 test('capital pool remains 200 playable entries', () => {
   const capitals = packPool(cities);
   assert.equal(capitals.length, 200);

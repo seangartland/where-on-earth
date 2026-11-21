@@ -1481,23 +1481,6 @@
   "kind": "landmark"
  },
  {
-  "id": "suez-canal",
-  "short": "Suez Canal",
-  "fact": "Opened in 1869, this sea-level canal lets ships travel between two major seas without sailing around Africa.",
-  "lat": 30.705,
-  "lng": 32.344167,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Iss016e019375.jpg",
-  "clue": "Suez Canal, Egypt 🇪🇬",
-  "difficulty": 1,
-  "country": "Egypt",
-  "continent": "Africa",
-  "sets": [],
-  "difficultyWhy": "p.99·fb143·K0·iso123 → 3.4 → 1",
-  "extentKm": 97,
-  "category": "city",
-  "kind": "area"
- },
- {
   "id": "vostok-station",
   "clue": "Vostok Station, Antarctica 🇦🇶",
   "category": "city",

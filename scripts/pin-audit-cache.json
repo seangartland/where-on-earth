@@ -1,4 +1,10 @@
 {
+"enwiki:Bosphorus": "Q35958",
+"enwiki:Bosphorus, Turkey": null,
+"enwiki:Dardanelles": "Q6514",
+"enwiki:Dardanelles, Turkey": null,
+"enwiki:Suez Canal": "Q899",
+"enwiki:Suez Canal, Egypt": null,
 "osm:Aarhus, Denmark": {
 "category": "place",
 "lat": 56.1496278,
@@ -890,6 +896,15 @@
 "type": "administrative",
 "wikidata": "Q1479"
 },
+"osm:Bosphorus, Turkey": {
+"category": "natural",
+"lat": 41.1125268,
+"linked_place": null,
+"lon": 29.0718072,
+"name": "Bosporus, Istanbul, Marmara Region, Turkey",
+"type": "strait",
+"wikidata": "Q35958"
+},
 "osm:Boston, Massachusetts": {
 "category": "boundary",
 "lat": 42.3588336,
@@ -1690,6 +1705,15 @@
 "name": "Dar es Salaam, Coastal Zone, Tanzania",
 "type": "administrative",
 "wikidata": "Q1960"
+},
+"osm:Dardanelles, Turkey": {
+"category": "natural",
+"lat": 40.2091726,
+"linked_place": null,
+"lon": 26.4413908,
+"name": "Dardanelles, Canakkale, Marmara Region, Turkey",
+"type": "strait",
+"wikidata": "Q6514"
 },
 "osm:Darjeeling, India": {
 "category": "place",
@@ -6114,6 +6138,15 @@
 "type": "city",
 "wikidata": "Q2907"
 },
+"osm:Suez Canal, Egypt": {
+"category": "waterway",
+"lat": 30.6052767,
+"linked_place": null,
+"lon": 32.3331003,
+"name": "Suez Canal, Al Ismailiya, Egypt",
+"type": "canal",
+"wikidata": "Q899"
+},
 "osm:Suez, Egypt": {
 "category": "place",
 "lat": 29.974498,
@@ -7310,6 +7343,7 @@
 "qid:bologna-it": "Q1891",
 "qid:bonn-de": "Q586",
 "qid:bordeaux-france": "Q1479",
+"qid:bosphorus": "Q35958",
 "qid:boston-usa": "Q100",
 "qid:bouake-ci": "Q271000",
 "qid:bradford-england": "Q22905",
@@ -7399,6 +7433,7 @@
 "qid:damascus-syria": "Q3766",
 "qid:dammam-sa": "Q160320",
 "qid:dar-es-salaam": "Q1960",
+"qid:dardanelles": "Q6514",
 "qid:darjeeling-in": "Q169997",
 "qid:darwin": "Q11568",
 "qid:datong": "Q72877",
@@ -7903,6 +7938,7 @@
 "qid:strasbourg-france": "Q6602",
 "qid:stuttgart-de": "Q1022",
 "qid:sucre-bolivia": "Q2907",
+"qid:suez-canal": "Q899",
 "qid:suez-eg": "Q134514",
 "qid:sulaymaniyah": "Q191204",
 "qid:surabaya-id": "Q11462",
@@ -10195,6 +10231,12 @@
 "display": "Chen Mapo Tofu, 51, Donghuamen Street, Gulou, Xiyuhe, Qingyang District, Chengdu, Sichuan, 610015, China",
 "type": "restaurant"
 },
+"rev:30.70500,32.34417": {
+"cat": "highway",
+"city": "Al Ismailiya",
+"display": "Port Said, Al Ismaeileya Road, Al Ismailiya, Egypt",
+"type": "secondary"
+},
 "rev:30.71444,111.28472": {
 "cat": "highway",
 "city": "Xiling District",
@@ -11353,6 +11395,12 @@
 "display": "Ulu, Ulu Mahallesi, Osmangazi, Bursa, Marmara Region, 16240, Turkey",
 "type": "primary"
 },
+"rev:40.20000,26.40000": {
+"cat": "place",
+"city": "Çanakkale Merkez",
+"display": "Esenler, Esenler Mahallesi, Çanakkale Merkez, Canakkale, Marmara Region, 17010, Turkey",
+"type": "suburb"
+},
 "rev:40.37112,49.83399": {
 "cat": "shop",
 "city": "Baku",
@@ -11436,6 +11484,12 @@
 "city": "Istanbul",
 "display": "Bıçakçı Alaaddin Cami, Molla Hüsrev Caddesi, İskenderpaşa Mahallesi, Istanbul, Fatih, Istanbul, Marmara Region, 34080, Turkey",
 "type": "place_of_worship"
+},
+"rev:41.12000,29.08000": {
+"cat": "place",
+"city": "Sarıyer",
+"display": "Oymak Sitesi, Yeniköy, Sarıyer, Istanbul, Marmara Region, 34464, Turkey",
+"type": "locality"
 },
 "rev:41.12066,16.86982": {
 "cat": "place",
@@ -16329,6 +16383,13 @@
 ],
 "precision": 0.0002777777777777778
 },
+"wd:Q35958": {
+"p625": [
+41.12,
+29.08
+],
+"precision": 0.000277778
+},
 "wd:Q35997": {
 "p625": [
 38.41273,
@@ -18086,6 +18147,13 @@
 ],
 "precision": 0.10842311330607
 },
+"wd:Q6514": {
+"p625": [
+40.2,
+26.4
+],
+"precision": 0.0166667
+},
 "wd:Q656": {
 "p625": [
 59.95,
@@ -18589,6 +18657,13 @@
 73.383333333333
 ],
 "precision": 0.016666666666667
+},
+"wd:Q899": {
+"p625": [
+30.705,
+32.344166666667
+],
+"precision": null
 },
 "wd:Q90": {
 "p625": [
