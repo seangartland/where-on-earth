@@ -23,6 +23,9 @@ export const ACHIEVEMENTS = Object.freeze([
   ['continental-breakfast', 'breadth', 'Continental Breakfast', 'Visit 3 continents', 'title:early-explorer', (s) => s.continents >= 3],
   ['around-the-world', 'breadth', 'Around the World', 'Visit every represented game continent', 'card:around-the-world', (s) => s.continents >= s.representedContinents && s.representedContinents > 0],
   ['frequent-flyer', 'breadth', 'Frequent Flyer', 'Visit 3 countries on 10 Dailies', 'title:frequent-flyer', (s) => s.multiCountryDailies >= 10],
+  ['plus-one', 'consistency', 'Plus One', 'Refer 1 friend', null, (s) => s.referrals >= 1],
+  ['travel-agent', 'consistency', 'Travel Agent', 'Refer 3 friends', null, (s) => s.referrals >= 3],
+  ['tour-guide', 'consistency', 'Tour Guide', 'Refer 5 friends', null, (s) => s.referrals >= 5],
 ]);
 
 export function xpForCompletion(total, rounds) {
@@ -72,6 +75,7 @@ function achievementProgress(id, s) {
     'first-departure': [s.dailies, 1, 'Dailies'], 'return-ticket': [s.bestStreak, 3, 'Day streak'], 'one-week-abroad': [s.bestStreak, 7, 'Day streak'], 'regular-route': [s.dailies, 25, 'Dailies'], 'no-fixed-address': [s.bestStreak, 30, 'Day streak'], 'seasoned-traveler': [s.dailies, 100, 'Dailies'],
     postmarked: [s.postcards, 1, 'Postcards'], 'right-on-the-map': [s.bullseyes, 1, 'Bullseyes'], 'sharp-eye': [s.bullseyes, 10, 'Bullseyes'], 'five-star-landing': [s.fiveStar, 1, 'Five-star Dailies'], 'perfect-itinerary': [s.perfect, 1, 'Perfect Dailies'], 'high-flyer': [s.highFlyers, 10, 'High-score Dailies'],
     'new-stamp': [s.countries, 5, 'Countries'], 'border-crosser': [s.countries, 25, 'Countries'], worldly: [s.countries, 50, 'Countries'], 'continental-breakfast': [s.continents, 3, 'Continents'], 'around-the-world': [s.continents, s.representedContinents, 'Continents'], 'frequent-flyer': [s.multiCountryDailies, 10, 'Multi-country Dailies'],
+    'plus-one': [s.referrals, 1, 'Referrals'], 'travel-agent': [s.referrals, 3, 'Referrals'], 'tour-guide': [s.referrals, 5, 'Referrals'],
   };
   const [current, target, label] = values[id] || [0, 0, 'Progress'];
   return { current, target, label };
@@ -84,7 +88,8 @@ async function stats(env, accountId) {
   for (const row of completions) { run = previous && Date.parse(`${row.daily_date}T00:00:00Z`) - Date.parse(`${previous}T00:00:00Z`) === 86400000 ? run + 1 : 1; bestStreak = Math.max(bestStreak, run); previous = row.daily_date; }
   const countries = new Set(rounds.map((r) => r.country)); const continents = new Set(rounds.map((r) => r.continent));
   const represented = (await env.DB.prepare('SELECT COUNT(DISTINCT continent) AS n FROM daily_locations').first())?.n || 0;
-  return { dailies: completions.length, totalScore: completions.reduce((n, r) => n + r.total_score, 0), bestScore: Math.max(0, ...completions.map((r) => r.total_score)), bestStreak, bullseyes: rounds.filter((r) => isBullseye(r.distance_km, r.score)).length, postcards: rounds.filter((r) => isPostcard(r.distance_km)).length, countries: countries.size, continents: continents.size, representedContinents: Number(represented), fiveStar: [...byDate.values()].filter((rs) => rs.length === 5 && rs.every((r) => isPostcard(r.distance_km))).length, perfect: completions.filter((r) => r.total_score === 5000).length, highFlyers: completions.filter((r) => r.total_score >= 4500).length, multiCountryDailies: [...byDate.values()].filter((rs) => new Set(rs.map((r) => r.country)).size >= 3).length };
+  const referrals = Number((await env.DB.prepare(`SELECT COUNT(*) AS n FROM referral_credits WHERE inviter_id = ? AND status = 'paid'`).bind(accountId).first())?.n || 0);
+  return { dailies: completions.length, totalScore: completions.reduce((n, r) => n + r.total_score, 0), bestScore: Math.max(0, ...completions.map((r) => r.total_score)), bestStreak, bullseyes: rounds.filter((r) => isBullseye(r.distance_km, r.score)).length, postcards: rounds.filter((r) => isPostcard(r.distance_km)).length, countries: countries.size, continents: continents.size, representedContinents: Number(represented), fiveStar: [...byDate.values()].filter((rs) => rs.length === 5 && rs.every((r) => isPostcard(r.distance_km))).length, perfect: completions.filter((r) => r.total_score === 5000).length, highFlyers: completions.filter((r) => r.total_score >= 4500).length, multiCountryDailies: [...byDate.values()].filter((rs) => new Set(rs.map((r) => r.country)).size >= 3).length, referrals };
 }
 export async function processCompletion(env, accountId, date, now = Date.now()) {
   const completion = await env.DB.prepare('SELECT total_score FROM canonical_daily_completions WHERE account_id = ? AND daily_date = ?').bind(accountId, date).first();
@@ -102,6 +107,30 @@ export async function processCompletion(env, accountId, date, now = Date.now()) 
   if (xpAfter === xpBefore) return null;
   return { ...awards, xpBefore, xpAfter, levelBefore: levelForXp(xpBefore), levelAfter: levelForXp(xpAfter) };
 }
+export async function processReferralPayout(env, inviteeId, now = Date.now()) {
+  const completions = Number((await env.DB.prepare(
+    'SELECT COUNT(*) AS n FROM canonical_daily_completions WHERE account_id = ?',
+  ).bind(inviteeId).first())?.n || 0);
+  if (completions !== 1) return null;
+  const credit = await env.DB.prepare(
+    `SELECT inviter_id FROM referral_credits WHERE invitee_id = ? AND status = 'pending'`,
+  ).bind(inviteeId).first();
+  if (!credit) return null;
+  const updated = await env.DB.prepare(`UPDATE referral_credits SET status = 'paid', paid_at = ?
+    WHERE invitee_id = ? AND status = 'pending'
+    AND (SELECT COUNT(*) FROM referral_credits WHERE inviter_id = ? AND status = 'paid') < 5`)
+    .bind(now, inviteeId, credit.inviter_id).run();
+  if (updated.meta.changes !== 1) return null;
+  await env.DB.prepare(`INSERT OR IGNORE INTO xp_ledger (account_id, source_type, source_key, amount, created_at)
+    VALUES (?, 'referral', ?, 25, ?)`).bind(credit.inviter_id, `referral:${inviteeId}`, now).run();
+  const snapshot = await stats(env, credit.inviter_id);
+  const statements = ACHIEVEMENTS.filter(([, , , , , condition]) => condition(snapshot))
+    .map(([achievementId]) => env.DB.prepare(
+      'INSERT OR IGNORE INTO user_achievements (account_id, achievement_id, earned_at, qualifying_key) VALUES (?, ?, ?, ?)',
+    ).bind(credit.inviter_id, achievementId, now, `referral:${inviteeId}`));
+  if (statements.length) await env.DB.batch(statements);
+  return { inviterId: credit.inviter_id, xp: 25 };
+}
 export async function progressionProfile(env, accountId) {
   const xp = Number((await env.DB.prepare('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?').bind(accountId).first())?.xp || 0);
   const level = levelForXp(xp); const summary = await stats(env, accountId);
@@ -114,5 +143,5 @@ export async function progressionProfile(env, accountId) {
   const community = await communityPercentages(env);
   const avatar = normalizeSeal(loadout?.avatar_json, new Set(achievements.map(({ achievement_id }) => achievement_id)));
   const xpIntoLevel = xp - xpAtLevel(level); const levelSpan = 100 + 20 * (level - 1);
-  return { displayName: account?.display_name || 'Traveler', level, totalXp: xp, xpIntoLevel, levelSpan, xpToNext: levelSpan - xpIntoLevel, stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
+  return { displayName: account?.display_name || 'Traveler', level, totalXp: xp, xpIntoLevel, levelSpan, xpToNext: levelSpan - xpIntoLevel, stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries, referrals: summary.referrals }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }
