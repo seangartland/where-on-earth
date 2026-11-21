@@ -113,6 +113,25 @@ function dateOffset(days) {
   return new Date(Date.now() + days * 86400000).toISOString().slice(0, 10);
 }
 
+async function completeDaily(env, id, date) {
+  const ids = manifestIds(date, canonicalLocations);
+  let final;
+  for (let slot = 0; slot < 5; slot += 1) {
+    final = await post(env, id, '/v1/daily/guesses', {
+      ...guess(date, slot, ids[slot], 0, 0), distanceKm: 0, score: 1000,
+    });
+    assert.equal(final.status, 200);
+  }
+  return final;
+}
+
+async function xpTotal(env, id) {
+  const row = await env.DB.prepare(
+    'SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?',
+  ).bind(id).first();
+  return Number(row.xp);
+}
+
 test('all friends and daily routes require authentication', async (t) => {
   const env = await fixture(t);
   const routes = [
@@ -391,4 +410,73 @@ test('level-two title choice persists until both titles unlock at level five', a
   assert.equal((await post(env, 'a', '/v1/progression/loadout', { titleId: 'aisle-seat' })).status, 403);
   await env.DB.prepare('UPDATE xp_ledger SET amount = 520 WHERE account_id = ?').bind('a').run();
   assert.equal((await post(env, 'a', '/v1/progression/loadout', { titleId: 'aisle-seat' })).status, 200);
+});
+
+test('referral payout: pending on accept, 25 XP on the invitee\'s first canonical Daily, nothing on the second', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a'); await addUser(env, 'b');
+  await name(env, 'a', 'Ana'); await name(env, 'b', 'Bo');
+  await invite(env, 'a', 'b');
+  assert.deepEqual(
+    { ...(await env.DB.prepare('SELECT inviter_id, status FROM referral_credits WHERE invitee_id = ?').bind('b').first()) },
+    { inviter_id: 'a', status: 'pending' },
+  );
+  assert.equal(await xpTotal(env, 'a'), 0);
+
+  await completeDaily(env, 'b', dateOffset(0));
+  assert.equal((await env.DB.prepare('SELECT status FROM referral_credits WHERE invitee_id = ?').bind('b').first()).status, 'paid');
+  assert.equal(await xpTotal(env, 'a'), 25);
+  const profile = await get(env, 'a', '/v1/progression');
+  assert.equal(profile.body.totalXp, 25);
+  assert.equal(profile.body.xpIntoLevel + profile.body.xpToNext, profile.body.levelSpan);
+
+  await completeDaily(env, 'b', dateOffset(-1));
+  assert.equal(await xpTotal(env, 'a'), 25);
+});
+
+test('an invitee with two accepted invites pays only the first inviter', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a'); await addUser(env, 'c'); await addUser(env, 'b');
+  await name(env, 'a', 'Ana'); await name(env, 'c', 'Cy'); await name(env, 'b', 'Bo');
+  await invite(env, 'a', 'b');
+  await invite(env, 'c', 'b');
+  assert.deepEqual(
+    (await env.DB.prepare('SELECT invitee_id, inviter_id, status FROM referral_credits').all()).results.map((row) => ({ ...row })),
+    [{ invitee_id: 'b', inviter_id: 'a', status: 'pending' }],
+  );
+
+  await completeDaily(env, 'b', dateOffset(0));
+  assert.equal(await xpTotal(env, 'a'), 25);
+  assert.equal(await xpTotal(env, 'c'), 0);
+});
+
+test('a sixth pending referral never pays once the inviter has five paid', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'inviter'); await name(env, 'inviter', 'Ivy');
+  const invitees = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6'];
+  for (const id of invitees) {
+    await addUser(env, id); await name(env, id, id.toUpperCase());
+    await invite(env, 'inviter', id);
+  }
+  const date = dateOffset(0);
+  for (let index = 0; index < 5; index += 1) await completeDaily(env, invitees[index], date);
+  assert.equal(
+    (await env.DB.prepare(`SELECT COUNT(*) AS n FROM referral_credits WHERE inviter_id = 'inviter' AND status = 'paid'`).first()).n,
+    5,
+  );
+  assert.equal(await xpTotal(env, 'inviter'), 125);
+
+  await completeDaily(env, 'i6', date);
+  assert.equal((await env.DB.prepare(`SELECT status FROM referral_credits WHERE invitee_id = 'i6'`).first()).status, 'pending');
+  assert.equal(await xpTotal(env, 'inviter'), 125);
+});
+
+test('self-invite stays rejected and creates no referral credit', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a'); await name(env, 'a', 'Ana');
+  const created = await post(env, 'a', '/v1/friends/invites');
+  assert.deepEqual(await post(env, 'a', '/v1/friends/invites/accept', { token: created.body.token }), {
+    status: 400, body: { code: 'SELF_INVITE' },
+  });
+  assert.equal((await env.DB.prepare('SELECT COUNT(*) AS n FROM referral_credits').first()).n, 0);
 });
