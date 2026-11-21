@@ -120,15 +120,17 @@
           <img id="place-thumb" alt="" loading="lazy" hidden onerror="this.hidden=true">
           <div class="thumb-slot peek-slot" hidden><img id="peek-thumb" alt="" loading="eager" onerror="this.hidden=true"></div>
           <div class="reveal-band-shade" aria-hidden="true"></div>
-          <span class="peek-grip" aria-hidden="true"></span>
           <div class="reveal-band-head">
             <span id="reveal-band-tag" class="reveal-band-tag"></span>
             <span id="peek-name" class="peek-name"></span>
           </div>
+          <div class="reveal-band-stats">
+            <span class="peek-stats"><strong id="round-score" class="peek-score">+100</strong><span id="distance" class="peek-distance">0 km</span><span id="reveal-survival-streak" class="reveal-survival-streak" aria-live="polite"></span></span>
+            <button id="next-button" class="primary peek-next" type="button">Next</button>
+          </div>
         </div>
         <div id="peek-bar" class="peek-bar" role="button" tabindex="0" aria-expanded="false" aria-controls="sheet-content">
-          <span class="peek-stats"><strong id="round-score" class="peek-score">+100</strong><span id="distance" class="peek-distance">0 km</span></span>
-          <button id="next-button" class="primary peek-next" type="button">Next</button>
+          <span class="peek-grip" aria-hidden="true"></span>
         </div>
         <div id="sheet-content" class="sheet-content" aria-hidden="true">
           <div class="sheet-inner">

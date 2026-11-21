@@ -119,6 +119,7 @@ export const gameEls = {
   distance: document.getElementById('distance'),
   bandTag: document.getElementById('reveal-band-tag'),
   score: document.getElementById('round-score'),
+  revealSurvivalStreak: document.getElementById('reveal-survival-streak'),
   fact: document.getElementById('fact'),
   thumb: document.getElementById('place-thumb'),
   next: document.getElementById('next-button'),

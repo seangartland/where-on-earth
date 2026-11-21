@@ -419,25 +419,26 @@ body.game-reveal .reveal-name { display: block; }
 .reveal-sheet[hidden] { display: none; }
 /* The reveal sheet leads with the place photo as a band, the same shape as
    the review recap card: name over the photo, then one score line. */
-.reveal-band { position: relative; height: 112px; overflow: hidden; border-radius: 20px 20px 0 0; }
+.reveal-band { position: relative; height: 168px; overflow: hidden; border-radius: 20px 20px 0 0; }
 .reveal-band .thumb-slot { position: absolute; inset: 0; }
 .reveal-band #place-thumb { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; border: 0; border-radius: 0; object-fit: cover; object-position: center 20%; }
 .reveal-band #place-thumb[hidden] { display: none; }
 .reveal-band .peek-slot { display: none; }
-.reveal-band-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,20,.10), rgba(3,8,20,.72)); pointer-events: none; }
-.reveal-band-head { position: absolute; left: 14px; right: 14px; bottom: 9px; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+.reveal-band-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,20,.76), rgba(3,8,20,.20) 46%, rgba(3,8,20,.80)); pointer-events: none; }
+.reveal-band-head { position: absolute; top: 12px; left: 14px; right: 14px; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
 .reveal-band-tag { color: rgba(220,238,255,.85); font-size: var(--fs-caption); font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .reveal-band-tag:empty { display: none; }
 .reveal-band .peek-name { overflow: visible; color: var(--ink); font-size: 18px; font-weight: 750; line-height: 1.2; letter-spacing: -.02em; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; text-shadow: 0 1px 8px rgba(0,0,0,.45); }
-.peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; padding: 10px 14px 12px; cursor: pointer; outline: none; }
-.peek-bar .peek-next { margin-left: auto; }
+.reveal-band-stats { position: absolute; right: 14px; bottom: 10px; left: 14px; display: flex; align-items: center; gap: 12px; pointer-events: auto; }
+.reveal-band-stats .peek-next { flex: none; min-width: 0; min-height: 44px; margin-left: auto; padding: 0 18px; font-size: var(--fs-base); }
+.peek-bar { position: relative; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 28px; padding: 6px 14px; cursor: pointer; outline: none; }
 /* The bar's layout is identical in both states (Sean, 2026-11-06): it used
    to grow its padding, enlarge the name and hide the thumb on expand, and
    each change landed in one frame while the sheet content eased open, so
    expanding felt like a snap. Only the name's wrapping changes now. */
 .peek-bar[aria-expanded="true"] { height: auto; }
 .peek-bar:focus-visible { box-shadow: inset 0 0 0 2px rgba(127,210,244,.5); border-radius: 20px 20px 0 0; }
-.peek-grip { position: absolute; top: 6px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: rgba(var(--rgb-muted),.32); transition: background .2s; }
+.peek-grip { position: absolute; top: 50%; left: 50%; width: 36px; height: 4px; margin: -2px 0 0 -18px; border-radius: 2px; background: rgba(var(--rgb-muted),.32); transition: background .2s; }
 .reveal-sheet.expanded .peek-grip { background: rgba(var(--rgb-muted),.55); }
 .peek-slot { position: relative; flex: none; width: 52px; height: 52px; }
 .peek-slot[hidden] { display: none; }
@@ -457,7 +458,8 @@ body.game-reveal .reveal-name { display: block; }
 body.survival .peek-score { color: #8ef0b8; }
 body.survival-miss .peek-score { color: #ff9db4; }
 .peek-distance { color: rgba(var(--rgb-muted),.7); font-size: var(--fs-body); font-weight: 650; }
-.peek-bar .peek-next { flex: none; min-width: 0; min-height: 44px; padding: 0 18px; font-size: var(--fs-base); }
+.reveal-survival-streak { display: none; color: #f6edff; font-size: var(--fs-body); font-weight: 850; letter-spacing: .01em; text-shadow: 0 0 12px rgba(170,120,255,.48); }
+body.survival .reveal-survival-streak:not(:empty) { display: inline; }
 .sheet-content { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .38s cubic-bezier(.2,.9,.25,1); }
 .reveal-sheet.expanded .sheet-content { grid-template-rows: 1fr; }
 .sheet-inner { min-height: 0; overflow: hidden; padding: 0 14px 14px; }
@@ -556,7 +558,7 @@ body.game-start #hud, body.game-results #hud, body.game-reveal #hud { opacity: 0
   .round-header { padding: 6px 52px 7px 12px; }
   .round-header h2 { font-size: 18px; }
   .reveal-card { padding: 13px 16px; }
-  .peek-bar { height: 72px; padding-top: 8px; padding-bottom: 6px; }
+  .peek-bar { min-height: 28px; padding-top: 6px; padding-bottom: 6px; }
   .peek-slot, #peek-thumb { width: 46px; height: 46px; }
   #fact { margin: 8px 0 0; }
   .results-card { padding-top: 18px; }

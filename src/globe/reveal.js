@@ -1291,11 +1291,12 @@ export function initReveal(main) {
     if (e.target.closest('#next-button')) return;
     setSheetExpanded(!gameEls.reveal.classList.contains('expanded'));
   });
-  gameEls.reveal.querySelector('.reveal-band')?.addEventListener('click', () => {
+  gameEls.reveal.querySelector('.reveal-band')?.addEventListener('click', (e) => {
     if (sheetSwiped) {
       sheetSwiped = false;
       return;
     }
+    if (e.target.closest('#next-button')) return;
     setSheetExpanded(!gameEls.reveal.classList.contains('expanded'));
   });
   gameEls.peekBar.addEventListener('keydown', (e) => {

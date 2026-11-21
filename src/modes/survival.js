@@ -258,6 +258,7 @@ export function survivalRoundHeader() {
   gameEls.weight.style.display = 'none';
   // Directions live in the Practice hub subtitle; this line is reveal text.
   gameEls.survivalStreak.textContent = '';
+  gameEls.revealSurvivalStreak.textContent = '';
   gameEls.dailyDate.hidden = true;
 }
 
@@ -277,6 +278,7 @@ export function survivalRevealCard(pill) {
   gameEls.survivalStreak.textContent = survival.missed
     ? `Run ended · ${survival.survived} survived`
     : `${survival.survived} survived`;
+  gameEls.revealSurvivalStreak.textContent = gameEls.survivalStreak.textContent;
   gameEls.score.textContent = survival.missed ? '✗ Run over' : `${survival.survived}`;
   pill.textContent = survival.missed ? '✗ Over 150 km' : '✓ Survived';
   pill.classList.add(survival.missed ? 'miss' : 'safe');

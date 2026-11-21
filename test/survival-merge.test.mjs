@@ -94,7 +94,7 @@ const runHost = () => {
     showRound() {},
     showRunHaul() {},
   });
-  Object.assign(host.gameEls, { number: text(), survivalStreak: text(), score: text(), next: text() });
+  Object.assign(host.gameEls, { number: text(), survivalStreak: text(), revealSurvivalStreak: text(), score: text(), next: text() });
   return text();
 };
 
@@ -111,6 +111,7 @@ test('a run saves on every draw and survived guess, and resumes on the round it 
   survivalRevealCard(pill);
   saved = JSON.parse(localStorage.getItem(RUN_KEY));
   assert.equal(saved.survived, 1);
+  assert.equal(host.gameEls.revealSurvivalStreak.textContent, '1 survived');
   assert.deepEqual(saved.results, [{ id: first.id, distance: 40 }]);
   assert.equal(saved.haul[0].id, first.id);
 
