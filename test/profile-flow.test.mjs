@@ -15,3 +15,10 @@ test('home profile entry opens a neutral profile sheet directly', () => {
 test('own profile close dismisses the sheet while friend profile close returns to account', () => {
   assert.match(sheet, /if \(mine\) closeAccountSheet\(\);\s*else render\('signed-in', readAccountSession\(\) \|\| \{\}\);/);
 });
+
+test('the own profile routes its friend count to the dark Friends page', () => {
+  assert.match(sheet, /account-open-friends/);
+  assert.match(sheet, /function renderFriendsPage\(\)/);
+  assert.match(sheet, /mountFriendSeals\(\)/);
+  assert.match(sheet, /openTravelerProfile\(friendId = ''\)[\s\S]*?if \(mine && !friendsState\) friendsState = await friendApi\('\/v1\/friends'\)/);
+});

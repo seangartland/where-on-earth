@@ -73,27 +73,10 @@ function render(state, values = {}) {
       <button class="primary account-done" type="button">Done</button>`;
   } else if (state === 'signed-in') {
     const me = friendsState?.me || {};
-    const friends = friendsState?.friends || [];
-    const friendRows = friends.length ? friends.map((friend) => `<li class="account-friend" data-friend-id="${escapeHtml(friend.friendId)}">
-      <button class="account-friend-profile" type="button">${escapeHtml(friend.displayName)}</button><button class="text-button account-remove" type="button">Remove</button></li>`).join('')
-      : '<li class="account-friends-empty">No friends yet. Invite someone to see their pins on the Daily reveal.</li>';
     panel.innerHTML = `${close}<p class="eyebrow">Account</p><h2 id="account-title">Progress saved</h2>
       <p class="account-copy">Signed in as <strong>${escapeHtml(values.emailHint || '')}</strong>. Your progress is now on your account.</p><button class="primary account-open-profile" type="button">Profile</button>
       <section class="account-friends" aria-labelledby="account-friends-title">
         <h3 id="account-friends-title">Friends</h3>
-        <form class="account-name-form"><label for="account-friend-name">Your name for friends</label><div class="account-inline-edit"><input id="account-friend-name" name="displayName" maxlength="20" value="${escapeHtml(me.displayName || '')}" placeholder="Add your name" required><button class="text-button" type="submit">Save</button></div></form>
-        <button class="primary account-invite" type="button">Invite a friend</button>
-        <div class="account-invite-link" hidden>
-          <input class="account-invite-link-input" type="text" readonly aria-label="Friend invite link">
-          <div class="account-invite-link-actions">
-            <button class="account-invite-copy" type="button">Copy</button>
-            <button class="account-invite-share" type="button" hidden>Share</button>
-          </div>
-        </div>
-        <p class="account-small-print">Links work once and expire in 7 days.</p>
-        <p class="account-small-print">Earn 25 XP when a friend joins and finishes their first Daily, up to 5 friends.</p>
-        <p class="account-status" aria-live="polite"></p>
-        <ul class="account-friends-list">${friendRows}</ul>
         <label class="account-share-row"><span><strong>Share my Daily pins with friends</strong><small>Turning this off also stops you seeing friends' pins.</small></span><input class="account-share-input" type="checkbox" ${me.sharePins !== false ? 'checked' : ''}><span class="account-toggle" aria-hidden="true"></span></label>
       </section>
       <button class="primary account-done" type="button">Done</button>
@@ -348,17 +331,40 @@ function confirmRemove(row) {
   const friend = friendsState.friends.find((item) => item.friendId === row.dataset.friendId);
   if (!friend) return;
   row.innerHTML = `<span class="account-remove-copy">Remove ${escapeHtml(friend.displayName)}? You'll stop seeing each other's pins.</span><span class="account-remove-actions"><button class="text-button account-remove-confirm" type="button">Remove</button><button class="text-button account-remove-cancel" type="button">Cancel</button></span>`;
-  row.querySelector('.account-remove-cancel').addEventListener('click', () => render('signed-in', readAccountSession() || {}));
+  row.querySelector('.account-remove-cancel').addEventListener('click', renderFriendsPage);
   row.querySelector('.account-remove-confirm').addEventListener('click', async () => {
     try {
       await friendApi('/v1/friends/remove', { method: 'POST', body: { friendId: friend.friendId } });
       friendsState.friends = friendsState.friends.filter((item) => item.friendId !== friend.friendId);
-      render('signed-in', readAccountSession() || {});
+      renderFriendsPage();
       status(`${friend.displayName} removed`);
     } catch (error) {
       status(error.message || 'Could not remove this friend', true);
     }
   });
+}
+
+function identityName(type, id) {
+  return IDENTITY_CATALOG[type]?.find(([itemId]) => itemId === id)?.[1] || avatarName(id);
+}
+
+function mountFriendSeals() {
+  sheet.querySelectorAll('.friend-page-row').forEach((row) => {
+    const friend = friendsState?.friends?.find((item) => item.friendId === row.closest('.friend-page-item')?.dataset.friendId);
+    row.querySelector('.friend-page-seal')?.append(renderAvatar(friend?.loadout?.avatar, 54, false, { name: friend?.displayName, level: friend?.level }));
+  });
+}
+
+function renderFriendsPage() {
+  const panel = sheet.querySelector('.account-panel');
+  const me = friendsState?.me || {};
+  const friends = friendsState?.friends || [];
+  panel.dataset.view = 'friends';
+  panel.innerHTML = `<button class="icon-close account-friends-back" aria-label="Back">×</button><section class="friends-page"><header class="friends-page-head"><p class="eyebrow">Traveler profile</p><h2 id="account-title">Friends <span>${friends.length}</span></h2></header>
+    <section class="friends-add"><h3>Add friends</h3><form class="account-name-form"><label for="account-friend-name">Your name for friends</label><div class="account-inline-edit"><input id="account-friend-name" name="displayName" maxlength="20" value="${escapeHtml(me.displayName || '')}" placeholder="Add your name" required><button class="text-button" type="submit">Save</button></div></form><button class="primary account-invite" type="button">Invite a friend</button><div class="account-invite-link" hidden><input class="account-invite-link-input" type="text" readonly aria-label="Friend invite link"><div class="account-invite-link-actions"><button class="account-invite-copy" type="button">Copy</button><button class="account-invite-share" type="button" hidden>Share</button></div></div><p class="account-small-print">Links work once and expire in 7 days.</p><p class="account-small-print">Earn 25 XP when a friend joins and finishes their first Daily, up to 5 friends.</p><p class="account-status" aria-live="polite"></p></section>
+    <ul class="friends-page-list">${friends.length ? friends.map((friend) => `<li class="account-friend friend-page-item" data-friend-id="${escapeHtml(friend.friendId)}"><button class="account-friend-profile friend-page-row traveler-card" data-card="${escapeHtml(friend.loadout?.cardId || 'blue-horizon')}" type="button"><span class="friend-page-seal"></span><span class="traveler-identity"><strong>${escapeHtml(friend.displayName)}</strong><span>${escapeHtml(identityName('Titles', friend.loadout?.titleId || 'traveler'))}</span></span><b>Level ${Number(friend.level) || 1}</b></button><button class="text-button account-remove" type="button">Remove</button></li>`).join('') : '<li class="account-friends-empty">No friends yet. Invite someone to compare Daily pins.</li>'}</ul></section>`;
+  mountFriendSeals();
+  bind(readAccountSession() || {});
 }
 
 function dateLabel(timestamp) { return timestamp ? new Date(timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : ''; }
@@ -369,12 +375,13 @@ export async function openTravelerProfile(friendId = '') {
   try {
     const profile = await friendApi(friendId ? `/v1/progression/friend?${new URLSearchParams({ friendId })}` : '/v1/progression');
     const mine = !friendId; const panel = sheet.querySelector('.account-panel');
+    if (mine && !friendsState) friendsState = await friendApi('/v1/friends');
     const earned = new Map(profile.achievements.map((item) => [item.id, item]));
     const definitions = profile.achievementDefinitions || [];
     const visible = definitions.filter((item) => mine || earned.has(item.id)).sort((a, b) => (earned.get(b.id)?.earnedAt || 0) - (earned.get(a.id)?.earnedAt || 0));
     panel.dataset.view = 'profile';
     const strip = mine ? `<div class="profile-xp">${renderXpBar(profile)}<p>${profile.totalXp} XP total</p><p class="profile-xp-explainer">Earn XP in the Daily. The closer your guesses, the more you earn.</p><div class="level-strip">${stripWindow(profile.level).map((level) => `<i class="${level < profile.level ? 'complete' : ''}${level === profile.level ? ' current' : ''}${level === 5 ? ' silver' : ''}${level === 10 ? ' gold' : ''}" title="Level ${level}">${level}</i>`).join('')}</div></div>` : '';
-    panel.innerHTML = `<button class="icon-close account-profile-back" aria-label="Back">×</button><section class="traveler-profile ${mine ? 'own' : 'friend'}"><div class="traveler-card" data-card="${escapeHtml(profile.loadout.cardId)}"><div class="traveler-avatar"></div><div class="traveler-identity"><p class="traveler-level">LEVEL ${profile.level}</p><h2>${escapeHtml(profile.displayName)}</h2><p class="traveler-title">${escapeHtml(avatarName(profile.loadout.titleId))}</p></div>${mine ? '<button class="account-customize" type="button">Customize</button>' : ''}</div>${strip}<div class="traveler-stats">${statGrid(profile.stats)}</div><section class="traveler-achievement-preview"><div class="traveler-section-head"><h3>Achievements</h3><span>${earned.size}/${definitions.length}</span></div><ul class="traveler-achievements">${visible.slice(0, mine ? 3 : definitions.length).map((item) => { const achievement = earned.get(item.id); return `<li class="${achievement ? 'earned' : 'locked'}"><i aria-hidden="true"></i><div><strong>${escapeHtml(item.name)}</strong><span>${achievement ? `Earned ${dateLabel(achievement.earnedAt)}` : escapeHtml(item.condition)}${item.communityPercentage ? ` · ${item.communityPercentage} earned` : ''}</span></div></li>`; }).join('')}</ul>${mine ? '<div class="traveler-actions"><button class="text-button account-open-cabinet" type="button">View cabinet</button></div>' : ''}</section></section>`;
+    panel.innerHTML = `<button class="icon-close account-profile-back" aria-label="Back">×</button><section class="traveler-profile ${mine ? 'own' : 'friend'}"><div class="traveler-card" data-card="${escapeHtml(profile.loadout.cardId)}"><div class="traveler-avatar"></div><div class="traveler-identity"><p class="traveler-level">LEVEL ${profile.level}</p><h2>${escapeHtml(profile.displayName)}</h2><p class="traveler-title">${escapeHtml(identityName('Titles', profile.loadout.titleId))}</p></div>${mine ? '<button class="account-customize" type="button">Customize</button>' : ''}</div>${mine ? `<button class="account-open-friends" type="button"><span>Friends</span><span>${friendsState?.friends?.length || 0} ›</span></button>` : ''}${strip}<div class="traveler-stats">${statGrid(profile.stats)}</div><section class="traveler-achievement-preview"><div class="traveler-section-head"><h3>Achievements</h3><span>${earned.size}/${definitions.length}</span></div><ul class="traveler-achievements">${visible.slice(0, mine ? 3 : definitions.length).map((item) => { const achievement = earned.get(item.id); return `<li class="${achievement ? 'earned' : 'locked'}"><i aria-hidden="true"></i><div><strong>${escapeHtml(item.name)}</strong><span>${achievement ? `Earned ${dateLabel(achievement.earnedAt)}` : escapeHtml(item.condition)}${item.communityPercentage ? ` · ${item.communityPercentage} earned` : ''}</span></div></li>`; }).join('')}</ul>${mine ? '<div class="traveler-actions"><button class="text-button account-open-cabinet" type="button">View cabinet</button></div>' : ''}</section></section>`;
     panel.querySelector('.traveler-avatar').append(renderAvatar(profile.loadout.avatar, 132, false, { name: profile.displayName, level: profile.level }));
     panel.querySelector('.account-profile-back').addEventListener('click', () => {
       if (mine) closeAccountSheet();
@@ -382,6 +389,7 @@ export async function openTravelerProfile(friendId = '') {
     });
     panel.querySelector('.account-open-cabinet')?.addEventListener('click', () => renderCabinet(profile));
     panel.querySelector('.account-customize')?.addEventListener('click', () => renderCustomizer(profile));
+    panel.querySelector('.account-open-friends')?.addEventListener('click', renderFriendsPage);
   } catch (error) { status(error.message || 'Could not load profile', true); }
 }
 function renderCabinet(profile) {
@@ -479,6 +487,7 @@ function bind(values) {
   });
   sheet.querySelector('.account-invite')?.addEventListener('click', (event) => createInvite(event.currentTarget));
   sheet.querySelector('.account-open-profile')?.addEventListener('click', () => openTravelerProfile());
+  sheet.querySelector('.account-friends-back')?.addEventListener('click', () => openTravelerProfile());
   sheet.querySelectorAll('.account-friend-profile').forEach((button) => button.addEventListener('click', () => openTravelerProfile(button.closest('.account-friend').dataset.friendId)));
   sheet.querySelector('.account-invite-copy')?.addEventListener('click', (event) => {
     event.preventDefault();
