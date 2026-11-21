@@ -56,6 +56,7 @@ function refreshHomeProgression() {
 }
 
 export function syncPassport() {
+  refreshHomeProgression();
   if (host.passportDirty) host.buildPassportDots();
   const summary = passportSummary();
   const isRecsHome = document.body.classList.contains('home-recs');
@@ -1304,6 +1305,7 @@ export function initPassportHome(main) {
   });
   refreshHomeProgression();
   window.addEventListener('progression-loadout-change', refreshHomeProgression);
+  window.addEventListener('daily-progression-award', refreshHomeProgression);
 }
 
 export function initPassport(main) {
