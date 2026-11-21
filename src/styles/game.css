@@ -345,7 +345,8 @@ button { font: inherit; }
 .friends-add .account-inline-edit .text-button { color: var(--gold); }
 .friends-add .account-status { text-align: center; }
 .friends-page-list { display: grid; gap: 12px; margin: 18px 0 0; padding: 0; list-style: none; }
-.friend-page-item { display: flex; gap: 8px; min-height: 0; border: 0; }
+.friend-page-item { display: flex; min-height: 0; border: 0; }
+.friend-remove-zone { align-items: center; gap: 10px; flex-wrap: wrap; }
 .friend-page-row.traveler-card { flex: 1; min-height: 82px; margin: 0; padding: 13px; border: 0; border-radius: 13px; color: #f6edd8; }
 .friend-page-row .friend-page-seal { position: relative; z-index: 1; flex: none; }
 .friend-page-row .traveler-identity { display: grid; gap: 3px; }
