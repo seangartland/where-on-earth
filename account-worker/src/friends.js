@@ -1,6 +1,6 @@
 import { dailyManifest } from './daily.js';
 import { scoreGuess } from './daily-score.js';
-import { DEFAULT_SEAL, normalizeSeal, ownsIdentity, processCompletion, processReferralPayout, progressionProfile, validateSeal } from './progression.js';
+import { DEFAULT_SEAL, levelForXp, normalizeSeal, ownsIdentity, processCompletion, processReferralPayout, progressionProfile, validateSeal } from './progression.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
@@ -236,16 +236,31 @@ function storedShape(row) {
 
 async function listFriends(request, env, id) {
   const own = await profile(env, id);
-  const rows = await env.DB.prepare(`SELECT f.friend_id, p.display_name, f.created_at
+  const rows = await env.DB.prepare(`SELECT f.friend_id, p.display_name, f.created_at,
+    l.title_id, l.card_id, l.avatar_json, COALESCE(x.xp, 0) AS xp,
+    a.achievement_ids
     FROM friendships f JOIN profiles p ON p.account_id = f.friend_id
+    LEFT JOIN profile_loadouts l ON l.account_id = f.friend_id
+    LEFT JOIN (SELECT account_id, SUM(amount) AS xp FROM xp_ledger GROUP BY account_id) x
+      ON x.account_id = f.friend_id
+    LEFT JOIN (SELECT account_id, GROUP_CONCAT(achievement_id) AS achievement_ids
+      FROM user_achievements GROUP BY account_id) a ON a.account_id = f.friend_id
     WHERE f.account_id = ? ORDER BY p.display_name, f.friend_id`).bind(id).all();
   const inviteCount = await env.DB.prepare(`SELECT COUNT(*) AS count FROM friend_invites
     WHERE inviter_id = ? AND used_at IS NULL AND expires_at > ?`).bind(id, Date.now()).first();
   return json({
     me: meShape(own),
-    friends: (rows.results || []).map((row) => ({
-      friendId: row.friend_id, displayName: row.display_name, since: row.created_at,
-    })),
+    friends: (rows.results || []).map((row) => {
+      const achievements = new Set((row.achievement_ids || '').split(',').filter(Boolean));
+      return {
+        friendId: row.friend_id, displayName: row.display_name, since: row.created_at,
+        level: levelForXp(Number(row.xp) || 0),
+        loadout: {
+          titleId: row.title_id || 'traveler', cardId: row.card_id || 'blue-horizon',
+          avatar: normalizeSeal(row.avatar_json, achievements),
+        },
+      };
+    }),
     openInvites: Number(inviteCount?.count) || 0,
   });
 }

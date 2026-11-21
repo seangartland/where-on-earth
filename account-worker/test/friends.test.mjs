@@ -182,9 +182,20 @@ test('invite lifecycle, names, limits, unified invalid response, and mutual remo
   await env.DB.prepare('UPDATE friend_invites SET expires_at = ? WHERE inviter_id = ? AND used_at IS NULL')
     .bind(Date.now() - 1, 'a').run();
   assert.deepEqual(await post(env, 'b', '/v1/friends/invites/preview', { token: expired.body.token }), invalid);
+  await env.DB.prepare(`INSERT INTO xp_ledger (account_id, source_type, source_key, amount, created_at)
+    VALUES (?, ?, ?, ?, ?)`).bind('b', 'daily', 'daily:test', 100, Date.now()).run();
+  await env.DB.prepare(`INSERT INTO user_achievements (account_id, achievement_id, earned_at, qualifying_key)
+    VALUES (?, ?, ?, ?)`).bind('b', 'frequent-flyer', Date.now(), 'daily:test').run();
+  await env.DB.prepare(`INSERT INTO profile_loadouts (account_id, title_id, card_id, avatar_json, updated_at)
+    VALUES (?, ?, ?, ?, ?)`)
+    .bind('b', 'window-seat', 'airmail', JSON.stringify({ v: 2, initials: 'bo', disc: 'forest', motif: 'plane' }), Date.now()).run();
   const listed = await get(env, 'a', '/v1/friends');
   assert.deepEqual(Object.keys(listed.body).sort(), ['friends', 'me', 'openInvites']);
-  assert.deepEqual(Object.keys(listed.body.friends[0]).sort(), ['displayName', 'friendId', 'since']);
+  assert.deepEqual(Object.keys(listed.body.friends[0]).sort(), ['displayName', 'friendId', 'level', 'loadout', 'since']);
+  assert.deepEqual(listed.body.friends[0], {
+    friendId: 'b', displayName: 'Bo', since: listed.body.friends[0].since, level: 2,
+    loadout: { titleId: 'window-seat', cardId: 'airmail', avatar: { v: 2, initials: 'BO', disc: 'forest', motif: 'plane' } },
+  });
   assert.equal((await post(env, 'a', '/v1/friends/remove', { friendId: 'b' })).status, 204);
   assert.equal((await env.DB.prepare('SELECT COUNT(*) AS n FROM friendships').first()).n, 0);
 
