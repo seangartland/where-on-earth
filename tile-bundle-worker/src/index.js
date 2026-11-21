@@ -8,7 +8,10 @@ const PROVIDERS = {
 };
 const TILE_ORIGIN = 'https://tiles.where-on.earth';
 const MAX_TILES = 128;
-const cors = { 'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type' };
+const cors = {
+  'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type',
+  'timing-allow-origin': '*', // so the client's Resource Timing / Server-Timing entries are readable cross-origin
+};
 
 function response(body, status = 200, headers = {}) { return new Response(body, { status, headers: { ...cors, ...headers } }); }
 function validTile(tile, provider) {
@@ -30,17 +33,36 @@ export default {
     if (keys.size !== body.tiles.length) return response('duplicate tile', 400);
     const cacheKey = new Request(`https://bundle-cache.invalid/${body.provider}/v${provider.version}/${[...keys].sort().join(',')}`);
     const cache = caches.default;
+    const t0 = Date.now();
     const hit = await cache.match(cacheKey);
-    if (hit) return hit;
-    const tiles = await Promise.all(body.tiles.map(async (tile) => {
-      const url = `${TILE_ORIGIN}/${provider.path}/${tile.z}/${tile.x}/${tile.y}.jpg?v=${provider.version}`;
-      const tileResponse = await fetch(url);
-      if (!tileResponse.ok) throw new Error(`tile ${tileResponse.status}`);
-      return { key: `${body.provider}/${tile.z}/${tile.x}/${tile.y}`, bytes: new Uint8Array(await tileResponse.arrayBuffer()) };
-    }));
+    if (hit) {
+      const cached = new Response(hit.body, hit);
+      cached.headers.set('server-timing', `assembly;dur=${Date.now() - t0}, cache;desc=hit`);
+      return cached;
+    }
+    // The member fetches and buildTileBundle both need to land inside this
+    // try: a single slow/failing member used to reject outside any catch,
+    // so the handler threw instead of taking the intended "bundle failed"
+    // branch below (Astra §1).
     let bundle;
-    try { bundle = buildTileBundle(tiles); } catch { return response('bundle failed', 500); }
-    const out = response(bundle, 200, { 'content-type': 'application/x-woe-tile-bundle', 'cache-control': 'public, max-age=31536000, immutable' });
+    let slowestMember = 0;
+    try {
+      const tiles = await Promise.all(body.tiles.map(async (tile) => {
+        const memberStart = Date.now();
+        const url = `${TILE_ORIGIN}/${provider.path}/${tile.z}/${tile.x}/${tile.y}.jpg?v=${provider.version}`;
+        const tileResponse = await fetch(url);
+        slowestMember = Math.max(slowestMember, Date.now() - memberStart);
+        if (!tileResponse.ok) throw new Error(`tile ${tileResponse.status}`);
+        return { key: `${body.provider}/${tile.z}/${tile.x}/${tile.y}`, bytes: new Uint8Array(await tileResponse.arrayBuffer()) };
+      }));
+      bundle = buildTileBundle(tiles);
+    } catch {
+      return response('bundle failed', 500, { 'server-timing': `assembly;dur=${Date.now() - t0}, cache;desc=miss, member;dur=${slowestMember}` });
+    }
+    const out = response(bundle, 200, {
+      'content-type': 'application/x-woe-tile-bundle', 'cache-control': 'public, max-age=31536000, immutable',
+      'server-timing': `assembly;dur=${Date.now() - t0}, cache;desc=miss, member;dur=${slowestMember}`,
+    });
     ctx.waitUntil(cache.put(cacheKey, out.clone()));
     return out;
   },

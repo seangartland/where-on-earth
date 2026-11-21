@@ -20,6 +20,8 @@ import { sortTilesCenterOut, tilePriority } from './tile-priority.js';
 import { bundleSourceGroups, tryUnpackTileBundle } from './tile-bundle.js';
 import { visibleTileCoordinates } from './inset-footprint.js';
 import { idlePrefetchAllowed, insetFetchLimit, servedRungIndex } from './inset-policy.js';
+import { traceMark, traceSpanStart, traceSpanEnd } from './zoom-trace.js';
+import { warmLadderEnabled, shouldScheduleWarmLadder, buildWarmLadderJobs, createWarmLadderQueue } from './warm-ladder.js';
 
 let blankTex;
 export let globeMat;
@@ -735,6 +737,7 @@ export const inset = {
   lru: new Map(), // tile key -> compressed Blob, oldest first
   lruBytes: 0,
   missing: new Set(), // tile keys that 404 (open ocean): never refetched
+  specKeys: new Set(), // keys landed by the ?warm=ladder arm, for spec-hit tracing
   fails: 0, // consecutive fetch failures
   trips: 0, // breaker trips since the last success (exponential backoff)
   pausedUntil: 0,
@@ -762,7 +765,7 @@ export function ensureInsets() {
   inset.bufs = [0, 1].map(() => {
     const rt = new THREE.WebGLRenderTarget(INSET_COLS * 256, INSET_ROWS * 256, { depthBuffer: false, colorSpace: THREE.NoColorSpace });
     rt.texture.generateMipmaps = false; // copyTextureToTexture would rebuild them per tile; we do it once per window
-    return { rt, bounds: new THREE.Vector4(0, 0, 1, 1), mix: 0, fadeTo: 0, win: null };
+    return { rt, bounds: new THREE.Vector4(0, 0, 1, 1), mix: 0, fadeTo: 0, win: null, _fadeSettled: true, awaitingFirstFrame: false };
   });
   return inset.bufs;
 }
@@ -872,8 +875,9 @@ export function insetWindowAt(view, z) {
 // integer level, as before.
 // Returns { view, want } with want = null when the inset should be off.
 export function pickInsetWindow() {
+  const span = traceSpanStart('window-pick', { dist: state.dist, targetDist: state.targetDist });
   const view = sampleInsetView();
-  if (!view) return { view, want: null };
+  if (!view) { traceSpanEnd(span, { selectedZ: null, reason: 'no-view' }); return { view, want: null }; }
   // While a zoom-in is still easing, pick for the depth the user is heading
   // to (targetDist), not the depth the camera has reached: deeper layers
   // get their head start during the gesture (Sean, 2026-11-10).
@@ -881,6 +885,8 @@ export function pickInsetWindow() {
   const mpp = ((effDist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / state.viewH;
   let z = Math.ceil(Math.log2((156543.03 * Math.cos(view.lat)) / (mpp * INSET_Q)));
   z = clamp(z, INSET_MIN_Z, effectiveMaxZ());
+  const requestedZ = z;
+  const rejected = [];
   const ladder = satProvider.zooms
     ? satProvider.zooms.filter((r) => r >= INSET_MIN_Z && r <= effectiveMaxZ())
     : null;
@@ -888,16 +894,20 @@ export function pickInsetWindow() {
     let i = servedRungIndex(ladder, z, navigator.connection?.saveData);
     for (; i >= 0; i--) {
       const want = insetWindowAt(view, ladder[i]);
-      if (want && want.z === 10 && satProvider.id === 's2gm2025' && !windowHasPilotZ10(want)) continue;
-      if (want) return { view, want };
+      if (want && want.z === 10 && satProvider.id === 's2gm2025' && !windowHasPilotZ10(want)) { rejected.push({ z: ladder[i], reason: 'no-pilot-z10' }); continue; }
+      if (want) { traceSpanEnd(span, { requestedZ, selectedZ: want.z, rejected }); return { view, want }; }
+      rejected.push({ z: ladder[i], reason: 'no-fit' });
     }
+    traceSpanEnd(span, { requestedZ, selectedZ: null, rejected });
     return { view, want: null };
   }
   if (navigator.connection?.saveData) z = Math.max(INSET_MIN_Z, z - 1);
   for (; z >= INSET_MIN_Z; z--) {
     const want = insetWindowAt(view, z);
-    if (want) return { view, want };
+    if (want) { traceSpanEnd(span, { requestedZ, selectedZ: want.z, rejected }); return { view, want }; }
+    rejected.push({ z, reason: 'no-fit' });
   }
+  traceSpanEnd(span, { requestedZ, selectedZ: null, rejected });
   return { view, want: null };
 }
 
@@ -948,10 +958,11 @@ export function startInsetWindow(want) {
   win.visTotal = win.visLeft;
   sortTilesCenterOut(win.tiles);
   buf.win = win;
+  traceMark('window-build', { gen: win.gen, z, cols: want.cols, rows: want.rows, tiles: win.tiles.length, visible: win.visTotal });
   // abort fetches the new window doesn't need; the rest land in it
   const srcs = new Set(win.tiles.map((t) => t.src));
   for (const [key, f] of inset.inflight) {
-    if (!srcs.has(key)) { f.ctrl.abort(); inset.inflight.delete(key); }
+    if (!srcs.has(key)) { traceMark('abort', { src: key, reason: 'window-superseded' }); f.ctrl.abort(); inset.inflight.delete(key); }
   }
   cancelInsetPrefetch();
   cancelInsetBundle();
@@ -986,8 +997,14 @@ export function loadInsetTile(win, t) {
   const inflight = inset.inflight.get(t.src);
   if (inflight) { inflight.prefetch = false; return; }
   const blob = lruGet(t.src);
-  if (blob) { decodeInsetTile(win, t, blob); return; }
+  if (blob) {
+    traceMark('tile-body-complete', { src: t.src, bytes: blob.size, pool: t.prefetch ? 'prefetch' : 'visible', cacheTier: 'lru' });
+    if (inset.specKeys?.delete(t.src)) traceMark('spec-hit', { src: t.src, bytes: blob.size });
+    decodeInsetTile(win, t, blob);
+    return;
+  }
   if (t.visible && win.bundleKeys?.has(t.src)) return;
+  traceMark('tile-enqueue', { src: t.src, pool: t.prefetch ? 'prefetch' : 'visible', pri: t.pri });
   const q = inset.queue;
   const i = q.findIndex((o) => o.pri > t.pri);
   q.splice(i < 0 ? q.length : i, 0, t);
@@ -1040,6 +1057,8 @@ export function requestInsetBundle(win) {
   const entry = { win, ctrl };
   inset.bundle = entry;
   win.bundleKeys = new Set(sources.keys());
+  const span = traceSpanStart('bundle', { memberCount: sources.size });
+  traceMark('bundle-request', { memberCount: sources.size });
   fetch(TILE_BUNDLE_URL, {
     method: 'POST', signal: ctrl.signal, mode: 'cors', priority: 'high',
     headers: { 'content-type': 'application/json' },
@@ -1049,13 +1068,19 @@ export function requestInsetBundle(win) {
     .then((bytes) => tryUnpackTileBundle(bytes, win.bundleKeys))
     .then((tiles) => {
       if (!tiles || inset.bundle !== entry || inset.win !== win || win.buf.win !== win) throw new Error('bundle unavailable');
-      for (const [key, bytes] of tiles) {
-        const blob = new Blob([bytes], { type: 'image/jpeg' });
+      let bytes = 0;
+      for (const [key, memberBytes] of tiles) {
+        bytes += memberBytes.byteLength;
+        const blob = new Blob([memberBytes], { type: 'image/jpeg' });
         lruPut(key, blob);
         for (const tile of win.tiles) if (tile.state === 0 && tile.src === key) decodeInsetTile(win, tile, blob);
       }
+      traceMark('bundle-success', { memberCount: tiles.size, bytes });
+      traceSpanEnd(span, { memberCount: tiles.size, bytes });
     })
-    .catch(() => {
+    .catch((err) => {
+      traceMark('bundle-failure', { reason: err?.message });
+      traceSpanEnd(span, { failed: true });
       if (inset.bundle !== entry || inset.win !== win) return;
       win.bundleKeys.clear();
       for (const tile of win.tiles) if (tile.state === 0 && tile.visible) loadInsetTile(win, tile);
@@ -1074,7 +1099,7 @@ export function finishInsetTile(win, t, covered = false) {
       win.visLoaded++;
       // Progressive display: start the crossfade at a third of the
       // visible tiles; the rest stream into the buffer as they land.
-      if (!win.ready && win.visTotal && win.visLoaded * 3 >= win.visTotal) win.buf.fadeTo = 1;
+      if (!win.ready && win.visTotal && win.visLoaded * 3 >= win.visTotal) { win.buf.fadeTo = 1; traceMark('fade-start', { gen: win.gen, reason: 'progressive' }); }
     }
   }
   if (!win.ready && win.visLeft === 0) {
@@ -1082,11 +1107,20 @@ export function finishInsetTile(win, t, covered = false) {
     const other = inset.bufs[inset.bufs[0] === win.buf ? 1 : 0];
     win.buf.fadeTo = 1;
     other.fadeTo = win.visMissing ? 1 : 0; // retain old coverage under transparent holes
+    win.buf.awaitingFirstFrame = true;
+    const nativeVisible = win.tiles.filter((tile) => tile.visible && tile.k === 0).length;
+    traceMark('window-ready', {
+      gen: win.gen, z: win.z, visTotal: win.visTotal, visMissing: win.visMissing,
+      nativeCoverage: win.visTotal ? nativeVisible / win.visTotal : null,
+    });
+    traceMark('fade-start', { gen: win.gen, reason: 'ready' });
     resumeDailyPrefetch();
   }
   if (!win.mipped && win.allLeft === 0) {
     win.mipped = true;
+    const mipSpan = traceSpanStart('mip', { gen: win.gen });
     setInsetMips(win.buf, true);
+    traceSpanEnd(mipSpan, {});
   }
 }
 
@@ -1116,6 +1150,7 @@ export function cropInsetTile(t, bmp) {
 
 export function decodeInsetTile(win, t, blob) {
   t.state = 1;
+  const span = traceSpanStart('decode', { src: t.src, bytes: blob.size, native: t.k === 0 });
   const stale = () => inset.win !== win || win.buf.win !== win;
   createImageBitmap(blob)
     .then((bmp) => {
@@ -1124,10 +1159,11 @@ export function decodeInsetTile(win, t, blob) {
       return t.k ? cropInsetTile(t, bmp) : bmp;
     })
     .then((bmp) => {
-      if (!bmp) { t.state = 0; return; }
-      if (stale()) { bmp.close(); t.state = 0; return; }
+      if (!bmp) { t.state = 0; traceSpanEnd(span, { aborted: true }); return; }
+      if (stale()) { bmp.close(); t.state = 0; traceSpanEnd(span, { stale: true }); return; }
+      traceSpanEnd(span, {});
       inset.uploads.push({ win, t, bmp });
-    }, () => failInsetTile(win, t));
+    }, () => { traceSpanEnd(span, { error: true }); failInsetTile(win, t); });
 }
 
 // Circuit breaker: 5 consecutive failures or any 429 pause detail loading,
@@ -1138,6 +1174,7 @@ export function tripInsetBreaker() {
   if (performance.now() < inset.pausedUntil) return;
   inset.trips++;
   inset.pausedUntil = performance.now() + Math.min(60000 * 2 ** (inset.trips - 1), 480000);
+  traceMark('breaker-trip', { trips: inset.trips, pausedUntil: inset.pausedUntil });
 }
 
 // Slow network sampling is retained for prefetch policy. It does not reduce
@@ -1160,14 +1197,19 @@ export function fetchInsetTile(t) {
   const entry = { ctrl, prefetch: !!t.prefetch };
   inset.inflight.set(key, entry);
   const wanted = !!(inset.win && inset.win.tiles.some((tile) => tile.src === key));
+  const pool = t.prefetch ? 'prefetch' : 'visible';
+  const span = traceSpanStart('tile-fetch', { src: key, pool, wanted });
   window.__tileRound2Log?.({ event: 'start', z: t.z ?? inset.win?.z - t.k, x: t.x, y: t.y, src: key, wanted, prefetch: !!t.prefetch });
   ctrl.signal.addEventListener('abort', () => {
     const wantedNow = !!(inset.win && inset.win.tiles.some((tile) => tile.src === key));
+    traceMark('abort', { src: key, reason: 'aborted', pool });
+    traceSpanEnd(span, { aborted: true });
     window.__tileRound2Log?.({ event: 'abort', z: t.z ?? inset.win?.z - t.k, x: t.x, y: t.y, src: key, wanted: wantedNow, prefetch: entry.prefetch });
   }, { once: true });
   const t0 = performance.now();
   fetch(t.url, { signal: ctrl.signal, mode: 'cors', priority: t.visible ? 'high' : 'low' })
     .then((r) => {
+      traceMark('tile-headers', { src: key, status: r.status });
       if (r.status === 429) { tripInsetBreaker(); throw new Error('HTTP 429'); }
       if (r.status === 404) return null; // no tile here (ocean): not a failure
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
@@ -1179,6 +1221,8 @@ export function fetchInsetTile(t) {
       inset.trips = 0;
       if (blob) lruPut(key, blob);
       else inset.missing.add(key);
+      traceMark('tile-body-complete', { src: key, bytes: blob?.size ?? 0, pool, cacheTier: 'network' });
+      traceSpanEnd(span, { bytes: blob?.size ?? 0 });
       // deliver to whichever window wants this source now; a missing source
       // sends its tiles on to the parent (z0-3 always exist, so it ends)
       const win = inset.win;
@@ -1191,6 +1235,7 @@ export function fetchInsetTile(t) {
     })
     .catch((err) => {
       if (err.name === 'AbortError') return;
+      traceSpanEnd(span, { error: err?.message });
       if (++inset.fails >= 5) tripInsetBreaker();
       if (inset.inflight.get(key) === entry) inset.inflight.delete(key);
       const win = inset.win;
@@ -1307,18 +1352,22 @@ export function prioritizeInsetZoom() {
 let dailyPrefetchDate = null;
 const dailyPrefetch = { jobs: [], active: 0, paused: false, scheduled: false };
 
-export function pauseDailyPrefetch() { dailyPrefetch.paused = true; }
-export function resumeDailyPrefetch() { dailyPrefetch.paused = false; pumpDailyPrefetch(); }
+export function pauseDailyPrefetch() { if (!dailyPrefetch.paused) traceMark('daily-pause', {}); dailyPrefetch.paused = true; }
+export function resumeDailyPrefetch() { if (dailyPrefetch.paused) traceMark('daily-resume', {}); dailyPrefetch.paused = false; pumpDailyPrefetch(); }
 
 export function pumpDailyPrefetch() {
   dailyPrefetch.scheduled = false;
   while (!dailyPrefetch.paused && dailyPrefetch.active < 3 && dailyPrefetch.jobs.length) {
     const job = dailyPrefetch.jobs.shift();
     dailyPrefetch.active++;
+    const span = traceSpanStart('daily-fetch', { src: job.key });
     fetch(job.url, { mode: 'cors', priority: 'low' })
       .then((r) => (r.ok ? r.blob() : null))
-      .then((blob) => { if (blob) lruPut(job.key, blob); })
-      .catch(() => {})
+      .then((blob) => {
+        if (blob) { lruPut(job.key, blob); traceMark('tile-body-complete', { src: job.key, bytes: blob.size, pool: 'daily', cacheTier: 'network' }); }
+        traceSpanEnd(span, { bytes: blob?.size ?? 0 });
+      })
+      .catch(() => { traceSpanEnd(span, { error: true }); })
       .finally(() => { dailyPrefetch.active--; pumpDailyPrefetch(); });
   }
 }
@@ -1357,12 +1406,72 @@ export function prefetchDailyTiles(locations, date) {
     }
   }
   if (!jobs.length) return;
+  traceMark('daily-dispatch', { count: jobs.length });
   dailyPrefetch.jobs.push(...jobs);
   if (dailyPrefetch.scheduled) return;
   dailyPrefetch.scheduled = true;
   const run = () => pumpDailyPrefetch();
   if (window.requestIdleCallback) requestIdleCallback(run, { timeout: 5000 });
   else setTimeout(run, 1000);
+}
+
+// ---------------------------------------------------------------------------
+// Experiment arm B: never-paused ladder prefetch (?warm=ladder, test-only;
+// docs/zoom-diagnosis-astra.md §4.4/§6). Warms the current round's target
+// across the whole ladder into the existing LRU, focal tile first, so
+// compressed bytes are already local by the time the player zooms in.
+// Unlike Daily prefetch above, this pool never pauses on pointer/wheel
+// input; src/game/round.js calls scheduleWarmLadder/stopWarmLadder from the
+// shared round-start path, and the next round start clears any jobs the
+// previous round never got to.
+// ---------------------------------------------------------------------------
+const warmLadderQueue = createWarmLadderQueue(2);
+warmLadderQueue.configure((job, jobToken) => {
+  const span = traceSpanStart('speculative-fetch', { src: job.key });
+  return fetch(job.url, { mode: 'cors', priority: 'low' })
+    .then((r) => (r.ok ? r.blob() : null))
+    .then((blob) => {
+      if (blob) {
+        lruPut(job.key, blob);
+        if (warmLadderQueue.token === jobToken) {
+          inset.specKeys.add(job.key);
+          traceMark('tile-body-complete', { src: job.key, bytes: blob.size, pool: 'speculative', cacheTier: 'network' });
+        }
+      }
+      traceSpanEnd(span, { bytes: blob?.size ?? 0 });
+    })
+    .catch(() => { traceSpanEnd(span, { error: true }); });
+});
+
+export function warmLadderParam() {
+  return warmLadderEnabled(location.search);
+}
+
+export function stopWarmLadder() {
+  warmLadderQueue.stop();
+}
+
+// Focal-first 3x3 footprint at every served rung (z5/z7/z8/z9), plus the
+// z10 pilot tiles of that same 3x3 where inPilotZ10 covers them. Mirrors
+// the tile-key math prefetchDailyTiles already uses so keys match what the
+// live loader would ask for, and land in the same LRU.
+export function scheduleWarmLadder(lat, lng, token) {
+  if (!satProvider || satDisabled || !shouldScheduleWarmLadder({ saveData: navigator.connection?.saveData, lat, lng })) {
+    stopWarmLadder();
+    return;
+  }
+  const rungs = (satProvider.zooms || [5, 7, 8, 9]).filter((z) => z >= INSET_MIN_Z && z <= 9);
+  const allRungs = satProvider.id === 's2gm2025' && satProvider.maxZ >= 10 ? [...rungs, 10] : rungs;
+  const jobs = buildWarmLadderJobs({
+    lat, lng, rungs: allRungs,
+    includeTile: (z, x, y) => z !== 10 || inPilotZ10(z, x, y), // outside pilot, default z10 is mostly 404
+    resolveKey: (z, x, y) => `${tileProvider(satProvider, z, y, x).id}/${z}/${x}/${y}`,
+    resolveUrl: (z, x, y) => tileURL(satProvider, z, y, x),
+    isKnown: (key) => inset.lru.has(key) || inset.missing.has(key),
+  });
+  if (!jobs.length) { stopWarmLadder(); return; }
+  traceMark('speculative-schedule', { count: jobs.length });
+  warmLadderQueue.schedule(jobs, token);
 }
 
 // Frame budget for tile sub-uploads (texSubImage2D): wider while a
@@ -1372,6 +1481,7 @@ export function pumpInsetUploads() {
   for (let done = 0; done < cap && inset.uploads.length;) {
     const { win, t, bmp } = inset.uploads.shift();
     if (inset.win !== win || win.buf.win !== win) { bmp.close(); t.state = 0; continue; }
+    traceMark('upload-submit', { src: t.src, sx: t.sx, sy: t.sy });
     _tileSrc.image = bmp;
     renderer.copyTextureToTexture(_tileSrc, win.buf.rt.texture, null, _tileDst.set(t.sx * 256, t.sy * 256));
     _tileSrc.image = null;
@@ -1456,6 +1566,7 @@ export function updateInsets(dt) {
   const chase = fast && now - inset.lastCheck > 350;
   if (chase || (!fast && (settled || !still) && now - inset.lastCheck > (settled ? 500 : 300))) {
     inset.lastCheck = now;
+    traceMark('camera', { dist: state.dist, targetDist: state.targetDist, fast, settled });
     evaluateInsets(now, fast ? true : !settled);
   }
   pumpInsetFetches(now);
@@ -1465,6 +1576,8 @@ export function updateInsets(dt) {
   const u = globeMat.uniforms;
   for (const b of inset.bufs) {
     b.mix = b.fadeTo > b.mix ? Math.min(b.fadeTo, b.mix + dt / INSET_FADE_S) : Math.max(b.fadeTo, b.mix - dt / INSET_FADE_S);
+    if (b.mix === b.fadeTo) { if (!b._fadeSettled) { traceMark('fade-end', { gen: b.win?.gen, mix: b.mix }); b._fadeSettled = true; } }
+    else b._fadeSettled = false;
   }
   const top = inset.bufs[inset.over];
   const under = inset.bufs[1 - inset.over];

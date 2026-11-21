@@ -21,8 +21,9 @@ import {
 } from './globe/scene.js';
 import {
   globeMat, initGlobeSurface, initImagery, initAssets, updateSatellite, updateLandReveal, outlineMaterials, outlineMeshes,
-  locationsP, pinsP, loadJobDone, renderLoad, getJSON, unwrap, addToPath, ISLAND_BLOB_TEXELS,
+  locationsP, pinsP, loadJobDone, renderLoad, getJSON, unwrap, addToPath, ISLAND_BLOB_TEXELS, inset,
 } from './globe/surface.js';
+import { traceMark } from './globe/zoom-trace.js';
 import {
   initOutlines, countryData, countryBands, countriesP, countryBandsP, countryGeom, bordersHit, showCountryOutline, showExtentOutline,
   updateCountryOutline, countryOutline, regionOutline, extentOutline, stateData, statesP, hasKey, keyName, landAreas, landAreasP,
@@ -1020,6 +1021,11 @@ function frame() {
   passportDots.visible = false; // disabled: no dots on landing page
 
   renderer.render(scene, camera);
+  if (inset.bufs) {
+    for (const b of inset.bufs) {
+      if (b.awaitingFirstFrame) { traceMark('frame-presented', { gen: b.win?.gen }); b.awaitingFirstFrame = false; }
+    }
+  }
   requestAnimationFrame(frame);
 }
 
@@ -1032,6 +1038,26 @@ if ('serviceWorker' in navigator) {
   });
 }
 window.__booted = true;
+// ?trace=1 on-screen export (docs/zoom-diagnosis-astra.md §6/§7 stage 1,
+// BRIEF-zoom-stage1.md): the owner tests on a phone with no tethered
+// inspector, so window.__woeTrace.dump() alone is not a usable export path.
+if (new URLSearchParams(location.search).get('trace') === '1') {
+  const exportBtn = document.createElement('button');
+  exportBtn.textContent = 'Export trace';
+  exportBtn.style.cssText = 'position:fixed;bottom:env(safe-area-inset-bottom,8px);right:8px;z-index:99999;padding:8px 12px;font-size:12px;background:#111;color:#fff;border:1px solid #fff;border-radius:6px;opacity:0.85;';
+  exportBtn.addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(window.__woeTrace.dump())], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `woe-trace-${Date.now()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+  document.body.appendChild(exportBtn);
+}
 if (window.__boot) window.__boot('ready');
 // the boot screen stays up until the land fill is on the globe (revealGlobe)
 renderLoad();

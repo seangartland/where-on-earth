@@ -14,6 +14,7 @@ import {
   PIN_COLOR, ANSWER_COLOR, latLngToVec3, vec3ToLatLng, setGlobeQuaternion, canvas, hud, renderer, camera, globe, pointers, radPerPx,
 } from './scene.js';
 import { outlineMaterials, pauseDailyPrefetch, prioritizeInsetZoom } from './surface.js';
+import { traceMark } from './zoom-trace.js';
 
 const pointerFine = () => window.matchMedia('(pointer: fine)').matches;
 
@@ -540,6 +541,7 @@ export function initPin(main) {
     canvas.setPointerCapture(e.pointerId);
     pointers.delete(e.pointerId); // a stale entry under a reused id
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 1) traceMark('input-start', { kind: 'pointer' });
     state.revealView = null; // the reveal starts framed, but remains freely explorable
     state.vYaw = state.vPitch = 0; // grab stops the spin, and the idle drift with it
     state.autoSpin = 0;
@@ -580,6 +582,7 @@ export function initPin(main) {
     const now = performance.now();
 
     if (pointers.size === 0) {
+      traceMark('input-end', { kind: 'pointer' });
       canvas.classList.remove('dragging');
       if (tap && e.type === 'pointerup' && state.gameMode === 'guess' && now - tap.t < GUESS_TAP_MAX_MS) {
         if (!host.nearLockButton(e.clientX, e.clientY) && !host.nearTopUI(e.clientX, e.clientY)) placeGuessPin(e.clientX, e.clientY);
@@ -617,6 +620,7 @@ export function initPin(main) {
     'wheel',
     (e) => {
       e.preventDefault();
+      traceMark('input-wheel', { deltaY: e.deltaY });
       const unit = e.deltaMode === 1 ? 0.05 : e.ctrlKey ? 0.012 : 0.0015;
       state.targetDist = zoomTo(state.targetDist, Math.exp(e.deltaY * unit));
       prioritizeInsetZoom();
