@@ -8,6 +8,8 @@
 import { ACCOUNTS_ENABLED, LOCK_ARM_MS, flyoverTier, EARN_BULLSEYE, EARN_PINPOINT } from '../core/config.js';
 import { state } from '../core/state.js';
 import { setThumb, gameEls } from '../core/dom.js';
+import { warmLadderParam, scheduleWarmLadder, stopWarmLadder } from '../globe/surface.js';
+import { traceMark } from '../globe/zoom-trace.js';
 
 export { gameEls };
 import { formatKm, formatDailyDate, countryKey } from '../core/format.js';
@@ -97,6 +99,8 @@ export function hideScreens() {
   document.body.className = '';
 }
 
+let warmLadderToken = 0;
+
 export function showRound() {
   clearReveal();
   hideScreens();
@@ -105,6 +109,16 @@ export function showRound() {
   gameEls.round.hidden = false;
   document.body.classList.add('game-round');
   const item = currentItem();
+  traceMark('round-start', { hasCoords: !!item && Number.isFinite(item.lat) && Number.isFinite(item.lng) });
+  // Experiment arm B (?warm=ladder, test-only): narrowest shared point every
+  // mode passes through to announce its new target. The previous round's
+  // still-queued jobs are cleared here either way, which is what "stops at
+  // round end" means for a pool with no abort-on-pause of its own.
+  if (warmLadderParam() && item && Number.isFinite(item.lat) && Number.isFinite(item.lng)) {
+    scheduleWarmLadder(item.lat, item.lng, ++warmLadderToken);
+  } else {
+    stopWarmLadder();
+  }
   if (pvp.active) {
     document.body.classList.add('pvp');
     gameEls.number.textContent = `Round ${pvp.round} of 5`;
