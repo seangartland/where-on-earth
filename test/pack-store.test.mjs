@@ -15,7 +15,6 @@ const { PACK_KEY } = await import('../src/core/config.js');
 const {
   STAMINA_PERIOD, accrue, spend, applySkips, readPack, writePack, ensurePack,
   savePackResult, completePack, packOutcome, packSummary, packPool,
-  awardDailySkips, grantDailySkips,
   isOpenPack, hasOtherOpenPack,
   packChoiceState, packProgressCount, canTearPack,
 } = await import('../src/meta/pack-store.js');
@@ -85,27 +84,7 @@ test('fresh and migrated records get one starter grant while saved balances rema
   assert.equal(readPack(0).skips, 12);
 });
 
-test('daily skips grant once per date and grant again the next day', () => {
-  const record = empty();
-  writePack(record);
-  assert.equal(awardDailySkips(record, '2026-10-29'), 4);
-  assert.equal(record.skips, 16);
-  assert.equal(record.lastDailyReward, '2026-10-29');
-  assert.equal(awardDailySkips(record, '2026-10-29'), 0);
-  assert.equal(record.skips, 16);
-  assert.equal(awardDailySkips(record, '2026-10-30'), 4);
-  assert.equal(record.skips, 20);
-  assert.equal(record.lastDailyReward, '2026-10-30');
-});
 
-test('daily skips never reward an older date when completions alternate', () => {
-  const record = empty();
-  writePack(record);
-  for (const date of ['2026-10-29', '2026-10-30', '2026-10-29', '2026-10-30', '2026-10-29']) {
-    awardDailySkips(record, date);
-  }
-  assert.equal(record.skips, 20);
-});
 
 test('accrual clamps a clock restored from the distant future', () => {
   const now = Date.parse('2026-10-29T12:00:00Z');
@@ -139,8 +118,7 @@ test('read normalizes stamina, skip balances, and a missing countdown', () => {
   writePack(malformed);
   const record = readPack(now);
   assert.deepEqual(record.stamina, { stored: 0, nextAt: now + STAMINA_PERIOD });
-  awardDailySkips(record, '2026-10-29');
-  assert.equal(record.skips, 16);
+  assert.equal(record.skips, 12);
 });
 
 test('a corrupt pack record is backed up, replaced, and remains spendable only twice', () => {
@@ -154,16 +132,6 @@ test('a corrupt pack record is backed up, replaced, and remains spendable only t
   assert.equal(spend(reloaded, 1000), false);
 });
 
-test('daily skips preserve a legacy balance and persist through the pack store', () => {
-  const legacy = empty();
-  legacy.skips = 7;
-  writePack(legacy);
-  assert.equal(grantDailySkips('2026-10-29'), 4);
-  assert.equal(raw().skips, 11);
-  assert.equal(raw().lastDailyReward, '2026-10-29');
-  assert.equal(grantDailySkips('2026-10-29'), 0);
-  assert.equal(raw().skips, 11);
-});
 
 test('fresh migration starts full and persists the new shape', () => {
   localStorage.setItem(PACK_KEY, JSON.stringify({ date: '2026-10-28', packs: [] }));

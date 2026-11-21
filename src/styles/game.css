@@ -846,7 +846,6 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .pack-icons .pk-full { filter: drop-shadow(0 0 4px rgba(var(--rgb-gold),.55)); }
 .pack-icons .pk-empty { opacity: .55; }
 .hg { display: block; }
-#daily-reward .hg { display: inline-block; vertical-align: -2px; }
 .pack-refill { display: flex; align-items: center; gap: 8px; width: min(330px, 92%); margin: 9px auto 0; }
 .pack-refill-track { flex: 1; height: 4px; border-radius: 999px; background: rgba(var(--rgb-gold),.16); overflow: hidden; }
 .pack-refill-track i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #e8a84b, var(--gold)); box-shadow: 0 0 6px rgba(var(--rgb-gold),.55); }

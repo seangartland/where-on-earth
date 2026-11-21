@@ -23,7 +23,6 @@ import { buildPostcardCard } from '../meta/postcard-card.js';
 import { reviewEls, setReviewEls, getFriendLayer, reviewFacing, screenOf, _rv } from '../game/review-shared.js';
 
 export { reviewEls } from '../game/review-shared.js';
-import { grantDailySkips } from '../meta/pack-store.js';
 import { gameEls, hideScreens, showRound, revealGuess } from '../game/round.js';
 import { showAnswerOutlines } from '../globe/reveal.js';
 import { prefetchDailyTiles } from '../globe/surface.js';
@@ -243,8 +242,6 @@ export function showResults() {
   window.__canGuess = false;
   gameEls.results.hidden = false;
   document.body.classList.add('game-results');
-  const dailySkips = grantDailySkips(state.daily.date);
-  gameEls.dailyReward.hidden = dailySkips === 0;
   state.daily.complete = true;
   saveDaily();
   const streak = finishStreak();

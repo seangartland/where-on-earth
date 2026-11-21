@@ -83,24 +83,6 @@ export function applySkips(record, count, now = Date.now()) {
   return consumed;
 }
 
-export function awardDailySkips(record, dateStr) {
-  const fresh = readPack();
-  if (fresh.lastDailyReward && dateStr <= fresh.lastDailyReward) {
-    Object.assign(record, fresh);
-    return 0;
-  }
-  fresh.skips += 4;
-  fresh.lastDailyReward = dateStr;
-  writePack(fresh);
-  Object.assign(record, fresh);
-  return 4;
-}
-
-export function grantDailySkips(dateStr) {
-  const record = readPack();
-  return awardDailySkips(record, dateStr);
-}
-
 const freshRecord = () => ({
   skips: 12,
   skipCredit: 0,
