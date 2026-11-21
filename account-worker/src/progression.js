@@ -2,7 +2,8 @@ import { isBullseye, isPostcard } from './daily-score.js';
 
 export const SEAL_DISCS = Object.freeze(['navy', 'burgundy', 'forest', 'charcoal']);
 export const SEAL_MOTIFS = Object.freeze({ globe: null, plane: 'frequent-flyer', compass: 'border-crosser', camera: 'postmarked', mountain: 'around-the-world', star: 'new-stamp' });
-export const DEFAULT_SEAL = Object.freeze({ v: 2, initials: null, disc: 'navy', motif: 'globe' });
+export const DEFAULT_SEAL = Object.freeze({ v: 2, initials: null, disc: 'navy', motif: 'globe', ring: 'level', topper: null });
+export const HOLIDAY_TOPPER_WINDOW = Object.freeze({ startMonth: 12, startDay: 20, endDay: 26 });
 
 export const ACHIEVEMENTS = Object.freeze([
   ['first-departure', 'consistency', 'First Departure', 'Complete 1 Daily', 'title:day-tripper', (s) => s.dailies >= 1],
@@ -26,6 +27,8 @@ export const ACHIEVEMENTS = Object.freeze([
   ['plus-one', 'consistency', 'Plus One', 'Refer 1 friend', null, (s) => s.referrals >= 1],
   ['travel-agent', 'consistency', 'Travel Agent', 'Refer 3 friends', null, (s) => s.referrals >= 3],
   ['tour-guide', 'consistency', 'Tour Guide', 'Refer 5 friends', null, (s) => s.referrals >= 5],
+  ['holiday-santa', 'seasonal', 'Holiday Hat', 'Complete a Daily December 20–26', 'topper:santa-hat', () => false],
+  ['holiday-antlers', 'seasonal', 'Holiday Antlers', 'Complete a Daily December 20–26', 'topper:antlers', () => false],
 ]);
 
 export function xpForCompletion(total, rounds) {
@@ -37,19 +40,26 @@ export function xpForCompletion(total, rounds) {
 }
 export function levelForXp(xp) { let level = 1; let remaining = Math.max(0, xp); while (remaining >= 100 + 20 * (level - 1)) { remaining -= 100 + 20 * (level - 1); level += 1; } return level; }
 export function xpAtLevel(level) { return level <= 1 ? 0 : (level - 1) * (100 + 10 * (level - 2)); }
-export function validateSeal(value, earnedIds) {
+export function validateSeal(value, earnedIds, level = 1) {
   if (!value || typeof value !== 'object') return null;
   if ('backdrop' in value || 'skinTone' in value || (value.v != null && value.v !== 2)) return null;
-  const disc = value.disc || DEFAULT_SEAL.disc; const motif = value.motif || DEFAULT_SEAL.motif;
+  const disc = value.disc || DEFAULT_SEAL.disc; const motif = value.motif || DEFAULT_SEAL.motif; const ring = value.ring || DEFAULT_SEAL.ring; const topper = value.topper || null;
   if (!SEAL_DISCS.includes(disc) || !Object.hasOwn(SEAL_MOTIFS, motif) || (SEAL_MOTIFS[motif] && !earnedIds?.has(SEAL_MOTIFS[motif]))) return null;
+  if (!['level', 'bronze', 'silver', 'gold'].includes(ring) || (ring === 'silver' && level < 5) || (ring === 'gold' && level < 10)) return null;
+  if (!['santa-hat', 'antlers'].includes(topper) && topper !== null) return null;
+  if (topper && !earnedIds?.has(topper === 'santa-hat' ? 'holiday-santa' : 'holiday-antlers')) return null;
   if (value.initials != null && (typeof value.initials !== 'string' || !/^[A-Za-z]{1,2}$/.test(value.initials))) return null;
-  return { v: 2, initials: value.initials == null ? null : value.initials.toUpperCase(), disc, motif };
+  return { v: 2, initials: value.initials == null ? null : value.initials.toUpperCase(), disc, motif, ring, topper };
 }
-export function normalizeSeal(value, earnedIds) {
+export function normalizeSeal(value, earnedIds, level = null) {
   try {
     const stored = typeof value === 'string' ? JSON.parse(value) : value;
-    return stored?.backdrop || stored?.skinTone ? DEFAULT_SEAL : validateSeal(stored, earnedIds) || DEFAULT_SEAL;
+    return stored?.backdrop || stored?.skinTone ? DEFAULT_SEAL : validateSeal(stored, earnedIds, level == null ? Infinity : level) || DEFAULT_SEAL;
   } catch { return DEFAULT_SEAL; }
+}
+export function isHolidayTopperDate(date, now = Date.now()) {
+  const year = new Date(now).getUTCFullYear();
+  return date >= `${year}-12-${String(HOLIDAY_TOPPER_WINDOW.startDay).padStart(2, '0')}` && date <= `${year}-12-${String(HOLIDAY_TOPPER_WINDOW.endDay).padStart(2, '0')}`;
 }
 export function ownsIdentity(type, id, level, earned, levelTwoTitle = null) {
   const defaults = { title: ['traveler'], card: ['blue-horizon'] };
@@ -102,7 +112,8 @@ export async function processCompletion(env, accountId, date, now = Date.now()) 
   await env.DB.batch(Object.entries(ledger).map(([sourceType, amount]) => env.DB.prepare('INSERT OR IGNORE INTO xp_ledger (account_id, source_type, source_key, amount, created_at) VALUES (?, ?, ?, ?, ?)').bind(accountId, sourceType, `daily:${date}:${sourceType}`, amount, now)));
   const xpAfter = Number((await env.DB.prepare('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?').bind(accountId).first())?.xp || 0);
   const snapshot = await stats(env, accountId);
-  const statements = ACHIEVEMENTS.filter(([, , , , , condition]) => condition(snapshot)).map(([id]) => env.DB.prepare('INSERT OR IGNORE INTO user_achievements (account_id, achievement_id, earned_at, qualifying_key) VALUES (?, ?, ?, ?)').bind(accountId, id, now, `daily:${date}`));
+  const holidayIds = isHolidayTopperDate(date, now) ? new Set(['holiday-santa', 'holiday-antlers']) : new Set();
+  const statements = ACHIEVEMENTS.filter(([id, , , , , condition]) => holidayIds.has(id) || condition(snapshot)).map(([id]) => env.DB.prepare('INSERT OR IGNORE INTO user_achievements (account_id, achievement_id, earned_at, qualifying_key) VALUES (?, ?, ?, ?)').bind(accountId, id, now, `daily:${date}`));
   if (statements.length) await env.DB.batch(statements);
   if (xpAfter === xpBefore) return null;
   return { ...awards, xpBefore, xpAfter, levelBefore: levelForXp(xpBefore), levelAfter: levelForXp(xpAfter) };
@@ -141,7 +152,7 @@ export async function progressionProfile(env, accountId) {
   const account = await env.DB.prepare('SELECT display_name FROM profiles WHERE account_id = ?').bind(accountId).first();
   const achievements = (await env.DB.prepare('SELECT achievement_id, earned_at FROM user_achievements WHERE account_id = ? ORDER BY earned_at DESC').bind(accountId).all()).results || [];
   const community = await communityPercentages(env);
-  const avatar = normalizeSeal(loadout?.avatar_json, new Set(achievements.map(({ achievement_id }) => achievement_id)));
+  const avatar = normalizeSeal(loadout?.avatar_json, new Set(achievements.map(({ achievement_id }) => achievement_id)), level);
   const xpIntoLevel = xp - xpAtLevel(level); const levelSpan = 100 + 20 * (level - 1);
   return { displayName: account?.display_name || 'Traveler', level, totalXp: xp, xpIntoLevel, levelSpan, xpToNext: levelSpan - xpIntoLevel, stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries, referrals: summary.referrals }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }

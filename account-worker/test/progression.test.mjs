@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { communityPercentage, communityPercentages, levelForXp, ownsIdentity, validateSeal, xpAtLevel, xpForCompletion } from '../src/progression.js';
+import { communityPercentage, communityPercentages, isHolidayTopperDate, levelForXp, normalizeSeal, ownsIdentity, validateSeal, xpAtLevel, xpForCompletion } from '../src/progression.js';
 import { scoreForDistance } from '../src/daily-score.js';
 
 test('Daily XP uses canonical performance caps and the published level curve', () => {
@@ -24,12 +24,31 @@ test('level-two title ownership allows only the saved choice until level five', 
   assert.equal(ownsIdentity('title', 'aisle-seat', 5, earned, 'window-seat'), true);
 });
 
-test('seal config validates discs, earned motifs, initials, and rejects legacy avatars', () => {
-  assert.deepEqual(validateSeal({ v: 2, initials: 'm', disc: 'burgundy', motif: 'plane' }, new Set(['frequent-flyer'])), { v: 2, initials: 'M', disc: 'burgundy', motif: 'plane' });
+test('seal config validates discs, earned motifs, finishes, toppers, initials, and rejects legacy avatars', () => {
+  assert.deepEqual(validateSeal({ v: 2, initials: 'm', disc: 'burgundy', motif: 'plane' }, new Set(['frequent-flyer'])), { v: 2, initials: 'M', disc: 'burgundy', motif: 'plane', ring: 'level', topper: null });
+  assert.equal(validateSeal({ ring: 'silver' }, new Set(), 4), null);
+  assert.equal(validateSeal({ ring: 'gold' }, new Set(), 9), null);
+  assert.equal(validateSeal({ ring: 'silver' }, new Set(), 5)?.ring, 'silver');
+  assert.equal(validateSeal({ ring: 'gold' }, new Set(), 10)?.ring, 'gold');
+  assert.equal(validateSeal({ topper: 'santa-hat' }, new Set(), 1), null);
+  assert.equal(validateSeal({ topper: 'antlers' }, new Set(['holiday-antlers']), 1)?.topper, 'antlers');
   assert.equal(validateSeal({ disc: 'violet' }, new Set()), null);
   assert.equal(validateSeal({ motif: 'plane' }, new Set()), null);
   assert.equal(validateSeal({ initials: '123' }, new Set()), null);
   assert.equal(validateSeal({ backdrop: 'atlas-navy' }, new Set()), null);
+});
+
+test('read normalization preserves a legitimately saved finish and topper', () => {
+  assert.deepEqual(normalizeSeal(JSON.stringify({ v: 2, initials: 's', disc: 'navy', motif: 'globe', ring: 'gold', topper: 'santa-hat' }), new Set(['holiday-santa']), 10), { v: 2, initials: 'S', disc: 'navy', motif: 'globe', ring: 'gold', topper: 'santa-hat' });
+});
+
+test('holiday topper window is December 20 through 26 of the current year', () => {
+  const now = Date.UTC(2026, 11, 21);
+  assert.equal(isHolidayTopperDate('2026-12-19', now), false);
+  assert.equal(isHolidayTopperDate('2026-12-20', now), true);
+  assert.equal(isHolidayTopperDate('2026-12-26', now), true);
+  assert.equal(isHolidayTopperDate('2026-12-27', now), false);
+  assert.equal(isHolidayTopperDate('2025-12-21', now), false);
 });
 
 test('community percentages keep small cohorts and zero earners private', () => {

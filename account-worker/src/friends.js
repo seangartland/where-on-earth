@@ -251,13 +251,13 @@ async function listFriends(request, env, id) {
   return json({
     me: meShape(own),
     friends: (rows.results || []).map((row) => {
-      const achievements = new Set((row.achievement_ids || '').split(',').filter(Boolean));
+      const achievements = new Set((row.achievement_ids || '').split(',').filter(Boolean)); const level = levelForXp(Number(row.xp) || 0);
       return {
         friendId: row.friend_id, displayName: row.display_name, since: row.created_at,
-        level: levelForXp(Number(row.xp) || 0),
+        level,
         loadout: {
           titleId: row.title_id || 'traveler', cardId: row.card_id || 'blue-horizon',
-          avatar: normalizeSeal(row.avatar_json, achievements),
+          avatar: normalizeSeal(row.avatar_json, achievements, level),
         },
       };
     }),
@@ -453,7 +453,7 @@ async function updateLoadout(request, env, id) {
   const titleId = input.titleId || profile.loadout.titleId;
   const cardId = input.cardId || profile.loadout.cardId;
   const earnedIds = new Set(profile.achievements.map(({ id }) => id));
-  const avatar = validateSeal(input.avatar || profile.loadout.avatar, earnedIds);
+  const avatar = validateSeal(input.avatar || profile.loadout.avatar, earnedIds, profile.level);
   const levelTwoTitle = profile.loadout.levelTwoTitle || (profile.level >= 2 && ['window-seat', 'aisle-seat'].includes(titleId) ? titleId : null);
   if (typeof titleId !== 'string' || typeof cardId !== 'string' || !avatar
     || !ownsIdentity('title', titleId, profile.level, earned, levelTwoTitle)

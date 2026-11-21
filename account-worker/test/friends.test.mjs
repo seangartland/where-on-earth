@@ -194,7 +194,7 @@ test('invite lifecycle, names, limits, unified invalid response, and mutual remo
   assert.deepEqual(Object.keys(listed.body.friends[0]).sort(), ['displayName', 'friendId', 'level', 'loadout', 'since']);
   assert.deepEqual(listed.body.friends[0], {
     friendId: 'b', displayName: 'Bo', since: listed.body.friends[0].since, level: 2,
-    loadout: { titleId: 'window-seat', cardId: 'airmail', avatar: { v: 2, initials: 'BO', disc: 'forest', motif: 'plane' } },
+    loadout: { titleId: 'window-seat', cardId: 'airmail', avatar: { v: 2, initials: 'BO', disc: 'forest', motif: 'plane', ring: 'level', topper: null } },
   });
   assert.equal((await post(env, 'a', '/v1/friends/remove', { friendId: 'b' })).status, 204);
   assert.equal((await env.DB.prepare('SELECT COUNT(*) AS n FROM friendships').first()).n, 0);
