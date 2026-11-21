@@ -17,4 +17,5 @@ test('reward labels use catalog names', () => {
   assert.equal(rewardLabel('title:window-seat', catalogs), 'Window Seat title');
   assert.equal(rewardLabel('card:airmail', catalogs), 'Airmail banner');
   assert.equal(rewardLabel('motif:star', catalogs), 'Star seal motif');
+  assert.equal(rewardLabel('topper:santa-hat', catalogs), 'Santa Hat topper');
 });

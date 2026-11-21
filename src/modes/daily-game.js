@@ -310,7 +310,7 @@ async function syncTravelerXp() {
         overlay.className = 'level-up-overlay';
         overlay.innerHTML = `<button type="button" class="level-up-scrim" aria-label="Dismiss level up"></button><article class="level-up-card" role="dialog" aria-modal="true" aria-labelledby="level-up-title"><div class="level-up-seal"></div><div><b>LEVEL UP!</b><strong id="level-up-title">You reached Level ${award.levelAfter}</strong>${unlocksBetween(award.levelBefore, award.levelAfter).map((unlock) => `<span>${unlock.detail}</span>`).join('')}<button type="button" class="text-button level-up-dismiss">Keep going</button></div></article>`;
         const { renderAvatar } = await import('../account/avatar.js');
-        overlay.querySelector('.level-up-seal').append(renderAvatar(profile.loadout.avatar, 52, false, { name: profile.displayName, level: award.levelAfter }));
+        overlay.querySelector('.level-up-seal').append(renderAvatar(profile.loadout.avatar, 52, { name: profile.displayName, level: award.levelAfter }));
         const dismiss = () => overlay.remove();
         overlay.querySelector('.level-up-scrim').addEventListener('click', dismiss);
         overlay.querySelector('.level-up-dismiss').addEventListener('click', dismiss);
@@ -364,7 +364,7 @@ async function syncFriendsToday(total) {
       const identity = identities.get(entry.you ? 'you' : entry.friendId);
       const rk = Object.assign(document.createElement('span'), { className: 'ft-rank', textContent: `${entry.rank}.` });
       const identityButton = Object.assign(document.createElement('button'), { type: 'button', className: 'ft-identity', 'aria-label': `Open ${entry.name}'s profile` });
-      const av = identity ? renderAvatar(identity.loadout.avatar, 28, true, { name: identity.displayName || entry.name, level: identity.level }) : Object.assign(document.createElement('span'), { className: 'ft-av', textContent: entry.initial });
+      const av = identity ? renderAvatar(identity.loadout.avatar, 28, { compact: true, name: identity.displayName || entry.name, level: identity.level }) : Object.assign(document.createElement('span'), { className: 'ft-av', textContent: entry.initial });
       const copy = Object.assign(document.createElement('span'), { className: 'ft-identity-copy' });
       const nm = Object.assign(document.createElement('span'), { className: 'ft-name', textContent: identity?.displayName || entry.name });
       const title = Object.assign(document.createElement('span'), { className: 'ft-title', textContent: identity ? avatarName(identity.loadout.titleId) : '' });
