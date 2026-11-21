@@ -10,7 +10,7 @@ const surface = await readFile(surfaceURL, 'utf8');
 const providerCode = surface.slice(surface.indexOf('export const SAT_PROVIDERS'), surface.indexOf('export const getSatProvider'));
 const pilotURL = pathToFileURL(fileURLToPath(new URL('../src/globe/pilot-region.js', import.meta.url))).href;
 const sf1bURL = pathToFileURL(fileURLToPath(new URL('../src/globe/sf1b-region.js', import.meta.url))).href;
-const { SAT_PROVIDERS, tileURL } = await import(`data:text/javascript,${encodeURIComponent(`import { inPilotZ10 } from '${pilotURL}';\nimport { inSf1bRegion } from '${sf1bURL}';\n${providerCode}`)}`);
+const { SAT_PROVIDERS, tileURL, windowHasPilotZ10 } = await import(`data:text/javascript,${encodeURIComponent(`import { inPilotZ10 } from '${pilotURL}';\nimport { inSf1bRegion } from '${sf1bURL}';\nconst imod = (a, n) => ((a % n) + n) % n;\n${providerCode}`)}`);
 const defaultProvider = SAT_PROVIDERS.find((provider) => provider.id === 's2gm2025');
 
 test('default provider routes z10 pilot footprints to the pilot cache key', () => {
@@ -22,4 +22,10 @@ test('default provider routes z10 pilot footprints to the pilot cache key', () =
 test('default provider retains its prefix outside the pilot and below z10', () => {
   assert.equal(tileURL(defaultProvider, 10, 355, 774), 'https://tiles.where-on.earth/s2gm2025/10/774/355.jpg?v=2'); // Tokyo
   assert.equal(tileURL(defaultProvider, 9, 193, 250), 'https://tiles.where-on.earth/s2gm2025/9/250/193.jpg?v=2'); // Madrid
+});
+
+test('z10 windows keep only pilot footprints', () => {
+  assert.equal(windowHasPilotZ10({ z: 10, n: 1024, tx0: 774, ty0: 355, cols: 1, rows: 1 }), false); // Tokyo
+  assert.equal(windowHasPilotZ10({ z: 10, n: 1024, tx0: 501, ty0: 386, cols: 1, rows: 1 }), true); // Madrid
+  assert.equal(windowHasPilotZ10({ z: 10, n: 1024, tx0: 495, ty0: 386, cols: 2, rows: 1 }), true); // Iberia edge
 });

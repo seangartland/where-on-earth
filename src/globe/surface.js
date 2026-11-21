@@ -609,6 +609,14 @@ export const tileURL = (provider, z, y, x) => {
   provider = tileProvider(provider, z, y, x);
   return provider.tiles.replace('{z}', z).replace('{x}', x).replace('{y}', y);
 };
+export function windowHasPilotZ10(want) {
+  for (let sy = 0; sy < want.rows; sy++) {
+    for (let sx = 0; sx < want.cols; sx++) {
+      if (inPilotZ10(10, imod(want.tx0 + sx, want.n), want.ty0 + sy)) return true;
+    }
+  }
+  return false;
+}
 export const getSatProvider = () => {
   const id = new URLSearchParams(location.search).get('sat');
   return SAT_PROVIDERS.find((provider) => provider.id === id && provider.selectable !== false)
@@ -865,6 +873,7 @@ export function pickInsetWindow() {
     let i = servedRungIndex(ladder, z, navigator.connection?.saveData);
     for (; i >= 0; i--) {
       const want = insetWindowAt(view, ladder[i]);
+      if (want && want.z === 10 && satProvider.id === 's2gm2025' && !windowHasPilotZ10(want)) continue;
       if (want) return { view, want };
     }
     return { view, want: null };
