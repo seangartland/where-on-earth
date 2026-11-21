@@ -4102,5 +4102,22 @@
   "difficultyWhy": "p.99·fb419·K0·iso67 → 3.9 → 1",
   "category": "city",
   "kind": "landmark"
+ },
+ {
+  "id": "mozambique-channel",
+  "short": "Mozambique Channel",
+  "clue": "Mozambique Channel, Mozambique and Madagascar 🇲🇿🇲🇬",
+  "fact": "At its narrowest about 420 km of sea separates Madagascar from the African mainland, and the tiny French-held islands of Europa and Bassas da India lie scattered across its southern half.",
+  "lat": -18,
+  "lng": 41,
+  "difficulty": 8,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Mozambique_Channel_%2850067728603%29.jpg/500px-Mozambique_Channel_%2850067728603%29.jpg",
+  "country": "Mozambique",
+  "continent": "Africa",
+  "sets": [],
+  "difficultyWhy": "p.21·fb629·K0·iso697 → 108.5 → 8",
+  "category": "city",
+  "kind": "extent",
+  "extentType": "polygon"
  }
 ]

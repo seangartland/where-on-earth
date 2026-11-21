@@ -16,4 +16,11 @@ export const PACK_WATERS_IDS = new Set([
   'taiwan-strait',
   'cook-strait',
   'oresund',
+  'kiel-canal',
+  'erie-canal',
+  'grand-canal-china',
+  'canal-du-midi',
+  'strait-of-messina',
+  'straits-of-florida',
+  'bass-strait',
 ]);

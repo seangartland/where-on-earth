@@ -1,8 +1,11 @@
 {
 "enwiki:Bab-el-Mandeb": "Q83318",
 "enwiki:Bab-el-Mandeb, Djibouti": null,
+"enwiki:Bass Strait, Australia": "Q171846",
 "enwiki:Bosphorus": "Q35958",
 "enwiki:Bosphorus, Turkey": null,
+"enwiki:Canal du Midi": "Q202494",
+"enwiki:Canal du Midi, France": null,
 "enwiki:Cook Strait, New Zealand": "Q5023",
 "enwiki:Corinth Canal": "Q182873",
 "enwiki:Corinth Canal, Greece": null,
@@ -10,12 +13,23 @@
 "enwiki:Dardanelles, Turkey": null,
 "enwiki:English Channel": "Q34640",
 "enwiki:English Channel, France": null,
+"enwiki:Erie Canal": "Q459578",
+"enwiki:Erie Canal, United States": null,
 "enwiki:Golden Gate": "Q220032",
 "enwiki:Golden Gate, United States": null,
+"enwiki:Grand Canal, China": "Q31347",
+"enwiki:Kiel Canal": "Q144825",
+"enwiki:Kiel Canal, Germany": null,
+"enwiki:Mozambique Channel": "Q165100",
+"enwiki:Mozambique Channel, Mozambique": null,
 "enwiki:Strait of Magellan": "Q48365",
 "enwiki:Strait of Magellan, Chile": null,
 "enwiki:Strait of Malacca": "Q48359",
 "enwiki:Strait of Malacca, Indonesia": null,
+"enwiki:Strait of Messina": "Q134705",
+"enwiki:Strait of Messina, Italy": null,
+"enwiki:Straits of Florida": "Q232912",
+"enwiki:Straits of Florida, Cuba": null,
 "enwiki:Suez Canal": "Q899",
 "enwiki:Suez Canal, Egypt": null,
 "enwiki:Taiwan Strait": "Q127031",
@@ -644,6 +658,15 @@
 "type": "city",
 "wikidata": "Q48195"
 },
+"osm:Bass Strait, Australia": {
+"category": "highway",
+"lat": -34.6787896,
+"linked_place": null,
+"lon": 150.8541027,
+"name": "Bass Strait, Kiama, New South Wales, 2533, Australia",
+"type": "service",
+"wikidata": null
+},
 "osm:Basseterre, Saint Kitts and Nevis": {
 "category": "place",
 "lat": 17.2960919,
@@ -1210,6 +1233,15 @@
 "name": "Campo Grande, Mato Grosso do Sul, Central-West Region, Brazil",
 "type": "administrative",
 "wikidata": "Q168929"
+},
+"osm:Canal du Midi, France": {
+"category": "waterway",
+"lat": 43.2387238,
+"linked_place": null,
+"lon": 2.4107586,
+"name": "Canal du Midi, Castans, Carcassonne, Aude, Occitania, Metropolitan France, 11160, France",
+"type": "canal",
+"wikidata": "Q202494"
 },
 "osm:Canberra, Australia": {
 "category": "place",
@@ -2112,6 +2144,15 @@
 "type": "city",
 "wikidata": "Q132754"
 },
+"osm:Erie Canal, New York": {
+"category": "waterway",
+"lat": 43.2131908,
+"linked_place": null,
+"lon": -75.9350403,
+"name": "Erie Canal, Town of Constantia, Oswego County, New York, United States",
+"type": "flowline",
+"wikidata": null
+},
 "osm:Erzurum, Turkey": {
 "category": "place",
 "lat": 39.90632,
@@ -2363,6 +2404,15 @@
 "name": "Granada, Comarca de la Vega de Granada, Granada, Andalusia, Spain",
 "type": "administrative",
 "wikidata": "Q8810"
+},
+"osm:Grand Canal, China": {
+"category": "waterway",
+"lat": 34.5823963,
+"linked_place": null,
+"lon": 117.6143796,
+"name": "Grand Canal, China",
+"type": "canal",
+"wikidata": "Q21042913"
 },
 "osm:Grand Rapids, Michigan": {
 "category": "boundary",
@@ -3246,6 +3296,15 @@
 "name": "Khulna Division, Bangladesh",
 "type": "administrative",
 "wikidata": "Q501696"
+},
+"osm:Kiel Canal, Germany": {
+"category": "waterway",
+"lat": 54.2081189,
+"linked_place": null,
+"lon": 9.5721775,
+"name": "Kiel Canal, Schleswig-Holstein, Germany",
+"type": "canal",
+"wikidata": "Q144825"
 },
 "osm:Kigali, Rwanda": {
 "category": "boundary",
@@ -4336,6 +4395,7 @@
 "type": "residential",
 "wikidata": null
 },
+"osm:Mozambique Channel, Mozambique and Madagascar": null,
 "osm:Multan, Pakistan": {
 "category": "place",
 "lat": 30.197838,
@@ -6167,6 +6227,16 @@
 "wikidata": "Q48365"
 },
 "osm:Strait of Malacca, Indonesia and Malaysia": null,
+"osm:Strait of Messina, Italy": {
+"category": "natural",
+"lat": 38.1110374,
+"linked_place": null,
+"lon": 15.5786445,
+"name": "Strait of Messina, Reggio Calabria, Italy",
+"type": "strait",
+"wikidata": "Q134705"
+},
+"osm:Straits of Florida, Cuba, United States, and Bahamas": null,
 "osm:Strasbourg, France": {
 "category": "boundary",
 "lat": 48.584614,
@@ -7372,6 +7442,7 @@
 "qid:barrow-alaska": "Q79809",
 "qid:basel-switzerland": "Q78",
 "qid:basrah-iq": "Q48195",
+"qid:bass-strait": "Q171846",
 "qid:basseterre-st-kitts-and-nevis": "Q41295",
 "qid:batam-id": "Q10103",
 "qid:beijing-china": "Q956",
@@ -7436,6 +7507,7 @@
 "qid:cali-co": "Q51103",
 "qid:campo-grande-br": "Q168929",
 "qid:can-tho-vn": "Q216075",
+"qid:canal-du-midi": "Q202494",
 "qid:canberra-australia": "Q3114",
 "qid:cancun-mexico": "Q8969",
 "qid:cannes-fr": "Q39984",
@@ -7536,6 +7608,7 @@
 "qid:enugu-ng": "Q465022",
 "qid:ephesus": "Q47611",
 "qid:erbil-iq": "Q132754",
+"qid:erie-canal": "Q459578",
 "qid:erzurum": "Q122803",
 "qid:essen-de": "Q2066",
 "qid:faisalabad-pk": "Q173985",
@@ -7564,6 +7637,7 @@
 "qid:golden-gate": "Q220032",
 "qid:gqeberha-za": "Q125434",
 "qid:granada-es": "Q8810",
+"qid:grand-canal-china": "Q31347",
 "qid:grand-rapids-usa": "Q184587",
 "qid:green-bay-usa": "Q47430",
 "qid:grenoble-fr": "Q1289",
@@ -7664,6 +7738,7 @@
 "qid:khartoum": "Q1963",
 "qid:khiva-uzbekistan": "Q486195",
 "qid:khulna-bd": "Q243325",
+"qid:kiel-canal": "Q144825",
 "qid:kigali-rwanda": "Q3859",
 "qid:kingston": "Q34692",
 "qid:kingstown-st-vincent-and-grenadines": "Q41474",
@@ -7786,6 +7861,7 @@
 "qid:moroni-comoros": "Q3901",
 "qid:moscow-russia": "Q649",
 "qid:mosul-iq": "Q83317",
+"qid:mozambique-channel": "Q165100",
 "qid:multan-pk": "Q185453",
 "qid:mumbai-india": "Q1156",
 "qid:munich-germany": "Q1726",
@@ -8001,6 +8077,8 @@
 "qid:stockholm-sweden": "Q1754",
 "qid:strait-of-magellan": "Q48365",
 "qid:strait-of-malacca": "Q48359",
+"qid:strait-of-messina": "Q134705",
+"qid:straits-of-florida": "Q232912",
 "qid:strasbourg-france": "Q6602",
 "qid:stuttgart-de": "Q1022",
 "qid:sucre-bolivia": "Q2907",
@@ -13914,6 +13992,13 @@
 ],
 "precision": 0.0002777777777777778
 },
+"wd:Q134705": {
+"p625": [
+38.245833333333,
+15.6325
+],
+"precision": null
+},
 "wd:Q1348": {
 "p625": [
 22.5675,
@@ -14032,6 +14117,13 @@
 22.284722222222
 ],
 "precision": 0.00027777777777778
+},
+"wd:Q144825": {
+"p625": [
+53.883333333333,
+9.1333333333333
+],
+"precision": 0.0002777777777777778
 },
 "wd:Q14499": {
 "p625": [
@@ -14270,6 +14362,13 @@
 122.07611111111112
 ],
 "precision": 0.0002777777777777778
+},
+"wd:Q165100": {
+"p625": [
+-18,
+41
+],
+"precision": 1
 },
 "wd:Q16520": {
 "p625": [
@@ -14543,6 +14642,13 @@
 6.776666666666666
 ],
 "precision": 0.0002777777777777778
+},
+"wd:Q171846": {
+"p625": [
+-40,
+146
+],
+"precision": 1
 },
 "wd:Q172": {
 "p625": [
@@ -15272,6 +15378,13 @@
 ],
 "precision": 0.00027777777777778
 },
+"wd:Q202494": {
+"p625": [
+43.61111111,
+1.41833333
+],
+"precision": 0.00027777777777778
+},
 "wd:Q2028": {
 "p625": [
 45.43861111111111,
@@ -15684,6 +15797,13 @@
 -86.77444444444444
 ],
 "precision": 0.0002777777777777778
+},
+"wd:Q232912": {
+"p625": [
+23.934166666667,
+-80.925833333333
+],
+"precision": null
 },
 "wd:Q23337": {
 "p625": [
@@ -16214,6 +16334,13 @@
 "p625": [
 -33.867777777777775,
 151.21
+],
+"precision": 0.0002777777777777778
+},
+"wd:Q31347": {
+"p625": [
+30.261388888888888,
+120.2238888888889
 ],
 "precision": 0.0002777777777777778
 },
@@ -17665,6 +17792,13 @@
 2.3763888888889
 ],
 "precision": 0.00027777777777778
+},
+"wd:Q459578": {
+"p625": [
+43.0222726,
+-78.8808324
+],
+"precision": 2.77777777778e-06
 },
 "wd:Q4629": {
 "p625": [

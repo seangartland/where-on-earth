@@ -41,6 +41,22 @@ EDIT = {
         fact="Only 22 km wide at its narrowest, this gap between New Zealand's North and South Islands funnels the westerly winds, earning it a name as one of the roughest stretches of water in the world."),
     'oresund': dict(short='Øresund', clue='Øresund, Denmark and Sweden 🇩🇰🇸🇪', image=('', 'File:Oresund bridge (Unsplash).jpg'),
         fact="Since 2000 a road and rail link has crossed this strait between Copenhagen and Malmö: a bridge out to the artificial island of Peberholm, then a tunnel that keeps clear of shipping and Copenhagen Airport's flight paths."),
+    'kiel-canal': dict(short='Kiel Canal', clue='Kiel Canal, Germany 🇩🇪', image=('', 'File:2023-12-25 Maureen S at Kiel Canal, stern.jpg'),
+        fact='Opened in 1895, this 98 km cut across Schleswig-Holstein links the North Sea to the Baltic and, by number of ships, is the busiest artificial waterway in the world.'),
+    'erie-canal': dict(short='Erie Canal', clue='Erie Canal, New York 🇺🇸', image=('', 'File:Erie Canal lock Lockport New York.jpg'),
+        fact='Opened in 1825 to join the Hudson River to Lake Erie at Buffalo, it slashed the cost of shipping goods to the Midwest and helped make New York City the leading port in the country.'),
+    'grand-canal-china': dict(short='Grand Canal', clue='Grand Canal, China 🇨🇳', image=('', 'File:A boat on Grand Canal of China.JPG'),
+        fact='Its oldest sections date to the 5th century BC, and at roughly 1,800 km from Beijing to Hangzhou it is the longest canal ever built.'),
+    'canal-du-midi': dict(short='Canal du Midi', clue='Canal du Midi, France 🇫🇷', image=('', 'File:Anjodi crossing Pont Canal de Cesse.jpg'),
+        fact='Completed in 1681 under Pierre-Paul Riquet, this 240 km canal joins Toulouse to the Mediterranean, so that together with the Garonne boats can cross France from the Atlantic without sailing around Spain.'),
+    'strait-of-messina': dict(short='Strait of Messina', clue='Strait of Messina, Italy 🇮🇹', image=('', 'File:Stretto di Messina 06 11 2023 04.jpg'),
+        fact='Only about 3 km wide at its narrowest, between Sicily and Calabria, this strait has whirlpools and currents thought to lie behind the myth of Scylla and Charybdis that Odysseus had to sail between.'),
+    'mozambique-channel': dict(short='Mozambique Channel', clue='Mozambique Channel, Mozambique and Madagascar 🇲🇿🇲🇬', image=('', 'File:Mozambique Channel (50067728603).jpg'),
+        fact='At its narrowest about 420 km of sea separates Madagascar from the African mainland, and the tiny French-held islands of Europa and Bassas da India lie scattered across its southern half.'),
+    'straits-of-florida': dict(short='Straits of Florida', clue='Straits of Florida, Cuba, United States, and Bahamas', image=('', 'File:Coast Guard Cutter Stone operates in the Florida Straits (8496651).jpg'),
+        fact='Key West sits only about 150 km across this strait from Havana, and the Florida Current, the start of the Gulf Stream, races through it on its way to the Atlantic.'),
+    'bass-strait': dict(short='Bass Strait', clue='Bass Strait, Australia 🇦🇺', image=('', 'File:Point Nepean facing Bass Strait.jpg'),
+        fact='This strait between Tasmania and mainland Australia is named after George Bass, who with Matthew Flinders sailed right around Tasmania in 1798 to prove it was an island.'),
 }
 
 
