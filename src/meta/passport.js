@@ -599,7 +599,7 @@ function renderPassportPage(held = null) {
       const pct = total ? Math.round((collected / total) * 1000) / 10 : 0;
       head.innerHTML = `<span class="pp-pack-bar" style="background:${glow}" aria-hidden="true"></span><span class="pp-pack-title" style="color:${ink}"></span><span class="pp-pack-count"></span><span class="pp-pack-chevron" aria-hidden="true"></span><span class="pp-pack-track" aria-hidden="true"><span class="pp-pack-fill" style="background:${glow};width:${pct}%"></span></span>`;
     } else {
-      head.innerHTML = '<span class="pp-pack-mail" aria-hidden="true">✉</span><span class="pp-pack-title"></span><span class="pp-pack-count"></span><span class="pp-pack-chevron" aria-hidden="true"></span>';
+      head.innerHTML = '<span class="pp-pack-title"></span><span class="pp-pack-count"></span><span class="pp-pack-chevron" aria-hidden="true"></span>';
     }
     head.querySelector('.pp-pack-title').textContent = name;
     head.querySelector('.pp-pack-count').textContent = progress;
@@ -1017,9 +1017,12 @@ function fillPostcard(entry) {
     row.append(labelEl, dateEl);
     ppdEls.history.append(row);
   };
-  addHistoryRow('First visited', entry.first);
+  addHistoryRow('Saw', entry.first);
   entry.tierAt.forEach((at, i) => {
-    if (Number.isFinite(at)) addHistoryRow(`${tierTitle(host.EARN_NAMES[i + 1])} earned`, tierDateKey(at));
+    if (Number.isFinite(at)) {
+      const tier = host.EARN_NAMES[i + 1];
+      addHistoryRow(tier === 'near' ? 'Earned' : tierTitle(tier), tierDateKey(at));
+    }
   });
   ppdEls.history.hidden = !ppdEls.history.childElementCount;
 
@@ -1042,6 +1045,9 @@ function fillPostcard(entry) {
       if (i) ppdEls.stats.append(Object.assign(document.createElement('span'), { textContent: '·' }));
       ppdEls.stats.append(Object.assign(document.createElement('b'), { className, textContent: text }));
     });
+  } else if (Number.isFinite(entry.km)) {
+    ppdEls.stats.append(Object.assign(document.createElement('span'), { className: 'ppd-closest-label', textContent: 'Closest guess' }));
+    ppdEls.stats.append(Object.assign(document.createElement('b'), { className: 'ppd-closest-num', textContent: formatShareKm(entry.km) }));
   } else {
     ppdEls.stats.append(Object.assign(document.createElement('span'), { className: 'ppd-uncollected', textContent: 'Not yet collected' }));
   }
@@ -1506,15 +1512,14 @@ export function initPassport(main) {
             <p class="pc-fact" data-ppd="fact"></p>
             <div class="pc-divider"></div>
             <div class="pc-right">
-              <div class="pc-stamp-row">
-                <div class="pc-stamp" data-ppd="stamp"></div>
-                <span class="pc-postmark" data-ppd="postmark"></span>
-              </div>
               <div class="pc-addr">
+                <div class="pc-stamp-row">
+                  <div class="pc-stamp" data-ppd="stamp"></div>
+                  <span class="pc-postmark" data-ppd="postmark"></span>
+                </div>
                 <p class="pc-addr-name" data-ppd="addrName"></p>
                 <p class="pc-addr-country" data-ppd="addrCountry"></p>
                 <p class="pc-addr-pack" data-ppd="addrPack"></p>
-                <div class="pc-addr-rule"></div>
                 <div class="pc-addr-rule"></div>
               </div>
               <div class="ppd-history" data-ppd="history" aria-label="Visit history"></div>
