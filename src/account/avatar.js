@@ -3,7 +3,7 @@ export const SEAL_MOTIFS = Object.freeze(['globe', 'plane', 'compass', 'camera',
 const METALS = { bronze: ['#8a5a16', '#d9a44a'], silver: ['#8f979f', '#e8ecf0'], gold: ['#b27c20', '#ffc76a'] };
 const svg = (tag, attrs = {}) => { const node = document.createElementNS('http://www.w3.org/2000/svg', tag); Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value)); return node; };
 export const initialsFor = (name) => { const words = String(name || '').trim().split(/\s+/).filter(Boolean); return (words.length > 1 ? words.slice(0, 2).map((word) => word[0]).join('') : words[0]?.[0] || 'T').toUpperCase(); };
-export function sealConfig(loadout = {}, name = '') { const value = loadout?.v === 2 ? loadout : {}; return { v: 2, initials: /^[A-Za-z]{1,2}$/.test(value.initials || '') ? value.initials.toUpperCase() : initialsFor(name), disc: SEAL_DISCS[value.disc] ? value.disc : 'navy', motif: SEAL_MOTIFS.includes(value.motif) ? value.motif : 'globe', ring: ['level', 'bronze', 'silver', 'gold'].includes(value.ring) ? value.ring : 'level', topper: ['santa-hat', 'antlers'].includes(value.topper) ? value.topper : null }; }
+export function sealConfig(loadout = {}, name = '') { const value = loadout?.v === 2 ? loadout : {}; return { v: 2, initials: /^[A-Za-z]{1,2}$/.test(value.initials || '') ? value.initials.toUpperCase() : initialsFor(name), disc: SEAL_DISCS[value.disc] ? value.disc : 'navy', motif: SEAL_MOTIFS.includes(value.motif) ? value.motif : 'globe', ring: ['level', 'bronze', 'silver', 'gold'].includes(value.ring) ? value.ring : 'level', topper: ['santa-hat', 'antlers', 'leaf-cluster'].includes(value.topper) ? value.topper : null }; }
 export function avatarName(id = '') { return String(id).split('-').map((word) => word[0]?.toUpperCase() + word.slice(1)).join(' '); }
 function motifGlyph(motif) {
   const group = svg('g', { fill: 'none', stroke: '#ffc76a', 'stroke-width': '3', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }); const add = (tag, attrs) => group.append(svg(tag, attrs));
@@ -18,6 +18,7 @@ function motifGlyph(motif) {
 function topperGlyph(topper) {
   const group = svg('g'); const add = (tag, attrs) => group.append(svg(tag, attrs));
   if (topper === 'santa-hat') { add('path', { d: 'M34 27c5-16 21-23 38-17-8 4-11 12-9 18z', fill: '#c7362f' }); add('circle', { cx: 73, cy: 11, r: 5, fill: '#fff7e8' }); add('path', { d: 'M33 25h34c3 0 4 7 0 8H34c-4-1-4-7-1-8z', fill: '#fff7e8' }); }
+  if (topper === 'leaf-cluster') { add('path', { d: 'M33.5 29c-8-8-5-17 5-19 5 7 2 15-5 19zm13-4c-6-10 0-18 10-18 2 9-2 16-10 18zm10 4c0-10 8-15 17-11-2 9-9 13-17 11z', fill: '#c86722' }); add('path', { d: 'M31.5 31c12-8 22-12 39-11', fill: 'none', stroke: '#7a3a16', 'stroke-width': 2.5, 'stroke-linecap': 'round' }); }
   if (topper === 'antlers') { add('path', { d: 'M42 28V11m0 8-8-7m8 1 7-7M58 28V11m0 8 8-7m-8 1-7-7', fill: 'none', stroke: '#75431f', 'stroke-width': 5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }); }
   return group;
 }

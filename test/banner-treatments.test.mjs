@@ -9,7 +9,7 @@ test('every catalog banner has a dedicated shared card and swatch treatment', as
   ]);
   const bannerBlock = sheet.match(/Banners: \[(.*?)\],\n};/s)?.[1] || '';
   const ids = [...bannerBlock.matchAll(/\['([^']+)'/g)].map((match) => match[1]);
-  assert.equal(ids.length, 10);
+  assert.equal(ids.length, 12);
   for (const id of ids) {
     assert.match(css, new RegExp(`\\.traveler-card\\[data-card="${id}"\\], \\.banner-swatch\\[data-card="${id}"\\]`));
   }
