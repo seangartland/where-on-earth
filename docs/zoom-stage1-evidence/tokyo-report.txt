@@ -1,0 +1,16 @@
+zoom-trace-report: 361 events, 1 round(s)
+
+Round 0
+  Critical path (busy ms, parallel work merged, never summed):
+    tile-fetch: 22386.6 ms over 42 span(s)
+    daily-fetch: 17616.3 ms over 24 span(s)
+    bundle: 8791.4 ms over 1 span(s)
+    decode: 309.6 ms over 28 span(s)
+    window-pick: 12.3 ms over 9 span(s)
+  Requests by pool: {"visible":42,"prefetch":0,"bundle":1,"daily":24,"speculative":0}
+  Bytes by pool: {"visible":251617,"prefetch":0,"bundle":0,"daily":130466,"speculative":0}
+  Window churn: 1 build(s), 0 abort(s), wasted bytes: not measured
+  Native coverage of ready windows: (none ready)
+  Time from last input to window-ready: n/a
+  Time from last input to first presented frame: n/a
+
