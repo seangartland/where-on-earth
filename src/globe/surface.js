@@ -622,6 +622,21 @@ export const getSatProvider = () => {
   return SAT_PROVIDERS.find((provider) => provider.id === id && provider.selectable !== false)
     || SAT_PROVIDERS.find((provider) => provider.id === DEFAULT_SAT_PROVIDER_ID);
 };
+// Feel-test override: ?zcap=9 caps the inset ladder at z9 everywhere,
+// including pilot z10 windows, so the deepest layer is the z9 layer that
+// is already warm from the climb. No param means behavior is unchanged.
+let zcapCache;
+export function zoomCap() {
+  if (zcapCache === undefined) {
+    const v = parseInt(new URLSearchParams(location.search).get('zcap'));
+    zcapCache = Number.isFinite(v) ? v : null;
+  }
+  return zcapCache;
+}
+export const effectiveMaxZ = () => {
+  const cap = zoomCap();
+  return cap == null ? satProvider.maxZ : Math.min(satProvider.maxZ, cap);
+};
 export const SAT_FADE_S = 0.4;
 let mapStyle; // read in initImagery(), after main.js has handled ?reset=daily
 export let satTarget = 0; // uSatMix eases toward this
@@ -865,9 +880,9 @@ export function pickInsetWindow() {
   const effDist = state.targetDist && state.targetDist < state.dist ? state.targetDist : state.dist;
   const mpp = ((effDist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / state.viewH;
   let z = Math.ceil(Math.log2((156543.03 * Math.cos(view.lat)) / (mpp * INSET_Q)));
-  z = clamp(z, INSET_MIN_Z, satProvider.maxZ);
+  z = clamp(z, INSET_MIN_Z, effectiveMaxZ());
   const ladder = satProvider.zooms
-    ? satProvider.zooms.filter((r) => r >= INSET_MIN_Z && r <= satProvider.maxZ)
+    ? satProvider.zooms.filter((r) => r >= INSET_MIN_Z && r <= effectiveMaxZ())
     : null;
   if (ladder && ladder.length) {
     let i = servedRungIndex(ladder, z, navigator.connection?.saveData);
@@ -1226,7 +1241,7 @@ export function windowMostlyIn(win) {
 export function prepareInsetPrefetch(prioritize, arriving = null) {
   const win = inset.win;
   if (prioritize && !arriving) arriving = pickInsetWindow().want;
-  if (!win || (!prioritize && (inset.slow || !WARM_MODES.has(state.gameMode))) || win.z >= satProvider.maxZ) return;
+  if (!win || (!prioritize && (inset.slow || !WARM_MODES.has(state.gameMode))) || win.z >= effectiveMaxZ()) return;
   if (prioritize && !arriving) return;
   if (!prioritize && !win.ready && !windowMostlyIn(win)) return;
   if (navigator.connection?.saveData) return;
@@ -1234,7 +1249,7 @@ export function prepareInsetPrefetch(prioritize, arriving = null) {
   // Warm the next SERVED level: the next ladder rung when the provider
   // declares zooms (a z5 window warms z7, never the unserved z6), else z + 1.
   const z = arriving ? arriving.z : (satProvider.zooms ? satProvider.zooms.find((r) => r > win.z) : win.z + 1);
-  if (z === undefined || z > satProvider.maxZ) return;
+  if (z === undefined || z > effectiveMaxZ()) return;
   const n = 1 << z;
   const scale = 1 << (z - win.z);
   const seen = new Set();
