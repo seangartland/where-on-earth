@@ -91,6 +91,7 @@ function render(state, values = {}) {
           </div>
         </div>
         <p class="account-small-print">Links work once and expire in 7 days.</p>
+        <p class="account-small-print">Earn 25 XP when a friend joins and finishes their first Daily, up to 5 friends.</p>
         <p class="account-status" aria-live="polite"></p>
         <ul class="account-friends-list">${friendRows}</ul>
         <label class="account-share-row"><span><strong>Share my Daily pins with friends</strong><small>Turning this off also stops you seeing friends' pins.</small></span><input class="account-share-input" type="checkbox" ${me.sharePins !== false ? 'checked' : ''}><span class="account-toggle" aria-hidden="true"></span></label>
