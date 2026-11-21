@@ -3,7 +3,11 @@ import { isBullseye, isPostcard } from './daily-score.js';
 export const SEAL_DISCS = Object.freeze(['navy', 'burgundy', 'forest', 'charcoal']);
 export const SEAL_MOTIFS = Object.freeze({ globe: null, plane: 'frequent-flyer', compass: 'border-crosser', camera: 'postmarked', mountain: 'around-the-world', star: 'new-stamp' });
 export const DEFAULT_SEAL = Object.freeze({ v: 2, initials: null, disc: 'navy', motif: 'globe', ring: 'level', topper: null });
-export const HOLIDAY_TOPPER_WINDOW = Object.freeze({ startMonth: 12, startDay: 20, endDay: 26 });
+export const THANKSGIVING_2026_WINDOW = Object.freeze({ month: 11, startDay: 25, endDay: 29 });
+export const CHRISTMAS_2026_WINDOW = Object.freeze({ month: 12, startDay: 20, endDay: 26 });
+// Kept as the public name used by the first seasonal drop.
+export const HOLIDAY_TOPPER_WINDOW = CHRISTMAS_2026_WINDOW;
+const SEASONAL_TOPPER_ACHIEVEMENTS = Object.freeze({ 'santa-hat': 'holiday-santa', antlers: 'holiday-antlers', 'leaf-cluster': 'thanksgiving-2026-leaf-cluster' });
 
 export const ACHIEVEMENTS = Object.freeze([
   ['first-departure', 'consistency', 'First Departure', 'Complete 1 Daily', 'title:day-tripper', (s) => s.dailies >= 1],
@@ -29,6 +33,11 @@ export const ACHIEVEMENTS = Object.freeze([
   ['tour-guide', 'consistency', 'Tour Guide', 'Refer 5 friends', null, (s) => s.referrals >= 5],
   ['holiday-santa', 'seasonal', 'Holiday Hat', 'Complete a Daily December 20–26', 'topper:santa-hat', () => false],
   ['holiday-antlers', 'seasonal', 'Holiday Antlers', 'Complete a Daily December 20–26', 'topper:antlers', () => false],
+  ['thanksgiving-2026-leaf-cluster', 'seasonal', 'Thanksgiving 2026: Leaf Cluster', 'Complete a Daily November 25–29', 'topper:leaf-cluster', () => false],
+  ['thanksgiving-2026-harvest', 'seasonal', 'Thanksgiving 2026: Harvest', 'Complete a Daily November 25–29', 'card:harvest', () => false],
+  ['thanksgiving-2026-grateful-traveler', 'seasonal', 'Thanksgiving 2026: Grateful Traveler', 'Complete a Daily November 25–29', 'title:grateful-traveler', () => false],
+  ['christmas-2026-winter-post', 'seasonal', 'Christmas 2026: Winter Post', 'Complete a Daily December 20–26', 'card:winter-post', () => false],
+  ['christmas-2026-sleigh-captain', 'seasonal', 'Christmas 2026: Sleigh Captain', 'Complete a Daily December 20–26', 'title:sleigh-captain', () => false],
 ]);
 
 export function xpForCompletion(total, rounds) {
@@ -46,8 +55,8 @@ export function validateSeal(value, earnedIds, level = 1) {
   const disc = value.disc || DEFAULT_SEAL.disc; const motif = value.motif || DEFAULT_SEAL.motif; const ring = value.ring || DEFAULT_SEAL.ring; const topper = value.topper || null;
   if (!SEAL_DISCS.includes(disc) || !Object.hasOwn(SEAL_MOTIFS, motif) || (SEAL_MOTIFS[motif] && !earnedIds?.has(SEAL_MOTIFS[motif]))) return null;
   if (!['level', 'bronze', 'silver', 'gold'].includes(ring) || (ring === 'silver' && level < 5) || (ring === 'gold' && level < 10)) return null;
-  if (!['santa-hat', 'antlers'].includes(topper) && topper !== null) return null;
-  if (topper && !earnedIds?.has(topper === 'santa-hat' ? 'holiday-santa' : 'holiday-antlers')) return null;
+  if (!Object.hasOwn(SEASONAL_TOPPER_ACHIEVEMENTS, topper) && topper !== null) return null;
+  if (topper && !earnedIds?.has(SEASONAL_TOPPER_ACHIEVEMENTS[topper])) return null;
   if (value.initials != null && (typeof value.initials !== 'string' || !/^[A-Za-z]{1,2}$/.test(value.initials))) return null;
   return { v: 2, initials: value.initials == null ? null : value.initials.toUpperCase(), disc, motif, ring, topper };
 }
@@ -57,10 +66,14 @@ export function normalizeSeal(value, earnedIds, level = null) {
     return stored?.backdrop || stored?.skinTone ? DEFAULT_SEAL : validateSeal(stored, earnedIds, level == null ? Infinity : level) || DEFAULT_SEAL;
   } catch { return DEFAULT_SEAL; }
 }
-export function isHolidayTopperDate(date, now = Date.now()) {
+function isSeasonalDate(date, window, now = Date.now()) {
   const year = new Date(now).getUTCFullYear();
-  return date >= `${year}-12-${String(HOLIDAY_TOPPER_WINDOW.startDay).padStart(2, '0')}` && date <= `${year}-12-${String(HOLIDAY_TOPPER_WINDOW.endDay).padStart(2, '0')}`;
+  const start = `${year}-${String(window.month).padStart(2, '0')}-${String(window.startDay).padStart(2, '0')}`;
+  const end = `${year}-${String(window.month).padStart(2, '0')}-${String(window.endDay).padStart(2, '0')}`;
+  return date >= start && date <= end;
 }
+export function isThanksgiving2026Date(date, now = Date.now()) { return isSeasonalDate(date, THANKSGIVING_2026_WINDOW, now); }
+export function isHolidayTopperDate(date, now = Date.now()) { return isSeasonalDate(date, CHRISTMAS_2026_WINDOW, now); }
 export function ownsIdentity(type, id, level, earned, levelTwoTitle = null) {
   const defaults = { title: ['traveler'], card: ['blue-horizon'] };
   if (defaults[type]?.includes(id)) return true;
@@ -112,7 +125,9 @@ export async function processCompletion(env, accountId, date, now = Date.now()) 
   await env.DB.batch(Object.entries(ledger).map(([sourceType, amount]) => env.DB.prepare('INSERT OR IGNORE INTO xp_ledger (account_id, source_type, source_key, amount, created_at) VALUES (?, ?, ?, ?, ?)').bind(accountId, sourceType, `daily:${date}:${sourceType}`, amount, now)));
   const xpAfter = Number((await env.DB.prepare('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_ledger WHERE account_id = ?').bind(accountId).first())?.xp || 0);
   const snapshot = await stats(env, accountId);
-  const holidayIds = isHolidayTopperDate(date, now) ? new Set(['holiday-santa', 'holiday-antlers']) : new Set();
+  const holidayIds = new Set();
+  if (isThanksgiving2026Date(date, now)) ['thanksgiving-2026-leaf-cluster', 'thanksgiving-2026-harvest', 'thanksgiving-2026-grateful-traveler'].forEach((id) => holidayIds.add(id));
+  if (isHolidayTopperDate(date, now)) ['holiday-santa', 'holiday-antlers', 'christmas-2026-winter-post', 'christmas-2026-sleigh-captain'].forEach((id) => holidayIds.add(id));
   const statements = ACHIEVEMENTS.filter(([id, , , , , condition]) => holidayIds.has(id) || condition(snapshot)).map(([id]) => env.DB.prepare('INSERT OR IGNORE INTO user_achievements (account_id, achievement_id, earned_at, qualifying_key) VALUES (?, ?, ?, ?)').bind(accountId, id, now, `daily:${date}`));
   if (statements.length) await env.DB.batch(statements);
   if (xpAfter === xpBefore) return null;

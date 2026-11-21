@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { communityPercentage, communityPercentages, isHolidayTopperDate, levelForXp, normalizeSeal, ownsIdentity, validateSeal, xpAtLevel, xpForCompletion } from '../src/progression.js';
+import { communityPercentage, communityPercentages, isHolidayTopperDate, isThanksgiving2026Date, levelForXp, normalizeSeal, ownsIdentity, validateSeal, xpAtLevel, xpForCompletion } from '../src/progression.js';
 import { scoreForDistance } from '../src/daily-score.js';
 
 test('Daily XP uses canonical performance caps and the published level curve', () => {
@@ -32,6 +32,8 @@ test('seal config validates discs, earned motifs, finishes, toppers, initials, a
   assert.equal(validateSeal({ ring: 'gold' }, new Set(), 10)?.ring, 'gold');
   assert.equal(validateSeal({ topper: 'santa-hat' }, new Set(), 1), null);
   assert.equal(validateSeal({ topper: 'antlers' }, new Set(['holiday-antlers']), 1)?.topper, 'antlers');
+  assert.equal(validateSeal({ topper: 'leaf-cluster' }, new Set(), 1), null);
+  assert.equal(validateSeal({ topper: 'leaf-cluster' }, new Set(['thanksgiving-2026-leaf-cluster']), 1)?.topper, 'leaf-cluster');
   assert.equal(validateSeal({ disc: 'violet' }, new Set()), null);
   assert.equal(validateSeal({ motif: 'plane' }, new Set()), null);
   assert.equal(validateSeal({ initials: '123' }, new Set()), null);
@@ -49,6 +51,23 @@ test('holiday topper window is December 20 through 26 of the current year', () =
   assert.equal(isHolidayTopperDate('2026-12-26', now), true);
   assert.equal(isHolidayTopperDate('2026-12-27', now), false);
   assert.equal(isHolidayTopperDate('2025-12-21', now), false);
+});
+
+test('Thanksgiving window is November 25 through 29 of the current year', () => {
+  const now = Date.UTC(2026, 10, 26);
+  assert.equal(isThanksgiving2026Date('2026-11-24', now), false);
+  assert.equal(isThanksgiving2026Date('2026-11-25', now), true);
+  assert.equal(isThanksgiving2026Date('2026-11-29', now), true);
+  assert.equal(isThanksgiving2026Date('2026-11-30', now), false);
+  assert.equal(isThanksgiving2026Date('2025-11-27', now), false);
+});
+
+test('seasonal cards and titles require their earned rewards', () => {
+  const earned = new Set(['card:harvest', 'title:grateful-traveler', 'card:winter-post', 'title:sleigh-captain']);
+  for (const [type, id] of [['card', 'harvest'], ['title', 'grateful-traveler'], ['card', 'winter-post'], ['title', 'sleigh-captain']]) {
+    assert.equal(ownsIdentity(type, id, 1, new Set()), false);
+    assert.equal(ownsIdentity(type, id, 1, earned), true);
+  }
 });
 
 test('community percentages keep small cohorts and zero earners private', () => {
