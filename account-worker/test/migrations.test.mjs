@@ -16,15 +16,15 @@ for (const [name, setup] of [
   ['production-shaped schema', (db) => db.exec(`INSERT INTO "user" (id, name, email, emailVerified, createdAt, updatedAt)
     VALUES ('existing', 'Existing', 'existing@example.test', 1, 1, 1)`)],
 ]) {
-  test(`0004 through 0007 re-run without changing the immutable seed on ${name}`, () => {
+  test(`0004 through 0008 re-run without changing the immutable seed on ${name}`, () => {
     const db = new DatabaseSync(':memory:');
     db.exec('PRAGMA foreign_keys = ON');
     apply(db, ['0001_init.sql', '0003_friends.sql']);
     setup(db);
-    apply(db, ['0004_daily_trust.sql', '0005_traveler_progression.sql', '0006_achievement_community.sql', '0007_progression_integrity.sql']);
+    apply(db, ['0004_daily_trust.sql', '0005_traveler_progression.sql', '0006_achievement_community.sql', '0007_progression_integrity.sql', '0008_referral_credits.sql']);
     const first = snapshot(db);
     assert.equal(first.length, 803);
-    apply(db, ['0004_daily_trust.sql', '0005_traveler_progression.sql', '0006_achievement_community.sql', '0007_progression_integrity.sql']);
+    apply(db, ['0004_daily_trust.sql', '0005_traveler_progression.sql', '0006_achievement_community.sql', '0007_progression_integrity.sql', '0008_referral_credits.sql']);
     assert.deepEqual(snapshot(db), first);
   });
 }
