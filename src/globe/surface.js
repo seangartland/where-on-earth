@@ -581,7 +581,7 @@ export const SAT_PROVIDERS = [
     id: 's2gm2025-pilot',
     selectable: false,
     // v=1 avoids stale edge-cache entries left by the audit scans.
-    tiles: 'https://tiles.where-on.earth/s2gm2025-pilot/{z}/{x}/{y}.jpg?v=1',
+    tiles: 'https://tiles.where-on.earth/s2gm2025-pilot/{z}/{x}/{y}.jpg?v=2',
     base: './assets/base-ours-4k-v4b.jpg',
     credit: 'Satellite imagery: our own mosaic, built from Copernicus Sentinel data 2025 and processed locally',
     maxZ: 10,

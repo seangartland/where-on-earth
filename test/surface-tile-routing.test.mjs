@@ -14,9 +14,9 @@ const { SAT_PROVIDERS, tileURL } = await import(`data:text/javascript,${encodeUR
 const defaultProvider = SAT_PROVIDERS.find((provider) => provider.id === 's2gm2025');
 
 test('default provider routes z10 pilot footprints to the pilot cache key', () => {
-  assert.equal(tileURL(defaultProvider, 10, 386, 501), 'https://tiles.where-on.earth/s2gm2025-pilot/10/501/386.jpg?v=1'); // Madrid
-  assert.equal(tileURL(defaultProvider, 10, 380, 262), 'https://tiles.where-on.earth/s2gm2025-pilot/10/262/380.jpg?v=1'); // Chicago
-  assert.equal(tileURL(defaultProvider, 10, 491, 999), 'https://tiles.where-on.earth/s2gm2025-pilot/10/999/491.jpg?v=1'); // Majuro
+  assert.equal(tileURL(defaultProvider, 10, 386, 501), 'https://tiles.where-on.earth/s2gm2025-pilot/10/501/386.jpg?v=2'); // Madrid
+  assert.equal(tileURL(defaultProvider, 10, 380, 262), 'https://tiles.where-on.earth/s2gm2025-pilot/10/262/380.jpg?v=2'); // Chicago
+  assert.equal(tileURL(defaultProvider, 10, 491, 999), 'https://tiles.where-on.earth/s2gm2025-pilot/10/999/491.jpg?v=2'); // Majuro
 });
 
 test('default provider retains its prefix outside the pilot and below z10', () => {

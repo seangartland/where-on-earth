@@ -2,7 +2,7 @@ import { buildTileBundle } from '../../src/globe/tile-bundle.js';
 
 const PROVIDERS = {
   s2gm2025: { path: 's2gm2025', version: '2', zooms: new Set([5, 7, 8, 9]) },
-  's2gm2025-pilot': { path: 's2gm2025-pilot', version: '1', zooms: new Set([10]) },
+  's2gm2025-pilot': { path: 's2gm2025-pilot', version: '2', zooms: new Set([10]) },
   eox2025: { path: 'tiles', version: '3' },
   's2gm2025-sf1b': { path: 's2gm2025-sf1b', version: '1' },
 };
