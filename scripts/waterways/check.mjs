@@ -1,6 +1,6 @@
 // Waterways batch checks over the banked and quarantined waterway entries, through the game's own extent code.
 // Extent: a guess on the pin scores 0 km for a polygon (pin inside the shipped polygon) and within the 2.5 km gate
-// for a line; a guess 200 km away from the pin scores a positive distance. Also: id and short-name dedupe (raw and
+// for a line; guesses 1000 km from the pin on four bearings score a positive distance (outside every feature). Also: id and short-name dedupe (raw and
 // diacritic-stripped) against the bank, cities, quarantine and removed files; image URL unique across the dataset;
 // no montage/collage/placeholder/.svg image; US clues show the state, non-US clues no region; banned filler
 // phrases; required fields in the extent-entry order; nearest other entry (under 10 km needs a reason in the report).
@@ -59,7 +59,7 @@ for (const e of batch) {
     else {
       pinKm = nearestExtentPoint(e, { lat: e.lat, lng: e.lng }).km;
       if (e.extentType === 'polygon' ? pinKm !== 0 : pinKm > 2.5) problems.push(`pin scores ${pinKm.toFixed(3)} km`);
-      farKm = Math.min(...[0, 90, 180, 270].map((b) => nearestExtentPoint(e, offset(e, 200, b)).km));
+      farKm = Math.min(...[0, 90, 180, 270].map((b) => nearestExtentPoint(e, offset(e, 1000, b)).km));
       if (!(farKm > 0)) problems.push('far guesses score 0');
     }
   } else if (extents[e.id]) problems.push('quarantined entry has an extent record');
@@ -70,7 +70,7 @@ for (const e of batch) {
     if (!near || d < near.km) near = { id: x.id, km: d };
   }
   fail += problems.length ? 1 : 0;
-  console.log(`${e.id.padEnd(20)} ${banked ? 'bank      ' : 'quarantine'} pin ${pinKm === null ? '-' : pinKm.toFixed(3)} km, min 200 km-probe ${farKm === null ? '-' : farKm.toFixed(1)} km | nearest ${near.id} ${near.km.toFixed(1)} km | ${problems.length ? 'FAIL ' + problems.join('; ') : 'ok'}`);
+  console.log(`${e.id.padEnd(20)} ${banked ? 'bank      ' : 'quarantine'} pin ${pinKm === null ? '-' : pinKm.toFixed(3)} km, min 1000 km-probe ${farKm === null ? '-' : farKm.toFixed(1)} km | nearest ${near.id} ${near.km.toFixed(1)} km | ${problems.length ? 'FAIL ' + problems.join('; ') : 'ok'}`);
 }
 console.log(`${batch.length} checked, ${fail} failing`);
 process.exit(fail ? 1 : 0);

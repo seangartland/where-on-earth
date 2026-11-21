@@ -7,4 +7,13 @@ export const PACK_WATERS_IDS = new Set([
   'bosphorus',
   'dardanelles',
   'suez-canal',
+  'strait-of-malacca',
+  'strait-of-magellan',
+  'english-channel',
+  'corinth-canal',
+  'golden-gate',
+  'bab-el-mandeb',
+  'taiwan-strait',
+  'cook-strait',
+  'oresund',
 ]);

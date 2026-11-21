@@ -1,10 +1,27 @@
 {
+"enwiki:Bab-el-Mandeb": "Q83318",
+"enwiki:Bab-el-Mandeb, Djibouti": null,
 "enwiki:Bosphorus": "Q35958",
 "enwiki:Bosphorus, Turkey": null,
+"enwiki:Cook Strait, New Zealand": "Q5023",
+"enwiki:Corinth Canal": "Q182873",
+"enwiki:Corinth Canal, Greece": null,
 "enwiki:Dardanelles": "Q6514",
 "enwiki:Dardanelles, Turkey": null,
+"enwiki:English Channel": "Q34640",
+"enwiki:English Channel, France": null,
+"enwiki:Golden Gate": "Q220032",
+"enwiki:Golden Gate, United States": null,
+"enwiki:Strait of Magellan": "Q48365",
+"enwiki:Strait of Magellan, Chile": null,
+"enwiki:Strait of Malacca": "Q48359",
+"enwiki:Strait of Malacca, Indonesia": null,
 "enwiki:Suez Canal": "Q899",
 "enwiki:Suez Canal, Egypt": null,
+"enwiki:Taiwan Strait": "Q127031",
+"enwiki:Taiwan Strait, China": null,
+"enwiki:Øresund": "Q104662",
+"enwiki:Øresund, Denmark": null,
 "osm:Aarhus, Denmark": {
 "category": "place",
 "lat": 56.1496278,
@@ -464,6 +481,7 @@
 "type": "administrative",
 "wikidata": "Q170482"
 },
+"osm:Bab-el-Mandeb, Djibouti and Yemen": null,
 "osm:Baghdad, Iraq": {
 "category": "boundary",
 "lat": 33.3061701,
@@ -1535,6 +1553,15 @@
 "type": "administrative",
 "wikidata": "Q1880"
 },
+"osm:Cook Strait, New Zealand": {
+"category": "natural",
+"lat": -41.1976586,
+"linked_place": null,
+"lon": 174.5445093,
+"name": "Cook Strait, Wellington, New Zealand",
+"type": "strait",
+"wikidata": "Q5023"
+},
 "osm:Copenhagen, Denmark": {
 "category": "place",
 "lat": 55.6867243,
@@ -1543,6 +1570,15 @@
 "name": "Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1357, Denmark",
 "type": "city",
 "wikidata": "Q1748"
+},
+"osm:Corinth Canal, Greece": {
+"category": "waterway",
+"lat": 37.9341193,
+"linked_place": null,
+"lon": 22.9846912,
+"name": "Corinth Canal, Community of Loutraki - Perachora, Municipal Unit of Loutraki - Perachora, Loutraki-Perachora-Agioi Theodoroi Municipality, Corinthia Regional Unit, Peloponnese Region, Peloponnese, Western Greece and the Ionian, Greece",
+"type": "canal",
+"wikidata": "Q182873"
 },
 "osm:Cork, Ireland": {
 "category": "boundary",
@@ -2030,6 +2066,7 @@
 "type": "administrative",
 "wikidata": "Q16562"
 },
+"osm:English Channel, France and England": null,
 "osm:Ensenada, Mexico": {
 "category": "boundary",
 "lat": 31.8658887,
@@ -2299,6 +2336,15 @@
 "name": "Goiânia, Goiás, Central-West Region, Brazil",
 "type": "administrative",
 "wikidata": "Q83189"
+},
+"osm:Golden Gate, California": {
+"category": "natural",
+"lat": 37.8068588,
+"linked_place": null,
+"lon": -122.5023456,
+"name": "Golden Gate, San Francisco, Marin County, California, United States",
+"type": "strait",
+"wikidata": "Q220032"
 },
 "osm:Gqeberha, South Africa": {
 "category": "place",
@@ -6111,6 +6157,16 @@
 "type": "city",
 "wikidata": "Q1754"
 },
+"osm:Strait of Magellan, Chile": {
+"category": "natural",
+"lat": -53.9250254,
+"linked_place": null,
+"lon": -71.3221444,
+"name": "Strait of Magellan, Chile",
+"type": "strait",
+"wikidata": "Q48365"
+},
+"osm:Strait of Malacca, Indonesia and Malaysia": null,
 "osm:Strasbourg, France": {
 "category": "boundary",
 "lat": 48.584614,
@@ -6291,6 +6347,7 @@
 "type": "administrative",
 "wikidata": "Q1867"
 },
+"osm:Taiwan Strait, China and Taiwan": null,
 "osm:Taiz, Yemen": {
 "category": "place",
 "lat": 13.5752242,
@@ -7209,6 +7266,7 @@
 "type": "city",
 "wikidata": "Q26515"
 },
+"osm:Øresund, Denmark and Sweden": null,
 "osm:Ürümqi, China": {
 "category": "boundary",
 "lat": 43.8244074,
@@ -7295,6 +7353,7 @@
 "qid:auckland-new-zealand": "Q37100",
 "qid:austin-usa": "Q16559",
 "qid:avarua-cook-islands": "Q170482",
+"qid:bab-el-mandeb": "Q83318",
 "qid:baghdad": "Q1530",
 "qid:baku": "Q9248",
 "qid:baltimore": "Q5092",
@@ -7415,8 +7474,10 @@
 "qid:columbus": "Q16567",
 "qid:conakry-gn": "Q3733",
 "qid:concepcion-cl": "Q1880",
+"qid:cook-strait": "Q5023",
 "qid:copenhagen-denmark": "Q1748",
 "qid:cordoba-ar": "Q44210",
+"qid:corinth-canal": "Q182873",
 "qid:cork-ireland": "Q36647",
 "qid:cotonou-bj": "Q43595",
 "qid:coventry-england": "Q6225",
@@ -7469,6 +7530,7 @@
 "qid:edinburgh-scotland": "Q23436",
 "qid:edmonton-canada": "Q2096",
 "qid:el-paso-usa": "Q16562",
+"qid:english-channel": "Q34640",
 "qid:ensenada-mx": "Q656189",
 "qid:entebbe-ug": "Q211970",
 "qid:enugu-ng": "Q465022",
@@ -7499,6 +7561,7 @@
 "qid:giza-eg": "Q81788",
 "qid:glasgow-scotland": "Q4093",
 "qid:goiania-br": "Q83189",
+"qid:golden-gate": "Q220032",
 "qid:gqeberha-za": "Q125434",
 "qid:granada-es": "Q8810",
 "qid:grand-rapids-usa": "Q184587",
@@ -7781,6 +7844,7 @@
 "qid:omdurman-sd": "Q180921",
 "qid:omsk-ru": "Q898",
 "qid:oran-dz": "Q131818",
+"qid:oresund": "Q104662",
 "qid:orlando": "Q49233",
 "qid:osaka-japan": "Q35765",
 "qid:oslo-norway": "Q585",
@@ -7935,6 +7999,8 @@
 "qid:stari-most": "Q188528",
 "qid:stavanger-no": "Q25416",
 "qid:stockholm-sweden": "Q1754",
+"qid:strait-of-magellan": "Q48365",
+"qid:strait-of-malacca": "Q48359",
 "qid:strasbourg-france": "Q6602",
 "qid:stuttgart-de": "Q1022",
 "qid:sucre-bolivia": "Q2907",
@@ -7952,6 +8018,7 @@
 "qid:taichung-tw": "Q245023",
 "qid:tainan-tw": "Q140631",
 "qid:taipei": "Q1867",
+"qid:taiwan-strait": "Q127031",
 "qid:taiz": "Q466216",
 "qid:takeo": "Q1195207",
 "qid:tallinn-estonia": "Q1770",
@@ -8695,6 +8762,12 @@
 "display": "Plaza Expedicionarios del Desierto, Centro, San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
 "type": "pedestrian"
 },
+"rev:-41.22944,174.48306": {
+"cat": "boundary",
+"city": null,
+"display": "Marlborough, New Zealand",
+"type": "administrative"
+},
 "rev:-41.28650,174.77620": {
 "cat": "amenity",
 "city": "Wellington",
@@ -8736,6 +8809,12 @@
 "city": "Natal",
 "display": "Rua Calistrato Carrilho, Barro Vermelho, Zona Leste, Natal, Rio Grande do Norte, Northeast Region, 59020-130, Brazil",
 "type": "residential"
+},
+"rev:-54.00000,-71.00000": {
+"cat": "boundary",
+"city": "Punta Arenas",
+"display": "Punta Arenas, Provincia de Magallanes, Magallanes and Chilean Antarctica Region, Chile",
+"type": "administrative"
 },
 "rev:-54.80710,-68.30300": {
 "cat": "shop",
@@ -9133,6 +9212,12 @@
 "display": "Rond-Point des Nations Unis, Bilbalogho, Ouagadougou, Kadiogo, Centre, Burkina Faso",
 "type": "trunk"
 },
+"rev:12.58333,43.33333": {
+"cat": "boundary",
+"city": null,
+"display": "Djibouti",
+"type": "administrative"
+},
 "rev:12.60915,-7.97522": {
 "cat": "highway",
 "city": "Bamako",
@@ -9529,6 +9614,12 @@
 "display": "Ahmed Bin Idris Street, Shangani District, Mogadishu, Hamar Weyne District, Banaadir, BN 09010, Somalia",
 "type": "playground"
 },
+"rev:2.83300,101.03700": {
+"cat": "boundary",
+"city": null,
+"display": "Selangor, Malaysia",
+"type": "administrative"
+},
 "rev:20.03421,110.34651": {
 "cat": "highway",
 "city": "Meilan District",
@@ -9822,6 +9913,12 @@
 "city": "Riyadh",
 "display": "Al Hareth Ibn Al Habbab, As Salamah, Ad Dhubbat, Riyadh, Riyadh governorate, Riyadh Region, 12623-4571, Saudi Arabia",
 "type": "residential"
+},
+"rev:24.81111,119.92833": {
+"cat": null,
+"city": null,
+"display": null,
+"type": null
 },
 "rev:24.86070,67.00110": {
 "cat": "highway",
@@ -11035,6 +11132,12 @@
 "display": "South Van Ness Avenue, South of Market, Civic Center, Mission, San Francisco, California, 94102, United States",
 "type": "waste_basket"
 },
+"rev:37.81667,-122.48333": {
+"cat": "man_made",
+"city": "San Francisco",
+"display": "Golden Gate Bridge, Golden Gate, San Francisco, Marin County, California, 24129, United States",
+"type": "bridge"
+},
 "rev:37.85075,65.24330": {
 "cat": "highway",
 "city": "Kerkichi",
@@ -11058,6 +11161,12 @@
 "city": "Niigata",
 "display": "南浜通, Nishiboridori-rokubancho, Yachiyo, Chuo Ward, Niigata, Niigata Prefecture, 951-8112, Japan",
 "type": "tertiary"
+},
+"rev:37.92703,22.99462": {
+"cat": "man_made",
+"city": "Municipal Unit of Loutraki - Perachora",
+"display": "Διώρυγα Κορίνθου, Αθηνών - Κορίνθου, Γαλότα, Community of Loutraki - Perachora, Municipal Unit of Loutraki - Perachora, Loutraki-Perachora-Agioi Theodoroi Municipality, Corinthia Regional Unit, Peloponnese Region, Peloponnese, Western Greece and the Ionian, 201 50, Greece",
+"type": "bridge"
 },
 "rev:37.93750,58.38000": {
 "cat": "highway",
@@ -12325,6 +12434,12 @@
 "display": "Kota Kinabalu, West Coast Division, Sabah, 88000, Malaysia",
 "type": "unclassified"
 },
+"rev:50.00000,-2.00000": {
+"cat": null,
+"city": null,
+"display": null,
+"type": null
+},
 "rev:50.06000,19.94000": {
 "cat": "tourism",
 "city": "Krakow",
@@ -12696,6 +12811,12 @@
 "city": "Copenhagen",
 "display": "Vestervold, Meatpacking District, Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1550, Denmark",
 "type": "pedestrian"
+},
+"rev:55.75000,12.75000": {
+"cat": "boundary",
+"city": null,
+"display": "Denmark",
+"type": "administrative"
 },
 "rev:55.75580,37.61730": {
 "cat": "amenity",
@@ -13275,6 +13396,13 @@
 ],
 "precision": 0.0002777777777777778
 },
+"wd:Q104662": {
+"p625": [
+55.75,
+12.75
+],
+"precision": 0.0166667
+},
 "wd:Q1055": {
 "p625": [
 53.55,
@@ -13533,6 +13661,13 @@
 -5.8044679
 ],
 "precision": 1e-06
+},
+"wd:Q127031": {
+"p625": [
+24.811111111111,
+119.92833333333
+],
+"precision": null
 },
 "wd:Q127856": {
 "p625": [
@@ -14703,6 +14838,13 @@
 ],
 "precision": 0.00027777777777778
 },
+"wd:Q182873": {
+"p625": [
+37.927031,
+22.994623
+],
+"precision": 2.777777777777778e-08
+},
 "wd:Q182984": {
 "p625": [
 12,
@@ -15409,6 +15551,13 @@
 12.482777777778
 ],
 "precision": 0.00027777777777778
+},
+"wd:Q220032": {
+"p625": [
+37.816666666667,
+-122.48333333333
+],
+"precision": null
 },
 "wd:Q221203": {
 "p625": [
@@ -16249,6 +16398,13 @@
 135.76811111111112
 ],
 "precision": 2.777777777777778e-05
+},
+"wd:Q34640": {
+"p625": [
+50,
+-2
+],
+"precision": 1
 },
 "wd:Q34647": {
 "p625": [
@@ -17643,6 +17799,20 @@
 ],
 "precision": 0.00027777777777778
 },
+"wd:Q48359": {
+"p625": [
+2.833,
+101.037
+],
+"precision": 0.001
+},
+"wd:Q48365": {
+"p625": [
+-54,
+-71
+],
+"precision": 1
+},
 "wd:Q48403": {
 "p625": [
 31.626917,
@@ -17747,6 +17917,13 @@
 128.86793333333
 ],
 "precision": 2.7777777777778e-06
+},
+"wd:Q5023": {
+"p625": [
+-41.229444444444,
+174.48305555556
+],
+"precision": null
 },
 "wd:Q507080": {
 "p625": [
@@ -18482,6 +18659,13 @@
 43.12916666666667
 ],
 "precision": 0.0002777777777777778
+},
+"wd:Q83318": {
+"p625": [
+12.583333333333,
+43.333333333333
+],
+"precision": null
 },
 "wd:Q83387": {
 "p625": [
