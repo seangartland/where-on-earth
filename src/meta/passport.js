@@ -236,10 +236,10 @@ function passportSlot(entry) {
     earnName: earn,
     entry,
     photo: hasRealPhoto(entry.item) ? 'image' : 'flag',
-    // Collected slots carry no km stamp (Sean, 2026-11-04): the closest
-    // guess belongs on the not-yet-collected postcard, where it reads as
-    // progress, and on the collected postcard's back.
-    scoreText: entry.earned ? null : pillText,
+    // No km seals on Passport thumbnails (Sean, 2026-11-21, extending the
+    // 2026-11-04 collected-slot ruling to every slot): the closest guess
+    // lives on the opened postcard's detail view, not on the grid.
+    scoreText: null,
     scoreTier: tier,
   }, {
     variant: 'slot',
