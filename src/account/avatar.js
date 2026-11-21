@@ -17,7 +17,7 @@ function motifGlyph(motif) {
 }
 function topperGlyph(topper) {
   const group = svg('g'); const add = (tag, attrs) => group.append(svg(tag, attrs));
-  if (topper === 'santa-hat') { add('path', { d: 'M28 27c5-16 21-23 38-17-8 4-11 12-9 18z', fill: '#c7362f' }); add('circle', { cx: 67, cy: 11, r: 5, fill: '#fff7e8' }); add('path', { d: 'M27 25h34c3 0 4 7 0 8H28c-4-1-4-7-1-8z', fill: '#fff7e8' }); }
+  if (topper === 'santa-hat') { add('path', { d: 'M34 27c5-16 21-23 38-17-8 4-11 12-9 18z', fill: '#c7362f' }); add('circle', { cx: 73, cy: 11, r: 5, fill: '#fff7e8' }); add('path', { d: 'M33 25h34c3 0 4 7 0 8H34c-4-1-4-7-1-8z', fill: '#fff7e8' }); }
   if (topper === 'antlers') { add('path', { d: 'M42 28V11m0 8-8-7m8 1 7-7M58 28V11m0 8 8-7m-8 1-7-7', fill: 'none', stroke: '#75431f', 'stroke-width': 5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }); }
   return group;
 }
@@ -27,5 +27,5 @@ export function renderAvatar(loadout, size = 48, opts = {}) {
   const image = svg('svg', { viewBox: '0 0 100 100', role: 'img', 'aria-label': `${config.initials} seal` }); const gradientId = `seal-${Math.random().toString(36).slice(2)}`; const gradient = svg('linearGradient', { id: gradientId, x1: 0, y1: 0, x2: 1, y2: 1 }); gradient.append(svg('stop', { offset: '0%', 'stop-color': dark }), svg('stop', { offset: '100%', 'stop-color': light }));
   const cy = topped ? 59 : 50; const outer = topped ? 39 : 48; const inner = topped ? 37 : 46; const disc = topped ? 33 : 42;
   const defs = svg('defs'); defs.append(gradient); image.append(defs, svg('circle', { cx: 50, cy, r: outer, fill: dark }), svg('circle', { cx: 50, cy, r: inner, fill: `url(#${gradientId})` }), svg('circle', { cx: 50, cy, r: disc, fill: SEAL_DISCS[config.disc] }));
-  const letters = svg('text', { x: 50, y: topped ? 68 : 60, fill: '#f6edd8', 'font-family': 'Luckiest Guy, sans-serif', 'font-size': topped ? 29 : 34, 'text-anchor': 'middle' }); letters.textContent = config.initials; image.append(letters); if (size >= 40) { const motif = motifGlyph(config.motif); if (topped) motif.setAttribute('transform', 'translate(0 9) scale(.9 1)'); image.append(motif); } if (topped) image.append(topperGlyph(config.topper)); wrap.append(image); return wrap;
+  const letters = svg('text', { x: 50, y: topped ? 68 : 60, fill: '#f6edd8', 'font-family': 'Luckiest Guy, sans-serif', 'font-size': topped ? 29 : 34, 'text-anchor': 'middle' }); letters.textContent = config.initials; image.append(letters); if (size >= 40) { const motif = motifGlyph(config.motif); if (topped) motif.setAttribute('transform', 'translate(5 9) scale(.9 1)'); image.append(motif); } if (topped) image.append(topperGlyph(config.topper)); wrap.append(image); return wrap;
 }
