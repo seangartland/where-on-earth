@@ -1,6 +1,6 @@
 export const SEAL_DISCS = Object.freeze({ navy: '#1e4e9c', burgundy: '#7a2230', forest: '#1f4d3a', charcoal: '#2b2f36' });
 export const SEAL_MOTIFS = Object.freeze(['globe', 'plane', 'compass', 'camera', 'mountain', 'star']);
-const METALS = { bronze: ['#8a5a16', '#d9a44a'], silver: ['#8f979f', '#e8ecf0'], gold: ['#b27c20', '#ffc76a'] };
+const METALS = { bronze: ['#6b3d13', '#a9713a'], silver: ['#8f979f', '#e8ecf0'], gold: ['#b27c20', '#ffc76a'] };
 const svg = (tag, attrs = {}) => { const node = document.createElementNS('http://www.w3.org/2000/svg', tag); Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value)); return node; };
 export const initialsFor = (name) => { const words = String(name || '').trim().split(/\s+/).filter(Boolean); return (words.length > 1 ? words.slice(0, 2).map((word) => word[0]).join('') : words[0]?.[0] || 'T').toUpperCase(); };
 export function sealConfig(loadout = {}, name = '') { const value = loadout?.v === 2 ? loadout : {}; return { v: 2, initials: /^[A-Za-z]{1,2}$/.test(value.initials || '') ? value.initials.toUpperCase() : initialsFor(name), disc: SEAL_DISCS[value.disc] ? value.disc : 'navy', motif: SEAL_MOTIFS.includes(value.motif) ? value.motif : 'globe', ring: ['level', 'bronze', 'silver', 'gold'].includes(value.ring) ? value.ring : 'level', topper: ['santa-hat', 'antlers', 'leaf-cluster'].includes(value.topper) ? value.topper : null }; }
