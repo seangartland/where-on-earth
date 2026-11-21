@@ -46,6 +46,15 @@ function passportSummary() {
 let passportBox;
 let passportEls;
 
+function refreshHomeProgression() {
+  if (!ACCOUNTS_ENABLED || !isSignedIn()) return;
+  progression().then((profile) => {
+    if (!profile || !passportEls?.xp) return;
+    passportEls.xpBar.innerHTML = renderXpBar(profile, { compact: true, sealSize: 60 });
+    passportEls.xp.hidden = false;
+  }).catch(() => {});
+}
+
 export function syncPassport() {
   if (host.passportDirty) host.buildPassportDots();
   const summary = passportSummary();
@@ -1293,13 +1302,8 @@ export function initPassportHome(main) {
     event.stopPropagation();
     host.openTravelerProfile(passportEls.xp);
   });
-  if (ACCOUNTS_ENABLED && isSignedIn()) {
-    progression().then((profile) => {
-      if (!profile || !passportEls?.xp) return;
-      passportEls.xpBar.innerHTML = renderXpBar(profile, { compact: true });
-      passportEls.xp.hidden = false;
-    }).catch(() => {});
-  }
+  refreshHomeProgression();
+  window.addEventListener('progression-loadout-change', refreshHomeProgression);
 }
 
 export function initPassport(main) {

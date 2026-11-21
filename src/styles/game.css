@@ -513,6 +513,7 @@ body.survival .reveal-survival-streak:not(:empty) { display: inline; }
 .xp-bar-compact .xp-bar-top span { font-size: 9px; }
 .profile-xp { margin: -8px 0 18px; padding: 11px 12px; border: 1px solid rgba(var(--rgb-line),.26); border-radius: 8px; background: #111a30; }
 .profile-xp > p { margin: 8px 0 0; color: var(--ink-body); font-size: 11px; }
+.profile-xp > .profile-xp-explainer { color: rgba(var(--rgb-mist),.57); line-height: 1.35; }
 .level-strip { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
 .level-strip i { position: relative; display: grid; place-items: center; width: 19px; height: 19px; border: 1px solid rgba(var(--rgb-line),.55); border-radius: 50%; color: var(--ink-body); font-size: 8px; font-style: normal; }
 .level-strip i:not(:last-child)::after { position: absolute; left: 18px; width: calc((100vw - 170px) / 9); max-width: 25px; height: 2px; background: rgba(var(--rgb-line),.42); content: ''; }
@@ -1229,10 +1230,11 @@ body.game-stats #hud { opacity: 0; }
 .passport-stamps img[data-tier="cyan"] { border-color: #34486a; }
 .passport-stamps img[data-tier="dim"] { filter: saturate(.65) brightness(.7); }
 .passport-xp[hidden] { display: none; }
-.passport-xp { display: flex; align-items: center; gap: 8px; margin: 11px 14px 26px; padding-top: 7px; border-top: 1px solid rgba(var(--rgb-line),.2); cursor: pointer; }
+.passport-xp { display: flex; box-sizing: border-box; align-items: center; min-height: 76px; gap: 8px; margin: 11px 14px 26px; padding: 7px 0 8px; border-top: 1px solid rgba(var(--rgb-line),.2); cursor: pointer; }
 .passport-xp:focus-visible { outline: 2px solid #67e8ff; outline-offset: 2px; }
 .passport-xp [data-passport="xp-bar"] { flex: 1; min-width: 0; }
 .passport-xp .xp-bar-compact { margin: 0; padding: 0; border: 0; }
+.passport-xp .xp-bar-seal { width: 60px; height: 60px; }
 .passport-xp-chevron { flex: none; color: rgba(52,72,96,.8); font-size: 22px; font-weight: 800; line-height: 1; }
 
 /* Recommended home variant: the card as a one-line strip at the mode grid's

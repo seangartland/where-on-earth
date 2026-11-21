@@ -19,10 +19,10 @@ export function rewardLabel(reward, catalogs) {
 }
 
 function nextUnlock(level) { return LEVEL_UNLOCKS.find((unlock) => unlock.level > level); }
-export function renderXpBar(profile, { awarded = null, compact = false } = {}) {
+export function renderXpBar(profile, { awarded = null, compact = false, sealSize = 30 } = {}) {
   const span = Math.max(1, Number(profile.levelSpan) || 1); const into = Math.max(0, Number(profile.xpIntoLevel) || 0);
   const percent = Math.min(100, (into / span) * 100); const before = awarded && awarded.levelBefore === profile.level ? Math.max(0, into - awarded.total) : into;
   const beforePercent = Math.min(100, (before / span) * 100); const next = nextUnlock(profile.level);
-  const seal = document.createElement('span'); seal.append(renderAvatar(profile.loadout?.avatar, 30, true, { name: profile.displayName, level: profile.level }));
+  const seal = document.createElement('span'); seal.append(renderAvatar(profile.loadout?.avatar, sealSize, true, { name: profile.displayName, level: profile.level }));
   return `<div class="xp-bar${compact ? ' xp-bar-compact' : ''}"><span class="xp-bar-seal">${seal.innerHTML}</span><div class="xp-bar-copy"><div class="xp-bar-top"><b>Level ${profile.level}</b><span>${profile.xpToNext} XP to ${compact ? 'go' : 'next level'}</span></div><div class="xp-bar-track"><i class="xp-bar-fill" style="width:${percent}%"></i>${awarded ? `<i class="xp-bar-earned" style="left:${beforePercent}%;width:${Math.max(0, percent - beforePercent)}%"></i>` : ''}</div>${compact ? '' : `<div class="xp-bar-bottom"><span>${into} of ${span} XP this level</span>${next ? `<span>Next: ${next.text} at Level ${next.level}</span>` : ''}</div>`}</div></div>`;
 }
