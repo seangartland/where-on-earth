@@ -1,0 +1,32 @@
+{
+  "seeded": {
+    "rows": 3,
+    "labels": [
+      "ANAnaWindow SeatLevel 2",
+      "BOBoDay TripperLevel 5",
+      "CYCySharp EyeLevel 10"
+    ],
+    "overflowX": false,
+    "requests": [
+      "GET /v1/progression",
+      "GET /v1/progression",
+      "GET /v1/progression",
+      "GET /v1/progression",
+      "GET /v1/sync",
+      "GET /v1/friends"
+    ]
+  },
+  "empty": {
+    "rows": 0,
+    "labels": [],
+    "overflowX": false,
+    "requests": [
+      "GET /v1/progression",
+      "GET /v1/progression",
+      "GET /v1/progression",
+      "GET /v1/progression",
+      "GET /v1/sync",
+      "GET /v1/friends"
+    ]
+  }
+}
