@@ -1,0 +1,69 @@
+zoom-trace-report: 20000 events, 5 round(s)
+
+Round 0
+  Critical path (busy ms, parallel work merged, never summed):
+    tile-fetch: 10645 ms over 658 span(s)
+    bundle: 1021 ms over 4 span(s)
+    decode: 858 ms over 277 span(s)
+    window-pick: 3 ms over 28 span(s)
+    mip: 1 ms over 5 span(s)
+  Requests by pool: {"visible":62,"prefetch":578,"bundle":3,"daily":0,"speculative":0}
+  Bytes by pool: {"visible":2406766,"prefetch":2230553,"bundle":28803,"daily":0,"speculative":0}
+  Window churn: 4 build(s), 134 abort(s), wasted bytes: not measured
+  Native coverage of ready windows: gen 3 z8: 87%, gen 4 z8: 82%, gen 5 z7: 100%, gen 6 z8: 67%, gen 7 z5: 100%
+  Time from last input to window-ready: 2782 ms
+  Time from last input to first presented frame: 2784 ms
+
+Round 2
+  Critical path (busy ms, parallel work merged, never summed):
+    tile-fetch: 9606 ms over 789 span(s)
+    decode: 1812 ms over 469 span(s)
+    bundle: 1629 ms over 4 span(s)
+    window-pick: 28 ms over 227 span(s)
+    mip: 0 ms over 6 span(s)
+  Requests by pool: {"visible":239,"prefetch":538,"bundle":4,"daily":0,"speculative":0}
+  Bytes by pool: {"visible":5935169,"prefetch":3829052,"bundle":419216,"daily":0,"speculative":0}
+  Window churn: 9 build(s), 251 abort(s), wasted bytes: not measured
+  Native coverage of ready windows: gen 8 z5: 100%, gen 11 z10: 100%, gen 12 z8: 85%, gen 13 z5: 100%, gen 14 z7: 77%, gen 15 z5: 100%, gen 16 z5: 100%
+  Time from last input to window-ready: 1076 ms
+  Time from last input to first presented frame: 1076 ms
+
+Round 3
+  Critical path (busy ms, parallel work merged, never summed):
+    tile-fetch: 13173 ms over 631 span(s)
+    decode: 1512 ms over 254 span(s)
+    bundle: 1507 ms over 5 span(s)
+    window-pick: 11 ms over 129 span(s)
+    mip: 0 ms over 4 span(s)
+  Requests by pool: {"visible":81,"prefetch":538,"bundle":5,"daily":0,"speculative":0}
+  Bytes by pool: {"visible":5372935,"prefetch":6807651,"bundle":466865,"daily":0,"speculative":0}
+  Window churn: 5 build(s), 71 abort(s), wasted bytes: not measured
+  Native coverage of ready windows: gen 17 z5: 100%, gen 18 z7: 100%, gen 19 z7: 100%, gen 20 z7: 92%, gen 21 z5: 100%
+  Time from last input to window-ready: 267 ms
+  Time from last input to first presented frame: 268 ms
+
+Round 4
+  Critical path (busy ms, parallel work merged, never summed):
+    tile-fetch: 15771 ms over 1004 span(s)
+    decode: 2720 ms over 455 span(s)
+    bundle: 1035 ms over 4 span(s)
+    window-pick: 12 ms over 146 span(s)
+    mip: 0 ms over 7 span(s)
+  Requests by pool: {"visible":120,"prefetch":872,"bundle":4,"daily":0,"speculative":0}
+  Bytes by pool: {"visible":4045592,"prefetch":3395946,"bundle":115336,"daily":0,"speculative":0}
+  Window churn: 7 build(s), 95 abort(s), wasted bytes: not measured
+  Native coverage of ready windows: gen 22 z5: 100%, gen 23 z7: 70%, gen 24 z7: 91%, gen 25 z8: 35%, gen 26 z8: 33%, gen 27 z7: 86%, gen 28 z5: 100%
+  Time from last input to window-ready: 424 ms
+  Time from last input to first presented frame: 429 ms
+
+Round 5
+  Critical path (busy ms, parallel work merged, never summed):
+    tile-fetch: 610 ms over 46 span(s)
+    window-pick: 0 ms over 2 span(s)
+  Requests by pool: {"visible":0,"prefetch":34,"bundle":0,"daily":0,"speculative":0}
+  Bytes by pool: {"visible":0,"prefetch":208583,"bundle":0,"daily":0,"speculative":0}
+  Window churn: 0 build(s), 0 abort(s), wasted bytes: not measured
+  Native coverage of ready windows: (none ready)
+  Time from last input to window-ready: n/a
+  Time from last input to first presented frame: n/a
+
