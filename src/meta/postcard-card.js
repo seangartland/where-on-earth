@@ -46,9 +46,7 @@ export function buildPostcardCard(item, passportState, options) {
     const score = document.createElement('span');
     score.className = 'pp-slot-score';
     if (passportState.scoreTier) score.dataset.tier = passportState.scoreTier;
-    const [distance, unit] = String(passportState.scoreText).split(/\s+/, 2);
-    score.append(document.createTextNode(distance));
-    if (unit) score.append(document.createElement('br'), document.createTextNode(unit));
+    score.textContent = passportState.scoreText;
     photo.append(score);
   }
   if (compact) addAuditFlagButton?.(photo, passportState.entry);
@@ -67,4 +65,3 @@ export function buildPostcardCard(item, passportState, options) {
   }
   return card;
 }
-
