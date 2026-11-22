@@ -103,6 +103,7 @@ export const gameEls = {
   results: document.getElementById('results-screen'),
   play: document.getElementById('play-button'),
   extentTestEntry: document.getElementById('extent-test-entry'),
+  extentHubEntry: document.getElementById('extent-hub-entry'),
   extentTestCount: document.getElementById('extent-test-count'),
   number: document.getElementById('round-number'),
   weight: document.getElementById('round-weight'),

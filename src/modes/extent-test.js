@@ -1,9 +1,7 @@
-// Temporary, query-gated extent practice. It deliberately uses the shared
-// round scorer and reveal path, so extent geometry behaves exactly as it does
-// in Survival.
+// Extent locations practice, entered from the Practice hub. It deliberately
+// uses the shared round scorer and reveal path, so extent geometry behaves
+// exactly as it does in Survival.
 let host = null;
-
-export const extentTestEnabled = () => new URLSearchParams(location.search).get('extents') === '1';
 
 export function extentTestPool(items) {
   return (Array.isArray(items) ? items : []).filter((item) => item?.kind === 'extent'
@@ -87,9 +85,10 @@ function showExtentTestResults() {
 
 export function initExtentTest(main) {
   host = main;
-  // Hidden by Sean's call (2026-11-21): the extent test entry is never
-  // unhidden, whatever the query string says. The mode stays dormant in
-  // code; only the results-screen wiring below remains live.
+  // The game lives in the Practice hub (Sean, 2026-11-21). The old home
+  // screen entry stays hidden; hideScreens closes the hub when a round
+  // starts, the same path the Survival styles take.
+  host.gameEls.extentHubEntry.addEventListener('click', startExtentTest);
   host.gameEls.extentTestHome.addEventListener('click', host.goHome);
   host.gameEls.extentTestQuit.addEventListener('click', host.goHome);
 }
