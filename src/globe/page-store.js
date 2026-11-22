@@ -30,17 +30,17 @@ async function fetchFirstAvailable(urls) {
 
 async function fetchDecodeUpload(asset) {
   if (resident.has(asset.key)) return resident.get(asset.key);
-  const fetchSpan = traceSpanStart('tile-fetch', { src: asset.key, pool: 'pages' });
+  const fetchSpan = traceSpanStart('page-fetch', { src: asset.key, pool: 'pages' });
   const res = await fetchFirstAvailable(asset.urls);
   const blob = await res.blob();
   traceMark('tile-body-complete', { src: asset.key, bytes: blob.size, pool: 'pages' });
   traceSpanEnd(fetchSpan, { bytes: blob.size });
 
-  const decodeSpan = traceSpanStart('decode', { src: asset.key, bytes: blob.size, pool: 'pages' });
+  const decodeSpan = traceSpanStart('page-decode', { src: asset.key, bytes: blob.size, pool: 'pages' });
   const bitmap = await createImageBitmap(blob);
   traceSpanEnd(decodeSpan, {});
 
-  const uploadSpan = traceSpanStart('upload-submit', { src: asset.key, pool: 'pages' });
+  const uploadSpan = traceSpanStart('page-upload', { src: asset.key, pool: 'pages' });
   const texture = new THREE.Texture(bitmap);
   texture.colorSpace = THREE.NoColorSpace;
   texture.generateMipmaps = false;
