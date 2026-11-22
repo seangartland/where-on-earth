@@ -1,0 +1,320 @@
+[
+ {
+  "id": "antananarivo",
+  "file": "assets/locations.json",
+  "original_width": 857,
+  "reason": "no larger version"
+ },
+ {
+  "id": "apia-samoa",
+  "file": "assets/locations.json",
+  "original_width": null,
+  "reason": "original width unknown"
+ },
+ {
+  "id": "basrah-iq",
+  "file": "assets/locations.json",
+  "original_width": 639,
+  "reason": "no larger version"
+ },
+ {
+  "id": "beirut-lebanon",
+  "file": "assets/locations.json",
+  "original_width": 700,
+  "reason": "no larger version"
+ },
+ {
+  "id": "belo-horizonte-br",
+  "file": "assets/locations.json",
+  "original_width": 923,
+  "reason": "no larger version"
+ },
+ {
+  "id": "bukavu-cd",
+  "file": "assets/locations.json",
+  "original_width": 828,
+  "reason": "no larger version"
+ },
+ {
+  "id": "bulawayo-zw",
+  "file": "assets/locations.json",
+  "original_width": 500,
+  "reason": "no larger version"
+ },
+ {
+  "id": "cucuta-co",
+  "file": "assets/locations.json",
+  "original_width": 720,
+  "reason": "no larger version"
+ },
+ {
+  "id": "daegu-kr",
+  "file": "assets/locations.json",
+  "original_width": 680,
+  "reason": "no larger version"
+ },
+ {
+  "id": "dubai",
+  "file": "assets/locations.json",
+  "original_width": null,
+  "reason": "original width unknown"
+ },
+ {
+  "id": "dusseldorf-de",
+  "file": "assets/locations.json",
+  "original_width": 640,
+  "reason": "no larger version"
+ },
+ {
+  "id": "hargeysa",
+  "file": "assets/locations.json",
+  "original_width": 901,
+  "reason": "no larger version"
+ },
+ {
+  "id": "isle-of-skye-gb",
+  "file": "assets/locations.json",
+  "original_width": 698,
+  "reason": "no larger version"
+ },
+ {
+  "id": "kabul-af",
+  "file": "assets/locations.json",
+  "original_width": 959,
+  "reason": "no larger version"
+ },
+ {
+  "id": "kingston",
+  "file": "assets/locations.json",
+  "original_width": 442,
+  "reason": "no larger version"
+ },
+ {
+  "id": "kisangani-cd",
+  "file": "assets/locations.json",
+  "original_width": 720,
+  "reason": "no larger version"
+ },
+ {
+  "id": "koh-pha-ngan-thailand",
+  "file": "assets/locations.json",
+  "original_width": 800,
+  "reason": "no larger version"
+ },
+ {
+  "id": "krasnodar-ru",
+  "file": "assets/locations.json",
+  "original_width": 800,
+  "reason": "no larger version"
+ },
+ {
+  "id": "libreville-ga",
+  "file": "assets/locations.json",
+  "original_width": 908,
+  "reason": "no larger version"
+ },
+ {
+  "id": "luxor-egypt",
+  "file": "assets/locations.json",
+  "original_width": 800,
+  "reason": "no larger version"
+ },
+ {
+  "id": "maceio-br",
+  "file": "assets/locations.json",
+  "original_width": 340,
+  "reason": "no larger version"
+ },
+ {
+  "id": "majuro-marshall-islands",
+  "file": "assets/locations.json",
+  "original_width": 700,
+  "reason": "no larger version"
+ },
+ {
+  "id": "matera-sassi",
+  "file": "assets/locations.json",
+  "original_width": 500,
+  "reason": "no larger version"
+ },
+ {
+  "id": "mosul-iq",
+  "file": "assets/locations.json",
+  "original_width": 714,
+  "reason": "no larger version"
+ },
+ {
+  "id": "ouagadougou-burkina-faso",
+  "file": "assets/locations.json",
+  "original_width": 600,
+  "reason": "no larger version"
+ },
+ {
+  "id": "port-moresby-papua-new-guinea",
+  "file": "assets/locations.json",
+  "original_width": 904,
+  "reason": "no larger version"
+ },
+ {
+  "id": "pretoria",
+  "file": "assets/locations.json",
+  "original_width": 787,
+  "reason": "no larger version"
+ },
+ {
+  "id": "sao-luis-br",
+  "file": "assets/locations.json",
+  "original_width": 800,
+  "reason": "no larger version"
+ },
+ {
+  "id": "sapporo-japan",
+  "file": "assets/locations.json",
+  "original_width": 921,
+  "reason": "no larger version"
+ },
+ {
+  "id": "stockholm-sweden",
+  "file": "assets/locations.json",
+  "original_width": 700,
+  "reason": "no larger version"
+ },
+ {
+  "id": "tarkwa",
+  "file": "assets/locations.json",
+  "original_width": 500,
+  "reason": "no larger version"
+ },
+ {
+  "id": "tashkent",
+  "file": "assets/locations.json",
+  "original_width": null,
+  "reason": "original width unknown"
+ },
+ {
+  "id": "touba-sn",
+  "file": "assets/locations.json",
+  "original_width": 512,
+  "reason": "no larger version"
+ },
+ {
+  "id": "yaounde-cm",
+  "file": "assets/locations.json",
+  "original_width": 605,
+  "reason": "no larger version"
+ },
+ {
+  "id": "zermatt-ch",
+  "file": "assets/locations.json",
+  "original_width": 600,
+  "reason": "no larger version"
+ },
+ {
+  "id": "st-georges-grenada",
+  "file": "assets/locations.json",
+  "original_width": 300,
+  "reason": "no larger version"
+ },
+ {
+  "id": "port-louis-mauritius",
+  "file": "assets/locations.json",
+  "original_width": 887,
+  "reason": "no larger version"
+ },
+ {
+  "id": "kingstown-st-vincent-and-grenadines",
+  "file": "assets/locations.json",
+  "original_width": 800,
+  "reason": "no larger version"
+ },
+ {
+  "id": "victoria-seychelles",
+  "file": "assets/locations.json",
+  "original_width": 640,
+  "reason": "no larger version"
+ },
+ {
+  "id": "porto-novo-bj",
+  "file": "assets/locations.json",
+  "original_width": 864,
+  "reason": "no larger version"
+ },
+ {
+  "id": "jungfrau",
+  "file": "assets/locations-bank.json",
+  "original_width": 720,
+  "reason": "no larger version"
+ },
+ {
+  "id": "lascaux",
+  "file": "assets/locations-bank.json",
+  "original_width": 720,
+  "reason": "no larger version"
+ },
+ {
+  "id": "monument-valley-mitten",
+  "file": "assets/locations-bank.json",
+  "original_width": 768,
+  "reason": "no larger version"
+ },
+ {
+  "id": "empire-state-building-ny",
+  "file": "assets/locations-bank.json",
+  "original_width": 846,
+  "reason": "no larger version"
+ },
+ {
+  "id": "great-blue-hole",
+  "file": "assets/locations-bank.json",
+  "original_width": 662,
+  "reason": "no larger version"
+ },
+ {
+  "id": "salar-de-uyuni",
+  "file": "assets/locations-bank.json",
+  "original_width": 856,
+  "reason": "no larger version"
+ },
+ {
+  "id": "mount-pinatubo",
+  "file": "assets/locations-bank.json",
+  "original_width": 604,
+  "reason": "no larger version"
+ },
+ {
+  "id": "grand-canyon",
+  "file": "assets/locations-bank.json",
+  "original_width": 550,
+  "reason": "no larger version"
+ },
+ {
+  "id": "great-barrier-reef",
+  "file": "assets/locations-bank.json",
+  "original_width": 828,
+  "reason": "no larger version"
+ },
+ {
+  "id": "angel-falls",
+  "file": "assets/locations-bank.json",
+  "original_width": 400,
+  "reason": "no larger version"
+ },
+ {
+  "id": "westminster-abbey",
+  "file": "assets/locations-bank.json",
+  "original_width": 768,
+  "reason": "no larger version"
+ },
+ {
+  "id": "kangchenjunga",
+  "file": "assets/locations-bank.json",
+  "original_width": 800,
+  "reason": "no larger version"
+ },
+ {
+  "id": "sistine-chapel",
+  "file": "assets/locations-bank.json",
+  "original_width": 782,
+  "reason": "no larger version"
+ }
+]
