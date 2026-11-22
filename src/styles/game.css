@@ -188,6 +188,20 @@ button { font: inherit; }
 .account-panel[data-view="account"] .account-copy { color: var(--mail-ink-2); }
 .account-open-profile { width: 100%; min-height: 48px; margin-bottom: 18px; }
 .account-friend-profile { min-width: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: 800; text-align: left; cursor: pointer; text-underline-offset: 3px; }
+.profile-loader { padding: 16px 0 4px; text-align: left; }
+.profile-loader-head { display: flex; align-items: center; gap: 16px; min-height: 92px; padding: 16px 18px; overflow: hidden; border: 1px solid rgba(var(--rgb-line),.18); border-radius: 6px; background: rgba(var(--rgb-line),.08); box-shadow: 0 7px 18px rgba(0,0,0,.28); }
+.profile-loader-seal { display: grid; flex: none; place-items: center; width: 84px; height: 84px; }
+.profile-loader-identity { display: grid; flex: 1; gap: 10px; }
+.profile-loader-identity i, .profile-loader-identity b, .profile-loader-rows i { display: block; border-radius: 999px; background: linear-gradient(90deg, rgba(var(--rgb-line),.12), rgba(var(--rgb-line),.28), rgba(var(--rgb-line),.12)); background-size: 200% 100%; animation: profile-loader-shimmer 1.3s ease-in-out infinite; }
+.profile-loader-identity i { width: min(180px, 76%); height: 20px; }
+.profile-loader-identity b { width: min(120px, 54%); height: 12px; }
+.profile-loader-stage { min-height: 20px; margin: 18px 0 12px; color: rgba(var(--rgb-muted),.82); font-size: 14px; font-weight: 600; text-align: center; }
+.profile-loader-rows { display: grid; gap: 10px; padding: 14px 0; border-block: 1px solid rgba(var(--rgb-line),.18); }
+.profile-loader-rows i { height: 14px; }
+.profile-loader-rows i:nth-child(2) { width: 82%; }
+.profile-loader-rows i:nth-child(3) { width: 64%; }
+@keyframes profile-loader-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@media (prefers-reduced-motion: reduce) { .profile-loader-identity i, .profile-loader-identity b, .profile-loader-rows i { animation: none; } }
 .traveler-profile { color: #173e68; text-align: left; }
 .traveler-card { position: relative; display: flex; align-items: center; gap: 16px; margin: -8px -4px 18px; padding: 20px 18px; overflow: hidden; border-radius: 6px; background: #1e4e9c; color: #f6edd8; box-shadow: 0 7px 18px rgba(23,62,104,.28); }
 .traveler-profile.own .traveler-card { margin-bottom: 30px; overflow: visible; }

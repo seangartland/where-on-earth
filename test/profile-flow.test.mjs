@@ -7,7 +7,10 @@ const main = readFileSync(new URL('../src/main.js', import.meta.url), 'utf8');
 
 test('home profile entry opens a neutral profile sheet directly', () => {
   assert.match(sheet, /function ensureSheet\(\)/);
-  assert.match(sheet, /export async function openProfileSheet\(trigger\)[\s\S]*?panel\.dataset\.view = 'profile';[\s\S]*?Loading profile…[\s\S]*?await openTravelerProfile\(\);/);
+  assert.match(sheet, /function renderProfileLoading\(\)[\s\S]*?profile-loader[\s\S]*?Loading profile…[\s\S]*?renderAvatar\(\{\}, 84\)/);
+  assert.match(sheet, /export async function openTravelerProfile\(friendId = ''\) \{\s*renderProfileLoading\(\);/);
+  assert.match(sheet, /export async function openProfileSheet\(trigger\)[\s\S]*?await openTravelerProfile\(\);/);
+  assert.doesNotMatch(sheet, /<p class="account-copy" aria-live="polite">Loading profile…<\/p>/);
   assert.match(main, /const \{ openProfileSheet \} = await import\('\.\/account\/sheet\.js'\);[\s\S]*?await openProfileSheet\(trigger\);/);
   assert.doesNotMatch(main, /async openTravelerProfile\(trigger\)[\s\S]*?openAccountSheet\(trigger\)/);
 });

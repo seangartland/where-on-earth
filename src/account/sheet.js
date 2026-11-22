@@ -371,7 +371,16 @@ function dateLabel(timestamp) { return timestamp ? new Date(timestamp).toLocaleD
 function statGrid(stats) {
   return [['Dailies played', stats.dailies], ['Average Daily score', stats.averageScore], ['Best Daily score', stats.bestScore], ['Bullseyes', stats.bullseyes], ['Postcards', stats.postcards], ['Best streak', stats.bestStreak], ['Countries visited', stats.countries]].map(([label, value]) => `<div><strong>${Number(value).toLocaleString()}</strong><span>${label}</span></div>`).join('');
 }
+
+function renderProfileLoading() {
+  const panel = sheet.querySelector('.account-panel');
+  panel.dataset.view = 'profile';
+  panel.innerHTML = `<section class="profile-loader" aria-live="polite"><div class="profile-loader-head"><div class="profile-loader-seal" aria-hidden="true"></div><div class="profile-loader-identity" aria-hidden="true"><i></i><b></b></div></div><p class="profile-loader-stage">Loading profile…</p><div class="profile-loader-rows" aria-hidden="true"><i></i><i></i><i></i></div></section>`;
+  panel.querySelector('.profile-loader-seal').append(renderAvatar({}, 84));
+}
+
 export async function openTravelerProfile(friendId = '') {
+  renderProfileLoading();
   try {
     const profile = await friendApi(friendId ? `/v1/progression/friend?${new URLSearchParams({ friendId })}` : '/v1/progression');
     const mine = !friendId; const panel = sheet.querySelector('.account-panel');
@@ -594,9 +603,6 @@ export async function openProfileSheet(trigger) {
   returnFocus = trigger || document.activeElement;
   ensureSheet();
   sheet.hidden = false;
-  const panel = sheet.querySelector('.account-panel');
-  panel.dataset.view = 'profile';
-  panel.innerHTML = '<p class="account-copy" aria-live="polite">Loading profile…</p>';
   await openTravelerProfile();
 }
 

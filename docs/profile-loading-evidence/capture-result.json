@@ -1,0 +1,1 @@
+{"stage":"Loading profile…","sealSvg":true,"rows":3,"bareParagraph":false,"note":"loaderState measured in the gated run before release; loaded profile capture produced by shots/seal-rings/capture.mjs in the same clone (immediate-fulfill), because the held-route fulfill did not settle the sheet fetch in this Chromium build"}

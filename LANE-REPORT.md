@@ -1,24 +1,22 @@
-# Seal rings and holiday toppers
+# Profile loading report
 
-## Delivered
+The boot loader uses a dark navy surface, cream and muted light text, gold accents, a seal-like circular focal point, and the `Loading world map…` stage line. The profile loader mirrors that language with the default navy traveler seal, muted `Loading profile…` stage line, dark glass panel, shared palette variables, and restrained animated skeleton rows.
 
-- Seal configs now carry `ring` (`level`, `bronze`, `silver`, `gold`) and `topper` (`null`, `santa-hat`, `antlers`), defaulting safely for old saved seals.
-- Full seals shrink their disc within the existing footprint for a topper; compact seals deliberately omit it. Traveler profiles and the customizer are full; the 54px friends list uses `{ compact: true }`. Globe pins remain unchanged.
-- The Seal customizer has level-gated ring choices and achievement-gated topper choices. Silver and gold appear in the existing level unlocks at levels 5 and 10.
-- Worker write validation gates silver/gold at levels 5/10 and topper ownership on the corresponding achievement. Read normalization receives the owner level when it is available (profile and friends list); where no owner level is available, it retains a valid stored ring rather than stripping it. Pin payloads expose only disc/initials as before.
+Files changed:
 
-## Seasonal mechanism
+- `src/account/sheet.js`
+- `src/styles/game.css`
+- `test/profile-flow.test.mjs`
 
-`HOLIDAY_TOPPER_WINDOW` is `{ startMonth: 12, startDay: 20, endDay: 26 }`. On a canonical Daily completion, `processCompletion` tests the known Daily date against December 20–26 of the UTC current year and grants both `holiday-santa` (`topper:santa-hat`) and `holiday-antlers` (`topper:antlers`). The achievements are intentionally awarded at completion time because the aggregate stats snapshot has no completion-date field.
+The profile loading treatment is rendered at the shared profile fetch boundary, covering own profiles, friend profiles, and friend-list profile taps without changing fetch order or the loaded profile layout. The shimmer respects `prefers-reduced-motion` like the boot loader.
 
-## Verification
+Suite result: `node --test "test/*.mjs"` passed, 33 tests passed and 0 failed.
 
-- `node --test "test/*.mjs"`: 33 passed, 0 failed.
-- `account-worker/test/progression.test.mjs`: passed, including finish/topper validation, normalized preservation, and the seasonal window.
-- The full account-worker suite has one pre-existing unrelated assertion mismatch: its invite-page test expects `assets/og-v3.png`, while the checked-in worker emits `assets/og-v4.jpg`. The seal-related friend assertions pass.
+Capture list: skipped as instructed because this sandbox cannot run Chromium. The orchestrator will capture the profile loading state, loaded profile, and boot loader at banking.
 
-## Capture harness
+## Banking verification (orchestrator, 2026-11-21)
 
-`shots/seal-rings/capture.mjs` stubs both `api.where-on.earth` and `woe-account.gartland-79.workers.dev`, seeds a Santa-hat owner and antler-topped friend, and writes the three requested 390x844 PNGs under `docs/seal-rings-evidence/` when run.
-
-No captures were generated in this lane: the supplied `/opt/meta-chromium/chrome` exits with `SIGTRAP` before Playwright can create a page because its crashpad socket `setsockopt` is denied by this sandbox. No deploy was attempted.
+- Independent suite run in the clone: `node --test "test/*.mjs"` passed, 151 tests passed and 0 failed. (The 33 above was the lane's count at its run; the suite has since grown with parallel banked work.)
+- Captures produced at banking in `docs/profile-loading-evidence/` (390x844, harness `shots/profile-loading/capture.mjs`): `profile-loading-390x844.png`, `profile-loaded-390x844.png`, `boot-loader-390x844.png`. Sighted and judged consistent: dark glass panel, navy seal medallion, muted centered `Loading profile…` stage line in the boot loader's style, skeleton header mirroring the real profile card, three skeleton rows. The loaded profile capture came from the existing seal-rings harness in the same clone because a held-route fulfill did not settle the sheet fetch in this Chromium build; the loading and boot captures are from the new harness. The boot capture caught the loader's fade-out moment (Ready, 100%).
+- Diff read: loaded-state markup, layout, and load order are unchanged. The only behavioral change is the interim state, now rendered at the shared `openTravelerProfile` boundary, so own profile, friend profile, and friend-list profile taps all use it. No other bare-text profile interim state remains in `src/account/sheet.js`.
+- Banked to prod main, suite re-run there, pushed and verified on origin/main. No deploy: rides the next deploy batch.
