@@ -432,6 +432,7 @@ body.daily .round-meta .mute-toggle { margin-left: 0; }
 .round-header .survival-streak { margin: 2px 0 0; font-size: var(--fs-base); }
 .round-header h2 { margin: 3px 0 1px; color: var(--ink); font-size: 19px; line-height: 1.2; letter-spacing: -.02em; }
 #guess-hint { margin: 0; color: rgba(var(--rgb-muted),.58); font-size: var(--fs-small); }
+#guess-hint:empty { display: none; }
 .reveal-card { position: absolute; left: 14px; right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); box-sizing: border-box; padding: 17px; border-radius: 20px; pointer-events: auto; }
 .score-line { display: flex; align-items: center; justify-content: space-between; }
 .score-line div { color: #fff; font-size: 22px; font-weight: 800; }

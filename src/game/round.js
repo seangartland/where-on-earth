@@ -159,7 +159,7 @@ export function showRound() {
   // gesture line instead; every other mode keeps both exactly as they were.
   const dailyRound = !pvp.active && !expeditionRun.active && !borders.active
     && !survival.active && !endless.active && !trivia.active && !pack.active && !extentTest.active;
-  setGuessHint(borders.active || survival.active || trivia.active || dailyRound ? '' : 'Tap the globe to place your pin');
+  setGuessHint('');
   document.getElementById('hud').textContent = pointerFine()
     ? 'Drag to spin · Scroll to zoom'
     : dailyRound
