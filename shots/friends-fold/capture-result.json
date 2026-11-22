@@ -1,0 +1,22 @@
+{
+  "evidence": {
+    "hasOldDoorRow": false,
+    "hasOldFriendsPage": false,
+    "rows": 2,
+    "labels": [
+      "ANAnaWindow SeatLevel 2",
+      "BOBoDay TripperLevel 5"
+    ],
+    "hasInviteButton": true,
+    "hasSectionHead": "Friends",
+    "overflowX": false
+  },
+  "requests": [
+    "GET /v1/progression",
+    "GET /v1/progression",
+    "GET /v1/progression",
+    "GET /v1/progression",
+    "GET /v1/sync",
+    "GET /v1/friends"
+  ]
+}
