@@ -1119,6 +1119,8 @@ if (ACCOUNTS_ENABLED) {
     if (!isSignedIn()) return;
     const { syncAccountProgress } = await import('./account/sync.js');
     syncAccountProgress().catch(() => {});
+    const { flushPendingQueue } = await import('./account/friends.js');
+    flushPendingQueue().catch(() => {});
   }, 0);
   document.addEventListener('visibilitychange', async () => {
     if (document.visibilityState !== 'visible') return;

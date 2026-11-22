@@ -15,7 +15,7 @@ import { latLngToVec3, canvas, globe } from '../globe/scene.js';
 import { Pin, makeBadgeTexture } from '../globe/pin.js';
 import { gameEls } from '../core/dom.js';
 import { friendRows, chipText, popoverText, stripChips, sameGuess } from '../game/friend-rows.js';
-import { backfillToday, cachedFriendPins, fetchFriendPins, listFriends } from '../account/friends.js';
+import { backfillToday, cachedFriendPins, fetchFriendPins, flushPendingQueue, listFriends } from '../account/friends.js';
 import { SEAL_DISCS } from '../account/avatar.js';
 import { reviewEls, reviewFacing, screenOf, setFriendLayer } from '../game/review-shared.js';
 
@@ -391,7 +391,7 @@ canvas.addEventListener('pointerup', (e) => {
 // ---------------------------------------------------------------------------
 export function enterFriendReview(date, openSlot = -1) {
   loadFriendsInfo(true);
-  Promise.resolve(backfillToday())
+  Promise.all([backfillToday(), flushPendingQueue()])
     .catch(() => {})
     .then(() => fetchFriendPins(date))
     .then(() => {
