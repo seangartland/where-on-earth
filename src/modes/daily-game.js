@@ -340,7 +340,24 @@ async function syncFriendsToday(total) {
   // has played yet), since it is then the only way into the review.
   const globeLink = gameEls.results.querySelector('.results-globe');
   const setGlobe = (hidden) => { if (globeLink) globeLink.hidden = hidden; };
-  if (!ACCOUNTS_ENABLED || !isSignedIn()) { card.hidden = true; setGlobe(false); return; }
+  const note = card.querySelector('.friends-today-signedout');
+  const head = card.querySelector('.friends-today-head');
+  const list = card.querySelector('.friends-today-list');
+  const link = card.querySelector('.friends-today-link');
+  if (!ACCOUNTS_ENABLED || !isSignedIn()) {
+    note.textContent = "Friends can't see this score until you sign in — queued scores send automatically once you do.";
+    note.hidden = false;
+    head.hidden = true;
+    list.hidden = true;
+    link.hidden = true;
+    card.hidden = false;
+    setGlobe(false);
+    return;
+  }
+  note.hidden = true;
+  head.hidden = false;
+  list.hidden = false;
+  link.hidden = false;
   try {
     const [{ fetchFriendPins, progression, friendProgression }, { friendTotals, rankLeaderboard }, { renderAvatar, avatarName }] = await Promise.all([
       import('../account/friends.js'),
