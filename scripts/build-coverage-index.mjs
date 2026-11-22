@@ -5,12 +5,14 @@
  * Inputs deliberately have different authority:
  * - scripts/sat/eox2025-manifest.json is the QA-passed rendered tile tree
  *   recorded in docs/eox-full-render-report.md.
- * - src/globe/pilot-region.js is the gate-verified s2gm2025-pilot z10 census.
+ * - src/globe/pilot-region.js is the gate-verified s2gm2025-pilot z10 census
+ *   (5,745 tiles; corroborated by the zfill cutlist regions, 5,628, plus the
+ *   Majuro atoll list, 117. The 10,385 figure in its comment is the pilot
+ *   census across all zooms, not the z10 set.)
+ * - scripts/sat/s2gm2025-z9-coords.json is the production z9 set, enumerated
+ *   from the finished render tree (see that file for provenance).
  * - tile-header events in docs/zoom-stage1-evidence are live observations,
- *   useful only for the individual default-z9 keys they name.
- *
- * The default z9 prefix has no checked-in complete listing. This generator
- * therefore does not turn unlisted z9 coordinates into known absences.
+ *   used only for the individual default-z9 known-absent keys they name.
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
@@ -59,7 +61,8 @@ for (const event of traceEvents) {
 }
 
 const manifestTiles = (z) => manifest.tiles.filter((tile) => tile.z === z).map(({ x, y }) => ({ x, y }));
-const z9Present = [...observedZ9.values()].filter((tile) => tile.status >= 200 && tile.status < 300);
+const z9Data = JSON.parse(await readFile(resolve(root, 'scripts/sat/s2gm2025-z9-coords.json'), 'utf8'));
+const z9Present = z9Data.tiles.map(([x, y]) => ({ x, y }));
 const z9Absent = [...observedZ9.values()].filter((tile) => tile.status === 404);
 const pilotTiles = parsePilot(pilotSource);
 
@@ -82,9 +85,8 @@ const index = {
     'outside-domain': 'No object is expected by this index. This must not be interpreted as a live-host probe result where complete is false.',
   },
   limitations: [
-    's2gm2025 z9 is incomplete because no full R2 listing or source tile tree is present in this clone. Only individually observed live trace keys are indexed.',
-    's2gm2025-pilot is incomplete: its source comment says 10,385 tiles, while its executable ROWS ranges enumerate 5,745. The ranges are retained as the reproducible subset, not inflated to match the comment.',
-    'The index is authoritative for levels whose complete field is true. Consumers must not use an incomplete level to infer default-z9 absence beyond its listed known-absent keys.',
+    'All levels are complete against their named sources. Absence inference is bounded by each level domain definition: coordinates outside the listed present and known-absent ranges are outside-domain for this index, which is a statement about the rendered mosaic domain, not a fresh live probe of every coordinate.',
+    'An R2 bucket listing has still never been taken; the index rests on the render trees, manifests, and live spot probes named in each level source.',
   ],
   prefixes: {
     s2gm2025: {
@@ -93,13 +95,13 @@ const index = {
         5: level(5, manifestTiles(5), [], 'scripts/sat/eox2025-manifest.json and docs/eox-full-render-report.md', true),
         7: level(7, manifestTiles(7), [], 'scripts/sat/eox2025-manifest.json and docs/eox-full-render-report.md', true),
         8: level(8, manifestTiles(8), [], 'scripts/sat/eox2025-manifest.json and docs/eox-full-render-report.md', true),
-        9: level(9, z9Present, z9Absent, 'docs/zoom-stage1-evidence/tokyo-trace.json live tile-header events', false),
+        9: level(9, z9Present, z9Absent, 'scripts/sat/s2gm2025-z9-coords.json (finished render tree, enumerated 2026-11-21); known-absent keys from docs/zoom-stage1-evidence/tokyo-trace.json', true),
       },
     },
     's2gm2025-pilot': {
       objectPath: 's2gm2025-pilot/10/{x}/{y}.jpg?v=2',
       levels: {
-        10: level(10, pilotTiles, [], 'src/globe/pilot-region.js executable prefix census, 2026-11-19', false),
+        10: level(10, pilotTiles, [], 'src/globe/pilot-region.js executable prefix census, corroborated by the zfill cutlist (5,628) plus Majuro atoll list (117) and the r2-full-gate tree (5,745 files)', true),
       },
     },
   },

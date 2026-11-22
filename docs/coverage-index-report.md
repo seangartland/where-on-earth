@@ -109,3 +109,27 @@ prefix census. It should regenerate the index from that inventory and rerun
 the same modest-rate curl sample. Until then, default z9 and pilot z10 remain
 explicitly incomplete and must not drive deterministic absence or quality
 decisions outside their individually verified coordinates.
+
+## v2 correction (2026-11-21, after Sean asked where the z9 set had gone)
+
+The v1 index marked default z9 and pilot z10 incomplete because it only
+consulted sources inside this repo. Both sets were found the same day:
+
+- Default z9: 9,296 tiles. The production render tree
+  (eox1-work/scripts/sat/work/s2gm2025/finished/pilots-1/z9-full, four staging
+  copies in agreement) was enumerated from the sha256 migration manifest of
+  that tree and checked into scripts/sat/s2gm2025-z9-coords.json. Live probes
+  from the Pi: 6 in-set tiles returned 200; 4 staging-only leftovers, 4 absent
+  neighbors of present tiles, and 1 out-of-set tile returned 404. The same
+  test at z8 confirmed the bucket follows the QA manifest, not the raw render
+  union (3 render-only z8 staging tiles returned 404).
+- Pilot z10: 5,745 tiles, complete. The alarming 10,385 figure in
+  pilot-region.js is the pilot census across ALL zooms (cutlist regions total
+  10,268 across z5-z10) plus the 117-tile Majuro atoll list. The z10 set
+  itself is the cutlist regions (5,628) plus the atoll (117), matching both
+  the executable ROWS and the 5,745 z10 files in the r2-full-gate tree. Atoll
+  tiles probed live returned 200.
+
+All levels in assets/coverage-index.json are now complete against their named
+sources. An R2 bucket listing has still never been taken; if one becomes
+available it should be diffed against this index.
