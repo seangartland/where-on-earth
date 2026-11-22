@@ -13,7 +13,12 @@
 const Z9_URL_BASE = '/assets/pages-pilot/revision';
 const CONTEXT_URL_BASES = ['/assets/pages-pilot/pilot', '/assets/pages-pilot/revision'];
 const FEASIBILITY_URL_BASE = '/assets/pages-pilot/feasibility';
-const REVISION_MANIFEST_URL = '/docs/zoom-stage2-evidence/revision-manifest.jsonl';
+// Runtime copy lives under assets/ because the deploy does not publish
+// docs/ (Sean's first phone trace, 2026-11-21: this fetch 404'd in
+// production and every round fell back to tiles). The evidence record
+// stays at docs/zoom-stage2-evidence/revision-manifest.jsonl; keep the
+// two in sync if the manifest is ever regenerated.
+const REVISION_MANIFEST_URL = '/assets/pages-pilot/revision-manifest.jsonl';
 const FEASIBILITY_MANIFEST_URL = '/assets/pages-pilot/feasibility/manifest.json';
 
 let cached = null;

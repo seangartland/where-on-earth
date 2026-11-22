@@ -216,3 +216,15 @@ unreachable as described above). Nothing was committed; everything in this
 report is in the working tree for the orchestrator to verify, bank and
 deploy separately. Zero em dashes were used anywhere in this report, the new
 code, or its comments.
+
+## Banking errata (2026-11-21, after Sean's first phone trace)
+
+The first production phone trace (woe-trace-1795323112240.json) showed
+every round falling back to tiles with reason manifest-load-failed: the
+revision manifest was fetched from /docs/zoom-stage2-evidence/, which
+the deploy does not publish, so it 404'd in production. The local
+harness served the raw repo tree and masked this. Fix: the runtime
+manifest now lives at /assets/pages-pilot/revision-manifest.jsonl
+(page-manifest.js), with the docs copy kept as the evidence record.
+The phone gates remain unmeasured until a trace runs with the page
+path actually serving.
