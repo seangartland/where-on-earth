@@ -19,7 +19,8 @@ import { inPilotZ10 } from './pilot-region.js';
 import { sortTilesCenterOut, tilePriority } from './tile-priority.js';
 import { bundleSourceGroups, tryUnpackTileBundle } from './tile-bundle.js';
 import { visibleTileCoordinates } from './inset-footprint.js';
-import { idlePrefetchAllowed, insetFetchLimit, servedRungIndex } from './inset-policy.js';
+import { idlePrefetchAllowed, insetFetchLimit, servedRungIndex, INSET_MIN_Z, INSET_Q } from './inset-policy.js';
+export { INSET_MIN_Z, INSET_Q };
 import { traceMark, traceSpanStart, traceSpanEnd } from './zoom-trace.js';
 import { warmLadderEnabled, shouldScheduleWarmLadder, buildWarmLadderJobs, createWarmLadderQueue } from './warm-ladder.js';
 import { pageRenderActive, updatePageRender } from './page-render.js';
@@ -698,13 +699,10 @@ let satReady;
 // and a zoom-in chases deeper layers mid-gesture; other drift keeps the
 // conservative chase guards in evaluateInsets.
 // ---------------------------------------------------------------------------
-export const INSET_MIN_Z = 4;
-// Target tile texels per device pixel, keyed to the same pixel ratio the
-// renderer actually uses (scene.js caps at 3). The old constant assumed a
-// 2x cap: on a 3x phone the canvas rendered at 2x and was stretched to the
-// screen, and tile picks targeted the 2x buffer, so every layer landed
-// about half a level softer than the display (Sean, 2026-11-10).
-export const INSET_Q = 1 / Math.min(devicePixelRatio || 1, 3);
+// INSET_MIN_Z and INSET_Q are defined in inset-policy.js and imported
+// above; they moved to that leaf module so the pilot page renderer can
+// share them without importing surface.js back (an import cycle the
+// deploy module versioner cannot settle).
 let INSET_COLS; // footprint cap in tiles, margin included
 let INSET_ROWS;
 export const INSET_FADE_S = 0.25;
@@ -1607,8 +1605,9 @@ export function updateSatellite(dt) {
   // swaps between its already-prepared pages instead of running the tile
   // ladder at all. pageRenderActive() is false whenever the flag is off or
   // the round fell outside the staged coverage, so this changes nothing
-  // about the path below for every other round.
-  if (pageRenderActive()) updatePageRender(); else updateInsets(dt);
+  // about the path below for every other round. The sampled view is passed
+  // in so page-render.js never imports surface.js (import cycle).
+  if (pageRenderActive()) updatePageRender(sampleInsetView()); else updateInsets(dt);
   if (satT === satTarget && satT === satApplied) return;
   satT = satTarget > satT ? Math.min(satTarget, satT + dt / SAT_FADE_S) : Math.max(satTarget, satT - dt / SAT_FADE_S);
   satApplied = satT;

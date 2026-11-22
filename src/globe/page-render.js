@@ -18,7 +18,7 @@ import { pagesEnabled, selectRenderPath } from './page-plan.js';
 import { loadPageManifests } from './page-manifest.js';
 import { prepareRoundPages, releaseRoundPages, getResidentAsset } from './page-store.js';
 import { traceMark, traceSpanStart, traceSpanEnd } from './zoom-trace.js';
-import { INSET_MIN_Z, INSET_Q, sampleInsetView } from './surface.js';
+import { INSET_MIN_Z, INSET_Q } from './inset-policy.js';
 
 const GUTTER_PX = 2;
 const SEGMENTS = 4;
@@ -141,9 +141,10 @@ export async function preparePageRound(item) {
 
 // Same desired-zoom formula pickInsetWindow uses (surface.js), restricted to
 // the pilot's z5/z7/z9 ladder (no z8) and with no fetch path behind it: this
-// only ever picks among groups preparePageRound already built.
-function desiredLevel() {
-  const view = sampleInsetView();
+// only ever picks among groups preparePageRound already built. The view is
+// sampled by surface.js and passed in, so this module never imports
+// surface.js back (an import cycle the deploy versioner cannot settle).
+function desiredLevel(view) {
   if (!view) return null;
   const effDist = state.targetDist && state.targetDist < state.dist ? state.targetDist : state.dist;
   const mpp = ((effDist - 1) * 6371000 * 2 * Math.tan((FOV / 2) * DEG)) / state.viewH;
@@ -155,9 +156,9 @@ function desiredLevel() {
   return null;
 }
 
-export function updatePageRender() {
+export function updatePageRender(view) {
   if (!activeRound) return;
-  const level = desiredLevel();
+  const level = desiredLevel(view);
   if (level === activeRound.currentLevel) return;
   const span = traceSpanStart('page-level-select', { from: activeRound.currentLevel, to: level });
   if (activeRound.currentLevel != null) {
