@@ -1,8 +1,12 @@
-page-trace-report: 384 events
+page-trace-report: 438 events, 1 page round(s)
 
-Serving path: tiles (reason: z9-gap)
-Prepare: start=undefinedms end=undefinedms duration=undefinedms
-First input mark: 3589.4ms
-Prepared before first input: null
-Level selects (input-to-ready since each is a pure visibility swap with no fetch/decode/upload):
-Post-input pages fetch/decode/upload count (expect 0 inside coverage): 0
+Round 1: path=tiles (reason: z9-gap)
+  First input this round: 4275.2ms
+  Overlaps first input (span interval, not just start time): false
+  Level selects (input-to-ready since each is a pure visibility swap with no fetch/decode/upload):
+    (none)
+  Page fetch/decode/upload spans this round: 0
+  Of those, started after this round's own first input: 0
+
+Total page fetch/decode/upload spans: 0
+Total legacy (non-pages) tile-pipeline spans: 28
