@@ -19,9 +19,10 @@ test('own profile close dismisses the sheet while friend profile close returns t
   assert.match(sheet, /if \(mine\) closeAccountSheet\(\);\s*else render\('signed-in', readAccountSession\(\) \|\| \{\}\);/);
 });
 
-test('the own profile routes its friend count to the dark Friends page', () => {
-  assert.match(sheet, /account-open-friends/);
-  assert.match(sheet, /function renderFriendsPage\(\)/);
-  assert.match(sheet, /mountFriendSeals\(\)/);
+test('the own profile folds the friends list and invite flow inline instead of a separate page', () => {
+  assert.doesNotMatch(sheet, /account-open-friends/);
+  assert.doesNotMatch(sheet, /function renderFriendsPage\(\)/);
+  assert.match(sheet, /function friendsSectionHtml\(\)[\s\S]*?traveler-friends[\s\S]*?friends-page-list[\s\S]*?friends-add[\s\S]*?account-invite\b/);
+  assert.match(sheet, /mountFriendSeals\(\);\s*bind\(readAccountSession\(\) \|\| \{\}\);/);
   assert.match(sheet, /openTravelerProfile\(friendId = ''\)[\s\S]*?if \(mine && !friendsState\) friendsState = await friendApi\('\/v1\/friends'\)/);
 });

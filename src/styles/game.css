@@ -345,15 +345,8 @@ button { font: inherit; }
 .account-friends-list { margin: 16px 0; padding: 0; border-top: 1px solid rgba(var(--rgb-line),.13); list-style: none; }
 .account-friend { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 46px; border-bottom: 1px solid rgba(var(--rgb-line),.13); color: var(--ink-hi); }
 .account-friend .text-button { flex: none; margin: 0; }
-.account-open-friends { display: flex; align-items: center; justify-content: space-between; width: 100%; margin: -12px 0 22px; padding: 13px 15px; border: 1px solid rgba(var(--rgb-line),.26); border-radius: 14px; background: #0d1526; color: var(--ink-hi); font: inherit; font-weight: 800; cursor: pointer; }
-.account-open-friends span:last-child { color: var(--gold); }
-.account-panel[data-view="friends"] { max-height: calc(100dvh - env(safe-area-inset-bottom, 0px) - 28px); overflow: auto; }
-.friends-page { color: var(--ink-body); text-align: left; }
-.friends-page-head { margin: 0 32px 18px 0; }
-.friends-page-head .eyebrow { color: rgba(var(--rgb-muted),.74); }
-.friends-page-head h2 { margin: 0; color: var(--ink-hi); }
-.friends-page-head h2 span { color: var(--gold); font-size: var(--fs-base); }
-.friends-add { padding: 16px; border: 1px solid rgba(var(--rgb-line),.22); border-radius: 16px; background: rgba(var(--rgb-line),.07); }
+.traveler-friends { margin: 0 0 22px; }
+.friends-add { margin-top: 16px; padding: 16px; border: 1px solid rgba(var(--rgb-line),.22); border-radius: 16px; background: rgba(var(--rgb-line),.07); }
 .friends-add h3 { margin: 0 0 12px; color: var(--ink-hi); }
 .friends-add .account-name-form label { color: var(--ink-hi); }
 .friends-add .account-inline-edit input { border-color: rgba(var(--rgb-line),.3); background: #0d1526; color: var(--ink-hi); }
@@ -369,7 +362,6 @@ button { font: inherit; }
 .friend-page-row .traveler-identity span { color: rgba(246,237,216,.86); font-size: var(--fs-small); }
 .friend-page-row b { position: relative; z-index: 1; flex: none; align-self: flex-start; padding: 5px 7px; border-radius: 999px; background: rgba(5,12,29,.38); color: #ffcb05; font-size: var(--fs-caption); white-space: nowrap; }
 .friend-page-item > .account-remove { align-self: center; color: rgba(var(--rgb-muted),.88); }
-.account-panel[data-view="friends"] .account-friends-empty { border: 1px solid rgba(var(--rgb-line),.18); border-radius: 14px; color: rgba(var(--rgb-muted),.82); }
 .account-friends-empty { padding: 16px 4px; color: rgba(220,239,255,.62); font-size: var(--fs-body); line-height: 1.45; text-align: center; }
 .account-remove-copy { color: rgba(224,240,255,.82); font-size: var(--fs-small); line-height: 1.4; }
 .account-remove-actions { display: flex; flex: none; }
