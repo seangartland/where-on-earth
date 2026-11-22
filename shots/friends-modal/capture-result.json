@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "beforeOpen": {
+      "hasOldDoorRow": false,
+      "hasOldFriendsPage": false,
+      "hasInlineFriendsAdd": false,
+      "rows": 2,
+      "hasAddFriendButton": true,
+      "modalHiddenBeforeOpen": true,
+      "overflowX": false
+    },
+    "afterOpen": {
+      "modalHidden": false,
+      "hasNameForm": true,
+      "hasNameInput": true,
+      "hasInviteButton": true,
+      "modalTitle": "Add friends",
+      "overflowX": false
+    },
+    "flowEvidence": {
+      "linkValue": "https://game.local/friend-invite/tok_test123",
+      "status": "Link copied"
+    },
+    "afterCloseButton": {
+      "modalHidden": true,
+      "onOwnProfile": true
+    },
+    "afterBackdropClose": {
+      "modalHidden": true,
+      "onOwnProfile": true
+    }
+  },
+  "requests": [
+    "GET /v1/progression",
+    "GET /v1/progression",
+    "GET /v1/progression",
+    "GET /v1/progression",
+    "GET /v1/sync",
+    "GET /v1/friends",
+    "POST /v1/friends/profile",
+    "POST /v1/friends/invites"
+  ]
+}

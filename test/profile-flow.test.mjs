@@ -19,10 +19,13 @@ test('own profile close dismisses the sheet while friend profile close returns t
   assert.match(sheet, /if \(mine\) closeAccountSheet\(\);\s*else render\('signed-in', readAccountSession\(\) \|\| \{\}\);/);
 });
 
-test('the own profile folds the friends list and invite flow inline instead of a separate page', () => {
+test('the own profile folds the friends list into the page and puts Add friends behind a modal', () => {
   assert.doesNotMatch(sheet, /account-open-friends/);
   assert.doesNotMatch(sheet, /function renderFriendsPage\(\)/);
-  assert.match(sheet, /function friendsSectionHtml\(\)[\s\S]*?traveler-friends[\s\S]*?friends-page-list[\s\S]*?friends-add[\s\S]*?account-invite\b/);
+  assert.doesNotMatch(sheet, /friends-add\b/);
+  assert.match(sheet, /function friendsSectionHtml\(\)[\s\S]*?traveler-friends[\s\S]*?friends-page-list[\s\S]*?account-add-friend[\s\S]*?account-add-friend-modal[\s\S]*?account-invite\b/);
+  assert.match(sheet, /function openAddFriendsModal\(\)[\s\S]*?modal\.hidden = false/);
+  assert.match(sheet, /function closeAddFriendsModal\(\)[\s\S]*?modal\.hidden = true/);
   assert.match(sheet, /mountFriendSeals\(\);\s*bind\(readAccountSession\(\) \|\| \{\}\);/);
   assert.match(sheet, /openTravelerProfile\(friendId = ''\)[\s\S]*?if \(mine && !friendsState\) friendsState = await friendApi\('\/v1\/friends'\)/);
 });

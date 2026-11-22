@@ -355,12 +355,25 @@ function mountFriendSeals() {
   });
 }
 
+function openAddFriendsModal() {
+  const modal = sheet.querySelector('.account-add-friend-modal');
+  if (!modal) return;
+  modal.hidden = false;
+  sheet.querySelector('#account-friend-name')?.focus();
+}
+
+function closeAddFriendsModal() {
+  const modal = sheet.querySelector('.account-add-friend-modal');
+  if (modal) modal.hidden = true;
+}
+
 function friendsSectionHtml() {
   const me = friendsState?.me || {};
   const friends = friendsState?.friends || [];
   return `<section class="traveler-friends"><div class="traveler-section-head"><h3>Friends</h3><span>${friends.length}</span></div>
     <ul class="friends-page-list">${friends.length ? friends.map((friend) => `<li class="account-friend friend-page-item" data-friend-id="${escapeHtml(friend.friendId)}"><button class="account-friend-profile friend-page-row traveler-card" data-card="${escapeHtml(friend.loadout?.cardId || 'blue-horizon')}" type="button"><span class="friend-page-seal"></span><span class="traveler-identity"><strong>${escapeHtml(friend.displayName)}</strong><span>${escapeHtml(identityName('Titles', friend.loadout?.titleId || 'traveler'))}</span></span><b>Level ${Number(friend.level) || 1}</b></button></li>`).join('') : '<li class="account-friends-empty">No friends yet. Invite someone to compare Daily pins.</li>'}</ul>
-    <div class="friends-add"><h3>Add friends</h3><form class="account-name-form"><label for="account-friend-name">Your name for friends</label><div class="account-inline-edit"><input id="account-friend-name" name="displayName" maxlength="20" value="${escapeHtml(me.displayName || '')}" placeholder="Add your name" required><button class="text-button" type="submit">Save</button></div></form><button class="primary account-invite" type="button">Invite a friend</button><div class="account-invite-link" hidden><input class="account-invite-link-input" type="text" readonly aria-label="Friend invite link"><div class="account-invite-link-actions"><button class="account-invite-copy" type="button">Copy</button><button class="account-invite-share" type="button" hidden>Share</button></div></div><p class="account-small-print">Links work once and expire in 7 days.</p><p class="account-small-print">Earn 25 XP when a friend joins and finishes their first Daily, up to 5 friends.</p><p class="account-status" aria-live="polite"></p></div></section>`;
+    <button class="primary account-add-friend" type="button">Add friend</button>
+    <div class="account-modal account-add-friend-modal" hidden><div class="account-modal-panel glass" role="dialog" aria-modal="true" aria-labelledby="add-friends-title"><button class="icon-close account-modal-close" aria-label="Close Add friends">×</button><h3 id="add-friends-title">Add friends</h3><form class="account-name-form"><label for="account-friend-name">Your name for friends</label><div class="account-inline-edit"><input id="account-friend-name" name="displayName" maxlength="20" value="${escapeHtml(me.displayName || '')}" placeholder="Add your name" required><button class="text-button" type="submit">Save</button></div></form><button class="primary account-invite" type="button">Invite a friend</button><div class="account-invite-link" hidden><input class="account-invite-link-input" type="text" readonly aria-label="Friend invite link"><div class="account-invite-link-actions"><button class="account-invite-copy" type="button">Copy</button><button class="account-invite-share" type="button" hidden>Share</button></div></div><p class="account-small-print">Links work once and expire in 7 days.</p><p class="account-small-print">Earn 25 XP when a friend joins and finishes their first Daily, up to 5 friends.</p><p class="account-status" aria-live="polite"></p></div></div></section>`;
 }
 
 function dateLabel(timestamp) { return timestamp ? new Date(timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : ''; }
@@ -512,6 +525,10 @@ function bind(values) {
   });
   sheet.querySelector('.account-invite')?.addEventListener('click', (event) => createInvite(event.currentTarget));
   sheet.querySelector('.account-open-profile')?.addEventListener('click', () => openTravelerProfile());
+  sheet.querySelector('.account-add-friend')?.addEventListener('click', () => openAddFriendsModal());
+  sheet.querySelector('.account-modal-close')?.addEventListener('click', () => closeAddFriendsModal());
+  const addFriendsModal = sheet.querySelector('.account-add-friend-modal');
+  addFriendsModal?.addEventListener('click', (event) => { if (event.target === addFriendsModal) closeAddFriendsModal(); });
   sheet.querySelectorAll('.account-friend-profile').forEach((button) => button.addEventListener('click', () => openTravelerProfile(button.closest('.account-friend').dataset.friendId)));
   sheet.querySelector('.account-invite-copy')?.addEventListener('click', (event) => {
     event.preventDefault();

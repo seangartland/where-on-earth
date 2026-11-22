@@ -346,12 +346,15 @@ button { font: inherit; }
 .account-friend { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 46px; border-bottom: 1px solid rgba(var(--rgb-line),.13); color: var(--ink-hi); }
 .account-friend .text-button { flex: none; margin: 0; }
 .traveler-friends { margin: 0 0 22px; }
-.friends-add { margin-top: 16px; padding: 16px; border: 1px solid rgba(var(--rgb-line),.22); border-radius: 16px; background: rgba(var(--rgb-line),.07); }
-.friends-add h3 { margin: 0 0 12px; color: var(--ink-hi); }
-.friends-add .account-name-form label { color: var(--ink-hi); }
-.friends-add .account-inline-edit input { border-color: rgba(var(--rgb-line),.3); background: #0d1526; color: var(--ink-hi); }
-.friends-add .account-inline-edit .text-button { color: var(--gold); }
-.friends-add .account-status { text-align: center; }
+.account-add-friend { width: 100%; min-height: 48px; margin-top: 16px; }
+.account-modal { position: fixed; z-index: var(--z-modal); inset: 0; display: flex; align-items: flex-end; justify-content: center; box-sizing: border-box; overflow: auto; padding: 54px 14px calc(env(safe-area-inset-bottom, 0px) + 14px); background: rgba(2,4,9,.78); }
+.account-modal[hidden] { display: none; }
+.account-modal-panel { position: relative; box-sizing: border-box; width: 100%; max-width: 440px; margin: auto; padding: 24px 20px 20px; border-radius: 22px; text-align: left; }
+.account-modal-panel h3 { margin: 0 0 12px; color: var(--ink-hi); }
+.account-modal-panel .account-name-form label { color: var(--ink-hi); }
+.account-modal-panel .account-inline-edit input { border-color: rgba(var(--rgb-line),.3); background: #0d1526; color: var(--ink-hi); }
+.account-modal-panel .account-inline-edit .text-button { color: var(--gold); }
+.account-modal-panel .account-status { text-align: center; }
 .friends-page-list { display: grid; gap: 12px; margin: 18px 0 0; padding: 0; list-style: none; }
 .friend-page-item { display: flex; min-height: 0; border: 0; }
 .friend-remove-zone { align-items: center; gap: 10px; flex-wrap: wrap; }
