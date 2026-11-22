@@ -1,8 +1,8 @@
 // Mountain ranges held out of the Landmarks pack (Sean, 2026-11-18: merged
 // into the bank as the Mountains & Volcanoes pack's ranges). These entries
-// stay in the landmarks bank, so Survival and Trivia keep drawing them, and
-// the set seeds the future Mountains & Volcanoes pack. landmarkPackPool in
-// pack-store.js excludes these ids.
+// live in the location bank, not in PACK_LANDMARK_IDS, so Survival and
+// Trivia keep drawing them, and the set seeds the future Mountains &
+// Volcanoes pack.
 export const PACK_MOUNTAIN_RANGE_IDS = new Set([
   'himalayas',
   'andes',

@@ -893,7 +893,7 @@ getJSON('assets/weekly-expeditions.json').then(weeklyRoutesLoaded).catch((err) =
 });
 // Landmarks: Expeditions stops, the merged Survival pool and the Passport's Landmarks shelf (state.js).
 const extentsP = getJSON('assets/extents.json').then((data) => setExtentData(data));
-const landmarksP = Promise.all([getJSON('assets/locations-landmarks-sol.json'), extentsP]).then(([data]) => {
+const landmarksP = Promise.all([getJSON('assets/locations-bank.json'), extentsP]).then(([data]) => {
   state.landmarks = Array.isArray(data) ? data : [];
   syncPassport();
   updateExpeditionEntry();

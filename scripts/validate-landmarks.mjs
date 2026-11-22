@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Checks assets/locations-landmarks-sol.json. Fails when an entry lacks a
+// Checks assets/locations-bank.json. Fails when an entry lacks a
 // known kind or a continent, when a playable candidate (kind landmark that
 // the game's own isPlayableLocation accepts: real image, not Antarctic) lacks
 // a v2 difficultyWhy matching its difficulty, or when an id repeats.
@@ -28,7 +28,7 @@ const APPROVED_AREAS = new Map([
   // farthest-shore radii from the P625 anchors (Lake Superior precedent).
 ]);
 
-const items = JSON.parse(readFileSync(new URL('../assets/locations-landmarks-sol.json', import.meta.url), 'utf8'));
+const items = JSON.parse(readFileSync(new URL('../assets/locations-bank.json', import.meta.url), 'utf8'));
 const extents = JSON.parse(readFileSync(new URL('../assets/extents.json', import.meta.url), 'utf8'));
 const failures = [];
 const seen = new Set();

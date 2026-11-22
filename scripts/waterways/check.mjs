@@ -18,7 +18,7 @@ const extents = read('assets/extents.json');
 setExtentData(extents);
 const common = readFileSync(new URL('./common.py', import.meta.url), 'utf8');
 const ids = new Set([...common.matchAll(/^ {4}'([a-z-]+)': dict\(/gm)].map((m) => m[1]));
-const files = ['assets/locations-landmarks-sol.json', 'assets/locations.json', 'assets/locations-landmarks-quarantine.json',
+const files = ['assets/locations-bank.json', 'assets/locations.json', 'assets/locations-bank-quarantine.json',
   'assets/locations-landmarks-removed-2026-10-15.json'].filter((f) => existsSync(new URL(`../../${f}`, import.meta.url)));
 const all = files.flatMap((f) => read(f).map((x) => ({ ...x, file: f })));
 const batch = all.filter((x) => ids.has(x.id) && x.file !== 'assets/locations.json' && x.file !== 'assets/locations-landmarks-removed-2026-10-15.json');
@@ -38,7 +38,7 @@ function offset(p, km, bearing) {
 let fail = 0;
 for (const e of batch) {
   const problems = [];
-  const banked = e.file === 'assets/locations-landmarks-sol.json';
+  const banked = e.file === 'assets/locations-bank.json';
   if (JSON.stringify(Object.keys(e).filter((k) => k !== 'file')) !== JSON.stringify(FIELDS)) problems.push(`field order ${Object.keys(e)}`);
   if (!isPlayableLocation(e)) problems.push('not playable');
   if (banked !== PACK_WATERS_IDS.has(e.id)) problems.push('waters set membership does not match the bank');

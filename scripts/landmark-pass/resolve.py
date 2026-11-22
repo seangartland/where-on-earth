@@ -11,7 +11,7 @@ Usage (from demo/): python3 scripts/landmark-pass/resolve.py"""
 import json, math, os, re, statistics, time, urllib.error, urllib.parse, urllib.request
 
 UA = {'User-Agent': 'map-game-difficulty/0.3 (where-on-earth; gartland.79 at gmail)'}
-L = json.load(open('assets/locations-landmarks-sol.json', encoding='utf-8'))
+L = json.load(open('assets/locations-bank.json', encoding='utf-8'))
 V2RES = json.load(open('scripts/difficulty/v2-data/resolved-v2.json', encoding='utf-8'))
 SLICE_A = json.load(open('docs/landmark-slice-a-data/views.json', encoding='utf-8'))
 OUT_F = 'scripts/landmark-pass/resolved.json'

@@ -16,7 +16,7 @@ import { isPoolLandmark } from '../src/modes/landmarks.js';
 const load = (path) => JSON.parse(readFileSync(new URL(`../assets/${path}`, import.meta.url), 'utf8'));
 const routes = load('weekly-expeditions.json');
 const cities = new Map(load('locations.json').map((x) => [x.id, x]));
-const landmarks = new Map(load('locations-landmarks-sol.json').map((x) => [x.id, x]));
+const landmarks = new Map(load('locations-bank.json').map((x) => [x.id, x]));
 const classicStops = new Set(load('expeditions.json').flatMap((e) => e.locationIds));
 
 // The data stores the UK nations separately and Cape Verde under two spellings;

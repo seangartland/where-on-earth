@@ -1,7 +1,7 @@
 // Ancient cities held out of the Landmarks pack (Sean, 2026-10-30: ancient
-// cities are not landmarks). These entries stay in the landmarks bank, so
-// Survival and Trivia keep drawing them, and the set seeds a future pack.
-// landmarkPackPool in pack-store.js excludes these ids.
+// cities are not landmarks). These entries live in the location bank, not in
+// PACK_LANDMARK_IDS, so Survival and Trivia keep drawing them, and the set
+// seeds a future pack of its own.
 export const PACK_ANCIENT_CITY_IDS = new Set([
   'ait-benhaddou-ksar',
   'baalbek',

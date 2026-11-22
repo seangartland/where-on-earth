@@ -38,7 +38,7 @@ const ready = (p) => p.waitForFunction(() => window.__game && !document.getEleme
 const pack = (p) => p.evaluate(() => JSON.parse(localStorage.getItem('where-on-earth-pack-v1')));
 const passport = (p) => p.evaluate(() => JSON.parse(localStorage.getItem('where-on-earth-passport-v1') || 'null'));
 const item = (p, id) => p.evaluate(async (id) => {
-  const all = [...await (await fetch('assets/locations.json')).json(), ...await (await fetch('assets/locations-landmarks-sol.json')).json()];
+  const all = [...await (await fetch('assets/locations.json')).json(), ...await (await fetch('assets/locations-bank.json')).json()];
   return all.find((l) => l.id === id);
 }, id);
 const screen = (p) => p.evaluate(() => {

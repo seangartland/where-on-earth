@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '../..');
-const pinFiles = ['assets/locations.json', 'assets/locations-landmarks-sol.json'];
+const pinFiles = ['assets/locations.json', 'assets/locations-bank.json'];
 const minZoom = 10;
 const maxZoom = 14;
 const mercatorLimit = 85.05112878;

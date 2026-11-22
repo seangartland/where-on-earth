@@ -13,7 +13,7 @@ const { isPoolLandmark } = await import('../src/modes/landmarks.js');
 
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
 const cities = load('locations.json');
-const landmarks = load('locations-landmarks-sol.json');
+const landmarks = load('locations-bank.json');
 const extents = load('extents.json');
 setExtentData(extents);
 const trivia = load('trivia-bank.json');

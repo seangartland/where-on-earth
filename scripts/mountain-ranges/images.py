@@ -20,7 +20,7 @@ ALIASES = {'himalayas': ['Himalaya'], 'alps': ['Alps', 'Alpen', 'Alpes'], 'rocky
 
 def used_images():
     urls = set()
-    for f in ('assets/locations.json', 'assets/locations-landmarks-sol.json'):
+    for f in ('assets/locations.json', 'assets/locations-bank.json'):
         for x in json.load(open(os.path.join(ROOT, f))): urls.add(x.get('image'))
     return urls
 

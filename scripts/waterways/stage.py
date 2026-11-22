@@ -6,8 +6,8 @@ two-country straits (the Strait of Hormuz template), "<Name>, <Country>" for one
 policy). country = the scoring country (Hormuz precedent); continent from the cities file's country table.
 Images: Commons files picked by eye from images.py contact sheets (center-square judged); the entry carries the 500px
 thumbnail URL (recent-adds convention), HEAD 200 image/jpeg and dataset-unique, checked here.
-Destinations: median >= 100/day and geometry -> the bank (assets/locations-landmarks-sol.json) + its record in
-assets/extents.json + src/meta/pack-waters.js; median < 100/day -> assets/locations-landmarks-quarantine.json (no extent
+Destinations: median >= 100/day and geometry -> the bank (assets/locations-bank.json) + its record in
+assets/extents.json + src/meta/pack-waters.js; median < 100/day -> assets/locations-bank-quarantine.json (no extent
 record: the validator rejects geometry without a bank entry); no geometry -> HELD (report only, no entry anywhere).
 Suez Canal leaves the quarantine file when it banks.
 Usage (from demo/): python3 scripts/waterways/stage.py <chunk A|B|C> [--merge]"""
@@ -74,7 +74,7 @@ def head(url):
 
 def used_images(exclude_ids):
     urls = {}
-    for f in ('assets/locations.json', 'assets/locations-landmarks-sol.json', 'assets/locations-landmarks-quarantine.json'):
+    for f in ('assets/locations.json', 'assets/locations-bank.json', 'assets/locations-bank-quarantine.json'):
         for x in json.load(open(os.path.join(ROOT, f), encoding='utf-8')):
             if x['id'] not in exclude_ids: urls[x.get('image')] = x['id']
     return urls
@@ -107,7 +107,7 @@ def write(path, text):
 
 
 def merge(rows):
-    LF, QF, EF = (os.path.join(ROOT, p) for p in ('assets/locations-landmarks-sol.json', 'assets/locations-landmarks-quarantine.json', 'assets/extents.json'))
+    LF, QF, EF = (os.path.join(ROOT, p) for p in ('assets/locations-bank.json', 'assets/locations-bank-quarantine.json', 'assets/extents.json'))
     L, Q, E = (json.load(open(p, encoding='utf-8')) for p in (LF, QF, EF))
     for r in rows:
         if r['dest'] == 'held': continue
@@ -123,8 +123,8 @@ def merge(rows):
     write(os.path.join(ROOT, 'src/meta/pack-waters.js'),
           "// Straits and canals held out of the Landmarks pack (waterways batch, 2026-11-21; Sean's brief: these are\n"
           "// Waters pool entries, no generic landmarks-pool step). Same treatment as PACK_MOUNTAIN_RANGE_IDS: the\n"
-          "// entries stay in the landmarks bank, so Survival and Trivia keep drawing them, and the set seeds the\n"
-          "// future Waters pack. landmarkPackPool in pack-store.js excludes these ids. Written by\n"
+          "// entries live in the location bank, not in PACK_LANDMARK_IDS, so Survival and Trivia keep drawing them,\n"
+          "// and the set seeds the future Waters pack. Written by\n"
           "// scripts/waterways/stage.py --merge; edit that script, not this file.\n"
           f"export const PACK_WATERS_IDS = new Set([\n{body}]);\n")
     print(f'merged: bank {len(L)}, quarantine {len(Q)}, extents {len(E)}, waters {len(banked)}')

@@ -4,7 +4,7 @@ import fs from 'node:fs';
 const ROOT = '/home/hatch/workspace/map-game/demo/';
 const OUT = `${ROOT}shots/home-passport-landmark/`;
 const cities = JSON.parse(fs.readFileSync(`${ROOT}assets/locations.json`, 'utf8'));
-const landmarks = JSON.parse(fs.readFileSync(`${ROOT}assets/locations-landmarks-sol.json`, 'utf8'));
+const landmarks = JSON.parse(fs.readFileSync(`${ROOT}assets/locations-bank.json`, 'utf8'));
 const landmark = landmarks.find((item) => item.image) || landmarks[0];
 const expectedText = `1 / ${(cities.length + landmarks.length).toLocaleString()} places found · 1 earned`;
 const photo = fs.readFileSync(`${ROOT}assets/eox-z4-base-2k.jpg`);

@@ -22,7 +22,7 @@ const cities = JSON.parse(readFileSync(new URL('../assets/locations.json', impor
 const pool = packPool(cities);
 const raw = () => JSON.parse(localStorage.getItem(PACK_KEY));
 const empty = (stamina = { stored: 2, nextAt: null }) => ({
-  skips: 12, skipCredit: 0, stamina, byType: { capitals: null, landmarks: null, landforms: null },
+  skips: 12, skipCredit: 0, stamina, byType: { capitals: null, landmarks: null },
 });
 
 test.beforeEach(() => localStorage.clear());

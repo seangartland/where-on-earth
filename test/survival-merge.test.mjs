@@ -17,7 +17,7 @@ globalThis.window = globalThis;
 
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url), 'utf8'));
 const cities = load('locations.json');
-const landmarks = load('locations-landmarks-sol.json');
+const landmarks = load('locations-bank.json');
 
 const el = () => ({ addEventListener() {}, querySelector: () => ({ textContent: '' }) });
 const host = {

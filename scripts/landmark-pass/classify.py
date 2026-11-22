@@ -1,4 +1,4 @@
-"""Landmark data pass, phase 1: add `kind` to every entry in assets/locations-landmarks-sol.json.
+"""Landmark data pass, phase 1: add `kind` to every entry in assets/locations-bank.json.
 kind is 'landmark' (point landmarks: peaks, structures, sites, districts), 'area' (features whose extent
 makes a centre pin unfair, held out until extent-aware scoring ships, future-features.md #8), or
 'settlement' (plain towns and cities the 2026-10-15 cull missed; flagged for Sean, never landmark content).
@@ -7,7 +7,7 @@ Only `kind` is written; key order, values and entry order are otherwise unchange
 Usage (from demo/): python3 scripts/landmark-pass/classify.py"""
 import json
 
-F = 'assets/locations-landmarks-sol.json'
+F = 'assets/locations-bank.json'
 
 AREA = {
     'aitutaki-lagoon': 'lagoon',

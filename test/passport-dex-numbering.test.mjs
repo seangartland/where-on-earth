@@ -44,7 +44,7 @@ const { passportUnvisitedSlot } = await import('../src/meta/passport.js');
 const { passportPackSections, packCardNumber, formatPackCardNumber } = await import('../src/meta/passport-packs.js');
 const load = (name) => JSON.parse(readFileSync(new URL(`../assets/${name}`, import.meta.url)));
 const cities = load('locations.json');
-const landmarks = load('locations-landmarks-sol.json');
+const landmarks = load('locations-bank.json');
 
 test('card numbers are zero-padded to three digits', () => {
   assert.equal(formatPackCardNumber(5), '005');

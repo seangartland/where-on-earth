@@ -12,7 +12,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const F = new URL('../../assets/locations-landmarks-sol.json', import.meta.url);
+const F = new URL('../../assets/locations-bank.json', import.meta.url);
 const SRC = readFileSync(new URL('../add-continent.mjs', import.meta.url), 'utf8');
 
 function objectLiteral(name) {

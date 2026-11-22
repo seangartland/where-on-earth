@@ -4,19 +4,16 @@ import { localDateKey } from '../core/format.js';
 import { isPlayableLocation } from '../daily.js';
 import { PACK_CAPITAL_IDS } from './pack-capitals.js';
 import { PACK_WORLD_CITY_IDS } from './pack-world-cities.js';
-import { PACK_LANDFORM_IDS } from './pack-landforms.js';
-import { PACK_ANCIENT_CITY_IDS } from './pack-ancient-cities.js';
-import { PACK_BATTLE_SITE_IDS } from './pack-battle-sites.js';
-import { PACK_MOUNTAIN_RANGE_IDS } from './pack-mountain-ranges.js';
-import { PACK_WATERS_IDS } from './pack-waters.js';
+import { PACK_LANDMARK_IDS } from './pack-landmark-ids.js';
 
 export const PACK_CARDS = 3;
 export const STAMINA_MAX = 2;
 export const STAMINA_PERIOD = 12 * 60 * 60 * 1000;
 export const SKIP_PERIOD = 60 * 60 * 1000;
 // Live packs (Sean, 2026-11-08): World Capitals + World Cities only.
-// Landmarks and Landforms are gated as future drops; their pools and
-// progress records stay intact below, only the offering is hidden.
+// Landmarks is gated as a future drop; its pool and progress record stay
+// intact below, only the offering is hidden. There is no Landforms pack
+// (Sean's ruling, 2026-11-21): it never had a pool of its own.
 export const PACK_TYPES = ['capitals', 'world-cities'];
 const LEGACY_TORN_KEY = `${PACK_KEY}-torn`;
 
@@ -29,10 +26,7 @@ export function worldCityPackPool(locations) {
 const playableLandmark = (item) => Number.isFinite(item?.lat) && Number.isFinite(item?.lng)
   && typeof item?.image === 'string' && item.image.length > 0;
 export function landmarkPackPool(locations) {
-  return locations.filter((item) => !PACK_LANDFORM_IDS.has(item.id) && !PACK_ANCIENT_CITY_IDS.has(item.id) && !PACK_BATTLE_SITE_IDS.has(item.id) && !PACK_MOUNTAIN_RANGE_IDS.has(item.id) && !PACK_WATERS_IDS.has(item.id) && playableLandmark(item));
-}
-export function landformPackPool(locations) {
-  return locations.filter((item) => PACK_LANDFORM_IDS.has(item.id) && playableLandmark(item));
+  return locations.filter((item) => PACK_LANDMARK_IDS.has(item.id) && playableLandmark(item));
 }
 
 const isPack = (pack) => Array.isArray(pack?.ids) && pack.ids.length === PACK_CARDS
@@ -88,7 +82,7 @@ const freshRecord = () => ({
   skips: 12,
   skipCredit: 0,
   stamina: { stored: STAMINA_MAX, nextAt: null },
-  byType: { capitals: null, landmarks: null, landforms: null },
+  byType: { capitals: null, landmarks: null },
 });
 
 export function readPack(now = Date.now()) {

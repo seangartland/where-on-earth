@@ -4,7 +4,7 @@ import { state } from '../core/state.js';
 import { formatKm, localDateKey } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
 import {
-  PACK_CARDS, PACK_TYPES, STAMINA_MAX, STAMINA_PERIOD, packPool, worldCityPackPool, landmarkPackPool, landformPackPool, readPack, ensurePack,
+  PACK_CARDS, PACK_TYPES, STAMINA_MAX, STAMINA_PERIOD, packPool, worldCityPackPool, landmarkPackPool, readPack, ensurePack,
   savePackResult, completePack, spend, applySkips, writePack, packOutcome, packSummary,
   packChoiceState, packProgressCount, canTearPack,
 } from '../meta/pack-store.js';
@@ -15,8 +15,9 @@ export const PACKS = [
   { type: 'world-cities', name: 'World Cities', art: 'assets/pack-world-cities-static.webp', tearLine: 0.0886 },
   // Retired 2026-11-08 (Sean): hidden from the select screen unless a pack
   // of that type is already in progress, so a paid-for pack can finish.
+  // There is no Landforms pack (Sean's ruling, 2026-11-21): it never had a
+  // pool of its own.
   { type: 'landmarks', name: 'Landmarks', art: 'assets/pack-landmarks-static.webp', tearLine: 0.0886, aspect: '900 / 1350', retired: true },
-  { type: 'landforms', name: 'Landforms', art: 'assets/pack-landforms-static.webp', tearLine: 0.0886, aspect: '900 / 1350', retired: true },
 ];
 export const pack = { active: false, type: 'capitals', card: 0, item: null, record: null };
 
@@ -51,8 +52,7 @@ function currentPack() {
 
 const packConfig = () => PACKS.find((item) => item.type === pack.type);
 const poolFor = (type) => type === 'capitals' ? packPool(host.locations)
-  : type === 'world-cities' ? worldCityPackPool(host.locations)
-  : type === 'landforms' ? landformPackPool(host.landmarks) : landmarkPackPool(host.landmarks);
+  : type === 'world-cities' ? worldCityPackPool(host.locations) : landmarkPackPool(host.landmarks);
 
 function countdownText(record, now = Date.now()) {
   const seconds = Math.max(0, Math.ceil((record.stamina.nextAt - now) / 1000));

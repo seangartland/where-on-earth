@@ -10,7 +10,7 @@ const root = resolve(here, '../..');
 // ids, so their stops are resolved against the banks below.
 const locationFiles = {
   locations: 'assets/locations.json',
-  landmarks: 'assets/locations-landmarks-sol.json',
+  landmarks: 'assets/locations-bank.json',
   trivia: 'assets/trivia-bank.json',
   expeditions: 'assets/expeditions.json',
   weeklyExpeditions: 'assets/weekly-expeditions.json',

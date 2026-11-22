@@ -23,7 +23,7 @@ ALIASES = {'bosphorus': ['Bosphorus', 'Bosporus', 'Boğaz'], 'dardanelles': ['Da
 
 def used_images():
     urls = set()
-    for f in ('assets/locations.json', 'assets/locations-landmarks-sol.json', 'assets/locations-landmarks-quarantine.json'):
+    for f in ('assets/locations.json', 'assets/locations-bank.json', 'assets/locations-bank-quarantine.json'):
         for x in json.load(open(os.path.join(ROOT, f))): urls.add(x.get('image'))
     return urls
 

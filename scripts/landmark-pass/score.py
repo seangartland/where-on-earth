@@ -9,12 +9,12 @@ mean is above its median month (a spike can only raise the mean) and either the 
 or mean and median land in different rarity bands (Common 1-3, Uncommon 4-6, Rare 7-8, Legendary 9-10). A contaminated entry is scored on the median month; both are recorded.
 Entries the frozen scorer cannot place (no fallback centre) or with no measured article are left unrated.
 Usage (from demo/): python3 scripts/landmark-pass/score.py [--apply]
-  --apply  write difficulty + difficultyWhy for rated entries into assets/locations-landmarks-sol.json"""
+  --apply  write difficulty + difficultyWhy for rated entries into assets/locations-bank.json"""
 import json, math, os, sys
 
 H = os.path.dirname(os.path.abspath(__file__))
 V2 = os.path.join(H, '../difficulty/v2-data')
-LF = os.path.join(H, '../../assets/locations-landmarks-sol.json')
+LF = os.path.join(H, '../../assets/locations-bank.json')
 src = open(os.path.join(V2, 'score_v2.py'), encoding='utf-8').read()
 src = src[:src.index('via_views = ')]
 cwd = os.getcwd(); os.chdir(V2); g = {'__name__': 'score_v2_defs'}; exec(src, g); os.chdir(cwd)

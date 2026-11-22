@@ -1,5 +1,5 @@
 """Mountain-ranges batch: write staged entries into the bank and the extent sidecar the game loads.
-Appends staged entries (in brief order) to assets/locations-landmarks-sol.json and their records to assets/extents.json
+Appends staged entries (in brief order) to assets/locations-bank.json and their records to assets/extents.json
 (src/main.js passes that file to setExtentData). Idempotent: an id already present is replaced in place, never doubled.
 Formats preserved byte-for-byte for untouched records (landmarks: indent 1, no trailing newline; extents: indent 2,
 trailing newline; both UTF-8 unescaped). Bulk-safe: each file is written to a temp path and renamed.
@@ -8,7 +8,7 @@ import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import ROOT, HERE, RANGES
 
-LF = os.path.join(ROOT, 'assets/locations-landmarks-sol.json')
+LF = os.path.join(ROOT, 'assets/locations-bank.json')
 EF = os.path.join(ROOT, 'assets/extents.json')
 staged = json.load(open(os.path.join(HERE, 'staged.json'), encoding='utf-8'))
 ids = sys.argv[1:] or [i for i in RANGES if i in staged]

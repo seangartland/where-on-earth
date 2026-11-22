@@ -3,14 +3,14 @@
 import { chromium } from '/home/hatch/workspace/.pw-setup/node_modules/playwright/index.mjs';
 import fs from 'node:fs';
 import { PACK_CAPITAL_IDS } from '../src/meta/pack-capitals.js';
-import { PACK_LANDFORM_IDS } from '../src/meta/pack-landforms.js';
+import { PACK_LANDMARK_IDS } from '../src/meta/pack-landmark-ids.js';
 
 const ROOT = '/home/hatch/workspace/map-game/demo/';
 const OUT = `${ROOT}shots/passport-dex/`;
 const cities = JSON.parse(fs.readFileSync(`${ROOT}assets/locations.json`, 'utf8'));
-const landmarks = JSON.parse(fs.readFileSync(`${ROOT}assets/locations-landmarks-sol.json`, 'utf8'));
+const landmarks = JSON.parse(fs.readFileSync(`${ROOT}assets/locations-bank.json`, 'utf8'));
 const capitals = cities.filter((item) => PACK_CAPITAL_IDS.has(item.id));
-const landmarkPool = landmarks.filter((item) => !PACK_LANDFORM_IDS.has(item.id));
+const landmarkPool = landmarks.filter((item) => PACK_LANDMARK_IDS.has(item.id));
 const dailyOnly = cities.filter((item) => !PACK_CAPITAL_IDS.has(item.id));
 const seedIds = [...capitals.slice(0, 5), ...landmarkPool.slice(0, 4), ...dailyOnly.slice(0, 2)].map((item) => item.id);
 fs.mkdirSync(OUT, { recursive: true });

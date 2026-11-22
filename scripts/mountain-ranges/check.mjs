@@ -18,9 +18,9 @@ for (const [id, s] of Object.entries(staged)) extents[id] = s.extent;
 setExtentData(extents);
 
 const others = [];
-for (const f of ['assets/locations-landmarks-sol.json', 'assets/locations.json', 'assets/locations-landmarks-quarantine.json',
+for (const f of ['assets/locations-bank.json', 'assets/locations.json', 'assets/locations-bank-quarantine.json',
   'assets/locations-landmarks-removed-2026-10-15.json']) {
-  if (existsSync(new URL(`../../${f}`, import.meta.url))) for (const x of read(f)) if (!staged[x.id] || f !== 'assets/locations-landmarks-sol.json') others.push({ ...x, file: f });
+  if (existsSync(new URL(`../../${f}`, import.meta.url))) for (const x of read(f)) if (!staged[x.id] || f !== 'assets/locations-bank.json') others.push({ ...x, file: f });
 }
 const fold = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const STATES = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
