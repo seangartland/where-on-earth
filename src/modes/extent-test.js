@@ -87,12 +87,9 @@ function showExtentTestResults() {
 
 export function initExtentTest(main) {
   host = main;
-  if (!extentTestEnabled()) return;
-  host.gameEls.extentTestEntry.hidden = false;
-  const count = extentTestPool(host.landmarks).length;
-  host.gameEls.extentTestCount.textContent = `${count.toLocaleString()} locations`;
-  host.gameEls.extentTestEntry.disabled = !count;
-  host.gameEls.extentTestEntry.addEventListener('click', startExtentTest);
+  // Hidden by Sean's call (2026-11-21): the extent test entry is never
+  // unhidden, whatever the query string says. The mode stays dormant in
+  // code; only the results-screen wiring below remains live.
   host.gameEls.extentTestHome.addEventListener('click', host.goHome);
   host.gameEls.extentTestQuit.addEventListener('click', host.goHome);
 }
