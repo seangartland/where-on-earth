@@ -9,6 +9,7 @@ import { ACCOUNTS_ENABLED, LOCK_ARM_MS, flyoverTier, EARN_BULLSEYE, EARN_PINPOIN
 import { state } from '../core/state.js';
 import { setThumb, gameEls } from '../core/dom.js';
 import { warmLadderParam, scheduleWarmLadder, stopWarmLadder } from '../globe/surface.js';
+import { preparePageRound } from '../globe/page-render.js';
 import { traceMark } from '../globe/zoom-trace.js';
 
 export { gameEls };
@@ -113,6 +114,9 @@ export function showRound() {
   document.body.classList.add('game-round');
   const item = currentItem();
   traceMark('round-start', { hasCoords: !!item && Number.isFinite(item.lat) && Number.isFinite(item.lng) });
+  // Pilot renderer (?pages=1, BRIEF-renderer-pilot.md): a no-op unless the
+  // flag is set, so the default round-start path pays nothing extra.
+  preparePageRound(item);
   // Experiment arm B (?warm=ladder, test-only): narrowest shared point every
   // mode passes through to announce its new target. The previous round's
   // still-queued jobs are cleared here either way, which is what "stops at

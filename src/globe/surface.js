@@ -22,6 +22,7 @@ import { visibleTileCoordinates } from './inset-footprint.js';
 import { idlePrefetchAllowed, insetFetchLimit, servedRungIndex } from './inset-policy.js';
 import { traceMark, traceSpanStart, traceSpanEnd } from './zoom-trace.js';
 import { warmLadderEnabled, shouldScheduleWarmLadder, buildWarmLadderJobs, createWarmLadderQueue } from './warm-ladder.js';
+import { pageRenderActive, updatePageRender } from './page-render.js';
 
 let blankTex;
 export let globeMat;
@@ -1602,7 +1603,12 @@ export const outlineRevealOpacity = (m) => (1 - Math.pow(1 - m.userData.reveal, 
 // river overlays out under the imagery. Answer outlines, pins and arcs are
 // not touched.
 export function updateSatellite(dt) {
-  updateInsets(dt);
+  // Pilot renderer (?pages=1, BRIEF-renderer-pilot.md): an in-coverage round
+  // swaps between its already-prepared pages instead of running the tile
+  // ladder at all. pageRenderActive() is false whenever the flag is off or
+  // the round fell outside the staged coverage, so this changes nothing
+  // about the path below for every other round.
+  if (pageRenderActive()) updatePageRender(); else updateInsets(dt);
   if (satT === satTarget && satT === satApplied) return;
   satT = satTarget > satT ? Math.min(satTarget, satT + dt / SAT_FADE_S) : Math.max(satTarget, satT - dt / SAT_FADE_S);
   satApplied = satT;

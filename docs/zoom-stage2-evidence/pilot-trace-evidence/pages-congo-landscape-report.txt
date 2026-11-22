@@ -1,0 +1,10 @@
+page-trace-report: 450 events
+
+Serving path: pages
+Plan: 22 textures, residency 56527984 bytes, transfer 1298596 bytes, fit={"transfer":true,"residency":true,"textures":true,"all":true}, z5Mode=page
+Prepare: start=4208.8ms end=5095.6ms duration=886.8ms
+First input mark: 5178.0ms
+Prepared before first input: true
+Level selects (input-to-ready since each is a pure visibility swap with no fetch/decode/upload):
+  zoff -> z7 at 5187.7ms (9.7ms since first input)
+Post-input pages fetch/decode/upload count (expect 0 inside coverage): 0
