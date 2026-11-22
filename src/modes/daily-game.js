@@ -345,7 +345,7 @@ async function syncFriendsToday(total) {
   const list = card.querySelector('.friends-today-list');
   const link = card.querySelector('.friends-today-link');
   if (!ACCOUNTS_ENABLED || !isSignedIn()) {
-    note.textContent = "Friends can't see this score until you sign in — queued scores send automatically once you do.";
+    note.textContent = "Friends can't see this score until you sign in: queued scores send automatically once you do.";
     note.hidden = false;
     head.hidden = true;
     list.hidden = true;
