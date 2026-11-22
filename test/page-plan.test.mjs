@@ -112,3 +112,34 @@ test('fallback selection: an in-coverage location with the flag on resolves the 
   assert.equal(result.path, 'pages');
   assert.equal(result.plan.z5.pair, 'M');
 });
+
+// BRIEF-page-lifecycle.md requirement 3: an over-cap plan takes the explicit
+// supported path instead of partially entering pages. Fabricate an
+// oversized manifest entry (bytes well past PAGE_TRANSFER_CAP_BYTES) at one
+// of the Madrid window's own resolved z9 keys (not just any z9 key in the
+// manifest - most belong to other staged windows and would leave Madrid's
+// own resolved plan untouched) so every other key still resolves normally
+// and only the cap decides the outcome.
+test('fallback selection: an admitted plan that exceeds a resource cap takes the tile path instead of partially entering pages', () => {
+  const oversizedKey = plan(40.4, -3.7, true).z9[0].key;
+  const inflated = new Map(manifestIndex);
+  const original = inflated.get(oversizedKey);
+  inflated.set(oversizedKey, { ...original, bytes: PAGE_TRANSFER_CAP_BYTES + 1 });
+
+  const overCap = selectRenderPath({
+    lat: 40.4, lng: -3.7, portrait: true,
+    manifestIndex: inflated, feasibilityIndex, feasibilityPairs, z9UrlBase, contextUrlBases, feasibilityUrlBase, flagOn: true,
+  });
+  assert.equal(overCap.path, 'tiles');
+  assert.equal(overCap.reason, 'over-cap');
+  assert.equal(overCap.fit.transfer, false);
+  assert.equal(overCap.plan, undefined);
+
+  // The unmodified manifest for the same window still admits pages: the cap,
+  // not some other change, is what flipped the decision above.
+  const admitted = selectRenderPath({
+    lat: 40.4, lng: -3.7, portrait: true,
+    manifestIndex, feasibilityIndex, feasibilityPairs, z9UrlBase, contextUrlBases, feasibilityUrlBase, flagOn: true,
+  });
+  assert.equal(admitted.path, 'pages');
+});
