@@ -1,7 +1,7 @@
 [
  {
   "id": "abu-simbel-temples",
-  "clue": "Abu Simbel, Egypt 🇪🇬",
+  "clue": "Abu Simbel",
   "fact": "Two massive rock temples built by Ramses II, relocated in the 1960s due to Aswan High Dam.",
   "lat": 22.3367,
   "lng": 31.6253,
@@ -18,7 +18,7 @@
  {
   "id": "acropolis-athens-gr",
   "short": "Acropolis of Athens",
-  "clue": "Acropolis, Greece 🇬🇷",
+  "clue": "Acropolis",
   "fact": "The Parthenon on its summit served as a temple, a church, a mosque and an Ottoman gunpowder store before a Venetian shell blew it apart in 1687.",
   "lat": 37.9715,
   "lng": 23.7257,
@@ -34,7 +34,7 @@
  {
   "id": "ait-benhaddou-ksar",
   "short": "Aït Benhaddou",
-  "clue": "Aït Benhaddou, Morocco 🇲🇦",
+  "clue": "Aït Benhaddou",
   "fact": "This UNESCO-listed ksar is a compact group of earthen buildings enclosed by defensive walls and corner towers.",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Ait_Benhaddou_Pano.jpg/500px-Ait_Benhaddou_Pano.jpg",
   "lat": 31.0472,
@@ -49,7 +49,7 @@
  },
  {
   "id": "alamo-san-antonio",
-  "clue": "The Alamo, United States 🇺🇸",
+  "clue": "The Alamo",
   "fact": "The Alamo is a historic mission in San Antonio, Texas, famous for the 1836 battle during the Texas Revolution.",
   "lat": 29.4258,
   "lng": -98.4861,
@@ -65,7 +65,7 @@
  },
  {
   "id": "alcatraz-island",
-  "clue": "Alcatraz, United States 🇺🇸",
+  "clue": "Alcatraz",
   "fact": "Alcatraz served as a federal penitentiary from 1934 to 1963 and is now a National Park site in San Francisco Bay.",
   "lat": 37.8267,
   "lng": -122.423,
@@ -81,7 +81,7 @@
  },
  {
   "id": "alhambra-granada",
-  "clue": "Alhambra, Spain 🇪🇸",
+  "clue": "Alhambra",
   "category": "city",
   "lat": 37.176,
   "lng": -3.5881,
@@ -99,7 +99,7 @@
  },
  {
   "id": "angkor-wat",
-  "clue": "Angkor Wat, Cambodia 🇰🇭",
+  "clue": "Angkor Wat",
   "category": "city",
   "lat": 13.4125,
   "lng": 103.867,
@@ -119,7 +119,7 @@
  {
   "id": "anzac-cove",
   "short": "Anzac Cove",
-  "clue": "Anzac Cove, Turkey 🇹🇷",
+  "clue": "Anzac Cove",
   "fact": "The landing date is now marked every year as Anzac Day in both countries.",
   "lat": 40.2463,
   "lng": 26.278,
@@ -141,7 +141,7 @@
   "lat": 37.233333,
   "lng": -115.808333,
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Sentinel-Homey.png",
-  "clue": "Area 51, United States 🇺🇸",
+  "clue": "Area 51",
   "difficulty": 3,
   "country": "United States",
   "continent": "North America",
@@ -155,7 +155,7 @@
  {
   "id": "atomium-iron-crystal",
   "short": "Atomium",
-  "clue": "Atomium, Belgium 🇧🇪",
+  "clue": "Atomium",
   "fact": "Built for the 1958 World's Fair, the 102-metre structure represents a unit cell enlarged 165 billion times.",
   "lat": 50.894834,
   "lng": 4.341585,
@@ -172,7 +172,7 @@
  {
   "id": "austin-capitol-texas",
   "short": "Texas State Capitol",
-  "clue": "Texas State Capitol, United States 🇺🇸",
+  "clue": "Texas State Capitol",
   "fact": "The Texas State Capitol in Austin is one of the largest state capitol buildings in the U.S.",
   "lat": 30.2747,
   "lng": -97.7404,
@@ -187,7 +187,7 @@
  },
  {
   "id": "badlands-national-park",
-  "clue": "Badlands Wall, United States 🇺🇸",
+  "clue": "Badlands Wall",
   "fact": "The Badlands Wall near Cedar Pass is one of the most dramatic eroded landscapes in South Dakota.",
   "lat": 43.7675,
   "lng": -101.929,
@@ -204,7 +204,7 @@
  {
   "id": "badwater-basin",
   "short": "Badwater Basin",
-  "clue": "Badwater Basin, United States 🇺🇸",
+  "clue": "Badwater Basin",
   "fact": "At 86 metres (282 ft) below sea level, it is the lowest point in North America; after rare storms its salt pan floods into a temporary Lake Manly, while freeze and evaporation sculpt the crust into salt polygons.",
   "lat": 36.2296,
   "lng": -116.825,
@@ -219,7 +219,7 @@
  },
  {
   "id": "bagan-myanmar",
-  "clue": "Bagan, Myanmar 🇲🇲",
+  "clue": "Bagan",
   "fact": "The temples of Bagan were built between 1001 and 1287 on money raised by 10,000 donor inscriptions carved into the sandalwood slabs now kept in museums.",
   "lat": 21.1717,
   "lng": 94.8585,
@@ -238,7 +238,7 @@
  {
   "id": "barringer-meteor-impact",
   "short": "Meteor Crater",
-  "clue": "Meteor Crater, Arizona, United States 🇺🇸",
+  "clue": "Meteor Crater",
   "fact": "The Arizona crater is about 1.2 kilometers wide. Daniel Barringer's unsuccessful search for a huge buried meteor helped establish its impact origin.",
   "lat": 35.027,
   "lng": -111.022,
@@ -254,7 +254,7 @@
  {
   "id": "battle-of-hastings",
   "short": "Battle of Hastings",
-  "clue": "Battle of Hastings, England",
+  "clue": "Battle of Hastings",
   "fact": "The fight took place about 10 km from Hastings, at a site now named simply Battle, where William built an abbey to atone.",
   "lat": 50.9149,
   "lng": 0.487,
@@ -276,7 +276,7 @@
   "lat": 56.79685,
   "lng": -5.003508,
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/BenNevis2005.jpg",
-  "clue": "Ben Nevis, Scotland",
+  "clue": "Ben Nevis",
   "difficulty": 4,
   "country": "Scotland",
   "continent": "Europe",
@@ -306,7 +306,7 @@
  },
  {
   "id": "big-ben",
-  "clue": "Big Ben, England",
+  "clue": "Big Ben",
   "category": "city",
   "lat": 51.5007,
   "lng": -0.1246,
@@ -326,7 +326,7 @@
  {
   "id": "birds-nest-beijing",
   "short": "Bird's Nest",
-  "clue": "Bird's Nest Stadium, Beijing, China 🇨🇳",
+  "clue": "Bird's Nest Stadium",
   "fact": "Beijing National Stadium's tangled steel lattice earned the nickname. It hosted the Winter Olympics ceremonies again in 2022.",
   "lat": 39.9929,
   "lng": 116.3965,
@@ -348,7 +348,7 @@
   "lat": 48.25,
   "lng": 8.05,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Blick_vom_Hohfelsen.jpg/500px-Blick_vom_Hohfelsen.jpg",
-  "clue": "Black Forest, Germany 🇩🇪",
+  "clue": "Black Forest",
   "difficulty": 5,
   "country": "Germany",
   "continent": "Europe",
@@ -360,7 +360,7 @@
  },
  {
   "id": "blue-lagoon-iceland",
-  "clue": "Blue Lagoon, Iceland 🇮🇸",
+  "clue": "Blue Lagoon",
   "fact": "The Blue Lagoon is not a natural spring at all: it is the superheated brine runoff of a geothermal power station, kept hot so the plant's pipes never freeze.",
   "lat": 63.8804,
   "lng": -22.4495,
@@ -377,7 +377,7 @@
  {
   "id": "bodh-gaya-india",
   "short": "Bodh Gaya",
-  "clue": "Bodh Gaya, India 🇮🇳",
+  "clue": "Bodh Gaya",
   "fact": "The Mahabodhi Temple stands beside a descendant of the original tree and is Buddhism's holiest site.",
   "lat": 24.6959,
   "lng": 84.9913,
@@ -394,7 +394,7 @@
  },
  {
   "id": "bondi-beach",
-  "clue": "Bondi Beach, Australia 🇦🇺",
+  "clue": "Bondi Beach",
   "fact": "Bondi Beach is Australia's most famous surf beach and a hub of beach culture since the early 20th century.",
   "lat": -33.8915,
   "lng": 151.2767,
@@ -412,7 +412,7 @@
  },
  {
   "id": "borobudur",
-  "clue": "Borobudur, Indonesia 🇮🇩",
+  "clue": "Borobudur",
   "fact": "Built in the 8th-9th century, it wraps 2,672 relief panels around nine stacked platforms, and work stopped in 1006 when the volcano erupted and buried the site.",
   "lat": -7.6079,
   "lng": 110.2038,
@@ -430,7 +430,7 @@
  },
  {
   "id": "brandenburg-gate",
-  "clue": "Brandenburg Gate, Germany 🇩🇪",
+  "clue": "Brandenburg Gate",
   "fact": "Napoleon marched through the Brandenburg Gate into Berlin in 1806, and the Quadriga on top did not come home until 1958.",
   "lat": 52.5163,
   "lng": 13.3777,
@@ -446,7 +446,7 @@
  },
  {
   "id": "bunker-hill-monument",
-  "clue": "Bunker Hill, United States 🇺🇸",
+  "clue": "Bunker Hill",
   "fact": "The Bunker Hill Monument in Charlestown marks the site of the first major battle of the American Revolutionary War.",
   "lat": 42.3764,
   "lng": -71.0608,
@@ -467,7 +467,7 @@
   "lat": 25.141389,
   "lng": 55.185278,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Madinat_Jumeirah-Dubai3303.JPG/500px-Madinat_Jumeirah-Dubai3303.JPG",
-  "clue": "Burj Al Arab, United Arab Emirates 🇦🇪",
+  "clue": "Burj Al Arab",
   "difficulty": 4,
   "country": "United Arab Emirates",
   "continent": "Asia",
@@ -479,7 +479,7 @@
  {
   "id": "burj-khalifa-dubai",
   "short": "Burj Khalifa",
-  "clue": "Burj Khalifa, United Arab Emirates 🇦🇪",
+  "clue": "Burj Khalifa",
   "fact": "At 829.8 metres it is the world's tallest structure, renamed at its inauguration from Burj Dubai for Sheikh Khalifa bin Zayed, who had organised federal support for its struggling developer.",
   "lat": 25.1972,
   "lng": 55.2744,
@@ -497,7 +497,7 @@
  {
   "id": "capitol-building-washington",
   "short": "United States Capitol",
-  "clue": "United States Capitol, United States 🇺🇸",
+  "clue": "United States Capitol",
   "fact": "Burned by British troops in 1814 and rebuilt within five years, the Capitol gained its massive present dome in the 1860s, completed around 1866, just after the Civil War.",
   "lat": 38.8899,
   "lng": -77.0091,
@@ -531,7 +531,7 @@
  {
   "id": "chan-chan-tshudi-palace",
   "short": "Chan Chan",
-  "clue": "Chan Chan, Peru 🇵🇪",
+  "clue": "Chan Chan",
   "fact": "Chan Chan was the capital of the Chimu kingdom and the largest adobe city in the Americas. Reliefs in its compounds evoke waves, fish, and seabirds.",
   "lat": -8.1106,
   "lng": -79.0743,
@@ -549,7 +549,7 @@
  {
   "id": "chand-baori-abhaneri",
   "short": "Chand Baori",
-  "clue": "Chand Baori, India 🇮🇳",
+  "clue": "Chand Baori",
   "fact": "Built around the 8th or 9th century, Chand Baori has 13 levels and roughly 3,500 narrow steps.",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Isometric_view_of_Chand_Baori.jpg/500px-Isometric_view_of_Chand_Baori.jpg",
   "lat": 27.0073,
@@ -569,7 +569,7 @@
   "lat": 47.616111,
   "lng": 1.517222,
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Aerial_image_of_Ch%C3%A2teau_de_Chambord_%28view_from_the_southeast%29.jpg",
-  "clue": "Château de Chambord, France 🇫🇷",
+  "clue": "Château de Chambord",
   "difficulty": 4,
   "country": "France",
   "continent": "Europe",
@@ -581,7 +581,7 @@
  {
   "id": "chateau-frontenac",
   "short": "Château Frontenac",
-  "clue": "Château Frontenac, Canada 🇨🇦",
+  "clue": "Château Frontenac",
   "fact": "Commissioned by the Canadian Pacific Railway in 1893, it sits on the site of a 23rd-century chateau built by French governor Charles de Frontenac.",
   "lat": 46.8139,
   "lng": -71.208,
@@ -596,7 +596,7 @@
  },
  {
   "id": "chichen-itza",
-  "clue": "Chichen Itza, Mexico 🇲🇽",
+  "clue": "Chichen Itza",
   "category": "city",
   "lat": 20.6843,
   "lng": -88.5678,
@@ -616,7 +616,7 @@
  {
   "id": "chocolate-hills",
   "short": "Chocolate Hills",
-  "clue": "Chocolate Hills, Philippines 🇵🇭",
+  "clue": "Chocolate Hills",
   "fact": "The cones grew as coral limestone lifted during earthquakes, and the name was coined by a film crew filming a 2012 ad.",
   "lat": 9.7982126,
   "lng": 124.168487,
@@ -634,7 +634,7 @@
  },
  {
   "id": "christ-the-redeemer",
-  "clue": "Christ the Redeemer, Brazil 🇧🇷",
+  "clue": "Christ the Redeemer",
   "category": "city",
   "lat": -22.9519,
   "lng": -43.2105,
@@ -655,7 +655,7 @@
  {
   "id": "chrysler-building-nyc",
   "short": "Chrysler Building",
-  "clue": "Chrysler Building, United States 🇺🇸",
+  "clue": "Chrysler Building",
   "fact": "Its stainless-steel Art Deco crown made it the world's tallest building for 11 months in 1930, until the Empire State Building opened.",
   "lat": 40.7516,
   "lng": -73.9755,
@@ -671,7 +671,7 @@
  {
   "id": "cinderella-castle-us",
   "short": "Walt Disney World",
-  "clue": "Walt Disney World, United States 🇺🇸",
+  "clue": "Walt Disney World",
   "fact": "Cinderella Castle uses forced perspective: the upper stones are smaller than the lower ones, making it look much taller than its 57 metres.",
   "lat": 28.4195,
   "lng": -81.5812,
@@ -691,7 +691,7 @@
   "lat": 52.971751,
   "lng": -9.426334,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Cliffs-Of-Moher-OBriens-From-South.JPG/3840px-Cliffs-Of-Moher-OBriens-From-South.JPG",
-  "clue": "Cliffs of Moher, Ireland 🇮🇪",
+  "clue": "Cliffs of Moher",
   "difficulty": 5,
   "country": "Ireland",
   "continent": "Europe",
@@ -703,7 +703,7 @@
  {
   "id": "copacabana-beach-rio",
   "short": "Copacabana Beach",
-  "clue": "Copacabana Beach, Brazil 🇧🇷",
+  "clue": "Copacabana Beach",
   "fact": "This 4 km crescent of sand is famous for the black-and-white wave mosaic on its promenade and its huge New Year's Eve party.",
   "lat": -22.9711,
   "lng": -43.1822,
@@ -726,7 +726,7 @@
   "lat": -16.2,
   "lng": 145.4,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Daintree_Rainforest%2C_Queensland_%28483855%29_%289440811465%29.jpg/3840px-Daintree_Rainforest%2C_Queensland_%28483855%29_%289440811465%29.jpg",
-  "clue": "Daintree Rainforest, Australia 🇦🇺",
+  "clue": "Daintree Rainforest",
   "difficulty": 10,
   "country": "Australia",
   "continent": "Oceania",
@@ -738,7 +738,7 @@
  },
  {
   "id": "danakil-depression",
-  "clue": "Danakil Depression, Ethiopia 🇪🇹",
+  "clue": "Danakil Depression",
   "category": "city",
   "lat": 13.92,
   "lng": 40.48,
@@ -762,7 +762,7 @@
   "lat": 45.2,
   "lng": 29.5,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Danube_Delta_ESA23450088.jpeg/3840px-Danube_Delta_ESA23450088.jpeg",
-  "clue": "Danube Delta, Romania 🇷🇴",
+  "clue": "Danube Delta",
   "difficulty": 6,
   "country": "Romania",
   "continent": "Europe",
@@ -776,7 +776,7 @@
  },
  {
   "id": "darvaza-gas-crater",
-  "clue": "Darvaza Crater, Turkmenistan 🇹🇲",
+  "clue": "Darvaza Crater",
   "fact": "Soviet geologists lit this natural gas well alight in 1971 expecting it to burn out in weeks; the crater is a 70 m pit of flame that has never gone out.",
   "lat": 40.2526,
   "lng": 58.4396,
@@ -792,7 +792,7 @@
  },
  {
   "id": "dead-sea",
-  "clue": "Dead Sea, Jordan 🇯🇴",
+  "clue": "Dead Sea",
   "category": "city",
   "lat": 31.559,
   "lng": 35.4732,
@@ -812,7 +812,7 @@
  },
  {
   "id": "delicate-arch-utah",
-  "clue": "Delicate Arch, United States 🇺🇸",
+  "clue": "Delicate Arch",
   "fact": "Delicate Arch is Arches National Park's most famous freestanding natural arch, standing 52 feet tall.",
   "lat": 38.7436,
   "lng": -109.4993,
@@ -833,7 +833,7 @@
   "lat": 38.4823,
   "lng": 22.5013,
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Delphi%2C_Greece_-_panoramio.jpg",
-  "clue": "Delphi, Greece 🇬🇷",
+  "clue": "Delphi",
   "difficulty": 3,
   "country": "Greece",
   "continent": "Europe",
@@ -849,7 +849,7 @@
   "lat": 63.069167,
   "lng": -151.006389,
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/91/Wonder_Lake_and_Denali.jpg",
-  "clue": "Denali, United States 🇺🇸",
+  "clue": "Denali",
   "difficulty": 7,
   "country": "United States",
   "continent": "North America",
@@ -862,7 +862,7 @@
  },
  {
   "id": "dholavira-india",
-  "clue": "Dholavira, India 🇮🇳",
+  "clue": "Dholavira",
   "fact": "Dholavira's excavators found a stone signboard of painted jars, a stone water-harvesting ring and a fortification that held for centuries, all on an island in Gujarat's Gulf of Kachchh.",
   "lat": 23.8874,
   "lng": 70.2136,
@@ -883,7 +883,7 @@
   "lat": 33.81,
   "lng": -117.92,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Sleeping_Beauty_Castle_-_February_2024.png/500px-Sleeping_Beauty_Castle_-_February_2024.png",
-  "clue": "Disneyland, United States 🇺🇸",
+  "clue": "Disneyland",
   "difficulty": 7,
   "country": "United States",
   "continent": "North America",
@@ -895,7 +895,7 @@
  {
   "id": "eilean-donan-tidal-castle",
   "short": "Eilean Donan",
-  "clue": "Eilean Donan, Scotland",
+  "clue": "Eilean Donan",
   "fact": "The medieval stronghold was destroyed in 1719 and reconstructed in the early twentieth century.",
   "lat": 57.274028,
   "lng": -5.516111,
@@ -912,7 +912,7 @@
  },
  {
   "id": "el-castillo-chichen-itza",
-  "clue": "El Castillo, Mexico 🇲🇽",
+  "clue": "El Castillo",
   "fact": "El Castillo, also known as the Temple of Kukulcán, is a step pyramid built by the Maya civilization around 800 CE.",
   "lat": 20.683,
   "lng": -88.5678,
@@ -928,7 +928,7 @@
  },
  {
   "id": "gateway-arch-st-louis",
-  "clue": "Gateway Arch, United States 🇺🇸",
+  "clue": "Gateway Arch",
   "fact": "The Gateway Arch in St. Louis is the tallest man-made monument in the United States, standing 630 feet.",
   "lat": 38.6247,
   "lng": -90.1848,
@@ -945,7 +945,7 @@
  },
  {
   "id": "gettysburg-battlefield",
-  "clue": "Gettysburg, United States 🇺🇸",
+  "clue": "Gettysburg",
   "fact": "Cemetery Hill was a key defensive position during the Battle of Gettysburg, the bloodiest battle of the Civil War.",
   "lat": 39.8183,
   "lng": -77.2314,
@@ -961,7 +961,7 @@
  },
  {
   "id": "gobekli-tepe",
-  "clue": "Göbekli Tepe, Turkey 🇹🇷",
+  "clue": "Göbekli Tepe",
   "fact": "Hunter-gatherers, not farmers, raised this hilltop of enclosures around 9600 BC, which upset the idea that settled agriculture had to come first, and the site was deliberately buried by hand.",
   "lat": 37.2233,
   "lng": 38.9226,
@@ -979,7 +979,7 @@
  },
  {
   "id": "great-sphinx-giza",
-  "clue": "Great Sphinx, Egypt 🇪🇬",
+  "clue": "Great Sphinx",
   "category": "city",
   "lat": 29.9753,
   "lng": 31.1376,
@@ -997,7 +997,7 @@
  },
  {
   "id": "gyeongbokgung-palace",
-  "clue": "Gyeongbokgung, South Korea 🇰🇷",
+  "clue": "Gyeongbokgung",
   "fact": "Rebuilt in 1865 after the first palace burned down, its changing of the guard ceremony still recreates the 15th-century ritual of the Joseon kings.",
   "lat": 37.5796,
   "lng": 126.977,
@@ -1013,7 +1013,7 @@
  },
  {
   "id": "ha-long-bay",
-  "clue": "Ha Long Bay, Vietnam 🇻🇳",
+  "clue": "Ha Long Bay",
   "fact": "Its name means 'descending dragon', and the bay is scattered with 1,969 limestone islets whose karst has been shaped by a tropical climate over some 20 million years.",
   "lat": 20.905,
   "lng": 107.175,
@@ -1032,7 +1032,7 @@
  },
  {
   "id": "hohensalzburg-fortress",
-  "clue": "Hohensalzburg, Austria 🇦🇹",
+  "clue": "Hohensalzburg",
   "fact": "Hohensalzburg was finished in 1077 and never taken by assault; a legend says Salzburg's archbishop ordered all but one of its bells silenced as raving mad.",
   "lat": 47.7955,
   "lng": 13.0473,
@@ -1051,7 +1051,7 @@
  {
   "id": "hoi-an",
   "short": "Hoi An",
-  "clue": "Hoi An, Vietnam 🇻🇳",
+  "clue": "Hoi An",
   "fact": "It was a major port from the 1500s to the 1800s and its Japanese Covered Bridge dates to the 16th century.",
   "lat": 15.8801,
   "lng": 108.338,
@@ -1069,7 +1069,7 @@
  },
  {
   "id": "hungarian-parliament",
-  "clue": "Hungarian Parliament, Hungary 🇭🇺",
+  "clue": "Hungarian Parliament",
   "fact": "Budapest's Parliament was sited deliberately across the river from Habsburg Buda so the Hungarian nation would stare back at the emperor's own palace.",
   "lat": 47.5,
   "lng": 19.0406,
@@ -1090,7 +1090,7 @@
   "lat": 46.536806,
   "lng": 7.962639,
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Jungfrau03.jpg",
-  "clue": "Jungfrau, Switzerland 🇨🇭",
+  "clue": "Jungfrau",
   "difficulty": 5,
   "country": "Switzerland",
   "continent": "Europe",
@@ -1104,7 +1104,7 @@
  {
   "id": "kakadu",
   "short": "Kakadu",
-  "clue": "Kakadu, Australia 🇦🇺",
+  "clue": "Kakadu",
   "fact": "Its name is a mis-spelling of the region's Aboriginal name, and it holds more than 1,400 documented archaeological sites.",
   "lat": -12.9167,
   "lng": 132.4833,
@@ -1121,7 +1121,7 @@
  {
   "id": "kennedy-space-center",
   "short": "Kennedy Space Center",
-  "clue": "Kennedy Space Center, United States 🇺🇸",
+  "clue": "Kennedy Space Center",
   "fact": "Launch pad 39A has sent every crewed moon mission to space, and its 120 m Saturn V still stands as a monument.",
   "lat": 28.5729,
   "lng": -80.649,
@@ -1136,7 +1136,7 @@
  },
  {
   "id": "kilwa-kisiwani-ruins",
-  "clue": "Kilwa Kisiwani, Tanzania 🇹🇿",
+  "clue": "Kilwa Kisiwani",
   "fact": "Ruins of a medieval Swahili trading city on an island off Tanzania's coast.",
   "lat": -8.9603,
   "lng": 39.5128,
@@ -1157,7 +1157,7 @@
   "lat": 35.298056,
   "lng": 25.163056,
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Knossos_R01.jpg",
-  "clue": "Knossos, Greece 🇬🇷",
+  "clue": "Knossos",
   "difficulty": 6,
   "country": "Greece",
   "continent": "Europe",
@@ -1172,7 +1172,7 @@
  {
   "id": "kremlin-moscow",
   "short": "Kremlin",
-  "clue": "Kremlin, Russia 🇷🇺",
+  "clue": "Kremlin",
   "fact": "The Moscow Kremlin is a fortified complex that serves as the official residence of Russia's president.",
   "lat": 55.752,
   "lng": 37.6175,
@@ -1188,7 +1188,7 @@
  {
   "id": "kuelap-fortress-peru",
   "short": "Kuélap",
-  "clue": "Kuélap, Peru 🇵🇪",
+  "clue": "Kuélap",
   "fact": "Kuélap's massive limestone walls enclose hundreds of structures at about 3,000 metres above sea level.",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Kuelap%2C_Peru.jpg/500px-Kuelap%2C_Peru.jpg",
   "lat": -6.4173,
@@ -1204,7 +1204,7 @@
  {
   "id": "las-lajas-sanctuary",
   "short": "Las Lajas Sanctuary",
-  "clue": "Las Lajas Sanctuary, Colombia 🇨🇴",
+  "clue": "Las Lajas Sanctuary",
   "fact": "This neo-Gothic church bridges a deep gorge near Colombia's border with Ecuador. Its altar incorporates the cliff face.",
   "lat": 0.805,
   "lng": -77.586,
@@ -1224,7 +1224,7 @@
   "lat": 45.053611,
   "lng": 1.17,
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg",
-  "clue": "Lascaux, France 🇫🇷",
+  "clue": "Lascaux",
   "difficulty": 5,
   "country": "France",
   "continent": "Europe",
@@ -1235,7 +1235,7 @@
  },
  {
   "id": "little-bighorn-battlefield",
-  "clue": "Little Bighorn Battlefield, Montana, United States 🇺🇸",
+  "clue": "Little Bighorn Battlefield",
   "fact": "The Little Bighorn Battlefield marks where Lieutenant Colonel George Custer and his troops were defeated by Lakota and Cheyenne forces in 1876.",
   "lat": 45.5708,
   "lng": -107.4275,
@@ -1252,7 +1252,7 @@
  {
   "id": "longmen-grottos",
   "short": "Longmen Grottoes",
-  "clue": "Longmen Grottoes, China 🇨🇳",
+  "clue": "Longmen Grottoes",
   "fact": "Carved from 493 CE, the site took three centuries to complete, and the largest Buddha there stands 17 m tall.",
   "lat": 34.556,
   "lng": 112.947,
@@ -1267,7 +1267,7 @@
  },
  {
   "id": "machu-picchu",
-  "clue": "Machu Picchu, Peru 🇵🇪",
+  "clue": "Machu Picchu",
   "category": "city",
   "lat": -13.1631,
   "lng": -72.545,
@@ -1288,7 +1288,7 @@
  {
   "id": "masada-israel",
   "short": "Masada",
-  "clue": "Masada, Israel 🇮🇱",
+  "clue": "Masada",
   "fact": "Masada is an ancient fortification atop a mesa in Israel, famous for the siege by Roman forces in 73-74 CE.",
   "lat": 31.3156,
   "lng": 35.3539,
@@ -1304,7 +1304,7 @@
  {
   "id": "matterhorn-summit",
   "short": "Matterhorn Summit",
-  "clue": "Matterhorn, Switzerland 🇨🇭",
+  "clue": "Matterhorn",
   "fact": "The first ascent in 1865 ended in tragedy when four climbers fell during the descent, and the mountain's name comes from its horn-like shape.",
   "lat": 45.9763,
   "lng": 7.6586,
@@ -1326,7 +1326,7 @@
   "lat": 45.832778,
   "lng": 6.865,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Mont_Blanc_from_Les_Arcs_1950.jpg/500px-Mont_Blanc_from_Les_Arcs_1950.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "clue": "Mont Blanc, Italy 🇮🇹",
+  "clue": "Mont Blanc",
   "difficulty": 5,
   "country": "Italy",
   "continent": "Europe",
@@ -1339,7 +1339,7 @@
  },
  {
   "id": "mont-saint-michel",
-  "clue": "Mont Saint-Michel, France 🇫🇷",
+  "clue": "Mont Saint-Michel",
   "category": "city",
   "lat": 48.6361,
   "lng": -1.5115,
@@ -1362,7 +1362,7 @@
   "lat": 38.010306,
   "lng": -78.452333,
   "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Monticello_reflected.JPG",
-  "clue": "Monticello, United States 🇺🇸",
+  "clue": "Monticello",
   "difficulty": 8,
   "country": "United States",
   "continent": "North America",
@@ -1373,7 +1373,7 @@
  },
  {
   "id": "monument-valley-mitten",
-  "clue": "East Mitten Butte, United States 🇺🇸",
+  "clue": "East Mitten Butte",
   "fact": "The East Mitten Butte is one of Monument Valley's most iconic sandstone formations on the Arizona-Utah border.",
   "lat": 36.9889,
   "lng": -110.0942,
@@ -1389,7 +1389,7 @@
  },
  {
   "id": "mount-kilimanjaro-summit",
-  "clue": "Kilimanjaro Summit, Tanzania 🇹🇿",
+  "clue": "Kilimanjaro Summit",
   "fact": "Kilimanjaro is the world's highest free-standing mountain, rising 5,895 metres (19,341 ft) above sea level, and its summit ice cap lost more than 80% of its area during the 20th century.",
   "lat": -3.0758,
   "lng": 37.3533,
@@ -1407,7 +1407,7 @@
  },
  {
   "id": "nalanda-bihar",
-  "clue": "Nalanda, India 🇮🇳",
+  "clue": "Nalanda",
   "fact": "This monastery complex in Bihar ran for 700 years, and Chinese pilgrims who studied here carried its ideas home long before the Arabic al-khwarizmi made 'zero' a term Europe would adopt.",
   "lat": 25.1367,
   "lng": 85.4433,
@@ -1423,7 +1423,7 @@
  },
  {
   "id": "nan-madol",
-  "clue": "Nan Madol, Micronesia 🇫🇲",
+  "clue": "Nan Madol",
   "fact": "Nan Madol is an ancient city of artificial islets made from basalt columns, often called the 'Venice of the Pacific'.",
   "lat": 6.8445,
   "lng": 158.3357,
@@ -1441,7 +1441,7 @@
  },
  {
   "id": "newgrange",
-  "clue": "Newgrange, Ireland 🇮🇪",
+  "clue": "Newgrange",
   "fact": "Newgrange is aligned to the winter solstice sun, and for a few minutes each December afternoon the beam enters the roof box and strikes the back wall.",
   "lat": 53.6947,
   "lng": -6.4756,
@@ -1457,7 +1457,7 @@
  },
  {
   "id": "ngorongoro-crater-rim",
-  "clue": "Ngorongoro Crater, Tanzania 🇹🇿",
+  "clue": "Ngorongoro Crater",
   "fact": "The crater is the world's largest inactive, intact and unfilled volcanic caldera: 610 metres deep, with a 260 km² floor that holds about 25,000 large animals.",
   "lat": -3.1963,
   "lng": 35.54,
@@ -1476,7 +1476,7 @@
  {
   "id": "okefenokee-swamp",
   "short": "Okefenokee Swamp",
-  "clue": "Okefenokee Swamp, United States 🇺🇸",
+  "clue": "Okefenokee Swamp",
   "fact": "Long called the land of the dancing bears, it sits only 33 m above sea level and hosts dense black bear and wild boar populations.",
   "lat": 30.6669,
   "lng": -82.3332,
@@ -1491,7 +1491,7 @@
  },
  {
   "id": "ol-duvai-gorge",
-  "clue": "Olduvai Gorge, Tanzania 🇹🇿",
+  "clue": "Olduvai Gorge",
   "fact": "An archaeological site in Tanzania where some of the earliest hominid fossils have been found.",
   "lat": -2.9922,
   "lng": 35.3539,
@@ -1512,7 +1512,7 @@
   "lat": 25.118056,
   "lng": 55.133333,
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Artificial_Archipelagos%2C_Dubai%2C_United_Arab_Emirates_ISS022-E-024940_lrg_%28cropped%29.jpg",
-  "clue": "Palm Jumeirah, United Arab Emirates 🇦🇪",
+  "clue": "Palm Jumeirah",
   "difficulty": 4,
   "country": "United Arab Emirates",
   "continent": "Asia",
@@ -1523,7 +1523,7 @@
  },
  {
   "id": "pamukkale-turkey",
-  "clue": "Pamukkale, Turkey 🇹🇷",
+  "clue": "Pamukkale",
   "category": "city",
   "lat": 37.9203,
   "lng": 29.1211,
@@ -1541,7 +1541,7 @@
  },
  {
   "id": "parliament-hill-ottawa",
-  "clue": "Parliament Hill, Canada 🇨🇦",
+  "clue": "Parliament Hill",
   "fact": "Parliament Hill in Ottawa is home to Canada's federal legislature and its iconic Gothic Revival buildings.",
   "lat": 45.4236,
   "lng": -75.7009,
@@ -1557,7 +1557,7 @@
  },
  {
   "id": "pearl-harbor-uss-arizona",
-  "clue": "USS Arizona, United States 🇺🇸",
+  "clue": "USS Arizona",
   "fact": "The USS Arizona Memorial marks the resting place of 1,177 sailors killed during the Japanese attack on Pearl Harbor on December 7, 1941.",
   "lat": 21.3647,
   "lng": -157.9499,
@@ -1573,7 +1573,7 @@
  },
  {
   "id": "petra-jordan",
-  "clue": "Petra, Jordan 🇯🇴",
+  "clue": "Petra",
   "category": "city",
   "lat": 30.3285,
   "lng": 35.4444,
@@ -1594,7 +1594,7 @@
  {
   "id": "pingyao-ancient-city",
   "short": "Pingyao Ancient City",
-  "clue": "Pingyao Ancient City, China 🇨🇳",
+  "clue": "Pingyao Ancient City",
   "fact": "Its 6 km wall was never taken by an enemy, and the Rishengchang draft bank operated there for over 400 years.",
   "lat": 37.2011,
   "lng": 112.1761,
@@ -1610,7 +1610,7 @@
  {
   "id": "plaza-de-espana-seville",
   "short": "Plaza de España",
-  "clue": "Plaza de España, Spain 🇪🇸",
+  "clue": "Plaza de España",
   "fact": "Built for the 1929 Ibero-American Exposition, its curved arcade has tiled alcoves for each Spanish province and appears in Star Wars: Episode II.",
   "lat": 37.3772,
   "lng": -5.9869,
@@ -1625,7 +1625,7 @@
  },
  {
   "id": "pompeii",
-  "clue": "Pompeii, Italy 🇮🇹",
+  "clue": "Pompeii",
   "fact": "Pompeii's plaster casts were poured into the cavities left by bodies decomposed in the ash, so figures still frozen mid-stride stand in their shops.",
   "lat": 40.7497,
   "lng": 14.4869,
@@ -1644,7 +1644,7 @@
  {
   "id": "pont-du-gard-aqueduct",
   "short": "Pont du Gard",
-  "clue": "Pont du Gard, France 🇫🇷",
+  "clue": "Pont du Gard",
   "fact": "The bridge carried the Nîmes aqueduct across the valley and survives as the tallest Roman aqueduct bridge still standing.",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Pont_du_Gard_panorama.jpg/500px-Pont_du_Gard_panorama.jpg",
   "lat": 43.9475,
@@ -1660,7 +1660,7 @@
  {
   "id": "prado-museum",
   "short": "Museo del Prado",
-  "clue": "Museo del Prado, Madrid, Spain 🇪🇸",
+  "clue": "Museo del Prado",
   "fact": "Called the Prado after an oak grove that once stood on the site, it opened in 1819 and holds some 8,600 paintings.",
   "lat": 40.4138,
   "lng": -3.6921,
@@ -1675,7 +1675,7 @@
  },
  {
   "id": "preikestolen-pulpit-rock",
-  "clue": "Pulpit Rock, Norway 🇳🇴",
+  "clue": "Pulpit Rock",
   "fact": "Pulpit Rock is a flat square of bare rock planed smooth by a glacier and abandoned unfinished when the brothers who quarried it realised the stone was worthless.",
   "lat": 58.9861,
   "lng": 6.2,
@@ -1691,7 +1691,7 @@
  },
  {
   "id": "pyramids-of-giza",
-  "clue": "Pyramids of Giza, Egypt 🇪🇬",
+  "clue": "Pyramids of Giza",
   "category": "city",
   "lat": 29.9792,
   "lng": 31.1342,
@@ -1711,7 +1711,7 @@
  {
   "id": "rani-ki-vav-stepwell",
   "short": "Rani ki Vav",
-  "clue": "Rani ki Vav, India 🇮🇳",
+  "clue": "Rani ki Vav",
   "fact": "The eleventh-century structure contains more than 500 principal sculptures and was rediscovered after centuries beneath silt.",
   "lat": 23.858889,
   "lng": 72.101667,
@@ -1727,7 +1727,7 @@
  {
   "id": "red-square-moscow",
   "short": "Red Square",
-  "clue": "Red Square, Russia 🇷🇺",
+  "clue": "Red Square",
   "fact": "Red Square is Moscow's historic heart, home to St. Basil's Cathedral and the Kremlin.",
   "lat": 55.7539,
   "lng": 37.6208,
@@ -1742,7 +1742,7 @@
  },
  {
   "id": "registan-samarkand",
-  "clue": "Registan, Uzbekistan 🇺🇿",
+  "clue": "Registan",
   "fact": "The square's buildings date from the 1400s to the 1600s, and beside it stood Ulugh Beg's observatory, which measured the length of the year to within a second.",
   "lat": 39.6547,
   "lng": 66.9758,
@@ -1760,7 +1760,7 @@
  },
  {
   "id": "richat-structure",
-  "clue": "Richat Structure, Mauritania 🇲🇷",
+  "clue": "Richat Structure",
   "category": "city",
   "lat": 21.1231,
   "lng": -11.3878,
@@ -1778,7 +1778,7 @@
  },
  {
   "id": "rock-of-cashel",
-  "clue": "Rock of Cashel, Ireland 🇮🇪",
+  "clue": "Rock of Cashel",
   "fact": "Legend says St Patrick trapped the devil on the Rock of Cashel and tricked him into exempting the town from hell by cracking its roof.",
   "lat": 52.52,
   "lng": -7.89,
@@ -1795,7 +1795,7 @@
  {
   "id": "rock-of-gibraltar",
   "short": "Rock of Gibraltar",
-  "clue": "Rock of Gibraltar, United Kingdom 🇬🇮",
+  "clue": "Rock of Gibraltar",
   "fact": "The Rock of Gibraltar is a monolithic limestone promontory at the entrance to the Mediterranean.",
   "lat": 36.143,
   "lng": -5.353,
@@ -1811,7 +1811,7 @@
  {
   "id": "sacsayhuaman-cusco",
   "short": "Sacsayhuamán",
-  "clue": "Sacsayhuamán, Peru 🇵🇪",
+  "clue": "Sacsayhuamán",
   "fact": "Some blocks in Sacsayhuamán's three terraced walls weigh well over 100 tonnes, yet were fitted without mortar.",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Sacsayhuam%C3%A1n_Inca_site_P%C3%A9rou_Nov_2011-1.jpg/500px-Sacsayhuam%C3%A1n_Inca_site_P%C3%A9rou_Nov_2011-1.jpg",
   "lat": -13.5075,
@@ -1829,7 +1829,7 @@
  {
   "id": "san-ignacio-mini-mission",
   "short": "San Ignacio Miní",
-  "clue": "San Ignacio Miní, Argentina 🇦🇷",
+  "clue": "San Ignacio Miní",
   "fact": "Established in the seventeenth century, the complex included a church, workshops, housing, and a large central plaza.",
   "lat": -27.255278,
   "lng": -55.531667,
@@ -1851,7 +1851,7 @@
   "lat": 34.008611,
   "lng": -118.498611,
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Santa_monica_pier_entrance_evening.jpg",
-  "clue": "Santa Monica Pier, United States 🇺🇸",
+  "clue": "Santa Monica Pier",
   "difficulty": 10,
   "country": "United States",
   "continent": "North America",
@@ -1867,7 +1867,7 @@
   "lat": 32.833333,
   "lng": 35.583333,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Kinneret_cropped.jpg/3840px-Kinneret_cropped.jpg",
-  "clue": "Sea of Galilee, Israel 🇮🇱",
+  "clue": "Sea of Galilee",
   "difficulty": 4,
   "country": "Israel",
   "continent": "Asia",
@@ -1879,7 +1879,7 @@
  {
   "id": "shibuya-crossing-tokyo",
   "short": "Shibuya Crossing",
-  "clue": "Shibuya Crossing, Japan 🇯🇵",
+  "clue": "Shibuya Crossing",
   "fact": "Shibuya Crossing is one of the world's busiest pedestrian intersections in Tokyo.",
   "lat": 35.6595,
   "lng": 139.7004,
@@ -1894,7 +1894,7 @@
  },
  {
   "id": "sigiriya",
-  "clue": "Sigiriya, Sri Lanka 🇱🇰",
+  "clue": "Sigiriya",
   "fact": "The Lion Rock's terraces hold a fresco of a 'cloud woman' nearly identical to one painted at an Indian temple, and the two designs are thought to share a single source.",
   "lat": 7.957,
   "lng": 80.7603,
@@ -1915,7 +1915,7 @@
   "lat": 53.068497,
   "lng": -4.076231,
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Snowdon_massif.jpg",
-  "clue": "Snowdon, Wales",
+  "clue": "Snowdon",
   "difficulty": 5,
   "country": "Wales",
   "continent": "Europe",
@@ -1929,7 +1929,7 @@
  {
   "id": "st-marks-square-venice",
   "short": "St. Mark's Square",
-  "clue": "St. Mark's Square, Italy 🇮🇹",
+  "clue": "St. Mark's Square",
   "fact": "Napoleon is said to have called the square 'the drawing room of Europe'; its Campanile collapsed in 1902 and was rebuilt exactly as it was, where it was, by 1912.",
   "lat": 45.434,
   "lng": 12.3388,
@@ -1945,7 +1945,7 @@
  },
  {
   "id": "stonehenge",
-  "clue": "Stonehenge, England",
+  "clue": "Stonehenge",
   "category": "city",
   "lat": 51.1789,
   "lng": -1.8262,
@@ -1981,7 +1981,7 @@
  {
   "id": "thermopylae",
   "short": "Thermopylae",
-  "clue": "Thermopylae, Greece 🇬🇷",
+  "clue": "Thermopylae",
   "fact": "Silt from the Spercheios River has pushed the coast kilometres away, so the 'hot gates' pass is no longer narrow.",
   "lat": 38.7964,
   "lng": 22.5364,
@@ -1998,7 +1998,7 @@
  },
  {
   "id": "thingvellir",
-  "clue": "Thingvellir, Iceland 🇮🇸",
+  "clue": "Thingvellir",
   "fact": "Thingvellir is the torn surface of the Mid-Atlantic ridge itself, and Iceland's Althing met under its cliffs from 930 until 1798.",
   "lat": 64.2559,
   "lng": -21.13,
@@ -2015,7 +2015,7 @@
  {
   "id": "tiananmen-square-beijing",
   "short": "Tiananmen Square",
-  "clue": "Tiananmen Square, China 🇨🇳",
+  "clue": "Tiananmen Square",
   "fact": "One of the world's largest city squares, it lies just south of the Gate of Heavenly Peace and the Forbidden City.",
   "lat": 39.9033,
   "lng": 116.3917,
@@ -2031,7 +2031,7 @@
  {
   "id": "tikal",
   "short": "Tikal",
-  "clue": "Tikal, Guatemala 🇬🇹",
+  "clue": "Tikal",
   "fact": "Its Temple IV is 65 m tall, the tallest Maya structure ever built, and its lost twin pyramid was found by archaeologists in 2015 using ground-penetrating radar.",
   "lat": 17.222,
   "lng": -89.6237,
@@ -2049,7 +2049,7 @@
  {
   "id": "times-square-nyc",
   "short": "Times Square",
-  "clue": "Times Square, United States 🇺🇸",
+  "clue": "Times Square",
   "fact": "Times Square is known for its bright lights, Broadway theaters, and New Year's Eve celebration.",
   "lat": 40.758,
   "lng": -73.9855,
@@ -2065,7 +2065,7 @@
  {
   "id": "tiwanaku-kalasasaya",
   "short": "Tiwanaku",
-  "clue": "Tiwanaku, Bolivia 🇧🇴",
+  "clue": "Tiwanaku",
   "fact": "Tiwanaku was the ceremonial center of a major pre-Inca civilization. The famous Gateway of the Sun stands within the archaeological complex.",
   "lat": -16.5547,
   "lng": -68.6733,
@@ -2081,7 +2081,7 @@
  {
   "id": "trafalgar-square-london",
   "short": "Trafalgar Square",
-  "clue": "Trafalgar Square, England",
+  "clue": "Trafalgar Square",
   "fact": "Nelson's Column rises over the square, guarded by four bronze lions and named for the 1805 naval victory.",
   "lat": 51.508,
   "lng": -0.1281,
@@ -2097,7 +2097,7 @@
  {
   "id": "trevi-fountain-rome",
   "short": "Trevi Fountain",
-  "clue": "Trevi Fountain, Italy 🇮🇹",
+  "clue": "Trevi Fountain",
   "fact": "The Trevi Fountain is Rome's largest Baroque fountain and a popular tourist spot.",
   "lat": 41.9009,
   "lng": 12.4833,
@@ -2112,7 +2112,7 @@
  },
  {
   "id": "valley-of-kings",
-  "clue": "Valley of Kings, Egypt 🇪🇬",
+  "clue": "Valley of Kings",
   "fact": "A royal burial ground for pharaohs and nobles of the New Kingdom period on the west bank of the Nile.",
   "lat": 25.7408,
   "lng": 32.6017,
@@ -2129,7 +2129,7 @@
  {
   "id": "vardzia-cliff-monastery",
   "short": "Vardzia",
-  "clue": "Vardzia, Georgia 🇬🇪",
+  "clue": "Vardzia",
   "fact": "Its principal construction dates to the twelfth century, and the complex once extended across as many as nineteen tiers.",
   "lat": 41.380917,
   "lng": 43.283761,
@@ -2144,7 +2144,7 @@
  },
  {
   "id": "versailles-palace",
-  "clue": "Versailles, France 🇫🇷",
+  "clue": "Versailles",
   "fact": "Versailles' Hall of Mirrors has 357 mirrors, and the Seine's water was pumped 13 kilometres by the Machine de Marly so the fountains could run every day.",
   "lat": 48.8049,
   "lng": 2.1204,
@@ -2161,7 +2161,7 @@
  {
   "id": "wall-street-us",
   "short": "Wall Street",
-  "clue": "Wall Street, United States 🇺🇸",
+  "clue": "Wall Street",
   "fact": "The street takes its name from a wooden wall the Dutch built across lower Manhattan in the 1650s to keep out attackers.",
   "lat": 40.7069,
   "lng": -74.0113,
@@ -2181,7 +2181,7 @@
   "lat": 51.107778,
   "lng": 1.278611,
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/White_Cliffs_of_Dover_02.JPG",
-  "clue": "White Cliffs of Dover, England",
+  "clue": "White Cliffs of Dover",
   "difficulty": 5,
   "country": "England",
   "continent": "Europe",
@@ -2192,7 +2192,7 @@
  },
  {
   "id": "white-house-dc",
-  "clue": "White House, United States 🇺🇸",
+  "clue": "White House",
   "fact": "The White House has been the residence of every U.S. president since John Adams in 1800.",
   "lat": 38.8977,
   "lng": -77.0365,
@@ -2209,7 +2209,7 @@
  {
   "id": "xochimilco-mx",
   "short": "Xochimilco",
-  "clue": "Xochimilco, Mexico 🇲🇽",
+  "clue": "Xochimilco",
   "fact": "Xochimilco is famous for its ancient canals and chinampas, where colorful trajinera boats carry mariachis and partygoers.",
   "lat": 19.25465,
   "lng": -99.10356,
@@ -2226,7 +2226,7 @@
  {
   "id": "yosemite-valley",
   "short": "Yosemite Valley",
-  "clue": "Yosemite Valley, United States 🇺🇸",
+  "clue": "Yosemite Valley",
   "fact": "A glacial river carved the valley during the last ice age, and the first Yosemite National Park in the world was dedicated here in 1890.",
   "lat": 37.7456,
   "lng": -119.5936,
@@ -2242,7 +2242,7 @@
  {
   "id": "zhangjiajie-national-forest-park",
   "short": "Zhangjiajie",
-  "clue": "Zhangjiajie, China 🇨🇳",
+  "clue": "Zhangjiajie",
   "fact": "Zhangjiajie National Forest Park forms part of the Wulingyuan scenic area, whose eroded stone pillars can rise hundreds of metres above the valleys.",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Zhangjiajie_National_Forest_Park.jpg/1280px-Zhangjiajie_National_Forest_Park.jpg",
   "lat": 29.3323,
@@ -2259,7 +2259,7 @@
  {
   "id": "zugspitze-summit",
   "short": "Zugspitze Summit",
-  "clue": "Zugspitze, Germany 🇩🇪",
+  "clue": "Zugspitze",
   "fact": "At 2,962 m it is Germany's highest mountain, and two countries' boundary runs right across its summit, complete with a customs hut.",
   "lat": 47.421,
   "lng": 10.985,
@@ -2276,7 +2276,7 @@
  },
  {
   "id": "empire-state-building-ny",
-  "clue": "Empire State Building, United States 🇺🇸",
+  "clue": "Empire State Building",
   "fact": "The Empire State Building was the world's tallest skyscraper for nearly 40 years after its completion in 1931.",
   "lat": 40.7484,
   "lng": -73.9857,
@@ -2293,7 +2293,7 @@
  {
   "id": "pentagon-us",
   "short": "The Pentagon",
-  "clue": "The Pentagon, United States 🇺🇸",
+  "clue": "The Pentagon",
   "fact": "The US Department of Defense headquarters was built in just 16 months during World War II and is still one of the largest office buildings in the world.",
   "lat": 38.8719,
   "lng": -77.0563,
@@ -2309,7 +2309,7 @@
  {
   "id": "reichstag-de",
   "short": "Reichstag Building",
-  "clue": "Reichstag Building, Germany 🇩🇪",
+  "clue": "Reichstag Building",
   "fact": "Its glass dome, added in 1999, lets visitors walk above the parliament chamber, symbolizing government transparency.",
   "lat": 52.5186,
   "lng": 13.3762,
@@ -2325,7 +2325,7 @@
  {
   "id": "sacre-coeur-fr",
   "short": "Sacré-Cœur",
-  "clue": "Sacré-Cœur, France 🇫🇷",
+  "clue": "Sacré-Cœur",
   "fact": "The white basilica crowns Montmartre, and its travertine stone releases calcite when it rains, so it stays bright white.",
   "lat": 48.8867,
   "lng": 2.3431,
@@ -2341,7 +2341,7 @@
  {
   "id": "arc-de-triomphe-paris",
   "short": "Arc de Triomphe",
-  "clue": "Arc de Triomphe, France 🇫🇷",
+  "clue": "Arc de Triomphe",
   "fact": "The Arc de Triomphe honors those who fought and died for France in the French Revolution and Napoleonic Wars.",
   "lat": 48.8738,
   "lng": 2.295,
@@ -2357,7 +2357,7 @@
  {
   "id": "london-eye-gb",
   "short": "London Eye",
-  "clue": "London Eye, England",
+  "clue": "London Eye",
   "fact": "Built as a temporary attraction for the millennium, the giant wheel on the South Bank proved so popular it never came down.",
   "lat": 51.5033,
   "lng": -0.1196,
@@ -2373,7 +2373,7 @@
  {
   "id": "manneken-pis-be",
   "short": "Manneken Pis",
-  "clue": "Manneken Pis, Belgium 🇧🇪",
+  "clue": "Manneken Pis",
   "fact": "The tiny bronze boy owns a wardrobe of over 1,000 costumes, changed several times a week.",
   "lat": 50.845,
   "lng": 4.35,
@@ -2390,7 +2390,7 @@
  {
   "id": "roman-baths-bath",
   "short": "Roman Baths, Bath",
-  "clue": "Roman Baths, Bath, England",
+  "clue": "Roman Baths",
   "fact": "Hot water from the same spring still fills the Great Bath, and the site lends the English city of Bath its name.",
   "lat": 51.3811,
   "lng": -2.359,
@@ -2405,7 +2405,7 @@
  },
  {
   "id": "fushimi-inari-taisha",
-  "clue": "Fushimi Inari, Japan 🇯🇵",
+  "clue": "Fushimi Inari",
   "fact": "Every gate is a donation from a Japanese company, which is why the tunnels never end, and the shrines at the summit are said to grant prosperity in trading.",
   "lat": 34.9671,
   "lng": 135.7727,
@@ -2422,7 +2422,7 @@
  {
   "id": "kinkakuji",
   "short": "Kinkaku-ji (Golden Pavilion)",
-  "clue": "Kinkaku-ji (Golden Pavilion), Japan 🇯🇵",
+  "clue": "Kinkaku-ji (Golden Pavilion)",
   "fact": "The pavilion was burned down by a teenage monk in 1950 and rebuilt three years later, and the name means golden turtle because of its lake setting.",
   "lat": 35.0394,
   "lng": 135.7292,
@@ -2438,7 +2438,7 @@
  },
  {
   "id": "terracotta-army",
-  "clue": "Terracotta Army, China 🇨🇳",
+  "clue": "Terracotta Army",
   "category": "city",
   "lat": 34.3841,
   "lng": 109.2785,
@@ -2457,7 +2457,7 @@
  {
   "id": "tian-tan-buddha-hk",
   "short": "Tian Tan Buddha",
-  "clue": "Tian Tan Buddha, China 🇨🇳",
+  "clue": "Tian Tan Buddha",
   "fact": "The giant bronze Buddha on Lantau Island is reached by 268 steps or a long cable-car ride over the mountains.",
   "lat": 22.254,
   "lng": 113.905,
@@ -2472,7 +2472,7 @@
  },
  {
   "id": "twelve-apostles",
-  "clue": "Twelve Apostles, Australia 🇦🇺",
+  "clue": "Twelve Apostles",
   "fact": "The Twelve Apostles are limestone stacks formed by erosion, with only eight still standing today.",
   "lat": -38.6621,
   "lng": 143.1056,
@@ -2490,7 +2490,7 @@
  {
   "id": "wat-arun-th",
   "short": "Wat Arun",
-  "clue": "Wat Arun, Thailand 🇹🇭",
+  "clue": "Wat Arun",
   "fact": "The Temple of Dawn's spire is studded with broken Chinese porcelain that glitters from across the Chao Phraya River.",
   "lat": 13.7437,
   "lng": 100.4889,
@@ -2510,7 +2510,7 @@
   "lat": 17.315278,
   "lng": -87.534444,
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Great_Blue_Hole.jpg",
-  "clue": "Great Blue Hole, Belize 🇧🇿",
+  "clue": "Great Blue Hole",
   "difficulty": 7,
   "country": "Belize",
   "continent": "North America",
@@ -2523,7 +2523,7 @@
  },
  {
   "id": "grand-prismatic-yellowstone",
-  "clue": "Grand Prismatic, United States 🇺🇸",
+  "clue": "Grand Prismatic",
   "fact": "The Grand Prismatic Spring is the largest hot spring in the United States and displays vibrant rainbow colors.",
   "lat": 44.525,
   "lng": -110.8382,
@@ -2540,7 +2540,7 @@
  {
   "id": "half-dome-us",
   "short": "Half Dome",
-  "clue": "Half Dome, United States 🇺🇸",
+  "clue": "Half Dome",
   "fact": "The final climb to its granite summit follows steel cables bolted into the rock face, and hikers need a permit.",
   "lat": 37.7459,
   "lng": -119.5332,
@@ -2556,7 +2556,7 @@
  {
   "id": "hollywood-sign-la",
   "short": "Hollywood Sign",
-  "clue": "Hollywood Sign, United States 🇺🇸",
+  "clue": "Hollywood Sign",
   "fact": "It began in 1923 as a temporary real-estate advertisement spelling 'HOLLYWOODLAND' in 15-metre letters on Mount Lee; the last four letters were removed in 1949.",
   "lat": 34.1341,
   "lng": -118.3215,
@@ -2571,7 +2571,7 @@
  },
  {
   "id": "liberty-bell",
-  "clue": "Liberty Bell, United States 🇺🇸",
+  "clue": "Liberty Bell",
   "fact": "The Liberty Bell, an iconic symbol of American independence, is housed near Independence Hall in Philadelphia.",
   "lat": 39.9496,
   "lng": -75.1503,
@@ -2587,7 +2587,7 @@
  },
  {
   "id": "old-faithful-yellowstone",
-  "clue": "Old Faithful, United States 🇺🇸",
+  "clue": "Old Faithful",
   "fact": "Old Faithful in Yellowstone National Park erupts roughly every 90 minutes, making it one of the world's most predictable geysers.",
   "lat": 44.4605,
   "lng": -110.8281,
@@ -2604,7 +2604,7 @@
  {
   "id": "one-world-trade-center-us",
   "short": "One World Trade Center",
-  "clue": "One World Trade Center, United States 🇺🇸",
+  "clue": "One World Trade Center",
   "fact": "Its spire tops out at 1,776 feet, a deliberate nod to the year of American independence.",
   "lat": 40.7127,
   "lng": -74.0134,
@@ -2619,7 +2619,7 @@
  },
  {
   "id": "fasil-ghebbi-gondar",
-  "clue": "Fasil Ghebbi, Ethiopia 🇪🇹",
+  "clue": "Fasil Ghebbi",
   "fact": "The royal enclosure of Gondar, Ethiopia, a fortress-city of castles and churches.",
   "lat": 12.6083,
   "lng": 37.4705,
@@ -2635,7 +2635,7 @@
  },
  {
   "id": "leshan-giant-buddha",
-  "clue": "Leshan Giant Buddha, China 🇨🇳",
+  "clue": "Leshan Giant Buddha",
   "fact": "Cut between 1001 and 1153, the figure is so large that a Song emperor once considered damming the river to drown it, and it still holds its own stone umbrella against the weather.",
   "lat": 29.563,
   "lng": 103.7667,
@@ -2656,7 +2656,7 @@
   "lat": 18.921983,
   "lng": 72.834658,
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg",
-  "clue": "Gateway of India, India 🇮🇳",
+  "clue": "Gateway of India",
   "difficulty": 7,
   "country": "India",
   "continent": "Asia",
@@ -2668,7 +2668,7 @@
  {
   "id": "qutub-minar-delhi",
   "short": "Qutub Minar",
-  "clue": "Qutub Minar, India 🇮🇳",
+  "clue": "Qutub Minar",
   "fact": "At 73 metres, this fluted red-sandstone victory tower from the early 1200s is the tallest brick minaret in the world.",
   "lat": 28.5244,
   "lng": 77.1855,
@@ -2684,7 +2684,7 @@
  },
  {
   "id": "taj-mahal",
-  "clue": "Taj Mahal, India 🇮🇳",
+  "clue": "Taj Mahal",
   "category": "city",
   "lat": 27.1751,
   "lng": 78.0421,
@@ -2704,7 +2704,7 @@
  {
   "id": "kamakura-daibutsu-jp",
   "short": "Great Buddha of Kamakura",
-  "clue": "Great Buddha of Kamakura, Japan 🇯🇵",
+  "clue": "Great Buddha of Kamakura",
   "fact": "The bronze Buddha has sat in the open air since a tsunami swept away its temple hall in 1498.",
   "lat": 35.3167,
   "lng": 139.5358,
@@ -2719,7 +2719,7 @@
  },
  {
   "id": "wadi-rum",
-  "clue": "Wadi Rum, Jordan 🇯🇴",
+  "clue": "Wadi Rum",
   "category": "city",
   "lat": 29.5765,
   "lng": 35.4206,
@@ -2739,7 +2739,7 @@
  },
  {
   "id": "son-doong-vietnam",
-  "clue": "Son Doong, Vietnam 🇻🇳",
+  "clue": "Son Doong",
   "fact": "The largest known cave passage system on Earth lay unexplored until 1991, when a climber squeezed through the entrance hole that a sinkhole in Laos had opened into its roof.",
   "lat": 17.5313,
   "lng": 106.0967,
@@ -2760,7 +2760,7 @@
   "lat": 36.8792,
   "lng": -111.5107,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Horseshoe_Bend_13_February_2023.jpg/3840px-Horseshoe_Bend_13_February_2023.jpg",
-  "clue": "Horseshoe Bend, United States 🇺🇸",
+  "clue": "Horseshoe Bend",
   "difficulty": 10,
   "country": "United States",
   "continent": "North America",
@@ -2779,7 +2779,7 @@
   "lat": 41.3,
   "lng": -124,
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Redwood_National_Park%2C_fog_in_the_forest.jpg",
-  "clue": "Redwood National and State Parks, United States 🇺🇸",
+  "clue": "Redwood National and State Parks",
   "difficulty": 10,
   "country": "United States",
   "continent": "North America",
@@ -2791,7 +2791,7 @@
  },
  {
   "id": "space-needle-seattle",
-  "clue": "Space Needle, United States 🇺🇸",
+  "clue": "Space Needle",
   "fact": "The Space Needle was built for the 1962 World's Fair and has become Seattle's most iconic landmark.",
   "lat": 47.6205,
   "lng": -122.3493,
@@ -2809,7 +2809,7 @@
  {
   "id": "fitz-roy-laguna-de-los-tres",
   "short": "Laguna de los Tres",
-  "clue": "Laguna de los Tres, Argentina 🇦🇷",
+  "clue": "Laguna de los Tres",
   "fact": "This glacial lake provides the classic close view of Mount Fitz Roy. The final approach is one of the steepest stretches of the trail.",
   "lat": -49.2818,
   "lng": -73.0445,
@@ -2827,7 +2827,7 @@
  {
   "id": "torres-del-paine-base-viewpoint",
   "short": "Torres del Paine",
-  "clue": "Torres del Paine, Argentina 🇦🇷",
+  "clue": "Torres del Paine",
   "fact": "This viewpoint faces the three sheer granite towers that give the Chilean park its name. Reaching it requires a demanding hike.",
   "lat": -50.9423,
   "lng": -72.9486,
@@ -2844,7 +2844,7 @@
  },
  {
   "id": "salar-de-uyuni",
-  "clue": "Salar de Uyuni, Bolivia 🇧🇴",
+  "clue": "Salar de Uyuni",
   "category": "city",
   "lat": -20.1338,
   "lng": -67.4891,
@@ -2864,7 +2864,7 @@
  {
   "id": "lencois-maranhenses",
   "short": "Lençóis Maranhenses",
-  "clue": "Lençóis Maranhenses, Brazil 🇧🇷",
+  "clue": "Lençóis Maranhenses",
   "fact": "Rainwater pools between the dunes for months, creating islands of sand and fishing lakes of pure fresh water.",
   "lat": -2.4833,
   "lng": -43.1333,
@@ -2880,7 +2880,7 @@
  },
  {
   "id": "forbidden-city-beijing",
-  "clue": "Forbidden City, China 🇨🇳",
+  "clue": "Forbidden City",
   "fact": "Ming and Qing emperors lived inside these walls from 1420 to 1924, and the surviving complex still covers 72 hectares across some 980 buildings.",
   "lat": 39.9163,
   "lng": 116.3972,
@@ -2897,7 +2897,7 @@
  {
   "id": "hegra-qasr-al-farid",
   "short": "Hegra",
-  "clue": "Hegra, Saudi Arabia 🇸🇦",
+  "clue": "Hegra",
   "fact": "Hegra was the Nabataeans' major southern city and became Saudi Arabia's first UNESCO World Heritage Site in 2008.",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg/500px-Landscape_at_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia_%286%29.jpg",
   "lat": 26.7914,
@@ -2913,7 +2913,7 @@
  {
   "id": "tigers-nest",
   "short": "Paro Taktsang (Tiger's Nest)",
-  "clue": "Paro Taktsang (Tiger's Nest), Bhutan 🇧🇹",
+  "clue": "Paro Taktsang (Tiger's Nest)",
   "fact": "The building appears to be on the cliff face with no visible support, and the walls inside are decorated with painted tiger claws.",
   "lat": 27.433,
   "lng": 89.414,
@@ -2930,7 +2930,7 @@
  },
  {
   "id": "mauna-kea",
-  "clue": "Mauna Kea, United States 🇺🇸",
+  "clue": "Mauna Kea",
   "fact": "Mauna Kea is the world's tallest mountain from base to summit, rising over 10,200 meters from the ocean floor.",
   "lat": 19.8207,
   "lng": -155.4681,
@@ -2947,7 +2947,7 @@
  {
   "id": "teotihuacan",
   "short": "Teotihuacan",
-  "clue": "Teotihuacan, Mexico 🇲🇽",
+  "clue": "Teotihuacan",
   "fact": "It was the largest city in the Americas for centuries, then was burned and abandoned, and no records of its builders survive.",
   "lat": 19.6925,
   "lng": -98.8438,
@@ -2965,7 +2965,7 @@
  {
   "id": "puente-nuevo-d34-66",
   "short": "Puente Nuevo",
-  "clue": "Puente Nuevo, Spain 🇪🇸",
+  "clue": "Puente Nuevo",
   "fact": "Finished in 1793 after 34 years of work, the bridge spans Ronda's 120-metre-deep El Tajo gorge; its hastily built predecessor collapsed in 1741, killing 50 people.",
   "lat": 36.742,
   "lng": -5.1664,
@@ -2981,7 +2981,7 @@
  {
   "id": "real-alcázar-of-seville-d34-64",
   "short": "Real Alcázar of Seville",
-  "clue": "Real Alcázar of Seville, Spain 🇪🇸",
+  "clue": "Real Alcázar of Seville",
   "fact": "Its richly decorated Mudéjar palace was built for Pedro I of Castile in the 1360s, and the upper floors are still used by Spain's royal family when they stay in Seville.",
   "lat": 37.3831,
   "lng": -5.9931,
@@ -2996,7 +2996,7 @@
  },
  {
   "id": "sagrada-familia",
-  "clue": "Sagrada Familia, Spain 🇪🇸",
+  "clue": "Sagrada Familia",
   "fact": "Gaudi's Sagrada Familia has been under construction since 1882, and his plaster model of it was photographed from a reconnaissance aeroplane in 1926.",
   "lat": 41.4036,
   "lng": 2.1744,
@@ -3014,7 +3014,7 @@
  {
   "id": "guggenheim-bilbao",
   "short": "Guggenheim Bilbao",
-  "clue": "Guggenheim Bilbao, Spain 🇪🇸",
+  "clue": "Guggenheim Bilbao",
   "fact": "The Guggenheim Museum Bilbao is renowned for its innovative titanium-clad architecture.",
   "lat": 43.2687,
   "lng": -2.934,
@@ -3030,7 +3030,7 @@
  {
   "id": "hallgrímskirkja-d34-40",
   "short": "Hallgrímskirkja",
-  "clue": "Hallgrímskirkja, Iceland 🇮🇸",
+  "clue": "Hallgrímskirkja",
   "fact": "At 74.5 metres, the largest church in Iceland, it took 41 years to build (1945-1986), its stepped concrete wings modelled on the columnar basalt 'organ pipe' formations of Iceland's landscape.",
   "lat": 64.142,
   "lng": -21.9266,
@@ -3045,7 +3045,7 @@
  },
  {
   "id": "mohenjo-daro",
-  "clue": "Mohenjo-daro, Pakistan 🇵🇰",
+  "clue": "Mohenjo-daro",
   "fact": "The Indus metropolis on this mound was abandoned with no sign of warfare, and its drains were laid so carefully that a thousand years of traffic found no need for repairs.",
   "lat": 27.3298,
   "lng": 68.1278,
@@ -3064,7 +3064,7 @@
  {
   "id": "mole-antonelliana-d34-56",
   "short": "Mole Antonelliana",
-  "clue": "Mole Antonelliana, Italy 🇮🇹",
+  "clue": "Mole Antonelliana",
   "fact": "Begun in 1863 as a synagogue, Antonelli's Mole climbs to 167.5 metres, making it the tallest brick building in Europe when it was finished in 1889; it now houses Italy's National Museum of Cinema.",
   "lat": 45.0696,
   "lng": 7.6931,
@@ -3080,7 +3080,7 @@
  },
  {
   "id": "pantheon-rome",
-  "clue": "Pantheon, Italy 🇮🇹",
+  "clue": "Pantheon",
   "fact": "Rebuilt under Hadrian and dedicated around AD 126, its dome is still the world's largest unreinforced concrete dome, open to the sky through a 9.1-metre-wide oculus that lets the rain fall straight onto the floor.",
   "lat": 41.8986,
   "lng": 12.4769,
@@ -3097,7 +3097,7 @@
  },
  {
   "id": "uluru",
-  "clue": "Uluru, Australia 🇦🇺",
+  "clue": "Uluru",
   "category": "city",
   "lat": -25.3444,
   "lng": 131.0369,
@@ -3116,7 +3116,7 @@
  {
   "id": "york-minster-d34-3",
   "short": "York Minster",
-  "clue": "York Minster, England",
+  "clue": "York Minster",
   "fact": "Built between 1220 and 1472, the minster holds the Great East Window, the largest expanse of medieval stained glass in the world, depicting the Last Judgment.",
   "lat": 53.9626,
   "lng": -1.0815,
@@ -3132,7 +3132,7 @@
  {
   "id": "champs-elysees-paris",
   "short": "Champs-Élysées",
-  "clue": "Champs-Élysées, France 🇫🇷",
+  "clue": "Champs-Élysées",
   "fact": "It runs 1.9 kilometres from the Place de la Concorde to the Arc de Triomphe, and each July it hosts both the finish of the Tour de France and the Bastille Day military parade.",
   "lat": 48.8658,
   "lng": 2.3176,
@@ -3148,7 +3148,7 @@
  {
   "id": "cesky-krumlov-d34-18",
   "short": "Cesky Krumlov",
-  "clue": "Cesky Krumlov, Czech Republic 🇨🇿",
+  "clue": "Cesky Krumlov",
   "fact": "A UNESCO World Heritage Site since 1992, its castle spreads forty buildings around five courtyards, and the castle moat is kept filled not with water but with bears.",
   "lat": 48.8127,
   "lng": 14.3175,
@@ -3163,7 +3163,7 @@
  },
  {
   "id": "leptis-magna",
-  "clue": "Leptis Magna, Libya 🇱🇾",
+  "clue": "Leptis Magna",
   "fact": "One of the best-preserved Roman cities in the world, located in western Libya.",
   "lat": 32.637,
   "lng": 14.2948,
@@ -3185,7 +3185,7 @@
  {
   "id": "san-gimignano-d34-52",
   "short": "San Gimignano",
-  "clue": "San Gimignano, Italy 🇮🇹",
+  "clue": "San Gimignano",
   "fact": "Rival families raised 72 tower houses here in the Middle Ages, some up to 70 metres tall; 14 survive, giving the walled Tuscan town its famous skyline.",
   "lat": 43.4677,
   "lng": 11.0434,
@@ -3206,7 +3206,7 @@
  {
   "id": "mount-fuji",
   "short": "Mount Fuji",
-  "clue": "Mount Fuji, Japan 🇯🇵",
+  "clue": "Mount Fuji",
   "fact": "Japan's highest peak last erupted in 1707, when the Hōei eruption dusted Edo, roughly 100 km away, with volcanic ash.",
   "lat": 35.3606,
   "lng": 138.7275,
@@ -3225,7 +3225,7 @@
  {
   "id": "mount-vesuvius",
   "short": "Mount Vesuvius",
-  "clue": "Mount Vesuvius, Italy 🇮🇹",
+  "clue": "Mount Vesuvius",
   "fact": "Its AD 79 eruption buried Pompeii and Herculaneum, and its most recent eruption, in 1944, wrecked dozens of Allied bombers parked at a nearby airfield.",
   "lat": 40.8226,
   "lng": 14.4292,
@@ -3243,7 +3243,7 @@
  {
   "id": "mount-pinatubo",
   "short": "Mount Pinatubo",
-  "clue": "Mount Pinatubo, Philippines 🇵🇭",
+  "clue": "Mount Pinatubo",
   "fact": "Its 1991 eruption was the second largest of the 20th century, and the sulfur it blasted into the stratosphere cooled the planet by about 0.5 °C.",
   "lat": 15.1446,
   "lng": 120.3491,
@@ -3262,7 +3262,7 @@
  {
   "id": "colosseum-rome",
   "short": "Colosseum",
-  "clue": "Colosseum, Italy 🇮🇹",
+  "clue": "Colosseum",
   "fact": "Opened in AD 80 under Emperor Titus, the amphitheatre held an estimated 50,000 spectators for gladiator fights and wild animal hunts.",
   "lat": 41.8903,
   "lng": 12.4922,
@@ -3282,7 +3282,7 @@
  {
   "id": "lake-baikal",
   "short": "Lake Baikal",
-  "clue": "Lake Baikal, Russia 🇷🇺",
+  "clue": "Lake Baikal",
   "fact": "This Siberian rift lake is the world's deepest lake and holds more water than any other freshwater lake.",
   "lat": 53.30277778,
   "lng": 108.00472222,
@@ -3301,7 +3301,7 @@
  {
   "id": "lake-superior",
   "short": "Lake Superior",
-  "clue": "Lake Superior, Canada and United States 🇨🇦🇺🇸",
+  "clue": "Lake Superior",
   "fact": "The largest Great Lake is also the world's largest freshwater lake by surface area.",
   "lat": 47.52881611111111,
   "lng": -87.76002194444445,
@@ -3339,7 +3339,7 @@
  {
   "id": "lake-titicaca",
   "short": "Lake Titicaca",
-  "clue": "Lake Titicaca, Peru and Bolivia 🇵🇪🇧🇴",
+  "clue": "Lake Titicaca",
   "fact": "High in the Andes, this lake is famed for the Uros people's floating islands made from totora reeds.",
   "lat": -15.825,
   "lng": -69.325,
@@ -3359,7 +3359,7 @@
  {
   "id": "lake-bled",
   "short": "Lake Bled",
-  "clue": "Lake Bled, Slovenia 🇸🇮",
+  "clue": "Lake Bled",
   "fact": "Slovenia's only natural island sits in this Alpine lake and carries a pilgrimage church reached by traditional pletna boats.",
   "lat": 46.364444444444,
   "lng": 14.094722222222,
@@ -3379,7 +3379,7 @@
  {
   "id": "crater-lake",
   "short": "Crater Lake",
-  "clue": "Crater Lake, United States 🇺🇸",
+  "clue": "Crater Lake",
   "fact": "Oregon's deepest lake fills the caldera left when Mount Mazama collapsed after a massive eruption.",
   "lat": 42.943611111111,
   "lng": -122.10666666667,
@@ -3398,7 +3398,7 @@
  {
   "id": "great-salt-lake",
   "short": "Great Salt Lake",
-  "clue": "Great Salt Lake, United States 🇺🇸",
+  "clue": "Great Salt Lake",
   "fact": "This shallow terminal lake in Utah has no outlet, so evaporation leaves its water much saltier than the ocean.",
   "lat": 41.166666666667,
   "lng": -112.58333333333,
@@ -3417,7 +3417,7 @@
  {
   "id": "plitvice-lakes",
   "short": "Plitvice Lakes",
-  "clue": "Plitvice Lakes National Park, Croatia 🇭🇷",
+  "clue": "Plitvice Lakes National Park",
   "fact": "Sixteen lakes descend through this Croatian park in terraces linked by waterfalls and natural travertine barriers.",
   "lat": 44.880445,
   "lng": 15.616035,
@@ -3437,7 +3437,7 @@
  {
   "id": "lake-como",
   "short": "Lake Como",
-  "clue": "Lake Como, Italy 🇮🇹",
+  "clue": "Lake Como",
   "fact": "This deep, inverted-Y-shaped lake in Lombardy has been celebrated for its villas and Alpine scenery since Roman times.",
   "lat": 46,
   "lng": 9.2666666666667,
@@ -3457,7 +3457,7 @@
  {
   "id": "lake-malawi",
   "short": "Lake Malawi",
-  "clue": "Lake Malawi, Malawi, Mozambique, and Tanzania",
+  "clue": "Lake Malawi",
   "fact": "This African Great Lake is renowned for its extraordinary diversity of colorful cichlid fish.",
   "lat": -12.183333333333334,
   "lng": 34.36666666666667,
@@ -3476,7 +3476,7 @@
  {
   "id": "lake-balkhash",
   "short": "Lake Balkhash",
-  "clue": "Lake Balkhash, Kazakhstan 🇰🇿",
+  "clue": "Lake Balkhash",
   "fact": "A narrow strait divides this endorheic Kazakh lake into a fresher western half and a saltier eastern half.",
   "lat": 46.54083333333333,
   "lng": 74.8788888888889,
@@ -3495,7 +3495,7 @@
  {
   "id": "yellowstone-national-park",
   "short": "Yellowstone National Park",
-  "clue": "Yellowstone National Park, United States 🇺🇸",
+  "clue": "Yellowstone National Park",
   "fact": "Established in 1872, Yellowstone is widely regarded as the world's first national park and contains the Old Faithful geyser.",
   "lat": 44.6,
   "lng": -110.5,
@@ -3514,7 +3514,7 @@
  {
   "id": "serengeti-national-park",
   "short": "Serengeti National Park",
-  "clue": "Serengeti National Park, Tanzania 🇹🇿",
+  "clue": "Serengeti National Park",
   "fact": "Vast grasslands in this Tanzanian park host part of the annual migration of millions of wildebeest and other grazing animals.",
   "lat": -2.4,
   "lng": 34.6,
@@ -3533,7 +3533,7 @@
  {
   "id": "kruger-national-park",
   "short": "Kruger National Park",
-  "clue": "Kruger National Park, South Africa 🇿🇦",
+  "clue": "Kruger National Park",
   "fact": "One of Africa's largest game reserves, Kruger protects populations of all five animals traditionally called the Big Five.",
   "lat": -24.011389,
   "lng": 31.485278,
@@ -3552,7 +3552,7 @@
  {
   "id": "masai-mara",
   "short": "Maasai Mara",
-  "clue": "Maasai Mara National Reserve, Kenya 🇰🇪",
+  "clue": "Maasai Mara National Reserve",
   "fact": "This Kenyan reserve adjoins Tanzania's Serengeti and is a major stage of the annual wildebeest migration.",
   "lat": -1.49,
   "lng": 35.14,
@@ -3571,7 +3571,7 @@
  {
   "id": "grand-teton-national-park",
   "short": "Grand Teton National Park",
-  "clue": "Grand Teton National Park, United States 🇺🇸",
+  "clue": "Grand Teton National Park",
   "fact": "The sharply rising Teton Range and the valley of Jackson Hole define this Wyoming national park.",
   "lat": 43.833333333333,
   "lng": -110.70083333333,
@@ -3591,7 +3591,7 @@
  {
   "id": "loch-ness",
   "short": "Loch Ness",
-  "clue": "Loch Ness, Scotland 🇬🇧",
+  "clue": "Loch Ness",
   "fact": "Loch Ness reaches 227 metres in depth, and the 1934 photograph of a flipper that started the modern monster legend is now widely thought to be a duck.",
   "lat": 57.3,
   "lng": -4.45,
@@ -3610,7 +3610,7 @@
  {
   "id": "mount-everest-summit",
   "short": "Mount Everest",
-  "clue": "Mount Everest, Nepal 🇳🇵",
+  "clue": "Mount Everest",
   "fact": "The summit marks the Nepal–China border, and a joint survey announced in 2020 fixed its snow height at 8,848.86 metres.",
   "lat": 27.9881,
   "lng": 86.925,
@@ -3629,7 +3629,7 @@
  {
   "id": "grand-canyon",
   "short": "Grand Canyon",
-  "clue": "Grand Canyon, Arizona 🇺🇸",
+  "clue": "Grand Canyon",
   "fact": "From Mather Point on the South Rim, the canyon exposes a rock record reaching nearly two billion years into Earth's past.",
   "lat": 36.0613,
   "lng": -112.1078,
@@ -3648,7 +3648,7 @@
  {
   "id": "niagara-falls",
   "short": "Niagara Falls",
-  "clue": "Niagara Falls, Canada 🇨🇦",
+  "clue": "Niagara Falls",
   "fact": "Horseshoe Falls carries most of the Niagara River's flow and curves across the international boundary between Canada and the United States.",
   "lat": 43.0773,
   "lng": -79.0757,
@@ -3666,7 +3666,7 @@
  {
   "id": "victoria-falls",
   "short": "Victoria Falls",
-  "clue": "Victoria Falls, Zimbabwe 🇿🇼",
+  "clue": "Victoria Falls",
   "fact": "The Zambezi drops into a narrow basalt gorge here, throwing up the spray behind the Lozi name Mosi-oa-Tunya: “the smoke that thunders.”",
   "lat": -17.92444,
   "lng": 25.85667,
@@ -3684,7 +3684,7 @@
  {
   "id": "iguazu-falls",
   "short": "Iguazú Falls",
-  "clue": "Iguazú Falls, Argentina 🇦🇷",
+  "clue": "Iguazú Falls",
   "fact": "The river breaks into roughly 275 separate cascades, with the U-shaped Devil's Throat carrying the largest share of the flow.",
   "lat": -25.6953,
   "lng": -54.4367,
@@ -3702,7 +3702,7 @@
  {
   "id": "great-barrier-reef",
   "short": "Great Barrier Reef",
-  "clue": "Great Barrier Reef, Australia 🇦🇺",
+  "clue": "Great Barrier Reef",
   "fact": "Heart Reef is a naturally heart-shaped coral formation in the Whitsundays, one tiny sector of a reef system stretching for more than 2,300 kilometres.",
   "lat": -19.7754,
   "lng": 149.2478,
@@ -3719,7 +3719,7 @@
  {
   "id": "angel-falls",
   "short": "Angel Falls",
-  "clue": "Angel Falls, Venezuela 🇻🇪",
+  "clue": "Angel Falls",
   "fact": "Water leaves the rim of Auyán-tepui and falls 807 metres without interruption, the tallest unbroken waterfall drop on Earth.",
   "lat": 5.9675,
   "lng": -62.5356,
@@ -3737,7 +3737,7 @@
  {
   "id": "k2",
   "short": "K2",
-  "clue": "K2, Pakistan 🇵🇰",
+  "clue": "K2",
   "fact": "The Karakoram summit rises to 8,611 metres, second only to Everest, and its steep routes have earned it the mountaineering nickname “Savage Mountain.”",
   "lat": 35.8808,
   "lng": 76.5158,
@@ -3756,7 +3756,7 @@
  {
   "id": "mount-etna",
   "short": "Mount Etna",
-  "clue": "Mount Etna, Italy 🇮🇹",
+  "clue": "Mount Etna",
   "fact": "Repeated eruptions continually remodel Etna's summit craters, so the volcano's measured height changes as cones grow and collapse.",
   "lat": 37.751,
   "lng": 14.9934,
@@ -3775,7 +3775,7 @@
  {
   "id": "table-mountain",
   "short": "Table Mountain",
-  "clue": "Table Mountain, South Africa 🇿🇦",
+  "clue": "Table Mountain",
   "fact": "Its level summit plateau runs about three kilometres from side to side, and it is the only land feature to give its name to a constellation: Mensa, “the table.”",
   "lat": -33.9622,
   "lng": 18.4135,
@@ -3793,7 +3793,7 @@
  {
   "id": "giants-causeway",
   "short": "Giant's Causeway",
-  "clue": "Giant's Causeway, Northern Ireland",
+  "clue": "Giant's Causeway",
   "fact": "Roughly 40,000 interlocking basalt columns, most of them hexagonal, formed here as lava from a fissure eruption cooled and cracked 50 to 60 million years ago.",
   "lat": 55.2408,
   "lng": -6.5116,
@@ -3809,7 +3809,7 @@
  {
   "id": "milford-sound",
   "short": "Milford Sound",
-  "clue": "Milford Sound, New Zealand 🇳🇿",
+  "clue": "Milford Sound",
   "fact": "Despite its name it is a glacier-carved fiord, not a river-cut sound; the sealer John Grono named it in 1823 after Milford Haven in his native Wales.",
   "lat": -44.6715,
   "lng": 167.9237,
@@ -3827,7 +3827,7 @@
  {
   "id": "perito-moreno-glacier",
   "short": "Perito Moreno Glacier",
-  "clue": "Perito Moreno Glacier, Argentina 🇦🇷",
+  "clue": "Perito Moreno Glacier",
   "fact": "Its five-kilometre ice front periodically pushes across Lago Argentino and dams the Brazo Rico arm until the trapped water bursts through in a dramatic rupture.",
   "lat": -50.4688,
   "lng": -73.0322,
@@ -3846,7 +3846,7 @@
  {
   "id": "mount-elbrus",
   "short": "Mount Elbrus",
-  "clue": "Mount Elbrus, Russia 🇷🇺",
+  "clue": "Mount Elbrus",
   "fact": "Europe's highest peak is a dormant volcano with twin domes: the western summit reaches 5,642 metres, just 21 metres above the eastern one.",
   "lat": 43.3524,
   "lng": 42.4378,
@@ -3865,7 +3865,7 @@
  {
   "id": "eiffel-tower",
   "short": "Eiffel Tower",
-  "clue": "Eiffel Tower, France 🇫🇷",
+  "clue": "Eiffel Tower",
   "fact": "Completed in 1889 as the entrance arch to the Paris World's Fair, it was meant to be dismantled after 20 years; it survived because the French military found the wireless aerials on its summit too useful to lose.",
   "lat": 48.8583,
   "lng": 2.2945,
@@ -3882,7 +3882,7 @@
  {
   "id": "statue-of-liberty",
   "short": "Statue of Liberty",
-  "clue": "Statue of Liberty, United States 🇺🇸",
+  "clue": "Statue of Liberty",
   "fact": "Its copper skin is just 2.4 millimetres thick, about two stacked pennies, hung on an iron skeleton designed by Gustave Eiffel; the metal arrived from Paris a dull brown and oxidized to its present green within 30 years.",
   "lat": 40.6892,
   "lng": -74.0444,
@@ -3898,7 +3898,7 @@
  {
   "id": "golden-gate-bridge",
   "short": "Golden Gate Bridge",
-  "clue": "Golden Gate Bridge, United States 🇺🇸",
+  "clue": "Golden Gate Bridge",
   "fact": "Its paint is a custom shade called International Orange, chosen to stay visible in San Francisco's fog; when it opened in 1937 its 1,280-metre main span was the longest suspension span in the world.",
   "lat": 37.8197,
   "lng": -122.4786,
@@ -3914,7 +3914,7 @@
  {
   "id": "sydney-opera-house",
   "short": "Sydney Opera House",
-  "clue": "Sydney Opera House, Australia 🇦🇺",
+  "clue": "Sydney Opera House",
   "fact": "Every white shell 'sail' is a rib cut from the surface of a single sphere, the trick Jørn Utzon found in 1961 to make the shapes buildable; the final bill came to A$102 million against a A$7 million estimate.",
   "lat": -33.8571,
   "lng": 151.2149,
@@ -3930,7 +3930,7 @@
  {
   "id": "hagia-sophia",
   "short": "Hagia Sophia",
-  "clue": "Hagia Sophia, Turkey 🇹🇷",
+  "clue": "Hagia Sophia",
   "fact": "Raised in just five years and completed in 537 under Justinian I, its dome spans 31 metres, and the building stood as the world's largest cathedral for nearly a thousand years.",
   "lat": 41.0083,
   "lng": 28.98,
@@ -3948,7 +3948,7 @@
  {
   "id": "leaning-tower-of-pisa",
   "short": "Leaning Tower of Pisa",
-  "clue": "Leaning Tower of Pisa, Italy 🇮🇹",
+  "clue": "Leaning Tower of Pisa",
   "fact": "It began tilting before the third storey was finished in the 1170s, because one side of the foundation sits on soft clay; a rescue in the 1990s pulled the lean back by about 44 centimetres and left it stable for at least 200 years.",
   "lat": 43.723,
   "lng": 10.3966,
@@ -3964,7 +3964,7 @@
  {
   "id": "notre-dame-de-paris",
   "short": "Notre-Dame de Paris",
-  "clue": "Notre-Dame de Paris, France 🇫🇷",
+  "clue": "Notre-Dame de Paris",
   "fact": "Its 96-metre spire, added by Viollet-le-Duc in 1859, crashed through the burning roof in the fire of April 2019; the cathedral reopened in December 2024 with the spire rebuilt to the same design, 861 years after building began.",
   "lat": 48.853,
   "lng": 2.3498,
@@ -3982,7 +3982,7 @@
  {
   "id": "neuschwanstein-castle",
   "short": "Neuschwanstein Castle",
-  "clue": "Neuschwanstein Castle, Germany 🇩🇪",
+  "clue": "Neuschwanstein Castle",
   "fact": "Ludwig II of Bavaria began this medieval fantasy in 1868 with flush toilets, central heating and telephone lines hidden inside; he slept there only 172 nights before his death in 1886, and the castle later modelled Disney's Sleeping Beauty Castle.",
   "lat": 47.5575,
   "lng": 10.7494,
@@ -4000,7 +4000,7 @@
  {
   "id": "nazca-lines",
   "short": "Nazca Lines",
-  "clue": "Nazca Lines, Peru 🇵🇪",
+  "clue": "Nazca Lines",
   "fact": "The Nazca culture scraped these figures into the desert floor between about 500 BC and AD 500 by clearing dark stones to expose the pale earth beneath; the largest figure, a pelican, stretches 285 metres, and the lines went unnoticed until aircraft flew over them in the 1920s.",
   "lat": -14.6975,
   "lng": -75.135,
@@ -4019,7 +4019,7 @@
  {
   "id": "lalibela",
   "short": "Lalibela",
-  "clue": "Lalibela, Ethiopia 🇪🇹",
+  "clue": "Lalibela",
   "fact": "Its eleven medieval churches were not built up but carved down into solid volcanic tuff under King Lalibela in the late 12th century; the last and best preserved, Bete Giyorgis, is hewn in the shape of a cross and reached only through a tunnel cut in the rock.",
   "lat": 12.0294,
   "lng": 39.0404,
@@ -4037,7 +4037,7 @@
  {
   "id": "mount-rushmore",
   "short": "Mount Rushmore",
-  "clue": "Mount Rushmore, United States 🇺🇸",
+  "clue": "Mount Rushmore",
   "fact": "Gutzon Borglum and 400 workers carved the four 18-metre faces between 1927 and 1941, blasting away some 410,000 tons of Black Hills granite with dynamite, then smoothing the stone with drills in a pattern called honeycombing.",
   "lat": 43.8789,
   "lng": -103.4592,
@@ -4055,7 +4055,7 @@
  {
   "id": "persepolis",
   "short": "Persepolis",
-  "clue": "Persepolis, Iran 🇮🇷",
+  "clue": "Persepolis",
   "fact": "This ceremonial capital of the Achaemenid empire was burned by Alexander in 330 BC, yet its gate, treasury columns and audience-hall stairs survive almost intact.",
   "lat": 29.935,
   "lng": 52.89,
@@ -4074,7 +4074,7 @@
  {
   "id": "st-peters-basilica",
   "short": "St Peter's Basilica",
-  "clue": "St Peter's Basilica, Vatican City 🇻🇦",
+  "clue": "St Peter's Basilica",
   "fact": "Michelangelo designed its dome, completed in 1590 and rising 136 metres over the nave; at 186 metres long internally, it is the largest church in the world by interior measure.",
   "lat": 41.9022,
   "lng": 12.4534,
@@ -4092,7 +4092,7 @@
  {
   "id": "shwedagon-pagoda",
   "short": "Shwedagon Pagoda",
-  "clue": "Shwedagon Pagoda, Myanmar 🇲🇲",
+  "clue": "Shwedagon Pagoda",
   "fact": "Its 99-metre stupa is sheathed in gold plates and topped by an umbrella crown tipped with a 76-carat diamond; legend says the shrine holds eight hairs of the Buddha.",
   "lat": 16.7983,
   "lng": 96.1494,
@@ -4111,7 +4111,7 @@
  {
   "id": "golden-temple",
   "short": "Golden Temple",
-  "clue": "Golden Temple, India 🇮🇳",
+  "clue": "Golden Temple",
   "fact": "The gold sanctum stands in the middle of a man-made holy pool, the Amrit Sarovar; Maharaja Ranjit Singh had its upper floors covered with about 750 kg of gold leaf from 1830.",
   "lat": 31.62,
   "lng": 74.8767,
@@ -4129,7 +4129,7 @@
  {
   "id": "potala-palace",
   "short": "Potala Palace",
-  "clue": "Potala Palace, China 🇨🇳",
+  "clue": "Potala Palace",
   "fact": "Raised from 1645 for the fifth Dalai Lama on Lhasa's Red Hill, its 13 storeys contain more than 1,000 rooms, and its Red Palace holds the gilded burial stupas of eight Dalai Lamas.",
   "lat": 29.6578,
   "lng": 91.1169,
@@ -4145,7 +4145,7 @@
  {
   "id": "petronas-towers",
   "short": "Petronas Towers",
-  "clue": "Petronas Towers, Malaysia 🇲🇾",
+  "clue": "Petronas Towers",
   "fact": "The 452-metre twins were the world's tallest buildings from 1998 to 2004 and are joined at the 41st and 42nd floors by a two-storey skybridge that is deliberately not fixed rigidly to either tower, so it can slide as they sway.",
   "lat": 3.1578,
   "lng": 101.7117,
@@ -4162,7 +4162,7 @@
  {
   "id": "himeji-castle",
   "short": "Himeji Castle",
-  "clue": "Himeji Castle, Japan 🇯🇵",
+  "clue": "Himeji Castle",
   "fact": "Finished in 1609, its six-storey white keep has survived earthquakes and war; in the 1945 air raid on Himeji an incendiary bomb landed on its top floor and failed to explode.",
   "lat": 34.8394,
   "lng": 134.6936,
@@ -4180,7 +4180,7 @@
  {
   "id": "itsukushima-shrine",
   "short": "Itsukushima Shrine",
-  "clue": "Itsukushima Shrine, Japan 🇯🇵",
+  "clue": "Itsukushima Shrine",
   "fact": "The shrine's 16-metre vermilion torii, rebuilt in camphor wood in 1875, stands in the Seto Inland Sea and seems to float at high tide; the shrine buildings themselves stand on piers over the water.",
   "lat": 34.2958,
   "lng": 132.3201,
@@ -4198,7 +4198,7 @@
  {
   "id": "temple-of-heaven",
   "short": "Temple of Heaven",
-  "clue": "Temple of Heaven, China 🇨🇳",
+  "clue": "Temple of Heaven",
   "fact": "Its Hall of Prayer for Good Harvests is a 38-metre circular wooden hall, first built in 1420 and rebuilt in 1890 entirely without nails, where emperors prayed at the winter solstice.",
   "lat": 39.8822,
   "lng": 116.4066,
@@ -4216,7 +4216,7 @@
  {
   "id": "prambanan",
   "short": "Prambanan",
-  "clue": "Prambanan, Indonesia 🇮🇩",
+  "clue": "Prambanan",
   "fact": "Built around AD 850, the complex once held some 240 temples; its central temple to Shiva rises 47 metres, ringed by reliefs telling the Ramayana.",
   "lat": -7.752,
   "lng": 110.4912,
@@ -4234,7 +4234,7 @@
  {
   "id": "grand-palace-bangkok",
   "short": "Grand Palace",
-  "clue": "Grand Palace, Thailand 🇹🇭",
+  "clue": "Grand Palace",
   "fact": "Founded in 1782 when Bangkok became Siam's capital, its Temple of the Emerald Buddha guards a 66-centimetre jadeite Buddha whose gold robes the king personally changes three times a year with the seasons.",
   "lat": 13.7501,
   "lng": 100.492,
@@ -4250,7 +4250,7 @@
  {
   "id": "blue-mosque",
   "short": "Blue Mosque",
-  "clue": "Blue Mosque, Turkey 🇹🇷",
+  "clue": "Blue Mosque",
   "fact": "Finished in 1616 for Sultan Ahmed I, it is lined with more than 20,000 hand-made Iznik tiles; its six minarets matched the number at Mecca, and tradition says a seventh was then built at Mecca to restore the difference.",
   "lat": 41.0054,
   "lng": 28.9768,
@@ -4268,7 +4268,7 @@
  {
   "id": "karnak",
   "short": "Karnak",
-  "clue": "Karnak, Egypt 🇪🇬",
+  "clue": "Karnak",
   "fact": "Some 30 pharaohs added to it over 1,500 years; the great hypostyle hall's 134 columns cover an area big enough to hold Notre-Dame Cathedral, and one of Hatshepsut's obelisks still stands at 29 metres.",
   "lat": 25.7183,
   "lng": 32.6583,
@@ -4287,7 +4287,7 @@
  {
   "id": "palenque",
   "short": "Palenque",
-  "clue": "Palenque, Mexico 🇲🇽",
+  "clue": "Palenque",
   "fact": "Beneath its Temple of the Inscriptions, archaeologists found the tomb of King Pakal in 1952, the king wearing a mosaic death mask of jade and a sarcophagus lid carved with his fall into the underworld.",
   "lat": 17.4842,
   "lng": -92.0464,
@@ -4305,7 +4305,7 @@
  {
   "id": "tulum",
   "short": "Tulum",
-  "clue": "Tulum, Mexico 🇲🇽",
+  "clue": "Tulum",
   "fact": "Its castle, El Castillo, tops a 12-metre cliff and is thought to have worked as a lighthouse: two small windows align with the only gap in the reef, guiding Maya trading canoes in to shore.",
   "lat": 20.2147,
   "lng": -87.4289,
@@ -4323,7 +4323,7 @@
  {
   "id": "copan",
   "short": "Copán",
-  "clue": "Copán, Honduras 🇭🇳",
+  "clue": "Copán",
   "fact": "Its Hieroglyphic Stairway carries more than 2,200 carved glyphs across 63 steps, the longest single inscribed text the Maya left behind.",
   "lat": 14.838,
   "lng": -89.1424,
@@ -4341,7 +4341,7 @@
  {
   "id": "palmyra",
   "short": "Palmyra",
-  "clue": "Palmyra, Syria 🇸🇾",
+  "clue": "Palmyra",
   "fact": "This oasis city grew rich taxing Silk Road caravans between Rome and Persia; in the 270s AD its queen Zenobia seized Rome's eastern provinces and briefly ruled an empire of her own.",
   "lat": 34.5504,
   "lng": 38.2698,
@@ -4360,7 +4360,7 @@
  {
   "id": "baalbek",
   "short": "Baalbek",
-  "clue": "Baalbek, Lebanon 🇱🇧",
+  "clue": "Baalbek",
   "fact": "The Temple of Jupiter's podium includes three stones of about 800 tons each, among the largest ever moved, and six of its original 54 columns still stand, each over 20 metres tall.",
   "lat": 34.0061,
   "lng": 36.2086,
@@ -4379,7 +4379,7 @@
  {
   "id": "great-zimbabwe",
   "short": "Great Zimbabwe",
-  "clue": "Great Zimbabwe, Zimbabwe 🇿🇼",
+  "clue": "Great Zimbabwe",
   "fact": "Its Great Enclosure wall runs about 250 metres and stands up to 11 metres high, laid entirely without mortar; from here Shona kings traded gold that reached as far as China in the 1400s.",
   "lat": -20.27,
   "lng": 30.933,
@@ -4397,7 +4397,7 @@
  {
   "id": "djenne-great-mosque",
   "short": "Djenné Great Mosque",
-  "clue": "Djenné Great Mosque, Mali 🇲🇱",
+  "clue": "Djenné Great Mosque",
   "fact": "The world's largest mud-brick building, its three great towers are each topped with an ostrich egg; every year the town replasters the whole mosque by hand in a single-day festival.",
   "lat": 13.9053,
   "lng": -4.5556,
@@ -4415,7 +4415,7 @@
  {
   "id": "prague-castle",
   "short": "Prague Castle",
-  "clue": "Prague Castle, Czech Republic 🇨🇿",
+  "clue": "Prague Castle",
   "fact": "Founded around 880, the castle complex covers some 70,000 square metres, the largest ancient castle in the world; St Vitus Cathedral inside it was under construction, on and off, for nearly 600 years.",
   "lat": 50.09,
   "lng": 14.4,
@@ -4433,7 +4433,7 @@
  {
   "id": "charles-bridge",
   "short": "Charles Bridge",
-  "clue": "Charles Bridge, Czech Republic 🇨🇿",
+  "clue": "Charles Bridge",
   "fact": "Court astrologers chose the moment to lay its foundation stone: 5:31 on 9 July 1357, a sequence of odd numbers picked for luck; the 30 statues lining its 516 metres were added centuries later.",
   "lat": 50.0864,
   "lng": 14.4119,
@@ -4450,7 +4450,7 @@
  {
   "id": "cologne-cathedral",
   "short": "Cologne Cathedral",
-  "clue": "Cologne Cathedral, Germany 🇩🇪",
+  "clue": "Cologne Cathedral",
   "fact": "Begun in 1248 and only finished in 1880, faithfully to the original medieval plan, its twin spires reach 157 metres and briefly made it the tallest building in the world.",
   "lat": 50.9414,
   "lng": 6.9583,
@@ -4468,7 +4468,7 @@
  {
   "id": "schonbrunn-palace",
   "short": "Schönbrunn Palace",
-  "clue": "Schönbrunn Palace, Austria 🇦🇹",
+  "clue": "Schönbrunn Palace",
   "fact": "The Habsburgs' summer seat holds 1,441 rooms; in 1762 a six-year-old Mozart performed here for Empress Maria Theresa, and legend says he proposed marriage to the young Marie Antoinette after slipping on its polished floor.",
   "lat": 48.1848,
   "lng": 16.3123,
@@ -4484,7 +4484,7 @@
  {
   "id": "tower-bridge",
   "short": "Tower Bridge",
-  "clue": "Tower Bridge, England 🏴󐁧󐁢󐁥󐁮󐁧󐁿",
+  "clue": "Tower Bridge",
   "fact": "Completed in 1894, its two bascules of more than 1,000 tons each still lift around 800 times a year for river traffic and open in about a minute; the red, white and blue paint dates from the 1977 Silver Jubilee.",
   "lat": 51.5056,
   "lng": -0.0753,
@@ -4500,7 +4500,7 @@
  {
   "id": "tower-of-london",
   "short": "Tower of London",
-  "clue": "Tower of London, England 🏴󐁧󐁢󐁥󐁮󐁧󐁿",
+  "clue": "Tower of London",
   "fact": "William the Conqueror raised its White Tower from 1078; the fortress has served as royal palace, prison and menagerie, and Anne Boleyn and Catherine Howard were both executed on its green.",
   "lat": 51.5082,
   "lng": -0.0762,
@@ -4516,7 +4516,7 @@
  {
   "id": "buckingham-palace",
   "short": "Buckingham Palace",
-  "clue": "Buckingham Palace, England 🏴󐁧󐁢󐁥󐁮󐁧󐁿",
+  "clue": "Buckingham Palace",
   "fact": "Queen Victoria was the first monarch to live here, moving in in 1837; the palace has 775 rooms, and its east front, the face everyone photographs, was only added in 1913.",
   "lat": 51.501,
   "lng": -0.142,
@@ -4532,7 +4532,7 @@
  {
   "id": "westminster-abbey",
   "short": "Westminster Abbey",
-  "clue": "Westminster Abbey, England 🏴󐁧󐁢󐁥󐁮󐁧󐁿",
+  "clue": "Westminster Abbey",
   "fact": "Consecrated in 1065, it has hosted every English coronation since William the Conqueror's in 1066; Geoffrey Chaucer's burial here in 1400 began its Poets' Corner.",
   "lat": 51.4994,
   "lng": -0.1274,
@@ -4550,7 +4550,7 @@
  {
   "id": "lincoln-memorial",
   "short": "Lincoln Memorial",
-  "clue": "Lincoln Memorial, United States 🇺🇸",
+  "clue": "Lincoln Memorial",
   "fact": "Daniel Chester French's seated Lincoln is 5.8 metres of Georgia marble; the 36 Doric columns around the memorial stand for the 36 states in the Union when Lincoln died.",
   "lat": 38.8893,
   "lng": -77.0501,
@@ -4568,7 +4568,7 @@
  {
   "id": "washington-monument",
   "short": "Washington Monument",
-  "clue": "Washington Monument, United States 🇺🇸",
+  "clue": "Washington Monument",
   "fact": "The world's tallest stone obelisk at 169 metres; work stopped for 23 years in the Civil War era, and the marble visibly changes shade about 46 metres up, where building resumed from a different quarry.",
   "lat": 38.8895,
   "lng": -77.0352,
@@ -4587,7 +4587,7 @@
  {
   "id": "cn-tower",
   "short": "CN Tower",
-  "clue": "CN Tower, Canada 🇨🇦",
+  "clue": "CN Tower",
   "fact": "At 553 metres it was the world's tallest freestanding structure for 32 years; its glass floor, installed in 1994, is rated to hold the weight of 41 polar bears.",
   "lat": 43.6428,
   "lng": -79.3871,
@@ -4603,7 +4603,7 @@
  {
   "id": "hoover-dam",
   "short": "Hoover Dam",
-  "clue": "Hoover Dam, United States 🇺🇸",
+  "clue": "Hoover Dam",
   "fact": "Poured in the mid-1930s, its concrete would pave a two-lane road from San Francisco to New York; the dam stands 221 metres tall and holds back Lake Mead, the largest US reservoir by capacity.",
   "lat": 36.0158,
   "lng": -114.7378,
@@ -4621,7 +4621,7 @@
  {
   "id": "berlin-wall",
   "short": "Berlin Wall",
-  "clue": "Berlin Wall, Germany 🇩🇪",
+  "clue": "Berlin Wall",
   "fact": "The East Side Gallery is a 1.3-kilometre stretch of the Wall painted by 118 artists in 1990, the longest open-air gallery in the world; the concrete it covers divided Berlin from 1961 to 1989.",
   "lat": 52.5031,
   "lng": 13.4447,
@@ -4637,7 +4637,7 @@
  {
   "id": "st-basils-cathedral",
   "short": "St Basil's Cathedral",
-  "clue": "St Basil's Cathedral, Russia 🇷🇺",
+  "clue": "St Basil's Cathedral",
   "fact": "Ivan the Terrible ordered it built in 1555 after capturing Kazan; nine chapels with patterned onion domes cluster around a central 47-metre tent-roofed tower.",
   "lat": 55.7525,
   "lng": 37.6231,
@@ -4655,7 +4655,7 @@
  {
   "id": "ajanta-caves",
   "short": "Ajanta Caves",
-  "clue": "Ajanta Caves, India 🇮🇳",
+  "clue": "Ajanta Caves",
   "fact": "Thirty rock-cut caves in a horseshoe cliff, painted between the 2nd century BC and AD 480, were abandoned and forgotten until a British hunting party stumbled on them in 1819.",
   "lat": 20.5534,
   "lng": 75.7005,
@@ -4673,7 +4673,7 @@
  {
   "id": "ellora-caves",
   "short": "Ellora Caves",
-  "clue": "Ellora Caves, India 🇮🇳",
+  "clue": "Ellora Caves",
   "fact": "The Kailasa temple here was carved from the top down out of a single basalt cliff in the 8th century; workers removed an estimated 200,000 tons of rock to free the finished temple from the stone.",
   "lat": 20.0264,
   "lng": 75.1792,
@@ -4691,7 +4691,7 @@
  {
   "id": "hampi",
   "short": "Hampi",
-  "clue": "Hampi, India 🇮🇳",
+  "clue": "Hampi",
   "fact": "Capital of the Vijayanagara Empire and one of the richest cities of its age around 1500, its Vittala Temple holds 56 stone pillars tuned to ring like bells when struck.",
   "lat": 15.3345,
   "lng": 76.4622,
@@ -4709,7 +4709,7 @@
  {
   "id": "sheikh-zayed-grand-mosque",
   "short": "Sheikh Zayed Grand Mosque",
-  "clue": "Sheikh Zayed Grand Mosque, United Arab Emirates 🇦🇪",
+  "clue": "Sheikh Zayed Grand Mosque",
   "fact": "Finished in 2007 and able to hold more than 50,000 worshippers, its main hall carpet is the largest hand-knotted carpet in the world at 5,627 square metres, woven by 1,200 artisans.",
   "lat": 24.412,
   "lng": 54.474,
@@ -4727,7 +4727,7 @@
  {
   "id": "aconcagua",
   "short": "Aconcagua",
-  "clue": "Aconcagua, Argentina 🇦🇷",
+  "clue": "Aconcagua",
   "fact": "At 6,961 m (22,837 ft) Aconcagua is the highest mountain outside Asia and the tallest in both the Western and Southern Hemispheres. Despite the altitude its normal route is a walk-up needing no technical climbing, though its weather kills climbers most seasons.",
   "lat": -32.6531,
   "lng": -70.0117,
@@ -4746,7 +4746,7 @@
  {
   "id": "antelope-canyon",
   "short": "Antelope Canyon",
-  "clue": "Antelope Canyon, Arizona 🇺🇸",
+  "clue": "Antelope Canyon",
   "fact": "Flash floods rushing through a crack in Navajo sandstone polished this slot canyon into flowing waves of red rock. Around midday in summer, shafts of sunlight fall straight to the floor of Upper Antelope Canyon, on Navajo land near Page and visitable only on guided tours.",
   "lat": 36.8578,
   "lng": -111.3722,
@@ -4765,7 +4765,7 @@
  {
   "id": "aoraki-mount-cook",
   "short": "Aoraki / Mount Cook",
-  "clue": "Aoraki / Mount Cook, New Zealand 🇳🇿",
+  "clue": "Aoraki / Mount Cook",
   "fact": "New Zealand's highest mountain at 3,724 m, called Aoraki, 'cloud-piercer', in te reo Māori. A huge rock avalanche in 1991 sheared about 10 m from its summit, and ice and rock loss has lowered it since.",
   "lat": -43.595,
   "lng": 170.1419,
@@ -4783,7 +4783,7 @@
  {
   "id": "atacama",
   "short": "Atacama Desert",
-  "clue": "Atacama Desert, Chile 🇨🇱",
+  "clue": "Atacama Desert",
   "fact": "The driest non-polar desert on Earth: some of its weather stations have never recorded rain, and its hyper-arid core averages under 15 mm a year. The same clear, dry skies put the ALMA observatory's 66 radio antennas on its Chajnantor plateau, 5,000 m up.",
   "lat": -24.5,
   "lng": -69.25,
@@ -4800,7 +4800,7 @@
  {
   "id": "bay-of-fundy",
   "short": "Bay of Fundy",
-  "clue": "Bay of Fundy, Canada 🇨🇦",
+  "clue": "Bay of Fundy",
   "fact": "Fundy's tides are the highest on Earth, rising as much as 16 m at Burntcoat Head, as much water as all the world's rivers combined pours in and out twice a day. At the Hopewell Rocks, flowerpot sea stacks stand on an ocean floor you can walk at low tide.",
   "lat": 45,
   "lng": -65.75,
@@ -4817,7 +4817,7 @@
  {
   "id": "bryce-canyon",
   "short": "Bryce Canyon",
-  "clue": "Bryce Canyon, Utah 🇺🇸",
+  "clue": "Bryce Canyon",
   "fact": "Not a canyon at all, but a row of amphitheatres bitten into the Paunsaugunt Plateau, filled with pink limestone spires called hoodoos. At 2,400-2,700 m elevation, some 200 freeze-thaw cycles a year wedge the rock apart grain by grain.",
   "lat": 37.6167,
   "lng": -112.1425,
@@ -4836,7 +4836,7 @@
  {
   "id": "cappadocia",
   "short": "Cappadocia",
-  "clue": "Cappadocia, Turkey 🇹🇷",
+  "clue": "Cappadocia",
   "fact": "Erosion carved compressed volcanic ash into 'fairy chimney' spires, and people carved back: the soft tuff holds rock-cut churches and whole underground cities such as Derinkuyu, which descends about 60 m. At dawn, fleets of hot-air balloons drift over the valleys of Göreme.",
   "lat": 38.6706,
   "lng": 34.8392,
@@ -4854,7 +4854,7 @@
  {
   "id": "carlsbad-caverns",
   "short": "Carlsbad Caverns",
-  "clue": "Carlsbad Caverns, New Mexico 🇺🇸",
+  "clue": "Carlsbad Caverns",
   "fact": "The Big Room, roughly 1,200 m long and up to 79 m high, is among the largest cave chambers in North America. On summer evenings some 400,000 Brazilian free-tailed bats spiral out of the Natural Entrance in a column that can take three hours to empty.",
   "lat": 32.1753,
   "lng": -104.4439,
@@ -4891,7 +4891,7 @@
  {
   "id": "devils-tower",
   "short": "Devils Tower",
-  "clue": "Devils Tower, Wyoming 🇺🇸",
+  "clue": "Devils Tower",
   "fact": "A boss of fluted igneous columns rising 386 m above the Belle Fourche River, formed as an intrusion that cooled and cracked into hexagons underground and was exposed by erosion. Proclaimed the first US national monument in 1906, it is Bear Lodge, sacred to the Lakota and other Plains tribes.",
   "lat": 44.5903,
   "lng": -104.7153,
@@ -4909,7 +4909,7 @@
  {
   "id": "eiger",
   "short": "Eiger",
-  "clue": "Eiger, Switzerland 🇨🇭",
+  "clue": "Eiger",
   "fact": "The Eiger's 1,800 m north wall was the last of the Alps' great north faces to be climbed, in 1938, after a run of fatal attempts earned it the nickname Mordwand, 'murder wall'. A cog railway tunnels through the mountain itself, with windows cut into the face.",
   "lat": 46.5776,
   "lng": 8.0053,
@@ -4928,7 +4928,7 @@
  {
   "id": "gobi",
   "short": "Gobi Desert",
-  "clue": "Gobi Desert, Mongolia 🇲🇳",
+  "clue": "Gobi Desert",
   "fact": "A cold desert of gravel plains and bare rock where winter brings -40 °C and herders' camels grow shaggy coats. At Bayanzag's Flaming Cliffs in 1923, Roy Chapman Andrews' expedition found the first dinosaur eggs recognised by science.",
   "lat": 42.5,
   "lng": 103,
@@ -4945,7 +4945,7 @@
  {
   "id": "guilin-karst",
   "short": "Guilin Karst",
-  "clue": "Guilin Karst, China 🇨🇳",
+  "clue": "Guilin Karst",
   "fact": "Between Guilin and Yangshuo the Li River threads a forest of limestone towers, the karst landscape printed on China's 20-yuan banknote. The towers are the eroded floor of a tropical sea that covered the region some 300 million years ago.",
   "lat": 24.95,
   "lng": 110.45,
@@ -4962,7 +4962,7 @@
  {
   "id": "huangshan",
   "short": "Huangshan",
-  "clue": "Huangshan, China 🇨🇳",
+  "clue": "Huangshan",
   "fact": "Granite pinnacles, gnarled pines gripping bare rock, and seas of cloud made Huangshan the model for classical Chinese shan shui painting. More than 60,000 stone steps stitch its paths together, and porters still carry loads up them slung from bamboo shoulder poles.",
   "lat": 30.125,
   "lng": 118.1667,
@@ -4980,7 +4980,7 @@
  {
   "id": "kaieteur-falls",
   "short": "Kaieteur Falls",
-  "clue": "Kaieteur Falls, Guyana 🇬🇾",
+  "clue": "Kaieteur Falls",
   "fact": "The Potaro River pours over a sheer 226 m ledge in Guyana's rainforest, making Kaieteur the largest single-drop waterfall on Earth by volume, about five times Niagara's height. No road reaches it: visitors arrive by small plane or a trek of several days.",
   "lat": 5.1781,
   "lng": -59.4823,
@@ -4998,7 +4998,7 @@
  {
   "id": "kalahari",
   "short": "Kalahari Desert",
-  "clue": "Kalahari Desert, Botswana 🇧🇼",
+  "clue": "Kalahari Desert",
   "fact": "A 900,000 km² sea of red sand that is only semi-desert: summer rains green it enough for great herds and the black-maned Kalahari lions. The Okavango River ends here, spreading into an inland delta instead of ever reaching the sea.",
   "lat": -23,
   "lng": 22,
@@ -5015,7 +5015,7 @@
  {
   "id": "kilauea",
   "short": "Kīlauea",
-  "clue": "Kīlauea, Hawaii 🇺🇸",
+  "clue": "Kīlauea",
   "fact": "Among the world's most active volcanoes, Kīlauea erupted almost continuously from 1983 to 2018 at Puʻu ʻŌʻō. The 2018 lower East Rift eruption destroyed more than 700 homes, and the summit's Halemaʻumaʻu crater periodically hosts a roiling lava lake.",
   "lat": 19.4211,
   "lng": -155.2868,
@@ -5033,7 +5033,7 @@
  {
   "id": "lake-tahoe",
   "short": "Lake Tahoe",
-  "clue": "Lake Tahoe, United States 🇺🇸",
+  "clue": "Lake Tahoe",
   "fact": "North America's largest alpine lake by volume is 501 m deep and famed for cobalt clarity, with visibility sometimes past 20 m. It straddles the California-Nevada line, its surface 1,897 m up in the Sierra Nevada, and despite hard winters it never freezes over.",
   "lat": 39.0833,
   "lng": -120.0333,
@@ -5051,7 +5051,7 @@
  {
   "id": "lake-tanganyika",
   "short": "Lake Tanganyika",
-  "clue": "Lake Tanganyika, Tanzania 🇹🇿",
+  "clue": "Lake Tanganyika",
   "fact": "The world's longest freshwater lake (about 673 km) and second deepest at 1,470 m, holding roughly 16% of Earth's unfrozen surface fresh water. Its clear waters evolved more than 250 species of cichlid fish found almost nowhere else.",
   "lat": -6.1,
   "lng": 29.5,
@@ -5070,7 +5070,7 @@
  {
   "id": "lake-toba",
   "short": "Lake Toba",
-  "clue": "Lake Toba, Indonesia 🇮🇩",
+  "clue": "Lake Toba",
   "fact": "The world's largest volcanic lake fills the caldera of a super-eruption about 74,000 years ago that may have cooled the planet for years. Samosir Island, uplifted from the caldera floor, is nearly the size of Singapore and home to the Christian Batak people.",
   "lat": 2.67,
   "lng": 98.8875,
@@ -5089,7 +5089,7 @@
  {
   "id": "mammoth-cave",
   "short": "Mammoth Cave",
-  "clue": "Mammoth Cave, Kentucky 🇺🇸",
+  "clue": "Mammoth Cave",
   "fact": "The longest known cave system on Earth, with more than 676 km (420 miles) of surveyed passages and more still being mapped. Gypsum crystals coat its dry upper levels, while the Echo River, home to blind white fish, runs through its depths.",
   "lat": 37.1833,
   "lng": -86.1,
@@ -5105,7 +5105,7 @@
  {
   "id": "mauna-loa",
   "short": "Mauna Loa",
-  "clue": "Mauna Loa, Hawaii 🇺🇸",
+  "clue": "Mauna Loa",
   "fact": "The largest volcano on Earth by volume: it rises 4,169 m above the sea and about 17 km from its base on the ocean floor, a taller pile than Everest. On its northern flank the Mauna Loa Observatory has measured atmospheric CO₂ since 1958, producing the Keeling Curve.",
   "lat": 19.4833,
   "lng": -155.6,
@@ -5123,7 +5123,7 @@
  {
   "id": "mount-ararat",
   "short": "Mount Ararat",
-  "clue": "Mount Ararat, Turkey 🇹🇷",
+  "clue": "Mount Ararat",
   "fact": "A dormant twin-coned volcano: Greater Ararat (5,137 m) is Turkey's highest peak, and tradition holds that Noah's Ark came to rest on it. It stands in Turkey but is Armenia's national symbol, printed on its coat of arms and visible from Yerevan on clear days.",
   "lat": 39.7019,
   "lng": 44.2983,
@@ -5142,7 +5142,7 @@
  {
   "id": "mount-olympus",
   "short": "Mount Olympus",
-  "clue": "Mount Olympus, Greece 🇬🇷",
+  "clue": "Mount Olympus",
   "fact": "Greece's highest summit, Mytikas (2,917 m), was the throne of the twelve Olympian gods, its peak usually hidden by cloud. Nobody is known to have stood on top until 1913; the massif is now a national park famed for its wildflowers and chamois.",
   "lat": 40.0833,
   "lng": 22.35,
@@ -5160,7 +5160,7 @@
  {
   "id": "mount-rainier",
   "short": "Mount Rainier",
-  "clue": "Mount Rainier, Washington 🇺🇸",
+  "clue": "Mount Rainier",
   "fact": "The most glaciated peak in the contiguous United States, wrapped in 26 named glaciers, and the most topographically prominent: it rises about 4,000 m from the surrounding lowlands. It is an active volcano whose mudflows (lahars) threaten towns in the Puyallup valley below.",
   "lat": 46.8517,
   "lng": -121.7603,
@@ -5178,7 +5178,7 @@
  {
   "id": "mount-roraima",
   "short": "Mount Roraima",
-  "clue": "Mount Roraima, Venezuela 🇻🇪",
+  "clue": "Mount Roraima",
   "fact": "A tepui whose flat summit, about 31 km², is ringed by cliffs up to 1,000 m tall at the junction of Venezuela, Brazil and Guyana. It inspired Conan Doyle's 'The Lost World'; its blackened summit rocks host a tiny frog that, unable to hop well, curls into a ball and rolls away from danger.",
   "lat": 5.1419,
   "lng": -60.7642,
@@ -5196,7 +5196,7 @@
  {
   "id": "mount-st-helens",
   "short": "Mount St. Helens",
-  "clue": "Mount St. Helens, Washington 🇺🇸",
+  "clue": "Mount St. Helens",
   "fact": "On 18 May 1980 its north flank slid away in the largest landslide in recorded history, and the eruption that followed cut the summit from 2,950 m to 2,549 m. A new lava dome has been growing inside the horseshoe crater ever since, most recently in 2004-2008.",
   "lat": 46.2003,
   "lng": -122.1894,
@@ -5214,7 +5214,7 @@
  {
   "id": "mount-tambora",
   "short": "Mount Tambora",
-  "clue": "Mount Tambora, Indonesia 🇮🇩",
+  "clue": "Mount Tambora",
   "fact": "Tambora's April 1815 eruption, the largest in recorded history, blasted about 1,000 m off the summit and left a caldera 6 km wide. Its stratospheric sulphur veil caused 1816, the 'Year Without a Summer', with crop failures and famine across the northern hemisphere.",
   "lat": -8.2453,
   "lng": 117.9928,
@@ -5250,7 +5250,7 @@
  {
   "id": "namib",
   "short": "Namib",
-  "clue": "Namib, Namibia 🇳🇦",
+  "clue": "Namib",
   "fact": "Often called the world's oldest desert, arid for at least 55 million years, it runs some 2,000 km along Namibia's Atlantic coast. At Sossusvlei its apricot dunes exceed 300 m, among Earth's tallest, and fog rolling in off the ocean keeps its desert life alive.",
   "lat": -23,
   "lng": 15,
@@ -5267,7 +5267,7 @@
  {
   "id": "okavango-delta",
   "short": "Okavango Delta",
-  "clue": "Okavango Delta, Botswana 🇧🇼",
+  "clue": "Okavango Delta",
   "fact": "One of the world's largest inland deltas: floodwater from Angola fans out into the Kalahari and evaporates rather than reaching any sea. The flood peaks in the dry winter, drawing one of Africa's densest concentrations of elephants, lions and wild dogs to the shrinking lagoons.",
   "lat": -19.4,
   "lng": 22.9,
@@ -5286,7 +5286,7 @@
  {
   "id": "puncak-jaya",
   "short": "Puncak Jaya",
-  "clue": "Puncak Jaya, Indonesia 🇮🇩",
+  "clue": "Puncak Jaya",
   "fact": "At 4,884 m, Puncak Jaya (the Carstensz Pyramid) is the highest point between the Himalayas and the Andes and the highest island peak on Earth. Glaciers beside this equatorial summit, extensive in the 1930s, have shrunk to a few remnants expected to vanish within years.",
   "lat": -4.0833,
   "lng": 137.1833,
@@ -5304,7 +5304,7 @@
  {
   "id": "rhine-falls",
   "short": "Rhine Falls",
-  "clue": "Rhine Falls, Switzerland 🇨🇭",
+  "clue": "Rhine Falls",
   "fact": "Europe's most powerful waterfall: about 600 tonnes of water per second pour over a 23 m ledge spanning 150 m. The falls formed roughly 15,000 years ago as the Rhine was diverted into a new channel at the end of the last ice age.",
   "lat": 47.6772,
   "lng": 8.6158,
@@ -5322,7 +5322,7 @@
  {
   "id": "rub-al-khali",
   "short": "Rub' al Khali",
-  "clue": "Rub' al Khali, Saudi Arabia 🇸🇦",
+  "clue": "Rub' al Khali",
   "fact": "The Empty Quarter is the largest continuous sand desert on Earth, some 650,000 km² of dunes up to 250 m high across four countries. Parts of its interior can go a decade without rain; Wilfred Thesiger's camel crossings of the 1940s remain its benchmark journeys.",
   "lat": 20,
   "lng": 50,
@@ -5358,7 +5358,7 @@
  {
   "id": "santorini-caldera",
   "short": "Santorini Caldera",
-  "clue": "Santorini Caldera, Greece 🇬🇷",
+  "clue": "Santorini Caldera",
   "fact": "Santorini's crescent is the rim of a volcano that drowned its own centre: the eruption of around 1600 BCE buried the port of Akrotiri and is a candidate source for the Atlantis story. The dark islets in the bay, Nea Kameni, are new lava domes that last erupted in 1950.",
   "lat": 36.4036,
   "lng": 25.3964,
@@ -5375,7 +5375,7 @@
  {
   "id": "stromboli",
   "short": "Stromboli",
-  "clue": "Stromboli, Italy 🇮🇹",
+  "clue": "Stromboli",
   "fact": "This Aeolian island erupts in small explosions every few minutes and has done so for centuries, earning it the name 'Lighthouse of the Mediterranean'. Its Sciara del Fuoco, a vast scar down the northwest flank, funnels lava flows straight into the Tyrrhenian Sea.",
   "lat": 38.804,
   "lng": 15.2233,
@@ -5393,7 +5393,7 @@
  {
   "id": "verdon-gorge",
   "short": "Verdon Gorge",
-  "clue": "Verdon Gorge, France 🇫🇷",
+  "clue": "Verdon Gorge",
   "fact": "Europe's grandest canyon: limestone walls up to 700 m high above a river turned milky turquoise by glacial flour. The gorge was unknown to outsiders until Édouard-Alfred Martel's 1905 expedition traversed it in wooden boats; its cliffs are now a cradle of sport climbing.",
   "lat": 43.7378,
   "lng": 6.3639,
@@ -5411,7 +5411,7 @@
  {
   "id": "nile-river",
   "short": "Nile River",
-  "clue": "Nile River, Egypt 🇪🇬",
+  "clue": "Nile River",
   "fact": "The Nile is conventionally measured at 6,650 km from the Kagera River, its farthest headstream, which rises in Burundi and drains through Lake Victoria. On its way north the White Nile spreads into the Sudd of South Sudan, one of the world's largest wetlands, where about half its water is lost to evaporation.",
   "lat": 24.1262,
   "lng": 32.8862,
@@ -5430,7 +5430,7 @@
  {
   "id": "amazon-river",
   "short": "Amazon River",
-  "clue": "Amazon River, Brazil 🇧🇷",
+  "clue": "Amazon River",
   "fact": "The Amazon discharges about 209,000 cubic metres of water per second, more than the next seven largest rivers combined. At Manaus its blackwater Rio Negro tributary runs beside the muddy main stem for over 6 km at the Meeting of Waters without mixing.",
   "lat": -3.105,
   "lng": -59.8968,
@@ -5449,7 +5449,7 @@
  {
   "id": "yangtze-river",
   "short": "Yangtze River",
-  "clue": "Yangtze River, China 🇨🇳",
+  "clue": "Yangtze River",
   "fact": "At about 6,300 km the Yangtze is Asia's longest river. The Three Gorges cut up to 300 m deep through limestone west of Yichang, and the cliffs of Qutang Gorge, the shortest and most dramatic of the three, now rise out of the Three Gorges Dam reservoir.",
   "lat": 31.0427,
   "lng": 109.574,
@@ -5468,7 +5468,7 @@
  {
   "id": "mississippi-river",
   "short": "Mississippi River",
-  "clue": "Mississippi River, United States 🇺🇸",
+  "clue": "Mississippi River",
   "fact": "The Mississippi drains all or part of 32 US states, about two-fifths of the country's land area. At Memphis it runs over a kilometre wide below the bluffs, crossed by three road and rail bridges to the Arkansas shore.",
   "lat": 35.1483,
   "lng": -90.0854,
@@ -5487,7 +5487,7 @@
  {
   "id": "congo-river",
   "short": "Congo River",
-  "clue": "Congo River, DR Congo 🇨🇩",
+  "clue": "Congo River",
   "fact": "The Congo is the world's deepest river, with measured depths over 220 m in its lower reaches. It is the only major river to cross the equator twice, looping north of it around the Congo Basin before swinging south again on its way to the Atlantic.",
   "lat": -4.3388,
   "lng": 15.2034,
@@ -5506,7 +5506,7 @@
  {
   "id": "ganges-river",
   "short": "Ganges River",
-  "clue": "Ganges River, India 🇮🇳",
+  "clue": "Ganges River",
   "fact": "More than 400 million people live in the Ganges basin, the most populous river basin on Earth. At Varanasi, one of the oldest continuously inhabited cities in the world, more than 80 ghats, broad stone steps for bathing and ceremony, line its western bank.",
   "lat": 25.2893,
   "lng": 83.0063,
@@ -5525,7 +5525,7 @@
  {
   "id": "danube-river",
   "short": "Danube River",
-  "clue": "Danube River, Germany 🇩🇪",
+  "clue": "Danube River",
   "fact": "The Danube flows through ten countries, more than any other river, and past four capitals: Vienna, Bratislava, Budapest and Belgrade, a record no other river matches. In Budapest it splits around Margaret Island, with the Parliament building standing directly on its Pest bank.",
   "lat": 47.4685,
   "lng": 19.0623,
@@ -5544,7 +5544,7 @@
  {
   "id": "yenisei-river",
   "short": "Yenisei River",
-  "clue": "Yenisei River, Russia 🇷🇺",
+  "clue": "Yenisei River",
   "fact": "The Yenisei is the largest river flowing into the Arctic Ocean, discharging about 19,600 cubic metres of water per second. At Krasnoyarsk it runs almost a kilometre wide beneath the Communal Bridge, and in spring its breaking ice jams back water up for kilometres upstream.",
   "lat": 56.0131,
   "lng": 92.929,
@@ -5563,7 +5563,7 @@
  {
   "id": "yellow-river",
   "short": "Yellow River",
-  "clue": "Yellow River, China 🇨🇳",
+  "clue": "Yellow River",
   "fact": "The Yellow River carries more silt than any other major river, historically about 1.6 billion tonnes a year, most of it loess washed off the plateau it crosses. At Hukou its whole muddy flow squeezes into a gorge barely 30 m wide and pours over a ledge, the largest waterfall on the river.",
   "lat": 36.1418,
   "lng": 110.4469,
@@ -5582,7 +5582,7 @@
  {
   "id": "amur-river",
   "short": "Amur River",
-  "clue": "Amur River, Russia 🇷🇺",
+  "clue": "Amur River",
   "fact": "The Amur forms about 1,600 km of the border between Russia and China. At Khabarovsk the Ussuri joins it from the south, and the combined road-and-rail bridge carrying the Trans-Siberian Railway across the river is over 2,500 m long.",
   "lat": 48.4859,
   "lng": 135.043,
@@ -5601,7 +5601,7 @@
  {
   "id": "mekong-river",
   "short": "Mekong River",
-  "clue": "Mekong River, Vietnam 🇻🇳",
+  "clue": "Mekong River",
   "fact": "Each monsoon the Mekong pushes so much water up Cambodia's Tonlé Sap channel that the great lake at its end expands to several times its dry-season area, a seasonal flow reversal. Its basin lands about 2 million tonnes of wild fish a year, the largest inland fishery on Earth.",
   "lat": 19.8641,
   "lng": 102.1177,
@@ -5620,7 +5620,7 @@
  {
   "id": "mackenzie-river",
   "short": "Mackenzie River",
-  "clue": "Mackenzie River, Canada 🇨🇦",
+  "clue": "Mackenzie River",
   "fact": "The Mackenzie is Canada's longest river and drains about a fifth of the country. At Fort Simpson it is joined by the Liard River, and its delta on the Beaufort Sea is scattered with thousands of lakes and pingos, ice-cored hills that grow out of the permafrost.",
   "lat": 61.8483,
   "lng": -121.2878,
@@ -5639,7 +5639,7 @@
  {
   "id": "lena-river",
   "short": "Lena River",
-  "clue": "Lena River, Russia 🇷🇺",
+  "clue": "Lena River",
   "fact": "The Lena ends in a delta about 400 km wide holding more than 1,500 islands, the largest delta on the Arctic coast. Upstream, the Lena Pillars, weathered limestone towers up to 100 m high, line its bank for tens of kilometres south of Yakutsk.",
   "lat": 61.0987,
   "lng": 127.1731,
@@ -5658,7 +5658,7 @@
  {
   "id": "niger-river",
   "short": "Niger River",
-  "clue": "Niger River, Nigeria 🇳🇬",
+  "clue": "Niger River",
   "fact": "The Niger runs in a great boomerang bend, flowing northeast into Mali before turning sharply south at the edge of the Sahara. Around Djenné and Mopti its inland delta floods each year to roughly the size of Belgium, then slowly drains as the river falls.",
   "lat": 12.6217,
   "lng": -8.0281,
@@ -5677,7 +5677,7 @@
  {
   "id": "volga-river",
   "short": "Volga River",
-  "clue": "Volga River, Russia 🇷🇺",
+  "clue": "Volga River",
   "fact": "At 3,530 km the Volga is Europe's longest river, and about half of Russia's river freight still moves on it. It meets the Kama, its largest tributary, just below Kazan, and past Volgograd it spreads into the Akhtuba floodplain and a broad Caspian delta.",
   "lat": 55.744,
   "lng": 49.0094,
@@ -5696,7 +5696,7 @@
  {
   "id": "yukon-river",
   "short": "Yukon River",
-  "clue": "Yukon River, United States 🇺🇸",
+  "clue": "Yukon River",
   "fact": "When gold was found on the Klondike in 1896, Dawson City at its meeting with the Yukon boomed to some 30,000 people within two years. Yukon chinook salmon still swim as far as 3,000 km inland to spawn, among the longest salmon migrations in the world.",
   "lat": 64.0718,
   "lng": -139.4542,
@@ -5715,7 +5715,7 @@
  {
   "id": "indus-river",
   "short": "Indus River",
-  "clue": "Indus River, Pakistan 🇵🇰",
+  "clue": "Indus River",
   "fact": "The Indus gave India its name, from the Persian word for this river. Mohenjo-daro, one of the largest cities of the Bronze Age, stood on its Sindh plain, and the Lloyd Barrage at Sukkur, completed in 1932, remains one of the largest irrigation works in the world.",
   "lat": 27.7103,
   "lng": 68.9326,
@@ -5734,7 +5734,7 @@
  {
   "id": "zambezi-river",
   "short": "Zambezi River",
-  "clue": "Zambezi River, Zambia 🇿🇲",
+  "clue": "Zambezi River",
   "fact": "The Zambezi pours over a basalt lip 1,708 m wide at Victoria Falls, the largest sheet of falling water on Earth. Below the falls it is dammed twice, at Kariba and Cahora Bassa, two of the largest reservoirs in the world by volume.",
   "lat": -17.9066,
   "lng": 25.8492,
@@ -5753,7 +5753,7 @@
  {
   "id": "ob-irtysh-river",
   "short": "Ob-Irtysh",
-  "clue": "Ob-Irtysh River, Russia 🇷🇺",
+  "clue": "Ob-Irtysh River",
   "fact": "Measured up the Irtysh, the Ob system runs about 5,410 km, the longest river system in Asia. At Khanty-Mansiysk the Irtysh meets the Ob and the two run side by side, dark water beside pale, for kilometres before they finally blend.",
   "lat": 61.0096,
   "lng": 69.0069,
@@ -5772,7 +5772,7 @@
  {
   "id": "louvre-museum",
   "short": "Louvre Museum",
-  "clue": "Louvre Museum, France 🇫🇷",
+  "clue": "Louvre Museum",
   "fact": "The world's most visited museum began as a 12th-century fortress; I. M. Pei's glass pyramid, opened in 1989 as its main entrance, stands about 21 metres tall in the Cour Napoléon.",
   "lat": 48.8611,
   "lng": 2.3358,
@@ -5788,7 +5788,7 @@
  {
   "id": "metropolitan-museum-of-art",
   "short": "Metropolitan Museum of Art",
-  "clue": "Metropolitan Museum of Art, United States 🇺🇸",
+  "clue": "Metropolitan Museum of Art",
   "fact": "The largest art museum in the Americas holds some 1.5 million objects; its glass-walled Sackler Wing houses the Temple of Dendur, a complete Egyptian temple of about 15 BC that Egypt gave to the United States.",
   "lat": 40.7794,
   "lng": -73.9633,
@@ -5804,7 +5804,7 @@
  {
   "id": "british-museum",
   "short": "British Museum",
-  "clue": "British Museum, England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "clue": "British Museum",
   "fact": "Free to all since it opened in 1759, it holds about eight million objects, among them the Rosetta Stone, on display here since 1802. Its Great Court, roofed in glass in 2000, is the largest covered public square in Europe.",
   "lat": 51.5194,
   "lng": -0.1269,
@@ -5820,7 +5820,7 @@
  {
   "id": "vatican-museums",
   "short": "Vatican Museums",
-  "clue": "Vatican Museums, Vatican City 🇻🇦",
+  "clue": "Vatican Museums",
   "fact": "Founded by Pope Julius II in 1506, the museums run through some 7 km of galleries and end at the Sistine Chapel, whose ceiling Michelangelo painted between 1508 and 1512 on a scaffold he designed himself.",
   "lat": 41.9064,
   "lng": 12.4544,
@@ -5836,7 +5836,7 @@
  {
   "id": "hermitage-museum",
   "short": "Hermitage Museum",
-  "clue": "Hermitage Museum, Russia 🇷🇺",
+  "clue": "Hermitage Museum",
   "fact": "Catherine the Great founded it in 1764 with a purchase of 225 paintings; it now holds around three million items, and a team of cats, on staff since an imperial decree of 1745, guards the Winter Palace cellars against rats.",
   "lat": 59.9406,
   "lng": 30.3136,
@@ -5852,7 +5852,7 @@
  {
   "id": "musee-dorsay",
   "short": "Musée d'Orsay",
-  "clue": "Musée d'Orsay, France 🇫🇷",
+  "clue": "Musée d'Orsay",
   "fact": "Built as a railway station for the 1900 World's Fair and nearly demolished in the 1970s, it reopened as a museum in 1986; trains called here for only 39 years, and its great station clock still looks over the main hall.",
   "lat": 48.86,
   "lng": 2.3265,
@@ -5868,7 +5868,7 @@
  {
   "id": "national-gallery-london",
   "short": "National Gallery",
-  "clue": "National Gallery, England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "clue": "National Gallery",
   "fact": "It began in 1824 when the British government bought 38 paintings from banker John Julius Angerstein's collection for £57,000; it now holds Van Gogh's Sunflowers and Turner's The Fighting Temeraire, and admission has always been free.",
   "lat": 51.5089,
   "lng": -0.1283,
@@ -5884,7 +5884,7 @@
  {
   "id": "tate-modern",
   "short": "Tate Modern",
-  "clue": "Tate Modern, England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "clue": "Tate Modern",
   "fact": "The gallery fills the former Bankside Power Station; its 99-metre chimney was kept just below the height of St Paul's dome across the river, and the old turbine hall below it runs 155 metres long.",
   "lat": 51.5078,
   "lng": -0.0994,
@@ -5900,7 +5900,7 @@
  {
   "id": "natural-history-museum-london",
   "short": "Natural History Museum",
-  "clue": "Natural History Museum, England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "clue": "Natural History Museum",
   "fact": "Alfred Waterhouse clad the 1881 building in terracotta because it withstood London's soot; in the central hall a 25-metre blue whale skeleton named Hope has hung from the ceiling since 2017, in the spot long held by Dippy the Diplodocus cast.",
   "lat": 51.4961,
   "lng": -0.1761,
@@ -5916,7 +5916,7 @@
  {
   "id": "uffizi-galleries",
   "short": "Uffizi Galleries",
-  "clue": "Uffizi Galleries, Italy 🇮🇹",
+  "clue": "Uffizi Galleries",
   "fact": "Vasari built it from 1560 as offices, 'uffizi', for Cosimo I's magistrates, and the Medici soon filled the top floor with their collections; it holds Botticelli's The Birth of Venus and Primavera.",
   "lat": 43.7683,
   "lng": 11.2553,
@@ -5932,7 +5932,7 @@
  {
   "id": "rijksmuseum",
   "short": "Rijksmuseum",
-  "clue": "Rijksmuseum, Netherlands 🇳🇱",
+  "clue": "Rijksmuseum",
   "fact": "Its centrepiece, Rembrandt's The Night Watch, measures about 3.6 by 4.4 metres and closes the Gallery of Honour; a public passageway still runs straight through the 1885 Cuypers building, open to cyclists.",
   "lat": 52.36,
   "lng": 4.8853,
@@ -5948,7 +5948,7 @@
  {
   "id": "museum-of-modern-art",
   "short": "Museum of Modern Art",
-  "clue": "Museum of Modern Art, United States 🇺🇸",
+  "clue": "Museum of Modern Art",
   "fact": "The first museum devoted to modern art opened in 1929, nine days after the Wall Street Crash; among its roughly 200,000 works is Van Gogh's The Starry Night, acquired in 1941.",
   "lat": 40.7617,
   "lng": -73.9775,
@@ -5964,7 +5964,7 @@
  {
   "id": "guggenheim-new-york",
   "short": "Guggenheim New York",
-  "clue": "Guggenheim New York, United States 🇺🇸",
+  "clue": "Guggenheim New York",
   "fact": "Frank Lloyd Wright's museum took 16 years from commission to opening in October 1959, six months after his death; visitors ride the lift to the top and walk down one continuous spiral ramp about a quarter of a mile long.",
   "lat": 40.7831,
   "lng": -73.9589,
@@ -5980,7 +5980,7 @@
  {
   "id": "national-air-and-space-museum",
   "short": "National Air and Space Museum",
-  "clue": "National Air and Space Museum, United States 🇺🇸",
+  "clue": "National Air and Space Museum",
   "fact": "Its entrance hall displays the original 1903 Wright Flyer and the Apollo 11 command module Columbia; the museum opened on the National Mall for the Bicentennial in 1976 and holds the largest collection of historic aircraft and spacecraft in the world.",
   "lat": 38.8883,
   "lng": -77.02,
@@ -5996,7 +5996,7 @@
  {
   "id": "american-museum-of-natural-history",
   "short": "American Museum of Natural History",
-  "clue": "American Museum of Natural History, United States 🇺🇸",
+  "clue": "American Museum of Natural History",
   "fact": "Its halls hold tens of millions of specimens; the 29-metre blue whale model in the Hall of Ocean Life was modelled on a female whale caught off South America in 1925 and has hung there, in changing paint, since 1969.",
   "lat": 40.7808,
   "lng": -73.9744,
@@ -6012,7 +6012,7 @@
  {
   "id": "taipei-101",
   "short": "Taipei 101",
-  "clue": "Taipei 101, Taiwan 🇹🇼",
+  "clue": "Taipei 101",
   "fact": "The world's tallest building from 2004 to 2010, it is steadied against typhoons and earthquakes by a 660-tonne steel pendulum suspended between its 87th and 92nd floors, the largest tuned mass damper on Earth.",
   "lat": 25.0336,
   "lng": 121.5647,
@@ -6028,7 +6028,7 @@
  {
   "id": "st-pauls-cathedral",
   "short": "St Paul's Cathedral",
-  "clue": "St Paul's Cathedral, England 🏴🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "clue": "St Paul's Cathedral",
   "fact": "Wren's cathedral, finished in 1710 on the ashes of the Great Fire, hides a structural brick cone between its inner and outer domes to carry the 850-ton lantern; it remained London's tallest building until 1963.",
   "lat": 51.5138,
   "lng": -0.0983,
@@ -6046,7 +6046,7 @@
  {
   "id": "statue-of-unity",
   "short": "Statue of Unity",
-  "clue": "Statue of Unity, India 🇮🇳",
+  "clue": "Statue of Unity",
   "fact": "At 182 metres this statue of Sardar Vallabhbhai Patel is the tallest in the world, twice the height of the Statue of Liberty; its viewing gallery sits in the chest, 153 metres up.",
   "lat": 21.838,
   "lng": 73.7191,
@@ -6062,7 +6062,7 @@
  {
   "id": "brooklyn-bridge",
   "short": "Brooklyn Bridge",
-  "clue": "Brooklyn Bridge, United States 🇺🇸",
+  "clue": "Brooklyn Bridge",
   "fact": "When it opened in 1883 it was the longest suspension bridge on Earth. Its chief engineer, Washington Roebling, crippled by caisson disease, directed the work through a telescope from a Brooklyn window while his wife Emily carried his instructions to the site.",
   "lat": 40.7057,
   "lng": -73.9963,
@@ -6078,7 +6078,7 @@
  {
   "id": "tokyo-skytree",
   "short": "Tokyo Skytree",
-  "clue": "Tokyo Skytree, Japan 🇯🇵",
+  "clue": "Tokyo Skytree",
   "fact": "At 634 metres the tallest tower in the world, its height is a pun: 6-3-4 can be read as 'Musashi', the old name of the province Tokyo stands in.",
   "lat": 35.7101,
   "lng": 139.8107,
@@ -6095,7 +6095,7 @@
  {
   "id": "milan-cathedral",
   "short": "Milan Cathedral",
-  "clue": "Milan Cathedral, Italy 🇮🇹",
+  "clue": "Milan Cathedral",
   "fact": "Begun in 1386 and not finished until 1965, this marble cathedral carries some 3,400 statues, more than any other building in the world, crowned by the gilded Madonnina of 1774.",
   "lat": 45.464,
   "lng": 9.1906,
@@ -6113,7 +6113,7 @@
  {
   "id": "florence-cathedral",
   "short": "Florence Cathedral",
-  "clue": "Florence Cathedral, Italy 🇮🇹",
+  "clue": "Florence Cathedral",
   "fact": "Brunelleschi's dome, raised from 1420 with no scaffolding or wooden centring, is still the largest masonry dome ever built; a staircase climbs between its two shells to the lantern.",
   "lat": 43.7731,
   "lng": 11.2569,
@@ -6131,7 +6131,7 @@
  {
   "id": "red-fort",
   "short": "Red Fort",
-  "clue": "Red Fort, India 🇮🇳",
+  "clue": "Red Fort",
   "fact": "Shah Jahan's red sandstone palace-fortress, finished in 1648, is where India's prime minister raises the flag and addresses the nation every Independence Day, from the rampart above its Lahori Gate.",
   "lat": 28.6558,
   "lng": 77.2403,
@@ -6148,7 +6148,7 @@
  {
   "id": "flatiron-building",
   "short": "Flatiron Building",
-  "clue": "Flatiron Building, United States 🇺🇸",
+  "clue": "Flatiron Building",
   "fact": "Completed in 1902 on the triangular scrap where Broadway slices across Fifth Avenue, this steel-framed skyscraper narrows to a prow barely 2 metres wide at its point.",
   "lat": 40.7411,
   "lng": -73.9897,
@@ -6165,7 +6165,7 @@
  {
   "id": "marina-bay-sands",
   "short": "Marina Bay Sands",
-  "clue": "Marina Bay Sands, Singapore 🇸🇬",
+  "clue": "Marina Bay Sands",
   "fact": "Its three 55-storey towers carry a single boat-shaped SkyPark whose 146-metre infinity pool floats some 190 metres above Marina Bay.",
   "lat": 1.2825,
   "lng": 103.86,
@@ -6181,7 +6181,7 @@
  {
   "id": "mount-vernon",
   "short": "Mount Vernon",
-  "clue": "Mount Vernon, United States 🇺🇸",
+  "clue": "Mount Vernon",
   "fact": "George Washington's Potomac estate, expanded under his eye for 45 years; its 'stone' mansion walls are actually pine boards rusticated with sand thrown onto wet paint, and Washington lies in the brick tomb he specified in his will.",
   "lat": 38.7078,
   "lng": -77.0861,
@@ -6197,7 +6197,7 @@
  {
   "id": "mosque-cathedral-of-cordoba",
   "short": "Mosque-Cathedral of Córdoba",
-  "clue": "Mosque-Cathedral of Córdoba, Spain 🇪🇸",
+  "clue": "Mosque-Cathedral of Córdoba",
   "fact": "Begun in 785 as a mosque, its hall marches away under more than 850 double-tiered red-and-white arches; after the city fell in 1236 a Gothic cathedral was planted in its exact centre.",
   "lat": 37.8789,
   "lng": -4.7793,
@@ -6215,7 +6215,7 @@
  {
   "id": "edinburgh-castle",
   "short": "Edinburgh Castle",
-  "clue": "Edinburgh Castle, Scotland 🏴🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+  "clue": "Edinburgh Castle",
   "fact": "Perched on an extinct volcano, the castle keeps Scotland's crown jewels and the Stone of Scone, returned from Westminster Abbey in 1996; its great cannon Mons Meg, a gift of 1457, hurled 150-kilogram stones over 3 km.",
   "lat": 55.9487,
   "lng": -3.2007,
@@ -6233,7 +6233,7 @@
  {
   "id": "topkapi-palace",
   "short": "Topkapı Palace",
-  "clue": "Topkapı Palace, Turkey 🇹🇷",
+  "clue": "Topkapı Palace",
   "fact": "The Ottoman sultans' seat for nearly 400 years, its treasury holds the 86-carat Spoonmaker's Diamond, said to have been found by a fisherman and traded away for three spoons.",
   "lat": 41.013,
   "lng": 28.984,
@@ -6249,7 +6249,7 @@
  {
   "id": "sydney-harbour-bridge",
   "short": "Sydney Harbour Bridge",
-  "clue": "Sydney Harbour Bridge, Australia 🇦🇺",
+  "clue": "Sydney Harbour Bridge",
   "fact": "Nicknamed the Coathanger, its 1932 steel arch is pinned by 6 million rivets and breathes with the heat, the deck rising as much as 18 cm on the hottest days.",
   "lat": -33.8522,
   "lng": 151.2107,
@@ -6265,7 +6265,7 @@
  {
   "id": "osaka-castle",
   "short": "Osaka Castle",
-  "clue": "Osaka Castle, Japan 🇯🇵",
+  "clue": "Osaka Castle",
   "fact": "Toyotomi Hideyoshi raised Japan's grandest castle here in 1583; it fell to siege in 1615 and burned by lightning in 1665, and the white keep seen today is a 1931 concrete reconstruction paid for by the citizens of Osaka.",
   "lat": 34.6872,
   "lng": 135.5258,
@@ -6283,7 +6283,7 @@
  {
   "id": "prague-astronomical-clock",
   "short": "Prague Astronomical Clock",
-  "clue": "Prague Astronomical Clock, Czech Republic 🇨🇿",
+  "clue": "Prague Astronomical Clock",
   "fact": "Installed in 1410, the Orloj is the oldest astronomical clock still working; its apostles parade on the hour, and legend says the city blinded its clockmaker so he could never build another.",
   "lat": 50.087,
   "lng": 14.4207,
@@ -6300,7 +6300,7 @@
  {
   "id": "india-gate",
   "short": "India Gate",
-  "clue": "India Gate, India 🇮🇳",
+  "clue": "India Gate",
   "fact": "Lutyens' 42-metre arch is cut with the names of more than 13,000 servicemen of the Indian Army who died in the First World War and the Third Anglo-Afghan War; an eternal flame burned beneath it from 1972 to 2022.",
   "lat": 28.6129,
   "lng": 77.2293,
@@ -6316,7 +6316,7 @@
  {
   "id": "bran-castle",
   "short": "Bran Castle",
-  "clue": "Bran Castle, Romania 🇷🇴",
+  "clue": "Bran Castle",
   "fact": "This 1377 border fortress is sold to the world as Dracula's castle, although Vlad the Impaler probably never lived here and Bram Stoker, who never visited Romania, modelled his fictional castle on its perch above the pass.",
   "lat": 45.515,
   "lng": 25.3671,
@@ -6334,7 +6334,7 @@
  {
   "id": "hawa-mahal",
   "short": "Hawa Mahal",
-  "clue": "Hawa Mahal, India 🇮🇳",
+  "clue": "Hawa Mahal",
   "fact": "Built in 1799, the 'Palace of Winds' is a five-storey pink screen of 953 small latticed windows, raised so the royal women could watch street processions without being seen; behind the facade it is barely one room deep.",
   "lat": 26.924,
   "lng": 75.8267,
@@ -6350,7 +6350,7 @@
  {
   "id": "malbork-castle",
   "short": "Malbork Castle",
-  "clue": "Malbork Castle, Poland 🇵🇱",
+  "clue": "Malbork Castle",
   "fact": "Headquarters of the Teutonic Order from 1309, this triple-walled brick fortress on the Nogat is the largest castle in the world by land area, built to house and feed some 3,000 brothers.",
   "lat": 54.0397,
   "lng": 19.0278,
@@ -6368,7 +6368,7 @@
  {
   "id": "batu-caves",
   "short": "Batu Caves",
-  "clue": "Batu Caves, Malaysia 🇲🇾",
+  "clue": "Batu Caves",
   "fact": "A flight of 272 rainbow-painted steps climbs to a cathedral-sized cave temple; beside it stands a 42.7-metre statue of Murugan, the tallest of that god anywhere, coated in 300 litres of gold paint.",
   "lat": 3.2374,
   "lng": 101.6839,
@@ -6387,7 +6387,7 @@
  {
   "id": "casa-batllo",
   "short": "Casa Batlló",
-  "clue": "Casa Batlló, Spain 🇪🇸",
+  "clue": "Casa Batlló",
   "fact": "Gaudí's 1906 rebuild for the Batlló family is nicknamed the House of Bones for its skeletal stone balconies; its roof is a dragon's arched, scale-tiled back, pierced by a turret bearing the cross of St George.",
   "lat": 41.3916,
   "lng": 2.1649,
@@ -6404,7 +6404,7 @@
  {
   "id": "mysore-palace",
   "short": "Mysore Palace",
-  "clue": "Mysore Palace, India 🇮🇳",
+  "clue": "Mysore Palace",
   "fact": "Rebuilt in stone in 1912 after fire destroyed its wooden predecessor, the Wodeyar palace is outlined by some 97,000 light bulbs during the Dasara festival, and the royal family still lives in one wing.",
   "lat": 12.3039,
   "lng": 76.6544,
@@ -6420,7 +6420,7 @@
  {
   "id": "seville-cathedral",
   "short": "Seville Cathedral",
-  "clue": "Seville Cathedral, Spain 🇪🇸",
+  "clue": "Seville Cathedral",
   "fact": "The largest Gothic cathedral in the world stands on Seville's great mosque, whose minaret survives as its bell tower, the Giralda; inside, four kings in stone carry the tomb of Christopher Columbus.",
   "lat": 37.3857,
   "lng": -5.9931,
@@ -6439,7 +6439,7 @@
  {
   "id": "st-marks-basilica",
   "short": "St Mark's Basilica",
-  "clue": "St Mark's Basilica, Italy 🇮🇹",
+  "clue": "St Mark's Basilica",
   "fact": "Venice's cathedral is clad in crusader loot: the four bronze horses over its facade were stolen from Constantinople in 1204, and its gold altarpiece, the Pala d'Oro, is studded with some 1,300 pearls.",
   "lat": 45.4344,
   "lng": 12.3397,
@@ -6494,7 +6494,7 @@
  {
   "id": "socotra",
   "short": "Socotra",
-  "clue": "Socotra, Yemen 🇾🇪",
+  "clue": "Socotra",
   "fact": "About a third of this island’s plant species grow nowhere else on Earth. Its umbrella-shaped dragon blood trees bleed a deep red resin that was traded across the ancient world as dye, medicine and varnish, and the island sat cut off from mainland Africa for millions of years, evolving in isolation.",
   "lat": 12.51,
   "lng": 53.92,
@@ -6511,7 +6511,7 @@
  {
   "id": "mojave-desert",
   "short": "Mojave Desert",
-  "clue": "Mojave Desert, California 🇺🇸",
+  "clue": "Mojave Desert",
   "fact": "North America’s driest desert is named for the Mohave people of the Colorado River. Its Joshua trees are giant yuccas that grow almost nowhere else, and at Kelso its dunes “sing”: avalanching sand on the slip faces hums and booms at up to about 105 decibels.",
   "lat": 35.0083,
   "lng": -115.475,
@@ -6528,7 +6528,7 @@
  {
   "id": "rhine-river",
   "short": "Rhine River",
-  "clue": "Rhine River, Germany 🇩🇪",
+  "clue": "Rhine River",
   "fact": "Europe’s busiest waterway runs 1,230 km from the Swiss Alps to Rotterdam, the continent’s largest port. Its 65 km Middle Rhine gorge is lined with more than 40 castles, and at the Lorelei rock the river narrows into its most storied and once most dangerous bend.",
   "lat": 50.9085,
   "lng": 6.9756,
@@ -6547,7 +6547,7 @@
  {
   "id": "euphrates-river",
   "short": "Euphrates River",
-  "clue": "Euphrates River, Iraq 🇮🇶",
+  "clue": "Euphrates River",
   "fact": "The longest river in western Asia, at about 2,800 km, is formed in Turkey where the Karasu and Murat streams join, and Babylon stood on its banks in what is now Iraq. At Qurna in the south it meets the Tigris, and the two flow on together as the Shatt al-Arab to the Gulf.",
   "lat": 35.3266,
   "lng": 40.1702,
@@ -6566,7 +6566,7 @@
  {
   "id": "colorado-river",
   "short": "Colorado River",
-  "clue": "Colorado River, United States 🇺🇸",
+  "clue": "Colorado River",
   "fact": "The river that carved the Grand Canyon is now so fully allocated among seven US states and Mexico that it rarely reaches its delta in the Gulf of California. In 2014 a deliberate “pulse flow” released from Morelos Dam reconnected it with the sea for the first time in decades.",
   "lat": 38.6368,
   "lng": -109.4844,
@@ -6585,7 +6585,7 @@
  {
   "id": "missouri-river",
   "short": "Missouri River",
-  "clue": "Missouri River, United States 🇺🇸",
+  "clue": "Missouri River",
   "fact": "At 3,767 km the Missouri is the longest river in North America, longer than the Mississippi it joins at St Louis. In 1805 Lewis and Clark spent about a month portaging its five Great Falls in Montana, hauling boats and gear some 18 miles overland around them.",
   "lat": 47.528,
   "lng": -111.2878,
@@ -6604,7 +6604,7 @@
  {
   "id": "mount-sinai",
   "short": "Mount Sinai",
-  "clue": "Mount Sinai, Egypt 🇪🇬",
+  "clue": "Mount Sinai",
   "fact": "This 2,285 m granite peak is traditionally identified as the mountain where Moses received the Ten Commandments. At its foot stands St Catherine’s Monastery, founded in the sixth century and still home to monks, beside the site pilgrims venerate as the Burning Bush.",
   "lat": 28.5384,
   "lng": 33.9752,
@@ -6622,7 +6622,7 @@
  {
   "id": "kangchenjunga",
   "short": "Kangchenjunga",
-  "clue": "Kangchenjunga, Nepal 🇳🇵",
+  "clue": "Kangchenjunga",
   "fact": "At 8,586 m it is the third-highest mountain on Earth, and until surveys in 1852 it was thought to be the highest. Its name means “the five treasures of snow” for its five summits, and by a tradition honoured since the first ascent in 1955, climbers stop a few feet short of the very top.",
   "lat": 27.703,
   "lng": 88.1474,
@@ -6641,7 +6641,7 @@
  {
   "id": "lake-michigan",
   "short": "Lake Michigan",
-  "clue": "Lake Michigan, United States 🇺🇸",
+  "clue": "Lake Michigan",
   "fact": "The only Great Lake lying entirely inside the United States. In 1900 Chicago reversed the flow of its river to carry the city's sewage away from its drinking-water source, and the diversion still pulls roughly 2.1 billion gallons a day out of the lake under a Supreme Court decree.",
   "lat": 44.007874,
   "lng": -86.756451,
@@ -6660,7 +6660,7 @@
  {
   "id": "lake-huron",
   "short": "Lake Huron",
-  "clue": "Lake Huron, Canada and United States 🇨🇦🇺🇸",
+  "clue": "Lake Huron",
   "fact": "Huron holds Manitoulin Island, the largest island in any lake in the world, and its Georgian Bay is big enough to be sometimes counted as a sixth Great Lake. In the White Hurricane of November 1913, a single storm sank 12 ships on this lake and killed more than 250 sailors.",
   "lat": 44.592584,
   "lng": -82.756293,
@@ -6679,7 +6679,7 @@
  {
   "id": "lake-erie",
   "short": "Lake Erie",
-  "clue": "Lake Erie, Canada and United States 🇨🇦🇺🇸",
+  "clue": "Lake Erie",
   "fact": "The shallowest of the Great Lakes, Erie warms the fastest in summer, and farm runoff turns its western basin green with algal blooms. Off its western islands in 1813, Oliver Hazard Perry's American squadron defeated the British in the Battle of Lake Erie.",
   "lat": 42.25,
   "lng": -80.99972222222222,
@@ -6698,7 +6698,7 @@
  {
   "id": "lake-ontario",
   "short": "Lake Ontario",
-  "clue": "Lake Ontario, Canada and United States 🇨🇦🇺🇸",
+  "clue": "Lake Ontario",
   "fact": "The smallest Great Lake by surface area is fed by the Niagara River and drains east through the St Lawrence River toward the Atlantic. It is deep for its size, 244 m at its deepest, and its surface seldom freezes across even in hard winters.",
   "lat": 43.72888888888889,
   "lng": -78.10638888888889,
@@ -6717,7 +6717,7 @@
  {
   "id": "willis-tower",
   "short": "Willis Tower",
-  "clue": "Willis Tower, United States 🇺🇸",
+  "clue": "Willis Tower",
   "fact": "Renamed for the Willis Group in 2009, the tower went up as the Sears Tower and, from its completion in 1973 to 1998, was the tallest building in the world. Its black frame is nine square tubes of different heights bundled together, which is why its top steps down in tiers instead of ending in a single flat roof.",
   "lat": 41.8786,
   "lng": -87.6358,
@@ -6733,7 +6733,7 @@
  {
   "id": "the-clock-towers",
   "short": "The Clock Towers",
-  "clue": "The Clock Towers, Saudi Arabia 🇸🇦",
+  "clue": "The Clock Towers",
   "fact": "The Abraj Al Bait complex rises over the Grand Mosque of Mecca, its hotel clock tower crowned by a golden crescent. Its clock face is 43 metres across, more than six times the diameter of Big Ben's dial, and is lit by two million LEDs so it can be read from kilometres away.",
   "lat": 21.4189,
   "lng": 39.8264,
@@ -6750,7 +6750,7 @@
  {
   "id": "merdeka-118",
   "short": "Merdeka 118",
-  "clue": "Merdeka 118, Malaysia 🇲🇾",
+  "clue": "Merdeka 118",
   "fact": "Its diamond-faceted spire carries the building to 678.9 metres, second only to the Burj Khalifa among the world's buildings. The name means independence: beside it stands Stadium Merdeka, where Malaya's independence was proclaimed in 1957.",
   "lat": 3.1417,
   "lng": 101.7007,
@@ -6767,7 +6767,7 @@
  {
   "id": "annapurna",
   "short": "Annapurna",
-  "clue": "Annapurna, Nepal 🇳🇵",
+  "clue": "Annapurna",
   "fact": "In 1950 Maurice Herzog and Louis Lachenal reached its summit in the first ascent of any eight-thousander, three years before Everest, and lost toes to frostbite on the descent. The peak they climbed is the high point of a massif whose south face rises about 3,000 metres above the Annapurna Sanctuary.",
   "lat": 28.5958,
   "lng": 83.82,
@@ -6786,7 +6786,7 @@
  {
   "id": "nanga-parbat",
   "short": "Nanga Parbat",
-  "clue": "Nanga Parbat, Pakistan 🇵🇰",
+  "clue": "Nanga Parbat",
   "fact": "Its Rupal Face climbs some 4,600 metres in a single sweep, the largest mountain face on Earth. The peak had already killed 31 climbers before Hermann Buhl's first ascent in 1953, made solo and without bottled oxygen above 7,000 metres, which is how it earned the name Killer Mountain.",
   "lat": 35.2392,
   "lng": 74.59,
@@ -6805,7 +6805,7 @@
  {
   "id": "meteora-greece",
   "short": "Meteora",
-  "clue": "Meteora, Greece 🇬🇷",
+  "clue": "Meteora",
   "fact": "Of the 24 monasteries built atop Meteora's giant rock pillars from the late 14th century on, six still function today; monks once reached them by removable ladders and hoisting ropes before steps were carved into the rock in the 1920s.",
   "lat": 39.7217,
   "lng": 21.6306,
@@ -6823,7 +6823,7 @@
  {
   "id": "tokyo-tower",
   "short": "Tokyo Tower",
-  "clue": "Tokyo Tower, Japan 🇯🇵",
+  "clue": "Tokyo Tower",
   "fact": "Completed in 1958 and modelled on the Eiffel Tower, at 333 metres it edged out its Paris inspiration, and part of its steel was recycled from American tanks wrecked in the Korean War.",
   "lat": 35.6586,
   "lng": 139.7456,
@@ -6839,7 +6839,7 @@
  {
   "id": "north-sentinel-island",
   "short": "North Sentinel Island",
-  "clue": "North Sentinel Island, India 🇮🇳",
+  "clue": "North Sentinel Island",
   "fact": "The Sentinelese who live on this forested Andaman island are among the last peoples on Earth to reject all contact with outsiders, and Indian law bars anyone from approaching it. In 2018 an American missionary who landed illegally was killed on its shore.",
   "lat": 11.555,
   "lng": 92.245,
@@ -6856,7 +6856,7 @@
  {
   "id": "azores",
   "short": "Azores",
-  "clue": "Azores, Portugal 🇵🇹",
+  "clue": "Azores",
   "fact": "Nine volcanic islands strung along the Mid-Atlantic Ridge, about 1,400 km west of Lisbon, where the Eurasian, North American and African plates meet. Mount Pico on Pico island is Portugal's highest peak at 2,351 m.",
   "lat": 38.624,
   "lng": -28.031,
@@ -6873,7 +6873,7 @@
  {
   "id": "falkland-islands",
   "short": "Falkland Islands",
-  "clue": "Falkland Islands, United Kingdom 🇫🇰",
+  "clue": "Falkland Islands",
   "fact": "Argentina's 1982 invasion of this British-held archipelago set off a 74-day war that ended when British forces retook Stanley. Five species of penguin breed on East and West Falkland and the hundreds of smaller islands around them.",
   "lat": -51.73,
   "lng": -59.22,
@@ -6890,7 +6890,7 @@
  {
   "id": "canary-islands",
   "short": "Canary Islands",
-  "clue": "Canary Islands, Spain 🇪🇸",
+  "clue": "Canary Islands",
   "fact": "Fuerteventura, the closest of these Spanish islands to Africa, lies barely 100 km from the coast of Morocco. Teide on Tenerife, at 3,715 m, is the highest point in Spain and one of the tallest volcanoes on Earth measured from the ocean floor.",
   "lat": 28,
   "lng": -15.75,
@@ -6907,7 +6907,7 @@
  {
   "id": "great-britain",
   "short": "Great Britain",
-  "clue": "Great Britain, United Kingdom 🇬🇧",
+  "clue": "Great Britain",
   "fact": "The largest island in Europe and the ninth largest in the world holds England, Scotland and Wales. A land bridge now called Doggerland joined it to mainland Europe until rising seas cut it off around 6500 BC.",
   "lat": 53.833333,
   "lng": -2.416667,
@@ -6924,7 +6924,7 @@
  {
   "id": "madeira",
   "short": "Madeira",
-  "clue": "Madeira, Portugal 🇵🇹",
+  "clue": "Madeira",
   "fact": "This Portuguese island rises so steeply from the Atlantic that farmers cut more than 2,000 km of levadas, narrow irrigation channels, along its cliffs, now its famous walking trails. Cristiano Ronaldo was born in its capital, Funchal.",
   "lat": 32.75,
   "lng": -17,
@@ -6941,7 +6941,7 @@
  {
   "id": "sicily",
   "short": "Sicily",
-  "clue": "Sicily, Italy 🇮🇹",
+  "clue": "Sicily",
   "fact": "The largest island in the Mediterranean lies just 3 km from mainland Italy across the Strait of Messina and is crowned by Mount Etna. Greeks, Romans, Arabs and Normans all ruled it, leaving the temples of Agrigento and the Arab-Norman churches of Palermo.",
   "lat": 37.6,
   "lng": 14.016667,
@@ -6960,7 +6960,7 @@
  {
   "id": "saint-helena",
   "short": "Saint Helena",
-  "clue": "Saint Helena, United Kingdom 🇸🇭",
+  "clue": "Saint Helena",
   "fact": "One of the most remote inhabited islands on Earth, nearly 2,000 km off southwest Africa, this is where Britain exiled Napoleon after Waterloo; he died here in 1821. Its 699-step Jacob's Ladder climbs straight up the valley wall from the capital, Jamestown.",
   "lat": -15.965,
   "lng": -5.715,
@@ -6977,7 +6977,7 @@
  {
   "id": "svalbard",
   "short": "Svalbard",
-  "clue": "Svalbard, Norway 🇳🇴",
+  "clue": "Svalbard",
   "fact": "Roughly halfway between mainland Norway and the North Pole, this archipelago is home to about as many polar bears as people, so anyone leaving its settlements is expected to carry protection. Inside a mountain near Longyearbyen, the Global Seed Vault stores backup samples of the world's crop seeds.",
   "lat": 78.15706,
   "lng": 15.86426,
@@ -6994,7 +6994,7 @@
  {
   "id": "corsica",
   "short": "Corsica",
-  "clue": "Corsica, France 🇫🇷",
+  "clue": "Corsica",
   "fact": "Napoleon Bonaparte was born in Ajaccio in 1769, a year after Genoa ceded this Mediterranean island to France. The GR20, a 180 km trail along its granite spine, is often called the toughest long-distance hike in Europe.",
   "lat": 42.15,
   "lng": 9.083333,
@@ -7013,7 +7013,7 @@
  {
   "id": "sardinia",
   "short": "Sardinia",
-  "clue": "Sardinia, Italy 🇮🇹",
+  "clue": "Sardinia",
   "fact": "The second largest island in the Mediterranean is dotted with some 7,000 nuraghi, Bronze Age stone towers found nowhere else. Its mountainous Ogliastra region is one of the world's Blue Zones, with an unusually high share of people living past 100.",
   "lat": 40,
   "lng": 9,
@@ -7032,7 +7032,7 @@
  {
   "id": "crete",
   "short": "Crete",
-  "clue": "Crete, Greece 🇬🇷",
+  "clue": "Crete",
   "fact": "Greece's largest island was the heart of the Minoan civilization, Europe's earliest advanced Bronze Age culture, whose palace at Knossos may have inspired the myth of the Labyrinth. Greek myth places the birth of Zeus in a cave in its mountains.",
   "lat": 35.309722,
   "lng": 24.893333,
@@ -7051,7 +7051,7 @@
  {
   "id": "borneo",
   "short": "Borneo",
-  "clue": "Borneo, Indonesia 🇮🇩",
+  "clue": "Borneo",
   "fact": "The third largest island on Earth is the only one divided among three countries: Indonesia, Malaysia and Brunei. Its rainforest, thought to be around 130 million years old, is one of only two places where wild orangutans survive.",
   "lat": -1,
   "lng": 114,
@@ -7068,7 +7068,7 @@
  {
   "id": "mallorca",
   "short": "Mallorca",
-  "clue": "Mallorca, Spain 🇪🇸",
+  "clue": "Mallorca",
   "fact": "The largest of Spain's Balearic Islands, its Serra de Tramuntana mountains, a UNESCO World Heritage cultural landscape, drop straight into the sea along the north coast. Frédéric Chopin and George Sand spent the winter of 1838 to 1839 in the mountain village of Valldemossa.",
   "lat": 39.616667,
   "lng": 2.983333,
@@ -7087,7 +7087,7 @@
  {
   "id": "isle-of-wight",
   "short": "Isle of Wight",
-  "clue": "Isle of Wight, England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "clue": "Isle of Wight",
   "fact": "Across the Solent from England's south coast, this island ends in the Needles, three chalk stacks with a lighthouse at their tip. Queen Victoria made Osborne House here her family retreat and died there in 1901.",
   "lat": 50.7,
   "lng": -1.3,
@@ -7104,7 +7104,7 @@
  {
   "id": "shetland",
   "short": "Shetland",
-  "clue": "Shetland, Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+  "clue": "Shetland",
   "fact": "Britain's northernmost islands lie closer to Bergen in Norway than to Edinburgh, and they were Norse until pledged to Scotland in 1469. Every January, Lerwick's Up Helly Aa festival ends with torch bearers setting fire to a replica Viking longship.",
   "lat": 60.356667,
   "lng": -1.260556,
@@ -7121,7 +7121,7 @@
  {
   "id": "tahiti",
   "short": "Tahiti",
-  "clue": "Tahiti, France 🇵🇫",
+  "clue": "Tahiti",
   "fact": "The largest island of French Polynesia is shaped like a figure eight, the round Tahiti Nui joined to the smaller Tahiti Iti by a narrow isthmus. Paul Gauguin painted many of his best known works here, and the reef break at Teahupo'o hosted the surfing events of the Paris 2024 Olympics.",
   "lat": -17.666667,
   "lng": -149.466667,
@@ -7140,7 +7140,7 @@
  {
   "id": "hawaiian-islands",
   "short": "Hawaiian Islands",
-  "clue": "Hawaiian Islands, Hawaii 🇺🇸",
+  "clue": "Hawaiian Islands",
   "fact": "More than 3,000 km from the nearest continent, this volcanic chain was built by a hotspot that is still adding land on the Big Island, where Kīlauea erupts regularly. It became the 50th US state in 1959.",
   "lat": 20.75,
   "lng": -156.15,
@@ -7159,7 +7159,7 @@
  {
   "id": "new-guinea",
   "short": "New Guinea",
-  "clue": "New Guinea, Papua New Guinea 🇵🇬",
+  "clue": "New Guinea",
   "fact": "The second largest island on Earth, after Greenland, is split almost evenly between Papua New Guinea and Indonesia. Its peoples speak more than 1,000 languages, and Puncak Jaya, at 4,884 m, is the highest island peak in the world.",
   "lat": -5,
   "lng": 140,
@@ -7176,7 +7176,7 @@
  {
   "id": "java",
   "short": "Java",
-  "clue": "Java, Indonesia 🇮🇩",
+  "clue": "Java",
   "fact": "Home to more than 150 million people, including the capital Jakarta, it is the most populous island on Earth. A chain of volcanoes runs its length, among them Merapi, and the ninth century Buddhist temple of Borobudur rises from its central plain.",
   "lat": -7.311667,
   "lng": 109.418331,
@@ -7193,7 +7193,7 @@
  {
   "id": "ibiza",
   "short": "Ibiza",
-  "clue": "Ibiza, Spain 🇪🇸",
+  "clue": "Ibiza",
   "fact": "A Posidonia seagrass meadow between this Balearic island and Formentera has been estimated at up to 100,000 years old, one of the oldest living things on Earth, and its meadows are part of a UNESCO World Heritage listing. Off its southwest coast rises Es Vedrà, a 382 m limestone islet wrapped in local legend.",
   "lat": 38.98,
   "lng": 1.43,
@@ -7212,7 +7212,7 @@
  {
   "id": "okinawa-island",
   "short": "Okinawa Island",
-  "clue": "Okinawa Island, Japan 🇯🇵",
+  "clue": "Okinawa Island",
   "fact": "The largest of Japan's Ryukyu Islands was the seat of the Ryukyu Kingdom, whose kings ruled from Shuri Castle above Naha. In 1945 it saw the Battle of Okinawa, the largest amphibious assault of the Pacific War, and it stayed under US administration until 1972.",
   "lat": 26.483333,
   "lng": 127.95,
@@ -7229,7 +7229,7 @@
  {
   "id": "hispaniola",
   "short": "Hispaniola",
-  "clue": "Hispaniola, Dominican Republic 🇩🇴",
+  "clue": "Hispaniola",
   "fact": "Columbus landed here on his first voyage in 1492, and Santo Domingo became the oldest continuously inhabited European city in the Americas. Today the island is shared by Haiti and the Dominican Republic, and Pico Duarte, at 3,098 m, is the highest peak in the Caribbean.",
   "lat": 19,
   "lng": -71,
@@ -7248,7 +7248,7 @@
  {
   "id": "rhodes",
   "short": "Rhodes",
-  "clue": "Rhodes, Greece 🇬🇷",
+  "clue": "Rhodes",
   "fact": "The Colossus of Rhodes, a bronze statue of the sun god Helios and one of the Seven Wonders of the Ancient World, stood at its harbour until an earthquake toppled it around 226 BC. The Knights Hospitaller ruled the island for two centuries and built the walled medieval town that still stands.",
   "lat": 36.17,
   "lng": 27.92,
@@ -7267,7 +7267,7 @@
  {
   "id": "corfu",
   "short": "Corfu",
-  "clue": "Corfu, Greece 🇬🇷",
+  "clue": "Corfu",
   "fact": "Unlike most of Greece, this Ionian island never fell to the Ottomans, and four centuries of Venetian rule left the arcaded old town of Corfu, now a UNESCO World Heritage Site. Empress Elisabeth of Austria built her Achilleion palace here, and Prince Philip was born on the island in 1921.",
   "lat": 39.6,
   "lng": 19.87,
@@ -7286,7 +7286,7 @@
  {
   "id": "saint-martin",
   "short": "Saint Martin",
-  "clue": "Saint Martin, France 🇲🇫",
+  "clue": "Saint Martin",
   "fact": "The smallest inhabited island divided between two nations, split between French Saint-Martin and Dutch Sint Maarten since a 1648 treaty. Jets landing at Princess Juliana Airport pass just metres above the sunbathers on Maho Beach.",
   "lat": 18.06,
   "lng": -63.05,
@@ -7305,7 +7305,7 @@
  {
   "id": "ascension-island",
   "short": "Ascension Island",
-  "clue": "Ascension Island, United Kingdom 🇦🇨",
+  "clue": "Ascension Island",
   "fact": "This volcanic island in the middle of the South Atlantic was bare cinder until 19th century British planters covered its Green Mountain in imported trees, creating a man-made cloud forest. Its beaches are among the most important nesting grounds for green turtles in the Atlantic.",
   "lat": -7.95,
   "lng": -14.35,
@@ -7322,7 +7322,7 @@
  {
   "id": "bonaire",
   "short": "Bonaire",
-  "clue": "Bonaire, Netherlands 🇧🇶",
+  "clue": "Bonaire",
   "fact": "Nearly the whole coast of this Dutch Caribbean island is a protected marine park, and divers wade straight from shore to the reef at sites marked by yellow painted stones. Its salt pans in the south shelter one of the few breeding grounds of the Caribbean flamingo.",
   "lat": 12.2,
   "lng": -68.25,
@@ -7443,7 +7443,7 @@
  {
   "id": "salton-sea",
   "short": "Salton Sea",
-  "clue": "Salton Sea, California 🇺🇸",
+  "clue": "Salton Sea",
   "fact": "California's largest lake was created by accident in 1905, when the Colorado River burst through an irrigation canal and poured into a desert basin for nearly two years. With no outlet, it is now saltier than the Pacific and steadily shrinking.",
   "lat": 33.3377,
   "lng": -115.8391,
@@ -7462,7 +7462,7 @@
  {
   "id": "mount-whitney",
   "short": "Mount Whitney",
-  "clue": "Mount Whitney, California 🇺🇸",
+  "clue": "Mount Whitney",
   "fact": "At 4,421 m it is the highest summit in the contiguous United States, yet it stands only about 136 km from Badwater Basin in Death Valley, the lowest point in North America. A permit lottery controls access to the 35 km round trip on the Mount Whitney Trail.",
   "lat": 36.578611,
   "lng": -118.291944,
@@ -7480,7 +7480,7 @@
  {
   "id": "mount-kailash",
   "short": "Mount Kailash",
-  "clue": "Mount Kailash, China 🇨🇳",
+  "clue": "Mount Kailash",
   "fact": "Sacred to Hindus, Buddhists, Jains and followers of Bön, this 6,638 m peak in Tibet has never been climbed, because ascents are forbidden out of reverence. Pilgrims instead walk the 52 km kora around its base, some prostrating themselves the whole way.",
   "lat": 31.066944,
   "lng": 81.312778,
@@ -7499,7 +7499,7 @@
  {
   "id": "hadrians-wall",
   "short": "Hadrian's Wall",
-  "clue": "Hadrian's Wall, England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "clue": "Hadrian's Wall",
   "fact": "Begun in AD 122 on the orders of Emperor Hadrian, this Roman wall ran 73 miles (117 km) across northern England from the River Tyne to the Solway Firth, marking the northwest frontier of the empire. Forts and milecastles along its length housed garrisons drawn from across the Roman world.",
   "lat": 55.024167,
   "lng": -2.2925,
@@ -7518,7 +7518,7 @@
  {
   "id": "panama-canal",
   "short": "Panama Canal",
-  "clue": "Panama Canal, Panama 🇵🇦",
+  "clue": "Panama Canal",
   "fact": "Opened in 1914, this 82 km canal lifts ships 26 m through locks to Gatún Lake and back down, sparing them a voyage of thousands of kilometres around Cape Horn. Tens of thousands of workers died during the failed French effort and the American construction that followed.",
   "lat": 9.12,
   "lng": -79.75,
@@ -7535,7 +7535,7 @@
  {
   "id": "bora-bora",
   "short": "Bora Bora",
-  "clue": "Bora Bora, France 🇵🇫",
+  "clue": "Bora Bora",
   "fact": "The extinct volcanic core of this island, topped by the 727 m basalt peak of Mount Otemanu, is ringed by a turquoise lagoon and a chain of coral motu. In World War II the US Navy built a supply base here, code named Bobcat, and its airstrip on Motu Mute is still the island's airport.",
   "lat": -16.498,
   "lng": -151.736,
@@ -7570,7 +7570,7 @@
  },
  {
   "id": "great-wall-of-china",
-  "clue": "Great Wall of China, China 🇨🇳",
+  "clue": "Great Wall of China",
   "fact": "The Ming dynasty's wall alone runs about 8,850 km from the sea at Shanhaiguan west to Jiayuguan at the edge of the Gobi; counting every dynasty's branches, surveys put the full system at 21,196 km.",
   "lat": 40.4319,
   "lng": 116.5704,
@@ -7587,7 +7587,7 @@
  },
  {
   "id": "ahu-tongariki",
-  "clue": "Easter Island Moai, Chile 🇨🇱",
+  "clue": "Easter Island Moai",
   "fact": "Fifteen moai stand in a row on Ahu Tongariki, at 220 metres the largest ceremonial platform in Polynesia; a tsunami toppled the statues in 1960, and they were raised again in the 1990s.",
   "lat": -27.1258,
   "lng": -109.2769,
@@ -7603,7 +7603,7 @@
  },
  {
   "id": "cloud-gate",
-  "clue": "Cloud Gate, United States 🇺🇸",
+  "clue": "Cloud Gate",
   "fact": "Anish Kapoor's 110-ton stainless steel sculpture in Chicago's Millennium Park is polished so seamlessly that no welds show; its concave underside, nicknamed the omphalos, bends reflections like a funhouse mirror.",
   "lat": 41.8827,
   "lng": -87.6233,
@@ -7619,7 +7619,7 @@
  },
  {
   "id": "biltmore-estate",
-  "clue": "Biltmore Estate, United States 🇺🇸",
+  "clue": "Biltmore Estate",
   "fact": "George Vanderbilt opened this 250-room French Renaissance château in 1895; it is still the largest privately owned house in America, and its grounds were designed by Frederick Law Olmsted, of Central Park fame.",
   "lat": 35.54,
   "lng": -82.5519,
@@ -7635,7 +7635,7 @@
  },
  {
   "id": "fallingwater",
-  "clue": "Fallingwater, United States 🇺🇸",
+  "clue": "Fallingwater",
   "fact": "Frank Lloyd Wright built this 1935 house directly over a waterfall on Bear Run for the Kaufmann family; its stacked concrete terraces echo the rock ledges of the stream below.",
   "lat": 39.9064,
   "lng": -79.4681,
@@ -7651,7 +7651,7 @@
  },
  {
   "id": "three-gorges-dam",
-  "clue": "Three Gorges Dam, China 🇨🇳",
+  "clue": "Three Gorges Dam",
   "fact": "The largest power station on Earth by capacity, it holds back a reservoir stretching some 600 km up the Yangtze, and its ship lift can raise a 3,000-ton vessel 113 metres in one ride.",
   "lat": 30.8239,
   "lng": 111.0037,
@@ -7667,7 +7667,7 @@
  },
  {
   "id": "hearst-castle",
-  "clue": "Hearst Castle, United States 🇺🇸",
+  "clue": "Hearst Castle",
   "fact": "Newspaper magnate William Randolph Hearst and architect Julia Morgan spent 28 years building this hilltop estate above San Simeon; its Neptune Pool is framed by a genuine Roman temple facade shipped from Europe.",
   "lat": 35.6853,
   "lng": -121.1678,
@@ -7683,7 +7683,7 @@
  },
  {
   "id": "sistine-chapel",
-  "clue": "Sistine Chapel, Vatican City 🇻🇦",
+  "clue": "Sistine Chapel",
   "fact": "Michelangelo painted the ceiling frescoes between 1508 and 1512, standing on a scaffold of his own design; the chapel is where the College of Cardinals meets in conclave to elect a new pope.",
   "lat": 41.90306,
   "lng": 12.45444,
@@ -7757,7 +7757,7 @@
  {
   "id": "rocky-mountains",
   "short": "Rocky Mountains",
-  "clue": "Rocky Mountains, United States and Canada 🇺🇸🇨🇦",
+  "clue": "Rocky Mountains",
   "fact": "The Rockies stretch about 4,800 km from northern Canada to the American Southwest and carry the Continental Divide, which splits rivers bound for the Pacific from those bound for the Atlantic and Arctic.",
   "lat": 46.18765,
   "lng": -114.46237,
@@ -7776,7 +7776,7 @@
  {
   "id": "appalachian-mountains",
   "short": "Appalachian Mountains",
-  "clue": "Appalachian Mountains, United States and Canada 🇺🇸🇨🇦",
+  "clue": "Appalachian Mountains",
   "fact": "Among the oldest mountains on Earth, they rose more than 400 million years ago and have since been worn down by erosion; the Appalachian Trail follows them for about 3,500 km.",
   "lat": 44.08665,
   "lng": -72.49445,
@@ -7795,7 +7795,7 @@
  {
   "id": "hindu-kush",
   "short": "Hindu Kush",
-  "clue": "Hindu Kush, Afghanistan and Pakistan 🇦🇫🇵🇰",
+  "clue": "Hindu Kush",
   "fact": "Tirich Mir, at 7,708 metres, is its highest peak, and Alexander the Great marched his army across its passes in 329 BC.",
   "lat": 35.61408,
   "lng": 70.08032,
@@ -7814,7 +7814,7 @@
  {
   "id": "karakoram",
   "short": "Karakoram",
-  "clue": "Karakoram, Pakistan, India, and China",
+  "clue": "Karakoram",
   "fact": "Home to K2, the world's second-highest mountain, and to some of the longest glaciers outside the polar regions, among them the Siachen and the Baltoro.",
   "lat": 35.8692,
   "lng": 76.5272,
@@ -7852,7 +7852,7 @@
  {
   "id": "ural-mountains",
   "short": "Ural Mountains",
-  "clue": "Ural Mountains, Russia 🇷🇺",
+  "clue": "Ural Mountains",
   "fact": "Running about 2,500 km from the Arctic tundra south toward the steppes of Kazakhstan, the range is the conventional boundary between Europe and Asia.",
   "lat": 60.85498,
   "lng": 58.96665,
@@ -7871,7 +7871,7 @@
  {
   "id": "pyrenees",
   "short": "Pyrenees",
-  "clue": "Pyrenees, France and Spain 🇫🇷🇪🇸",
+  "clue": "Pyrenees",
   "fact": "For most of its length the crest forms the border between France and Spain, with the microstate of Andorra tucked between them; Aneto, at 3,404 metres, is the highest peak.",
   "lat": 42.66859,
   "lng": 0.4209,
@@ -7890,7 +7890,7 @@
  {
   "id": "atlas-mountains",
   "short": "Atlas Mountains",
-  "clue": "Atlas Mountains, Algeria and Morocco 🇩🇿🇲🇦",
+  "clue": "Atlas Mountains",
   "fact": "Stretching about 2,500 km across Morocco, Algeria and Tunisia, the Atlas separates the Mediterranean coast from the Sahara and peaks at Jbel Toubkal, 4,167 metres.",
   "lat": 32.96743,
   "lng": -0.75887,
@@ -7909,7 +7909,7 @@
  {
   "id": "caucasus-mountains",
   "short": "Caucasus Mountains",
-  "clue": "Caucasus Mountains, Russia and Georgia 🇷🇺🇬🇪",
+  "clue": "Caucasus Mountains",
   "fact": "Mount Elbrus, a dormant volcano of 5,642 metres, is Europe's highest peak under the common definition that draws the continent's edge along this range's crest.",
   "lat": 42.75966,
   "lng": 43.92098,
@@ -7928,7 +7928,7 @@
  {
   "id": "zagros-mountains",
   "short": "Zagros Mountains",
-  "clue": "Zagros Mountains, Iran and Iraq 🇮🇷🇮🇶",
+  "clue": "Zagros Mountains",
   "fact": "Folded up as the Arabian plate pushed into Eurasia, the range runs about 1,500 km to the Strait of Hormuz, and its folds trap some of the world's largest oil fields.",
   "lat": 33.14753,
   "lng": 49.29388,
@@ -7966,7 +7966,7 @@
  {
   "id": "altai-mountains",
   "short": "Altai Mountains",
-  "clue": "Altai Mountains, Mongolia and Russia 🇲🇳🇷🇺",
+  "clue": "Altai Mountains",
   "fact": "Russia, China, Mongolia and Kazakhstan meet in these mountains, where the Irtysh and the Ob rise; Belukha, at 4,506 metres, is the highest summit.",
   "lat": 48.23295,
   "lng": 90.3439,
@@ -7985,7 +7985,7 @@
  {
   "id": "drakensberg",
   "short": "Drakensberg",
-  "clue": "Drakensberg, Lesotho and South Africa 🇱🇸🇿🇦",
+  "clue": "Drakensberg",
   "fact": "The eastern rim of the Great Escarpment around southern Africa's high plateau, it runs for more than 1,000 km and climbs to 3,482 metres on the border of South Africa and Lesotho.",
   "lat": -28.82408,
   "lng": 28.91969,
@@ -8004,7 +8004,7 @@
  {
   "id": "great-dividing-range",
   "short": "Great Dividing Range",
-  "clue": "Great Dividing Range, Australia 🇦🇺",
+  "clue": "Great Dividing Range",
   "fact": "Running more than 3,500 km from the tip of Cape York to western Victoria, it is the longest mountain chain entirely within one country and holds Mount Kosciuszko, Australia's highest point at 2,228 metres.",
   "lat": -27.48861,
   "lng": 152.078,
@@ -8023,7 +8023,7 @@
  {
   "id": "ethiopian-highlands",
   "short": "Ethiopian Highlands",
-  "clue": "Ethiopian Highlands, Ethiopia 🇪🇹",
+  "clue": "Ethiopian Highlands",
   "fact": "Nicknamed the Roof of Africa, it is the continent's largest continuous area at its elevation, with little ground below 1,500 metres, and the Great Rift Valley cuts it diagonally in two.",
   "lat": 10.99934,
   "lng": 38.87751,
@@ -8042,7 +8042,7 @@
  {
   "id": "southern-alps",
   "short": "Southern Alps",
-  "clue": "Southern Alps, New Zealand 🇳🇿",
+  "clue": "Southern Alps",
   "fact": "Running along much of New Zealand's South Island, the range carries the Main Divide between the eastern and West Coast catchments and peaks at Aoraki / Mount Cook, 3,724 metres.",
   "lat": -43.90798,
   "lng": 169.68213,
@@ -8061,7 +8061,7 @@
  {
   "id": "bosphorus",
   "short": "Bosphorus",
-  "clue": "Bosphorus, Turkey 🇹🇷",
+  "clue": "Bosphorus",
   "fact": "About 31 km long and only around 700 m wide at its narrowest, this strait splits Istanbul between Europe and Asia, and every ship sailing out of the Black Sea must thread through it.",
   "lat": 41.12,
   "lng": 29.08,
@@ -8078,7 +8078,7 @@
  {
   "id": "dardanelles",
   "short": "Dardanelles",
-  "clue": "Dardanelles, Turkey 🇹🇷",
+  "clue": "Dardanelles",
   "fact": "In 1810 Lord Byron swam across this strait from Europe to Asia to re-enact the myth of Leander, who was said to swim the Hellespont each night to reach his lover Hero.",
   "lat": 40.2,
   "lng": 26.4,
@@ -8095,7 +8095,7 @@
  {
   "id": "suez-canal",
   "short": "Suez Canal",
-  "clue": "Suez Canal, Egypt 🇪🇬",
+  "clue": "Suez Canal",
   "fact": "Opened in 1869, this lock-free canal joins the Mediterranean to the Red Sea; in March 2021 the container ship Ever Given wedged itself across it for six days, stalling hundreds of ships.",
   "lat": 30.705,
   "lng": 32.344166666667,
@@ -8129,7 +8129,7 @@
  {
   "id": "strait-of-magellan",
   "short": "Strait of Magellan",
-  "clue": "Strait of Magellan, Chile 🇨🇱",
+  "clue": "Strait of Magellan",
   "fact": "Ferdinand Magellan's fleet spent 38 days threading this maze of channels in 1520, becoming the first European ships to sail from the Atlantic into the Pacific.",
   "lat": -54,
   "lng": -71,
@@ -8163,7 +8163,7 @@
  {
   "id": "corinth-canal",
   "short": "Corinth Canal",
-  "clue": "Corinth Canal, Greece 🇬🇷",
+  "clue": "Corinth Canal",
   "fact": "Completed in 1893, this 6.4 km canal slices through the Isthmus of Corinth in a single straight cut barely 25 m wide, too narrow for most modern cargo ships.",
   "lat": 37.927031,
   "lng": 22.994623,
@@ -8180,7 +8180,7 @@
  {
   "id": "golden-gate",
   "short": "Golden Gate",
-  "clue": "Golden Gate, California 🇺🇸",
+  "clue": "Golden Gate",
   "fact": "John C. Frémont named this mile-wide strait Chrysopylae, the \"Golden Gate\", in 1846, almost a century before the bridge that now shares its name was built across it.",
   "lat": 37.816666666667,
   "lng": -122.48333333333,
@@ -8231,7 +8231,7 @@
  {
   "id": "cook-strait",
   "short": "Cook Strait",
-  "clue": "Cook Strait, New Zealand 🇳🇿",
+  "clue": "Cook Strait",
   "fact": "Only 22 km wide at its narrowest, this gap between New Zealand's North and South Islands funnels the westerly winds, earning it a name as one of the roughest stretches of water in the world.",
   "lat": -41.229444444444,
   "lng": 174.48305555556,
@@ -8265,7 +8265,7 @@
  {
   "id": "kiel-canal",
   "short": "Kiel Canal",
-  "clue": "Kiel Canal, Germany 🇩🇪",
+  "clue": "Kiel Canal",
   "fact": "Opened in 1895, this 98 km cut across Schleswig-Holstein links the North Sea to the Baltic and, by number of ships, is the busiest artificial waterway in the world.",
   "lat": 53.883333333333,
   "lng": 9.1333333333333,
@@ -8282,7 +8282,7 @@
  {
   "id": "erie-canal",
   "short": "Erie Canal",
-  "clue": "Erie Canal, New York 🇺🇸",
+  "clue": "Erie Canal",
   "fact": "Opened in 1825 to join the Hudson River to Lake Erie at Buffalo, it slashed the cost of shipping goods to the Midwest and helped make New York City the leading port in the country.",
   "lat": 43.0222726,
   "lng": -78.8808324,
@@ -8299,7 +8299,7 @@
  {
   "id": "grand-canal-china",
   "short": "Grand Canal",
-  "clue": "Grand Canal, China 🇨🇳",
+  "clue": "Grand Canal",
   "fact": "Its oldest sections date to the 5th century BC, and at roughly 1,800 km from Beijing to Hangzhou it is the longest canal ever built.",
   "lat": 30.261388888888888,
   "lng": 120.2238888888889,
@@ -8316,7 +8316,7 @@
  {
   "id": "canal-du-midi",
   "short": "Canal du Midi",
-  "clue": "Canal du Midi, France 🇫🇷",
+  "clue": "Canal du Midi",
   "fact": "Completed in 1681 under Pierre-Paul Riquet, this 240 km canal joins Toulouse to the Mediterranean, so that together with the Garonne boats can cross France from the Atlantic without sailing around Spain.",
   "lat": 43.61111111,
   "lng": 1.41833333,
@@ -8333,7 +8333,7 @@
  {
   "id": "strait-of-messina",
   "short": "Strait of Messina",
-  "clue": "Strait of Messina, Italy 🇮🇹",
+  "clue": "Strait of Messina",
   "fact": "Only about 3 km wide at its narrowest, between Sicily and Calabria, this strait has whirlpools and currents thought to lie behind the myth of Scylla and Charybdis that Odysseus had to sail between.",
   "lat": 38.245833333333,
   "lng": 15.6325,
@@ -8367,7 +8367,7 @@
  {
   "id": "bass-strait",
   "short": "Bass Strait",
-  "clue": "Bass Strait, Australia 🇦🇺",
+  "clue": "Bass Strait",
   "fact": "This strait between Tasmania and mainland Australia is named after George Bass, who with Matthew Flinders sailed right around Tasmania in 1798 to prove it was an island.",
   "lat": -40,
   "lng": 146,
