@@ -10,6 +10,7 @@ import { state } from '../core/state.js';
 import { setThumb, gameEls } from '../core/dom.js';
 import { warmLadderParam, scheduleWarmLadder, stopWarmLadder } from '../globe/surface.js';
 import { preparePageRound } from '../globe/page-render.js';
+import { pagesEnabled } from '../globe/page-plan.js';
 import { traceMark } from '../globe/zoom-trace.js';
 
 export { gameEls };
@@ -104,19 +105,29 @@ export function hideScreens() {
 }
 
 let warmLadderToken = 0;
+let roundSeq = 0;
 
 export function showRound() {
   clearReveal();
   hideScreens();
   state.gameMode = 'guess';
-  window.__canGuess = true;
+  const item = currentItem();
+  const hasCoords = !!item && Number.isFinite(item.lat) && Number.isFinite(item.lng);
+  // Readiness-gated input (BRIEF-page-lifecycle.md requirement 2): with the
+  // flag off, or no coordinates for this round (Borders etc.), __canGuess is
+  // true immediately, exactly as before (flag-off parity, requirement 5).
+  // Otherwise it stays false until preparePageRound's promise settles -
+  // ready, fallback, or failure, whichever the lifecycle reaches - so an
+  // immediate tap can never be accepted as this round's guess. mySeq guards
+  // against a superseded round's late resolution re-admitting input after a
+  // newer round has already begun.
+  const pagesGate = pagesEnabled() && hasCoords;
+  window.__canGuess = !pagesGate;
+  const mySeq = ++roundSeq;
   gameEls.round.hidden = false;
   document.body.classList.add('game-round');
-  const item = currentItem();
-  traceMark('round-start', { hasCoords: !!item && Number.isFinite(item.lat) && Number.isFinite(item.lng) });
-  // Pilot renderer (?pages=1, BRIEF-renderer-pilot.md): a no-op unless the
-  // flag is set, so the default round-start path pays nothing extra.
-  preparePageRound(item);
+  traceMark('round-start', { hasCoords });
+  const pagePrep = preparePageRound(item);
   // Experiment arm B (?warm=ladder, test-only): narrowest shared point every
   // mode passes through to announce its new target. The previous round's
   // still-queued jobs are cleared here either way, which is what "stops at
@@ -159,7 +170,18 @@ export function showRound() {
   // gesture line instead; every other mode keeps both exactly as they were.
   const dailyRound = !pvp.active && !expeditionRun.active && !borders.active
     && !survival.active && !endless.active && !trivia.active && !pack.active && !extentTest.active;
-  setGuessHint(borders.active || survival.active || trivia.active || dailyRound ? '' : 'Tap the globe to place your pin');
+  const readyGuessHint = borders.active || survival.active || trivia.active || dailyRound ? '' : 'Tap the globe to place your pin';
+  setGuessHint(pagesGate ? 'Preparing imagery…' : readyGuessHint);
+  if (pagesGate) {
+    pagePrep.then(() => {
+      // Still this round, still guessing: admit input and restore the
+      // normal hint. A stale resolve (superseded round, or already past
+      // guessing into reveal) must change nothing (no stale activation).
+      if (mySeq !== roundSeq || state.gameMode !== 'guess') return;
+      window.__canGuess = true;
+      setGuessHint(readyGuessHint);
+    });
+  }
   document.getElementById('hud').textContent = pointerFine()
     ? 'Drag to spin · Scroll to zoom'
     : dailyRound
