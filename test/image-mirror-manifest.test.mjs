@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 
-import { readManifest, writeManifestAtomic, buildUrlMap } from '../tools/image-mirror/src/manifest.js';
+import { readManifest, writeManifestAtomic, buildUrlMap, buildManifestRowSkeleton } from '../tools/image-mirror/src/manifest.js';
 
 test('readManifest returns an empty array when the file does not exist yet (fresh/resumed run)', () => {
   const dir = mkdtempSync(path.join(tmpdir(), 'image-mirror-manifest-'));
@@ -68,4 +68,46 @@ test('buildUrlMap only includes "ready" rows with a verified w1280 variant, mapp
     'https://upload.wikimedia.org/x/a.jpg': 'https://images.where-on.earth/photos/v1/sha256/aa/w1280.webp',
     'https://upload.wikimedia.org/x/a.jpg?utm_source=y': 'https://images.where-on.earth/photos/v1/sha256/aa/w1280.webp',
   });
+});
+
+test('buildManifestRowSkeleton builds a "pending" row with attribution fields when attribution resolved', () => {
+  const canonicalSource = {
+    canonicalUrl: 'https://upload.wikimedia.org/x/a.jpg',
+    exactUrls: ['https://upload.wikimedia.org/x/a.jpg', 'https://upload.wikimedia.org/x/a.jpg?utm_source=y'],
+    memberships: [{ file: 'assets/locations.json', id: 'paris', index: 0, sourceUrl: 'https://upload.wikimedia.org/x/a.jpg' }],
+  };
+  const attributionResult = {
+    status: 'ok',
+    license: 'CC BY-SA 4.0',
+    author: 'Jane Doe',
+    attribution: 'Jane Doe / Wikimedia Commons',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:a.jpg',
+  };
+  const row = buildManifestRowSkeleton(canonicalSource, attributionResult);
+  assert.equal(row.schema, 1);
+  assert.equal(row.canonical_source_url, canonicalSource.canonicalUrl);
+  assert.deepEqual(row.source_urls, canonicalSource.exactUrls);
+  assert.deepEqual(row.references, [{ file: 'assets/locations.json', id: 'paris' }]);
+  assert.equal(row.license, 'CC BY-SA 4.0');
+  assert.equal(row.author, 'Jane Doe');
+  assert.equal(row.attribution, 'Jane Doe / Wikimedia Commons');
+  assert.equal(row.source_page_url, 'https://commons.wikimedia.org/wiki/File:a.jpg');
+  assert.equal(row.status, 'pending');
+  assert.equal(row.error, null);
+  assert.deepEqual(row.variants, []);
+});
+
+test('buildManifestRowSkeleton builds an "attribution-failed" row when attribution could not be resolved, with no license/author guessed', () => {
+  const canonicalSource = {
+    canonicalUrl: 'https://upload.wikimedia.org/x/b.jpg',
+    exactUrls: ['https://upload.wikimedia.org/x/b.jpg'],
+    memberships: [{ file: 'assets/trivia-bank.json', id: 't1', index: 0, sourceUrl: 'https://upload.wikimedia.org/x/b.jpg' }],
+  };
+  const row = buildManifestRowSkeleton(canonicalSource, { status: 'failed', reason: 'commons-page-missing' });
+  assert.equal(row.status, 'attribution-failed');
+  assert.equal(row.error, 'commons-page-missing');
+  assert.equal(row.license, null);
+  assert.equal(row.author, null);
+  assert.equal(row.attribution, null);
+  assert.equal(row.source_page_url, null);
 });

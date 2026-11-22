@@ -29,6 +29,50 @@ export function indexManifestByCanonicalUrl(rows) {
   return byUrl;
 }
 
+// Builds a fresh manifest row for a canonical source the manifest has
+// never seen before, merging inventory membership data with its
+// attribution result (BRIEF-image-r2-ingest.md deliverable 1). A source
+// whose attribution could not be resolved gets status "attribution-failed"
+// and null license/author fields -- it is held out of the upload set (the
+// runner never attempts fetch/transcode/upload for this status) and
+// surfaces in the exception report, never silently uploaded.
+export function buildManifestRowSkeleton(canonicalSource, attributionResult) {
+  const base = {
+    schema: MANIFEST_SCHEMA,
+    canonical_source_url: canonicalSource.canonicalUrl,
+    source_urls: canonicalSource.exactUrls,
+    references: canonicalSource.memberships.map((m) => ({ file: m.file, id: m.id })),
+    source_sha256: null,
+    source_mime: null,
+    source_width: null,
+    source_height: null,
+    source_bytes: null,
+    variants: [],
+  };
+
+  if (attributionResult.status !== 'ok') {
+    return {
+      ...base,
+      license: null,
+      author: null,
+      attribution: null,
+      source_page_url: null,
+      status: 'attribution-failed',
+      error: attributionResult.reason,
+    };
+  }
+
+  return {
+    ...base,
+    license: attributionResult.license,
+    author: attributionResult.author,
+    attribution: attributionResult.attribution,
+    source_page_url: attributionResult.sourcePageUrl,
+    status: 'pending',
+    error: null,
+  };
+}
+
 // Only "ready" rows (every required variant verified) contribute to the
 // url-map; everything else must stay on its original Wikimedia URL.
 export function buildUrlMap(manifestRows) {
