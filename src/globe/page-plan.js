@@ -218,5 +218,9 @@ export function selectRenderPath({ lat, lng, portrait, manifestIndex, feasibilit
   if (!flagOn) return { path: 'tiles', reason: 'flag-off' };
   const result = resolvePlan({ lat, lng, portrait, manifestIndex, feasibilityIndex, feasibilityPairs, z9UrlBase, contextUrlBases, feasibilityUrlBase });
   if (!result.inCoverage) return { path: 'tiles', reason: result.reason, key: result.key };
+  // BRIEF-page-lifecycle.md requirement 3: an over-cap plan takes the
+  // explicit supported path without partially entering pages, the same as
+  // an out-of-coverage gap.
+  if (!result.fit.all) return { path: 'tiles', reason: 'over-cap', fit: result.fit };
   return { path: 'pages', plan: result };
 }

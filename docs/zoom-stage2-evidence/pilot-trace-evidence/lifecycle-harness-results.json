@@ -1,0 +1,115 @@
+[
+  {
+    "name": "madrid: immediate input is gated (requirement 2)",
+    "pass": true,
+    "detail": "__canGuess=false"
+  },
+  {
+    "name": "madrid: a preparing state is shown (requirement 2)",
+    "pass": true,
+    "detail": "hint=\"Preparing imagery…\""
+  },
+  {
+    "name": "madrid: readiness is reached without a stall (requirement 2/3)",
+    "pass": true
+  },
+  {
+    "name": "madrid: the page path is active once ready (requirement 1)",
+    "pass": true
+  },
+  {
+    "name": "madrid round 1: zero page spans after first input (requirement 1/verification)",
+    "pass": true,
+    "detail": "[]"
+  },
+  {
+    "name": "madrid round 1: zero legacy tile spans in the whole trace (requirement 1)",
+    "pass": true,
+    "detail": "total=0"
+  },
+  {
+    "name": "madrid round 2 (warm repeat): zero page asset loads (requirement 4)",
+    "pass": true,
+    "detail": "{\"round\":2,\"path\":\"pages\",\"fallbackReason\":null,\"lat\":40.4,\"lng\":-3.7,\"plan\":{\"textureCount\":24,\"residencyBytes\":45321840,\"transferBytes\":2180033,\"fit\":{\"transfer\":true,\"residency\":true,\"textures\":true,\"all\":true},\"z5Mode\":\"strip\",\"z5Pair\":\"M\"},\"prepStartMs\":16824.300000000745,\"prepEndMs\":16825.300000000745,\"prepDurationMs\":1,\"hasInput\":true,\"firstInputMs\":16924.70000000298,\"overlapsFirstInput\":false,\"overlappingSpans\":[],\"levelSelects\":[],\"pageSpanCount\":0,\"postInputPageSpanCount\":0,\"postInputPageSpans\":[]}"
+  },
+  {
+    "name": "no page errors",
+    "pass": true,
+    "detail": "[]"
+  },
+  {
+    "name": "congo: immediate input is gated (requirement 2)",
+    "pass": true
+  },
+  {
+    "name": "congo: resolves the pages path",
+    "pass": true,
+    "detail": "\"pages\""
+  },
+  {
+    "name": "congo: zero page spans after first input",
+    "pass": true,
+    "detail": "[]"
+  },
+  {
+    "name": "congo: zero legacy tile spans in the whole trace",
+    "pass": true,
+    "detail": "total=0"
+  },
+  {
+    "name": "no page errors",
+    "pass": true,
+    "detail": "[]"
+  },
+  {
+    "name": "coverage-gap: explicit round-boundary fallback to tiles (requirement 3)",
+    "pass": true,
+    "detail": "{\"round\":1,\"path\":\"tiles\",\"fallbackReason\":\"z9-gap\",\"lat\":-34.6,\"lng\":-58.4,\"plan\":null,\"prepStartMs\":null,\"prepEndMs\":null,\"prepDurationMs\":null,\"hasInput\":false,\"firstInputMs\":null,\"overlapsFirstInput\":null,\"overlappingSpans\":[],\"levelSelects\":[],\"pageSpanCount\":0,\"postInputPageSpanCount\":0,\"postInputPageSpans\":[]}"
+  },
+  {
+    "name": "coverage-gap: readiness still recovers input, no stall (requirement 3)",
+    "pass": true
+  },
+  {
+    "name": "coverage-gap: zero page spans this round",
+    "pass": true
+  },
+  {
+    "name": "no page errors",
+    "pass": true,
+    "detail": "[]"
+  },
+  {
+    "name": "forced-failure: explicit round-boundary fallback to tiles (requirement 3)",
+    "pass": true,
+    "detail": "{\"round\":2,\"path\":\"tiles\",\"fallbackReason\":\"prepare-failed\",\"lat\":null,\"lng\":null,\"plan\":null,\"prepStartMs\":null,\"prepEndMs\":null,\"prepDurationMs\":null,\"hasInput\":false,\"firstInputMs\":null,\"overlapsFirstInput\":null,\"overlappingSpans\":[],\"levelSelects\":[],\"pageSpanCount\":46,\"postInputPageSpanCount\":0,\"postInputPageSpans\":[]}"
+  },
+  {
+    "name": "forced-failure: readiness still recovers input, no stall (requirement 3)",
+    "pass": true
+  },
+  {
+    "name": "forced-failure: the page path never activates after the failed prepare (requirement 3, no late activation)",
+    "pass": true,
+    "detail": "pageRenderActive=false"
+  },
+  {
+    "name": "no page errors",
+    "pass": true,
+    "detail": "[]"
+  },
+  {
+    "name": "superseded: the newer round (Congo) ends up active, not the superseded one (requirement 3)",
+    "pass": true,
+    "detail": "{\"round\":2,\"path\":\"pages\",\"fallbackReason\":null,\"lat\":-0.7,\"lng\":24.6,\"plan\":{\"textureCount\":22,\"residencyBytes\":56527984,\"transferBytes\":1298596,\"fit\":{\"transfer\":true,\"residency\":true,\"textures\":true,\"all\":true},\"z5Mode\":\"page\",\"z5Pair\":null},\"prepStartMs\":4080.89999999851,\"prepEndMs\":5294.199999999255,\"prepDurationMs\":1213.300000000745,\"hasInput\":false,\"firstInputMs\":null,\"overlapsFirstInput\":null,\"overlappingSpans\":[],\"levelSelects\":[{\"from\":null,\"to\":5,\"readyAtMs\":5472.5}],\"pageSpanCount\":114,\"postInputPageSpanCount\":0,\"postInputPageSpans\":[]}"
+  },
+  {
+    "name": "superseded: input is admitted once the newer round settles, no stall",
+    "pass": true
+  },
+  {
+    "name": "no page errors",
+    "pass": true,
+    "detail": "[]"
+  }
+]

@@ -19,6 +19,7 @@ import { loadPageManifests } from './page-manifest.js';
 import { prepareRoundPages, releaseRoundPages, getResidentAsset } from './page-store.js';
 import { traceMark, traceSpanStart, traceSpanEnd } from './zoom-trace.js';
 import { INSET_MIN_Z, INSET_Q } from './inset-policy.js';
+import { beginPagePreparation, markPageRoundActive, endPageLifecycle } from './page-lifecycle.js';
 
 const GUTTER_PX = 2;
 const SEGMENTS = 4;
@@ -96,17 +97,26 @@ function levelAssets(plan, level) {
 }
 
 export async function preparePageRound(item) {
-  if (!pagesEnabled()) { releasePageRound(); return; }
+  if (!pagesEnabled()) { releasePageRound(); endPageLifecycle(); return; }
   const hasCoords = !!item && Number.isFinite(item.lat) && Number.isFinite(item.lng);
-  if (!hasCoords) { releasePageRound(); traceMark('page-round', { path: 'tiles', reason: 'no-coords' }); return; }
+  if (!hasCoords) { releasePageRound(); endPageLifecycle(); traceMark('page-round', { path: 'tiles', reason: 'no-coords' }); return; }
 
   releasePageRound();
   const token = ++roundToken;
+  // BRIEF-page-lifecycle.md requirement 1: claim exclusive imagery ownership
+  // the instant this round commits to the page path, before any fetch for
+  // it begins, abandoning whatever the legacy inset driver had in flight.
+  beginPagePreparation();
   const portrait = (typeof innerHeight === 'number' ? innerHeight : 1) >= (typeof innerWidth === 'number' ? innerWidth : 0);
 
   let manifests;
   try { manifests = await loadPageManifests(); }
-  catch (err) { traceMark('page-round', { path: 'tiles', reason: 'manifest-load-failed', error: String(err) }); return; }
+  catch (err) {
+    if (token !== roundToken) return; // superseded by a newer round before the manifest landed; that round owns lifecycle now
+    traceMark('page-round', { path: 'tiles', reason: 'manifest-load-failed', error: String(err) });
+    endPageLifecycle();
+    return;
+  }
   if (token !== roundToken) return; // superseded by a newer round before the manifest landed
 
   const result = selectRenderPath({
@@ -116,15 +126,17 @@ export async function preparePageRound(item) {
     contextUrlBases: manifests.contextUrlBases, feasibilityUrlBase: manifests.feasibilityUrlBase, flagOn: true,
   });
   traceMark('page-round', { path: result.path, reason: result.reason ?? null, lat: item.lat, lng: item.lng, portrait });
-  if (result.path !== 'pages') return; // outside pilot coverage: the existing tile path handles this round
+  if (result.path !== 'pages') { endPageLifecycle(); return; } // outside pilot coverage or over-cap: the existing tile path handles this round
 
   try {
     await prepareRoundPages(result.plan, token);
   } catch (err) {
     // A manifest-listed asset that 404s in practice: fall back to the tile
     // path for this round rather than leaving guessing blocked.
-    traceMark('page-round', { path: 'tiles', reason: 'prepare-failed', error: String(err) });
     releaseRoundPages(token);
+    if (token !== roundToken) return; // superseded mid-prepare; the newer round owns lifecycle now
+    traceMark('page-round', { path: 'tiles', reason: 'prepare-failed', error: String(err) });
+    endPageLifecycle();
     return;
   }
   if (token !== roundToken) { releaseRoundPages(token); return; } // superseded mid-prepare
@@ -137,6 +149,7 @@ export async function preparePageRound(item) {
     for (const mesh of groupsByLevel[level]) globe.add(mesh);
   }
   activeRound = { token, plan: result.plan, groupsByLevel, currentLevel: null, firstLevelSelected: false };
+  markPageRoundActive();
 }
 
 // Same desired-zoom formula pickInsetWindow uses (surface.js), restricted to

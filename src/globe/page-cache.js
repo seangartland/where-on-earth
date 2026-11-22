@@ -34,7 +34,14 @@ export function createPageCache({ maxTextures, maxBytes }) {
   function evict() {
     const evicted = [];
     for (const [key, entry] of entries) {
-      if (entries.size - evicted.length <= maxTextures && bytesUsed <= maxBytes) break;
+      // entries.size already reflects every entries.delete() below (a live
+      // Map), so it alone is this iteration's current count; subtracting
+      // evicted.length on top double-counts each deletion and makes the
+      // loop stop after evicting roughly half of what two-or-more-eviction
+      // calls actually need (BRIEF-page-lifecycle.md requirement 4: found
+      // via the round-transition test below, where 3 unpinned entries over
+      // a cap of 3 left only 2 evicted and the cache 1 over budget).
+      if (entries.size <= maxTextures && bytesUsed <= maxBytes) break;
       if (entry.pinnedBy.size > 0) continue;
       evicted.push(key);
       entries.delete(key);
