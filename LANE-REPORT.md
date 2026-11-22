@@ -1,22 +1,8 @@
-# Profile loading report
+# Extent test lane report
 
-The boot loader uses a dark navy surface, cream and muted light text, gold accents, a seal-like circular focal point, and the `Loading world map…` stage line. The profile loader mirrors that language with the default navy traveler seal, muted `Loading profile…` stage line, dark glass panel, shared palette variables, and restrained animated skeleton rows.
-
-Files changed:
-
-- `src/account/sheet.js`
-- `src/styles/game.css`
-- `test/profile-flow.test.mjs`
-
-The profile loading treatment is rendered at the shared profile fetch boundary, covering own profiles, friend profiles, and friend-list profile taps without changing fetch order or the loaded profile layout. The shimmer respects `prefers-reduced-motion` like the boot loader.
-
-Suite result: `node --test "test/*.mjs"` passed, 33 tests passed and 0 failed.
-
-Capture list: skipped as instructed because this sandbox cannot run Chromium. The orchestrator will capture the profile loading state, loaded profile, and boot loader at banking.
-
-## Banking verification (orchestrator, 2026-11-21)
-
-- Independent suite run in the clone: `node --test "test/*.mjs"` passed, 151 tests passed and 0 failed. (The 33 above was the lane's count at its run; the suite has since grown with parallel banked work.)
-- Captures produced at banking in `docs/profile-loading-evidence/` (390x844, harness `shots/profile-loading/capture.mjs`): `profile-loading-390x844.png`, `profile-loaded-390x844.png`, `boot-loader-390x844.png`. Sighted and judged consistent: dark glass panel, navy seal medallion, muted centered `Loading profile…` stage line in the boot loader's style, skeleton header mirroring the real profile card, three skeleton rows. The loaded profile capture came from the existing seal-rings harness in the same clone because a held-route fulfill did not settle the sheet fetch in this Chromium build; the loading and boot captures are from the new harness. The boot capture caught the loader's fade-out moment (Ready, 100%).
-- Diff read: loaded-state markup, layout, and load order are unchanged. The only behavioral change is the interim state, now rendered at the shared `openTravelerProfile` boundary, so own profile, friend profile, and friend-list profile taps all use it. No other bare-text profile interim state remains in `src/account/sheet.js`.
-- Banked to prod main, suite re-run there, pushed and verified on origin/main. No deploy: rides the next deploy batch.
+- Survival reuse: the mode enters the shared round path. `scoringDistanceKm` uses the existing nearest-extent geometry calculation, and the shared reveal calls `showExtentOutline` for extent entries.
+- Runtime pool count: 153 in the current bank, computed from the loaded landmark bank as playable `kind: 'extent'` entries with finite coordinates and an image. Verified again after the pack-model bank rename: the pool over `assets/locations-bank.json` is still 153, and the mode reads the bank only through the existing loader (`state.landmarks`), with no hardcoded data filename.
+- Files changed: `index.html`, `src/core/dom.js`, `src/game/round.js`, `src/main.js`, `src/modes/extent-test.js`, `src/styles/game.css`, `test/extent-test.test.mjs`, `shots/extent-test/` (capture harness and captures), `LANE-REPORT.md`.
+- Suite result: `node --test "test/*.mjs"` passed in the build clone, 154 tests and 0 failures; rerun in the prod clone after banking.
+- Captures: taken by the orchestrator at banking (the lane sandbox could not run Chromium), 390x844, mocked account APIs, in `shots/extent-test/`: `01-home-panel.png` (home with the param: Extent test panel, 153 locations, Start; the panel is hidden without the param, verified in the same run), `02-round.png` (a round before the guess, header "Round 1 of 153" with Quit), `03-reveal.png` (Cappadocia reveal with the answer outline visible, "+960", "206 km from nearest point", Next). Capture rounds also played Carpathian Mountains and Missouri River with the same nearest-point scoring.
+- Lane history: the Claude Code sonnet lane died on the session limit with zero work; the failover lane (Codex gpt-5.6-terra) built the mode and left it uncommitted in the working tree, as instructed; the orchestrator verified, captured, and banked it.

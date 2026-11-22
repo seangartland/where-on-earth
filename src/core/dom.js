@@ -102,6 +102,8 @@ export const gameEls = {
   postcardSummaryScreen: document.getElementById('postcard-summary-screen'),
   results: document.getElementById('results-screen'),
   play: document.getElementById('play-button'),
+  extentTestEntry: document.getElementById('extent-test-entry'),
+  extentTestCount: document.getElementById('extent-test-count'),
   number: document.getElementById('round-number'),
   weight: document.getElementById('round-weight'),
   dailyDate: document.getElementById('daily-date'),
@@ -150,4 +152,9 @@ export const gameEls = {
   runBreakdown: document.getElementById('run-breakdown'),
   runBreakdownList: document.getElementById('run-results-breakdown'),
   expeditionsEntry: document.getElementById('expeditions-button'),
+  extentTestResults: document.getElementById('extent-test-results-screen'),
+  extentTestTotal: document.getElementById('extent-test-total'),
+  extentTestRounds: document.getElementById('extent-test-rounds'),
+  extentTestHome: document.getElementById('extent-test-home'),
+  extentTestQuit: document.getElementById('extent-test-quit'),
 };

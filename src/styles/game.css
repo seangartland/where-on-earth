@@ -810,6 +810,12 @@ body:not(.game-start) .load-pill.on { opacity: 0; visibility: hidden; transition
 .home-panels .panel-slice { position: absolute; top: 0; left: 0; width: calc(300% + 2 * var(--pg)); max-width: none; height: 100%; object-fit: cover; object-position: 40% 50%; pointer-events: none; }
 .home-panels #pack-button .panel-slice { left: calc(-100% - var(--pg)); }
 .home-panels #survival-hub-button .panel-slice { left: calc(-200% - 2 * var(--pg)); }
+.home-panels .extent-test-entry { display: flex; flex: 0 1 132px; height: auto; min-height: 0; padding: 14px 12px; border: 1px solid rgba(157,211,255,.42); background: rgba(5,15,31,.78); color: var(--ink-hi); text-align: left; }
+.extent-test-entry .mode-name { display: block; font-size: var(--fs-base); font-weight: 800; }
+.extent-test-entry .mode-desc { display: block; margin: 4px 0 12px; font-size: var(--fs-caption); }
+.extent-test-entry > span:last-child { margin-top: auto; color: var(--gold); font-size: var(--fs-small); font-weight: 800; }
+.extent-test-results #extent-test-home { width: 100%; min-height: 52px; }
+.extent-test-quit { position: absolute; top: 10px; right: 10px; padding: 5px 9px; border: 1px solid rgba(157,211,255,.35); border-radius: 999px; background: rgba(5,15,31,.78); color: var(--ink-hi); font: inherit; font-size: var(--fs-caption); font-weight: 800; cursor: pointer; }
 .home-panels > button { position: relative; flex: 1 1 0; height: 225px; min-height: 0; padding: 0; border-radius: 18px; overflow: hidden; background: transparent; color: var(--ink-hi); white-space: normal; text-overflow: clip; }
 .home-panels > button.is-gold { background: none; color: var(--ink-hi); }
 /* The pack is an object floating over the middle slice, not a photo: the

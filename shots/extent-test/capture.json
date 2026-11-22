@@ -1,0 +1,33 @@
+{
+  "plain": {
+    "entryHidden": true
+  },
+  "home": {
+    "entryHidden": false,
+    "entryDisabled": false,
+    "count": "153 locations",
+    "name": "Extent test"
+  },
+  "round": {
+    "mode": "guess",
+    "item": "cappadocia",
+    "number": "Round 1 of 153",
+    "clue": "Cappadocia, Turkey 🇹🇷",
+    "quitHidden": false
+  },
+  "guess": {
+    "lat": 40.1706,
+    "lng": 36.3392,
+    "id": "cappadocia"
+  },
+  "reveal": {
+    "mode": "reveal",
+    "item": "cappadocia",
+    "distance": "206 km from nearest point",
+    "score": "+960",
+    "revealName": "Cappadocia, Turkey 🇹🇷",
+    "revealCardHidden": false,
+    "body": "game-reveal extent-test"
+  },
+  "errors": []
+}

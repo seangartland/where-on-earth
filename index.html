@@ -99,6 +99,7 @@
         <button id="play-button" class="is-gold" type="button"><img class="panel-slice" src="assets/blue-marble-2k.jpg" alt="" aria-hidden="true"><span class="panel-info"><span class="mode-name">Daily</span><small class="mode-desc">Loading…</small></span></button>
         <button id="pack-button" type="button" disabled><img class="panel-slice" src="assets/blue-marble-2k.jpg" alt="" aria-hidden="true"><img class="panel-packobj" src="assets/pack-world-capitals-static.webp" alt="" aria-hidden="true"><span class="pack-skip-balance pack-token-pill"><svg class="hg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffc76a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 2.8h11M6.5 21.2h11M7.3 2.8v3c0 2.5 2.1 3.6 4.7 6 2.6-2.4 4.7-3.5 4.7-6v-3M7.3 21.2v-3c0-2.5 2.1-3.6 4.7-6 2.6 2.4 4.7 3.5 4.7 6v3"/><path d="M9.8 18.4 12 15.9l2.2 2.5Z" fill="#ffc76a" stroke="none" opacity=".9"/></svg><span class="pack-token-count">12</span></span><span class="panel-info"><span class="mode-name">Packs</span><small class="mode-desc">2 ready</small></span><span class="pack-home-bar" aria-hidden="true"><i></i></span></button>
         <button id="survival-hub-button" type="button"><img class="panel-slice" src="assets/blue-marble-2k.jpg" alt="" aria-hidden="true"><span class="panel-info"><span class="mode-name">Practice</span><small class="mode-desc">Free play</small></span></button>
+        <button id="extent-test-entry" class="extent-test-entry" type="button" hidden disabled><span class="mode-name">Extent test</span><small id="extent-test-count" class="mode-desc"></small><span>Start</span></button>
         <button id="pvp-button" type="button" disabled hidden><span class="mode-name">Challenge</span><small class="mode-desc">Play a friend</small></button>
       </div>
       <button id="expeditions-button" class="entry-pending" type="button" hidden><span class="mode-name">Weekly Expedition</span></button>
@@ -107,6 +108,7 @@
 
     <section id="round-screen" class="screen round-screen" hidden>
       <header class="round-header glass">
+        <button id="extent-test-quit" class="extent-test-quit" type="button" hidden>Quit</button>
         <div class="round-meta"><span id="round-number">Round 1 of 5</span><span id="round-weight">1×</span><p id="daily-date" class="daily-date" hidden></p></div>
         <p id="survival-streak" class="survival-streak" aria-live="polite">0 survived</p>
         <h2 id="clue"></h2>
@@ -213,6 +215,14 @@
           <button id="survival-again" class="primary primary--gold" type="button">Play again</button>
         </div>
         <p id="survival-share-status" role="status"></p>
+      </div>
+    </section>
+    <section id="extent-test-results-screen" class="screen results-screen" hidden>
+      <div class="survival-results-card extent-test-results glass">
+        <p class="eyebrow">Extent test complete</p>
+        <h2 id="extent-test-total" class="logotype">0</h2>
+        <p id="extent-test-rounds" class="survival-summary">0 rounds played</p>
+        <button id="extent-test-home" class="primary primary--gold" type="button">Back home</button>
       </div>
     </section>
   </main>

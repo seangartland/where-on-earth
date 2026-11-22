@@ -43,6 +43,7 @@ import {
 } from './game/round.js';
 import { scoreGuess } from './game/scoring.js';
 import { setExtentData } from './game/extents.js';
+import { extentTest, initExtentTest, extentTestRoundHeader, extentTestRecordGuess, extentTestRevealCard, extentTestNext } from './modes/extent-test.js';
 import { shareResult } from './game/share.js';
 import {
   survival, initSurvival, startSurvival, enterSurvival, survivalRoundHeader, survivalRecordGuess, survivalRevealCard, survivalNext,
@@ -229,6 +230,7 @@ const roundHost = {
   saveDaily, runHaul, showPostcardSummary, recordVisit, applyCardTier, isVisited,
   trivia, triviaRoundHeader, triviaRecordGuess, triviaNext,
   pack, packRoundHeader, packRecordGuess, packIsLastCard, packNext,
+  extentTest, extentTestRoundHeader, extentTestRecordGuess, extentTestRevealCard, extentTestNext,
   get reviewEls() { return reviewEls; },
 };
 initRound(roundHost);
@@ -284,6 +286,8 @@ const modeHost = {
   landAreasP,
   survival,
   borders,
+  trivia,
+  pack,
   expeditionRun,
   endless,
   EXPEDITION_KEY,
@@ -405,6 +409,7 @@ function goHome() {
   expeditionRun.active = false;
   trivia.active = false;
   pack.active = false;
+  extentTest.active = false;
   expeditionPicker.hidden = true;
   blackoutPicker.hidden = true;
   pvpLeave();
@@ -895,6 +900,7 @@ getJSON('assets/weekly-expeditions.json').then(weeklyRoutesLoaded).catch((err) =
 const extentsP = getJSON('assets/extents.json').then((data) => setExtentData(data));
 const landmarksP = Promise.all([getJSON('assets/locations-bank.json'), extentsP]).then(([data]) => {
   state.landmarks = Array.isArray(data) ? data : [];
+  initExtentTest(modeHost);
   syncPassport();
   updateExpeditionEntry();
   syncPackButton();

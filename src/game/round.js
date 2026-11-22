@@ -28,6 +28,7 @@ let expeditionNext, endlessNext, revealBorders, pvpRenderVs, pvpNext, pvpSubmit,
 let showPostcardSummary, recordVisit, applyCardTier, isVisited;
 let trivia, triviaRoundHeader, triviaRecordGuess, triviaNext;
 let pack, packRoundHeader, packRecordGuess, packIsLastCard, packNext;
+let extentTest, extentTestRoundHeader, extentTestRecordGuess, extentTestRevealCard, extentTestNext;
 
 // Guessing is two steps: tap the globe to place (or move) the pin, then press
 // Lock in. The button sits in a fixed spot in the thumb zone, away from the
@@ -89,6 +90,8 @@ export function hideScreens() {
   gameEls.survivalResults.hidden = true;
   gameEls.runBreakdown.hidden = true;
   gameEls.survivalHub.hidden = true;
+  gameEls.extentTestResults.hidden = true;
+  gameEls.extentTestQuit.hidden = true;
   host.reviewEls.screen.hidden = true;
   if (state.statsScreenEl) state.statsScreenEl.hidden = true;
   if (state.settingsScreenEl) state.settingsScreenEl.hidden = true;
@@ -128,6 +131,8 @@ export function showRound() {
     expeditionRoundHeader();
   } else if (borders.active) {
     bordersRoundHeader();
+  } else if (extentTest.active) {
+    extentTestRoundHeader();
   } else if (survival.active) {
     survivalRoundHeader();
   } else if (endless.active) {
@@ -149,7 +154,7 @@ export function showRound() {
   // standalone tap-to-place line and folds the instruction into the bottom
   // gesture line instead; every other mode keeps both exactly as they were.
   const dailyRound = !pvp.active && !expeditionRun.active && !borders.active
-    && !survival.active && !endless.active && !trivia.active && !pack.active;
+    && !survival.active && !endless.active && !trivia.active && !pack.active && !extentTest.active;
   setGuessHint(borders.active || survival.active || trivia.active || dailyRound ? '' : 'Tap the globe to place your pin');
   document.getElementById('hud').textContent = pointerFine()
     ? 'Drag to spin · Scroll to zoom'
@@ -200,16 +205,18 @@ export function revealGuess(guess, restoring = false) {
   const pvpScored = pvp.active ? pvp.reveal : null;
   const km = pvpScored ? pvpScored.distanceKm : Math.round(kmExact);
   const base = pvpScored ? pvpScored.score : Math.round(distanceScore(kmExact));
-  const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active || trivia.active || pack.active; // outside the daily
+  const oneOff = survival.active || endless.active || expeditionRun.active || pvp.active || trivia.active || pack.active || extentTest.active; // outside the daily
   const score = oneOff ? 0 : scoreGuess(kmExact, state.daily.round);
   if (!restoring && survival.active) survivalRecordGuess(answer, km, kmExact);
   if (!restoring && trivia.active) triviaRecordGuess(km, base);
+  if (!restoring && extentTest.active) extentTestRecordGuess(km, Math.round(base));
   state.gameMode = 'reveal';
   window.__canGuess = false;
   document.body.className = pvp.active ? 'game-reveal pvp'
     : expeditionRun.active ? 'game-reveal expedition-mode'
     : survival.active
     ? `game-reveal survival${survival.missed ? ' survival-miss' : ''}`
+    : extentTest.active ? 'game-reveal extent-test'
     : endless.active ? 'game-reveal endless'
     : trivia.active ? 'game-reveal trivia'
     : pack.active ? 'game-reveal pack' : 'game-reveal';
@@ -223,7 +230,7 @@ export function revealGuess(guess, restoring = false) {
   // 2026-10-18 pacing change); postcards come from the Daily, the pack and
   // Expeditions. PvP records each accepted round once (pvp.recordVisit), never
   // on a replay. Trivia is score-only: it never records.
-  const record = pvp.active ? pvp.recordVisit : !restoring && !trivia.active;
+  const record = pvp.active ? pvp.recordVisit : !restoring && !trivia.active && !extentTest.active;
   const newlyEarned = record ? recordVisit(answer.id, base, pvpScored ? pvpScored.distanceKm : kmExact, !endless.active && !pvp.active && !survival.active) : 0; // exact, so earning matches the flyover tier
   const packCard = !restoring && pack.active ? packRecordGuess(guess, km, kmExact, base, wasVisited, previousEarn, newlyEarned) : null;
   if (!restoring && !oneOff) {
@@ -268,6 +275,8 @@ export function revealGuess(guess, restoring = false) {
     expeditionRevealCard(pill);
   } else if (survival.active) {
     survivalRevealCard(pill);
+  } else if (extentTest.active) {
+    extentTestRevealCard(pill);
   } else if (pvp.active) {
     gameEls.score.textContent = `+${base}`;
     pill.textContent = `+${base}`;
@@ -389,6 +398,7 @@ export function nextRound() {
   document.querySelector('.earn-toast')?.remove();
   if (borders.active) bordersNext();
   else if (survival.active) survivalNext();
+  else if (extentTest.active) extentTestNext();
   else if (expeditionRun.active) expeditionNext();
   else if (pvp.active) pvpNext();
   else if (endless.active) endlessNext();
@@ -411,7 +421,7 @@ export function currentItem() {
   if (pvp.active) return pvp.item;
   if (trivia.active) return trivia.item;
   if (pack.active) return pack.item;
-  return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : endless.active ? endless.item : state.selected[state.daily.round];
+  return expeditionRun.active ? expeditionRun.item : survival.active ? survival.item : extentTest.active ? extentTest.item : endless.active ? endless.item : state.selected[state.daily.round];
 }
 
 // The server resolved the round as a timeout: the answer, no guess, zero.
@@ -457,7 +467,8 @@ export function initRound(main) {
     completeExpeditionRound, expeditionRevealCard, survivalRevealCard, bordersNext, survivalNext,
     expeditionNext, endlessNext, revealBorders, pvpRenderVs, pvpNext, pvpSubmit, saveDaily, runHaul,
     showPostcardSummary, recordVisit, applyCardTier, isVisited, trivia, triviaRoundHeader, triviaRecordGuess,
-    triviaNext, pack, packRoundHeader, packRecordGuess, packIsLastCard, packNext } = main);
+    triviaNext, pack, packRoundHeader, packRecordGuess, packIsLastCard, packNext,
+    extentTest, extentTestRoundHeader, extentTestRecordGuess, extentTestRevealCard, extentTestNext } = main);
   lockButton.addEventListener('click', () => {
     if (!state.pendingGuess || !window.__canGuess || state.gameMode !== 'guess') return;
     if (performance.now() < lockArmedAt) return; // the tail of a double tap on the globe
