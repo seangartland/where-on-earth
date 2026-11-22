@@ -1,0 +1,1609 @@
+{
+  "content_version": "s2gm2025-context-strips-feasibility-v1",
+  "encoding": {
+    "format": "JPEG",
+    "gutter_px": 2,
+    "optimize": false,
+    "progressive": false,
+    "quality": 90,
+    "tile_px": 256
+  },
+  "pairs": {
+    "L": {
+      "bytes_sum": 224923,
+      "keys": [
+        "ordinary-land-z5-x4-y10-11-v1",
+        "ordinary-land-z5-x4-y12-13-v1"
+      ],
+      "label": "ordinary-land"
+    },
+    "M": {
+      "bytes_sum": 121813,
+      "keys": [
+        "madrid-z5-x12-y10-11-v1",
+        "madrid-z5-x12-y12-13-v1"
+      ],
+      "label": "madrid"
+    }
+  },
+  "pixel_size": [
+    1028,
+    516
+  ],
+  "resident_bytes_each": 2828544,
+  "source": "resolved original z5 mosaic tiles from workdir inputs/zfill-tiles and cache/tiles; no page JPEG recompressed",
+  "strips": [
+    {
+      "base_tile_count": 1,
+      "bounds": {
+        "east": 0.0,
+        "north": 55.77657301866769,
+        "south": 31.952162238024968,
+        "west": -45.0
+      },
+      "bytes": 50868,
+      "fill_rgb": [
+        36,
+        48,
+        63
+      ],
+      "height": 516,
+      "interior_cols": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "interior_rows": [
+        10,
+        11
+      ],
+      "key": "madrid-z5-x12-y10-11-v1",
+      "native_tile_count": 23,
+      "path": "/mnt/external/woe-s2-pages/feasibility/madrid-z5-x12-y10-11-v1.jpg",
+      "sha256": "c1837da99ffaff1811d3d2a4e4a450486e42a619b670b6ffea6a95b18dbc2a07",
+      "source_grid": [
+        {
+          "grid_index": [
+            0,
+            0
+          ],
+          "position": "top-left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/11/9.jpg",
+          "tile": {
+            "x": 11,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/12/9.jpg",
+          "tile": {
+            "x": 12,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/13/9.jpg",
+          "tile": {
+            "x": 13,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/14/9.jpg",
+          "tile": {
+            "x": 14,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/15/9.jpg",
+          "tile": {
+            "x": 15,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            0
+          ],
+          "position": "top-right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/16/9.jpg",
+          "tile": {
+            "x": 16,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            1
+          ],
+          "position": "left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/11/10.jpg",
+          "tile": {
+            "x": 11,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/12/10.jpg",
+          "tile": {
+            "x": 12,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": "base",
+          "source_path": null,
+          "tile": {
+            "x": 13,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/14/10.jpg",
+          "tile": {
+            "x": 14,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/15/10.jpg",
+          "tile": {
+            "x": 15,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            1
+          ],
+          "position": "right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/16/10.jpg",
+          "tile": {
+            "x": 16,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            2
+          ],
+          "position": "left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/11/11.jpg",
+          "tile": {
+            "x": 11,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/12/11.jpg",
+          "tile": {
+            "x": 12,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/13/11.jpg",
+          "tile": {
+            "x": 13,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/14/11.jpg",
+          "tile": {
+            "x": 14,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/15/11.jpg",
+          "tile": {
+            "x": 15,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            2
+          ],
+          "position": "right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/16/11.jpg",
+          "tile": {
+            "x": 16,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            3
+          ],
+          "position": "bottom-left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/11/12.jpg",
+          "tile": {
+            "x": 11,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/12/12.jpg",
+          "tile": {
+            "x": 12,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/13/12.jpg",
+          "tile": {
+            "x": 13,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/14/12.jpg",
+          "tile": {
+            "x": 14,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/inputs/zfill-tiles/5/15/12.jpg",
+          "tile": {
+            "x": 15,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            3
+          ],
+          "position": "bottom-right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/16/12.jpg",
+          "tile": {
+            "x": 16,
+            "y": 12,
+            "z": 5
+          }
+        }
+      ],
+      "width": 1028
+    },
+    {
+      "base_tile_count": 0,
+      "bounds": {
+        "east": 0.0,
+        "north": 40.97989806962013,
+        "south": 11.178401873711781,
+        "west": -45.0
+      },
+      "bytes": 70945,
+      "fill_rgb": [
+        68,
+        63,
+        62
+      ],
+      "height": 516,
+      "interior_cols": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "interior_rows": [
+        12,
+        13
+      ],
+      "key": "madrid-z5-x12-y12-13-v1",
+      "native_tile_count": 24,
+      "path": "/mnt/external/woe-s2-pages/feasibility/madrid-z5-x12-y12-13-v1.jpg",
+      "sha256": "c24fc4c2416dcf24593aac9ea4139283dc6c8e4a984319991b15c7d0145b73f7",
+      "source_grid": [
+        {
+          "grid_index": [
+            0,
+            0
+          ],
+          "position": "top-left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/11/11.jpg",
+          "tile": {
+            "x": 11,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/12/11.jpg",
+          "tile": {
+            "x": 12,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/13/11.jpg",
+          "tile": {
+            "x": 13,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/14/11.jpg",
+          "tile": {
+            "x": 14,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/15/11.jpg",
+          "tile": {
+            "x": 15,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            0
+          ],
+          "position": "top-right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/16/11.jpg",
+          "tile": {
+            "x": 16,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            1
+          ],
+          "position": "left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/11/12.jpg",
+          "tile": {
+            "x": 11,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/12/12.jpg",
+          "tile": {
+            "x": 12,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/13/12.jpg",
+          "tile": {
+            "x": 13,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/14/12.jpg",
+          "tile": {
+            "x": 14,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/inputs/zfill-tiles/5/15/12.jpg",
+          "tile": {
+            "x": 15,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            1
+          ],
+          "position": "right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/16/12.jpg",
+          "tile": {
+            "x": 16,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            2
+          ],
+          "position": "left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/11/13.jpg",
+          "tile": {
+            "x": 11,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/12/13.jpg",
+          "tile": {
+            "x": 12,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/13/13.jpg",
+          "tile": {
+            "x": 13,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/14/13.jpg",
+          "tile": {
+            "x": 14,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/15/13.jpg",
+          "tile": {
+            "x": 15,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            2
+          ],
+          "position": "right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/16/13.jpg",
+          "tile": {
+            "x": 16,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            3
+          ],
+          "position": "bottom-left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/11/14.jpg",
+          "tile": {
+            "x": 11,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/12/14.jpg",
+          "tile": {
+            "x": 12,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/13/14.jpg",
+          "tile": {
+            "x": 13,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/14/14.jpg",
+          "tile": {
+            "x": 14,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/15/14.jpg",
+          "tile": {
+            "x": 15,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            3
+          ],
+          "position": "bottom-right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/16/14.jpg",
+          "tile": {
+            "x": 16,
+            "y": 14,
+            "z": 5
+          }
+        }
+      ],
+      "width": 1028
+    },
+    {
+      "base_tile_count": 0,
+      "bounds": {
+        "east": -90.0,
+        "north": 55.77657301866769,
+        "south": 31.952162238024968,
+        "west": -135.0
+      },
+      "bytes": 117694,
+      "fill_rgb": [
+        47,
+        54,
+        49
+      ],
+      "height": 516,
+      "interior_cols": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "interior_rows": [
+        10,
+        11
+      ],
+      "key": "ordinary-land-z5-x4-y10-11-v1",
+      "native_tile_count": 24,
+      "path": "/mnt/external/woe-s2-pages/feasibility/ordinary-land-z5-x4-y10-11-v1.jpg",
+      "sha256": "b74fbb47e41aab1c065fe445c5aa5846b0466a00426c4f5147752915acf921a7",
+      "source_grid": [
+        {
+          "grid_index": [
+            0,
+            0
+          ],
+          "position": "top-left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/3/9.jpg",
+          "tile": {
+            "x": 3,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/4/9.jpg",
+          "tile": {
+            "x": 4,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/5/9.jpg",
+          "tile": {
+            "x": 5,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/6/9.jpg",
+          "tile": {
+            "x": 6,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/7/9.jpg",
+          "tile": {
+            "x": 7,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            0
+          ],
+          "position": "top-right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/8/9.jpg",
+          "tile": {
+            "x": 8,
+            "y": 9,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            1
+          ],
+          "position": "left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/3/10.jpg",
+          "tile": {
+            "x": 3,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/4/10.jpg",
+          "tile": {
+            "x": 4,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/5/10.jpg",
+          "tile": {
+            "x": 5,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/6/10.jpg",
+          "tile": {
+            "x": 6,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/7/10.jpg",
+          "tile": {
+            "x": 7,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            1
+          ],
+          "position": "right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/8/10.jpg",
+          "tile": {
+            "x": 8,
+            "y": 10,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            2
+          ],
+          "position": "left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/3/11.jpg",
+          "tile": {
+            "x": 3,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/4/11.jpg",
+          "tile": {
+            "x": 4,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/5/11.jpg",
+          "tile": {
+            "x": 5,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/6/11.jpg",
+          "tile": {
+            "x": 6,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/7/11.jpg",
+          "tile": {
+            "x": 7,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            2
+          ],
+          "position": "right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/inputs/zfill-tiles/5/8/11.jpg",
+          "tile": {
+            "x": 8,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            3
+          ],
+          "position": "bottom-left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/3/12.jpg",
+          "tile": {
+            "x": 3,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/4/12.jpg",
+          "tile": {
+            "x": 4,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/5/12.jpg",
+          "tile": {
+            "x": 5,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/6/12.jpg",
+          "tile": {
+            "x": 6,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/7/12.jpg",
+          "tile": {
+            "x": 7,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            3
+          ],
+          "position": "bottom-right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/8/12.jpg",
+          "tile": {
+            "x": 8,
+            "y": 12,
+            "z": 5
+          }
+        }
+      ],
+      "width": 1028
+    },
+    {
+      "base_tile_count": 0,
+      "bounds": {
+        "east": -90.0,
+        "north": 40.97989806962013,
+        "south": 11.178401873711781,
+        "west": -135.0
+      },
+      "bytes": 107229,
+      "fill_rgb": [
+        48,
+        54,
+        54
+      ],
+      "height": 516,
+      "interior_cols": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "interior_rows": [
+        12,
+        13
+      ],
+      "key": "ordinary-land-z5-x4-y12-13-v1",
+      "native_tile_count": 24,
+      "path": "/mnt/external/woe-s2-pages/feasibility/ordinary-land-z5-x4-y12-13-v1.jpg",
+      "sha256": "a4b9649989c818c5b21a531710514a3e021d45db77c9bfd99e33e9333cbd8712",
+      "source_grid": [
+        {
+          "grid_index": [
+            0,
+            0
+          ],
+          "position": "top-left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/3/11.jpg",
+          "tile": {
+            "x": 3,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/4/11.jpg",
+          "tile": {
+            "x": 4,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/5/11.jpg",
+          "tile": {
+            "x": 5,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/6/11.jpg",
+          "tile": {
+            "x": 6,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            0
+          ],
+          "position": "top",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/7/11.jpg",
+          "tile": {
+            "x": 7,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            0
+          ],
+          "position": "top-right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/inputs/zfill-tiles/5/8/11.jpg",
+          "tile": {
+            "x": 8,
+            "y": 11,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            1
+          ],
+          "position": "left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/3/12.jpg",
+          "tile": {
+            "x": 3,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/4/12.jpg",
+          "tile": {
+            "x": 4,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/5/12.jpg",
+          "tile": {
+            "x": 5,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/6/12.jpg",
+          "tile": {
+            "x": 6,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            1
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/7/12.jpg",
+          "tile": {
+            "x": 7,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            1
+          ],
+          "position": "right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/8/12.jpg",
+          "tile": {
+            "x": 8,
+            "y": 12,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            2
+          ],
+          "position": "left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/3/13.jpg",
+          "tile": {
+            "x": 3,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/4/13.jpg",
+          "tile": {
+            "x": 4,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/5/13.jpg",
+          "tile": {
+            "x": 5,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/6/13.jpg",
+          "tile": {
+            "x": 6,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            2
+          ],
+          "position": "right",
+          "role": "interior",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/7/13.jpg",
+          "tile": {
+            "x": 7,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            2
+          ],
+          "position": "right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/8/13.jpg",
+          "tile": {
+            "x": 8,
+            "y": 13,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            0,
+            3
+          ],
+          "position": "bottom-left",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/3/14.jpg",
+          "tile": {
+            "x": 3,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            1,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/4/14.jpg",
+          "tile": {
+            "x": 4,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            2,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/5/14.jpg",
+          "tile": {
+            "x": 5,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            3,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/6/14.jpg",
+          "tile": {
+            "x": 6,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            4,
+            3
+          ],
+          "position": "bottom",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/7/14.jpg",
+          "tile": {
+            "x": 7,
+            "y": 14,
+            "z": 5
+          }
+        },
+        {
+          "grid_index": [
+            5,
+            3
+          ],
+          "position": "bottom-right",
+          "role": "gutter",
+          "source_level": 5,
+          "source_path": "/mnt/external/woe-pages-revision/cache/tiles/5/8/14.jpg",
+          "tile": {
+            "x": 8,
+            "y": 14,
+            "z": 5
+          }
+        }
+      ],
+      "width": 1028
+    }
+  ]
+}
