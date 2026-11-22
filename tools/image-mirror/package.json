@@ -1,0 +1,12 @@
+{
+  "name": "image-mirror",
+  "version": "1.0.0",
+  "private": true,
+  "description": "R2 photo mirror pipeline: inventory, preflight, fetch/transcode/upload, and the data-rewrite tool (see docs/image-r2-mirror-design.md).",
+  "type": "module",
+  "main": "src/index.js",
+  "license": "ISC",
+  "dependencies": {
+    "sharp": "^0.35.5"
+  }
+}
