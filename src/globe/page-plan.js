@@ -17,8 +17,10 @@ const Z9_PAGE_TILES = 2;
 const CONTEXT_PAGE_TILES = 4;
 
 export function pagesEnabled() {
-  try { return new URLSearchParams(location.search).get('pages') === '1'; }
-  catch { return false; }
+  // Pages are the default renderer since 2026-11-22 (Sean's call after his
+  // phone test); ?pages=0 is the opt-out back to the legacy tile path.
+  try { return new URLSearchParams(location.search).get('pages') !== '0'; }
+  catch { return true; }
 }
 
 export function lonLatToTile(lon, lat, z) {
