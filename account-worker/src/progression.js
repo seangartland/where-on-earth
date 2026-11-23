@@ -3,9 +3,9 @@ import { isBullseye, isPostcard } from './daily-score.js';
 export const SEAL_DISCS = Object.freeze(['navy', 'burgundy', 'forest', 'charcoal']);
 export const SEAL_MOTIFS = Object.freeze({ globe: null, plane: 'frequent-flyer', compass: 'border-crosser', camera: 'postmarked', mountain: 'around-the-world', star: 'new-stamp' });
 export const DEFAULT_SEAL = Object.freeze({ v: 2, initials: null, disc: 'navy', motif: 'globe', ring: 'level', topper: null });
-export const OPEN_FIELD_BANNER = 'open-field';
+export const TRUE_NAVY_BANNER = 'true-navy';
 export const REMOVED_BANNER_IDS = Object.freeze(['blue-horizon', 'airmail']);
-export function normalizeBannerId(value) { return REMOVED_BANNER_IDS.includes(value) || !value ? OPEN_FIELD_BANNER : value; }
+export function normalizeBannerId(value) { return REMOVED_BANNER_IDS.includes(value) || !value ? TRUE_NAVY_BANNER : value; }
 export const THANKSGIVING_2026_WINDOW = Object.freeze({ month: 11, startDay: 25, endDay: 29 });
 export const CHRISTMAS_2026_WINDOW = Object.freeze({ month: 12, startDay: 20, endDay: 26 });
 // Kept as the public name used by the first seasonal drop.
@@ -78,7 +78,7 @@ function isSeasonalDate(date, window, now = Date.now()) {
 export function isThanksgiving2026Date(date, now = Date.now()) { return isSeasonalDate(date, THANKSGIVING_2026_WINDOW, now); }
 export function isHolidayTopperDate(date, now = Date.now()) { return isSeasonalDate(date, CHRISTMAS_2026_WINDOW, now); }
 export function ownsIdentity(type, id, level, earned, levelTwoTitle = null) {
-  const defaults = { title: ['traveler'], card: ['open-field', 'low-tide'] };
+  const defaults = { title: ['traveler'], card: ['true-navy', 'open-field', 'low-tide'] };
   if (defaults[type]?.includes(id)) return true;
   if (type === 'title' && ['window-seat', 'aisle-seat'].includes(id)) return level >= 5 || (level >= 2 && id === levelTwoTitle);
   return earned.has(`${type}:${id}`);
