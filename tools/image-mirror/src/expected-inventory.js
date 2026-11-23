@@ -3,13 +3,18 @@
 // inventory run no longer matches this, something in the four data files
 // changed since the design was banked and the build must stop and explain
 // the drift rather than silently proceeding on different numbers.
+// Updated 2026-11-22 for the all-day photo swap: 20 night/dusk card photos
+// in locations.json were replaced with daytime Commons photos. Tokyo's old
+// photo was an Unsplash URL (counted as a non-image gap); its replacement
+// is a Commons thumb URL, so locations.json gains one image reference, one
+// unique URL, and one thumb.wikimedia.org host count, and loses one gap.
 export const EXPECTED_INVENTORY_SNAPSHOT = {
   perFile: {
     'assets/locations.json': {
       entries: 803,
-      imageReferences: 801,
-      exactUniqueUrls: 801,
-      hostCounts: { 'thumb.wikimedia.org': 626, 'upload.wikimedia.org': 156, 'commons.wikimedia.org': 19 },
+      imageReferences: 802,
+      exactUniqueUrls: 802,
+      hostCounts: { 'thumb.wikimedia.org': 627, 'upload.wikimedia.org': 156, 'commons.wikimedia.org': 19 },
     },
     'assets/locations-bank.json': {
       entries: 479,
@@ -30,13 +35,13 @@ export const EXPECTED_INVENTORY_SNAPSHOT = {
       hostCounts: { 'thumb.wikimedia.org': 553, 'upload.wikimedia.org': 131, 'commons.wikimedia.org': 44 },
     },
   },
-  totalMemberships: 2244,
-  unionExactUniqueCount: 2114,
-  unionHostCounts: { 'thumb.wikimedia.org': 1689, 'upload.wikimedia.org': 362, 'commons.wikimedia.org': 63 },
+  totalMemberships: 2245,
+  unionExactUniqueCount: 2115,
+  unionHostCounts: { 'thumb.wikimedia.org': 1690, 'upload.wikimedia.org': 362, 'commons.wikimedia.org': 63 },
   crossFileUrlCount: 130,
-  canonicalUniqueCount: 2106,
+  canonicalUniqueCount: 2107,
   nonImageGapCounts: {
-    'assets/locations.json': 2,
+    'assets/locations.json': 1,
     'assets/locations-bank.json': 1,
     'assets/locations-bank-quarantine.json': 0,
     'assets/trivia-bank.json': 21,
