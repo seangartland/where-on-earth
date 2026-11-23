@@ -17,10 +17,13 @@ const Z9_PAGE_TILES = 2;
 const CONTEXT_PAGE_TILES = 4;
 
 export function pagesEnabled() {
-  // Pages are the default renderer since 2026-11-22 (Sean's call after his
-  // phone test); ?pages=0 is the opt-out back to the legacy tile path.
-  try { return new URLSearchParams(location.search).get('pages') !== '0'; }
-  catch { return true; }
+  // Pages are opt-in (?pages=1) again as of 2026-11-22: the brief default
+  // flip exposed known discolored deep-zoom source tiles (the red Iberia
+  // page Sean screenshotted) to every player. Pages stay opt-in until the
+  // discoloration fixes (woe-satmap-zfill list, step 3 windows) land and
+  // Sean re-approves the flip.
+  try { return new URLSearchParams(location.search).get('pages') === '1'; }
+  catch { return false; }
 }
 
 export function lonLatToTile(lon, lat, z) {
