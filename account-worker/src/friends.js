@@ -1,6 +1,6 @@
 import { dailyManifest } from './daily.js';
 import { scoreGuess } from './daily-score.js';
-import { DEFAULT_SEAL, levelForXp, normalizeSeal, ownsIdentity, processCompletion, processReferralPayout, progressionProfile, validateSeal } from './progression.js';
+import { DEFAULT_SEAL, levelForXp, normalizeBannerId, normalizeSeal, ownsIdentity, processCompletion, processReferralPayout, progressionProfile, validateSeal } from './progression.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
@@ -256,7 +256,7 @@ async function listFriends(request, env, id) {
         friendId: row.friend_id, displayName: row.display_name, since: row.created_at,
         level,
         loadout: {
-          titleId: row.title_id || 'traveler', cardId: row.card_id || 'blue-horizon',
+          titleId: row.title_id || 'traveler', cardId: normalizeBannerId(row.card_id),
           avatar: normalizeSeal(row.avatar_json, achievements, level),
         },
       };
@@ -451,7 +451,7 @@ async function updateLoadout(request, env, id) {
     return definition?.reward ? [definition.reward] : [];
   }));
   const titleId = input.titleId || profile.loadout.titleId;
-  const cardId = input.cardId || profile.loadout.cardId;
+  const cardId = normalizeBannerId(input.cardId || profile.loadout.cardId);
   const earnedIds = new Set(profile.achievements.map(({ id }) => id));
   const avatar = validateSeal(input.avatar || profile.loadout.avatar, earnedIds, profile.level);
   const levelTwoTitle = profile.loadout.levelTwoTitle || (profile.level >= 2 && ['window-seat', 'aisle-seat'].includes(titleId) ? titleId : null);

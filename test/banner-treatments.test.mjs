@@ -14,4 +14,7 @@ test('every catalog banner has a dedicated shared card and swatch treatment', as
     assert.match(css, new RegExp(`\\.traveler-card\\[data-card="${id}"\\], \\.banner-swatch\\[data-card="${id}"\\]`));
   }
   assert.doesNotMatch(css, /\.traveler-card\[data-card\]:not\(/);
+  assert.doesNotMatch(bannerBlock, /blue-horizon|airmail/);
+  assert.match(bannerBlock, /open-field/);
+  assert.match(bannerBlock, /low-tide/);
 });

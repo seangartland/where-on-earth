@@ -3,7 +3,6 @@ import { renderAvatar } from './avatar.js';
 export const LEVEL_UNLOCKS = Object.freeze([
   { level: 2, kind: 'title-pick', text: 'Level 2 title pick', detail: 'Choose your Level 2 title in Customize: Window Seat or Aisle Seat' },
   { level: 5, kind: 'silver-ring', text: 'Silver ring', detail: 'Silver seal ring finish unlocked' },
-  { level: 5, kind: 'card', text: 'Airmail banner', detail: 'New banner: Airmail' },
   { level: 5, kind: 'titles', text: 'both titles', detail: 'Window Seat and Aisle Seat titles are now both yours' },
   { level: 10, kind: 'gold-ring', text: 'Gold ring', detail: 'Gold seal ring finish unlocked' },
 ]);

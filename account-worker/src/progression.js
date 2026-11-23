@@ -3,6 +3,9 @@ import { isBullseye, isPostcard } from './daily-score.js';
 export const SEAL_DISCS = Object.freeze(['navy', 'burgundy', 'forest', 'charcoal']);
 export const SEAL_MOTIFS = Object.freeze({ globe: null, plane: 'frequent-flyer', compass: 'border-crosser', camera: 'postmarked', mountain: 'around-the-world', star: 'new-stamp' });
 export const DEFAULT_SEAL = Object.freeze({ v: 2, initials: null, disc: 'navy', motif: 'globe', ring: 'level', topper: null });
+export const OPEN_FIELD_BANNER = 'open-field';
+export const REMOVED_BANNER_IDS = Object.freeze(['blue-horizon', 'airmail']);
+export function normalizeBannerId(value) { return REMOVED_BANNER_IDS.includes(value) || !value ? OPEN_FIELD_BANNER : value; }
 export const THANKSGIVING_2026_WINDOW = Object.freeze({ month: 11, startDay: 25, endDay: 29 });
 export const CHRISTMAS_2026_WINDOW = Object.freeze({ month: 12, startDay: 20, endDay: 26 });
 // Kept as the public name used by the first seasonal drop.
@@ -75,10 +78,9 @@ function isSeasonalDate(date, window, now = Date.now()) {
 export function isThanksgiving2026Date(date, now = Date.now()) { return isSeasonalDate(date, THANKSGIVING_2026_WINDOW, now); }
 export function isHolidayTopperDate(date, now = Date.now()) { return isSeasonalDate(date, CHRISTMAS_2026_WINDOW, now); }
 export function ownsIdentity(type, id, level, earned, levelTwoTitle = null) {
-  const defaults = { title: ['traveler'], card: ['blue-horizon'] };
+  const defaults = { title: ['traveler'], card: ['open-field', 'low-tide'] };
   if (defaults[type]?.includes(id)) return true;
   if (type === 'title' && ['window-seat', 'aisle-seat'].includes(id)) return level >= 5 || (level >= 2 && id === levelTwoTitle);
-  if (type === 'card' && id === 'airmail') return level >= 5;
   return earned.has(`${type}:${id}`);
 }
 export function communityPercentage(eligible, earners) {
@@ -169,5 +171,5 @@ export async function progressionProfile(env, accountId) {
   const community = await communityPercentages(env);
   const avatar = normalizeSeal(loadout?.avatar_json, new Set(achievements.map(({ achievement_id }) => achievement_id)), level);
   const xpIntoLevel = xp - xpAtLevel(level); const levelSpan = 100 + 20 * (level - 1);
-  return { displayName: account?.display_name || 'Traveler', level, totalXp: xp, xpIntoLevel, levelSpan, xpToNext: levelSpan - xpIntoLevel, stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries, referrals: summary.referrals }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: loadout?.card_id || 'blue-horizon', avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
+  return { displayName: account?.display_name || 'Traveler', level, totalXp: xp, xpIntoLevel, levelSpan, xpToNext: levelSpan - xpIntoLevel, stats: { dailies: summary.dailies, averageScore: summary.dailies ? Math.round(summary.totalScore / summary.dailies) : 0, bestScore: summary.bestScore, bullseyes: summary.bullseyes, postcards: summary.postcards, bestStreak: summary.bestStreak, countries: summary.countries, referrals: summary.referrals }, loadout: { titleId: loadout?.title_id || 'traveler', cardId: normalizeBannerId(loadout?.card_id), avatar, levelTwoTitle: loadout?.level_two_title || null }, achievements: achievements.map((row) => ({ id: row.achievement_id, earnedAt: row.earned_at })), achievementDefinitions: ACHIEVEMENTS.map(([id, category, name, condition, reward]) => ({ id, category, name, condition, reward, progress: achievementProgress(id, summary), ...(community.get(id) ? { communityPercentage: community.get(id) } : {}) })), progressionStartsAt: 'first canonical Daily' };
 }

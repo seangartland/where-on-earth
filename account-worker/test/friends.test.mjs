@@ -194,7 +194,7 @@ test('invite lifecycle, names, limits, unified invalid response, and mutual remo
   assert.deepEqual(Object.keys(listed.body.friends[0]).sort(), ['displayName', 'friendId', 'level', 'loadout', 'since']);
   assert.deepEqual(listed.body.friends[0], {
     friendId: 'b', displayName: 'Bo', since: listed.body.friends[0].since, level: 2,
-    loadout: { titleId: 'window-seat', cardId: 'airmail', avatar: { v: 2, initials: 'BO', disc: 'forest', motif: 'plane', ring: 'level', topper: null } },
+    loadout: { titleId: 'window-seat', cardId: 'open-field', avatar: { v: 2, initials: 'BO', disc: 'forest', motif: 'plane', ring: 'level', topper: null } },
   });
   assert.equal((await post(env, 'a', '/v1/friends/remove', { friendId: 'b' })).status, 204);
   assert.equal((await env.DB.prepare('SELECT COUNT(*) AS n FROM friendships').first()).n, 0);
@@ -421,6 +421,19 @@ test('level-two title choice persists until both titles unlock at level five', a
   assert.equal((await post(env, 'a', '/v1/progression/loadout', { titleId: 'aisle-seat' })).status, 403);
   await env.DB.prepare('UPDATE xp_ledger SET amount = 520 WHERE account_id = ?').bind('a').run();
   assert.equal((await post(env, 'a', '/v1/progression/loadout', { titleId: 'aisle-seat' })).status, 200);
+});
+
+test('removed banner selections return and save as Open Field', async (t) => {
+  const env = await fixture(t);
+  await addUser(env, 'a');
+  await name(env, 'a', 'Ana');
+  await env.DB.prepare(`INSERT INTO profile_loadouts (account_id, title_id, card_id, avatar_json, updated_at)
+    VALUES (?, ?, ?, ?, ?)`).bind('a', 'traveler', 'blue-horizon', JSON.stringify({ v: 2 }), Date.now()).run();
+  assert.equal((await get(env, 'a', '/v1/progression')).body.loadout.cardId, 'open-field');
+  const updated = await post(env, 'a', '/v1/progression/loadout', { cardId: 'airmail' });
+  assert.equal(updated.status, 200);
+  assert.equal(updated.body.loadout.cardId, 'open-field');
+  assert.equal((await env.DB.prepare('SELECT card_id FROM profile_loadouts WHERE account_id = ?').bind('a').first()).card_id, 'open-field');
 });
 
 test('referral payout: pending on accept, 25 XP on the invitee\'s first canonical Daily, nothing on the second', async (t) => {
