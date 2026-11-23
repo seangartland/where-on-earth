@@ -32,6 +32,7 @@ import { borders } from './tap-country.js';
 import { expeditionRun } from './expeditions.js';
 import { endless } from './endless.js';
 import { isSignedIn } from '../account/session.js';
+import { bannerId } from '../account/banners.js';
 
 let applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin;
 let makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints;
@@ -322,7 +323,7 @@ async function syncTravelerXp() {
       window.addEventListener('daily-progression-award', () => syncTravelerXp(), { once: true });
     }
     const card = gameEls.results.querySelector('.results-card');
-    if (card) card.dataset.callingCard = profile.loadout.cardId;
+    if (card) card.dataset.callingCard = bannerId(profile.loadout.cardId);
     line.hidden = false;
   } catch { line.hidden = true; }
 }

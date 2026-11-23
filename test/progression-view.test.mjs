@@ -5,7 +5,7 @@ import { rewardLabel, stripWindow, unlocksBetween } from '../src/account/progres
 const catalogs = { Titles: [['window-seat', 'Window Seat']], Banners: [['airmail', 'Airmail']] };
 test('progression unlock helpers cover levels 2, 5, and 10', () => {
   assert.deepEqual(unlocksBetween(1, 2).map(({ kind }) => kind), ['title-pick']);
-  assert.deepEqual(unlocksBetween(2, 5).map(({ kind }) => kind), ['silver-ring', 'card', 'titles']);
+  assert.deepEqual(unlocksBetween(2, 5).map(({ kind }) => kind), ['silver-ring', 'titles']);
   assert.deepEqual(unlocksBetween(5, 10).map(({ kind }) => kind), ['gold-ring']);
 });
 test('level strip window follows the current level', () => {
