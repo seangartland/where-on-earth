@@ -1064,38 +1064,6 @@ if (new URLSearchParams(location.search).get('trace') === '1') {
   });
   document.body.appendChild(exportBtn);
 }
-// ?pages=1 pilot test controls: pin a covered location without a tethered
-// console, so the phone test is taps only (Sean, 2026-11-21). The buttons
-// call the same preparePageRound the round path uses; Export trace above
-// carries the resulting trace out.
-if (new URLSearchParams(location.search).get('pages') === '1') {
-  const traceOn = new URLSearchParams(location.search).get('trace') === '1';
-  const stack = document.createElement('div');
-  stack.style.cssText = `position:fixed;bottom:calc(env(safe-area-inset-bottom,8px) + ${traceOn ? 48 : 0}px);right:8px;z-index:99999;display:flex;flex-direction:column;gap:6px;align-items:flex-end;`;
-  const pins = [
-    ['Pin Madrid', { lat: 40.4, lng: -3.7 }, 'Madrid pinned'],
-    ['Pin Congo', { lat: -0.7, lng: 24.6 }, 'Congo pinned'],
-  ];
-  for (const [label, coords, doneLabel] of pins) {
-    const btn = document.createElement('button');
-    btn.textContent = label;
-    btn.style.cssText = 'padding:8px 12px;font-size:12px;background:#111;color:#fff;border:1px solid #fff;border-radius:6px;opacity:0.85;';
-    btn.addEventListener('click', async () => {
-      btn.disabled = true;
-      btn.textContent = 'Preparing...';
-      try {
-        const { preparePageRound } = await import('./globe/page-render.js');
-        await preparePageRound(coords);
-        btn.textContent = doneLabel;
-      } catch {
-        btn.textContent = 'Pin failed';
-      }
-      setTimeout(() => { btn.textContent = label; btn.disabled = false; }, 3000);
-    });
-    stack.appendChild(btn);
-  }
-  document.body.appendChild(stack);
-}
 if (window.__boot) window.__boot('ready');
 // the boot screen stays up until the land fill is on the globe (revealGlobe)
 renderLoad();
