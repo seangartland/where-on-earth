@@ -352,7 +352,7 @@ function identityName(type, id) {
 function mountFriendSeals() {
   sheet.querySelectorAll('.friend-page-row').forEach((row) => {
     const friend = friendsState?.friends?.find((item) => item.friendId === row.closest('.friend-page-item')?.dataset.friendId);
-    row.querySelector('.friend-page-seal')?.append(renderAvatar(friend?.loadout?.avatar, 54, { compact: true, name: friend?.displayName, level: friend?.level }));
+    row.querySelector('.friend-page-seal')?.append(renderAvatar(friend?.loadout?.avatar, 42, { compact: true, name: friend?.displayName, level: friend?.level }));
   });
 }
 

@@ -211,8 +211,8 @@ button { font: inherit; }
 .traveler-card[data-card="return-ticket"], .banner-swatch[data-card="return-ticket"] { background-color: #173e68; }
 .traveler-card[data-card="regular-route"], .banner-swatch[data-card="regular-route"] { background-color: #1e4e9c; background-image: linear-gradient(to bottom, transparent 0 84%, #ffc76a 84% 100%); }
 .traveler-card[data-card="seasoned-traveler"], .banner-swatch[data-card="seasoned-traveler"] { background-color: #1f4d3a; background-image: linear-gradient(to bottom, transparent 0 86%, #f6edd8 86% 100%); }
-.traveler-card[data-card="right-on-the-map"], .banner-swatch[data-card="right-on-the-map"] { background-color: #173e68; background-image: linear-gradient(to bottom, transparent 0 84%, #ffc76a 84% 100%); }
-.traveler-card[data-card="five-star-landing"], .banner-swatch[data-card="five-star-landing"] { background-color: #173e68; background-image: linear-gradient(to bottom, transparent 0 80%, #ffc76a 80% 100%); }
+.traveler-card[data-card="right-on-the-map"], .banner-swatch[data-card="right-on-the-map"] { background-color: #7a2230; background-image: linear-gradient(to bottom, transparent 0 84%, #ffc76a 84% 100%); }
+.traveler-card[data-card="five-star-landing"], .banner-swatch[data-card="five-star-landing"] { background-color: #173e68; background-image: linear-gradient(to bottom, #ffc76a 0 20%, transparent 20% 100%); }
 .traveler-card[data-card="high-flyer"], .banner-swatch[data-card="high-flyer"] { background-color: #1e4e9c; background-image: linear-gradient(to bottom, transparent 0 86%, #f6edd8 86% 100%); }
 .traveler-card[data-card="worldly"], .banner-swatch[data-card="worldly"] { background-color: #7a2230; }
 .traveler-card[data-card="around-the-world"], .banner-swatch[data-card="around-the-world"] { background-color: #2b2f36; background-image: linear-gradient(to bottom, transparent 0 84%, #ffc76a 84% 100%); }
@@ -356,10 +356,10 @@ button { font: inherit; }
 .account-modal-panel .account-inline-edit input { border-color: rgba(var(--rgb-line),.3); background: #0d1526; color: var(--ink-hi); }
 .account-modal-panel .account-inline-edit .text-button { color: var(--gold); }
 .account-modal-panel .account-status { text-align: center; }
-.friends-page-list { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+.friends-page-list { display: grid; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
 .friend-page-item { display: flex; min-height: 0; border: 0; }
 .friend-remove-zone { align-items: center; gap: 10px; flex-wrap: wrap; }
-.friend-page-row.traveler-card { flex: 1; min-height: 64px; margin: 0; padding: 9px 12px; border: 0; border-radius: 13px; color: #f6edd8; }
+.friend-page-row.traveler-card { flex: 1; min-height: 50px; margin: 0; padding: 7px 10px; border: 0; border-radius: 13px; color: #f6edd8; }
 .friend-page-row .friend-page-seal { position: relative; z-index: 1; flex: none; }
 .friend-page-row .traveler-identity { display: grid; gap: 3px; }
 .friend-page-row .traveler-identity strong { overflow: hidden; font-size: var(--fs-base); text-overflow: ellipsis; white-space: nowrap; }
