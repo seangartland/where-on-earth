@@ -116,53 +116,80 @@ echo -n "$DEPLOY_VERSION" > "$DEPLOY_DIR/assets/version.txt"
 # [ -f "$SCRIPT_DIR/review-locations.html" ] && cp "$SCRIPT_DIR/review-locations.html" "$DEPLOY_DIR/"
 
 echo "Deploying to Vercel..."
-DEPLOY_OUTPUT=$(python3 ~/workspace/skills/vercel/bin/vercel-api deploy prj_gqXXakaMlcpXFkZIOp792miGxtv5 "$DEPLOY_DIR" --target production 2>&1)
-echo "$DEPLOY_OUTPUT" | tail -1
+DEPLOY_OUTPUT=$(python3 ~/workspace/skills/vercel/bin/vercel-api deploy prj_gqXXakaMlcpXFkZIOp792miGxtv5 "$DEPLOY_DIR" --target production 2>&1) || true
 
-echo "Waiting for deployment to be ready..."
-sleep 20
-
-DEPLOY_ID=$(python3 ~/workspace/skills/vercel/bin/vercel-api raw GET "/v6/deployments?projectId=prj_gqXXakaMlcpXFkZIOp792miGxtv5&limit=1" 2>&1 | python3 -c "
+# Every step below binds to the deployment this run created, parsed from
+# the deploy output itself. The old script polled the LATEST deployment
+# instead, so a failed deploy could alias the previous build, pass the
+# old verify checks against it, and still print success.
+DEPLOY_ID=$(printf '%s' "$DEPLOY_OUTPUT" | python3 -c "
 import json,sys
-d = json.load(sys.stdin)
-dep = d['payload']['deployments'][0]
-print(dep['uid'])
+raw = sys.stdin.read()
+starts = [i for i,ch in enumerate(raw) if ch == '{' and (i == 0 or raw[i-1] == '\n')]
+found = ''
+for st in reversed(starts):
+    try:
+        d = json.loads(raw[st:])
+        found = d.get('payload', {}).get('id', '')
+        break
+    except Exception:
+        continue
+print(found)
 ")
+UPLOADED_COUNT=$(printf '%s\n' "$DEPLOY_OUTPUT" | grep -c '^uploaded ' || true)
+echo "Files uploaded this deploy: $UPLOADED_COUNT"
+if [ -z "$DEPLOY_ID" ]; then
+    echo "Deploy step returned no deployment id; aborting before any alias. Full deploy output:"
+    echo "$DEPLOY_OUTPUT"
+    exit 1
+fi
+echo "Deploy created: $DEPLOY_ID"
 
-STATE=$(python3 ~/workspace/skills/vercel/bin/vercel-api raw GET "/v6/deployments?projectId=prj_gqXXakaMlcpXFkZIOp792miGxtv5&limit=1" 2>&1 | python3 -c "
+echo "Waiting for deployment $DEPLOY_ID to be ready..."
+STATE=""
+for i in $(seq 1 40); do
+    STATE=$(python3 ~/workspace/skills/vercel/bin/vercel-api raw GET "/v13/deployments/$DEPLOY_ID" 2>&1 | python3 -c "
 import json,sys
-d = json.load(sys.stdin)
-dep = d['payload']['deployments'][0]
-print(dep['state'])
+try:
+    d = json.load(sys.stdin)
+    print(d.get('payload', {}).get('readyState', ''))
+except Exception:
+    print('')
 ")
-
+    case "$STATE" in
+        READY) break ;;
+        ERROR|CANCELED) echo "Deployment $DEPLOY_ID ended in state $STATE"; exit 1 ;;
+    esac
+    sleep 10
+done
 echo "Deployment $DEPLOY_ID: $STATE"
+if [ "$STATE" != "READY" ]; then
+    echo "Deployment $DEPLOY_ID not READY after polling (last state: $STATE)"
+    exit 1
+fi
 
-if [ "$STATE" = "READY" ]; then
-    echo "Assigning alias..."
-    echo '{"alias":"where-on-earth-game.vercel.app"}' > /tmp/woe-alias.json
-    python3 ~/workspace/skills/vercel/bin/vercel-api raw POST "/v2/deployments/$DEPLOY_ID/aliases" /tmp/woe-alias.json 2>&1 | python3 -c "
+echo "Assigning alias..."
+echo '{"alias":"where-on-earth-game.vercel.app"}' > /tmp/woe-alias.json
+python3 ~/workspace/skills/vercel/bin/vercel-api raw POST "/v2/deployments/$DEPLOY_ID/aliases" /tmp/woe-alias.json 2>&1 | python3 -c "
 import json,sys
 d = json.load(sys.stdin)
 print('Alias status:', d.get('status'))
 "
-    
-    echo "Verifying..."
-    sleep 3
-    VENDOR_PATH=$(grep -o "\./lib/[^\"]*/three/build/three.module.js" "$SCRIPT_DIR/index.html" | head -1 | sed "s|^\.||")
-    VENDOR_CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://where-on-earth-game.vercel.app${VENDOR_PATH:-/vendor/three/build/three.module.js}")
-    LOC_COUNT=$(curl -s "https://where-on-earth-game.vercel.app/assets/locations.json" 2>/dev/null | python3 -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo "?")
-    EXPECTED_COUNT=$(python3 -c "import json; print(len(json.load(open('$SCRIPT_DIR/assets/locations.json'))))")
-    echo "Vendor (three.js): $VENDOR_CODE"
-    echo "Locations: $LOC_COUNT (expected $EXPECTED_COUNT)"
-    
-    if [ "$VENDOR_CODE" = "200" ] && [ "$LOC_COUNT" = "$EXPECTED_COUNT" ]; then
-        echo "✅ Deploy successful"
-    else
-        echo "⚠️  Deploy may have issues - verify manually"
-        exit 1
-    fi
+
+echo "Verifying..."
+sleep 3
+VENDOR_PATH=$(grep -o "\./lib/[^\"]*/three/build/three.module.js" "$SCRIPT_DIR/index.html" | head -1 | sed "s|^\.||")
+VENDOR_CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://where-on-earth-game.vercel.app${VENDOR_PATH:-/vendor/three/build/three.module.js}")
+LOC_COUNT=$(curl -s "https://where-on-earth-game.vercel.app/assets/locations.json" 2>/dev/null | python3 -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo "?")
+EXPECTED_COUNT=$(python3 -c "import json; print(len(json.load(open('$SCRIPT_DIR/assets/locations.json'))))")
+SERVED_VERSION=$(curl -s "https://where-on-earth-game.vercel.app/assets/version.txt")
+echo "Vendor (three.js): $VENDOR_CODE"
+echo "Locations: $LOC_COUNT (expected $EXPECTED_COUNT)"
+echo "Version: $SERVED_VERSION (expected $DEPLOY_VERSION)"
+
+if [ "$VENDOR_CODE" = "200" ] && [ "$LOC_COUNT" = "$EXPECTED_COUNT" ] && [ "$SERVED_VERSION" = "$DEPLOY_VERSION" ]; then
+    echo "Deploy successful: $DEPLOY_ID"
 else
-    echo "❌ Deployment not READY: $STATE"
+    echo "Deploy verification failed for $DEPLOY_ID - check manually"
     exit 1
 fi
