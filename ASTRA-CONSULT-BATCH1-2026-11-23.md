@@ -1,0 +1,31 @@
+# Batch 1 consult verdicts — 2026-11-23
+
+Direct review, without delegation, of BRIEF-ASTRA-BATCH1.md and BATCH1-BUILD-REPORT.md. These decisions rely on their reported measurements; this consult did not independently rerun the Pi build. The discoloration and image-mirror workstreams remain separate.
+
+## A. Family A — hold and mask to the 544-key scope (option 1)
+
+Do not accept the 894-key re-run as the release candidate. Keep the signed 544-key set as the permitted output scope and preserve everything outside it byte-for-byte against the live baseline. Preserve unchanged source outside the contribution mask as well: membership in a permitted tile is not permission to retone unrelated source pixels within it.
+
+The dtype correction has strong evidence: all seven confirmed-bad controls pass, and 500/377 is byte-identical. That proves the repair mechanism, but not the safety of its incidental reach. The 350 changed outsiders include a clean control with material pixel changes and adjudicated legitimate Sahara color. Passing the color gate does not establish unchanged content. The 30.3 MB size is comfortably within budget but cannot waive the preservation requirement.
+
+The report also establishes that 544 is not the unmodified pipeline's full dependency closure: all-quarter feather/fallback inputs and the global ocean median propagate changes farther. Retain that finding in provenance. Constrain the transformation so its effective contribution stays within the approved mask; do not relabel the 894-key influence as a 544-key dependency closure. Restore original bytes for excluded outputs rather than decoding and re-encoding them. The report says only the 544 keys were harvested already, so first verify that assembled candidate against the live baseline; do not repeat a regional build merely to produce the same allowlist.
+
+Acceptance requires a manifest/hash comparison proving no changed output outside the 544 keys, preservation outside the source contribution mask, the seven bad-control passes, unchanged excluded clean controls, and retained per-key adjudications for the 11 yellow-band exceptions. Review boundary sheets made from the actual masked candidate beside unchanged live neighbors across all 34 components; sheets from the unrestricted re-run cannot establish those boundaries. A visible seam is a reason to hold and refine the masked repair, not to silently widen it. Preserve the pilot's z10-only scope and exclude incidental z5–z9 regeneration. Sean's final-map visual validation remains required before release.
+
+## B. Family B — bounded calibration before any further rebuild (option 2)
+
+Do not adjudicate this footprint as plausible dark water on the strength of a failed repair. Keep B unresolved and out of the releasable candidate while investigating the finish chain on retained inputs.
+
+The exact Q3-exclusion rule was executed, yet Q2 finishes at 0.0646, about 21.5 times the frozen 0.003 gate. The second chain's 0.0643 result corroborates the problem; it does not prove independence from processing shared by both chains. The earlier clean-Q2 diagnosis depended on approximate tone replication and is insufficient to select a remedy. Neither a gate failure alone nor a failed remedy establishes the scene's true color.
+
+Bound the investigation to this retained footprint, its two reported siblings, and suitable retained clean-water controls. Read the pinned finish code and trace fixed Q1/Q2/Q3 inputs through its stages, recording the cyan fraction and RGB distributions at each stage. Identify where the approximate replication and production rendering diverge and which operation amplifies the cast. Keep the gate frozen; do not pursue a global desaturation change or tune this single tile merely to cross the threshold. Deliver a causal finding and, only if supported, a footprint-scoped calibration proposal with control and boundary evidence. This authorizes diagnosis, not another production rebuild or release.
+
+Missing ancestor/base inputs are a separate hard blocker. Calibration cannot recreate absent quarterly caches or prove complete derivative closure. Record a concrete input-recovery or separately authorized reacquisition plan before scheduling a repair build; do not substitute upsampled children or leave stale ancestors while declaring the family repaired. Keep z6 untouched as specified. If the required inputs remain unavailable, B stays blocked even if local calibration succeeds. Final-map review may later support a documented natural-color adjudication, but that conclusion is not established by this report.
+
+## C. R2 image mirror — provision the Pi and ingest there (option 2)
+
+Recommend that Sean place the required R2 write credential on the Pi through the secure flow, then run the already-approved ingest there. This is the one Sean-dependent action; do not copy the surrogate connector token or ask him to paste a credential into chat or the report. Scope the credential to the mirror's required operations and destination rather than requesting broader account access by default.
+
+The VM route avoids credential placement today, but splits processing from the durable raw cache and leaves future retries, new images, and variant regeneration dependent on VM access or another transfer. A roughly 2 GB one-time transfer is feasible; its size is not the deciding issue. The Pi already holds the staged tooling and is the designated home for bulk data. Provisioning its ingest access once gives the recurring workflow a stable home and avoids asking Sean to handle authentication for each normal rerun, apart from credential expiry or rotation.
+
+After secure placement, verify access without exposing the secret and run the planned 50-image pilot. Sight-check the samples and verify the 256/640/1280 variants, destination delivery, and manifest completeness before the full 2,107-image run. Retain the raw cache under the Pi's durable external storage and reuse it for retries and variant regeneration; verify resume/skip behavior before scaling. Record actual stored bytes and request usage against the projected 0.526 GB. Keep that mirror projection separate from the discoloration candidate's 1.0 GB cap. Existing end-to-end approval covers execution after the credential and pilot gates; no new general approval is needed.
