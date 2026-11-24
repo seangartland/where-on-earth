@@ -34,7 +34,7 @@ export const PACK_WORLD_CITY_IDS = new Set([
   'samarkand-uz', 'guadalajara-mexico', 'bilbao-spain', 'surrey-ca',
   'xian-china', 'antwerp-be', 'dresden-germany', 'bethlehem',
   'sheffield-gb', 'timbuktu-mali', 'ephesus', 'porto-portugal',
-  'lucknow-in', 'jeddah-sa', 'brighton-england', 'bordeaux-france',
+  'christchurch-new-zealand', 'jeddah-sa', 'brighton-england', 'bordeaux-france',
   'medellin-co', 'vladivostok-russia', 'hangzhou', 'palermo-it',
   'yekaterinburg-ru', 'trieste-it', 'toulouse-france', 'southampton-england',
   'leipzig-germany', 'monterrey-mexico', 'jaipur-india', 'santorini-gr',

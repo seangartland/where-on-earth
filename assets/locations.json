@@ -6398,23 +6398,23 @@
   "difficultyWhy": "p.68·fb27·K0·iso189 → 10.7 → 4"
  },
  {
-  "id": "lucknow-in",
-  "short": "Lucknow",
-  "clue": "Lucknow, India 🇮🇳",
-  "fact": "Lucknow is the capital of Uttar Pradesh, famous for Awadhi cuisine, its kebabs, and the grand Bara Imambara.",
-  "lat": 26.83928,
-  "lng": 80.92313,
+  "id": "christchurch-new-zealand",
+  "short": "Christchurch",
+  "clue": "Christchurch, New Zealand 🇳🇿",
+  "fact": "Christchurch is the largest city on New Zealand's South Island; after the 2011 earthquake, its transitional cathedral was built partly from cardboard tubes.",
+  "lat": -43.5321,
+  "lng": 172.6362,
   "difficulty": 6,
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Gomti_Riverfront%2C_Lucknow%2C_India.jpg/1280px-Gomti_Riverfront%2C_Lucknow%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "country": "India",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Christchurch,_city_centre,_New_Zealand.jpg/1280px-Christchurch,_city_centre,_New_Zealand.jpg",
+  "country": "New Zealand",
   "region": {
-   "id": "IN.36",
-   "name": "Uttar Pradesh",
-   "outline": "IN.36"
+   "id": "NZ.E9",
+   "name": "Canterbury",
+   "outline": "NZ.E9"
   },
-  "continent": "Asia",
+  "continent": "Oceania",
   "sets": [],
-  "difficultyWhy": "p.81·fb696·K0·iso71 → 33.0 → 6",
+  "difficultyWhy": "p.80·fb539·K0·iso765 → 26.9 → 6",
   "category": "city"
  },
  {

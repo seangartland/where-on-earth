@@ -3,7 +3,8 @@
 Saved 2026-11-22 when both launch packs went all-day (Sean's call): the
 outgoing night and dusk card photos, kept as the seed for a future night
 pack (his example: Cities at Night). A full night pack needs roughly 390
-sourced night photos; these 20 are the seed. License and author for each
+sourced night photos; these 21 are the seed (the 20 below from the swap,
+plus Lucknow's, added 2026-11-24 when Lucknow left World Cities). License and author for each
 photo live on its Commons file page (Tokyo's outgoing photo is an
 Unsplash URL, not Commons).
 
@@ -18,6 +19,7 @@ Unsplash URL, not Commons).
 | ho-chi-minh-city-vn | World Cities | night | https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Ho_Chi_Minh_City_Skyline_at_Night.jpg/1280px-Ho_Chi_Minh_City_Skyline_at_Night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail |
 | houston-usa | World Cities | night | https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Texas_medical_center.jpg/1280px-Texas_medical_center.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail |
 | kochi-india | World Cities | night | https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Kochi_Skyline.jpg/960px-Kochi_Skyline.jpg |
+| lucknow-in | World Cities | night | https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Gomti_Riverfront%2C_Lucknow%2C_India.jpg/1280px-Gomti_Riverfront%2C_Lucknow%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail |
 | sheffield-gb | World Cities | night | https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Sheffield_16-Sep-22-2.jpg/1280px-Sheffield_16-Sep-22-2.jpg |
 | yokohama-jp | World Cities | night | https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Minato_Mirai_-_Yokohama_Skyline_March_2025.jpg/1280px-Minato_Mirai_-_Yokohama_Skyline_March_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail |
 | managua-ni | World Capitals | night | https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Avenida_Bolivar_A_Chavez.jpg/1280px-Avenida_Bolivar_A_Chavez.jpg |
@@ -30,6 +32,7 @@ Unsplash URL, not Commons).
 | new-orleans-usa | World Cities | dusk | https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/New_Orleans_from_the_Air_September_2019_-_Central_Business_District_Skyline_%28cropped%29.jpg/1280px-New_Orleans_from_the_Air_September_2019_-_Central_Business_District_Skyline_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail |
 | stuttgart-de | World Cities | dusk | https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Stuttgart_Panorama_from_TV_Tower-pjt.jpg/1280px-Stuttgart_Panorama_from_TV_Tower-pjt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail |
 
-Still live in World Cities (not swapped): lucknow-in has no qualifying
-daytime wide cityscape on Commons after two searches, so its night photo
-stays for now and is also a night-pack candidate: https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Gomti_Riverfront%2C_Lucknow%2C_India.jpg/1280px-Gomti_Riverfront%2C_Lucknow%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail
+Update 2026-11-24: lucknow-in was swapped out of World Cities entirely
+(Sean's ruling: his must-keep rule covers national capitals only, and
+Lucknow is a state capital) and replaced by Christchurch. Its night photo
+is the lucknow-in row in the table above, seed photo number 21.

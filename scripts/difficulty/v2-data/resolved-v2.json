@@ -7808,5 +7808,15 @@
   "types": "commune of France; college town; big city; commune of France with specific status",
   "distKm": 0,
   "flags": []
+ },
+ "christchurch-new-zealand": {
+  "title": "Christchurch",
+  "asked": "Christchurch",
+  "how": "slate 2026-11-24 title+coords",
+  "views": 1086.0,
+  "qid": "Q79956",
+  "types": "city; territorial authority",
+  "distKm": 0,
+  "flags": []
  }
 }
