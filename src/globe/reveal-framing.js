@@ -111,3 +111,100 @@ export function solveRevealFraming({
   }
   return { yaw: best.yaw, pitch: best.pitch, dist };
 }
+
+// Cost of a projected point relative to the marker-clearance box: 0 inside
+// (and facing), otherwise the largest single-axis overshoot. Summed over both
+// points this is the objective solveNorthUpRevealFraming drives to zero.
+function boxOvershoot(proj, xMin, xMax, yMin, yMax) {
+  if (!proj.facing) return 1e6;
+  return Math.max(0, xMin - proj.x, proj.x - xMax, yMin - proj.y, proj.y - yMax);
+}
+
+const YAW_GRID = 90;
+
+// Best yaw (coarse grid plus local bisection) for a fixed pitch and dist:
+// minimizes the combined box overshoot of both points. Yaw is the only axis
+// north-up framing is free to spin at a fixed pitch, since rotateX leaves x
+// untouched, so this is the north-up analogue of the yaw+pitch search
+// solveRevealFraming does for the flyover camera.
+function bestNorthUpYaw(a, b, pitch, dist, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax) {
+  const costAt = (yaw) => {
+    const pa = projectUnderView(a, yaw, pitch, dist, viewW, viewH, fov, deg);
+    const pb = projectUnderView(b, yaw, pitch, dist, viewW, viewH, fov, deg);
+    return boxOvershoot(pa, xMin, xMax, yMin, yMax) + boxOvershoot(pb, xMin, xMax, yMin, yMax);
+  };
+  let best = { yaw: currentYaw, cost: costAt(currentYaw) };
+  for (let i = 0; i < YAW_GRID; i++) {
+    const yaw = nearAngle((i / YAW_GRID) * 2 * Math.PI, currentYaw);
+    const cost = costAt(yaw);
+    if (cost < best.cost) best = { yaw, cost };
+  }
+  let step = (2 * Math.PI) / YAW_GRID;
+  for (let i = 0; i < 16 && best.cost > 0; i++) {
+    step /= 2;
+    for (const dir of [-1, 1]) {
+      const yaw = best.yaw + dir * step;
+      const cost = costAt(yaw);
+      if (cost < best.cost) best = { yaw, cost };
+    }
+  }
+  return best;
+}
+
+// The north-up reveal camera framing solve: yaw rotates the globe around its
+// polar axis only (zero roll, north stays up), pitch is preserved from
+// whatever the player left the camera at whenever a yaw+distance solution
+// exists that fits both points inside the marker-clearance box, facing the
+// camera. Only when no such solution exists at the preserved pitch does this
+// step the pitch toward a working one, by the smallest amount that works.
+export function solveNorthUpRevealFraming({
+  a, b, safeTop, safeBottom, viewW, viewH, fov, deg, pitchLimit, sceneMinDist,
+  currentYaw, currentPitch,
+}) {
+  const xMin = 28;
+  const xMax = viewW - 28;
+  const yMin = safeTop + 36;
+  const yMax = safeBottom - 10;
+
+  const distSteps = [];
+  for (let dist = sceneMinDist; dist < 14; dist *= 1.06) distSteps.push(dist);
+  distSteps.push(14);
+
+  const tryPitch = (pitch) => {
+    let best = null;
+    for (const dist of distSteps) {
+      const found = bestNorthUpYaw(a, b, pitch, dist, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax);
+      if (!best || found.cost < best.cost) best = { yaw: found.yaw, pitch, dist, cost: found.cost };
+      if (found.cost === 0) return best;
+    }
+    return best;
+  };
+
+  let best = tryPitch(currentPitch);
+  if (best.cost === 0) return best;
+
+  const coarseStep = deg; // 1 degree
+  const maxSteps = Math.ceil(pitchLimit / coarseStep) + 1;
+  let workingDir = 0;
+  let workingDelta = 0;
+  for (let steps = 1; steps <= maxSteps && !workingDir; steps++) {
+    const delta = steps * coarseStep;
+    for (const dir of [1, -1]) {
+      const pitch = clamp(currentPitch + dir * delta, -pitchLimit, pitchLimit);
+      const attempt = tryPitch(pitch);
+      if (attempt.cost < best.cost) best = attempt;
+      if (attempt.cost === 0 && !workingDir) { workingDir = dir; workingDelta = delta; }
+    }
+  }
+  if (!workingDir) return best; // no fit found even at the pitch limit; best effort
+
+  let lo = workingDelta - coarseStep;
+  let hi = workingDelta;
+  for (let i = 0; i < 16; i++) {
+    const mid = (lo + hi) / 2;
+    const pitch = clamp(currentPitch + workingDir * mid, -pitchLimit, pitchLimit);
+    const attempt = tryPitch(pitch);
+    if (attempt.cost === 0) { hi = mid; best = attempt; } else { lo = mid; }
+  }
+  return best;
+}
