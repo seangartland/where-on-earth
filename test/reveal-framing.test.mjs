@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { solveRevealFraming, projectUnderView, arcMidpoint } from '../src/globe/reveal-framing.js';
+import { solveRevealFraming, solveNorthUpRevealFraming, projectUnderView, arcMidpoint } from '../src/globe/reveal-framing.js';
 
 // frameRevealPoints (src/globe/reveal.js) picked between two valid pitch
 // solutions by closeness to whatever pitch the camera happened to be left at.
@@ -76,4 +76,98 @@ test('frameRevealPoints solve keeps both pins on screen and the midpoint in the 
   }
   // 2 strips * 4 pairs * 11 pitches * 3 yaws
   assert.equal(checked, 264);
+});
+
+// frameNorthUpRevealPoints (src/globe/reveal.js) preserved the player's pitch
+// unconditionally and only rotated yaw to center the arc midpoint, with
+// distance from the same closed-form fit frameRevealPoints uses. That fit
+// assumes the two points land symmetrically around the screen center, which
+// only holds when the preserved pitch happens to put the connecting arc
+// there; at other pitches, or at high latitude, a pin can land above the
+// strip, behind the header, past the limb, or off-screen. These cases FAIL
+// against that old behavior (reproduced inline below as oldNorthUpFraming,
+// matching the pre-fix frameNorthUpRevealPoints math) and PASS against
+// solveNorthUpRevealFraming, at phone viewport 390x844.
+const PHONE = STRIPS.phone;
+const NU_CLEARANCE = {
+  xMin: 28, xMax: PHONE.viewW - 28,
+  yMin: PHONE.safeTop + 36, yMax: PHONE.safeBottom - 10,
+};
+
+function oldNorthUpFraming(a, b, currentYaw, currentPitch) {
+  const safeY = (PHONE.safeTop + PHONE.safeBottom) / 2;
+  const safeRadius = Math.max(40, Math.min(PHONE.viewW / 2 - 28, safeY - PHONE.safeTop, PHONE.safeBottom - safeY));
+  const dot3 = (u, v) => u.x * v.x + u.y * v.y + u.z * v.z;
+  const clamp3 = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const nearAngle3 = (x, y) => x + Math.round((y - x) / (2 * Math.PI)) * 2 * Math.PI;
+  const separation = Math.acos(clamp3(dot3(a, b), -1, 1));
+  const halfAngle = Math.min(84 * DEG, separation / 2 + 4 * DEG);
+  const screenSlope = (safeRadius / (PHONE.viewH / 2)) * Math.tan((FOV / 2) * DEG);
+  const screenFit = Math.cos(halfAngle) + Math.sin(halfAngle) / Math.max(screenSlope, 0.02);
+  const horizonFit = halfAngle < Math.PI / 2 ? 1 / Math.max(Math.cos(halfAngle), 0.04) : 14;
+  const dist = clamp3(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
+  let m = { x: a.x + b.x, y: a.y + b.y, z: a.z + b.z };
+  const len = Math.hypot(m.x, m.y, m.z);
+  m = len * len < 1e-8 ? { x: -a.z, y: 0, z: a.x } : { x: m.x / len, y: m.y / len, z: m.z / len };
+  const yaw = nearAngle3(Math.atan2(-m.x, m.z), currentYaw);
+  return { yaw, pitch: currentPitch, dist };
+}
+
+function inClearance(proj) {
+  return proj.facing
+    && proj.x >= NU_CLEARANCE.xMin && proj.x <= NU_CLEARANCE.xMax
+    && proj.y >= NU_CLEARANCE.yMin && proj.y <= NU_CLEARANCE.yMax;
+}
+
+const NU_CASES = {
+  // (a) equatorial guess vs a high-north answer at a shallow preserved pitch.
+  'equatorial guess vs high-north answer': {
+    a: latLngToVec3(2, -10), b: latLngToVec3(78, 40), currentYaw: 0, currentPitch: 5 * DEG,
+  },
+  // (b) both points at high latitude.
+  'both points at high latitude': {
+    a: latLngToVec3(70, -100), b: latLngToVec3(82, 60), currentYaw: 0.5, currentPitch: -10 * DEG,
+  },
+  // (c) a near-antipodal pair (~141 degrees apart).
+  'near-antipodal pair': {
+    a: latLngToVec3(-20, 10), b: latLngToVec3(-10, -145), currentYaw: 0, currentPitch: -70 * DEG,
+  },
+  // (d) the preserved pitch already frames both pins; must be kept exactly.
+  'preserved pitch already works': {
+    a: latLngToVec3(10, 0), b: latLngToVec3(-5, 15), currentYaw: 0, currentPitch: 0,
+  },
+};
+
+test('solveNorthUpRevealFraming cases fail under the old closed-form pitch-preserving fit', () => {
+  for (const [name, { a, b, currentYaw, currentPitch }] of Object.entries(NU_CASES)) {
+    const old = oldNorthUpFraming(a, b, currentYaw, currentPitch);
+    const projA = projectUnderView(a, old.yaw, old.pitch, old.dist, PHONE.viewW, PHONE.viewH, FOV, DEG);
+    const projB = projectUnderView(b, old.yaw, old.pitch, old.dist, PHONE.viewW, PHONE.viewH, FOV, DEG);
+    if (name === 'preserved pitch already works') {
+      assert.ok(inClearance(projA) && inClearance(projB), `${name}: expected the old fit to already work`);
+    } else {
+      assert.ok(!inClearance(projA) || !inClearance(projB), `${name}: expected the old fit to fail, but both pins landed in clearance`);
+    }
+  }
+});
+
+test('solveNorthUpRevealFraming keeps both pins in clearance, facing, north-up, for every case', () => {
+  for (const [name, { a, b, currentYaw, currentPitch }] of Object.entries(NU_CASES)) {
+    const result = solveNorthUpRevealFraming({
+      a, b, safeTop: PHONE.safeTop, safeBottom: PHONE.safeBottom,
+      viewW: PHONE.viewW, viewH: PHONE.viewH, fov: FOV, deg: DEG,
+      pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST, currentYaw, currentPitch,
+    });
+    assert.ok(result.dist >= SCENE_MIN_DIST && result.dist <= 14, `${name}: dist out of range -> ${result.dist}`);
+    assert.ok(Math.abs(result.pitch) <= PITCH_LIMIT + 1e-9, `${name}: pitch exceeds PITCH_LIMIT -> ${result.pitch}`);
+
+    const projA = projectUnderView(a, result.yaw, result.pitch, result.dist, PHONE.viewW, PHONE.viewH, FOV, DEG);
+    const projB = projectUnderView(b, result.yaw, result.pitch, result.dist, PHONE.viewW, PHONE.viewH, FOV, DEG);
+    assert.ok(inClearance(projA), `${name}: guess pin outside clearance -> ${JSON.stringify(projA)}`);
+    assert.ok(inClearance(projB), `${name}: answer pin outside clearance -> ${JSON.stringify(projB)}`);
+
+    if (name === 'preserved pitch already works') {
+      assert.equal(result.pitch, currentPitch, `${name}: pitch must be preserved exactly`);
+    }
+  }
 });
