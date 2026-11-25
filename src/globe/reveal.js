@@ -21,7 +21,7 @@ import { nearestExtentPoint } from '../game/extents.js';
 import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe, pointers, projectToScreen } from './scene.js';
 import { showCountryOutline, clearCountryOutline, showRegionOutline, clearRegionOutline, showExtentOutline, clearExtentOutline } from './outlines.js';
 import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle } from './pin.js';
-import { solveRevealFraming } from './reveal-framing.js';
+import { solveRevealFraming, solveNorthUpRevealFraming } from './reveal-framing.js';
 
 let host = null;
 let gameEls = null;
@@ -1139,23 +1139,18 @@ export function frameRevealPoints(a, b, strip = revealStrip()) {
 }
 
 // North-up reveals preserve the player's pitch and rotate only around the
-// globe's polar axis. Distance still changes as needed to keep both pins in view.
+// globe's polar axis whenever a yaw+distance solve exists that keeps both
+// pins on screen; only then does pitch step by the minimum amount needed.
 export function frameNorthUpRevealPoints(a, b, strip = revealStrip()) {
   const { safeTop, safeBottom } = strip;
-  const safeY = (safeTop + safeBottom) / 2;
-  const safeRadius = Math.max(40, Math.min(state.viewW / 2 - 28, safeY - safeTop, safeBottom - safeY));
-  const separation = a.angleTo(b);
-  const halfAngle = Math.min(84 * DEG, separation / 2 + 4 * DEG);
-  const screenSlope = (safeRadius / (state.viewH / 2)) * Math.tan((FOV / 2) * DEG);
-  const screenFit = Math.cos(halfAngle) + Math.sin(halfAngle) / Math.max(screenSlope, 0.02);
-  const horizonFit = halfAngle < Math.PI / 2 ? 1 / Math.max(Math.cos(halfAngle), 0.04) : 14;
-  state.targetDist = clamp(Math.max(screenFit, horizonFit) * 1.04, SCENE_MIN_DIST, 14);
-
-  const midpoint = a.clone().add(b);
-  if (midpoint.lengthSq() < 1e-8) midpoint.copy(a).cross(_UP);
-  midpoint.normalize();
-  const targetYaw = nearAngle(Math.atan2(-midpoint.x, midpoint.z), state.yaw);
-  state.revealView = { yaw: targetYaw, pitch: state.pitch };
+  const { yaw, pitch, dist } = solveNorthUpRevealFraming({
+    a, b, safeTop, safeBottom,
+    viewW: state.viewW, viewH: state.viewH,
+    fov: FOV, deg: DEG, pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST,
+    currentYaw: state.yaw, currentPitch: state.pitch,
+  });
+  state.targetDist = dist;
+  state.revealView = { yaw, pitch };
   state.vYaw = state.vPitch = state.autoSpin = 0;
 }
 
