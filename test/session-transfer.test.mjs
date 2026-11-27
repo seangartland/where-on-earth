@@ -10,7 +10,7 @@ test('the signed-in view has a link-another-device row that fetches a code', () 
 });
 
 test('the link-device view shows the code large with its expiry and instructions', () => {
-  assert.match(sheet, /state === 'link-device'[\s\S]*?account-link-code">\$\{escapeHtml\(values\.code\)\}[\s\S]*?Good for \$\{Math\.round\(values\.expiresInSeconds \/ 60\)\} minutes\.[\s\S]*?Enter this code in the app or browser where you want to be signed in\./);
+  assert.match(sheet, /state === 'link-device'[\s\S]*?account-link-code">\$\{escapeHtml\(values\.code\)\}[\s\S]*?Good for \$\{Math\.round\(values\.expiresInSeconds \/ 60\)\} minutes\.[\s\S]*?On your other device, open Settings, then Account, then "Have a link code\?"[\s\S]*?Only enter this on your own device\./);
 });
 
 test('the signed-out view has a quiet link-code entry that expands to a code field', () => {

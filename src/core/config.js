@@ -47,6 +47,7 @@ export const ACCOUNT_OFFER_KEY = 'where-on-earth-account-offer';
 export const PREMERGE_KEY = 'where-on-earth-premerge-v1';
 export const PACK_KEY = 'where-on-earth-pack-v1';
 export const FRIEND_QUEUE_KEY = 'where-on-earth-friend-queue-v1';
+export const PWA_SIGNIN_PROMPT_SEEN_KEY = 'where-on-earth-pwa-signin-prompt-seen';
 export const VERSIONED_KEYS = new Set([GAME_KEY, STREAK_KEY, HISTORY_KEY, PASSPORT_KEY, MUTE_KEY, EXPEDITION_KEY, WEEKLY_KEY, ACCOUNT_KEY, PACK_KEY]);
 
 export const ACCOUNTS_ENABLED = new URLSearchParams(location.search).get('accounts') !== '0';

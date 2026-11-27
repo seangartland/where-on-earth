@@ -14,6 +14,14 @@ const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[char]));
 
+// An installed PWA keeps a storage container separate from any browser
+// tab, so a player signed in while browsing never carries that session into
+// the installed app on its own. Used to show a one-time sign-in nudge and a
+// standalone-only hint in the signed-out view.
+export function isStandalonePwa() {
+  return window.matchMedia?.('(display-mode: standalone)').matches || window.navigator?.standalone === true;
+}
+
 function sessionToken() {
   return readAccountSession()?.sessionToken;
 }
@@ -88,12 +96,15 @@ function render(state, values = {}) {
     panel.innerHTML = `${close}<p class="eyebrow">Link another device</p><h2 id="account-title">Enter this code</h2>
       <p class="account-link-code">${escapeHtml(values.code)}</p>
       <p class="account-copy">Good for ${Math.round(values.expiresInSeconds / 60)} minutes.</p>
-      <p class="account-copy">Enter this code in the app or browser where you want to be signed in.</p>
+      <p class="account-copy">On your other device, open Settings, then Account, then "Have a link code?"</p>
+      <p class="account-copy">Only enter this on your own device.</p>
       <button class="primary account-done" type="button">Done</button>`;
   } else {
     panel.dataset.email = 'off';
     const inviteCopy = pendingFriendToken ? 'Sign in to accept a friend invite' : 'Keep your passport and scores safe across your devices.';
+    const standaloneCopy = isStandalonePwa() ? '<p class="account-copy account-pwa-copy">Already playing in your browser? Sign in the same way here to bring your progress over.</p>' : '';
     panel.innerHTML = `${close}<p class="eyebrow">Where on Earth account</p><h2 id="account-title">Save your progress</h2>
+      ${standaloneCopy}
       <p class="account-copy">${inviteCopy}</p>
       <button class="account-google" type="button" disabled>Continue with Google</button>
       <p class="account-google-note">Checking Google sign-in...</p>

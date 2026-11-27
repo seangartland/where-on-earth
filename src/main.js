@@ -7,7 +7,7 @@ import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/pl
 import {
   SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, AUTO_SPIN, RESET_DAILY, STREAK_KEY, HISTORY_KEY, EXPEDITION_KEY,
   REVEAL_VIEW_KEY, RECAP_FRIEND_PINS_KEY, POSTCARD_ANIM_KEY, PACK_PLACEMENT_KEY, FILING_ANIM_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
-  EXPEDITIONS_HIDDEN,
+  EXPEDITIONS_HIDDEN, PWA_SIGNIN_PROMPT_SEEN_KEY,
 } from './core/config.js';
 import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
 import { storageError, safeSetItem, migrateStorage, readJSON, writeJSON } from './core/storage.js';
@@ -1078,8 +1078,9 @@ if (ACCOUNTS_ENABLED) {
   setTimeout(async () => {
     // A Google sign-in round trip lands back here with a one-time code in
     // the URL fragment; trade it for a session before the sync below runs.
-    const { consumeAuthReturn } = await import('./account/sheet.js');
+    const { consumeAuthReturn, isStandalonePwa } = await import('./account/sheet.js');
     await consumeAuthReturn().catch(() => false);
+    const { isSignedIn } = await import('./account/session.js');
     // A friend invite link lands here carrying a pending token. Open the
     // account sheet so the invite is actually presented: signed in it shows
     // the add-friend prompt, signed out it shows sign-in with invite copy.
@@ -1088,8 +1089,15 @@ if (ACCOUNTS_ENABLED) {
     if (window.getPendingFriendToken?.()) {
       const { openAccountSheet } = await import('./account/sheet.js');
       await openAccountSheet().catch(() => {});
+    } else if (!isSignedIn() && isStandalonePwa() && localStorage.getItem(PWA_SIGNIN_PROMPT_SEEN_KEY) === null) {
+      // The installed PWA has its own storage, separate from any browser
+      // tab, so a signed-out player here may already be signed in elsewhere.
+      // Surface sign-in exactly once per install so that progress is not
+      // silently left behind in the browser.
+      try { localStorage.setItem(PWA_SIGNIN_PROMPT_SEEN_KEY, '1'); } catch { /* unavailable */ }
+      const { openAccountSheet } = await import('./account/sheet.js');
+      await openAccountSheet().catch(() => {});
     }
-    const { isSignedIn } = await import('./account/session.js');
     if (!isSignedIn()) return;
     const { syncAccountProgress } = await import('./account/sync.js');
     syncAccountProgress().catch(() => {});
