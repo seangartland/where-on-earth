@@ -80,8 +80,16 @@ function render(state, values = {}) {
         <h3 id="account-friends-title">Friends</h3>
         <label class="account-share-row"><span><strong>Share my Daily pins with friends</strong><small>Turning this off also stops you seeing friends' pins.</small></span><input class="account-share-input" type="checkbox" ${me.sharePins !== false ? 'checked' : ''}><span class="account-toggle" aria-hidden="true"></span></label>
       </section>
+      <button class="text-button account-link-device" type="button">Link another device</button>
+      <p class="account-status" aria-live="polite"></p>
       <button class="primary account-done" type="button">Done</button>
       <button class="account-signout" type="button">Sign out</button>`;
+  } else if (state === 'link-device') {
+    panel.innerHTML = `${close}<p class="eyebrow">Link another device</p><h2 id="account-title">Enter this code</h2>
+      <p class="account-link-code">${escapeHtml(values.code)}</p>
+      <p class="account-copy">Good for ${Math.round(values.expiresInSeconds / 60)} minutes.</p>
+      <p class="account-copy">Enter this code in the app or browser where you want to be signed in.</p>
+      <button class="primary account-done" type="button">Done</button>`;
   } else {
     panel.dataset.email = 'off';
     const inviteCopy = pendingFriendToken ? 'Sign in to accept a friend invite' : 'Keep your passport and scores safe across your devices.';
@@ -91,7 +99,11 @@ function render(state, values = {}) {
       <p class="account-google-note">Checking Google sign-in...</p>
       <div class="account-divider"><span>or use email</span></div>
       <form class="account-form" data-step="email"><label>Email address<input name="email" required type="email" autocomplete="email" placeholder="you@example.com"></label>
-      <button class="primary" type="submit">Email me a code</button></form><p class="account-email-note">Email sign-in is coming soon.</p><p class="account-status" aria-live="polite"></p>`;
+      <button class="primary" type="submit">Email me a code</button></form><p class="account-email-note">Email sign-in is coming soon.</p>
+      <button class="text-button account-link-code-toggle" type="button">Have a link code?</button>
+      <form class="account-form account-link-code-form" data-step="link" hidden><label>Code from your other device<input name="code" required maxlength="6" pattern="[0-9]{6}" inputmode="numeric" autocomplete="one-time-code" placeholder="000000"></label>
+      <button class="primary" type="submit">Sign in</button></form>
+      <p class="account-status" aria-live="polite"></p>`;
   }
   bind(values);
 }
@@ -474,6 +486,37 @@ function bind(values) {
     window.dispatchEvent(new CustomEvent('account-session-change'));
     render('email', {});
     enableGoogle();
+  });
+  sheet.querySelector('.account-link-device')?.addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    loading(button, true, 'Getting code...');
+    try {
+      const result = await friendApi('/v1/auth/transfer-code', { method: 'POST' });
+      render('link-device', result);
+    } catch (error) {
+      loading(button, false);
+      status(error.message || 'Could not get a code', true);
+    }
+  });
+  sheet.querySelector('.account-link-code-toggle')?.addEventListener('click', (event) => {
+    const form = sheet.querySelector('.account-link-code-form');
+    if (!form) return;
+    form.hidden = !form.hidden;
+    if (!form.hidden) form.querySelector('input')?.focus();
+  });
+  sheet.querySelector('.account-link-code-form')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const button = form.querySelector('button');
+    const code = String(new FormData(form).get('code')).trim();
+    loading(button, true, 'Signing in...');
+    try {
+      const result = await accountApi('/v1/auth/transfer', { method: 'POST', body: { code } });
+      await completeSignIn(result);
+    } catch (error) {
+      loading(button, false);
+      status(error.message || "That code didn't work. Check it and try again.", true);
+    }
   });
   sheet.querySelector('.account-not-now')?.addEventListener('click', closeAccountSheet);
   sheet.querySelector('.account-accept')?.addEventListener('click', async (event) => {

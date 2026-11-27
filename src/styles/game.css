@@ -304,6 +304,7 @@ button { font: inherit; }
 .account-panel[data-view="account"] .account-signout { color: rgba(52,72,96,.68); }
 .account-panel[data-view="account"] .account-status { color: #1e4e9c; }
 .account-copy { margin: 14px auto 22px; max-width: 310px; color: rgba(224,240,255,.76); font-size: var(--fs-base); line-height: 1.5; }
+.account-link-code { margin: 10px auto 18px; color: var(--ink-hi); font-size: 42px; font-weight: 800; letter-spacing: .08em; }
 .account-done { width: 100%; min-height: 50px; }
 .account-form .primary { width: 100%; }
 .account-google { width: 100%; min-height: 50px; border: 0; border-radius: 999px; background: #fff; color: #1f1f1f; font-size: var(--fs-base); font-weight: 800; cursor: pointer; touch-action: manipulation; }
