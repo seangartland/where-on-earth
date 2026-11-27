@@ -41,8 +41,10 @@ export async function issueTransferCode(request, env, auth) {
   const session = await auth.api.getSession({ headers: request.headers });
   if (!session?.user?.id || !session?.session?.token) return response({ code: 'UNAUTHORIZED' }, 401);
   const now = Date.now();
-  await env.DB.prepare('UPDATE auth_transfer_codes SET used_at = ? WHERE user_id = ? AND used_at IS NULL')
+  await env.DB.prepare("UPDATE auth_transfer_codes SET used_at = ?, session_token = '' WHERE user_id = ? AND used_at IS NULL")
     .bind(now, session.user.id).run();
+  await env.DB.prepare('DELETE FROM auth_transfer_codes WHERE expires_at < ?')
+    .bind(now - 24 * 60 * 60 * 1000).run();
   const code = randomTransferCode();
   await env.DB.prepare(`INSERT INTO auth_transfer_codes
     (code_hash, user_id, session_token, session_expires_at, created_at, expires_at)
@@ -63,7 +65,7 @@ export async function redeemTransferCode(request, env) {
   const row = await env.DB.prepare('SELECT * FROM auth_transfer_codes WHERE code_hash = ?').bind(codeHash).first();
   if (!row || row.used_at || row.expires_at < Date.now()) return response({ code: 'INVALID_CODE' }, 401);
   const claimed = await env.DB.prepare(
-    'UPDATE auth_transfer_codes SET used_at = ? WHERE code_hash = ? AND used_at IS NULL',
+    "UPDATE auth_transfer_codes SET used_at = ?, session_token = '' WHERE code_hash = ? AND used_at IS NULL",
   ).bind(Date.now(), codeHash).run();
   if (claimed.meta.changes !== 1) return response({ code: 'INVALID_CODE' }, 401);
   const user = await env.DB.prepare('SELECT id, name, email FROM "user" WHERE id = ?').bind(row.user_id).first();

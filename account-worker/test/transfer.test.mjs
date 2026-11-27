@@ -147,6 +147,50 @@ test('issuing requires an authenticated session', async () => {
   assert.deepEqual(await issued.json(), { code: 'UNAUTHORIZED' });
 });
 
+test('a redeemed row has its session_token blanked so it never retains a live token', async () => {
+  const env = await fixture();
+  await addUser(env, 'alice');
+  const auth = authFor({ alice: sessionFor('alice') });
+  const { code } = await (await issueTransferCode(issueRequest('alice'), env, auth)).json();
+  const redeemed = await redeemTransferCode(redeemRequest(code), env);
+  assert.equal(redeemed.status, 200);
+  const row = await env.DB.prepare('SELECT * FROM auth_transfer_codes WHERE user_id = ?').bind('alice').first();
+  assert.equal(row.session_token, '');
+});
+
+test('issuing a second code blanks the invalidated prior row\'s session_token too', async () => {
+  const env = await fixture();
+  await addUser(env, 'alice');
+  const auth = authFor({ alice: sessionFor('alice') });
+  await issueTransferCode(issueRequest('alice'), env, auth);
+  const firstHash = (await env.DB.prepare('SELECT code_hash FROM auth_transfer_codes WHERE user_id = ?').bind('alice').first()).code_hash;
+  await issueTransferCode(issueRequest('alice'), env, auth);
+  const firstRow = await env.DB.prepare('SELECT * FROM auth_transfer_codes WHERE code_hash = ?').bind(firstHash).first();
+  assert.equal(firstRow.used_at !== null, true);
+  assert.equal(firstRow.session_token, '');
+});
+
+test('issuing a new code deletes rows that expired over a day ago but keeps recently expired ones', async () => {
+  const env = await fixture();
+  await addUser(env, 'alice');
+  const auth = authFor({ alice: sessionFor('alice') });
+  const now = Date.now();
+  await env.DB.prepare(`INSERT INTO auth_transfer_codes
+    (code_hash, user_id, session_token, session_expires_at, created_at, expires_at)
+    VALUES (?, ?, ?, ?, ?, ?)`)
+    .bind('stale_hash', 'alice', 'tok_old', now, now - 2 * 24 * 60 * 60 * 1000, now - 25 * 60 * 60 * 1000).run();
+  await env.DB.prepare(`INSERT INTO auth_transfer_codes
+    (code_hash, user_id, session_token, session_expires_at, created_at, expires_at)
+    VALUES (?, ?, ?, ?, ?, ?)`)
+    .bind('recent_hash', 'alice', 'tok_recent', now, now - 60 * 60 * 1000, now - 60 * 1000).run();
+  const auth2 = authFor({ alice: sessionFor('alice') });
+  await issueTransferCode(issueRequest('alice'), env, auth2);
+  const stale = await env.DB.prepare('SELECT * FROM auth_transfer_codes WHERE code_hash = ?').bind('stale_hash').first();
+  const recent = await env.DB.prepare('SELECT * FROM auth_transfer_codes WHERE code_hash = ?').bind('recent_hash').first();
+  assert.equal(stale, null);
+  assert.notEqual(recent, null);
+});
+
 test('redemption guesses from the same IP are throttled', async () => {
   const env = await fixture();
   for (let attempt = 0; attempt < 10; attempt += 1) {
