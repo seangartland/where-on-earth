@@ -3,7 +3,7 @@ import { bearer, emailOTP } from 'better-auth/plugins';
 import { createSender } from './sender.js';
 import { handleFriends, inviteLandingPage } from './friends.js';
 import { getSync, postSync } from './sync.js';
-import { issueTransferCode } from './transfer.js';
+import { issueTransferCode, redeemTransferCode } from './transfer.js';
 
 const ALLOWED_ORIGINS = new Set([
   'https://where-on.earth',
@@ -267,6 +267,11 @@ export default {
     }
     if (url.pathname === '/v1/auth/transfer-code' && request.method === 'POST') {
       const response = await issueTransferCode(request, env, auth);
+      for (const [key, value] of Object.entries(cors(request))) response.headers.set(key, value);
+      return response;
+    }
+    if (url.pathname === '/v1/auth/transfer' && request.method === 'POST') {
+      const response = await redeemTransferCode(request, env);
       for (const [key, value] of Object.entries(cors(request))) response.headers.set(key, value);
       return response;
     }
