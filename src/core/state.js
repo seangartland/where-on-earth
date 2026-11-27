@@ -34,6 +34,7 @@ export const state = {
   pendingGuess: null, // { lat, lng } of the placed, unconfirmed pin
   activePin: -1,
   revealViewPreference: 'flyover',
+  recapFriendPins: true, // Daily recap: show friends' pins and frame for all of them (default on)
   postcardAnim: true, // Settings: Postcard animations (default on)
   passport: { visits: {}, order: [], meta: {} },
 

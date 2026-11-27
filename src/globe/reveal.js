@@ -21,7 +21,7 @@ import { nearestExtentPoint } from '../game/extents.js';
 import { ANSWER_COLOR, latLngToVec3, _UP, _RIGHT, setGlobeQuaternion, camera, globe, pointers, projectToScreen } from './scene.js';
 import { showCountryOutline, clearCountryOutline, showRegionOutline, clearRegionOutline, showExtentOutline, clearExtentOutline } from './outlines.js';
 import { pins, correctPin, LAND_T, HOME_PITCH, nearAngle } from './pin.js';
-import { solveRevealFraming, solveNorthUpRevealFraming } from './reveal-framing.js';
+import { solveRevealFraming, solveNorthUpRevealFraming, solveAnswerCenteredRevealFraming } from './reveal-framing.js';
 
 let host = null;
 let gameEls = null;
@@ -1145,6 +1145,22 @@ export function frameNorthUpRevealPoints(a, b, strip = revealStrip()) {
   const { safeTop, safeBottom } = strip;
   const { yaw, pitch, dist } = solveNorthUpRevealFraming({
     a, b, safeTop, safeBottom,
+    viewW: state.viewW, viewH: state.viewH,
+    fov: FOV, deg: DEG, pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST,
+    currentYaw: state.yaw, currentPitch: state.pitch,
+  });
+  state.targetDist = dist;
+  state.revealView = { yaw, pitch };
+  state.vYaw = state.vPitch = state.autoSpin = 0;
+}
+
+// The Daily recap's friends-pins-ON framing: the answer locked to the strip
+// centre, backed out to the smallest distance that keeps every guess (the
+// player's plus every friend's) in the marker-clearance box.
+export function frameAnswerCenteredRevealPoints(answer, guesses, strip = revealStrip()) {
+  const { safeTop, safeBottom } = strip;
+  const { yaw, pitch, dist } = solveAnswerCenteredRevealFraming({
+    answer, guesses, safeTop, safeBottom,
     viewW: state.viewW, viewH: state.viewH,
     fov: FOV, deg: DEG, pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST,
     currentYaw: state.yaw, currentPitch: state.pitch,

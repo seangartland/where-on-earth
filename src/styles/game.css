@@ -1590,6 +1590,16 @@ body.game-collections #hud { opacity: 0; }
 .recap-band .score-line div { text-shadow: 0 1px 8px rgba(0,0,0,.55); }
 .recap-band .score-line small { color: rgba(220,238,255,.82); }
 .recap-band .score-line strong { text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+/* The friends-pins toggle sits in the score-line's other slot (Sean,
+   2026-11-26): a small pill with a filled/hollow dot standing in for a
+   switch, quiet enough not to compete with the distance it shares the row
+   with. Hidden outright when the round has no friend pins to toggle. */
+.recap-friends-toggle { display: inline-flex; flex: none; align-items: center; gap: 5px; min-height: 28px; padding: 0 11px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; background: rgba(3,8,20,.42); color: rgba(255,255,255,.92); font: inherit; font-size: var(--fs-micro); font-weight: 700; letter-spacing: .02em; text-shadow: 0 1px 6px rgba(0,0,0,.5); cursor: pointer; touch-action: manipulation; }
+.recap-friends-toggle::before { content: ''; width: 7px; height: 7px; flex: none; border-radius: 50%; background: currentColor; }
+.recap-friends-toggle[aria-pressed="false"] { background: rgba(3,8,20,.2); border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.55); }
+.recap-friends-toggle[aria-pressed="false"]::before { background: none; box-shadow: inset 0 0 0 1px currentColor; }
+.recap-friends-toggle:active { transform: scale(.97); }
+.recap-friends-toggle[hidden] { display: none; }
 /* The expand affordance is a slim grip centered on the band's bottom edge;
    the band itself is tappable too. The corner next to the score is the
    score's alone (Sean, 2026-11-09). */
@@ -1653,7 +1663,13 @@ body.game-review #hud { opacity: 0; }
 .ft-delta { margin-left: auto; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-small); }
 .ft-score { min-width: 52px; text-align: right; color: var(--gold); font-size: var(--fs-title); font-weight: 850; }
 @media (max-width: 370px) { .ft-title { display: none; } }
-.friends-today-link { display: block; margin: 7px auto 0; padding: 4px 6px; color: rgba(var(--rgb-gold),.92); font-size: var(--fs-small); font-weight: 700; }
+/* Renamed and enlarged (Sean, 2026-11-26): "See their pins round by round"
+   read as friends-only and was a 13px underlined text-button, easy to miss.
+   Now a full-width pill using the same gold-accent, bordered-pill treatment
+   as the card it sits in, sized like the other secondary pill buttons
+   (account-invite-copy, pack-passport) rather than a quiet text link. */
+.friends-today-link { display: block; box-sizing: border-box; width: 100%; min-height: 44px; margin: 10px 0 0; padding: 0 14px; border: 1px solid rgba(var(--rgb-gold),.4); border-radius: 999px; background: rgba(var(--rgb-gold),.14); color: var(--gold); font: inherit; font-size: var(--fs-body); font-weight: 800; line-height: 44px; text-align: center; cursor: pointer; touch-action: manipulation; }
+.friends-today-link:active { transform: scale(.98); }
 .friends-today-link[hidden] { display: none; }
 .friend-pop { position: absolute; left: 50%; bottom: calc(100% + 6px); z-index: 1; margin: 0; padding: 6px 12px; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 999px; background: rgba(5,12,29,.94); color: var(--ink-hi); font-size: var(--fs-small); font-weight: 700; white-space: nowrap; transform: translateX(-50%); pointer-events: none; }
 .friend-pop[hidden] { display: none; }

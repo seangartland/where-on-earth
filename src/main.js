@@ -6,7 +6,7 @@ import { initPvpGroup, openPvpGroupJoin } from './pvp/group.js';
 import { initPvpPlay, pvpLeave, pvpSubmit, pvpNext, pvpRenderVs } from './pvp/play.js';
 import {
   SCENE_MIN_DIST, PITCH_LIMIT, FRICTION, AUTO_SPIN, RESET_DAILY, STREAK_KEY, HISTORY_KEY, EXPEDITION_KEY,
-  REVEAL_VIEW_KEY, POSTCARD_ANIM_KEY, PACK_PLACEMENT_KEY, FILING_ANIM_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
+  REVEAL_VIEW_KEY, RECAP_FRIEND_PINS_KEY, POSTCARD_ANIM_KEY, PACK_PLACEMENT_KEY, FILING_ANIM_KEY, EARN_NEAR, EARN_BULLSEYE, EARN_PINPOINT, EARN_NAMES, ACCOUNTS_ENABLED,
   EXPEDITIONS_HIDDEN,
 } from './core/config.js';
 import { clamp, damp, smoothstep, distanceKm } from './core/math.js';
@@ -33,7 +33,7 @@ import {
 } from './globe/pin.js';
 import {
   initReveal, answerLine, answerLineMaterial, peekSlot, timeScale, clearReveal, buildAnswerPath, placeRevealVisual, frameRevealPoints,
-  frameNorthUpRevealPoints, showRevealSheet, showLineLabel, startRevealBeat,
+  frameNorthUpRevealPoints, frameAnswerCenteredRevealPoints, showRevealSheet, showLineLabel, startRevealBeat,
   beginBullseyeReveal, beginTravelReveal, whenPostcardDone, travelView, routeAxis, routeRadius, safeStrip, applyCameraNear,
   updateTravelAnimation, travelPinScale, updateLineLabel,
 } from './globe/reveal.js';
@@ -179,6 +179,12 @@ try {
   storageError('Read failed', REVEAL_VIEW_KEY, error);
 }
 try {
+  const savedRecapFriendPins = localStorage.getItem(RECAP_FRIEND_PINS_KEY);
+  if (savedRecapFriendPins === 'on' || savedRecapFriendPins === 'off') state.recapFriendPins = savedRecapFriendPins === 'on';
+} catch (error) {
+  storageError('Read failed', RECAP_FRIEND_PINS_KEY, error);
+}
+try {
   const savedPostcardAnim = localStorage.getItem(POSTCARD_ANIM_KEY);
   if (savedPostcardAnim === 'on' || savedPostcardAnim === 'off') {
     state.postcardAnim = postcardAnimValue(savedPostcardAnim);
@@ -240,7 +246,7 @@ initRound(roundHost);
 const dailyGameHost = {
   applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin,
   makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera,
-  frameRevealPoints, safeStrip, travelView, nearAngle,
+  frameRevealPoints, frameAnswerCenteredRevealPoints, safeStrip, travelView, nearAngle,
 };
 initDailyGame(dailyGameHost);
 

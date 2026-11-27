@@ -12,11 +12,11 @@ import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { dailyIds, isLandmark, isPlayableLocation, resolvePinnedIds } from '../daily.js';
-import { ACCOUNTS_ENABLED, DEG, GAME_KEY, STREAK_KEY, EARN_NAMES, FRIEND_MIN_DIST } from '../core/config.js';
+import { ACCOUNTS_ENABLED, DEG, GAME_KEY, STREAK_KEY, EARN_NAMES, RECAP_FRIEND_PINS_KEY } from '../core/config.js';
 import { cachedFriendPins } from '../account/friends.js';
 import { clamp, damp } from '../core/math.js';
 import { state } from '../core/state.js';
-import { readJSON, writeJSON } from '../core/storage.js';
+import { readJSON, writeJSON, safeSetItem } from '../core/storage.js';
 import { setThumb } from '../core/dom.js';
 import { formatKm, localDateKey, localYesterday, flagForLocation } from '../core/format.js';
 import { buildPostcardCard } from '../meta/postcard-card.js';
@@ -35,7 +35,7 @@ import { isSignedIn } from '../account/session.js';
 import { bannerId } from '../account/banners.js';
 
 let applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin;
-let makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints;
+let makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints, frameAnswerCenteredRevealPoints;
 let safeStrip;
 let nextGame;
 let nextGameTime;
@@ -651,13 +651,42 @@ export function enterReview(focus = -1) {
   openRecap(focus >= 0 ? focus : 0);
 }
 
+// The friends-pins toggle for round i: shows or hides the friend layer and
+// picks the framing to match - answer centered with every guess (the
+// player's plus every friend's) in frame when on, the plain pair framing
+// when off - then reframes the camera for whichever is current. Hidden when
+// the round has no friend pins to toggle. Split out of openRecap so the
+// toggle button can re-run just this part without resetting the rest of the
+// card (expanded state, pager, outlines).
+function syncRecapFriends(i) {
+  const r = reviewRounds[i];
+  const friendsHere = cachedFriendPins(state.daily.date)?.locations?.[state.daily.ids[i]]?.friends;
+  reviewEls.friendsToggle.hidden = !friendsHere?.length;
+  reviewEls.friendsToggle.setAttribute('aria-pressed', String(state.recapFriendPins));
+  const showFriends = Boolean(friendsHere?.length) && state.recapFriendPins;
+  if (showFriends) getFriendLayer()?.recap(i); else getFriendLayer()?.clear();
+  // the card is laid out now, so the strip between bar and card is known
+  const strip = safeStrip(reviewEls.bar, reviewEls.card);
+  if (showFriends) {
+    const guesses = [r.a, ...friendsHere.map((f) => latLngToVec3(f.guess.lat, f.guess.lng))];
+    frameAnswerCenteredRevealPoints(r.b, guesses, strip);
+  } else {
+    frameRevealPoints(r.a, r.b, strip);
+  }
+}
+
+function toggleRecapFriends() {
+  state.recapFriendPins = !state.recapFriendPins;
+  safeSetItem(RECAP_FRIEND_PINS_KEY, state.recapFriendPins ? 'on' : 'off');
+  syncRecapFriends(reviewOpen);
+}
+
 // Opens round i's recap: drops its pins/line (releasing every other round's),
 // fills in the card, points the pager at it, and reframes the camera.
 export function openRecap(i) {
   if (i < 0 || i >= reviewRounds.length) return;
   const result = state.daily.results[i];
   const item = state.selected[i];
-  const r = reviewRounds[i];
   reviewOpen = i;
   showRoundVisuals(i);
   reviewEls.tag.textContent = `Round ${i + 1} of 5`;
@@ -668,19 +697,13 @@ export function openRecap(i) {
   reviewEls.card.classList.remove('expanded');
   reviewEls.card.querySelector('.recap-expand')?.setAttribute('aria-expanded', 'false');
   reviewEls.card.hidden = false;
-  getFriendLayer()?.recap(i);
   // The correct country's outline (plus the state outline for US cities),
   // same treatment as the in-round reveal, so friend pins read as in or
   // out of the country at a glance. Cleared by clearReveal on showResults.
   showAnswerOutlines(item, false);
   reviewEls.pagerPrev.disabled = i <= 0;
   reviewEls.pagerNext.disabled = i >= 4;
-  // the card is laid out now, so the strip between bar and card is known
-  frameRevealPoints(r.a, r.b, safeStrip(reviewEls.bar, reviewEls.card));
-  // Friend pins on this round: hold a minimum range so a very close guess
-  // does not crop the friends out. Further-out framing stays untouched.
-  const friendsHere = cachedFriendPins(state.daily.date)?.locations?.[state.daily.ids[i]]?.friends;
-  if (friendsHere?.length && state.targetDist < FRIEND_MIN_DIST) state.targetDist = FRIEND_MIN_DIST;
+  syncRecapFriends(i);
 }
 
 export function segmentDist(px, py, [ax, ay], [bx, by]) {
@@ -729,7 +752,7 @@ export function pickReviewRound(x, y) {
 export function initDailyGame(main) {
   ({ applyCardTier, passportEntryFor, bindPostcard, recordHistory, syncPassport, clearReveal, Pin,
     makeBadgeTexture, ANSWER_COLOR, latLngToVec3, routeAxis, routeRadius, globe, camera, frameRevealPoints,
-    safeStrip } = main);
+    frameAnswerCenteredRevealPoints, safeStrip } = main);
   gameEls.play.addEventListener('click', startGame);
   gameEls.share.addEventListener('click', () => shareResult(shareText()));
 }
@@ -784,7 +807,7 @@ export function initReview() {
         <button type="button" class="pager-arrow" data-act="next" aria-label="Next round">›</button>
         <button class="icon-close" aria-label="Close review">×</button>
       </div></div>
-      <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div></div>
+      <div class="score-line"><div><span class="recap-distance"></span><small>away</small></div><button type="button" class="recap-friends-toggle" data-act="friends-toggle" aria-pressed="true" hidden>Friends' pins</button></div>
       <button type="button" class="recap-expand" data-act="expand" aria-expanded="false" aria-label="Expand photo and description"><span class="recap-grip-bar"></span></button>
     </div>
     <p class="recap-fact"></p>
@@ -803,6 +826,7 @@ export function initReview() {
     fact: reviewScreen.querySelector('.recap-fact'),
     pagerPrev: reviewScreen.querySelector('[data-act="prev"]'),
     pagerNext: reviewScreen.querySelector('[data-act="next"]'),
+    friendsToggle: reviewScreen.querySelector('.recap-friends-toggle'),
   });
   reviewCountdown = reviewEls.countdown;
 
@@ -867,6 +891,7 @@ export function initReview() {
     else if (act && act.dataset.act === 'expand') {
       setRecapExpanded(!reviewEls.card.classList.contains('expanded'));
     }
+    else if (act && act.dataset.act === 'friends-toggle') toggleRecapFriends();
     else if (e.target.closest('.recap-card') && !e.target.closest('button')) {
       setRecapExpanded(!reviewEls.card.classList.contains('expanded'));
     }
