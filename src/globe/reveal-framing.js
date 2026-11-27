@@ -151,12 +151,64 @@ function bestNorthUpYaw(a, b, pitch, dist, currentYaw, viewW, viewH, fov, deg, x
   return best;
 }
 
+// Best yaw at a fixed pitch and dist among yaws with zero box overshoot, for
+// the one whose projected midpoint lands closest to the clearance box center.
+// Same grid-plus-bisection shape as bestNorthUpYaw, but any non-fitting yaw
+// always scores above every fitting one (so centering never trades away
+// clearance), and refinement keeps going once a fit is found, since centering
+// is the next objective rather than a stopping condition.
+function centeredNorthUpYaw(a, b, midpoint, pitch, dist, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax, centerX, centerY) {
+  const scoreAt = (yaw) => {
+    const pa = projectUnderView(a, yaw, pitch, dist, viewW, viewH, fov, deg);
+    const pb = projectUnderView(b, yaw, pitch, dist, viewW, viewH, fov, deg);
+    const overshoot = boxOvershoot(pa, xMin, xMax, yMin, yMax) + boxOvershoot(pb, xMin, xMax, yMin, yMax);
+    if (overshoot > 0) return 1e6 + overshoot;
+    const pm = projectUnderView(midpoint, yaw, pitch, dist, viewW, viewH, fov, deg);
+    return Math.hypot(pm.x - centerX, pm.y - centerY);
+  };
+  let best = { yaw: currentYaw, score: scoreAt(currentYaw) };
+  for (let i = 0; i < YAW_GRID; i++) {
+    const yaw = nearAngle((i / YAW_GRID) * 2 * Math.PI, currentYaw);
+    const score = scoreAt(yaw);
+    if (score < best.score) best = { yaw, score };
+  }
+  let step = (2 * Math.PI) / YAW_GRID;
+  for (let i = 0; i < 16; i++) {
+    step /= 2;
+    for (const dir of [-1, 1]) {
+      const yaw = best.yaw + dir * step;
+      const score = scoreAt(yaw);
+      if (score < best.score) best = { yaw, score };
+    }
+  }
+  return best;
+}
+
+// Given a pitch already known to admit a fitting yaw+distance, scans the same
+// distance ladder the feasibility search uses and keeps the (yaw, dist) whose
+// midpoint lands closest to the box center, distance only as the tiebreak:
+// distSteps is ascending, so an equally-centered smaller distance is kept
+// over a larger one, and a larger distance only wins when it centers the
+// midpoint meaningfully better, not from floating-point noise.
+function centerAtPitch(a, b, midpoint, pitch, distSteps, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax, centerX, centerY) {
+  let best = null;
+  for (const dist of distSteps) {
+    const found = centeredNorthUpYaw(a, b, midpoint, pitch, dist, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax, centerX, centerY);
+    if (!best || found.score < best.score - 1e-6) best = { yaw: found.yaw, pitch, dist, score: found.score };
+  }
+  return best;
+}
+
 // The north-up reveal camera framing solve: yaw rotates the globe around its
 // polar axis only (zero roll, north stays up), pitch is preserved from
 // whatever the player left the camera at whenever a yaw+distance solution
 // exists that fits both points inside the marker-clearance box, facing the
 // camera. Only when no such solution exists at the preserved pitch does this
 // step the pitch toward a working one, by the smallest amount that works.
+// Once the pitch is settled (preserved or stepped), a second pass at that one
+// pitch picks the yaw+distance centering the pins' midpoint in the box,
+// since the feasibility search above only has to find any fit, not the
+// best-centered one.
 export function solveNorthUpRevealFraming({
   a, b, safeTop, safeBottom, viewW, viewH, fov, deg, pitchLimit, sceneMinDist,
   currentYaw, currentPitch,
@@ -165,6 +217,9 @@ export function solveNorthUpRevealFraming({
   const xMax = viewW - 28;
   const yMin = safeTop + 36;
   const yMax = safeBottom - 10;
+  const centerX = (xMin + xMax) / 2;
+  const centerY = (yMin + yMax) / 2;
+  const midpoint = arcMidpoint(a, b);
 
   const distSteps = [];
   for (let dist = sceneMinDist; dist < 14; dist *= 1.06) distSteps.push(dist);
@@ -181,7 +236,9 @@ export function solveNorthUpRevealFraming({
   };
 
   let best = tryPitch(currentPitch);
-  if (best.cost === 0) return best;
+  if (best.cost === 0) {
+    return centerAtPitch(a, b, midpoint, currentPitch, distSteps, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax, centerX, centerY);
+  }
 
   const coarseStep = deg; // 1 degree
   const maxSteps = Math.ceil(pitchLimit / coarseStep) + 1;
@@ -206,5 +263,5 @@ export function solveNorthUpRevealFraming({
     const attempt = tryPitch(pitch);
     if (attempt.cost === 0) { hi = mid; best = attempt; } else { lo = mid; }
   }
-  return best;
+  return centerAtPitch(a, b, midpoint, best.pitch, distSteps, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax, centerX, centerY);
 }
