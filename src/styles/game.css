@@ -1577,7 +1577,7 @@ body.game-collections #hud { opacity: 0; }
 .review-screen { pointer-events: none; }
 .review-bar { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px; right: 14px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 10px 10px 10px 16px; border-radius: 18px; pointer-events: auto; }
 .review-bar .review-title { flex: 1; min-width: 0; }
-.review-bar .eyebrow { margin: 0 0 3px; }
+.review-bar .eyebrow { margin: 0 0 3px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .review-hint { margin: 0; overflow: hidden; color: rgba(var(--rgb-muted),.62); font-size: var(--fs-small); text-overflow: ellipsis; white-space: nowrap; }
 .review-pill { min-height: 40px; padding: 0 14px; border: 1px solid rgba(var(--rgb-line),.28); border-radius: 999px; background: rgba(236,247,255,.08); color: var(--ink-btn); font-size: var(--fs-body); font-weight: 700; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
 /* The recap card leads with the round's photo as a header band carrying the
