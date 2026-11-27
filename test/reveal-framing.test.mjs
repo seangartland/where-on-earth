@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { solveRevealFraming, solveNorthUpRevealFraming, projectUnderView, arcMidpoint } from '../src/globe/reveal-framing.js';
+import {
+  solveRevealFraming, solveNorthUpRevealFraming, solveAnswerCenteredRevealFraming, projectUnderView, arcMidpoint,
+} from '../src/globe/reveal-framing.js';
 
 // frameRevealPoints (src/globe/reveal.js) picked between two valid pitch
 // solutions by closeness to whatever pitch the camera happened to be left at.
@@ -352,5 +354,104 @@ test('the ordinary-pair centering assertions fail against the pre-fix (pre-cente
         `${name} pitch=${pitchDeg}: expected the pre-fix solver to miss the 6px centering bar, but offset was ${offset.toFixed(2)}px`,
       );
     }
+  }
+});
+
+// solveAnswerCenteredRevealFraming: the recap's "friends' pins" ON framing.
+// The answer is locked to the strip centre and the camera backs out to the
+// smallest distance that keeps every guess (the player's plus every
+// friend's) inside the marker-clearance box. These cases span a close
+// player guess plus two friends at varied distances, a wide starting
+// yaw/pitch sweep, and the case no distance can fix: a guess at the exact
+// antipode of the answer, which (being on the far side of every possible
+// camera ray through the answer) can never face the camera at any yaw,
+// pitch or distance.
+const ANSWER_CENTERED_CASES = {
+  'close guess plus two friends at varied distances': {
+    answer: latLngToVec3(40, 10),
+    guesses: [latLngToVec3(42, 14), latLngToVec3(55, 30), latLngToVec3(20, -40)],
+  },
+  'guesses on both sides of the answer': {
+    answer: latLngToVec3(-10, 100),
+    guesses: [latLngToVec3(-8, 96), latLngToVec3(5, 130), latLngToVec3(-30, 70)],
+  },
+};
+
+function antipode(p) {
+  return { x: -p.x, y: -p.y, z: -p.z };
+}
+
+test('solveAnswerCenteredRevealFraming centres the answer and fits every guess, for a sweep of starting yaw/pitch', () => {
+  let checked = 0;
+  for (const [name, { answer, guesses }] of Object.entries(ANSWER_CENTERED_CASES)) {
+    for (const pitchDeg of [-60, -20, 0, 20, 60]) {
+      for (const yawDeg of [0, 150]) {
+        const result = solveAnswerCenteredRevealFraming({
+          answer, guesses, safeTop: PHONE.safeTop, safeBottom: PHONE.safeBottom,
+          viewW: PHONE.viewW, viewH: PHONE.viewH, fov: FOV, deg: DEG,
+          pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST,
+          currentYaw: yawDeg * DEG, currentPitch: pitchDeg * DEG,
+        });
+        const ctx = `${name} startPitch=${pitchDeg} startYaw=${yawDeg}`;
+        assert.ok(result.allFit, `${ctx}: expected every guess to fit`);
+        assert.ok(result.dist >= SCENE_MIN_DIST && result.dist <= 14, `${ctx}: dist out of range -> ${result.dist}`);
+
+        const safeY = (PHONE.safeTop + PHONE.safeBottom) / 2;
+        const centerX = PHONE.viewW / 2;
+        const projAnswer = projectUnderView(answer, result.yaw, result.pitch, result.dist, PHONE.viewW, PHONE.viewH, FOV, DEG);
+        assert.ok(projAnswer.facing, `${ctx}: answer behind the limb -> ${JSON.stringify(projAnswer)}`);
+        assert.ok(Math.abs(projAnswer.x - centerX) < 3, `${ctx}: answer not centred horizontally -> x=${projAnswer.x.toFixed(2)}`);
+        assert.ok(Math.abs(projAnswer.y - safeY) < 3, `${ctx}: answer not centred vertically -> y=${projAnswer.y.toFixed(2)}`);
+
+        for (const g of guesses) {
+          const proj = projectUnderView(g, result.yaw, result.pitch, result.dist, PHONE.viewW, PHONE.viewH, FOV, DEG);
+          assert.ok(inClearance(proj), `${ctx}: guess outside clearance -> ${JSON.stringify(proj)}`);
+        }
+        checked++;
+      }
+    }
+  }
+  assert.equal(checked, 20); // 2 cases * 5 pitches * 2 yaws
+});
+
+test('solveAnswerCenteredRevealFraming is minimal: the sampled distance just below the chosen one cannot fit every guess', () => {
+  for (const [name, { answer, guesses }] of Object.entries(ANSWER_CENTERED_CASES)) {
+    const result = solveAnswerCenteredRevealFraming({
+      answer, guesses, safeTop: PHONE.safeTop, safeBottom: PHONE.safeBottom,
+      viewW: PHONE.viewW, viewH: PHONE.viewH, fov: FOV, deg: DEG,
+      pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST, currentYaw: 0, currentPitch: 0,
+    });
+    assert.ok(result.allFit, `${name}: expected a fit to exist`);
+    assert.ok(result.dist > SCENE_MIN_DIST * 1.02, `${name}: case does not exercise minimality (fit at the scene minimum already)`);
+    // Re-running with sceneMinDist set one sample below the chosen distance
+    // must still land back on (approximately) the same distance: that
+    // proves the smaller sample was tried first and failed to fit.
+    const probe = solveAnswerCenteredRevealFraming({
+      answer, guesses, safeTop: PHONE.safeTop, safeBottom: PHONE.safeBottom,
+      viewW: PHONE.viewW, viewH: PHONE.viewH, fov: FOV, deg: DEG,
+      pitchLimit: PITCH_LIMIT, sceneMinDist: result.dist / 1.03, currentYaw: 0, currentPitch: 0,
+    });
+    assert.ok(
+      Math.abs(probe.dist - result.dist) < 1e-6,
+      `${name}: expected the search to reject ${(result.dist / 1.03).toFixed(4)} and land back on ${result.dist.toFixed(4)}, got ${probe.dist.toFixed(4)}`,
+    );
+  }
+});
+
+test('solveAnswerCenteredRevealFraming caps at the maximum distance, answer still centred, when a guess can never face the camera', () => {
+  for (const [name, { answer, guesses }] of Object.entries(ANSWER_CENTERED_CASES)) {
+    const result = solveAnswerCenteredRevealFraming({
+      answer, guesses: [...guesses, antipode(answer)], safeTop: PHONE.safeTop, safeBottom: PHONE.safeBottom,
+      viewW: PHONE.viewW, viewH: PHONE.viewH, fov: FOV, deg: DEG,
+      pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST, currentYaw: 0, currentPitch: 0,
+    });
+    assert.equal(result.allFit, false, `${name}: an antipodal guess can never fit`);
+    assert.equal(result.dist, 14, `${name}: expected the max distance, got ${result.dist}`);
+    const projAnswer = projectUnderView(answer, result.yaw, result.pitch, result.dist, PHONE.viewW, PHONE.viewH, FOV, DEG);
+    const safeY = (PHONE.safeTop + PHONE.safeBottom) / 2;
+    const centerX = PHONE.viewW / 2;
+    assert.ok(projAnswer.facing, `${name}: answer must still face the camera at max distance`);
+    assert.ok(Math.abs(projAnswer.x - centerX) < 3, `${name}: answer must still be centred, not silently recentred`);
+    assert.ok(Math.abs(projAnswer.y - safeY) < 3, `${name}: answer must still be centred, not silently recentred`);
   }
 });

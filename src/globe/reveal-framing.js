@@ -277,3 +277,63 @@ export function solveNorthUpRevealFraming({
   }
   return centerAtPitch(a, b, midpoint, best.pitch, distSteps, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax, centerX, centerY);
 }
+
+const ANSWER_CENTER_DIST_STEP = 1.03; // ~80 samples from sceneMinDist to 14
+
+// The recap's "friends' pins" ON framing: the answer locked to the exact
+// centre of the safe strip, and the camera backed out to the smallest
+// distance (stepped geometrically from sceneMinDist to 14) at which every
+// guess - the player's own plus every friend's - lands inside the same
+// marker-clearance box the north-up solve uses, facing the camera. Yaw and
+// pitch are free (this is not a north-up framing): for a given distance,
+// there are exactly two pitch solutions that put the answer exactly on
+// centre pre-clamp, and the better-landing one post-clamp is kept, the same
+// two-candidate scoring solveRevealFraming uses for its midpoint. When no
+// sampled distance fits every guess, the answer stays centred at the
+// maximum distance (14) rather than silently falling back to some other
+// point; allFit tells the caller which case it got.
+export function solveAnswerCenteredRevealFraming({
+  answer, guesses, safeTop, safeBottom, viewW, viewH, fov, deg, pitchLimit, sceneMinDist,
+  currentYaw, currentPitch,
+}) {
+  const maxDist = 14;
+  const safeY = (safeTop + safeBottom) / 2;
+  const centerX = viewW / 2;
+  const xMin = 28;
+  const xMax = viewW - 28;
+  const yMin = safeTop + 36;
+  const yMax = safeBottom - 10;
+  const tanV = Math.tan((fov / 2) * deg);
+  const ndcY = 1 - (safeY / viewH) * 2;
+  const dir = normalize({ x: 0, y: ndcY * tanV, z: -1 });
+
+  const centerAt = (dist) => {
+    const target = raySphereNear(dist, dir) || { x: 0, y: 0, z: 1 };
+    const R = Math.hypot(target.y, target.z);
+    const alpha = Math.atan2(target.z, target.y);
+    const spread = Math.acos(clamp(answer.y / Math.max(R, 1e-6), -1, 1));
+    let best = null;
+    for (const raw of [alpha + spread, alpha - spread]) {
+      const pitch = clamp(nearAngle(raw, currentPitch), -pitchLimit, pitchLimit);
+      const cp = Math.cos(pitch), sp = Math.sin(pitch);
+      const mz = -target.y * sp + target.z * cp;
+      const yaw = nearAngle(Math.atan2(target.x, mz) - Math.atan2(answer.x, answer.z), currentYaw);
+      const proj = projectUnderView(answer, yaw, pitch, dist, viewW, viewH, fov, deg);
+      const score = (proj.facing ? 0 : 1e6) + Math.abs(proj.y - safeY) + Math.abs(proj.x - centerX);
+      if (!best || score < best.score) best = { yaw, pitch, score };
+    }
+    return { yaw: best.yaw, pitch: best.pitch };
+  };
+
+  const allFitAt = (yaw, pitch, dist) => guesses.every((g) => {
+    const proj = projectUnderView(g, yaw, pitch, dist, viewW, viewH, fov, deg);
+    return proj.facing && proj.x >= xMin && proj.x <= xMax && proj.y >= yMin && proj.y <= yMax;
+  });
+
+  for (let dist = sceneMinDist; dist < maxDist; dist *= ANSWER_CENTER_DIST_STEP) {
+    const { yaw, pitch } = centerAt(dist);
+    if (allFitAt(yaw, pitch, dist)) return { yaw, pitch, dist, allFit: true };
+  }
+  const { yaw, pitch } = centerAt(maxDist);
+  return { yaw, pitch, dist: maxDist, allFit: allFitAt(yaw, pitch, maxDist) };
+}
