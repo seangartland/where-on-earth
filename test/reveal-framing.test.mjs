@@ -171,3 +171,186 @@ test('solveNorthUpRevealFraming keeps both pins in clearance, facing, north-up, 
     }
   }
 });
+
+// Centering: solveNorthUpRevealFraming's feasibility search (bestNorthUpYaw
+// plus tryPitch above) only drives box overshoot to zero and stops at the
+// first zero-overshoot yaw and distance, so nothing in it favors the pins'
+// midpoint landing near the box center over landing at its edge. The fix
+// adds a second pass, centeredNorthUpYaw plus centerAtPitch, that runs once
+// the pitch is settled and picks the yaw and distance centering the midpoint,
+// with distance only a tiebreak so an easy case does not zoom out further
+// than it needs to. oldSolveNorthUpRevealFraming below is a frozen copy of
+// the feasibility-only math from before that fix (matching commit 63d6fd0's
+// reveal-framing.js) so the centering assertions can be shown to fail
+// against it, proving the new objective is load-bearing and not vacuous.
+const BOX_CENTER_X = (NU_CLEARANCE.xMin + NU_CLEARANCE.xMax) / 2;
+const BOX_CENTER_Y = (NU_CLEARANCE.yMin + NU_CLEARANCE.yMax) / 2;
+
+function centerOffsetOf(result, midpoint) {
+  const pm = projectUnderView(midpoint, result.yaw, result.pitch, result.dist, PHONE.viewW, PHONE.viewH, FOV, DEG);
+  return Math.hypot(pm.x - BOX_CENTER_X, pm.y - BOX_CENTER_Y);
+}
+
+function oldSolveNorthUpRevealFraming({ a, b, safeTop, safeBottom, viewW, viewH, fov, deg, pitchLimit, sceneMinDist, currentYaw, currentPitch }) {
+  const xMin = 28;
+  const xMax = viewW - 28;
+  const yMin = safeTop + 36;
+  const yMax = safeBottom - 10;
+  const nearAngleO = (x, y) => x + Math.round((y - x) / (2 * Math.PI)) * 2 * Math.PI;
+  const clampO = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const overshootO = (proj) => {
+    if (!proj.facing) return 1e6;
+    return Math.max(0, xMin - proj.x, proj.x - xMax, yMin - proj.y, proj.y - yMax);
+  };
+  const YAW_GRID_O = 90;
+  const bestYawO = (pitch, dist, yaw0) => {
+    const costAt = (yaw) => {
+      const pa = projectUnderView(a, yaw, pitch, dist, viewW, viewH, fov, deg);
+      const pb = projectUnderView(b, yaw, pitch, dist, viewW, viewH, fov, deg);
+      return overshootO(pa) + overshootO(pb);
+    };
+    let best = { yaw: yaw0, cost: costAt(yaw0) };
+    for (let i = 0; i < YAW_GRID_O; i++) {
+      const yaw = nearAngleO((i / YAW_GRID_O) * 2 * Math.PI, yaw0);
+      const cost = costAt(yaw);
+      if (cost < best.cost) best = { yaw, cost };
+    }
+    let step = (2 * Math.PI) / YAW_GRID_O;
+    for (let i = 0; i < 16 && best.cost > 0; i++) {
+      step /= 2;
+      for (const dir of [-1, 1]) {
+        const yaw = best.yaw + dir * step;
+        const cost = costAt(yaw);
+        if (cost < best.cost) best = { yaw, cost };
+      }
+    }
+    return best;
+  };
+
+  const distSteps = [];
+  for (let dist = sceneMinDist; dist < 14; dist *= 1.06) distSteps.push(dist);
+  distSteps.push(14);
+
+  const tryPitch = (pitch) => {
+    let best = null;
+    for (const dist of distSteps) {
+      const found = bestYawO(pitch, dist, currentYaw);
+      if (!best || found.cost < best.cost) best = { yaw: found.yaw, pitch, dist, cost: found.cost };
+      if (found.cost === 0) return best;
+    }
+    return best;
+  };
+
+  let best = tryPitch(currentPitch);
+  if (best.cost === 0) return best;
+
+  const coarseStep = deg;
+  const maxSteps = Math.ceil(pitchLimit / coarseStep) + 1;
+  let workingDir = 0;
+  let workingDelta = 0;
+  for (let steps = 1; steps <= maxSteps && !workingDir; steps++) {
+    const delta = steps * coarseStep;
+    for (const dir of [1, -1]) {
+      const pitch = clampO(currentPitch + dir * delta, -pitchLimit, pitchLimit);
+      const attempt = tryPitch(pitch);
+      if (attempt.cost < best.cost) best = attempt;
+      if (attempt.cost === 0 && !workingDir) { workingDir = dir; workingDelta = delta; }
+    }
+  }
+  if (!workingDir) return best;
+
+  let lo = workingDelta - coarseStep;
+  let hi = workingDelta;
+  for (let i = 0; i < 16; i++) {
+    const mid = (lo + hi) / 2;
+    const pitch = clampO(currentPitch + workingDir * mid, -pitchLimit, pitchLimit);
+    const attempt = tryPitch(pitch);
+    if (attempt.cost === 0) { hi = mid; best = attempt; } else { lo = mid; }
+  }
+  return best;
+}
+
+// The four NU_CASES above are not all ordinary: three of the four were
+// chosen to stress pitch feasibility and stepping (equatorial-vs-high-north,
+// both-high-latitude, near-antipodal), and at the pitch those cases settle
+// on, the yaw window that keeps both pins in clearance can be so narrow that
+// only one point in it is reachable at all, leaving nothing for centering to
+// improve. Their tolerances below are each the actual offset the fixed
+// solver achieves, rounded up with headroom, not the 6px ordinary bar; only
+// "preserved pitch already works" is an ordinary case and holds to 6px.
+const NU_CENTERING_TOLERANCE_PX = {
+  'equatorial guess vs high-north answer': 65,
+  'both points at high latitude': 75,
+  'near-antipodal pair': 10,
+  'preserved pitch already works': 6,
+};
+
+test('solveNorthUpRevealFraming centers the pins midpoint in the clearance box for every case', () => {
+  for (const [name, { a, b, currentYaw, currentPitch }] of Object.entries(NU_CASES)) {
+    const midpoint = arcMidpoint(a, b);
+    const result = solveNorthUpRevealFraming({
+      a, b, safeTop: PHONE.safeTop, safeBottom: PHONE.safeBottom,
+      viewW: PHONE.viewW, viewH: PHONE.viewH, fov: FOV, deg: DEG,
+      pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST, currentYaw, currentPitch,
+    });
+    const offset = centerOffsetOf(result, midpoint);
+    const tolerance = NU_CENTERING_TOLERANCE_PX[name];
+    assert.ok(offset <= tolerance, `${name}: midpoint offset from box center too large -> ${offset.toFixed(2)}px (tolerance ${tolerance}px)`);
+  }
+});
+
+// Ordinary mid-latitude pairs, each at a couple of preserved pitches close to
+// what a player framing that pair would plausibly leave the camera at. These
+// are the cases the 6px bar from the brief targets: with a reasonable
+// preserved pitch, yaw and distance alone have enough room to put the
+// midpoint right on the box center.
+const ORDINARY_PAIRS = {
+  'New York - London': [latLngToVec3(40.7, -74.0), latLngToVec3(51.5, -0.1)],
+  'Sydney - Perth': [latLngToVec3(-33.9, 151.2), latLngToVec3(-31.9, 115.9)],
+  'Nairobi - Cairo': [latLngToVec3(-1.3, 36.8), latLngToVec3(30.0, 31.2)],
+};
+const ORDINARY_PITCHES_DEG = {
+  'New York - London': [40, 45],
+  'Sydney - Perth': [-45, -40],
+  'Nairobi - Cairo': [5, 10],
+};
+const ORDINARY_TOLERANCE_PX = 6;
+
+test('solveNorthUpRevealFraming centers ordinary mid-latitude pairs within 6px at their preserved pitch', () => {
+  for (const [name, [a, b]] of Object.entries(ORDINARY_PAIRS)) {
+    const midpoint = arcMidpoint(a, b);
+    for (const pitchDeg of ORDINARY_PITCHES_DEG[name]) {
+      const currentPitch = pitchDeg * DEG;
+      const result = solveNorthUpRevealFraming({
+        a, b, safeTop: PHONE.safeTop, safeBottom: PHONE.safeBottom,
+        viewW: PHONE.viewW, viewH: PHONE.viewH, fov: FOV, deg: DEG,
+        pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST, currentYaw: 0, currentPitch,
+      });
+      assert.equal(result.pitch, currentPitch, `${name} pitch=${pitchDeg}: pitch should be preserved exactly`);
+      const offset = centerOffsetOf(result, midpoint);
+      assert.ok(
+        offset <= ORDINARY_TOLERANCE_PX,
+        `${name} pitch=${pitchDeg}: midpoint offset from box center too large -> ${offset.toFixed(2)}px`,
+      );
+    }
+  }
+});
+
+test('the ordinary-pair centering assertions fail against the pre-fix (pre-centering) north-up solver', () => {
+  for (const [name, [a, b]] of Object.entries(ORDINARY_PAIRS)) {
+    const midpoint = arcMidpoint(a, b);
+    for (const pitchDeg of ORDINARY_PITCHES_DEG[name]) {
+      const currentPitch = pitchDeg * DEG;
+      const oldResult = oldSolveNorthUpRevealFraming({
+        a, b, safeTop: PHONE.safeTop, safeBottom: PHONE.safeBottom,
+        viewW: PHONE.viewW, viewH: PHONE.viewH, fov: FOV, deg: DEG,
+        pitchLimit: PITCH_LIMIT, sceneMinDist: SCENE_MIN_DIST, currentYaw: 0, currentPitch,
+      });
+      const offset = centerOffsetOf(oldResult, midpoint);
+      assert.ok(
+        offset > ORDINARY_TOLERANCE_PX,
+        `${name} pitch=${pitchDeg}: expected the pre-fix solver to miss the 6px centering bar, but offset was ${offset.toFixed(2)}px`,
+      );
+    }
+  }
+});

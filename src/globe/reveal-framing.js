@@ -184,17 +184,29 @@ function centeredNorthUpYaw(a, b, midpoint, pitch, dist, currentYaw, viewW, view
   return best;
 }
 
+// Centering improves with distance almost everywhere on this camera model
+// (a farther-back view gives yaw more room to carry the midpoint toward the
+// box center before either pin falls out of clearance), so chasing the
+// lowest possible offset without a stopping point would zoom out to the
+// distance ladder's top rung on nearly every reveal, trading away the
+// solver's distance character for pixels of centering nobody would notice.
+// CENTER_TOLERANCE_PX is the "good enough" bar from the brief: the smallest
+// distance that already lands the midpoint within it is kept, matching the
+// fitted solve's own distance. Only when no distance on the ladder reaches
+// that bar does this fall back to whichever distance centers best, since
+// centering still outranks distance when nothing "good enough" exists.
+const CENTER_TOLERANCE_PX = 6;
+
 // Given a pitch already known to admit a fitting yaw+distance, scans the same
-// distance ladder the feasibility search uses and keeps the (yaw, dist) whose
-// midpoint lands closest to the box center, distance only as the tiebreak:
-// distSteps is ascending, so an equally-centered smaller distance is kept
-// over a larger one, and a larger distance only wins when it centers the
-// midpoint meaningfully better, not from floating-point noise.
+// distance ladder the feasibility search uses for the (yaw, dist) that lands
+// the midpoint in the box center, preferring the smallest distance that is
+// within CENTER_TOLERANCE_PX and otherwise the smallest offset found.
 function centerAtPitch(a, b, midpoint, pitch, distSteps, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax, centerX, centerY) {
   let best = null;
   for (const dist of distSteps) {
     const found = centeredNorthUpYaw(a, b, midpoint, pitch, dist, currentYaw, viewW, viewH, fov, deg, xMin, xMax, yMin, yMax, centerX, centerY);
     if (!best || found.score < best.score - 1e-6) best = { yaw: found.yaw, pitch, dist, score: found.score };
+    if (best.score <= CENTER_TOLERANCE_PX) break;
   }
   return best;
 }
